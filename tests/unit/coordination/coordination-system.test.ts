@@ -52,7 +52,7 @@ describe('Coordination System - Comprehensive Tests', () => {
 
   afterEach(async () => {
     fakeTime.restore();
-    await cleanupTestEnv();
+    // Test cleanup handled by Jest setup
   });
 
   describe('Task Scheduling', () => {
