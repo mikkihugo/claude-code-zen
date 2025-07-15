@@ -2,32 +2,13 @@
 
 ## Overview
 
-This document explains how Claude-Flow uses GitHub Actions to properly download dependencies that were previously blocked by firewall restrictions, eliminating the need for manual workarounds.
+This document explains how Claude-Flow uses GitHub Actions to properly download dependencies for dual-runtime support (Node.js + Deno).
 
-## Problem Solved
+## Dependencies Setup
 
-Previously, the project used environment variables like `PUPPETEER_SKIP_DOWNLOAD=true` to bypass firewall blocks when downloading:
-- Chrome/Chromium for Puppeteer testing
-- Deno runtime for dual-runtime features
+GitHub Actions sets up the required dependencies **before** firewall restrictions apply:
 
-This approach had limitations:
-- Tests couldn't actually use Chrome (just skipped downloads)
-- Deno features were unavailable in CI/CD
-- Complex workaround scripts were needed
-
-## New Solution
-
-GitHub Actions now properly sets up all dependencies **before** firewall restrictions apply:
-
-### 1. Chrome/Chromium Setup
-```yaml
-- name: Setup Chrome for Puppeteer
-  uses: browser-actions/setup-chrome@latest
-  with:
-    chrome-version: latest
-```
-
-### 2. Deno Runtime Setup
+### 1. Deno Runtime Setup
 ```yaml
 - name: Setup Deno
   uses: denoland/setup-deno@v1
@@ -35,7 +16,7 @@ GitHub Actions now properly sets up all dependencies **before** firewall restric
     deno-version: v1.x
 ```
 
-### 3. Node.js Setup (with caching)
+### 2. Node.js Setup (with caching)
 ```yaml
 - name: Setup Node.js
   uses: actions/setup-node@v4
@@ -46,22 +27,21 @@ GitHub Actions now properly sets up all dependencies **before** firewall restric
 
 ## Benefits
 
-✅ **Clean Dependencies**: No more `PUPPETEER_SKIP_DOWNLOAD` workarounds
-✅ **Full Testing**: Puppeteer tests can actually use Chrome
-✅ **Dual Runtime**: Both Node.js and Deno work properly in CI
+✅ **Clean Dependencies**: No browser automation dependencies needed
+✅ **Dual Runtime**: Both Node.js and Deno work properly in CI  
 ✅ **Faster CI**: Cached dependencies and proper setup
 ✅ **Reliable**: No dependency on external firewall configurations
 
 ## Updated Files
 
 ### `.github/workflows/ci.yml`
-- Added Chrome setup action for all jobs that need testing
 - Added Deno setup action for dual-runtime support
+- Removed Chrome/Puppeteer setup (not needed)
 - Proper dependency caching
 
 ### `package.json`
-- Removed `PUPPETEER_SKIP_DOWNLOAD=true` from all test scripts
-- Clean test commands without firewall workarounds
+- Removed `puppeteer` from devDependencies 
+- Clean test commands without browser dependencies
 
 ### `.npmrc`
 - Removed Puppeteer download skipping
