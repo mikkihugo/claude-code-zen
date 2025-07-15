@@ -62,8 +62,8 @@ export class TaskScheduler {
   async assignTask(task: Task, agentId: string): Promise<void> {
     this.logger.info('Assigning task', { taskId: task.id, agentId });
 
-    // Check dependencies
-    if (task.dependencies.length > 0) {
+    // Check dependencies - handle undefined dependencies gracefully
+    if (task.dependencies && task.dependencies.length > 0) {
       const unmetDependencies = task.dependencies.filter(
         depId => !this.completedTasks.has(depId),
       );
@@ -89,12 +89,14 @@ export class TaskScheduler {
     }
     this.agentTasks.get(agentId)!.add(task.id);
 
-    // Update dependencies
-    for (const depId of task.dependencies) {
-      if (!this.taskDependencies.has(depId)) {
-        this.taskDependencies.set(depId, new Set());
+    // Update dependencies - handle undefined dependencies gracefully
+    if (task.dependencies && task.dependencies.length > 0) {
+      for (const depId of task.dependencies) {
+        if (!this.taskDependencies.has(depId)) {
+          this.taskDependencies.set(depId, new Set());
+        }
+        this.taskDependencies.get(depId)!.add(task.id);
       }
-      this.taskDependencies.get(depId)!.add(task.id);
     }
 
     // Start task execution
