@@ -82,8 +82,8 @@ beforeAll(() => {
   // Mock common browser APIs if not available
   if (typeof window === 'undefined') {
     global.window = {
-      addEventListener: jest.fn ? jest.fn() : () => {},
-      removeEventListener: jest.fn ? jest.fn() : () => {},
+      addEventListener: (typeof jest !== 'undefined' && jest.fn) ? jest.fn() : () => {},
+      removeEventListener: (typeof jest !== 'undefined' && jest.fn) ? jest.fn() : () => {},
       location: { href: 'http://localhost:3000' },
       document: global.document || {}
     };
