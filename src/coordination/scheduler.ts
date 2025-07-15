@@ -25,6 +25,7 @@ export class TaskScheduler {
   protected agentTasks = new Map<string, Set<string>>(); // agentId -> taskIds
   protected taskDependencies = new Map<string, Set<string>>(); // taskId -> dependent taskIds
   protected completedTasks = new Set<string>();
+  private cleanupInterval?: NodeJS.Timeout;
 
   constructor(
     protected config: CoordinationConfig,
@@ -36,11 +37,17 @@ export class TaskScheduler {
     this.logger.info('Initializing task scheduler');
     
     // Set up periodic cleanup
-    setInterval(() => this.cleanup(), 60000); // Every minute
+    this.cleanupInterval = setInterval(() => this.cleanup(), 60000); // Every minute
   }
 
   async shutdown(): Promise<void> {
     this.logger.info('Shutting down task scheduler');
+    
+    // Clear cleanup interval
+    if (this.cleanupInterval) {
+      clearInterval(this.cleanupInterval);
+      this.cleanupInterval = undefined;
+    }
     
     // Cancel all active tasks
     const taskIds = Array.from(this.tasks.keys());

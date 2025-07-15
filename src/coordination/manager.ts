@@ -18,6 +18,7 @@ export interface ICoordinationManager {
   initialize(): Promise<void>;
   shutdown(): Promise<void>;
   assignTask(task: Task, agentId: string): Promise<void>;
+  submitTask(taskId: string, task: Task, agentId?: string): Promise<void>;
   getAgentTaskCount(agentId: string): Promise<number>;
   getAgentTasks(agentId: string): Promise<Task[]>;
   cancelTask(taskId: string, reason?: string): Promise<void>;
@@ -125,6 +126,16 @@ export class CoordinationManager implements ICoordinationManager {
     }
 
     await this.scheduler.assignTask(task, agentId);
+  }
+
+  async submitTask(taskId: string, task: Task, agentId: string = 'default'): Promise<void> {
+    if (!this.initialized) {
+      throw new CoordinationError('Coordination manager not initialized');
+    }
+
+    // Ensure task has the correct ID
+    const taskWithId = { ...task, id: taskId };
+    await this.scheduler.assignTask(taskWithId, agentId);
   }
 
   async getAgentTaskCount(agentId: string): Promise<number> {
