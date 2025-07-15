@@ -3,7 +3,7 @@
  * Tests deadlock detection, task scheduling, and resource management
  */
 
-import { describe, it, beforeEach, afterEach, expect, spy, stub  } from "../../test.utils.ts";
+import { describe, it, beforeEach, afterEach, expect, spy, stub, FakeTime } from "../../test.utils.ts";
 
 import { CoordinationManager } from '../../../src/coordination/manager.ts';
 import { TaskScheduler } from '../../../src/coordination/scheduler.ts';
@@ -20,32 +20,42 @@ describe('Coordination System - Comprehensive Tests', () => {
   let resourceManager: ResourceManager;
   let conflictResolver: ConflictResolver;
   let fakeTime: FakeTime;
+  let mockLogger: any;
+  let mockEventBus: any;
 
   beforeEach(() => {
     setupTestEnv();
     
-    resourceManager = new ResourceManager({
-      maxConcurrentTasks: 10,
-      maxMemoryUsage: 1024 * 1024 * 100, // 100MB
+    // Create mocks for logger and event bus
+    mockLogger = {
+      debug: jest.fn(),
+      info: jest.fn(),
+      warn: jest.fn(),
+      error: jest.fn(),
+      configure: jest.fn()
+    };
+    
+    mockEventBus = {
+      emit: jest.fn(),
+      on: jest.fn(),
+      off: jest.fn(),
+      once: jest.fn()
+    };
+    
+    // Create a minimal coordination config
+    const mockConfig = {
+      maxRetries: 3,
+      retryDelay: 1000,
+      deadlockDetection: true,
       resourceTimeout: 30000,
-    });
+      messageTimeout: 5000
+    };
+    
+    resourceManager = new ResourceManager(mockConfig, mockEventBus, mockLogger);
+    scheduler = new TaskScheduler(mockConfig, mockEventBus, mockLogger);
+    conflictResolver = new ConflictResolver(mockLogger, mockEventBus);
 
-    scheduler = new TaskScheduler({
-      maxConcurrentTasks: 5,
-      taskTimeout: 10000,
-      retryAttempts: 3,
-    });
-
-    conflictResolver = new ConflictResolver({
-      enableConflictDetection: true,
-      resolutionStrategy: 'priority',
-    });
-
-    coordinationManager = new CoordinationManager({
-      scheduler,
-      resourceManager,
-      conflictResolver,
-    });
+    coordinationManager = new CoordinationManager(mockConfig, mockEventBus, mockLogger);
 
     fakeTime = new FakeTime();
   });

@@ -267,6 +267,43 @@ global.testCleanup = {
   }
 };
 
+// Test environment setup function that tests can call
+global.setupTestEnv = () => {
+  // Reset DOM state
+  if (global.document) {
+    const mockElementData = new Map();
+    global.document.body.children = [];
+    // Clear any existing elements
+    const globalElements = [];
+  }
+  
+  // Reset console if needed
+  if (process.env.SUPPRESS_CONSOLE !== 'false') {
+    // Keep console available but don't spam during tests
+  }
+  
+  // Set test environment variables
+  process.env.CLAUDE_FLOW_ENV = 'test';
+  process.env.NODE_ENV = 'test';
+};
+
+// Make FakeTime available globally for compatibility
+global.FakeTime = class FakeTime {
+  constructor(time) {
+    this.originalNow = Date.now;
+    this.currentTime = time instanceof Date ? time.getTime() : time || Date.now();
+    Date.now = () => this.currentTime;
+  }
+
+  tick(ms) {
+    this.currentTime += ms;
+  }
+
+  restore() {
+    Date.now = this.originalNow;
+  }
+};
+
 // Clean up after each test
 afterEach(() => {
   if (global.testCleanup) {
