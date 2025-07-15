@@ -16,15 +16,6 @@ import { CircuitBreaker } from '../../../src/coordination/circuit-breaker.ts';
 import { WorkStealingScheduler } from '../../../src/coordination/work-stealing.ts';
 import { DependencyGraph } from '../../../src/coordination/dependency-graph.ts';
 import { AdvancedScheduler } from '../../../src/coordination/advanced-scheduler.ts';
-import { 
-  AsyncTestUtils, 
-  MemoryTestUtils, 
-  PerformanceTestUtils,
-  TestAssertions,
-  MockFactory 
-} from '../../utils/test-utils.ts';
-import { generateCoordinationTasks, generateErrorScenarios } from '../../fixtures/generators.ts';
-import { setupTestEnv, cleanupTestEnv, TEST_CONFIG } from '../../test.config.ts';
 
 describe('Coordination System - Comprehensive Tests', () => {
   let coordinationManager: CoordinationManager;
