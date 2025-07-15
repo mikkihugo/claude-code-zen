@@ -364,6 +364,22 @@ export class TaskScheduler {
     scheduled.timeout = setTimeout(() => {
       this.failTask(taskId, new TaskTimeoutError(taskId, timeoutMs));
     }, timeoutMs);
+
+    // Execute the task if it has an execute method
+    if (scheduled.task.execute && typeof scheduled.task.execute === 'function') {
+      Promise.resolve(scheduled.task.execute())
+        .then((result) => {
+          // Emit completion event instead of calling completeTask directly
+          this.eventBus.emit(SystemEvents.TASK_COMPLETED, { taskId, result });
+        })
+        .catch((error) => {
+          // Emit failure event instead of calling failTask directly
+          this.eventBus.emit(SystemEvents.TASK_FAILED, { taskId, error });
+        });
+    } else {
+      // If no execute method, mark as completed immediately
+      this.eventBus.emit(SystemEvents.TASK_COMPLETED, { taskId, result: {} });
+    }
   }
 
   private canStartTask(task: Task): boolean {
@@ -396,5 +412,13 @@ export class TaskScheduler {
         }
       }
     }
+  }
+
+  /**
+   * Get task by ID
+   */
+  getTask(taskId: string): Task | undefined {
+    const scheduled = this.tasks.get(taskId);
+    return scheduled?.task;
   }
 }
