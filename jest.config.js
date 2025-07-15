@@ -69,5 +69,12 @@ export default {
     'ts-jest': {
       useESM: true
     }
-  }
+  },
+  // Better handling of ES modules and environment teardown
+  detectOpenHandles: true,
+  forceExit: true,
+  // Improved import handling
+  injectGlobals: true,
+  // Handle async teardown issues
+  maxWorkers: 1
 };
