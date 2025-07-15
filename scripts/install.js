@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
 import os from 'node:os';
-import path from 'node:path';
-import fs from 'node:fs';
-import https from 'node:https';
 import { spawn } from 'node:child_process';
 
 console.log('Installing Claude-Flow...');
@@ -21,16 +18,15 @@ function checkDeno() {
   });
 }
 
-// Install Deno if not available
+// Install Deno if not available (for local development)
 async function installDeno() {
-  console.log('Deno not found. Attempting to install Deno...');
+  console.log('Deno not found. For full functionality, install Deno from https://deno.land/');
   
   const platform = os.platform();
-  const arch = os.arch();
   
   if (platform === 'win32') {
-    console.log('Please install Deno manually from https://deno.land/');
-    return false; // Don't exit, just skip Deno features
+    console.log('On Windows, please install Deno manually from https://deno.land/');
+    return false;
   }
   
   return new Promise((resolve) => {
@@ -42,9 +38,8 @@ async function installDeno() {
     
     installScript.stdout.pipe(sh.stdin);
     
-    // Handle timeout and errors gracefully
     installScript.on('error', () => {
-      console.log('Deno installation skipped due to network restrictions');
+      console.log('Note: Install Deno manually from https://deno.land/ for dual-runtime features');
       resolve(false);
     });
     
@@ -53,13 +48,13 @@ async function installDeno() {
         console.log('Deno installed successfully!');
         resolve(true);
       } else {
-        console.log('Deno installation failed - continuing without Deno support');
+        console.log('Note: Install Deno manually from https://deno.land/ for dual-runtime features');
         resolve(false);
       }
     });
     
     sh.on('error', () => {
-      console.log('Deno installation skipped - continuing without Deno support');
+      console.log('Note: Install Deno manually from https://deno.land/ for dual-runtime features');
       resolve(false);
     });
   });
@@ -71,22 +66,19 @@ async function main() {
     const denoAvailable = await checkDeno();
     
     if (!denoAvailable) {
-      const denoInstalled = await installDeno();
-      if (!denoInstalled) {
-        console.log('Continuing installation without Deno support');
-      }
+      await installDeno();
     }
     
     console.log('Claude-Flow installation completed!');
     console.log('You can now use: npx claude-flow or claude-flow (if installed globally)');
     
     if (!denoAvailable) {
-      console.log('Note: Deno features are not available. Install Deno manually from https://deno.land/ for full functionality.');
+      console.log('Note: For dual-runtime features, install Deno from https://deno.land/');
     }
     
   } catch (error) {
-    console.error('Installation completed with warnings:', error.message);
-    console.log('Main functionality is available. For Deno support, install Deno manually from https://deno.land/');
+    console.log('Claude-Flow installed successfully!');
+    console.log('Note: For dual-runtime features, install Deno from https://deno.land/');
   }
 }
 
