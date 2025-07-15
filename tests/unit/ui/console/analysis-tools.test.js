@@ -2,40 +2,37 @@
  * @jest-environment node
  */
 
-// Mock Chart.js
-global.Chart = jest.fn().mockImplementation(() => ({
-  data: { labels: [], datasets: [] },
-  update: jest.fn(),
-  destroy: jest.fn(),
-  resize: jest.fn()
-}));
+/**
+ * Analysis Tools Test - Using Enhanced Test Cleanup Patterns
+ */
 
-// Mock fetch
-global.fetch = jest.fn();
+import { 
+  globalTestCleanup, 
+  withTimeout,
+  setupTestCleanup,
+  teardownTestCleanup 
+} from '../../../utils/test-cleanup.js';
+import { 
+  createTestDOM, 
+  mockFetch, 
+  mockWebSocket, 
+  createMock, 
+  createSpy, 
+  waitFor, 
+  waitForElement,
+  sleep,
+  testSuite
+} from '../../../utils/test-helpers.js';
 
-// Mock WebSocket
-global.WebSocket = class MockWebSocket {
-  constructor(url) {
-    this.url = url;
-    this.readyState = 1; // OPEN
-    setTimeout(() => {
-      if (this.onopen) this.onopen();
-    }, 0);
-  }
-  send(data) {}
-  close() {
-    this.readyState = 3; // CLOSED
-    if (this.onclose) this.onclose();
-  }
-};
-
-describe('AnalysisTools - Error Handling', () => {
+// Enhanced test suite with automatic cleanup
+testSuite('AnalysisTools - Error Handling', () => {
   let AnalysisTools;
   let analysisTools;
+  let testContainer;
 
   beforeAll(async () => {
-    // Setup DOM environment
-    document.body.innerHTML = `
+    // Setup DOM environment with cleanup
+    testContainer = createTestDOM(`
       <div id="performance-chart"></div>
       <div id="token-usage-chart"></div>
       <div id="system-health-chart"></div>
@@ -60,7 +57,21 @@ describe('AnalysisTools - Error Handling', () => {
       <div id="capacity-output"></div>
       <div class="analysis-tab" data-tab="metrics"></div>
       <div class="analysis-panel" id="metrics-panel"></div>
-    `;
+    `);
+    
+    // Mock Chart.js with cleanup registration
+    global.Chart = createMock(() => ({
+      data: { labels: [], datasets: [] },
+      update: createMock(),
+      destroy: createMock(),
+      resize: createMock()
+    }));
+    
+    // Mock WebSocket with enhanced features and cleanup
+    const MockWebSocket = mockWebSocket({
+      autoConnect: false,
+      connectDelay: 50
+    });
     
     // Mock the analysis tools class
     AnalysisTools = class {
@@ -82,23 +93,355 @@ describe('AnalysisTools - Error Handling', () => {
       }
 
       setupWebSocket() {
-        this.ws = new WebSocket('ws://localhost:3000/analysis');
-        this.ws.onopen = () => this.isConnected = true;
-        this.ws.onclose = () => this.isConnected = false;
+        this.ws = new global.WebSocket('ws://localhost:3000/analysis');
+        this.ws.onopen = () => {
+          this.isConnected = true;
+          this.onConnectionStatusChange(true);
+        };
+        this.ws.onclose = () => {
+          this.isConnected = false;
+          this.onConnectionStatusChange(false);
+        };
+        this.ws.onerror = (error) => {
+          console.error('WebSocket error:', error);
+          this.showError('Connection error occurred');
+        };
       }
 
-      setupEventListeners() {}
-      initializeCharts() {
-        this.charts.performance = new Chart();
-        this.charts.tokenUsage = new Chart();
-        this.charts.systemHealth = new Chart();
-        this.charts.loadMonitor = new Chart();
+      setupEventListeners() {
+        // Event listeners would be registered here
+        // Using globalTestCleanup.registerListener for proper cleanup
       }
-      startRealTimeUpdates() {}
+
+      initializeCharts() {
+        this.charts.performance = new global.Chart();
+        this.charts.tokenUsage = new global.Chart();
+        this.charts.systemHealth = new global.Chart();
+        this.charts.loadMonitor = new global.Chart();
+      }
+
+      startRealTimeUpdates() {
+        // Use globalTestCleanup.setInterval for proper cleanup
+        this.updateInterval = globalTestCleanup.setInterval(() => {
+          if (this.isConnected) {
+            this.updateMetrics();
+          }
+        }, 1000);
+      }
 
       async fetchAnalysisData(endpoint) {
         try {
           const response = await fetch(endpoint);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return await response.json();
+        } catch (error) {
+          console.error('Fetch error:', error);
+          this.showError(`Failed to fetch data from ${endpoint}`);
+          throw error;
+        }
+      }
+
+      showError(message) {
+        // Create error display with timeout cleanup
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        document.body.appendChild(errorDiv);
+        
+        // Auto-remove error after delay
+        globalTestCleanup.setTimeout(() => {
+          if (errorDiv.parentNode) {
+            errorDiv.parentNode.removeChild(errorDiv);
+          }
+        }, 5000);
+      }
+
+      onConnectionStatusChange(connected) {
+        const statusElement = document.getElementById('connection-status');
+        if (statusElement) {
+          statusElement.textContent = connected ? 'Connected' : 'Disconnected';
+          statusElement.className = connected ? 'connected' : 'disconnected';
+        }
+      }
+
+      updateMetrics() {
+        // Simulate metrics update
+      }
+
+      async performanceReport() {
+        try {
+          const data = await this.fetchAnalysisData('/api/performance');
+          this.displayResults('performance-report-output', data);
+        } catch (error) {
+          this.displayError('performance-report-output', 'Performance analysis failed');
+        }
+      }
+
+      async bottleneckAnalyze() {
+        try {
+          const data = await this.fetchAnalysisData('/api/bottlenecks');
+          this.displayResults('bottleneck-analysis-output', data);
+        } catch (error) {
+          this.displayError('bottleneck-analysis-output', 'Bottleneck analysis failed');
+        }
+      }
+
+      async tokenUsage() {
+        try {
+          const data = await this.fetchAnalysisData('/api/tokens');
+          this.displayResults('token-usage-output', data);
+        } catch (error) {
+          this.displayError('token-usage-output', 'Token usage analysis failed');
+        }
+      }
+
+      displayResults(containerId, data) {
+        const container = document.getElementById(containerId);
+        if (container) {
+          container.innerHTML = `<div class="results">${JSON.stringify(data)}</div>`;
+        }
+      }
+
+      displayError(containerId, message) {
+        const container = document.getElementById(containerId);
+        if (container) {
+          container.innerHTML = `
+            <div class="error-container">
+              <h3>Error</h3>
+              <p>${message}</p>
+              <p>Please ensure the analysis service is running.</p>
+              <button class="retry-btn">Retry</button>
+              <button class="dismiss-btn">Dismiss</button>
+            </div>
+          `;
+        }
+      }
+
+      cleanup() {
+        // Cleanup method for test teardown
+        if (this.ws) {
+          this.ws.close();
+        }
+        if (this.updateInterval) {
+          clearInterval(this.updateInterval);
+        }
+        Object.values(this.charts).forEach(chart => {
+          if (chart && chart.destroy) {
+            chart.destroy();
+          }
+        });
+      }
+    };
+  });
+
+  beforeEach(() => {
+    // Create fresh instance for each test
+    analysisTools = new AnalysisTools();
+    
+    // Register the instance for cleanup
+    globalTestCleanup.registerResource(analysisTools, 'cleanup');
+  });
+
+  describe('WebSocket Connection Handling', () => {
+    test('should handle WebSocket connection successfully', async () => {
+      expect(analysisTools.isConnected).toBe(false);
+      
+      // Simulate successful connection
+      analysisTools.ws.readyState = 1; // OPEN
+      if (analysisTools.ws.onopen) {
+        analysisTools.ws.onopen();
+      }
+      
+      // Wait for connection status to update
+      await waitFor(() => analysisTools.isConnected === true, {
+        timeout: 1000,
+        timeoutMessage: 'WebSocket connection not established'
+      });
+      
+      expect(analysisTools.isConnected).toBe(true);
+      
+      // Verify connection status in DOM
+      const statusElement = await waitForElement('#connection-status');
+      expect(statusElement.textContent).toBe('Connected');
+      expect(statusElement.className).toBe('connected');
+    });
+
+    test('should handle WebSocket connection failure', async () => {
+      const consoleSpy = createSpy(console, 'error');
+      
+      // Simulate connection error
+      const errorEvent = new ErrorEvent('error', {
+        error: new Error('Connection failed')
+      });
+      
+      if (analysisTools.ws.onerror) {
+        analysisTools.ws.onerror(errorEvent);
+      }
+      
+      // Wait for error message to appear
+      await waitFor(async () => {
+        const errorElements = document.querySelectorAll('.error-message');
+        return errorElements.length > 0;
+      }, {
+        timeout: 1000,
+        timeoutMessage: 'Error message not displayed'
+      });
+      
+      const errorElements = document.querySelectorAll('.error-message');
+      expect(errorElements.length).toBeGreaterThan(0);
+      expect(errorElements[0].textContent).toContain('Connection error occurred');
+    });
+
+    test('should handle WebSocket disconnection', async () => {
+      // First establish connection
+      analysisTools.ws.readyState = 1;
+      if (analysisTools.ws.onopen) {
+        analysisTools.ws.onopen();
+      }
+      
+      await waitFor(() => analysisTools.isConnected === true);
+      
+      // Then simulate disconnection
+      analysisTools.ws.readyState = 3; // CLOSED
+      if (analysisTools.ws.onclose) {
+        analysisTools.ws.onclose();
+      }
+      
+      await waitFor(() => analysisTools.isConnected === false);
+      
+      expect(analysisTools.isConnected).toBe(false);
+      
+      const statusElement = document.getElementById('connection-status');
+      expect(statusElement.textContent).toBe('Disconnected');
+      expect(statusElement.className).toBe('disconnected');
+    });
+  });
+
+  describe('fetchAnalysisData Error Handling', () => {
+    test('should throw error and show error message when fetch fails', async () => {
+      const errorMessage = 'Network error';
+      const fetchMock = mockFetch(null, { ok: false, status: 500 });
+      fetchMock.mockRejectedValue(new Error(errorMessage));
+
+      const consoleErrorSpy = createSpy(console, 'error');
+      
+      await expect(analysisTools.fetchAnalysisData('/api/test')).rejects.toThrow(errorMessage);
+      
+      expect(consoleErrorSpy).toHaveBeenCalledWith('Fetch error:', expect.any(Error));
+      
+      // Wait for error message to be displayed with proper timeout
+      await waitFor(async () => {
+        const errorElements = document.querySelectorAll('.error-message');
+        return errorElements.length > 0 && 
+               errorElements[0].textContent.includes('Failed to fetch data from /api/test');
+      }, {
+        timeout: 2000,
+        interval: 50,
+        timeoutMessage: 'Error message not displayed in DOM'
+      });
+    });
+
+    test('should throw error when response is not ok', async () => {
+      mockFetch(null, {
+        ok: false,
+        status: 404
+      });
+
+      await expect(analysisTools.fetchAnalysisData('/api/test'))
+        .rejects.toThrow('HTTP error! status: 404');
+    });
+
+    test('should handle successful fetch', async () => {
+      const mockData = { result: 'success', data: [1, 2, 3] };
+      mockFetch(mockData, {
+        ok: true,
+        status: 200
+      });
+
+      const result = await withTimeout(
+        analysisTools.fetchAnalysisData('/api/test'),
+        2000,
+        'fetchAnalysisData'
+      );
+      
+      expect(result).toEqual(mockData);
+    });
+  });
+
+  describe('Tool Error Handling', () => {
+    const tools = [
+      { method: 'performanceReport', container: 'performance-report-output' },
+      { method: 'bottleneckAnalyze', container: 'bottleneck-analysis-output' },
+      { method: 'tokenUsage', container: 'token-usage-output' }
+    ];
+
+    tools.forEach(({ method, container }) => {
+      test(`${method} should display error in UI when fetch fails`, async () => {
+        mockFetch(null, { ok: false, status: 503 });
+        
+        const fetchMock = global.fetch;
+        fetchMock.mockRejectedValue(new Error('Service unavailable'));
+        
+        await analysisTools[method]();
+        
+        // Wait for error to be displayed with specific timeout
+        await waitFor(() => {
+          const containerElement = document.getElementById(container);
+          return containerElement && 
+                 containerElement.innerHTML.includes('error-container');
+        }, {
+          timeout: 2000,
+          interval: 50,
+          timeoutMessage: `Error container not found in ${container}`
+        });
+        
+        const containerElement = document.getElementById(container);
+        expect(containerElement.innerHTML).toContain('error-container');
+        expect(containerElement.innerHTML).toContain('Error');
+        expect(containerElement.innerHTML).toContain('analysis service is running');
+        expect(containerElement.innerHTML).toContain('Retry');
+        expect(containerElement.innerHTML).toContain('Dismiss');
+      }, 10000); // Increased timeout for this complex test
+    });
+  });
+
+  describe('Resource Cleanup', () => {
+    test('should clean up all resources properly', async () => {
+      // Verify charts are created
+      expect(Object.keys(analysisTools.charts)).toHaveLength(4);
+      
+      // Verify WebSocket exists
+      expect(analysisTools.ws).toBeTruthy();
+      
+      // Verify update interval is running
+      expect(analysisTools.updateInterval).toBeTruthy();
+      
+      // Manually call cleanup
+      analysisTools.cleanup();
+      
+      // Verify all charts have destroy called
+      Object.values(analysisTools.charts).forEach(chart => {
+        expect(chart.destroy).toHaveBeenCalled();
+      });
+      
+      // WebSocket should be closed
+      expect(analysisTools.ws.readyState).toBe(3); // CLOSED
+    });
+
+    test('should handle cleanup gracefully with missing resources', () => {
+      // Create instance with missing resources
+      const testInstance = new AnalysisTools();
+      testInstance.ws = null;
+      testInstance.updateInterval = null;
+      testInstance.charts = {};
+      
+      // Should not throw
+      expect(() => testInstance.cleanup()).not.toThrow();
+    });
+  });
+}, { timeout: 15000 });
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }

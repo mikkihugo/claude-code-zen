@@ -32,6 +32,8 @@
     "test:coverage:e2e": "NODE_OPTIONS='--experimental-vm-modules' jest src/__tests__/e2e --coverage",
     "test:ci": "NODE_OPTIONS='--experimental-vm-modules' jest --ci --coverage --maxWorkers=2",
     "test:debug": "NODE_OPTIONS='--experimental-vm-modules --inspect-brk' jest --runInBand --no-cache",
+    "test:cleanup": "NODE_OPTIONS='--experimental-vm-modules' jest tests/unit/ui/console/analysis-tools.test.js --verbose",
+    "test:performance-utils": "NODE_OPTIONS='--experimental-vm-modules' jest tests/utils/performance-test-utils.test.js --verbose",
     "test:comprehensive": "node scripts/test-comprehensive.js",
     "test:comprehensive:verbose": "node scripts/test-comprehensive.js --verbose",
     "test:comprehensive:full": "node scripts/test-comprehensive.js --load --docker --npx",
