@@ -24,7 +24,7 @@ export default {
         target: 'es2022'
       }
     }],
-    '^.+\\.js$': ['babel-jest', {
+    '^.+\\.m?js$': ['babel-jest', {
       presets: [['@babel/preset-env', { modules: false }]]
     }]
   },
@@ -60,7 +60,7 @@ export default {
   // Enhanced error handling
   errorOnDeprecated: false,
   // Better module resolution
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node', 'mjs'],
   // Clear mocks between tests
   clearMocks: true,
   restoreMocks: true,

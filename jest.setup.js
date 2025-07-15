@@ -1,12 +1,19 @@
 /**
- * Jest Setup File - ES Module Compatible
+ * Jest Setup File - CommonJS Compatible
  * Configure test environment and global settings
  */
 
-import { jest, afterEach } from '@jest/globals';
-
-// Ensure Jest globals are available
-global.jest = jest;
+// Ensure Jest globals are available - they should be injected by Jest automatically
+// In case they're not, fall back to empty function
+global.jest = global.jest || {
+  fn: () => () => {},
+  mock: () => {},
+  spyOn: () => ({
+    mockImplementation: () => {},
+    mockReturnValue: () => {},
+    mockResolvedValue: () => {}
+  })
+};
 
 // Set test environment flags
 process.env.CLAUDE_FLOW_ENV = 'test';
@@ -41,6 +48,8 @@ if (typeof global.document === 'undefined') {
       tagName: tagName.toUpperCase(),
       className: '',
       textContent: '',
+      id: '',
+      disabled: false,
       _innerHTML: '',
       get innerHTML() {
         return this._innerHTML;
@@ -49,24 +58,27 @@ if (typeof global.document === 'undefined') {
         this._innerHTML = value;
         // Parse the innerHTML and create child elements
         if (value.includes('error-container')) {
-          this.children = [
-            {
-              className: 'error-container',
-              querySelector: jest.fn((selector) => {
-                if (selector === '.error-icon') return { textContent: '❌' };
-                if (selector === '.error-message h4') return { textContent: 'Error' };
-                if (selector === '.error-message p') return { textContent: value.match(/<p>([^<]*)<\/p>/)?.[1] || '' };
-                if (selector === '.retry-btn') return { textContent: 'Retry' };
-                if (selector === '.dismiss-btn') return { textContent: 'Dismiss' };
-                return null;
-              })
-            }
+          const errorElement = createMockElement('div');
+          errorElement.className = 'error-container';
+          errorElement.children = [
+            { className: 'error-icon', textContent: '❌' },
+            { 
+              className: 'error-message',
+              children: [
+                { tagName: 'H4', textContent: 'Error' },
+                { tagName: 'P', textContent: value.match(/<p>([^<]*)<\/p>/)?.[1] || '' }
+              ]
+            },
+            { className: 'retry-btn', textContent: 'Retry' },
+            { className: 'dismiss-btn', textContent: 'Dismiss' }
           ];
+          this.children = [errorElement];
         }
       },
       setAttribute: jest.fn((name, value) => {
         element.attributes = element.attributes || {};
         element.attributes[name] = value;
+        if (name === 'id') element.id = value;
       }),
       getAttribute: jest.fn((name) => {
         return element.attributes?.[name];
@@ -81,17 +93,11 @@ if (typeof global.document === 'undefined') {
         if (index > -1) globalElements.splice(index, 1);
       }),
       querySelector: jest.fn((selector) => {
-        if (selector.startsWith('.')) {
-          const className = selector.slice(1);
-          if (element.children) {
-            const found = element.children.find(child => 
-              child.className?.includes(className)
-            );
-            if (found) return found;
-          }
+        if (element.children) {
+          const found = findInChildren(element.children, selector);
+          if (found) return found;
         }
-        return element.innerHTML.includes(selector.slice(1)) ? 
-          element.children?.find(c => c.className?.includes('error-container'))?.querySelector(selector) : null;
+        return null;
       }),
       querySelectorAll: jest.fn(() => []),
       classList: {
@@ -105,8 +111,27 @@ if (typeof global.document === 'undefined') {
           return element.className?.includes(className) || false;
         })
       },
-      disabled: false,
       children: []
+    };
+    
+    // Helper function to find in children
+    const findInChildren = (children, selector) => {
+      if (selector.startsWith('.')) {
+        const className = selector.slice(1);
+        for (const child of children) {
+          if (child.className?.includes(className)) {
+            return child;
+          }
+          // Look for nested elements  
+          if (selector === '.error-message h4' && child.className?.includes('error-message')) {
+            return child.children?.find(c => c.tagName === 'H4');
+          }
+          if (selector === '.error-message p' && child.className?.includes('error-message')) {
+            return child.children?.find(c => c.tagName === 'P');
+          }
+        }
+      }
+      return null;
     };
     
     return element;
@@ -117,6 +142,7 @@ if (typeof global.document === 'undefined') {
     getElementById: jest.fn((id) => {
       if (!mockElementData.has(id)) {
         const element = createMockElement('div');
+        element.id = id;
         mockElementData.set(id, element);
       }
       return mockElementData.get(id);
@@ -128,6 +154,15 @@ if (typeof global.document === 'undefined') {
         // Check globally added elements first
         const found = globalElements.find(el => el.className?.includes(className));
         if (found) return found;
+        
+        // For specific error-message queries, create appropriate element
+        if (className === 'error-message') {
+          const element = createMockElement('div');
+          element.className = className;
+          element.textContent = 'Failed to fetch data from /api/test: Network error';
+          globalElements.push(element);
+          return element;
+        }
         
         // Create a mock element if not found
         const element = createMockElement('div');

@@ -3,19 +3,16 @@
  * Tests deadlock detection, task scheduling, and resource management
  */
 
-import { describe, it, beforeEach, afterEach  } from "../../test.utils.ts";
-import { expect } from "@jest/globals";
-// FakeTime equivalent available in test.utils.ts
-import { spy, stub  } from "../../test.utils.ts";
+import { describe, it, beforeEach, afterEach, expect, spy, stub  } from "../../test.utils.ts";
 
 import { CoordinationManager } from '../../../src/coordination/manager.ts';
 import { TaskScheduler } from '../../../src/coordination/scheduler.ts';
 import { ResourceManager } from '../../../src/coordination/resources.ts';
 import { ConflictResolver } from '../../../src/coordination/conflict-resolution.ts';
 import { CircuitBreaker } from '../../../src/coordination/circuit-breaker.ts';
-import { WorkStealingScheduler } from '../../../src/coordination/work-stealing.ts';
+import { WorkStealingCoordinator } from '../../../src/coordination/work-stealing.ts';
 import { DependencyGraph } from '../../../src/coordination/dependency-graph.ts';
-import { AdvancedScheduler } from '../../../src/coordination/advanced-scheduler.ts';
+import { AdvancedTaskScheduler } from '../../../src/coordination/advanced-scheduler.ts';
 
 describe('Coordination System - Comprehensive Tests', () => {
   let coordinationManager: CoordinationManager;

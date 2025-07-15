@@ -3,7 +3,6 @@
  */
 
 import { describe, it, beforeEach, afterEach, expect } from "../../test.utils.ts";
-import { describe, it, beforeEach, afterEach, expect } from "../../test.utils.ts";
 
 import { MCPServer } from '../../src/mcp/server.ts';
 import { StdioTransport } from '../../src/mcp/transports/stdio.ts';
