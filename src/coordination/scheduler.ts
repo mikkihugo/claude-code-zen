@@ -69,6 +69,21 @@ export class TaskScheduler {
       attempts: 0,
     };
 
+    // Store task first so it's available for circular dependency detection
+    this.tasks.set(task.id, scheduledTask);
+
+    // Check for circular dependencies after adding the task
+    if (task.dependencies && task.dependencies.length > 0) {
+      const circular = this.detectCircularDependencies(task.id, task.dependencies);
+      if (circular.length > 0) {
+        // Remove the task we just added since it creates a cycle
+        this.tasks.delete(task.id);
+        throw new TaskDependencyError(
+          `Circular dependency detected: ${circular.join(' -> ')}`
+        );
+      }
+    }
+
     // Check dependencies - handle undefined dependencies gracefully
     if (task.dependencies && task.dependencies.length > 0) {
       const unmetDependencies = task.dependencies.filter(
@@ -91,9 +106,6 @@ export class TaskScheduler {
       // No dependencies, can start immediately
       scheduledTask.task.status = 'queued';
     }
-
-    // Store task
-    this.tasks.set(task.id, scheduledTask);
 
     // Update agent tasks
     if (!this.agentTasks.has(agentId)) {
@@ -121,9 +133,6 @@ export class TaskScheduler {
       agentId, 
       status: scheduledTask.task.status 
     });
-
-    // Start task execution
-    this.startTask(task.id);
   }
 
   async completeTask(taskId: string, result: unknown): Promise<void> {
@@ -476,6 +485,65 @@ export class TaskScheduler {
   getTask(taskId: string): Task | undefined {
     const scheduled = this.tasks.get(taskId);
     return scheduled?.task;
+  }
+
+  /**
+   * Detect circular dependencies in task graph
+   */
+  private detectCircularDependencies(taskId: string, dependencies: string[]): string[] {
+    // Create temporary graph including the new task
+    const tempTaskDependencies = new Map(this.taskDependencies);
+    
+    // Add new task dependencies to temporary graph
+    for (const dep of dependencies) {
+      if (!tempTaskDependencies.has(dep)) {
+        tempTaskDependencies.set(dep, new Set());
+      }
+      tempTaskDependencies.get(dep)!.add(taskId);
+    }
+    
+    const visited = new Set<string>();
+    const recursionStack = new Set<string>();
+    
+    const dfs = (currentTask: string): string[] => {
+      if (recursionStack.has(currentTask)) {
+        // Found a cycle - return path to current task
+        return [currentTask];
+      }
+      
+      if (visited.has(currentTask)) {
+        return [];
+      }
+      
+      visited.add(currentTask);
+      recursionStack.add(currentTask);
+      
+      // Get dependencies for current task
+      const taskDeps = this.getTaskDependencies(currentTask);
+      
+      for (const dep of taskDeps) {
+        const cycle = dfs(dep);
+        if (cycle.length > 0) {
+          // Add current task to the cycle path
+          return [currentTask, ...cycle];
+        }
+      }
+      
+      recursionStack.delete(currentTask);
+      return [];
+    };
+    
+    // Check for cycles starting from the new task
+    const cycle = dfs(taskId);
+    return cycle;
+  }
+
+  /**
+   * Get dependencies for a task (either from stored tasks or from the new task being added)
+   */
+  private getTaskDependencies(taskId: string): string[] {
+    const scheduled = this.tasks.get(taskId);
+    return scheduled?.task.dependencies || [];
   }
 
   /**

@@ -143,6 +143,28 @@ export class CoordinationManager implements ICoordinationManager {
     
     try {
       await this.scheduler.assignTask(taskWithId, agentId);
+      
+      // Return a promise that resolves when the task completes
+      return new Promise((resolve, reject) => {
+        const handleCompleted = (event: any) => {
+          if (event.taskId === taskId) {
+            this.eventBus.off(SystemEvents.TASK_COMPLETED, handleCompleted);
+            this.eventBus.off(SystemEvents.TASK_FAILED, handleFailed);
+            resolve();
+          }
+        };
+        
+        const handleFailed = (event: any) => {
+          if (event.taskId === taskId) {
+            this.eventBus.off(SystemEvents.TASK_COMPLETED, handleCompleted);
+            this.eventBus.off(SystemEvents.TASK_FAILED, handleFailed);
+            reject(event.error || new Error('Task failed'));
+          }
+        };
+        
+        this.eventBus.on(SystemEvents.TASK_COMPLETED, handleCompleted);
+        this.eventBus.on(SystemEvents.TASK_FAILED, handleFailed);
+      });
     } catch (error) {
       // Update metrics for task failure
       this.metricsCollector.recordTaskFailure(taskWithId, getErrorMessage(error));

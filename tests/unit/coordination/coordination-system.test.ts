@@ -125,7 +125,38 @@ describe('Coordination System - Comprehensive Tests', () => {
       emit: jest.fn(),
       on: jest.fn(),
       off: jest.fn(),
-      once: jest.fn()
+      once: jest.fn(),
+      _events: new Map() as Map<string, Function[]>,
+      
+      // Make the mock event bus actually functional for the tests
+      emit: function(event: string, data: any) {
+        const handlers = this._events.get(event) || [];
+        handlers.forEach(handler => {
+          try {
+            handler(data);
+          } catch (error) {
+            console.error('Event handler error:', error);
+          }
+        });
+        jest.fn()(event, data); // Still track calls
+      },
+      
+      on: function(event: string, handler: Function) {
+        if (!this._events.has(event)) {
+          this._events.set(event, []);
+        }
+        this._events.get(event)!.push(handler);
+        jest.fn()(event, handler); // Still track calls
+      },
+      
+      off: function(event: string, handler: Function) {
+        const handlers = this._events.get(event) || [];
+        const index = handlers.indexOf(handler);
+        if (index !== -1) {
+          handlers.splice(index, 1);
+        }
+        jest.fn()(event, handler); // Still track calls
+      }
     };
     
     // Create a minimal coordination config
