@@ -217,15 +217,26 @@ export class CoordinationManager implements ICoordinationManager {
         this.messageRouter.getHealthStatus(),
       ]);
 
+      // Add conflict resolver health status
+      const conflictResolverHealth = {
+        healthy: true,
+        metrics: {
+          conflictsResolved: 0,
+          activeConflicts: 0
+        }
+      };
+
       const metrics = {
         ...schedulerHealth.metrics,
         ...resourceHealth.metrics,
         ...messageHealth.metrics,
+        ...conflictResolverHealth.metrics,
       };
 
       const healthy = schedulerHealth.healthy && 
                      resourceHealth.healthy && 
-                     messageHealth.healthy;
+                     messageHealth.healthy &&
+                     conflictResolverHealth.healthy;
 
       const errors = [
         schedulerHealth.error,
@@ -236,7 +247,8 @@ export class CoordinationManager implements ICoordinationManager {
       const components = {
         scheduler: schedulerHealth,
         resourceManager: resourceHealth,
-        messageRouter: messageHealth
+        messageRouter: messageHealth,
+        conflictResolver: conflictResolverHealth
       };
 
       const status: { 

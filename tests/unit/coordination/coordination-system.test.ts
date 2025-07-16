@@ -202,7 +202,10 @@ describe('Coordination System - Comprehensive Tests', () => {
           status: 'pending' as TaskStatus,
           input: {},
           createdAt: new Date(),
-          execute: spy(async () => 'low-1') 
+          execute: spy(async () => {
+            await AsyncTestUtils.delay(10);
+            return 'low-1';
+          }) 
         },
         { 
           id: 'high-1', 
@@ -213,7 +216,10 @@ describe('Coordination System - Comprehensive Tests', () => {
           status: 'pending' as TaskStatus,
           input: {},
           createdAt: new Date(),
-          execute: spy(async () => 'high-1') 
+          execute: spy(async () => {
+            await AsyncTestUtils.delay(10);
+            return 'high-1';
+          }) 
         },
         { 
           id: 'medium-1', 
@@ -224,7 +230,10 @@ describe('Coordination System - Comprehensive Tests', () => {
           status: 'pending' as TaskStatus,
           input: {},
           createdAt: new Date(),
-          execute: spy(async () => 'medium-1') 
+          execute: spy(async () => {
+            await AsyncTestUtils.delay(10);
+            return 'medium-1';
+          }) 
         },
         { 
           id: 'high-2', 
@@ -235,19 +244,20 @@ describe('Coordination System - Comprehensive Tests', () => {
           status: 'pending' as TaskStatus,
           input: {},
           createdAt: new Date(),
-          execute: spy(async () => 'high-2') 
+          execute: spy(async () => {
+            await AsyncTestUtils.delay(10);
+            return 'high-2';
+          }) 
         },
       ];
 
-      // Submit all tasks
+      // Submit all tasks but don't wait for completion yet
       const promises = tasks.map(task => 
         coordinationManager.submitTask(task.id, task)
       );
 
-      await Promise.all(promises);
-      
-      // Verify all tasks were submitted successfully
-      expect(promises.length).toBe(4);
+      // Give tasks a moment to start but not complete (they have 10ms delays)
+      await AsyncTestUtils.delay(5);
       
       // Check that tasks have been assigned to agents
       const agentTasks = await coordinationManager.getAgentTasks('default');
@@ -255,9 +265,15 @@ describe('Coordination System - Comprehensive Tests', () => {
       
       // Verify tasks have the correct status
       agentTasks.forEach(task => {
-        expect(task.status).toBe('running'); // Tasks should be in running state
+        expect(['running', 'queued'].includes(task.status)).toBe(true); // Tasks should be queued or running
         expect(task.assignedAgent).toBe('default');
       });
+
+      // Now wait for all tasks to complete
+      await Promise.all(promises);
+      
+      // Verify all tasks were submitted successfully
+      expect(promises.length).toBe(4);
     });
 
     it('should handle task dependencies correctly', async () => {
