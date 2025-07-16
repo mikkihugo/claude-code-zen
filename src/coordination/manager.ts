@@ -186,6 +186,7 @@ export class CoordinationManager implements ICoordinationManager {
     healthy: boolean; 
     error?: string; 
     metrics?: Record<string, number>;
+    components?: Record<string, any>;
   }> {
     try {
       const [schedulerHealth, resourceHealth, messageHealth] = await Promise.all([
@@ -210,9 +211,21 @@ export class CoordinationManager implements ICoordinationManager {
         messageHealth.error,
       ].filter(Boolean);
 
-      const status: { healthy: boolean; error?: string; metrics?: Record<string, number> } = {
+      const components = {
+        scheduler: schedulerHealth,
+        resourceManager: resourceHealth,
+        messageRouter: messageHealth
+      };
+
+      const status: { 
+        healthy: boolean; 
+        error?: string; 
+        metrics?: Record<string, number>;
+        components?: Record<string, any>;
+      } = {
         healthy,
         metrics,
+        components,
       };
       if (errors.length > 0) {
         status.error = errors.join('; ');

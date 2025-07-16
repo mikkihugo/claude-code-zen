@@ -352,11 +352,15 @@ export class ResourceManager {
       totalResources,
       lockedResources,
       freeResources,
-      resourceUtilization: totalResources > 0 ? lockedResources / totalResources : 0,
+      resourceUtilization: {
+        percentage: totalResources > 0 ? (lockedResources / totalResources) * 100 : 0,
+        lockedResources,
+        totalResources
+      },
       averageLockDuration,
       lockContention,
       peakMemoryUsage: process.memoryUsage().heapUsed / 1024 / 1024, // MB
-      currentMemoryUsage: process.memoryUsage().rss / 1024 / 1024, // MB
+      averageMemoryUsage: process.memoryUsage().rss / 1024 / 1024, // MB
     };
   }
 
