@@ -1,7 +1,7 @@
 #!/bin/sh
 # Claude-Flow Smart Dispatcher - Detects and uses the best available runtime
 
-VERSION="2.0.0-alpha.60"
+VERSION="2.0.0-alpha.61"
 
 # Determine the correct path based on how the script is invoked
 if [ -L "$0" ]; then
@@ -49,15 +49,12 @@ for arg in "$@"; do
 done
 
 # Use Node.js with TypeScript support
-if [ -f "$ROOT_DIR/src/cli/simple-cli.js" ]; then
-  # Use node for JavaScript version
+if [ -f "$ROOT_DIR/dist/cli/simple-cli.js" ]; then
+  # Use built JavaScript version (preferred)
+  exec node "$ROOT_DIR/dist/cli/simple-cli.js" "$@"
+elif [ -f "$ROOT_DIR/src/cli/simple-cli.js" ]; then
+  # Use source JavaScript version (fallback)
   exec node "$ROOT_DIR/src/cli/simple-cli.js" "$@"
-elif command -v tsx >/dev/null 2>&1 && [ -f "$ROOT_DIR/src/cli/simple-cli.ts" ]; then
-  # Use tsx for TypeScript functionality
-  exec tsx "$ROOT_DIR/src/cli/simple-cli.ts" "$@"
-elif [ -f "$ROOT_DIR/src/cli/simple-cli.ts" ]; then
-  # Try to use npx tsx as fallback
-  exec npx tsx "$ROOT_DIR/src/cli/simple-cli.ts" "$@"
 else
   # No runtime available, show help
   echo "🧠 Claude-Flow v$VERSION - Advanced AI Agent Orchestration System"
@@ -65,11 +62,11 @@ else
   echo "⚠️  No compatible runtime found."
   echo ""
   echo "To install and run:"
-  echo "  1. Install tsx: npm install -g tsx"
+  echo "  1. Build project: npm run build"
   echo "  2. Run: claude-flow <command>"
   echo ""
-  echo "Or use npx directly:"
-  echo "  npx tsx src/cli/simple-cli.ts <command>"
+  echo "Or use node directly:"
+  echo "  node src/cli/simple-cli.js <command>"
   echo ""
   echo "Documentation: https://github.com/ruvnet/claude-code-flow"
   exit 1
