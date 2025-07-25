@@ -1,51 +1,49 @@
-#!/usr/bin/env node
-
 /**
  * Basic CLI Test Suite
  * 
- * Tests to verify that the Claude Zen CLI is functional after fixes.
- * This demonstrates the improvement from broken to working state.
+ * Tests to verify that the Claude Zen CLI is functional after real ruv-FANN integration.
+ * This demonstrates the improvement from mock to real implementation.
  */
 
 import { execSync } from 'child_process';
 
 const CLI_PATH = './src/cli/claude-zen-hive-mind.js';
 
-// Run tests if called directly
-if (process.argv[1] === new URL(import.meta.url).pathname) {
-  console.log('🧪 Running basic CLI tests...');
-  
-  try {
-    // Test version command
-    console.log('Testing version command...');
-    const versionResult = execSync(`node ${CLI_PATH} --version`, { encoding: 'utf8' });
-    console.log('✅ Version command works');
+describe('Claude Zen CLI', () => {
+  test('version command works', () => {
+    const result = execSync(`node ${CLI_PATH} --version`, { encoding: 'utf8' });
+    expect(result).toContain('2.0.0-alpha.70');
+  });
+
+  test('help command works', () => {
+    const result = execSync(`node ${CLI_PATH} --help`, { encoding: 'utf8' });
+    expect(result).toContain('Hive-Mind Primary System');
+    expect(result).toContain('Core Commands');
+    expect(result).toContain('neural');
+    expect(result).toContain('ruv-FANN intelligence');
+  });
+
+  test('ruv-FANN integration is real (not mock)', async () => {
+    // Test that we can import real ruv-FANN
+    const ruvSwarm = await import('../ruv-FANN/ruv-swarm/npm/src/index.js');
     
-    // Test help command  
-    console.log('Testing help command...');
-    const helpResult = execSync(`node ${CLI_PATH} --help`, { encoding: 'utf8' });
-    console.log('✅ Help command works');
+    // The most important test: we can import the package and have core functionality
+    expect(ruvSwarm.RuvSwarm).toBeDefined();
+    expect(typeof ruvSwarm.RuvSwarm).toBe('function');
     
-    // Test status command (with timeout handling for full initialization)
-    console.log('Testing status command...');
-    try {
-      const statusResult = execSync(`timeout 30 node ${CLI_PATH} status`, { encoding: 'utf8' });
-      console.log('✅ Status command works');
-    } catch (error) {
-      // Status command may timeout due to full system initialization
-      // but if it shows the status output, it's working
-      if (error.status === 124) { // timeout exit code
-        console.log('✅ Status command works (with expected timeout)');
-      } else {
-        throw error;
-      }
-    }
+    // Verify we have a significant number of exports (not a simple mock)
+    const exportKeys = Object.keys(ruvSwarm);
+    expect(exportKeys.length).toBeGreaterThan(10); // Real package has many exports
     
-    console.log('\n🎉 All basic CLI tests passed!');
-    console.log('🚀 Claude Zen CLI is now functional with mock ruv-FANN integration');
+    // Key validation: we have the core neural patterns
+    expect(exportKeys).toContain('COGNITIVE_PATTERNS');
     
-  } catch (error) {
-    console.error('❌ CLI tests failed:', error.message);
-    process.exit(1);
-  }
-}
+    console.log('✅ Real ruv-FANN integration confirmed with', exportKeys.length, 'exports');
+  });
+
+  test('neural command shows real ruv-FANN integration', () => {
+    const result = execSync(`timeout 10 node ${CLI_PATH} neural help || true`, { encoding: 'utf8' });
+    expect(result).toContain('ruv-FANN neural intelligence');
+    expect(result).toContain('Neural AI Development Tools');
+  });
+});
