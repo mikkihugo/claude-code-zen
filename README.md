@@ -47,6 +47,13 @@ Claude Zen implements a **three-layer hybrid architecture** designed for enterpr
 
 ## 🚀 Quick Start
 
+### **Prerequisites**
+```bash
+# Required: Node.js 22.0.0 or higher
+node --version  # Should be 22.0.0+
+npm --version   # Should be 10.0.0+
+```
+
 ### **Installation**
 ```bash
 # NPM - Global installation
@@ -57,6 +64,18 @@ git clone https://github.com/mikkihugo/claude-code-zen.git
 cd claude-code-zen
 npm install
 ```
+
+### **Verify Installation**
+```bash
+# Check that CLI is working
+claude-zen --version
+claude-zen --help
+
+# Test basic functionality
+claude-zen status
+```
+
+⚠️ **Note**: Currently using mock ruv-FANN integration for basic functionality. Full neural network capabilities require additional setup.
 
 ### **Initialize Enterprise Environment**
 ```bash
