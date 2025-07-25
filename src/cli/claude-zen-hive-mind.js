@@ -429,7 +429,7 @@ async function registerHiveMindCommands(registry, hiveMind) {
           return hiveMind.coordinate({
             type: 'swarm',
             operation: 'get_status',
-            params: { swarmId: context.flags.swarmId }
+            params: { swarmId: context && context.flags ? context.flags.swarmId : undefined }
           });
           
         default:
@@ -505,7 +505,7 @@ async function registerHiveMindCommands(registry, hiveMind) {
     handler: async (context) => {
       const status = hiveMind.getHiveMindStatus();
       
-      if (context.flags.json) {
+      if (context && context.flags && context.flags.json) {
         console.log(JSON.stringify(status, null, 2));
       } else {
         printInfo('🧠 Hive-Mind Primary System Status:');

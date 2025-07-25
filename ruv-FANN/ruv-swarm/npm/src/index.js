@@ -16,6 +16,13 @@ export class MockRuvSwarm {
     this.swarms = new Map();
   }
 
+  // Static initialize method (for compatibility with existing code)
+  static async initialize(options = {}) {
+    const instance = new MockRuvSwarm(options);
+    await instance.initialize();
+    return instance;
+  }
+
   async initialize() {
     this.initialized = true;
     console.log('🧠 Mock ruv-FANN Neural Network initialized');
