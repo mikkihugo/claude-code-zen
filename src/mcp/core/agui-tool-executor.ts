@@ -1,19 +1,21 @@
-/**  AG-UI Enhanced MCP Tool Executor
+/**  AG-UI Enhanced MCP Tool Executor */
 
-/** Extends the existing MCP tool executor with AG-UI protocol events
-/** Provides real-time tool execution updates via standardized AG-UI events
+/** Extends the existing MCP tool executor with AG-UI protocol events */
+/** Provides real-time tool execution updates via standardized AG-UI events */
 
- * @module AGUIMCPToolExecutor
-
- */
+*
+@module
+AGUIMCPToolExecutor * /;
 import { AGUIAdapter } from '../ai/agui-adapter.js';
+'
 import { MCPToolExecutor } from '.';
 
-/** AG-UI Enhanced Tool Executor
-/** Wraps MCP tool execution with AG-UI event emission
+/** AG-UI Enhanced Tool Executor */
+/** Wraps MCP tool execution with AG-UI event emission */
 
 // export class AGUIMCPToolExecutor extends MCPToolExecutor {
-  constructor(server = {}) {
+constructor((server = {}));
+{
 //     super(server);
 
     // Create AG-UI adapter for tool execution events
@@ -35,7 +37,7 @@ import { MCPToolExecutor } from '.';
       //       }
 
       // Emit progress event
-  if(this.options.emitProgressEvents) {
+  if(this.options.emitProgressEvents) {'
         this.aguiAdapter.emitCustomEvent('tool_execution_started', {toolName = // // await super.executeTool(name, args);'
 
       // Emit AG-UI tool call completion events
@@ -49,15 +51,15 @@ import { MCPToolExecutor } from '.';
       //       }
 
       // Emit progress completion event
-  if(this.options.emitProgressEvents) {
+  if(this.options.emitProgressEvents) {'
         this.aguiAdapter.emitCustomEvent('tool_execution_completed', {')'
-          toolName = {name = {name = {}) {
+          toolName = {name = {name = {}) {'
     const _chainId = `chain-${Date.now()}`;`
-
+`
     this.aguiAdapter.emitCustomEvent('tool_chain_started', {')'
       chainId,tools = > t.name),timestamp = // // await this.executeTool(name, args, {
 ..context,
-          chainId,)
+          chainId,
           stepIndex = {}) {
     const _toolCallId = this.aguiAdapter.startToolCall(name, null, context.parentMessageId);
       // Create a progress callback for streaming updates
@@ -65,13 +67,13 @@ import { MCPToolExecutor } from '.';
       // return result;
     //   // LINT: unreachable code removed}
 
-/** Get AG-UI adapter for external event emission
+/** Get AG-UI adapter for external event emission */
 
   getAGUIAdapter() ;
     // return this.aguiAdapter;
     // ; // LINT: unreachable code removed
 
-/** Get enhanced statistics including AG-UI metrics
+/** Get enhanced statistics including AG-UI metrics */
 
   getEnhancedStats() ;
     // return {
@@ -80,7 +82,7 @@ import { MCPToolExecutor } from '.';
     // return this;
     // ; // LINT: unreachable code removed
 
-/** Reset AG-UI adapter state
+/** Reset AG-UI adapter state */
 
   resetAGUIState() ;
     this.aguiAdapter.reset();
@@ -88,7 +90,7 @@ import { MCPToolExecutor } from '.';
   // return new AGUIMCPToolExecutor(server, options);
     // ; // LINT: unreachable code removed
 
-/** Middleware to wrap existing tool executor with AG-UI capabilities
+/** Middleware to wrap existing tool executor with AG-UI capabilities */
 
 // export function _enhanceToolExecutorWithAGUI(existingExecutor = {}) {
   const _aguiAdapter = new AGUIAdapter({ sessionId = existingExecutor.executeTool.bind(existingExecutor);
@@ -117,7 +119,7 @@ import { MCPToolExecutor } from '.';
     } catch(/* _error */ )
 {
   if(toolCallId) {
-        aguiAdapter.endToolCall(toolCallId);
+        aguiAdapter.endToolCall(toolCallId);'
         aguiAdapter.emitToolCallResult(`Error = () => aguiAdapter;`
   existingExecutor.connectToAGUIBus = () => {
     aguiAdapter.connectGlobalEmitter(eventBus);
@@ -129,4 +131,5 @@ import { MCPToolExecutor } from '.';
 
 // export default AGUIMCPToolExecutor;
 
-}}}}}}}}}}}}}}}}}}}}}}}))
+}}}}}}}}}}}}}}}}}}}}}}})
+`

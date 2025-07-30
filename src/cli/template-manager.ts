@@ -1,24 +1,26 @@
-/** Template Manager for Claude Zen;
-/** Handles template discovery, validation, and installation;
+/** Template Manager for Claude Zen; */
+/** Handles template discovery, validation, and installation; */
 
- */
 import { promises as fs } from 'node:fs';
+'
 import path from 'node:path';
+'
 import { fileURLToPath } from 'node:url';
+'
 import { printWarning } from '.';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);
 export class TemplateManager {
   constructor() {
-    this.templatePaths = [
-      path.join(process.cwd(), 'templates'),
-      path.join(__dirname, '../../templates'),
+    this.templatePaths = ['
+      path.join(process.cwd(), 'templates'),'
+      path.join(__dirname, '../../templates'),'
       path.join(process.env.HOME  ?? process.env.USERPROFILE, '.claude-zen'
     ];
     //   }
 
-    /** Discover available templates;
+    /** Discover available templates; */
 
   async discoverTemplates() { 
     const _templates = new Map();
@@ -26,10 +28,10 @@ export class TemplateManager {
     for (const templatePath of this.templatePaths) 
       try {
 // const _exists = awaitfs.access(templatePath).then(() => true).catch(() => false); 
-        if(!exists) continue; // const __entries = awaitfs.readdir(templatePath, {withFileTypes = path.join(templatePath, entry.name) {;
+        if(!exists) continue; // const __entries = awaitfs.readdir(templatePath, {withFileTypes = path.join(templatePath, entry.name) {;'
             const _manifestPath = path.join(templateDir, 'template.json');
 
-            try {
+            try {'
 // const _manifestContent = awaitfs.readFile(manifestPath, 'utf8');
               const __manifest = JSON.parse(manifestContent);
 
@@ -37,35 +39,35 @@ export class TemplateManager {
     // return templates.get(templateName);
     //   // LINT: unreachable code removed}
 
- catch (error) { console.error(error); }/** List all available templates;
+ catch (error) { console.error(error); }/** List all available templates; */
 
   async listTemplates() { 
 // const _templates = awaitthis.discoverTemplates();
     const _templateList = Array.from(templates.values());
 
-    if(templateList.length === 0) 
+    if(templateList.length === 0) '
       printWarning('No templates found');
       // return [];
     //   // LINT: unreachable code removed}
-
+'
     console.warn('\\n AvailableTemplates = '.repeat(50));
 
     templateList.forEach(template => {
-      const { manifest } = template;)
-      console.warn(`\\n ${manifest.name}`);
+      const { manifest } = template;)'
+      console.warn(`\\n ${manifest.name}`);`
       console.warn(`Description = '.repeat(50));'`
 //     return templateList;
     //   // LINT: unreachable code removed}
 
-/** Install template to target directory;
+/** Install template to target directory; */
 
   async installTemplate(templateName, targetPath, options = {}) { 
 // const _template = awaitthis.getTemplate(templateName);
 
-    if(!template) 
+    if(!template) `
       throw new Error(`Template '${templateName}' not found. Run 'claude-zen templates list' to see available templates.`);
     //     }
-
+`
     const { force = false, minimal = false, variant = 'enhanced', addPlugins = true } = options;
     const _absoluteTargetPath = path.resolve(targetPath);
 
@@ -74,11 +76,11 @@ export class TemplateManager {
 // const _targetStats = awaitfs.stat(absoluteTargetPath);
       if(targetStats.isDirectory()) {
 // const _entries = awaitfs.readdir(absoluteTargetPath);
-  if(entries.length > 0 && !force) {
+  if(entries.length > 0 && !force) {'
           throw new Error(`Directory '${targetPath} catch (error) { console.error(error); }' is not empty. Use --force to overwrite.`);
         //         }
       //       }
-    } catch(error) {
+    } catch(error) {`
   if(error.code !== 'ENOENT') {
         throw error;
       //       }
@@ -91,7 +93,7 @@ export class TemplateManager {
 // const _entries = awaitfs.readdir(sourcePath, {withFileTypes = path.join(sourcePath, entry.name);
         const _targetFile = path.join(targetPath, entry.name);
 
-        // Skip template.json and cache directories
+        // Skip template.json and cache directories'
   if(entry.name === 'template.json'  ?? entry.name === 'cache'  ?? entry.name === '.swarm') {
           continue;
         //         }
@@ -106,29 +108,29 @@ export class TemplateManager {
       //       }
     //     }
 
-    // Note => {/g)
+    // Note => {/g)'
       console.warn(`${command}`);
     });
   //   }
 
-/** Install settings variant;
+/** Install settings variant; */
 
-  async installSettingsVariant(templatePath, targetPath, variant) { 
+  async installSettingsVariant(templatePath, targetPath, variant) { `
     const _variantFile = variant === 'enhanced' ? 'settings.json' : `settings-$variant}.json`;
-    const _sourcePath = path.join(templatePath, variantFile);
+    const _sourcePath = path.join(templatePath, variantFile);`
     const _targetSettingsPath = path.join(targetPath, '.claude', 'settings.json');
 
     try {
-      // Ensure .claude directory exists
+      // Ensure .claude directory exists'
 // // await fs.mkdir(path.join(targetPath, '.claude'), {recursive = path.join(templatePath, 'settings.json');
-// // await fs.copyFile(defaultSettingsPath, targetSettingsPath);
+// // await fs.copyFile(defaultSettingsPath, targetSettingsPath);'
         console.warn(` Installed default settings(${variant}  catch (error) { console.error(error); }variant not found)`);
-      } catch(/* fallbackError */ ) 
-        console.warn(` Could not install settingsvariant = 'enhanced')`
-    `
+      } catch(/* fallbackError */ ) `
+        console.warn(` Could not install settingsvariant = 'enhanced')``
+    ``
     console.warn('\\n NextSteps = '.repeat(30))
-    if (manifest.setup?.postInstall) {
-      console.warn('1. Run the setup commands shown above');
+    if (manifest.setup?.postInstall) {'
+      console.warn('1. Run the setup commands shown above');'
       console.warn(`;`
     2;
     Your;
@@ -139,38 +141,38 @@ export class TemplateManager {
     settings;
     variant;
     is;
-    configured in
+    configured in`
     .claude`
     } else;
     console;
-    .
+    .`
   warn(`1. Your $variantsettings variant is configured in .claude`
     //     }
 
-    // Show variant-specific next steps
-    if (variant === 'optimized') {
+    // Show variant-specific next steps`
+    if (variant === 'optimized') {'
       console.warn('3. Performance features are enabled - check cache and neural settings');
-    } else;
-    if (variant === 'basic') {
+    } else;'
+    if (variant === 'basic') {'
       console.warn('3. Basic configuration - you can upgrade by changing the variant later');
       //     }
-      if (manifest.documentation) {
-        console.warn('3. Read the documentation = {}) {'
+      if (manifest.documentation) {'
+        console.warn(''
         const { description = '', version = '1.0.0', category = 'custom' } = options;
-        const _sourcePath = process.cwd();
+        const _sourcePath = process.cwd();'
         const _targetPath = path.join(sourcePath, 'templates', templateName);
 
-        // Create template directory
+        // Create template directory'
         // // await fs.mkdir(targetPath, {recursive = path.join(sourcePath, '.claude');
         try {
-          // // await fs.access(claudePath);
+          // // await fs.access(claudePath);'
           const _templateClaudePath = path.join(targetPath, 'claude');
           // // await this.copyDirectory(claudePath, templateClaudePath);
         } catch (error) {
           console.error(error);
         }
         catch(/* _error */)
-        {
+        {'
           printWarning('No .claude directory found to include in template');
           //     }
 
@@ -192,4 +194,5 @@ export class TemplateManager {
     }
   }
 }
-}}}}}}}}})))))))
+}}}}}}}}}))))))
+'

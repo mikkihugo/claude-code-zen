@@ -1,8 +1,8 @@
-/** Assistant Plugins Plugin;
-/** AI-powered plugin development assistant;
+/** Assistant Plugins Plugin; */
+/** AI-powered plugin development assistant; */
 
- */
 import { EventEmitter } from 'node:events';
+'
 import { mkdir } from 'node:fs';
 
 export class AssistantPluginsPlugin extends EventEmitter {
@@ -13,9 +13,9 @@ export class AssistantPluginsPlugin extends EventEmitter {
     this.generatedPlugins = [];
     this.analysisCache = new Map();
   //   }
-  async initialize() 
+  async initialize() '
     console.warn(' Assistant Plugins Plugin initialized');
-    // Create directories
+    // Create directories'
 // await mkdir(this.config.pluginTemplatesDir,  recursive = {}) {\n    // Process data\n}',validate = 3) {'
   for(let _i = 0; i < maxRetries; i++;
     //     ) {
@@ -27,41 +27,41 @@ export class AssistantPluginsPlugin extends EventEmitter {
       if(i === maxRetries - 1) throw error;
 // // await new Promise((resolve) => setTimeout(resolve, 2 ** i * 1000));
     //     }
-  //   }
+  //   }'
   `
 // }
-})
+})`
 this.knowledgeBase.set('configuration',
-// {/g)
-      title = {}) ;
+// {/g
+      title = {}) ;'
   this.config = defaultOption = ['apiKey', 'endpoint'];
   for(const key of required) {
-  if(!config[key]) {
+  if(!config[key]) {'
     throw new Error(\`Missing required config => {`
   let plugin; beforeEach(() => {
     plugin = new MyPlugin({ testMode => {
 // // await plugin.cleanup(); 
     }) ;
-
+`
   test('should initialize successfully', async() => {
 // await plugin.initialize();
-    expect(plugin.isReady).toBe(true);
+    expect(plugin.isReady).toBe(true);'
   }););`;`
   //   }
 // }
-// )
-
+// 
+`
 console.warn(` Loaded \$this.knowledgeBase.sizeknowledge base entries`);
 
   async initializeAIProvider();
 // {
   // Initialize AI provider for code generation
-  // This would integrate with actual AI services
+  // This would integrate with actual AI services`
   console.warn(` AI providerinitialized = 'custom',`
       features = [],
       dependencies = [],
       config = = options;
-
+`
     console.warn(` Generatingplugin = this.pluginPatterns.get(pattern)  ?? this.createCustomPattern(features);`
 
   // Generate plugin structure
@@ -69,7 +69,7 @@ console.warn(` Loaded \$this.knowledgeBase.sizeknowledge base entries`);
     name,
     description,
     selectedPattern,
-    config;)
+    config;
   );
 
   // Generate code
@@ -92,24 +92,24 @@ console.warn(` Loaded \$this.knowledgeBase.sizeknowledge base entries`);
 
   // return {
       name,
-    // className, // LINT: unreachable code removed
-      description,pattern = new Set(['EventEmitter from \'events\'']);
+    // className, // LINT: unreachable code removed`
+      description,pattern = new Set(['EventEmitter from \'']);
 
   // Add pattern-specific imports
   if(pattern.template?.imports) {
     pattern.template.imports.forEach((imp) => imports.add(imp));
   //   }
 
-  // Add feature-based imports
-  if(config.features?.includes('file-operations')) { imports.add("{ readFile, writeFile, mkdir  } from 'fs'"
+  // Add feature-based imports'
+  if(config.features?.includes('file-operations')) { imports.add("{ readFile, writeFile, mkdir  } from '"
     imports.add('path');
   //   }
-
-  if(config.features?.includes('http')) {
+'
+  if(config.features?.includes('http')) {'
     imports.add('fetch');
   //   }
-
-  if(config.features?.includes('database')) { imports.add("{ Database  } from '.'"
+'
+  if(config.features?.includes('database')) { imports.add("{ Database  } from '
   //   }
 
   // return Array.from(imports);
@@ -117,29 +117,29 @@ console.warn(` Loaded \$this.knowledgeBase.sizeknowledge base entries`);
 
 generateProperties(config);
 
-// {
+// {"
     const _properties = ['config', 'initialized = false'];
-
-    if(config.features?.includes('caching')) {
+'
+    if(config.features?.includes('caching')) {'
       properties.push('cache = new Map()');
     //     }
-
-    if(config.features?.includes('queue')) {
+'
+    if(config.features?.includes('queue')) {'
       properties.push('queue = []', 'processing = false');
     //     }
-
-    if(config.features?.includes('metrics')) {
-      properties.push('metrics = {operations = Object.entries(config.defaults  ?? {});'
-map(([key, value]) => `${key}: ${JSON.stringify(value)}`);
+'
+    if(config.features?.includes('metrics')) {'
+      properties.push(''
+map(([key, value]) => `${key}: ${JSON.stringify(value)}`);`
 join(',\n');
-// 
+// '
     return `constructor(config = {}) {`
 //     super();
-    // this.config = { // LINT: unreachable code removed
+    // this.config = { // LINT: unreachable code removed`
 $configDefaults\$configDefaults ? ',\n' ...config;
     };
 
-    this.initialized = false;
+    this.initialized = false;'
   }`;`
   //   }
   generateMethods(pattern, config) {
@@ -162,35 +162,35 @@ $configDefaults\$configDefaults ? ',\n' ...config;
     //   // LINT: unreachable code removed}
 
   generateMethod(methodName, pattern, config): unknown
-
-      this.emit('initialized');
-      console.warn(' ${config.name  ?? 'Plugin'} initialized');catch(error) ;
-      this.emit('error', method = false;)
-      this.emit('cleanup');
-      console.warn(' ${config.name  ?? 'Plugin'} cleaned up');catch(error) ;
+`
+      this.emit('initialized');'
+      console.warn(' ${config.name  ?? 'Plugin'} initialized');catch(error) ;'
+      this.emit('error', method = false;)'
+      this.emit('cleanup');'
+      console.warn(' ${config.name  ?? 'Plugin'} cleaned up');catch(error) ;'
       this.emit('error', method = ) 
-  if(!this.initialized) {
+  if(!this.initialized) {'
       throw new Error('Plugin not initialized');
     //     }
 
     const __startTime = Date.now();
 
-    try {
+    try {'
       this.emit('process = // await this.processData(data, options);'
-
+'
       this.emit('process = [];'
 
-    // Validation logic/g)
-  if(!data) {
+    // Validation logic/g
+  if(!data) {'
       errors.push('Data is required');
     //     }
-   catch (error) console.error(error); if(errors.length > 0) {
+   catch (error) console.error(error); if(errors.length > 0) {'
       const _error = new Error('Validation failed');
       error.validationErrors = errors;
       throw error;
     //     }
 
-    // return true;
+    // return true;'
     //   // LINT: unreachable code removed}`;`
     };
 
@@ -202,7 +202,7 @@ $configDefaults\$configDefaults ? ',\n' ...config;
     //   // LINT: unreachable code removed}
       this.cache.delete(key);
     //     }
-    // return null;
+    // return null;`
     //   // LINT: unreachable code removed}`,name = === 0) ;`
       return;
     // ; // LINT: unreachable code removed
@@ -211,7 +211,7 @@ $configDefaults\$configDefaults ? ',\n' ...config;
       const _item = this.queue.shift();
       try {
 // // await this.processItem(item);
-      } catch (error) { console.error(error); } catch(/* _error */) 
+      } catch (error) { console.error(error); } catch(/* _error */) `
         this.emit('queue = false;'`;`
         //         }
       ];
@@ -223,27 +223,27 @@ $configDefaults\$configDefaults ? ',\n' ...config;
   async generatePluginCode(structure, options) { 
     const  imports, className, constructor, methods, properties } = structure;
 
-    // Generate main plugin file
+    // Generate main plugin file`
     const _mainCode = ` /**` */
  * $structure.namePlugin;
  * $structure.description
  * ;
-/** Generated by Assistant Plugins Plugin;
+/** Generated by Assistant Plugins Plugin;` */
  *Pattern = > `import ${imp};`).join('\n')}
 
-// export class ${className} extends ${structure.extends} {
+// export class ${className} extends ${structure.extends} {'
   ${properties.join(';\n  ')};
 
   ${constructor}
 
-\${methods.map(method => {)
-  if(typeof method === 'object') {
+\${methods.map(method => {)'
+  if(typeof method === 'object') {'
 //     return `${method.async ? 'async ' }${method.name}\${method.body.includes(method.name) ? method.body.substring(method.body.indexOf('(')) }'}`;'
-    //   // LINT: unreachable code removed}
-//   return `${method}`;
+    //   // LINT: unreachable code removed}'
+//   return `${method}`;`
 }).join('\n\n')}
 
-  // Helper methods
+  // Helper methods'
   async \${structure.extends === 'EventEmitter' ? 'emitAsync' }(event, data) {
     // return new Promise((resolve) => {
       this.emit(event, data);
@@ -254,26 +254,26 @@ $configDefaults\$configDefaults ? ',\n' ...config;
     // return {
       initialized = {name = {};
     // ; // LINT: unreachable code removed
-    // Add dependencies based on features
-    if(structure.config.features?.includes('http')) {
+    // Add dependencies based on features'
+    if(structure.config.features?.includes('http')) {'
       deps['node-fetch'] = '^3.0.0';
     //     }
-
-    if(structure.config.features?.includes('database')) {
-  if(options.database === 'postgres') {
-        deps['pg'] = '^8.0.0';
-      } else if(options.database === 'mysql') {
-        deps['mysql2'] = '^3.0.0';
-      } else if(options.database === 'sqlite') {
+'
+    if(structure.config.features?.includes('database')) {'
+  if(options.database === 'postgres') {'
+        deps['pg'] = '^8.0.0';'
+      } else if(options.database === 'mysql') {'
+        deps['mysql2'] = '^3.0.0';'
+      } else if(options.database === 'sqlite') {'
         deps['sqlite3'] = '^5.0.0';
       //       }
     //     }
 
     // Add explicit dependencies
   if(options.dependencies) {
-  for(const dep of options.dependencies) {
-  if(typeof dep === 'string') {
-          deps[dep] = 'latest'; } else {
+  for(const dep of options.dependencies) {'
+  if(typeof dep === 'string') {'
+          deps[dep] = 'latest'; } else {'
           deps[dep.name] = dep.version  ?? 'latest'; //         }
       //       }
     //     }
@@ -283,8 +283,8 @@ $configDefaults\$configDefaults ? ',\n' ...config;
 
   async generateTests(structure) { 
     const  className, methods } = structure;
-
-    // return `import { ${className} } from '../index.js';`
+'
+    // return `import { ${className} } from '../index.js';``
     // describe('${className // LINT) => {'
   let plugin;
 
@@ -295,20 +295,20 @@ $configDefaults\$configDefaults ? ',\n' ...config;
 // // await plugin.cleanup();
     //     }
   });
-
-  describe('initialization', () => {
+'
+  describe('initialization', () => {'
     test('should initialize successfully', async() => {
 // await plugin.initialize();
       expect(plugin.initialized).toBe(true);
     });
-
+'
     test('should emit initialized event', async() => {
-      const _handler = jest.fn();
+      const _handler = jest.fn();'
       plugin.on('initialized', handler);
 // await plugin.initialize();
       expect(handler).toHaveBeenCalled();
     });
-
+'
     test('should not initialize twice', async() => {
 // await plugin.initialize();
       await plugin.initialize(); // Should not throw
@@ -316,67 +316,67 @@ $configDefaults\$configDefaults ? ',\n' ...config;
       expect(plugin.initialized).toBe(true);
     });
   });
-
-  describe('cleanup', () => {
+'
+  describe('cleanup', () => {'
     test('should cleanup successfully', async() => {
 // await plugin.initialize();
 // await plugin.cleanup();
       expect(plugin.initialized).toBe(false);
     });
-
+'
     test('should emit cleanup event', async() => {
 // await plugin.initialize();
-      const _handler = jest.fn();
+      const _handler = jest.fn();'
       plugin.on('cleanup', handler);
 // // await plugin.cleanup();
       expect(handler).toHaveBeenCalled();
     });
   });
-
-${methods.filter(m => m.name !== 'initialize' && m.name !== 'cleanup').map(method => `  describe('${method.name}', () => {`
-    test('should require initialization', async() => {
+'
+${methods.filter(m => m.name !== 'initialize' && m.name !== 'cleanup').map(method => `  describe('${method.name}', () => {``
+    test('should require initialization', async() => {'
 // await expect(plugin.${method.name}()).rejects.toThrow('not initialized');
     });
-
+'
     test('should ${method.name} successfully', async() => {
 // await plugin.initialize();
       // Add specific test logic for ${method.name}
     });
-  });
+  });'
 `).join('\n')}`
-
-  describe('error handling', () => {
+`
+  describe('error handling', () => {'
     test('should emit error events', async() => {
-      const _handler = jest.fn();
+      const _handler = jest.fn();'
       plugin.on('error', handler);
 
       // Trigger an error scenario
-      // expect(handler).toHaveBeenCalledWith(expect.objectContaining({ error => {/g))
+      // expect(handler).toHaveBeenCalledWith(expect.objectContaining({ error => {/g))'
     test('should return current status', async() => {
       const _status = plugin.getStatus();
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
       expect(status).toHaveProperty('initialized', false);
       });
-  });
+  });'
 });`;`
   //   }
 
   async generateDocumentation(structure) { 
     const  name, className, description, methods, events, config } = structure;
-
+`
     // return `# ${name} Plugin`
 
     // \${description // LINT}
 
 ## Installation
-
+`
 \`\`\`bash;`
-npm install @claude-zen
+npm install @claude-zen`
 \`\`\`
 
 ## Usage
-
-\`\`\`javascript;`
+`
+\`\`\`javascript;``
 // import { ${className} } from '@claude-zen/plugin-${this.toKebabCase(name)}';
 
 const _plugin = new ${className}({ // Configuration options
@@ -388,7 +388,7 @@ const _plugin = new ${className}({ // Configuration options
 ${this.generateUsageExample(structure)}
 
 // Clean up when done
-// // await plugin.cleanup();
+// // await plugin.cleanup();'
 \`\`\`
 
 ## Configuration
@@ -399,27 +399,27 @@ ${this.generateConfigurationDocs(config)}
 
 ### Methods
 
-${methods.map(method => {)
+${methods.map(method => {)`
   const _methodName = typeof method === 'object' ? method.name = > `#### \`${event}\`${this.getEventDescription(event)}`
-
-\`\`\`javascript;`
-plugin.on('${event}', (data) => {
+`
+\`\`\`javascript;``
+plugin.on('${event}', (data) => {'
   console.warn('${event});'
-});
+});'
 \`\`\``).join('\n\n')}
 
 ## Examples
 
 ### Basic Usage
-
+'
 \`\`\`javascript;`
-${this.generateBasicExample(structure)}
+${this.generateBasicExample(structure)}`
 \`\`\`
 
 ### Advanced Usage
-
+`
 \`\`\`javascript;`
-${this.generateAdvancedExample(structure)}
+${this.generateAdvancedExample(structure)}`
 \`\`\`
 
 ## Best Practices
@@ -431,28 +431,28 @@ ${this.generateBestPractices(structure)}
 ${this.generateTroubleshooting(structure)}
 
 ## License
-
+`
 MIT`;`
   //   }
 
-  async generateExamples(structure) { 
+  async generateExamples(structure) { `
     // return `import  ${structure.className} } from '../index.js';`
     // async function basicExample() { // LINT: unreachable code removed
   const _plugin = new ${structure.className}({ // Basic configuration
     });
 
   try {
-// // await plugin.initialize();
+// // await plugin.initialize();`
     console.warn('Plugin initialized');
 
     // Use the plugin
     ${this.generateExampleUsage(structure)}
 
-   catch (error) { console.error(error); }} catch(error)
+   catch (error) { console.error(error); }} catch(error)'
     console.error('Error = new ${structure.className}({'
-    // Advanced configuration/g))
-    ${structure.config.features?.includes('caching') ? 'cacheTimeout => {'
-    console.error('Pluginerror = > `plugin.on('${event}', (data) => {'`
+    // Advanced configuration/g))'
+    ${structure.config.features?.includes('caching') ? ''
+    console.error('Pluginerror = > `plugin.on('${event}', (data) => {'``
     console.warn('${event}););`).join('\n  ')}'`
 
   try {
@@ -461,8 +461,8 @@ MIT`;`
     ${this.generateAdvancedUsage(structure)}
 
      catch (error) { console.error(error); }// Get status
-    const _status = plugin.getStatus();
-    console.warn('Pluginstatus = === \`file = {}) {'`
+    const _status = plugin.getStatus();`
+    console.warn('Pluginstatus = === \`file = {}) {'``
     console.warn(` Analyzingplugin = // await readFile(pluginPath, 'utf8');`
 
       // Analyze structure
@@ -490,20 +490,18 @@ MIT`;`
         timestamp = {classes = code.matchAll(/class\s+(\w+)(?:\s+extends\s+(\w+))?\s*{/g);
   for(const _match of classMatches) {
       structure.classes.push({name = code.matchAll(/(?)?(\w+)\s*\([^)]*\)\s*{/g); 
-  for(const match of methodMatches) {
+  for(const match of methodMatches) {`
       if(!['constructor', 'if', 'for', 'while', 'switch'].includes(match[1])) {
         structure.methods.push(match[1]); //       }
     //     }
 
-    // Extract event emissions
-    const _eventMatches = code.matchAll(/this\.emit\(['"`]([^'"]+) {['"`]/g);"'
+    // Extract event emissions'"`]([^'""`]/g);"'
   for(const match of eventMatches) {
       if(!structure.events.includes(match[1])) {
         structure.events.push(match[1]); //       }
     //     }
 
-    // Extract imports
-    const _importMatches = code.matchAll(/import\s+(?)\s+from\s+['"`]([^'"]+)['"`]/g); "'
+    // Extract imports'"`]([^'"`]/g); "'
   for(const match of importMatches) {
       structure.imports.push(match[1]);
     //     }
@@ -553,11 +551,11 @@ MIT`;`
     // return totalWeight > 0 ? matchCount /totalWeight = [];
     // const _suggestions = []; // LINT: unreachable code removed
 
-    // Check for async/// await patterns
+    // Check for async/// await patterns'
   if(code.includes('.then(') {&& code.includes('async')) {
       issues.push({type = (code.match(/\.on\(/g)  ?? []).length;
     const _removeListenerCount = (code.match(/\.(off|removeListener)\(/g)  ?? []).length;
-  if(listenerCount > removeListenerCount + 2) {
+  if(listenerCount > removeListenerCount + 2) {'
       issues.push({type = > code.includes(`async ${m}`)).length,eventEmissions = [
 // \bif\s*\(/g,
 // \belse\s+if\s*\(/g,
@@ -580,20 +578,20 @@ MIT`;`
     // return complexity;
     //   // LINT: unreachable code removed}
 
-  async checkCompatibility(code, structure) { 
+  async checkCompatibility(code, structure) { `
     const _compatibility = nodeVersion = '14.0.0';
     //     }
-
-    if(code.includes('Promise.allSettled')) {
+'
+    if(code.includes('Promise.allSettled')) {'
       compatibility.nodeVersion = '12.9.0';
     //     }
-
-    if(code.includes('globalThis')) {
+'
+    if(code.includes('globalThis')) {'
       compatibility.nodeVersion = '12.0.0';
     //     }
 
     // Extract dependencies from imports
-  for(const imp of structure.imports) {
+  for(const imp of structure.imports) {'
       if(!imp.startsWith('.') && !imp.startsWith('@claude-zen/')) {
         compatibility.dependencies.push(imp); //       }
     //     }
@@ -604,10 +602,10 @@ MIT`;`
   async generateSuggestions(structure, patterns, performance) { 
     const _suggestions = [];
 
-    // Method suggestions
+    // Method suggestions'
     if(!structure.methods.includes('getStatus')) 
-      suggestions.push({type = false;
-}`;`)
+      suggestions.push({type = false;'
+}`;`
       });
     //     }
 
@@ -615,83 +613,64 @@ MIT`;`
   if(structure.events.length === 0) {
       suggestions.push({type = === 0) {
       suggestions.push({type = > ({type = path.join(;
-      this.config.pluginAnalysisDir,)))
+      this.config.pluginAnalysisDir,)))`
       `\$path.basename(analysis.pluginPath, '.js')-analysis.json`;
     );
 // // await writeFile(reportPath, JSON.stringify(analysis, null, 2));
     // Generate readable report
     const _readableReport = this.generateReadableReport(analysis);
     const _readablePath = path.join(;
-      this.config.pluginAnalysisDir,)
+      this.config.pluginAnalysisDir,)`
       `\$path.basename(analysis.pluginPath, '.js')-report.md`;
     );
 // // await writeFile(readablePath, readableReport);
   //   }
   generateReadableReport(analysis) {
     const { structure, patterns, performance, compatibility, suggestions } = analysis;
-
+`
     // return `# Plugin Analysis Report`
-
-    // **Plugin = > c.name).join(', ')  ?? 'None' // LINT: unreachable code removed}
+`
+    // **Plugin = > c.name).join(', ')  ?? 'None' // LINT: unreachable code removed}'
 - **Methods = > `- ${m}()`).join('\n')}
 
-### Events;
+### Events;'
 \$structure.events.map(e => `- ${e}`).join('\n')  ?? 'No events emitted'
 
 ## Pattern Analysis
-
-\$patterns?.length > 0 ? patterns.map(p => `### ${p.pattern}`)
+'
+\$patterns?.length > 0 ? patterns.map(p => `### ${p.pattern}`)`
 - **Score = > `- **${i.type}** ($, { i.severity }): $i.message`).join('\n')  ?? 'No issues found'}
 
-### Metrics;
-- **AsyncMethods = > `- \$i.message`).join('\n')}` : ''`
+### Metrics;'
+- **AsyncMethods = > `- \$i.message`).join('\n''`
 
 ## Suggestions
-
-\$suggestions?.map(s => `### ${s.suggestion} (${s.priority} priority);`
-${s.code ? `\`\`\`javascript\n${s.code}\n\`\`\`` : ''}
+`
+\$suggestions?.map(s => `### ${s.suggestion} (${s.priority} priority);``
+${s.code ? `\`\`\`javascript\n${s.code}\n\`\`\`` : ''}'
 \${s.examples ? `Examples = // await this.analyzePlugin(pluginPath);`
 //     return analysis.suggestions;
     //   // LINT}
 
-  async refactorPlugin(pluginPath, improvements = []) { 
-    console.warn(` Refactoringplugin = await readFile(pluginPath, 'utf8');`
-
-    // Apply improvements
-    let _refactoredCode = originalCode;
-
-    for (const improvement of improvements) 
-      refactoredCode = // await this.applyImprovement(refactoredCode, improvement); 
-    //     }
-
-    // Format code
-    refactoredCode = this.formatCode(refactoredCode); // Create backup
-    const _backupPath = `${pluginPath}.backup`;
-// // await writeFile(backupPath, originalCode) {;
-    // Write refactored code
-// // await writeFile(pluginPath, refactoredCode);
-    console.warn(` Plugin refactored. Backup saved at ${backupPath}`);
-
-    // return {original = > word.charAt(0).toUpperCase() + word.slice(1));
-    // .join('') + 'Plugin'; // LINT: unreachable code removed
+  async refactorPlugin(pluginPath, improvements = []) { `
+    console.warn(` Refactoringplugin = await readFile(pluginPath, 'utf8'') + 'Plugin'; // LINT: unreachable code removed
   //   }
   toKebabCase(name) {
-    // return name;
-    // .replace(/([a-z])([A-Z])/g, '$1-$2'); // LINT: unreachable code removed
+    // return name;'
+    // .replace(/([a-z])([A-Z])/g, '$1-$2'); // LINT: unreachable code removed'
 replace(/[\s_]+/g, '-');
 toLowerCase();
   //   }
   createCustomPattern(features) {
     // return {
-      name = {};
+      name = {};'
     // const _lines = configStr.split('\n'); // LINT: unreachable code removed
   for(const line of lines) {
       const _match = line.match(/^\s*(\w+):\s*(.+?),?\s*$/); 
   if(match) {
         const [ key, value] = match; try {
           config[key] = JSON.parse(value) {;
-        } catch (error) { console.error(error); } catch(/* e */) 
-          config[key] = value.replace(/['"]/g, '');"'
+        } catch (error) { console.error(error); } catch(/* e */) '']/g, '''
         //         }
       //       }
     //     }
@@ -699,14 +678,14 @@ toLowerCase();
     // return config;
     //   // LINT: unreachable code removed}
   generateUsageExample(structure) {
-    const _mainMethod = structure.methods.find(m => ;
-      ['process', 'execute', 'run', 'transform'].includes(;
-        typeof m = === 'object' ? m.name ;))
+    const _mainMethod = structure.methods.find(m => ;'
+      ['process', 'execute', 'run', 'transform'].includes(;'
+        typeof m = === 'object' ? m.name ;)
       );
     );
-  if(mainMethod) {
+  if(mainMethod) {'
       const _methodName = typeof mainMethod === 'object' ? mainMethod.name = // await plugin.${methodName}(data);`;`
-
+`
     // return '// Use plugin methods';
     //   // LINT: unreachable code removed}
 
@@ -715,60 +694,60 @@ toLowerCase();
     //   // LINT: unreachable code removed}
   generateAdvancedUsage(structure) {
     const _examples = [];
-
-    if(structure.config.features?.includes('queue')) {
+'
+    if(structure.config.features?.includes('queue')) {'
       examples.push(`// Queue multiple items`/g)
   for(const item of items) {
-// // await plugin.enqueue(item); 
+// // await plugin.enqueue(item); `
 }`); `
-    //     }
-  if(structure.config.features?.includes('caching') {) {
-      examples.push(`// Use caching`/g)
+    //     }`
+  if(structure.config.features?.includes('caching') {) {'
+      examples.push(`// Use caching`/g)`
 const _cached = plugin.getCached('key');
   if(!cached) {
-// const _result = awaitplugin.process(data);
-  plugin.setCached('key', result);
+// const _result = awaitplugin.process(data);'
+  plugin.setCached('key', result);'
 }`);`
     //     }
-
+`
     // return examples.join('\n    \n    ');
     //   // LINT: unreachable code removed}
 
   generateConfigurationDocs(config): unknown
-  if(!config.defaults) {
+  if(!config.defaults) {'
       // return 'No configuration options available.';
     //   // LINT: unreachable code removed}
 
-    // return Object.entries(config.defaults);
-    // .map(([key, value]) => `- \`\${key // LINT}\` - ${typeof value} (default = {initialize = {`
-      'initialized': 'Emitted when plugin is successfully initialized.',
-      'error': 'Emitted when an error occurs.',
-      'cleanup': 'Emitted when cleanup is complete.',
-      'data = ['
-      '1. Always initialize the plugin before use',
-      '2. Handle errors gracefully and emit error events',
-      '3. Clean up resources when done',
+    // return Object.entries(config.defaults);'
+    // .map(([key, value]) => `- \`\${key // LINT}\` - ${typeof value} (default = {initialize = {``
+      'initialized': 'Emitted when plugin is successfully initialized.','
+      'error': 'Emitted when an error occurs.','
+      'cleanup': 'Emitted when cleanup is complete.','
+      ''
+      '1. Always initialize the plugin before use','
+      '2. Handle errors gracefully and emit error events','
+      '3. Clean up resources when done','
       '4. Use event emissions for better integration';
     ];
-
-    if(structure.config.features?.includes('caching')) {
+'
+    if(structure.config.features?.includes('caching')) {'
       practices.push('5. Configure appropriate cache timeouts');
     //     }
-
-    if(structure.config.features?.includes('queue')) {
+'
+    if(structure.config.features?.includes('queue')) {'
       practices.push('5. Monitor queue size to prevent memory issues');
     //     }
-
+'
     // return practices.join('\n');
     //   // LINT: unreachable code removed}
 
-  generateTroubleshooting(structure): unknown
+  generateTroubleshooting(structure): unknown'
     // return `### Common Issues`
 
-    // 1. **Plugin not initialized error**; // LINT: unreachable code removed
+    // 1. **Plugin not initialized error**; // LINT: unreachable code removed`
    - Ensure you call \`// await plugin.initialize()\` before using other methods
 
-2. **Resource cleanup issues**;
+2. **Resource cleanup issues**;`
    - Always call \`// await plugin.cleanup()\` when done;
    - Use try/finally blocks to ensure cleanup
 
@@ -777,18 +756,18 @@ const _cached = plugin.getCached('key');
    - Clear caches periodically if using caching feature
 
 4. **Performance issues**;
-   - Check configuration values;
+   - Check configuration values;`
    - Monitor resource usage with \`getStatus()\``;`
 
   async saveGeneratedPlugin(pluginPackage) { 
     const _pluginDir = path.join(;
-      this.config.pluginTemplatesDir,
+      this.config.pluginTemplatesDir,`
       'generated',
-      pluginPackage.name;)
+      pluginPackage.name;
     );
-// // await mkdir(pluginDir, recursive = path.join(pluginDir, filePath);
+// // await mkdir(pluginDir, recursive = path.join(pluginDir, filePath);'
 // // await mkdir(path.dirname(fullPath), {recursive = path.join(pluginDir, '.plugin-metadata.json');
-// // await writeFile(metadataPath, JSON.stringify(pluginPackage.metadata, null, 2));
+// // await writeFile(metadataPath, JSON.stringify(pluginPackage.metadata, null, 2));'
     console.warn(` Plugin saved to $pluginDir`);
   //   }
 
@@ -796,10 +775,11 @@ const _cached = plugin.getCached('key');
     // return patterns = [];
     // this.analysisCache.clear(); // LINT: unreachable code removed
     this.removeAllListeners();
-
+`
     console.warn(' Assistant Plugins Plugin cleaned up');
 // }
 
 // export default AssistantPluginsPlugin;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))
+'

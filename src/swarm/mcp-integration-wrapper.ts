@@ -1,18 +1,21 @@
-/** MCP Integration Wrapper for Swarm System;
- *;
-/** This module provides a comprehensive wrapper around MCP tools to enable;
- * seamless integration with the swarm orchestration system. It handles;
- * tool discovery, execution, error handling, and result aggregation.;
- */
+/** MCP Integration Wrapper for Swarm System; */
+*
+/** This module provides a comprehensive wrapper around MCP tools to enable; */
+* seamless integration
+with the swarm
+orchestration;
+system.It;
+handles;
+* tool discovery, execution, error handling, and result aggregation.
 
-'node = new Map();';
+'node = new Map();'
 // private activeExecutions = new Map() {}
 // private metrics =
 // {
 // }
-// )
+//
 // {
-//   super();
+//   super();'
 this.logger = new Logger('MCPIntegrationWrapper');
 this.config = this.createDefaultConfig(config);
 this.toolRegistry = this.initializeToolRegistry();
@@ -20,13 +23,12 @@ this.metrics = this.initializeMetrics();
 this.setupEventHandlers();
 // }
 
-/** Initialize the MCP integration wrapper;
+/** Initialize the MCP integration wrapper; */
 
- */
-async;
+async
 initialize();
 : Promise<void>
-// {
+// {'
     this.logger.info('Initializing MCP integration wrapper...')
 
 try {
@@ -44,16 +46,16 @@ try {
   if(this.config.enableCaching) {
         this.startCacheCleanup();
       //       }
-
+'
       this.logger.info('MCP integration wrapper initialized successfully', {totalTools = generateId('mcp-execution');
     const __startTime = performance.now();
-
+'
     this.logger.info('Executing MCP tool', {
-      toolName,)
+      toolName,
       executionId,agentId = this.toolRegistry.tools.get(toolName);
-  if(!tool) {
+  if(!tool) {'
         throw new Error(`Tool notfound = // await this.getCachedResult(toolName, input, context);`
-  if(cached) {
+  if(cached) {`
           this.logger.debug('Using cached result', { toolName, executionId });
           // return cached;
     //   // LINT: unreachable code removed}
@@ -75,7 +77,7 @@ try {
           input,
           context,
           executionId,
-          abortController.signal;)
+          abortController.signal;
         );
 
         clearTimeout(timeoutHandle);
@@ -86,13 +88,13 @@ try {
   for(const execution of toolExecutions) {
 // const _result = awaitthis.executeTool(; 
           execution.toolName,
-          execution.input,)
+          execution.input,
           execution.context; ) {;
         results.push(result);
       //       }
        catch (error) console.error(error); 
     //   // LINT: unreachable code removed}
-
+'
     this.logger.info('Executing tools in parallel', {toolCount = new Semaphore(this.config.maxConcurrentTools);
 
     const _promises = toolExecutions.map(async(execution) => {
@@ -106,7 +108,7 @@ try {
     });
 // const _results = awaitPromise.allSettled(promises);
 
-    // return results.map((result, index) => {
+    // return results.map((result, index) => {'
   if(result.status === 'fulfilled') {
 //         return result.value;
     //   // LINT: unreachable code removed} else {
@@ -135,7 +137,7 @@ try {
     return tools;
 //   // LINT: unreachable code removed}
 
-/** Get tool information;
+/** Get tool information; */
 
   getToolInfo(toolName = createClaudeFlowTools(this.logger);
   for(const tool of claudeFlowTools) {
@@ -152,11 +154,11 @@ try {
           this.toolRegistry.capabilities.set(capability, []); //         }
         this.toolRegistry.capabilities.get(capability)!.push(tool.name); //       }
     //     }
-
+'
     this.logger.info(`Registered ${claudeFlowTools.length} Claude Flow tools`) {;
   //   }
 
-  // private async registerRuvSwarmTools(): Promise<void> {
+  // private async registerRuvSwarmTools(): Promise<void> {`
     this.logger.info('Registering ruv-swarm tools...');
 
     const _ruvSwarmTools = createRuvSwarmTools(this.logger);
@@ -174,7 +176,7 @@ try {
           this.toolRegistry.capabilities.set(capability, []); //         }
         this.toolRegistry.capabilities.get(capability)!.push(tool.name); //       }
     //     }
-
+'
     this.logger.info(`Registered ${ruvSwarmTools.length} ruv-swarm tools`) {;
   //   }
 
@@ -183,20 +185,20 @@ try {
   for(const attempt = 1; attempt <= maxRetries; attempt++) { 
 // try
         // Check if execution was aborted
-  if(signal.aborted) {
+  if(signal.aborted) {`
           throw new Error('Execution aborted');
         //         }
-
+'
         this.logger.debug('Executing tool attempt', {toolName = // await tool.handler(input, context);
-  if(attempt > 1) {
+  if(attempt > 1) {'
           this.logger.info('Tool execution succeeded after retry', {toolName = error instanceof Error ? error : new Error(String(error));
-
+'
         this.logger.warn('Tool execution attempt failed', {toolName = Math.min(1000 * Math.pow(2, attempt - 1), 10000);
 // // await new Promise(resolve => setTimeout(resolve, delay));
         //         }
       //       }
     //     }
-
+'
     throw lastError  ?? new Error('Tool execution failed after all retries');
   //   }
 
@@ -257,13 +259,13 @@ try {
 
   // private categorizeClaudeFlowTool(toolName = [];
 
-    // Extract capabilities from tool name and description
+    // Extract capabilities from tool name and description'
     const _text = `${tool.name} ${tool.description}`.toLowerCase();
 
-    const _capabilityPatterns = [
-      'agent', 'task', 'memory', 'system', 'config', 'workflow',
-      'terminal', 'swarm', 'neural', 'benchmark', 'monitoring',
-      'orchestration', 'coordination', 'analysis', 'research',
+    const _capabilityPatterns = [`
+      'agent', 'task', 'memory', 'system', 'config', 'workflow','
+      'terminal', 'swarm', 'neural', 'benchmark', 'monitoring','
+      'orchestration', 'coordination', 'analysis', 'research','
       'development', 'testing', 'documentation', 'optimization' ];
   for(const pattern of capabilityPatterns) {
       if(text.includes(pattern)) {
@@ -305,19 +307,19 @@ try {
       //       }
 
       expired.forEach(key => this.executionCache.delete(key) {);
-  if(expired.length > 0) {
+  if(expired.length > 0) {'
         this.logger.debug('Cleaned up expired cache entries', { ;
-          count => {)
-  if(this.config.enableLogging) {
+          count => {
+  if(this.config.enableLogging) {'
         this.logger.debug('Tool execution completed', {
-          toolName => {)
-  if(this.config.enableLogging) {
+          toolName => {
+  if(this.config.enableLogging) {'
         this.logger.warn('Tool execution failed', {toolName = > void> = [];
 
   constructor(permits = permits;
   //   }
 
-))
+)
   async acquire(): Promise<void> {
   if(this.permits > 0) {
       this.permits--;
@@ -340,4 +342,11 @@ try {
 
 // export default MCPIntegrationWrapper;
 
-}}}}}}}}}}}}}}}))))))))))))))))))))
+}}}}}}}}}}}}}}})))))))))))))))))))
+'
+}
+}
+}
+}
+}
+}

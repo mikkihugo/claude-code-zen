@@ -1,13 +1,12 @@
-/** DirectorySelector Module
-/** Converted from JavaScript to TypeScript
+/** DirectorySelector Module */
+/** Converted from JavaScript to TypeScript */
 
- */
 import { Box } from 'ink';
-
 '
-
+'
+'
 import React, { useEffect, useState } from 'react';
-
+'
 '
 
 const _DirectorySelector = () => {
@@ -36,12 +35,12 @@ const _DirectorySelector = () => {
       //       }
     //     }
 };
-// )
+// 
 // return React.createElement(Box, { borderStyle => {
         const _isSelected = index === selectedIndex;
-// let _displayName = dir.name; // LINT: unreachable code removed/g)
-if(dir.isParent) displayName = '  ..';'
-else if(dir.isCurrent) displayName = ' . (Select this directory)';'
+// let _displayName = dir.name; // LINT: unreachable code removed/g)'
+if(dir.isParent) displayName = '  ..''
+else if(dir.isCurrent) displayName = ' . (Select this directory)''
 else displayName = ` $dir.name`;`
 // return React.createElement(;
 // Box, // LINT: unreachable code removed
@@ -51,21 +50,21 @@ else displayName = ` $dir.name`;`
 
 React.createElement(
 Text,
-// {
-  color: isSelected ? 'black' : 'white','
+// {`
+  color: isSelected ? 'black' : 'white''
   backgroundColor: isSelected ? 'cyan' ,'
   bold}
-
+'
 `\$isSelected ? ' ' '`
 $;
 // {
   displayName;
+// }`
+`;`)
+// 
+// 
 // }
-`;`))
-// )
-// )
-// }
-// )
+// 
 ),
 React.createElement(Box,
 // {
@@ -73,11 +72,14 @@ React.createElement(Box,
 // }
 
 React.createElement(Text,
-// {
+// {`
   color: 'gray';'
-// }/g))
+// }/g))'
 , " Navigate | Enter: Select/Open | ESC: Cancel")"
-// )
-// )
+// 
+// 
 // }
 // export default DirectorySelector;
+"
+}
+}

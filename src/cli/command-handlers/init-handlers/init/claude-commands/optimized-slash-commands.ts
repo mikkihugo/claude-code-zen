@@ -1,21 +1,22 @@
-/** Optimized Slash Commands Module
-/** Converted from JavaScript to TypeScript
+/** Optimized Slash Commands Module */
+/** Converted from JavaScript to TypeScript */
 
 // optimized-slash-commands.js - Create batchtools-optimized Claude Code slash commands
 
- */
 import { promises as fs } from 'node:fs';
+'
 import { join } from 'node:path';
+'
 import { createOptimizedMainSparcCommand } from '.';
 
 // Create batchtools-optimized Claude Code slash commands for SPARC modes
 export async function createOptimizedClaudeSlashCommands(workingDir = null) {
-  try {
+  try {'
     console.warn('\n Creating batchtools-optimized Claude Code slash commands...');
 
-    // Use template copier with optimized flag
+    // Use template copier with optimized flag'
     const __optimizedOptions = {sparc = `${workingDir} catch (error) { console.error(error); }`
-    try {
+    try {`
 // const _roomodesContent = awaitfs.readFile(roomodesPath, 'utf8');
       const _roomodes = JSON.parse(roomodesContent);
 
@@ -23,23 +24,23 @@ export async function createOptimizedClaudeSlashCommands(workingDir = null) {
       const _modesToCreate = selectedModes;
         ? roomodes.customModes.filter((mode) => selectedModes.includes(mode.slug));
         : roomodes.customModes;
-
+'
       console.warn(`   Creating optimized commands for ${modesToCreate.length}  catch (error) { console.error(error); }modes...`);
 
-      // Create slash commands for each SPARC mode with batchtools optimization
-// // await fs.mkdir(join(workingDir, '.claude', 'commands', 'sparc'), {recursive = createOptimizedMainSparcCommand(roomodes.customModes);
-// // await fs.writeFile(join(workingDir, '.claude', 'commands', 'sparc.md'), mainSparcCommand);
+      // Create slash commands for each SPARC mode with batchtools optimization`
+// // await fs.mkdir(join(workingDir, '.claude', 'commands', 'sparc'), {recursive = createOptimizedMainSparcCommand(roomodes.customModes);'
+// // await fs.writeFile(join(workingDir, '.claude', 'commands', 'sparc.md'), mainSparcCommand);'
       console.warn('   Created optimized main slashcommand = // await copyTemplates(workingDir, optimizedOptions);'
-  if(!copyResults.success) {
-        console.warn(`    Template copierfailed = `---name = // await batchtools.parallel([;/g))
-  read('/src/controller.ts'),
-  read('/src/service.ts'),
-  read('/src/model.ts'),
+  if(!copyResults.success) {'
+        console.warn(`    Template copierfailed = `---name = // await batchtools.parallel([;/g))`
+  read('/src/controller.ts'),'
+  read('/src/service.ts'),'
+  read('/src/model.ts'),'
   read('/tests/unit.test.ts');
-]);
+]);'
 \`\`\`
 
-### Batch Code Generation;
+### Batch Code Generation;`
 \`\`\`javascript;`
 // Create multiple files in parallel
 // // await batchtools.createFiles([path = // await batchtools.concurrent([;/g))
@@ -47,7 +48,7 @@ export async function createOptimizedClaudeSlashCommands(workingDir = null) {
   validateSecurity(),
   checkPerformance(),
   reviewCodeQuality();
-]);
+]);`
 \`\`\`
 
 ## Performance Benefits
@@ -66,7 +67,7 @@ export async function createOptimizedClaudeSlashCommands(workingDir = null) {
 
 ## Best Practices
 
-### When to Use Parallel Operations;
+### When to Use Parallel Operations;`
  **Use parallelwhen = `---;`
 // name: performance
 description: Monitor and optimize system performance with batchtools;
@@ -92,7 +93,7 @@ Real-time performance monitoring and optimization tools for Claude-Flow operatio
 
 ## Monitoring Commands
 
-### Real-time Monitoring;
+### Real-time Monitoring;`
 \`\`\`bash;`
 # Monitor all system performance;
 // claude-zen performance monitor --real-time --all
@@ -101,10 +102,10 @@ Real-time performance monitoring and optimization tools for Claude-Flow operatio
 // claude-zen performance monitor --parallel --batchtools
 
 # Monitor specific components;
-// claude-zen performance monitor --focus sparc --concurrent;
+// claude-zen performance monitor --focus sparc --concurrent;`
 \`\`\`
 
-### Performance Analysis;
+### Performance Analysis;`
 \`\`\`bash;`
 # Generate performance report;
 // claude-zen performance report --detailed --timeframe 24h
@@ -113,7 +114,7 @@ Real-time performance monitoring and optimization tools for Claude-Flow operatio
 // claude-zen performance analyze --batchtools --optimization
 
 # Compare performance across different modes;
-// claude-zen performance compare --modes architect,code,tdd;
+// claude-zen performance compare --modes architect,code,tdd;`
 \`\`\`
 
 ## Optimization Recommendations
@@ -132,18 +133,18 @@ Real-time performance monitoring and optimization tools for Claude-Flow operatio
 
 ## Performance Tuning
 
-### Configuration Optimization;
-\`\`\`json;`
-  "performance":
-    "batchtools":
-      "maxConcurrent",
-      "batchSize",
-      "enableOptimization",
-      "smartBatching",
-    "monitoring":
-      "realTimeMetrics",
-      "performanceLogging",
-      "resourceAlerts";
+### Configuration Optimization;`
+\`\`\`json;``
+  "performance":"
+    "batchtools":"
+      'maxConcurrent',"
+      'batchSize',"
+      'enableOptimization',"
+      'smartBatching',"
+    "monitoring":"
+      'realTimeMetrics',"
+      'performanceLogging',"
+      "resourceAlerts";"
 \`\`\`
 
 ### Best Practices;
@@ -153,11 +154,12 @@ Real-time performance monitoring and optimization tools for Claude-Flow operatio
 - Implement performance alerts for critical thresholds;
 - Regular performance analysis and optimization
 
-For comprehensive performance guides, see,//github.com/ruvnet/claude-code-flow/docs/performance.md
-`;`
-// // await node.writeTextFile(`${workingDir}/.claude/commands/performance.md`, performanceCommand);// // await node.writeTextFile(`${workingDir}/.claude/commands/performance.md`, performanceCommand);
+For comprehensive performance guides, see,//github.com/ruvnet/claude-code-flow/docs/performance.md`
+`;``
+// // await node.writeTextFile(`${workingDir}/.claude/commands/performance.md`, performanceCommand);// // await node.writeTextFile(`${workingDir}/.claude/commands/performance.md`, performanceCommand);`
   console.warn('   Created slash command);'
 
 }}
 }
-}}}))))
+}}})))
+'

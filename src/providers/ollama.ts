@@ -1,7 +1,6 @@
-/** Ollama Provider Implementation;
-/** Integration with local Ollama models for self-hosted AI;
+/** Ollama Provider Implementation; */
+/** Integration with local Ollama models for self-hosted AI; */
 
- */
 import {
   AIRequest,
   AIResponse,
@@ -10,9 +9,9 @@ import {
   ProviderConfig,
   ProviderError,
 } from '.';
-
-// // interface OllamaRequest {model = 'ollama'
-// version = '2024-07-29'
+'
+// // interface OllamaRequest {model = ''
+// version = ''
 // config = {enabled = {textGeneration = 'http = [];'
 //   // private modelCache = new Map() {}
 // constructor();
@@ -24,26 +23,24 @@ import {
 // // await this.loadAvailableModels();
 // // await this.healthCheck();
 // }
-async;
+async
 generateText(request = Date.now();
 this.validateRequest(request);
 this.emitRequest(request);
-try {
+try {'
   const _ollamaRequest = {model = // await this.makeRequest('/api/chat', ollamaRequest);
-
+'
   // Estimate token counts(Ollama doesn't always provide exact counts)'
-  if(!reader) {
+  if(!reader) {'
     throw new ProviderError('No response body', this.name);
   //   }
 
-   catch (error) console.error(error); const _decoder = new TextDecoder();
-  const _buffer = '';
+   catch (error) console.error(error); const _decoder = new TextDecoder();'';
   while(true) {
     const { done, value } = // await reader.read();
     if(done) break;
-
-    buffer += decoder.decode(value, {stream = buffer.split('\n');
-    buffer = lines.pop()  ?? '';
+'
+    buffer += decoder.decode(value, {stream = buffer.split('\n');'';
   for(const line of lines) {
       if(line.trim()) {
         try {
@@ -79,9 +76,9 @@ getModels();
   : Promise<void>
   this.modelCache.clear() 
   // Ollama-specific methods
-  // async
+  // async'
   pullModel(modelName = await fetch(`\$this.baseUrl/api/pull`,
-  //   {
+  //   {`
     method = await fetch(`\$this.baseUrl/api/delete`, {method = await this.makeRequest('/api/tags', null, 'GET');
     const _models = response.models ?? [];
     this.availableModels = models.map((model) => model.name);
@@ -89,20 +86,20 @@ getModels();
   for(const model of models) {
       this.modelCache.set(model.name, model); //     }
   //   }
-  catch(error)
+  catch(error)'
   // If we can't load models, keep existing cache'
-  if(this.availableModels.length === 0) {
+  if(this.availableModels.length === 0) {'
     throw new ProviderError('Cannot connect to Ollama service', this.name, 'CONNECTION_ERROR'); //   }
 // }
 // private convertMessages(messages = []
 // Add system message first if provided
-  if(systemPrompt) {
-  result.push({role = === 'system' && !systemPrompt) {
-        result.push({role = === 'user'  ?? msg.role === 'assistant') {
-        result.push({role = 'POST'): Promise<any> {
+  if(systemPrompt) {'
+  result.push({role = === 'system' && !systemPrompt) {'
+        result.push({role = === 'user'  ?? msg.role === 'assistant') {'
+        result.push({role = 'POST'): Promise<any> {'
     const _options = {method = === 'POST') {
       options.body = JSON.stringify(data);
-// }
+// }'
 // const _response = awaitfetch(`\$this.baseUrl\$endpoint`, options);
   if(!response.ok) {
   throw // await this.createErrorFromResponse(response);
@@ -110,26 +107,27 @@ getModels();
 // return response.json();
 // }
 // private // async createErrorFromResponse(response = await response.text() {}
-if(response.status === 404) 
+if(response.status === 404) `
   // return new ProviderError('Ollama service not found', this.name, 'SERVICE_NOT_FOUND', 404);
 // }
-// return new ProviderError(;
+// return new ProviderError(;'
 // text  ?? 'Unknown error', // LINT: unreachable code removed
-this.name,
+this.name,'
 'API_ERROR',
 response.status;
-// )
-// }
+// 
+// }'
 // private estimateTokens(text = === 'ECONNREFUSED'  ?? error.code === 'ENOTFOUND')
 // {
-  // return new ProviderError(;
+  // return new ProviderError(;'
   // 'Cannot connect to Ollama service. Make sure Ollama is running.', // LINT);
-  //   )
+  //   
 // }
-// return new ProviderError(;
+// return new ProviderError(;'
 // error.message  ?? 'Unknown error occurred', // LINT);
-// )
+// 
 // }
 // }
 
-}}}}}}}}}))))
+}}}}}}}}})))
+'

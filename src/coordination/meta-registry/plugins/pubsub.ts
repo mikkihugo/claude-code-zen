@@ -1,13 +1,12 @@
-/** Pub/Sub Communication Plugin
-/** Provides publish-subscribe messaging coordination through the registry
+/** Pub/Sub Communication Plugin */
+/** Provides publish-subscribe messaging coordination through the registry */
 
- */
 import { EventEmitter } from 'node:events';
-
 '
-
+'
+'
 import { nanoid } from 'nanoid';
-
+'
 '
 
 export class PubSubPlugin extends EventEmitter {
@@ -65,7 +64,7 @@ setupServicePubSub(serviceKey, serviceConfig);
   // Register as subscriber
   if(serviceConfig.subscribesTo) {
   for(const topic of serviceConfig.subscribesTo) {
-// // // await this.subscribe(serviceKey, topic, (message) => {
+// // // await this.subscribe(serviceKey, topic, (message) => {'
         this.emit('messageForService', { serviceKey, topic, message }); '
       }) ;
     //     }
@@ -92,11 +91,11 @@ cleanupServicePubSub(serviceKey);
 async;
   createTopic(topicName, (config = {}) {);
 : unknown
-// {
+// {'
   const _topicId = `${this.options.topicPrefix}:${topicName}`;`
   if(this.topics.has(topicId)) {
     // return this.topics.get(topicId);
-    //   // LINT: unreachable code removed}
+    //   // LINT: unreachable code removed}`
     const __topic = {id = `$this.options.topicPrefix:$topicName`;`
     const _topic = this.topics.get(topicId);
   if(!topic) {
@@ -109,44 +108,44 @@ async;
         //         }
       //       }
       // Remove topic
-      this.topics.delete(topicId); // // // await this.registry.backend.unregister?.(topicId) {;
+      this.topics.delete(topicId); // // // await this.registry.backend.unregister?.(topicId) {;`
       this.emit('topicDeleted', { topicId, topic });'
       // return true;
     //     }
     async;
     publish(topicName, message, (options = {}));
     : unknown
-    //     {
+    //     {'
       const _topicId = `$this.options.topicPrefix:$topicName`;`
-      const __topic = this.topics.get(topicId);
+      const __topic = this.topics.get(topicId);`
       // Create topic if it doesn't exist'
   if(!topic) {
         _topic = // // await this.createTopic(topicName);
       //       }
-      const __messageData = {id = {}) {
+      const __messageData = {id = {}) {'
     const _topicId = `$this.options.topicPrefix:$topicName`;`
-      const _topic = this.topics.get(topicId);
+      const _topic = this.topics.get(topicId);`
       // Create topic if it doesn't exist'
   if(!topic) {
         topic = // // await this.createTopic(topicName);
       //       }
-      const __subscriptionId = nanoid();
+      const __subscriptionId = nanoid();'
       const __subscription = {id = === 'string' ? subscriber : subscriber.id,'
       topicId,
       topicName,
       handler,options = // // await this.registry.backend.watch({
-        tags => {)
+        tags => {
         this.handleTopicMessage(topicId, event);
     //     }
-    //     )
+    //     
     this.watchHandlers.set(topicId, unwatch)
   //   }
   // Update topic stats
   topic.stats.subscribers++;
-// // // await this.updateTopicStats(topicId, topic.stats);
+// // // await this.updateTopicStats(topicId, topic.stats);'
   this.emit('subscribed','
-  subscriptionId, subscription;)
-  //   )
+  subscriptionId, subscription;
+  //   
   // return subscriptionId;
 // }
 async;
@@ -159,7 +158,7 @@ unsubscribe(subscriptionId);
     //   // LINT: unreachable code removed}
 
   // Remove subscription
-  this.subscriptions.delete(subscriptionId);
+  this.subscriptions.delete(subscriptionId);'
 // // // await this.registry.backend.unregister?.(`$this.options.subscriptionPrefix);`
   // Update topic stats
   const _topic = this.topics.get(subscription.topicId);
@@ -177,7 +176,7 @@ unsubscribe(subscriptionId);
       this.watchHandlers.delete(subscription.topicId);
     //     }
   //   }
-
+`
   this.emit('unsubscribed', { subscriptionId, subscription });'
   // return true;
 // }
@@ -185,7 +184,7 @@ unsubscribe(subscriptionId);
 async;
 registerPublisher(publisherId, topicName, (options = {}));
 
-// {
+// {'
   const _topicId = `$this.options.topicPrefix:$topicName`;`
   const __topic = this.topics.get(topicId);
   if(!topic) {
@@ -197,7 +196,7 @@ registerPublisher(publisherId, topicName, (options = {}));
     // return false;
     //   // LINT: unreachable code removed}
 
-  this.publishers.delete(publisherId);
+  this.publishers.delete(publisherId);`
 // // // await this.registry.backend.unregister?.(`$this.options.publisherPrefix);`
   // Update topic stats
   const _topic = this.topics.get(publisher.topicId);
@@ -205,7 +204,7 @@ registerPublisher(publisherId, topicName, (options = {}));
     topic.stats.publishers--;
 // // // await this.updateTopicStats(publisher.topicId, topic.stats);
   //   }
-
+`
   this.emit('publisherUnregistered', { publisherId, publisher });'
   // return true;
 // }
@@ -221,12 +220,12 @@ notifySubscribers(topicId, messageData);
 
   subscription.stats.lastMessage = new Date();
 
-  // Call handler
+  // Call handler'
   if(typeof subscription.handler === 'function') {'
 // // await subscription.handler(messageData);
   //   }
 
-  // Emit event for external handlers
+  // Emit event for external handlers'
   this.emit('messageDelivered', subscriptionId = === 'register' && event.entry.tags.includes('message')) '
 // // await this.notifySubscribers(topicId, event.entry.value);
 // }
@@ -247,7 +246,7 @@ startSubscriptionMonitoring();
 
 async;
 updatePluginStats();
-  try {
+  try {'
 // await this.registry.update('service = `$this.options.topicPrefixcatch (error) console.error(error); :$topicName`;`'`/g)
     // return this.topics.get(topicId)  ?? null;
     //   // LINT: unreachable code removed}
@@ -301,3 +300,7 @@ updatePluginStats();
   this.subscriptions.clear() ;
   this.topics.clear();
   this.publishers.clear();}}}}}}
+`
+}
+}
+}

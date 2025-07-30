@@ -1,7 +1,6 @@
-/** WebUI Cross-Platform Validator;
-/** Validates that WebUI components work across Node.js and node;
+/** WebUI Cross-Platform Validator; */
+/** Validates that WebUI components work across Node.js and node; */
 
- */
 import { compat } from '..';
 
 export class WebUIValidator {
@@ -9,45 +8,45 @@ export class WebUIValidator {
     this.tests = [];
     this.results = {
       passed,
-      failed => {
+      failed => {'
       const _isValidRuntime = compat.runtime === 'node'  ?? compat.runtime === 'node';
     const _hasPlatform = compat.platform?.os;
 //     return isValidRuntime && hasPlatform;
     //   // LINT: unreachable code removed}
-  //   )
+  //   
 
   // Terminal I/O Test
   this;
-
+'
   test('Terminal I/O Layer', ();
   => {
       const _terminal = compat.terminal;
   const;
   hasRequiredMethods =;
-    terminal &&;
-    typeof terminal.write === 'function' &&;
-    typeof terminal.read === 'function' &&;
+    terminal &&;'
+    typeof terminal.write === 'function' &&;'
+    typeof terminal.read === 'function' &&;'
     typeof terminal.exit === 'function';
   return;
     // hasRequiredMethods; // LINT: unreachable code removed
 // }
-// )
+// 
 
-// Component Import Test
+// Component Import Test'
 // // await this.asyncTest('Component Imports', async() =>;
-  try {
-// await import('./start-wrapper.js');
+  try {'
+// await import('./start-wrapper.js');'
 // await import('./process-ui-enhanced.js');
 //     return true;
     //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _err */) {
     // return false;
     //   // LINT: unreachable code removed}
 // }
-// )
+// 
 
-// UI Instantiation Test
+// UI Instantiation Test'
 // // await this.asyncTest('UI Instantiation', async() =>;
-  try {
+  try {'
     const { EnhancedProcessUI }  catch (error) console.error(error); = await import('.'
     const _ui = new EnhancedProcessUI();
 //     return ui?.processes && ui.processes.size > 0;
@@ -55,14 +54,14 @@ export class WebUIValidator {
     // return false;
     //   // LINT: unreachable code removed}
 // }
-// )
+// 
 
-// File Operations Test
+// File Operations Test'
 // // await this.asyncTest('File Operations', async() =>;
   try {
-// await compat.safeCall(async() => {
-  if(compat.runtime === 'node') {
-        await node.writeTextFile('.webui-test', 'test');
+// await compat.safeCall(async() => {'
+  if(compat.runtime === 'node') {'
+        await node.writeTextFile('.webui-test', 'test');'
 // await node.remove('.webui-test');
       }  catch (error) console.error(error); else );
     // return true;
@@ -70,7 +69,7 @@ export class WebUIValidator {
     // return false;
     //   // LINT: unreachable code removed}
 // }
-// )
+// 
 
 this.printSummary();
 // return this.results.failed === 0;
@@ -79,48 +78,17 @@ this.printSummary();
   this.results.total++;
   try {
     const _result = testFn();
-  if(result) {
-      console.warn(` ${name} catch (error) { console.error(error); }`);
-      this.results.passed++;
-    } else {
-      console.warn(` ${name}`);
-      this.results.failed++;
-    //     }
-  } catch(/* err */) 
-    console.warn(` $name);`
-    this.results.failed++;
-  //   }
-
-async;
-asyncTest(name, testFn);
-
-  this.results.total++;
-  try {
-// const _result = awaittestFn();
-  if(result) {
-      console.warn(` $namecatch (error) console.error(error); `);
-      this.results.passed++;
-    } else {
-      console.warn(` $name`);
-      this.results.failed++;
-    //     }
-  } catch(/* err */) 
-    console.warn(` $name);`
-    this.results.failed++;
-  //   }
-
-printSummary();
-// {
-  console.warn(''.repeat(50));
-  console.warn(`Results = === 0) `
-      console.warn(' All validations passed! WebUI is cross-platform compatible.');else 
+  if(result) {''.repeat(50));'
+  console.warn(`Results = === 0) ``
+      console.warn(' All validations passed! WebUI is cross-platform compatible.');else '
       console.warn(`  $this.results.failedvalidation(s) failed.`);
     //     }
   //   }
 // }
 
-// Auto-run if called directly
+// Auto-run if called directly`
 if(import.meta.url === `file = new WebUIValidator();`
 // const _success = awaitvalidator.runValidation();
   process.exit(success ? 0 );
 // }
+`

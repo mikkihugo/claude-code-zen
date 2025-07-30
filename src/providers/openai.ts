@@ -1,7 +1,6 @@
-/** OpenAI Provider Implementation;
-/** Integration with OpenAI GPT models including GPT-4, GPT-3.5, and function calling;
+/** OpenAI Provider Implementation; */
+/** Integration with OpenAI GPT models including GPT-4, GPT-3.5, and function calling; */
 
- */
 import {
   AIRequest,
   AIResponse,
@@ -14,30 +13,30 @@ import {
   RateLimitError,
   TokenUsage,
 } from '.';
-
-// // interface OpenAIMessage {role = 'openai'
-// version = '2024-07-29'
-// config = {enabled = {textGeneration = 'https = ['
-//     'gpt-4-turbo-preview',
-// 'gpt-4-0125-preview',
-// 'gpt-4-1106-preview',
-// 'gpt-4',
-// 'gpt-4-0613',
-// 'gpt-3.5-turbo',
-// 'gpt-3.5-turbo-0125',
+'
+// // interface OpenAIMessage {role = ''
+// version = ''
+// config = {enabled = {textGeneration = ''
+//     'gpt-4-turbo-preview','
+// 'gpt-4-0125-preview','
+// 'gpt-4-1106-preview','
+// 'gpt-4','
+// 'gpt-4-0613','
+// 'gpt-3.5-turbo','
+// 'gpt-3.5-turbo-0125','
 // ('gpt-3.5-turbo-1106');
 // // ]
 // constructor() {}
 // // {
 //   super();
 //   this.pricing = {inputTokenPrice = config.apiKey  ?? process.env.OPENAI_API_KEY;
-//   if(!this.apiKey) {
+//   if(!this.apiKey) {'
 //     throw new ProviderError('OpenAI API key is required', this.name, 'MISSING_API_KEY');
 //   //   }
 if (config.baseUrl) {
   this.baseUrl = config.baseUrl;
   //   }
-  // Update pricing based on model
+  // Update pricing based on model'
   if (config.model?.includes('gpt-3.5')) {
     this.pricing = {
         inputTokenPrice = { ...this.config, ...config };
@@ -47,23 +46,21 @@ if (config.baseUrl) {
     generateText(request = Date.now();
     this.validateRequest(request);
     this.emitRequest(request);
-    try {
+    try {'
       const _openaiRequest = {model = request.functions.map(fn => ({name = 'auto';
-      //       } catch (error) { console.error(error); }/g))
+      //       } catch (error) { console.error(error); }/g))'
 // const _response = awaitthis.makeRequest('/chat/completions', openaiRequest);
   const _choice = response.choices[0];
-  if(!reader) {
+  if(!reader) {'
     throw new ProviderError('No response body', this.name);
   //   }
-  const _decoder = new TextDecoder();
-  const _buffer = '';
+  const _decoder = new TextDecoder();'';
   while(true) {
     const { done, value } = // await reader.read();
-    if(done) break;
-    buffer += decoder.decode(value, {stream = buffer.split('\n');
-    buffer = lines.pop() ?? '';
-  for(const line of lines) {
-      if(line.startsWith('data = line.slice(6); '
+    if(done) break;'
+    buffer += decoder.decode(value, {stream = buffer.split('\n');'';
+  for(const line of lines) {'
+      if(line.startsWith(''
             if(data === '[DONE]') continue; try {
         const _parsed = JSON.parse(data) {;
         const _delta = parsed.choices[0]?.delta;
@@ -79,7 +76,7 @@ if (config.baseUrl) {
 // async getModels() {}
 : Promise<string[]>
 
-  try {
+  try {'
 // const _response = awaitthis.makeRequest('/models', null, 'GET');
     // return response.data;
     // .filter((model = > this.availableModels.includes(model.id)); // LINT: unreachable code removed
@@ -94,14 +91,14 @@ map((model = > model.id);
   : Promise<void>
   // private convertMessages(messages = []
   // Add system message first if provided
-  if(systemPrompt) {
-    result.push({role = === 'system' && !systemPrompt) {
+  if(systemPrompt) {'
+    result.push({role = === 'system' && !systemPrompt) {'
         result.push({role = === 'function') {
-        result.push({)
-          role = {role = {name = 'POST'): Promise<any> {
+        result.push({)'
+          role = {role = {name = 'POST'): Promise<any> {'
     const _options = {method = === 'POST') {
       options.body = JSON.stringify(data);
-  //   }
+  //   }'
 // const _response = awaitfetch(`${this.baseUrl}${endpoint}`, options);
   if(!response.ok) {
     throw // await this.createErrorFromResponse(response);
@@ -114,16 +111,16 @@ const _errorData = {};
 try {
   errorData = JSON.parse(text);
 } catch (error) { console.error(error); } catch(/* e */) 
-  errorData = message = === 429) {
+  errorData = message = === 429) {`
       const _retryAfter = response.headers.get('retry-after');
   // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );
 // }
-// return new ProviderError(;
+// return new ProviderError(;'
 // errorData.error?.message  ?? errorData.message  ?? 'Unknown error', // LINT: unreachable code removed
-this.name,
+this.name,'
 errorData.error?.type  ?? 'API_ERROR',
 response.status;
-// )
+// 
 // }
 // private handleError(error)
 : Error
@@ -131,13 +128,18 @@ response.status;
   if(error instanceof ProviderError) {
     // return error;
     //   // LINT: unreachable code removed}
-    // return new ProviderError(;
+    // return new ProviderError(;'
     // error.message  ?? 'Unknown error occurred', // LINT);
-    //     )
+    //     
   //   }
 // }
 
 }}}}}}}}}}
   }
 }
-)))))))
+))))))
+'
+}
+}
+}
+}

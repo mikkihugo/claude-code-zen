@@ -1,10 +1,13 @@
-/**
- * @fileoverview Mock; RuvSwarm; implementation;
- */
-for testing
-/** Provides basic functionality when ruv-swarm is not available
+/** */
+*
+@fileoverview
+Mock;
+RuvSwarm;
+implementation;
 
- */
+for testing
+/** Provides basic functionality when ruv-swarm is not available */
+
 export class RuvSwarm {
   constructor(options = {}) {
     this.options = options;
@@ -53,3 +56,4 @@ async;
 cleanup();
   this.agents = [];
 // }
+'

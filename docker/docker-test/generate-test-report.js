@@ -2,7 +2,6 @@
 
 /* Generate comprehensive test report for PR #228 migration testing;
 
- */
 const _fs = require('node:fs');
 const _path = require('node:path');
 function generateTestReport() {
@@ -49,12 +48,9 @@ try {
 results.environments.push(envResult);
 // Console output
 const _statusIcon =;
-envResult.status === 'PASS';
-? ''
-: envResult.status === 'FAIL'
-? ''
-: envResult.status === 'ERROR'
-? ''
+envResult.status === 'PASS''
+: envResult.status === 'FAIL''
+: envResult.status === 'ERROR''
 : ''
 console.warn(`$`
   statusIcon;
@@ -174,7 +170,7 @@ if (content.includes('assertEquals') && !content.includes('expect(')) {
   issues.push(`${path.basename(file)}: Uses Deno assertions instead of Jest`);
 // }
 // Check for import issues
-if (content.includes('from "https://') ?? content.includes("from 'https://")) {'"
+if (content.includes('from "https://') ?? content.includes("from 'https://"
   issues.push(`$path.basename(file): Contains Deno-style HTTP imports`);
 // }
 // }

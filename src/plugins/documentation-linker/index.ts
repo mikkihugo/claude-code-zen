@@ -1,9 +1,10 @@
-/** Documentation Linker Plugin;
-/** Cross-reference validation, broken link detection, and intelligent linking suggestions;
+/** Documentation Linker Plugin; */
+/** Cross-reference validation, broken link detection, and intelligent linking suggestions; */
 
- */
 import { access, readFile } from 'node:fs';
+'
 import path from 'node:path';
+'
 import { safeRegexExec } from '../../utils/security.js';
 
 export class DocumentationLinkerPlugin {
@@ -12,29 +13,29 @@ export class DocumentationLinkerPlugin {
     this.linkMap = new Map();
     this.brokenLinks = [];
     this.suggestions = [];
-    this.stats = {
+    this.stats = {'
       documentsProcessed,linksFound = // await import('glob');
     const __documentFiles = [];
 
     // Find all documentation files
-  for(const _pattern of this.config.documentPaths) {
+    for (const _pattern of this.config.documentPaths) {
       try {
   for(const filePath of uniqueFiles) {
 // // await this.processDocument(filePath); 
     //     }
-
+'
      catch (error) console.error(error); this.stats.documentsProcessed = this.documents.size; console.warn(` Processed ${this.stats.documentsProcessed} documents`) ;
   //   }
 
   async processDocument(filePath) ;
-    try {
+    try {`
 // const __content = awaitreadFile(filePath, 'utf8');
       const _ext = path.extname(filePath).toLowerCase();
-
+'
       const _document = {filePath = === '.md'  ?? ext === '.mdx') {
-        document = // await this.parseMarkdown(document);
+        document = // await this.parseMarkdown(document);'
       }  catch (error) console.error(error); else if(ext === '.rst') {
-        document = // await this.parseRestructuredText(document);
+        document = // await this.parseRestructuredText(document);'
       } else if(ext === '.adoc'  ?? ext === '.asciidoc') {
         document = // await this.parseAsciidoc(document);
       } else {
@@ -45,7 +46,7 @@ export class DocumentationLinkerPlugin {
       document.keywords = this.extractKeywords(document.content);
       document.wordCount = this.countWords(document.content);
 
-      this.documents.set(filePath, document);catch(error) ;
+      this.documents.set(filePath, document);catch(error) ;'
       console.warn(` Failed to process \$filePath);`
   //   }
 
@@ -54,7 +55,7 @@ export class DocumentationLinkerPlugin {
       const _parsed = matter(document.content);
 
       document.frontMatter = parsed.data;
-      document.content = parsed.content;
+      document.content = parsed.content;`
       document.title = parsed.data.title  ?? this.extractMarkdownTitle(parsed.content)  ?? path.basename(document.filePath, '.md');
 
       // Extract links
@@ -66,14 +67,14 @@ export class DocumentationLinkerPlugin {
       // Extract anchors/headings
       document.anchors = this.extractMarkdownAnchors(parsed.content);
 
-    } catch (error) { console.error(error); } catch(/* _error */) 
+    } catch (error) { console.error(error); } catch(/* _error */) '
       console.warn(` Failed to parse markdown \$document.filePath);`
     //     }
 
     // return document;
     // ; // LINT: unreachable code removed
   async parseRestructuredText(document) ;
-    // Basic RST parsing - can be enhanced
+    // Basic RST parsing - can be enhanced`
     document.title = this.extractRstTitle(document.content)  ?? path.basename(document.filePath, '.rst');
     document.links = this.extractRstLinks(document.content);
     document.anchors = this.extractRstAnchors(document.content);
@@ -119,14 +120,14 @@ export class DocumentationLinkerPlugin {
       const _level = match[1].length; const _text = match[2].trim(); const __slug = this.createSlug(text) {;
 
       anchors.push({level = [];
-
+'
     // RST externallinks = /`([^`]+)\s+<([^>]+)>`_/;`
     const _externalLinkMatches = safeRegexExec(externalLinkRegex, content, 500);
-
+`
     for (const _match of externalLinkMatches) ; links.push({type = content.split('\n'); for(let i = 0; i < lines.length - 1; i++) {
       const _line = lines[i].trim();
       const _nextLine = lines[i + 1];
-
+'
       if(line && nextLine && nextLine.match(/^[=\-~`#"^]+$/)) {"`
         // return line;
     //   // LINT: unreachable code removed}
@@ -134,35 +135,13 @@ export class DocumentationLinkerPlugin {
     // return null;
     // ; // LINT: unreachable code removed
   extractRstAnchors(content) {
-    const _anchors = [];
+    const _anchors = [];`
     const _lines = content.split('\n');
   for(let i = 0; i < lines.length - 1; i++) {
       const _line = lines[i].trim();
       const _nextLine = lines[i + 1];
-
-      if(line && nextLine && nextLine.match(/^[=\-~`#"^]+$/)) {"`
-        const _level = this.getRstHeadingLevel(nextLine[0]);
-        anchors.push({level = [];
-
-    // AsciiDoclinks = /link:([^\[]+)\[([^\]]*)\]/;
-    const _linkMatches = safeRegexExec(linkRegex, content, 500);
-  for(const _match of linkMatches) {
-      links.push({type = content.match(/^=\s+(.+)$/m); 
-    // return titleMatch ? titleMatch[1].trim() ; 
-    //   // LINT: unreachable code removed}
-  extractAsciidocAnchors(content) {
-    const _anchors = [];
-    const _headingRegex = /^(={1,6})\s+(.+)$/m;
-    const _headingMatches = safeRegexExec(headingRegex, content, 200);
-  for(const match of headingMatches) {
-      const _level = match[1].length; const _text = match[2].trim(); anchors.push({level = [];)
-    const _urlRegex = /(https?) {/;
-    const _urlMatches = safeRegexExec(urlRegex, content, 500);
-  for(const _match of urlMatches) {
-      links.push({type = content; replace(/!\[[^\]]*\]\([^)]*\)/g, '') // Images
-replace(/\[[^\]]*\]\([^)]*\)/g, '') // Links
-replace(/<[^>]*>/g, '') // HTML tags
-replace(/[#*`_~]/g, '') // Markdown syntax`
+'
+      if(line && nextLine && nextLine.match(/^[=\-~`#"^]+$/)) {"') // Images'') // Links'') // HTML tags'') // Markdown syntax``
 replace(/[^\w\s]/g, ' ') // Special characters
 toLowerCase(); // Split into words and filter
     const _words = cleanContent;
@@ -188,14 +167,14 @@ map(([word, count]) => (word, count ));
     return keywords;
     //   // LINT: unreachable code removed}
   isStopWord(word) {
-    const _stopWords = new Set([;
-      'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
-      'of', 'with', 'by', 'from', 'up', 'about', 'into', 'through', 'during',
-      'before', 'after', 'above', 'below', 'between', 'among', 'this', 'that',
-      'these', 'those', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
-      'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could',
-      'should', 'may', 'might', 'must', 'can', 'shall', 'you', 'your', 'yours',
-      'he', 'him', 'his', 'she', 'her', 'hers', 'it', 'its', 'we', 'us', 'our',
+    const _stopWords = new Set([;'
+      'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for','
+      'of', 'with', 'by', 'from', 'up', 'about', 'into', 'through', 'during','
+      'before', 'after', 'above', 'below', 'between', 'among', 'this', 'that','
+      'these', 'those', 'is', 'are', 'was', 'were', 'be', 'been', 'being','
+      'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could','
+      'should', 'may', 'might', 'must', 'can', 'shall', 'you', 'your', 'yours','
+      'he', 'him', 'his', 'she', 'her', 'hers', 'it', 'its', 'we', 'us', 'our','
       'ours', 'they', 'them', 'their', 'theirs';
     ]);
 
@@ -203,49 +182,48 @@ map(([word, count]) => (word, count ));
     //   // LINT: unreachable code removed}
 
   countWords(content) ;
-    // return content;
+    // return content;'
     // .replace(/[^\w\s]/g, ' '); // LINT: unreachable code removed
 split(/\s+/);
 filter(word => word.length > 0);
 length;
 
-  getLineNumber(content, index) ;
+  getLineNumber(content, index) ;'
 //     return content.substring(0, index).split('\n').length;
     // ; // LINT: unreachable code removed
   createSlug(text) ;
     // return text;
-    // .toLowerCase(); // LINT: unreachable code removed
-replace(/[^\w\s-]/g, '');
-replace(/\s+/g, '-');
+    // .toLowerCase(); // LINT: unreachable code removed'');'
+replace(/\s+/g, '-');'
 replace(/-+/g, '-');
 trim();
-  getRstHeadingLevel(char) {
-    const _levels = { '=', '-', '~', '`', '#', '"', '^'};"`
+  getRstHeadingLevel(char) {'
+    const _levels = { '=', '-', '~', '`', '#''', '^'};"`
     // return levels[char]  ?? 1;
     //   // LINT: unreachable code removed}
 
-  async buildLinkMap() ;
+  async buildLinkMap() ;`
     console.warn(' Building link map...');
   for(const [filePath, document] of this.documents) {
   for(const link of document.links) {
   if(link.internal) {
           const _resolvedPath = this.resolveLinkPath(filePath, link.url); if(!this.linkMap.has(resolvedPath)) {
-            this.linkMap.set(resolvedPath, {targetPath = path.dirname(sourcePath); // Guard against undefined linkUrl
-  if(!linkUrl  ?? typeof linkUrl !== 'string') {
+            this.linkMap.set(resolvedPath, {targetPath = path.dirname(sourcePath); // Guard against undefined linkUrl'
+  if(!linkUrl  ?? typeof linkUrl !== 'string') {'
       console.warn(` InvalidlinkUrl = linkUrl.split('#');`
 
     // Resolve relative path
     const _resolvedPath = path.resolve(sourceDir, pathPart);
-
+`
     // return anchor ? `${resolvedPath}#${anchor}` ;
     //   // LINT: unreachable code removed}
 
-  async validateLinks() 
+  async validateLinks() `
     console.warn(' Validating links...');
 
     for (const [targetPath, linkInfo] of this.linkMap) 
-      // Guard against undefined targetPath
-  if(!targetPath  ?? typeof targetPath !== 'string') {
+      // Guard against undefined targetPath'
+  if(!targetPath  ?? typeof targetPath !== 'string') {'
         console.warn(` InvalidtargetPath = targetPath.split('#'); `
 
       try {
@@ -300,13 +278,13 @@ trim();
   for(const ref of linkInfo.references) {
         referencedFiles.add(ref.sourcePath); //       }
     //     }
-  for(const [filePath, document] of this.documents) {
-      if(!referencedFiles.has(filePath) && !filePath.includes('README')) {
+  for(const [filePath, document] of this.documents) {`
+      if(!referencedFiles.has(filePath) && !filePath.includes('README')) {'
         this.suggestions.push({id = ['.js', '.ts', '.py', '.go', '.java', '.rs']; // Implementation would scan for code files and suggest documentation
   //   }
 
-  // API Methods/g)
-  async scan(rootPath = process.cwd() {, options = {}) {
+  // API Methods/g
+  async scan(rootPath = process.cwd() {, options = {}) {'
     console.warn(` Scanning documentation in ${rootPath}`);
 
     // Re-run analysis if needed
@@ -330,16 +308,16 @@ trim();
     report.documentAnalysis.averageWordCount = ;
       Math.round(report.documentAnalysis.totalWordCount / this.documents.size);
 
-    // Save report
+    // Save report`
     const _reportPath = path.join(this.config.outputDir, 'documentation-report.json');
-// // await writeFile(reportPath, JSON.stringify(report, null, 2));
+// // await writeFile(reportPath, JSON.stringify(report, null, 2));'
     console.warn(` Documentation report saved to ${reportPath}`);
     // return report;
     //   // LINT: unreachable code removed}
 
-  async exportLinkMap() { 
+  async exportLinkMap() { `
     const _linkMapData = timestamp = path.join(this.config.outputDir, 'link-map.json');
-// await writeFile(exportPath, JSON.stringify(linkMapData, null, 2));
+// await writeFile(exportPath, JSON.stringify(linkMapData, null, 2));'
     console.warn(` Link map exported to ${exportPath}`);
     // return linkMapData;
     //   // LINT: unreachable code removed}
@@ -364,10 +342,16 @@ trim();
     // return {
 ..this.stats,documents = [];
     // this.suggestions = []; // LINT: unreachable code removed
-
+`
     console.warn(' Documentation Linker Plugin cleaned up');
 // }
 
 // export default DocumentationLinkerPlugin;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}
+    }
+  }
+}
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))
+'
+

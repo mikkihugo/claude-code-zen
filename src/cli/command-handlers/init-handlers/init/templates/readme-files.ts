@@ -1,9 +1,8 @@
-/** Readme Files Module
-/** Converted from JavaScript to TypeScript
+/** Readme Files Module */
+/** Converted from JavaScript to TypeScript */
 
 // readme-files.js - README templates for various directories
 
- */
 export function createAgentsReadme() {
 //   return `# Agent Memory Storage`
 
@@ -11,7 +10,7 @@ export function createAgentsReadme() {
 This directory stores agent-specific memory data, configurations, and persistent state information for individual Claude agents in the orchestration system.
 
 ## Structure;
-Each agent gets its own subdirectory for isolated memory storage: null
+Each agent gets its own subdirectory for isolated memory storage: null`
 \`\`\`;`
 memory/agents/;
 // agent_001
@@ -23,28 +22,28 @@ memory/agents/;
     ...;
 // shared
      common_knowledge.md  # Shared knowledge across agents;
-     global_config.json  # Global agent configurations;
+     global_config.json  # Global agent configurations;`
 \`\`\`
 
 ## Usage Guidelines;
-1. **Agent Isolation**: Each agent should only read/write to its own directory
+1. **Agent Isolation**: Each agent should only read/write to its own directory`
 2. **Shared Resources**: Use the \`shared/\` directory for cross-agent information
 3. **State Persistence**: Update state.json whenever agent status changes
 4. **Knowledge Sharing**: Document discoveries in knowledge.md files
 5. **Cleanup**: Remove directories for terminated agents periodically
 
 ## Last Updated;
-${new Date().toISOString()}
+${new Date().toISOString()}`
 `;`
 // }
-// export function createSessionsReadme() {
+// export function createSessionsReadme() {`
 //   return `# Session Memory Storage`
 
     // ## Purpose; // LINT: unreachable code removed
 This directory stores session-based memory data, conversation history, and contextual information for development sessions using the Claude-Flow orchestration system.
 
 ## Structure;
-Sessions are organized by date and session ID for easy retrieval: null
+Sessions are organized by date and session ID for easy retrieval: null`
 \`\`\`;`
 memory/sessions/;
  2024-01-10
@@ -57,7 +56,7 @@ memory/sessions/;
     ...;
 // shared
      patterns.md              # Common session patterns;
-     templates/               # Session template files;
+     templates/               # Session template files;`
 \`\`\`
 
 ## Usage Guidelines;
@@ -68,6 +67,7 @@ memory/sessions/;
 5. **State Preservation**: Snapshot coordination state regularly
 
 ## Last Updated;
-$new Date().toISOString()
+$new Date().toISOString()`
 `;`
 // }
+`

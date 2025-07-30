@@ -1,7 +1,6 @@
-/** All 87 Claude Flow MCP Tools
-/** Organized by category with enable/disable configuration
+/** All 87 Claude Flow MCP Tools */
+/** Organized by category with enable/disable configuration */
 
- */
 export const toolCategories = {
   swarm: {
     name: ' SWARM COORDINATION',
@@ -69,14 +68,14 @@ enum: [
 type;
 //   )
 with ${args.capabilities?.length  ?? 0}
-capabilities`,`
+capabilities`,`;
 
-  description: 'Orchestrate complex workflows',
-  type: 'object',
-  type: 'string', description;
-  : 'Task description' ,
-  type: 'string',
-  enum: ['parallel', 'sequential', 'adaptive', 'balanced'],
+description: 'Orchestrate complex workflows', type;
+: 'object',
+type: 'string', description;
+: 'Task description' ,
+type: 'string',
+enum: ['parallel', 'sequential', 'adaptive', 'balanced'],
   default: 'adaptive',
   description: 'Execution strategy',
 
@@ -88,21 +87,21 @@ capabilities`,`
   required: ['task'],
 
   handler: (args) =>
-  `;`
+`;`;
 Task;
 orchestrated: '${args.task}';
 with ${args.strategy  ?? 'adaptive'}
 strategy, $args.priority ?? 'medium';
-priority`,`
+priority`,`;
 
-  description: 'Monitor swarm health and performance',
-  type: 'object',
-  type: 'boolean',
-  default, description: 'Show detailed status' ,
+description: 'Monitor swarm health and performance', type;
+: 'object',
+type: 'boolean',
+default, description: 'Show detailed status' ,
 
   handler: (args) =>
-  //   {
-    const _basic = `;`
+//   {
+const _basic = `;`;
 Swarm;
 Status: ACTIVE;
 \n Topology: hierarchical\n Agents: 6/8 active\n Tasks: 3 completed, 2 in-progress\n Memory: 512KB used`
@@ -146,7 +145,7 @@ default, description: 'Monitoring interval (seconds)' ,
   args.interval ?? 30
 // }
 // s
-intervals;
+intervals
 )\n CPU: 45%\n Memory: 2.1GB\n Network: 1.2MB/s\n Active connections: 23`,
 
   description: 'Auto-optimize swarm topology',
@@ -181,14 +180,15 @@ exec(command, (error, stdout, _stderr) =>
 )
 // }
 
-description: 'Sync agent coordination', type;
+description: 'Sync agent coordination',
+type;
 : 'object',
 type: 'boolean',
 default, description: 'Force sync' ,
 
   handler: async (args) =>
 // {
-const _command = `npx ruv-swarm coordination sync ${args.force ? '--force' : ''}`;
+const _command = `npx ruv-swarm coordination sync ${args.force ? '--force''}`;
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -210,7 +210,7 @@ default, description: 'Auto-scaling enabled' ,
 
   handler: async (args) =>
 // {
-const _command = `npx ruv-swarm scale --target-size ${args.targetSize ?? 'auto'} ${args.auto ? '--auto' : ''}`;
+const _command = `npx ruv-swarm scale --target-size ${args.targetSize ?? 'auto'} ${args.auto ? '--auto''}`;
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -232,7 +232,7 @@ default, description: 'Shutdown timeout (seconds)' ,
 
   handler: async (args) =>
 // {
-const _command = `npx ruv-swarm destroy ${args.force ? '--force' : ''} --timeout ${args.timeout ?? 30}`;
+const _command = `npx ruv-swarm destroy ${args.force ? '--force''} --timeout ${args.timeout ?? 30}`;
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -264,28 +264,30 @@ default: 'default', description: 'Memory namespace' ,
   handler: (args) =>
   ` Memory \$args.action: \$args.key  ?? 'multiple'in \$args.`
 namespace ?? 'default';
-namespace`,`
+namespace`,`;
 
-  description: 'Search memory with patterns',
-  type: 'object',
-  type: 'string', description;
-  : 'Search pattern' ,
-  type: 'number',
-  default, description: 'Result limit' ,
-  type: 'string', description;
-  : 'Search namespace' ,
+description: 'Search memory with patterns', type;
+: 'object',
+type: 'string', description;
+: 'Search pattern' ,
+type: 'number',
+default, description: 'Result limit' ,
+type: 'string', description;
+: 'Search namespace' ,
 
   required: ['pattern'],
 
   handler: (args) =>
-  `;`
+  `
+`
 Memory;
 search: '${args.pattern}';
 found;
 $Math.floor(Math.random() * 20);
 results (limit: $
     args.limit ?? 10
-  )`,`
+  )`,
+  `
 
   description: 'Analyze memory usage patterns',
   type: 'object',
@@ -293,7 +295,7 @@ results (limit: $
   default: '24h', description: 'Analysis timeframe' ,
 
   handler: (args) =>
-  `
+  `;
 Memory;
 Analytics (\$args.timeframe  ?? '24h')
 :\n Total entries,234\n Most accessed: user_preferences\n Storage used: 45.2MB\n Growth rate: +12% this week`,
@@ -346,7 +348,7 @@ type: 'string', description;
   required: ['command'],
 
   handler: (args) =>
-  ` Executed: \$args.command\$args.args?.join(' ')  ?? ''\n Exit code: 0\n Duration: 1.2s\n Status: Success`,
+  ` Executed: \$args.command\$args.args?.join(' ''\n Exit code: 0\n Duration: 1.2s\n Status: Success`,
 
   description: 'Configuration management',
 type: 'object', type;
@@ -362,9 +364,7 @@ type: 'string', description;
   required: ['action'],
 
   handler: (args) =>
-  ` Config \$args.action: \$args.key  ?? 'multiple'\$args.value ? `= $
-    args.value
-  ` : ''`,
+  ` Config \$args.action: \$args.key  ?? 'multiple''`,
 
   description: 'Feature detection',
 type: 'object', type;
@@ -478,20 +478,21 @@ type: 'object', type;
   ` Model loaded from \$args.modelPath:\n Type: Neural network\n Parameters: 1.2M\n Memory usage: 45MB\n Status: Ready`
 for inference`,`
 
-  description: 'Save trained models',
-  type: 'object',
-  type: 'string', description;
-  : 'Model ID' ,
-  type: 'string', description;
-  : 'Save path' ,
+  description
+: 'Save trained models',
+type: 'object', type;
+: 'string', description
+: 'Model ID' ,
+type: 'string', description;
+: 'Save path' ,
 
   required: ['modelId', 'path'],
 
   handler: (args) =>
   ` Model \$args.modelIdsaved`
-  to;
-  \$args.path;
-  :\n Size: 23.4MB\n Format: ONNX\n Compression: 67%\n Status: Saved successfully`,
+  to
+\$args.path
+:\n Size: 23.4MB\n Format: ONNX\n Compression: 67%\n Status: Saved successfully`,
 // description
 : 'WASM SIMD optimization',
 type: 'object', type;
@@ -809,18 +810,23 @@ type: 'string', description;
   ` Release coordination (\$args.repov\$args.version):\n Build:  Success\n Tests:  All passed\n Docs:  Updated\n Status: Ready`
 for release`,`
 
-  description: 'Workflow automation',
-  type: 'object',
-  type: 'string', description;
-  : 'Repository name' ,
-  type: 'object', description;
-  : 'Workflow configuration' ,
+  description
+: 'Workflow automation',
+type: 'object', type;
+: 'string', description
+: 'Repository name' ,
+type: 'object', description;
+: 'Workflow configuration' ,
 
   required: ['repo', 'workflow'],
 
   handler: (args) =>
   ` Workflow`
-  automation (${args.repo})
+  automation ($
+{
+  args.repo;
+}
+)
   :\n Workflows: 3 active\n Success rate: 96.8%\n Avg duration: 4.2 min\n Status: Automation active`,
 // description
 : 'Automated code review',

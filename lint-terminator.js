@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
-/* LINT TERMINATOR - Ultra-fast automated lint fixing;
-/** Zero tolerance approach to code quality;
+/* LINT TERMINATOR - Ultra-fast automated lint fixing; */
+/** Zero tolerance approach to code quality; */
 
- */
 import { execSync } from 'node:child_process';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname } from 'node:path';
@@ -21,50 +20,19 @@ try {
 } catch (error) {
   console.error(error);
 }
-  console.warn(' Biome completed with some issues');
+console.warn(' Biome completed with some issues');
 // }
 // Step 2: Quick unused variable removal
-console.warn('\n Phase 2');
-const _COMMON_FIXES = [
-  // Remove unused imports
-// {
-    pattern: /^import\s+{\s*[^}]*}\s+from\s+['"][^'"]*['"];\s*$/gm,"'
-    fix: (match, content) => {
-      const _usedImports = [];
-      const _importMatch = match.match(/import\s+{\s*([^}]*)\s*}\s+from\s+['"]([^'"]*)['"];/);"'
+console.warn('\n Phase 2''][^'''];\s*$/gm,"'']([^'''];/);"'
   if(importMatch) {
-        const _imports = importMatch[1].split(',').map((s) => s.trim());
-        const _moduleSource = importMatch[2];
-  for(const imp of imports) {
-          const _cleanImp = imp.replace(/\s+as\s+\w+/, ''); 
+        const _imports = importMatch[1].split(','); 
           if(content.includes(cleanImp) && content.split(cleanImp).length > 2) {
             usedImports.push(imp); // }
 // }
   if(usedImports.length === 0) {
           // return '';
     //   // LINT: unreachable code removed} else if(usedImports.length < imports.length) {
-          // return `import { ${usedImports.join(', ')} } from '${moduleSource}';`;
-// }
-// }
-      // return match;
-    //   // LINT: unreachable code removed} },
-  // Remove unused variable declarations
-// {
-    pattern: 
-)\s*=\s*[^
-]+
-(?=\
-s * $
-)/gm: true,
-fix: (match, content) =>
-// {
-      const _varMatch = match.match(/const\s+(\w+)/);
-  if(varMatch) {
-        const _varName = varMatch[1];
-        const _usageCount = content.split(varName).length - 1;
-  if(usageCount <= 1) {
-          // Only the declaration
-          // return '';
+          // return `import { ${usedImports.join(', ')} } from '${moduleSource}';
     //   // LINT: unreachable code removed}
 // }
       // return match;
@@ -153,7 +121,7 @@ try {
   console.warn(' MISSION ACCOMPLISHED');
 } catch (error) {
   console.error(error);
-}
+
   const _output = error.stdout  ?? error.message;
   const _errorCount = (output.match(/error/g)  ?? []).length;
   const _warningCount = (output.match(/warning/g)  ?? []).length;

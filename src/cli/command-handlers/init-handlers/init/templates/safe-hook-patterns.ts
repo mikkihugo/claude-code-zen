@@ -1,24 +1,26 @@
-/** Safe Hook Patterns - Templates for safe Claude Code hook configurations
+/** Safe Hook Patterns - Templates for safe Claude Code hook configurations */
 
-/** These patterns prevent infinite loops that could cost thousands of dollars
- * by avoiding recursive hook execution when hooks call 'claude' commands.
+/** These patterns prevent infinite loops that could cost thousands of dollars */
+* by avoiding recursive hook execution when hooks call 'claude' commands.
 
-/** DANGEROUS PATTERN - DO NOT USE
-/** This creates an infinite loop that can cost thousands of dollars!
+/** DANGEROUS PATTERN - DO NOT USE */
+/** This creates an infinite loop that can cost thousands of dollars! */
 
- */
-export const DANGEROUS_PATTERN_EXAMPLE = {
+export const DANGEROUS_PATTERN_EXAMPLE = {'
   name = {name = {name = {name = {name = "~/.claude/update.lock";
-LOG_FILE = '~/.claude/session_log.txt';
+"
+LOG_FILE = '~/.claude/session_log.txt'
 #;
 Check;
 if update is;
 already;
 running;
+'
 if [ -f "$LOCK_FILE" ];
 then;
 echo;
-('Update already in progress');
+"
+('Update already in progress')
 exit;
 1;
 fi;
@@ -27,34 +29,42 @@ Create;
 lock;
 file;
 touch;
-('$LOCK_FILE');
+'
+('$LOCK_FILE')
 #;
 Check;
 if there are;
 new sessions();
 to;
 process;
+'
 if [ -f "$LOG_FILE" ] && [ -s "$LOG_FILE" ];
 then;
 echo;
-('Processing accumulated changes...');
+"
+('Processing accumulated changes...')
 claude - c - p;
-"Update history.md with recent session data"--;
+'
+"Update history.md with recent session data"--
 skip - hooks;
 #;
 Archive;
 the;
 log;
 mv;
-('$LOG_FILE');
-('~/.claude/session_log_$(date +%Y%m%d_%H%M%S).txt');
+"
+('$LOG_FILE')
+'
+('~/.claude/session_log_$(date +%Y%m%d_%H%M%S).txt')
 fi;
 #;
 Remove;
 lock;
 file;
 rm;
-'$LOCK_FILE'` },`;
+'
+'$LOCK_FILE'` },`
+`
 benefits = {name = Path.home() / '.claude' / 'command_queue.jsonl';
 PROCESSING_INTERVAL = 300;
 #
@@ -68,7 +78,7 @@ if not QUEUE_FILE.exists()
 
 //         return
 
-// # Read and clear queue atomically; // LINT: unreachable code removed
+// # Read and clear queue atomically; // LINT: unreachable code removed'
 with open(QUEUE_FILE, 'r') as f = f.readlines() {}
 
 #
@@ -81,21 +91,21 @@ QUEUE_FILE.unlink();
 #
 Process;
 commands;
-for line inlines = json.loads(line.strip());
+for line inlines = json.loads(line.strip());'
             if cmd_data['command'] === 'update-history'
-
+'
                 print(f"Processing history update for session {cmd_data['session']}")
-subprocess.run([
+subprocess.run(["
 'claude', '-c', '-p', 'Update history.md', '--skip-hooks';
-)
-], check=True)
+
+], check=True
 time.sleep(2)
 #
 Rate;
 limiting;
 except;
 Exception;
-ase =
+ase ='
 = '__main__':
     whileTrue = [
   SAFE_FLAG_PATTERN,
@@ -104,39 +114,45 @@ ase =
   SAFE_BATCH_PATTERN,
   SAFE_QUEUE_PATTERN ]
 
-/** Generate safe hooks documentation
+/** Generate safe hooks documentation */
 
-// export function generateSafeHooksGuide() {
-//   return `;`
+// export function generateSafeHooksGuide() {'
+//   return `;
+`
 // #; // LINT: unreachable code removed
  Safe Hook Patterns
 for Claude Code
-
- **CRITICAL WARNING**: Stop hooks that call 'claude' commands create infinite loops that can cost thousands of dollars per day!
+` ** CRITICAL;
+WARNING**
+: Stop hooks that call 'claude' commands create infinite loops that can cost thousands of dollars per day!
 #
 #
  DANGEROUS PATTERN(NEVER USE)
 // $
 // {
-  DANGEROUS_PATTERN_EXAMPLE.description;
-// }
+  DANGEROUS_PATTERN_EXAMPLE.description
+// }'
 \`\`\`json`
 // $
 // {
-  JSON.stringify(DANGEROUS_PATTERN_EXAMPLE.pattern, null, 2);
-// }
-\`\`\`
+  JSON.stringify(DANGEROUS_PATTERN_EXAMPLE.pattern, null, 2)
+// }`
+\`\`\``
 **Problems = > `- $`
 // {
-  p;
-// }
-`).join('\n')}`
+  p
+// }`
+`).join('\n')}`;
 
 ---
 
-##  SAFE PATTERNS
+#
+#
+SAFE;
+PATTERNS;
 
-${ALL_SAFE_PATTERNS.map(;)
+$;
+{ALL_SAFE_PATTERNS.map(;)`
   (pattern) => `;`
 #
 #
@@ -148,70 +164,48 @@ $;
 $;
 // {
   pattern.description;
-// }
+// }`
 **Configuration = > `- $`
 // {
   b;
-// }
+// }`
 `).join('\n')}`
 
 ${
-  pattern.usage;
-    ? `**Usage = > `${i + 1}. ${u}`
-).join('\n')}`
-: ''
+  pattern.usage;`
+    ? `**Usage = > `${i + 1}. ${u}``
+).join('\n''
 // }
 // $
 // {
-  pattern.additionalSetup;
-    ? `**Additional Setup:**;`
-\$
-  pattern.additionalSetup.cronJob;
-    ? `;`
-**Cron Job:**
-\`\`\`bash;`
-\$pattern.additionalSetup.cronJob
-\`\`\`;`
-`;`
-    : '';
+  pattern.additionalSetup;'';
 // }
 
-\${pattern.additionalSetup.updateScript;
-    ? `;`
-**Update Script}`;`
-    : '';
+\${pattern.additionalSetup.updateScript;'';
 
 \$;
-  pattern.processor;
-    ? `;`
-**Queue Processor:**
-\`\`\`python;`
-\$pattern.processor
-\`\`\`;`
-`;`
-    : '';
+  pattern.processor;'';
 // }
 
----;
-`).join('')`
+---;'')`
 
 ##  Quick Migration Guide
 
-### If you currently have this DANGEROUS pattern: null
-\`\`\`json;`
-  "hooks": null
-    "Stop": ["hooks": ["type": "command", "command": "claude -c -p 'Update history'"]];
+### If you currently have this DANGEROUS pattern: null`
+\`\`\`json;``
+  "hooks": null"
+    "Stop": ["hooks": ["type": 'command', "command": "claude -c -p '']];"
 \`\`\`
 
-### Replace with this SAFE pattern: null
-\`\`\`json;`
-  "hooks": null
-    "Stop": ["hooks": ["type": "command", "command": "touch ~/.claude/needs_update && echo 'Run: claude -c -p \"Update history\"'"]];
+### Replace with this SAFE pattern: null`
+\`\`\`json;``
+  "hooks": null"
+    "Stop": ["hooks": ["type": 'command', "command": "touch ~/.claude/needs_update && echo 'Run: claude -c -p \"'']];"
 \`\`\`
 
 ##  Hook Safety Tools
-
-Use claude-zen's built-in safety tools: null'
+`
+Use claude-zen''
 \`\`\`bash;`
 # Check your configuration for dangerous patterns;
 claude-zen hook-safety validate
@@ -223,7 +217,7 @@ claude-zen hook-safety safe-mode
 claude-zen hook-safety status
 
 # Reset circuit breakers if triggered;
-claude-zen hook-safety reset;
+claude-zen hook-safety reset;`
 \`\`\`
 
 ##  Additional Resources
@@ -234,7 +228,7 @@ claude-zen hook-safety reset;
 
 ---
 
-**Remember**: When in doubt, use flag-based patterns or PostToolUse hooks instead of Stop hooks!
+**Remember**: When in doubt, use flag-based patterns or PostToolUse hooks instead of Stop hooks!`
 `;`
 // }
 
@@ -244,3 +238,4 @@ claude-zen hook-safety reset;
   generateSafeHooksGuide };
 
 }}
+`

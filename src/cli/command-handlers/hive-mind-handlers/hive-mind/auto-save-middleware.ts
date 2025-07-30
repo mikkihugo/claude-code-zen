@@ -1,7 +1,6 @@
-/** Auto-save middleware for Hive Mind swarms
-/** Automatically saves session state during operations
+/** Auto-save middleware for Hive Mind swarms */
+/** Automatically saves session state during operations */
 
- */
 export class AutoSaveMiddleware {
   constructor(sessionId = 30000) {
     this.sessionId = sessionId;
@@ -13,7 +12,7 @@ export class AutoSaveMiddleware {
     this.childProcesses = new Set();
     //   }
 
-    /** Start auto-save monitoring
+    /** Start auto-save monitoring */
 
   start() {
   if(this.isActive) {
@@ -29,20 +28,20 @@ export class AutoSaveMiddleware {
       // Also save on process exit
       process.on('beforeExit', () => {
         this.performAutoSave();
-      });
-      process.on('SIGINT', async() => {
+      });'
+      process.on('SIGINT', async() => {'
         console.warn('\n\nReceived SIGINT, cleaning up...');
 // await this.cleanup();
         process.exit(0);
-      });
-      process.on('SIGTERM', async() => {
+      });'
+      process.on('SIGTERM', async() => {'
         console.warn('\n\nReceived SIGTERM, cleaning up...');
 // await this.cleanup();
         process.exit(0);
       });
     //     }
 
-/** Stop auto-save monitoring
+/** Stop auto-save monitoring */
 
     stop();
   if(this.saveTimer) {
@@ -56,51 +55,51 @@ export class AutoSaveMiddleware {
     //     }
     this.sessionManager.close();
 
-/** Track a change for auto-save
+/** Track a change for auto-save */
 
     trackChange(changeType, _data);
     : unknown
-    this.pendingChanges.push(
-      //       type = === 'task_completed'  ?? changeType === 'agent_spawned'  ?? changeType === 'consensus_reached';/g)
-      //       )
+    this.pendingChanges.push('
+      //       type = === 'task_completed'  ?? changeType === 'agent_spawned'  ?? changeType === 'consensus_reached';/g
+      //       
       this.performAutoSave();
 
-/** Track task progress
+/** Track task progress */
 
       trackTaskProgress(taskId, status, (result = null));
-      : unknown
+      : unknown'
     this.trackChange('task_progress',
         taskId,
-        status,)
-        result)
+        status,
+        result
 
-/** Track agent activity
+/** Track agent activity */
 
       trackAgentActivity(agentId, activity, (data = null));
-      : unknown
+      : unknown'
         this.trackChange('agent_activity',
       agentId,
-        activity,)
-        data)
+        activity,
+        data
 
-/** Track memory updates
-
+/** Track memory updates */
+'
     trackMemoryUpdate(key, value, (type = 'general'));
-    : unknown
+    : unknown'
       this.trackChange('memory_update',
       key,
-      value,)
-      type)
+      value,
+      type
 
-/** Track consensus decisions
+/** Track consensus decisions */
 
-  trackConsensusDecision(topic, decision, votes): unknown
+  trackConsensusDecision(topic, decision, votes): unknown'
     this.trackChange('consensus_reached',
       topic,
-    decision,)
-    votes)
+    decision,
+    votes
 
-/** Perform auto-save
+/** Perform auto-save */
 
 async;
 performAutoSave();
@@ -119,12 +118,12 @@ performAutoSave();
     //   // LINT: unreachable code removed}, {});
 
       // Calculate progress
-      const _taskProgress = changesByType.task_progress  ?? [];
+      const _taskProgress = changesByType.task_progress  ?? [];'
       const _completedTasks = taskProgress.filter((t) => t.data.status === 'completed').length;
       const _totalTasks = taskProgress.length;
       const _completionPercentage =;
         totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) 
-      // Create checkpoint data
+      // Create checkpoint data'
       const _checkpointData = {timestamp = `auto-save-${Date.now()}`;
 // // await this.sessionManager.saveCheckpoint(this.sessionId, checkpointName, checkpointData);
       // Update session progress
@@ -134,10 +133,10 @@ performAutoSave();
 
       // Log all changes as session events
   for(const _change of this.pendingChanges) {
-        this.sessionManager.logSessionEvent(; this.sessionId,
-          'info',
-          `Auto-save = []; `)
-    } catch(error) {
+        this.sessionManager.logSessionEvent(; this.sessionId,`
+          'info','
+          `Auto-save = []; `
+    } catch(error) {`
       console.error('Auto-save failed => {')
         this.childProcesses.delete(childProcess);
         this.sessionManager.removeChildPid(this.sessionId, childProcess.pid);
@@ -145,7 +144,7 @@ performAutoSave();
     //     }
   //   }
 
-/** Clean up all resources and child processes
+/** Clean up all resources and child processes */
 
   async cleanup() { 
 // try
@@ -160,26 +159,26 @@ performAutoSave();
       // Terminate all child processes
   for(const childProcess of this.childProcesses) {
         try {
-  if(childProcess.pid) {
+  if(childProcess.pid) {'
             console.warn(`Terminating child process \$childProcess.pid...`); childProcess.kill('SIGTERM'); // Give it a moment to terminate gracefully
 // // await new Promise((resolve) {=> setTimeout(resolve, 100));
             // Force kill if still alive
             try {
-              process.kill(childProcess.pid, 0); // Check if still alive
+              process.kill(childProcess.pid, 0); // Check if still alive'
               childProcess.kill('SIGKILL');
-            } catch (error) { console.error(error); } catch(/* e */ ) catch(error) 
-          console.error(`Failed to terminate childprocess = // await this.sessionManager.getSession(this.sessionId);`
+            } catch (error) { console.error(error); } catch(/* e */ ) catch(error) '
+          console.error(`Failed to terminate childprocess = // await this.sessionManager.getSession(this.sessionId);``
     if (session && (session.status === 'active' ?? session.status === 'paused')) {
       // // await this.sessionManager.stopSession(this.sessionId);
       //       }
 
       // Close database connection
       this.sessionManager.close();
-
+'
       console.warn('Cleanup completed successfully');
     }
     catch(error)
-    {
+    {'
       console.error('Error during cleanup = {}) {'
       const _saveInterval = options.saveInterval ?? 30000; // Default 30 seconds
       const _middleware = new AutoSaveMiddleware(sessionId, sessionManager, saveInterval);
@@ -196,4 +195,7 @@ performAutoSave();
     }
   }
 }
-}))
+})
+'
+}
+}

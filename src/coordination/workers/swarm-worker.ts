@@ -1,8 +1,7 @@
-/** Swarm Worker Thread - Executes individual swarm tasks in parallel
+/** Swarm Worker Thread - Executes individual swarm tasks in parallel */
 
- */
 import { parentPort } from 'node:worker_threads';
-
+'
 '
 
 class SwarmWorker {
@@ -14,54 +13,54 @@ class SwarmWorker {
 
   currentTask = null;
   console;
-
+'
   warn(` Swarm worker ${this.workerId} initialized`);`
 // }
 
-/** Initialize worker and set up message handlers
+/** Initialize worker and set up message handlers */
 
 initialize();
 // {
-  if(!parentPort) {
+  if(!parentPort) {`
     throw new Error('Worker must be run in a worker thread');'
   //   }
-  // Listen for messages from main thread
+  // Listen for messages from main thread'
   parentPort.on('message', (message) => {'
     this.handleMessage(message);
   });
   // Send ready signal
   parentPort.postMessage({type = message;
-  try {)
-  switch(type) {
+  try {
+  switch(type) {'
         case 'execute-task':'
 // // // await this.executeTask(task);
-          break;
+          break;'
         case 'shutdown':'
 // // // await this.shutdown();
           break;default = task;
     const _startTime = Date.now();
 
-    try {
+    try {'
       console.warn(` Worker ${this.workerId}  catch (error) { console.error(error); }executing task ${task.id} ($, { task.type })`);`
 
       // Send progress update
       this.sendProgress(task.id, {status = // // await this.executeAgentSpawn(task);
-          break;
+          break;`
         case 'task-coordination':'
           result = // // await this.executeTaskCoordination(task);
-          break;
+          break;'
         case 'neural-analysis':'
           result = // // await this.executeNeuralAnalysis(task);
-          break;
+          break;'
         case 'performance-optimization':'
           result = // // await this.executePerformanceOptimization(task);
-          break;
+          break;'
         case 'code-analysis':'
           result = // // await this.executeCodeAnalysis(task);
-          break;
+          break;'
         case 'research-task':'
           result = // // await this.executeResearchTask(task);
-          break;
+          break;'
         case 'testing-task':'
           result = // // await this.executeTestingTask(task);
           break;
@@ -77,9 +76,9 @@ initialize();
     //     }
   //   }
 
-/** Execute agent spawning task
+/** Execute agent spawning task */
 
-  async;)
+  async;
   executeAgentSpawn(task);
   : unknown
   //   {
@@ -94,34 +93,34 @@ initialize();
     this.sendProgress(task.id, {status = this.generateOptimizations(bottlenecks);
     this.sendProgress(task.id, {status = task.data;
     this.sendProgress(task.id, { status = {complexity = task.data;
-    this.sendProgress(task.id, { status = {topic = task.data;)))
+    this.sendProgress(task.id, { status = {topic = task.data;))
     this.sendProgress(task.id, {status = // // await this.runTests(testType, target, testConfig);
-    this.sendProgress(task.id, { status = {)
-      'coordinator');'
-    : ['code-generation', 'debugging', 'refactoring', 'testing'],'
-    ('researcher')  ['data-gathering', 'analysis', 'web-research', 'documentation'],'
-    ('analyst')  ['performance-analysis', 'bottleneck-identification', 'optimization'],'
-    ('tester')  ['test-generation', 'automation', 'validation', 'quality-assurance'],'
+    this.sendProgress(task.id, { status = {)'
+      'coordinator''
+    : ['code-generation', 'debugging', 'refactoring', 'testing''
+    ('researcher')  ['data-gathering', 'analysis', 'web-research', 'documentation''
+    ('analyst')  ['performance-analysis', 'bottleneck-identification', 'optimization''
+    ('tester')  ['test-generation', 'automation', 'validation', 'quality-assurance''
     ('reviewer')  ['code-review', 'best-practices', 'security-analysis', 'compliance']'
-  //   }
+  //   }'
   // return capabilities[agentType]  ?? ['general-purpose'];'
   //   // LINT: unreachable code removed}
 
-/** Create coordination plan for subtasks
+/** Create coordination plan for subtasks */
 
   createCoordinationPlan(subtasks, strategy);
   : unknown
-  // return {
+  // return {'
       strategy,subtasks = > ({ ..task,id = === 'parallel' ? 'concurrent' : 'sequential',estimatedTime = [];'
   // ; // LINT: unreachable code removed
   for(const _subtask of plan.subtasks) {
     // Simulate subtask execution
-// // // await this.delay(200); 
+// // // await this.delay(200); '
     results.push({subtaskId = > ({bottleneck = === 'high' ? '20-30%' : '5-15%',effort = === 'high' ? 'medium' : 'low'; '))'
-  //     }) {)
+  //     }) {
 // }
 
-/** Analyze code complexity
+/** Analyze code complexity */
 
 analyzeComplexity(codebase);
 : unknown
@@ -133,14 +132,14 @@ analyzeComplexity(codebase);
   // target,total = > setTimeout(resolve, ms)); // LINT: unreachable code removed
 // }
 
-/** Graceful shutdown
+/** Graceful shutdown */
 
 async;
-shutdown();
+shutdown();'
 console.warn(` Worker ${this.workerId} shutting down...`);`
 this.isShuttingDown = true;
 // Wait for current task to complete if any
-  if(this.currentTask) {
+  if(this.currentTask) {`
   console.warn(` Waiting for current task ${this.currentTask.id} to complete...`);`
   // In a real implementation, you might want to interrupt the task
 // }
@@ -148,17 +147,19 @@ process.exit(0);
 // Initialize and start the worker
 const _worker = new SwarmWorker(workerData.workerId);
 worker.initialize();
-// Handle uncaught exceptions
-process.on('uncaughtException', (error) => {'
+// Handle uncaught exceptions`
+process.on('uncaughtException''
   console.error(`Uncaught exception in worker ${workerData.workerId});`
   if(parentPort) {
     parentPort.postMessage({ type = > process.exit(1), 100); // Brief delay to send message
   });
-
-process.on('unhandledRejection', (reason, _promise) => {'
+`
+process.on('unhandledRejection''
   console.error(`Unhandled rejection in worker ${workerData.workerId});`
   if(parentPort) {
     parentPort.postMessage({ type = > process.exit(1), 100); // Brief delay to send message
   });
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))
+`
+

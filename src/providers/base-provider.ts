@@ -1,8 +1,8 @@
-/** Base Provider Implementation;
-/** Abstract base class for all AI providers with common functionality;
+/** Base Provider Implementation; */
+/** Abstract base class for all AI providers with common functionality; */
 
- */
 import { EventEmitter } from 'node:events';
+'
 import type { BaseProvider as IBaseProvider } from '.';
 
 export abstract class BaseProvider extends EventEmitter implements IBaseProvider {
@@ -26,10 +26,10 @@ export abstract class BaseProvider extends EventEmitter implements IBaseProvider
 
   updateHealthStatus(true, responseTime);
   this;
-
+'
   emit('health_check', {provider = new Date();
   const;
-  timeSinceLastCheck = now.getTime() - this.lastHealthCheck.getTime();
+  timeSinceLastCheck = now.getTime() - this.lastHealthCheck.getTime();'
   // Auto health check if it's been too long'
   if(timeSinceLastCheck > (this.config.healthCheckInterval  ?? 300000);
   ) {
@@ -49,18 +49,18 @@ this.metrics.latencyP99 = sorted[p99Index] ?? 0;
 validateRequest(request)
 : void
 // {
-  if(!request.messages ?? request.messages.length === 0) {
+  if(!request.messages ?? request.messages.length === 0) {'
     throw new ProviderError('Messages are required', this.name, 'INVALID_REQUEST');
   //   }
-  if(!request.model) {
+  if(!request.model) {'
     throw new ProviderError('Model is required', this.name, 'INVALID_REQUEST');
   //   }
   if(!this.capabilities.models?.includes(request.model)) {
-    throw new ProviderError(;
+    throw new ProviderError(;'
     `Model ${request.model} not supported`,
-    this.name,
+    this.name,`
     ('MODEL_NOT_SUPPORTED');
-    //     )
+    //     
   //   }
 // }
 protected;
@@ -117,25 +117,25 @@ async;
 withRetry<T>(operation = > Promise<T>,
 maxRetries = this.config.retryAttempts  ?? 3,
 delay = this.config.retryDelay ?? 1000;
-// )
+// 
 : Promise<T>
 // {
   const _lastError = 0;
   attempt <= maxRetries;
   attempt++;
-  //   )
+  //   
   try {
     // return // await operation();
     //   // LINT: unreachable code removed} catch (error) {
   console.error(error);
 }
     lastError = error;
-
+'
     // Don't retry on certain error types'
     if(;
-      error instanceof ProviderError &&;
+      error instanceof ProviderError &&;'
       ['INVALID_REQUEST', 'MODEL_NOT_SUPPORTED'].includes(error.code);
-    //     )
+    //     
       throw error;
   if(attempt < maxRetries) {
       // await this.sleep(delay * 2 ** attempt); // Exponential backoff
@@ -161,40 +161,41 @@ sleep(ms = > setTimeout(resolve, ms));
 protected;
 emitRequest(request);
 : void
-// {
-  this.emit('request', 
+// {'
+  this.emit('request', '
     type: 'request',
-  provider: this.name,)
+  provider: this.name,
   timestamp: new Date(),
   id: request.id,
   model: request.model,
-  messageCount: request.messages.length )
+  messageCount: request.messages.length 
 // }
 // protected
 emitResponse(response)
 : void
-// {
-  this.emit('response', 
+// {'
+  this.emit('response', '
     type: 'response',
-  provider: this.name,)
+  provider: this.name,
   timestamp: new Date(),
   id: response.id,
   model: response.model,
   usage: response.usage,
-  responseTime: response.responseTime )
+  responseTime: response.responseTime 
 // }
 // protected
 emitError(error, request?)
 : void
-// {
-  this.emit('error', 
+// {'
+  this.emit('error', '
     type: 'error',
-  provider: this.name,)
+  provider: this.name,
   timestamp: new Date(),
   error: error.message,
   requestId: request?.id,
-  model: request?.model )
+  model: request?.model 
 // }
 // }
 
-))))
+)))
+'

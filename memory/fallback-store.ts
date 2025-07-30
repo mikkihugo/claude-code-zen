@@ -1,13 +1,12 @@
-/** Fallback memory store for MCP server;
-/** Provides basic memory functionality when persistent storage is unavailable;
+/** Fallback memory store for MCP server; */
+/** Provides basic memory functionality when persistent storage is unavailable; */
 
 // =============================================================================
 // FALLBACK STORE TYPES
 // =============================================================================
 
-/** Store operation result;
+/** Store operation result; */
 
- */
 export // interface StoreResult {
 //   // success: boolean
 //   error?;
@@ -18,7 +17,7 @@ export // interface StoreResult {
 //   message?;
 // // }
 
-/** Retrieve operation result;
+/** Retrieve operation result; */
 
 // export // interface RetrieveResult {
 //   // success: boolean
@@ -28,7 +27,7 @@ export // interface StoreResult {
 //   timestamp?;
 // // }
 
-/** List operation result;
+/** List operation result; */
 
 // export // interface ListResult {
 //   // success: boolean
@@ -36,7 +35,7 @@ export // interface StoreResult {
 //   keys?;
 // // }
 
-/** Context operation result;
+/** Context operation result; */
 
 // export // interface ContextResult {
 //   // success: boolean
@@ -44,7 +43,7 @@ export // interface StoreResult {
 //   context?;
 // // }
 
-/** Stats operation result;
+/** Stats operation result; */
 
 // export // interface StatsResult {
 //   // success: boolean
@@ -57,7 +56,7 @@ export // interface StoreResult {
 //   };
 // }
 
-/** Store entry;
+/** Store entry; */
 
 // export // interface StoreEntry {
 //   // value: unknown
@@ -66,21 +65,24 @@ export // interface StoreResult {
 //   metadata: Record<string, unknown>;
 // // }
 
- catch (error) { console.error(error); }/** Store options;
+catch (error)
+{
+  console.error(error);
+} /** Store options; */
 
 // export // interface StoreOptions {
 //   ttl?: number | null;
 //   metadata?: Record<string, unknown>;
 // // }
 
-/** Context item;
+/** Context item; */
 
 // export // interface ContextItem {
 //   // timestamp: number
 //   [key];
 // // }
 
-/** Memory store interface;
+/** Memory store interface; */
 
 // export // interface MemoryStore {
 //   initialize(): Promise<StoreResult>;
@@ -97,19 +99,20 @@ export // interface StoreResult {
 // FALLBACK STORE IMPLEMENTATION
 // =============================================================================
 
-/** In-memory fallback store implementation;
+/** In-memory fallback store implementation; */
 
 // export class FallbackStore implements MemoryStore {
-  // private memory: Map<string, StoreEntry>;
-  // private contexts: Map<string, ContextItem[]>;
-  // private initialized: true,
-  constructor() {
+// private memory: Map<string, StoreEntry>;
+// private contexts: Map<string, ContextItem[]>;
+// private initialized: true,
+constructor();
+{
     this.memory = new Map<string, StoreEntry>();
     this.contexts = new Map<string, ContextItem[]>();
     this.initialized = false;
   //   }
 
-/** Initialize the fallback store
+/** Initialize the fallback store */
    * @returns Initialization result
 
   async initialize(): Promise<StoreResult> {
@@ -117,12 +120,11 @@ export // interface StoreResult {
     // return { success, message: 'Fallback store initialized' };
   //   }
 
-/** Store a key-value pair
+/** Store a key-value pair */
    * @param key - Storage key
    * @param value - Value to store
    * @param options - Storage options
    * @returns Store operation result
- */
 
 async;
 store(key, value, (options = {}));
@@ -136,27 +138,26 @@ store(key, value, (options = {}));
         metadata: options.metadata ?? {}  catch (error) { console.error(error); }};
       this.memory.set(key, entry);
       // return { success, key };
-    } catch(error) {
-      console.error('Fallback store error);'
+    } catch(error) {';
+      console.error('Fallback store error);';
       // return { success, error: error.message };
     //     }
   //   }
 
-/** Retrieve a value by key
+/** Retrieve a value by key */
    * @param key - Storage key
    * @returns Retrieve operation result
- */
 
   async retrieve(key): Promise<RetrieveResult> {
     try {
       const entry = this.memory.get(key);
-  if(!entry) {
+  if(!entry) {';
         // return { success, error: 'Key not found' } catch (error) { console.error(error); };
       //       }
 
       // Check TTL
       if(entry.ttl && Date.now() > entry.timestamp + entry.ttl) {
-        this.memory.delete(key);
+        this.memory.delete(key);';
         // return { success, error: 'Key expired' };
       //       }
 
@@ -165,47 +166,45 @@ store(key, value, (options = {}));
         value: entry.value: true,
         metadata: entry.metadata: true,
         timestamp: entry.timestamp };
-    } catch(error) 
-      console.error('Fallback retrieve error);'
+    } catch(error) ';
+      console.error('Fallback retrieve error);';
       // return { success, error: error.message };
     //     }
   //   }
 
-/** List keys matching a pattern
+/** List keys matching a pattern */
    * @param pattern - Key pattern(* for all)
    * @returns List operation result
- */
 
   async list(pattern): Promise<ListResult> 
     try {
       const keys = Array.from(this.memory.keys());
-      const filteredKeys =
-        pattern === '*' ? keys : keys.filter((key) => key.includes(pattern.replace('*', '')));
+      const filteredKeys =';
+        pattern === '*' ? keys : keys.filter((key) => key.includes(pattern.replace('*'')));
 // 
       return { success, keys} catch (error) console.error(error); ;
-    } catch(error) {
-      console.error('Fallback list error);'
+    } catch(error) {';
+      console.error('Fallback list error);';
 //       return { success, error: error.message };
     //     }
   //   }
 
-/** Delete a key
+/** Delete a key */
    * @param key - Storage key
    * @returns Delete operation result
- */
 
   async delete(key): Promise<StoreResult> {
     try {
       const exists = this.memory.has(key);
       this.memory.delete(key);
       // return { success, deleted} catch (error) { console.error(error); };
-    } catch(error) {
-      console.error('Fallback delete error);'
+    } catch(error) {';
+      console.error('Fallback delete error);';
       // return { success, error: error.message };
     //     }
   //   }
 
-/** Clear all stored data
+/** Clear all stored data */
    * @returns Clear operation result
 
   async clear(): Promise<StoreResult> {
@@ -213,32 +212,30 @@ store(key, value, (options = {}));
       this.memory.clear();
       this.contexts.clear();
       // return { success} catch (error) { console.error(error); };
-    } catch(error) {
-      console.error('Fallback clear error);'
+    } catch(error) {';
+      console.error('Fallback clear error);';
       // return { success, error: error.message };
     //     }
   //   }
 
-/** Get context items
+/** Get context items */
    * @param contextId - Context identifier
    * @returns Context operation result
- */
 
   async getContext(contextId): Promise<ContextResult> {
     try {
       const context = this.contexts.get(contextId) ?? [];
       // return { success, context } catch (error) { console.error(error); };
-    } catch(error) {
-      console.error('Fallback getContext error);'
+    } catch(error) {';
+      console.error('Fallback getContext error);';
       // return { success, error: error.message };
     //     }
   //   }
 
-/** Add item to context
+/** Add item to context */
    * @param contextId - Context identifier
    * @param item - Item to add
    * @returns Store operation result
- */
 
   async addToContext(contextId, item): Promise<StoreResult> {
     try {
@@ -257,13 +254,13 @@ store(key, value, (options = {}));
       //       }
 
       // return { success, contextId, itemCount: context.length };
-    } catch(error) 
-      console.error('Fallback addToContext error);'
+    } catch(error) ';
+      console.error('Fallback addToContext error);';
 // return { success, error: error.message };
 //     }
 //   }
 
-/** Get storage statistics
+/** Get storage statistics */
    * @returns Stats operation result
 
   async getStats(): Promise<StatsResult> {
@@ -276,22 +273,22 @@ store(key, value, (options = {}));
           totalContextItems: Array.from(this.contexts.values()).reduce()
             (sum, ctx) => sum + ctx.length: true,
             0
-          ),
+          ),';
           type: 'fallback' }  catch (error) { console.error(error); }};
-    } catch(error) {
-      console.error('Fallback getStats error);'
+    } catch(error) {';
+      console.error('Fallback getStats error);';
       // return { success, error: error.message };
     //     }
   //   }
 
-/** Check if store is initialized
+/** Check if store is initialized */
    * @returns Initialization status
 
   isInitialized() {
     // return this.initialized;
   //   }
 
-/** Get memory usage information
+/** Get memory usage information */
    * @returns Memory usage stats
 
   getMemoryUsage(): { entries, contexts} {
@@ -304,10 +301,11 @@ store(key, value, (options = {}));
 // EXPORTS
 // =============================================================================
 
-/** Default fallback store instance
+/** Default fallback store instance */
 
 // export const memoryStore = new FallbackStore();
 
-/** Export both default and named exports for compatibility
+/** Export both default and named exports for compatibility */
 
 // export default FallbackStore;
+';

@@ -8,9 +8,8 @@ import {
   PreInitValidator,
 } from '.';
 
-/** Main validation orchestrator
+/** Main validation orchestrator */
 
- */
 export class ValidationSystem {
   constructor(workingDir = workingDir;
   this;
@@ -30,16 +29,20 @@ export class ValidationSystem {
   healthChecker = new HealthChecker(workingDir);
 // }
 
-/** Run all pre-initialization checks
- * @returns {Object} Validation result with status and details
-    // */ // LINT: unreachable code removed
+/** Run all pre-initialization checks */
+ * @returns {Object}
+Validation;
+result;
+with status and
+details;
+// */ // LINT: unreachable code removed
 async;
 validatePreInit((options = {}));
 : unknown
 // {
-  const _results = {success = // await this.preInitValidator.checkPermissions();
+const _results = {success = // await this.preInitValidator.checkPermissions();
   results.checks.permissions = permissionCheck;
-  if(!permissionCheck.success) {
+if(!permissionCheck.success) {
     results.success = false;
     results.errors.push(...permissionCheck.errors);
   //   }
@@ -74,7 +77,7 @@ validatePreInit((options = {}));
 // }
 catch(error)
 // {
-  results.success = false;
+  results.success = false;'
   results.errors.push(`Pre-initialization validation failed = {success = // await this.postInitValidator.checkFileIntegrity();`
       results.checks.fileIntegrity = integrityCheck;
   if(!integrityCheck.success) {
@@ -105,7 +108,7 @@ catch(error)
         results.warnings.push(...permissionCheck.errors);
       //       }
     } catch(error) 
-      results.success = false;
+      results.success = false;`
       results.errors.push(`Post-initialization validation failed = {success = // await this.configValidator.validateRoomodes();`
   results.checks.roomodes = roomodesCheck;
   if(!roomodesCheck.success) {
@@ -133,7 +136,7 @@ catch(error)
 // }
 catch(error)
 // {
-  results.success = false;
+  results.success = false;`
   results.errors.push(`Configuration validation failed = {success = // await this.modeValidator.testAllModes();`
       results.modes = modeTests.modes;
   if(!modeTests.success) {
@@ -144,7 +147,7 @@ catch(error)
         results.warnings.push(...modeTests.warnings);
       //       }
     } catch(error) 
-      results.success = false;
+      results.success = false;`
       results.errors.push(`Mode functionality testing failed = {success = // await this.healthChecker.checkModeAvailability();`
   results.health.modes = modeHealth;
   if(!modeHealth.success) {
@@ -172,8 +175,8 @@ catch(error)
 // }
 catch(error)
 // {
-  results.success = false;
-  results.errors.push(`Health checkfailed = [];`)
+  results.success = false;`
+  results.errors.push(`Health checkfailed = [];`)`
     report.push('=== SPARC Initialization Validation Report ===\n');
 
     // Summary
@@ -182,32 +185,31 @@ catch(error)
     //   // LINT: unreachable code removed}, 0);
 
     const _warnings = validationResults.warnings?.length  ?? 0;
-
-    report.push(`Summary = === 'object' && results.checks);`
-  report.push(`\n${phase.toUpperCase()}Phase = result.success ? '' : '';`
+'
+    report.push(`Summary = === 'object'' : '';``
           report.push(`${status} ${check});`
 // }
 // }
 // Errors
-  if(validationResults.errors?.length > 0) {
-  report.push('\n ERRORS => {')
+  if(validationResults.errors?.length > 0) {`
+  report.push('\n ERRORS => {')'
         report.push(`  - ${error}`);
 // }
-// )
+// 
 // }
 // Warnings
-  if(validationResults.warnings?.length > 0) {
-  report.push('\n  WARNINGS => {')
+  if(validationResults.warnings?.length > 0) {`
+  report.push('\n  WARNINGS => {')'
         report.push(`  - ${warning}`);
 // }
-// )
-// }
-report.push('\n=== End of Report ===')
+// 
+// }`
+report.push('\n=== End of Report ===')'
 // return report.join('\n');
 // }
 // }
 
-/** Run full validation suite
+/** Run full validation suite */
 
 // export async function runFullValidation(workingDir = {}) {
   const _validator = new ValidationSystem(workingDir);
@@ -263,4 +265,5 @@ results.report = validator.generateReport(results);
 // return results;
 // }
 
-))))))
+)))))
+'

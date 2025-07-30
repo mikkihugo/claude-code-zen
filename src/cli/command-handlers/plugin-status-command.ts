@@ -1,132 +1,119 @@
-/** Plugin Status Command - Check plugin system health and status
+/** Plugin Status Command - Check plugin system health and status */
 
- */
 export async function pluginStatusCommand(args = [], flags = {}) {
   const _subcommand = args[0] ?? 'status';
-  switch (subcommand) {
-    case 'status':
+  switch (subcommand) {'
+    case 'status':'
     case 'list':
     // return // await showPluginStatus(flags);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
     case 'health':
     // return // await showPluginHealth(flags);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
     case 'info':
     // return // await showPluginInfo(args[1], flags);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
     case 'enable':
     // return // await enablePlugin(args[1], flags);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
     case 'disable':
     // return // await disablePlugin(args[1], flags);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
     case 'restart': {
       // return // await restartPlugin(args[1], flags);default = getPluginManager();
       const _status = manager.getStatus();
-
-      console.warn(' Plugin System Status\n');
+'
+      console.warn(' Plugin System Status\n');'
       console.warn(`Overview = status.plugins.filter(p => p.loaded);`
       const _failedPlugins = status.plugins.filter((p) => p.enabled && !p.loaded);
       const _disabledPlugins = status.plugins.filter((p) => !p.enabled);
-      if (loadedPlugins.length > 0) {
-        console.warn(' Loaded Plugins => {');
-        console.warn(`    ${plugin.name.padEnd(20)} ($, { plugin.class })`);
-      }
-      )
-      console.warn('')
+      if (loadedPlugins.length > 0) {`
+        console.warn(' Loaded Plugins => {');'')
       //       }
-      if (failedPlugins.length > 0) {
-        console.warn(' Failed to Load => {');
-        console.warn(`    ${plugin.name.padEnd(20)} ($, { plugin.class })`);
-      }
-      )
-      console.warn('')
+      if (failedPlugins.length > 0) {'
+        console.warn(' Failed to Load => {');'')
       //       }
-      if (disabledPlugins.length > 0) {
-        console.warn(' Disabled Plugins => {');
-        console.warn(`    ${plugin.name.padEnd(20)} ($, { plugin.class })`);
-      }
-      )
-      console.warn('')
+      if (disabledPlugins.length > 0) {'
+        console.warn(' Disabled Plugins => {');'')
     }
     //       }
   }
 // else
-  {
+  {'
     console.warn(' Use --verbose for detailed plugin information');
     //     }
 
-    // Show quick stats for key plugins
+    // Show quick stats for key plugins'
     const _keyPlugins = ['memory-backend', 'unified-interface', 'github-integration'];
-
+'
     console.warn(`${status} ${name}`);
   }
-  )
+  
 }
 catch(error)
-{
+{`
   console.error(' Plugin system not initialized or erroroccurred = // await checkPluginHealth();'
-
+'
     console.warn(' Plugin Health Check\n');
 
   // Overall health
-  const _healthEmoji = {
-      'healthy': '',
-      'degraded': '',
-      'critical': '';
+  const _healthEmoji = {'
+      'healthy'','
+      'degraded'','
+      'critical'';
 }
-
-console.warn(`${healthEmoji[health.overall]} OverallStatus = pluginHealth.status === 'loaded' ? '' :`
-                           pluginHealth.status === 'failed' ? '' : '';
-
+'
+console.warn(`${healthEmoji[health.overall]} OverallStatus = pluginHealth.status === 'loaded'' :``
+                           pluginHealth.status === 'failed'' : '';
+'
 console.warn(`${statusEmoji} ${pluginName.padEnd(20)} - ${pluginHealth.status}`);
-if(pluginHealth.details) {
+if(pluginHealth.details) {`
           console.warn(`      ${JSON.stringify(pluginHealth.details, null, 2).replace(/\n/g, '\n     ')}`);
         //         }
-  if(pluginHealth.error) {
+  if(pluginHealth.error) {`
           console.warn(`     Error = getPluginManager();`
     const _plugin = manager.getPlugin(pluginName);
-  if(!plugin) {
+  if(!plugin) {`
       console.error(` Plugin '${pluginName}' not found or not loaded`);
       return;
     //   // LINT: unreachable code removed}
-
+`
     console.warn(` PluginInformation = === 'function') ;`
       try {
-// const __capabilities = awaitplugin.getCapabilities();
+// const __capabilities = awaitplugin.getCapabilities();`
         console.warn(`Capabilities = === 'function') {`
       try {
-// const _stats = awaitplugin.getStats();
+// const _stats = awaitplugin.getStats();`
         console.warn('\nStatistics = getPluginManager();'
-
+'
     console.warn(` Restarting plugin = {`)
       handler);
 
     // Unload the plugin
-// // await manager.unloadPlugin(pluginName);
+// // await manager.unloadPlugin(pluginName);`
     console.warn(` Unloaded);`
 
     // Reload the plugin
-// // await manager.loadPlugin(pluginName);
+// // await manager.loadPlugin(pluginName);`
     console.warn(` Reloaded);`
-
+`
     console.warn(` Successfully restarted plugin);`
 
-  } catch (error) { console.error(error); } catch(error) 
+  } catch (error) { console.error(error); } catch(error) `
     console.error(` Failed to restart plugin '${pluginName}');`
   //   }
 
 // Export the configuration for the command registry
-// export const _pluginStatusCommandConfig,_ler,
-  _description: 'Plugin system status and management',
+// export const _pluginStatusCommandConfig,_ler,`
+  _description: 'Plugin system status and management','
   _usage: 'plugin <subcommand> [options]',
-  _examples: [;
-    'plugin status',
-    'plugin status --verbose',
-    'plugin health',
-    'plugin info memory-backend',
+  _examples: [;'
+    'plugin status','
+    'plugin status --verbose','
+    'plugin health','
+    'plugin info memory-backend','
     'plugin restart unified-interface';
-  ],
+  ],'
   _details: `;`
 Plugin Management Commands: null
   status                     Show plugin system overview;
@@ -150,10 +137,11 @@ Key Plugins: null
   security-auth             Enterprise security features;
   workflow-engine           Advanced workflow automation
 
-The plugin system provides enterprise-grade extensibility with graceful;
+The plugin system provides enterprise-grade extensibility with graceful;`
 error handling and comprehensive monitoring capabilities.`;`
 };
 
 // export default pluginStatusCommand;
 
-}}}))))
+}}})))
+`

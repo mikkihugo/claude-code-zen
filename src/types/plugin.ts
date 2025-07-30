@@ -1,50 +1,50 @@
-/** Plugin System Types;
-/** Comprehensive plugin architecture for extensible functionality;
+/** Plugin System Types; */
+/** Comprehensive plugin architecture for extensible functionality; */
 
- */
 import type { Identifiable } from '.';
 
 // =============================================================================
 // PLUGIN CORE TYPES
 // =============================================================================
-
+'
 export type PluginType = 'ai-provider';
-| 'architect-advisor'
-| 'security-auth'
-| 'notifications'
-| 'export-system'
-  | 'documentation-linker'
-| 'workflow-engine'
-| 'github-integration'
-| 'memory-backend'
-| 'performance-monitor'
-| 'code-analysis'
-| 'test-runner'
-| 'database-connector'
-| 'neural-processor'
-| 'vision-processor'
-| 'custom'
-// export type PluginStatus = 'unloaded';
-| 'loading'
-| 'loaded'
-| 'initializing'
-| 'active'
-| 'error'
-| 'disabled'
-// export type HookType = 'pre-task';
-| 'post-task'
-| 'pre-edit'
-| 'post-edit'
-| 'pre-search'
-| 'post-search'
-| 'pre-command'
-| 'post-command'
-| 'session-start'
-| 'session-end'
-| 'notification'
-| 'error'
-| 'health-check'
-| 'performance-metric'
+'
+| ''
+| ''
+| ''
+| ''
+  | ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+// export type PluginStatus = 'unloaded';'
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+// export type HookType = 'pre-task';'
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
+| ''
 // export // interface PluginManifest {name = | 'filesystem = ============================================================================'
 // // PLUGIN RUNTIME
 // // =============================================================================
@@ -57,50 +57,50 @@ export type PluginType = 'ai-provider';
 // export interface PluginEvents {
 //   // Index signature for EventMap compatibility
 //   [event = > void;
-// // Lifecycle events
+// // Lifecycle events'
 // ('loading');
-// : (pluginName = > void
-// ('loaded')  (pluginName = > void
-// ('initializing')  (pluginName = > void
-// ('initialized')  (pluginName = > void
-// ('starting')  (pluginName = > void
-// ('started')  (pluginName = > void
-// ('stopping')  (pluginName = > void
-// ('stopped')  (pluginName = > void
-// ('unloading')  (pluginName = > void
-// ('unloaded')  (pluginName = > void
-// ('error')  (pluginName = > void
+// : (pluginName = > void'
+// ('loaded')  (pluginName = > void'
+// ('initializing')  (pluginName = > void'
+// ('initialized')  (pluginName = > void'
+// ('starting')  (pluginName = > void'
+// ('started')  (pluginName = > void'
+// ('stopping')  (pluginName = > void'
+// ('stopped')  (pluginName = > void'
+// ('unloading')  (pluginName = > void'
+// ('unloaded')  (pluginName = > void'
+// ('error')  (pluginName = > void'
 // ('restarted')  (pluginName = > void
-// // Hook events
+// // Hook events'
 // ('hook-registered')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('hook-unregistered')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('hook-executed')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('hook-failed')
 // : (pluginName = > void
-// // API events
+// // API events'
 // ('api-registered')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('api-unregistered')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('api-called')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('api-failed')
 // : (pluginName = > void
-// // Resource events
+// // Resource events'
 // ('resource-warning')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('resource-exceeded')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('performance-degraded')
 // : (pluginName = > void
-// // Security events
+// // Security events'
 // ('permission-denied')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('security-violation')
-// : (pluginName = > void
+// : (pluginName = > void'
 // ('sandbox-breach')
 // : (pluginName = > void
 // // }
@@ -160,4 +160,5 @@ export type PluginType = 'ai-provider';
 //   // errorCount: number
 // // }
 
-}}}}}}})))))))))))))))))))))))))))
+}}}}}}}))))))))))))))))))))))))))
+'

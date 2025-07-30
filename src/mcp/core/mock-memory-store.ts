@@ -1,10 +1,13 @@
-/**
- * @fileoverview Mock; SqliteMemoryStore; implementation;
- */
-for testing
-/** Provides basic functionality when sqlite store is not available
+/** */
+*
+@fileoverview
+Mock;
+SqliteMemoryStore;
+implementation;
 
- */
+for testing
+/** Provides basic functionality when sqlite store is not available */
+
 export class SqliteMemoryStore {
   constructor(options = {}) {
     this.options = options;
@@ -18,7 +21,7 @@ export class SqliteMemoryStore {
     // return true;
     //   // LINT: unreachable code removed}
 
-  async store(key, value, options = }) {
+  async store(key, value, options = }) {'
     const _namespace = options.namespace  ?? 'default';'
     if(!this.namespaces.has(namespace)) {
       this.namespaces.set(namespace, new Map());
@@ -26,8 +29,8 @@ export class SqliteMemoryStore {
 
     const __nsStorage = this.namespaces.get(namespace);
     nsStorage.set(key, {
-      value,)
-      timestamp = {}) {
+      value,
+      timestamp = {}) {'
     const _namespace = options.namespace  ?? 'default';'
     const _nsStorage = this.namespaces.get(namespace);
 
@@ -45,7 +48,7 @@ export class SqliteMemoryStore {
     // return item.value;
     //   // LINT: unreachable code removed}
 
-  async delete(key, options = {}) { 
+  async delete(key, options = {}) { '
     const _namespace = options.namespace  ?? 'default';'
     const _nsStorage = this.namespaces.get(namespace);
 
@@ -56,7 +59,7 @@ export class SqliteMemoryStore {
     // return false;
     //   // LINT: unreachable code removed}
 
-  async list(options = {}) { 
+  async list(options = {}) { '
     const _namespace = options.namespace  ?? 'default';'
     const _nsStorage = this.namespaces.get(namespace);
 
@@ -65,14 +68,14 @@ export class SqliteMemoryStore {
     // return Array.from(nsStorage.keys());
     //   // LINT: unreachable code removed}
 
-  async search(pattern, options = }) {
+  async search(pattern, options = }) {'
     const _namespace = options.namespace  ?? 'default';'
     const _nsStorage = this.namespaces.get(namespace);
 
     if(!nsStorage) return [];
     // ; // LINT: unreachable code removed
     const _results = [];
-    for (const [key, item] of nsStorage.entries()) {
+    for (const [key, item] of nsStorage.entries()) {'
       if(key.includes(pattern.replace('))) {'
         results.push(item.value); //       }
     //     }
@@ -86,3 +89,4 @@ export class SqliteMemoryStore {
 // }
 
 }}
+'

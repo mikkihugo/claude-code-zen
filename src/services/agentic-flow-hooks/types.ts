@@ -1,7 +1,6 @@
-/** Agentic-Flow Hook System Types;
-/** Comprehensive type system for hook-based automation and workflow management;
+/** Agentic-Flow Hook System Types; */
+/** Comprehensive type system for hook-based automation and workflow management; */
 
- */
 export // interface HookContext {id = > Promise<HookResult> | HookResult
 // // }
 export // interface HookCondition {type = > boolean
@@ -27,32 +26,32 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 // export // interface WorkflowHook extends Hook {execute = > Promise<HookResult> | HookResult
 // // }
 // Payload types for different hook types
-// export // interface PreTaskPayload extends HookPayload {data = | 'parallel' // Execute all hooks simultaneously
-// | 'sequential'    // Execute hooks one after another
-//   | 'priority'      // Execute by priority order
-//   | 'conditional'   // Execute based on conditions
-//   | 'pipeline'      // Pass result from one hook to next
+// export // interface PreTaskPayload extends HookPayload {data = | 'parallel' // Execute all hooks simultaneously'
+// | 'sequential'    // Execute hooks one after another'
+//   | 'priority'      // Execute by priority order'
+//   | 'conditional'   // Execute based on conditions'
+//   | 'pipeline'      // Pass result from one hook to next'
 //   | 'tree' // Execute in tree structure based on dependencies
 
-// // Hook registration and management
-// export interface HookRegistration {name = | 'pre-task'
-// | 'post-task'
-// | 'pre-edit'
-// | 'post-edit'
-// | 'pre-search'
-// | 'post-search'
-// | 'pre-command'
-// | 'post-command'
-// | 'llm-request'
-// | 'llm-response'
-// | 'neural-operation'
-// | 'performance-metric'
-// | 'memory-operation'
-// | 'workflow-step'
-// | 'session-start'
-// | 'session-end'
-// | 'error-handler'
-// | 'notification'
+// // Hook registration and management'
+// export interface HookRegistration {name = | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
+// | ''
 // | 'custom'
 // // Hook execution context and state
 // export interface HookExecutionContext {
@@ -87,7 +86,7 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 //   }>;
 // }
 // Hook lifecycle events
-// export // interface HookLifecycleEvent {
+// export // interface HookLifecycleEvent {'
 //   type: 'registered' | 'unregistered' | 'enabled' | 'disabled' | 'executed' | 'failed';
 //   // hookName: string
 //   // timestamp: Date
@@ -142,7 +141,7 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 //   fallbackHook?;
 // // }
 // export // interface ScheduledHook extends Hook {
-//   schedule: {
+//   schedule: {'
 //     type: 'cron' | 'interval' | 'once';
 //     // expression: string
 //     timezone?;
@@ -152,7 +151,7 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 // }
 // export // interface DependentHook extends Hook {
 //   dependencies: Array<{
-//     // hookName: string
+//     // hookName: string'
 //     condition: 'success' | 'failure' | 'completion';
 //     timeout?;
 //   }>;
@@ -164,7 +163,7 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 //   hooks: Array<{
 //     // hookName: string
 //     input?;
-//     outputMapping?: Record<string, string>;
+//     outputMapping?: Record<string, string>;'
 //     errorHandling?: 'continue' | 'stop' | 'retry' | 'fallback';
 //     fallbackHook?;
 //   }>;
@@ -177,7 +176,7 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 //   // description: string
 //   // version: string
 //   parameters: Array<{
-//     // name: string
+//     // name: string'
 //     type: 'string' | 'number' | 'boolean' | 'object' | 'array';
 //     // required: boolean
 //     default?;
@@ -194,3 +193,4 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 // // }
 
 }}
+'

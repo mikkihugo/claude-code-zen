@@ -1,7 +1,6 @@
-/** Core System Types;
-/** Fundamental types used throughout the Claude Code Flow system
+/** Core System Types; */
+/** Fundamental types used throughout the Claude Code Flow system */
 
- */
 import type { EventEmitter } from 'node:events';
 
 // =============================================================================
@@ -21,13 +20,13 @@ export // interface Identifiable {id = =========================================
 //   // System identificationinstanceId = ============================================================================
 // // SYSTEM STATUS & HEALTH
 // // =============================================================================
-
+'
 // export type SystemStatus = 'initializing' | 'healthy' | 'degraded' | 'offline' | 'error';
 
 // export interface HealthCheck {name = ============================================================================
 // // ERROR HANDLING
 // // =============================================================================
-
+'
 // export interface ErrorDetails {code = 'SystemError'
 // this.cause = cause
 // // }
@@ -39,22 +38,22 @@ export // interface Identifiable {id = =========================================
 // export // interface ResourceLimits {memory = ============================================================================
 // // ASYNC OPERATIONS
 // // =============================================================================
-
+'
 // export type OperationStatus = 'pending' | 'running' | 'completed' | 'failed' | 'cancelled'
 
 // export interface AsyncOperation<_T = any> extends Identifiable {name = any> {success = ============================================================================
 // // LIFECYCLE MANAGEMENT
 // // =============================================================================
-
+'
 // export type LifecycleState = 'created' | 'initializing' | 'running' | 'stopping' | 'stopped' | 'error'
 
 // export interface LifecycleManager extends EventEmitter {
-//   readonlystate = > void
+//   readonlystate = > void'
 // ('initialized');
-// : () => void
-// 'started': () => void
-// 'stopped': () => void
-// 'error': (error = > void
+// : () => void'
+// 'started': () => void'
+// 'stopped': () => void'
+// 'error': (error = > void'
 // 'health-check': (health = > void
 // // }
 // =============================================================================
@@ -74,7 +73,7 @@ export // interface Identifiable {id = =========================================
 // export // interface ValidationResult {key = ============================================================================
 // // LOGGING & OBSERVABILITY
 // // =============================================================================
-
+'
 // export type LogLevel = 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal'
 
 // export interface LogEntry {timestamp = ============================================================================
@@ -114,4 +113,5 @@ export // interface Identifiable {id = =========================================
 // // }
 
 }
-}}}}}}}}}}))))))
+}}}}}}}}}})))))
+'

@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-const fs = require('node);'
-const _path = require('node);'
+const fs = require('';
+const _path = require('';
 const glob = require('glob');
 
-// Find all TypeScript files
-const files = glob.sync('src/**/*.ts', {)
+// Find all TypeScript files';
+const files = glob.sync('src/**/*.ts', {) */
   ignore);
 
 const _totalFixed = 0;
 
-files.forEach((file) => {
+files.forEach((file) => {';
   const content = fs.readFileSync(file, 'utf8');
   const modified = false;
 
@@ -19,23 +19,26 @@ files.forEach((file) => {
     // Fix unknown error types in catch blocks
 {}
       regex: /catch\s*\(\s*error\s*\)\s*([^}
-]+error\.message)/g,
+]+error\.message)/g,';
       replacement: 'catch(error) {$1' ,
-      regex: /(\$\
-  |`)error\.message/g,`
+      regex: /(\$\';
+  |`)error\.message/g,``
       replacement: '$1(error instanceof Error ? error.message : String(error))'
-,
-regex: /([^`$])error\.message/g,
-  `
+,';
+regex: /([^`$])error\.message/g,`
+  ``
       replacement: '$1(error instanceof Error ? error.message : String(error))' },
 // Fix error type annotations
-{}
+{
+}
 regex: /catch\s*\(\s*error)/g, replacement;
+';
 : 'catch(error)' },
-      regex: /\(error)/g,
+      regex: /\(error)/g,';
       replacement: '(error)' } ]
 
-patterns.forEach((pattern) => {
+patterns.forEach((pattern) =>
+{
     const before = content;
     content = content.replace(pattern.regex, pattern.replacement);
   if(before !== content) {
@@ -43,21 +46,23 @@ patterns.forEach((pattern) => {
 
   });
   if(modified) { // Add error handler import if needed
-    if(
-// ! content.includes("from '../utils/error-handler'") &&
-// ! content.includes("from '../../utils/error-handler'") &&
+    if(';
+// ! content.includes("from '") &&"
+// ! content.includes("from '") &&"
       content.includes('error instanceof Error')
-    ) {
-      const importPath = file.includes('cli'
-        ? '../../utils/error-handler'
+    ) {';
+      const importPath = file.includes(';
+        ? '';
         : '../utils/error-handler';
-      content = `;`
+      content = `;``
 import { getErrorMessage  } from '${importPath}';
 \n$
-  content;
+  content;';
 `;`
 
     fs.writeFileSync(file, content);
     _totalFixed++;
 
 });
+`
+}

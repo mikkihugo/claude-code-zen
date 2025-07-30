@@ -1,10 +1,12 @@
-/** Performance Monitor Plugin;
-/** Real-time performance monitoring, metrics collection, and analysis;
+/** Performance Monitor Plugin; */
+/** Real-time performance monitoring, metrics collection, and analysis; */
 
- */
 import { EventEmitter } from 'node:events';
+'
 import { mkdir, readFile } from 'node:fs';
+'
 import os from 'node:os';
+'
 import path from 'node:path';
 
 export class PerformanceMonitorPlugin extends EventEmitter {
@@ -25,7 +27,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
     // Performance observer for async operations
     this.performanceObserver = null;
   //   }
-  async initialize() { 
+  async initialize() { '
     console.warn(' Performance Monitor Plugin initialized');
     // Create persistence directory
     if(this.config.persistence.enabled) 
@@ -71,13 +73,13 @@ export class PerformanceMonitorPlugin extends EventEmitter {
             // return Number(end - start) / 1e6; // Convert to milliseconds
           //           }
           setupPerformanceObserver();
-          try {
+          try {'
       const { PerformanceObserver }  catch (error) console.error(error); = require('node);'
 
       this.performanceObserver = new PerformanceObserver((list) => {
         const _entries = list.getEntries();
         entries.forEach(entry => {
-          // Track performance marks and measures/g)
+          // Track performance marks and measures/g)'
   if(entry.entryType === 'measure') {
             this.recordMeasure(entry.name, entry.duration);
           //           }
@@ -86,7 +88,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
 
       this.performanceObserver.observe({entryTypes = true;
 
-    // Start metric collection/g)
+    // Start metric collection/g
     this.monitoringInterval = setInterval(async() => {
 // await this.collectMetrics();
     }, this.config.metricsInterval);
@@ -102,22 +104,22 @@ export class PerformanceMonitorPlugin extends EventEmitter {
   if(this.config.aggregation.enabled) {
       this.startAggregation();
     //     }
-
+'
     console.warn(' Monitoring started');
   //   }
           async;
           collectMetrics();
           try {
-      // Collect system metrics
+      // Collect system metrics'
 // const _systemMetrics = awaitthis.collectors.get('system')();
       this.metrics.system.push(systemMetrics);
 
-      // Collect process metrics
+      // Collect process metrics'
 // const _processMetrics = awaitthis.collectors.get('process')();
       this.metrics.process.push(processMetrics);
 
       // Collect custom metrics
-  for(const [name, collector] of this.collectors) {
+  for(const [name, collector] of this.collectors) {'
   if(name !== 'system' && name !== 'process') {
 // const _metrics = awaitcollector(); 
   if(metrics) {
@@ -133,7 +135,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
 
       // Check alerts
 // // await this.checkAlerts(systemMetrics, processMetrics);
-      // Emit metrics event
+      // Emit metrics event'
       this.emit('metrics', {system = this.metrics.system.slice(-this.config.historyLimit);
     //     }
   if(this.metrics.process.length > this.config.historyLimit) {
@@ -165,10 +167,10 @@ export class PerformanceMonitorPlugin extends EventEmitter {
             parseInterval(interval);
             : unknown
             //             {
-              const _units = {
-      's',
+              const _units = {'
+      's','
               ('m');
-
+'
               ('h')}
             const _match = interval.match(/^(\d+)([smh])$/);
   if(match) {
@@ -193,10 +195,10 @@ export class PerformanceMonitorPlugin extends EventEmitter {
       interval,timestamp = > m.cpu.usage)),min = > m.cpu.usage)),max = > m.cpu.usage)),p95 = > m.cpu.usage), 0.95);
             //             }
             ,_memory = > m.memory.percentage
-            )),min = > m.memory.percentage)),max = > m.memory.percentage)),p95 = > m.memory.percentage), 0.95)
+            )),min = > m.memory.percentage)),max = > m.memory.percentage)),p95 = > m.memory.percentage), 0.95
           //           }
         //         }
-        ,process = > m.memory.heapUsed)),min = > m.memory.heapUsed)),max = > m.memory.heapUsed)),p95 = > m.memory.heapUsed), 0.95),eventLoop = > m.eventLoop)),min = > m.eventLoop)),max = > m.eventLoop)),p95 = > m.eventLoop), 0.95)
+        ,process = > m.memory.heapUsed)),min = > m.memory.heapUsed)),max = > m.memory.heapUsed)),p95 = > m.memory.heapUsed), 0.95),eventLoop = > m.eventLoop)),min = > m.eventLoop)),max = > m.eventLoop)),p95 = > m.eventLoop), 0.95
       };
     //     }
   //   }
@@ -206,7 +208,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
   aggregated;
 set(
   interval;
-  , [])
+  , []
 // }
 this.aggregated.get(interval).push(aggregated);
 // Keep only last 100 aggregations per interval
@@ -232,7 +234,7 @@ startTimer(name, (labels = {}));
 // {
   const _key = this.getMetricKey(name, labels);
   this.timers.set(key, {
-      name,)
+      name,
   labels, (start = this.timers.get(key));
   if(!timer) return null;
   // ; // LINT: unreachable code removed
@@ -248,14 +250,14 @@ incrementCounter(name, (value = 1), (labels = {}));
 // {
   let _key = this.getMetricKey(name, labels);
   const _current = this.counters.get(key)  ?? { name, labels,value = value;
-  this.counters.set(key, current);
+  this.counters.set(key, current);'
   this.emit('counter', { name, value = {}) {
     const _key = this.getMetricKey(name, labels);
   this.gauges.set(key, { name, labels, value, timestamp = {}) {
     const _key = this.getMetricKey(name, labels);
   if(!this.histograms.has(key)) {
     this.histograms.set(key, {
-        name,)
+        name,
     labels, (values = this.histograms.get(key));
     histogram.values.push(value);
     histogram.sum += value;
@@ -263,37 +265,37 @@ incrementCounter(name, (value = 1), (labels = {}));
     // Keep only last 1000 values
   if(histogram.values.length > 1000) {
       histogram.values = histogram.values.slice(-1000);
-    //     }
+    //     }'
     this.emit('histogram', { name, value, labels });
   //   }
   recordMeasure(name, duration, (labels = {}));
   : unknown
-  this.recordHistogram(
+  this.recordHistogram('
     `\$`
-// name
+// name`
   _duration`,`
     duration,
-    labels)
-  //   )
+    labels
+  //   
   getMetricKey(name, labels)
   : unknown
   //   {
     const __labelStr = Object.entries(labels);
 sort(([a], [b]) => a.localeCompare(b))
-map(
+map(`
     ([_k, _v]) => `
     \$
 // k
     =\$
-// v
+// v`
   `
-    //     )
-join(',')
+    //     )`
+join(',')'
     // return `;`
   // \$; // LINT: unreachable code removed
   name;
   \$;
-  labelStr;
+  labelStr;`
   `;`
   //   }
   // Get current metrics
@@ -302,7 +304,7 @@ join(',')
     const __latest = {system = metrics[metrics.length - 1]  ?? null;
   //   }
   // return latest;
-// }
+// }`
 getMetricsSummary((duration = '5m'));
 : unknown
 // {
@@ -316,13 +318,13 @@ getMetricsSummary((duration = '5m'));
 //     return {
       duration,samples = > m.cpu.usage)),max = > m.cpu.usage));
     //   // LINT: unreachable code removed},memory = > m.memory.percentage;
-    )),max = > m.memory.percentage))
+    )),max = > m.memory.percentage)
   //   }
 // }
-,process = > m.memory.heapUsed)),max = > m.memory.heapUsed))
-},eventLoop = > m.eventLoop)),max = > m.eventLoop))
+,process = > m.memory.heapUsed)),max = > m.memory.heapUsed)
+},eventLoop = > m.eventLoop)),max = > m.eventLoop)
 // }
-      },alerts = > a.timestamp >= cutoff)
+      },alerts = > a.timestamp >= cutoff
 // }
 // }
   getCustomMetrics() 
@@ -337,20 +339,20 @@ getMetricsSummary((duration = '5m'));
   const __sorted = histogram.values.slice().sort((a, b) => a - b); metrics.histograms[key] = {count = new Date() {.toISOString();
   const __data = {
         timestamp,metrics = > [key, values.slice(-100)]);
-  //   )
-// }
+  //   
+// }'
 ,aggregated = `
-metrics - \$
-timestamp.split('T')[0]
+metrics - \$`
+timestamp.split('T')[0]'
 json`
 const _filepath = path.join(this.config.persistence.path, filename);
 // // await writeFile(filepath, JSON.stringify(data, null, 2));
 // }
 catch(error)
-// {
-  console.error('Error persistingmetrics = new Date().toISOString().split('T')[0];'
+// {`
+  console.error('Error persistingmetrics = new Date().toISOString().split('T''
   const _filename = `metrics-${today}.json`;
-  const _filepath = path.join(this.config.persistence.path, filename);
+  const _filepath = path.join(this.config.persistence.path, filename);`
   const _data = JSON.parse(// await readFile(filepath, 'utf8'));
   // Load recent metrics
   if(data.metrics) {
@@ -367,12 +369,12 @@ catch(error)
   // Load alerts
   if(data.alerts) {
     this.alerts = data.alerts;
-  //   }
+  //   }'
   console.warn(' Loaded historical performance data');
 // }
 catch(error)
-// {
-  // No historical data, that's OK'
+// {'
+  // No historical data, that''
   console.warn(' No historical data found, starting fresh');
 // }
 // }
@@ -383,83 +385,82 @@ catch(error)
   const _timestamp = Date.now();
   // System metrics
   const _systemMetric = this.metrics.system[this.metrics.system.length - 1];
-  if(systemMetric) {
-    lines.push(`# HELP system_cpu_usage CPU usage percentage`);
-    lines.push(`# TYPE system_cpu_usage gauge`);
-    lines.push(`system_cpu_usage ${systemMetric.cpu.usage} ${timestamp}`);
-    lines.push(`# HELP system_memory_usage Memory usage percentage`);
-    lines.push(`# TYPE system_memory_usage gauge`);
+  if(systemMetric) {'
+    lines.push(`# HELP system_cpu_usage CPU usage percentage`);`
+    lines.push(`# TYPE system_cpu_usage gauge`);`
+    lines.push(`system_cpu_usage ${systemMetric.cpu.usage} ${timestamp}`);`
+    lines.push(`# HELP system_memory_usage Memory usage percentage`);`
+    lines.push(`# TYPE system_memory_usage gauge`);`
     lines.push(`system_memory_usage ${systemMetric.memory.percentage} ${timestamp}`);
   //   }
   // Process metrics
   const _processMetric = this.metrics.process[this.metrics.process.length - 1];
-  if(processMetric) {
-    lines.push(`# HELP process_heap_used Process heap memory used`);
-    lines.push(`# TYPE process_heap_used gauge`);
-    lines.push(`process_heap_used ${processMetric.memory.heapUsed} ${timestamp}`);
-    lines.push(`# HELP process_event_loop_delay Event loop delay in ms`);
-    lines.push(`# TYPE process_event_loop_delay gauge`);
+  if(processMetric) {`
+    lines.push(`# HELP process_heap_used Process heap memory used`);`
+    lines.push(`# TYPE process_heap_used gauge`);`
+    lines.push(`process_heap_used ${processMetric.memory.heapUsed} ${timestamp}`);`
+    lines.push(`# HELP process_event_loop_delay Event loop delay in ms`);`
+    lines.push(`# TYPE process_event_loop_delay gauge`);`
     lines.push(`process_event_loop_delay ${processMetric.eventLoop} ${timestamp}`);
   //   }
   // Custom counters
-  for(const [_key, counter] of this.counters) {
-    const _safeName = counter.name.replace(/[^a-zA-Z0-9_]/g, '_'); 
-    lines.push(`# HELP ${safeName} Counter ${counter.name}`); lines.push(`# TYPE ${safeName} counter`) ;
+  for(const [_key, counter] of this.counters) {`
+    const _safeName = counter.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
+    lines.push(`# HELP ${safeName} Counter ${counter.name}`); lines.push(`# TYPE ${safeName} counter`) ;`
     lines.push(`${safeName}${this.formatLabels(counter.labels)} ${counter.value} ${timestamp}`);
   //   }
   // Custom gauges
-  for(const [_key, gauge] of this.gauges) {
-    const _safeName = gauge.name.replace(/[^a-zA-Z0-9_]/g, '_'); 
-    lines.push(`# HELP ${safeName} Gauge ${gauge.name}`); lines.push(`# TYPE ${safeName} gauge`) ;
+  for(const [_key, gauge] of this.gauges) {`
+    const _safeName = gauge.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
+    lines.push(`# HELP ${safeName} Gauge ${gauge.name}`); lines.push(`# TYPE ${safeName} gauge`) ;`
     lines.push(`${safeName}${this.formatLabels(gauge.labels)} ${gauge.value} ${timestamp}`);
   //   }
   // Custom histograms
-  for(const [_key, histogram] of this.histograms) {
-    const _safeName = histogram.name.replace(/[^a-zA-Z0-9_]/g, '_'); 
-    const _sorted = histogram.values.slice().sort((a, b) => a - b); lines.push(`# HELP ${safeName} Histogram ${histogram.name}`) {;
+  for(const [_key, histogram] of this.histograms) {`
+    const _safeName = histogram.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
+    const _sorted = histogram.values.slice().sort((a, b) => a - b); lines.push(`# HELP ${safeName} Histogram ${histogram.name}`) {;`
     lines.push(`# TYPE ${safeName} histogram`);
-    const _labels = this.formatLabels(histogram.labels);
-    lines.push(`${safeName}_count${labels} ${histogram.count} ${timestamp}`);
+    const _labels = this.formatLabels(histogram.labels);`
+    lines.push(`${safeName}_count${labels} ${histogram.count} ${timestamp}`);`
     lines.push(`${safeName}_sum${labels} ${histogram.sum} ${timestamp}`);
     // Buckets
     const _buckets = [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10];
-  for(const bucket of buckets) {
-      const _count = sorted.filter((v) => v <= bucket * 1000).length; lines.push(; `${safeName}_bucket{le="${bucket}"${labels ? `,${labels.slice(1, -1) {}` : ''}} ${count} ${timestamp}`;
-      //       )
+  for(const bucket of buckets) {`
+      const _count = sorted.filter((v) => v <= bucket * 1000).length; lines.push(; `${safeName}_bucket{le="${bucket}"'}} ${count} ${timestamp}`;
+      //       
     //     }
-    lines.push(;)
-    `$safeName_bucketle="+Inf"$labels ? `,$labels.slice(1, -1)` : ''$histogram.count$timestamp`;
-    //     )
-  //   }
+    lines.push(;)`
+    `$safeName_bucketle="+Inf"'$histogram.count$timestamp`;
+    //     
+  //   }`
   // return lines.join('\n');
 // }
 formatLabels(labels);
 : unknown
 // {
-  const _pairs = Object.entries(labels);
-  if(pairs.length === 0) return '';
-  // ; // LINT: unreachable code removed
-  const _formatted = pairs.map(([k, v]) => `$k="${v}"`).join(',');
+  const _pairs = Object.entries(labels);'';
+  // ; // LINT: unreachable code removed'
+  const _formatted = pairs.map(([k, v]) => `$k="${v}'`).join(',');'
 //   return `{${formatted}}`;
 // }
 async;
 getHealthReport();
 // {
-  const __current = this.getCurrentMetrics();
-  const _health = {status = 'fail';
+  const __current = this.getCurrentMetrics();`
+  const _health = {status = 'fail';'
   health.status = 'degraded';
 // }
-  if(health.checks.memory.value > health.checks.memory.threshold) {
-  health.checks.memory.status = 'fail';
+  if(health.checks.memory.value > health.checks.memory.threshold) {'
+  health.checks.memory.status = 'fail';'
   health.status = 'degraded';
 // }
-  if(health.checks.eventLoop.value > health.checks.eventLoop.threshold) {
-  health.checks.eventLoop.status = 'fail';
+  if(health.checks.eventLoop.value > health.checks.eventLoop.threshold) {'
+  health.checks.eventLoop.status = 'fail';'
   health.status = 'unhealthy';
 // }
 const _heapPercent = (health.checks.heap.value / health.checks.heap.limit) * 100;
-  if(heapPercent > 90) {
-  health.checks.heap.status = 'fail';
+  if(heapPercent > 90) {'
+  health.checks.heap.status = 'fail';'
   health.status = 'unhealthy';
 // }
 // return health;
@@ -480,7 +481,7 @@ const _heapPercent = (health.checks.heap.value / health.checks.heap.limit) * 100
     this.performanceObserver = null;
   //   }
   // Final persistence
-// // await this.persistMetrics();
+// // await this.persistMetrics();'
   console.warn(' Monitoring stopped');
 // }
 async;
@@ -496,10 +497,14 @@ cleanup();
   this.timers.clear();
   this.counters.clear();
   this.gauges.clear();
-  this.histograms.clear();
+  this.histograms.clear();'
   console.warn(' Performance Monitor Plugin cleaned up');
 // }
 // }
 // export default PerformanceMonitorPlugin;
 
 }}}}}}}}}}}}}}
+'
+}
+}
+

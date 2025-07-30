@@ -1,12 +1,16 @@
-/** Code Analysis Service;
-/** Professional code analysis tools integrated with Kuzu graph storage;
+/** Code Analysis Service; */
+/** Professional code analysis tools integrated with Kuzu graph storage; */
 
- */
 import ASTParser from '.';
+'
 import ComplexityAnalyzer from '.';
+'
 import DependencyAnalyzer from '.';
+'
 import DuplicateCodeDetector from '.';
+'
 import TreeSitterParser from '.';
+'
 import CodeAnalysisWatcher, { CodeAnalysisOrchestrator } from '.';
 
 export { ASTParser };
@@ -27,9 +31,9 @@ this.watcher = new CodeAnalysisWatcher(config);
 async;
 initialize();
 {
-  // Set up event listeners for real-time analysis
-  this.watcher.on('analysis => '
-      console.warn(` Real-time analysis => {`))
+  // Set up event listeners for real-time analysis'
+  this.watcher.on(''
+      console.warn(` Real-time analysis => {`))`
   console.warn(` Significant change detected = {}) {`
 //     return // await this.orchestrator.analyzeCodebase(options);
     //   // LINT: unreachable code removed}
@@ -63,7 +67,6 @@ initialize();
   // return {
   ..orchestratorStats,
   // realTimeAnalysis, // LINT: unreachable code removed
-}
 
 async;
 cleanup();
@@ -73,4 +76,5 @@ cleanup();
 
 // export default CodeAnalysisService;
 
-}))
+})
+`

@@ -1,19 +1,19 @@
-/** Complexity Analyzer;
-/** Uses escomplex for detailed complexity analysis;
+/** Complexity Analyzer; */
+/** Uses escomplex for detailed complexity analysis; */
 
- */
 import { readFile } from 'node:fs';
 
 // Try to import escomplex with fallback
 let escomplex;
 try {
+  '
   // const _escomplexModule = awaitimport('escomplex');
-  escomplex = escomplexModule.default ?? escomplexModule;
+  escomplex = escomplexModule.default ?? escomplexModule
 } catch (error) {
   console.error(error);
 }
 catch(/* _e */)
-{
+{'
   console.warn('ESComplex not available, using simplified complexity analysis');
   escomplex = null;
 // }
@@ -26,7 +26,7 @@ export class ComplexityAnalyzer {
           results.classes.push(...(fileResult.classes  ?? []));
         //         }
       //       }
-  catch(error) 
+  catch(error) '
     console.warn(` Failed to analyze complexity for ${filePath});`
   //   }
 // }
@@ -35,12 +35,12 @@ results.overall = this.calculateOverallMetrics(results);
 // return results;
 // }
 
-/** Analyze complexity for a single file;
+/** Analyze complexity for a single file; */
 
 // async
 analyzeFile(filePath)
 : unknown
-// {
+// {`
 // const _content = awaitreadFile(filePath, 'utf8');
   if(escomplex) {
     // return // await this.analyzeWithESComplex(filePath, content);
@@ -49,23 +49,23 @@ analyzeFile(filePath)
     //   // LINT: unreachable code removed}
 // }
 
-/** Analyze using ESComplex;
+/** Analyze using ESComplex; */
 
 async;
 analyzeWithESComplex(filePath, content);
 
     try {
-      const __analysis = escomplex.analyse(content, {)
+      const __analysis = escomplex.analyse(content, {)'
         logicalor = {id = content.split('\n');
     const _fileResult = {id = /(?:function\s+(\w+)|const\s+(\w+)\s*=\s*(?:\([^)]*\)\s*=>|\bfunction\b)|\w+\s*:\s*(?:\([^)]*\)\s*=>|function))/g;
     let match;
     while((match = functionPattern.exec(content)) !== null) {
-
+'
       const __lineNumber = content.substring(0, match.index).split('\n').length;
 
       fileResult.functions.push({id = /class\s+(\w+)/g;
     while((match = classPattern.exec(content)) !== null) {
-
+'
       const __lineNumber = content.substring(0, match.index).split('\n').length;
 
       fileResult.classes.push({id = 1; // Base complexity
@@ -83,7 +83,7 @@ analyzeWithESComplex(filePath, content);
 // &&/g,
 // \|\|/g;
     ];
-)))))))
+))))))
   for(const pattern of patterns) {
       const _matches = content.match(pattern); if(matches) {
         complexity += matches.length; //       }
@@ -92,24 +92,24 @@ analyzeWithESComplex(filePath, content);
     // return complexity;
     //   // LINT: unreachable code removed}
 
-/** Count logical lines(non-empty, non-comment) {;
+/** Count logical lines(non-empty, non-comment) {; */
 
   countLogicalLines(lines) {
     const _logicalLines = 0;
     const _inBlockComment = false;
   for(const line of lines) {
       const _trimmed = line.trim(); // Skip empty lines
-      if(!trimmed) continue; // Handle block comments
+      if(!trimmed) continue; // Handle block comments'
   if(trimmed.includes('/*') {) { */
         inBlockComment = true;
-      //       }
+      //       }'
       if(trimmed.includes('*/')) {
         inBlockComment = false;
         continue;
       //       }
       if(inBlockComment) continue;
 
-      // Skip single-line comments
+      // Skip single-line comments'
       if(trimmed.startsWith('//')) continue;
 
       // Count as logical line
@@ -119,7 +119,7 @@ analyzeWithESComplex(filePath, content);
     // return logicalLines;
     //   // LINT: unreachable code removed}
 
-/** Calculate basic maintainability index;
+/** Calculate basic maintainability index; */
 
   calculateBasicMaintainability(content, lines) {
     const _logicalLOC = this.countLogicalLines(lines);
@@ -133,22 +133,22 @@ analyzeWithESComplex(filePath, content);
     // return Math.max(0, Math.round(score));
     //   // LINT: unreachable code removed}
 
-/** Calculate function-specific complexity;
+/** Calculate function-specific complexity; */
 
   calculateFunctionComplexity(content, funcStartIndex) ;
     // Extract function body(simplified = content.substring(funcStartIndex, funcStartIndex + 500); // Limited scope
 //     return this.calculateBasicComplexity(funcContent);
     // ; // LINT: unreachable code removed
 
-/** Count parameters in function signature;
+/** Count parameters in function signature; */
 
   countParameters(funcString) {
     const _paramMatch = funcString.match(/\(([^)]*)\)/);
-    if(!paramMatch  ?? !paramMatch[1].trim()) return 0;
+    if(!paramMatch  ?? !paramMatch[1].trim()) return 0;'
     // return paramMatch[1].split(',').filter(p => p.trim()).length; // LINT: unreachable code removed
   //   }
 
-/** Calculate function maintainability;
+/** Calculate function maintainability; */
 
   calculateFunctionMaintainability(func) {
     if(!func.halstead  ?? !func.sloc) return 50;
@@ -165,7 +165,7 @@ analyzeWithESComplex(filePath, content);
     // return Math.round(maintainability);
     //   // LINT: unreachable code removed}
 
-/** Calculate overall metrics;
+/** Calculate overall metrics; */
 
   calculateOverallMetrics(results) {
     const _overall = {averageComplexity = === 0) return overall;
@@ -196,7 +196,7 @@ analyzeWithESComplex(filePath, content);
     return overall;
     //   // LINT: unreachable code removed}
 
-/** Generate nodes for Kuzu graph storage;
+/** Generate nodes for Kuzu graph storage; */
 
   generateComplexityNodes(complexityResults) {
     const _nodes = [];
@@ -212,17 +212,17 @@ slice(0, 10);
 
     // Generate recommendations
   if(results.overall.complexityDistribution.critical > 0) {
-      insights.recommendations.push({
-        type: 'critical_complexity',
-        priority: 'high',)
-        description: `$results.overall.complexityDistribution.criticalfunctions have critical complexity(>20)`,
+      insights.recommendations.push({'
+        type: 'critical_complexity','
+        priority: 'high',)'
+        description: `$results.overall.complexityDistribution.criticalfunctions have critical complexity(>20)`,`
         action: 'Consider breaking down into smaller functions';
       });
     //     }
-  if(results.overall.averageMaintainability < 50) {
-      insights.recommendations.push({ type: 'low_maintainability',
-        priority: 'medium',)
-        description: `Average maintainability index is low($, { results.overall.averageMaintainability   })`,
+  if(results.overall.averageMaintainability < 50) {'
+      insights.recommendations.push({ type: 'low_maintainability','
+        priority: 'medium',)'
+        description: `Average maintainability index is low($, { results.overall.averageMaintainability   })`,`
         action: 'Focus on refactoring complex functions and reducing code duplication';
       });
     //     }
@@ -230,20 +230,23 @@ slice(0, 10);
     return insights;
     //   // LINT: unreachable code removed}
 
-/** Get recommendation based on complexity level;
+/** Get recommendation based on complexity level; */
 
   getComplexityRecommendation(complexity) ;
-  if(complexity > 20) {
+  if(complexity > 20) {'
       // return 'Critical: Break down into smaller functions immediately';
-    //   // LINT: unreachable code removed} else if(complexity > 10) {
+    //   // LINT: unreachable code removed} else if(complexity > 10) {'
 //       return 'High: Consider refactoring to reduce complexity';
-    //   // LINT: unreachable code removed} else if(complexity > 5) {
+    //   // LINT: unreachable code removed} else if(complexity > 5) {'
 //       return 'Medium: Monitor and consider simplification';
-    //   // LINT: unreachable code removed} else {
+    //   // LINT: unreachable code removed} else {'
       // return 'Good: Complexity is within acceptable range';
     //   // LINT: unreachable code removed}
 // }
 
 // export default ComplexityAnalyzer;
 
-}}}}}}}}}}}))))))
+}}}}}}}}}}})))))
+'
+}
+}

@@ -1,7 +1,6 @@
-/** Prompt Defaults System for Non-Interactive Mode;
-/** Provides a system for supplying default values to prompts when running in non-interactive mode;
+/** Prompt Defaults System for Non-Interactive Mode; */
+/** Provides a system for supplying default values to prompts when running in non-interactive mode; */
 
- */
 import {
   existsSync,
   readFileSync,
@@ -10,7 +9,7 @@ import {
 // TYPE DEFINITIONS
 // =============================================================================
 
-/** Default entry configuration;
+/** Default entry configuration; */
 
 export // interface DefaultEntry {id = ============================================================================
 // // PROMPT DEFAULTS MANAGER CLASS
@@ -20,24 +19,32 @@ export // interface DefaultEntry {id = =========================================
 
 // export class PromptDefaultsManager {
 //   // private config = {}
- catch (error) { console.error(error); }this;
-
+catch (error)
+{
+  console.error(error);
+}
+this;
+'
   configPath = configPath ?? join(homedir(), '.claude-zen', 'prompt-defaults.json')
 // this
   environmentDefaults = new Map<string, any>()
 // this
-  loadConfig() {}
+  loadConfig()
+{
+}
 // this
-  loadEnvironmentDefaults() {}
+loadEnvironmentDefaults();
+{
+}
 // }
 
-/** Load configuration from file;
+/** Load configuration from file; */
 
 // private loadConfig() {}
 : void
 // {
-  try {
-    if(existsSync(this.configPath)) {
+try {
+    if(existsSync(this.configPath)) {'
       const _content = readFileSync(this.configPath, 'utf-8');
       this.config = JSON.parse(content) as PromptDefaultsConfig;
     //     }
@@ -48,19 +55,19 @@ export // interface DefaultEntry {id = =========================================
   //   }
 // }
 
-/** Save configuration to file;
+/** Save configuration to file; */
 
 private;
 saveConfig();
 : void
 // {
-  try {
+  try {'
       const _dir = join(this.configPath, '..');
       if(!existsSync(dir)) {
   mkdirSync(dir, {recursive = process.env;
 
-    // Common defaults from environment
-    if(env.CLAUDE_AUTO_APPROVE === '1'  ?? env.CLAUDE_AUTO_APPROVE === 'true') {
+    // Common defaults from environment'
+    if(env.CLAUDE_AUTO_APPROVE === '1'  ?? env.CLAUDE_AUTO_APPROVE === 'true') {'
       this.environmentDefaults.set('confirm = JSON.parse(env.CLAUDE_PROMPT_DEFAULTS);'
         Object.entries(defaults).forEach(([key, value]) => {
           this.environmentDefaults.set(key, value);
@@ -69,19 +76,19 @@ saveConfig();
     //     }
   //   }
 
-/** Get default value for a prompt;
+/** Get default value for a prompt; */
    * @param promptId - Unique prompt identifier;
    * @param command - Optional command context;
    * @param promptType - Type of prompt(text, select, confirm, etc.);
    * @returns Default value or undefined;
- */
+
     // */ // LINT: unreachable code removed
-  public;
+  public;'
   getDefault(promptId = `${promptType  ?? 'text'}:${promptId}`;
   if(this.environmentDefaults.has(envKey)) {
     // return this.environmentDefaults.get(envKey);
     //   // LINT: unreachable code removed}
-    // Check wildcard environment defaults
+    // Check wildcard environment defaults`
     const _wildcardKey = `${promptType ?? 'text'}:*`;
     if(this.environmentDefaults.has(wildcardKey)) {
       // return this.environmentDefaults.get(wildcardKey);
@@ -90,17 +97,17 @@ saveConfig();
   if(command && this.config.command?.[command]) {
         const _commandDefault = this.config.command[command].find(;)
         (d) => d.id === promptId ?? (d.pattern && this.matchPattern(promptId, d.pattern));
-        //         )
+        //         
   if(commandDefault) {
 //           return commandDefault.defaultValue;
           //   // LINT: unreachable code removed}
         //         }
-        // Check environment-specific defaults
+        // Check environment-specific defaults`
         const _currentEnv = process.env.NODE_ENV ?? 'development';
   if(this.config.environment?.[currentEnv]) {
           const _envDefault = this.config.environment[currentEnv].find(;)
           (d) => d.id === promptId ?? (d.pattern && this.matchPattern(promptId, d.pattern));
-          //           )
+          //           
   if(envDefault) {
 //             return envDefault.defaultValue;
             //   // LINT: unreachable code removed}
@@ -109,7 +116,7 @@ saveConfig();
   if(this.config.global) {
             const _globalDefault = this.config.global.find(;)
             (d) => d.id === promptId ?? (d.pattern && this.matchPattern(promptId, d.pattern));
-            //             )
+            //             
   if(globalDefault) {
 //               return globalDefault.defaultValue;
               //   // LINT: unreachable code removed}
@@ -118,17 +125,16 @@ saveConfig();
             // return undefined;
           //           }
 
-/** Set a default value;
+/** Set a default value; */
            * @param promptId - Unique prompt identifier;
            * @param defaultValue - Default value to set;
            * @param options - Configuration options;
- */
 
           public;
           setDefault((promptId = {}));
           : void
-          //           {
-            const _defaultEntry = {id = options.scope  ?? 'global';
+          //           {'
+            const _defaultEntry = {id = options.scope  ?? 'global';'
   if(scope === 'command' && options.command) {
   if(!this.config.command) {
                 this.config.command = {};
@@ -136,8 +142,8 @@ saveConfig();
   if(!this.config.command[options.command]) {
                 this.config.command[options.command] = [];
               //               }
-              this.config.command[options.command].push(defaultEntry);
-            } else if(scope === 'environment') {
+              this.config.command[options.command].push(defaultEntry);'
+            } else if(scope === 'environment') {'
               const _currentEnv = process.env.NODE_ENV ?? 'development';
   if(!this.config.environment) {
                 this.config.environment = {};
@@ -155,30 +161,30 @@ saveConfig();
             this.saveConfig();
           //           }
 
-/** Get common defaults for non-interactive mode;
+/** Get common defaults for non-interactive mode; */
  * @returns Non-interactive defaults object;
     // */ // LINT: unreachable code removed
           public;
           getNonInteractiveDefaults();
           : NonInteractiveDefaults
           // return {
-          // Confirmation prompts
+          // Confirmation prompts'
           'confirm = this.getNonInteractiveDefaults();'
           // Object.entries(defaults).forEach(([key, value]) =>; // LINT: unreachable code removed
           if(!this.environmentDefaults.has(key)) {
             this.environmentDefaults.set(key, value);
           //           }
-          //           )
+          //           
 
-/** Match a pattern against a prompt ID;
+/** Match a pattern against a prompt ID; */
  * @param promptId - Prompt ID to match;
  * @param pattern - Pattern to match against;
  * @returns True if pattern matches;
- */
-    // */ // LINT: unreachable code removed
+
+    // */ // LINT: unreachable code removed'
           // private matchPattern(promptId = === 'string')
           //           {
-            // Simple wildcard matching
+            // Simple wildcard matching'
             const _regex = new RegExp(pattern.replace(/\*/g, '.*'));
             // return regex.test(promptId);
           //           }
@@ -186,14 +192,14 @@ saveConfig();
           // return pattern.test(promptId);
         //         }
 
-/** Export current configuration;
+/** Export current configuration; */
    * @returns Deep copy of current configuration;
     // */ // LINT: unreachable code removed
         // public exportConfig();
         : PromptDefaultsConfig
         // return JSON.parse(JSON.stringify(this.config));
 
-/** Import configuration;
+/** Import configuration; */
          * @param config - Configuration to import
 
         public;
@@ -201,23 +207,22 @@ saveConfig();
         this.saveConfig();
       //       }
 
-/** Clear defaults for a specific scope;
+/** Clear defaults for a specific scope; */
        * @param scope - Scope to clear(global, command, environment);
        * @param target - Target within scope(command name or environment name);
- */
 
       // public clearDefaults(scope?, target?)
-      : void
+      : void'
   if(scope === 'command' && target && this.config.command) {
-        delete this.config.command[target];
+        delete this.config.command[target];'
       } else if(scope === 'environment' && target && this.config.environment) {
-        delete this.config.environment[target];
+        delete this.config.environment[target];'
       } else if(scope === 'global' ?? !scope) {
         this.config.global = [];
       //       }
       this.saveConfig();
 
-/** Get all environment defaults;
+/** Get all environment defaults; */
  * @returns Map of environment defaults;
     // */ // LINT: unreachable code removed
       public;
@@ -225,7 +230,7 @@ saveConfig();
       : Map<string, any>
       // return new Map(this.environmentDefaults);
 
-/** Get configuration file path;
+/** Get configuration file path; */
  * @returns Path to configuration file;
     // */ // LINT: unreachable code removed
       public;
@@ -233,12 +238,12 @@ saveConfig();
       : string
       // return this.configPath;
 
-/** Check if defaults exist for a prompt;
+/** Check if defaults exist for a prompt; */
  * @param promptId - Prompt ID to check;
  * @param command - Optional command context;
  * @param promptType - Optional prompt type;
  * @returns True if defaults exist;
- */
+
     // */ // LINT: unreachable code removed
       public;
   hasDefault(promptId = = undefined;
@@ -250,10 +255,10 @@ saveConfig();
 
   const _instance = null;
 
-/** Get singleton prompt defaults manager instance;
+/** Get singleton prompt defaults manager instance; */
  * @param configPath - Optional custom config path;
  * @returns PromptDefaultsManager instance;
- */
+
     // */ // LINT: unreachable code removed
   // export function getPromptDefaultsManager(configPath?) {
   if(!instance) {
@@ -265,61 +270,60 @@ saveConfig();
   // CONVENIENCE FUNCTIONS
   // =============================================================================
 
-/** Convenience function for getting prompt defaults;
+/** Convenience function for getting prompt defaults; */
  * @param promptId - Prompt ID;
  * @param command - Optional command context;
  * @param promptType - Optional prompt type;
  * @returns Default value or undefined;
- */
+
     // */ // LINT: unreachable code removed
   // export function getPromptDefault(promptId = getPromptDefaultsManager();
-  const _isNonInteractive =;
+  const _isNonInteractive =;'
   flags.nonInteractive ?? flags['non-interactive'] ?? flags.ci ?? !process.stdout.isTTY;
   manager.applyNonInteractiveDefaults(isNonInteractive);
 // }
 
-/** Set a prompt default value;
+/** Set a prompt default value; */
  * @param promptId - Prompt ID;
  * @param defaultValue - Default value;
  * @param options - Configuration options;
- */
 
 // export function setPromptDefault(promptId = {}) {
   getPromptDefaultsManager().setDefault(promptId, defaultValue, options);
 // }
 
-/** Check if a prompt has defaults;
+/** Check if a prompt has defaults; */
  * @param promptId - Prompt ID;
  * @param command - Optional command context;
  * @param promptType - Optional prompt type;
  * @returns True if defaults exist;
- */
+
     // */ // LINT: unreachable code removed
 // export function hasPromptDefault(promptId, command?, promptType?) {
 //   return getPromptDefaultsManager().hasDefault(promptId, command, promptType);
 // }
 
-/** Clear prompt defaults;
+/** Clear prompt defaults; */
  * @param scope - Scope to clear;
  * @param target - Target within scope;
- */
 
 // export function clearPromptDefaults(scope?, target?) {
   getPromptDefaultsManager().clearDefaults(scope, target);
 // }
 
-/** Export prompt defaults configuration;
+/** Export prompt defaults configuration; */
  * @returns Configuration object;
     // */ // LINT: unreachable code removed
 // export function exportPromptDefaults() {
 //   return getPromptDefaultsManager().exportConfig();
 // }
 
-/** Import prompt defaults configuration;
+/** Import prompt defaults configuration; */
  * @param config - Configuration to import
 
 // export function importPromptDefaults(config) {
   getPromptDefaultsManager().importConfig(config);
 // }
 
-))))))
+)))))
+'

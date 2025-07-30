@@ -1,15 +1,15 @@
-/** WebSocket Service Integration;
-/** Combines WebSocket server and Node.js 22 native client capabilities;
-/** Provides unified WebSocket management for claude-zen;
+/** WebSocket Service Integration; */
+/** Combines WebSocket server and Node.js 22 native client capabilities; */
+/** Provides unified WebSocket management for claude-zen; */
 
- */
 import { EventEmitter } from 'node:events';
+'
 import { WebSocketConnectionManager } from '.';
 // =============================================================================
 // WEBSOCKET SERVICE TYPES
 // =============================================================================
 
-/** WebSocket service options;
+/** WebSocket service options; */
 
 export // interface WebSocketServiceOptions {
 //   /** Client port for connections */
@@ -24,7 +24,7 @@ export // interface WebSocketServiceOptions {
 //   messageQueueLimit?;
 // // }
 
-/** WebSocket service statistics;
+/** WebSocket service statistics; */
 
 // export // interface WebSocketStats {
 //   // totalConnections: number
@@ -34,7 +34,7 @@ export // interface WebSocketServiceOptions {
 //   // errors: number
 // // }
 
-/** Message information;
+/** Message information; */
 
 // export // interface MessageInfo {
 //   // type: string
@@ -51,57 +51,83 @@ export // interface WebSocketServiceOptions {
 // WEBSOCKET SERVICE CLASS
 // =============================================================================
 
-/** WebSocket Service for claude-zen;
-/** Manages both server-side WebSocket connections and client connections;
+/** WebSocket Service for claude-zen; */
+/** Manages both server-side WebSocket connections and client connections; */
 
 // export class WebSocketService extends EventEmitter {
-  constructor(options) {
-//     super();
-    this.options = options;
-    this.connectionManager = new WebSocketConnectionManager({ maxConnections, // Example value
-      });
-    this.messageHandlers = new Map();
-    this.isInitialized = false;
-    this.stats = {
-      totalConnections,
+constructor(options);
+{
+  //     super();
+  this.options = options;
+  this.connectionManager = new WebSocketConnectionManager({
+    maxConnections, // Example value
+  });
+  this.messageHandlers = new Map();
+  this.isInitialized = false;
+  this.stats = {
+    totalConnections,
     activeConnections,
     messagesSent,
     messagesReceived,
-    errors}
-// }
-async;
-initialize();
-// {
+    errors,
+  };
+  // }
+  async;
+  initialize();
+  // {'
   this.connectionManager.on('connectionConnected', (info) => {
     this.stats.activeConnections++;
-    this.emit('clientConnected', info);
+    '
+    this.emit('clientConnected', info)
   });
-  this.connectionManager.on('connectionDisconnected', (info) => {
+  '
+  this.connectionManager.on('connectionDisconnected', (info) =>
+  {
     this.stats.activeConnections--;
-    this.emit('clientDisconnected', info);
-  });
-  this.connectionManager.on('connectionMessage', (info) => {
+    '
+    this.emit('clientDisconnected', info)
+  }
+  )
+  '
+  this.connectionManager.on('connectionMessage', (info) =>
+  {
     this.stats.messagesReceived++;
     this.handleMessage(info);
-  });
-  this.connectionManager.on('connectionError', (info) => {
+  }
+  )
+  '
+  this.connectionManager.on('connectionError', (info) =>
+  {
     this.stats.errors++;
-    this.emit('error', info);
-  });
+    '
+    this.emit('error', info)
+  }
+  )
   this.isInitialized = true;
-  this.emit('initialized');
-  console.warn(' WebSocket service initialized');
-// }
-async;
-connectToServer((connectionName = 'main'), (customOptions = {}));
-: Promise<any>
-// {
-    const _url = `ws://${this.options.clientHost  ?? 'localhost'}:${this.options.clientPort  ?? 8080}`;
-    const _clientOptions = { ...this.options, ...customOptions };
-    const _client = this.connectionManager.addConnection(connectionName, url, clientOptions);
-// // await client.connect();
-    this.stats.totalConnections++;
-    console.warn(` Connected to claude-zen server`);
+  '
+  this.emit('initialized')
+  '
+  console.warn(' WebSocket service initialized')
+  // }
+  async;
+  '
+connectToServer((connectionName = 'main'), (customOptions =
+  {
+  }
+  ))
+  : Promise<any>
+  // {'
+  const _url = `ws://${this.options.clientHost ?? 'localhost'}:${this.options.clientPort ?? 8080}`;
+  const _clientOptions = { ...this.options, ...customOptions };
+  const _client = this.connectionManager.addConnection(connectionName, url, clientOptions);
+  // // await client.connect();
+  this.stats.totalConnections++;
+  `
+    console.warn(`;
+  Connected;
+  to;
+  claude - zen;
+  server`);
     // return client;
     //   // LINT: unreachable code removed}
 
@@ -109,23 +135,31 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
     try {
       const _client = this.connectionManager.addConnection(connectionName, url, options);
 // await client.connect();
-      this.stats.totalConnections++;
-      console.warn(` Connected to external WebSocket`);
-      // return client;
-    //   // LINT: unreachable code removed} catch (error) {
+      this.stats.totalConnections++;`;
+  console.warn(` Connected to external WebSocket`);
+  // return client;
+  //   // LINT: unreachable code removed} catch (error) {
   console.error(error);
 }
-      console.error(`Error connecting to external WebSocket);`
+`
+      console.error(`;
+Error;
+connecting;
+to;
+external;
+WebSocket;
+)
+`
       throw error;
     //     }
   sendMessage(connectionName, data) {
     const _client = this.connectionManager.getConnection(connectionName);
-  if(!client) {
-      throw new Error(`Connection '${connectionName}' not found`);
-    //     }
+  if(!client) {`;
+throw new Error(`Connection '${connectionName}' not found`);
+//     }
 
-    const _success = client.send(data);
-  if(success) {
+const _success = client.send(data);
+if(success) {
       this.stats.messagesSent++;
     //     }
 
@@ -133,7 +167,7 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
     //   // LINT: unreachable code removed}
   sendBalanced(data) {
     const _client = this.connectionManager.getNextConnection();
-  if(!client) {
+  if(!client) {`
       throw new Error('No active connections available');
     //     }
 
@@ -148,11 +182,11 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
     const _results = this.connectionManager.broadcast(data);
     const _successCount = results.filter((r) => r.success).length;
     this.stats.messagesSent += successCount;
-
+'
     this.emit('broadcast', {
       data,
       results,
-      successCount,)
+      successCount,
       totalConnections);
 
     // return results;
@@ -173,9 +207,9 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
   //   }
 
   // private handleMessage(info) {
-    const { data } = info;
+    const { data } = info;'
     const _messageType = 'unknown';
-    const _messageData = data;
+    const _messageData = data;'
   if(typeof data === 'object' && data !== null) {
   if(data.type) {
         messageType = data.type;
@@ -193,35 +227,35 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
           handler({ type, data, source);
         } catch (error) {
   console.error(error);
-}
+}'
           console.error(`Error in message handler for type ${messageType});`
         //         }
       });
     //     }
   //   }
 
-  setupClaudeZenHandlers(): void
-    this.onMessage('queen_council_update', (msg) =>
-      console.warn(` Queen Council Update););`
-    this.onMessage('swarm_status', (msg) => {
+  setupClaudeZenHandlers(): void`
+    this.onMessage('queen_council_update', (msg) =>'
+      console.warn(` Queen Council Update););``
+    this.onMessage('swarm_status', (msg) => {'
       console.warn(` Swarm Status);`
-    });
-    this.onMessage('task_update', (msg) => {
+    });`
+    this.onMessage('task_update', (msg) => {'
       console.warn(` Task Update);`
-    });
-    this.onMessage('neural_update', (msg) => {
+    });`
+    this.onMessage('neural_update', (msg) => {'
       console.warn(` Neural Update);`
-    });
-    this.onMessage('memory_update', (msg) => {
+    });`
+    this.onMessage('memory_update', (msg) => {'
       console.warn(` Memory Update);`
     });
 
-  async sendCommand(connectionName, command, payload): Promise<boolean> {
+  async sendCommand(connectionName, command, payload): Promise<boolean> {`
     const _message = { type: 'command', command, payload };
     // return this.sendMessage(connectionName, message);
     //   // LINT: unreachable code removed}
 
-  async sendEvent(connectionName, event, data): Promise<boolean> {
+  async sendEvent(connectionName, event, data): Promise<boolean> {'
     const _message = { type: 'event', event, data };
     // return this.sendMessage(connectionName, message);
     //   // LINT: unreachable code removed}
@@ -243,7 +277,7 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
   async disconnectConnection(connectionName)
 // await this.connectionManager.removeConnection(connectionName);
   async shutdown() {}
-// await this.connectionManager.shutdown();
+// await this.connectionManager.shutdown();'
     this.emit('shutdown');
 
   // static async create(options): Promise<WebSocketService> 
@@ -258,20 +292,21 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
 // UTILITY FUNCTIONS
 // =============================================================================
 
-/** Utility function to check WebSocket support;
+/** Utility function to check WebSocket support; */
 
 // export function _checkWebSocketSupport() {
-  const _nodeVersion = process.version;
+  const _nodeVersion = process.version;'
   const _majorVersion = parseInt(nodeVersion.substring(1).split('.')[0]);
 // 
   return {
     nodeVersion,
     // majorVersion, // LINT: unreachable code removed
     hasNativeWebSocket = 22,
-    recommendation = 22 ;
-      ? 'Use --experimental-websocket flag for native WebSocket support';
+    recommendation = 22 ;'
+      ? 'Use --experimental-websocket flag for native WebSocket support';'
       : 'Upgrade to Node.js 22+ for native WebSocket support' };
 
 // export default WebSocketService;
 
 }}
+'

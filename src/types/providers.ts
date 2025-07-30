@@ -1,12 +1,13 @@
-/** AI Providers Types;
-/** Re-export and extend the existing provider types with additional functionality
+/** AI Providers Types; */
+/** Re-export and extend the existing provider types with additional functionality */
 
 // Re-export all existing provider types
- */
+
 export * from '../providers/types.js';
 
-// Import the existing types to extend them
+// Import the existing types to extend them'
 import type { AIProvider as BaseAIProvider } from '../providers/types.js';
+'
 import type { Identifiable } from '.';
 
 // =============================================================================
@@ -84,7 +85,7 @@ satisfaction, // 0-1
 marketPosition, // 1-10
 // competitorComparison
 // Differentiation factors
-advantages;
+advantages
 disadvantages;
 // Market trends
 marketTrends;
@@ -148,8 +149,8 @@ weaknesses;
 marketShare, // 0-1
   // }
   // export // interface MarketTrend {
-  //   // trend: string
-  //   direction: 'up' | 'down' | 'stable';
+  //   // trend: string'
+  //   direction: 'up' | 'down' | 'stable';'
   //   impact: 'low' | 'medium' | 'high';
   //   confidence, // 0-1
   //   // description: string
@@ -176,7 +177,7 @@ marketShare, // 0-1
   // // }
   // export // interface ScalingTrigger {
   //   // metric: string
-  //   // threshold: number
+  //   // threshold: number'
   //   action: 'scale_up' | 'scale_down' | 'alert';
   //   confidence, // 0-1
   // // }
@@ -202,8 +203,8 @@ marketShare, // 0-1
   // // }
   // export // interface CostOptimization {
   //   // opportunity: string
-  //   // potentialSavings: number
-  //   effort: 'low' | 'medium' | 'high';
+  //   // potentialSavings: number'
+  //   effort: 'low' | 'medium' | 'high';'
   //   impact: 'low' | 'medium' | 'high';
   //   timeline, // days
   // // }
@@ -222,9 +223,9 @@ marketShare, // 0-1
   //   // timestamp: Date
   //   // metric: string
   //   // value: number
-  //   // expected: number
+  //   // expected: number'
   //   severity: 'low' | 'medium' | 'high' | 'critical';
-  // // Anomaly details
+  // // Anomaly details'
   // type: 'spike' | 'drop' | 'trend' | 'pattern';
   // confidence, // 0-1
   // // description: string
@@ -237,14 +238,15 @@ marketShare, // 0-1
   // // }
   // Resolution
   status;
+'
 : 'open' | 'investigating' | 'resolved' | 'false_positive'
 resolution?
-resolvedAt?;
+resolvedAt?
 actionsTaken;
 // }
 // export // interface AnomalyPattern {
 //   // pattern: string
-//   // frequency: number
+//   // frequency: number'
 //   severity: 'low' | 'medium' | 'high' | 'critical';
 //   // Pattern details
 //   triggers;
@@ -258,3 +260,4 @@ actionsTaken;
 // // }
 
 }}
+'

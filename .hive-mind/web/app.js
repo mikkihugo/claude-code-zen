@@ -105,7 +105,7 @@ class ClaudeZenDashboard {
     document.querySelectorAll('.menu-item').forEach((item) => {
       item.classList.remove('active');
     });
-    document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+    document.querySelector(`[data-tab='${tabName}']`).classList.add('active');
 
     // Update content
     document.querySelectorAll('.tab-content').forEach((content) => {
@@ -139,13 +139,7 @@ class ClaudeZenDashboard {
     container.innerHTML = Object.entries(hives)
       .map(
         ([name, info]) => `
-            <div class="hive-item">
-                <h4>${name}<
-                <p>${info.path}<
-            <
-        `
-      )
-      .join('');
+            <div class="hive-item"');
 
   updatePluginsList() {
     const container = document.getElementById('plugin-list');
@@ -158,13 +152,7 @@ class ClaudeZenDashboard {
     container.innerHTML = plugins
       .map(
         (plugin) => `
-            <div class="plugin-item">
-                <h4>${plugin.name}<
-                <p>Status: ${plugin.status}<
-            <
-        `
-      )
-      .join('');
+            <div class="plugin-item"');
 
   async updateQueenStatus() 
     try {
@@ -215,11 +203,7 @@ class ClaudeZenDashboard {
                     ${
                       queen.lastDecision
                         ? `
-                        <div class="queen-last-decision">
-                            <strong>Last Decision:</strong> ${queen.lastDecision}
-                        <
-                    `
-                        : ''
+                        <div class="queen-last-decision"'
 
                 <
             <
@@ -266,14 +250,7 @@ class ClaudeZenDashboard {
       const result = await response.json();
 
       if (result.success) {
-        output.textContent = result.output || 'Command executed successfully';
-      } else {
-        output.textContent = `Error: ${result.error}`;
-
-    } catch (error) {
-      output.textContent = `Failed to execute command: ${error.message}`;
-
-    input.value = '';
+        output.textContent = result.output || 'Command executed successfully'';
 
   updateStatus(text, type) {
     const statusText = document.querySelector('.status-text');

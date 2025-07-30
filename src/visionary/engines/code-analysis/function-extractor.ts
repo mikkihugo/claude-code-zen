@@ -1,54 +1,70 @@
-/** Function Extractor
+/** Function Extractor */
 
-/** Extracts function information from source code including parameters,
- * complexity, line counts, and other function-specific metrics.
+/** Extracts function information from source code including parameters, */
+* complexity, line counts, and other
+function
+-specific;
+metrics.
 
- * @fileoverview Function extraction and analysis system
- * @version 1.0.0
- */
+ * @fileoverview Function
+extraction;
+and;
+analysis;
+system
+ * @version 1.0
+0.0 *
+  / *
+  /** Code file data structure */
 
-/** Code file data structure
+  // export // interface CodeFileData {
+  //   // content: string
+  //   // path: string
+  //   // language: string
+  //   // size: number
+  //   // lastModified: Date
+  // // }
 
-// export // interface CodeFileData {
-//   // content: string
-//   // path: string
-//   // language: string
-//   // size: number
-//   // lastModified: Date
-// // }
+  /** Function analysis data */
 
-/** Function analysis data
+  // export // interface FunctionData {
+  //   // name: string
+  //   parameters;
+  //   // isAsync: boolean
+  //   // lineNumber: number
+  //   // complexity: number
+  //   // lineCount: number
+  //   // file: string
+  // // }
 
-// export // interface FunctionData {
-//   // name: string
-//   parameters;
-//   // isAsync: boolean
-//   // lineNumber: number
-//   // complexity: number
-//   // lineCount: number
-//   // file: string
-// // }
+  /** Function match result */
 
-/** Function match result
+  // // interface FunctionMatch {
+  //   // name: string
+  //   parameters;
+  //   // isAsync: boolean
+  // // }
 
-// // interface FunctionMatch {
-//   // name: string
-//   parameters;
-//   // isAsync: boolean
-// // }
+  /** Function Extractor */
 
-/** Function Extractor
-
-/** Specialized system for extracting and analyzing function information
- * from source code across multiple programming languages.
+  /** Specialized system for extracting and analyzing function information */
+  from;
+source;
+code;
+across;
+multiple;
+programming;
+languages.
 
 // export class FunctionExtractor {
 
-/** Extract functions from code files
+/** Extract functions from code files */
 
-   * @param codeData - Code file data
-   * @returns Function analysis data
- */
+   * @param codeData - Code
+file;
+data
+   * @returns Function
+analysis;
+data * /;
 // */; // LINT: unreachable code removed
 async;
 extractFunctions(codeData);
@@ -62,11 +78,11 @@ extractFunctions(codeData);
     // return functions;
     //   // LINT: unreachable code removed}
 
-/** Extract functions from a single file
+/** Extract functions from a single file */
 
    * @param file - Code file data
    * @returns Functions found in file
- */
+
     // */; // LINT: unreachable code removed
   // // private async extractFileFunctions(file) {: Promise<FunctionData[]> {
     const _functions = [];
@@ -90,12 +106,12 @@ extractFunctions(codeData);
     // return functions;
     //   // LINT: unreachable code removed}
 
-/** Match function patterns in code
+/** Match function patterns in code */
 
    * @param line - Line of code
    * @param language - Programming language
    * @returns Function match data or null
- */
+
     // */; // LINT: unreachable code removed
   // // private matchFunction(line, language): FunctionMatch | null {
     const _patterns: Record<string, RegExp[]> = {
@@ -109,11 +125,10 @@ extractFunctions(codeData);
   for(const pattern of langPatterns) {
       const _match = line.match(pattern); if(match) {
         // return {
-          name: match[2]  ?? match[1],
-    // parameters: (match[3]  ?? match[2]  ?? ''); // LINT: unreachable code removed'
+          name: match[2]  ?? match[1],''); // LINT: unreachable code removed''
   split(',') ;'
 map((p) => p.trim());
-filter((p) => p),
+filter((p) => p),'
           isAsync: line.includes('async') ;'
       //       }
     //     }
@@ -121,12 +136,12 @@ filter((p) => p),
     // return null;
     //   // LINT: unreachable code removed}
 
-/** Calculate cyclomatic complexity for a function
+/** Calculate cyclomatic complexity for a function */
 
    * @param lines - Source code lines
    * @param startLine - Function start line
    * @returns Complexity score
- */
+
     // */; // LINT: unreachable code removed
   // // private async calculateFunctionComplexity(lines, startLine): Promise<number> {
     const _complexity = 1; // Base complexity
@@ -138,9 +153,9 @@ filter((p) => p),
       const _line = lines[i];
 
       // Count decision points
-      if(;
+      if(;'
         line.includes('if')  ?? line.includes('while')  ?? line.includes('for')  ?? line.includes('switch')  ?? line.includes('catch');'
-      //       )
+      //       
         complexity++;
 
       // Track braces to find function end
@@ -156,12 +171,12 @@ filter((p) => p),
     // return complexity;
     //   // LINT: unreachable code removed}
 
-/** Count lines in a function
+/** Count lines in a function */
 
    * @param lines - Source code lines
    * @param startLine - Function start line
    * @returns Line count
- */
+
     // */; // LINT: unreachable code removed
   // // private async countFunctionLines(lines, startLine): Promise<number> {
     const _braceCount = 0;
@@ -183,21 +198,21 @@ filter((p) => p),
     // return lineCount;
     //   // LINT: unreachable code removed}
 
-/** Find long methods that exceed threshold
+/** Find long methods that exceed threshold */
 
    * @param content - File content
    * @param threshold - Line count threshold(default)
    * @returns Long methods found
- */
+
     // */; // LINT: unreachable code removed
   findLongMethods(;
     content,
     threshold = 50;
   ): Array<name, lineCount, lineNumber: number > {
-    const _methods: Array<{ name, lineCount, lineNumber}> = [];
+    const _methods: Array<{ name, lineCount, lineNumber}> = [];'
     const _lines = content.split('\n');'
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
+      const _line = lines[i];'
       const _functionMatch = this.matchFunction(line, 'javascript'); // Simplified for example'
   if(functionMatch) {
         const _methodLines = this.countMethodLines(lines, i);
@@ -211,26 +226,25 @@ filter((p) => p),
     // return methods;
     //   // LINT: unreachable code removed}
 
-/** Find methods with long parameter lists
+/** Find methods with long parameter lists */
 
    * @param content - File content
    * @param threshold - Parameter count threshold(default)
    * @returns Methods with long parameter lists
- */
+
     // */; // LINT: unreachable code removed
   findLongParameterMethods(;
     content,
     threshold = 5;
   ): Array<name, paramCount, lineNumber: number > {
-    const _methods: Array<{ name, paramCount, lineNumber}> = [];
+    const _methods: Array<{ name, paramCount, lineNumber}> = [];'
     const _lines = content.split('\n');'
   for(let i = 0; i < lines.length; i++) {
       const _line = lines[i];
       const _functionMatch = line.match(;)
 // function\s+(\w+)\s*\(([^)]*)\)|(\w+)\s*[]\s*function\s*\(([^)]*)\)|(\w+)\s*\(([^)]*)\)\s*=>/
       );
-  if(functionMatch) {
-        const _params = functionMatch[2]  ?? functionMatch[4]  ?? functionMatch[6]  ?? '';'
+  if(functionMatch) {'';''
         const _paramCount = params.split(',').filter((p) => p.trim()).length;'
   if(paramCount > threshold) {
           methods.push({)
@@ -242,12 +256,12 @@ filter((p) => p),
     // return methods;
     //   // LINT: unreachable code removed}
 
-/** Count lines in a method(simplified version)
+/** Count lines in a method(simplified version) */
 
    * @param lines - Source code lines
    * @param startIndex - Method start index
    * @returns Line count
- */
+
     // */; // LINT: unreachable code removed
   // // private countMethodLines(lines, startIndex) {
     const _braceCount = 0;
@@ -270,3 +284,6 @@ filter((p) => p),
 // export default FunctionExtractor;
 
 }}
+'
+}
+}

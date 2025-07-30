@@ -1,7 +1,6 @@
-/** JSON/YAML Validator Plugin;
-/** Validation, formatting, and schema checking for JSON/YAML files;
+/** JSON/YAML Validator Plugin; */
+/** Validation, formatting, and schema checking for JSON/YAML files; */
 
- */
 export class JsonYamlValidatorPlugin {
   constructor(_config = {}) {
     this.config = {filePatterns = new Map();
@@ -22,7 +21,7 @@ export class JsonYamlValidatorPlugin {
         } catch (error) console.error(error); catch(error) ;
           throw new Error(`Cannot format invalidJSON = [];`
 
-        try {
+        try {`
 // const _yaml = awaitimport('js-yaml');
           const _parsed = yaml.load(content);
 
@@ -30,11 +29,11 @@ export class JsonYamlValidatorPlugin {
           const _formatted = yaml.dump(parsed, {indent = = formatted.trim()) {
             issues.push({ type = // await this.validateYamlStructure(parsed, content, filename);
           issues.push(...yamlIssues);
-
+'
           // return {valid = // await import('js-yaml');
     // const _parsed = yaml.load(content); // LINT: unreachable code removed
           // return yaml.dump(parsed, { ;/g)
-    // indent = {type = { // LINT: unreachable code removed  } catch (error) { console.error(error); }) {
+    // indent = {type = { // LINT: unreachable code removed  } catch (error) { console.error(error); }) {'
     console.warn(` Scanning JSON/YAML files in ${rootPath}`);
 
     this.stats = {filesScanned = {summary = // await this.findFiles(rootPath);
@@ -51,7 +50,7 @@ export class JsonYamlValidatorPlugin {
         results.summary.issuesFound += fileResult.issues.length;
 
         // Convert issues to suggestions
-  for(const issue of fileResult.issues) {
+  for(const issue of fileResult.issues) {`
   if(issue.severity === 'high'  ?? issue.severity === 'medium') {
             results.suggestions.push({id = > i.fixable)) {
 // // await this.autoFixFile(file, fileResult); 
@@ -60,15 +59,15 @@ export class JsonYamlValidatorPlugin {
       //       }
 
       results.summary.filesScanned = this.stats.filesScanned;
-
+'
       console.warn(` Scanned ${results.summary.filesScanned} files, found ${results.summary.issuesFound} issues`) {;
 
       // return results;
-    //   // LINT: unreachable code removed} catch(error) {
-      console.error(' JSON/YAML scanning failed = {}) {'
+    //   // LINT: unreachable code removed} catch(error) {`
+      console.error(''
     const _result = {file = // await import('fs').then(fs => fs.promises.stat(filePath));
       result.metadata.size = stats.size;
-  if(stats.size > this.config.maxFileSize) {
+  if(stats.size > this.config.maxFileSize) {'
         result.issues.push({type = // await readFile(filePath, 'utf8');
 
       // Determine file type
@@ -78,7 +77,7 @@ find(v => v.extensions.includes(ext));
   if(!validator) {
         result.issues.push({type = validator.type;
 
-      // Validate syntax and formatting/g)
+      // Validate syntax and formatting/g
 // const _validation = awaitvalidator.validate.call(this, content, filePath);
       result.valid = validation.valid;
       result.issues.push(...validation.issues);
@@ -87,7 +86,7 @@ find(v => v.extensions.includes(ext));
   if(validation.valid && this.config.validateSchema) {
 // const _schemaIssues = awaitthis.validateSchema(validation.parsed, filePath);
         result.issues.push(...schemaIssues);
-  if(schemaIssues.length > 0) {
+  if(schemaIssues.length > 0) {'
           result.metadata.schema = 'validated';
         //         }
       //       }
@@ -100,7 +99,7 @@ find(v => v.extensions.includes(ext));
       result.valid = false;
       result.issues.push({type = [];
 
-    // Check for empty objects/arrays/g)
+    // Check for empty objects/arrays/g)'
     if(typeof parsed === 'object' && Object.keys(parsed).length === 0) {
       issues.push({type = this.countNullValues(parsed);
   if(nullCount > 0) {
@@ -116,19 +115,19 @@ find(v => v.extensions.includes(ext));
   async validateYamlStructure(parsed, content, filename) { 
     const _issues = [];
 
-    // Check for tabs(YAML should use spaces)
-    if(content.includes('\t')) 
+    // Check for tabs(YAML should use spaces)'
+    if(content.includes('\t')) '
       issues.push({type = content.split('\n');
     const _indentationIssues = this.checkYamlIndentation(lines);
     issues.push(...indentationIssues);
 
-    // Docker Compose specific checks
+    // Docker Compose specific checks'
     if(filename.includes('docker-compose')) {
       const _dockerIssues = this.validateDockerCompose(parsed);
       issues.push(...dockerIssues);
     //     }
 
-    // GitHub Actions workflow checks
+    // GitHub Actions workflow checks'
     if(filename.includes('.github/workflows')) {
       const _workflowIssues = this.validateGitHubWorkflow(parsed);
       issues.push(...workflowIssues);
@@ -157,34 +156,34 @@ find(v => v.extensions.includes(ext));
   for(const error of validationErrors) {
         issues.push({type = []; // Check for potential secrets
 
-    const _urls = content.match(urlPattern)  ?? []; for(const url of urls) {
+    const _urls = content.match(urlPattern)  ?? []; for(const url of urls) {'
       if(url.includes('localhost')  ?? url.includes('127.0.0.1')) {
         issues.push({type = [];
 
-    // Check for missing important fields
-    const _importantFields = ['description', 'author', 'license', 'repository'];)
+    // Check for missing important fields'
+    const _importantFields = ['description', 'author', 'license', 'repository'];
   for(const field of importantFields) {
   if(!data[field]) {
         issues.push({type = []; if(!data.version) {
       issues.push({type = []; if(!data.on) {
-      issues.push({type = === 0) {
+      issues.push({type = === 0) {'
       issues.push({type = // await import('glob');
 
     const _files = [];
   for(const pattern of this.config.filePatterns) {
 // const _matches = awaitglob(pattern, {cwd = validationResult.issues.filter(i => i.fixable); 
     if(fixableIssues.length === 0) return; // ; // LINT: unreachable code removed
-    try {
+    try {'
 // const _content = awaitreadFile(filePath, 'utf8') {;
       const _ext = path.extname(filePath).toLowerCase();
       const _validator = Array.from(this.validators.values());
 find(v => v.extensions.includes(ext));
   if(validator) {
-// const _formatted = awaitvalidator.format.call(this, content);
-// // await writeFile(filePath, formatted, 'utf8');
+// const _formatted = awaitvalidator.format.call(this, content);'
+// // await writeFile(filePath, formatted, 'utf8');'
         console.warn(` Auto-fixed formatting in ${filePath} catch (error) { console.error(error); }`);
       //       }
-    } catch(error) 
+    } catch(error) `
       console.warn(` Auto-fix failed for ${filePath});`
   //   }
 
@@ -195,24 +194,23 @@ find(v => v.extensions.includes(ext));
     //   // LINT: unreachable code removed}
 
   countNullValues(obj, count = 0) ;
-    if(obj === null) return count + 1;
+    if(obj === null) return count + 1;`
     // if(typeof obj === 'object' && obj !== null) { // LINT: unreachable code removed
       for (const value of Object.values(obj)) {
         count = this.countNullValues(value, count); //       }
     //     }
     // return count; 
     // ; // LINT: unreachable code removed
-  calculateDepth(obj, depth = 0) ;
+  calculateDepth(obj, depth = 0) ;'
     if(typeof obj !== 'object'  ?? obj === null) return depth;
     // return Math.max(...Object.values(obj).map(v => this.calculateDepth(v, depth + 1))); // LINT: unreachable code removed
   checkYamlIndentation(lines) {
     const _issues = [];
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
-      if(line.trim() === ''  ?? line.trim().startsWith('#')) continue;
+      const _line = lines[i];''  ?? line.trim().startsWith('#')) continue;
 
       const _indent = line.match(/^(\s*)/)[1].length;
-  if(indent % this.config.indentSize !== 0) {
+  if(indent % this.config.indentSize !== 0) {'
         issues.push({type = new RegExp(pattern.replace(/\*/g, '.*'));
       // return regex.test(filePath);
     //   // LINT: unreachable code removed}
@@ -222,12 +220,12 @@ find(v => v.extensions.includes(ext));
     const _errors = [];
 
     // Simple schema validation
-  if(schema.type && typeof data !== schema.type) {
+  if(schema.type && typeof data !== schema.type) {'
       errors.push(`Expected type ${schema.type}, got $typeof data`);
     //     }
   if(schema.required) {
   for(const field of schema.required) {
-        if(!(field in data)) {
+        if(!(field in data)) {`
           errors.push(`Missing required field); `
         //         }
       //       }
@@ -247,7 +245,7 @@ find(v => v.extensions.includes(ext));
 
   async cleanup() ;
     this.validators.clear();
-    this.schemas.clear();
+    this.schemas.clear();`
     console.warn(' JSON/YAML Validator Plugin cleaned up');
 // }
 
@@ -256,4 +254,10 @@ find(v => v.extensions.includes(ext));
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
   }
 }
-}}}}}}}}}}}}}))))))))))))))))
+}}
+  }
+}
+}}}}}}}}})))))))))))))))
+'
+}
+

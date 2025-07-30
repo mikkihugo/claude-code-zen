@@ -1,6 +1,5 @@
-/** Integration module for ruv-FANN bindings with claude-zen;
+/** Integration module for ruv-FANN bindings with claude-zen; */
 
- */
 import {
   getActivationFunctions,
   getBackendInfo,
@@ -11,7 +10,7 @@ import {
   NeuralNetwork,
 } from '../bindings/index.js';
 
-/** Network metadata interface;
+/** Network metadata interface; */
 
 export // interface NetworkMetadata {id = false
 // private;
@@ -29,19 +28,20 @@ export // interface NetworkMetadata {id = false
 //   // ; // LINT: unreachable code removed
 //   try {
 // // // await init();
-//       const _backendInfo = getBackendInfo();
-//       console.warn(` Claude Zen Neural Service initialized with ${backendInfo.backend}  catch (error) { console.error(error); }backend`);
-      console.warn(`Version = true;`)
-    } catch(error) {
+//       const _backendInfo = getBackendInfo();'
+//       console.warn(` Claude Zen Neural Service initialized with ${backendInfo.backend}  catch (error) { console.error(error); }backend`);`
+console.warn(`Version = true;`);
+} catch(error)
+{
 
-    if(this.networks.has(id)) {
+    if(this.networks.has(id)) {`
       throw new Error(`Network with id '${id}' already exists`);
     //     }
   const _network = new NeuralNetwork(layers);
   this.networks.set(id, {)
       network,metadata = this.networks.get(id);
   // return entry ? entry.network = this.networks.get(networkId);
-  // if(!entry) { // LINT: unreachable code removed
+  // if(!entry) { // LINT: unreachable code removed`
   throw new Error(`Network '${networkId}' not found`);
 // }
 const _trainer = new NetworkTrainer(entry.network);
@@ -49,13 +49,13 @@ this.trainers.set(networkId, trainer);
 // return trainer;
 // }
 
-/** Train a network with provided data;
+/** Train a network with provided data; */
 
 // async
 trainNetwork((networkId =
 // {
 // }
-))
+)
 : Promise<any>
 // {
   const _trainer = this.trainers.get(networkId);
@@ -66,29 +66,29 @@ trainNetwork((networkId =
   // return // await trainer.train(;
   // trainingData.inputs, // LINT: unreachable code removed
   trainingData.outputs,
-  finalConfig;)
-  //   )
+  finalConfig;
+  //   
 // }
 
-/** Run prediction on a network;
+/** Run prediction on a network; */
 
 predict(networkId = this.networks.get(networkId);
-  if(!entry) {
+  if(!entry) {`
   throw new Error(`Network '${networkId}' not found`);
 // }
 // return entry.network.run(input);
 // }
 
-/** Save a network to file;
+/** Save a network to file; */
 
 saveNetwork(networkId = this.networks.get(networkId)
-  if(!entry) {
+  if(!entry) {`
   throw new Error(`Network '${networkId}' not found`);
 // }
 entry.network.save(filename);
 // }
 
-/** Load a network from file;
+/** Load a network from file; */
 
 // async
 loadNetwork(id = NeuralNetwork.load(filename)
@@ -97,17 +97,17 @@ this.networks.set(id,
   network,metadata = > ({
         id,
 ..entry.metadata
-// }/g))
-// )
+// }/g)
+// 
 ),trainers = false
 // }
 // }
 
-/** Default instance for easy access;
+/** Default instance for easy access; */
 
 // export const neuralService = new ClaudeZenNeuralService();
 
-/** Convenience functions for direct access;
+/** Convenience functions for direct access; */
 
 // export async function initializeNeuralService(): Promise<void> {
 //   return await neuralService.initialize();
@@ -143,4 +143,5 @@ isGpuAvailable as isNeuralGpuAvailable,
 getActivationFunctions as getNeuralActivationFunctions,
 getBackendInfo as getNeuralBackendInfo }
 
-})))))
+}))))
+`

@@ -1,19 +1,18 @@
-/** JSON File Registry Backend
-/** Persistent file-based backend for simple setups
+/** JSON File Registry Backend */
+/** Persistent file-based backend for simple setups */
 
- */
 import { EventEmitter } from 'node:events';
-
 '
-
+'
+'
 import path from 'node:path';
-
 '
-
+'
+'
 import fs from 'fs-extra';
-
 '
-
+'
+'
 import { RegistryInterface } from '..';
 
 export class JSONBackend extends RegistryInterface {
@@ -40,7 +39,7 @@ export class JSONBackend extends RegistryInterface {
     //     }
   //   }
 
-  async register(key, value, options = {}) { 
+  async register(key, value, options = {}) { '
     const _id = `$key}-${Date.now()}`;`
     const __entry = {
       key,
@@ -74,7 +73,7 @@ export class JSONBackend extends RegistryInterface {
     //     }
 
     this.data.set(key, entry);
-    this.markForSave();
+    this.markForSave();`
     this.emitter.emit('change', { type = {}) {'
 // // // await this.ensureLoaded();
     const _entry = this.data.get(key);
@@ -83,7 +82,7 @@ export class JSONBackend extends RegistryInterface {
     //   // LINT: unreachable code removed}
 
     this.data.delete(key);
-    this.markForSave();
+    this.markForSave();'
     this.emitter.emit('change', { type = {}) {'
     const _watcherId = ++this.watcherId;
 
@@ -96,11 +95,11 @@ export class JSONBackend extends RegistryInterface {
         callback(event);
       //       }
     };
-
+'
     this.emitter.on('change', changeHandler);'
 
     // Return unwatch function return() => {
-      this.watchers.delete(watcherId);
+      this.watchers.delete(watcherId);'
     // this.emitter.removeListener('change', changeHandler); // LINT: unreachable code removed'
     };
   //   }
@@ -125,7 +124,7 @@ export class JSONBackend extends RegistryInterface {
             this.data.set(entry.key, entry);
           //           }
         //         }
-
+'
         this.emitter.emit('loaded', {entries = false;'
     //     }
   //   }
@@ -145,12 +144,12 @@ export class JSONBackend extends RegistryInterface {
 
       // Convert Map to array for JSON serialization
       const _entries = Array.from(this.data.values());
-      const __data = {version = false;
+      const __data = {version = false;'
       this.emitter.emit('saved', {entries = false;'
     //     }
 
-  async createBackup() { 
-    const _timestamp = new Date().toISOString().replace(/[]/g, '-');'
+  async createBackup() { '
+    const _timestamp = new Date().toISOString().replace(/[]/g, '-''
     const _backupPath = `$this.filePath}.backup.$timestamp`;`
 // await fs.copy(this.filePath, backupPath);
     // Clean old backups
@@ -164,14 +163,14 @@ export class JSONBackend extends RegistryInterface {
     const _filename = path.basename(this.filePath);
 // try
 // const _files = awaitfs.readdir(dir);
-      const _backupFiles = files;
+      const _backupFiles = files;`
 filter(file => file.startsWith(`\$filename.backup.`));`
 map(_file => (path = > b.stat.mtime - a.stat.mtime);
 
       // Remove old backups
   for(let i = this.options.maxBackups; i < backupFiles.length; i++) {
 // // await fs.remove(backupFiles[i].path);
-      }catch(/* _error */)
+      }catch(/* _error */)`
       this.emitter.emit('error', type = === 0 && !this.isLoading)'
 // // await this.load();
   markForSave() ;
@@ -182,7 +181,7 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
   if(this.needsSave && !this.isSaving) {
         try {
 // await this.save();
-        } catch (error) { console.error(error); } catch(/* _error */) {
+        } catch (error) { console.error(error); } catch(/* _error */) {'
           this.emitter.emit('error', {type = new Date();'
     const _expired = [];
 
@@ -191,7 +190,7 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
         expired.push(key); //       }
     //     }
   for(const key of expired) {
-      const _entry = this.data.get(key); this.data.delete(key) {;
+      const _entry = this.data.get(key); this.data.delete(key) {;'
       this.emitter.emit('change', {type = query.tags.every(tag => entry.tags.includes(tag));'
       if(!hasAllTags) return false;
     //   // LINT: unreachable code removed}
@@ -215,11 +214,11 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
 
     // Apply sorting
   if(options.sort) {
-      filtered.sort((a, b) => {
-        const _field = options.sort.field  ?? 'registered';'
+      filtered.sort((a, b) => {'
+        const _field = options.sort.field  ?? 'registered''
         const _order = options.sort.order  ?? 'asc';'
         const _valueA = a.metadata[field]  ?? a.value[field];
-        const _valueB = b.metadata[field]  ?? b.value[field];
+        const _valueB = b.metadata[field]  ?? b.value[field];'
   if(order === 'desc') {'
           // return valueB > valueA ?1 = filtered.slice(0, options.limit);
     //   // LINT: unreachable code removed}
@@ -255,7 +254,7 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
 
   async clear() ;
     this.data.clear();
-    this.markForSave();
+    this.markForSave();'
     this.emitter.emit('cleared');'
 
   size() ;
@@ -264,4 +263,5 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
 
 // export default JSONBackend;
 
-}}}}}}}}}}}}}}}}}}}}}}}}))))))
+}}}}}}}}}}}}}}}}}}}}}}}})))))
+'

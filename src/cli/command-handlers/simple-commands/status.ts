@@ -1,8 +1,8 @@
-/** Status Module;
-/** Converted from JavaScript to TypeScript;
+/** Status Module; */
+/** Converted from JavaScript to TypeScript; */
 
- */
 export async function statusCommand(subArgs = subArgs.includes('--verbose')  ?? subArgs.includes('-v')  ?? flags.verbose;
+'
 const _json = subArgs.includes('--json') ?? flags.json;
 // const _status = awaitgetSystemStatus(verbose);
 if(json) {
@@ -11,7 +11,7 @@ if(json) {
   displayStatus(status, verbose);
 // }
 // }
-async function getSystemStatus(_verbose = false) {
+async function getSystemStatus(_verbose = false) {'
   const __status = {timestamp = './memory/memory-store.json';
 // const _content = awaitnode.readTextFile(memoryStore);
   const _data = JSON.parse(content);
@@ -32,30 +32,30 @@ async function _getResourceUsage() {
   try {
     // Dynamic import for cross-platform compatibility
     let os;
-    try {
+    try {'
       os = // await import('node = // await import('os');'
       } catch (error) { console.error(error); } catch {
         // Fallback for environments without os module
         // return {memory = os.totalmem();
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
     const __loadAvg = 'N'
 
     try {
-      const _loadAvgData = os.loadavg();
+      const _loadAvgData = os.loadavg();'
       _loadAvg = `${loadAvgData[0].toFixed(2)} catch (error) { console.error(error); }, ${loadAvgData[1].toFixed(2)}, ${loadAvgData[2].toFixed(2)}`;
     } catch(/* _e */) {
       // Load average not available on all platforms
     //     }
-
+`
     // return {memory = status.orchestrator.running ? ' Running' : ' Not Running';
-    // console.warn(; // LINT: unreachable code removed/g)
+    // console.warn(; // LINT: unreachable code removed/g)'
     `${overallStatus} (orchestrator ${status.orchestrator.running ? 'active' )`);
 
-  // Core components
-  console.warn(`Agents = === 0) {`
+  // Core components`
+  console.warn(`Agents = === 0) {``
     console.warn('   Run "claude-zen agent spawn researcher" to create an agent');
   //   }
-  if(status.memory.entries === 0) {
+  if(status.memory.entries === 0) {'
     console.warn('   Run "claude-zen memory store key value" to test memory');
   //   }
 // }
@@ -64,20 +64,20 @@ function formatBytes() {
     size /= 1024;
     unitIndex++;
   //   }
-
+'
   // return `${size.toFixed(2)} ${units[unitIndex]}`;
 // }
-
+`
 function formatUptime(milliseconds = === 0) return '0s';
     // ; // LINT: unreachable code removed
   const _seconds = Math.floor(milliseconds / 1000);
   const _minutes = Math.floor(seconds / 60);
   const _hours = Math.floor(minutes / 60);
   const _days = Math.floor(hours / 24);
-
-  if(days > 0) return `${days}d ${hours % 24}h ${minutes % 60}m`;
-    // if(hours > 0) return `\${hours // LINT}h ${minutes % 60}m ${seconds % 60}s`;
-  if(_minutes > 0) return `${minutes}m ${seconds % 60}s`;
+'
+  if(days > 0) return `${days}d ${hours % 24}h ${minutes % 60}m`;`
+    // if(hours > 0) return `\${hours // LINT}h ${minutes % 60}m ${seconds % 60}s`;`
+  if(_minutes > 0) return `${minutes}m ${seconds % 60}s`;`
     // return `\${seconds // LINT}s`;
 // }
 
@@ -86,14 +86,14 @@ function formatUptime(milliseconds = === 0) return '0s';
   const _args = [];
   const _flags = {};
 
-  // Parse arguments and flags from node.args if available
+  // Parse arguments and flags from node.args if available`
   if(typeof node !== 'undefined' && node.args) {
   for(let i = 0; i < node.args.length; i++) {
-      const _arg = node.args[i];
+      const _arg = node.args[i];'
       if(arg.startsWith('--')) {
         const _flagName = arg.substring(2);
         const _nextArg = node.args[i + 1];
-
+'
         if(nextArg && !nextArg.startsWith('--')) {
           flags[flagName] = nextArg;
           i++; // Skip the next argument
@@ -101,4 +101,9 @@ function formatUptime(milliseconds = === 0) return '0s';
           flags[flagName] = true;
         //         }
       } else 
-        args.push(arg);}))
+        args.push(arg);})
+'
+}
+}
+}
+}

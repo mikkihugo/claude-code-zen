@@ -5,7 +5,6 @@
 /** Ultra-fast automated lint fixing with pattern recognition;
 /** Mission: ZERO TOLERANCE - Fix ALL 1712 remaining issues;
 
- */
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import { glob } from 'glob';
@@ -65,40 +64,7 @@ async;
 processFile(filePath);
 // {
   try {
-      const _content = fs.readFileSync(filePath, 'utf8');
-      const _originalContent = content;
-
-      // Apply comprehensive fix patterns
-      content = this.applyUnusedVarFixes(content);
-      content = this.applyTypeScriptFixes(content);
-      content = this.applyNullishCoalescingFixes(content);
-      content = this.applyConsistencyFixes(content);
-      content = this.applyDeadCodeFixes(content);
-      content = this.applyTypeAnnotationFixes(content);
-
-      // Write back if changed
-  if(content !== originalContent) {
-        fs.writeFileSync(filePath, content);
-        this.fixesApplied++;
-// }
-       catch (error) { console.error(error); }this.filesProcessed++;
-    } catch(error) {
-      console.warn(` Error processing ${filePath}`);
-// }
-// }
-
-/** Fix unused variables - most common issue;
-
-applyUnusedVarFixes(content);
-// {
-  // Remove unused imports/variables patterns
-  const _fixes = [;
-      // Remove unused destructured imports
-// {
-        pattern: 
-  )\s*
-// }
-\s*from\s*(['"][^'"]*['"])'
+      const _content = fs.readFileSync(filePath, 'utf8''][^'''])'
         replacement: (_match, used, _unused, from) =>
 // {
   // Keep the used imports, remove unused ones

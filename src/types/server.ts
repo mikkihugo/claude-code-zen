@@ -1,16 +1,18 @@
-/** Server Configuration and Management Types;
-/** Types for unified server architecture with multiple protocol support
+/** Server Configuration and Management Types; */
+/** Types for unified server architecture with multiple protocol support */
 
- */
 import type { Request } from 'express';
+'
 import type { Identifiable } from '.';
 
 // =============================================================================
 // SERVER CORE TYPES
 // =============================================================================
-
+'
 export type ServerType = 'unified' | 'api' | 'mcp' | 'websocket' | 'grpc';
+'
 export type ServerEnvironment = 'development' | 'staging' | 'production' | 'test';
+'
 export type ProtocolType = 'http' | 'https' | 'ws' | 'wss' | 'grpc' | 'mcp';
 
 // =============================================================================
@@ -45,33 +47,34 @@ export // interface ServerConfig extends Identifiable {
 // export // interface TypedResponse extends Response {
 //   // Enhanced response with type safety
 //   success<_T = any>(data, message?);
-//   error(message = any>(data) => void;
-//   'server-started': (status = > void;
-//   'server-stopping') => void;
-//   'server-stopped': () => void;
+//   error(message = any>(data) => void;'
+//   'server-started': (status = > void;'
+//   'server-stopping') => void;'
+//   'server-stopped': () => void;'
 //   'server-error': (error = > void;
-// // Request events
+// // Request events'
 // ('request-received');
-// : (req = > void
-// 'request-completed': (req = > void
+// : (req = > void'
+// 'request-completed': (req = > void'
 // 'request-error': (req = > void
-// // WebSocket events
-// 'websocket-connected': (client = > void
-// 'websocket-disconnected': (client = > void
-// 'websocket-message': (client = > void
+// // WebSocket events'
+// 'websocket-connected': (client = > void'
+// 'websocket-disconnected': (client = > void'
+// 'websocket-message': (client = > void'
 // 'websocket-error': (client = > void
-// // MCP events
-// 'mcp-tool-called': (toolName = > void
+// // MCP events'
+// 'mcp-tool-called': (toolName = > void'
 // 'mcp-tool-error': (toolName = > void
-// // Health events
-// 'health-check': (check = > void
+// // Health events'
+// 'health-check': (check = > void'
 // 'health-changed': (health = > void
-// // Configuration events
-// 'config-updated': (config = > void
+// // Configuration events'
+// 'config-updated': (config = > void'
 // 'config-error': (error = > void
-// // Metrics events
-// 'metrics-collected': (metrics = > void
+// // Metrics events'
+// 'metrics-collected': (metrics = > void'
 // 'performance-warning': (metric = > void
 // // }
 
-}}}))))))))))))))))))))
+}}})))))))))))))))))))
+'

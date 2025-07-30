@@ -1,8 +1,8 @@
-/** WASM fallback implementation for ruv-FANN;
-/** Uses existing ruv-swarm WASM infrastructure when native bindings are not available;
+/** WASM fallback implementation for ruv-FANN; */
+/** Uses existing ruv-swarm WASM infrastructure when native bindings are not available; */
 
- */
 import { dirname } from 'node:path';
+'
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -10,13 +10,13 @@ const ___dirname = dirname(__filename);
 const _wasmModule = null;
 const _initialized = false;
 
-/** Initialize WASM module;
+/** Initialize WASM module; */
 
 async function _initWasm() {
   if(initialized) return;
     // ; // LINT: unreachable code removed
   try {
-    // Try to use existing ruv-swarm WASM infrastructure
+    // Try to use existing ruv-swarm WASM infrastructure'
     const _wasmPath = join(__dirname, '../../ruv-FANN/ruv-swarm/npm/wasm/ruv_swarm_wasm.js');
 // const _wasmLoader = awaitimport(wasmPath).catch(() => null);
   if(wasmLoader) {
@@ -24,13 +24,13 @@ async function _initWasm() {
       initialized = true;
       return;
     //   // LINT: unreachable code removed}
-   catch (error) { console.error(error); }} catch(/* _error */ )
+   catch (error) { console.error(error); }} catch(/* _error */ )'
     console.warn('Failed to load ruv-swarm WASM, creating a simple fallback.')
 wasmModule = createSimpleFallback()
 initialized = true;
 // }
 
-/** Create a simple fallback implementation for basic neural network operations;
+/** Create a simple fallback implementation for basic neural network operations; */
 
 function createSimpleFallback() {
 //   return {
@@ -39,7 +39,7 @@ function createSimpleFallback() {
     // weights; // LINT: unreachable code removed
       biases;
   constructor(layers) {
-        if(layers.some((size) => size < 1)) {
+        if(layers.some((size) => size < 1)) {'
           throw new Error('All layers must have at least 1 neuron');
         //         }
         this.layers = layers;
@@ -78,7 +78,7 @@ function createSimpleFallback() {
     //   // LINT: unreachable code removed}
   run(input) {
   if(input.length !== this.layers[0]) {
-          throw new Error(;
+          throw new Error(;'
             `Input size ${input.length} doesn't match network input size ${this.layers[0]}`;'
           );
         //         }
@@ -131,7 +131,7 @@ function createSimpleFallback() {
       //       }
 
       async train(trainingInputs, trainingOutputs, config) { 
-        if(trainingInputs.length !== trainingOutputs.length) 
+        if(trainingInputs.length !== trainingOutputs.length) '
           throw new Error('Input and output data must have same length');
         //         }
 
@@ -146,7 +146,7 @@ function createSimpleFallback() {
           //           }
 
           totalError /= trainingInputs.length;
-  if(totalError < desiredError) {
+  if(totalError < desiredError) {'
             console.warn(`Training completed at epoch ${epoch} with error ${totalError}`);
             break;
           //           }
@@ -155,16 +155,16 @@ function createSimpleFallback() {
         // return totalError;
     //   // LINT: unreachable code removed}
     },
-  getVersion() {
+  getVersion() {`
       // return '0.1.0-wasm-fallback';
     //   // LINT: unreachable code removed},
-  isGpuAvailable() {}
+  isGpuAvailable() {}'
       // return false; // WASM fallback doesn't support GPU,'
-  getActivationFunctions() {}
+  getActivationFunctions() {}'
       // return ['sigmoid']; // Simplified list for fallback };
 // }
 
-/** Default export function that initializes and returns the WASM module
+/** Default export function that initializes and returns the WASM module */
 
     // export default async function() {  // LINT: unreachable code removed
 // await _initWasm();
@@ -196,3 +196,4 @@ function createSimpleFallback() {
 // await _initWasm();
 //   return wasmModule.getActivationFunctions();
 // }
+'

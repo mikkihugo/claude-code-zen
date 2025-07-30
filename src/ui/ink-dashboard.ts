@@ -1,16 +1,16 @@
 #!/usr/bin/env node;
 import { Box } from 'ink';
-
+'
 '
 
-/** Ink-based TUI Dashboard - Modern replacement for blessed
-/** Features vision roadmaps, swarm monitoring, and system metrics
+/** Ink-based TUI Dashboard - Modern replacement for blessed */
+/** Features vision roadmaps, swarm monitoring, and system metrics */
 
- */
+ */'
 import React, { useEffect, useState } from 'react';
-
 '
-
+'
+'
 import { visionAPI } from './shared/vision-api.js';
 
 const __VisionDashboard = () => {
@@ -22,28 +22,28 @@ const __VisionDashboard = () => {
       try {
 // const _data = awaitvisionAPI.fetchVisions();
         setVisions(data);
-      } catch (error) { console.error(error); } catch(/* _error */) 
+      } catch (error) { console.error(error); } catch(/* _error */) '
         console.error('Failed to loadvisions = setInterval(loadVisions, 30000);'
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
   if(loading) {
 //     return React.createElement(Box, {justifyContent = === 0) {
 //     return React.createElement(Box, {justifyContent = () => {
-  switch(status) {
-      case 'approved': return 'green';'
-    // case 'pending': return 'yellow'; ; // LINT: unreachable code removed'
+  switch(status) {'
+      case 'approved': return 'green''
+    // case 'pending': return 'yellow''
       case 'rejected': return 'red';default = () => {'
-  switch(priority) {
-      case 'high': return '';'
-    // case 'medium': return ''; // LINT: unreachable code removed'
-      case 'low': return '';default = () => {'
+  switch(priority) {'
+      case 'high'';''
+    // case 'medium''; // LINT: unreachable code removed''
+      case 'low'';default = () => {'
     if(!phases?.length) return 0;
     // const _totalProgress = phases.reduce((sum, phase) => sum + (phase.progress  ?? 0), 0); // LINT: unreachable code removed
 //     return Math.round(totalProgress / phases.length);
     //   // LINT: unreachable code removed};
 // 
   return React.createElement(Box, { flexDirection => {
-
+'
     // return React.createElement(Box, {key = > p.status === 'in_progress')?.name  ?? vision.phases.find(p => p.status === 'pending')?.name  ?? 'All phases complete'; // LINT: unreachable code removed'
           );
         );
@@ -63,34 +63,34 @@ const __VisionDashboard = () => {
         ]);
         setSwarmData(swarm);
         setSystemMetrics(metrics);
-      } catch (error) { console.error(error); } catch(/* _error */) 
+      } catch (error) { console.error(error); } catch(/* _error */) '
         console.error('Failed to update swarmdata = setInterval(updateData, 2000);'
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
   if(loading) {
 //     return React.createElement(Box, {justifyContent = () => {
-  switch(status) {
-      case 'active': return 'green';'
-    // case 'idle': return 'yellow'; // LINT: unreachable code removed'
+  switch(status) {'
+      case 'active': return 'green''
+    // case 'idle': return 'yellow''
       case 'error': return 'red';default = () => {'
-    switch(name.toLowerCase()) {
-      case 'architect': return '';'
-    // case 'coder': return ''; // LINT: unreachable code removed'
-      case 'tester': return '';'
-    // case 'analyst': return ''; // LINT: unreachable code removed'
-      case 'researcher': return '';default = >;'
+    switch(name.toLowerCase()) {'
+      case 'architect'';''
+    // case 'coder''; // LINT: unreachable code removed''
+      case 'tester'';''
+    // case 'analyst''; // LINT: unreachable code removed''
+      case 'researcher'';default = >;'
             React.createElement(Box, {key = === 0 ? 0 },
-              React.createElement(Box, null,))
+              React.createElement(Box, null,))'
                 React.createElement(Text, null, `${getAgentIcon(agent.name)} `),`
                 React.createElement(Text, {color = [)
-  {id = () => {
+  {id = () => {`
   const [activeTab, setActiveTab] = useState('visions');'
   const [_startTime] = useState(new Date());
 
-  useInput((input, key) => {
+  useInput((input, key) => {'
   if(key.ctrl && input === 'c') {'
       process.exit(0);
-    //     }
+    //     }'
   if(input === 'q') {'
       process.exit(0);
     //     }
@@ -116,7 +116,7 @@ const __VisionDashboard = () => {
   const _activeTabData = TABS.find(tab => tab.id === activeTab);
 
     const _minutes = Math.floor(diff / 60000);
-    const _seconds = Math.floor((diff % 60000) / 1000);
+    const _seconds = Math.floor((diff % 60000) / 1000);'
 //     return `${minutes}m ${seconds}s`;`
     //   // LINT: unreachable code removed};
 
@@ -125,10 +125,11 @@ const __VisionDashboard = () => {
     // return React.createElement(Box, { key => { // LINT);
   process.exit(0);
 });
-
-process.on('SIGTERM', () => {'
+`
+process.on('SIGTERM''
   console.warn('\n Claude-Zen dashboard shutting down...');'
   process.exit(0);
 });
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}})))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}))))
+'

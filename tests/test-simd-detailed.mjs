@@ -80,10 +80,12 @@ try {
   console.error(error);
 }
 catch (_e)
-{} // eslint-disable-line
+{
+} // eslint-disable-line
 
 // Method 2: Check if specific SIMD opcodes work
-const _simdFeatureTest = () => { // eslint-disable-line
+const _simdFeatureTest = () => {
+  // eslint-disable-line
   try {
     // This is a v128.const instruction test
     const testModule = new Uint8Array([
@@ -131,15 +133,25 @@ const _simdFeatureTest = () => { // eslint-disable-line
       0x00, // 16 bytes of zeros
       0x0b, // end
     ]);
-//     return WebAssembly.validate(testModule); // eslint-disable-line
-  } catch (error) { console.error(error); } catch (_e) ;
+    //     return WebAssembly.validate(testModule); // eslint-disable-line
+  } catch (error) {
+    console.error(error);
+  }
+  catch (_e)
 
-// Method 3: Check via compile
-const _checkSIMDCompile = () => { // eslint-disable-line
-  try {
-    // Try compiling a module with SIMD
-    const bytes = new Uint8Array([
-      0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00, 0x01, 0x05, 0x01, 0x60, 0x00, 0x01, 0x7b ]);
-    WebAssembly.compile(bytes); // eslint-disable-line
-//     return true;
-  } catch (error) { console.error(error); } catch (_e) ;
+  // Method 3: Check via compile
+  const _checkSIMDCompile = () => {
+    // eslint-disable-line
+    try {
+      // Try compiling a module with SIMD
+      const bytes = new Uint8Array([
+        0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00, 0x01, 0x05, 0x01, 0x60, 0x00, 0x01, 0x7b,
+      ]);
+      WebAssembly.compile(bytes); // eslint-disable-line
+      //     return true;
+    } catch (error) {
+      console.error(error);
+    }
+    catch (_e)
+  };
+};

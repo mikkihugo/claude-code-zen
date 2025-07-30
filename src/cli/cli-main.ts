@@ -1,8 +1,7 @@
-/** Cli Main Module;
-/** Converted from JavaScript to TypeScript;
+/** Cli Main Module; */
+/** Converted from JavaScript to TypeScript; */
 
- */
-#;
+#
 // ! /usr/bin / env;
 node;
 
@@ -14,6 +13,7 @@ import {
   hasCommand,
   initializePlugins,
   showCommandHelp,
+  ',
 } from '.';
 
 async function _main() {
@@ -39,27 +39,27 @@ async function _main() {
 // // await showCommandHelp(command);
     return;
     //   // LINT: unreachable code removed}
-
+'
   // Commands that don't need plugins(lightweight commands)'
-  const _lightweightCommands = [
-    'init',
-    'status',
-    'config',
-    'help',
-    'template',
-    '--help',
+  const _lightweightCommands = ['
+    'init','
+    'status','
+    'config','
+    'help','
+    'template','
+    '--help','
     '--version' ];
 
   // Initialize plugin system only for commands that need it
   const __pluginManager = null;
   if(!lightweightCommands.includes(command)) {
-    try {
+    try {'
       _pluginManager = // await initializePlugins({errorHandling = // await import('./plugin-activation.js');
         registerPluginCommands(commandRegistry);
       //       }
    catch (error) console.error(error); 
   catch(error);
-  if(flags.debug) {
+  if(flags.debug) {'
     console.error(' Plugin initialization failed);'
   //   }
 // }
@@ -74,16 +74,17 @@ async function _main() {
 if(hasCommand(command)) {
   try {
 // // await executeCommand(command, input.slice(1), flags);
-  } catch (error) { console.error(error); } catch(/* err */) 
+  } catch (error) { console.error(error); } catch(/* err */) '
     console.error(` Error executing command "${command}");`
-  if(flags.debug) {
+  if(flags.debug) {`
       console.error('Stack trace);'
     //     }
     process.exit(1);
   //   }
-} else {
+} else {'
   console.error(` Error);`
   cli.showHelp(1);
 // }
 // }
   main() 
+`

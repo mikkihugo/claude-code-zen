@@ -2,7 +2,7 @@
 
 export function setupTestEnv() {
   // Set test environment variables
-  process.env.NODE_ENV = 'test';
+  process.env.NODE_ENV = 'test';'
   process.env.LOG_LEVEL = 'error';
 // }
 export async function cleanupTestEnv() { // eslint-disable-line
@@ -13,3 +13,4 @@ export const TEST_CONFIG = {
   timeout,
 // maxRetries
 // }
+'

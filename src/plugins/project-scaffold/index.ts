@@ -1,82 +1,98 @@
-/** Project Scaffold Plugin;
-/** Template-based project creation and scaffolding;
+/** Project Scaffold Plugin; */
+/** Template-based project creation and scaffolding; */
 
- */
 import { EventEmitter } from 'node:events';
+'
 import { mkdir, readdir, readFile } from 'node:fs';
+'
 import path from 'node:path';
 
 export class ProjectScaffoldPlugin extends EventEmitter {
   constructor(_config = {}) {
-//     super();
+    //     super();
     this.config = {templatesDir = new Map();
     this.templateCache = new Map();
     this.generatedProjects = [];
     this.placeholderRegex = /\{\{([^}]+)\}\}/g;
     this.conditionalRegex = /\{\{#if\s+([^}]+)\}\}([\s\S]*?)\{\{\/if\}\}/g;
     this.loopRegex = /\{\{#each\s+([^}]+)\}\}([\s\S]*?)\{\{\/each\}\}/g;
-  //   }
-  async initialize() { 
-    console.warn(' Project Scaffold Plugin initialized');
-    // Create directories
-// await mkdir(this.config.templatesDir,  recursive = {name = require('express');
-    const _cors = require('cors');
-    const _helmet = require('helmet');
-    const _morgan = require('morgan');
-    const _routes = require('.'
-    const _app = express();
-    const _PORT = process.env.PORT ?? 3000;
-    // Middleware
-    app.use(helmet());
-    app.use(cors());
-    app.use(morgan('dev'));
-    app.use(express.json());
-    app.use(express.urlencoded({ extended => {))
+    //   }
+    async;
+    initialize();
+    {
+      '
+    console.warn(' Project Scaffold Plugin initialized')
+      // Create directories'
+      // await mkdir(this.config.templatesDir,  recursive = {name = require('express');'
+      const _cors = require('cors');
+      '
+      const _helmet = require('helmet');
+      '
+      const _morgan = require('morgan');
+      '
+      const _routes = require('.'
+      const _app = express();
+      const _PORT = process.env.PORT ?? 3000;
+      // Middleware
+      app.use(helmet());
+      app.use(cors());
+      '
+    app.use(morgan('dev'))
+      app.use(express.json());
+      app.use(express.urlencoded({ extended => {))
   console.error(err.stack);
-    res.status(500).send('Something broke!');
-  //   }
-  //   )
-  // Start server
-  app;
+      '
+    res.status(500).send('Something broke!')
+      //   }
+      //
+      // Start server
+      app;
 
-  listen(PORT, ();
-  => 
-  console;
-
-  warn(\`Server is running on port \${PORT}\`);
-// }
-// )
-module.exports = app;
-`,encoding = require('express');`
+      listen(PORT, ();
+      => 
+  console
+      '
+  warn(\`Server is running on port \$
+      {
+        PORT;
+      }
+      \`)
+      // }
+      //
+      module.exports = app;
+      `
+`,
+        (encoding = require('express'));
+      `
 const _router = express.Router();
 
-// Health check
-router.get('/health', (req, res) => {
+// Health check`;
+      router.get('/health', (req, res) => {
   res.json({ status => {
-  const { name } = req.params;
+  const { name } = req.params;'
   res.json({message = router;`,`
-encoding = development;
+encoding = development;`
 (PORT = 3000`,encoding = "en">;`
-  <head>;
-    <meta charset="utf-8" 
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />;
-    <meta name="viewport" content="width=device-width, initial-scale=1" 
-    <meta name="theme-color" content="#000000" 
+  <head>;`
+    <meta charset="utf-8" "
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />;"
+    <meta name="viewport" content="width=device-width, initial-scale=1" "
+    <meta name="theme-color" content="#000000" "
     <meta name="description" content="{{description}}" 
     <title>{{projectName}}<
   <
   <body>;
-    <noscript>You need to enable JavaScript to run this app.<
+    <noscript>You need to enable JavaScript to run this app.<"
     <div id="root"><
-  </body>;/g)))
-<
+  </body>;/g))
+<"
 encoding = ReactDOM.createRoot(document.getElementById('root'));
 root.render(;
 <React.StrictMode>;
 <App 
-  </React.StrictMode>;/g)
-// )
-`,encoding = "App">`
+  </React.StrictMode>;/g
+// )'
+`,encoding = "App">``
 <header className="App-header">
 <h1>Welcome
 // to
@@ -96,115 +112,119 @@ Edit < code > src / App.js < /
 >p < 
 >adeehr < 
 >div
-// )
+// 
 // }
-// export default App;
+// export default App;"
 `,`
-            encoding = {preset = {parser = (name) => {
-//   return \`Hello, \${name}!\`;
+            encoding = {preset = {parser = (name) => {`
+//   return \`Hello, \${name}!\`;`
 };`,`
 encoding = {};
 ): unknown
 this.config = config
-// Add your methods here
+// Add your methods here`
 }`,`
 (_encoding) =>
-// {
-  it('should greet correctly', () => {
+// {`
+  it('should greet correctly', () => {'
     expect(hello('World')).toBe('Hello, World!');
   });
-// }
-// )
-`,encoding = new`
-// {
-  className;
-// }
-({debug = production
+      // }
+      // )'
+      `,encoding = new`;
+      // {
+      className;
+      // }
+      ({debug = production
+
+      #;
+      Copy;
+      application;
+      files;
+      COPY . .
 
 #;
-Copy;
-application;
-files;
-COPY . .
-
-#;
-Create;
-non - root;
-user;
-RUN;
-addgroup - g;
-1001 - S;
-nodejs;
-RUN;
-adduser - S;
-nodejs - u;
-1001;
-USER;
-nodejs;
-#;
-Expose;
-port;
-EXPOSE;
-// {
-  port;
-// }
-#;
-Health;
-check;
-HEALTHCHECK--;
-interval = 30s--;
-timeout = 3s--;
-start-period = 40s--;
-retries = 3;
-// CMD
-// node
-healthcheck.js
-#
-// Start
-// application
-CMD[('node', 'src'
-encoding = require('express');
-const _pino = require('pino');
-const _app = express();
-const _logger = pino({transport = process.env.PORT  ?? {{port}};
-// Middleware
-app.use(express.json());
-// Request logging
-app.use((req, res, next) => {
-  logger.info({ method => {
+      Create;
+      non - root;
+      user;
+      RUN;
+      addgroup - g;
+      1001 - S;
+      nodejs;
+      RUN;
+      adduser - S;
+      nodejs - u;
+      1001;
+      USER;
+      nodejs;
+      #;
+      Expose;
+      port;
+      EXPOSE;
+      // {
+      port;
+      // }
+      #;
+      Health;
+      check;
+      HEALTHCHECK--;
+      interval = 30s--;
+      timeout = 3s--;
+      start-period = 40s--;
+      retries = 3;
+      // CMD
+      // node
+      healthcheck.js;
+      #
+      // Start
+      // application`
+      CMD[('node', 'src'
+      '
+encoding = require('express')
+      '
+      const _pino = require('pino');
+      const _app = express();
+      const _logger = pino({transport = process.env.PORT  ?? {{port}};
+      // Middleware
+      app.use(express.json());
+      // Request logging
+      app.use((req, res, next) => {
+        logger.info({ method => {
   res.json({
-    status => {))
+    status => {)
   // Add readiness checks here(DB connection, etc.)
   res.json({ ready => {
   res.json({
-    message => {))
+    message => {)
   logger.error(err);
-  res.status(500).json({ error => {)
+        res.status(500).json({ error => {)'
   logger.info(\`{{serviceName}} is running on port \${PORT}\`);
-});
-// Graceful shutdown
-process.on('SIGTERM', () => {
-  logger.info('SIGTERM signal received => {')
-    logger.info('HTTP server closed');
-  process.exit(0);
-});
-})
-`,`
+      });
+      // Graceful shutdown`
+      process.on('SIGTERM', () => {
+        '
+  logger.info('SIGTERM signal received => {')'
+    logger.info('HTTP server closed')
+        process.exit(0);
+      });
+    }
+    )'
+`,``
   (encoding = require('node));'
-const _options = {host = http.request(options, (res) => {
+    const _options = {host = http.request(options, (res) => {
   if(res.statusCode === 200) {
     process.exit(0);
   } else {
     process.exit(1);
   //   }
-});
+});'
 request.on('error', () => {
   process.exit(1);
 });
-request.end();
+request.end();'
 `,`
 encoding = development;
-PORT = { {port };
+PORT = { {port };`
 }`,`
   (encoding = {});
 ): unknown
@@ -213,39 +233,39 @@ PORT = { {port };
 // }
 async;
 initialize();
-// {
+// {`
     console.warn(' {{pluginName}} Plugin initialized');#if hasDatabase;
     // await this.initializeDatabase();/if}}#if hasAPI;
     // await this.initializeAPI();/if}}
 
     this.initialized = true;#if hasDatabase;
   async initializeDatabase() ;
-    // Initialize database connection
+    // Initialize database connection'
     console.warn(' Database initialized');{/if}}#if hasAPI;
   async initializeAPI() ;
-    // Initialize API client
+    // Initialize API client'
     console.warn(' API client initialized');
 
   // Plugin methods
   async execute(options = {}) ;
-  if(!this.initialized) {
+  if(!this.initialized) {'
       throw new Error('Plugin not initialized');
     //     }
 
-    // Implement your plugin logic here
-    console.warn('Executing {{pluginName}} withoptions = false;')
+    // Implement your plugin logic here'
+    console.warn('Executing {{pluginName}} withoptions = false;')'
     console.warn(' {{pluginName}} Plugin cleaned up');
-
+'
 // export default {{className}Plugin;`,encoding = new {{className}Plugin({ `
   // Configuration options
   });
 // // await plugin.initialize();
 // const _result = awaitplugin.execute({ // Execution options/g)
-  });
+  });`
 \`\`\`
 
 ## Configuration
-
+`
 - \`enabled\` - Enable/disable the plugin(default => {
   let plugin;
 
@@ -258,55 +278,66 @@ initialize();
 // await plugin.cleanup();
     //     }
   });
-
+`
   test('should initialize successfully', async() => {
 // await plugin.initialize();
     expect(plugin.initialized).toBe(true);
   });
-
+'
   test('should execute successfully', async() => {
 // await plugin.initialize();
 // const _result = awaitplugin.execute();
     expect(result.success).toBe(true);
   });
-
+'
   test('should return status', async() => {
 // await plugin.initialize();
     // const _status = await plugin.getStatus(); // LINT: unreachable code removed
     expect(status.initialized).toBe(true);
     expect(status.enabled).toBe(true);
   });
-
-  test('should throw error if not initialized', async() => {
+'
+  test('should throw error if not initialized', async() => {'
 // await expect(plugin.execute()).rejects.toThrow('Plugin not initialized');
-  });
-});`,encoding = await readdir(this.config.customTemplatesDir, {withFileTypes = path.join(this.config.customTemplatesDir, entry.name);`
-          let _template = // await this.loadTemplateFromDirectory(templatePath);
-  if(template) {
-            this.templates.set(entry.name, { ...template,id = path.join(templatePath, 'template.json');
+  });'
+});
+    `,encoding = await readdir(this.config.customTemplatesDir, {withFileTypes = path.join(this.config.customTemplatesDir, entry.name);`;
+    let _template = // await this.loadTemplateFromDirectory(templatePath);
+    if (template) {
+      `
+            this.templates.set(entry.name, { ...template,id = path.join(templatePath, 'template.json');'
       const _manifest = JSON.parse(// await readFile(manifestPath, 'utf8'));
 
       // Load file mappings
       const _files = {};
   if(manifest.files) {
-        for (const [targetPath, sourcePath] of Object.entries(manifest.files)) {
-          const _fullPath = path.join(templatePath, sourcePath); // const _content = awaitreadFile(fullPath, 'utf8'); 
-          files[targetPath] = { content,encoding = path.join(this.config.templatesDir, 'registry.json') {;
+        for (const [targetPath, sourcePath] of Object.entries(manifest.files)) {'
+          const _fullPath = path.join(templatePath, sourcePath); // const _content = awaitreadFile(fullPath, 'utf8'); '
+          files[targetPath] = { content,encoding = path.join(this.config.templatesDir, 'registry.json') {;'
       const _registry = JSON.parse(// await readFile(registryPath, 'utf8'));
 
       // Merge remote templates into registry
       for (const [id, template] of Object.entries(registry.templates  ?? {})) {
         if(!this.templates.has(id)) {
           this.templates.set(id, { ...template, id, source = {}, options = {}) {
-    const _template = this.templates.get(templateId); if(!template) {
-      throw new Error(`Template '${templateId}' not found`); //     }
+    const _template = this.templates.get(templateId); if(!template) {'
+      throw new Error(`;
+      Template;
+      ('${templateId}');
+      not;
+      found`); //     }
+`;
+      console.warn(` Generating project fromtemplate = // await this.processVariables(template, variables) {;`
 
-    console.warn(` Generating project fromtemplate = // await this.processVariables(template, variables) {;`
+      // Determine output directory`
+      const _outputDir =
+        options.outputDir ??
+        path.join(
+          this.config.outputDir,
+          processedVars.projectName ?? processedVars.serviceName ?? 'new-project'
+        );
 
-    // Determine output directory
-    const _outputDir = options.outputDir  ?? path.join(this.config.outputDir, processedVars.projectName  ?? processedVars.serviceName  ?? 'new-project');
-
-    try {
+      try {
       // Create output directory
 // // await mkdir(outputDir, {recursive = // await this.generateFiles(template, processedVars, outputDir);
       // Run post-generate commands
@@ -332,7 +363,7 @@ initialize();
   if(value === undefined && varDef.default !== undefined) {
         value = varDef.default; //       }
 
-      // Process template references in defaults
+      // Process template references in defaults'
   if(typeof value === 'string' && value.includes('{{') {) 
         value = this.processTemplate(value, processed);
       //       }
@@ -340,25 +371,25 @@ initialize();
       // Validate required variables
   if(varDef.required && value === undefined) {
   if(this.config.interactive) {
-          // In interactive mode, use default or placeholder
-          value = varDef.default  ?? `<${key}>`;
+          // In interactive mode, use default or placeholder'
+          value = varDef.default  ?? `<${key}>`;`
           console.warn(`Using default value '${value}' for required variable '${key}'`);
-        } else {
+        } else {`
           throw new Error(`Required variable '${key}' not provided`);
         //         }
       //       }
 
       // Type conversion
   if(value !== undefined) {
-  switch(varDef.type) {
+  switch(varDef.type) {`
           case 'number':
             value = Number(value);
-            break;
+            break;'
           case 'boolean':
             value = Boolean(value);
-            break;
-          case 'array':
-  if(typeof value === 'string') {
+            break;'
+          case 'array':'
+  if(typeof value === 'string') {'
               value = value.split(',').map(s => s.trim());
             //             }
             break;
@@ -369,7 +400,7 @@ initialize();
     //     }
 
     // Add computed variables
-    processed.year = new Date().getFullYear();
+    processed.year = new Date().getFullYear();'
     processed.date = new Date().toISOString().split('T')[0];
 
     // return processed;
@@ -391,10 +422,10 @@ initialize();
       // Process variables
       content = this.processTemplate(content, variables);
 
-      // Write file
+      // Write file'
 // // await writeFile(fullPath, content, fileConfig.encoding  ?? 'utf8');
       generatedFiles.push({
-        path => {)
+        path => {)'
       const _parts = expression.trim().split('|');
       const _value = this.evaluateExpression(parts[0].trim(), variables);
 
@@ -412,27 +443,25 @@ initialize();
     // return template.replace(this.conditionalRegex, (_match, condition, _content) => {
       const _result = this.evaluateExpression(condition.trim(), variables);
     // return result ? content => { // LINT: unreachable code removed
-      const _array = this.evaluateExpression(expression.trim(), variables);
-      if(!Array.isArray(array)) return '';
+      const _array = this.evaluateExpression(expression.trim(), variables);'';
     // ; // LINT: unreachable code removed
 //       return array.map((item, index) => {
         const _loopVars = { ...variables, item, index };
-    // return this.processTemplate(content, loopVars); // LINT: unreachable code removed
-      }).join('');
+    // return this.processTemplate(content, loopVars); // LINT: unreachable code removed'');
     });
 
   evaluateExpression(expression, variables): unknown
-    // Handle JSON special case
+    // Handle JSON special case'
     if(expression.startsWith('json ')) {
       const _varName = expression.substring(5);
       const _value = this.evaluateExpression(varName, variables);
       // return JSON.stringify(value);
     //   // LINT: unreachable code removed}
 
-    // Simple variable lookup(no eval for security)
+    // Simple variable lookup(no eval for security)'
     const _parts = expression.split('.');
     const _value = variables;
-  for(const part of parts) {
+  for(const part of parts) {'
   if(value && typeof value === 'object') {
         value = value[part]; } else {
         // return undefined; 
@@ -442,45 +471,44 @@ initialize();
     // return value;
     //   // LINT: unreachable code removed}
   applyFilter(value, filter) ;
-  switch(filter) {
+  switch(filter) {'
       case 'uppercase':
-        // return String(value).toUpperCase();
+        // return String(value).toUpperCase();'
     // case 'lowercase': // LINT: unreachable code removed
-        // return String(value).toLowerCase();
+        // return String(value).toLowerCase();'
     // case 'capitalize': // LINT: unreachable code removed
-        // return String(value).charAt(0).toUpperCase() + String(value).slice(1);
+        // return String(value).charAt(0).toUpperCase() + String(value).slice(1);'
     // case 'pascalCase': // LINT: unreachable code removed
         // return String(value);
     // .split(/[\s\-_]+/); // LINT: unreachable code removed
-map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
-join('');
-      case 'camelCase': {
+map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());'');'
+      case 'camelCase': {'
         const _pascal = this.applyFilter(value, 'pascalCase');
 //         return pascal.charAt(0).toLowerCase() + pascal.slice(1);
-    //   // LINT: unreachable code removed}
+    //   // LINT: unreachable code removed}'
       case 'kebabCase':
         // return String(value);
-    // .split(/[\s_]+/); // LINT: unreachable code removed
+    // .split(/[\s_]+/); // LINT: unreachable code removed'
 join('-');
-toLowerCase();
+toLowerCase();'
       case 'snakeCase':
         // return String(value);
-    // .split(/[\s-]+/); // LINT: unreachable code removed
+    // .split(/[\s-]+/); // LINT: unreachable code removed'
 join('_');
 toLowerCase();
       default = ): unknown
-    // return new Promise((resolve, reject) => {
+    // return new Promise((resolve, reject) => {'
       const [_cmd, ..._args] = command.split(' ');
     // const _child = spawn(cmd, args, { // LINT: unreachable code removed
 ..options,
         _shell => 
   if(code === 0) {
           resolve();
-        } else {
+        } else {'
           reject(new Error(`Command exited with code ${code}`));
         //         }
       });
-
+`
       child.on('error', reject););
 
   async listTemplates(options = {}) { 
@@ -499,7 +527,7 @@ toLowerCase();
     // Group by category
   if(options.grouped) {
       const _grouped = {};
-  for(const template of templates) {
+  for(const template of templates) {'
         const _category = template.category  ?? 'other'; if(!grouped[category]) {
           grouped[category] = []; //         }
         grouped[category].push(template) ;
@@ -516,7 +544,7 @@ toLowerCase();
     // Create template directory
 // // await mkdir(templateDir, recursive = // await this.scanProjectFiles(fromProject, options.ignore  ?? []);
     // Create template manifest
-    const _manifest = {name = path.relative(fromProject, file);
+    const _manifest = {name = path.relative(fromProject, file);'
       const _templatePath = `files`
 
       // Copy file to template
@@ -525,7 +553,7 @@ toLowerCase();
     //     }
 
     // Save manifest
-// // await writeFile(;
+// // await writeFile(;`
       path.join(templateDir, 'template.json'),
       JSON.stringify(manifest, null, 2);
     );
@@ -534,46 +562,52 @@ toLowerCase();
 // const _template = awaitthis.loadTemplateFromDirectory(templateDir);
   if(template) {
       this.templates.set(name, { ...template,id = []) {
-
-    const { glob } = // await import('glob');
-// const _files = awaitglob('**/*', {
-      cwd = {}) {
-  if(_source._startsWith('github = {}) {'
+'
+    const { glob } = // await import('glob');'
+// const _files = awaitglob('**/*', { */
+      cwd = {}) {'
+  if(_source._startsWith(''
     _console._warn(` _Importing _template _fromGitHub = path.join(this.config.templatesDir, '.temp', Date.now().toString());`
 // // await mkdir(tempDir, {recursive = // await this.loadTemplateFromDirectory(tempDir);
-  if(!template) {
+  if(!template) {`
         throw new Error('No valid template found in repository');
       //       }
 
       // Save to custom templates
       const _templateId = options.name  ?? path.basename(repo);
 // // await this.createCustomTemplate(templateId, tempDir, {
-..options,)
-        name = {}): unknown
-    console.warn(` Importing template fromNPM = path.join(this.config.templatesDir, '.temp', Date.now().toString());`
+..options,
+        name = {}): unknown'
+    console.warn(` Importing template fromNPM = path.join(this.config.templatesDir, '.temp', Date.now().toString());``
 // // await mkdir(tempDir, {recursive = path.join(tempDir, 'node_modules', packageName);
 // const _template = awaitthis.loadTemplateFromDirectory(packageDir);
-  if(!template) {
+  if(!template) {'
         throw new Error('No valid template found in package');
       //       }
 
       // Save to custom templates
       const _templateId = options.name  ?? packageName;
 // // await this.createCustomTemplate(templateId, packageDir, {/g)
-..options,name = Array.from(this.templates.values());
+..options,name = Array.from(this.templates.values());'
     // return {totalTemplates = > t.source === 'builtin').length,custom = > t.source === 'custom').length,registry = > t.source === 'registry').length;
     //   // LINT: unreachable code removed},
-      _byCategory => {
+      _byCategory => {'
         const _category = t.category  ?? 'other';
         acc[category] = (acc[category]  ?? 0) + 1;
 //         return acc;
     //   // LINT: unreachable code removed}, {}),generatedProjects = [];
     this.removeAllListeners();
-
+'
     console.warn(' Project Scaffold Plugin cleaned up');
   //   }
 // }
 
 // export default ProjectScaffoldPlugin;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+    }
+  }
+}
+}}}}}}}}}}}}))))))))))))))))
+'
+}

@@ -1,8 +1,8 @@
-/** CLI Types;
-/** Type definitions for command-line interface components;
+/** CLI Types; */
+/** Type definitions for command-line interface components; */
 
 // Re-export CLI errors
- */
+
 export type {
   // eslint-disable-line
   CliError as CLIError,
@@ -17,21 +17,22 @@ export type {
 // CLI ERROR TYPES
 // =============================================================================
 
-/** CLI error codes enum;
+/** CLI error codes enum; */
 
-export // enum CliErrorCode {
-  GENERIC_ERROR = 'GENERIC_ERROR',
-VALIDATION_ERROR = 'VALIDATION_ERROR',
-CONFIG_ERROR = 'CONFIG_ERROR',
-COMMAND_ERROR = 'COMMAND_ERROR',
-NETWORK_ERROR = 'NETWORK_ERROR',
-FILE_ERROR = 'FILE_ERROR',
-PERMISSION_ERROR = 'PERMISSION_ERROR',
-TIMEOUT_ERROR = 'TIMEOUT_ERROR',
-AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR',
-NOT_FOUND_ERROR = 'NOT_FOUND_ERROR' }
+export // enum CliErrorCode {'
+GENERIC_ERROR = 'GENERIC_ERROR','
+VALIDATION_ERROR = 'VALIDATION_ERROR','
+CONFIG_ERROR = 'CONFIG_ERROR','
+COMMAND_ERROR = 'COMMAND_ERROR','
+NETWORK_ERROR = 'NETWORK_ERROR','
+FILE_ERROR = 'FILE_ERROR','
+PERMISSION_ERROR = 'PERMISSION_ERROR','
+TIMEOUT_ERROR = 'TIMEOUT_ERROR','
+AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR','
+NOT_FOUND_ERROR = 'NOT_FOUND_ERROR';
+}
 
-/** Logger interface for error handling;
+/** Logger interface for error handling; */
 
 // export // interface ErrorLogger {
 //   error(message, ...args = ============================================================================;
@@ -39,7 +40,7 @@ NOT_FOUND_ERROR = 'NOT_FOUND_ERROR' }
 // // =============================================================================
 
 //  * Command argument types;
-
+'
 // export type CommandArgumentType = 'string' | 'number' | 'boolean' | 'array' | 'object'
 
 //  * Command flag definition(enhanced);
@@ -47,13 +48,13 @@ NOT_FOUND_ERROR = 'NOT_FOUND_ERROR' }
 // export interface CommandFlag {name = > boolean | string
 // // }
 
-/** Command argument definition;
+/** Command argument definition; */
 
 // export // interface CommandArgument {name = > boolean | string
 // alias?;
 // // }
 
-/** Command option definition;
+/** Command option definition; */
 
 // export // interface CommandOption extends CommandArgument {
 //   short?;long = (context) => Promise<CommandResult>
@@ -81,7 +82,7 @@ NOT_FOUND_ERROR = 'NOT_FOUND_ERROR' }
 // VALIDATION TYPES
 // =============================================================================
 
-/** Validation result;
+/** Validation result; */
 
 // export // interface ValidationResult {isValid = ============================================================================
 // // ERROR TYPES(Extended)
@@ -89,49 +90,54 @@ NOT_FOUND_ERROR = 'NOT_FOUND_ERROR' }
 
 //  * Command not found error;
 
-// export class CommandNotFoundError extends Error {
+// export class CommandNotFoundError extends Error {'
 //   constructor(command = 'CommandNotFoundError';
 // // }
 // }
 
-/** Invalid argument error;
+/** Invalid argument error; */
 
-// export class InvalidArgumentError extends Error {
-  constructor(argument,reason = 'InvalidArgumentError';
+// export class InvalidArgumentError extends Error {'
+  constructor(argument,reason = 'InvalidArgumentError'
 // }
 // }
 // =============================================================================
 // CONFIGURATION TYPES
 // =============================================================================
 
-/** CLI configuration;
-
+/** CLI configuration; */
+'
 // export interface CliConfig {name = 'default' | 'file' | 'env' | 'cli' | 'override'
 
-/** Configuration entry;
+/** Configuration entry; */
 
 // export interface ConfigEntry {key = ============================================================================
 // PARSING TYPES
 // =============================================================================
 
-/** Parsed arguments;
+/** Parsed arguments; */
 
 // export interface ParsedArguments {command = ============================================================================
 // UTILITY TYPES
 // =============================================================================
 
-/** Command name with optional subcommand;
+/** Command name with optional subcommand; */
 
 // export type CommandName = string | [string
 , string]
 
-/** Command category;
-
-// export type CommandCategory = 'core';
-| 'development'
-| 'deployment'
-| 'configuration'
-| 'utility'
+/** Command category; */
+'
+// export type CommandCategory = 'core';'
+| ''
+| ''
+| ''
+| ''
 | 'plugin'
 
-} catch (error) { console.error(error); }}}}})))
+} catch (error)
+{
+  console.error(error);
+}
+}}}}))
+'

@@ -1,44 +1,45 @@
-/** Swarm Communication System for Hive Mind
-/** Handles inter-agent messaging and coordination
+/** Swarm Communication System for Hive Mind */
+/** Handles inter-agent messaging and coordination */
 
- */
 import crypto from 'node:crypto';
 
-/** Message types and their priorities
+/** Message types and their priorities */
 
 this.config = {
       swarmId = {agents = this.config.encryption ? crypto.randomBytes(32) ;
 this._initialize();
 // }
 
-/** Initialize communication system
+/** Initialize communication system */
 
-  _initialize() {}
+_initialize();
+{
+}
 // {
-  // Set up message processing
-  this.messageProcessor = setInterval(() => {
-    this._processMessageBuffer();
-  }, 100);
+// Set up message processing
+this.messageProcessor = setInterval(() => {
+  this._processMessageBuffer();
+}, 100);
 
-  // Set up heartbeat
-  this.heartbeatTimer = setInterval(() => {
-    this._sendHeartbeats();
-  }, 10000);
-
+// Set up heartbeat
+this.heartbeatTimer = setInterval(() => {
+  this._sendHeartbeats();
+}, 10000);
+'
   this.emit('communication = {}) {'
-  const _agent = {id = this.state.agents.get(agentId);
-  if(!agent) return;
-    // ; // LINT: unreachable code removed
-  // Close channel
-  const _channel = this.state.channels.get(agentId);
-  if(channel) {
+const _agent = {id = this.state.agents.get(agentId);
+if (!agent) return;
+// ; // LINT: unreachable code removed
+// Close channel
+const _channel = this.state.channels.get(agentId);
+if(channel) {
     channel.close();
     this.state.channels.delete(agentId);
   //   }
 
   this.state.agents.delete(agentId);
 
-  // Announce agent departure
+  // Announce agent departure'
   this.broadcast(;type = 'query') {
     const _messageId = this._generateMessageId();
   const __timestamp = Date.now();
@@ -54,8 +55,8 @@ this._addToBuffer(envelope);
 // Track message
 this.state.messageHistory.set(messageId, {
 ..envelope,
-      _status => {)
-      const _timeout = setTimeout(() => {
+      _status => {
+      const _timeout = setTimeout(() => {'
         reject(new Error(`Message timeout => {`
         clearTimeout(timeout);
         resolve({ messageId, delivered => {
@@ -65,12 +66,12 @@ this.state.messageHistory.set(messageId, {
     });
   //   }
 
-/** Broadcast message to all agents
-
+/** Broadcast message to all agents */
+`
   broadcast(message, type = 'broadcast') {
     const _messageId = this._generateMessageId();
     const _timestamp = Date.now();
-
+'
     const _envelope = {id = 'query') {
     const _messageId = this._generateMessageId();
     const _timestamp = Date.now();
@@ -78,7 +79,7 @@ this.state.messageHistory.set(messageId, {
     const _envelopes = agentIds.map((agentId) => ({id = > this._addToBuffer(envelope));
 
     this.state.metrics.sent += envelopes.length;
-// 
+// '
     return { messageId,recipients = 'sync') {
     const _messageId = this._generateMessageId();
     // const _timestamp = Date.now(); // LINT: unreachable code removed
@@ -96,14 +97,14 @@ this.state.messageHistory.set(messageId, {
 
     // If no validators specified, use all online agents
   if(validators.length === 0) {
-      validators = Array.from(this.state.agents.keys()).filter(;)
+      validators = Array.from(this.state.agents.keys()).filter(;)'
         (id) => this.state.agents.get(id).status === 'online');
     //     }
 
     const _votes = new Map();
 
     // Phase 1 => {
-      const _envelope = {id = new Promise((resolve) => {
+      const _envelope = {id = new Promise((resolve) => {'
         this.once(`vote => {`)
           votes.set(agentId, vote);
           resolve({ agentId, vote   });
@@ -136,10 +137,10 @@ this.state.messageHistory.set(messageId, {
       try {
         envelope.message = this._decrypt(envelope.message);
       } catch (error) { console.error(error); } catch(/* _error */ )
-{
+{`
         this.emit('error', {type = envelope.message._gossip;
-
-    // Check if we've seen this message'/g)
+'
+    // Check if we've seen this message'/g
     if(gossipData.seen.includes(this.config.swarmId)) {
       return;
     //   // LINT: unreachable code removed}
@@ -148,19 +149,19 @@ this.state.messageHistory.set(messageId, {
     gossipData.seen.push(this.config.swarmId);
     gossipData.hops++;
 
-    // Process the message
+    // Process the message'
     this.emit(`gossip = Array.from(this.state.agents.keys()).filter(;`)
         (id) => !gossipData.seen.includes(id));
 
       const _selected = this._selectRandomAgents(agents, this.config.gossipFanout);
 
       selected.forEach((agentId) => {
-  switch(phase) {
+  switch(phase) {`
       case 'propose':
-        // Agent should vote on proposal
+        // Agent should vote on proposal'
         this.emit('consensus = {id = new EventEmitter();'
 
-    channel.send = () => {
+    channel.send = () => {'
       this.emit(`channel = () => {`
       channel.removeAllListeners();
     };
@@ -170,76 +171,77 @@ this.state.messageHistory.set(messageId, {
 // return channel;
 //   // LINT: unreachable code removed}
 
-/** Add message to buffer
+/** Add message to buffer */
 
   _addToBuffer(envelope) ;
     this.state.messageBuffer.push(envelope);
 
     // Limit buffer size
   if(this.state.messageBuffer.length > this.config.bufferSize) {
-
+`
       this.emit('message = this.state.messageBuffer.splice(0, 10);'
 
     toProcess.forEach((envelope) => {
       // Simulate network delay
-      setTimeout(() => {
+      setTimeout(() => {'
   if(envelope.to === '*') {
           // Broadcast to all agents
-          this.state.agents.forEach((_agent) => {
+          this.state.agents.forEach((_agent) => {'
             this.emit(`deliver = this.state.messageHistory.get(envelope.id);`
-  if(history) {
+  if(history) {`
           history.status = 'sent';
           history.sentAt = Date.now();
         //         }
-      }, Math.random() * 100)
+      }, Math.random() * 100
     });
   //   }
 
-/** Send heartbeats to all agents
+/** Send heartbeats to all agents */
 
   _sendHeartbeats() {
     const _now = Date.now();
 
     this.state.agents.forEach((agent, agentId) => {
       // Check if agent is still responsive
-  if(now - agent.lastSeen > 30000) {
-        agent.status = 'offline';
+  if(now - agent.lastSeen > 30000) {'
+        agent.status = 'offline';'
         this.emit('agent = {id = [...agents].sort(() => Math.random() - 0.5);'
 //     return shuffled.slice(0, Math.min(count, agents.length));
     //   // LINT: unreachable code removed}
 
-/** Generate unique message ID
+/** Generate unique message ID */
 
-  _generateMessageId() {
+  _generateMessageId() {'
     // return `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     //   // LINT: unreachable code removed}
 
-/** Encrypt message
+/** Encrypt message */
 
   _encrypt(data) {
     if(!this.encryptionKey) return data;
     // ; // LINT: unreachable code removed
-    const _iv = crypto.randomBytes(16);
+    const _iv = crypto.randomBytes(16);`
     const _cipher = crypto.createCipheriv('aes-256-cbc', this.encryptionKey, iv);
-
-    let _encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
+'
+    let _encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');'
     encrypted += cipher.final('hex');
-
-    // return {iv = Buffer.from(encrypted.iv, 'hex');
+'
+    // return {iv = Buffer.from(encrypted.iv, 'hex');'
     // const _decipher = crypto.createDecipheriv('aes-256-cbc', this.encryptionKey, iv); // LINT: unreachable code removed
-
-    const _decrypted = decipher.update(encrypted.data, 'hex', 'utf8');
+'
+    const _decrypted = decipher.update(encrypted.data, 'hex', 'utf8');'
     decrypted += decipher.final('utf8');
 
     // return JSON.parse(decrypted);
     //   // LINT: unreachable code removed}
 
-/** Get communication statistics
+/** Get communication statistics */
 
   getStatistics() {
-
+'
     this.emit('communication);'
   //   }
 // }
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))
+'

@@ -4,9 +4,8 @@ export class ModeValidator {
   constructor(workingDir = workingDir; // eslint-disable-line
 // }
 
-/** Test all SPARC modes for basic functionality
+/** Test all SPARC modes for basic functionality */
 
- */
 async;
 testAllModes();
 // {
@@ -18,7 +17,7 @@ testAllModes();
 
   // Get available modes
 // const _availableModes = awaitthis.getAvailableModes();
-  if(availableModes.length === 0) {
+  if(availableModes.length === 0) {'
     result.warnings.push('No SPARC modes found for testing');
     // return result;
     //   // LINT: unreachable code removed}
@@ -27,8 +26,8 @@ testAllModes();
   for(const mode of availableModes) {
 // const _modeTest = awaitthis.testMode(mode); 
     result.modes[mode] = modeTest; if(!modeTest.success) {
-      result.success = false;
-      result.errors.push(`Mode ${mode} failedtesting = false;`)
+      result.success = false;'
+      result.errors.push(`Mode ${mode} failedtesting = false;`)`
       result.errors.push(`Mode testing failed = {success = // await this.testModeAccess(modeName);`
       result.checks.accessible = accessTest.success;
   if(!accessTest.success) {
@@ -60,22 +59,22 @@ testAllModes();
     // return result;
     //   // LINT: unreachable code removed}
 
-/** Check if SPARC is properly initialized
+/** Check if SPARC is properly initialized */
 
   async;
   checkSparcInitialization();
-  //   {
+  //   {`
     const _result = {initialized = await node.stat(`${this.workingDir}`
     result.hasRoomodes = stat.isFile;
   //   }
-  catch ;
+  catch ;`
         result.error = '.roomodes file not found'
 
   // Check for claude-zen executable
-  try {
+  try {'
 // const _stat = awaitnode.stat(`${this.workingDir} catch (error) { console.error(error); }/claude-zen`);
     result.hasExecutable = stat.isFile;
-  } catch {
+  } catch {`
     result.error = 'claude-zen executable not found';
   //   }
 
@@ -87,94 +86,94 @@ catch(error)
 // return result;
 // }
 
-/** Get list of available SPARC modes
+/** Get list of available SPARC modes */
 
   async getAvailableModes();
 // {
   const _modes = [];
 
   try {
-    // Try to get modes from .roomodes
+    // Try to get modes from .roomodes'
     const _roomodesPath = `${this.workingDir} catch (error) { console.error(error); }`
 // const _content = awaitnode.readTextFile(roomodesPath);
-    const _config = JSON.parse(content);
+    const _config = JSON.parse(content);`
   if(config.modes && typeof config.modes === 'object') {
       modes.push(...Object.keys(config.modes));
     //     }
   } catch(/* _error */) 
     // Fallback to common modes
-    modes.push(;
-      'architect',
-      'code',
-      'tdd',
-      'spec-pseudocode',
-      'integration',
-      'debug',
-      'docs-writer';)
+    modes.push(;'
+      'architect','
+      'code','
+      'tdd','
+      'spec-pseudocode','
+      'integration','
+      'debug','
+      'docs-writer';
     );
 //   }
 
 // return modes;
 // }
 
-/** Test if a mode is accessible via CLI
+/** Test if a mode is accessible via CLI */
 
 async;
 testModeAccess(modeName);
 
-// {
+// {'
     const _result = {success = new node.Command('./claude-zen', {args = // await command.output();
   if(success) {
         result.success = true;
       } else {
-        const __errorOutput = new TextDecoder().decode(stderr);
+        const __errorOutput = new TextDecoder().decode(stderr);'
         result.error = `Mode notaccessible = `Failed to test mode access = {success = `${this.workingDir}`
 // const _content = awaitnode.readTextFile(roomodesPath);
       const _config = JSON.parse(content);
-  if(!config.modes  ?? !config.modes[modeName]) {
+  if(!config.modes  ?? !config.modes[modeName]) {`
         result.error = `Mode ${modeName} not found in configuration`;
         // return result;
     //   // LINT: unreachable code removed}
 
       const _modeConfig = config.modes[modeName];
 
-      // Basic validation
-  if(typeof modeConfig !== 'object') {
+      // Basic validation`
+  if(typeof modeConfig !== 'object') {'
         result.error = `Invalid configuration for mode ${modeName}`;
         // return result;
     //   // LINT: unreachable code removed}
 
-      // Check for required fields
+      // Check for required fields`
       const _requiredFields = ['description'];
   for(const field of requiredFields) {
-  if(!modeConfig[field]) {
+  if(!modeConfig[field]) {'
           result.error = `Mode ${modeName} missing requiredfield = true; `
-    } catch(error) {
+    } catch(error) {`
       result.error = `Configuration validation failed = {success = new node.Command('./claude-zen', {args = // await command.output(); `
   if(success) {
         result.success = true;
-      } else {
+      } else {`
         // Check if it's just because --dry-run isn't supported
-        const _errorOutput = new TextDecoder().decode(stderr);
+        const _errorOutput = new TextDecoder().decode(stderr);'
         if(errorOutput.includes('dry-run')  ?? errorOutput.includes('unknown flag')) {
-          // Try without dry-run but with a safe test task
+          // Try without dry-run but with a safe test task'
           const _testCommand = new node.Command('./claude-zen', {args = // await testCommand.output();
   if(testResult.success) {
             const _output = new TextDecoder().decode(testResult.stdout);
             result.success = output.includes(modeName);
-  if(!result.success) {
+  if(!result.success) {'
               result.error = `Mode ${modeName} not listed in available modes`;
             //             }
-          } else {
+          } else {`
             result.error = `Mode execution testfailed = `Mode execution failed: \$errorOutput`;`
         //         }
       //       }
-    } catch(error) {
+    } catch(error) {`
       result.error = `Execution test failed = {success = `${this.workingDir}/.roo/workflows`;`
 
       try {
         const _entries = [];
-        for // await(const entry of node.readDir(workflowDir)) {
+        for // await(const entry of node.readDir(workflowDir)) {`
           if(entry.isFile && entry.name.endsWith('.json')) {
             entries.push(entry.name);
           //           }
@@ -183,32 +182,32 @@ testModeAccess(modeName);
         // Test each workflow file
   for(const workflowFile of entries) {
 // const _workflowTest = awaitthis.testWorkflowFile(workflowFile); 
-          result.workflows[workflowFile] = workflowTest; if(!workflowTest.success) {
-            result.warnings.push(`Workflow ${workflowFile} hasissues = === 0) {`
+          result.workflows[workflowFile] = workflowTest; if(!workflowTest.success) {'
+            result.warnings.push(`Workflow ${workflowFile} hasissues = === 0) {``
           result.warnings.push('No workflow files found');
         //         }
-      } catch {
+      } catch {'
         result.warnings.push('Workflow directory not accessible');
       //       }
-    } catch(error) {
+    } catch(error) {'
       result.errors.push(`Workflow testing failed = {success = `${this.workingDir}/.roo/workflows/${filename}`;`/g)
 // const _content = awaitnode.readTextFile(workflowPath);
 
       // Parse JSON
       const _workflow = JSON.parse(content);
 
-      // Basic validation
+      // Basic validation`
   if(typeof workflow !== 'object'  ?? workflow === null) {
-        result.success = false;
+        result.success = false;'
         result.error = 'Workflow must be a JSON object';
         // return result;
     //   // LINT: unreachable code removed}
 
-      // Check for recommended fields
+      // Check for recommended fields'
       const _recommendedFields = ['name', 'description', 'steps'];
   for(const field of recommendedFields) {
-        if(!(field in workflow)) {
-          result.success = false; result.error = `Missing recommendedfield = false; `
+        if(!(field in workflow)) {'
+          result.success = false; result.error = `Missing recommendedfield = false; ``
       result.error = `Workflow validation failed: \$error.message`;
     //     }
 
@@ -216,4 +215,5 @@ testModeAccess(modeName);
     //   // LINT: unreachable code removed}
 // }
 
-}}}}}}}}}}}}}}}}) {))))))
+}}}}}}}}}}}}}}}}) {)))))
+`

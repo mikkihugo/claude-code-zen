@@ -1,11 +1,14 @@
-/** Strategic Documents Database Manager - LanceDB Integration;
-/** Handles all database operations using LanceDB for high-performance vector storage;
+/** Strategic Documents Database Manager - LanceDB Integration; */
+/** Handles all database operations using LanceDB for high-performance vector storage; */
 
- */
 import fs from 'node:fs';
+'
 import path from 'node:path';
+'
 import { nanoid } from 'nanoid';
+'
 import { CliError } from '../core/cli-error.js';
+'
 import { inputValidator } from '../core/input-validator.js';
 
 export class StrategicDocumentsManager {
@@ -37,58 +40,58 @@ export class StrategicDocumentsManager {
     this.metricsHistory = [];
     this.maxMetricsHistory = 50; // Smaller bounded metrics history
 
-    // LanceDB table configuration for strategic documents
+    // LanceDB table configuration for strategic documents'
     this.tableConfigs = {documents = path.join(this.projectPath, '.hive-mind', 'strategic-memory', 'lancedb');
 
     // Start simple cleanup routine
     this.startSimpleCleanup();
   //   }
 
-/** Initialize LanceDB backend for strategic documents;
+/** Initialize LanceDB backend for strategic documents; */
 
   async initialize() { 
     // return this.withRetry(async() => 
       try {
-        // Dynamic import for LanceDB
+        // Dynamic import for LanceDB'
         this.lancedb = await import('@lancedb'
     // // Ensure persist directory exists // LINT: unreachable code removed
 // // await fs.mkdir(this.dbPath, {recursive = // await this.lancedb.connect(this.dbPath);
         // Initialize all tables with proper error handling
 // // await this.initializeTables();
         // Initialize project metadata
-// // await this.initializeProject();
-        console.warn(` Strategic Documents initialized forproject = `Failed to initialize strategic documents LanceDB);
+// // await this.initializeProject();'
+        console.warn(` Strategic Documents initialized forproject = `Failed to initialize strategic documents LanceDB);`
         throw new CliError(errorMsg, 'DATABASE_INIT_ERROR');
-      //       }
+      //       }'
      catch (error) { console.error(error); }}, 'initialize');
   //   }
 
-/** Generate consistent project ID from path;
+/** Generate consistent project ID from path; */
 
   generateProjectId(_projectPath) {
     // return path;
-    // .basename(projectPath); // LINT: unreachable code removed
+    // .basename(projectPath); // LINT: unreachable code removed'
 replace(/[^a-zA-Z0-9]/g, '_')
   toLowerCase() {}
   //   }
 
-/** Initialize LanceDB tables for strategic documents;
+/** Initialize LanceDB tables for strategic documents; */
 
   async initializeTables() { 
     for (const [namespace, tableName] of Object.entries(this.tableConfigs)) 
       try {
         // Try to open existing table
-        this.tables[namespace] = // await this.db.openTable(tableName); 
-        console.warn(` LanceDB table '${tableName} catch (error) { console.error(error); }' opened`); } catch(/* _error */) {
+        this.tables[namespace] = // await this.db.openTable(tableName); '
+        console.warn(` LanceDB table '${tableName} catch (error) { console.error(error); }' opened`); } catch(/* _error */) {`
         // Table doesn't exist, create it with appropriate schema'
         const _schema = this.getTableSchema(namespace);
-        this.tables[namespace] = // await this.db.createTable(tableName, schema);
+        this.tables[namespace] = // await this.db.createTable(tableName, schema);'
         console.warn(` LanceDB table '${tableName}' created`);
       //       }
     //     }
   //   }
 
-/** Generate simple hash-based embedding for text(for testing);
+/** Generate simple hash-based embedding for text(for testing); */
 
   generateSimpleEmbedding(text) {
     // Simple hash-based embedding for demonstration
@@ -99,29 +102,29 @@ replace(/[^a-zA-Z0-9]/g, '_')
     // return embedding;
     //   // LINT: unreachable code removed}
 
-/** Get table schema for different document types;
+/** Get table schema for different document types; */
 
     getTableSchema(_namespace);
     : unknown
   if(existing.length === 0) {
-// // await this.tables.projects.add([projectData]);
+// // await this.tables.projects.add([projectData]);`
       console.warn(` Project initialized inLanceDB = // await this.tables.projects;`/g)
-query();
-select('id', 'name', 'path', 'description', 'metadata');
+query();`
+select('id', 'name', 'path', 'description', 'metadata');'
 where(`id = '${this.projectId}'`);
 limit(1);
 toArray();
   if(results.length > 0) {
         const _project = results[0];
-        // Parse metadata back to object
+        // Parse metadata back to object`
         project.metadata = JSON.parse(project.metadata  ?? '{}');
         // return project;
     //   // LINT: unreachable code removed}
       // return null;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch(error) {'
       console.warn(`Failed to get currentproject = =================== DOCUMENT OPERATIONS =====================`
 
-/** Create a new strategic document with semantic embedding(atomic operation);
+/** Create a new strategic document with semantic embedding(atomic operation); */
 
       async;
       createDocument({
@@ -141,8 +144,8 @@ toArray();
       content,
       metadata,
       authorId,
-      relevanceKeywords })
-    //     )
+      relevanceKeywords }
+    //     )`
     // return this.withAtomicOperation(`create_doc_${validatedData.title}`, async() => {
       const _id = nanoid();
       // const __now = new Date().toISOString(); // LINT: unreachable code removed
@@ -152,12 +155,12 @@ toArray();
       returnDoc.metadata = JSON.parse(document.metadata);
       // returnDoc.relevanceKeywords = JSON.parse(document.relevanceKeywords); // LINT: unreachable code removed
       // return returnDoc;
-      //   // LINT: unreachable code removed} catch(error) {
+      //   // LINT: unreachable code removed} catch(error) {`
       throw new CliError(`Failed to create document "${validatedData.title}");`
     });
   //   }
 
-/** Get document by ID;
+/** Get document by ID; */
 
   async;
   getDocument(documentId);
@@ -171,52 +174,52 @@ toArray();
 
   select(
   id;
-
-    'title',
-    'content',
-    'documentType',
-    'status',
-    'metadata',
-    'relevanceKeywords',
+`
+    'title','
+    'content','
+    'documentType','
+    'status','
+    'metadata','
+    'relevanceKeywords','
     'version'
-  //   )
-
+  //   
+'
   where(`id = '${documentId} catch (error) { console.error(error); }'`);
 limit(1);
 toArray();
-  if(results.length === 0) {
+  if(results.length === 0) {`
         console.warn(`Document notfound = results[0];`
   // Parse JSON fields back to objects
   document;
-
+`
   metadata = JSON.parse(document.metadata ?? '{}');
   document;
-
+'
   relevanceKeywords = JSON.parse(document.relevanceKeywords ?? '[]');
   return;
   document;
   //   // LINT: unreachable code removed} catch(error) {
   console;
-
+'
   warn(`Failed to get document ${documentId});`
   return;
   null;
   //   // LINT: unreachable code removed}
 // }
 
-/** Update document with new content(atomic operation);
+/** Update document with new content(atomic operation); */
 
 async;
 updateDocument(documentId, updates);
-: unknown
+: unknown`
 // return this.withAtomicOperation(`update_doc_${documentId}`, async() => {
 // const _existingDoc = awaitthis.getDocument(documentId);
-    // if(!existingDoc) { // LINT: unreachable code removed
+    // if(!existingDoc) { // LINT: unreachable code removed`
         throw new CliError(`Document notfound = new Date().toISOString();`
 // // await this.tables.documents.add([updatedDoc]);
-        // Update metadata atomically
+        // Update metadata atomically`
         const _docMeta = {id = '${updatedDoc.documentType}_${documentId}'`);`
-// // await this.tables.metadata.add([docMeta]);
+// // await this.tables.metadata.add([docMeta]);`
         console.warn(` Updated document = { ...updatedDoc };`)
         returnDoc.metadata = JSON.parse(updatedDoc.metadata);
     // returnDoc.relevanceKeywords = JSON.parse(updatedDoc.relevanceKeywords); // LINT: unreachable code removed
@@ -228,14 +231,13 @@ updateDocument(documentId, updates);
     //   // LINT: unreachable code removed}
 
     try {
-      // Delete from both tables
-// // await this.tables.documents.delete(`id = '${documentId} catch (error) { console.error(error); }'`);
-// // await this.tables.metadata.delete(`id = '${document.documentType}_${documentId}'`);
-      console.warn(` Deleteddocument = '',`
+      // Delete from both tables`
+// // await this.tables.documents.delete(`id = '${documentId} catch (error) { console.error(error); }'`);`
+// // await this.tables.metadata.delete(`id = '${document.documentType}_${documentId}'',`
     documentType = null,
     status = null,
-    limit = 50;)
-  })
+    limit = 50;
+  }
 : unknown
 // {
   // Validate search parameters
@@ -244,33 +246,33 @@ updateDocument(documentId, updates);
   documentType,
   status,
   limit;
-// }/g)
-// )
+// }/g
+// 
 let _results = [];
 try {
-      if(validatedParams.query.trim()) {
+      if(validatedParams.query.trim()) {`
         // Use LanceDB's query method for filtering'
         let results;
   if(validatedParams.documentType && validatedParams.status) {
-          results = // await this.tables.documents.query();
-select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
+          results = // await this.tables.documents.query();'
+select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');'
 where(`documentType = '${validatedParams.documentType} catch (error) { console.error(error); }' AND status = '${validatedParams.status}'`);
 limit(validatedParams.limit);
 toArray();
         } else if(validatedParams.documentType) {
-          results = // await this.tables.documents.query();
-select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
+          results = // await this.tables.documents.query();`
+select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');'
 where(`documentType = '${validatedParams.documentType}'`);
 limit(validatedParams.limit);
 toArray();
         } else if(validatedParams.status) {
-          results = // await this.tables.documents.query();
-select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
+          results = // await this.tables.documents.query();`
+select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');'
 where(`status = '${validatedParams.status}'`);
 limit(validatedParams.limit);
 toArray();
         } else {
-          results = // await this.tables.documents.query();
+          results = // await this.tables.documents.query();`
 select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
 limit(validatedParams.limit);
 toArray();
@@ -291,13 +293,13 @@ toArray();
     return results;
     //   // LINT: unreachable code removed}
 
-/** Get documents by type;
-   */;/g))
+/** Get documents by type; */
+   */;/g)
   async getDocumentsByType(documentType, limit = 100) ;
     try {
       const _results = await this.tables.documents;
-query();
-select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
+query();'
+select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');'
 where(`documentType = '${documentType} catch (error) { console.error(error); }'`);
 limit(limit);
 toArray();
@@ -305,7 +307,7 @@ toArray();
       // return results.map(doc => ({ ..doc,metadata = 10) {
     try {
 // const _results = awaitthis.tables.documents;
-    // .query(); // LINT: unreachable code removed
+    // .query(); // LINT: unreachable code removed`
 select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
 limit(limit * 2) // Get more for filtering
 toArray();
@@ -319,7 +321,7 @@ toArray();
 ..result,metadata = =================== DECISION OPERATIONS ====================
 
     // /** // LINT: unreachable code removed */
-   * Create a new queen council decision;
+/* Create a new queen council decision; */
 
   async createDecision({ objective,
     consensusResult,
@@ -327,7 +329,7 @@ toArray();
     supportingQueens,
     dissentingQueens = [],
     reasoning,
-    documentReferences = [];)))
+    documentReferences = [];))
      } catch (error) { console.error(error); }) { 
     // Comprehensive input validation
     const _validatedData = inputValidator.validateDecisionData(
@@ -337,7 +339,7 @@ toArray();
       supportingQueens,
       dissentingQueens,
       reasoning,
-      documentReferences;)
+      documentReferences;
     });
     const _id = nanoid();
     const __now = new Date().toISOString();
@@ -345,8 +347,8 @@ toArray();
     const __decision = {
       id,
       projectId = {validatedData = // await this.tables.decisions;
-query();
-select('id', 'objective', 'consensusResult', 'confidenceScore', 'supportingQueens', 'dissentingQueens', 'reasoning', 'documentReferences', 'status', 'metadata');
+query();'
+select('id', 'objective', 'consensusResult', 'confidenceScore', 'supportingQueens', 'dissentingQueens', 'reasoning', 'documentReferences', 'status', 'metadata');'
 where(`id = '${decisionId}'`);
 limit(1);
 toArray();
@@ -355,20 +357,20 @@ toArray();
     //   // LINT: unreachable code removed}
 
       const _decision = results[0];
-      // Parse JSON fields back to objects
-      decision.supportingQueens = JSON.parse(decision.supportingQueens  ?? '[]');
-      decision.dissentingQueens = JSON.parse(decision.dissentingQueens  ?? '[]');
-      decision.documentReferences = JSON.parse(decision.documentReferences  ?? '[]');
+      // Parse JSON fields back to objects`
+      decision.supportingQueens = JSON.parse(decision.supportingQueens  ?? '[]');'
+      decision.dissentingQueens = JSON.parse(decision.dissentingQueens  ?? '[]');'
+      decision.documentReferences = JSON.parse(decision.documentReferences  ?? '[]');'
       decision.metadata = JSON.parse(decision.metadata  ?? '{}');
 
       // return decision;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch(error) {'
       console.warn(`Failed to get decision ${decisionId});`
       // return null;
     //   // LINT: unreachable code removed}
   //   }
 
-/** Save queen analysis for a decision;
+/** Save queen analysis for a decision; */
 
   async saveQueenAnalysis({
     decisionId,
@@ -381,7 +383,7 @@ toArray();
     processingTimeMs = 0;
   //   }
 ): unknown
-// {
+// {`
     const _id = `${decisionId}_${queenName}`;
 
     const __analysis = {
@@ -395,15 +397,15 @@ toArray();
       documentInsights,
       processingTimeMs,
       created_at = {queenName = // await this.tables.analyses;
-query();
-select('id', 'decisionId', 'queenName', 'queenType', 'recommendation', 'confidenceScore', 'reasoning', 'documentInsights', 'processingTimeMs', 'metadata');
+query();`
+select('id', 'decisionId', 'queenName', 'queenType', 'recommendation', 'confidenceScore', 'reasoning', 'documentInsights', 'processingTimeMs', 'metadata');'
 where(`decisionId = '${decisionId}'`);
 toArray();
 
       // return results.map(analysis => ({ ..analysis,documentInsights = 20) {
     try {
 // const _results = awaitthis.tables.decisions;
-    // .query(); // LINT: unreachable code removed
+    // .query(); // LINT: unreachable code removed`
 select('id', 'objective', 'consensusResult', 'confidenceScore', 'supportingQueens', 'dissentingQueens', 'reasoning', 'documentReferences', 'status', 'metadata', 'created_at');
 limit(limit * 2) // Get more for sorting
 toArray();
@@ -420,20 +422,19 @@ slice(0, limit);
         decision.total_analyses = analyses.length; decision.avg_queen_confidence = analyses.length > 0 ;
           ? analyses.reduce((sum, a) {=> sum + a.confidenceScore, 0) / analyses.length = =================== ADR OPERATIONS =====================
 
-/** Create Architecture Decision Record;
+/** Create Architecture Decision Record; */
 
   async createADR({ decisionId,
     title,
     context,
     decision,
-    consequences,
-    implementationNotes = '',
+    consequences,'',
     tags = [];
      } catch (error) { console.error(error); }) ;
     // Get next ADR number
     try {
 // const _existingADRs = awaitthis.tables.adrs;
-query();
+query();'
 select('id', 'adrNumber');
 toArray();
       const __adrNumber = existingADRs.length + 1;
@@ -443,8 +444,8 @@ toArray();
 
       const __adr = {
         id,projectId = // await this.tables.adrs;
-query();
-select('id', 'adrNumber', 'title', 'context', 'decision', 'consequences', 'implementationNotes', 'tags', 'status', 'metadata');
+query();'
+select('id', 'adrNumber', 'title', 'context', 'decision', 'consequences', 'implementationNotes', 'tags', 'status', 'metadata');'
 where(`id = '${adrId} catch (error) { console.error(error); }'`);
 limit(1);
 toArray();
@@ -453,39 +454,39 @@ toArray();
     //   // LINT: unreachable code removed}
 
       const _adr = results[0];
-      // Parse JSON fields back to objects
-      adr.tags = JSON.parse(adr.tags  ?? '[]');
+      // Parse JSON fields back to objects`
+      adr.tags = JSON.parse(adr.tags  ?? '[]');'
       adr.metadata = JSON.parse(adr.metadata  ?? '{}');
 
       // return adr;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch(error) {'
       console.warn(`Failed to get ADR ${adrId});`
       // return null;
     //   // LINT: unreachable code removed}
 
-/** Get all ADRs for project;
+/** Get all ADRs for project; */
 
   async getADRs() ;
     try {
 // const _results = awaitthis.tables.adrs;
-query();
+query();`
 select('id', 'adrNumber', 'title', 'context', 'decision', 'consequences', 'implementationNotes', 'tags', 'status', 'metadata');
 toArray();
 
       // return results;
     // .map(adr => ({ // LINT);
-    } catch (error) { console.error(error); } catch(/* _error */) 
+    } catch (error) { console.error(error); } catch(/* _error */) '
       console.warn(`Failed to getADRs = =================== ANALYTICS ====================`
 
-/** Get decision analytics;
-   */;/g)
+/** Get decision analytics; */
+   */;/g
   async getDecisionAnalytics(days = 30) { 
     const _cutoffDate = new Date();
     cutoffDate.setDate(cutoffDate.getDate() - days);
     const _cutoff = cutoffDate.toISOString();
 // try
 // const _allDecisions = awaitthis.tables.decisions;
-query();
+query();`
 select('id', 'consensusResult', 'confidenceScore', 'supportingQueens', 'dissentingQueens', 'status', 'metadata', 'created_at');
 toArray();
       const _recentDecisions = allDecisions;
@@ -503,21 +504,21 @@ map(d => ({
 
       stats.push({document_type = =================== CONNECTION POOLING & PERFORMANCE ====================
 
-/** Start simple cleanup routine for cache only;
-   */;/g)
+/** Start simple cleanup routine for cache only; */
+   */;/g
   startSimpleCleanup() 
     if(this.cleanupInterval) return;
     // ; // LINT: unreachable code removed
     this.cleanupInterval = setInterval(() => {
       try {
         this.cleanupCache();
-      } catch (error) { console.error(error); } catch(error) 
+      } catch (error) { console.error(error); } catch(error) '
         console.warn('Cache cleanuperror = null;'
     //     }
   //   }
 
-/** Simple connection cleanup - removed complex pooling;
-   */;/g)
+/** Simple connection cleanup - removed complex pooling; */
+   */;/g
   cleanupConnections() {
     //Simplified = process.memoryUsage();
     const _heapUsedMB = memoryUsage.heapUsed / 1024 / 1024;
@@ -526,7 +527,7 @@ map(d => ({
     //     }
   //   }
 
-/** Removed complex connection tracking - simplified;
+/** Removed complex connection tracking - simplified; */
 
   trackTableConnection() {
     //Simplified = Array.from(this.connectionPool.entries())
@@ -541,7 +542,7 @@ sort((a, b) => b[1].lastUsed - a[1].lastUsed); // Most recent first
   if(global.gc) {
       global.gc();
     //     }
-
+'
     console.warn(` Emergency cleanupcompleted = Date.now();`
     const _removedCount = 0;
 
@@ -576,7 +577,7 @@ sort((a, b) => a[1].timestamp - b[1].timestamp); // Oldest first
     //   // LINT: unreachable code removed}
   //   }
 
-/** Execute query with caching and performance tracking;
+/** Execute query with caching and performance tracking; */
 
   async executeQuery(table, operation, params = {}, cacheKey = null) { 
     const _startTime = Date.now();
@@ -591,26 +592,24 @@ sort((a, b) => a[1].timestamp - b[1].timestamp); // Oldest first
 
       // Execute query
       let result;
-  switch(operation) {
+  switch(operation) {`
         case 'query':
-          result = // await table.query();
-select(params.select  ?? '*');
-where(params.where  ?? '');
+          result = // await table.query();'
+select(params.select  ?? '*');'');
 limit(params.limit  ?? 1000);
 toArray();
-          break;
+          break;'
         case 'search':
-          result = // await table.search();
-where(params.where  ?? '');
+          result = // await table.search();'');
 limit(params.limit  ?? 50);
 toArray();
-          break;
+          break;'
         case 'add':
           result = // await table.add(params.data);
-          break;
+          break;'
         case 'delete':
           result = // await table.delete(params.where);
-          break;
+          break;'
         case 'countRows':
           result = // await table.countRows();
           break;default = Date.now() - startTime;
@@ -636,12 +635,12 @@ toArray();
 
       // return result;
     //   // LINT: unreachable code removed} catch(/* _error */) {
-      const _queryTime = Date.now() - startTime;
+      const _queryTime = Date.now() - startTime;'
       console.warn(`Query failed after ${queryTime}ms = this.metricsHistory.slice(-this.maxMetricsHistory);`
     //     }
   //   }
 
-/** Get performance metrics with cleanup;
+/** Get performance metrics with cleanup; */
 
   getPerformanceMetrics() {
     // Clean old metrics before returning
@@ -651,9 +650,9 @@ toArray();
 ..this.performanceMetrics,cacheSize = =================== ATOMIC OPERATIONS & RELIABILITY ====================
 
     // /** // LINT: unreachable code removed */
-   * Execute operation with atomic locking to prevent race conditions;
+/* Execute operation with atomic locking to prevent race conditions; */
 
-  async withAtomicOperation(operationKey, operation) { 
+  async withAtomicOperation(operationKey, operation) { `
     const _lockKey = `$this.projectId}_${operationKey}`;
 
     // Wait for any existing operation to complete
@@ -673,8 +672,8 @@ toArray();
     //     }
   //   }
 
-/** Execute operation with retry logic and exponential backoff;
-
+/** Execute operation with retry logic and exponential backoff; */
+`
   async withRetry(operation, operationName = 'operation') { 
     let lastError;
   for(let attempt = 1; attempt <= this.maxRetries; attempt++) {try {
@@ -683,23 +682,23 @@ toArray();
   console.error(error);
 }
         lastError = error;
-  if(attempt === this.maxRetries) {
-          console.error(`\u26a0\ufe0f  ${operationName} failed after ${this.maxRetries}attempts = this.retryDelay * 2 ** (attempt - 1); // Exponential backoff`
+  if(attempt === this.maxRetries) {'
+          console.error(`\u26a0\ufe0f  ${operationName} failed after ${this.maxRetries}attempts = this.retryDelay * 2 ** (attempt - 1); // Exponential backoff``
         console.warn(`\u26a0\ufe0f  ${operationName} attempt ${attempt} failed, retrying in ${delay}ms = > setTimeout(resolve, delay));`
       //       }
     //     }
-
+`
     throw new CliError(`${operationName} failed after ${this.maxRetries} attempts = {};`
       for (const [namespace, table] of Object.entries(this.tables)) {
         try {
-// const __count = awaittable.countRows(); 
-          tableStatus[namespace] = { status = {status = Object.values(tableStatus).some(t => t.status === 'unhealthy'); return {status = []) {
-  if(!_data  ?? typeof data !== 'object') {
+// const __count = awaittable.countRows(); `
+          tableStatus[namespace] = { status = {status = Object.values(tableStatus).some(t => t.status === 'unhealthy'); return {status = []) {'
+  if(!_data  ?? typeof data !== 'object') {'
       throw new CliError('Invalid input = { ...data } catch (error) { console.error(error); };'
-    // for (const [key, value] of Object.entries(sanitized)) { // LINT: unreachable code removed
+    // for (const [key, value] of Object.entries(sanitized)) { // LINT: unreachable code removed'
   if(typeof value === 'string') {
-        // Basic SQL injection prevention and sanitization
-        sanitized[key] = value; replace(/'/g, "''")  // Escape single quotes'
+        // Basic SQL injection prevention and sanitization'
+        sanitized[key] = value; replace(/'''"'
 replace(/\x00/g, '') // Remove null bytes
 trim(); //       }
     //     }
@@ -709,9 +708,9 @@ trim(); //       }
 
   // ==================== HELPER METHODS ====================
 
-/** Generate content snippet for search results;
+/** Generate content snippet for search results; */
 
-  generateSnippet(content, query, maxLength = 200) {
+  generateSnippet(content, query, maxLength = 200) {'
     if(!query) return `${content.substring(0, maxLength)}...`;
     // ; // LINT: unreachable code removed
     const _queryWords = query.toLowerCase().split(/\s+/);
@@ -723,7 +722,7 @@ trim(); //       }
       const _index = lowerContent.indexOf(word); if(index !== -1 && (firstIndex === -1  ?? index < firstIndex)) {
         firstIndex = index; //       }
     //     }
-  if(firstIndex === -1) {
+  if(firstIndex === -1) {`
       // return `${content.substring(0, maxLength)}...`;
     //   // LINT: unreachable code removed}
 
@@ -731,19 +730,19 @@ trim(); //       }
     const _start = Math.max(0, firstIndex - 50);
     const _end = Math.min(content.length, start + maxLength);
     const _snippet = content.substring(start, end);
-
-    if(start > 0) snippet = `...${snippet}`;
+`
+    if(start > 0) snippet = `...${snippet}`;`
     if(end < content.length) snippet = `${snippet}...`;
 
     // return snippet;
     //   // LINT: unreachable code removed}
 
-/** Set AI provider for semantic search;
-   *Note = aiProvider;
+/** Set AI provider for semantic search; */
+   *Note = aiProvider;`
     console.warn('AI provider set for LanceDB integration');
   //   }
 
-/** Get backend statistics for LanceDB;
+/** Get backend statistics for LanceDB; */
 
   async getBackendStats() {}
     if(!this.db  ?? !this.tables) 
@@ -759,7 +758,7 @@ trim(); //       }
 // const _count = awaittable.countRows(); 
           _totalEntries += count; } catch (error) {
   console.error(error);
-}
+}'
           console.warn(`Failed to count rows in ${namespace});`
         //         }
       //       }
@@ -767,9 +766,10 @@ trim(); //       }
       // return {backend = null;
     // this.tables = { // LINT: unreachable code removed};
       //       }
-
+`
       console.warn(' Strategic Documents LanceDB closed with resource cleanup');
-    } catch(/* _error */)
+    } catch(/* _error */)'
       console.warn(`Error closingLanceDB = new StrategicDocumentsManager();`
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))
+`

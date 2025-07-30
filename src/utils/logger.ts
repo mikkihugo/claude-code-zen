@@ -1,8 +1,17 @@
-/**
- * @fileoverview Logger utility for Neural and Queen components
- * Simple wrapper around the core logger for component-specific logging
+/** */
+*
+@fileoverview
+Logger;
+utility;
+for Neural and Queen components
+/* Simple */
+wrapper;
+around;
+the;
+core;
+logger;
+for component-specific logging
  * @module Logger
- */
 
 export class Logger {
   private coreLogger: any;
@@ -36,3 +45,4 @@ export class Logger {
     this.coreLogger.log(message, meta);
   }
 }
+'

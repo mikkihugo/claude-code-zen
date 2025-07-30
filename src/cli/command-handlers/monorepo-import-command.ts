@@ -1,15 +1,18 @@
-/** Monorepo Import and Analysis Command
-/** Import existing monorepo code and analyze service structure
-/** For 15 microservices pilot - single domain, flat structure
+/** Monorepo Import and Analysis Command */
+/** Import existing monorepo code and analyze service structure */
+/** For 15 microservices pilot - single domain, flat structure */
 
- */
 import { existsSync, readFile } from 'node:fs';
+'
 import path from 'node:path';
+'
 import { glob } from 'glob';
+'
 import { printInfo } from '..';
+'
 import { KuzuGraphInterface } from '../database/kuzu-graph-interface.js';
 
-/** Analyze monorepo structure and discover services
+/** Analyze monorepo structure and discover services */
 
 export async function importMonorepoCommand(args = args[0]  ?? process.cwd();
 const _options = {maxServices = = false, // default truesetupGraph = = false,   // default trueverbose = await discoverServices(monorepoPath, options);
@@ -26,7 +29,7 @@ const _options = {maxServices = = false, // default truesetupGraph = = false,   
 // }
 // 5. Generate import summary
 const _summary = generateImportSummary(analysis, options);
-// // await saveImportSummary(summary);
+// // await saveImportSummary(summary);'
 printSuccess(` Monorepo importcompleted = new Map();`
   const _discoveryStrategies = [
     discoverByDirectoryStructure,
@@ -48,31 +51,31 @@ printSuccess(` Monorepo importcompleted = new Map();`
         //         }
       });
     } catch(error) {
-  if(options.verbose) {
+  if(options.verbose) {`
         printWarning(`Strategyfailed = Array.from(services.values());`
 slice(0, options.maxServices) // Limit to target count
-
+`
 printSuccess(` Found $`
 // {
   serviceList.length;
-// }
+// }`
 services`);`
 // return serviceList;
 // }
 
-/** Strategy1 = []
-  const _patterns = [
-    'services/*', */
-'apps/*', */
-'packages/*', */
-'microservices/*', */
-'projects/*' * /;;
+/** Strategy1 = [] */
+  const _patterns = [`
+    'services/*', */'
+'apps/*', */'
+'packages/*', */'
+'microservices/*', */'
+'projects/*' * /; */
 ]
 for(const pattern of patterns) {
     try {
 
         const _serviceName = path.basename(match); services.push({name = []; try {
-
+'
         const _packageContent = JSON.parse(// await readFile(fullPath, 'utf8') {);
         const _servicePath = path.dirname(fullPath);
         const _serviceName = packageContent.name  ?? path.basename(servicePath);
@@ -95,16 +98,16 @@ for(const pattern of patterns) {
       services.push({name = [];
 
   try {
-    // Check for nx.json/g)
+    // Check for nx.json/g)'
     const _nxConfigPath = path.join(monorepoPath, 'nx.json');
     if(!existsSync(nxConfigPath)) {
       // return services;
     //   // LINT: unreachable code removed}
-
+'
      catch (error) console.error(error); const _nxConfig = JSON.parse(// await readFile(nxConfigPath, 'utf8'));
 
     // Look for project.json files
-
+'
         const _projectConfig = JSON.parse(// await readFile(fullPath, 'utf8'));
         const _servicePath = path.dirname(fullPath);
         const _serviceName = projectConfig.name  ?? path.basename(servicePath);
@@ -121,9 +124,9 @@ for(const pattern of patterns) {
       analysis.relationships.push(...serviceAnalysis.relationships);
 
     } catch(error)
-// {
+// {'
   printWarning(`;`
- Failed to analyzeservice = detectServicePatterns(analysis.services)
+ Failed to analyzeservice = detectServicePatterns(analysis.services)`
   printSuccess(` Analysis completed =`
 // {
 ..service,dependencies = [
@@ -145,27 +148,27 @@ if(service.nxInfo) {
 // Build relationships
 analysis.relationships = buildServiceRelationships(service, analysis);
 } catch(error)
-// {
+// {`
   printWarning(`Service analysis error for ${service.name});`
 // }
 // return analysis;
 // }
 
-/** Analyze service code structure
-
-async function analyzeServiceCode(servicePath = {fileCount = // await glob('**/*', {cwd = files.length
+/** Analyze service code structure */
+`
+async function analyzeServiceCode(servicePath = {fileCount = // await glob('**/*', {cwd = files.length */
 for (const file of files.slice(0, 100)) {
   // Limit for performance
-  const _ext = path.extname(file).toLowerCase(); stats.languages[ext] = (stats.languages[ext]  ?? 0) + 1; try {
-// const _content = awaitreadFile(path.join(servicePath, file) {, 'utf8');
+  const _ext = path.extname(file).toLowerCase(); stats.languages[ext] = (stats.languages[ext]  ?? 0) + 1; try {'
+// const _content = awaitreadFile(path.join(servicePath, file) {, 'utf8');'
     stats.lineCount += content.split('\n').length;
-  } catch (error) { console.error(error); } catch(/* _error */) {
+  } catch (error) { console.error(error); } catch(/* _error */) {'
     // Skip files that can't be read'
   //   }
 // }
-// Estimate complexity
-if(stats.lineCount > 10000) stats.complexity = 'high';
-else if(stats.lineCount > 2000) stats.complexity = 'medium';
+// Estimate complexity'
+if(stats.lineCount > 10000) stats.complexity = 'high';'
+else if(stats.lineCount > 2000) stats.complexity = 'medium';'
 else stats.complexity = 'low';
 } catch(error)
 // {
@@ -174,50 +177,50 @@ else stats.complexity = 'low';
 // return stats;
 // }
 
-/** Detect APIs in service
+/** Detect APIs in service */
 
-async function _detectAPIs() {
+async function _detectAPIs() {'
 // const __files = awaitglob(pattern, {cwd = await glob('**/swagger.{json,yaml,yml}', {cwd = await glob('**/openapi.{json,yaml,yml}', { cwd => {
       apis.push({
         file,type = [];
 
   try {
     // Look for database configuration files
-    const _configPatterns = [
-      '**'
-      '**'
-      '**'
-      '**/migrations/\*\*/*',
-      '**/schema/\*\*/*'
+    const _configPatterns = ['
+      ''
+      ''
+      ''
+      '**/migrations/\*\*/*',' */
+      '**/schema/\*\*/*' */
     ];
 
-  for(const pattern of configPatterns) {
-// const __files = awaitglob(pattern, {cwd = // await glob('**/docker-compose*.{yml,yaml} catch (error) { console.error(error); }', {cwd = // await readFile(path.join(servicePath, file), 'utf8')
+  for(const pattern of configPatterns) {'
+// const __files = awaitglob(pattern, {cwd = // await glob('**/docker-compose*.{yml,yaml} catch (error) { console.error(error); }', {cwd = // await readFile(path.join(servicePath, file), 'utf8')'
         if(content.includes('postgres')  ?? content.includes('mysql')  ?? content.includes('mongodb')) {
           databases.push({file = new Set(); try {
-    // Check package.json for technology indicators
-    const _packagePath = path.join(servicePath, 'package.json'); if(existsSync(packagePath) {) {
+    // Check package.json for technology indicators'
+    const _packagePath = path.join(servicePath, 'package.json'); if(existsSync(packagePath) {) {'
       const _packageContent = JSON.parse(// await readFile(packagePath, 'utf8'));
       const _deps = { ...packageContent.dependencies, ...packageContent.devDependencies } catch (error) { console.error(error); };
 
-      // Detect frameworks and libraries
-      if(deps.express) technologies.add('express');
-      if(deps.fastify) technologies.add('fastify');
-      if(deps.nestjs) technologies.add('nestjs');
-      if(deps.react) technologies.add('react');
-      if(deps.vue) technologies.add('vue');
-      if(deps.angular) technologies.add('angular');
-      if(deps.typescript) technologies.add('typescript');
-      if(deps.prisma) technologies.add('prisma');
-      if(deps.mongoose) technologies.add('mongodb');
-      if(deps.pg  ?? deps.postgres) technologies.add('postgresql');
-      if(deps.mysql) technologies.add('mysql');
-      if(deps.redis) technologies.add('redis');
+      // Detect frameworks and libraries'
+      if(deps.express) technologies.add('express');'
+      if(deps.fastify) technologies.add('fastify');'
+      if(deps.nestjs) technologies.add('nestjs');'
+      if(deps.react) technologies.add('react');'
+      if(deps.vue) technologies.add('vue');'
+      if(deps.angular) technologies.add('angular');'
+      if(deps.typescript) technologies.add('typescript');'
+      if(deps.prisma) technologies.add('prisma');'
+      if(deps.mongoose) technologies.add('mongodb');'
+      if(deps.pg  ?? deps.postgres) technologies.add('postgresql');'
+      if(deps.mysql) technologies.add('mysql');'
+      if(deps.redis) technologies.add('redis');'
       if(deps.graphql) technologies.add('graphql');
     //     }
 
-    // Check for Docker
-    if(existsSync(path.join(servicePath, 'Dockerfile'))) {
+    // Check for Docker'
+    if(existsSync(path.join(servicePath, 'Dockerfile'))) {'
       technologies.add('docker');
     //     }
 
@@ -230,7 +233,7 @@ async function _detectAPIs() {
   // Technology usage patterns
   const _techUsage = {};
   services.forEach(service => {
-    service.technologies.forEach(tech => {))))
+    service.technologies.forEach(tech => {)))
       techUsage[tech] = (techUsage[tech]  ?? 0) + 1;
     });
   });
@@ -239,9 +242,9 @@ async function _detectAPIs() {
   if(count >= 3) { // Used by 3+ services
       patterns.push({
         //         type = {
-      small => {)
-  if(service._codeStats._complexity) {
-      if(service.codeStats.complexity === 'low') sizeCounts.small++;
+      small => {
+  if(service._codeStats._complexity) {'
+      if(service.codeStats.complexity === 'low') sizeCounts.small++;'
       else if(service.codeStats.complexity === 'medium') sizeCounts.medium++;
       else sizeCounts.large++;
     //     }
@@ -261,8 +264,8 @@ async function _detectAPIs() {
     // Export data for external Kuzu usage
 
     // Close database
-// // await graphDb.close();
-    printSuccess(' Kuzu graph database setup completed');
+// // await graphDb.close();'
+    printSuccess(' Kuzu graph database setup completed');'
   printInfo(` Kuzu export availableat = 0;`
   for (const service of analysis.services) {
     try {
@@ -274,7 +277,7 @@ async function _detectAPIs() {
   // Technology standardization recommendations
   const _techUsage = {};
   analysis.services.forEach(service => {
-    service.technologies.forEach(tech => {))
+    service.technologies.forEach(tech => {)
       techUsage[tech] = (techUsage[tech]  ?? 0) + 1;
     });
   });
@@ -283,16 +286,16 @@ async function _detectAPIs() {
 filter(([tech, count]) => count >= Math.ceil(analysis.services.length * 0.5))
 map(([tech]) => tech);
   if(dominantTech.length > 0) {
-    recommendations.push({type = analysis.services;)
+    recommendations.push({type = analysis.services;)`
 filter(service => service.codeStats.complexity === 'high');
 map(service => service.name);
   if(complexServices.length > 0) {
     recommendations.push({type = analysis.services;)
 filter(service => service.apis.length > 0);
 map(service => service.name);
-  if(apiServices.length > 0) {
+  if(apiServices.length > 0) {'
     recommendations.push({type = './monorepo-import-summary.json';/g)
-// // await writeFile(summaryPath, JSON.stringify(summary, null, 2));
+// // await writeFile(summaryPath, JSON.stringify(summary, null, 2));'
   printInfo(` Import summary saved);`
 // }
 
@@ -303,4 +306,10 @@ map(service => service.name);
   setupServiceGraph;
 };
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))))))
+`
+}
+}
+}
+}
+}

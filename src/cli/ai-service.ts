@@ -1,56 +1,60 @@
-/** Ai Service Module;
-/** Converted from JavaScript to TypeScript;
+/** Ai Service Module; */
+/** Converted from JavaScript to TypeScript; */
 
- */
 import { readFile } from 'node:fs';
+'
 import path from 'node:path';
+'
 import { GoogleGenerativeAI } from '@google';
+'
 import inquirer from 'inquirer';
+'
 import { createClaudeCodeProvider } from '.';
-
+'
 const _LLM_PROVIDER_FILE = path.join(process.cwd(), '.hive-mind', 'llm-provider.json');
 async function _getProviderConfig() {
-  try {
+  try {'
 // const _content = awaitreadFile(LLM_PROVIDER_FILE, 'utf8');
 //     return JSON.parse(content);
     //   // LINT: unreachable code removed} catch (error) {
   console.error(error);
 }
-  if(error.code === 'ENOENT') {
-      // return {providers = // await _getProviderConfig();
+  '
+  if (error.code === 'ENOENT') {
+    // return {providers = // await _getProviderConfig();
     // const _apiKey = process.env.GEMINI_API_KEY  ?? config.providers.google.apiKey; // LINT: unreachable code removed
-  if(!apiKey) {
-    const { key } = // await inquirer.prompt([;
+    if (!apiKey) {
+      const { key } = // await inquirer.prompt([;
       {type = key;
-    config.providers.google.apiKey = apiKey;)
-// // await saveProviderConfig(config);
-  //   }
+      config.providers.google.apiKey = apiKey;
+      // // await saveProviderConfig(config);
+      //   }
 
-  // return apiKey;
-// }
+      // return apiKey;
+      // }
 
-async function getGenAI() {
-// const _apiKey = awaitgetApiKey();
-//   return new GoogleGenerativeAI(apiKey);
-// }
+      async function getGenAI() {
+        // const _apiKey = awaitgetApiKey();
+        //   return new GoogleGenerativeAI(apiKey);
+        // }
 
-const _claudeProvider = null;
+        const _claudeProvider = null;
 
-async function getClaudeProvider() {
-  if(!claudeProvider) {
-// const __config = await_getProviderConfig();
+        async function getClaudeProvider() {
+          if (!claudeProvider) {
+            // const __config = await_getProviderConfig();
 
-    try {
+            try {
       claudeProvider = // await createClaudeCodeProvider({ modelId = {} catch (error) { console.error(error); }) {
 // const _provider = awaitgetClaudeProvider();
-  if(!provider) {
+  if(!provider) {'
     console.warn('Claude Code not available, falling back to Google AI');
     // return generateTextWithGoogle(prompt, options);
     //   // LINT: unreachable code removed}
 
   try {
     // return // await provider.generateText(prompt, options);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {'
     console.warn('Claude generationfailed = 'flash' }) {'
 // const _genAI = awaitgetGenAI();
 
@@ -61,18 +65,26 @@ async function getClaudeProvider() {
 
 // export async function _generateText(prompt = {}) {
 // const _config = await_getProviderConfig();
-
-  // Try Claude first if it's the default or has higher priority'
+'
+  // Try Claude first if it''
   if(config.defaultProvider === 'claude'  ?? (config.providers.claude?.priority < config.providers.google?.priority)) {
     try {
       // return // await generateTextWithClaude(prompt, options);
     //   // LINT: unreachable code removed} catch (error) {
   console.error(error);
-}
+}'
       console.warn('Claude generation failed, falling back to Google AI);'
       // return // await generateTextWithGoogle(prompt, options);
     //   // LINT: unreachable code removed}
   } else
     // return // await generateTextWithGoogle(prompt, options);
 
-}}}}}}}}}}}))
+}
+          }
+        }
+      }
+    }
+  }
+}
+}}}})
+'

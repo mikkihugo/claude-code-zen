@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
-/* Test SIMD fix by forcing new instance
+/* Test SIMD fix by forcing new instance */
 
- */
 import { RuvSwarm } from './ruv-swarm/npm/src/index-enhanced.js';
 
 // Clear global cache to force new initialization
@@ -18,7 +17,9 @@ if (global._ruvSwarmInstance) {
   } catch (error) {
     console.error(error);
   }
-  )
 }
 catch(_error)
-{}
+{
+}
+'
+}

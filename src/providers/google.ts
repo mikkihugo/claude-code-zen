@@ -1,28 +1,28 @@
-/** Google Vertex AI Provider Implementation;
-/** Integration with Google's Gemini models via Vertex AI;'
+/** Google Vertex AI Provider Implementation; */
+/** Integration with Google's Gemini models via Vertex AI;' */
 
- */
+*/'
 import { ProviderError } from '.';
-
-// // interface GoogleRequest {contents = 'google'
-// version = '2024-07-29'
+'
+// // interface GoogleRequest {contents = ''
+// version = ''
 // config = {enabled = {textGeneration = 'us-central1'
-// private;
-// baseUrl = ['gemini-1.5-pro'
+// private;'
+// baseUrl = [''
 // , 'gemini-1.5-flash', 'gemini-1.0-pro', 'gemini-1.0-pro-vision']
 // constructor() {}
 // // {
 //   super();
 //   this.pricing = {inputTokenPrice = config.apiKey  ?? process.env.GOOGLE_API_KEY;
 //   this.projectId = config.projectId ?? process.env.GOOGLE_PROJECT_ID;
-//   if(!this.apiKey) {
+//   if(!this.apiKey) {'
 //     throw new ProviderError('Google API key is required', this.name, 'MISSING_API_KEY');
 //   //   }
-if(!this.projectId) {
+if(!this.projectId) {'
     throw new ProviderError('Google Project ID is required', this.name, 'MISSING_PROJECT_ID');
   //   }
   this.location = config.location ?? this.location;
-  this.baseUrl =;
+  this.baseUrl =;'
   `https = { ...this.config, ...config };`
 // // await this.healthCheck();
   //   }
@@ -32,27 +32,24 @@ if(!this.projectId) {
     this.emitRequest(request);
 
     try {
-      const _googleRequest = {contents = {parts = // await this.makeRequest(;
-        ` / \$request.model;`
+      const _googleRequest = {contents = {parts = // await this.makeRequest(;`
+        ` / \$request.model;``
   :generateContent`,`
-  googleRequest)
-  //   )
-  if(!response.candidates ?? response.candidates.length === 0) {
+  googleRequest
+  //   
+  if(!response.candidates ?? response.candidates.length === 0) {`
     throw new ProviderError('No response generated', this.name, 'NO_RESPONSE');
   //   }
-   catch (error) console.error(error); const _candidate = response.candidates[0];
-  const __content = candidate.content.parts.map((p) => p.text).join('');
-  if(!reader) {
+   catch (error) console.error(error); const _candidate = response.candidates[0];'');
+  if(!reader) {'
     throw new ProviderError('No response body', this.name);
   //   }
-  const _decoder = new TextDecoder();
-  const _buffer = '';
+  const _decoder = new TextDecoder();'';
   while(true) {
     const { done, value } = // await reader.read();
-    if(done) break;
-    buffer += decoder.decode(value, {stream = buffer.split('\n');
-    buffer = lines.pop() ?? '';
-  for(const line of lines) {
+    if(done) break;'
+    buffer += decoder.decode(value, {stream = buffer.split('\n');'';
+  for(const line of lines) {'
       if(line.startsWith('data = line.slice(6); '
 
       try {
@@ -80,37 +77,37 @@ cleanup();
 // }
 private;
   convertMessages(messages = [];
-for (const msg of messages) {
-  if(msg.role === 'system') {
+for (const msg of messages) {'
+  if(msg.role === 'system') {'
     // System messages are handled separately in Google's API'
     continue; //   }
-
+'
   result.push({role = === 'user' ? 'user' ); const _errorData = {};
 
   try {
     errorData = JSON.parse(text) ;catch (error) console.error(error); catch(/* _e */) 
-    errorData = message = === 429) {
+    errorData = message = === 429) {'
       const _retryAfter = response.headers.get('retry-after');
     // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );
     //   // LINT: unreachable code removed}
 
-  // return new ProviderError(;
+  // return new ProviderError(;'
     // errorData.error?.message  ?? errorData.message  ?? 'Unknown error', // LINT);
 // }
 
 private;
-mapFinishReason(reason);
+mapFinishReason(reason);'
 : AIResponse['finishReason'];
-  switch(reason) {
-    case 'FINISH_REASON_STOP':
-      // return 'stop';
-    // case 'FINISH_REASON_MAX_TOKENS': // LINT: unreachable code removed
-      // return 'length';
-    // case 'FINISH_REASON_SAFETY': // LINT: unreachable code removed
+  switch(reason) {'
+    case 'FINISH_REASON_STOP':'
+      // return 'stop';'
+    // case 'FINISH_REASON_MAX_TOKENS': // LINT: unreachable code removed'
+      // return 'length';'
+    // case 'FINISH_REASON_SAFETY': // LINT: unreachable code removed'
+      // return 'content_filter';'
+    // case 'FINISH_REASON_RECITATION': // LINT: unreachable code removed'
       // return 'content_filter';
-    // case 'FINISH_REASON_RECITATION': // LINT: unreachable code removed
-      // return 'content_filter';
-    // default: // LINT: unreachable code removed
+    // default: // LINT: unreachable code removed'
       // return 'stop';
     //   // LINT: unreachable code removed}
 // }
@@ -121,8 +118,14 @@ handleError(error);
     // return error;
     //   // LINT: unreachable code removed}
 
-  // return new ProviderError(;
+  // return new ProviderError(;'
     // error.message  ?? 'Unknown error occurred', // LINT);
 // }
 
-}}}}))))
+}}}})))
+'
+}
+}
+}
+}
+}

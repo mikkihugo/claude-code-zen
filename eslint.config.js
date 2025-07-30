@@ -45,13 +45,13 @@ export default [
       'no-unreachable': 'warn',
       'no-redeclare': 'off', // Turn off to avoid TypeScript conflicts
       'no-duplicate-imports': 'warn',
-      'semi': ['error', 'always'],
-      'quotes': ['error', 'single', { 'allowTemplateLiterals': true }],
-      'indent': ['error', 2, { 'SwitchCase': 1 }],
+      semi: ['error', 'always'],
+      quotes: ['error', 'single', { allowTemplateLiterals: true }],
+      indent: ['error', 2, { SwitchCase: 1 }],
       'comma-dangle': ['error', 'always-multiline'],
       'no-trailing-spaces': 'error',
       'eol-last': 'error',
-      'no-multiple-empty-lines': ['error', { 'max': 2 }],
+      'no-multiple-empty-lines': ['error', { max: 2 }],
     },
   },
   // Test files

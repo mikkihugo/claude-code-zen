@@ -1,9 +1,11 @@
- */
+
 with automatic WASM
 fallback;
 
 import { createRequire } from 'node:module';
+'
 import { dirname } from 'node:path';
+'
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -14,38 +16,38 @@ const _nativeBinding = null;
 const _wasmModule = null;
 const _useWasm = false;
 
-/** Try to load native N-API binding first, fall back to WASM;
+/** Try to load native N-API binding first, fall back to WASM; */
 
- */
-async function loadBinding() {
+async
+function loadBinding() {
   // Try to load native binding first
   try {
     const { platform, arch }  catch (error) console.error(error); = process;
     const _bindingPath = join(;
-      __dirname,
-      '..',
-      '..',
-      'native',
+      __dirname,'
+      '..','
+      '..','
+      'native','
       `ruv-fann-node-bindings.${platform}-${arch}.node`;
     );
-    nativeBinding = require(bindingPath);
+    nativeBinding = require(bindingPath);`
     console.warn(' ruv-FANN native bindings loaded');
-  } catch(/* e */) {
+  } catch(/* e */) {'
     console.warn(`Failed to load native bindings);`
-    try {
+    try {`
       const _wasmPath = join(__dirname, 'fallback', 'ruv_fann_wasm.js');
 // const _wasmLoader = awaitimport(wasmPath);
       wasmModule = // await wasmLoader.default(); // Initialize WASM
-      useWasm = true;
+      useWasm = true;'
       console.warn(' ruv-FANN WASM fallback loaded');
-    } catch (error) { console.error(error); } catch(/* wasmError */) 
+    } catch (error) { console.error(error); } catch(/* wasmError */) '
       console.error('FATAL);'
       throw wasmError;
 //     }
 //   }
 // }
 
-/** Neural Network class wrapper;
+/** Neural Network class wrapper; */
 
 // export class NeuralNetwork {
   // private _impl,
@@ -82,7 +84,7 @@ async function loadBinding() {
     //   // LINT: unreachable code removed}
 // }
 
-/** Network trainer wrapper;
+/** Network trainer wrapper; */
 
 // export class NetworkTrainer {
   // private _impl,
@@ -99,7 +101,7 @@ async function loadBinding() {
     //   // LINT: unreachable code removed}
 // }
 
-/** Utility functions;
+/** Utility functions; */
 
 // export function getVersion() 
   if(useWasm) {
@@ -125,14 +127,14 @@ async function loadBinding() {
     //   // LINT: unreachable code removed}
 // }
 
-/** WASM fallback interface;
+/** WASM fallback interface; */
 
 // export const _wasmFallback = {
   async init() { 
 // await loadBinding();
   },
   createNetwork(layers): unknown
-    if(!wasmModule) 
+    if(!wasmModule) '
       throw new Error('WASM module not loaded');
     //     }
     // return new wasmModule.NeuralNetwork(layers);
@@ -140,13 +142,14 @@ async function loadBinding() {
   isAvailable() {}
     // return !!wasmModule;
 
-/** Get current backend information;
+/** Get current backend information; */
 
-// export function _getBackendInfo() {
+// export function _getBackendInfo() {'
 //   return { backend: useWasm ? 'wasm' : 'native' };
 // }
 
-// Auto-load bindings on import
+// Auto-load bindings on import'
   if(typeof process !== 'undefined' && process.versions && process.versions.node) {
   loadBinding().catch(console.error);
 // }
+'

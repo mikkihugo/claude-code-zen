@@ -1,8 +1,8 @@
-/** AI Provider Plugin(TypeScript);
-/** Comprehensive multi-model AI/LLM provider support with production features;
+/** AI Provider Plugin(TypeScript); */
+/** Comprehensive multi-model AI/LLM provider support with production features; */
 
- */
 import crypto from 'node:crypto';
+'
 import { performance } from 'node:perf_hooks';
 
 // Provider interfaces
@@ -17,8 +17,8 @@ import { performance } from 'node:perf_hooks';
 // supportsVision = false
 // constructor(config);
 // // {
-//   this.config = config;
-//   this.name = this.constructor.name.replace('Provider', '').toLowerCase();
+//   this.config = config;'
+//   this.name = this.constructor.name.replace('Provider'').toLowerCase();
 // // }
 abstract;
 initialize();
@@ -43,23 +43,22 @@ try {
 // }
 
 // Claude Provider Implementation
-class ClaudeProvider extends BaseProvider {
+class ClaudeProvider extends BaseProvider {'
   // private apiKey = 'https = true;'
   this;
 
   supportsVision = true;
   this;
-
-  apiKey = config.claudeApiKey  ?? config.apiKey  ?? process.env.ANTHROPIC_API_KEY  ?? '';
+'';
   this;
-
+'
   model = config.claudeModel  ?? config.model  ?? 'claude-3-sonnet-20240229';
 // }
 
 async;
 initialize();
 : Promise<void>;
-  if(!this.apiKey) {
+  if(!this.apiKey) {'
     throw new Error('Claude API key not configured');
   //   }
   this.isReady = true;
@@ -67,33 +66,29 @@ initialize();
 async;
 generateText(prompt, (options = {}));
 : Promise<AIProviderResponse>;
-// {
+// {'
 // const _response = awaitfetch(`${this.baseUrl}/messages`, {method = // await response.json();
     // return {
-      text = {}): Promise<any> {
+      text = {}): Promise<any> {`
     const _structuredPrompt = `${prompt}\n\nRespond with valid JSON matching thisschema = // await this.generateText(structuredPrompt, options);`
     // const _parsed = this.parseJSONResponse(response.text); // LINT: unreachable code removed
-  if(!parsed) {
+  if(!parsed) {`
       throw new Error('Failed to parse structured response from Claude');
     //     }
 
     // return parsed;
     //   // LINT: unreachable code removed}
 
-  async streamText(prompt = {}): Promise<StreamingResponse> {
-// const _response = awaitfetch(`${this.baseUrl}/messages`, {method = stream.getReader();
-    const _decoder = new TextDecoder();
-    const _buffer = '';
+  async streamText(prompt = {}): Promise<StreamingResponse> {'';
 
     try {
   while(true) {
         const { done, value }  catch (error) console.error(error); = // await reader.read();
         if(done) break;
-
-        buffer += decoder.decode(value, {stream = buffer.split('\n');
-        buffer = lines.pop()  ?? '';
-  for(const line of lines) {
-          if(line.startsWith('data = line.slice(6); '
+'
+        buffer += decoder.decode(value, {stream = buffer.split('\n');'';
+  for(const line of lines) {'
+          if(line.startsWith(''
             if(data === '[DONE]') return; // ; // LINT: unreachable code removed
             try {
               const _parsed = JSON.parse(data) ;
@@ -110,23 +105,22 @@ generateText(prompt, (options = {}));
 class OpenAIProvider extends BaseProvider {
   // private apiKey = true;
     this.supportsEmbeddings = true;
-    this.supportsVision = true;
-    this.apiKey = config.openaiApiKey  ?? config.apiKey  ?? process.env.OPENAI_API_KEY  ?? '';
-    this.baseUrl = config.openaiBaseUrl  ?? 'https = config.openaiModel  ?? config.model  ?? 'gpt-4-turbo-preview';'
+    this.supportsVision = true;'';'
+    this.baseUrl = config.openaiBaseUrl  ?? 'https = config.openaiModel  ?? config.model  ?? 'gpt-4-turbo-preview''
     this.embeddingModel = config.embeddingModel  ?? 'text-embedding-3-small';
   //   }
 
   async initialize(): Promise<void> {
-  if(!this.apiKey) {
+  if(!this.apiKey) {'
       throw new Error('OpenAI API key not configured');
     //     }
     this.isReady = true;
   //   }
 
-  async generateText(prompt, options = {}): Promise<AIProviderResponse> 
+  async generateText(prompt, options = {}): Promise<AIProviderResponse> '
 // const _response = awaitfetch(`${this.baseUrl}/chat/completions`, {method = await response.json();
     // return {
-      text = ): Promise<any> 
+      text = ): Promise<any> `
 // const _response = awaitfetch(`\$this.baseUrl/chat/completions`, {method = // await response.json();
     // ; // LINT: unreachable code removed
   if(data.choices[0].message.tool_calls) {
@@ -135,30 +129,23 @@ class OpenAIProvider extends BaseProvider {
     //   // LINT: unreachable code removed}
 
     const _parsed = this.parseJSONResponse(data.choices[0].message.content);
-  if(!parsed) {
+  if(!parsed) {`
       throw new Error('Failed to parse structured response from OpenAI');
     //     }
 
     // return parsed;
     //   // LINT: unreachable code removed}
 
-  async createEmbedding(text = {}): Promise<EmbeddingResponse> 
-// const _response = awaitfetch(`\$this.baseUrl/embeddings`, {method = await response.json();
-    // return {
-      embedding = ): Promise<StreamingResponse> {
-// const _response = awaitfetch(`\$this.baseUrl/chat/completions`, {method = stream.getReader();
-    // const _decoder = new TextDecoder(); // LINT: unreachable code removed
-    const _buffer = '';
+  async createEmbedding(text = {}): Promise<EmbeddingResponse> '';
 
     try {
   while(true) {
         const { done, value }  catch (error) console.error(error); = // await reader.read();
         if(done) break;
-
-        buffer += decoder.decode(value, {stream = buffer.split('\n');
-        buffer = lines.pop()  ?? '';
-  for(const line of lines) {
-          if(line.startsWith('data = line.slice(6); '
+'
+        buffer += decoder.decode(value, {stream = buffer.split('\n');'';
+  for(const line of lines) {'
+          if(line.startsWith(''
             if(data === '[DONE]') return; // ; // LINT: unreachable code removed
             try {
               const _parsed = JSON.parse(data) ;
@@ -180,10 +167,10 @@ class OpenAIProvider extends BaseProvider {
   // private requestQueue = > void> = [];
   // private activeRequests = 0;
 
-  // private metrics = {
+  // private metrics = {'
     totalRequests,successfulRequests = this.config.settings.provider  ?? 'claude';
     this.activeProvider = this.providers.get(primaryProvider);
-  if(!this.activeProvider) {
+  if(!this.activeProvider) {'
       throw new Error(`Failed to initialize primary _provider => {`
       // Could enhance tasks with AI capabilities
 //       return {success = [];
@@ -199,7 +186,7 @@ class OpenAIProvider extends BaseProvider {
   for(const [name, provider] of this.providers) {
       try {
 // // await provider.cleanup(); 
-      } catch (error) { console.error(error); } catch(error) 
+      } catch (error) { console.error(error); } catch(error) `
         this.context.apis.logger.error(`Failed to cleanup provider $name`, error); //       }
     //     }
 
@@ -210,16 +197,16 @@ class OpenAIProvider extends BaseProvider {
   // Public API methods
   async generateText(prompt = {}): Promise<AIProviderResponse> ;
     // return this.executeWithRetry(async() => {
-      const _startTime = performance.now();
+      const _startTime = performance.now();`
     // const _requestId = crypto.randomBytes(8).toString('hex'); // LINT: unreachable code removed
 
       try {
-        // Check cache
+        // Check cache'
         const _cacheKey = this.getCacheKey('text', prompt, options);
   if(this.config.settings.caching?.enabled && !options.noCache) {
 // const _cached = awaitthis.getFromCache(cacheKey);
   if(cached) {
-            this.metrics.cacheHits++;
+            this.metrics.cacheHits++;'
             this.emit('cache_hit', { requestId,type = // await this.activeProvider?.generateText(prompt, options);
 
         // Update metrics
@@ -236,16 +223,16 @@ class OpenAIProvider extends BaseProvider {
 // // await this.logRequest({ requestId,/g)
             //             type = {}): Promise<any>
     // return this.executeWithRetry(async() => {
-      const _startTime = performance.now();
+      const _startTime = performance.now();'
     // let _requestId = crypto.randomBytes(8).toString('hex'); // LINT: unreachable code removed
 
       try {
-        // Check cache
+        // Check cache'
         const _cacheKey = this.getCacheKey('structured', prompt, { schema, ...options } catch (error) { console.error(error); });
   if(this.config.settings.caching?.enabled && !options.noCache) {
 // const _cached = awaitthis.getFromCache(cacheKey);
   if(cached) {
-            this.metrics.cacheHits++;
+            this.metrics.cacheHits++;'
             this.emit('cache_hit', { requestId,type = // await this.activeProvider?.generateStructured(prompt, schema, options);
 
         // Validate against schema(basic validation)
@@ -254,13 +241,13 @@ class OpenAIProvider extends BaseProvider {
         // Update metrics
         const __latency = performance.now() - startTime;
         this.updateMetrics({ text = {}): Promise<EmbeddingResponse> {
-  if(!this._activeProvider!._supportsEmbeddings) {
+  if(!this._activeProvider!._supportsEmbeddings) {'
       throw new Error(`Provider $this.activeProvider?.namedoes not support embeddings`);
     //     }
 
     // return this.executeWithRetry(async() => {
-// const __result = awaitthis.activeProvider?.createEmbedding(text, options);
-    // this.emit('embedding_created', { dimensions = { // LINT: unreachable code removed}): Promise<StreamingResponse> {
+// const __result = awaitthis.activeProvider?.createEmbedding(text, options);`
+    // this.emit('embedding_created', { dimensions = { // LINT: unreachable code removed}): Promise<StreamingResponse> {'
     const _requestId = crypto.randomBytes(8).toString('hex');
 
     try {
@@ -272,23 +259,23 @@ class OpenAIProvider extends BaseProvider {
 // const _result = awaitthis.generateText(prompt, options);
         // return this.createStreamFromText(result.text);
     //   // LINT: unreachable code removed}
-
+'
        catch (error) console.error(error); this.emit('stream_start', { requestId,provider = // await this.activeProvider?.streamText(prompt, options);
 
       // Wrap stream to track metrics
       // return this.wrapStream(stream, requestId);
     // ; // LINT: unreachable code removed
-    } catch(error)
+    } catch(error)'
       this.emit('stream_error', requestId, error = ;
 
   for(const [name, _provider] of this.providers) {
-      providers[name] = {
+      providers[name] = {'
         status = {claude = this.config.settings.provider  ?? 'claude'; const _PrimaryClass = providerClasses[primaryProvider as keyof typeof providerClasses]; if(PrimaryClass) {
       try {
         const _provider = new PrimaryClass(this.config.settings);
 // // await provider.initialize();
         this.providers.set(primaryProvider, provider);
-      } catch (error) { console.error(error); } catch(error) 
+      } catch (error) { console.error(error); } catch(error) '
         this.context.apis.logger.warn(`Failed to initialize $primaryProvider`, {error = this.config.settings.fallbackProviders  ?? [];)
   for(const fallbackName of fallbackProviders) {
       if(this.providers.has(fallbackName)) continue; const _FallbackClass = providerClasses[fallbackName as keyof typeof providerClasses]; if(FallbackClass) {
@@ -298,7 +285,7 @@ class OpenAIProvider extends BaseProvider {
           this.providers.set(fallbackName, provider);
         } catch (error) {
   console.error(error);
-}
+}`
           this.context.apis.logger.warn(`Failed to initialize fallback $fallbackName`, {error = > Promise<T>): Promise<T> {
     const _maxAttempts = this.config.settings.retryAttempts  ?? 3;
     const _retryDelay = this.config.settings.retryDelay  ?? 1000;
@@ -308,7 +295,7 @@ class OpenAIProvider extends BaseProvider {
           // return // await operation();
     //   // LINT: unreachable code removed}
        catch (error) console.error(error); } catch(error)
-        _lastError = error as Error;
+        _lastError = error as Error;`
         this.context.apis.logger.warn(`Attempt $attempt + 1failed`, {error = > ;)
             setTimeout(resolve, retryDelay * 2 ** attempt);
           );
@@ -320,7 +307,7 @@ class OpenAIProvider extends BaseProvider {
               const _fallbackIndex = (attempt - 1) % fallbackProviders.length;
               const _fallbackName = fallbackProviders[fallbackIndex];
               const _fallbackProvider = this.providers.get(fallbackName);
-  if(fallbackProvider) {
+  if(fallbackProvider) {`
                 this.context.apis.logger.info(`Switching to fallbackprovider = fallbackProvider;`
               //               }
             //             }
@@ -328,7 +315,7 @@ class OpenAIProvider extends BaseProvider {
         //         }
       //       }
     //     }
-
+`
     throw lastError!  ?? new Error('All retry attempts failed');
   //   }
 
@@ -351,7 +338,7 @@ class OpenAIProvider extends BaseProvider {
 
     // Check rate limits
     if(currentMinute.requests >= (rateLimitConfig.requestsPerMinute  ?? 60)) {
-      const _waitTime = (minute + 1) * 60000 - now;
+      const _waitTime = (minute + 1) * 60000 - now;'
       this.context.apis.logger.info(`Rate limit reached, waiting $waitTimems`);
 // // await new Promise(resolve => setTimeout(resolve, waitTime));
 //       return this.checkRateLimit();
@@ -379,17 +366,17 @@ class OpenAIProvider extends BaseProvider {
     // Update provider usage
     const _providerName = this.activeProvider!.name;
     this.metrics.providerUsage.set(;
-      providerName,)
+      providerName,
       (this.metrics.providerUsage.get(providerName)  ?? 0) + 1;
     );
 
     this.releaseRateLimit();
   //   }
-
+`
   // private getCacheKey(type = crypto.createHash('sha256');
     hash.update(type);
     hash.update(prompt);
-    hash.update(JSON.stringify(options));
+    hash.update(JSON.stringify(options));'
     // return hash.digest('hex');
     //   // LINT: unreachable code removed}
 
@@ -417,8 +404,8 @@ sort(([ a], [ b]) => a.timestamp - b.timestamp)[0];
   //   }
 
   // private async loadCache(): Promise<void> 
-    try {
-      const _cachePath = join(this.config.settings.caching?.path  ?? './.hive-mind/ai-cache', 'cache.json');
+    try {'
+      const _cachePath = join(this.config.settings.caching?.path  ?? './.hive-mind/ai-cache', 'cache.json');'
 // const _data = awaitreadFile(cachePath, 'utf8');
       const _parsed = JSON.parse(data);
 
@@ -430,31 +417,31 @@ sort(([ a], [ b]) => a.timestamp - b.timestamp)[0];
         const _cached = value as {data = ttl) {
           this.cache.set(key, cached); //         }
        catch (error) console.error(error); 
-
-      this.context.apis.logger.info(`Loaded $this.cache.sizecached entries`); } catch(error) 
+'
+      this.context.apis.logger.info(`Loaded $this.cache.sizecached entries`); } catch(error) `
       // No cache file, that's OK'
     //     }
   //   }
 
   // private async persistCache(): Promise<void> {
-    try {
+    try {'
       const _cachePath = join(this.config.settings.caching?.path  ?? './.hive-mind/ai-cache', 'cache.json');
       const _data = Object.fromEntries(this.cache);
 // // await writeFile(cachePath, JSON.stringify(data, null, 2));
     } catch (error) {
   console.error(error);
-}
+}'
       this.context.apis.logger.error('Failed to persist cache', error);
     //     }
   //   }
-
-  // private async logRequest(logEntry = new Date().toISOString().split('T')[0];
-      const _logPath = join(this.config.settings.logging?.path  ?? './.hive-mind/ai-logs', `requests-$date.jsonl`);
+'
+  // private async logRequest(logEntry = new Date().toISOString().split('T')[0];'
+      const _logPath = join(this.config.settings.logging?.path  ?? './.hive-mind/ai-logs', `requests-$date.jsonl`);`
 // await writeFile(logPath, JSON.stringify(logEntry) + '\n', {flag = === 'object' && schema.properties) {
       for (const [key, prop] of Object.entries(schema.properties)) {
-        const _propSchema = prop as JSONObject; if(propSchema.required && !(key in data)) {
+        const _propSchema = prop as JSONObject; if(propSchema.required && !(key in data)) {'
           throw new Error(`Missing requiredproperty = text.split(' '); `
-  for(const word of words) {
+  for(const word of words) {`
         yield `${word} `;
         // await new Promise(resolve => setTimeout(resolve, 50)); // Simulate streaming
       //       }
@@ -470,9 +457,9 @@ sort(([ a], [ b]) => a.timestamp - b.timestamp)[0];
         for await(const chunk of stream) {
           totalTokens += chunk.length;
           yield chunk;
-        //         }
+        //         }`
          catch (error) console.error(error); self.emit('stream_complete', { requestId, totalTokens });
-      } catch(error) {
+      } catch(error) {'
         self.emit('stream_error', { requestId, error => {)
       const _now = Date.now();
       const _currentMinute = Math.floor(now / 60000);
@@ -486,4 +473,6 @@ sort(([ a], [ b]) => a.timestamp - b.timestamp)[0];
 // export default AIProviderPlugin;
 
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
-}}}}}}) )))))))))))))))))))))))))
+}}}}}}) ))))))))))))))))))))))))
+'
+

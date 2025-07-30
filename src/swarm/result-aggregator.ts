@@ -1,107 +1,124 @@
-/** Advanced Result Aggregation and Reporting System;
- *;
-/** This module provides comprehensive result aggregation, analysis, and reporting;
- * capabilities for swarm operations. It collects outputs from multiple agents,
- * performs quality analysis, generates insights, and creates detailed reports.;
- */
+/** Advanced Result Aggregation and Reporting System; */
+*
+/** This module provides comprehensive result aggregation, analysis, and reporting; */
+* capabilities
+for swarm operations. It collects outputs
+from;
+multiple;
+agents,
+ * performs
+quality;
+analysis, generates;
+insights, and;
+creates;
+detailed;
+reports.;
 
-'node = new Map(); // eslint-disable-line';
+'node = new Map(); // eslint-disable-line'
 // private resultCache = new Map() {}
 // private(processingQueue =
 // {
-// }
-), (memoryManager = new Logger('SwarmResultAggregator'))
+// }'
+), (memoryManager = new Logger('SwarmResultAggregator')
 this.config = this.createDefaultConfig(config)
 this.memoryManager = memoryManager
 this.processingQueue = new ProcessingQueue(this.config.aggregationInterval)
 this.setupEventHandlers()
-{}
+{
+}
 // }
 
-/** Initialize the result aggregator;
+/** Initialize the result aggregator; */
 
 // async initialize() {}
- */
-: Promise<void>
 
+: Promise<void>
+'
   this.logger.info('Initializing swarm result aggregator...')
 try {
-  // // await this.processingQueue.start();
+  // // await this.processingQueue.start();'
   this.logger.info('Swarm result aggregator initialized successfully');
-  this.emit('initialized');
+  '
+  this.emit('initialized')
 } catch (error) {
   console.error(error);
-}
-    this.logger.error('Failed to initialize result aggregator', error);
-    throw error;
+
+'
+    this.logger.error('Failed to initialize result aggregator', error)
+throw error;
 //   }
 // }
 
-/** Shutdown the aggregator gracefully;
+/** Shutdown the aggregator gracefully; */
 
 async;
 shutdown();
 : Promise<void>
-// {
-  this.logger.info('Shutting down swarm result aggregator...');
-  try {
-    // Complete active aggregations
-    const _completionPromises = Array.from(this.activeAggregations.values()).map((_session) =>;
-      session.finalize();
-    );
-// // await Promise.allSettled(completionPromises);// // await this.processingQueue.stop();
-    this.logger.info('Swarm result aggregator shut down successfully');
-    this.emit('shutdown');
-  } catch (error) {
+// {'
+  this.logger.info('Shutting down swarm result aggregator...')
+try {
+  // Complete active aggregations
+  const _completionPromises = Array.from(this.activeAggregations.values()).map((_session) =>;
+  session.finalize();
+  )
+  // // await Promise.allSettled(completionPromises);// // await this.processingQueue.stop();'
+  this.logger.info('Swarm result aggregator shut down successfully');
+  '
+    this.emit('shutdown')
+} catch (error) {
   console.error(error);
-}
-    this.logger.error('Error during result aggregator shutdown', error);
-    throw error;
-  //   }
+
+'
+    this.logger.error('Error during result aggregator shutdown', error)
+throw error;
+//   }
 // }
 
-/** Start aggregating results for a swarm execution;
+/** Start aggregating results for a swarm execution; */
 
 async;
-startAggregation(context = generateId('aggregation');
-this.logger.info('Starting result aggregation', {
+'
+startAggregation(context = generateId('aggregation')
+'
+this.logger.info('Starting result aggregation',
+{
       aggregationId,swarmId = new AggregationSession(;
 aggregationId,
 context,
 this.config,
 this.logger,
-this.memoryManager;))
-// )
+this.memoryManager;)
+// 
 this.activeAggregations.set(aggregationId, session)
 // Start real-time processing if enabled
   if(this.config.enableRealTimeUpdates) {
   session.startRealTimeProcessing();
-// }
+// }'
 this.emit('aggregation = this.activeAggregations.get(aggregationId);'
-  if(!session) {
+  if(!session) {'
   throw new Error(`Aggregation session notfound = this.activeAggregations.get(aggregationId);`
-  if(!session) {
+  if(!session) {`
       throw new Error(`Aggregation session notfound = this.activeAggregations.get(aggregationId);`
-  if(!session) {
+  if(!session) {`
     throw new Error(`Aggregation session notfound = // await session.finalize();`
 
       // Cache result
       this.resultCache.set(aggregationId, result);
 
       // Store in memory
-// // await this.storeAggregatedResult(result);
-      this.logger.info('Result aggregation finalized', {
-        aggregationId,qualityScore = 'json';)
+// // await this.storeAggregatedResult(result);`
+      this.logger.info('Result aggregation finalized', {'
+        aggregationId,qualityScore = 'json';
   ): Promise<ResultReport> {
     const _result = this.resultCache.get(aggregationId);
-  if(!result) {
-      throw new Error(`Aggregated result notfound = // await this.createReport(result, format);`
+  if(!result) {'
+      throw new Error(`Aggregated result notfound = // await this.createReport(result, format);``
     this.emit('report = this.activeAggregations.get(aggregationId);'
   if(session) {
       // return {status = this.resultCache.get(aggregationId);
       // if(cachedResult) { // LINT: unreachable code removed
       // return {status = Array.from(this.resultCache.values());
-      // ; // LINT: unreachable code removed
+      // ; // LINT: unreachable code removed'
       // return {activeAggregations = generateId('report');
       // const _startTime = performance.now(); // LINT: unreachable code removed
       // Get context from memory
@@ -111,7 +128,7 @@ this.emit('aggregation = this.activeAggregations.get(aggregationId);'
       // Generate report sections
 // const __appendices = awaitthis.generateAppendices(result);
       const __processingTime = performance.now() - startTime;
-      const __report = {id = > r.validated).length,tasksFailed = > !r.validated).length,agentsUsed = [
+      const __report = {id = > r.validated).length,tasksFailed = > !r.validated).length,agentsUsed = ['
       {name = this.config.qualityThreshold ? 'passed' : 'failed',score = this.config.qualityThreshold ? 'passed' : 'failed',score = this.config.qualityThreshold ? 'passed' : 'failed',score = [];
 
     // Raw data appendix
@@ -121,11 +138,11 @@ filter(r => r.validated).length;
 // 
     return total > 0 ? successful /total = [];
     // const _threshold = 0.8; // LINT: unreachable code removed
-
-    if(metrics.accuracy >= threshold) strengths.push('High accuracy in results');
-    if(metrics.completeness >= threshold) strengths.push('Comprehensive coverage');
-    if(metrics.consistency >= threshold) strengths.push('Consistent output quality');
-    if(metrics.timeliness >= threshold) strengths.push('Timely execution');
+'
+    if(metrics.accuracy >= threshold) strengths.push('High accuracy in results');'
+    if(metrics.completeness >= threshold) strengths.push('Comprehensive coverage');'
+    if(metrics.consistency >= threshold) strengths.push('Consistent output quality');'
+    if(metrics.timeliness >= threshold) strengths.push('Timely execution');'
     if(metrics.reliability >= threshold) strengths.push('Reliable performance');
 
     // return strengths;
@@ -133,11 +150,11 @@ filter(r => r.validated).length;
 
   // private identifyImprovementAreas(metrics = [];
     const _threshold = 0.7;
-
-    if(metrics.accuracy < threshold) improvements.push('Accuracy needs improvement');
-    if(metrics.completeness < threshold) improvements.push('Coverage gaps identified');
-    if(metrics.consistency < threshold) improvements.push('Output consistency issues');
-    if(metrics.timeliness < threshold) improvements.push('Execution time optimization needed');
+'
+    if(metrics.accuracy < threshold) improvements.push('Accuracy needs improvement');'
+    if(metrics.completeness < threshold) improvements.push('Coverage gaps identified');'
+    if(metrics.consistency < threshold) improvements.push('Output consistency issues');'
+    if(metrics.timeliness < threshold) improvements.push('Execution time optimization needed');'
     if(metrics.reliability < threshold) improvements.push('Reliability concerns');
 
     // return improvements;
@@ -160,13 +177,13 @@ filter(r => r.validated).length;
 //     return size;
     //   // LINT: unreachable code removed}
 
-  // private createDefaultConfig(_config => {
+  // private createDefaultConfig(_config => {'
       this.logger.info('Aggregation started', data);
     });
-
-    this.on('aggregation => {'
+'
+    this.on(''
       this.logger.info('Aggregation completed', {
-        aggregationId => {))
+        aggregationId => {))'
       this.logger.info('Report generated', data);
     });
     //     }
@@ -266,4 +283,5 @@ filter(r => r.validated).length;
 // }
 // export default SwarmResultAggregator;
 
-}}}}}}}}}}))))))))))))))
+}}}}}}}}}})))))))))))))
+'

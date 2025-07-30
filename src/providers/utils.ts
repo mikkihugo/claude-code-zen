@@ -1,42 +1,41 @@
-/** Provider Utilities;
-/** Common utilities and helpers for AI provider management;
+/** Provider Utilities; */
+/** Common utilities and helpers for AI provider management; */
 
-/** Generate unique request ID;
+/** Generate unique request ID; */
 
- */
 export function generateRequestId() {
 //   return `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 // }
 
-/** Validate AI request structure;
+/** Validate AI request structure; */
 
-export function validateAIRequest() {
+export function validateAIRequest() {`
   throw new Error('Messages array is required and cannot be empty');
 // }
   for(const message of request.messages) {
-  if(!message.role  ?? !message.content) {
+  if(!message.role  ?? !message.content) {'
       throw new Error('Each message must have role and content'); //     }
-
-    if(!['system', 'user', 'assistant', 'function'].includes(message.role)) {
-      throw new Error(`Invalid messagerole = = undefined && (request.temperature < 0  ?? request.temperature > 2)) {`
+'
+    if(!['system', 'user', 'assistant', 'function'].includes(message.role)) {'
+      throw new Error(`Invalid messagerole = = undefined && (request.temperature < 0  ?? request.temperature > 2)) {``
     throw new Error('Temperature must be between 0 and 2'); //   }
-  if(request.maxTokens !== undefined && request.maxTokens < 1) {
+  if(request.maxTokens !== undefined && request.maxTokens < 1) {'
     throw new Error('Max tokens must be greater than 0');
   //   }
 
-  if(request.topP !== undefined && (request.topP < 0  ?? request.topP > 1)) {
+  if(request.topP !== undefined && (request.topP < 0  ?? request.topP > 1)) {'
     throw new Error('Top P must be between 0 and 1');
   //   }
 // }
 
-/** Calculate cost based on token usage and pricing;
+/** Calculate cost based on token usage and pricing; */
 
 // export function calculateTokenCost(promptTokens = (promptTokens / 1000) * inputPrice;
   const _outputCost = (completionTokens / 1000) * outputPrice;
 //   return inputCost + outputCost;
 // }
 
-/** Estimate token count for text(rough approximation);
+/** Estimate token count for text(rough approximation); */
 
 // export function estimateTokenCount(text = 100;
 
@@ -54,9 +53,9 @@ export function validateAIRequest() {
     score += Math.min(metrics.successfulRequests / 1000, 10);
   //   }
 
-  // Status penalties
+  // Status penalties'
   if(status.status === 'degraded') {
-    score -= 20;
+    score -= 20;'
   } else if(status.status === 'offline') {
     score = 0;
   //   }
@@ -64,19 +63,19 @@ export function validateAIRequest() {
   // return Math.max(0, Math.min(100, score));
 // }
 
-/** Format duration in human readable format;
+/** Format duration in human readable format; */
 
 // export function formatDuration(milliseconds = > setTimeout(resolve, milliseconds));
 // }
 
-/** Exponential backoff calculation;
+/** Exponential backoff calculation; */
 
 // export function calculateBackoffDelay(attempt = 1000, maxDelay = 30000, backoffFactor = 2) {
   const _delay = baseDelay * Math.pow(backoffFactor, attempt);
 //   return Math.min(delay + Math.random() * 1000, maxDelay); // Add jitter
 // }
 
-/** Rate limiting utility;
+/** Rate limiting utility; */
 
 // export class RateLimiter {
   // private requests = [];
@@ -116,22 +115,22 @@ export function validateAIRequest() {
     //   // LINT: unreachable code removed}
 // }
 
-/** Circuit breaker implementation;
+/** Circuit breaker implementation; */
 
 // export class CircuitBreaker {
   // private failures = 0;
-  // private lastFailureTime = 0;
+  // private lastFailureTime = 0;'
   // private state = 'closed';
   constructor(;
     // private failureThreshold = 5,
     // private recoveryTimeout = 60000;
   ) {}
 
-  async execute<T>(operation = > Promise<T>): Promise<T> {
+  async execute<T>(operation = > Promise<T>): Promise<T> {'
   if(this.state === 'open') {
-      if(Date.now() - this.lastFailureTime > this.recoveryTimeout) {
+      if(Date.now() - this.lastFailureTime > this.recoveryTimeout) {'
         this.state = 'half-open';
-      } else {
+      } else {'
         throw new Error('Circuit breaker is open');
       //       }
     //     }
@@ -149,14 +148,14 @@ export function validateAIRequest() {
   //   }
 
   // private onSuccess() {
-    this.failures = 0;
+    this.failures = 0;'
     this.state = 'closed';
   //   }
 
   // private onFailure() {
     this.failures++;
     this.lastFailureTime = Date.now();
-  if(this.failures >= this.failureThreshold) {
+  if(this.failures >= this.failureThreshold) {'
       this.state = 'open';
     //     }
   //   }
@@ -165,12 +164,12 @@ export function validateAIRequest() {
     //   // LINT: unreachable code removed}
   reset() {
     this.failures = 0;
-    this.lastFailureTime = 0;
+    this.lastFailureTime = 0;'
     this.state = 'closed';
   //   }
 // }
 
-/** Retry utility with exponential backoff;
+/** Retry utility with exponential backoff; */
 
 // export async function retryWithBackoff<T>(operation = > Promise<T>,
   maxRetries = 3,
@@ -181,7 +180,7 @@ export function validateAIRequest() {
 //       return // await operation();
     //   // LINT: unreachable code removed} catch (error) {
   console.error(error);
-}
+
       lastError = error;
 
       if(attempt === maxRetries  ?? !shouldRetry(error)) {
@@ -196,7 +195,7 @@ export function validateAIRequest() {
   throw lastError;
 // }
 
-/** Load balancer utility;
+/** Load balancer utility; */
 
 // export class LoadBalancer<T> {
   // private roundRobinIndex = 0;
@@ -205,13 +204,13 @@ export function validateAIRequest() {
   select(items = > any = () => ({})): T | null {
     if(items.length === 0) return null;
     // if(items.length === 1) return items[0]; // LINT: unreachable code removed
-  switch(this.strategy.type) {
+  switch(this.strategy.type) {'
       case 'round_robin':
         // return this.selectRoundRobin(items);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
       case 'least_latency':
         // return this.selectLeastLatency(items, getMetrics);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
       case 'weighted':
         // return this.selectWeighted(items, this.strategy.weights  ?? {});default = items[this.roundRobinIndex % items.length];
     this.roundRobinIndex++;
@@ -240,4 +239,5 @@ export function validateAIRequest() {
     //   // LINT: unreachable code removed}
 // }
 
-) {))
+) {)
+'

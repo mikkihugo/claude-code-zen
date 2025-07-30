@@ -1,17 +1,17 @@
-/** Runtime Detector Module
-/** Converted from JavaScript to TypeScript
+/** Runtime Detector Module */
+/** Converted from JavaScript to TypeScript */
 
 // runtime-detector.js - Simple runtime detection for CLI compatibility
- */
+
 import os from 'node:os';
-
 '
-
+'
+'
 import process from 'node:process';
-
+'
 '
 
-export const compat = {
+export const compat = {'
     runtime = === 'win32' ? 'windows' : os.platform(),'
 arch = > process.pid,
 exit = > process.exit(code),
@@ -24,8 +24,10 @@ try {
     //   // LINT: unreachable code removed} catch (error) {
   console.error(error);
 }
+'
     console.error('Runtime error);'
 // return null;
 //   // LINT: unreachable code removed}
 // }
 // }
+'

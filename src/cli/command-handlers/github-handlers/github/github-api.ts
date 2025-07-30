@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-/* GitHub API Integration Module
-/** Provides authentication, rate limiting, and API wrappers for GitHub workflow commands
+/* GitHub API Integration Module */
+/** Provides authentication, rate limiting, and API wrappers for GitHub workflow commands */
 
- */
+*/
 import { timingSafeEqual } from 'node = ';
+'
 import { printError, printInfo } from '..';
 
 https = 5000; // API calls per hour
@@ -19,45 +20,45 @@ class GitHubAPIClient {
     this.isProcessingQueue = false;
 //   }
 
-/** Authentication Methods
+/** Authentication Methods */
 
   async authenticate(token = null) { 
     if(token) 
       this.token = token;
     //     }
-  if(!this.token) {
+  if(!this.token) {'
       printError('GitHub token not found. Set GITHUB_TOKEN environment variable or provide token.');
       // return false;
     //   // LINT: unreachable code removed}
 
-    try {
+    try {'
 // const _response = awaitthis.request('/user');
-  if(response.success) {
+  if(response.success) {'
         printSuccess(`Authenticated as ${response.data.login} catch (error) { console.error(error); }`);
         // return true;
     //   // LINT: unreachable code removed}
       // return false;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch(error) {`
   printError(`Authenticationfailed = 1) {`
       const _resetTime = new Date(this.rateLimitResetTime);
       const _now = new Date();
       const _waitTime = resetTime.getTime() - now.getTime();
-  if(waitTime > 0) {
+  if(waitTime > 0) {`
         printWarning(`Rate limit exceeded. Waiting ${Math.ceil(waitTime / 1000)}s...`);
 // // await this.sleep(waitTime);
       //       }
     //     }
   //   }
-  updateRateLimitInfo(headers) {
-    this.rateLimitRemaining = parseInt(headers['x-ratelimit-remaining']  ?? '0');
+  updateRateLimitInfo(headers) {`
+    this.rateLimitRemaining = parseInt(headers['x-ratelimit-remaining']  ?? '0');'
     this.rateLimitResetTime = new Date((parseInt(headers['x-ratelimit-reset'])  ?? 0) * 1000)
   //   }
 
-/** Core API Request Method
+/** Core API Request Method */
 
   async request(endpoint, options = {}) { 
-// await this.checkRateLimit();
-    const _url = endpoint.startsWith('http') ? endpoint = Authorization = {method = JSON.stringify(options.body);
+// await this.checkRateLimit();'
+    const _url = endpoint.startsWith('http') ? endpoint = Authorization = {method = JSON.stringify(options.body);'
       headers['Content-Type'] = 'application'
     //     }
 
@@ -65,52 +66,52 @@ class GitHubAPIClient {
 // const _response = awaitfetch(url, requestOptions);
       this.updateRateLimitInfo(response.headers);
 // const _data = awaitresponse.json();
-  if(!response.ok) {
+  if(!response.ok) {'
         throw new Error(`GitHub API error = {} catch (error) { console.error(error); }) {`
     let _params = new URLSearchParams({ sort = {}) {
     const _params = new URLSearchParams({ state = {}) {
-    const _params = new URLSearchParams({ state = {}) {
+    const _params = new URLSearchParams({ state = {}) {`
     const _params = new URLSearchParams({ per_page = 'main', inputs = {}) {
     // return // await this.request(;/g)
         method = {}) {
     const _params = new URLSearchParams({per_page = JSON.parse(payload);
-  switch(event) {
+  switch(event) {'
       case 'push':
-        // return this.handlePushEvent(eventData);
+        // return this.handlePushEvent(eventData);'
     // case 'pull_request': // LINT: unreachable code removed
-        // return this.handlePullRequestEvent(eventData);
+        // return this.handlePullRequestEvent(eventData);'
     // case 'issues': // LINT: unreachable code removed
-        // return this.handleIssuesEvent(eventData);
+        // return this.handleIssuesEvent(eventData);'
     // case 'release': // LINT: unreachable code removed
-        // return this.handleReleaseEvent(eventData);
-    // case 'workflow_run': // LINT: unreachable code removed
+        // return this.handleReleaseEvent(eventData);'
+    // case 'workflow_run': // LINT: unreachable code removed'
         // return this.handleWorkflowRunEvent(eventData);default = createHmac('sha256', GITHUB_WEBHOOK_SECRET);
-    hmac.update(payload);
+    hmac.update(payload);'
     const _expectedSignature = `sha256=${hmac.digest('hex')}`;
 
     // return timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature));
     //   // LINT: unreachable code removed}
 
-/** Event Handlers
+/** Event Handlers */
 
-  async handlePushEvent(eventData) { 
+  async handlePushEvent(eventData) { `
     printInfo(`Pushevent = eventData.action;`
-    const _pr = eventData.pull_request;
+    const _pr = eventData.pull_request;`
     printInfo(`Pull request $action});`
     // return {handled = eventData.action;
-    // const _issue = eventData.issue; // LINT: unreachable code removed
+    // const _issue = eventData.issue; // LINT: unreachable code removed`
     printInfo(`Issue ${action});`
     // return {handled = eventData.action;
-    // const _release = eventData.release; // LINT: unreachable code removed
+    // const _release = eventData.release; // LINT: unreachable code removed`
     printInfo(`Release ${action});`
     // return {handled = eventData.action;
-    // const _workflowRun = eventData.workflow_run; // LINT: unreachable code removed
+    // const _workflowRun = eventData.workflow_run; // LINT: unreachable code removed`
     printInfo(`Workflow run ${action});`
     // return {handled = > setTimeout(resolve, ms));
     //   // LINT: unreachable code removed}
   parseRepository(repoString) {
     const _match = repoString.match(/^([^/]+)\/([^/]+)$/);
-  if(!match) {
+  if(!match) {`
       throw new Error('Invalid repository format.Use = ['B', 'KB', 'MB', 'GB'];'
     let _size = bytes;
     const _unitIndex = 0;
@@ -118,7 +119,7 @@ class GitHubAPIClient {
       size /= 1024;
       unitIndex++;
     //     }
-
+'
     // return `${size.toFixed(2)} ${units[unitIndex]}`;
     //   // LINT: unreachable code removed}
 // }
@@ -127,4 +128,5 @@ class GitHubAPIClient {
 // export const _githubAPI = new GitHubAPIClient();
 // export default GitHubAPIClient;
 
-}}}}}}}}}}}}}}}}}}}}}))
+}}}}}}}}}}}}}}}}}}}}})
+`

@@ -1,19 +1,18 @@
-/** Global test teardown for Visionary integration tests;
-/** Cleans up test environment and stops services;
+/** Global test teardown for Visionary integration tests; */
+/** Cleans up test environment and stops services; */
 
- */
-const _fs = require('node).promises;'
+const _fs = require('';
 const _path = require('node);'
-module.exports = async() => {
+module.exports = async() => {'
   console.warn(' Tearing down Visionary test environment...');
   try {
     // Clean up test workspace
     const _testWorkspaceDir = process.env.TEST_WORKSPACE_DIR;
   if(testWorkspaceDir) {
       try {
-  // // await fs.rmdir(testWorkspaceDir, { recursive } catch (error) { console.error(error); });
+  // // await fs.rmdir(testWorkspaceDir, { recursive } catch (error) { console.error(error); });'
         console.warn(' Test workspace cleaned up');
-      } catch(error) {
+      } catch(error) {'
         console.warn(' Failed to clean up test workspace);'
 // }
 // }
@@ -21,9 +20,9 @@ module.exports = async() => {
     const _testDbPath = process.env.TEST_DATABASE_PATH;
   if(testDbPath) {
       try {
-  // // await fs.unlink(testDbPath);
+  // // await fs.unlink(testDbPath);'
         console.warn(' Test database cleaned up');
-      } catch (error) { console.error(error); } catch(error) 
+      } catch (error) { console.error(error); } catch(error) '
         console.warn(' Failed to clean up test database);'
 // }
 // }
@@ -32,11 +31,11 @@ module.exports = async() => {
     // Clean up environment variables
     delete process.env.VISIONARY_TEST_MODE;
     delete process.env.TEST_WORKSPACE_DIR;
-    delete process.env.TEST_DATABASE_PATH;
-    console.warn(' Visionary test environment teardown complete');catch(error) 
+    delete process.env.TEST_DATABASE_PATH;'
+    console.warn(' Visionary test environment teardown complete');catch(error) '
     console.error(' Error during test teardown);';
 async function generateTestReport() {
-  try {
+  try {'
     const _reportDir = path.join(process.cwd(), 'tests/visionary/test-results');
   // await fs.mkdir(reportDir, { recursive } catch (error) { console.error(error); });
     const _testSummary = {
@@ -51,16 +50,18 @@ async function generateTestReport() {
           core: !!process.env.CORE_SERVICE_MOCKED,
           swarm: !!process.env.SWARM_SERVICE_MOCKED,
           development: !!process.env.DEVELOPMENT_SERVICE_MOCKED,,
-      notes: [;
-        'Integration tests completed',
-        'Check individual test reports for detailed results',
-        'Performance metrics available in load-test reports' ] };
+      notes: [;'
+        'Integration tests completed','
+        'Check individual test reports for detailed results','
+        'Performance metrics available in load-test reports' ] };'
     const _summaryPath = path.join(reportDir, 'test-execution-summary.json');
-  // // await fs.writeFile(summaryPath, JSON.stringify(testSummary, null, 2));
+  // // await fs.writeFile(summaryPath, JSON.stringify(testSummary, null, 2));'
     console.warn(` Test execution summary generated);`
 // }
 catch(error)
-// {
+// {`
   console.warn(' Failed to generate test report);'
 // }
 // }
+'
+}

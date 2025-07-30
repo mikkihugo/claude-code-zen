@@ -1,10 +1,10 @@
-/** Claude Zen Commands Module
-/** Converted from JavaScript to TypeScript
+/** Claude Zen Commands Module */
+/** Converted from JavaScript to TypeScript */
 
 // claude-zen-commands.js - Claude-Flow specific slash commands
 
 // Create Claude-Flow specific commands
- */
+
 export async function createClaudeFlowCommands(workingDir = `---name = `---name = `---`
 name);
 - **distributed** - Multiple
@@ -25,25 +25,27 @@ strategies;
 #
 Common;
 Options;
--\`--strategy <type>\` - Execution strategy;
-- \`--mode <type>\` - Coordination mode;
-- \`--max-agents <n>\` - Maximum concurrent agents(default);
-- \`--timeout <minutes>\` - Timeout in minutes(default);
-- \`--background\` - Run in background for tasks > 30 minutes;
-- \`--monitor\` - Enable real-time monitoring;
-- \`--ui\` - Launch terminal UI interface;
-- \`--parallel\` - Enable parallel execution;
-- \`--distributed\` - Enable distributed coordination;
-- \`--review\` - Enable peer review process;
-- \`--testing\` - Include automated testing;
-- \`--encryption\` - Enable data encryption;
-- \`--verbose\` - Detailed logging output;
-- \`--dry-run\` - Show configuration without executing
+`
+-\`--strategy <type>\` - Execution strategy;` -
+  \`--mode <type>\` - Coordination mode;` -
+  \`--max-agents <n>\` - Maximum concurrent agents(default);` -
+  \`--timeout <minutes>\` - Timeout in minutes(default);` -
+  \`--background\` - Run in background for tasks > 30 minutes;` -
+  \`--monitor\` - Enable real-time monitoring;` -
+  \`--ui\` - Launch terminal UI interface;` -
+  \`--parallel\` - Enable parallel execution;` -
+  \`--distributed\` - Enable distributed coordination;` -
+  \`--review\` - Enable peer review process;` -
+  \`--testing\` - Include automated testing;` -
+  \`--encryption\` - Enable data encryption;` -
+  \`--verbose\` - Detailed logging output;` -
+  \`--dry-run\` - Show configuration without executing
 
 ##  Examples
 
-### Development Swarm with Review;
-\`\`\`bash;`
+### Development Swarm with Review;`;
+\`\`\`bash
+``;
 // claude-zen swarm "Build e-commerce REST API" \\;
 --strategy;
 development;
@@ -52,82 +54,90 @@ development;
 \\
 --review
 \\
---testing
+--testing"
 \`\`\`
 
-### Long-Running Research Swarm
-\`\`\`bash
-`
+### Long-Running Research Swarm`
+\`\`\`bash`
+``
 // claude-zen swarm "Analyze AI market trends 2024-2025" \\;
   --strategy research \\
---background;
+--background
 \\
---distributed;
+--distributed
 \\
---max - agents;
+--max - agents
 8;
+"
 \`\`\`
 
-### Performance Optimization Swarm
-\`\`\`bash
-`;`
+### Performance Optimization Swarm`
+\`\`\`bash`
+`
+``;
 // claude-zen swarm "Optimize database queries and API performance" \\;
 --strategy;
 optimization;
 \\
---testing;
+--testing
 \\
---parallel;
+--parallel
 \\
---monitor;
+--monitor
+"
 \`\`\`
 
-### Enterprise Development Swarm
-\`\`\`bash
-`;`
+### Enterprise Development Swarm`
+\`\`\`bash`
+`
+``;
 // claude-zen swarm "Implement secure payment processing system" \\;
 --strategy;
 development;
 \\
---mode;
+--mode
 distributed;
 \\
---max - agents;
+--max - agents
 10;
 \\
---parallel;
+--parallel
 \\
---monitor;
+--monitor
 \\
---review;
+--review
 \\
---testing;
+--testing
 \\
---encryption;
+--encryption
 \\
---verbose;
+--verbose
+"
 \`\`\`
 
-### Testing and QA Swarm
-\`\`\`bash
-`;`
+### Testing and QA Swarm`
+\`\`\`bash`
+`
+``;
 // claude-zen swarm "Comprehensive security audit and testing" \\;
 --strategy;
 testing;
 \\
---review;
+--review
 \\
---verbose;
+--verbose
 \\
---max - agents;
+--max - agents
 6;
+"
 \`\`\`
 
 ##  Monitoring and Control
 
-### Real-time monitoring: null
-\`\`\`bash
-`;`
+### Real-time monitoring: null`
+\`\`\`bash`
+`
+`
 #
 Monitor;
 swarm;
@@ -138,12 +148,13 @@ activity;
 Monitor;
 specific;
 component;
-// claude-zen monitor --focus swarm;
+// claude-zen monitor --focus swarm;`;
 \`\`\`
 
-### Check swarm status: null
-\`\`\`bash
-`;`
+### Check swarm status: null`
+\`\`\`bash`
+`
+`
 #
 Overall;
 system;
@@ -154,12 +165,13 @@ status;
 Detailed;
 swarm;
 status;
-// claude-zen status --verbose;
+// claude-zen status --verbose;`;
 \`\`\`
 
-### View agent activity: null
-\`\`\`bash
-`;`
+### View agent activity: null`
+\`\`\`bash`
+`
+`
 #
 List;
 all;
@@ -169,39 +181,41 @@ agents;
 #
 Agent;
 details;
-// claude-zen agent info <agent-id>;
+// claude-zen agent info <agent-id>;`;
 \`\`\`
 
 ##  Memory Integration
 
 Swarms automatically use distributed memory
 for collaboration
-: null
-\`\`\`bash
-`;`
+: null`
+\`\`\`bash`
+`
+`
 #
 Store;
 swarm;
-objectives;
+objectives;`;
 // claude-zen memory store "swarm_objective" "Build scalable API" --namespace swarm
 
 #
 Query;
 swarm;
 progress;
+"
 // claude-zen memory query "swarm_progress" --namespace swarm
 
 #
-Export;
+Export
 swarm;
 memory;
-// claude-zen memory export swarm-results.json --namespace swarm
+// claude-zen memory export swarm-results.json --namespace swarm"
 \`\`\`
 
 ##  Key Features
 
 ### Timeout-Free Execution
--Background;
+-Background
 mode;
 for long-running tasks;
 - State persistence
@@ -282,25 +296,27 @@ Dry;
 run;
 to;
 preview: null;
-\`\`\`bash
-`;`
-// claude-zen swarm "Test task" --dry-run --strategy development;
+`
+\`\`\`bash``;``
+// claude-zen swarm "Test task" --dry-run --strategy development;"
 \`\`\`
 
-### Custom quality thresholds: null
-\`\`\`bash
-`;`
+### Custom quality thresholds: null`;
+\`\`\`bash`
+`
+``;
 // claude-zen swarm "High quality API" \\;
 --strategy;
 development;
 \\
---quality - threshold;
+--quality - threshold
 0.95;
+"
 \`\`\`
 
 ### Scheduling algorithms: null
 - FIFO(First In, First Out)
--Priority - based;
+-Priority - based
 -Deadline - driven;
 -Shortest;
 Job;
@@ -313,9 +329,10 @@ Path;
 For;
 detailed;
 documentation,
-  see, //github.com/ruvnet/claude-code-flow/docs/swarm-system.md
-  `;`
-`;`
+  see, //github.com/ruvnet/claude-code-flow/docs/swarm-system.md`
+  `;``
+`;
+``;
 // // await node.writeTextFile(`;`
 $;
 {
@@ -323,12 +340,21 @@ $;
 }
 /.claude/acdmmnos / claude -
   zen -
-  swarm.md`, swarmCommand);`
+  `
+  swarm.md`,
+  swarmCommand;
+)
+``;
 // // await node.writeTextFile(`;`
 $;
 {
   workingDir;
 }
-/.claude/commands/claude-zen-swarm.md`, swarmCommand);`
+`
+/.claude/commands/claude-zen-swarm.md`,
+  swarmCommand;
+)
+``;
 console.warn('   Created slash command);'
 // }
+'

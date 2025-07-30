@@ -1,36 +1,36 @@
-/** Task Command Module
-/** Converted from JavaScript to TypeScript
+/** Task Command Module */
+/** Converted from JavaScript to TypeScript */
 
 // task.js - Task management commands with improved argument parsing
- */
+
 import { printError } from '..';
 
-export async function taskCommand() {
+export async function taskCommand() {'
     case 'create':
 // await createTask(subArgs, flags);
       break;
-
+'
     case 'list':
 // // await listTasks(subArgs, flags);
       break;
-
+'
     case 'status':
 // // await showTaskStatus(subArgs, flags);
       break;
-
+'
     case 'cancel':
 // // await cancelTask(subArgs, flags);
       break;
-
+'
     case 'workflow':
 // // await executeWorkflow(subArgs, flags);
       break;
-
+'
     case 'coordination':
 // // await manageCoordination(subArgs, flags);
       break;default = new Command();
 exitOverride();
-allowUnknownOption();
+allowUnknownOption();'
 option('--priority <value>', 'Set task priority(1-10)', '5');
 
   try {
@@ -38,24 +38,20 @@ option('--priority <value>', 'Set task priority(1-10)', '5');
     program.parse(subArgs, {from = program.opts();
   const _args = program.args;
 
-  // Extract task type and description with proper quote handling
+  // Extract task type and description with proper quote handling'
   const _taskType = args[1]; // First arg after 'create'
 
-  // Join remaining args for description, handling quoted strings properly
-  const _description = '';
+  // Join remaining args for description, handling quoted strings properly'';
   if(args.length > 2) {
     // If the description starts with a quote, find the matching end quote
     const _descriptionArgs = args.slice(2);
     description = parseQuotedDescription(descriptionArgs);
   //   }
-   catch (error) console.error(error); if(!taskType  ?? !description) {
-    printError('Usage = `task_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;'
+   catch (error) console.error(error); if(!taskType  ?? !description) {'
+    printError(''
   const __priority = opts.priority  ?? '5';
-
-  printSuccess(`Creating ${taskType}task = args.join(' ');`
-
-  // Check if it starts with a quote
-  if(fullString.startsWith('"')  ?? fullString.startsWith("'")) {"'
+'
+  printSuccess(`Creating ${taskType}task = args.join(' '"''"'
     const _quoteChar = fullString[0];
     const _endIndex = fullString.lastIndexOf(quoteChar);
   if(endIndex > 0) {
@@ -70,75 +66,77 @@ option('--priority <value>', 'Set task priority(1-10)', '5');
 
 async function listTasks(subArgs = new Command();
 exitOverride();
-allowUnknownOption();
-option('--filter <status>', 'Filter by task status');
-option('--verbose', 'Show detailed output');
+allowUnknownOption();'
+option('--filter <status>', 'Filter by task status');'
+option('--verbose', 'Show detailed output');'
 option('-v', 'Show detailed output');
 
   try {
     program.parse(subArgs, {from = program.opts();
   const _filter = opts.filter;
-  const _verbose = opts.verbose  ?? opts.v;
+  const _verbose = opts.verbose  ?? opts.v;'
   printSuccess('Taskqueue = subArgs[1];'
 
-  if(!taskId) {
+  if(!taskId) {'
   printError('Usage = subArgs[1];'
 
-  if(!taskId) {
+  if(!taskId) {'
   printError('Usage = subArgs[1];'
 
-  if(!workflowFile) {
+  if(!workflowFile) {'
   printError('Usage = subArgs[1];'
 
-  switch(coordCmd) {
-    case 'status':
-      printSuccess('Task coordination status);'
-      console.warn(' Coordination engine);'
-      console.warn('   Active coordinators);'
-      console.warn('   Pending tasks);'
+  switch(coordCmd) {'
+    case 'status':'
+      printSuccess(''
+      console.warn(''
+      console.warn(''
+      console.warn(''
       console.warn('   Resource utilization);'
       break;
-
-    case 'optimize':
-      printSuccess('Optimizing task coordination...');
-      console.warn(' Optimization would include);'
-      console.warn('   - Task dependency analysis');
-      console.warn('   - Resource allocation optimization');
+'
+    case 'optimize':'
+      printSuccess('Optimizing task coordination...');'
+      console.warn(''
+      console.warn('   - Task dependency analysis');'
+      console.warn('   - Resource allocation optimization');'
       console.warn('   - Parallel execution planning');
       break;
 
-    default: { null
+    default: { null'
       console.warn('Coordination commands, optimize');
   //   }
  catch (error) console.error(error); 
 
-function showTaskHelp() {
-  console.warn('Task commands);'
-  console.warn('  create <type> "<description>"    Create new task');
-  console.warn('  list [--filter <status>]        List tasks');
-  console.warn('  status <id>                      Show task details');
-  console.warn('  cancel <id>                      Cancel running task');
-  console.warn('  workflow <file>                  Execute workflow file');
+function showTaskHelp() {'
+  console.warn(''
+  console.warn('  create <type> "<description>"    Create new task');'
+  console.warn('  list [--filter <status>]        List tasks');'
+  console.warn('  status <id>                      Show task details');'
+  console.warn('  cancel <id>                      Cancel running task');'
+  console.warn('  workflow <file>                  Execute workflow file');'
   console.warn('  coordination <status|optimize>   Manage coordination');
-  console.warn();
-  console.warn('Task Types);'
-  console.warn('  research      Information gathering and analysis');
-  console.warn('  code          Software development tasks');
-  console.warn('  analysis      Data processing and insights');
-  console.warn('  coordination  Task orchestration and management');
+  console.warn();'
+  console.warn(''
+  console.warn('  research      Information gathering and analysis');'
+  console.warn('  code          Software development tasks');'
+  console.warn('  analysis      Data processing and insights');'
+  console.warn('  coordination  Task orchestration and management');'
   console.warn('  general       General purpose tasks');
-  console.warn();
-  console.warn('Options);'
-  console.warn('  --priority <1-10>                Set task priority');
-  console.warn('  --filter <status>                Filter by status');
+  console.warn();'
+  console.warn(''
+  console.warn('  --priority <1-10>                Set task priority');'
+  console.warn('  --filter <status>                Filter by status');'
   console.warn('  --verbose, -v                    Show detailed output');
-  console.warn();
-  console.warn('Examples);'
-  console.warn('  claude-zen task create research "Market analysis" --priority 8');
-  console.warn('  claude-zen task list --filter running');
-  console.warn('  claude-zen task workflow examples'
+  console.warn();'
+  console.warn(''
+  console.warn('  claude-zen task create research "Market analysis" --priority 8');'
+  console.warn('  claude-zen task list --filter running');'
+  console.warn(''
   console.warn('  claude-zen task coordination status');
 // }
 
 }
-    }}}}}}})))))))))
+    }}}}}}}))))))))
+'
+

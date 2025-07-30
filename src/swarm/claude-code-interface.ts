@@ -1,18 +1,17 @@
-/** Claude Code Coordination Interface;
- *;
-/** This module provides the interface layer for coordinating with Claude Code;
- * instances, managing agent spawning through the claude CLI, handling process;
- * lifecycle, and enabling seamless communication between the swarm system;
- * and individual Claude agents.;
- */
+/** Claude Code Coordination Interface; */
+*
+/** This module provides the interface layer for coordinating with Claude Code; */
+* instances, managing agent spawning through the claude CLI, handling process
+* lifecycle, and enabling seamless communication between the swarm system
+* and individual Claude agents.
 
-'node = new Map(); // eslint-disable-line';
+'node = new Map(); // eslint-disable-line'
 // private agents = new Map() {}
 // private taskExecutor = false
 constructor(
 config =
 // {
-// }
+// }'
 ,memoryManager = new Logger('ClaudeCodeInterface')
 this.config = this.createDefaultConfig(config)
 this.memoryManager = memoryManager
@@ -20,50 +19,52 @@ this.processPool = this.initializeProcessPool() {}
 this.taskExecutor = new TaskExecutor(
 // {
   timeoutMs = true;
-this.logger.info('Claude Code // interface initialized successfully', {poolSize = Array.from(this.activeExecutions.keys());
+'
+this.logger.info('Claude Code // interface initialized successfully',
+{poolSize = Array.from(this.activeExecutions.keys());'
 // map(executionId => this.cancelExecution(executionId, 'Interface shutdown'))
 // // // await Promise.allSettled(cancellationPromises)
 // // Terminate all agents
 // // await this.terminateAllAgents() {}
 // // Shutdown task executor
 // // await this.taskExecutor.shutdown() {}
-// this.isInitialized = false
-//   this.logger.info('Claude Code interface shut down successfully')
+// this.isInitialized = false'
+//   this.logger.info('Claude Code interface shut down successfully')'
 //   this.emit('shutdown')
 // // }
 catch(error)
-// {
+// {'
   this.logger.error('Error during Claude Code interface shutdown', error)
 throw error;
 // }
 // }
 
-/** Spawn a new Claude agent with specified configuration;
+/** Spawn a new Claude agent with specified configuration; */
 
 // async
- */
+
 spawnAgent((options = this.config.maxConcurrentAgents));
-// {
+// {'
 throw new Error('Maximum concurrent agents limit reached');
 // }
 // Build Claude command
 const _command = this.buildClaudeCommand(options);
-// Spawn process
-const _process = spawn(command.executable, command.args, {cwd = generateId('claude-agent');
+// Spawn process'
+const _process = spawn(command.executable, command.args, {cwd = generateId('claude-agent');'
 const _agent = {id = 'idle';
-agent.lastActivity = new Date();
+agent.lastActivity = new Date();'
 this.logger.info('Claude agent spawned successfully', {
         agentId,
 processId = {};
-)
-): Promise<ClaudeTaskExecution>
-// {
-const _executionId = generateId('claude-execution');
 
+): Promise<ClaudeTaskExecution>
+// {'
+const _executionId = generateId('claude-execution');
+'
 this.logger.info('Executing task with Claude agent', {)
       executionId,taskId = agentId ? this.agents.get(agentId) : // await this.selectOptimalAgent(taskDefinition);
-  if(!agent) {
-  throw new Error(agentId ? `Agent notfound = = 'idle') {`
+  if(!agent) {'
+  throw new Error(agentId ? `Agent notfound = = 'idle') {``
         throw new Error(`Agent ${agent.id} is not available(status = {id = 'busy';`
   agent.currentTask = executionId;
   agent.lastActivity = new Date();
@@ -71,7 +72,7 @@ this.logger.info('Executing task with Claude agent', {)
   // Move agent from idle to busy pool
   this.moveAgentToBusyPool(agent);
 
-  // Execute task
+  // Execute task`
   execution.status = 'running';
 // const _result = awaitthis.executeTaskWithAgent(agent, taskDefinition, options);
 
@@ -80,10 +81,10 @@ this.logger.info('Executing task with Claude agent', {)
   execution.duration = execution.endTime.getTime() - execution.startTime.getTime();
   execution.output = result.result;
   execution.tokensUsed = result.metadata?.tokensUsed;
-  if(result.success) {
+  if(result.success) {'
     execution.status = 'completed';
     agent.metrics.tasksCompleted++;
-  } else {
+  } else {'
     execution.status = 'failed';
     execution.error = result.error;
     agent.metrics.tasksFailed++;
@@ -94,10 +95,10 @@ this.logger.info('Executing task with Claude agent', {)
 
   // Return agent to idle pool
   this.returnAgentToIdlePool(agent);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
   this.logger.info('Task execution completed', {)
         executionId,success = this.activeExecutions.get(executionId);
-  if(execution) {
+  if(execution) {'
     execution.status = 'failed';
     execution.error = error instanceof Error ? error.message = new Date();
     execution.duration = execution.endTime.getTime() - execution.startTime.getTime();
@@ -108,10 +109,10 @@ this.logger.info('Executing task with Claude agent', {)
       this.returnAgentToIdlePool(agent);
     //   // LINT: unreachable code removed}
   //   }
-
+'
   this.logger.error('Task execution failed', {)
         executionId,error = this.activeExecutions.get(executionId);
-  if(!execution) {
+  if(!execution) {'
     throw new Error(`Execution notfound = 'cancelled';`
       execution.error = reason;
       execution.endTime = new Date();
@@ -123,10 +124,10 @@ this.logger.info('Executing task with Claude agent', {)
 // // await this.cancelAgentTask(agent);
         this.returnAgentToIdlePool(agent);
     //   // LINT: unreachable code removed}
-
+`
       this.emit('task = 'Manual termination'): Promise<void> {'
     const _agent = this.agents.get(agentId);
-  if(!agent) {
+  if(!agent) {'
       throw new Error(`Agent notfound = 'terminated';`
 
     // Terminate process
@@ -135,76 +136,75 @@ this.logger.info('Executing task with Claude agent', {)
     this.removeAgentFromPools(agent);
     this.agents.delete(agentId);
     this.processPool.totalTerminated++;
-
+`
     this.logger.info('Claude agent terminated successfully', {
-        agentId,)
+        agentId,
         reason,totalTasks = Array.from(this.agents.values());
 
     const __totalTokens = agents.reduce((sum, a) => sum + a.metrics.totalTokensUsed, 0);
-
+'
     const _process = spawn(this.config.claudeExecutablePath, ['--version'], {
-        stdio => {
-        let _output = '';
-
+        stdio => {'';
+'
     process.stdout?.on('data', (data) => {
       output += data.toString();
     });
-
+'
     process.on('close', (code) => {
-  if(code === 0) {
+  if(code === 0) {'
             this.logger.info('Claude executable verified', {path = [];
 
   for(let i = 0; i < this.config.agentPoolSize; i++) {
-      promises.push(this.spawnAgent({type = // await Promise.allSettled(promises);
-    const _successful = results.filter(r => r.status === 'fulfilled').length;
+      promises.push(this.spawnAgent({type = // await Promise.allSettled(promises);'
+    const _successful = results.filter(r => r.status === 'fulfilled').length;'
     const _failed = results.filter(r => r.status === 'rejected').length;
-
+'
     this.logger.info('Agent pool pre-warming completed', {
       successful,
       failed,targetSize = [];
 
-    // Add model/g)
+    // Add model/g)'
     args.push('--model', options.model  ?? this.config.defaultModel);
 
-    // Add max tokens
+    // Add max tokens'
     args.push('--max-tokens', String(options.maxTokens  ?? this.config.maxTokens));
 
-    // Add temperature
+    // Add temperature'
     args.push('--temperature', String(options.temperature  ?? this.config.temperature));
 
     // Add system prompt if provided
-  if(options.systemPrompt) {
+  if(options.systemPrompt) {'
       args.push('--system', options.systemPrompt);
     //     }
 
     // Add tools if specified
-  if(options.tools && options.tools.length > 0) {
+  if(options.tools && options.tools.length > 0) {'
       args.push('--allowedTools', options.tools.join(','));
     //     }
 
     // Enable streaming if configured
-  if(this.config.enableStreaming) {
+  if(this.config.enableStreaming) {'
       args.push('--stream');
     //     }
 
-    // Skip permissions for swarm execution
+    // Skip permissions for swarm execution'
     args.push('--dangerously-skip-permissions');
 
     // return {executable = agent;
-    // ; // LINT: unreachable code removed
-    process.on('exit', (_code, _signal) => {
-      this.logger.info('Claude agent process exited', {agentId = = 'terminated') {
+    // ; // LINT: unreachable code removed'
+    process.on('exit', (_code, _signal) => {'
+      this.logger.info('Claude agent process exited', {agentId = = 'terminated') {'
         agent.status = 'error';
         this.moveAgentToFailedPool(agent);
       //       }
-
-      this.emit('agent => {'
-      this.logger.error('Claude agent process error', {agentId = 'error';))
+'
+      this.emit(''
+      this.logger.error('Claude agent process error', {agentId = 'error';)
       this.moveAgentToFailedPool(agent);
-
-      this.emit('agent => {'
+'
+      this.emit(''
         this.logger.debug('Agent stdout', {
-          agentId => {))
+          agentId => {))'
         this.logger.debug('Agent stderr', {agentId = 30000): Promise<void> {
 //     return new Promise((resolve, reject) => {
       const _startTime = Date.now();
@@ -212,13 +212,13 @@ this.logger.info('Executing task with Claude agent', {)
 
       const _checkReady = () => {
         const _elapsed = Date.now() - startTime;
-  if(elapsed > timeout) {
+  if(elapsed > timeout) {'
           reject(new Error(`Agent ${agent.id} failed to become ready within ${timeout}ms`));
           return;
     //   // LINT: unreachable code removed}
 
         // Check if process is still running
-  if(agent.process.killed  ?? agent.process.exitCode !== null) {
+  if(agent.process.killed  ?? agent.process.exitCode !== null) {`
           reject(new Error(`Agent ${agent.id} process terminated during initialization`));
           return;
     //   // LINT: unreachable code removed}
@@ -235,7 +235,7 @@ this.logger.info('Executing task with Claude agent', {)
       checkReady();
     });
   //   }
-
+`
   // private async selectOptimalAgent(taskDefinition = this.processPool.idle.filter(agent => agent.status === 'idle');
   if(availableAgents.length === 0) {
       // Try to spawn a new agent if under limit
@@ -268,7 +268,7 @@ this.logger.info('Executing task with Claude agent', {)
     try {
       // Create execution context for the agent
       const _context = {task = // await this.taskExecutor.executeClaudeTask(;
-        taskDefinition,)
+        taskDefinition,
         context.agent,model = performance.now() - startTime;
 
       // Update agent activity
@@ -283,16 +283,16 @@ this.logger.info('Executing task with Claude agent', {)
       throw error;
     //     }
    catch (error) console.error(error); 
-
+'
   // private convertToAgentState(agent = === 'busy' ? 1 ,health = === 'error' ? 0 ,config = > ['javascript', 'typescript', 'python', 'java'].includes(c)),frameworks = > ['react', 'node', 'express'].includes(c)),domains = > ['web', 'api', 'database'].includes(c)),tools = > ['bash', 'git', 'npm'].includes(c)),maxConcurrentTasks = > setTimeout(resolve, 1000));
 
       // Force kill if still running
-  if(!agent.process.killed) {
+  if(!agent.process.killed) {'
         agent.process.kill('SIGKILL');
       //       }
     //     }
 
-    agent.currentTask = undefined;
+    agent.currentTask = undefined;'
     agent.status = 'idle';
     agent.lastActivity = new Date();
   //   }
@@ -302,13 +302,13 @@ this.logger.info('Executing task with Claude agent', {)
   terminateProcess(process = = null);
   return;
     // ; // LINT: unreachable code removed
-  // Send termination signal
+  // Send termination signal'
   process.kill('SIGTERM');
 
   // Wait for graceful shutdown
 // // await new Promise((resolve) => setTimeout(resolve, 2000));
   // Force kill if still running
-  if(!process.killed && process.exitCode === null) {
+  if(!process.killed && process.exitCode === null) {'
     process.kill('SIGKILL');
   //   }
 // }
@@ -318,7 +318,7 @@ async;
 terminateAllAgents();
 : Promise<void>;
 // {
-  const _terminationPromises = Array.from(this.agents.keys()).map((_agentId) =>;
+  const _terminationPromises = Array.from(this.agents.keys()).map((_agentId) =>;'
     this.terminateAgent(agentId, 'Interface shutdown');
   );
 // // await Promise.allSettled(terminationPromises);
@@ -331,7 +331,7 @@ moveAgentToBusyPool(agent = this.processPool.idle.indexOf(agent);
   this.processPool.busy.push(agent);
 // }
 // }
-
+'
   // private returnAgentToIdlePool(agent = 'idle';
     // agent.currentTask = undefined; // LINT: unreachable code removed
 agent.lastActivity = new Date() 
@@ -401,10 +401,10 @@ performHealthCheck();
   const _now = Date.now();
 
   for (const agent of this.agents.values()) {
-    // Check for stalled agents
-    const _inactiveTime = now - agent.lastActivity.getTime(); if(agent.status === 'busy' && inactiveTime > this.config.timeout * 2) {
-      this.logger.warn('Agent appears stalled', {agentId = = null) {
-  if(agent._status !== 'terminated') {
+    // Check for stalled agents'
+    const _inactiveTime = now - agent.lastActivity.getTime(); if(agent.status === 'busy' && inactiveTime > this.config.timeout * 2) {'
+      this.logger.warn('Agent appears stalled', {agentId = = null) {'
+  if(agent._status !== 'terminated') {'
           this.logger.warn('Agent process died unexpectedly', {agentId = 'error'; this.moveAgentToFailedPool(agent) ;
         //         }
       //       }
@@ -413,19 +413,19 @@ performHealthCheck();
 
   private;
   async;
-  recoverStalledAgent((_agent) => {
+  recoverStalledAgent((_agent) => {'
     this.logger.info('Agent spawned event', data);
   });
-
-  this.on('agent => {')
+'
+  this.on('agent => {')'
       this.logger.info('Agent terminated event', data);
 // }
-// )
-
-this.on('task => {')
-      this.logger.info('Task completed event', data);)
-
-this.on('task => {')
+// 
+'
+this.on('task => {')'
+      this.logger.info('Task completed event', data);
+'
+this.on('task => {')'
       this.logger.warn('Task cancelled event', data);
 });
 // }
@@ -433,4 +433,6 @@ this.on('task => {')
 
 // export default ClaudeCodeInterface;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))))
+'
+

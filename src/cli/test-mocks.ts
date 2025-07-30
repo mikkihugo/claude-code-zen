@@ -1,13 +1,12 @@
-/** Test Mocks for CLI Testing;
-/** Provides mock implementations for testing CLI components;
+/** Test Mocks for CLI Testing; */
+/** Provides mock implementations for testing CLI components; */
 
 // =============================================================================
 // TYPE DEFINITIONS
 // =============================================================================
 
-/** Task execution result interface;
+/** Task execution result interface; */
 
- */
 export // interface TaskExecutionResult {success = ============================================================================
 // // MOCK FUNCTIONS
 // // =============================================================================
@@ -24,52 +23,86 @@ export // interface TaskExecutionResult {success = =============================
 
 // export class Agent {
 //   // public id = {}
-// )
+//
 // {
 this.id = config.id ?? 'test-agent';
 this;
 
 type = config;
-
+'
 type ?? 'test';
 this;
 
 config = config;
 // }
 
-/** Initialize the agent;
- * @returns Promise resolving to true;
-    // */ // LINT: unreachable code removed
+/** Initialize the agent; */
+*
+@returns
+Promise;
+resolving;
+to;
+true;
+// */ // LINT: unreachable code removed
 async;
 initialize();
 : Promise<boolean>
 // return true;
 
-/** Execute a task;
- * @param task - Task to execute;
- * @returns Promise resolving to task execution result;
- */
+/** Execute a task; */
+ *
+@param
+task - Task;
+to;
+execute;
+*
+@returns
+Promise;
+resolving;
+to;
+task;
+execution;
+result;
+
     // */ // LINT: unreachable code removed
 // async
 execute((task =
-{}
-))
-this.config = config;
+{
+}
+)
+this.config = config
 this.agents = new Map<string, Agent>();
 
-/** Initialize the swarm;
- * @returns Promise resolving to true;
-    // */ // LINT: unreachable code removed
+/** Initialize the swarm; */
+*
+@returns
+Promise;
+resolving;
+to;
+true;
+// */ // LINT: unreachable code removed
 async;
 init();
 : Promise<boolean>
 // return true;
 
-/** Spawn a new agent;
- * @param type - Agent type;
- * @param config - Agent configuration;
- * @returns Promise resolving to spawned agent;
- */
+/** Spawn a new agent; */
+ *
+@param
+type - Agent;
+type;
+*
+@param
+config - Agent;
+configuration;
+*
+@returns
+Promise;
+resolving;
+to;
+spawned;
+agent;
+
     // */ // LINT: unreachable code removed
 // async
 spawnAgent(
@@ -78,20 +111,42 @@ this.agents.set(agent.id, agent);
 // return agent;
 // }
 
-/** Orchestrate a task across agents;
- * @param task - Task to orchestrate;
- * @returns Promise resolving to orchestration result;
- */
+/** Orchestrate a task across agents; */
+*
+@param
+task - Task;
+to;
+orchestrate;
+*
+@returns
+Promise;
+resolving;
+to;
+orchestration;
+result;
+
 // */ // LINT: unreachable code removed
 // async
 orchestrate(task = new Map<string, any>()
 // }
 
-/** Store a value in memory;
-   * @param key - Storage key;
-   * @param value - Value to store;
-   * @returns Promise resolving to true;
- */
+/** Store a value in memory; */
+   *
+@param
+key - Storage;
+key;
+*
+@param
+value - Value;
+to;
+store;
+*
+@returns
+Promise;
+resolving;
+to;
+true;
+
     // */ // LINT: unreachable code removed
 // async
 store(key = []
@@ -102,7 +157,7 @@ for (const [key, value] of this.memory.entries()) {
 // return results; 
 // }
 
-/** Clear all memory;
+/** Clear all memory; */
    * @returns Promise resolving to true;
     // */ // LINT: unreachable code removed
 // async clear() {}
@@ -112,7 +167,7 @@ for (const [key, value] of this.memory.entries()) {
   // return true;
 // }
 
-/** Get memory size;
+/** Get memory size; */
  * @returns Number of stored items;
     // */ // LINT: unreachable code removed
 size();
@@ -125,11 +180,12 @@ size();
 // DEFAULT EXPORT
 // =============================================================================
 
-/** Default export with all mock implementations
+/** Default export with all mock implementations */
 
 // export default {
   showAllCommands,
 Agent,
 RuvSwarm,
 SwarmMemory }
-))
+)
+'

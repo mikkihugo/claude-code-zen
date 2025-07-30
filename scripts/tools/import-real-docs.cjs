@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
-/* Import REAL Singularity Engine documentation into Document Stack
-/** These are actual project docs that Claude Desktop can access via MCP
+/* Import REAL Singularity Engine documentation into Document Stack */
+/** These are actual project docs that Claude Desktop can access via MCP */
 
- */
-const fs = require('node).promises;'
-const _path = require('node);'
+const fs = require('';
+const _path = require('';
 const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
 
 // Mock memory store that we can verify
@@ -14,7 +13,7 @@ class VerifiableMemoryStore {
     this.data = new Map();
     this.documentList = [];
 
-  async store(key, value, options = {}) { 
+  async store(key, value, options = {}) { '
     const fullKey = options.namespace ? `$options.namespace}:${key}` ;
     this.data.set(fullKey, value);
 
@@ -24,18 +23,18 @@ class VerifiableMemoryStore {
       service: docData.metadata.service,
       type: docData.metadata.type,
       layer: docData.metadata.stack_layer,
-      title: docData.metadata.title || docData.id,)
+      title: docData.metadata.title || docData.id,)`
       size: `${Math.round(value.length / 1024)}KB` });
     // return { id, size: value.length };
 
-  async retrieve(key, options = {}) { 
+  async retrieve(key, options = {}) { `
     const fullKey = options.namespace ? `$options.namespace}:${key}` ;
     // return this.data.get(fullKey) || null;
 
   async search(options = {}) { 
     const results = };
-  for(const [key, value] of this.data) {
-      if(options.pattern === '*' || key.includes(options.pattern || '')) {
+  for(const [key, value] of this.data) {`
+      if(options.pattern === '*'')) {
         results[key] = value; }
 
     // return results; 
@@ -49,30 +48,30 @@ setupDefaultRules(docStack);
 
 // Real Singularity Engine documents to import
 const realDocs = [
-{}
-    file: '/home/mhugo/code/singularity-engine/docs/SYSTEM_ARCHITECTURE.md',
-    docType: 'service-adr',
-    service: 'platform-architecture',
+{}'
+    file: '/home/mhugo/code/singularity-engine/docs/SYSTEM_ARCHITECTURE.md','
+    docType: 'service-adr','
+    service: 'platform-architecture','
     docId: 'singularity-engine-system-architecture' },
-{}
-    file: '/home/mhugo/code/singularity-engine/docs/README.md',
-    docType: 'user-guide',
-    service: 'platform-docs',
+{}'
+    file: '/home/mhugo/code/singularity-engine/docs/README.md','
+    docType: 'user-guide','
+    service: 'platform-docs','
     docId: 'singularity-engine-overview' },
-{}
-    file: '/home/mhugo/code/singularity-engine/docs/NATS_COMPREHENSIVE_GUIDE.md',
-    docType: 'deployment-guide',
-    service: 'messaging-infrastructure',
+{}'
+    file: '/home/mhugo/code/singularity-engine/docs/NATS_COMPREHENSIVE_GUIDE.md','
+    docType: 'deployment-guide','
+    service: 'messaging-infrastructure','
     docId: 'nats-comprehensive-guide' },
-{}
-    file: '/home/mhugo/code/singularity-engine/docs/MCP_TO_SERVICES_MIGRATION_PLAN.md',
-    docType: 'service-adr',
-    service: 'mcp-services',
+{}'
+    file: '/home/mhugo/code/singularity-engine/docs/MCP_TO_SERVICES_MIGRATION_PLAN.md','
+    docType: 'service-adr','
+    service: 'mcp-services','
     docId: 'mcp-to-services-migration' },
-{}
-    file: '/home/mhugo/code/singularity-engine/docs/SERVICE_DOCUMENTATION.md',
-    docType: 'api-documentation',
-    service: 'platform-services',
+{}'
+    file: '/home/mhugo/code/singularity-engine/docs/SERVICE_DOCUMENTATION.md','
+    docType: 'api-documentation','
+    service: 'platform-services','
     docId: 'service-documentation-standards' } ];
 
 async function importRealDocs() {
@@ -83,7 +82,7 @@ async function importRealDocs() {
       try {
 // // await fs.access(docInfo.file); 
       } catch (error) { console.error(error); } catch(_error) 
-        continue; 
+        continue; '
 // const content = awaitfs.readFile(docInfo.file, 'utf-8') {;
 
       // Extract real metadata from content
@@ -94,50 +93,50 @@ async function importRealDocs() {
       const tags = [];
       const lowerContent = content.toLowerCase();
 
-      // Architecture tags
-      if(lowerContent.includes('microservice') || lowerContent.includes('service'))
-        tags.push('microservices');
-      if(lowerContent.includes('architecture') || lowerContent.includes('design'))
-        tags.push('architecture');
+      // Architecture tags'
+      if(lowerContent.includes('microservice') || lowerContent.includes('service'))'
+        tags.push('microservices');'
+      if(lowerContent.includes('architecture') || lowerContent.includes('design'))'
+        tags.push('architecture');'
       if(lowerContent.includes('domain')) tags.push('domain-driven-design');
 
-      // Technology tags
-      if(lowerContent.includes('nats')) tags.push('nats', 'messaging');
-      if(lowerContent.includes('postgresql') || lowerContent.includes('postgres'))
-        tags.push('postgresql', 'database');
-      if(lowerContent.includes('redis')) tags.push('redis', 'cache');
-      if(lowerContent.includes('kubernetes') || lowerContent.includes('k8s'))
-        tags.push('kubernetes');
+      // Technology tags'
+      if(lowerContent.includes('nats')) tags.push('nats', 'messaging');'
+      if(lowerContent.includes('postgresql') || lowerContent.includes('postgres'))'
+        tags.push('postgresql', 'database');'
+      if(lowerContent.includes('redis')) tags.push('redis', 'cache');'
+      if(lowerContent.includes('kubernetes') || lowerContent.includes('k8s'))'
+        tags.push('kubernetes');'
       if(lowerContent.includes('docker')) tags.push('docker');
 
-      // Functional tags
-      if(lowerContent.includes('api') || lowerContent.includes('rest')) tags.push('api');
-      if(lowerContent.includes('auth') || lowerContent.includes('jwt'))
-        tags.push('authentication');
-      if(lowerContent.includes('deploy') || lowerContent.includes('infrastructure'))
-        tags.push('deployment');
-      if(lowerContent.includes('monitor') || lowerContent.includes('observability'))
-        tags.push('monitoring');
-      if(lowerContent.includes('agent') || lowerContent.includes('ai')) tags.push('ai-agents');
+      // Functional tags'
+      if(lowerContent.includes('api') || lowerContent.includes('rest')) tags.push('api');'
+      if(lowerContent.includes('auth') || lowerContent.includes('jwt'))'
+        tags.push('authentication');'
+      if(lowerContent.includes('deploy') || lowerContent.includes('infrastructure'))'
+        tags.push('deployment');'
+      if(lowerContent.includes('monitor') || lowerContent.includes('observability'))'
+        tags.push('monitoring');'
+      if(lowerContent.includes('agent') || lowerContent.includes('ai')) tags.push('ai-agents');'
       if(lowerContent.includes('mcp')) tags.push('mcp', 'model-context-protocol');
 
       // Smart dependency detection
-      const dependencies = [];
-      if(lowerContent.includes('postgresql')) dependencies.push('postgresql-database');
-      if(lowerContent.includes('nats')) dependencies.push('nats-messaging');
-      if(lowerContent.includes('redis')) dependencies.push('redis-cache');
-      if(lowerContent.includes('auth-service')) dependencies.push('auth-service');
-      if(lowerContent.includes('agent-management')) dependencies.push('agent-management-service');
-      if(lowerContent.includes('memory-service')) dependencies.push('memory-service');
-      if(lowerContent.includes('infrastructure-service'))
+      const dependencies = [];'
+      if(lowerContent.includes('postgresql')) dependencies.push('postgresql-database');'
+      if(lowerContent.includes('nats')) dependencies.push('nats-messaging');'
+      if(lowerContent.includes('redis')) dependencies.push('redis-cache');'
+      if(lowerContent.includes('auth-service')) dependencies.push('auth-service');'
+      if(lowerContent.includes('agent-management')) dependencies.push('agent-management-service');'
+      if(lowerContent.includes('memory-service')) dependencies.push('memory-service');'
+      if(lowerContent.includes('infrastructure-service'))'
         dependencies.push('infrastructure-service');
 // // await docStack.createDocument(docInfo.docType, docInfo.service, docInfo.docId, content, {
         title,
         tags,
-        dependencies,
+        dependencies,'
         source: 'singularity-engine-docs',
         original_path: docInfo.file,
-        file_size: content.length,)
+        file_size: content.length,
         word_count: content.split(/\s+/).length });
       _successCount++;
     } catch(_error) 
@@ -151,7 +150,7 @@ async function importRealDocs() {
     const _layer = doc.layer.substring(0, 10).padEnd(10);
     const _size = doc.size.padEnd(6);
     const _title = doc.title.substring(0, 20);
-  });
+  });'
 // const testDoc = awaitmemoryStore.retrieve('service-adr/singularity-engine-system-architecture', {/g)
     namespace);
   if(testDoc) {
@@ -159,3 +158,8 @@ async function importRealDocs() {
   } else {
 
 importRealDocs().catch(console.error);
+'
+}
+}
+}
+}

@@ -1,15 +1,16 @@
-/** Model Context Protocol(MCP) Types;
-/** Types for MCP server integration and tool execution
+/** Model Context Protocol(MCP) Types; */
+/** Types for MCP server integration and tool execution */
 
- */
 import type { JSONObject } from '.';
 
 // =============================================================================
 // MCP CORE TYPES
 // =============================================================================
-
+'
 export type MCPVersion = '2024-11-05' | '1.0.0' | string;
+'
 export type MCPRole = 'client' | 'server';
+'
 export type MCPTransport = 'stdio' | 'sse' | 'websocket' | 'http';
 
 export // interface MCPCapabilities {
@@ -67,7 +68,7 @@ experimental?: Record<string, JSONObject>;
 // export interface Tool extends Identifiable {name = ============================================================================
 // // LOGGING
 // // =============================================================================
-
+'
 // export type LoggingLevel = 'debug' | 'info' | 'notice' | 'warning' | 'error' | 'critical' | 'alert' | 'emergency'
 
 // export interface SetLevelRequest extends MCPRequest {method = ============================================================================
@@ -107,22 +108,23 @@ experimental?: Record<string, JSONObject>;
 // // =============================================================================
 
 // export interface MCPEvents {
-//   // Connection events
+//   // Connection events'
 //   'server-connected');
-// : (result = > void
-// 'tool-failed': (request = > void
-// 'tools-discovered': (result = > void
+// : (result = > void'
+// 'tool-failed': (request = > void'
+// 'tools-discovered': (result = > void'
 // 'tool-list-changed': (serverId = > void
-// // Resource events
-// 'resource-updated': (serverId = > void
+// // Resource events'
+// 'resource-updated': (serverId = > void'
 // 'resource-list-changed': (serverId = > void
-// // Prompt events
+// // Prompt events'
 // 'prompt-list-changed': (serverId = > void
-// // Logging events
+// // Logging events'
 // 'log-message': (serverId = > void
-// // Performance events
-// 'performance-warning': (serverId = > void
+// // Performance events'
+// 'performance-warning': (serverId = > void'
 // 'resource-exhausted': (serverId = > void
 // // }
 
-}}}}}}}}}}}}}}}}))))))))))
+}}}}}}}}}}}}}}}})))))))))
+'

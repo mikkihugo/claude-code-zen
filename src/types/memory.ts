@@ -1,16 +1,18 @@
-/** Memory System Types;
-/** Persistent memory and state management across sessions;
+/** Memory System Types; */
+/** Persistent memory and state management across sessions; */
 
- */
 import type { Identifiable, JSONObject } from '.';
 
 // =============================================================================
 // MEMORY CORE TYPES
 // =============================================================================
-
+'
 export type MemoryType = 'volatile' | 'persistent' | 'session' | 'cache' | 'shared' | 'distributed';
+'
 export type MemoryBackend = 'sqlite' | 'redis' | 'lancedb' | 'memory' | 'file' | 'hybrid';
+'
 export type ConsistencyLevel = 'eventual' | 'weak' | 'strong' | 'causal' | 'linearizable';
+'
 export type AccessPattern = 'sequential' | 'random' | 'locality' | 'streaming' | 'bulk';
 
 export // interface MemoryConfig {
@@ -129,4 +131,5 @@ errors;
 //   // end: Date
 // // }
 
-}}}}}}}}})
+}}}}}}}}}
+'

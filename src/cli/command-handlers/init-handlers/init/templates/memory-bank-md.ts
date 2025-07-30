@@ -1,31 +1,30 @@
-/** Memory Bank Md Module
-/** Converted from JavaScript to TypeScript
+/** Memory Bank Md Module */
+/** Converted from JavaScript to TypeScript */
 
 // memory-bank-md.js - Memory Bank templates
 
- */
 export function createMinimalMemoryBankMd() {
 //   return `# Memory Bank`
 
     // ## Quick Reference; // LINT: unreachable code removed
 - Project uses SQLite for memory persistence;
-- Memory is organized by namespaces;
+- Memory is organized by namespaces;`
 - Query with \`npx claude-zen memory query <search>\`
 
-## Storage Location;
-- Database: \`./memory/claude-zen-data.json\`;
-- Sessions: \`./memory/sessions/\`;
+## Storage Location;`
+- Database: \`./memory/claude-zen-data.json\`;`
+- Sessions: \`./memory/sessions/\`;`
 `;`
 // }
-export function createFullMemoryBankMd() {
+export function createFullMemoryBankMd() {`
 //   return `# Memory Bank Configuration`
 
     // ## Overview; // LINT: unreachable code removed
 The Claude-Flow memory system provides persistent storage and intelligent retrieval of information across agent sessions. It uses a hybrid approach combining SQL databases with semantic search capabilities.
 
-## Storage Backends;
-- **Primary**: Kuzu graph database(\`./memory/graphs/\`) with relationship modeling  
-- **Vector Store**: LanceDB(\`./memory/vectors/\`) for semantic search
+## Storage Backends;`
+- **Primary**: Kuzu graph database(\`./memory/graphs/\`) with relationship modeling  `
+- **Vector Store**: LanceDB(\`./memory/vectors/\`) for semantic search`
 - **Sessions**: SQLite database(\`./memory/structured.db\`) for fast queries
 - **Cache**: In-memory cache for frequently accessed data
 
@@ -35,29 +34,29 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 - **Indexing**: Automatic content indexing for fast retrieval
 - **Replication**: Optional distributed storage support
 
-## Commands;
-- \`npx claude-zen memory query <search>\`: Search stored information;
-- \`npx claude-zen memory stats\`: Show memory usage statistics;
-- \`npx claude-zen memory export <file>\`: Export memory to file
+## Commands;`
+- \`npx claude-zen memory query <search>\`: Search stored information;`
+- \`npx claude-zen memory stats\`: Show memory usage statistics;`
+- \`npx claude-zen memory export <file>\`: Export memory to file`
 - \`npx claude-zen memory import <file>\`: Import memory from file
 
-## Configuration;
-Memory settings are configured in \`claude-zen.config.json\`:
+## Configuration;`
+Memory settings are configured in \`claude-zen.config.json\`:`
 \`\`\`json;`
-// {
-  "memory": 
-    "backend": "kuzu", // Graph database for relationships
-    "path": "./memory/claude-zen-data.json",
-    "cacheSize",
-    "indexing",
-    "namespaces": ["default", "agents", "tasks", "sessions"],
-    "retentionPolicy": 
-      "sessions": "30d",
-      "tasks": "90d",
+// {`
+  "memory": "
+    "backend": 'kuzu', // Graph database for relationships"
+    "path": './memory/claude-zen-data.json',"
+    'cacheSize',"
+    'indexing',"
+    "namespaces": ['default', 'agents', 'tasks', 'sessions'],"
+    "retentionPolicy": "
+      "sessions": '30d',"
+      "tasks": '90d',"
       "agents": "permanent";
     //     }
   //   }
-// }
+// }"
 \`\`\`
 
 ## Best Practices;
@@ -76,11 +75,11 @@ Memory settings are configured in \`claude-zen.config.json\`:
 - Memory is automatically synchronized across agents;
 - Search supports both exact match and semantic similarity;
 - Memory contents are // private to your local instance;
-- No data is sent to external services without explicit commands;
+- No data is sent to external services without explicit commands;`
 `;`
 // }
 // Create optimized Memory Bank with batchtools support
-// export async function createOptimizedMemoryBankMd() {
+// export async function createOptimizedMemoryBankMd() {`
 //   return `# Memory Bank Configuration(Batchtools Optimized)`
 
     // ## Overview; // LINT: unreachable code removed
@@ -89,7 +88,7 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 ** Batchtools Enhancement**: This configuration includes parallel processing capabilities for memory operations, batch storage, and concurrent retrieval optimizations.
 
 ## Storage Backends(Enhanced);
-- **Primary**: Hybrid backend(LanceDB + Kuzu + SQLite) with parallel access
+- **Primary**: Hybrid backend(LanceDB + Kuzu + SQLite) with parallel access`
 - **Sessions**: File-based storage in \`./memory/sessions/\` with concurrent operations
 - **Cache**: In-memory cache with batch updates for frequently accessed data
 - **Index**: Parallel indexing system for faster search and retrieval
@@ -111,65 +110,65 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 
 ## Commands(Batchtools Enhanced)
 
-### Standard Commands;
-- \`npx claude-zen memory query <search>\`: Search stored information;
-- \`npx claude-zen memory stats\`: Show memory usage statistics;
-- \`npx claude-zen memory export <file>\`: Export memory to file
+### Standard Commands;`
+- \`npx claude-zen memory query <search>\`: Search stored information;`
+- \`npx claude-zen memory stats\`: Show memory usage statistics;`
+- \`npx claude-zen memory export <file>\`: Export memory to file`
 - \`npx claude-zen memory import <file>\`: Import memory from file
 
-### Batchtools Commands;
-- \`npx claude-zen memory batch-store <entries-file>\`: Store multiple entries in parallel;
-- \`npx claude-zen memory parallel-query <queries-file>\`: Execute multiple queries concurrently;
-- \`npx claude-zen memory concurrent-export <namespaces>\`: Export multiple namespaces simultaneously
+### Batchtools Commands;`
+- \`npx claude-zen memory batch-store <entries-file>\`: Store multiple entries in parallel;`
+- \`npx claude-zen memory parallel-query <queries-file>\`: Execute multiple queries concurrently;`
+- \`npx claude-zen memory concurrent-export <namespaces>\`: Export multiple namespaces simultaneously`
 - \`npx claude-zen memory batch-cleanup <retention-config>\`: Clean up multiple namespaces in parallel
 
-## Configuration(Enhanced);
-Memory settings are configured in \`claude-zen.config.json\` with batchtools optimizations: null
+## Configuration(Enhanced);`
+Memory settings are configured in \`claude-zen.config.json\` with batchtools optimizations: null`
 \`\`\`json;`
-// {
-  "memory": 
-    "backend": "kuzu", // Graph database for relationships
-    "path": "./memory/claude-zen-data.json",
-    "cacheSize",
-    "indexing",
-    "batchtools": 
-      "enabled",
-      "maxConcurrent",
-      "batchSize",
-      "parallelIndexing",
-      "concurrentBackups";,
-    "namespaces": ["default", "agents", "tasks", "sessions", "sparc", "batchtools"],
-    "retentionPolicy": 
-      "sessions": "30d",
-      "tasks": "90d",
-      "agents": "permanent",
-      "sparc": "180d",
-      "batchtools": "60d";,
-    "performance": 
-      "enableParallelAccess",
-      "concurrentQueries",
-      "batchWriteSize",
+// {`
+  "memory": "
+    "backend": 'kuzu', // Graph database for relationships"
+    "path": './memory/claude-zen-data.json',"
+    'cacheSize',"
+    'indexing',"
+    "batchtools": "
+      'enabled',"
+      'maxConcurrent',"
+      'batchSize',"
+      'parallelIndexing',"
+      "concurrentBackups";,"
+    "namespaces": ['default', 'agents', 'tasks', 'sessions', 'sparc', 'batchtools'],"
+    "retentionPolicy": "
+      "sessions": '30d',"
+      "tasks": '90d',"
+      "agents": 'permanent',"
+      "sparc": '180d',"
+      "batchtools": "60d";,"
+    "performance": "
+      'enableParallelAccess',"
+      'concurrentQueries',"
+      'batchWriteSize',"
       "parallelIndexUpdate";
     //     }
   //   }
-// }
+// }"
 \`\`\`
 
 ## Batchtools Integration
 
-### Parallel Storage Patterns;
+### Parallel Storage Patterns;`
 \`\`\`bash;`
 # Store SPARC workflow data in parallel;
 npx claude-zen memory batch-store sparc-data.json --namespace sparc --parallel
 
-# Concurrent query across multiple namespaces;
+# Concurrent query across multiple namespaces;`
 npx claude-zen memory parallel-query "authentication design" --namespaces arch,impl,test
 
 # Batch export with parallel compression
-npx claude-zen memory concurrent-export project-backup --compress --parallel
+npx claude-zen memory concurrent-export project-backup --compress --parallel"
 \`\`\`
 
-### Performance Monitoring;
+### Performance Monitoring;`
 \`\`\`bash;`
 # Monitor concurrent operations;
 npx claude-zen memory stats --concurrent --verbose
@@ -178,7 +177,7 @@ npx claude-zen memory stats --concurrent --verbose
 npx claude-zen memory performance-report --batchtools
 
 # Check parallel indexing status;
-npx claude-zen memory index-status --parallel;
+npx claude-zen memory index-status --parallel;`
 \`\`\`
 
 ## Memory Organization(Enhanced)
@@ -243,7 +242,7 @@ npx claude-zen memory index-status --parallel;
 - **Index Lock Conflicts**: Enable parallelIndexing with appropriate locking
 - **Resource Exhaustion**: Monitor system resources during concurrent operations
 
-### Debug Commands;
+### Debug Commands;`
 \`\`\`bash;`
 # Check concurrent operation status;
 npx claude-zen memory debug --concurrent
@@ -252,9 +251,10 @@ npx claude-zen memory debug --concurrent
 npx claude-zen memory analyze --batchtools --verbose
 
 # Validate parallel index integrity;
-npx claude-zen memory index-validate --parallel --repair;
+npx claude-zen memory index-validate --parallel --repair;`
 \`\`\`
 
-For more information about memory system optimization, see,//github.com/ruvnet/claude-zen/docs/memory-batchtools.md
+For more information about memory system optimization, see,//github.com/ruvnet/claude-zen/docs/memory-batchtools.md`
 `;`
 // }
+`

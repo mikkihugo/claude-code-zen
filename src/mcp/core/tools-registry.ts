@@ -1,22 +1,25 @@
-/**
- * @fileoverview MCP; Tools; Registry;
- */
+/** */
+*
+@fileoverview
+MCP;
+Tools;
+Registry;
 
-/** Claude Zen CLI command tools for MCP protocol
- * @module MCPToolsRegistry
-
- */
+/** Claude Zen CLI command tools for MCP protocol */
+ *
+@module
+MCPToolsRegistry * /;
 import type { JSONSchema, ToolResult } from '../../types/mcp.js';
 
 // =============================================================================
 // TOOL HANDLER TYPES
 // =============================================================================
 
-/** Tool handler function type
+/** Tool handler function type */
 
 // export // type ToolHandler = (args = > Promise<ToolResult | any>;
 
-/** Enhanced tool definition with handler
+/** Enhanced tool definition with handler */
 
 // export // interface EnhancedTool {name = Record<string
 // , EnhancedTool>
@@ -95,8 +98,12 @@ import type { JSONSchema, ToolResult } from '../../types/mcp.js';
 // TOOL REGISTRY FUNCTIONS
 // =============================================================================
 
-/** Combine all tool definitions into a single registry
- * @returns Complete tools registry
+/** Combine all tool definitions into a single registry */
+*
+@returns
+Complete;
+tools;
+registry
     // */ // LINT: unreachable code removed
 // export function _initializeAllTools() {
 //   return {
@@ -110,20 +117,34 @@ import type { JSONSchema, ToolResult } from '../../types/mcp.js';
 ..initializeGitTools() }
 // }
 
-/** Get tool schema by name
- * @param toolName - Name of the tool
- * @returns Tool schema or null if not found
- */
+/** Get tool schema by name */
+ *
+@param
+toolName - Name;
+of;
+the;
+tool
+ * @returns Tool
+schema;
+or;
+null;
+if not found
+
 // */ // LINT: unreachable code removed
 // export function getToolSchema(toolName = initializeAllTools();
 // return allTools[toolName] ?? null;
 // }
 
-/** Validate tool arguments against schema: {}
- * @param toolName - Name of the tool
- * @param args - Arguments to validate
- * @returns Validation result
- */
+/** Validate tool arguments against schema: {} */
+ * @param toolName - Name
+of;
+the;
+tool
+ * @param args - Arguments
+to;
+validate
+ * @returns Validation
+result * /;
 // */ // LINT: unreachable code removed
 // export function validateToolArgs(toolName = getToolSchema(toolName);
 if (!schema) {
@@ -133,11 +154,11 @@ if (!schema) {
     if (!(field in args)) {
       // return {valid = properties[key] as JSONSchema;
       // ; // LINT: unreachable code removed
-      if(prop.enum && !prop.enum.includes(value) {) 
-        // return {valid = === 'number' && typeof value !== 'number') {'
+      if(prop.enum && !prop.enum.includes(value) {) '
+        // return {valid = === 'number' && typeof value !== 'number''
         // return {valid = === 'string' && typeof value !== 'string') {'
         // return {
-          valid,
+          valid,'
         // error: `Invalid type for \${key // LINT}: expected string, got ${typeof value}`;`
       //       }
     //     }
@@ -146,50 +167,52 @@ if (!schema) {
 // return { valid};
 // }
 
-/** Get tool categories
+/** Get tool categories */
  * @returns Array of tool categories
     // */ // LINT: unreachable code removed
 // export function _getToolCategories(): ToolCategory[] {
 //   return [;
-    // { // LINT: unreachable code removed
-      name: 'claude-zen','
+    // { // LINT: unreachable code removed`
+      name: 'claude-zen''
       description: 'Core Claude Zen operations','
       count: Object.keys(initializeClaudeZenTools()).length ,
-    //     {
-      name: 'product','
+    //     {'
+      name: 'product''
       description: 'Product management tools','
       count: Object.keys(initializeProductTools()).length }
       ,
-    //     {
-      name: 'neural','
+    //     {'
+      name: 'neural''
       description: 'Neural network operations','
       count: Object.keys(initializeNeuralTools()).length
     }
     ,
-    //     {
-      name: 'memory','
+    //     {'
+      name: 'memory''
       description: 'Memory management operations','
       count: Object.keys(_initializeMemoryTools()).length
   }
   ,
-    //     {
-      name: 'agent','
+    //     {'
+      name: 'agent''
       description: 'Agent lifecycle management','
       count: Object.keys(initializeAgentTools()).length
 }
 ,
-    //     {
-      name: 'task','
+    //     {'
+      name: 'task''
       description: 'Task orchestration and monitoring','
       count: Object.keys(initializeTaskTools()).length },
-    //     {
-      name: 'system','
+    //     {'
+      name: 'system''
       description: 'System utilities and features','
       count: Object.keys(initializeSystemTools()).length },
-    //     {
-      name: 'git','
+    //     {'
+      name: 'git''
       description: 'Git version control operations','
       count: Object.keys(initializeGitTools()).length } ]
 // }
 
-}}}}}}}}}}}}}}}}}}}}}}}}}})
+}}}}}}}}}}}}}}}}}}}}}}}}}}
+'
+

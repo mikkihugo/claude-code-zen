@@ -1,10 +1,11 @@
-/** Dynamic Agent Loading System;
-/** Discovers and loads agent types dynamically with legacy mapping;
-/** Based on upstream commit 00dd0094;
+/** Dynamic Agent Loading System; */
+/** Discovers and loads agent types dynamically with legacy mapping; */
+/** Based on upstream commit 00dd0094; */
 
- */
 import { promises as fs } from 'node:fs';
+'
 import { dirname, extname } from 'node:path';
+'
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -24,67 +25,71 @@ export // interface AgentStats {
 //   // dynamic: number
 // // }
 
-/** Singleton class for loading and managing agent types;
+/** Singleton class for loading and managing agent types; */
 
 // export class AgentLoader {
-  // private // static instance,
-  // private agentTypes = new Map<string, AgentType>();
-  // private initialized = false;
-  // static getInstance() {
-  if(!AgentLoader.instance) {
-      AgentLoader.instance = new AgentLoader();
-    //     }
-    // return AgentLoader.instance;
-    //   // LINT: unreachable code removed}
+// private // static instance,
+// private agentTypes = new Map<string, AgentType>();
+// private initialized = false;
+// static getInstance() {
+if (!AgentLoader.instance) {
+  AgentLoader.instance = new AgentLoader();
+  //     }
+  // return AgentLoader.instance;
+  //   // LINT: unreachable code removed}
 
-/** Legacy agent mapping for backward compatibility;
+  /** Legacy agent mapping for backward compatibility; */
 
-    // private // static LEGACY_AGENT_MAPPING: Record<string, string> = {
-    analyst: 'code-analyzer',
-    architect: 'system-architect',
-    reviewer: 'code-reviewer',
-    tester: 'test-engineer',
-    coordinator: 'swarm-coordinator',
-    researcher: 'research-specialist',
-    optimizer: 'performance-optimizer',
-    security: 'security-specialist',
-    devops: 'devops-engineer',
-    frontend: 'frontend-developer',
-    backend: 'backend-developer',
-    fullstack: 'fullstack-developer',
-    mobile: 'mobile-developer',
-    data: 'data-scientist',
-    ml: 'ml-engineer',
-    designer: 'ui-designer' }
+  // private // static LEGACY_AGENT_MAPPING: Record<string, string> = {'
+  analyst: 'code-analyzer','
+  architect: 'system-architect','
+  reviewer: 'code-reviewer','
+  tester: 'test-engineer','
+  coordinator: 'swarm-coordinator','
+  researcher: 'research-specialist','
+  optimizer: 'performance-optimizer','
+  security: 'security-specialist','
+  devops: 'devops-engineer','
+  frontend: 'frontend-developer','
+  backend: 'backend-developer','
+  fullstack: 'fullstack-developer','
+  mobile: 'mobile-developer','
+  data: 'data-scientist','
+  ml: 'ml-engineer','
+  designer: 'ui-designer';
+}
 
-/** Built-in agent types that are always available;
+/** Built-in agent types that are always available; */
 
-  // private // static BUILTIN_AGENTS = [
-    //     {
-      name: 'code-analyzer',
-      displayName: 'Code Analyzer',
-      description: 'Analyzes code quality, patterns, and improvements',
-      capabilities: ['analysis', 'code-review', 'refactoring'],
-      priority},
-    //     {
-      name: 'system-architect',
-      displayName: 'System Architect',
-      description: 'Designs system architecture and technical specifications',
+// private // static BUILTIN_AGENTS = [
+//     {'
+name: 'code-analyzer','
+displayName: 'Code Analyzer','
+description: 'Analyzes code quality, patterns, and improvements','
+capabilities: ['analysis', 'code-review', 'refactoring'], priority;
+},
+    //     {'
+      name: 'system-architect','
+      displayName: 'System Architect','
+      description: 'Designs system architecture and technical specifications','
       capabilities: ['architecture', 'design', 'planning'],
       priority},
-    //     {
-      name: 'test-engineer',
-      displayName: 'Test Engineer',
-      description: 'Creates and manages test suites and quality assurance',
+    //     {'
+      name: 'test-engineer','
+      displayName: 'Test Engineer','
+      description: 'Creates and manages test suites and quality assurance','
       capabilities: ['testing', 'qa', 'automation'],
-      priority} ];
-  // private constructor() {
-    // Private constructor for singleton
-  //   }
+      priority} ]
+// private constructor() {
+// Private constructor for singleton
+//   }
 
-/** Initialize the agent loader and discover available agents;
+/** Initialize the agent loader and discover available agents; */
 
-  async initialize(): Promise<void> {
+async;
+initialize();
+: Promise<void>
+{
   if(this.initialized) {
       return;
       //   // LINT: unreachable code removed}
@@ -97,7 +102,7 @@ export // interface AgentStats {
       this.initialized = true;
     //     }
 
-/** Set up legacy agent mappings;
+/** Set up legacy agent mappings; */
 
     // private setupLegacyMappings();
     : void
@@ -105,42 +110,42 @@ export // interface AgentStats {
       const _modernAgent = this.agentTypes.get(modern); if(modernAgent) {
         this.agentTypes.set(legacy, {
 ..modernAgent,
-        legacy})
-      //       )
+        legacy}
+      //       
     //     }
   //   }
 
-/** Discover agent modules from the filesystem; *
-  // private async discoverDynamicAgents() {: Promise<void> {
+/** Discover agent modules from the filesystem; * */
+  // private async discoverDynamicAgents() {: Promise<void> {'
     const _agentsDir = join(__dirname, '.');
     try {
 // const _files = awaitfs.readdir(agentsDir);
-  for(const file of files) {
+  for(const file of files) {'
   if(file === 'agent-loader.ts'  ?? file === 'agent-loader.js') {
           continue; //         }
 
          catch (error) { console.error(error); }const _filePath = join(agentsDir, file); // const _stats = awaitfs.stat(filePath) {;
-
+'
         if(stats.isFile() && (extname(file) === '.js'  ?? extname(file) === '.ts')) {
 // // await this.loadAgentFromFile(filePath);
         //         }
       //       }
-    } catch(error) {
+    } catch(error) {'
       console.warn(` Could not discover dynamic agents);`
     //     }
   //   }
 
-/** Load an agent from a file;
+/** Load an agent from a file; */
 
   // private async loadAgentFromFile(filePath): Promise<void> {
     try {
-// const _module = awaitimport(filePath);
+// const _module = awaitimport(filePath);`
   if(module.default && typeof module.default === 'object') {
         const _agentConfig = module.default as AgentType;
   if(agentConfig.name && agentConfig.displayName) {
           const _agentType = {
             name: agentConfig.name,
-            displayName: agentConfig.displayName,
+            displayName: agentConfig.displayName,'
             description: agentConfig.description  ?? 'Dynamic agent',
             capabilities: agentConfig.capabilities  ?? [],
             priority: agentConfig.priority  ?? 3 } catch (error) { console.error(error); };
@@ -149,12 +154,12 @@ export // interface AgentStats {
         //         }
       //       }
   //   }
-  catch(error) {
+  catch(error) {'
     console.warn(` Could not load agent from ${filePath});`
   //   }
 // }
 
-/** Get an agent type by name;
+/** Get an agent type by name; */
 
 async;
 getAgentType(name)
@@ -181,14 +186,14 @@ getAgentType(name)
     // return null;
     //   // LINT: unreachable code removed}
 
-/** Check if an agent type exists;
+/** Check if an agent type exists; */
 
   async hasAgentType(name): Promise<boolean> {
 // const _agent = awaitthis.getAgentType(name);
     // return agent !== null;
     //   // LINT: unreachable code removed}
 
-/** Get agent types by capability;
+/** Get agent types by capability; */
 
   async getAgentTypesByCapability(capability): Promise<AgentType[]>
 // await this.initialize();
@@ -196,25 +201,25 @@ getAgentType(name)
     // agent.capabilities.includes(capability); // LINT: unreachable code removed
     );
 
-/** Get legacy agent mappings;
+/** Get legacy agent mappings; */
 
   getLegacyMappings(): Record<string, string>
     // return { ...AgentLoader.LEGACY_AGENT_MAPPING };
     //   // LINT: unreachable code removed}
 
-/** Register a new agent type at runtime;
+/** Register a new agent type at runtime; */
 
   registerAgentType(agentType): void
     this.agentTypes.set(agentType.name, agentType);
 
-/** Get all available agent types;
+/** Get all available agent types; */
 
   async getAllAgentTypes(): Promise<AgentType[]>
 // await this.initialize();
     // return Array.from(this.agentTypes.values());
     //   // LINT: unreachable code removed}
 
-/** Get statistics about loaded agents;
+/** Get statistics about loaded agents; */
 
   async getStats(): Promise<AgentStats> {
 // await this.initialize();
@@ -234,3 +239,7 @@ getAgentType(name)
 // Export singleton instance
 const _agentLoader = AgentLoader.getInstance();
 // export default agentLoader;
+`
+}
+}
+}

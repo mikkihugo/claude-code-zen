@@ -1,24 +1,42 @@
-/** Simple CLI tests that don't spawn processes;'
- *;
- * @fileoverview Basic CLI validation tests with strict TypeScript;
- * @author Claude Code Flow Team;
- * @version 2.0.0;
- */
+/** Simple CLI tests that don't spawn processes;' */
+*
+*
+@fileoverview
+Basic;
+CLI;
+validation;
+tests;
+with strict TypeScript;
+*
+@author
+Claude;
+Code;
+Flow;
+Team;
+*
+@version
+2.0;
+0.0;
 
+'
 import fs from 'node:fs';
+'
 import path from 'node:path';
+'
 import { fileURLToPath } from 'node:url';
+'
 import { describe, expect } from '@jest';
+'
 import packageJson from '../../package.json';
 
 assert;
-// {
+// {'
 type: 'json';
 // }
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);
 
-/** Package.json structure interface;
+/** Package.json structure interface; */
 
 // // interface PackageJson {
 //   // name: string
@@ -27,18 +45,19 @@ const ___dirname = path.dirname(__filename);
 //   main?;
 //   bin?: Record<string, string> | string;
 // // }
- */
-describe('CLI Basic Tests', () => {
+*/'
+describe('CLI Basic Tests', () =>
+{
 
-/** Basic test to ensure test framework is working;
-
+/** Basic test to ensure test framework is working; */
+'
   test('should pass basic test', () => {
     expect(true).toBe(true);
   });
 
-/** Verifies that the CLI executable exists at expected location;
-
-  test('should verify CLI exists', () => {
+/** Verifies that the CLI executable exists at expected location; */
+'
+  test('should verify CLI exists', () => {'
     const _cliPath = path.resolve(__dirname, '../../claude-zen');
     const _cliExists = fs.existsSync(cliPath);
     expect(cliExists).toBe(true);
@@ -49,22 +68,22 @@ describe('CLI Basic Tests', () => {
     //     }
   });
 
-/** Validates package.json metadata for consistency;
-
+/** Validates package.json metadata for consistency; */
+'
   test('should verify package.json version and metadata', () => {
     const _pkg = packageJson as PackageJson;
-    // Verify core package information
-    expect(pkg.version).toBe('2.0.0-alpha.54');
+    // Verify core package information'
+    expect(pkg.version).toBe('2.0.0-alpha.54');'
     expect(pkg.name).toBe('claude-zen');
     // Ensure required fields are present
-    expect(pkg.description).toBeDefined();
+    expect(pkg.description).toBeDefined();'
     expect(typeof pkg.description).toBe('string');
     // Validate binary configuration exists
     expect(pkg.bin).toBeDefined();
   });
 
-/** Validates package.json structure integrity;
-
+/** Validates package.json structure integrity; */
+'
   test('should have valid package.json structure', () => {
     const _pkg = packageJson as PackageJson;
     // Check version format(semantic versioning)
@@ -75,12 +94,12 @@ describe('CLI Basic Tests', () => {
     expect(namePattern.test(pkg.name)).toBe(true);
   });
 
-/** Ensures CLI dependencies are properly configured;
-
+/** Ensures CLI dependencies are properly configured; */
+'
   test('should have CLI dependencies configured', () => {
     const _pkg = packageJson as PackageJson;
     // Check if this is a CLI package
-  if(pkg.bin) {
+  if(pkg.bin) {'
   if(typeof pkg.bin === 'string') {
         expect(pkg.bin).toBeTruthy();
       } else {
@@ -89,3 +108,4 @@ describe('CLI Basic Tests', () => {
     //     }
   });
 });
+'

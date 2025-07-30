@@ -1,9 +1,10 @@
-/** Configuration Management System - TypeScript Edition;
-/** Comprehensive configuration loading, validation, and management;
+/** Configuration Management System - TypeScript Edition; */
+/** Comprehensive configuration loading, validation, and management; */
 
- */
 import { EventEmitter } from 'node:events';
+'
 import type { CLIConfig, ConfigurationManager as IConfigurationManager } from '../../types/cli';
+'
 import { ConfigurationError } from '../core/cli-error';
 
 // =============================================================================
@@ -37,43 +38,43 @@ load(path?)
 // {
   const _configPath = path ?? this.getDefaultConfigPath();
   this.configPath = configPath;
-  try {
+  try {'
 // const _fs = awaitimport('node);'
 
       // Check if config file exists
       try {
 // // await fs.access(configPath);
-      } catch (error) { console.error(error); } catch {
+      } catch (error) { console.error(error); } catch {'
         // Config file doesn't exist, create default'
 // // await this.createDefaultConfigFile(configPath);
         // return this.config;
     //   // LINT: unreachable code removed}
 
-      // Load and parse config file
+      // Load and parse config file'
 // const _configContent = awaitfs.readFile(configPath, 'utf-8');
-      const __loadedConfig = JSON.parse(configContent);
+      const __loadedConfig = JSON.parse(configContent);'
         } else if(configPath.endsWith('.js')  ?? configPath.endsWith('.mjs')) {
           // Dynamic import for JS config files
 // const _configModule = awaitimport(configPath);
           loadedConfig = configModule.default  ?? configModule;
-        } else {
+        } else {'
           throw new Error('Unsupported config file format. Use .json, .js, or .mjs');
         //         }
       } catch(/* _parseError */) {
-        throw new ConfigurationError(;
+        throw new ConfigurationError(;'
           `Failed to parse configfile = this.mergeConfig(this.config, loadedConfig);`
 
       // Validate the loaded config
       const _validationResults = this.validate(this.schema);
       if(validationResults.some(r => !r.valid)) {
 
-        throw new ConfigurationError(;
-          `Configuration validationfailed = > `$e.key).join('\n')}
+        throw new ConfigurationError(;`
+          `Configuration validationfailed = > `$e.key).join('\n')}'
   `,`
           configPath;
 );
 // }
-
+`
       this.emit('config-loaded', this.config, configPath);
 // return this.config;
     // ; // LINT: unreachable code removed
@@ -82,7 +83,7 @@ load(path?)
     throw error;
   //   }
 
-  throw new ConfigurationError(;
+  throw new ConfigurationError(;'
         `;`
   Failed;
   to;
@@ -90,29 +91,29 @@ load(path?)
   configuration;
   from;
   $configPath);
-    try {
-// const _fs = awaitimport('node);'
+    try {`
+// const _fs = awaitimport('
 // const _pathModule = awaitimport('node);'
 
       // Ensure directory exists
       const _configDir = pathModule.dirname(configPath);
 // // await fs.mkdir(configDir, {recursive = JSON.stringify(configToSave, null, 2);
       //       }
-     catch (error) console.error(error); else
-    if(configPath.endsWith('.js') ?? configPath.endsWith('.mjs')) {
-      content = `module.exports = ${JSON.stringify(configToSave, null, 2)};`
+     catch (error) console.error(error); else'
+    if(configPath.endsWith('.js') ?? configPath.endsWith('.mjs')) {'
+      content = `module.exports = ${JSON.stringify(configToSave, null, 2)};``
   `;`
     } else {
       // Default to JSON
       content = JSON.stringify(configToSave, null, 2);
-    //     }
+    //     }`
 // // await fs.writeFile(configPath, content, 'utf-8');
     this.config = configToSave;
-    this.configPath = configPath;
+    this.configPath = configPath;'
     this.emit('config-saved', configToSave, configPath);
   //   }
   catch(error)
-  throw new ConfigurationError(;
+  throw new ConfigurationError(;'
   `;`
   Failed;
   to;
@@ -129,7 +130,7 @@ load(path?)
   // Notify watchers
   this.notifyWatchers(key, value, oldValue);
 
-  // Emit change event
+  // Emit change event`
   this.emit('config-changed', key, value, oldValue);
 
   has(key = = undefined;
@@ -143,7 +144,7 @@ delete(key = this.has(key);
   // Notify watchers
   this.notifyWatchers(key, undefined, oldValue);
 
-  // Emit change event
+  // Emit change event'
   this.emit('config-changed', key, undefined, oldValue);
 // }
 // return existed;
@@ -158,12 +159,12 @@ delete(key = this.has(key);
   const _results = [];
 
   for (const [key, _schemaEntry] of Object.entries(schema)) {
-    const _value = this.get(key); const _result = {key = === undefined  ?? value === null)) {
+    const _value = this.get(key); const _result = {key = === undefined  ?? value === null)) {'
         result.valid = false; result.message = `;`
   Required;
-  field;
+  field;`
   ('${key}') ;
-  is;
+  is;'
   missing`;`
     results.push(result);
   //   }
@@ -174,28 +175,28 @@ delete(key = this.has(key);
   //   }
 
   // Type validation
-  const _expectedType = schemaEntry.type;
+  const _expectedType = schemaEntry.type;`
   const _actualType = Array.isArray(value) ? 'array' : typeof value;
   if(actualType !== expectedType) {
-    result.valid = false;
+    result.valid = false;'
     result.message = `;`
-  Field;
+  Field;`
   ('${key}');
   must;
   be;
   of;
-  //   type ${expectedType}
+  //   type ${expectedType}'
   , got $actualType`
     results.push(result)
   continue;
   // Custom validation function if() {
-  const _validationResult = schemaEntry.validation(value);
+  const _validationResult = schemaEntry.validation(value);`
   if(typeof validationResult === 'string') {
     result.valid = false;
     result.message = validationResult;
     results.push(result);
   } else if(!validationResult) {
-    result.valid = false;
+    result.valid = false;'
     result.message = `Field '${key}' failed custom validation`;
     results.push(result);
     continue;
@@ -234,7 +235,7 @@ watch(key = > void)
 // async reload() {}
 : Promise<void>
 
-  if(!this.configPath) {
+  if(!this.configPath) {`
     throw new ConfigurationError('No config file loaded, cannot reload');
   //   }
 // // await this.load(this.configPath);
@@ -244,20 +245,20 @@ startWatching();
 // {
   if(!this.configPath) {
     return;
-    //   // LINT: unreachable code removed}
+    //   // LINT: unreachable code removed}'
     const _fs = require('node);'
     fs.watchFile(this.configPath, async() => {
       try {
-// await this.reload();
+// await this.reload();'
       this.emit('config-reloaded', this.config);
-    } catch (error) { console.error(error); } catch(error) 
+    } catch (error) { console.error(error); } catch(error) '
       this.emit('config-reload-error', error););
   //   }
   stopWatching();
   : void
   if(!this.configPath) {
     return;
-    //   // LINT: unreachable code removed}
+    //   // LINT: unreachable code removed}'
     const _fs = require('node);'
     fs.unwatchFile(this.configPath);
   //   }
@@ -272,23 +273,23 @@ startWatching();
   : void
   //   {
     const _oldConfig = { ...this.config };
-    this.config = this.createDefaultConfig();
+    this.config = this.createDefaultConfig();'
     this.emit('config-reset', this.config, oldConfig);
   //   }
   merge(partialConfig = { ...this.config };
-  this.config = this.mergeConfig(this.config, partialConfig);
+  this.config = this.mergeConfig(this.config, partialConfig);'
   this.emit('config-merged', this.config, oldConfig, partialConfig);
-  // export
+  // export'
   format = 'json';
   : string
   //   {
-  switch(format) {
+  switch(format) {'
       case 'json': null
         // return JSON.stringify(this.config, null, 2);
-      // ; // LINT: unreachable code removed
+      // ; // LINT: unreachable code removed'
       case 'yaml': null
         // return this.toYaml(this.config);
-      // ; // LINT: unreachable code removed
+      // ; // LINT: unreachable code removed'
       case 'env': { null
         // return this.toEnvFormat(this.config);
         // default = ============================================================================; // LINT: unreachable code removed
@@ -297,55 +298,55 @@ startWatching();
 
         // private createDefaultConfig();
         : CLIConfig
-        //         {
-          // return {name = === 'development',isProduction = === 'production',isTest = === 'test';
-          //   // LINT: unreachable code removed},paths = process.env.CLAUDE_ZEN_CONFIG_DIR  ?? `\$process.cwd()/.claude-zen`;
+        //         {'
+          // return {name = === 'development',isProduction = === 'production',isTest = === 'test';'
+          //   // LINT: unreachable code removed},paths = process.env.CLAUDE_ZEN_CONFIG_DIR  ?? `\$process.cwd()/.claude-zen`;`
           // return `${configDir}/config.json`;
           //   // LINT: unreachable code removed}
-          // private async;
-          createDefaultConfigFile(path = await import('node);'
+          // private async;`
+          createDefaultConfigFile(path = await import('
 // const _pathModule = awaitimport('node);'
 
           const _dir = pathModule.dirname(path);
 // // await fs.mkdir(dir, {recursive = this.createDefaultConfig();
-          const _content = JSON.stringify(defaultConfig, null, 2);
+          const _content = JSON.stringify(defaultConfig, null, 2);'
 // // await fs.writeFile(path, content, 'utf-8');
         //         }
         private;
   mergeConfig(target = { ...target };
-        for (const key in source) {
+        for (const key in source) {'
           if(source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
             result[key] = this.mergeConfig(result[key] ?? {}, source[key]); } else {
             result[key] = source[key]; //           }
         //         }
         // return result;
     //     }
-    private;
+    private;'
   getNestedValue(obj = path.split('.') {;
     const _current = obj;
-  for(const key of keys) {
+  for(const key of keys) {'
   if(current === null ?? current === undefined ?? typeof current !== 'object') {
         // return undefined; 
         //   // LINT: unreachable code removed}
         current = current[key]; //       }
       // return current;
-    //     }
+    //     }'
     // private setNestedValue(obj,path = path.split('.') {;
     const _current = obj;
   for(let i = 0; i < keys.length - 1; i++) {
-      const _key = keys[i];
+      const _key = keys[i];'
       if(!(key in current) ?? typeof current[key] !== 'object') {
         current[key] = {};
       //       }
       current = current[key];
     //     }
     current[keys[keys.length - 1]] = value;
-  //   }
+  //   }'
   // private deleteNestedValue(obj,path = path.split('.');
   const _current = obj;
   for(let i = 0; i < keys.length - 1; i++) {
-    const _key = keys[i];
-    if(!(key in current) ?? typeof current[key] !== 'object') {
+    const _key = keys[i];'
+    if(!(key in current) ?? typeof current[key] !== 'object') {'
       return; // Path doesn't exist'
     //     }
     current = current[key];
@@ -358,42 +359,29 @@ startWatching();
     try {
       callback(newValue); } catch (error) {
   console.error(error);
-}
+}'
       this.emit('watcher-error', error, key, callback); //     }
   //   }
 // }
 // }
 // private toYaml((obj = 0) {)
 : string
-// {
-  const _spaces = '  '.repeat(indent);
-  const _yaml = '';
+// {'
+  const _spaces = '  '.repeat(indent);'';
   if(Array.isArray(obj)) {
-  for(const item of obj) {
-      yaml += `${spaces}- ${this.toYaml(item, indent + 1).trim()}\n`; //     }
+  for(const item of obj) {'
+      yaml += `${spaces}- ${this.toYaml(item, indent + 1).trim()}\n`; //     }`
   } else if(typeof obj === 'object' && obj !== null) {
-    for(const [key, value] of Object.entries(obj)) {
-  if(typeof value === 'object' && value !== null) {
-        yaml += `${spaces}${key}:\n${this.toYaml(value, indent + 1)}`; } else {
-        yaml += `${spaces}${key}: ${value}\n`;
-      //       }
-    //     }
-  } else {
-    // return String(obj) {;
-    //   // LINT: unreachable code removed}
-    // return yaml;
-  //   }
-  private;
-  toEnvFormat((obj = ''));
+    for(const [key, value] of Object.entries(obj)) {'
+  if(typeof value === 'object' && value !== null) {''));
   : string
-  //   {
-    const _envString = '';
+  //   {'';
     const _processObject = (current, currentPrefix => {
-      for (const [key, value] of Object.entries(current)) {
+      for (const [key, value] of Object.entries(current)) {'
         const _envKey = currentPrefix ? `${currentPrefix}_${key.toUpperCase()}` : key.toUpperCase(); if(typeof value === 'object' && value !== null && !Array.isArray(value)) {
-          processObject(value, envKey); } else {
-          const _envValue = Array.isArray(value) ? value.join(',') : String(value);
-          envString += `${envKey}=${envValue}\n`;;
+          processObject(value, envKey); } else {'
+          const _envValue = Array.isArray(value) ? value.join(',') : String(value);'
+          envString += `${envKey}=${envValue}\n`;
     processObject(obj, prefix);
     // return envString;
   //   }
@@ -411,8 +399,8 @@ const _result = manager.getConfig();
   const _merged = manager.mergeConfig(result, config); result = merged; // }
 // return result;
 // }
-// export function createConfigFromEnvironment() {: Partial<CLIConfig> {
-//   return {flags = === 'true',debug = === 'true',quiet = === 'true';
+// export function createConfigFromEnvironment() {: Partial<CLIConfig> {`
+//   return {flags = === 'true',debug = === 'true',quiet = === 'true';'
   //   // LINT: unreachable code removed},environment = === 'development',isProduction = === 'production',isTest = === 'test';
 // }
 ,paths = ============================================================================
@@ -436,5 +424,6 @@ const _globalConfigManager = null;
 // export const configurationManager = getGlobalConfigManager();
 // export type { TypeScriptConfigurationManager as ConfigurationManager };
 // export type { CLI_CONFIG_SCHEMA as DEFAULT_CLI_SCHEMA };
-)))))))))))))
+))))))))))))
       }
+'

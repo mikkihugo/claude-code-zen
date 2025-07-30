@@ -1,14 +1,33 @@
 #!/usr/bin/env node
 
-/*  ENHANCED API GENERATION FROM MEOW CLI;
- *;
-/** Generates comprehensive REST/GraphQL/WebSocket APIs from CLI commands;
- * with full OpenAPI documentation, validation, and real-time features.;
+/*  ENHANCED API GENERATION FROM MEOW CLI; */
+*
+/** Generates comprehensive REST/GraphQL/WebSocket APIs from CLI commands; */
+*
+with full OpenAPI
+documentation, validation, and;
+real - time;
+features.;
 
-/** Generate comprehensive OpenAPI specification from CLI commands;
- * @param {Object} cli - Meow CLI instance;
- * @returns {Object} Complete OpenAPI 3.0 specification;
- */
+/** Generate comprehensive OpenAPI specification from CLI commands; */
+*
+@param
+{
+  Object;
+}
+cli - Meow;
+CLI;
+instance;
+*
+@returns
+{
+  Object;
+}
+Complete;
+OpenAPI;
+3.0;
+specification;
+
 // */ // LINT: unreachable code removed
 export function generateApiFromMeow(cli => {
     const _openapi = {
@@ -17,7 +36,7 @@ export function generateApiFromMeow(cli => {
       const _commandPath = `/api/execute/${cmd.name}`;
 openapi.paths[commandPath] = {
         post = {get = {get = {};
-Object.entries(flags).forEach(([flagName, flagConfig]) => {
+Object.entries(flags).forEach(([flagName, flagConfig]) => {`
   if(typeof flagConfig === 'object' && flagConfig !== null) {
       schema[flagName] = {type = flagConfig.choices;
       //       }
@@ -27,26 +46,26 @@ Object.entries(flags).forEach(([flagName, flagConfig]) => {
     } else {
       schema[flagName] = {
         //         type = {};
-Object.entries(flags).forEach(([flagName, flagConfig]) => {
+Object.entries(flags).forEach(([flagName, flagConfig]) => {'
   if(typeof flagConfig === 'object' && flagConfig !== null) {
   if(flagConfig.default !== undefined) {
-      example[flagName] = flagConfig.default;
+      example[flagName] = flagConfig.default;'
     } else if(flagConfig.type === 'boolean') {
       example[flagName] = true;
     } else if(flagConfig.choices) {
       example[flagName] = flagConfig.choices[0];
-    } else {
+    } else {'
       example[flagName] = `example-${flagName}`;
     //     }
-  } else 
+  } else `
     example[flagName] = `example-$flagName`;);
 // return example;
 // }
 
-/** Generate GraphQL schema from commands(future enhancement);
+/** Generate GraphQL schema from commands(future enhancement); */
 
 // export function generateGraphQLSchema(commands = > commands, command = > commands.find(_cmd => cmd.name === name)
- */
+
 },Mutation = [], flags =
 // {
 // }
@@ -66,5 +85,7 @@ Object.entries(flags).forEach(([flagName, flagConfig]) => {
 // }
 // export default generateApiFromMeow;
 
-}}}}}})
-)
+}}}}}}
+
+`
+}

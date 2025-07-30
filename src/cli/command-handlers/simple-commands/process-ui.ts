@@ -1,14 +1,14 @@
-/** Process Ui Module;
-/** Converted from JavaScript to TypeScript;
+/** Process Ui Module; */
+/** Converted from JavaScript to TypeScript; */
 
 // Simple color utilities
- */
+
 const _colors = {
-  cyan = > `\x1b[36m${text}\x1b[0m`,
-  gray = > `\x1b[90m${text}\x1b[0m`,
-  white = > `\x1b[37m${text}\x1b[0m`,
-  yellow = > `\x1b[33m${text}\x1b[0m`,
-  green = > `\x1b[32m${text}\x1b[0m`,
+  cyan = > `\x1b[36m${text}\x1b[0m`,`
+  gray = > `\x1b[90m${text}\x1b[0m`,`
+  white = > `\x1b[37m${text}\x1b[0m`,`
+  yellow = > `\x1b[33m${text}\x1b[0m`,`
+  green = > `\x1b[32m${text}\x1b[0m`,`
   red = > `\x1b[31m${text}\x1b[0m`,
 };
 const __PROCESSES = [
@@ -19,26 +19,25 @@ const __PROCESSES = [
     // Initialize process states
     PROCESSES.forEach((p) => {
       this.processes.set(p.id, {
-..p,status = 0;)
-  for(const [_id, process] of this.processes) {
+..p,status = 0;
+  for(const [_id, process] of this.processes) {`
       const _selected = index === this.selectedIndex; const _prefix = selected ? colors.yellow(' ') : '  '; const _status = this.getStatusIcon(process.status) {;
       const _name = selected ? colors.yellow(process.name) : colors.white(process.name);
-
-      console.warn(`${prefix}[${index + 1}] ${status} ${name}`);
-      console.warn(`${colors.gray(process.description)}`);
+'
+      console.warn(`${prefix}[${index + 1}] ${status} ${name}`);`
+      console.warn(`${colors.gray(process.description)}`);`
   if(process.status === 'running') {
-        console.warn(;)
+        console.warn(;)'
           `\$colors.gray(`PID = new TextDecoder();
-    const _encoder = new TextEncoder();
+    const _encoder = new TextEncoder();`
 // // await node.stdout.write(encoder.encode('\nCommand = new Uint8Array(1024);'
 // const _n = awaitnode.stdin.read(buf);
     if(n === null) return;
     // ; // LINT}
         break;
-
-      case ' ':
-      case 'enter':
-      case '':
+'
+      case ' ':'
+      case 'enter':'':
 // // await this.toggleSelected();
         break;default = > setTimeout(resolve, 1000));
         //         }
@@ -46,7 +45,7 @@ const __PROCESSES = [
   //   }
 
   async toggleSelected() { 
-    const _process = Array.from(this.processes.values())[this.selectedIndex];
+    const _process = Array.from(this.processes.values())[this.selectedIndex];'
     if(process.status === 'stopped') 
 // await this.startProcess(process.id);
     } else 
@@ -57,20 +56,20 @@ const __PROCESSES = [
   async startProcess(id) { 
     const _process = this.processes.get(id);
     if(!process) return;
-    // ; // LINT: unreachable code removed
-    console.warn(colors.yellow(`Starting $process.name}...`));
+    // ; // LINT: unreachable code removed'
+    console.warn(colors.yellow(`Starting $process.name}...`));`
     process.status = 'starting';
 
     // Simulate startup
-// // await new Promise((resolve) => setTimeout(resolve, 500));
+// // await new Promise((resolve) => setTimeout(resolve, 500));'
     process.status = 'running';
     process.pid = Math.floor(Math.random() * 10000) + 1000;
     process.uptime = 0;
-
+'
     console.warn(colors.green(` ${process.name} started`));
 
     // Start uptime counter
-    const _interval = setInterval(() => {
+    const _interval = setInterval(() => {`
   if(process.status === 'running') {
         process.uptime++;
       } else {
@@ -82,31 +81,31 @@ const __PROCESSES = [
   async stopProcess(id) { 
     const _process = this.processes.get(id);
     if(!process) return;
-    // ; // LINT: unreachable code removed
-    console.warn(colors.yellow(`Stopping $process.name}...`));
+    // ; // LINT: unreachable code removed'
+    console.warn(colors.yellow(`Stopping $process.name}...`));`
     process.status = 'stopped';
     process.pid = null;
     process.uptime = 0;
-// // await new Promise((resolve) => setTimeout(resolve, 300));
+// // await new Promise((resolve) => setTimeout(resolve, 300));'
     console.warn(colors.green(` ${process.name} stopped`));
   //   }
 
-  async startAll() 
+  async startAll() `
     console.warn(colors.yellow('Starting all processes...'));
-    for (const [id, process] of this.processes) 
+    for (const [id, process] of this.processes) '
   if(process.status === 'stopped') {
 // // await this.startProcess(id); 
       //       }
-    //     }
+    //     }'
     console.warn(colors.green(' All processes started')); //   }
 
-  async stopAll() 
+  async stopAll() '
     console.warn(colors.yellow('Stopping all processes...'));
-    for (const [id, process] of this.processes) 
+    for (const [id, process] of this.processes) '
   if(process.status === 'running') {
 // // await this.stopProcess(id); 
       //       }
-    //     }
+    //     }'
     console.warn(colors.green(' All processes stopped')); //   }
 
   async restartAll() { 
@@ -121,4 +120,5 @@ const __PROCESSES = [
 // await ui.start();
 // }
 
-})))))
+}))))
+'

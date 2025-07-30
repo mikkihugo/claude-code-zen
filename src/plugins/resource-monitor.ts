@@ -1,8 +1,8 @@
-/** Plugin Resource Monitor;
-/** Real-time monitoring and enforcement of plugin resource usage limits;
+/** Plugin Resource Monitor; */
+/** Real-time monitoring and enforcement of plugin resource usage limits; */
 
- */
 import { PerformanceObserver } from 'node:perf_hooks';
+'
 import { cpuUsage } from 'node:process';
 
 // // interface ResourceMetrics {pluginName = new Map() {}
@@ -17,7 +17,7 @@ import { cpuUsage } from 'node:process';
 // private;
 // readonly;
 // config = {}
-// )
+//
 // {
 //   super();
 this.config = {enabled = config.resourceLimits ? this.parseResourceLimits(config.resourceLimits) : [];
@@ -25,7 +25,7 @@ this.plugins.set(pluginName, {
       manifest,
   config,
   worker,
-  limits,)
+  limits,
     (metrics = setInterval(() => {
       this.collectMetrics();
     }, this.config.interval));
@@ -34,7 +34,7 @@ this.performanceObserver = new PerformanceObserver((list) => {
     const _entries = list.getEntries();
   for(const entry of entries) {
       this.processPerformanceEntry(entry); //     }
-  }); this.performanceObserver.observe({ entryTypes => {)
+  }); this.performanceObserver.observe({ entryTypes => {
       this.cleanupOldMetrics() {;
 // }
 , 300000) // Every 5 minutes
@@ -48,7 +48,7 @@ this.performanceObserver = new PerformanceObserver((list) => {
 
         // Store metrics
         pluginData.metrics.push(metrics); // Check for alerts
-// // await this.checkResourceAlerts(pluginName, metrics, pluginData.limits) {;
+// // await this.checkResourceAlerts(pluginName, metrics, pluginData.limits) {;'
         this.emit('metrics-collected', { pluginName, metrics } catch (error) { console.error(error); });
       } catch(_error
     = new Date() 
@@ -90,7 +90,7 @@ this.performanceObserver = new PerformanceObserver((list) => {
 if(memory.percentage >= critical) {
 // // await this.createAlert(pluginData, {alertType = warning) {
       // await this.createAlert(pluginData, {
-        pluginName,alertType = this.config.alertThresholds.cpu;)
+        pluginName,alertType = this.config.alertThresholds.cpu;
   if(cpu.percentage >= critical) {
 // // await this.createAlert(pluginData, {alertType = warning) {
       // await this.createAlert(pluginData, {/g)
@@ -109,13 +109,13 @@ if(memory.percentage >= critical) {
   if(percentage >= 90) {
 // // await this.createAlert(pluginData, {alertType = 75) {
       // await this.createAlert(pluginData, {
-        pluginName,)
+        pluginName,
         alertType = id = pluginData.alerts.slice(-this.config.maxAlerts);
         //         }
-
+'
         this.emit('resource-alert', alert);
 
-        // Consider enforcement action for critical alerts
+        // Consider enforcement action for critical alerts'
   if(alert.alertType === 'critical' && this.config.enforcementEnabled) {
 // // await this.considerEnforcement(alert, pluginData);
         //         }
@@ -130,35 +130,35 @@ if(memory.percentage >= critical) {
       //       }
     //     }
 
-    // Determine enforcement action
+    // Determine enforcement action'
     const _action = 'throttle';
-  if(alert.percentage > 150) {
+  if(alert.percentage > 150) {'
       action = 'terminate';
-    } else if(alert.percentage > 120) {
+    } else if(alert.percentage > 120) {'
       action = 'suspend';
-    } else if(alert.percentage > 100) {
+    } else if(alert.percentage > 100) {'
       action = 'quarantine';
     //     }
 
     const _enforcement = {action = // await this.executeEnforcement(alert.pluginName, enforcement);
     enforcement.successful = success;
     pluginData.lastEnforcement = enforcement;
-
+'
     this.emit('resource-enforcement', enforcement);
   //   }
   catch(error = this.plugins.get(pluginName);
   if(!pluginData) return false;
     // ; // LINT: unreachable code removed
-  switch(enforcement.action) {
+  switch(enforcement.action) {'
     case 'throttle':
       // return // await this.throttlePlugin(pluginName, pluginData);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
     case 'suspend':
       // return // await this.suspendPlugin(pluginName, pluginData);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
     case 'terminate':
       // return // await this.terminatePlugin(pluginName, pluginData);
-    // ; // LINT: unreachable code removed
+    // ; // LINT: unreachable code removed'
     case 'quarantine':
       // return // await this.quarantinePlugin(pluginName, pluginData);
     // default = []; // LINT: unreachable code removed
@@ -201,7 +201,7 @@ if(memory.percentage >= critical) {
     return allAlerts.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime()); //   // LINT: unreachable code removed}
   acknowledgeAlert(alertId = pluginData.alerts.find(a => a.id === alertId) {;
   if(alert) {
-    alert.acknowledged = true;
+    alert.acknowledged = true;'
     this.emit('alert-acknowledged', alert);
 //     return true;
     //   // LINT: unreachable code removed}
@@ -225,7 +225,7 @@ if(memory.percentage >= critical) {
     //     }
 
     const _unacknowledgedAlerts = pluginData.alerts.filter((a) {=> !a.acknowledged);
-    _activeAlerts += unacknowledgedAlerts.length;
+    _activeAlerts += unacknowledgedAlerts.length;'
     _criticalAlerts += unacknowledgedAlerts.filter((a) => a.alertType === 'critical').length;
   //   }
 // 
@@ -237,7 +237,7 @@ if(memory.percentage >= critical) {
   //   }
 
 recordDiskOperation(pluginName = this.diskCounters.get(pluginName);
-  if(counter) {
+  if(counter) {'
   if(operation === 'read') {
     counter.reads++;
     counter.bytesRead += bytes;
@@ -267,4 +267,9 @@ recordDiskOperation(pluginName = this.diskCounters.get(pluginName);
 
 // export default ResourceMonitor;
 
-}}}}}}}}}}}}}}}}}}})))))))))))))))
+}}}}}}}}}}}}}}}}}}}))))))))))))))
+'
+}
+}
+}
+}

@@ -1,8 +1,9 @@
 // utils.ts - Shared CLI utility functions
 
 import { Logger } from '../cli/core/logger.ts';
+'
 import { SqliteMemoryStore } from '../memory/sqlite-store.ts';
-
+'
 const __logger = new Logger('cli-utils');
 // Color formatting functions
 export function printSuccess() {
@@ -20,7 +21,7 @@ export async function fileExists(path = {}): Promise<object> {
     //   // LINT: unreachable code removed}
 // }
 
-// export async function _writeJsonFile(_path = 100) {
+// export async function _writeJsonFile(_path = 100) {'
 //   return str.length > length ? `${str.substring(0, length)}...` ;
 // }
 
@@ -28,7 +29,7 @@ export async function fileExists(path = {}): Promise<object> {
   size /= 1024;
   unitIndex++;
 // }
-
+`
 // return `${size.toFixed(2)} ${units[unitIndex]}`;
 // }
 // Command execution helpers
@@ -36,10 +37,10 @@ export async function fileExists(path = {}): Promise<object> {
 const _providedFlags = new Set<string>(); // Track explicitly provided flags
 const _filteredArgs = [];
   for(let i = 0; i < args.length; i++) {
-  const _arg = args[i];
+  const _arg = args[i];`
   if(arg.startsWith('--')) {
     const _flagName = arg.substring(2);
-    const _nextArg = args[i + 1];
+    const _nextArg = args[i + 1];'
     if(nextArg && !nextArg.startsWith('--')) {
       flags[flagName] = nextArg;
       providedFlags.add(flagName);
@@ -47,7 +48,7 @@ const _filteredArgs = [];
     } else {
       flags[flagName] = true;
       providedFlags.add(flagName);
-    //     }
+    //     }'
   } else if(arg.startsWith('-') && arg.length > 1) {
     // Short flags
     const _shortFlags = arg.substring(1);
@@ -59,31 +60,29 @@ const _filteredArgs = [];
 // }
 // return {
     flags,args = [], options = {}): Promise<any> 
-  try {
-    // Check if we're in Node.js or node environment'
+  try {'
+    // Check if we''
     if(typeof process !== 'undefined' && (_process _as _any).versions && (process as any).versions.node) {
-      // Node.js environment
-      const { spawn }  catch (error) console.error(error); = // await import('node);'
+      // Node.js environment'
+      const { spawn }  catch (error) console.error(error); = // await import('
 // const { promisify  // LINT: unreachable code removed} = // await import('node);'
 
-// return new Promise((resolve) => {
-        const _child = spawn(command, args, {stdio = '';
-    // let __stderr = ''; // LINT) => {
+// return new Promise((resolve) => {'';''; // LINT) => {
           stdout += data.toString();
         });
-
+'
         child.stderr?.on('data', (data) => {
           _stderr += data.toString();
         });
-
+'
         child.on('close', (code) => {
           resolve({ success = === 0,
             _code => {
           resolve({success = new(process as any).Command(command, {
-        args,)
+        args,
 ..options   });
 // const __result = awaitcmd.output();
-
+'
       // return {success = === 0,code = 'claude-zen.config.json'): Promise<object> {
   const _defaultConfig = {terminal = // await(process as any).readTextFile(path);
     // return { ...defaultConfig, ...JSON.parse(content)  // LINT: unreachable code removed};
@@ -91,33 +90,17 @@ const _filteredArgs = [];
     // return defaultConfig;
     //   // LINT: unreachable code removed}
 // }
-
+'
 // export async function saveConfig(config = 'claude-zen.config.json'): Promise<void> {
 // await writeJsonFile(path, config);
 // }
-// ID generation
-// export function generateId(prefix = '') {
+// ID generation'') {
   const _timestamp = Date.now();
-  const _random = Math.random().toString(36).substr(2, 9);
-//   return prefix ? `${prefix}-${timestamp}-${random}` : `${timestamp}-${random}`;
-// }
-// Array helpers
-// export function chunk<_T>(array = [];
-  for(let i = 0; i < array.length; i += size) {
-  chunks.push(array.slice(i, i + size));
-// }
-// return chunks;
-// }
-// Environment helpers
-// export function getEnvVar(name = null) {
-  return(process as any).env.get(name) ?? defaultValue;
-// }
-// export function setEnvVar(_name = '') {
-  const _percentage = Math.round((current / total) * 100);
-  const _bar = ''.repeat(Math.round(percentage / 5)) + ''.repeat(20 - Math.round(percentage / 5));
+  const _random = Math.random().toString(36).substr(2, 9);'') {
+  const _percentage = Math.round((current / total) * 100);''.repeat(Math.round(percentage / 5)) + ''.repeat(20 - Math.round(percentage / 5));'
   console.warn(`\r${bar} ${percentage}% ${message}`);
 // }
-// export function clearLine() {
+// export function clearLine() {`
   console.warn('\r\x1b[K');
 // }
 // Async helpers
@@ -136,7 +119,7 @@ const _filteredArgs = [];
   //   }
 // }
 
-// ruv-swarm source integration - Using consolidated main implementation
+// ruv-swarm source integration - Using consolidated main implementation'
 // import { RuvSwarm  } from '../../ruv-FANN/ruv-swarm/npm/src/index.js';
 
 // Singleton ruv-swarm instance
@@ -150,7 +133,7 @@ async function _getRuvSwarmInstance(): Promise<any> {
       telemetryEnabled = {}): Promise<any>
   try {
 // const _ruvSwarm = await_getRuvSwarmInstance();
-  switch(operation) {
+  switch(operation) {'
       case 'swarm_init': {
 // const __swarm = awaitruvSwarm.createSwarm(params);
         // return {success = // await ruvSwarm.spawnAgent(params);
@@ -159,11 +142,11 @@ async function _getRuvSwarmInstance(): Promise<any> {
     // return { // LINT: unreachable code removed
           success = {} catch (error) console.error(error); ): Promise<any> {
   // Convert MCP tool names to library operations
-  const _toolMapping = {
-    'neural_train': 'neural_train',
-    'swarm_init': 'swarm_init',
-    'agent_spawn': 'agent_spawn',
-    'task_orchestrate': 'task_orchestrate',
+  const _toolMapping = {'
+    'neural_train': 'neural_train','
+    'swarm_init': 'swarm_init','
+    'agent_spawn': 'agent_spawn','
+    'task_orchestrate': 'task_orchestrate','
     'swarm_status': 'swarm_status';
   };
 
@@ -174,44 +157,44 @@ async function _getRuvSwarmInstance(): Promise<any> {
 
 // Direct ruv-swarm neural training(real WASM implementation)
 // export async function _callRuvSwarmDirectNeural(params = {}): Promise<any> {
-  try {
+  try {'
     const _modelName = (params as any).model  ?? 'general';
-    const __epochs = (params as any).epochs  ?? 50;
+    const __epochs = (params as any).epochs  ?? 50;'
     const __dataSource = (params as any).data  ?? 'recent';
-
+'
     console.warn(` Using REAL ruv-swarm WASM neural training...`);
-    console.warn(;)
+    console.warn(;)`
       `Executing = = 'undefined' && (process as any).versions && (process as any).versions.node) `
-      // Node.js environment - use spawn with stdio inherit
+      // Node.js environment - use spawn with stdio inherit`
       const { spawn }  catch (error) console.error(error); = // await import('child_process');
 
       result = // await new Promise((resolve) => {
-        const _child = spawn(;
+        const _child = spawn(;'
           'npx',
-          [;
-            'ruv-swarm',
-            'neural',
-            'train',
+          [;'
+            'ruv-swarm','
+            'neural','
+            'train','
             '--model',
-            modelName,
+            modelName,'
             '--iterations',
-            epochs.toString(),
+            epochs.toString(),'
             '--data-source',
-            dataSource,
-            '--output-format',
+            dataSource,'
+            '--output-format','
             'json' ],
           //           {
             stdio => {
           resolve({
             success = === 0,
-            code => {
+            code => {'
           resolve({success = '.ruv-swarm'
 // const _files = await(process as any).readDir(neuralDir);
       let _latestFile = null;
       const _latestTime = 0;
 
-      for // await(const file of files) {
-        if(file.name.startsWith(`training-\$modelName-`) && file.name.endsWith('.json')) {
+      for // await(const file of files) {'
+        if(file.name.startsWith(`training-\$modelName-`) && file.name.endsWith('.json')) {'
           const _filePath = `\$neuralDir`
 // const _stat = await(process as any).stat(filePath);
   if(stat.mtime > latestTime) {
@@ -225,29 +208,30 @@ async function _getRuvSwarmInstance(): Promise<any> {
 
         // return {success = === 0,modelId = === 0,
     // modelId = { // LINT: unreachable code removed}): Promise<any> {
-  try {
-    const _command = 'npx';
+  try {`
+    const _command = 'npx';'
     const _args = ['ruv-swarm', 'hook', hookName];
 
     // Add parameters as CLI arguments
-    Object.entries(params).forEach(([key, value]) => {
+    Object.entries(params).forEach(([key, value]) => {'
       args.push(`--\$key`);
   if(value !== true && value !== false) {
         args.push(String(value));
       //       }
-     catch (error) console.error(error); });
-// const _result = awaitrunCommand(command, args, {stdout = // await runCommand('npx', ['ruv-swarm', '--version'], {stdout = 50): Promise<any> {
+     catch (error) console.error(error); });`
+// const _result = awaitrunCommand(command, args, {stdout = // await runCommand('npx', ['ruv-swarm', '--version'], {stdout = 50): Promise<any> {'
   // return // await callRuvSwarmMCP('neural_train', {
-    model = {}): Promise<any> 
-  // return // await callRuvSwarmMCP('neural_patterns', {action = null): Promise<any> {
+    model = {}): Promise<any> '
+  // return // await callRuvSwarmMCP('neural_patterns', {action = null): Promise<any> {'
   // return // await callRuvSwarmMCP('swarm_status', {
-    swarmId = ): Promise<any> 
+    swarmId = ): Promise<any> '
   // return // await callRuvSwarmLibrary('agent_spawn', {
-    //     type = {}): Promise<any> {
+    //     type = {}): Promise<any> {'
   // return // await callRuvSwarmLibrary('swarm_init', {
-    topology = ): Promise<any> 
+    topology = ): Promise<any> '
   // return // await callRuvSwarmLibrary('task_orchestrate', {
-    task,
-    // strategy: (options as any).strategy  ?? 'adaptive', // LINT: unreachable code removed
+    task,'
+    // strategy: (options as any).strategy  ?? 'adaptive', // LINT: unreachable code removed'
     priority: (options as any).priority  ?? 'medium',
-..options;);}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))
+..options;);}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))
+'

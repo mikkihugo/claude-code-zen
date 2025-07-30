@@ -1,78 +1,80 @@
 module.exports = {
-  displayName: 'Vision-to-Code Tests',
-testEnvironment: 'node',
+  displayName: 'Vision-to-Code Tests','
+testEnvironment: 'node','
 roots: ['<rootDir>'],
-testMatch: [; // eslint-disable-line
-    '**/__tests__/**/*.js',
-    '**/__tests__/**/*.ts',
-    '**'
-    '**'
-    '**'
-    '**/*.spec.ts' ],
-// {
+testMatch: [; // eslint-disable-line'
+    '**/__tests__/**/*.js',' */
+    '**/__tests__/**/*.ts',' */
+    ''
+    ''
+    ''
+    '**/*.spec.ts' ], */
+// {'
   ('^.+\\.(ts|tsx)$');
-  : 'ts-jest',
-  ('^.+\\.(js|jsx)$')
+'
+  : 'ts-jest','
+  ('^.+\\.(js|jsx)$')'
   : 'babel-jest'
-// }
-moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+// }'
+moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],'
 coverageDirectory: '<rootDir>'
-collectCoverageFrom: [
-'src/**/*.{js,ts}',
-    '!src/**/*.d.ts',
-    '!src/**/*.test.{js,ts}',
-    '!src/**/__tests__/**',
-    '!src/**/node_modules/**' ],
+collectCoverageFrom: ['
+'src/**/*.{js,ts}',' */
+    '!src/**/*.d.ts',' */
+    '!src/**/*.test.{js,ts}',' */
+    '!src/**/__tests__/**',' */
+    '!src/**/node_modules/**' ], */
 // {
   branches,
   functions,
   lines,
   statements }
-
+'
 setupFilesAfterEnv: ['<rootDir>'
 testTimeout,
 verbose,
-bail,
+bail,'
 maxWorkers: '50%',
-// {
-  ('^@'
-  : '<rootDir>/src/$1',
-  ('^@services'
-  : '<rootDir>/src/services/$1',
-  ('^@utils'
-  : '<rootDir>/src/utils/$1',
-  ('^@models'
-  : '<rootDir>/src/models/$1',
-  ('^@config'
+// {'
+  (''
+  : '<rootDir>/src/$1','
+  (''
+  : '<rootDir>/src/services/$1','
+  (''
+  : '<rootDir>/src/utils/$1','
+  (''
+  : '<rootDir>/src/models/$1','
+  (''
   : '<rootDir>/src/config/$1'
 // }
-// {
-  ('ts-jest');
-  : null
+// {'
+  ('ts-jest')
+: null'
         jsx: 'react',
   esModuleInterop,
   allowSyntheticDefaultImports,
 // }
 projects: [
-// {
-  displayName: 'Unit Tests',
-  testMatch: ['<rootDir>/unit/**/*.test.{js,ts}']
+// {'
+  displayName: 'Unit Tests','
+  testMatch: ['<rootDir>/unit/**/*.test.{js,ts}'] */
 // }
-// {
-  displayName: 'Integration Tests',
-  testMatch: ['<rootDir>/integration/**/*.test.{js,ts}']
+// {'
+  displayName: 'Integration Tests','
+  testMatch: ['<rootDir>/integration/**/*.test.{js,ts}'] */
 // }
-// {
-  displayName: 'E2E Tests',
-  testMatch: ['<rootDir>/e2e/**/*.test.{js,ts}']
+// {'
+  displayName: 'E2E Tests','
+  testMatch: ['<rootDir>/e2e/**/*.test.{js,ts}'] */
 // }
-// {
-  displayName: 'Performance Tests',
-  testMatch: ['<rootDir>/performance/**/*.test.{js,ts}']
+// {'
+  displayName: 'Performance Tests','
+  testMatch: ['<rootDir>/performance/**/*.test.{js,ts}'] */
 // }
-// {
-  displayName: 'Security Tests',
-  testMatch: ['<rootDir>/security/**/*.test.{js,ts}']
+// {'
+  displayName: 'Security Tests','
+  testMatch: ['<rootDir>/security/**/*.test.{js,ts}'] */
 // }
 // ]
 // }
+'
