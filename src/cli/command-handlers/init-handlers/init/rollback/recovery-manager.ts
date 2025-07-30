@@ -2,64 +2,91 @@
 
 export class RecoveryManager {
   constructor(workingDir = workingDir;
-// }
+  // }
 
-/** Perform automated recovery based on failure type
+  /** Perform automated recovery based on failure type
 
  */
-async;
-performRecovery(failureType, (context = {}));
-: unknown
+  async;
+  performRecovery(failureType, (context = {})
+  )
+  : unknown
 // {
-  const __result = {success = // await this.recoverFromPermissionDenied(context);
+  const
+  __result = {success = // await this.recoverFromPermissionDenied(context);
   break;
-  case 'disk-space': null
+  case;
+  'disk-space': null;
   recoveryResult = // await this.recoverFromDiskSpace(context)
   break;
-  case 'missing-dependencies': null
+  case;
+  'missing-dependencies': null;
   recoveryResult = // await this.recoverFromMissingDependencies(context)
   break;
-  case 'corrupted-config': null
+  case;
+  'corrupted-config': null;
   recoveryResult = // await this.recoverFromCorruptedConfig(context)
   break;
-  case 'partial-initialization': null
+  case;
+  'partial-initialization': null;
   recoveryResult = // await this.recoverFromPartialInitialization(context)
   break;
-  case 'sparc-failure': null
+  case;
+  'sparc-failure': null;
   recoveryResult = // await this.recoverFromSparcFailure(context)
   break;
-  case 'executable-creation-failure': null
+  case;
+  'executable-creation-failure': null;
   recoveryResult = // await this.recoverFromExecutableFailure(context)
   break;
-  case 'memory-setup-failure': null
+  case;
+  'memory-setup-failure': null;
   recoveryResult = // await this.recoverFromMemorySetupFailure(context)
   break;
   default = // await this.performGenericRecovery(failureType, context)
   break;
-// }
-result.success = recoveryResult.success;
-result.errors.push(...recoveryResult.errors);
-result.warnings.push(...recoveryResult.warnings);
-result.actions.push(...recoveryResult.actions);
-} catch(error)
+  // }
+  result;
+  .
+  success = recoveryResult.success;
+  result;
+  .
+  errors;
+  .
+  push(...recoveryResult.errors);
+  result;
+  .
+  warnings;
+  .
+  push(...recoveryResult.warnings);
+  result;
+  .
+  actions;
+  .
+  push(...recoveryResult.actions);
+}
+catch(error)
 // {
-  result.success = false;
-  result.errors.push(`Recovery failed = {success = = 'windows') {`
-        try {
-          const _command = new node.Command('chmod', {args = // await command.output();
+  result.success = false
+result.errors.push(`Recovery failed =
+{
+  success =
+  = 'windows') `
+  try {
+    const _command = new node.Command('chmod', {args = // await command.output();
   if(success) {
             result.actions.push('Fixed directory permissions');
           }  catch (error) { console.error(error); }else {
             result.warnings.push('Could not fix permissions automatically');
-          //           }
-        } catch {
-          result.warnings.push('Permission fix command not available');
-        //         }
-      //       }
+    //           }
+  } catch {
+    result.warnings.push('Permission fix command not available');
+    //         }
+    //       }
 
-      // Try to create a test file to verify permissions
-      try {
-        const _testFile = `${this.workingDir} catch (error) { console.error(error); }`
+    // Try to create a test file to verify permissions
+    try {
+        const _testFile = `$this.workingDircatch (error) console.error(error); `
 // // await node.writeTextFile(testFile, 'test');
 // // await node.remove(testFile);
   result.actions.push('Verified write permissions restored');
@@ -70,123 +97,152 @@ result.actions.push(...recoveryResult.actions);
   result.errors.push('Write permissions still denied');
 // }
 } catch(error)
-// {
-  result.success = false;
-  result.errors.push(`Permission recovery failed = {success = // await this.cleanupTemporaryFiles();`
+    // {
+    result.success = false;
+    result.errors.push(`Permission recovery failed = {success = // await this.cleanupTemporaryFiles();`
       result.actions.push(...tempCleanup.actions);
 
-      // Clean up old backups
-// const _backupCleanup = awaitthis.cleanupOldBackups();
-      result.actions.push(...backupCleanup.actions);
+    // Clean up old backups
+    // const _backupCleanup = awaitthis.cleanupOldBackups();
+    result.actions.push(...backupCleanup.actions);
 
-      // Check available space after cleanup
-// const _spaceCheck = awaitthis.checkAvailableSpace();
-  if(spaceCheck.available > 100) {
-        // MB
-        result.actions.push(`Freedspace = false;`)
-  result.errors.push('Insufficient disk space even after cleanup');
-// }
-} catch(error)
+    // Check available space after cleanup
+    // const _spaceCheck = awaitthis.checkAvailableSpace();
+    if (spaceCheck.available > 100) {
+      // MB
+      result.actions.push(`Freedspace = false;`);
+      result.errors.push('Insufficient disk space even after cleanup');
+      // }
+    }
+    catch(error)
 // {
-  result.success = false;
-  result.errors.push(`Disk space recovery failed = {success = context.missingDependencies  ?? ['node', 'npm'];`
+  result.success = false
+  result.errors.push(`Disk space recovery failed = success = context.missingDependencies  ?? ['node', 'npm']
+    `
 
-  for(const dep of missingDeps) {
-// const _installResult = awaitthis.attemptDependencyInstallation(dep); 
-  if(installResult.success) {
-          result.actions.push(`Installed/configured = // await this.verifyDependencies(missingDeps); `
-  if(!verifyResult.allAvailable) {
-    result.success = false;
-    result.errors.push('Some dependencies still unavailable after recovery');
-  //   }
-// }
-catch(error)
+  for (const dep of missingDeps) {
+    // const _installResult = awaitthis.attemptDependencyInstallation(dep);
+    if (installResult.success) {
+      result.actions.push(`;
+    Installed/configured = // await this.verifyDependencies(missingDeps); `
+    if (!verifyResult.allAvailable) {
+      result.success = false;
+      result.errors.push('Some dependencies still unavailable after recovery');
+      //   }
+      // }
+      catch(error)
 // {
-  result.success = false;
-  result.errors.push(`Dependency recovery failed = {success = context.corruptedFiles  ?? ['.roomodes'];`
+  result.success = false
+        result.errors.push(`Dependency recovery failed = success = context.corruptedFiles  ?? ['.roomodes']
+      `
 
-  for(const file of corruptedFiles) {
-// const _recoveryResult = awaitthis.recoverConfigFile(file); 
-  if(recoveryResult.success) {
-          result.actions.push(`Recovered configfile = // await this.validateRecoveredConfigs(corruptedFiles); `
-  if(!validationResult.valid) {
-    result.warnings.push('Some recovered configs may have issues');
-  //   }
-// }
-catch(error)
+        for (const file of corruptedFiles) {
+          // const _recoveryResult = awaitthis.recoverConfigFile(file);
+          if (recoveryResult.success) {
+            result.actions.push(`;
+      Recovered;
+      configfile = // await this.validateRecoveredConfigs(corruptedFiles); `
+      if (!validationResult.valid) {
+        result.warnings.push('Some recovered configs may have issues');
+        //   }
+        // }
+        catch(error)
 // {
-  result.success = false;
-  result.errors.push(`Config recovery failed = {success = // await this.identifyCompletedItems();`
+  result.success = false
+              result.errors.push(`Config recovery failed = success = // await this.identifyCompletedItems();`
 // const _missingItems = awaitthis.identifyMissingItems();
 
-      result.actions.push(`Found ${completedItems.length} completed items`);
-      result.actions.push(`Found ${missingItems.length} missing items`);
+      result.actions.push(`Found $
+        {
+          completedItems.length;
+        }
+        completed;
+        items`);
+              result.actions.push(`;
+        Found;
+        $;
+        {
+          missingItems.length;
+        }
+        missing;
+        items`);
 
-      // Complete missing items
-  for(const item of missingItems) {
-// const _completionResult = awaitthis.completeItem(item); 
-  if(completionResult.success) {
-          result.actions.push(`Completed = // await this.verifyInitializationComplete(); `
-  if(!verificationResult.complete) {
-    result.success = false;
-    result.errors.push('Initialization still incomplete after recovery');
-  //   }
-// }
-catch(error)
+              // Complete missing items
+              for (const item of missingItems) {
+                // const _completionResult = awaitthis.completeItem(item);
+                if (completionResult.success) {
+                  result.actions.push(`;
+        Completed = // await this.verifyInitializationComplete(); `
+        if (!verificationResult.complete) {
+          result.success = false;
+          result.errors.push('Initialization still incomplete after recovery');
+          //   }
+          // }
+          catch(error)
 // {
-      result.success = false;
-      result.errors.push(`Partial initialization recovery failed = {success = // await this.recoverRoomodesFile();`
-  if(roomodesRecovery.success) {
-        result.actions.push('Recovered .roomodes configuration');
-      } else {
-        result.warnings.push('Could not recover .roomodes');
-      //       }
+      result.success = false
+                    result.errors.push(`Partial initialization recovery failed = success = // await this.recoverRoomodesFile();`
+          if (roomodesRecovery.success) {
+            result.actions.push('Recovered .roomodes configuration');
+          } else {
+            result.warnings.push('Could not recover .roomodes');
+            //       }
 
-      // Try to recover .roo directory structure
-// const _rooRecovery = awaitthis.recoverRooDirectory();
-  if(rooRecovery.success) {
-        result.actions.push('Recovered .roo directory structure');
-      } else {
-        result.warnings.push('Could not recover .roo directory');
-      //       }
+            // Try to recover .roo directory structure
+            // const _rooRecovery = awaitthis.recoverRooDirectory();
+            if (rooRecovery.success) {
+              result.actions.push('Recovered .roo directory structure');
+            } else {
+              result.warnings.push('Could not recover .roo directory');
+              //       }
 
-      // Try to recover SPARC commands
-// const _commandsRecovery = awaitthis.recoverSparcCommands();
-  if(commandsRecovery.success) {
-        result.actions.push('Recovered SPARC commands');
-      } else {
-        result.warnings.push('Could not recover SPARC commands');
-      //       }
-    } catch(error) {
-      result.success = false;
-      result.errors.push(`SPARC recovery failed = {success = `${this.workingDir}
+              // Try to recover SPARC commands
+              // const _commandsRecovery = awaitthis.recoverSparcCommands();
+              if (commandsRecovery.success) {
+                result.actions.push('Recovered SPARC commands');
+              } else {
+                result.warnings.push('Could not recover SPARC commands');
+                //       }
+              }
+              catch(error) 
+      result.success = false
+                        result.errors.push(`SPARC recovery failed = success = `$
+              {
+                this.workingDir;
+              }
 
-      // Remove corrupted executable if it exists
-      try {)
+              // Remove corrupted executable if it exists
+              try {
+                )
 // // await node.remove(executablePath);
-        result.actions.push('Removed corrupted executable');
-      } catch (error) { console.error(error); } catch {
-        // File doesn't exist'
-      //       }
+        result.actions.push('Removed corrupted executable')
+              } catch (error) {
+                console.error(error);
+              }
+              catch
+              // File doesn't exist'
+              //       }
 
-      // Recreate executable
-// const _createResult = awaitthis.createExecutableWrapper();
-  if(createResult.success) {
-        result.actions.push('Recreated claude-zen executable');
+              // Recreate executable
+              // const _createResult = awaitthis.createExecutableWrapper();
+              if (createResult.success) {
+                result.actions.push('Recreated claude-zen executable');
 
-        // Set permissions
-  if(node.build.os !== 'windows') {
-          try {
-            const __command = new node.Command('chmod', {args = false;)
-        result.errors.push('Could not recreate executable');
-      //       }
-     catch (error) { console.error(error); }} catch(error) {
-      result.success = false;
-      result.errors.push(`Executable recovery failed = {success = ['memory', 'memory/agents', 'memory/sessions'];`
+                // Set permissions
+                if (node.build.os !== 'windows') {
+                  try {
+                    const __command = new node.Command('chmod', {args = false;
+                    )
+        result.errors.push('Could not recreate executable')
+                              //       }
+                              catch (error) console.error(error)
+                  } catch (error) {
+                    result.success = false;
+                    result.errors.push(`Executable recovery failed = {success = ['memory', 'memory/agents', 'memory/sessions'];`
 
-  for(const dir of memoryDirs) {
-        try {
-// // await node.mkdir(`${this.workingDir} catch (error) { console.error(error); }/${dir}`, {recursive = `${this.workingDir}/memory/claude-zen-data.json`; /g)
+                    for (const dir of memoryDirs) {
+                      try {
+// // await node.mkdir(`$this.workingDircatch (error) console.error(error); /${dir}`, {recursive = `${this.workingDir}/memory/claude-zen-data.json`; /g)
       result.errors.push(`Memory setup recovery failed = {success = // await this.cleanupTemporaryFiles(); `
       result.actions.push(...tempCleanup.actions) {;
 
@@ -216,7 +272,7 @@ catch(error)
         // Simple cleanup - in a real implementation, use glob matching
         result.actions.push(`Cleaned temporary files = {actions = `${this.workingDir}
 
-       catch (error) { console.error(error); }// This would normally integrate with BackupManager/g)
+       catch (error) console.error(error); 
       result.actions.push('Cleaned old backups');
     } catch {
       // Backup cleanup not critical
@@ -238,7 +294,7 @@ catch(error)
     // return result; // LINT: unreachable code removed
   //   }
 
-   catch (error) { console.error(error); }async verifyDependencies(dependencies) { 
+   catch (error) console.error(error); async verifyDependencies(dependencies) { 
     const _result = allAvailable = new node.Command(dep, {args = await command.output();
   if(!success) {
           result.allAvailable = false;
@@ -311,4 +367,17 @@ exec node run --allow-all --unstable-kv --unstable-cron \\;
     //   // LINT: unreachable code removed};
 // }
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}
+                              }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}}}}}}})))))))))))))))))))))))))))

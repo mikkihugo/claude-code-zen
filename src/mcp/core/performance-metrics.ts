@@ -1,5 +1,9 @@
-
- * @fileoverview Performance metrics tracking for MCP server
+*
+@fileoverview
+Performance;
+metrics;
+tracking;
+for MCP server
 /** Provides detailed monitoring and logging of server performance
  * @module PerformanceMetrics
 
@@ -8,9 +12,12 @@
  */
 export class PerformanceMetrics {
 
- * @param {Object} options - Configuration options
+ * @param {Object}
+options - Configuration;
+options;
 
-  constructor(options = {}) {
+constructor((options = {}));
+{
     this.enableLogging = options.enableLogging !== false;
     this.logInterval = options.logInterval  ?? 30000; // 30 seconds
     this.metricsWindow = options.metricsWindow  ?? 60000; // 1 minute window
@@ -33,7 +40,7 @@ export class PerformanceMetrics {
    * @param {Object} context - Request context
  */
 
-  recordRequestStart(requestId, _context = {}) {
+  recordRequestStart(requestId, _context = {}) 
     this.requestTimings.set(requestId, {)
       startTime = {}) {
     const _timing = this.requestTimings.get(requestId);
@@ -66,7 +73,7 @@ export class PerformanceMetrics {
    * @param {number} processingTime - Time taken to process the batch
  */
 
-  recordBatchMetrics(batchSize, processingTime) {
+  recordBatchMetrics(batchSize, processingTime) 
     this.metrics.batches.total++;
 
     // Update average batch size
@@ -170,7 +177,7 @@ export class PerformanceMetrics {
    * @param {any} value - Value to add
  */
 
-  addToHistory(type, value) {
+  addToHistory(type, value) 
   if(!this.history[type]) {
       this.history[type] = [];
     //     }

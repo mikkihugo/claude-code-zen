@@ -1,11 +1,15 @@
 #!/usr/bin/env node;
-import { Box, render  } from 'ink';'
+import { Box, render } from 'ink';
+
+'
 
 /** Unified Dashboard - Works as both TUI and Web interface
 /** Auto-detects environment and renders appropriately
 
  */
-import React, { useState  } from 'react';'
+import React, { useState } from 'react';
+
+'
 
 // Placeholder components for other tabs
 

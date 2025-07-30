@@ -1,4 +1,3 @@
-
 /** Analysis Command Module
 /** Converted from JavaScript to TypeScript
 
@@ -6,11 +5,8 @@
 //  } from;
  */
 ('../types/core.js');
-printSuccess,
-printError,
-printWarning,
-callRuvSwarmLibrary,
-checkRuvSwarmAvailable } from '..'
+printSuccess, printError, printWarning, callRuvSwarmLibrary, checkRuvSwarmAvailable;
+} from '..'
 
 import CodeAnalysisService from '../../services/code-analysis/index.js';
 
@@ -62,7 +58,7 @@ try {
 
     console.warn(`\n ANALYSISSUMMARY = issue.severity === 'critical' ? '' );`
       //       }
-     catch (error) { console.error(error); }//     }
+     catch (error) console.error(error); 
 // // await analysisService.cleanup();
 } catch(error)
 // {
@@ -156,7 +152,7 @@ try {
               ? '';
               : '';
         console.warn(;)
-          `${icon}  catch (error) { console.error(error); }${bottleneck.severity}: ${bottleneck.component} ($, { bottleneck.metric })`);
+          `$iconcatch (error) console.error(error); $bottleneck.severity: $bottleneck.component($, bottleneck.metric )`);
   //   }
   //   )
   console.warn(`\nRECOMMENDATIONS = analysisResult.recommendations  ?? [`
@@ -231,7 +227,7 @@ try {
     //     }
   //   }
 // }
-  catch(error) {// {
+  catch(error) 
   printError(`Complexity analysis failed);`
 // }
 // }

@@ -1,4 +1,3 @@
-
 /** GitHub CLI Safety Helper for Claude Flow Templates
 /** Safe GitHub operations with timeout protection and special character handling
 /** Based on upstream commits 958f5910 + f4107494
@@ -41,10 +40,10 @@ class GitHubSafe {
     let _tempFile = null;
     try {
       // Handle input with special characters via temp file
-      if(input && (input.includes('\`')  ?? input.includes('$'))) {`
-        tempFile = GitHubSafe.createTempFile(input);
-        args = args.map(arg => ;
-          arg === '--body' ? \`--body-file=\${tempFile} catch (error) { console.error(error); }\` ;)
+      if(input && (input.includes('\`')  ?? input.includes('$'))) {`;
+tempFile = GitHubSafe.createTempFile(input);
+args = args.map(arg => ;
+arg === '--body' ? \`--body-file=\${tempFile} catch (error) { console.error(error); }\` ;)
         );
       //       }
 

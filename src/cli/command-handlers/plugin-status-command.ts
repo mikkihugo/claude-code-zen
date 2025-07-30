@@ -1,79 +1,86 @@
-
 /** Plugin Status Command - Check plugin system health and status
 
  */
 export async function pluginStatusCommand(args = [], flags = {}) {
-  const _subcommand = args[0]  ?? 'status';
-  switch(subcommand) {
+  const _subcommand = args[0] ?? 'status';
+  switch (subcommand) {
     case 'status':
     case 'list':
-      // return // await showPluginStatus(flags);
+    // return // await showPluginStatus(flags);
     // ; // LINT: unreachable code removed
     case 'health':
-      // return // await showPluginHealth(flags);
+    // return // await showPluginHealth(flags);
     // ; // LINT: unreachable code removed
     case 'info':
-      // return // await showPluginInfo(args[1], flags);
+    // return // await showPluginInfo(args[1], flags);
     // ; // LINT: unreachable code removed
     case 'enable':
-      // return // await enablePlugin(args[1], flags);
+    // return // await enablePlugin(args[1], flags);
     // ; // LINT: unreachable code removed
     case 'disable':
-      // return // await disablePlugin(args[1], flags);
+    // return // await disablePlugin(args[1], flags);
     // ; // LINT: unreachable code removed
-    case 'restart':
+    case 'restart': {
       // return // await restartPlugin(args[1], flags);default = getPluginManager();
-    const _status = manager.getStatus();
+      const _status = manager.getStatus();
 
-    console.warn(' Plugin System Status\n');
-    console.warn(`Overview = status.plugins.filter(p => p.loaded);`
-      const _failedPlugins = status.plugins.filter(p => p.enabled && !p.loaded);
-      const _disabledPlugins = status.plugins.filter(p => !p.enabled);
-  if(loadedPlugins.length > 0) {
-        console.warn(' Loaded Plugins => {')
-          console.warn(`    ${plugin.name.padEnd(20)} ($, { plugin.class })`);
-        });
-        console.warn('');
+      console.warn(' Plugin System Status\n');
+      console.warn(`Overview = status.plugins.filter(p => p.loaded);`
+      const _failedPlugins = status.plugins.filter((p) => p.enabled && !p.loaded);
+      const _disabledPlugins = status.plugins.filter((p) => !p.enabled);
+      if (loadedPlugins.length > 0) {
+        console.warn(' Loaded Plugins => {');
+        console.warn(`    ${plugin.name.padEnd(20)} ($, { plugin.class })`);
+      }
+      )
+      console.warn('')
       //       }
-  if(failedPlugins.length > 0) {
-        console.warn(' Failed to Load => {')
-          console.warn(`    ${plugin.name.padEnd(20)} ($, { plugin.class })`);
-        });
-        console.warn('');
+      if (failedPlugins.length > 0) {
+        console.warn(' Failed to Load => {');
+        console.warn(`    ${plugin.name.padEnd(20)} ($, { plugin.class })`);
+      }
+      )
+      console.warn('')
       //       }
-  if(disabledPlugins.length > 0) {
-        console.warn(' Disabled Plugins => {')
-          console.warn(`    ${plugin.name.padEnd(20)} ($, { plugin.class })`);
-        });
-        console.warn('');
-      //       }
-    } else {
-      console.warn(' Use --verbose for detailed plugin information');
+      if (disabledPlugins.length > 0) {
+        console.warn(' Disabled Plugins => {');
+        console.warn(`    ${plugin.name.padEnd(20)} ($, { plugin.class })`);
+      }
+      )
+      console.warn('')
+    }
+    //       }
+  }
+  else
+  {
+    console.warn(' Use --verbose for detailed plugin information');
     //     }
 
     // Show quick stats for key plugins
     const _keyPlugins = ['memory-backend', 'unified-interface', 'github-integration'];
 
-      console.warn(`${status} ${name}`);
-    });
-
-  } catch(error) {
-    console.error(' Plugin system not initialized or erroroccurred = // await checkPluginHealth();'
+    console.warn(`${status} ${name}`);
+  }
+  )
+}
+catch(error)
+{
+  console.error(' Plugin system not initialized or erroroccurred = // await checkPluginHealth();'
 
     console.warn(' Plugin Health Check\n');
 
-    // Overall health
-    const _healthEmoji = {
+  // Overall health
+  const _healthEmoji = {
       'healthy': '',
       'degraded': '',
       'critical': '';
-    };
+}
 
-    console.warn(`${healthEmoji[health.overall]} OverallStatus = pluginHealth.status === 'loaded' ? '' :`
+console.warn(`${healthEmoji[health.overall]} OverallStatus = pluginHealth.status === 'loaded' ? '' :`
                            pluginHealth.status === 'failed' ? '' : '';
 
-        console.warn(`${statusEmoji} ${pluginName.padEnd(20)} - ${pluginHealth.status}`);
-  if(pluginHealth.details) {
+console.warn(`${statusEmoji} ${pluginName.padEnd(20)} - ${pluginHealth.status}`);
+if(pluginHealth.details) {
           console.warn(`      ${JSON.stringify(pluginHealth.details, null, 2).replace(/\n/g, '\n     ')}`);
         //         }
   if(pluginHealth.error) {
@@ -105,7 +112,7 @@ export async function pluginStatusCommand(args = [], flags = {}) {
 
     console.warn(` Successfully restarted plugin);`
 
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) { console.error(error); } catch(error) 
     console.error(` Failed to restart plugin '${pluginName}');`
   //   }
 

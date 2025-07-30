@@ -1,10 +1,9 @@
-
 /** WASM fallback implementation for ruv-FANN;
 /** Uses existing ruv-swarm WASM infrastructure when native bindings are not available;
 
  */
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -25,10 +24,10 @@ async function _initWasm() {
       initialized = true;
       return;
     //   // LINT: unreachable code removed}
-   catch (error) { console.error(error); }} catch(/* _error */)
-    console.warn('Failed to load ruv-swarm WASM, creating a simple fallback.');
-    wasmModule = createSimpleFallback();
-  initialized = true;
+   catch (error) { console.error(error); }} catch(/* _error */ )
+    console.warn('Failed to load ruv-swarm WASM, creating a simple fallback.')
+wasmModule = createSimpleFallback()
+initialized = true;
 // }
 
 /** Create a simple fallback implementation for basic neural network operations;

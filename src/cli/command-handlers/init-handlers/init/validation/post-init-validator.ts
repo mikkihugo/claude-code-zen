@@ -21,7 +21,7 @@ checkFileIntegrity();
           result.success = false;
           result.errors.push(`Expected file but found directory = {status = false;`
           result.errors.push(;))
-            `File toosmall = ${file.minSize} catch (error) { console.error(error); })`)
+            `File toosmall = $file.minSizecatch (error) console.error(error); )`)
   result.files[file.path] = status =
   = 'windows')
   //   {
@@ -52,9 +52,9 @@ checkFileIntegrity();
           result.errors.push(`Expected directory but foundfile = false;`
       result.errors.push(`Required directorymissing = `${this.workingDir}
 
-       catch (error) { console.error(error); }try {))
+       catch (error) console.error(error); try {))
 // // await node.stat(dirPath);
-      } catch (error) { console.error(error); } catch {
+      } catch (error) { console.error(error); } catch 
         if(dir.includes('.roo')  ?? dir.includes('sparc')) {
           result.warnings.push(`Optional SPARC directory missing = {success = // await this.validateMemoryStructure();`
       result.structure.memory = memoryStructure;
@@ -90,18 +90,18 @@ checkFileIntegrity();
       // return result;
     // ; // LINT: unreachable code removed
   for(const item of itemsToCheck) {
-      const _itemPath = `${this.workingDir}/${item.path}`; 
+      const _itemPath = `$this.workingDir/$item.path`; 
 
       try {
 // const _stat = awaitnode.stat(itemPath); 
         const _actualMode = stat.mode & 0o777;
         const _expectedMode = item.requiredMode;
 
-        result.permissions[item.path] = {actual = === expectedMode } catch (error) { console.error(error); };
+        result.permissions[item.path] = {actual = === expectedMode } catch (error) console.error(error); ;
   if(actualMode !== expectedMode) {
           result.warnings.push(;
-            `Incorrect permissions on ${item.path}: ` +;)
-    `${actualMode.toString(8)} (expected ${expectedMode.toString(8)})`)
+            `Incorrect permissions on $item.path: ` +;)
+    `$actualMode.toString(8)(expected $expectedMode.toString(8))`)
   //   }
   catch(error)
   result.warnings.push(`Could not check permissions`
@@ -120,7 +120,7 @@ validateMemoryStructure();
   for(const dir of expectedDirs) {
     try {
 // // await node.stat(`\$this.workingDir/memory/\$dir`); 
-      structure.dirs.push(dir); } catch (error) { console.error(error); } catch {
+      structure.dirs.push(dir); } catch (error) { console.error(error); } catch 
       structure.valid = false;
     //     }
   //   }
@@ -141,7 +141,7 @@ validateCoordinationStructure();
   for(const dir of expectedDirs) {
     try {
 // // await node.stat(`\$this.workingDir/coordination/\$dir`); 
-      structure.dirs.push(dir); } catch (error) { console.error(error); } catch {
+      structure.dirs.push(dir); } catch (error) { console.error(error); } catch 
       structure.valid = false;
     //     }
   //   }
@@ -154,7 +154,7 @@ async;
   for(const dir of expectedDirs) {
     try {
 // // await node.stat(`\$this.workingDir/.claude/\$dir`); 
-      structure.dirs.push(dir); } catch (error) { console.error(error); } catch {
+      structure.dirs.push(dir); } catch (error) { console.error(error); } catch 
       structure.valid = false;
     //     }
   //   }
@@ -165,10 +165,10 @@ async;
       if(entry.isFile && entry.name.endsWith('.js')) {
         entries.push(entry.name);
       //       }
-     catch (error) { console.error(error); }//     }
+     catch (error) console.error(error); 
     structure.hasCommands = entries.length > 0;
     structure.commandCount = entries.length;
-  } catch {
+  } catch 
     structure.hasCommands = false;
   //   }
   // return structure;
@@ -205,11 +205,4 @@ try {
       //       }
     //     }
   //   }
-} catch {
-  // .roo directory is optional
-// }
-
-// return structure;
-// }
-
-}}}}}}}}}}}}}}}}}}}}}) {)))))
+} catch }}}}}}}}}}}}}}}}) )))))

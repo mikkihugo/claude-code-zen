@@ -334,9 +334,9 @@ console.warn('This demo will create real documents using the MCP document stack.
   // // await new Promise((resolve) => setTimeout(resolve, 1000))
 // }
 // Summary
-console.warn(`\n${colors.cyan}${colors.reset}`);
-console.warn(`${colors.bright}${colors.green} Demo Summary${colors.reset}`);
-console.warn(`${colors.cyan}${colors.reset}\n`);
+console.warn(`\n$colors.cyan$colors.reset`);
+console.warn(`$colors.bright$colors.greenDemo Summary$colors.reset`);
+console.warn(`$colors.cyan$colors.reset\n`);
 console.warn(` Created ${documentExamples.length} documents);`
 documentExamples.forEach((doc) => {
   console.warn(`    ${doc.service}/${doc.docType}/${doc.docId}`);

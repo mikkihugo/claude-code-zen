@@ -1,10 +1,7 @@
 // rollback/index.js - Comprehensive rollback system for SPARC initialization
 
-import { printSuccess  } from '../../../utils.js';
-import { BackupManager  } from '.';
-import { RecoveryManager  } from '.';
-import { RollbackExecutor  } from '.';
-import { StateTracker  } from '.';
+import { printSuccess } from '../../../utils.js';
+import { BackupManager, RecoveryManager, RollbackExecutor, StateTracker } from '.';
 
 /** Main rollback orchestrator
 

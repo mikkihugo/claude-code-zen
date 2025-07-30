@@ -4,19 +4,19 @@
 /** Addresses issue #249 - ${file} and ${command} variables not working
 
  */
-import { existsSync  } from 'node:fs';
-import fs from 'node:fs';
+import fs, { existsSync } from 'node:fs';
 import chalk from 'chalk';
-import { printError  } from '..';
+import { printError } from '..';
 
 // Known working variable syntaxes based on Claude Code version
-  if(mappings?.[0]) {
+if (mappings?.[0]) {
   // return `$${mappings[0]}`;
+  // }
+  // return match; // Keep unchanged if no mapping
+}
+)
 // }
-// return match; // Keep unchanged if no mapping
-})
-// }
-  if(fromSyntax === 'legacy' && toSyntax === 'jq') {
+if(fromSyntax === 'legacy' && toSyntax === 'jq') {
   // Transform to use jq parsing of JSON input
   // Extract the actual command and wrap it with jq parsing
   const _fileVarMatch = command.match(/\$\{file\}/);
@@ -40,9 +40,9 @@ import { printError  } from '..';
     : command.includes('pre-edit')
     ? 'pre-edit-hook.sh'
     : 'generic-hook.sh'
-    // return `.claude/hooks/${scriptName}`;
-  //   }
-  // return command;
+// return `.claude/hooks/${scriptName}`;
+//   }
+// return command;
 // }
 
 /** Create wrapper scripts for hooks

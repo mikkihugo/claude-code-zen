@@ -38,7 +38,7 @@ catch(error)
         state.checkpoints = state.checkpoints.slice(-20);
       //       }
 // // await this.saveState(state);
-    } catch(error) {
+    } catch(error) 
       result.success = false;
       result.errors.push(`Failed to create checkpoint = {success = // await this.loadState();`
   if(state.checkpoints) {
@@ -63,11 +63,11 @@ catch(error)
     } catch(error) ;
       result.success = false;
       result.errors.push(`Failed to recordrollback = // await this.loadState();`
-      // return state.rollbackPoints  ?? [];
-    //   // LINT: unreachable code removed} catch {
-      // return [];
-    //   // LINT: unreachable code removed}
-  //   }
+// return state.rollbackPoints  ?? [];
+//   // LINT: unreachable code removed} catch {
+// return [];
+//   // LINT: unreachable code removed}
+//   }
 
 /** Get checkpoints
 

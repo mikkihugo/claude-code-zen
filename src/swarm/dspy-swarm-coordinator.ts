@@ -1,4 +1,3 @@
-
 /** DSPy Persistent Swarm Coordinator
 
 /** Advanced swarm coordination for DSPy optimization with persistent memory,
@@ -6,16 +5,18 @@
 /** Integrates with SQLite, LanceDB, and Kuzu for comprehensive persistence.
 
  */
-import { EventEmitter  } from 'events';
-import type { DSPyProgram,
+import { EventEmitter } from 'events';
+import type { KuzuAdvancedInterface } from '../database/kuzu-advanced-interface';
+import type { LanceDBInterface } from '../database/lancedb-interface';
+import type { SqliteStore } from '../memory/sqlite-store';
+import type {
+  DSPyConfig,
   DSPyExample,
   DSPyMetrics,
   DSPyOptimizationResult,
-  DSPyConfig  } from '../plugins/dspy-provider';
-import type { SwarmCoordinator, SwarmAgent, SwarmTask  } from '.';
-import type { SqliteStore  } from '../memory/sqlite-store';
-import type { LanceDBInterface  } from '../database/lancedb-interface';
-import type { KuzuAdvancedInterface  } from '../database/kuzu-advanced-interface';
+  DSPyProgram,
+} from '../plugins/dspy-provider';
+import type { SwarmAgent, SwarmCoordinator, SwarmTask } from '.';
 
 /** DSPy Swarm Agent Specialization
 

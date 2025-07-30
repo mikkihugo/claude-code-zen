@@ -4,8 +4,8 @@
 /** Exposes service document tools  MCP tools;
 
  */
-import { ServicesOrchestrator  } from './services/orchestrator.js';
-import { ClaudeFlowMCPServer  } from './src/mcp/mcp-server.js';
+import { ServicesOrchestrator } from './services/orchestrator.js';
+import { ClaudeFlowMCPServer } from './src/mcp/mcp-server.js';
 
 class MCPBridge {
   constructor() {
@@ -13,7 +13,7 @@ class MCPBridge {
     this.orchestrator = new ServicesOrchestrator();
     this.isRunning = false;
   //   }
-  async start() { 
+  async start() 
     console.warn(' Starting Claude-Flow MCP Bridge...\n');
     // Start the services orchestrator
   // await this.orchestrator.start();
@@ -52,20 +52,18 @@ class MCPBridge {
     content,)
     approvalMetadata)
   //   }
-  async listServiceDocuments(_serviceName = null) { 
+  async listServiceDocuments(_serviceName = null) 
     // return await this.mcpServer.handleServiceDocumentManager(
       action: 'list',
     // serviceName, // LINT: unreachable code removed
-    documentType: 'all')
-})
+    documentType: 'all'))
 // }
 async;
 validateServiceDocument(serviceName, documentType);
 // {
   // return await this.mcpServer.handleServiceDocumentValidator({ validateType: 'single-document',
   // serviceName, // LINT: unreachable code removed
-  documentType)
-  })
+  documentType))
 // }
 // async
 queueApproval(documentId, approver)

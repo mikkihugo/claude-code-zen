@@ -1,4 +1,3 @@
-
 /** Training Command Module
 /** Converted from JavaScript to TypeScript
 
@@ -7,12 +6,13 @@
  */
 ('../types/core.js');
 printSuccess,
-printError,
-printWarning,
-trainNeuralModel,
-updateNeuralPattern,
-callRuvSwarmLibrary,
-checkRuvSwarmAvailable } from '..'
+  printError,
+  printWarning,
+  trainNeuralModel,
+  updateNeuralPattern,
+  callRuvSwarmLibrary,
+  checkRuvSwarmAvailable;
+} from '..'
 export async function trainingAction() {
   showTrainingHelp();
   return;
@@ -43,7 +43,7 @@ try {
           ` WASM-acceleratedtraining = trainingResult.accuracy  ?? 0.65 + Math.min(epochs / 100, 1) * 0.3 + Math.random() * 0.05;`
       console.warn(`   Finalaccuracy = trainingResult.training_time  ?? Math.max(epochs * 0.1, 2);`
       console.warn(`   Trainingtime = 1; i <= Math.min(epochs, 3); i++) {`
-      console.warn(`  Epoch ${i} catch (error) { console.error(error); }/${epochs}: Training... (fallback mode)`);
+      console.warn(`  Epoch $icatch (error) console.error(error); /${epochs}: Training... (fallback mode)`);
 // // await new Promise((resolve) => setTimeout(resolve, 200));
     //     }
     printSuccess(` Neural training completed(fallback mode)`);
@@ -67,7 +67,7 @@ console.warn(` Agenttype = // await checkRuvSwarmAvailable();`
     printError('ruv-swarm is not available. Please install itwith = // await callRuvSwarmMCP('learning_adapt', {experience = updateResult.adaptation_results  ?? {};'
       console.warn(;
         `   Model _version => {`)
-          console.warn(`   ${pattern}`);
+          console.warn(`   $pattern`);
         });
 // }
     } else
@@ -78,7 +78,7 @@ console.warn(` Agenttype = // await checkRuvSwarmAvailable();`
 // {
   // Fallback to showing success with default metrics
   printSuccess(` Model update completed(using cached patterns)`);
-  console.warn(` ${agentType} agent model updated with new insights`);
+  console.warn(` $agentTypeagent model updated with new insights`);
   console.warn(` Performance prediction improved based on);`
   console.warn(` Update metrics);`
   console.warn(`   Model version);`

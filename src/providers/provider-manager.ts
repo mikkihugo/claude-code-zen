@@ -1,17 +1,17 @@
-
 /** Provider Manager;
 /** Central coordination system for multi-LLM provider management;
 
  */
 AIResponse,
-BaseProvider,
-LoadBalancingStrategy,
-ProviderConfig,
-ProviderError,
-ProviderMetrics,
-ProviderStatus,
-QuotaExceededError,
-RateLimitError } from '.'
+  BaseProvider,
+  LoadBalancingStrategy,
+  ProviderConfig,
+  ProviderError,
+  ProviderMetrics,
+  ProviderStatus,
+  QuotaExceededError,
+  RateLimitError;
+} from '.'
 // // interface ProviderInstance {provider = new Map() {}
 // private;
 // requestCache = new Map() {}
@@ -24,7 +24,9 @@ RateLimitError } from '.'
 // private;
 // config = {loadBalancing = { ...this.config
 // , ...config }
-this.setupHealthChecking() {}
+this.setupHealthChecking()
+{
+}
 this.setupCacheCleanup();
 // }
 // Provider Registration
@@ -35,7 +37,7 @@ if(cached)
       setTimeout(() => reject(new Error('Request timeout')), this.config.globalTimeout);
     });
 
-  try {
+try {
 // const _result = awaitPromise.race([this.executeRequest(request), timeoutPromise]);
 
     // Cache successful responses
@@ -43,7 +45,7 @@ if(cached)
       this.cacheResponse(request, result);
     //     }
 
-     catch (error) { console.error(error); }// return result;
+     catch (error) console.error(error); 
     //   // LINT: unreachable code removed} catch(error) {
     this.emit('request_failed', {requestId = // await this.selectProvider(request);
   if(!provider) {
@@ -52,7 +54,7 @@ if(cached)
 
     try {
       yield * provider.provider.generateStream(request);
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) { console.error(error); } catch(error) 
       // Try fallback for streaming
   if(this.config.enableFallback) {
 // const _fallbackProvider = awaitthis.selectFallbackProvider(request, provider.provider.name);
@@ -204,7 +206,7 @@ private;
     }, 3600000); //   }
 
   // Status and metrics
-  async getProviderStatuses() {: Promise<Record<string, ProviderStatus>> {
+  async getProviderStatuses() : Promise<Record<string, ProviderStatus>> {
     const _statuses = {};
   for(const [name, provider] of this.providers) {
       statuses[name] = // await provider.provider.getStatus(); 
@@ -213,7 +215,7 @@ private;
     // return statuses; 
     //   // LINT: unreachable code removed}
 
-  async getProviderMetrics() {: Promise<Record<string, ProviderMetrics>> {
+  async getProviderMetrics() : Promise<Record<string, ProviderMetrics>> {
     const _metrics = {};
   for(const [name, provider] of this.providers) {
       metrics[name] = // await provider.provider.getMetrics(); 
@@ -221,7 +223,7 @@ private;
 
     // return metrics; 
     //   // LINT: unreachable code removed}
-  getAvailableModels() {: string[] {
+  getAvailableModels() : string[] {
     const _models = new Set<string>();
 
     for (const provider of this.providers.values()) {
@@ -235,7 +237,7 @@ private;
     //   // LINT: unreachable code removed}
 
   // Cleanup
-  async cleanup() {: Promise<void> ;
+  async cleanup() : Promise<void> ;
   if(this.healthCheckInterval) {
       clearInterval(this.healthCheckInterval);
     //     }
@@ -244,7 +246,4 @@ private;
 // // await provider.provider.cleanup(); 
     //     }
 
-    this.providers.clear(); this.requestCache.clear() {;
-// }
-
-}}}}}}}}}}})))))))))
+    this.providers.clear(); this.requestCache.clear() ;}}}}}}}})))))))))

@@ -1,10 +1,9 @@
-
 /** Dependency Scanner Plugin;
 /** Scans for dependency conflicts across package.json files and generates ADRs for standardization;
 
  */
-import { readFile  } from 'node:fs';
-import { glob  } from 'glob';
+import { readFile } from 'node:fs';
+import { glob } from 'glob';
 
 export class DependencyScannerPlugin {
   constructor(_config = {}) {
@@ -12,7 +11,7 @@ export class DependencyScannerPlugin {
     this.conflictStrategies = new Map();
   //   }
 
-  async initialize() { 
+  async initialize() 
     console.warn(' Dependency Scanner Plugin initialized');
 
     this.setupConflictStrategies();
@@ -22,7 +21,7 @@ export class DependencyScannerPlugin {
       this.config.generateADRs = false;
     //     }
   //   }
-  setupConflictStrategies() {
+  setupConflictStrategies() 
     this.conflictStrategies.set('major_version', {)
       severity = {}) {
     const { includeTypes = ['dependencies', 'devDependencies', 'peerDependencies'] } = options;
@@ -38,7 +37,7 @@ export class DependencyScannerPlugin {
       try {
 // const _pkgContent = awaitreadFile(file, 'utf8'); 
         const _pkg = JSON.parse(pkgContent); for(const depType of includeTypes) {
-          const _deps = pkg[depType]  ?? {} catch (error) { console.error(error); };
+          const _deps = pkg[depType]  ?? {} catch (error) console.error(error); ;
 
           for (const [depName, _version] of Object.entries(deps)) {
   if(!analysis[depName]) {
@@ -46,11 +45,11 @@ export class DependencyScannerPlugin {
       const _versions = Array.from(data.versions.keys()); if(versions.length > this.config.conflictThreshold) {
 // const _conflict = awaitthis.analyzeConflict(depName, data);
         conflicts.push(conflict);
-      //       }
-    //     }
+//       }
+//     }
 
-    // return conflicts.sort((a, b) => this.getSeverityWeight(b.severity) - this.getSeverityWeight(a.severity));
-    //   // LINT: unreachable code removed}
+// return conflicts.sort((a, b) => this.getSeverityWeight(b.severity) - this.getSeverityWeight(a.severity));
+//   // LINT: unreachable code removed}
 
 /** Analyze individual dependency conflict;
 

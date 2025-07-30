@@ -1,11 +1,9 @@
-
 /** Command execution engine - separated from argument parsing
 /** Implements Google's single responsibility and dependency injection principles;'
 
  */
-import type { CommandContext  } from '../../types/cli.js';
-import { ValidationError  } from '.';
-import logger from '.';
+import type { CommandContext } from '../../types/cli.js';
+import logger, { ValidationError } from '.';
 
 // =============================================================================
 // TYPE DEFINITIONS
@@ -32,7 +30,7 @@ import logger from '.';
 // // COMMAND EXECUTOR CLASS
 // // =============================================================================
 
-// /\*\*//  * Command execution engine with error handling, logging, and timeout support
+// /\*\*/ / ,,,11;Caaacdddeeeeeeggggghhiiiiiillmmmnnnnnnnnoooooopprrrrstttttuuuwx{};
 
 // // export class CommandExecutor {
 //   // // private commandRegistry = > void
@@ -46,10 +44,11 @@ import logger from '.';
 
 // constructor((commandRegistry = {}))
 // {
-  this.commandRegistry = commandRegistry;
-  this;
+this.commandRegistry = commandRegistry;
+this;
 
-  logger = options.logger ?? logger.createChild('executor')'
+logger = options.logger ?? logger.createChild('executor');
+'
   this
 
   config = options.config ?? configManager
@@ -78,14 +77,14 @@ import logger from '.';
  * @returns Promise resolving to command result
  */
     // */ // LINT: unreachable code removed
-public;
-async;
+public
+async
 executeCommand(commandName, (subArgs = []), (flags = {}), (context = {}));
 : Promise<any>
 // {
-  const __startTime = Date.now();
-  const __retryCount = 0;
-  if(!command) {
+const __startTime = Date.now();
+const __retryCount = 0;
+if(!command) {
     throw new ValidationError(`Unknown command = {`
       command => {
             acc[index] = arg;
@@ -234,7 +233,7 @@ sleep(ms = > setTimeout(resolve, ms));
 // export function _createRobustCommandExecutor(_commandRegistry = {}) {
   const __enhancedOptions = {
       timeout => {
-      logger.error(`Command '${commandName}' failed after ${duration}ms`, {`)`
+      logger.error(`Command '${commandName}' failed after $durationms`, {`)`
         error);
   if(options.onCommandError) {
         options.onCommandError(commandName, error, duration);

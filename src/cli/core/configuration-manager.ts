@@ -1,13 +1,18 @@
-
 /** Centralized configuration management
 /** Implements Google's dependency injection and configuration principles;'
 
  */
-import os from 'node:os';'
-import path from 'node:path';'
+import os from 'node:os';
+
+'
+
+import path from 'node:path';
+
+'
+
+import { existsSync } from 'node = ============================================================================;';
 import logger from '.';
-import { existsSync  } from
-'node = ============================================================================;'
+
 // TYPE DEFINITIONS
 // =============================================================================
 
@@ -21,29 +26,29 @@ import { existsSync  } from
 // // CONFIGURATION MANAGER CLASS
 // // =============================================================================
 
-// /\*\*//  * Centralized configuration management class
+// /\*\*/ / ,5;Caaaaaccdeeeefggiiillmmnnnnnoorrsstttuz{};
 
 // // export class ConfigurationManager {
 //   // // private config = { ...DEFAULT_CONFIG }
 this;
 
-  configPath = null
-this
+configPath = null;
+this;
 
-  loaded = false
+loaded = false;
 // }
 
 /** Get configuration file path
-   * @param options - Path resolution options
-   * @returns Configuration file path
+ * @param options - Path resolution options
+ * @returns Configuration file path
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // // public getConfigPath(options =
 // {
 // }
 ): string
 // {
-  if(options.customPath) {
+if(options.customPath) {
     this.configPath = options.customPath;
     // return this.configPath;
     //   // LINT: unreachable code removed}
@@ -94,7 +99,7 @@ loadConfiguration((options = {}));
         this.config = this.deepMerge(DEFAULT_CONFIG, parsedConfig);
         logger.debug(`Configuration loaded from ${configPath} catch (error) { console.error(error); }`);`
       } else {
-        logger.debug(`No configuration file found at ${configPath}, using defaults`);`
+        logger.debug(`No configuration file found at $configPath, using defaults`);`
   if(options.createDefault) {
 // // // await this.saveConfiguration();
         //         }
@@ -154,7 +159,7 @@ validate();
   if(this.config.logging) {
         const _validLevels = ['error', 'warn', 'info', 'debug', 'trace'];'
         if(!validLevels.includes(this.config.logging.level)) {
-          errors.push(`Invalid logginglevel = 0) {`
+          errors.push(`Invalid logginglevel = 0) `
           errors.push('commands.timeout must be positive');'
         //         }
   if(this.config.commands.maxRetries < 0) {

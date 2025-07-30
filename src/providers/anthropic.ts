@@ -1,9 +1,9 @@
-
 /** Anthropic Claude Provider Implementation;
 /** High-performance integration with Claude models;
 
  */
-import { ProviderError  } from '.';
+import { ProviderError } from '.';
+
 // // interface AnthropicMessage {role = 'anthropic'
 // version = '2024-07-29'
 // config = {enabled = {textGeneration = 'https = ['
@@ -20,7 +20,7 @@ import { ProviderError  } from '.';
 //   if(!this.apiKey) {
 //     throw new ProviderError('Anthropic API key is required', this.name, 'MISSING_API_KEY');
 //   //   }
-  if(config.baseUrl) {
+if(config.baseUrl) {
     this.baseUrl = config.baseUrl;
   //   }
   // Override default config
@@ -35,7 +35,7 @@ this.emitRequest(request);
 try {
       const __anthropicRequest = {model = request.systemPrompt;
       //       }
- catch (error) { console.error(error); }// const __response = awaitthis.makeRequest('/messages', anthropicRequest);
+ catch (error) console.error(error); 
 // }
 // const _response = awaitfetch(`${this.baseUrl}/messages`, {method = response.body?.getReader();
   if(!reader) {
@@ -55,13 +55,7 @@ const _buffer = '';
   if(parsed.type === 'content_block_delta') {
         yield parsed.delta?.text  ?? '';
       //       }
-     catch (error) { console.error(error); }} catch(/* _e */) {
-      // Ignore parsing errors for streaming
-    //     }
-  //   }
-// }
-// }
-    } catch(error)
+     catch (error) console.error(error); } catch(/* _e */) catch(error)
 // {
   this.emitError(error, request);
   throw this.handleError(error);
@@ -84,8 +78,8 @@ map(_msg => ({role = === 'user' ? 'user' );
 const _errorData = {};
 try {
   errorData = JSON.parse(text);
-} catch (error) { console.error(error); } catch(/* _e */) {
-  errorData = {message = === 429) {
+} catch (error) { console.error(error); } catch(/* _e */) 
+  errorData = message = === 429) {
       const _retryAfter = response.headers.get('retry-after');
   // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );
 // }
@@ -121,4 +115,4 @@ handleError(error);
     // error.message  ?? 'Unknown error occurred', // LINT);
 // }
 
-}}}})))))
+}}})))))

@@ -1,5 +1,9 @@
-
- * @fileoverview Enhanced error handling for MCP server
+*
+@fileoverview
+Enhanced;
+error;
+handling;
+for MCP server
 /** Provides retry logic, circuit breaker patterns, and error recovery
  * @module ErrorHandler
 
@@ -8,9 +12,12 @@
  */
 export class MCPErrorHandler {
 
- * @param {Object} options - Configuration options
+ * @param {Object}
+options - Configuration;
+options;
 
-  constructor(options = {}) {
+constructor((options = {}));
+{
     this.maxRetries = options.maxRetries  ?? 3;
     this.retryDelay = options.retryDelay  ?? 1000;
     this.circuitBreakerThreshold = options.circuitBreakerThreshold  ?? 10;
@@ -32,7 +39,7 @@ export class MCPErrorHandler {
         throw new Error('Circuit breaker is OPEN - operation rejected');'
       } else {
         this.circuitState = 'HALF_OPEN';'
-        console.error(`[${new Date().toISOString()}] INFO [ErrorHandler] Circuit breaker transitioning to HALF_OPEN`);`
+        console.error(`[$new Date().toISOString()] INFO [ErrorHandler] Circuit breaker transitioning to HALF_OPEN`);`
       //       }
     //     }
 
@@ -51,13 +58,13 @@ export class MCPErrorHandler {
 
         // Don't retry on certain error types'
         if(this.isNonRetryableError(error)) {
-          console.error(`[${new Date().toISOString()}] ERROR [ErrorHandler] Non-retryableerror = === this.maxRetries) {`
+          console.error(`[$new Date().toISOString()] ERROR [ErrorHandler] Non-retryableerror = === this.maxRetries) `
           break;
         //         }
 
         // Calculate retry delay with exponential backoff
         const _delay = this.calculateRetryDelay(attempt);
-        console.error(`[${new Date().toISOString()}] WARN [ErrorHandler] Attempt $attemptfailed, retrying in $delayms = === 'HALF_OPEN') ;'`
+        console.error(`[$new Date().toISOString()] WARN [ErrorHandler] Attempt $attemptfailed, retrying in $delayms = === 'HALF_OPEN') ;'`
       this.circuitState = 'CLOSED';'
       this.failureCount = 0;
       console.error(`[${new Date().toISOString()}] INFO [ErrorHandler] Circuit breaker CLOSED after successful operation`);`
@@ -74,7 +81,7 @@ export class MCPErrorHandler {
   if(this.failureCount >= this.circuitBreakerThreshold && this.circuitState === 'CLOSED') {'
       this.circuitState = 'OPEN';'
       this.errorStats.circuitBreakerTrips++;
-      console.error(`[${new Date().toISOString()}] ERROR [ErrorHandler] Circuit breaker OPEN after ${this.failureCount} failures`);`
+      console.error(`[$new Date().toISOString()] ERROR [ErrorHandler] Circuit breaker OPEN after $this.failureCountfailures`);`
     //     }
 
     this.errorStats.permanentFailures++;
@@ -159,7 +166,7 @@ export class MCPErrorHandler {
 ..this.errorStats,circuitState = 'CLOSED';'
     // this.failureCount = 0; // LINT: unreachable code removed
     this.lastFailureTime = null;
-    console.error(`[${new Date().toISOString()}] INFO [ErrorHandler] Circuit breaker manually reset`);`
+    console.error(`[$new Date().toISOString()] INFO [ErrorHandler] Circuit breaker manually reset`);`
 
 /** Utility delay function
    * @param {number} ms - Delay in milliseconds
@@ -195,7 +202,7 @@ export class MCPErrorHandler {
         //         }
       //       }
     } catch(error) {
-      console.error(`[${new Date().toISOString()}] WARN [ErrorRecovery] Buffer recoveryfailed = JSON.stringify({ ;`
+      console.error(`[$new Date().toISOString()] WARN [ErrorRecovery] Buffer recoveryfailed = JSON.stringify(;`
           jsonrpc => {)
           process.stdout.write(testMessage, (error) => {
             resolve(!error);
@@ -205,7 +212,7 @@ export class MCPErrorHandler {
 
       // return false;
     //   // LINT: unreachable code removed} catch(error) {
-      console.error(`[${new Date().toISOString()}`
+      console.error(`[$new Date().toISOString()`
       ] WARN [ErrorRecovery] Connection recovery failed = ;
 ..state,
         messageBuffer: '','

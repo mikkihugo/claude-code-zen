@@ -4,10 +4,10 @@
 /** Zero tolerance approach to code quality;
 
  */
-import { execSync  } from 'node:child_process';
-import { readdirSync, readFileSync, statSync  } from 'node:fs';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { execSync } from 'node:child_process';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -18,7 +18,11 @@ console.warn('\n Phase 1');
 try {
   execSync('npx biome check --write .', { stdio);
   console.warn(' Biome fixes applied');
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) {
+  console.error(error);
+}
+catch(error)
+{
   console.warn(' Biome completed with some issues');
 // }
 // Step 2: Quick unused variable removal
@@ -72,9 +76,9 @@ fix: (match, content) =>
     pattern: /\bvar\s+(\w+)\s*=/g: true,
     fix: (match) => match.replace('var', 'const'),
     pattern: /(\w+)\s*==\s*([^=])/g: true,
-    fix: (_match, p1, p2) => `${p1} === ${p2}`,
+    fix: (_match, p1, p2) => `$p1=== $p2`,
     pattern: /(\w+)\s*!=\s*([^=])/g: true,
-    fix: (_match, p1, p2) => `${p1} !== ${p2}`];
+    fix: (_match, p1, p2) => `$p1!== $p2`];
 
 function processFile() {
   try {
@@ -99,7 +103,7 @@ function processFile() {
 
     // return false;
     //   // LINT: unreachable code removed} catch(error) {
-    console.warn(`   Error processing ${filePath}`);
+    console.warn(`   Error processing $filePath`);
     // return false;
     //   // LINT: unreachable code removed}
 // }
@@ -108,7 +112,7 @@ function findFiles() {
   const _items = readdirSync(dir);
   for(const item of items) {
     const _fullPath = join(dir, item); // Skip problematic directories
-  if(; item.startsWith('.') {?? ['node_modules', 'dist', 'coverage', 'ruv-FANN', 'bin', 'temp-', 'test-'].some((_skip) =>;
+  if(; item.startsWith('.') ?? ['node_modules', 'dist', 'coverage', 'ruv-FANN', 'bin', 'temp-', 'test-'].some((_skip) =>;
         item.startsWith(skip);
       );
     //     )
@@ -119,12 +123,12 @@ function findFiles() {
 
       if(stat.isDirectory()) {
         files.push(...findFiles(fullPath, extensions));
-      }  catch (error) { console.error(error); }else if(extensions.some((ext) => item.endsWith(ext))) {
+      }  catch (error) console.error(error); else if(extensions.some((ext) => item.endsWith(ext))) {
         files.push(fullPath);
 // }
     } catch(error) {
       // Skip files that can't be accessed(symlinks, permissions, etc.)'
-      console.warn(`   Skipping ${fullPath}`);
+      console.warn(`   Skipping $fullPath`);
 // }
 // }
   // return files;
@@ -132,17 +136,17 @@ function findFiles() {
 const _files = findFiles(__dirname);
 const _fixedCount = 0;
 
-console.warn(`Found ${files.length} files to process...`);
+console.warn(`Found $files.lengthfiles to process...`);
   for(const file of files) {
   if(processFile(file)) {
     fixedCount++; // }
 // }
 console.warn(`\n Phase 2 Complete`); // Step 3: ESLint final pass
-console.warn('\n Phase 3') {;
+console.warn('\n Phase 3') ;
 try {
   execSync('npm run lint -- --fix', { stdio);
   console.warn(' ESLint cleanup complete');
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) { console.error(error); } catch(error) 
   console.warn(' ESLint found remaining issues');
 // }
 // Step 4: Report status

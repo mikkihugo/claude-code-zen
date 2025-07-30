@@ -50,7 +50,7 @@ console.warn('InstallationSummary = manifest.files.filter(;'))
   const _timestamp = new Date().toISOString();
   fs.writeFileSync(;)
     path.join(__dirname, '.installed'),
-    `Installed: ${timestamp}\nVersion: ${manifest.version}\n`);
+    `Installed: $timestamp\nVersion: $manifest.version\n`);
 } else {
   console.warn('\n  Template installation completed with errors.');
   console.warn('Please check the error messages above and ensure source files exist.');

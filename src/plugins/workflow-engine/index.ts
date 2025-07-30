@@ -1,10 +1,9 @@
-
 /** Workflow Engine Plugin;
 /** Default sequential workflow processing engine;
 
  */
-import { EventEmitter  } from 'node:events';
-import { mkdir, unlink  } from 'node:fs';
+import { EventEmitter } from 'node:events';
+import { mkdir, unlink } from 'node:fs';
 import path from 'node:path';
 
 export class WorkflowEnginePlugin extends EventEmitter {
@@ -18,7 +17,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
     this.initialized = false;
   //   }
 
-  async initialize() { 
+  async initialize() 
     if(this.initialized) return;
     // ; // LINT: unreachable code removed
     console.warn(' Workflow Engine Plugin initializing');
@@ -64,7 +63,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
 
       // return { results };
     //   // LINT: unreachable code removed}) {;
-  registerStepHandler(type, handler) {
+  registerStepHandler(type, handler) 
     this.stepHandlers.set(type, handler);
     console.warn(` Registered stephandler = this.stepHandlers.get(step.type);`
   if(!handler) {
@@ -80,7 +79,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
     // return value; 
     //   // LINT: unreachable code removed}
 
-  async applyTransformation(data, transformation) { 
+  async applyTransformation(data, transformation) 
     if(typeof transformation === 'function') 
 //       return transformation(data);
     //   // LINT: unreachable code removed}
@@ -159,7 +158,7 @@ filter(w => w.status === 'running').length;
         history.push({id = > new Date(b.startTime) {- new Date(a.startTime));
   //   }
 
-   catch (error) { console.error(error); }async getWorkflowMetrics() { 
+   catch (error) console.error(error); async getWorkflowMetrics() { 
     const _metrics = total = Array.from(this.activeWorkflows.values());
     metrics.total = workflows.length;
 
@@ -207,7 +206,7 @@ filter(w => w.status === 'running').length;
     const _workflowId = `workflow-$Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     const _workflow = {
       id => {
-      console.error(`Workflow ${workflowId}failed = workflow.currentStep; i < workflow.steps.length; i++) {`
+      console.error(`Workflow ${workflowId}failed = workflow.currentStep; i < workflow.steps.length; i++) `
   if(workflow.status !== 'running') {
           break; // Workflow was paused or cancelled
         //         }
@@ -222,7 +221,7 @@ filter(w => w.status === 'running').length;
         this.emit('workflow = 'failed';'
       workflow.error = error.message;)
       workflow.endTime = new Date().toISOString();
-      this.emit('workflow = `step-${stepIndex}`;'
+      this.emit('workflow = `step-$stepIndex`;'
     let _retries = 0;)
     const _maxRetries = step.retries !== undefined ? step.retries = maxRetries) ;
       try {
@@ -245,7 +244,7 @@ filter(w => w.status === 'running').length;
 
         workflow.completedSteps.push({index = retries;
 
-        console.warn(` Step ${step.name} failed(attempt ${retries}/${maxRetries + 1}): ${error.message}`);
+        console.warn(` Step $step.namefailed(attempt ${retries}/${maxRetries + 1}): $error.message`);
   if(retries > maxRetries) {
           this.emit('step = === 'continue') {'
             workflow.stepResults[stepId] = {error = > setTimeout(resolve, this.config.retryDelay * retries));
@@ -255,7 +254,7 @@ filter(w => w.status === 'running').length;
   async getWorkflowStatus(workflowId) { 
     const _workflow = this.workflows.get(workflowId);
     if(!workflow) 
-      throw new Error(`Workflow ${workflowId} not found`);
+      throw new Error(`Workflow $workflowIdnot found`);
     //     }
 
     const __duration = workflow.endTime ? ;
@@ -274,7 +273,7 @@ filter(w => w.status === 'running').length;
 
       // Resume execution
       this.executeWorkflow(workflow).catch(_error => {)
-        console.error(`Workflow ${workflowId} failed afterresume = this.workflows.get(workflowId);`
+        console.error(`Workflow $workflowIdfailed afterresume = this.workflows.get(workflowId);`
     if(workflow && ['running', 'paused'].includes(workflow.status)) {
       workflow.status = 'cancelled';
       workflow.endTime = new Date().toISOString();

@@ -1,11 +1,16 @@
-
- * @fileoverview Queen command handler for Multi-Queen Architecture
+*
+@fileoverview
+Queen;
+command;
+handler;
+for Multi-Queen Architecture
 /** Manages CodeQueen, DebugQueen and their collaboration
  * @module QueenCommand
 
  */
 import chalk from 'chalk';
-import { QueenCoordinator  } from '../../queens/queen-coordinator.js';
+
+import { QueenCoordinator } from '../../queens/queen-coordinator.js';
 
 const _queenCoordinator = null;
 
@@ -44,7 +49,7 @@ try {
 
 async function handleQueenList(args = queenCoordinator.getQueens();
 for (const [name, queen] of Object.entries(queens)) {
-    const __metrics = queen.getMetrics(); const __isHealthy = queen.isHealthy(); const __workload = queen.getWorkload() {;
+    const __metrics = queen.getMetrics(); const __isHealthy = queen.isHealthy(); const __workload = queen.getWorkload() ;
 
     console.warn(chalk.bold(` ${name}`));
     console.warn(`Specialty = args.join(' ');`
@@ -68,11 +73,10 @@ for (const [name, queen] of Object.entries(queens)) {
           console.warn(`${dissent.queenName} catch (error) { console.error(error); }: ${dissent.recommendation} (${(_dissent._confidence * 100).toFixed(1)}%)`)
         });
       //       }
-    } else {
+    } else 
       // Single queen result
       console.warn(chalk.cyan(' Queen Result => {'))
-          console.warn(`   \$index + 1. \$alt`);
-        });
+          console.warn(`   \$index + 1. \$alt`););
       //       }
   if(result.metadata) {
         console.warn();
@@ -87,7 +91,7 @@ for (const [name, queen] of Object.entries(queens)) {
   if(queens.length < 2) {
       console.warn(chalk.yellow(' Only one queen available, cannot collaborate'));
       console.warn(chalk.gray('Falling back to single queen execution...'));
-    }  catch (error) { console.error(error); }else {
+    }  catch (error) console.error(error); else {
       console.warn(chalk.blue(` \$queens.lengthqueens available for collaboration`));
     //     }
 

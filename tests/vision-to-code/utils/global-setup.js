@@ -1,4 +1,3 @@
-
 /** Global test setup for Visionary integration tests;
 /** Prepares test environment and starts necessary services;
 
@@ -171,8 +170,8 @@ async function cleanup() {
   // Kill all test processes
   for(const testProcess of testProcesses) {
     try {
-      testProcess.process.kill('SIGTERM'); console.warn(` Stopped ${testProcess.name} catch (error) { console.error(error); }`); } catch(error) {
-      console.error(` Failed to stop ${testProcess.name});`
+      testProcess.process.kill('SIGTERM'); console.warn(` Stopped $testProcess.namecatch (error) console.error(error); `); } catch(error) {
+      console.error(` Failed to stop $testProcess.name);`
 // }
 // }
   testProcesses = [];

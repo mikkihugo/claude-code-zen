@@ -1,9 +1,9 @@
 // session-command.js - Modern session management system with cross-session memory integration
 
-import { existsSync, promises as fs  } from 'node:fs';
+import { existsSync, promises as fs } from 'node:fs';
 import path from 'node:path';
-import { EnhancedMemory  } from '../../memory/enhanced-memory.js';
-import { printError, printInfo, printSuccess  } from '..';
+import { EnhancedMemory } from '../../memory/enhanced-memory.js';
+import { printError, printInfo, printSuccess } from '..';
 
 // Session storage paths
 const _SESSION_BASE_DIR = path.join(process.cwd(), '.claude-sessions');
@@ -39,7 +39,7 @@ async function _initializeSessionStorage() {
     printError(`Failed to save tohistory = Date.now();`
   const _random = Math.random().toString(36).substring(2, 8);
   const _safeName = name.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();
-  // return `session-${safeName}-${timestamp}-${random}`;
+// return `session-${safeName}-${timestamp}-${random}`;
 // }
 
 /** Get current session context

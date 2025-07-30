@@ -63,13 +63,12 @@ Once configured, ruv-swarm MCP tools are available directly in Claude Code: null
 ## MCP Tool Usage in Claude Code
 **Tool:** mcp__ruv-swarm__swarm_init
 ## Parameters;
-\`\`\`json;`
-{"topology": "mesh", "maxAgents", "strategy": "balanced"}
+\`\`\`json;`"topology": "mesh", "maxAgents", "strategy": "balanced"
 \`\`\`
 ## Examples
 **Basic mesh topology:**;
 - Tool: mcp__ruv-swarm__swarm_init;
-- Parameters: {"topology": "mesh", "maxAgents"}
+- Parameters: "topology": "mesh", "maxAgents"
 ## Topology Types;
 - **mesh**: Full connectivity, best for collaboration;
 - **hierarchical**: Tree structure, best for large projects;
@@ -97,16 +96,15 @@ Once configured, ruv-swarm MCP tools are available directly in Claude Code: null
 ## MCP Tool Usage in Claude Code
 **Tool:** mcp__ruv-swarm__task_orchestrate
 ## Parameters;
-\`\`\`json;`
-{"task": "Build REST API with authentication", "strategy": "parallel", "priority": "high", "maxAgents"}
+\`\`\`json;`"task": "Build REST API with authentication", "strategy": "parallel", "priority": "high", "maxAgents"
 \`\`\`
 ## Examples
 **Research task:**;
 - Tool: mcp__ruv-swarm__task_orchestrate;
-- Parameters: {"task": "Research modern web frameworks", "strategy": "adaptive"}
+- Parameters: "task": "Research modern web frameworks", "strategy": "adaptive"
 **Development with parallel strategy:**;
 - Tool: mcp__ruv-swarm__task_orchestrate;
-- Parameters: {"task": "Build REST API", "strategy": "parallel", "priority": "high"}
+- Parameters: "task": "Build REST API", "strategy": "parallel", "priority": "high"
 `;`
   // // await fs.writeFile('.claude/commands/init.md', initContent);
   // // await fs.writeFile('.claude/commands/spawn.md', spawnContent);

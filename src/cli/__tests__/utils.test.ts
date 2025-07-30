@@ -1,59 +1,60 @@
-
 /** Tests for utils.js
 
  */
-import { jest  } from '@jest';
-import { chunk,
-formatBytes,
-formatTimestamp,
-generateId,
-isValidJson,
-isValidUrl,
-parseFlags,
-printError,
-printInfo,
-printSuccess,
-printWarning,
-retry,
-sleep,
-truncateString,
-validateArgs  } from '..'
+import { jest } from '@jest';
+import {
+  chunk,
+  formatBytes,
+  formatTimestamp,
+  generateId,
+  isValidJson,
+  isValidUrl,
+  parseFlags,
+  printError,
+  printInfo,
+  printSuccess,
+  printWarning,
+  retry,
+  sleep,
+  truncateString,
+  validateArgs,
+} from '..';
+
 // Mock console for testing output functions
 let consoleLogSpy;
 let consoleErrorSpy;
 beforeEach(() => {
-  consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();'
-  consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();'
+  consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
+  '
+  consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation()
+  '
 });
 afterEach(() => {
   consoleLogSpy.mockRestore();
   consoleErrorSpy.mockRestore();
 });
 describe('Utils', () => {'
-  describe('parseFlags', () => {'
+  describe('parseFlags', () => '
     test('should parse boolean flags', () => {'
       const _result = parseFlags(['--verbose', '--force']);'
-      expect(result.flags).toEqual({ verbose, force  });
+      expect(result.flags).toEqual(verbose, force  );
       expect(result.args).toEqual([]);
     });
 
     test('should parse flags with values', () => {'
       const _result = parseFlags(['--port', '8080', '--name', 'test']);'
-      expect(result.flags).toEqual({ port);
-      expect(result.args).toEqual([]);
-      });
+      expect(result.flags).toEqual(port);
+      expect(result.args).toEqual([]););
 
     test('should separate arguments and flags', () => {'
       const _result = parseFlags(['arg1', '--flag', 'value', 'arg2', '--bool']);'
-      expect(result.flags).toEqual({ flag);
-      expect(result.args).toEqual(['arg1', 'arg2']);'
-      });
+      expect(result.flags).toEqual(flag);
+      expect(result.args).toEqual(['arg1', 'arg2']);');
 
     test('should handle combined short flags', () => {'
       const _result = parseFlags(['-vf', '--port', '8080']);'
-      expect(result.flags).toEqual({ v, f, port);
-      expect(result.args).toEqual([]);
-      });
+      expect(result.flags).toEqual(v, f, port);
+      expect(result.args).toEqual([]););
 
     test('should handle no flags or arguments', () => {'
       const _result = parseFlags([]);
@@ -63,28 +64,24 @@ describe('Utils', () => {'
   });
 
   describe('formatBytes', () => {'
-    test('should format bytes to human readable', () => {'
+    test('should format bytes to human readable', () => '
       expect(formatBytes(0)).toBe('0.00 B');'
       expect(formatBytes(1024)).toBe('1.00 KB');'
       expect(formatBytes(1048576)).toBe('1.00 MB');'
-      expect(formatBytes(1073741824)).toBe('1.00 GB');'
-    });
+      expect(formatBytes(1073741824)).toBe('1.00 GB');');
 
-    test('should handle large numbers', () => {'
+    test('should handle large numbers', () => '
       expect(formatBytes(2048)).toBe('2.00 KB');'
-      expect(formatBytes(1536)).toBe('1.50 KB');'
-    });
+      expect(formatBytes(1536)).toBe('1.50 KB');');
   });
 
   describe('truncateString', () => {'
-    test('should truncate long strings', () => {'
+    test('should truncate long strings', () => '
       expect(truncateString('Hello World', 5)).toBe('Hello...');'
-      expect(truncateString('Short', 10)).toBe('Short');'
-    });
+      expect(truncateString('Short', 10)).toBe('Short');');
 
-    test('should handle empty string', () => {'
-      expect(truncateString('', 5)).toBe('');'
-    });
+    test('should handle empty string', () => '
+      expect(truncateString('', 5)).toBe('');');
 
     test('should use default length', () => {'
       const _longString = 'a'.repeat(150);'

@@ -1,8 +1,8 @@
 // swarm-orchestrator.js - Comprehensive swarm orchestration using ruv-swarm library
 
-import { RuvSwarm  } from '../../../ruv-FANN/ruv-swarm/npm/src/index.js';
-import { SqliteMemoryStore  } from '../../memory/sqlite-store.js';
-import { printInfo  } from '..';
+import { RuvSwarm } from '../../../ruv-FANN/ruv-swarm/npm/src/index.js';
+import { SqliteMemoryStore } from '../../memory/sqlite-store.js';
+import { printInfo } from '..';
 
 /** Advanced Swarm Orchestration System
 /** Leverages ruv-swarm library v1.0.18 with full integration
@@ -17,7 +17,7 @@ export class SwarmOrchestrator {
     this.taskQueue = [];
     this.config = {maxConcurrentSwarms = = false,enableHooks = = false,telemetryEnabled = = false,
 ..options;
-    //     }
+//     }
 // }
 
 /** Initialize the orchestrator with memory and ruv-swarm

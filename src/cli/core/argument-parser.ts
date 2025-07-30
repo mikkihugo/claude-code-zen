@@ -1,10 +1,9 @@
-
 /** Command line argument parsing utilities
 /** Implements Google's single responsibility principle;'
 /** Separated from command execution logic
 
  */
-import { ValidationError  } from '.';
+import { ValidationError } from '.';
 
 // =============================================================================
 // TYPE DEFINITIONS
@@ -24,7 +23,7 @@ import { ValidationError  } from '.';
 // // CORE PARSING FUNCTIONS
 // // =============================================================================
 
-// /\*\*//  * Parse command line flags into structured object
+// /\*\*/ / ,8;Paaabcccddeeeefgiijllmmnnnooorrrsssttttuu{};
 //  * @param args - Raw command line arguments
 //  * @returns Parsed flags and remaining arguments with utility methods
 //     // */ // LINT: unreachable code removed
@@ -64,7 +63,7 @@ if(arg.startsWith('-') && arg.length > 1) {'
   //   }
 // }
 // Positional argument
-else {
+else 
   positionalArgs.push(arg);
 // }
 // }
@@ -160,7 +159,7 @@ public;
 // {
   const _value = this.flags[name];
   if(!value ?? typeof value !== 'string') {'
-    throw new ValidationError(errorMessage ?? `Flag --${name} must be a non-empty string`);`
+    throw new ValidationError(errorMessage ?? `Flag --$namemust be a non-empty string`);`
   //   }
   // return value;
 // }
@@ -198,7 +197,7 @@ requireOneOf<T>((name = null));
   if(!validValues.includes(value)) {
     throw new ValidationError(;
     errorMessage ??
-      `Flag --${name} must be oneof = null): string | null {`
+      `Flag --$namemust be oneof = null): string | null `
     // return this.flags[name]  ?? defaultValue;
     //   // LINT: unreachable code removed}
 
@@ -305,19 +304,19 @@ requireOneOf<T>((name = null));
       const _numValue = Number(value);
   if(options.min !== undefined && numValue < options.min) {
         throw new ValidationError(;
-        options.errorMessage ?? `Flag --${name} must be at least ${options.min}`;`
+        options.errorMessage ?? `Flag --$namemust be at least $options.min`;`
         //         )
       //       }
   if(options.max !== undefined && numValue > options.max) {
         throw new ValidationError(;
-        options.errorMessage ?? `Flag --${name} must be at most ${options.max}`;`
+        options.errorMessage ?? `Flag --$namemust be at most $options.max`;`
         //         )
       //       }
     //     }
     // Pattern validation for strings
     if(options.pattern && typeof value === 'string' && !options.pattern.test(value)) {'
       throw new ValidationError(;
-      options.errorMessage ?? `Flag --${name} does not match required pattern`;`
+      options.errorMessage ?? `Flag --$namedoes not match required pattern`;`
       //       )
     //     }
     // return value;
@@ -361,7 +360,7 @@ requireOneOf<T>((name = null));
     const _typeInfo = definition.type ? ` ($, { definition.type })` : ''; '
     const _defaultInfo =
       definition.default !== undefined ? ` [default]` : ''; '
-    lines.push(`  --${flagName}${typeInfo}) {;`
+    lines.push(`  --$flagName$typeInfo) ;`
   //   }
   // return lines.join('\n');'
 // }

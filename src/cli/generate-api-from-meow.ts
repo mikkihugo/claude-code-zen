@@ -9,7 +9,7 @@
  * @param {Object} cli - Meow CLI instance;
  * @returns {Object} Complete OpenAPI 3.0 specification;
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 export function generateApiFromMeow(cli => {
     const _openapi = {
       openapi = {get = {get = {post = {
@@ -38,10 +38,8 @@ Object.entries(flags).forEach(([flagName, flagConfig]) => {
     } else {
       example[flagName] = `example-${flagName}`;
     //     }
-  } else {
-    example[flagName] = `example-${flagName}`;
-  //   }
-});
+  } else 
+    example[flagName] = `example-$flagName`;);
 // return example;
 // }
 
@@ -68,4 +66,5 @@ Object.entries(flags).forEach(([flagName, flagConfig]) => {
 // }
 // export default generateApiFromMeow;
 
-}}}}}}))
+}}}}}})
+)

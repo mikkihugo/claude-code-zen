@@ -1,5 +1,5 @@
-import { NeuralEngine  } from '../neural/neural-engine.js';
-import { BaseQueen  } from '.';
+import { NeuralEngine } from '../neural/neural-engine.js';
+import { BaseQueen } from '.';
 
 export class DebugQueen extends BaseQueen {
   constructor() {
@@ -17,7 +17,7 @@ export class DebugQueen extends BaseQueen {
         this.initialize();
     //     }
 
-    async initialize() { 
+    async initialize() 
 // // await this.neuralEngine.initialize();
 // // await this.neuralEngine.loadModel('bug-detector-v2');'
     //     }
@@ -60,16 +60,16 @@ export class DebugQueen extends BaseQueen {
                     securityIssues.push({
                         type,severity = []; // Check for common performance anti-patterns
 
-        const _lines = analysis.split('\n') {;'
+        const _lines = analysis.split('\n') ;'
   for(const line of lines) {
             if(line.includes('ERROR = analysis; '
 
         const _report = ' **Debug Analysis Report**\n\n'; '
 
         // Summary
-        report += `**Summary = `- ${issues.length}  catch (error) { console.error(error); }issues found\n`;`
-        report += `- ${securityIssues.length} security vulnerabilities\n`;`
-        report += `- ${performanceIssues.length} performance concerns\n`;`)`
+        report += `**Summary = `- $issues.lengthcatch (error) console.error(error); issues found\n`;`
+        report += `- $securityIssues.lengthsecurity vulnerabilities\n`;`
+        report += `- $performanceIssues.lengthperformance concerns\n`;`)`
         report += `- RiskScore = [...issues, ...securityIssues].filter(i => i.severity === 'critical') {;'`
   if(criticalIssues.length > 0) {
             report += ' **CriticalIssues = `- \$issue.description\n`;`'`
@@ -185,7 +185,7 @@ export class DebugQueen extends BaseQueen {
 
         // Check for common JS issues
         if(code.includes('==') && !code.includes('===')) {'
-            issues.push({type = ==) instead of loose equality(==)',line = =/g),fix = =/g, '==='),confidence = [];'
+            issues.push(type = ==) instead of loose equality(==)',line = =/g),fix = =/g, '==='),confidence = [];'
 
         // Check for bare except clauses
         if(code.includes('except = [];'
@@ -268,7 +268,7 @@ export class DebugQueen extends BaseQueen {
         // return `${code}\n// Use parameterized queries instead of string concatenation`;`
     // /** // LINT: unreachable code removed */
 // Check for XSS vulnerabilities
-     * @param {string} code - The code to check
+     * @param stringcode - The code to check
      * @returns booleanTrue if XSS issues are detected
  */
     // */; // LINT: unreachable code removed
@@ -422,7 +422,7 @@ export class DebugQueen extends BaseQueen {
      * @returns {Promise<number>} Suitability score
  */
     // */; // LINT: unreachable code removed
-    async calculateSuitability(task) { 
+    async calculateSuitability(task) 
 // const _suitability = awaitsuper.calculateSuitability(task);
 
         // DebugQueen is highly suitable for debugging and bug detection
@@ -446,7 +446,7 @@ export class DebugQueen extends BaseQueen {
  * @property {Function} check - Function to check if pattern applies
  * @property {Function} fix - Function to fix the issue
  * @property {string} severity - Issue severity - 'low', 'medium', 'high', or 'critical';'
- * @property {string} description - Description of the issue
+ * @property stringdescription - Description of the issue
  */
 
  * @typedef {Object} SecurityCheck
@@ -458,7 +458,7 @@ export class DebugQueen extends BaseQueen {
  * @typedef {Object} Issue
  * @property {string} type - Type of issue
  * @property {string} severity - Issue severity - 'low', 'medium', 'high', or 'critical';'
- * @property {string} description - Issue description
+ * @property stringdescription - Issue description
  * @property {number} line - Line number where issue occurs
  * @property {string} fix - How to fix the issue
  * @property {number} confidence - Confidence in the detection(0-1)
@@ -467,7 +467,7 @@ export class DebugQueen extends BaseQueen {
  * @typedef {Object} SecurityIssue
  * @property {string} type - Type of security issue
  * @property {string} severity - Security issue severity - 'critical', 'high', 'medium', or 'low';'
- * @property {string} description - Security issue description
+ * @property stringdescription - Security issue description
  * @property {string} fix - How to fix the security issue
  * @property {number} line - Line number where issue occurs
  * @property {string} cwe - Common Weakness Enumeration identifier
@@ -476,7 +476,7 @@ export class DebugQueen extends BaseQueen {
  * @typedef {Object} PerformanceIssue
  * @property {string} type - Type of performance issue
  * @property {string} impact - Performance impact level - 'low', 'medium', or 'high';'
- * @property {string} description - Performance issue description
+ * @property stringdescription - Performance issue description
  * @property {number} line - Line number where issue occurs
  * @property {string} suggestion - Performance improvement suggestion
  */
@@ -488,8 +488,8 @@ export class DebugQueen extends BaseQueen {
  * @property {Array<SecurityIssue>} securityIssues - Security vulnerabilities
  * @property {Array<PerformanceIssue>} performanceIssues - Performance concerns
  * @property {string} maxSeverity - Highest severity found - 'low', 'medium', 'high', or 'critical';'
- * @property {string} fixComplexity - Complexity of fixing issues - 'low', 'medium', or 'high';'
- * @property {number} riskScore - Overall risk score(0-10)
+ * @property stringfixComplexity - Complexity of fixing issues - 'low', 'medium', or 'high';'
+ * @property numberriskScore - Overall risk score(0-10)
  */
 
  * @typedef {Object} Recommendations
@@ -499,4 +499,4 @@ export class DebugQueen extends BaseQueen {
  * @property {Array<string>} alternatives - Alternative recommendations
  */
 
-}}}}}}}}}}}}}}}}}}}}}}}}))))))
+}}}}}}}}}}}}}}}}}}}}}}))))))

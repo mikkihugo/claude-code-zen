@@ -1,9 +1,8 @@
-
 /** Plugin Activation System - Global initialization of enterprise plugins
 /** This file handles the activation and registration of all valuable plugins
 
  */
-import { PluginManager  } from '../plugins/plugin-manager.js';
+import { PluginManager } from '../plugins/plugin-manager.js';
 
 // All plugins are imported dynamically to handle missing ones gracefully
 

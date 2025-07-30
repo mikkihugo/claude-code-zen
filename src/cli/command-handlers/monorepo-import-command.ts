@@ -1,15 +1,13 @@
-
 /** Monorepo Import and Analysis Command
 /** Import existing monorepo code and analyze service structure
 /** For 15 microservices pilot - single domain, flat structure
 
  */
-import { existsSync  } from 'node:fs';
-import { readFile  } from 'node:fs';
+import { existsSync, readFile } from 'node:fs';
 import path from 'node:path';
-import { glob  } from 'glob';
-import { KuzuGraphInterface  } from '../database/kuzu-graph-interface.js';
-import { printInfo  } from '..';
+import { glob } from 'glob';
+import { printInfo } from '..';
+import { KuzuGraphInterface } from '../database/kuzu-graph-interface.js';
 
 /** Analyze monorepo structure and discover services
 
@@ -65,12 +63,12 @@ services`);`
 /** Strategy1 = []
   const _patterns = [
     'services/*', */
-    'apps/*', */
-    'packages/*', */
-    'microservices/*', */
-    'projects/*' */
-  ];
-  for(const pattern of patterns) {
+'apps/*', */
+'packages/*', */
+'microservices/*', */
+'projects/*' * /;;
+]
+for(const pattern of patterns) {
     try {
 
         const _serviceName = path.basename(match); services.push({name = []; try {
@@ -103,7 +101,7 @@ services`);`
       // return services;
     //   // LINT: unreachable code removed}
 
-     catch (error) { console.error(error); }const _nxConfig = JSON.parse(// await readFile(nxConfigPath, 'utf8'));
+     catch (error) console.error(error); const _nxConfig = JSON.parse(// await readFile(nxConfigPath, 'utf8'));
 
     // Look for project.json files
 

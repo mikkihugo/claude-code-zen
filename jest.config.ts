@@ -1,4 +1,3 @@
-
 /** Jest Configuration for Claude Code Flow
 
  * @fileoverview TypeScript Jest configuration with Google standards compliance

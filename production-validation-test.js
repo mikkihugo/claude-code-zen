@@ -4,7 +4,7 @@
 /** Comprehensive validation of Claude Code Flow system readiness;
 
  */
-import { existsSync  } from 'node:fs';
+import { existsSync } from 'node:fs';
 import fetch from 'node-fetch';
 
 console.warn(' CLAUDE CODE FLOW - PRODUCTION VALIDATION SUITE');
@@ -12,9 +12,10 @@ console.warn('='.repeat(60));
 const _tests = [];
 const _results = {
   passed: true,
-failed: true,
-warnings: true,
-total }
+  failed: true,
+  warnings: true,
+  total,
+};
 function test() {
   tests.push( name, fn );
 // }
@@ -98,10 +99,8 @@ test('Neural Engine', () => {
     const _rustBinariesExist =;
       existsSync('./ruv-FANN/target/release/libruv_fann.rlib')  ?? existsSync('./ruv-FANN/ruv-swarm/target/release');
     warn(rustBinariesExist, 'Rust binaries compiled(cargo build --release)');
-  } catch (error) { console.error(error); } catch(/* e */) {
-    assert(false, `Neural engine validation failed);`
-  //   }
-});
+  } catch (error) { console.error(error); } catch(/* e */) 
+    assert(false, `Neural engine validation failed);`);
 // Test 5: Database Systems
 test('Database Systems', () => {
   console.warn('\n Testing database systems...');
@@ -114,8 +113,7 @@ test('Database Systems', () => {
   // Check for database-related files
   const _dbFiles = ['./src/memory/sqlite-store.js', './src/cli/database/kuzu-graph-interface.js'];
   dbFiles.forEach((file) => {
-    assert(existsSync(file), `Database component exists: ${file.split('
-  });
+    assert(existsSync(file), `Database component exists: $file.split(');
 });
 // Test 6: Plugin Architecture
 test('Plugin System', () => {
@@ -139,7 +137,7 @@ test('MCP Tools', async() => {
   try {
 // const _response = awaitfetch('http://localhost:3000/api/execute', {
       method: 'POST','Content-Type': 'application/json' ,
-      body: JSON.stringify({ tool: 'swarm_status', args: {}  catch (error) { console.error(error); }}),
+      body: JSON.stringify(tool: 'swarm_status', args: catch (error) console.error(error); ),
       timeout });
 // const _result = awaitresponse.json();
     assert(response.ok, 'MCP tool execution endpoint responds');

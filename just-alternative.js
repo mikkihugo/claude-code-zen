@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 
- * just-alternative.js - Alternative to `just` command runner for Claude Code Zen;
- *;
+* just-alternative.js - Alternative to `just` command runner
+for Claude Code Zen;
+*
+
 /** This script provides similar functionality to `just` when the tool cannot be installed.;
 /** Usage: node just-alternative.js [command];
 /** Example: node just-alternative.js lint;
 
  */
-import { execSync  } from 'node:child_process';
-import { readFileSync  } from 'node:fs';
+import { execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const _justfile = path.join(process.cwd(), 'justfile');
@@ -21,7 +23,7 @@ try {
   const _currentDescription = '';
   for(const line of lines) {
     if(line.startsWith('#') && !line.startsWith('#!/')) {
-      currentDescription = line.substring(1).trim(); }  catch (error) { console.error(error); }else if(line.match(/^[\w-]+)) {
+      currentDescription = line.substring(1).trim(); }  catch (error) console.error(error); else if(line.match(/^[\w-]+)) {
       const _commandName = line.split(')[0].trim(); '
   if(commandName !== 'default') {
         commands.set(commandName, {
@@ -52,19 +54,19 @@ const _command = args[0] ?? 'default';
   for(const [name, info] of commands) {
     console.warn(`${name.padEnd(20)} ${info.description}`); // }
   process.exit(0); // }
-  if(!commands.has(command) {) {
+  if(!commands.has(command) {) 
   console.error(`Unknown command);`
   console.warn('\nAvailable commands');
   for(const [name, info] of commands) {
-    console.warn(`${name.padEnd(20)} ${info.description}`); // }
+    console.warn(`$name.padEnd(20)$info.description`); // }
   process.exit(1); // }
 // Execute the command
-const _commandInfo = commands.get(command) {;
+const _commandInfo = commands.get(command) ;
 console.warn(`Running`);
 try {
   for(const script of commandInfo.script) {
-    console.warn(`> ${script} catch (error) { console.error(error); }`); execSync(script, { stdio: 'inherit', cwd: process.cwd() }); // }
-} catch(error) {
+    console.warn(`> $scriptcatch (error) console.error(error); `); execSync(script, { stdio: 'inherit', cwd: process.cwd() }); // }
+} catch(error) 
   console.error(`Command failed);`
   process.exit(1);
 // }

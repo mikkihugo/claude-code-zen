@@ -1,4 +1,4 @@
-import { WasmModuleLoader  } from '/home/codespace/nvm/current/lib/node_modules/ruv-swarm/src/wasm-loader.js';
+import { WasmModuleLoader } from '/home/codespace/nvm/current/lib/node_modules/ruv-swarm/src/wasm-loader.js';
 
 async function traceWasmIssue() {
   console.warn('=== Tracing WASM Loading Issue ===\n');
@@ -38,7 +38,7 @@ try {
   console.warn(;)
     'Files found) => f.endsWith('.wasm')  ?? f.endsWith('.mjs')).join(', ');'
   );
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) { console.error(error); } catch(error) 
   console.warn('Error);'
 // }
 console.warn('\n=== Running Trace ===\n');

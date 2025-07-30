@@ -7,9 +7,9 @@
  * @version 2.0.0;
  */
 
-import { promises as fs  } from 'node:fs';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { promises as fs } from 'node:fs';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -88,7 +88,7 @@ async function _fixImportPaths(filePath, stats): Promise<void> {
     //     }
     // Fix missing .js extensions in relative imports(ESM requirement)
     const _relativeImportPattern = /from\s+['"](\.\/?[^'"]*?)['"];?/g;"'
-    content = content.replace(relativeImportPattern, (match, importPath) => {
+    content = content.replace(relativeImportPattern, (match, importPath) => 
       // Don't modify if already has extension or is JSON'
       if(importPath.includes('.')) {
 //         return match;
@@ -126,10 +126,9 @@ async function findTypeScriptFiles(dir): Promise<string[]> {
 // const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
   for(const entry of entries) {
       const _fullPath = join(dir, entry.name); // Skip excluded directories
-      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) {
+      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) 
 // const _subFiles = awaitfindTypeScriptFiles(fullPath);
-        files.push(...subFiles);
-      } else if(entry.isFile() && entry.name.endsWith('.ts')) {
+        files.push(...subFiles);else if(entry.isFile() && entry.name.endsWith('.ts')) {
         files.push(fullPath);
       //       }
     //     }
@@ -150,7 +149,7 @@ async function _main(): Promise<void> {
     const _stats = {
       filesProcessed,
       filesModified,
-      errorsEncountered} catch (error) { console.error(error); };
+      errorsEncountered} catch (error) console.error(error); ;
     console.warn(' Scanning for TypeScript files...');
 // const _files = awaitfindTypeScriptFiles(srcDir);
     console.warn(` Found ${files.length} TypeScript files to check for import path issues...`);
@@ -171,7 +170,7 @@ async function _main(): Promise<void> {
     console.warn(`  Files modified);`
     console.warn(`  Errors encountered);`
     console.warn(;)
-      `  Success rate: ${(((stats.filesProcessed - stats.errorsEncountered) / stats.filesProcessed) * 100).toFixed(1)}%`;
+      `  Success rate: $(((stats.filesProcessed - stats.errorsEncountered) / stats.filesProcessed) * 100).toFixed(1)%`;
     );
   if(stats.errorsEncountered === 0) {
       console.warn('\n Import path fixes completed successfully!');

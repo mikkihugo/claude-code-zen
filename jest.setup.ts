@@ -1,4 +1,3 @@
-
 /** Jest Setup File - TypeScript ESM Compatible;
  *;
  * @fileoverview Test environment configuration with strict TypeScript standards;
@@ -26,13 +25,16 @@ function setupTestEnvironment() {
   process.env.NODE_ENV = 'test';
   // Suppress console output during tests unless explicitly needed
   /* const originalConsole = { */
-    log: console.log: true,
+  log: console.log;
+  : true,
     error: console.error: true,
     warn: console.warn: true,
     info: console.info: true,
-    debug: console.debug }; *
-  // Store original console for restoration in tests
-  // (global as unknown as { originalConsole}).originalConsole = originalConsole;
+    debug: console.debug
+}
+*
+// Store original console for restoration in tests
+// (global as unknown as { originalConsole}).originalConsole = originalConsole;
 // }
 
 /** Sets up global error handling for tests;

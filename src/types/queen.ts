@@ -1,9 +1,8 @@
-
 /** Queen System Types;
 /** Multi-Queen hive architecture with distributed decision-making;
 
  */
-import type { Identifiable, JSONObject, TypedEventEmitter  } from '.';
+import type { Identifiable, JSONObject, TypedEventEmitter } from '.';
 
 // =============================================================================
 // QUEEN CORE TYPES
@@ -89,26 +88,26 @@ export type QueenType =
 //       message?;
 //       metrics?;
 //     };
-  };
-  recommendations?;
-  // lastCheck: Date
+  }
+recommendations?
+// lastCheck: Date
 // }
 // export // interface DetailedQueenMetrics extends QueenMetrics {
 //   timeSeriesData: {
 //     // timestamp: Date
 //     metrics: Partial<QueenMetrics>;
 //   }[];
-  distributionData: {
-    taskTypeDistribution: Record<TaskType, number>;
-    processingTimeDistribution;
-    confidenceDistribution;
-    qualityDistribution;
-  };
-  comparisonData: {
-    peerComparison: Record<string, number>;
-    historicalComparison: Record<string, number>;
-    benchmarkComparison: Record<string, number>;
-  };
+{
+  taskTypeDistribution: Record<TaskType, number>;
+  processingTimeDistribution;
+  confidenceDistribution;
+  qualityDistribution;
+}
+{
+  peerComparison: Record<string, number>;
+  historicalComparison: Record<string, number>;
+  benchmarkComparison: Record<string, number>;
+}
 // }
 // export // interface DiagnosticResult {
 //   overall: 'pass' | 'warn' | 'fail';
@@ -118,9 +117,9 @@ export type QueenType =
 //     message?;
 //     details?;
 //   }[];
-  recommendations;
-  estimatedFixTime?;
-  autoFixAvailable?;
+recommendations;
+estimatedFixTime?;
+autoFixAvailable?;
 // }
 // Code generation types
 // export // interface CodeGenerationSpec {
@@ -163,14 +162,15 @@ export type QueenType =
 //     // performance: number
 //     // security: number
 //   };
-  issues: {
-    // type: string
-    severity: 'low' | 'medium' | 'high';
-    // message: string
-    line?;
-    suggestion?;
-  }[];
-  recommendations;
+{
+  // type: string
+  severity: 'low' | 'medium' | 'high';
+  // message: string
+  line?;
+  suggestion?;
+}
+[];
+recommendations;
 // }
 // Bug analysis types
 // export // interface BugAnalysis {
@@ -192,14 +192,14 @@ export type QueenType =
 //     // newCode: string
 //     // explanation: string
 //   }[];
-  tests;
-  validation_steps;
-  risk_assessment: {
-    level: 'low' | 'medium' | 'high';
-    factors;
-    mitigation;
-  };
-  // confidence: number
+tests;
+validation_steps;
+{
+  level: 'low' | 'medium' | 'high';
+  factors;
+  mitigation;
+}
+// confidence: number
 // }
 // Architecture types
 // export // interface ArchitectureAnalysis {
@@ -211,13 +211,13 @@ export type QueenType =
 //     external;
 //     circular;
 //   };
-  metrics: {
-    // complexity: number
-    // coupling: number
-    // cohesion: number
-    // maintainability: number
-  };
-  recommendations;
+{
+  // complexity: number
+  // coupling: number
+  // cohesion: number
+  // maintainability: number
+}
+recommendations;
 // }
 // export // interface ArchitectureRecommendation {
 //   // priority: Priority
@@ -262,10 +262,10 @@ export type QueenType =
 //     // properties: JSONObject
 //     children?: VisionResult['components'];
 //   }[];
-  // layout: JSONObject
-  // styling: JSONObject
-  // confidence: number
-  suggestions;
+// layout: JSONObject
+// styling: JSONObject
+// confidence: number
+suggestions;
 // }
 // export // interface DesignAnalysis {
 //   style: {
@@ -274,21 +274,22 @@ export type QueenType =
 //     // spacing: JSONObject
 //     // layout_type: string
 //   };
-  components: {
-    // type: string
-    // count: number
-    variations;
-  }[];
-  patterns;
-  accessibility: {
-    // score: number
-    issues;
-    recommendations;
-  };
-  responsive: {
-    breakpoints;
-    behavior;
-  };
+{
+  // type: string
+  // count: number
+  variations;
+}
+[];
+patterns;
+{
+  // score: number
+  issues;
+  recommendations;
+}
+{
+  breakpoints;
+  behavior;
+}
 // }
 // export // interface ComparisonResult {
 //   // similarity: number
@@ -297,7 +298,7 @@ export type QueenType =
 //     // description: string
 //     severity: 'low' | 'medium' | 'high';
 //   }[];
-  recommendations;
+recommendations;
 // }
 // Neural network types
 // export // interface TrainingData {
@@ -334,7 +335,7 @@ export type QueenType =
 //     // score: number
 //     // iteration: number
 //   }[];
-  // time_taken: number
+// time_taken: number
 // }
 
 }}}}}))

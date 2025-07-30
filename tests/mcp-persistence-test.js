@@ -5,16 +5,20 @@
 /** Related to issue #312;
 
  */
-import { execSync  } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 // Dynamic import for sqlite3 to handle module loading issues
 let sqlite3;
 try {
-  sqlite3 = (// await import('sqlite3')).default;
-} catch (error) { console.error(error); } catch(error) {
+  sqlite3 = ( // await import('sqlite3')).default;
+} catch (error) {
+  console.error(error);
+}
+catch(error)
+{
   console.warn('sqlite3 not available for MCP persistence tests);'
 // }
 const ___filename = fileURLToPath(import.meta.url);
@@ -34,17 +38,16 @@ class MCPPersistenceTest {
     this.testCount = 0;
     this.passedCount = 0;
   //   }
-  log(message, color = 'reset') {
+  log(message, color = 'reset') 
     console.warn(`${colors[color]}${message}${colors.reset}`);
   //   }
-  async runTest(name, testFn) { 
+  async runTest(name, testFn) 
     this.testCount++;
     try 
   // await testFn();
       this.passedCount++;
       this.testResults.push({ name, passed   });
-      this.log(` ${name}`, 'green');
-    } catch(error) {
+      this.log(` ${name}`, 'green');catch(error) 
       this.testResults.push({ name, passed, error);
       this.log(` ${name  });`
     //     }
@@ -52,9 +55,7 @@ class MCPPersistenceTest {
   async checkDatabaseExists() { 
   // await this.runTest('Database file exists', async() => 
       if(!fs.existsSync(this.dbPath)) {
-        throw new Error(`Database not found at ${this.dbPath}`);
-      //       }
-    });
+        throw new Error(`Database not found at ${this.dbPath}`););
   //   }
   async queryDatabase(_query) { 
     if(!sqlite3) 
@@ -66,8 +67,7 @@ class MCPPersistenceTest {
       db.close();
       if(err) reject(err);
       else resolve(rows);
-    });
-  })
+    });)
 // }
 async;
 testMemoryUsageTool();
@@ -223,15 +223,13 @@ testConcurrentAccess();
   for(let i = 0; i < 5; i++) {
       const _key = `concurrent_${Date.now()}_${i}`;
       promises.push(;)
-      new Promise((resolve, reject) => {
+      new Promise((resolve, reject) => 
         try {
               const _result = execSync(;
                 `npx claude-zen@alpha mcp call memory_usage '{"action");'`
               resolve(result);
-            } catch (error) { console.error(error); } catch(error) {
-              reject(error);
-            //             }
-      });
+            } catch (error) { console.error(error); } catch(error) 
+              reject(error););
       //       )
     //     }
 // const _results = awaitPromise.all(promises);

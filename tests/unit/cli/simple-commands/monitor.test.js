@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, jest  } from '@jest';
+import { afterEach, beforeEach, describe, expect, jest } from '@jest';
 
 describe('monitor.js - Real Metrics Implementation', () => {
   let _consoleSpy;
@@ -22,8 +22,8 @@ describe('Basic Functionality', () => {
 // const _monitor = awaitimport(
         '../../../../src/cli/command-handlers/simple-commands/monitor.js';
     //     )
-    expect(monitor.monitorCommand).toBeDefined() {}
-    expect(monitor.showMonitorHelp).toBeDefined() {}
+    expect(monitor.monitorCommand).toBeDefined() 
+    expect(monitor.showMonitorHelp).toBeDefined() 
   });
   test('should collect and display metrics', async() => {
     const { monitorCommand } = await import(
@@ -38,7 +38,7 @@ describe('Basic Functionality', () => {
     const { showMonitorHelp } = await import(
         '../../../../src/cli/command-handlers/simple-commands/monitor.js';
     //     )
-  showMonitorHelp() {}
+  showMonitorHelp() 
     const _output = consoleSpy.log.mock.calls.join('\n');
     expect(output).toContain('Monitor commands);'
     expect(output).toContain('--interval');
@@ -60,7 +60,7 @@ describe('Output Formats', () => {
 //           return false;
     //   // LINT: unreachable code removed}
       })
-      expect(jsonOutput).toBeDefined() {}
+      expect(jsonOutput).toBeDefined() 
   if(jsonOutput) {
         const _parsed = JSON.parse(jsonOutput[0]);
         expect(parsed).toHaveProperty('timestamp');

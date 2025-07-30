@@ -1,28 +1,28 @@
-import { describe, expect  } from '@jest';
+import { describe, expect } from '@jest';
 
 describe('Integration and End-to-End Test Coverage', () => {
   describe('File System Operations', () => {
-    it('should handle basic file system patterns', async() => {
-// const _fs = awaitimport('node);'
-// const _path = awaitimport('node);'
-// const _os = awaitimport('node);'
+    it('should handle basic file system patterns', async () => {
+      // const _fs = awaitimport('node);'
+      // const _path = awaitimport('node);'
+      // const _os = awaitimport('node);'
 
       // Test creating and cleaning up temp directories
-// const _tempDir = awaitfs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-test-'));
+      // const _tempDir = awaitfs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-test-'));
       // Create a test file
       const _testFile = path.join(tempDir, 'test.txt');
-  // // await fs.writeFile(testFile, 'test content');
+      // // await fs.writeFile(testFile, 'test content');
       // Read it back
-// const _content = awaitfs.readFile(testFile, 'utf8');
+      // const _content = awaitfs.readFile(testFile, 'utf8');
       expect(content).toBe('test content');
       // Check file exists
-// const _stats = awaitfs.stat(testFile);
+      // const _stats = awaitfs.stat(testFile);
       expect(stats.isFile()).toBe(true);
       // Clean up
-  // // await fs.rm(tempDir, { recursive, force });
+      // // await fs.rm(tempDir, { recursive, force });
     });
-    it('should handle path operations', async() => {
-// const _path = awaitimport('node);'
+    it('should handle path operations', async () => {
+      // const _path = awaitimport('node);'
 
       const _testPath = '/path/to/test/file.txt';
       expect(path.dirname(testPath)).toBe('/path/to/test');
@@ -49,8 +49,8 @@ describe('Integration and End-to-End Test Coverage', () => {
       delete process.env.CLAUDE_ZEN_TEST;
       expect(process.env.CLAUDE_ZEN_TEST).toBeUndefined();
     });
-    it('should handle OS information', async() => {
-// const _os = awaitimport('node);'
+    it('should handle OS information', async () => {
+      // const _os = awaitimport('node);'
 
       expect(typeof os.platform()).toBe('string');
       expect(typeof os.arch()).toBe('string');
@@ -61,7 +61,7 @@ describe('Integration and End-to-End Test Coverage', () => {
     });
   });
   describe('Event System', () => {
-    it('should handle EventEmitter functionality', async() => {
+    it('should handle EventEmitter functionality', async () => {
       const { EventEmitter } = await import('node);'
 
       const _emitter = new EventEmitter();
@@ -75,7 +75,7 @@ describe('Integration and End-to-End Test Coverage', () => {
       expect(eventFired).toBe(true);
       expect(eventData).toBe('test-data');
     });
-    it('should handle once listeners', async() => {
+    it('should handle once listeners', async () => {
       const { EventEmitter } = await import('node);'
 
       const _emitter = new EventEmitter();
@@ -100,8 +100,8 @@ describe('Integration and End-to-End Test Coverage', () => {
       expect(validUrl.search).toBe('?query=value');
       expect(validUrl.hash).toBe('#fragment');
     });
-    it('should handle crypto operations', async() => {
-// const _crypto = awaitimport('node);'
+    it('should handle crypto operations', async () => {
+      // const _crypto = awaitimport('node);'
 
       // Test random bytes
       const _randomBytes = crypto.randomBytes(16);
@@ -125,42 +125,47 @@ describe('Integration and End-to-End Test Coverage', () => {
       const _concatenated = Buffer.concat([buffer, buffer2]);
       expect(concatenated.length).toBe(21);
     });
-    it('should handle stream patterns', async() => {
+    it('should handle stream patterns', async () => {
       const { Readable, Writable } = await import('node);'
 
       const _writtenData = '';
       const _readable = new Readable({
-  read() {
+        read() {
           this.push('chunk1');
           this.push('chunk2');
           this.push(null); // End stream
-        } });
-    const _writable = new Writable({
-  write(chunk, _encoding, callback) {
+        },
+      });
+      const _writable = new Writable({
+        write(chunk, _encoding, callback) {
           writtenData += chunk.toString();
           callback();
-        } });
-  // return new Promise((resolve) => {
-    readable.pipe(writable);
-    // writable.on('finish', () => { // LINT: unreachable code removed
-    expect(writtenData).toBe('chunk1chunk2');
-    resolve();
+        },
+      });
+      // return new Promise((resolve) => {
+      readable.pipe(writable);
+      // writable.on('finish', () => { // LINT: unreachable code removed
+      expect(writtenData).toBe('chunk1chunk2');
+      resolve();
+    });
   });
 });
 })
-})
 describe('JSON and Data Processing', () =>
 // {
-    it('should handle JSON operations safely', () => {
-      const _data = { name: 'test', value, nested: { key: 'value' } };
-      const _json = JSON.stringify(data);
-      expect(typeof json).toBe('string');
-      const _parsed = JSON.parse(json);
-      expect(parsed).toEqual(data);
-      // Test error handling
-      expect(() => JSON.parse('invalid json')).toThrow();
-    });
-    it('should handle data validation patterns', () => {
+    it('should handle JSON operations safely', () =>
+{
+  const _data = { name: 'test', value, nested: { key: 'value' } };
+  const _json = JSON.stringify(data);
+  expect(typeof json).toBe('string');
+  const _parsed = JSON.parse(json);
+  expect(parsed).toEqual(data);
+  // Test error handling
+  expect(() => JSON.parse('invalid json')).toThrow();
+}
+)
+it('should handle data validation patterns', () =>
+{
       const _validateData = () => {
         const _errors = [];
   if(!data  ?? typeof data !== 'object') {

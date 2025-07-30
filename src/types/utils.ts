@@ -1,9 +1,8 @@
-
 /** Utility Types;
 /** Type definitions for utility functions and system helpers;
 
  */
-import type { JSONObject  } from '.';
+import type { JSONObject } from '.';
 // =============================================================================
 // INTERACTIVE UTILITIES
 // =============================================================================

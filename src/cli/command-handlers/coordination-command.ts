@@ -1,4 +1,3 @@
-
 /** Coordination Command Module
 /** Converted from JavaScript to TypeScript
 
@@ -7,7 +6,8 @@ import { import type
 // {
   Logger, JSONObject, JSONValue, JSONArray;
 //  } from;
-('../types/core.js');'
+('../types/core.js');
+'
 printSuccess,
 printError,
 printWarning,

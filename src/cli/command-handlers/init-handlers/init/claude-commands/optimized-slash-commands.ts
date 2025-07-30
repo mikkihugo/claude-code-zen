@@ -1,13 +1,12 @@
-
 /** Optimized Slash Commands Module
 /** Converted from JavaScript to TypeScript
 
 // optimized-slash-commands.js - Create batchtools-optimized Claude Code slash commands
 
  */
-import { promises as fs  } from 'node:fs';
-import { join  } from 'node:path';
-import { createOptimizedMainSparcCommand  } from '.';
+import { promises as fs } from 'node:fs';
+import { join } from 'node:path';
+import { createOptimizedMainSparcCommand } from '.';
 
 // Create batchtools-optimized Claude Code slash commands for SPARC modes
 export async function createOptimizedClaudeSlashCommands(workingDir = null) {
@@ -159,4 +158,6 @@ For comprehensive performance guides, see,//github.com/ruvnet/claude-code-flow/d
 // // await node.writeTextFile(`${workingDir}/.claude/commands/performance.md`, performanceCommand);// // await node.writeTextFile(`${workingDir}/.claude/commands/performance.md`, performanceCommand);
   console.warn('   Created slash command);'
 
-}}}}}}))))
+}}
+}
+}}}))))

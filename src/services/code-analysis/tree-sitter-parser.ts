@@ -1,31 +1,34 @@
-
 /** Tree-sitter Multi-language Parser;
 /** Provides parsing support for 40+ programming languages using tree-sitter;
 
  */
-import { createHash  } from 'node:crypto';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 
 // Try to import tree-sitter with fallbacks
 let Parser, JavaScript, TypeScript;
 try {
-// const _TreeSitter = awaitimport('tree-sitter');
-  Parser = TreeSitter.default  ?? TreeSitter;
-} catch (error) { console.error(error); } catch(/* _e */) {
+  // const _TreeSitter = awaitimport('tree-sitter');
+  Parser = TreeSitter.default ?? TreeSitter;
+} catch (error) {
+  console.error(error);
+}
+catch(/* _e */)
+{
   console.warn('Tree-sitter not available, using fallback parsing');
   Parser = null;
 // }
 try {
 // const _JSModule = awaitimport('tree-sitter-javascript');
   JavaScript = JSModule.default  ?? JSModule;
-} catch (error) { console.error(error); } catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) 
   console.warn('Tree-sitter JavaScript grammar not available');
   JavaScript = null;
 // }
 try {
 // const _TSModule = awaitimport('tree-sitter-typescript');
   TypeScript = TSModule.typescript  ?? TSModule.default  ?? TSModule;
-} catch (error) { console.error(error); } catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) 
   console.warn('Tree-sitter TypeScript grammar not available');
   TypeScript = null;
 // }
@@ -226,11 +229,11 @@ isExported(node);
   : unknown
   //   {
     const _returnTypeNode = node.childForFieldName('return_type');
-    // if(returnTypeNode) { // LINT: unreachable code removed
-    // return this.getNodeText(returnTypeNode, content);
-    //   // LINT: unreachable code removed}
-    // return 'unknown';
-  //   }
+// if(returnTypeNode) { // LINT: unreachable code removed
+// return this.getNodeText(returnTypeNode, content);
+//   // LINT: unreachable code removed}
+// return 'unknown';
+//   }
 
 /** Extract class methods;
 

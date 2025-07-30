@@ -6,9 +6,9 @@
 /** Tests the enhanced command registry, API generation, and component structure.;
 
  */
-import { strict   } from 'node:assert';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { strict } from 'node:assert';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -48,7 +48,7 @@ async function testAPIGeneration() {
     // Mock the command registry functions
     const _mockGenerateAPIEndpoints = async() => {
 // const _commands = awaitmockListCommands();
-      const _endpoints = {} catch (error) { console.error(error); };
+      const _endpoints = {} catch (error) console.error(error); ;
       commands.forEach((cmd) => {
         endpoints[`/api/execute/${cmd.name}`] = {
           method: 'POST',
@@ -138,7 +138,7 @@ async function testOpenAPIGeneration() {
         openapi: '3.0.0',
           title: 'Claude-Zen Auto-Generated API',
           version: '2.0.0-alpha.70',
-          description: 'REST API auto-generated from CLI commands',,type: 'object' ,type: 'object' ,type: 'object' } catch (error) { console.error(error); };
+          description: 'REST API auto-generated from CLI commands',,type: 'object' ,type: 'object' ,type: 'object' } catch (error) console.error(error); ;
       commands.forEach((cmd) => {
         openapi.paths[`/api/execute/${cmd.name}`] = {
           post: {
@@ -248,7 +248,7 @@ async function testWebSocketMessages() {
     //   // LINT: unreachable code removed}
       // Type-specific validation
   switch(message.type) {
-        case 'execute_command':
+        case 'execute_command': {
   if(!message.command) {
             // return { valid, error: 'Command required for execute_command' };
     //   // LINT: unreachable code removed}
@@ -296,7 +296,7 @@ async function runTests() {
   for(const test of tests) {
     try {
   // // await test(); 
-      passed++; } catch (error) { console.error(error); } catch(error) {
+      passed++; } catch (error) { console.error(error); } catch(error) 
       console.error(`Test failed);`
       failed++;
     //     }
@@ -317,12 +317,12 @@ async function runTests() {
     console.warn('');
     console.warn(' Ready for production use!');
   } else {
-    console.warn(` ${failed} test(s) failed. Please check the implementation.`);
+    console.warn(` $failedtest(s) failed. Please check the implementation.`);
     process.exit(1);
   //   }
 // }
 // Run tests if this file is executed directly
-  if(import.meta.url === `file) {`
+  if(import.meta.url === `file) `
   runTests().catch((error) => {
     console.error('Fatal test error);'
     process.exit(1);
@@ -330,4 +330,5 @@ async function runTests() {
 // }
 // export { runTests };
 
-}}}}}}
+}}}
+        }}}

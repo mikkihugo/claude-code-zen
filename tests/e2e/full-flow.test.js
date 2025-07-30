@@ -1,4 +1,4 @@
-import { chromium  } from 'playwright';
+import { chromium } from 'playwright';
 import TestHelpers from '../vision-to-code/utils/test-helpers.js';
 
 describe.skip('Vision-to-Code E2E Tests', () => {
@@ -6,38 +6,42 @@ describe.skip('Vision-to-Code E2E Tests', () => {
   let _context;
   let _page;
   let _metricsCollector;
-  beforeAll(async() => {
+  beforeAll(async () => {
     _browser = await chromium.launch({ headless);
-  _metricsCollector = TestHelpers.createMetricsCollector();
+    _metricsCollector = TestHelpers.createMetricsCollector();
   });
-afterAll(async() => {
-  // await browser.close();
-});
-beforeEach(async() => {
-  context = await browser.newContext({
+  afterAll(async () => {
+    // await browser.close();
+  });
+  beforeEach(async () => {
+    context = await browser.newContext({
       viewport: { width, height },)
   userAgent: 'Mozilla/5.0(Vision2Code E2E Tests)' });
-page = // await context.newPage();
-// Set up request interception for performance monitoring
-page.on('request', (request) => {
-  const _url = request.url();
-  if(url.includes('/api/')) {
-    request.timing = { start: Date.now() };
-  //   }
-});
-page.on('response', (response) => {
-  const _request = response.request();
-  if(request.timing) {
-    const _duration = Date.now() - request.timing.start;
-    metricsCollector.recordRequest(request.url(), duration, response.status());
-  //   }
-});
-})
-afterEach(async() =>
-// {
-  // await context.close();
-})
-describe('Complete User Journey', () =>
+    page = // await context.newPage();
+      // Set up request interception for performance monitoring
+      page.on('request', (request) => {
+        const _url = request.url();
+        if (url.includes('/api/')) {
+          request.timing = { start: Date.now() };
+          //   }
+        }
+        )
+        page.on('response', (response) =>
+        {
+          const _request = response.request();
+          if (request.timing) {
+            const _duration = Date.now() - request.timing.start;
+            metricsCollector.recordRequest(request.url(), duration, response.status());
+            //   }
+          }
+          )
+        }
+        )
+        afterEach(async() =>
+        // {
+        // await context.close();
+      });
+    describe('Complete User Journey', () =>
 // {
   it('should complete full flow from image upload to code download', async() => {
     // Navigate to application
@@ -83,104 +87,115 @@ describe('Complete User Journey', () =>
 // const _totalTime = awaitpage.evaluate(() => performance.now());
     expect(totalTime).toBeLessThan(60000); // Complete journey in under 60 seconds
   });
-  it('should handle errors gracefully during the flow', async() => {
-  // await page.goto('http);'
+    it('should handle errors gracefully during the flow', async () => {
+      // await page.goto('http);'
 
-    // Simulate network error
-  // // await context.route('**/api/v1/images/upload', (route) => route.abort());
-    // Try to upload an image
-// const _uploadArea = awaitpage.locator('[data-testid="upload-area"]');
-    const [fileChooser] = // await Promise.all([;/g)
-        page.waitForEvent('filechooser'),
-        uploadArea.click() ]);
-  // // await fileChooser.setFiles('./test-fixtures/test-image.png');
-    // Should show error message
-  // // await page.waitForSelector('[data-testid="error-message"]');
-// const _errorText = awaitpage.textContent('[data-testid="error-message"]');
-    expect(errorText).toContain('Failed to upload');
-    // Should allow retry
-// const _retryButton = awaitpage.locator('[data-testid="retry-button"]');
-    expect(// await retryButton.isVisible()).toBe(true);
+      // Simulate network error
+      // // await context.route('**/api/v1/images/upload', (route) => route.abort());
+      // Try to upload an image
+      // const _uploadArea = awaitpage.locator('[data-testid="upload-area"]');
+      const [fileChooser] = page.waitForEvent('filechooser'), // await Promise.all([;/g)
+        uploadArea;
+      .click() ])
+      // // await fileChooser.setFiles('./test-fixtures/test-image.png');
+      // Should show error message
+      // // await page.waitForSelector('[data-testid="error-message"]');
+      // const _errorText = awaitpage.textContent('[data-testid="error-message"]');
+      expect(errorText).toContain('Failed to upload')
+      // Should allow retry
+      // const _retryButton = awaitpage.locator('[data-testid="retry-button"]');
+      expect( // await retryButton.isVisible()).toBe(true);
+    });
   });
-})
-describe('Responsive Design', () =>
-// {
-  const _viewports = [{ name: 'Mobile', width, height },
-      { name: 'Tablet', width, height },
-      { name: 'Desktop', width, height },,];
+  describe('Responsive Design', () =>
+  // {
+  const _viewports = [
+    { name: 'Mobile', width, height },
+    { name: 'Tablet', width, height },
+    { name: 'Desktop', width, height },
+    ,
+  ];
   viewports.forEach((viewport) => {
-    it(`should work on ${viewport.name} viewport`, async() => {
-  // await page.setViewportSize(viewport);
-  // await page.goto('http);'
+    it(`should work on ${viewport.name} viewport`, async () => {
+      // await page.setViewportSize(viewport);
+      // await page.goto('http);'
 
       // Verify layout adapts to viewport
-// const _uploadArea = awaitpage.locator('[data-testid="upload-area"]');
-      expect(// await uploadArea.isVisible()).toBe(true);
+      // const _uploadArea = awaitpage.locator('[data-testid="upload-area"]');
+      expect( // await uploadArea.isVisible()).toBe(true);
       // Check if mobile menu is visible on small screens
-  if(viewport.width < 768) {
-// const _mobileMenu = awaitpage.locator('[data-testid="mobile-menu-button"]');
-        expect(// await mobileMenu.isVisible()).toBe(true);
-      //       }
-      // Verify all critical elements are accessible
-      const _criticalElements = [
-
+      if (viewport.width < 768) {
+        // const _mobileMenu = awaitpage.locator('[data-testid="mobile-menu-button"]');
+        expect( // await mobileMenu.isVisible()).toBe(true);
+        //       }
+        // Verify all critical elements are accessible
+        const _criticalElements = [
           '[data-testid="upload-area"]',
           '[data-testid="framework-select"]',
-          '[data-testid="generate-code-btn"]',,,];
-  for(const selector of criticalElements) {
-// const _element = awaitpage.locator(selector); 
-        expect(// await element.isVisible()).toBe(true); 
-      //       }
-    }) {;
-  });
-})
+          '[data-testid="generate-code-btn"]',
+          ,
+          ,
+        ];
+        for (const selector of criticalElements) {
+          // const _element = awaitpage.locator(selector);
+          expect( // await element.isVisible()).toBe(true);
+          //       }
+        }
+        )
+        )
+      }
+      )
 describe('Performance Tests', () =>
 // {
-  it('should load the application quickly', async() => {
-    const _startTime = Date.now();
-  // await page.goto('http);'
-  const _loadTime = Date.now() - startTime;
-  expect(loadTime).toBeLessThan(3000); // Page should load in under 3 seconds
+  it('should load the application quickly', async() =>
+      {
+        const _startTime = Date.now();
+        // await page.goto('http);'
+        const _loadTime = Date.now() - startTime;
+        expect(loadTime).toBeLessThan(3000); // Page should load in under 3 seconds
 
-  // Check Core Web Vitals
-// const _metrics = awaitpage.evaluate(() => {
-//         return {
-          lcp: performance.getEntriesByType('largest-contentful-paint')[0]?.startTime,
-    // fid: performance.getEntriesByType('first-input')[0]?.processingStart, // LINT: unreachable code removed
+        // Check Core Web Vitals
+        // const _metrics = awaitpage.evaluate(() => {
+        //         return {
+        lcp: performance.getEntriesByType('largest-contentful-paint')[0]?.startTime,
+          // fid: performance.getEntriesByType('first-input')[0]?.processingStart, // LINT: unreachable code removed
           cls;
-getEntriesByType('layout-shift');
-reduce((sum, entry) => sum + entry.value, 0) };
-})
-expect(metrics.lcp).toBeLessThan(2500) // LCP < 2.5s
-expect(metrics.cls).toBeLessThan(0.1) // CLS < 0.1
-})
-it('should handle multiple concurrent uploads', async() =>
-// {
+        getEntriesByType('layout-shift');
+        reduce((sum, entry) => sum + entry.value, 0);
+      }
+    });
+    expect(metrics.lcp).toBeLessThan(2500); // LCP < 2.5s
+    expect(metrics.cls).toBeLessThan(0.1); // CLS < 0.1
+  });
+  it('should handle multiple concurrent uploads', async() =>
+  // {
   // await page.goto('http);'
 
   const _uploadCount = 5;
   const _uploadPromises = [];
-  for(let i = 0; i < uploadCount; i++) {
-// const _newPage = awaitcontext.newPage();
-  // // await newPage.goto('http);'
+  for (let i = 0; i < uploadCount; i++) {
+    // const _newPage = awaitcontext.newPage();
+    // // await newPage.goto('http);'
 
-    uploadPromises.push(;)
-    newPage.evaluate(async() => {
+    uploadPromises.push(;
+    )
+    newPage.evaluate(async() => 
       // Simulate file upload via API
 // const _response = awaitfetch('/api/v1/images/upload', {
               method: 'POST',
       Authorization: 'Bearer test-token',
 
-      body: new FormData() });
+      body: new FormData() )
     // return response.ok;
     //   // LINT: unreachable code removed});
     //     )
-  //   }
-// const _results = awaitPromise.all(uploadPromises);
-  const _successCount = results.filter((r) => r).length;
-  expect(successCount).toBe(uploadCount); // All uploads should succeed
-})
-})
+    //   }
+    // const _results = awaitPromise.all(uploadPromises);
+    const _successCount = results.filter((r) => r).length;
+    expect(successCount).toBe(uploadCount); // All uploads should succeed
+  }
+  )
+});
 describe('Accessibility', () =>
 // {
   it('should be keyboard navigable', async() => {
@@ -210,9 +225,7 @@ describe('Accessibility', () =>
   for(const input of inputs) {
 // const _id = awaitinput.getAttribute('id'); 
 // const _label = awaitpage.\$(`label[for="${id}"]`); 
-  expect(label) {.toBeTruthy();
-    //     }
-  });
+  expect(label) .toBeTruthy(););
   it('should pass automated accessibility tests', async() => {
   // await page.goto('http);'
 

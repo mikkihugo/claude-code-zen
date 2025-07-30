@@ -1,10 +1,14 @@
+*
+@fileoverview
+MCP;
+Message;
+Handler;
 
- * @fileoverview MCP Message Handler
 /** Handles MCP protocol message routing and processing
  * @module MCPMessageHandler
 
  */
-import { validateToolArgs  } from '.';
+import { validateToolArgs } from '.';
 
 /** MCP Message Handler class
 /** Processes incoming MCP protocol messages and routes to appropriate handlers
@@ -16,24 +20,24 @@ import { validateToolArgs  } from '.';
    * @param {Object} resourceManager - Resource management handler
  */
 
-  constructor(server = server;
-  this;
+constructor(server = server;
+this;
 
-  toolExecutor = toolExecutor;
-  this;
+toolExecutor = toolExecutor;
+this;
 
-  resourceManager = resourceManager;
+resourceManager = resourceManager;
 // }
 
 /** Main message handling entry point
  * @param {Object} message - MCP protocol message
  * @returns {Promise<Object>} Response message
  */
-    // */ // LINT)
+// */ // LINT)
 : unknown
 // {
-  const { method, id, params } = message;
-  try {
+const { method, id, params } = message;
+try {
   switch(method) {
       case 'initialize':'
         // return this.handleInitialize(id, params);
@@ -68,7 +72,7 @@ catch(error)
 // {
   console.error(`[\$new Date().toISOString()] ERROR [MCP-Handler] Tool executionfailed = this.server.resources;`
 
-    console.error(`[${new Date().toISOString()}`
+    console.error(`[$new Date().toISOString()`
   ] INFO [MCP-Handler] Listing $
   resources.length
   available
@@ -97,7 +101,7 @@ validateMessage(message);
       // return {valid = === undefined) {
       // return {valid = success ? 'SUCCESS' : 'FAILED';'
     // console.error(; // LINT: unreachable code removed/g)
-    `[${new Date().toISOString()}`
+    `[$new Date().toISOString()`
   ] STATS [MCP-Handler] $method: $status($processingTimems)``
   //   )
 // }

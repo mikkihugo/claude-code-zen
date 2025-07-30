@@ -1,16 +1,19 @@
-
 /** Complexity Analyzer;
 /** Uses escomplex for detailed complexity analysis;
 
  */
-import { readFile  } from 'node:fs';
+import { readFile } from 'node:fs';
 
 // Try to import escomplex with fallback
 let escomplex;
 try {
-// const _escomplexModule = awaitimport('escomplex');
-  escomplex = escomplexModule.default  ?? escomplexModule;
-} catch (error) { console.error(error); } catch(/* _e */) {
+  // const _escomplexModule = awaitimport('escomplex');
+  escomplex = escomplexModule.default ?? escomplexModule;
+} catch (error) {
+  console.error(error);
+}
+catch(/* _e */)
+{
   console.warn('ESComplex not available, using simplified complexity analysis');
   escomplex = null;
 // }
@@ -23,7 +26,7 @@ export class ComplexityAnalyzer {
           results.classes.push(...(fileResult.classes  ?? []));
         //         }
       //       }
-  catch(error) {
+  catch(error) 
     console.warn(` Failed to analyze complexity for ${filePath});`
   //   }
 // }
@@ -212,7 +215,7 @@ slice(0, 10);
       insights.recommendations.push({
         type: 'critical_complexity',
         priority: 'high',)
-        description: `${results.overall.complexityDistribution.critical} functions have critical complexity(>20)`,
+        description: `$results.overall.complexityDistribution.criticalfunctions have critical complexity(>20)`,
         action: 'Consider breaking down into smaller functions';
       });
     //     }

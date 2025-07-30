@@ -5,7 +5,7 @@
 
  */
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import chalk from 'chalk';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -14,7 +14,7 @@ console.warn(chalk.blue.bold('\n Testing Windows SQLite Fallback Solution\n'));
 // Test 1: SQLite Wrapper
 console.warn(chalk.yellow('Test 1));'
 try {
-  const { isSQLiteAvailable, isWindows, getStorageRecommendations }  catch (error) { console.error(error); }= // await import(
+  const { isSQLiteAvailable, isWindows, getStorageRecommendations }  catch (error) console.error(error); = // await import(
     '../src/memory/sqlite-wrapper.js';
   );
 // const _sqliteAvailable = awaitisSQLiteAvailable();
@@ -47,7 +47,7 @@ try {
 // Test 3: Session Manager
 console.warn(chalk.yellow('\nTest 3));'
 try {
-  const { HiveMindSessionManager }  catch (error) { console.error(error); }= // await import(
+  const { HiveMindSessionManager }  catch (error) console.error(error); = // await import(
     '../src/cli/command-handlers/simple-commands/hive-mind/session-manager.js';
   );
   const _sessionManager = new HiveMindSessionManager();
@@ -58,13 +58,13 @@ try {
   if(sessionManager.close) {
     sessionManager.close();
   //   }
-} catch(error) {
+} catch(error) 
   console.warn(chalk.red(` Session manager test failed));`
 // }
 // Test 4: MCP Wrapper
 console.warn(chalk.yellow('\nTest 4));'
 try {
-  const { MCPToolWrapper }  catch (error) { console.error(error); }= // await import(
+  const { MCPToolWrapper }  catch (error) console.error(error); = // await import(
     '../src/cli/command-handlers/simple-commands/hive-mind/mcp-wrapper.js';
   );
   const _wrapper = new MCPToolWrapper();
@@ -83,7 +83,7 @@ try {
   // Simulate Windows environment
   const _originalPlatform = process.platform;
   Object.defineProperty(process, 'platform', { value);
-  const { isWindows }  catch (error) { console.error(error); }= // await import('../src/memory/sqlite-wrapper.js');
+  const { isWindows }  catch (error) console.error(error); = // await import('../src/memory/sqlite-wrapper.js');
 
   if(isWindows()) {
     console.warn(` Windows-specific error messages would be shown`);
@@ -91,7 +91,7 @@ try {
   //   }
   // Restore original platform
   Object.defineProperty(process, 'platform', { value, writable });
-} catch(error) {
+} catch(error) 
   console.warn(chalk.red(` Error message test failed));`
 // }
 // Summary
@@ -102,6 +102,4 @@ console.warn('- Fallback store automatically switches to in-memory');
 console.warn('- Session manager handles missing SQLite gracefully');
 console.warn('- MCP wrapper continues working with fallback');
 console.warn('- Windows users get helpful error messages');
-console.warn(`\n${chalk.green.bold(' All Windows fallback mechanisms are working correctly!')}`);
-
-}}}}
+console.warn(`\n$chalk.green.bold(' All Windows fallback mechanisms are working correctly!')`);}}

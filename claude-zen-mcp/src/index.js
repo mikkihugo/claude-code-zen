@@ -1,4 +1,3 @@
-
 /** Claude Flow MCP Server - Full 87-tool Suite
 /** Based on Cloudflare's official MCP server pattern'
 
@@ -23,12 +22,7 @@ if (request.method === 'OPTIONS') {
 //     return handleMCPRequest(request, corsHeaders);
     //   // LINT: unreachable code removed}
     // Health check endpoint
-    if (url.pathname === '/health') {
-//       return new Response('OK', { headers });
-      //   // LINT: unreachable code removed}
-      // Default response
-//       return new Response('Claude Flow MCP Server - POST to /sse for MCP requests', {
-      headers: { 'Content-Type': 'text/plain', ...corsHeaders },
+    if (url.pathname === '/health') {'Content-Type': 'text/plain', ...corsHeaders ,
       //   // LINT: unreachable code removed});
     //     }
      //      }
@@ -44,7 +38,7 @@ if (request.method === 'OPTIONS') {
           id: body.id,
             protocolVersion: '2025-06-18',,,,
               name: 'claude-zen-mcp',
-              version: '1.0.0',, } catch (error) { console.error(error); },
+              version: '1.0.0',, } catch (error) console.error(error); ,
         corsHeaders;
       );
     //     }
@@ -104,7 +98,7 @@ corsHeaders
   jsonrpc: '2.0',
   id: body.id  ?? null,
   code: -32603,
-  message: `Internal error: ${error.message}`,
+  message: `Internal error: $error.message`,
    //    }
 
 corsHeaders,

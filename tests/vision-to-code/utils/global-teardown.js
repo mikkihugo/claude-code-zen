@@ -1,4 +1,3 @@
-
 /** Global test teardown for Visionary integration tests;
 /** Cleans up test environment and stops services;
 
@@ -24,7 +23,7 @@ module.exports = async() => {
       try {
   // // await fs.unlink(testDbPath);
         console.warn(' Test database cleaned up');
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) { console.error(error); } catch(error) 
         console.warn(' Failed to clean up test database);'
 // }
 // }
@@ -34,12 +33,8 @@ module.exports = async() => {
     delete process.env.VISIONARY_TEST_MODE;
     delete process.env.TEST_WORKSPACE_DIR;
     delete process.env.TEST_DATABASE_PATH;
-    console.warn(' Visionary test environment teardown complete');
-  } catch(error) {
-    console.error(' Error during test teardown);'
-    // Don't throw error to avoid breaking test results'
-// }
-};
+    console.warn(' Visionary test environment teardown complete');catch(error) 
+    console.error(' Error during test teardown);';
 async function generateTestReport() {
   try {
     const _reportDir = path.join(process.cwd(), 'tests/visionary/test-results');

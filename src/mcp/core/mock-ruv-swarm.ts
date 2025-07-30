@@ -1,5 +1,9 @@
-
- * @fileoverview Mock RuvSwarm implementation for testing
+*
+@fileoverview
+Mock;
+RuvSwarm;
+implementation;
+for testing
 /** Provides basic functionality when ruv-swarm is not available
 
  */

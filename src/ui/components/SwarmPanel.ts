@@ -1,9 +1,13 @@
-
 /** Hive-Mind Status Panel - Unified TUI/Web Component
 
  */
-import { Box  } from 'ink';'
-import React, { useEffect, useState  } from 'react';'
+import { Box } from 'ink';
+
+'
+
+import React, { useEffect, useState } from 'react';
+
+'
 
 const __HiveMindPanel = () => {
   const [_hiveData, setHiveData] = useState(null);
@@ -19,7 +23,7 @@ const __HiveMindPanel = () => {
         ]);
         setHiveData(hive);
         setSystemMetrics(metrics);
-      } catch (error) { console.error(error); } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) 
         console.error('Failed to update hivedata = setInterval(updateData, 2000);'
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
@@ -48,41 +52,36 @@ const __HiveMindPanel = () => {
               );
             );
           ) :
-          React.createElement(Text, { color);
+          React.createElement(Text, color);
       );
     ),
-    React.createElement(Box, { borderStyle: "round", borderColor: "yellow", paddingX, marginBottom},"
-      React.createElement(Box, { flexDirection: "column", width: "100%" },"))"
-        React.createElement(Text, { color: "yellow", bold}, " Task Overview"),"
-        React.createElement(Box, { justifyContent: "space-between", marginTop},"
+    React.createElement(Box, borderStyle: "round", borderColor: "yellow", paddingX, marginBottom,"
+      React.createElement(Box, flexDirection: "column", width: "100%" ,"))"
+        React.createElement(Text, color: "yellow", bold, " Task Overview"),"
+        React.createElement(Box, justifyContent: "space-between", marginTop,"
           React.createElement(Box, null,))
-            React.createElement(Text, { color: "green" }, " Done: "),"
-            React.createElement(Text, { color);
+            React.createElement(Text, color: "green" , " Done: "),"
+            React.createElement(Text, color);
           ),
           React.createElement(Box, null,)
-            React.createElement(Text, { color: "yellow" }, " Active: "),"
-            React.createElement(Text, { color);
+            React.createElement(Text, color: "yellow" , " Active: "),"
+            React.createElement(Text, color);
           ),
           React.createElement(Box, null,)
-            React.createElement(Text, { color: "gray" }, " Queue: "),"
-            React.createElement(Text, { color);
+            React.createElement(Text, color: "gray" , " Queue: "),"
+            React.createElement(Text, color);
           ),
           React.createElement(Box, null,)
-            React.createElement(Text, { color: "blue" }, " Total: "),"
-            React.createElement(Text, { color);
+            React.createElement(Text, color: "blue" , " Total: "),"
+            React.createElement(Text, color);
           );
         );
       );
     ),
-    React.createElement(Box, { justifyContent: "center", marginTop},"
-      React.createElement(Text, { color: hiveData.active ? 'green' : 'red', bold},'
+    React.createElement(Box, justifyContent: "center", marginTop,"
+      React.createElement(Text, color: hiveData.active ? 'green' : 'red', bold,'
         hiveData.active ? ' HIVE-MIND ACTIVE' : ' HIVE-MIND INACTIVE';'))'
       ),
-      React.createElement(Text, { color: "gray" }, `  Last update: ${new Date().toLocaleTimeString()}`);`
+      React.createElement(Text, color: "gray" , `  Last update: $new Date().toLocaleTimeString()`);`
     );
-  );
-};
-
-// export default HiveMindPanel;
-
-}}}}}}}}}}}}}}}
+  );;}}}}}}}}}}

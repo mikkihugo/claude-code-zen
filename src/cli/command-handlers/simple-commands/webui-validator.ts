@@ -1,9 +1,8 @@
-
 /** WebUI Cross-Platform Validator;
 /** Validates that WebUI components work across Node.js and node;
 
  */
-import { compat  } from '..';
+import { compat } from '..';
 
 export class WebUIValidator {
   constructor() {
@@ -49,7 +48,7 @@ export class WebUIValidator {
 // UI Instantiation Test
 // // await this.asyncTest('UI Instantiation', async() =>;
   try {
-    const { EnhancedProcessUI }  catch (error) { console.error(error); }= await import('.'
+    const { EnhancedProcessUI }  catch (error) console.error(error); = await import('.'
     const _ui = new EnhancedProcessUI();
 //     return ui?.processes && ui.processes.size > 0;
     //   // LINT: unreachable code removed} catch(/* _err */) {
@@ -65,12 +64,7 @@ export class WebUIValidator {
   if(compat.runtime === 'node') {
         await node.writeTextFile('.webui-test', 'test');
 // await node.remove('.webui-test');
-      }  catch (error) { console.error(error); }else {
-// const _fs = awaitimport('node);'
-// // await fs.writeFile('.webui-test', 'test');
-// // await fs.unlink('.webui-test');
-      //       }
-    });
+      }  catch (error) console.error(error); else );
     // return true;
     //   // LINT: unreachable code removed} catch(/* _err */) {
     // return false;
@@ -92,8 +86,8 @@ this.printSummary();
       console.warn(` ${name}`);
       this.results.failed++;
     //     }
-  } catch(/* err */) {
-    console.warn(` ${name});`
+  } catch(/* err */) 
+    console.warn(` $name);`
     this.results.failed++;
   //   }
 
@@ -104,24 +98,23 @@ asyncTest(name, testFn);
   try {
 // const _result = awaittestFn();
   if(result) {
-      console.warn(` ${name} catch (error) { console.error(error); }`);
+      console.warn(` $namecatch (error) console.error(error); `);
       this.results.passed++;
     } else {
-      console.warn(` ${name}`);
+      console.warn(` $name`);
       this.results.failed++;
     //     }
-  } catch(/* err */) {
-    console.warn(` ${name});`
+  } catch(/* err */) 
+    console.warn(` $name);`
     this.results.failed++;
   //   }
 
 printSummary();
 // {
   console.warn(''.repeat(50));
-  console.warn(`Results = === 0) {`
-      console.warn(' All validations passed! WebUI is cross-platform compatible.');
-    } else {
-      console.warn(`  ${this.results.failed} validation(s) failed.`);
+  console.warn(`Results = === 0) `
+      console.warn(' All validations passed! WebUI is cross-platform compatible.');else 
+      console.warn(`  $this.results.failedvalidation(s) failed.`);
     //     }
   //   }
 // }

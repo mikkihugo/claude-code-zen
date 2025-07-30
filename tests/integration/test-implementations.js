@@ -3,8 +3,8 @@
 /* Test script for Neural Engine and Queen implementations;
 
  */
-import { NeuralEngine  } from './src/neural/neural-engine.js';
-import { QueenCoordinator  } from './src/queens/queen-coordinator.js';
+import { NeuralEngine } from './src/neural/neural-engine.js';
+import { QueenCoordinator } from './src/queens/queen-coordinator.js';
 
 async function testNeuralEngine() {
   console.warn(' Testing Neural Engine...');

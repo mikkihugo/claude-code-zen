@@ -1,13 +1,12 @@
-
 /** GitHub CLI Safety Utilities;
 /** Safe GitHub operations with timeout protection and special character handling;
 /** Based on upstream commits 958f5910 + f4107494;
 
  */
-import { randomBytes  } from 'node:crypto';
-import { promises as fs  } from 'node:fs';
-import { tmpdir  } from 'node:os';
-import { join  } from 'node:path';
+import { randomBytes } from 'node:crypto';
+import { promises as fs } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import TimeoutProtection from '.';
 
 /** GitHub CLI execution options interface;
@@ -38,7 +37,7 @@ export // interface GitHubCliOptions {
 //   const _randomSuffix = randomBytes(8).toString('hex');
 //   const _tempFilePath = join(tempDir, `${GitHubCliSafe.TEMP_FILE_PREFIX}${randomSuffix}.tmp`);
 // // await fs.writeFile(tempFilePath, content, 'utf8');
-  // return tempFilePath;
+// return tempFilePath;
 // }
 
 /** Clean up temporary file;
@@ -64,16 +63,17 @@ replace(/\t/g, '\\t') // Escape tabs
    * @param options - Execution options;
    * @returns Command result;
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // static // async
 execGhSafe(args =
 // {
 // }
-): Promise<GitHubCliResult>
+)
+: Promise<GitHubCliResult>
 // {
-  const { timeout = GitHubCliSafe.DEFAULT_TIMEOUT, cwd = process.cwd(), input = null } = options;
-  const _tempFilePath = null;
-  try {
+const { timeout = GitHubCliSafe.DEFAULT_TIMEOUT, cwd = process.cwd(), input = null } = options;
+const _tempFilePath = null;
+try {
       // If there's input with special characters, use temp file approach'
       const _finalArgs = [...args];
       if(input && (input.includes('`')  ?? input.includes('$')  ?? input.includes('"'))) {"`

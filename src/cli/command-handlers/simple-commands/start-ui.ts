@@ -1,10 +1,9 @@
-
 /** Start Ui Module;
 /** Converted from JavaScript to TypeScript;
 
 // start-ui.js - Standalone UI launcher(Web UI by default)
  */
-import { printError  } from '..';
+import { printError } from '..';
 
 export async function launchUI(args = []) {
   try {
@@ -17,7 +16,7 @@ export async function launchUI(args = []) {
   if(web) {
       // Launch Web UI
       try {
-        const { ClaudeCodeWebServer }  catch (error) { console.error(error); }= // await import('./web-server.js');
+        const { ClaudeCodeWebServer }  catch (error) console.error(error); = // await import('./web-server.js');
         const _webServer = new ClaudeCodeWebServer(port);
 // // await webServer.start();
         printSuccess(' Claude Flow Web UI is running!');
@@ -36,10 +35,8 @@ export async function launchUI(args = []) {
 
         // Keep process alive
 // // await new Promise(() => {});
-      } catch(/* _err */) {
-        printError(`Failed to launch WebUI = // await import('./process-ui-enhanced.js');`
-// // await launchEnhancedUI();
-  } catch(/* err */) {
+      } catch(/* _err */) 
+        printError(`Failed to launch WebUI = // await import('./process-ui-enhanced.js');`catch(/* err */) 
     // Try simple UI as fallback
     try {
       let ProcessManager, ProcessUI;
@@ -70,7 +67,7 @@ export async function launchUI(args = []) {
 // // await processManager.stopAll();
       console.warn();
       printSuccess(' Shutdown complete');
-    } catch(/* fallbackErr */) {
+    } catch(/* fallbackErr */) 
       printError(`Failed to launch TerminalUI = args.indexOf(flag);`
   if(index !== -1 && index < args.length - 1) {
     // return args[index + 1];
@@ -83,4 +80,4 @@ export async function launchUI(args = []) {
 // // await launchUI();
 // }
 
-}}}})))
+}}})))

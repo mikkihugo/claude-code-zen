@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { execSync  } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 
 /** Claude Optimized Template Manager;
@@ -32,14 +32,9 @@ if(fs.existsSync('.claude/tests/test-harness.js')) {
   if(commands[command]) {
   try {
     commands[command](...args.slice(1));
-  } catch (error) { console.error(error); } catch(error) {
-    console.error(`Error executing ${command});`
-    process.exit(1);
-  //   }
-} else {
+  } catch (error) { console.error(error); } catch(error) 
+    console.error(`Error executing $command);`
+    process.exit(1);else 
   console.error(`Unknown command);`
-  console.warn(`Available commands: ${Object.keys(commands).join(', ')}`);
-  process.exit(1);
-// }
-
-}}}}}}}}}}}))))))))
+  console.warn(`Available commands: $Object.keys(commands).join(', ')`);
+  process.exit(1);}}}}}}}}}}))))))))

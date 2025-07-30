@@ -1,4 +1,3 @@
-
 /** Code Analysis Service;
 /** Professional code analysis tools integrated with Kuzu graph storage;
 
@@ -7,9 +6,8 @@ import ASTParser from '.';
 import ComplexityAnalyzer from '.';
 import DependencyAnalyzer from '.';
 import DuplicateCodeDetector from '.';
-import CodeAnalysisWatcher from '.';
-import { CodeAnalysisOrchestrator  } from '.';
 import TreeSitterParser from '.';
+import CodeAnalysisWatcher, { CodeAnalysisOrchestrator } from '.';
 
 export { ASTParser };
 export { DependencyAnalyzer };
@@ -22,15 +20,17 @@ export { CodeAnalysisOrchestrator };
 // Main service // interface
 // export class CodeAnalysisService {
 //   constructor(config = {}) {
-    this.orchestrator = new CodeAnalysisOrchestrator(config);
-    this.watcher = new CodeAnalysisWatcher(config);
-  //   }
+this.orchestrator = new CodeAnalysisOrchestrator(config);
+this.watcher = new CodeAnalysisWatcher(config);
+//   }
 
-  async initialize() { 
-    // Set up event listeners for real-time analysis
-    this.watcher.on('analysis => '
+async;
+initialize();
+{
+  // Set up event listeners for real-time analysis
+  this.watcher.on('analysis => '
       console.warn(` Real-time analysis => {`))
-      console.warn(` Significant change detected = {}) {`
+  console.warn(` Significant change detected = {}) {`
 //     return // await this.orchestrator.analyzeCodebase(options);
     //   // LINT: unreachable code removed}
 
@@ -39,32 +39,38 @@ export { CodeAnalysisOrchestrator };
     //   // LINT: unreachable code removed}
 
   async startRealTimeAnalysis() { }
-    if(!this.orchestrator.isInitialized) 
-// await this.initialize();
+  if (!this.orchestrator.isInitialized)
+    // await this.initialize();
     //     }
     // return // await this.watcher.startWatching(this.orchestrator);
     //   // LINT: unreachable code removed}
 
-  async stopRealTimeAnalysis() { }
-    // return await this.watcher.stopWatching();
-    //   // LINT: unreachable code removed}
+    async;
+  stopRealTimeAnalysis();
+  // return await this.watcher.stopWatching();
+  //   // LINT: unreachable code removed}
 
-  async query(query): unknown
+  async;
+  query(query);
+  : unknown
     // return await this.orchestrator.queryAnalysis(query);
     //   // LINT: unreachable code removed}
 
-  async getStats() 
-// const _orchestratorStats = awaitthis.orchestrator.getAnalysisStats();
-    const _watcherStatus = this.watcher.getStatus();
+  async getStats()
+  // const _orchestratorStats = awaitthis.orchestrator.getAnalysisStats();
+  const _watcherStatus = this.watcher.getStatus();
 
-    // return {
-..orchestratorStats,
-    // realTimeAnalysis, // LINT: unreachable code removed
-    };
+  // return {
+  ..orchestratorStats,
+  // realTimeAnalysis, // LINT: unreachable code removed
+}
 
-  async cleanup() {}
+async;
+cleanup();
+{
+}
 // await this.watcher.stopWatching();
-    // return await this.orchestrator.cleanup();
+// return await this.orchestrator.cleanup();
 
 // export default CodeAnalysisService;
 

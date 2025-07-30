@@ -1,10 +1,9 @@
-
 /** Distributed Queen Council Status Checker
 /** Comprehensive analysis of all queen capabilities and readiness
 
  */
-import { printError, printInfo, printSuccess  } from '..';
-import { QueenCouncil  } from '.';
+import { printError, printInfo, printSuccess } from '..';
+import { QueenCouncil } from '.';
 
 /** Comprehensive Queen Council Status Analysis
 
@@ -40,8 +39,10 @@ checkSystemInitialization();
    catch (error) { console.error(error); }//   }
 
 /** Check database integration
-   *//g)
-  async checkDatabaseIntegration() { 
+   */ /);g;
+async;
+checkDatabaseIntegration();
+{ 
     printInfo(' Checking Database Integration...');
 
     try 
@@ -129,7 +130,7 @@ catch(error)
   try {
       const _coordinationFeatures = {multi_queen_analysis = === 'function',strategic_updates = === 'function';
       //       }
-   catch (error) { console.error(error); }const _workingFeatures = Object.values(coordinationFeatures).filter((f) => f).length;
+   catch (error) console.error(error); const _workingFeatures = Object.values(coordinationFeatures).filter((f) => f).length;
   const _totalFeatures = Object.keys(coordinationFeatures).length;
   this.statusData.coordination = workingFeatures >= Math.ceil(totalFeatures * 0.8); // 80% threshold
 
@@ -170,7 +171,7 @@ catch(error)
     const _totalFactors = Object.keys(readinessFactors).length;
     const _readinessPercentage = Math.round((readyCount / totalFactors) * 100)
     console.warn(' Readiness Factors => {')
-      console.warn(`${ready ? '' );`
+      console.warn(`$ready ? '' );`
     });
 
     console.warn(`\n OverallReadiness = 90) ;`

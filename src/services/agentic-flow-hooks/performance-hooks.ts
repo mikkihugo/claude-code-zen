@@ -1,9 +1,8 @@
-
 /** Performance Monitoring Hooks;
 /** Hooks for system performance monitoring, optimization, and alerting;
 
  */
-import { HookRegistration, HookResult, PerformanceHook  } from '.';
+import { HookRegistration, HookResult, PerformanceHook } from '.';
 
 /** System performance monitor hook;
 

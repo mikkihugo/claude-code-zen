@@ -1,12 +1,11 @@
-
 /** Standardized CLI Help Formatter
 /** Follows Unix/Linux conventions for help output
 
  */
 export class HelpFormatter {
-  // // static INDENT = '    ';'
-  // // static COLUMN_GAP = 2;
-  // // static MIN_DESCRIPTION_COLUMN = 25;
+// // static INDENT = '    ';'
+// // static COLUMN_GAP = 2;
+// // static MIN_DESCRIPTION_COLUMN = 25;
 
 /** Format main command help
 

@@ -6,9 +6,9 @@
 /** The issue occurs when timestamps are shown in UTC instead of user's local timezone.;'
 
  */
-import { promises   } from 'node:fs';
+import { promises } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);

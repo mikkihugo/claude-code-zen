@@ -1,11 +1,10 @@
-
 /** Status Command Module
 /** Converted from JavaScript to TypeScript
 
 // status-command.js - Handles the status command
 
  */
-import { printSuccess  } from '..';
+import { printSuccess } from '..';
 
 export async function statusCommand(_args, _flags) {
   printSuccess('Claude-Flow System Status);'

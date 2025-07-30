@@ -1,4 +1,3 @@
-
 /** Enhanced UI Views for Claude-Flow Web UI;
 /** Provides comprehensive interfaces for all 71+ missing MCP tools;
 /** Organized by tool categories with real-time updates;

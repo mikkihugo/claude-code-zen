@@ -1,42 +1,42 @@
-
 /** Memory Backend Plugin Interface - TypeScript Edition;
 /** Pluggable storage backends for the main system with comprehensive type safety;
 
  */
 import LanceDBInterface from '../../database/lancedb-interface';
-import { JSONValue  } from '../../types/core';
+import { JSONValue } from '../../types/core';
+
 // // interface MemoryBackendConfig {backend = null
 // private;
 // initialized = false
 // constructor((config = {}))
 // {
-  this.config = {backend = new LanceDBBackend(this.config);
-  break;
-  case 'kuzu': null
+this.config = {backend = new LanceDBBackend(this.config);
+break;
+case 'kuzu': null
   case 'graph': null
   this.storage = new KuzuBackend(this.config)
-  break;
-  case 'chroma': null
+break;
+case 'chroma': null
   this.storage = new LanceDBBackend(this.config) // Fallback ChromaDB to LanceDB
-  break;
-  case 'sqlite': null
+break;
+case 'sqlite': null
   this.storage = new SQLiteBackend(this.config)
-  break;
-  case 'json': null
+break;
+case 'json': null
   this.storage = new JsonBackend(this.config)
-  break;
-  case 'postgresql': null
+break;
+case 'postgresql': null
   this.storage = new PostgreSQLBackend(this.config)
-  break;
-  case 'unified': null
+break;
+case 'unified': null
   case 'hybrid': null
   // Unified/hybrid backend uses LanceDB as primary with fallback capabilities
   console.warn(' Using LanceDB as unified backend(hybrid memory simulation)')
   this.storage = new LanceDBBackend(this.config)
-  break;
-  default = // await this.storage.initialize() {}
-  // Handle fallback returns
-  if(result && result !== this.storage) {
+break;
+default = // await this.storage.initialize() {}
+// Handle fallback returns
+if(result && result !== this.storage) {
     this.storage = result;
     //   // LINT: unreachable code removed}
     this.initialized = true;
@@ -101,7 +101,7 @@ ensureInitialized();
 // {
   if(!this.initialized) {
 // // await this.initialize();
-  //   }
+//   }
 // }
 // }
 

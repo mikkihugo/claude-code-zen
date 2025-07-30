@@ -1,16 +1,14 @@
-
 /** Multi-System Coordinator - Advanced Integration Layer;
 /** ORCHESTRATES LANCEDB, KUZU, AND VISIONARY SOFTWARE INTELLIGENCE SYSTEMS;
 /** Provides unified interface and cross-system intelligence;
 
  */
-import { EventEmitter  } from 'node:events';
-import { existsSync  } from 'node:fs';
-import { mkdir  } from 'node:fs';
+import { EventEmitter } from 'node:events';
+import { existsSync, mkdir } from 'node:fs';
 import path from 'node:path';
 import KuzuAdvancedInterface from '../database/kuzu-advanced-interface.js';
 import LanceDBInterface from '../database/lancedb-interface.js';
-import { VisionarySoftwareIntelligenceProcessor  } from '../visionary/software-intelligence-processor.js';
+import { VisionarySoftwareIntelligenceProcessor } from '../visionary/software-intelligence-processor.js';
 
 export class MultiSystemCoordinator extends EventEmitter {
   constructor(_config = {}) {
@@ -415,13 +413,12 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
 // const __analytics = awaitthis.generateCrossSystemAnalytics();
         // In production, this would be sent to monitoring system
         console.warn(' Cross-system analytics updated');
-      } catch (error) { console.error(error); } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) 
         console.warn(' Analytics update failed => {')
-      this.manageCrossSystemCache();
-    }, 300000); // Every 5 minutes
+      this.manageCrossSystemCache();, 300000); // Every 5 minutes
 
     console.warn(' Analytics system initialized');
-  //   }
+//   }
 
 /** Get comprehensive system status;
 

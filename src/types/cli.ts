@@ -1,17 +1,18 @@
-
 /** CLI Types;
 /** Type definitions for command-line interface components;
 
 // Re-export CLI errors
  */
-export type { // eslint-disable-line
+export type {
+  // eslint-disable-line
   CliError as CLIError,
-CliErrorCode,
-CommandExecutionError,
-ConfigurationError,
-formatErrorMessage,
-handleError,
-ValidationError  } from '../cli/core/cli-error.js'
+  CliErrorCode,
+  CommandExecutionError,
+  ConfigurationError,
+  formatErrorMessage,
+  handleError,
+  ValidationError,
+} from '../cli/core/cli-error.js';
 // =============================================================================
 // CLI ERROR TYPES
 // =============================================================================

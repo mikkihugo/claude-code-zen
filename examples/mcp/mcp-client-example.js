@@ -1,9 +1,8 @@
-
 /** MCP Client Example;
 /** Demonstrates how to connect to and use MCP tools;
 
  */
-import { ClaudeFlowMCPServer  } from '../src/mcp/mcp-server.js';
+import { ClaudeFlowMCPServer } from '../src/mcp/mcp-server.js';
 
 class MCPClientExample {
   constructor() {
@@ -11,7 +10,7 @@ class MCPClientExample {
     this.examples = new Map();
     this.setupExamples();
 // }
-  setupExamples() {
+  setupExamples() 
     // Basic swarm examples
     this.examples.set('swarm-init', this.swarmInitExample.bind(this));
     this.examples.set('agent-spawn', this.agentSpawnExample.bind(this));
@@ -26,7 +25,7 @@ class MCPClientExample {
     // Workflow examples
     this.examples.set('complete-workflow', this.completeWorkflowExample.bind(this));
 // }
-  async initialize() { 
+  async initialize() 
     console.warn(' Initializing MCP Client Example');
     this.mcpServer = new ClaudeFlowMCPServer( version: '2.0.0-alpha.70',
     listChanged ,
@@ -35,7 +34,7 @@ class MCPClientExample {
   // // await this
 
   mcpServer;
-  initialize() {}
+  initialize() 
   console;
 
   warn(' MCP Server initialized')
@@ -43,7 +42,7 @@ class MCPClientExample {
   this;
   //   // LINT: unreachable code removed}
   // Helper method to call MCP tools
-  async callTool(toolName, params = {}) { 
+  async callTool(toolName, params = {}) 
     try 
       console.warn(` Calling tool`);
 // const _result = awaitthis.mcpServer.executeToolCall({ name: true,

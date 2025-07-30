@@ -93,7 +93,7 @@ async function importDocuments() {
         tags,
         dependencies,)
         source);
-    } catch (error) { console.error(error); } catch(_error) {}
+    } catch (error) console.error(error); catch(_error) 
 
   // Show summary
   const summary = memoryStore.getDocumentSummary();

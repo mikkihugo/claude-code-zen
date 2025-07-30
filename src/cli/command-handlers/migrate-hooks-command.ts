@@ -3,10 +3,10 @@
 /* CLI command wrapper for migrate-hooks script
 
  */
-import { execSync  } from 'node:child_process';
-import { promises as fs  } from 'node:fs';
+import { execSync } from 'node:child_process';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 const ___dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -14,8 +14,12 @@ export async function migrateHooksCommand(flags = path.join(__dirname, '../../..
 
 // Check if script exists
 try {
-// // await fs.access(scriptPath);
-} catch (error) { console.error(error); } catch {
+  // // await fs.access(scriptPath);
+} catch (error) {
+  console.error(error);
+}
+catch
+{
   console.error(' Migration script not found. Please ensure you have the latest version.');
   process.exit(1);
 // }

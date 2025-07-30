@@ -89,17 +89,15 @@ catch(error)
             result.actions.push(`Removed memoryfile = false;`
       result.errors.push(`Memory setup rollback failed = {success = `${this.workingDir}
 
-       catch (error) { console.error(error); }try {
+       catch (error) console.error(error); try {
 // // await node.remove(coordinationDir, {recursive = false;
       result.errors.push(`Coordination setup rollback failed = {success = `${this.workingDir}
 
-       catch (error) { console.error(error); }try {))))
+       catch (error) console.error(error); try {))))
 // // await node.remove(executablePath);
         result.actions.push('Removed claude-zen executable');
-      } catch (error) { console.error(error); } catch {
-        result.actions.push('claude-zen executable was already clean');
-      //       }
-    } catch(error) {
+      } catch (error) { console.error(error); } catch 
+        result.actions.push('claude-zen executable was already clean');catch(error) 
       result.success = false;
       result.errors.push(`Executable rollback failed = {success = checkpoint.data.actions  ?? [];`
 
@@ -163,10 +161,10 @@ trim();
       } catch {
         // File doesn't exist or can't be modified
       //       }
-    } catch {
-      // Error handling CLAUDE.md - continue silently
-    //     }
-  //   }
+    } catch
+// Error handling CLAUDE.md - continue silently
+//     }
+//   }
 
 /** Reverse a specific action
 

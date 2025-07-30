@@ -1,4 +1,3 @@
-
 /** Agentic-Flow Hook System Types;
 /** Comprehensive type system for hook-based automation and workflow management;
 
@@ -130,12 +129,12 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 //     // end: number
 //     // peak: number
 //   };
-  // cpuUsage: number
-  // ioOperations: number
-  // networkCalls: number
-  // databaseQueries: number
-  // cacheHits: number
-  // cacheMisses: number
+// cpuUsage: number
+// ioOperations: number
+// networkCalls: number
+// databaseQueries: number
+// cacheHits: number
+// cacheMisses: number
 // }
 // Advanced hook features
 // export // interface ConditionalHook extends Hook {
@@ -169,8 +168,8 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 //     errorHandling?: 'continue' | 'stop' | 'retry' | 'fallback';
 //     fallbackHook?;
 //   }>;
-  // strategy: HookExecutionStrategy
-  // timeout: number
+// strategy: HookExecutionStrategy
+// timeout: number
 // }
 // Hook templating and configuration
 // export // interface HookTemplate {
@@ -184,7 +183,7 @@ export // interface NeuralHook extends Hook {execute = > Promise<HookResult> | H
 //     default?;
 //     // description: string
 //   }>;
-  // template: Hook
+// template: Hook
 // }
 // export // interface HookConfiguration {
 //   // globalConfig: HookManagerConfig

@@ -1,4 +1,3 @@
-
 /** AI Providers Types;
 /** Re-export and extend the existing provider types with additional functionality
 
@@ -7,8 +6,8 @@
 export * from '../providers/types.js';
 
 // Import the existing types to extend them
-import type { AIProvider as BaseAIProvider  } from '../providers/types.js';
-import type { Identifiable  } from '.';
+import type { AIProvider as BaseAIProvider } from '../providers/types.js';
+import type { Identifiable } from '.';
 
 // =============================================================================
 // EXTENDED PROVIDER TYPES
@@ -40,24 +39,23 @@ export // interface ExtendedAIProvider extends BaseAIProvider, Identifiable {
 //     };
 // Cost metrics
 // {
-  // totalCost: number
-  // costPerRequest: number
-  // costPerToken: number
-  // costTrend: TrendData
-  // compute: number
-  // storage: number
-  // bandwidth: number
-  // api: number
-  // other: number
-  // potentialSavings: number
-  recommendations;
+// totalCost: number
+// costPerRequest: number
+// costPerToken: number
+// costTrend: TrendData
+// compute: number
+// storage: number
+// bandwidth: number
+// api: number
+// other: number
+// potentialSavings: number
+recommendations;
 // }
 // User experience metrics
 // {
-  satisfaction, // 0-1
+satisfaction, // 0-1
   nps, // Net Promoter Score
   csat, // Customer Satisfaction Score
-
   // Experience breakdown
   usability, // 0-1
   reliability, // 0-1
@@ -66,54 +64,53 @@ export // interface ExtendedAIProvider extends BaseAIProvider, Identifiable {
   // positive: number
   // negative: number
   // neutral: number
-// }
-// Business impact metrics
-// {
+  // }
+  // Business impact metrics
+  // {
   // Productivity metrics
   timesSaved, // hours
   // tasksAutomated: number
   efficiencyGain, // percentage
-
   // Value metrics
   businessValue, // dollar amount
   roi, // return on investment
-
   // Adoption metrics
   userAdoption, // percentage
-  featureUtilization: Record<string, number>;
+  featureUtilization;
+: Record<string, number>
 // }
 // Competitive analysis
 // {
-  marketPosition, // 1-10
-  competitorComparison;
-  // Differentiation factors
-  advantages;
-  disadvantages;
-  // Market trends
-  marketTrends;
+marketPosition, // 1-10
+  competitorComparison
+// Differentiation factors
+advantages;
+disadvantages;
+// Market trends
+marketTrends;
 // }
 // }
 // Predictive analytics
 // {
-  // Usage predictions
-  usageForecast;
-  capacityNeeds;
-  // Performance predictions
-  performanceForecast;
-  // Cost predictions
-  costForecast;
-  // Quality predictions
-  qualityForecast;
-  // Confidence intervals
-  confidenceLevel, // 0-1
+// Usage predictions
+usageForecast;
+capacityNeeds;
+// Performance predictions
+performanceForecast;
+// Cost predictions
+costForecast;
+// Quality predictions
+qualityForecast;
+// Confidence intervals
+confidenceLevel, // 0-1
   forecastHorizon, // days
-// }
-// Anomaly detection
-// {
+  // }
+  // Anomaly detection
+  // {
   detected;
-  patterns;
-  // Detection settings
-  sensitivity, // 0-1
+patterns;
+// Detection settings
+sensitivity, // 0-1
   // threshold: number
   // Resolution tracking
   // resolved: number
@@ -145,102 +142,103 @@ export // interface ExtendedAIProvider extends BaseAIProvider, Identifiable {
 //     quality, // relative score
 //     features, // relative score
 //   };
-  // Detailed comparison
-  strengths;
-  weaknesses;
-  marketShare, // 0-1
-// }
-// export // interface MarketTrend {
-//   // trend: string
-//   direction: 'up' | 'down' | 'stable';
-//   impact: 'low' | 'medium' | 'high';
-//   confidence, // 0-1
-//   // description: string
-//   // Timeline
-//   // detectedAt: Date
-//   expectedDuration, // months
-// // }
-// export // interface ForecastPoint {
-//   // timestamp: Date
-//   // value: number
-//   confidence, // 0-1
+// Detailed comparison
+strengths;
+weaknesses;
+marketShare, // 0-1
+  // }
+  // export // interface MarketTrend {
+  //   // trend: string
+  //   direction: 'up' | 'down' | 'stable';
+  //   impact: 'low' | 'medium' | 'high';
+  //   confidence, // 0-1
+  //   // description: string
+  //   // Timeline
+  //   // detectedAt: Date
+  //   expectedDuration, // months
+  // // }
+  // export // interface ForecastPoint {
+  //   // timestamp: Date
+  //   // value: number
+  //   confidence, // 0-1
 
-//   // Confidence interval
-//   // lower: number
-//   // upper: number
-// // }
-// export // interface CapacityForecast {
-//   // resource: string
-//   // current: number
-//   forecast;
-//   // Capacity planning
-//   // recommendedCapacity: number
-//   scalingTriggers;
-// // }
-// export // interface ScalingTrigger {
-//   // metric: string
-//   // threshold: number
-//   action: 'scale_up' | 'scale_down' | 'alert';
-//   confidence, // 0-1
-// // }
-// export // interface PerformanceForecast {
-//   // metric: string
-//   forecast;
-//   // Performance targets
-//   // target: number
-//   // sla: number
-//   // Risk assessment
-//   riskOfSLABreach, // 0-1
-//   mitigationStrategies;
-// // }
-// export // interface CostForecast {
-//   totalCost;
-//   costPerRequest;
-//   // Budget tracking
-//   budget?;
-//   budgetUtilization, // 0-1
-//   // projectedOverrun: number
-//   // Cost optimization
-//   optimizationOpportunities;
-// // }
-// export // interface CostOptimization {
-//   // opportunity: string
-//   // potentialSavings: number
-//   effort: 'low' | 'medium' | 'high';
-//   impact: 'low' | 'medium' | 'high';
-//   timeline, // days
-// // }
-// export // interface QualityForecast {
-//   overall;
-//   byDimension: Record<string, ForecastPoint[]>;
-//   // Quality targets
-//   target, // 0-1
-//   minimumAcceptable, // 0-1
+  //   // Confidence interval
+  //   // lower: number
+  //   // upper: number
+  // // }
+  // export // interface CapacityForecast {
+  //   // resource: string
+  //   // current: number
+  //   forecast;
+  //   // Capacity planning
+  //   // recommendedCapacity: number
+  //   scalingTriggers;
+  // // }
+  // export // interface ScalingTrigger {
+  //   // metric: string
+  //   // threshold: number
+  //   action: 'scale_up' | 'scale_down' | 'alert';
+  //   confidence, // 0-1
+  // // }
+  // export // interface PerformanceForecast {
+  //   // metric: string
+  //   forecast;
+  //   // Performance targets
+  //   // target: number
+  //   // sla: number
+  //   // Risk assessment
+  //   riskOfSLABreach, // 0-1
+  //   mitigationStrategies;
+  // // }
+  // export // interface CostForecast {
+  //   totalCost;
+  //   costPerRequest;
+  //   // Budget tracking
+  //   budget?;
+  //   budgetUtilization, // 0-1
+  //   // projectedOverrun: number
+  //   // Cost optimization
+  //   optimizationOpportunities;
+  // // }
+  // export // interface CostOptimization {
+  //   // opportunity: string
+  //   // potentialSavings: number
+  //   effort: 'low' | 'medium' | 'high';
+  //   impact: 'low' | 'medium' | 'high';
+  //   timeline, // days
+  // // }
+  // export // interface QualityForecast {
+  //   overall;
+  //   byDimension: Record<string, ForecastPoint[]>;
+  //   // Quality targets
+  //   target, // 0-1
+  //   minimumAcceptable, // 0-1
 
-//   // Risk assessment
-//   riskOfQualityDegradation, // 0-1
-// // }
-// export // interface Anomaly {
-//   // id: string
-//   // timestamp: Date
-//   // metric: string
-//   // value: number
-//   // expected: number
-//   severity: 'low' | 'medium' | 'high' | 'critical';
-// // Anomaly details
-// type: 'spike' | 'drop' | 'trend' | 'pattern';
-// confidence, // 0-1
-// // description: string
-// // Impact assessment
-// // {
-//   // users: number
-//   // requests: number
-//   // cost: number
-//   quality, // 0-1
-// // }
-// Resolution
-status: 'open' | 'investigating' | 'resolved' | 'false_positive';
-resolution?;
+  //   // Risk assessment
+  //   riskOfQualityDegradation, // 0-1
+  // // }
+  // export // interface Anomaly {
+  //   // id: string
+  //   // timestamp: Date
+  //   // metric: string
+  //   // value: number
+  //   // expected: number
+  //   severity: 'low' | 'medium' | 'high' | 'critical';
+  // // Anomaly details
+  // type: 'spike' | 'drop' | 'trend' | 'pattern';
+  // confidence, // 0-1
+  // // description: string
+  // // Impact assessment
+  // // {
+  //   // users: number
+  //   // requests: number
+  //   // cost: number
+  //   quality, // 0-1
+  // // }
+  // Resolution
+  status;
+: 'open' | 'investigating' | 'resolved' | 'false_positive'
+resolution?
 resolvedAt?;
 actionsTaken;
 // }

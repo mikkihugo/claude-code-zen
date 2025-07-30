@@ -1,4 +1,3 @@
-
 /**  AG-UI Enhanced MCP Tool Executor
 
 /** Extends the existing MCP tool executor with AG-UI protocol events
@@ -7,8 +6,8 @@
  * @module AGUIMCPToolExecutor
 
  */
-import { AGUIAdapter  } from '../ai/agui-adapter.js';
-import { MCPToolExecutor  } from '.';
+import { AGUIAdapter } from '../ai/agui-adapter.js';
+import { MCPToolExecutor } from '.';
 
 /** AG-UI Enhanced Tool Executor
 /** Wraps MCP tool execution with AG-UI event emission
@@ -115,7 +114,8 @@ import { MCPToolExecutor  } from '.';
 
       // return result;
     // ; // LINT: unreachable code removed
-    } catch(/* _error */) {
+    } catch(/* _error */ )
+{
   if(toolCallId) {
         aguiAdapter.endToolCall(toolCallId);
         aguiAdapter.emitToolCallResult(`Error = () => aguiAdapter;`

@@ -1,23 +1,24 @@
-
 /** Middleware Collection;
 /** Reusable middleware functions for Claude Flow servers
 
  */
 import compression from 'compression';
 import cors from 'cors';
-import express, { NextFunction, Request, Response  } from 'express';
-import { rateLimit  } from 'express-rate-limit';
+import express, { NextFunction, Request, Response } from 'express';
+import { rateLimit } from 'express-rate-limit';
 import helmet from 'helmet';
-import type { JSONObject  } from '../types/core.js';
+import type { JSONObject } from '../types/core.js';
 // Import types
-import { MiddlewareFunction,
-SessionContext,
-TypedRequest,
-TypedResponse,
-// type UserContext
+import {
+  MiddlewareFunction,
+  SessionContext,
+  TypedRequest,
+  TypedResponse,
+  // type UserContext
 
-ValidationError,
-ValidationResult  } from '../types/server.js'
+  ValidationError,
+  ValidationResult,
+} from '../types/server.js';
 
 /** Enhanced request logging middleware
 

@@ -1,14 +1,13 @@
-
 /**  NATURAL LANGUAGE HANDLER
 
 /** MEGASWARMENHANCEMENT = hiveMind
 
     // Intent patterns with confidence scoring
  */
-    this.intentPatterns = {
+this.intentPatterns = {
       // Development intents(Development Queen + ruv-swarm)development = new Map();
     this.successPatternsLoaded = false;
-  //   }
+//   }
 
 /**  MAIN NATURAL LANGUAGE PROCESSING
 /** Qualitytarget = true

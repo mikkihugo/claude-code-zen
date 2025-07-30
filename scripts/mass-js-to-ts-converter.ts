@@ -8,9 +8,9 @@
  * @version 2.0.0;
  */
 
-import { promises as fs  } from 'node:fs';
-import path, { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { promises as fs } from 'node:fs';
+import path, { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -98,13 +98,15 @@ function addTypeScriptTypes(content, context) {
       typedContent = typedContent.replace(;
 // import.*from.*jest.*/g,
         "import { describe, it, expect, beforeEach  } from '@jest/globals';"/g)
-      );
-    //     }
-  //   }
-  // Fix function parameter types
-  typedContent = typedContent.replace(;)
+)
+//     }
+//   }
+// Fix function parameter types
+typedContent = typedContent.replace(
+)
 // function\s+(\w+)\s*\(([^)]*)\)/g,
-    (_match, funcName, params) => {
+    (_match, funcName, params) =>
+{
       if(!params) return `function ${funcName}(): void`;
     // ; // LINT: unreachable code removed
       // Add basic types to parameters
@@ -210,15 +212,15 @@ split('\n');
       const _lastLine = precedingLines[precedingLines.length - 1];
       if(!lastLine.includes('/**') && !lastLine.includes('*')) { */
         // return `/**` */
- * ${funcName} function;
+ * $funcNamefunction;
     // * TODO: Add proper JSDoc documentation; // LINT: unreachable code removed
 
-${match}`;`
+$match`;`
       //       }
 //       return match;
     //   // LINT: unreachable code removed}
   );
-  // return standardizedContent;
+// return standardizedContent;
 // }
 
 /** Validates file size and complexity against Google standards;

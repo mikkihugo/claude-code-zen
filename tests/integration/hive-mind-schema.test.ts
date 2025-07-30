@@ -1,4 +1,3 @@
-
 /** Test for Hive Mind database schema - specifically for issue #403;
 /** Issue #403, SQLITE_CONSTRAINT: NOT NULL constraint failed: agents.role;
  *;
@@ -10,11 +9,11 @@
  * @version 2.0.0
  */
 
-import { execSync  } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { afterEach, beforeEach, describe, expect  } from '@jest';
+import { afterEach, beforeEach, describe, expect } from '@jest';
 import Database from 'better-sqlite3';
 
 /** Database column information structure

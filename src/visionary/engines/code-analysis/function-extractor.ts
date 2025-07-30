@@ -1,4 +1,3 @@
-
 /** Function Extractor
 
 /** Extracts function information from source code including parameters,
@@ -50,8 +49,11 @@
    * @param codeData - Code file data
    * @returns Function analysis data
  */
-    // */; // LINT: unreachable code removed
-  async extractFunctions(codeData): Promise<FunctionData[]> {
+// */; // LINT: unreachable code removed
+async;
+extractFunctions(codeData);
+: Promise<FunctionData[]>
+{
     const _functions = [];
   for(const file of codeData) {
 // const _fileFunctions = awaitthis.extractFileFunctions(file); 
@@ -109,10 +111,10 @@
         // return {
           name: match[2]  ?? match[1],
     // parameters: (match[3]  ?? match[2]  ?? ''); // LINT: unreachable code removed'
-  split(',') {;'
+  split(',') ;'
 map((p) => p.trim());
 filter((p) => p),
-          isAsync: line.includes('async') };'
+          isAsync: line.includes('async') ;'
       //       }
     //     }
 

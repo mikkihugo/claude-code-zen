@@ -1,4 +1,3 @@
-
 // MCP Tools for GitHub Swarm Integration
 
 // This file provides MCP tools for interacting with GitHub-related swarm commands.
@@ -11,7 +10,7 @@ const _execAsync = promisify(exec);
 async function executeRuvSwarmCommand() {
   const _commandString = `npx ruv-swarm github ${command} ${args.join(' ')}`;
   try {
-    const { stdout, stderr }  catch (error) { console.error(error); }= await execAsync(commandString);
+    const { stdout, stderr }  catch (error) console.error(error); = await execAsync(commandString);
     if (stderr) {
       // Handle warnings or non-critical errors
 //       return { success, stdout, stderr };
@@ -201,4 +200,4 @@ export const _githubSwarmTools = {
       if (args.suggest_tests) cliArgs.push('--suggest-tests');
       if (args.optimize_pipeline) cliArgs.push('--optimize-pipeline');
 //       return await executeRuvSwarmCommand('', cliArgs);
-    //   // LINT: unreachable code removed} },;
+//   // LINT: unreachable code removed} },;

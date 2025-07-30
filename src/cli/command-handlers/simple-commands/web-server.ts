@@ -1,12 +1,11 @@
-
 /** Web Server for Claude Code Console;
 /** Serves the web-based UI and provides WebSocket communication;
 
  */
-import { createServer  } from 'node:http';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
-import { WebSocketServer  } from 'ws';
+import { createServer } from 'node:http';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { WebSocketServer } from 'ws';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);

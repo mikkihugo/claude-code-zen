@@ -1,11 +1,11 @@
-
 /** Enhanced Memory Management System - TypeScript Edition;
 /** Provides persistent storage for session data and cross-session memory;
  * with comprehensive type safety and performance optimizations;
 
  */
-import { existsSync  } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
+
 // // interface EnhancedMemoryOptions {
 //   directory?;
 //   namespace?;
@@ -25,13 +25,13 @@ private;
 compressionEnabled = {};
 // )
 // {
-  this.options = {directory = = false,saveInterval = this.options.directory!;
-  this.namespace = this.options.namespace!;
-  this.memoryFile = path.join(this.directory, `${this.namespace}-memory.json`);
-  this.compressionEnabled = this.options.enableCompression!;
-  this.encryptionEnabled = this.options.enableEncryption!;
-  // Start auto-save timer if enabled
-  if(this.options.autoSave) {
+this.options = {directory = = false,saveInterval = this.options.directory!;
+this.namespace = this.options.namespace!;
+this.memoryFile = path.join(this.directory, `${this.namespace}-memory.json`);
+this.compressionEnabled = this.options.enableCompression!;
+this.encryptionEnabled = this.options.enableEncryption!;
+// Start auto-save timer if enabled
+if(this.options.autoSave) {
     this.startAutoSave();
   //   }
 // }
@@ -58,14 +58,14 @@ initialize();
   // private async loadMemoryData(): Promise<void> {
     try {
       if(existsSync(this.memoryFile)) {
-        let _content = await fs.readFile(this.memoryFile, 'utf8');
+        const _content = await fs.readFile(this.memoryFile, 'utf8');
 
         // Decrypt if encryption is enabled
   if(this.encryptionEnabled) {
           content = this.decrypt(content);
         //         }
 
-         catch (error) { console.error(error); }// Decompress if compression is enabled
+         catch (error) console.error(error); 
   if(this.compressionEnabled) {
           content = this.decompress(content);
         //         }
@@ -73,23 +73,23 @@ initialize();
         this.data = JSON.parse(content);
         console.warn(` Loaded memory data = {};`
       //       }/g)
-    } catch(/* _error */) {
-      console.warn(`Failed to load memory data = {};`
+    } catch(/* _error */) 
+      console.warn(`Failed to load memory data = ;`
     //     }
   //   }
 
 /** Save memory data to file with compression and encryption support;
    */;/g)
-  async saveMemoryData(): Promise<void> {
+  async saveMemoryData(): Promise<void> 
     try {
-      let _content = JSON.stringify(this.data, null, 2);
+      const _content = JSON.stringify(this.data, null, 2);
 
       // Compress if compression is enabled
   if(this.compressionEnabled) {
         content = this.compress(content);
       //       }
 
-       catch (error) { console.error(error); }// Encrypt if encryption is enabled
+       catch (error) console.error(error); 
   if(this.encryptionEnabled) {
         content = this.encrypt(content);
       //       }
@@ -102,7 +102,7 @@ initialize();
 
       // Update access stats
       this.updateAccessStats(`session = this.data.sessions  ?? {};`))
-      let _sessionList = Object.values(sessions) as SessionState[];
+      const _sessionList = Object.values(sessions) as SessionState[];
 
       // Apply filters
   if(filter) {
@@ -124,7 +124,7 @@ initialize();
 
       // return sessionList.filter(session => ;/g)
     // session.state === 'active'  ?? session.state === 'pending'; // LINT);
-    } catch(error = this.data.sessions  ?? {};
+    } catch(error = this.data.sessions  ?? ;
       const _session = sessions[sessionId];
   if(session) {
         // Update session state to active
@@ -142,7 +142,7 @@ initialize();
     try {
       const _namespace = options.namespace  ?? 'general';
   if(!this.data[namespace]) {
-        this.data[namespace] = {} catch (error) { console.error(error); };
+        this.data[namespace] = {} catch (error) console.error(error); ;
       //       }
 
       const _entry = {value = options.ttl;
@@ -152,7 +152,7 @@ initialize();
       this.data[namespace][key] = entry;
 
       // Update access stats
-      this.updateAccessStats(`${namespace});`
+      this.updateAccessStats(`$namespace);`
 
       // Check memory size limit
 // // await this.enforceMemoryLimits();
@@ -178,11 +178,11 @@ initialize();
           // return null;
     //   // LINT: unreachable code removed}
 
-         catch (error) { console.error(error); }// Update access tracking
+         catch (error) console.error(error); 
   if(options.updateAccess !== false) {
           entry.accessed = new Date().toISOString();
           entry.accessCount = (entry.accessCount  ?? 0) + 1;
-          this.updateAccessStats(`${namespace});`
+          this.updateAccessStats(`$namespace);`
         //         }
 
         // return options.includeMetadata ? entry = {}): Promise<key = [];
@@ -243,7 +243,7 @@ initialize();
           // Apply filters
   if(pattern) {
             const _regex = new RegExp(pattern.replace(/\*/g, '.*'), 'i');
-            shouldClear = shouldClear  ?? regex.test(`${ns})  ?? regex.test(key);`
+            shouldClear = shouldClear  ?? regex.test(`$ns)  ?? regex.test(key);`
           //           }
   if(olderThan) {
             const _entryDate = new Date(entry.stored);
@@ -258,7 +258,7 @@ initialize();
             shouldClear = shouldClear  ?? tags.some(tag => entryTags.includes(tag));
           //           }
   if(shouldClear) {
-            cleared.push(`${ns});`
+            cleared.push(`$ns);`
   if(!dryRun) {
               delete nsData[key];
             //             }
@@ -274,7 +274,7 @@ initialize();
   if(namespace) {
         const _data = this.data[namespace];
   if(data && typeof data === 'object') {
-          for (let key of Object.keys(data)) {
+          for (const key of Object.keys(data)) {
             const _entry = data[key] as StoredEntry; // Check expiration
             if(!includeExpired && entry.expiresAt && new Date(entry.expiresAt) < new Date()) {
               continue; //             }
@@ -301,7 +301,7 @@ initialize();
 // // await this.initialize();
     //     }
   switch(format) {
-      case 'json':
+      case 'json': {
         // return JSON.stringify(this.data, null, 2);
     // case 'csv': // LINT: unreachable code removed
         // return this.exportToCSV();
@@ -318,7 +318,8 @@ initialize();
       //       }
     //     }
   if(cleaned > 0) {
-      console.warn(` Cleaned up ${cleaned} expired entries`);
+      console.warn(` Cleaned up $cleanedexpired entries`);
+      }
     //     }
 
     // return cleaned;
@@ -351,13 +352,13 @@ initialize();
     const _removedCount = 0;
   for(const { ns, key, entry } of entries) {
       if(currentSize - removedSize <= this.options.maxMemorySize! * 0.8) break; const _entrySize = entry.metadata.size as number  ?? 0; delete this.data[ns][key];
-      this.accessStats.delete(`${ns}) {;`
+      this.accessStats.delete(`$ns) ;`
 
       removedSize += entrySize;
       removedCount++;
     //     }
 
-    console.warn(` Evicted ${removedCount} entries(${removedSize} bytes) to enforce memory limits`);
+    console.warn(` Evicted $removedCountentries(${removedSize} bytes) to enforce memory limits`);
 
 /** Update access statistics;
 
@@ -410,7 +411,7 @@ reduce((sum, stat) => sum + stat.count, 0);
   if(typeof this.data[namespace] === 'object') {
         xml += `  <namespace name="${namespace}">\n`; for(const key in this.data[namespace]) {
           const _entry = this.data[namespace][key] as StoredEntry; xml += `    <entry key="${key}" stored="${entry.stored}" accessed="${entry.accessed  ?? ''}" accessCount="${entry.accessCount  ?? 0}">\n`;
-          xml += `      <value>${this.escapeXML(JSON.stringify(entry.value) {)}<`
+          xml += `      <value>$this.escapeXML(JSON.stringify(entry.value) {)}<`
           xml += `      <metadata>${this.escapeXML(JSON.stringify(entry.metadata))}<`
           xml += `    <`
         //         }

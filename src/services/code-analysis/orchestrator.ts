@@ -1,9 +1,8 @@
-
 /** Code Analysis Orchestrator;
 /** Coordinates AST parsing, dependency analysis, duplicate detection and Kuzu graph storage;
 
  */
-import { mkdir  } from 'node:fs';
+import { mkdir } from 'node:fs';
 import ASTParser from '.';
 import ComplexityAnalyzer from '.';
 import DependencyAnalyzer from '.';
@@ -13,14 +12,18 @@ import TreeSitterParser from '.';
 // Try to import optional Kuzu integration
 let KuzuGraphInterface;
 try {
-// const _kuzuModule = awaitimport('../../cli/database/kuzu-graph-interface.js');
+  // const _kuzuModule = awaitimport('../../cli/database/kuzu-graph-interface.js');
   KuzuGraphInterface = kuzuModule.default;
-} catch (error) { console.error(error); } catch(/* _e */) {
+} catch (error) {
+  console.error(error);
+}
+catch(/* _e */)
+{
   console.warn('Kuzu graph interface not available, graph storage disabled');
   KuzuGraphInterface = null;
 // }
 // export class CodeAnalysisOrchestrator {
-  constructor(_config = {}) {
+  constructor(_config = {}) 
     this.config = {projectPath = new ASTParser();
     this.dependencyAnalyzer = new DependencyAnalyzer(this.config);
     this.duplicateDetector = new DuplicateCodeDetector(this.config);
@@ -99,7 +102,7 @@ try {
              ['.js', '.jsx', '.ts', '.tsx'].some(ext => file.endsWith(ext)) &&;
              relativePath.length > 0;
     });
-  //   }
+//   }
 
 /** Get all files recursively;
 

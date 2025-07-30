@@ -1,4 +1,3 @@
-
 /** Claude Code Coordination Interface;
  *;
 /** This module provides the interface layer for coordinating with Claude Code;
@@ -7,8 +6,8 @@
  * and individual Claude agents.;
  */
 
-'node = new Map(); // eslint-disable-line'
-  // private agents = new Map() {}
+'node = new Map(); // eslint-disable-line';
+// private agents = new Map() {}
 // private taskExecutor = false
 constructor(
 config =
@@ -21,7 +20,7 @@ this.processPool = this.initializeProcessPool() {}
 this.taskExecutor = new TaskExecutor(
 // {
   timeoutMs = true;
-  this.logger.info('Claude Code // interface initialized successfully', {poolSize = Array.from(this.activeExecutions.keys());
+this.logger.info('Claude Code // interface initialized successfully', {poolSize = Array.from(this.activeExecutions.keys());
 // map(executionId => this.cancelExecution(executionId, 'Interface shutdown'))
 // // // await Promise.allSettled(cancellationPromises)
 // // Terminate all agents
@@ -34,8 +33,8 @@ this.taskExecutor = new TaskExecutor(
 // // }
 catch(error)
 // {
-  this.logger.error('Error during Claude Code interface shutdown', error);
-  throw error;
+  this.logger.error('Error during Claude Code interface shutdown', error)
+throw error;
 // }
 // }
 
@@ -43,9 +42,9 @@ catch(error)
 
 // async
  */
-spawnAgent((options = this.config.maxConcurrentAgents))
+spawnAgent((options = this.config.maxConcurrentAgents));
 // {
-  throw new Error('Maximum concurrent agents limit reached');
+throw new Error('Maximum concurrent agents limit reached');
 // }
 // Build Claude command
 const _command = this.buildClaudeCommand(options);
@@ -55,10 +54,11 @@ const _agent = {id = 'idle';
 agent.lastActivity = new Date();
 this.logger.info('Claude agent spawned successfully', {
         agentId,
-processId = {};)
+processId = {};
+)
 ): Promise<ClaudeTaskExecution>
 // {
-    const _executionId = generateId('claude-execution');
+const _executionId = generateId('claude-execution');
 
 this.logger.info('Executing task with Claude agent', {)
       executionId,taskId = agentId ? this.agents.get(agentId) : // await this.selectOptimalAgent(taskDefinition);
@@ -282,7 +282,7 @@ this.logger.info('Executing task with Claude agent', {)
 
       throw error;
     //     }
-   catch (error) { console.error(error); }//   }
+   catch (error) console.error(error); 
 
   // private convertToAgentState(agent = === 'busy' ? 1 ,health = === 'error' ? 0 ,config = > ['javascript', 'typescript', 'python', 'java'].includes(c)),frameworks = > ['react', 'node', 'express'].includes(c)),domains = > ['web', 'api', 'database'].includes(c)),tools = > ['bash', 'git', 'npm'].includes(c)),maxConcurrentTasks = > setTimeout(resolve, 1000));
 
@@ -334,7 +334,7 @@ moveAgentToBusyPool(agent = this.processPool.idle.indexOf(agent);
 
   // private returnAgentToIdlePool(agent = 'idle';
     // agent.currentTask = undefined; // LINT: unreachable code removed
-agent.lastActivity = new Date() {}
+agent.lastActivity = new Date() 
 
 const _busyIndex = this.processPool.busy.indexOf(agent);
   if(busyIndex !== -1) {
@@ -405,7 +405,7 @@ performHealthCheck();
     const _inactiveTime = now - agent.lastActivity.getTime(); if(agent.status === 'busy' && inactiveTime > this.config.timeout * 2) {
       this.logger.warn('Agent appears stalled', {agentId = = null) {
   if(agent._status !== 'terminated') {
-          this.logger.warn('Agent process died unexpectedly', {agentId = 'error'; this.moveAgentToFailedPool(agent) {;
+          this.logger.warn('Agent process died unexpectedly', {agentId = 'error'; this.moveAgentToFailedPool(agent) ;
         //         }
       //       }
     //     }
@@ -423,8 +423,7 @@ performHealthCheck();
 // )
 
 this.on('task => {')
-      this.logger.info('Task completed event', data);
-})
+      this.logger.info('Task completed event', data);)
 
 this.on('task => {')
       this.logger.warn('Task cancelled event', data);

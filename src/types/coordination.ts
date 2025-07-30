@@ -1,9 +1,8 @@
-
 /** Coordination System Types;
 /** Advanced coordination layer for Queens, Swarms, and Hive Mind integration;
 
  */
-import type { Identifiable, JSONObject  } from '.';
+import type { Identifiable, JSONObject } from '.';
 
 // =============================================================================
 // COORDINATION CORE TYPES
@@ -243,9 +242,9 @@ export type CoordinationPattern = 'centralized';
 //     delivery: 'healthy' | 'degraded' | 'failed';
 //     persistence: 'healthy' | 'degraded' | 'failed';
 //   };
-  issues;
-  recommendations;
-  // lastCheck: Date
+  issues
+recommendations
+// lastCheck: Date
 // }
 // export // interface ProtocolConstraint {
 //   type: 'timing' | 'resource' | 'ordering' | 'consistency' | 'security' | 'custom';

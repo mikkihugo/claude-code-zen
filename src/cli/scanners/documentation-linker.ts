@@ -1,4 +1,4 @@
-import { readFile  } from 'node:fs';
+import { readFile } from 'node:fs';
 
 export async function scanForDocumentationLinks() {
 // const __content = awaitreadFile(file, 'utf8');
@@ -18,7 +18,7 @@ export async function scanForDocumentationLinks() {
     : 'suggest_doc_link',
     files: [doc1.file, doc2.file],
     commonKeywords}
-  //   )
+//   )
 // }
 // }
 // }

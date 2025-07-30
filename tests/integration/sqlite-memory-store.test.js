@@ -1,4 +1,3 @@
-
 /** SQLite Memory Store Integration Tests;
 /** Tests SQLite-based memory storage functionality;
 
@@ -6,9 +5,9 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { afterEach, beforeEach, describe, expect  } from '@jest';
-import { SqliteMemoryStore  } from '../../src/memory/sqlite-store.js';
-import { getLoadError  } from '../../src/memory/sqlite-wrapper.js';
+import { afterEach, beforeEach, describe, expect } from '@jest';
+import { SqliteMemoryStore } from '../../src/memory/sqlite-store.js';
+import { getLoadError } from '../../src/memory/sqlite-wrapper.js';
 
 describe('SQLite Memory Store Integration Tests', () => {
   let testDir;
@@ -155,7 +154,7 @@ get();
       // Store value
   // // await memoryStore.store(key, value);
       // Verify it exists
-      let _retrievedValue = // await memoryStore.retrieve(key);
+      const _retrievedValue = // await memoryStore.retrieve(key);
       expect(retrievedValue).toBe(value);
       // Delete it
 // const _deleteResult = awaitmemoryStore.delete(key);
@@ -185,7 +184,7 @@ get();
       // Store with TTL
   // // await memoryStore.store(key, value, { ttl });
       // Should be retrievable immediately
-      let _retrievedValue = // await memoryStore.retrieve(key);
+      const _retrievedValue = // await memoryStore.retrieve(key);
       expect(retrievedValue).toBe(value);
       // Wait for expiration
   // // await new Promise((resolve) => setTimeout(resolve, 1100));

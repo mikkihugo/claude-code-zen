@@ -1,10 +1,9 @@
-
 /** WebSocket Command Handler
 /** CLI interface for WebSocket testing and management using Node.js 22 native WebSocket
 
  */
-import { WebSocketService  } from '../../api/websocket-service.js';
-import { printInfo, printSuccess  } from '..';
+import { WebSocketService } from '../../api/websocket-service.js';
+import { printInfo, printSuccess } from '..';
 
 /** WebSocket command handler
 

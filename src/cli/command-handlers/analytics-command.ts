@@ -1,11 +1,10 @@
-
 /** Analytics Command Module
 /** Converted from JavaScript to TypeScript
 
 // analytics-command.js - Handles the analytics command
 
  */
-import { printSuccess  } from '..';
+import { printSuccess } from '..';
 
 export async function analyticsCommand() {
   case 'performance': null

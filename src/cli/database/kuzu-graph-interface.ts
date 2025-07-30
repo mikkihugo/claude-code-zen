@@ -1,19 +1,21 @@
-
 /** Kuzu Graph Database Interface;
 /** HIGH-PERFORMANCE REAL KUZU DATABASE INTEGRATION;
 /** Replaces file-based simulation with actual Kuzu database connections;
 
  */
-import { existsSync  } from 'node:fs';
-import { readFile  } from 'node:fs';
+import { existsSync, readFile } from 'node:fs';
 import path from 'node:path';
-import { printError, printInfo, printSuccess  } from '..';
+import { printError, printInfo, printSuccess } from '..';
 
 // Dynamic import for Kuzu database
 const _kuzu = null;
 try {
   kuzu = // await import('kuzu');
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) {
+  console.error(error);
+}
+catch(error)
+{
   console.warn('Kuzu database not available, using fallback mode = {}) {'
     this.config = {dbPath = = false,compression = = false,memoryLimit = = false, // Default to real Kuzu
 ..config;
@@ -578,11 +580,11 @@ join(', ');
 
     // Index creation queries
     for (const [indexName, indexDef] of Object.entries(this.indices)) {
-      queries.createIndices.push(; `CREATE INDEX ${indexName} ON ${indexDef.nodeType}($, { indexDef.property })`; ) {;
-    //     }
+      queries.createIndices.push(; `CREATE INDEX ${indexName} ON ${indexDef.nodeType}($, { indexDef.property })`; ) ;
+//     }
 
-    // return queries;
-    //   // LINT: unreachable code removed}
+// return queries;
+//   // LINT: unreachable code removed}
 
 /** Export data for Kuzu;
 

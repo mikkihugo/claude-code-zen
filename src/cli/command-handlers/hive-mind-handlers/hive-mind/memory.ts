@@ -1,4 +1,3 @@
-
 /** Collective Memory System for Hive Mind
 /** Shared knowledge base and learning system
 
@@ -118,30 +117,32 @@ getStats();
 //     super();
     // ; // LINT: unreachable code removed
   /** @type {import('better-sqlite3').Database | null} */
-  this.db = null;
+this.db = null;
 
-  this.config = {swarmId = = false,enableAsyncOperations = = false,
+this.config = {swarmId = = false,enableAsyncOperations = = false,
 ..config,
   this.state = {totalSize = null;
 
-  // Optimized cache with LRU eviction
-  this.cache = new OptimizedLRUCache(this.config.cacheSize, this.config.cacheMemoryMB);
+// Optimized cache with LRU eviction
+this.cache = new OptimizedLRUCache(this.config.cacheSize, this.config.cacheMemoryMB);
 
-  // Memory pools for frequently created objects
-  this.pools = {queryResults = > ({ results => {
+// Memory pools for frequently created objects
+this.pools = {queryResults = > ({ results => {
           obj.results.length = 0;
-  Object.keys(obj.metadata).forEach((k) => delete obj.metadata[k]);
+Object.keys(obj.metadata).forEach((k) => delete obj.metadata[k]);
 
-      ),memoryEntries = > (;
-  _id => {
-          obj.id = obj.key = obj.value = '';
-          Object.keys(obj.metadata).forEach((k) => delete obj.metadata[k]);
-          }),
+),memoryEntries = > (
+(_id) =>
+{
+  obj.id = obj.key = obj.value = '';
+  Object.keys(obj.metadata).forEach((k) => delete obj.metadata[k]);
+}
+),
 // Prepared statements for better performance
-this.statements = new Map();
+this.statements = new Map()
 
 // Background worker for heavy operations
-this.backgroundWorker = null;
+this.backgroundWorker = null
 
 this._initialize();
 

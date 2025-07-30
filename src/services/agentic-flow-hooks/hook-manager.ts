@@ -1,10 +1,9 @@
-
 /** Agentic-Flow Hook Manager;
 /** Central orchestrator for all hook-based automation and workflow management;
 
  */
-import { EventEmitter  } from 'node:events';
-import { Hook  } from '.';
+import { EventEmitter } from 'node:events';
+import { Hook } from '.';
 
 export class HookManager extends EventEmitter {
   // private config = {enabled = { ...this.config, ...config }; // eslint-disable-line
@@ -85,11 +84,10 @@ this.emit('hook_unregistered', {type = 'parallel';)
           // Pass result to next hook if pipeline behavior is desired
   if(result.data) {
             currentPayload = {
-..currentPayload,previousResult = === 'stop') {
+..currentPayload,previousResult = === 'stop') 
             break;
           //           }
-         catch (error) { console.error(error); }//         }
-      } catch(/* _error */) {
+         catch (error) console.error(error); catch(/* _error */) 
         context.hooksFailed.push(name);
         context.results[name] = {success = === 'stop') {
           break;
@@ -132,7 +130,7 @@ map(name => (
     }  catch (error) { console.error(error); }else {
       context.hooksFailed.push(name);
     //     }
-  } catch(/* _error */) {
+  } catch(/* _error */) 
     context.hooksFailed.push(name);
     context.results[name] = {success = payload.data;
   for(const name of hookNames) {
@@ -153,7 +151,7 @@ map(name => (
         context.hooksFailed.push(name);
     context.results[name] = success = === 'stop');
     break;
-  //   }
+//   }
 
 /** Get enabled hooks for a specific type;
 

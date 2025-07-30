@@ -1,13 +1,12 @@
-
 /** Ai Service Module;
 /** Converted from JavaScript to TypeScript;
 
  */
-import { readFile  } from 'node:fs';
+import { readFile } from 'node:fs';
 import path from 'node:path';
-import { GoogleGenerativeAI  } from '@google';
+import { GoogleGenerativeAI } from '@google';
 import inquirer from 'inquirer';
-import { createClaudeCodeProvider  } from '.';
+import { createClaudeCodeProvider } from '.';
 
 const _LLM_PROVIDER_FILE = path.join(process.cwd(), '.hive-mind', 'llm-provider.json');
 async function _getProviderConfig() {
@@ -33,7 +32,7 @@ async function getGenAI() {
 //   return new GoogleGenerativeAI(apiKey);
 // }
 
-let _claudeProvider = null;
+const _claudeProvider = null;
 
 async function getClaudeProvider() {
   if(!claudeProvider) {

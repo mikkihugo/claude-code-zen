@@ -4,7 +4,7 @@
 /** The real production server - starts unified interface with MCP + WebSocket;
 
  */
-import { UnifiedInterfacePlugin  } from './src/plugins/unified-interface/index.js';
+import { UnifiedInterfacePlugin } from './src/plugins/unified-interface/index.js';
 
 async function startProductionServer() {
   console.warn(' CLAUDE ZEN PRODUCTION SERVER STARTING...');
@@ -49,4 +49,4 @@ catch(error)
 // }
 // }
 // Start the production server
-  startProductionServer() {}
+  startProductionServer()

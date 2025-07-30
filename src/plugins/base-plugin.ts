@@ -1,12 +1,11 @@
-
 /** Base Plugin Class;
 /** TypeScript foundation for all Claude Code Flow plugins;
 
  */
 import crypto from 'node:crypto';
-import { EventEmitter  } from 'node:events';
-import { performance  } from 'node:perf_hooks';
-import type { Plugin, ResourceUsage  } from '../types/plugin.js'; // eslint-disable-line
+import { EventEmitter } from 'node:events';
+import { performance } from 'node:perf_hooks';
+import type { Plugin, ResourceUsage } from '../types/plugin.js'; // eslint-disable-line
 
 export abstract class BasePlugin extends EventEmitter implements Plugin {
   // public readonlyid = 'uninitialized';
@@ -32,12 +31,16 @@ export abstract class BasePlugin extends EventEmitter implements Plugin {
       throw new Error(`Cannot initialize plugin instate = 'loaded';`
       this.emit('initialized', this.manifest.name);
 
-      this.updateLastActivity();
-    } catch(error) {
-      this.setState('error');
-      this.metadata.status = 'error';
-      this.metadata.errorCount++;
-      this.emit('error', this.manifest.name, {message = = 'initialized') {
+  this;
+  .
+  updateLastActivity();
+}
+catch(error)
+{
+  this.setState('error');
+  this.metadata.status = 'error';
+  this.metadata.errorCount++;
+  this.emit('error', this.manifest.name, {message = = 'initialized') {
       throw new Error(`Cannot start plugin instate = 'active';`
   this;
 
@@ -45,42 +48,45 @@ export abstract class BasePlugin extends EventEmitter implements Plugin {
   this;
 
   updateLastActivity();
-// }
-catch(error)
+  // }
+  catch(error)
 // {
-      this.setState('error');
-      this.metadata.status = 'error';
-      this.metadata.errorCount++;
-      this.emit('error', this.manifest.name, {message = = 'running') {
+      this.setState('error')
+  this.metadata.status = 'error'
+  this.metadata.errorCount++;
+  this.emit('error', this.manifest.name, {message = = 'running') {
       throw new Error(`Cannot stop plugin instate = 'disabled';`
       this.emit('stopped', this.manifest.name);
 
-      this.updateLastActivity();
-    } catch(error) {
-      this.setState('error');
-      this.metadata.status = 'error';
-      this.metadata.errorCount++;
-      this.emit('error', this.manifest.name, {message = === 'running') {
+  this.updateLastActivity();
+}
+catch(error)
+{
+  this.setState('error');
+  this.metadata.status = 'error';
+  this.metadata.errorCount++;
+  this.emit('error', this.manifest.name, {message = === 'running') {
 // // await this.stop();
       //       }
 
       this.setState('destroying');
-      this.emit('unloading', this.manifest.name);
+  this.emit('unloading', this.manifest.name);
 
-      // Stop resource monitoring
-      this.stopResourceMonitoring();
+  // Stop resource monitoring
+  this.stopResourceMonitoring();
 
-      // Cleanup hooks and APIs
-      this.hooks.clear();
-      this.apis.clear();
+  // Cleanup hooks and APIs
+  this.hooks.clear();
+  this.apis.clear();
 
-      // Call plugin-specific cleanup
-// // await this.onDestroy();
-      this.setState('destroyed');
-      this.metadata.status = 'unloaded';
-      this.emit('unloaded', this.manifest.name);
-
-    } catch(error) {
+  // Call plugin-specific cleanup
+  // // await this.onDestroy();
+  this.setState('destroyed');
+  this.metadata.status = 'unloaded';
+  this.emit('unloaded', this.manifest.name);
+}
+catch(error)
+{
       this.setState('error');
       this.metadata.status = 'error';
       this.metadata.errorCount++;
@@ -93,7 +99,7 @@ catch(error)
 // await this.destroy();
   //   }
 
-  async reload(): Promise<void> {
+  async reload(): Promise<void> 
 // await this.stop();
 // await this.start();
     this.metadata.restartCount++;
@@ -135,7 +141,7 @@ catch(error)
         results.push(result); if(result.stop) {
           break;
         //         }
-       catch (error) { console.error(error); }//       }
+       catch (error) console.error(error); 
 
       const _executionTime = performance.now() - startTime;
       this.updateHookMetrics(type, executionTime, true);
@@ -183,7 +189,7 @@ catch(error)
 
     // Check error rate
   if(this.metrics.performance.errorRate > 10) { 
-      issues.push(severity = === 'error') {
+      issues.push(severity = === 'error') 
       issues.push({severity = 100;
     issues.forEach(issue => {))
   switch(issue.severity) {
@@ -224,7 +230,7 @@ catch(error)
         if(!(field in config)) {
           results.push({valid = state; //   }
 
-  protected updateLastActivity() ; this.metadata.lastActivity = new Date() {;
+  protected updateLastActivity() ; this.metadata.lastActivity = new Date() ;
 
   protected updateResourceUsage(): void
 
@@ -291,7 +297,7 @@ catch(error)
           const _usage = this.resourceUsage[limit.type as keyof ResourceUsage]; if(usage > limit.recommended) {
             this.emit('resource-warning', this.manifest.name, limit.type, usage, limit.recommended); //           }
         //         }
-      }, 5000) {; // Update every 5 seconds
+      }, 5000) ; // Update every 5 seconds
     //     }
 
   // private stopResourceMonitoring() ;
@@ -303,4 +309,4 @@ catch(error)
 
 // export default BasePlugin;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))

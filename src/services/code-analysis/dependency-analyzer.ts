@@ -1,28 +1,31 @@
-
 /** Dependency Analyzer;
 /** Analyzes module dependencies using madge and dependency-cruiser;
 
  */
-import { readFile  } from 'node:fs';
+import { readFile } from 'node:fs';
 
 // Try to import optional dependencies with fallbacks
 let _madge, _cruise;
 try {
-// const _madgeModule = awaitimport('madge');
-  _madge = madgeModule.default  ?? madgeModule;
-} catch (error) { console.error(error); } catch(/* _e */) {
+  // const _madgeModule = awaitimport('madge');
+  _madge = madgeModule.default ?? madgeModule;
+} catch (error) {
+  console.error(error);
+}
+catch(/* _e */)
+{
   console.warn('Madge dependency analyzer not available, using fallback');
   _madge = null;
 // }
 try {
 // const _cruiserModule = awaitimport('dependency-cruiser');
   _cruise = cruiserModule.cruise  ?? cruiserModule.default;
-} catch (error) { console.error(error); } catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) 
   console.warn('Dependency-cruiser not available, using fallback');
   _cruise = null;
 // }
 // export class DependencyAnalyzer {
-  constructor(_config = {}) {
+  constructor(_config = {}) 
     this.config = {filePatterns = '.') {
     console.warn(` Analyzing dependencies in = {dependencies = // await this.analyzeMadge(targetPath);`
 
@@ -40,9 +43,7 @@ try {
       console.warn(` Dependency analysis complete = {fileExtensions = > new RegExp(p.replace('**/', '.*/'))),tsConfig = // await madge(targetPath, madgeConfig);`
 
     // return {
-      tree = {validate = cruise([targetPath], cruiserConfig);
-    // return this.processCruiserResults(cruiseResult); // LINT: unreachable code removed
-    } catch(error) {
+      tree = {validate = cruise([targetPath], cruiserConfig);catch(error) 
       console.warn(` Dependency-cruiser analysisfailed = [];`
 
   if(cruiseResult.modules) {
@@ -52,7 +53,7 @@ try {
             dependencies.push({ from = = false,rules = new Map(); // Process madge results
     for(const [file, deps] of Object.entries(madgeResults.tree  ?? {  })) {
   for(const dep of deps  ?? []) {
-        const _key = `${file}->${dep}`; dependencies.set(key, {id = `${dep.from}->${dep.to}`;)
+        const _key = `$file->$dep`; dependencies.set(key, {id = `$dep.from->$dep.to`;)
   if(dependencies.has(key) {) {
         const _existing = dependencies.get(key);
         dependencies.set(key, {)
@@ -153,7 +154,7 @@ sort((a, b) => (b.inDegree + b.outDegree) - (a.inDegree + a.outDegree));
           //           }
         //         }
       } catch(error) {
-        console.warn(`Skipping directory ${currentPath});`
+        console.warn(`Skipping directory $currentPath);`
       //       }
     //     }
 // // await walk(dirPath);
@@ -176,10 +177,10 @@ sort((a, b) => (b.inDegree + b.outDegree) - (a.inDegree + a.outDegree));
     let match;
     while((match = exportPattern.exec(content)) !== null) {
       exports.push(match[1]);
-    //     }
+//     }
 
-    // return exports;
-    //   // LINT: unreachable code removed}
+// return exports;
+//   // LINT: unreachable code removed}
 
 /** Find orphan files(no imports)
 

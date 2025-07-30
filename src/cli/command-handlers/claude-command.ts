@@ -1,12 +1,11 @@
-
 /** Claude Command Module
 /** Converted from JavaScript to TypeScript
 
 // claude-command.js - Handles the claude command
 
  */
-import { spawn  } from 'node:child_process';
-import { printError, printSuccess  } from '..';
+import { spawn } from 'node:child_process';
+import { printError, printSuccess } from '..';
 
 export async function claudeCommand() {
   case 'spawn': null
@@ -78,12 +77,11 @@ export async function claudeCommand() {
   if(_code === 0) {
                     printSuccess(`Claude instance ${instanceId} completed successfully`);
                   //                   }
-                  else {
-                    printError(`_Claude _instance _${instanceId} _exited with _code ${code}`);
+                  else 
+                    printError(`_Claude _instance _$instanceId_exited with _code $code`);
   //   }
 // }
-resolve();
-})
+resolve();)
 })
 // }
             catch(/* err */)

@@ -1,9 +1,10 @@
+* ruv-FANN Node.js bindings
+with automatic WASM
+fallback;
 
- * ruv-FANN Node.js bindings with automatic WASM fallback;
-
-import { createRequire  } from 'node:module';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { createRequire } from 'node:module';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -19,7 +20,7 @@ const _useWasm = false;
 async function loadBinding() {
   // Try to load native binding first
   try {
-    const { platform, arch }  catch (error) { console.error(error); }= process;
+    const { platform, arch }  catch (error) console.error(error); = process;
     const _bindingPath = join(;
       __dirname,
       '..',
@@ -37,11 +38,11 @@ async function loadBinding() {
       wasmModule = // await wasmLoader.default(); // Initialize WASM
       useWasm = true;
       console.warn(' ruv-FANN WASM fallback loaded');
-    } catch (error) { console.error(error); } catch(/* wasmError */) {
+    } catch (error) { console.error(error); } catch(/* wasmError */) 
       console.error('FATAL);'
       throw wasmError;
-    //     }
-  //   }
+//     }
+//   }
 // }
 
 /** Neural Network class wrapper;

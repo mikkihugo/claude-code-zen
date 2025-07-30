@@ -1,9 +1,8 @@
-
 /** Swarm Metrics Integration Fix
 /** Resolves task attribution issues between hive-mind and ruv-swarm systems
 
  */
-import { existsSync  } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 import Database from 'better-sqlite3';
 import chalk from 'chalk';

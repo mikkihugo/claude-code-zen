@@ -1,4 +1,5 @@
-
+import type { NeuralEngine } from '../../neural/neural-engine';
+import type { SwarmCoordinator } from '../../swarm/types';
 /** DSPy Integration Plugin with Swarm Coordination
 
 /** High-performance DSPy integration with systematic prompt optimization,
@@ -6,10 +7,8 @@
 /** Features swarm coordination for distributed AI enhancement.
 
  */
-import type { PluginConfig, PluginContext, PluginManifest  } from '../../types/plugin';
-import { BasePlugin  } from '..';
-import type { SwarmCoordinator  } from '../../swarm/types';
-import type { NeuralEngine  } from '../../neural/neural-engine';
+import type { PluginConfig, PluginContext, PluginManifest } from '../../types/plugin';
+import { BasePlugin } from '..';
 
 /** DSPy Configuration Interface
 

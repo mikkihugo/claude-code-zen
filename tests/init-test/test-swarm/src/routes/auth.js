@@ -7,11 +7,21 @@ const _router = express.Router();
 // Registration endpoint
 router.post(;
 '
-[;)
-    body('username').isLength({ min   }).trim(),
+[
+)
+    body('username').isLength(
+{
+  min;
+}
+).trim(),
     body('email').isEmail().normalizeEmail(),
-    body('password').isLength({ min   }) ],
-async(req, res) => {
+    body('password').isLength(
+{
+  min;
+}
+) ],
+async(req, res) =>
+{
   try {
       const _errors = validationResult(req);
       if(!errors.isEmpty()) {
@@ -29,11 +39,9 @@ async(req, res) => {
       logger.info(`New user registered);`
       res.status(201).json({)
         user);
-    } catch(error) {
+    } catch(error) 
       logger.error('Registration error);'
-      res.status(500).json({ error);
-    //     }
-};
+      res.status(500).json(error);;
 // )
 // Login endpoint
 router.post(
@@ -63,8 +71,6 @@ async(req, res) =>
         user);
     } catch(error)
       logger.error('Login error);'
-      res.status(500).json({ error);
+      res.status(500).json(error);
   //     });
-module.exports = router;
-
-}}}}}}}
+module.exports = router;}}}}}

@@ -1,9 +1,8 @@
-
 /** Help text templates for Claude Flow CLI;
 /** Provides clear, actionable command documentation;
 
  */
-import { HelpFormatter  } from '.';
+import { HelpFormatter } from '.';
 
 export const VERSION = '2.0.0-alpha.73';
 
@@ -15,18 +14,19 @@ export const MAIN_HELP = `
     // return HelpFormatter.formatError(;/g)
     // `; // LINT): unknown`
 // {
-  // Return the vibrant, emoji-rich version by default
-  if(!plain) {
-    // return MAIN_HELP;
-    //   // LINT: unreachable code removed}
-    // Return plain standardized format when requested
-    const _helpInfo = {
+// Return the vibrant, emoji-rich version by default
+if (!plain) {
+  // return MAIN_HELP;
+  //   // LINT: unreachable code removed}
+  // Return plain standardized format when requested
+  const _helpInfo = {
     name: 'claude-zen',
     description: 'Advanced AI agent orchestration system',
     usage: `claude-zen <command> [<args>] [options];`
     claude-zen <command> --help;
-    claude-zen --version`,`
-    commands: [;
+  claude - zen--;
+  version`,`;
+  commands: [;
       //       {
         name: 'hive-mind',
         description: 'Manage hive mind swarm intelligence',
@@ -76,11 +76,14 @@ export const MAIN_HELP = `
       //       {
         name: 'help',
         description: 'Show help information' } ],
-    globalOptions: [;
-      //       {
-        flags: '--config <path>',
-        description: 'Configuration file path',
-        defaultValue: '.claude/config.json' },
+    globalOptions
+  : [
+  //       {
+  flags: '--config <path>', description
+  : 'Configuration file path',
+        defaultValue: '.claude/config.json'
+}
+,
       //       {
         flags: '--verbose',
         description: 'Enable verbose output' },
@@ -99,13 +102,14 @@ export const MAIN_HELP = `
       //       {
         flags: '--version',
         description: 'Show version information' } ],
-    examples: [;
-      'npx claude-zen@alpha init --sparc',
-      'claude-zen hive-mind wizard',
-      'claude-zen swarm "Build REST API"',
-      'claude-zen agent spawn researcher --name "Research Bot"',
-      'claude-zen status --json',
-      'claude-zen memory query "API design"' ] }
+    examples: [
+'npx claude-zen@alpha init --sparc',
+  'claude-zen hive-mind wizard',
+  'claude-zen swarm "Build REST API"',
+  'claude-zen agent spawn researcher --name "Research Bot"',
+  'claude-zen status --json',
+  'claude-zen memory query "API design"'
+] }
   // return HelpFormatter.formatHelp(helpInfo);
 // }
 

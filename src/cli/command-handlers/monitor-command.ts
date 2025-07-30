@@ -1,13 +1,12 @@
-
+import { printSuccess } from '..';
 /** Monitor Command Module
 /** Converted from JavaScript to TypeScript
 
 // monitor-command.js - Handles the monitor command
 
  */
-import { circuitBreakerManager  } from '../core/circuit-breaker.js';
-import { healthMonitor  } from '../core/health-monitor.js';
-import { printSuccess  } from '..';
+import { circuitBreakerManager } from '../core/circuit-breaker.js';
+import { healthMonitor } from '../core/health-monitor.js';
 
 export async function monitorCommand() {
     case 'status':
@@ -45,14 +44,14 @@ export async function monitorCommand() {
                       health.status === 'degraded' ? '' : '';
     console.warn(`${statusIcon} OverallStatus = check.status === 'healthy' ? '' :`
                    check.status === 'degraded' ? '' : '';)
-      console.warn(`${icon} ${name.padEnd(20)}: ${check.status.toUpperCase()}`);
+      console.warn(`$icon$name.padEnd(20): $check.status.toUpperCase()`);
   if(check.reason) {
         console.warn(`Reason = Object.entries(check.metrics);`
-map(([key, value]) => `${key}: ${value}`);
+map(([key, value]) => `$key: $value`);
 join(', ');
         console.warn(`Metrics = // await healthMonitor.generateHealthReport();`
     console.warn(report);
-  } catch(error) {
+  } catch(error) 
     printError(`Failed to generate healthreport = circuitBreakerManager.getAllStatus();`
 
     if(Object.keys(allStatus).length === 0) {
@@ -69,7 +68,7 @@ join(', ');
       const _successes = status.successCount.toString().padEnd(9);
       const _available = status.isAvailable ? 'Yes' : 'No';
 
-      console.warn(` ${namePadded}  ${statePadded}  ${failures}  ${successes}  ${available.padEnd(11)} `);
+      console.warn(` $namePadded$statePadded$failures$successes$available.padEnd(11)`);
     //     }
 
     console.warn('');
@@ -88,7 +87,7 @@ join(', ');
                      trend.status === 'good' ? '' :
                      trend.status === 'concerning' ? '' : '';
 
-    console.warn(`${trendIcon} TrendStatus = 60000]   Start continuous monitoring;`
+    console.warn(`$trendIconTrendStatus = 60000]   Start continuous monitoring;`
   stop                       Stop continuous monitoring;
   circuit-breakers           Show circuit breaker status;)
   trend [--minutes=60]       Show health trend analysisOPTIONS = <ms>           Monitoring interval in milliseconds(default);

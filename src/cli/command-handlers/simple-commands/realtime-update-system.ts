@@ -1,4 +1,3 @@
-
 /** Real-time Update System for Claude-Flow Web UI;
 /** Provides event-driven architecture for live data updates;
 /** Supports WebSocket-like functionality and progressive loading;

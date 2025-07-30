@@ -1,10 +1,10 @@
-
 /** Plugin Lifecycle Manager;
 /** Advanced plugin lifecycle management with health monitoring and recovery;
 
  */
-import { performance  } from 'node:perf_hooks';
-import { Plugin  } from '../types/plugin.js';
+import { performance } from 'node:perf_hooks';
+import { Plugin } from '../types/plugin.js';
+
 // // interface LifecycleEvent {pluginName = > boolean
 // action = > Promise<boolean>
 // priority = new Map() {}
@@ -25,29 +25,31 @@ import { Plugin  } from '../types/plugin.js';
 // {
 //   super();
 
-  this.pluginManager = pluginManager;
-  this.config = {
+this.pluginManager = pluginManager;
+this.config = {
       healthCheckInterval, // 30 secondsmaxEventHistory = performance.now();
 
     try {
       this.recordEvent(pluginName, 'starting');
 // const _plugin = awaitthis.pluginManager.getPlugin(pluginName);
-  if(!plugin) {
-    throw new Error(`Plugin notfound = performance.now() - startTime;`
+if (!plugin) {
+  throw new Error(`Plugin notfound = performance.now() - startTime;`
       this.updateMetrics(pluginName, 'successfulStart', duration);
-      this.recordEvent(pluginName, 'started', { duration } catch (error) { console.error(error); });
+  this.recordEvent(pluginName, 'started', { duration } catch (error) { console.error(error);
+}
+)
 
-      // Schedule health checks
-      this.scheduleHealthCheck(pluginName);
+// Schedule health checks
+this.scheduleHealthCheck(pluginName)
 
-      this.emit('plugin-started', { pluginName, duration });
-      // return true;
-    // ; // LINT: unreachable code removed
-    } catch(error = performance.now() - startTime;
-      this.updateMetrics(pluginName, 'failedStart', duration);
-      this.recordEvent(pluginName, 'error', { error,phase = performance.now();
+this.emit('plugin-started', { pluginName, duration });
+// return true;
+// ; // LINT: unreachable code removed
+} catch(error = performance.now() - startTime
+this.updateMetrics(pluginName, 'failedStart', duration)
+this.recordEvent(pluginName, 'error', { error,phase = performance.now();
 
-    try {
+try {
       this.recordEvent(pluginName, 'stopping');
 // const _plugin = awaitthis.pluginManager.getPlugin(pluginName);
   if(!plugin) {
@@ -140,12 +142,7 @@ sort((a, b) => b.priority - a.priority);
   if(schedule.enabled && now >= schedule.nextCheck) {
           try {
 // // await this.performHealthCheck(pluginName); 
-          } catch (error) { console.error(error); } catch(/* _error */) {
-            // Health check errors are handled within performHealthCheck
-          //           }
-        //         }
-      //       }
-    }, 5000); // Check every 5 seconds for due health checks
+          } catch (error) { console.error(error); } catch(/* _error */) , 5000); // Check every 5 seconds for due health checks
   //   }
 
   // Recovery strategies

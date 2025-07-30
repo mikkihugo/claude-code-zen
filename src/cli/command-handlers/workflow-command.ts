@@ -1,8 +1,8 @@
 // workflow-command.js - Modern workflow command handler with SPARC methodology integration
 
-import { promises as fs  } from 'node:fs';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
-import { printError  } from '..';
+import { printError } from '..';
 
 // Workflow templates and predefined workflows
 const _WORKFLOW_TEMPLATES = {
@@ -138,8 +138,8 @@ ID = args[0];)
         printSuccess(` Phase ${phase.name} completed`);
       } else {
         console.warn(' [DRY RUN] Phase would be executed here');
-      //       }
-    //     }
+//       }
+//     }
 
 /** Show workflow status
 

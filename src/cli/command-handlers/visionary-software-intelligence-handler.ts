@@ -1,4 +1,3 @@
-
 /** Visionary Software Intelligence Handler Module
 /** Converted from JavaScript to TypeScript
 
@@ -32,7 +31,7 @@ default;
     const _NATTraversalPlugin = (;
 // // await import('../../coordination/meta-registry/plugins/nat-traversal.js');
     ).default
-    metaRegistryManager = new MetaRegistryManager() {}
+    metaRegistryManager = new MetaRegistryManager() 
 // // await metaRegistryManager.initialize() {}
     defaultRegistry = // await metaRegistryManager.createRegistry('default', new MemoryBackend())
     // Register plugins

@@ -8,9 +8,9 @@
  * @version 2.0.0;
  */
 
-import { exec  } from 'node:child_process';
-import { promises as fs  } from 'node:fs';
-import { promisify  } from 'node:util';
+import { exec } from 'node:child_process';
+import { promises as fs } from 'node:fs';
+import { promisify } from 'node:util';
 
 const _execAsync = promisify(exec);
 
@@ -65,27 +65,32 @@ const _ERROR_FIXES: Record<string, ErrorFix> = {
 // {
 // const _content = awaitfs.readFile(file, 'utf8');
   // Change import type to regular import
-  const _updated = content.replace(;)
+  const _updated = content.replace(;
+)
 // import type \{([^}]*)\} from '([^']+)'/g,'
-        (m, imports, importPath) => {
-          if(imports.includes(match[1])) {
-//             return `import { ${imports} } from '${importPath}'`;
+        (m, imports, importPath) =>
+{
+  if (imports.includes(match[1])) {
+    //             return `import { ${imports} } from '${importPath}'`;
     //   // LINT: unreachable code removed}
-//           return m;
+    //           return m;
     //   // LINT: unreachable code removed}
-      );
-// // await fs.writeFile(file, updated);
-    } },
+    )
+    // // await fs.writeFile(file, updated);
+  }
+}
+,
   pattern: /error TS2339: Property '([^']+)' does not exist on type '([^']+)'/,
-  fix: async(file, match): Promise<void> => {
+  fix: async(file, match): Promise<void> =>
+{
 // const _content = awaitfs.readFile(file, 'utf8');
       const _property = match[1];
       const _type = match[2];
       // Add type assertions for 'never' types
   if(type === 'never') {
         const _updated = content.replace(;)
-          new RegExp(`(\\w+)\\.${property}`, 'g'),
-          `($1 as unknown).${property}`;
+          new RegExp(`(\\w+)\\.$property`, 'g'),
+          `($1 as unknown).$property`;
         );
 // // await fs.writeFile(file, updated);
       //       }
@@ -192,7 +197,7 @@ async function _fixTypeScriptErrors(): Promise<number> {
   // Get all TypeScript errors from build
   const _result = await execAsync('npm run build);'
   const _errors = result.stdout.split('\n').filter((line) => line.includes('error TS'));
-  console.warn(`Found ${errors.length} TypeScript errors\n`);
+  console.warn(`Found $errors.lengthTypeScript errors\n`);
   // Group errors by error code for batch processing
   const _errorGroups = {};
   for(const error of errors) {
@@ -212,21 +217,20 @@ async function _fixTypeScriptErrors(): Promise<number> {
   //   }
   console.warn(); // Apply fixes in parallel batches for performance
   const _fixPromises: Promise<void>[] = [];
-  for(const [code, errorList] of Object.entries(errorGroups) {) {
+  for(const [code, errorList] of Object.entries(errorGroups) {) 
   if(ERROR_FIXES[code]) {
       console.warn(` Fixing ${code} errors...`);
       // Process in batches of 50 to prevent memory issues
       for (const error of errorList.slice(0, 50)) {
         const _fileMatch = error.match(/([^(]+)\(/); 
   if(fileMatch) {
-          const _file = fileMatch[1]; const _patternMatch = error.match(ERROR_FIXES[code].pattern) {;
+          const _file = fileMatch[1]; const _patternMatch = error.match(ERROR_FIXES[code].pattern) ;
   if(patternMatch) {
             // Add input property for line number extraction
             const _enhancedMatch = { ...patternMatch, input} as ErrorMatch;
             fixPromises.push(;)
-            ERROR_FIXES[code].fix(file, enhancedMatch).catch((err) => {
-              console.error(`Error fixing ${file});`
-            });
+            ERROR_FIXES[code].fix(file, enhancedMatch).catch((err) => 
+              console.error(`Error fixing $file);`);
             //             )
           //           }
         //         }

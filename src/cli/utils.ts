@@ -1,7 +1,7 @@
 // utils.ts - Shared CLI utility functions
 
-import { Logger  } from '../cli/core/logger.ts';
-import { SqliteMemoryStore  } from '../memory/sqlite-store.ts';
+import { Logger } from '../cli/core/logger.ts';
+import { SqliteMemoryStore } from '../memory/sqlite-store.ts';
 
 const __logger = new Logger('cli-utils');
 // Color formatting functions
@@ -53,17 +53,17 @@ const _filteredArgs = [];
     const _shortFlags = arg.substring(1);
   for(const flag of shortFlags) {
       flags[flag] = true; providedFlags.add(flag); //     }
-  } else {
-    filteredArgs.push(arg) {;
+  } else 
+    filteredArgs.push(arg) ;
   //   }
 // }
 // return {
-    flags,args = [], options = {}): Promise<any> {
+    flags,args = [], options = {}): Promise<any> 
   try {
     // Check if we're in Node.js or node environment'
     if(typeof process !== 'undefined' && (_process _as _any).versions && (process as any).versions.node) {
       // Node.js environment
-      const { spawn }  catch (error) { console.error(error); }= // await import('node);'
+      const { spawn }  catch (error) console.error(error); = // await import('node);'
 // const { promisify  // LINT: unreachable code removed} = // await import('node);'
 
 // return new Promise((resolve) => {
@@ -157,7 +157,7 @@ async function _getRuvSwarmInstance(): Promise<any> {
     // return {success = // await ruvSwarm.orchestrateTask(params); // LINT: unreachable code removed
         // return {success = // await ruvSwarm.getStatus();
     // return { // LINT: unreachable code removed
-          success = {} catch (error) { console.error(error); }): Promise<any> {
+          success = {} catch (error) console.error(error); ): Promise<any> {
   // Convert MCP tool names to library operations
   const _toolMapping = {
     'neural_train': 'neural_train',
@@ -181,9 +181,9 @@ async function _getRuvSwarmInstance(): Promise<any> {
 
     console.warn(` Using REAL ruv-swarm WASM neural training...`);
     console.warn(;)
-      `Executing = = 'undefined' && (process as any).versions && (process as any).versions.node) {`
+      `Executing = = 'undefined' && (process as any).versions && (process as any).versions.node) `
       // Node.js environment - use spawn with stdio inherit
-      const { spawn }  catch (error) { console.error(error); }= // await import('child_process');
+      const { spawn }  catch (error) console.error(error); = // await import('child_process');
 
       result = // await new Promise((resolve) => {
         const _child = spawn(;
@@ -208,7 +208,7 @@ async function _getRuvSwarmInstance(): Promise<any> {
           resolve({success = '.ruv-swarm'
 // const _files = await(process as any).readDir(neuralDir);
       let _latestFile = null;
-      let _latestTime = 0;
+      const _latestTime = 0;
 
       for // await(const file of files) {
         if(file.name.startsWith(`training-\$modelName-`) && file.name.endsWith('.json')) {
@@ -235,23 +235,19 @@ async function _getRuvSwarmInstance(): Promise<any> {
   if(value !== true && value !== false) {
         args.push(String(value));
       //       }
-     catch (error) { console.error(error); }});
+     catch (error) console.error(error); });
 // const _result = awaitrunCommand(command, args, {stdout = // await runCommand('npx', ['ruv-swarm', '--version'], {stdout = 50): Promise<any> {
   // return // await callRuvSwarmMCP('neural_train', {
-    model = {}): Promise<any> {
+    model = {}): Promise<any> 
   // return // await callRuvSwarmMCP('neural_patterns', {action = null): Promise<any> {
   // return // await callRuvSwarmMCP('swarm_status', {
-    swarmId = {}): Promise<any> {
+    swarmId = ): Promise<any> 
   // return // await callRuvSwarmLibrary('agent_spawn', {
     //     type = {}): Promise<any> {
   // return // await callRuvSwarmLibrary('swarm_init', {
-    topology = {}): Promise<any> {
+    topology = ): Promise<any> 
   // return // await callRuvSwarmLibrary('task_orchestrate', {
     task,
     // strategy: (options as any).strategy  ?? 'adaptive', // LINT: unreachable code removed
     priority: (options as any).priority  ?? 'medium',
-..options;
-  });
-// }
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))
+..options;);}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))

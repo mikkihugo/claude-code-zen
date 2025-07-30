@@ -4,9 +4,9 @@
 /** Provides GitHub workflow orchestration and coordination capabilities
 
  */
-import { execSync  } from 'node:child_process';
-import { printInfo, printSuccess  } from '..';
-import { githubAPI  } from '.';
+import { execSync } from 'node:child_process';
+import { printInfo, printSuccess } from '..';
+import { githubAPI } from '.';
 
 class GitHubCoordinator {
   constructor() {
@@ -32,7 +32,7 @@ class GitHubCoordinator {
   if(repoMatch) {
         this.currentRepo = {owner = true;
       //       }
-     catch (error) { console.error(error); }} catch(/* _error */) {
+     catch (error) { console.error(error); }} catch(/* _error */) 
       printWarning('Swarm integration not available - continuing without swarm features');
       this.swarmEnabled = false;
     //     }
@@ -180,12 +180,6 @@ class GitHubCoordinator {
 
       // return coordinationPlan;
     //   // LINT: unreachable code removed}
-  } catch(error) {
+  } catch(error) 
     printError(` GitHub coordination failed);`
-    throw error;
-  //   }
-// }
-
-// export default GitHubCoordinator;
-
-}}}}}}}}}}}}}}}}})))))))
+    throw error;}}}}}}}}}}}}}}})))))))

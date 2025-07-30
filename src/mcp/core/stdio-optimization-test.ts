@@ -1,10 +1,17 @@
-
- * @fileoverview Test script for MCP stdio optimizations
+*
+@fileoverview
+Test;
+script;
+for MCP stdio optimizations
 /** Validates message batching, retry logic, and performance metrics
 
  */
-import { dirname  } from 'node:path';'
-import { fileURLToPath  } from 'node:url';'
+import { dirname  } from 'node:path';
+'
+
+import { fileURLToPath } from 'node:url';
+
+'
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -30,7 +37,8 @@ class StdioOptimizationTests {
 // // // await this.testRetryLogic();
 // // // await this.testConnectionHandling();
       this.printResults();
-    } catch(/* _error */) {
+    } catch(/* _error */ )
+{
       console.error('Test suitefailed = new ClaudeFlowMCPServer({'
         batchSize,batchTimeout = this.server.stdioOptimizer !== undefined;
       const _hasErrorHandler = this.server.errorHandler !== undefined;
@@ -54,7 +62,7 @@ class StdioOptimizationTests {
     //     }
     catch(error) ;
       this.addTestResult('Server Initialization', false, error.message);'
-  //   }
+//   }
 
 /** Test batch processing functionality
 

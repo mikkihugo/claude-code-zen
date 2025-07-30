@@ -1,7 +1,7 @@
-import { createRequire  } from 'node:module';
-import { Logger  } from '../utils/logger.js';
+import { createRequire } from 'node:module';
+import { Logger } from '../utils/logger.js';
 // Import the REAL neural integration
-import { loadRealNeuralBindings  } from '.';
+import { loadRealNeuralBindings } from '.';
 
 /** Neural bindings interface for FANN integration
 
@@ -14,8 +14,8 @@ export // interface RuvFannBindings {
 // // }
 } catch(error)
 // {
-        const __errorMessage = error instanceof Error ? error.message = null;
-    // private loadAttempted = false;
+const __errorMessage = error instanceof Error ? error.message = null;
+// private loadAttempted = false;
 
 /** Creates a new RuvFannBindingsLoader
 
@@ -24,9 +24,11 @@ export // interface RuvFannBindings {
 
 /** Load neural bindings(native, WASM, or stub);
      * @returns The loaded bindings or null;
-    // */; // LINT: unreachable code removed
-    async load(): Promise<RuvFannBindings | null> ;
-  if(this.loadAttempted) {
+    // */ // LINT: unreachable code removed
+async;
+load();
+: Promise<RuvFannBindings | null>
+if(this.loadAttempted) {
             // return this.bindings;
     //   // LINT: unreachable code removed}
 
@@ -41,7 +43,7 @@ export // interface RuvFannBindings {
                 // return bindings;
     //   // LINT: unreachable code removed}
 
-             catch (error) { console.error(error); }// Fallback to WASM bindings
+             catch (error) console.error(error); 
 // const _wasmBindings = awaitthis.loadWasmBindings();
   if(wasmBindings) {
                 this.logger.info('WASM ruv-FANN bindings loaded successfully');
@@ -115,7 +117,7 @@ export // interface RuvFannBindings {
     //   // LINT: unreachable code removed}
             },
 
-            _batchInference = {}): Promise<string[]> => ;
+            _batchInference = ): Promise<string[]> => ;
 //                 return binding.batchInference(prompts, options);,
 
             _finetune => ;
@@ -219,7 +221,7 @@ export // interface RuvFannBindings {
                 this.logger.debug('Stub => {'
 //                 return {
                     available,)
-    // deviceName => { // LINT);
+// deviceName => { // LINT);
 
 /** Load neural bindings(singleton pattern) - internal helper;
  * @returns The loaded neural bindings;

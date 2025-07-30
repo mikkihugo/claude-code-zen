@@ -1,4 +1,3 @@
-
 /** Performance Monitor Module
 /** Converted from JavaScript to TypeScript
 
@@ -13,7 +12,7 @@ export class PerformanceMonitor {
     this.metrics = {
       startTime,endTime = null;
   //   }
-  start() {
+  start() 
     if(!this.enabled) return;
     // ; // LINT: unreachable code removed
     this.metrics.startTime = Date.now();
@@ -22,7 +21,7 @@ export class PerformanceMonitor {
       console.warn(' Performance monitoring started');
     //     }
   //   }
-  stop() {
+  stop() 
     if(!this.enabled) return;
     // ; // LINT: unreachable code removed
     this.metrics.endTime = Date.now();
@@ -32,7 +31,7 @@ export class PerformanceMonitor {
       console.warn(' Performance monitoring stopped');
     //     }
   //   }
-  startMemoryMonitoring() {
+  startMemoryMonitoring() 
   if(typeof node !== 'undefined' && node.memoryUsage) {
       this.memoryMonitor = setInterval(() => {
         const _memUsage = node.memoryUsage();
@@ -76,7 +75,7 @@ export class PerformanceMonitor {
 
     const _report = '\n Performance Report\n';
     report += '====================\n';
-    report += `Duration = `Operations = `Operations/sec = `Peak Memory: ${metrics.peakMemoryMB.toFixed(1)}MB\n`;`
+    report += `Duration = `Operations = `Operations/sec = `Peak Memory: $metrics.peakMemoryMB.toFixed(1)MB\n`;`
       report += `AverageMemory = `;
       Memory;
       Efficiency: \$metrics.memoryEfficiency;
@@ -110,7 +109,7 @@ export class PerformanceMonitor {
         currentMemory = `${(memUsage.rss / 1024 / 1024).toFixed(1)}MB`;
       //       }
       console.warn(;)
-      `  ${elapsed.toFixed(1)}s |  ${currentMemory} |  ${this.metrics.operationCount} ops`;
+      `  $elapsed.toFixed(1)s |  $currentMemory|  $this.metrics.operationCountops`;
       //       )
     //     }
   //   }
@@ -145,7 +144,7 @@ export class PerformanceMonitor {
   cpuWarning;
   => ) }
 // }
-  start() {}
+  start() 
 // {
   if(this.isMonitoring) return;
   // ; // LINT: unreachable code removed
@@ -185,7 +184,7 @@ createDefaultCallbacks();
       onMemoryWarning => {
         printInfo(` _Memory _usage _high => {`
         console.error(` Memory usage critical => {`)
-  printInfo(` CPU usage high = {}) {`
+  printInfo(` CPU usage high = {}) `
     const {
       cpuCores = 4,
     // memoryGB = 8, // LINT: unreachable code removed

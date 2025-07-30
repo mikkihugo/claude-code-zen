@@ -1,10 +1,9 @@
-
 /** Simple Swarm Executor - Provides basic swarm functionality without TypeScript dependencies;
 
  */
-import { promises as fs  } from 'node:fs';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
-import { generateId  } from '../../utils/helpers.js';
+import { generateId } from '../../utils/helpers.js';
 
 // Simple SwarmCoordinator implementation
 class SwarmCoordinator {
@@ -24,31 +23,47 @@ class SwarmCoordinator {
   this;
 
   startTime = Date.now();
-// }
-async;
-initialize();
-// {
-  console.warn(`\n Swarminitialized = 'active';`
+  // }
+  async;
+  initialize();
+  // {
+  console;
+  .
+  warn(`\n Swarminitialized = 'active';
+  `
 
     // Create swarm directory
-    const _swarmDir = `./swarm-runs/${this.id}`;
-// // await fs.mkdir(swarmDir, { recursive = {id = {id = 'completed';/g))
-    taskObj.endTime = Date.now();
+    const
+  _swarmDir = `./swarm-runs/${this.id}`;
+  // // await fs.mkdir(swarmDir, { recursive = {id = {id = 'completed';/g))
+  taskObj;
+  .
+  endTime = Date.now();
 
-    console.warn(`   Task completed in ${(_taskObj._endTime - taskObj._startTime) / 1000}s`);
+  console;
+  .
+  warn(`   Task completed in ${(_taskObj._endTime - taskObj._startTime)
+  / 1000
+}
+s`);
 
     // return taskObj;
     //   // LINT: unreachable code removed}
 
   async createAPIProject() { 
-    console.warn(`    Creating API project structure...`);
+    console.warn(`;
+Creating;
+API;
+project;
+structure;
+...`)
 
-    const _projectDir = '.'
+const _projectDir = '.';
 // // await fs.mkdir(projectDir, recursive = `import express from 'express';`/g)
-  const _app = express();
-  const __port = process.env.PORT ?? 3000;
-  app.use(express.json());
-  app.get('/health', (_req, res) => {
+const _app = express();
+const __port = process.env.PORT ?? 3000;
+app.use(express.json());
+app.get('/health', (_req, res) => {
   res.json({ status => {
   res.json({ items => {))
   console.warn(\`API server running on port \${port}\`);
@@ -79,7 +94,7 @@ initialize();
 async function executeSwarm(objective = {}) {
   try {
     // Parse configuration from flags
-    const _config = {name = = false } catch (error) { console.error(error); },security = new SwarmCoordinator(config);
+    const _config = {name = = false } catch (error) console.error(error); ,security = new SwarmCoordinator(config);
 // // await coordinator.initialize();
     // Spawn agents based on strategy
   if(config.strategy === 'development'  ?? config.strategy === 'auto') {
@@ -112,4 +127,5 @@ async function executeSwarm(objective = {}) {
 // Export for use in swarm.js
 // export { SwarmCoordinator };
 
-}}}}}}})))))
+}}}}}}})
+))))

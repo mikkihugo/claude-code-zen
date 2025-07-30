@@ -1,10 +1,9 @@
-
 /** Swarm command - Advanced multi-agent coordination using ruv-swarm library
 
  */
 import process from 'node:process';
-import { ParallelSwarmOrchestrator  } from '../../coordination/parallel-swarm-orchestrator.js';
-import { printError, printInfo  } from '..';
+import { ParallelSwarmOrchestrator } from '../../coordination/parallel-swarm-orchestrator.js';
+import { printError, printInfo } from '..';
 
 function _showSwarmHelp() {
   console.warn(`;`
@@ -41,8 +40,8 @@ function _showSwarmHelp() {
           printInfo('Usage = (subcommand + ' ' + objective).trim();'
         // return // await launchSwarmWithObjective(fullObjective2, flags, orchestrator);
     //   // LINT: unreachable code removed}
-   catch (error) { console.error(error); }} catch(error) {
-    printError(`Swarm command failed = {}, orchestrator = null) ;`
+   catch (error) console.error(error); } catch(error) 
+    printError(`Swarm command failed = , orchestrator = null) ;`
   if(!objective  ?? !objective.trim()) {
     printError('Objective is required');
     printInfo('Usage = flags.parallel !== false;'
@@ -50,8 +49,8 @@ function _showSwarmHelp() {
     new ParallelSwarmOrchestrator({maxWorkers = flags.analysis  ?? flags['read-only'];
 
   const _swarmOptions = {strategy = = false,priority = // await orch.launchSwarm(objective, swarmOptions);
-  printSuccess(` Swarmlaunched = === 'parallel' && result.parallelExecutionStats) {`
-    printInfo(` Parallelexecution = > a.type).join(', ')}`);
+  printSuccess(` Swarmlaunched = === 'parallel' && result.parallelExecutionStats) `
+    printInfo(` Parallelexecution = > a.type).join(', ')`);
   if(flags['output-format'] === 'json') {
     console.warn(JSON.stringify(result, null, 2));
   //   }
@@ -59,9 +58,9 @@ function _showSwarmHelp() {
   // Start monitoring if requested
   if(flags.monitor && !flags.background) {
 // // await startSwarmMonitoring(result.swarmId, orch);
-  //   }
+//   }
 
-  // return result;
+// return result;
 // }
 
 /** Show swarm status
@@ -73,7 +72,7 @@ async function showSwarmStatus(flags = flags['swarm-id']  ?? flags.id;
     printInfo(` Swarm Status => ;`
         console.warn(`  \$index + 1. \$agent.type);`
         console.warn(`     _Status => {`)
-        console.warn(`   ${id}: ${swarm.objective?.substring(0, 50)}...`);
+        console.warn(`   $id: $swarm.objective?.substring(0, 50)...`);
         console.warn(`Agents = === 'json') ;`
     console.warn(`\\n${JSON.stringify(status, null, 2)}`);
 

@@ -1,4 +1,3 @@
-
 /** Pattern Detection System
 
 /** Detects design patterns, anti-patterns, code smells, and architectural patterns
@@ -8,7 +7,7 @@
  * @version 1.0.0
  */
 
-import type { CodeAnalysisResult, CodeFileData  } from '.';
+import type { CodeAnalysisResult, CodeFileData } from '.';
 
 /** Configuration for pattern detection system
 
@@ -98,15 +97,23 @@ import type { CodeAnalysisResult, CodeFileData  } from '.';
 //   principles: {
 //     srp: { score, violations};
  */
-    ocp: { score, violations};
-    lsp: { score, violations};
-    isp: { score, violations};
-    dip: { score, violations};
-  };
-  // dependencies: unknown
-  // modularity: unknown
-  issues;
-  recommendations;
+{
+  score, violations;
+}
+{
+  score, violations;
+}
+{
+  score, violations;
+}
+{
+  score, violations;
+}
+}
+// dependencies: unknown
+// modularity: unknown
+issues
+recommendations;
 // }
 
 /** Pattern Detection System
@@ -138,10 +145,13 @@ import type { CodeAnalysisResult, CodeFileData  } from '.';
    * @returns Complete pattern detection results
  */
 
-  async detectPatterns(
-    codeData,
-    // analysis
-  ): Promise<PatternDetectionResult> {
+async;
+detectPatterns(
+  codeData
+  // analysis
+);
+: Promise<PatternDetectionResult>
+{
 // const designPatterns = awaitthis.detectDesignPatterns(codeData, analysis);
 // const antiPatterns = awaitthis.detectAntiPatterns(codeData);
 // const codeSmells = awaitthis.detectCodeSmells(codeData);
@@ -153,7 +163,7 @@ import type { CodeAnalysisResult, CodeFileData  } from '.';
   if(this.config.neuralEngine) {
       try {
         aiDetected = // // await this.performAIAnalysis(codeData, 'pattern-detection');'
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) { console.error(error); } catch(error) 
         console.warn('AI pattern detection unavailable);'
       //       }
     //     }
@@ -223,53 +233,53 @@ import type { CodeAnalysisResult, CodeFileData  } from '.';
   // // private async detectFileDesignPatterns(
     file,
     // _analysis
-  ) {: Promise<DesignPattern[]> {
+  ) : Promise<DesignPattern[]> {
     const patterns = [];
     const content = file.content;
 
     // Singleton pattern
     if(content.includes('getInstance') || content.includes('_instance')) {'
-      patterns.push({ pattern: 'Singleton','
+      patterns.push(pattern: 'Singleton','
         confidence: 0.8,
         location: 'getInstance method','
         description: 'Ensures a class has only one instance','
         benefits: ['Controlled access to sole instance', 'Reduced memory footprint'],'
         file: file.path,)
-        lineNumber: this.findPatternLine(content, 'getInstance')   });'
+        lineNumber: this.findPatternLine(content, 'getInstance')   );'
     //     }
     // Factory pattern
     if(content.includes('create') && content.includes('new ')) {'
-      patterns.push({ pattern: 'Factory','
+      patterns.push(pattern: 'Factory','
         confidence: 0.7,
         location: 'create method','
         description: 'Creates objects without specifying exact classes','
         benefits: ['Loose coupling', 'Easy extensibility'],'
         file: file.path,)
-        lineNumber: this.findPatternLine(content, 'create')   });'
+        lineNumber: this.findPatternLine(content, 'create')   );'
     //     }
     // Observer pattern
     if(
       content.includes('addEventListener') ||'
       content.includes('subscribe') ||'
       content.includes('notify')'
-    ) {
-      patterns.push({ pattern: 'Observer','
+    ) 
+      patterns.push(pattern: 'Observer','
         confidence: 0.75,
         location: 'event handling','
         description: 'Defines subscription mechanism for object notifications','
         benefits: ['Loose coupling', 'Dynamic relationships'],'
         file: file.path,)
-        lineNumber: this.findPatternLine(content, 'addEventListener|subscribe|notify')   });'
+        lineNumber: this.findPatternLine(content, 'addEventListener|subscribe|notify')   );'
     //     }
     // Strategy pattern
     if(content.includes('strategy') || this.hasMultipleAlgorithms(content)) {'
-      patterns.push({ pattern: 'Strategy','
+      patterns.push(pattern: 'Strategy','
         confidence: 0.6,
         location: 'algorithm selection','
         description: 'Defines family of algorithms and makes them interchangeable','
         benefits: ['Runtime algorithm selection', 'Easy to extend'],'
         file: file.path,)
-        lineNumber: this.findPatternLine(content, 'strategy')   });'
+        lineNumber: this.findPatternLine(content, 'strategy')   );'
     //     }
 
     // return patterns;
@@ -388,7 +398,7 @@ import type { CodeAnalysisResult, CodeFileData  } from '.';
         smell: 'Dead Code','
   severity: 'low';'
 
-  location: `line ${dead.location}`;`
+  location: `line $dead.location`;`
 
   description: dead.description;
 
@@ -491,7 +501,7 @@ detectLanguageIdioms(codeData)
       case 'javascript': null'
         idioms.push(...this.detectJavaScriptIdioms(content, file.path));
         break;
-      case 'python': null'
+      case 'python': { null'
         idioms.push(...this.detectPythonIdioms(content, file.path));
         break;
     //     }
@@ -514,7 +524,7 @@ detectLanguageIdioms(codeData)
   if(destructuringCount > 0) {
         idioms.push({
         idiom: 'Destructuring Assignment','
-        usage: `Used ${destructuringCount} times`,`
+        usage: `Used $destructuringCounttimes`,`
         quality: 'good','
         file,)
         lineNumber: this.findPatternLine(content, 'const\\s*\\{[^}]+\\}\\s*=') }'
@@ -536,7 +546,7 @@ detectLanguageIdioms(codeData)
   if(templateLiteralCount > 0) {
     idioms.push({
         idiom: 'Template Literals','
-    usage: `Used ${templateLiteralCount} times`,`
+    usage: `Used $templateLiteralCounttimes`,`
     quality: 'good','
     file,)
     lineNumber: this.findPatternLine(content, '`[^`]*\\$\\{[^}]+\\}[^`]*`') }'
@@ -663,6 +673,7 @@ detectLanguageIdioms(codeData)
       lsp: this.evaluateLSP(patterns),
       isp: this.evaluateISP(patterns),
       dip: this.evaluateDIP(patterns) }
+      }
 
 /** Evaluate Single Responsibility Principle
 

@@ -1,9 +1,8 @@
-
 /** Dashboard Command Handler - Launch unified dashboard interface
 /** Integrates the React/Ink unified dashboard with the API server
 
  */
-import { spawn  } from 'node:child_process';
+import { spawn } from 'node:child_process';
 import process from 'node:process';
 import chalk from 'chalk';
 
@@ -11,7 +10,7 @@ export async function dashboardCommand(args = args[0]  ?? 'start';
 
 console.warn(chalk.cyan.bold(' Claude-Zen Dashboard System'));
 console.warn('');
-  switch(subcommand) {
+switch(subcommand) {
   case 'start': null
     // return startDashboard(flags);
     // case 'status': // LINT: unreachable code removed
@@ -25,7 +24,7 @@ console.warn('');
   const _port = flags.port  ?? 3000;
 )))
   console.warn(chalk.blue(` Launching dashboard in ${isWeb && !flags.terminal ? 'WEB' ));`
-  console.warn(chalk.gray(` Connecting to API server on port ${port}`));
+  console.warn(chalk.gray(` Connecting to API server on port $port`));
   console.warn('');
 
   // Set environment variables for the dashboard

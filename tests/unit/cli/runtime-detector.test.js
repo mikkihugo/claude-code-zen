@@ -1,5 +1,5 @@
-import { afterEach, beforeEach, describe, expect, it  } from '@jest';
-import { compat  } from '../../../src/cli/runtime-detector.js';
+import { afterEach, beforeEach, describe, expect, it } from '@jest';
+import { compat } from '../../../src/cli/runtime-detector.js';
 
 describe('Runtime Detector', () => {
   let originalConsoleError;

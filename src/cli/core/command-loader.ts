@@ -1,25 +1,28 @@
+*
+@fileoverview
+Command;
+Loader;
 
- * @fileoverview Command Loader
 /** Loads and registers all CLI commands with proper error handling
  * @module CommandLoader
 
  */
-import { CommandRouter  } from '.';
+import { CommandRouter } from '.';
 
 /** Load and register all core commands
  * @returns {Promise<CommandRouter>} Configured command router
     // */ // LINT: unreachable code removed
 // export async function loadCommands() {
-  const _router = new CommandRouter();
-  // Core system commands
+const _router = new CommandRouter();
+// Core system commands
 // await registerCoreCommands(router);
-  // Coordination commands
+// Coordination commands
 // // await registerCoordinationCommands(router);
-  // Management commands
+// Management commands
 // // await registerManagementCommands(router);
-  // Development commands
+// Development commands
 // // await registerDevelopmentCommands(router);
-  // return router;
+// return router;
 // }
 
 /** Register core system commands

@@ -1,11 +1,15 @@
-
 /** Centralized structured logging system for Claude Code CLI
 /** Implements enterprise-grade logging with error context and correlation
 
  */
 import fs from 'fs';
-import { nanoid  } from 'nanoid';'
-import path from 'path';'
+import { nanoid } from 'nanoid';
+
+'
+
+import path from 'path';
+
+'
 
 // // enum LogLevel {
   ERROR = 0,
@@ -26,7 +30,10 @@ TRACE = 4 }
 //   if(this.enableFileLogging) {
 //     this.initFileLogging();
 //   //   }
- catch (error) { console.error(error); }// }
+ catch (error)
+{
+  console.error(error);
+} // }
 
 /** Initialize file logging
 

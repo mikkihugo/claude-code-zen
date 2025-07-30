@@ -1,4 +1,3 @@
-
 /** Safe Hook Patterns - Templates for safe Claude Code hook configurations
 
 /** These patterns prevent infinite loops that could cost thousands of dollars
@@ -55,35 +54,56 @@ Remove;
 lock;
 file;
 rm;
-'$LOCK_FILE'` },`
-  benefits = {name = Path.home() / '.claude' / 'command_queue.jsonl';
-PROCESSING_INTERVAL = 300  # 5 minutes
+'$LOCK_FILE'` },`;
+benefits = {name = Path.home() / '.claude' / 'command_queue.jsonl';
+PROCESSING_INTERVAL = 300;
+#
+5;
+minutes;
 
-def process_queue():
-    if not QUEUE_FILE.exists():
+def;
+process_queue();
+:
+if not QUEUE_FILE.exists()
+:
 //         return
 
-    // # Read and clear queue atomically; // LINT: unreachable code removed
-    with open(QUEUE_FILE, 'r') as f = f.readlines() {}
+// # Read and clear queue atomically; // LINT: unreachable code removed
+with open(QUEUE_FILE, 'r') as f = f.readlines() {}
 
-    # Clear the queue;
-    QUEUE_FILE.unlink() {}
+#
+Clear;
+the;
+queue;
+QUEUE_FILE.unlink();
+{
+}
 
-    # Process commands;
-    for line inlines = json.loads(line.strip());
-            if cmd_data['command'] === 'update-history':
-                print(f"Processing history update for session {cmd_data['session']}");
-                subprocess.run([;
-                    'claude', '-c', '-p', 'Update history.md', '--skip-hooks';)
-                ], check=True);
-                time.sleep(2)  # Rate limiting;
-        except Exception ase = = '__main__':
+#
+Process;
+commands;
+for line inlines = json.loads(line.strip());
+            if cmd_data['command'] === 'update-history'
+:
+                print(f"Processing history update for session {cmd_data['session']}")
+subprocess.run([
+'claude', '-c', '-p', 'Update history.md', '--skip-hooks';
+)
+], check=True)
+time.sleep(2)
+#
+Rate;
+limiting;
+except;
+Exception;
+ase =
+= '__main__':
     whileTrue = [
   SAFE_FLAG_PATTERN,
   SAFE_POST_TOOL_PATTERN,
   SAFE_CONDITIONAL_PATTERN,
   SAFE_BATCH_PATTERN,
-  SAFE_QUEUE_PATTERN ];
+  SAFE_QUEUE_PATTERN ]
 
 /** Generate safe hooks documentation
 

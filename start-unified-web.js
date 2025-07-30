@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { UnifiedInterfacePlugin  } from './dist/plugins/unified-interface/index.js';
+import { UnifiedInterfacePlugin } from './dist/plugins/unified-interface/index.js';
 
 async function startUnifiedWeb() {
   const _unifiedInterface = new UnifiedInterfacePlugin({
@@ -9,7 +9,7 @@ async function startUnifiedWeb() {
     enableMCP }
 // )
 console.warn(' Starting Unified Interface in Web Mode...')
-try {
+  try {
 // // await unifiedInterface.start('web');
     console.warn(' Unified Interface started successfully!');
     console.warn(' Available at);'
@@ -20,15 +20,17 @@ try {
     process.on('SIGINT', async() => {
       console.warn('\n Shutting down...');
 // await unifiedInterface.shutdown();
-    } catch (error) { console.error(error); });
+    } catch (error) { console.error(error); }
+  )
 
-    process.on('SIGTERM', async() => {
-      console.warn('\n Shutting down...');
-// await unifiedInterface.shutdown();
-    });
-  } catch(error) {
+  process.on('SIGTERM', async () => 
+    console.warn('\n Shutting down...')
+  )
+}
+catch(error)
+{
     console.error(' Failed to start Unified Interface);'
     process.exit(1);
   //   }
 // }
-  startUnifiedWeb() {}
+  startUnifiedWeb()

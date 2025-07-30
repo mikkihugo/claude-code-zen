@@ -1,9 +1,8 @@
-
 /** Fix for hive-mind creation time issue #246;
 /** This file demonstrates how to properly handle timezones in hive-mind displays;
 
  */
-import { formatTimestampForDisplay  } from '../../utils/timezone-utils.js';
+import { formatTimestampForDisplay } from '../../utils/timezone-utils.js';
 
 /** Fixed function to create session with proper timezone handling;
 

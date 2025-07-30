@@ -1,15 +1,15 @@
-
 /** Hive Mind Types;
 /** Multi-Queen coordination and persistent intelligence system;
 
  */
-import type { Identifiable,
-JSONObject,
-LifecycleManager,
-ResourceUsage,
-TypedEventEmitter  } from '.'
-
-import type { QueenMetrics  } from '.';
+import type {
+  Identifiable,
+  JSONObject,
+  LifecycleManager,
+  QueenMetrics,
+  ResourceUsage,
+  TypedEventEmitter,
+} from '.';
 
 // =============================================================================
 // HIVE MIND CORE TYPES
@@ -148,10 +148,10 @@ export type DecisionMaking = 'consensus' | 'majority' | 'weighted' | 'expert' | 
 //     // knowledge: ComponentHealth
 //     // performance: ComponentHealth
 //   };
-  issues;
-  recommendations;
-  // trends: HealthTrends
-  // predictions: HealthPredictions
+issues;
+recommendations;
+// trends: HealthTrends
+// predictions: HealthPredictions
 // }
 // export // interface ComponentHealth {
 //   status: 'healthy' | 'degraded' | 'critical';
@@ -183,19 +183,21 @@ export type DecisionMaking = 'consensus' | 'majority' | 'weighted' | 'expert' | 
 //     // timeframe: string
 //     prevention;
 //   }[];
-  capacityProjections: {
-    // metric: string
-    // currentValue: number
-    // projectedValue: number
-    // timeframe: string
-    // confidence: number
-  }[];
-  maintenanceRecommendations: {
-    // action: string
-    priority: 'low' | 'medium' | 'high';
-    // benefit: string
-    // effort: string
-  }[];
+{
+  // metric: string
+  // currentValue: number
+  // projectedValue: number
+  // timeframe: string
+  // confidence: number
+}
+[];
+{
+  // action: string
+  priority: 'low' | 'medium' | 'high';
+  // benefit: string
+  // effort: string
+}
+[];
 // }
 // export // interface PerformanceAnalysis {
 //   bottlenecks: {
@@ -204,25 +206,28 @@ export type DecisionMaking = 'consensus' | 'majority' | 'weighted' | 'expert' | 
 //     // impact: string
 //     solutions;
 //   }[];
-  optimizations: {
-    // opportunity: string
-    // potential: number
-    // difficulty: string
-    implementation;
-  }[];
-  benchmarks: {
-    // metric: string
-    // current: number
-    // target: number
-    // industry: number
-    // percentile: number
-  }[];
-  trends: {
-    // metric: string
-    direction: 'improving' | 'stable' | 'degrading';
-    // rate: number
-    // projection: number
-  }[];
+{
+  // opportunity: string
+  // potential: number
+  // difficulty: string
+  implementation;
+}
+[];
+{
+  // metric: string
+  // current: number
+  // target: number
+  // industry: number
+  // percentile: number
+}
+[];
+{
+  // metric: string
+  direction: 'improving' | 'stable' | 'degrading';
+  // rate: number
+  // projection: number
+}
+[];
 // }
 // export // interface PredictiveInsights {
 //   workloadForecasts: {
@@ -231,24 +236,27 @@ export type DecisionMaking = 'consensus' | 'majority' | 'weighted' | 'expert' | 
 //     // confidence: number
 //     factors;
 //   }[];
-  resourceNeeds: {
-    // resource: string
-    // currentUsage: number
-    // projectedUsage: number
-    // recommendation: string
-  }[];
-  riskAssessments: {
-    // risk: string
-    // probability: number
-    // impact: string
-    mitigation;
-  }[];
-  opportunities: {
-    // opportunity: string
-    // potential: number
-    requirements;
-    // timeline: string
-  }[];
+{
+  // resource: string
+  // currentUsage: number
+  // projectedUsage: number
+  // recommendation: string
+}
+[];
+{
+  // risk: string
+  // probability: number
+  // impact: string
+  mitigation;
+}
+[];
+{
+  // opportunity: string
+  // potential: number
+  requirements;
+  // timeline: string
+}
+[];
 // }
 
 }}}}}})))))))))))))))))))))

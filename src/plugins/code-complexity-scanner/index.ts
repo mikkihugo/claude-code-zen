@@ -1,4 +1,3 @@
-
 /** Code Complexity Scanner Plugin;
 /** Analyzes JavaScript/TypeScript code complexity and generates AI-powered refactoring suggestions;
 
@@ -45,11 +44,10 @@ try {
 // const _fileSuggestion = awaitthis.createFileSuggestion(analysis, filepath);
     suggestions.push(fileSuggestion);
   //   }
-} catch(/* _error */) {
+} catch(/* _error */) 
   throw new Error(`Analysis failed = {id = // await this.generateRefactorSuggestion(;`
           method, filepath, content;)
-        );
-      } catch(error) {
+        );catch(error) 
         console.warn(`Failed to generate refactorsuggestion = this.buildRefactorPrompt(method, filepath, content);`
 
   // return acc;

@@ -1,10 +1,9 @@
-
 /** Task Command Module
 /** Converted from JavaScript to TypeScript
 
 // task.js - Task management commands with improved argument parsing
  */
-import { printError  } from '..';
+import { printError } from '..';
 
 export async function taskCommand() {
     case 'create':
@@ -49,7 +48,7 @@ option('--priority <value>', 'Set task priority(1-10)', '5');
     const _descriptionArgs = args.slice(2);
     description = parseQuotedDescription(descriptionArgs);
   //   }
-   catch (error) { console.error(error); }if(!taskType  ?? !description) {
+   catch (error) console.error(error); if(!taskType  ?? !description) {
     printError('Usage = `task_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;'
   const __priority = opts.priority  ?? '5';
 
@@ -108,10 +107,10 @@ option('-v', 'Show detailed output');
       console.warn('   - Parallel execution planning');
       break;
 
-    default: null
+    default: { null
       console.warn('Coordination commands, optimize');
   //   }
- catch (error) { console.error(error); }// }
+ catch (error) console.error(error); 
 
 function showTaskHelp() {
   console.warn('Task commands);'
@@ -141,4 +140,5 @@ function showTaskHelp() {
   console.warn('  claude-zen task coordination status');
 // }
 
-}}}}}}})))))))))
+}
+    }}}}}}})))))))))

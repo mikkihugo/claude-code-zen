@@ -1,4 +1,3 @@
-
 /** Advanced Swarm Orchestration Engine;
  *;
 /** This is the core orchestration engine that manages swarm lifecycle,
@@ -7,21 +6,22 @@
  * swarm collaboration capabilities.;
 
  */
-import { EventEmitter  } from
-'node = new Map();'
-  // private globalMetrics = false
+import { EventEmitter } from 'node = new Map();';
+
+// private globalMetrics = false
 // private healthCheckInterval?: NodeJS.Timeout
 // private metricsCollectionInterval?: NodeJS.Timeout
 constructor((config = {}));
 // {
 //   super();
 
-  this.logger = new Logger('AdvancedSwarmOrchestrator');
-  this.config = this.createDefaultConfig(config);
+this.logger = new Logger('AdvancedSwarmOrchestrator');
+this.config = this.createDefaultConfig(config);
 
-  // Initialize components
-  this.coordinator = new SwarmCoordinator({maxAgents = new MemoryManager(;backend = this.initializeMetrics();
-  this.setupEventHandlers();
+// Initialize components
+this.coordinator = new SwarmCoordinator({maxAgents = new MemoryManager(;
+backend = this.initializeMetrics();
+this.setupEventHandlers();
 
 /** Initialize the orchestrator and all subsystems;
 

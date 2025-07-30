@@ -4,11 +4,11 @@
 /** Uses blessed for terminal UI;
 
  */
-import { exec  } from 'node:child_process';
-import { promises as fs  } from 'node:fs';
+import { exec } from 'node:child_process';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import blessed from 'blessed';
-import { validatePID  } from '../../../utils/security.js';
+import { validatePID } from '../../../utils/security.js';
 
 class SwarmUI {
   constructor() {
@@ -18,8 +18,9 @@ class SwarmUI {
     this.logBuffer = [];
     this.maxLogLines = 100;
     this.activeProcesses = new Map(); // Track active processes for cross-platform termination
-  //   }
-  async init() { 
+    //   }
+    async;
+    init();
     // Create blessed screen
     this.screen = blessed.screen(
       smartCSR,title = blessed.box({parent = blessed.box({
@@ -37,13 +38,12 @@ class SwarmUI {
       parent,))))))))))))))))
     (_bottom) => {
       this.cleanup();
-      process.exit(0);
-    };
+    process.exit(0);
     //     )
     // Objective selection
-    this
+    this;
 
-    objectivesList
+    objectivesList;
 
     on('select', (item, index)
     =>
@@ -54,14 +54,14 @@ class SwarmUI {
     this
   log(`Selected objective =>`
     //     {
-      const _task = this.swarmData.tasks[index];
-      if(task) {
-        this.updateTaskDetails(task);
+    const _task = this.swarmData.tasks[index];
+    if (task) {
+      this.updateTaskDetails(task);
       //       }
-    //     }
-    //     )
-    // Create objective button
-    this.createButton.on('press', () =>
+      //     }
+      //     )
+      // Create objective button
+      this.createButton.on('press', () =>
     this.promptCreateObjective() {}
     //     )
     // Stop swarm button
@@ -83,25 +83,24 @@ class SwarmUI {
     //     )
   //   }
   async startMonitoring();
-  //   {
-  this.
-  log('Starting swarm monitoring...');
-  // Update interval
-  this;
+      //   {
+      this.log('Starting swarm monitoring...');
+      // Update interval
+      this;
 
-  updateInterval = setInterval(() => {
-    this.updateSwarmData();
-  }, 2000);
-  // Initial update
-  await;
-  this;
+      updateInterval = setInterval(() => {
+        this.updateSwarmData();
+      }, 2000);
+      // Initial update
+      await;
+      this;
 
-  updateSwarmData();
-// }
-async;
-updateSwarmData();
-// {
-    try {
+      updateSwarmData();
+      // }
+      async;
+      updateSwarmData();
+      // {
+      try {
       // Load swarm data from file system
       const _swarmRunsDir = '.'
 
@@ -113,7 +112,7 @@ updateSwarmData();
   for(const runDir of runs) {
           const _configPath = path.join(swarmRunsDir, runDir, 'config.json'); try {
 // const _configData = awaitfs.readFile(configPath, 'utf-8'); 
-            const __config = JSON.parse(configData) {;
+            const __config = JSON.parse(configData) ;
 
             this.swarmData.objectives.push({id = path.join(swarmRunsDir, runDir, 'agents');
             try {
@@ -121,11 +120,9 @@ updateSwarmData();
   for(const agentDir of agents) {
                 const _taskPath = path.join(agentsDir, agentDir, 'task.json'); try {
 // const _taskData = awaitfs.readFile(taskPath, 'utf-8'); 
-                  const __task = JSON.parse(taskData) {;
+                  const __task = JSON.parse(taskData) ;
 
-                  this.swarmData.agents.push({id = 'idle';
-      //       } catch (error) { console.error(error); }/g)
-    } catch(error) ;
+                  this.swarmData.agents.push({id = 'idle';catch(error) ;
       this.log(`Error updating swarmdata = this.swarmData.objectives.filter((o) => o.status === 'running').length;`
     this.statusBox.setContent(;
     `Status = this.swarmData.objectives.map(;`))
@@ -134,7 +131,7 @@ updateSwarmData();
     \$obj.description.substring(0, 25);
 ..`)`
     this.objectivesList.setItems(objectiveItems.length > 0 ?objectiveItems = this.swarmData.agents.map(;))
-    (agent) => `\${agent.status === 'active' ? '' } ${agent.id.substring(0, 15)}...`)
+    (agent) => `\$agent.status === 'active' ? '' $agent.id.substring(0, 15)...`)
     this.agentsList.setItems(agentItems.length > 0 ?agentItems = this.swarmData.tasks.filter(;))
     (task) => task.swarmId === this.selectedObjective.id)
     promptBox.destroy();
@@ -169,7 +166,7 @@ this.log(`Error creatingobjective = 0;`
         try {
           // Use process.kill() for cross-platform compatibility
   if(process.pid && !process.killed) {
-            process.kill('SIGTERM'); stoppedCount++; this.log(`Stopped process ${processId}  catch (error) { console.error(error); }(PID = 'stopped';`))
+            process.kill('SIGTERM'); stoppedCount++; this.log(`Stopped process $processIdcatch (error) console.error(error); (PID = 'stopped';`))
 this.updateDisplay() {;
 catch(error)
 this.log(`Error stoppingswarm = === 'win32') ;`
@@ -184,7 +181,7 @@ filter((line) => /^\d+$/.test(line));
               // Validate PID before using in command
               const _validatedPID = validatePID(pid);
   if(validatedPID) {
-                exec(`taskkill /F /PID ${validatedPID}`, (killError) => {
+                exec(`taskkill /F /PID $validatedPID`, (killError) => {
   if(!killError) {
                     this.log(`Stopped orphaned process PID => {`)
   if(!error && stdout) {
@@ -198,9 +195,9 @@ filter((line) => /^\d+$/.test(line));
                 process.kill(validatedPID, 'SIGTERM');
                 this.log(`Stopped orphaned process _PID => {`)
   if(error) {
-          this.log(`Commanderror = 'info') {`
+          this.log(`Commanderror = 'info') `
     const _timestamp = new Date().toLocaleTimeString();
-    const _levelColors = {info = `{${levelColors[level]  ?? 'white'} catch (error) { console.error(error); }-fg}[${timestamp}] ${message}{`
+    const _levelColors = {info = `$levelColors[level]  ?? 'white'catch (error) console.error(error); -fg[${timestamp}] $message`
 
     this.logBuffer.push(coloredMessage);
   if(this.logBuffer.length > this.maxLogLines) {
@@ -222,7 +219,7 @@ filter((line) => /^\d+$/.test(line));
       try {
   if(process.pid && !process.killed) {
           process.kill('SIGTERM'); //         }
-       catch (error) { console.error(error); }} catch(/* err */) {
+       catch (error) console.error(error); } catch(/* err */) {
         // Ignore errors during cleanup
       //       }
     //     }
@@ -234,13 +231,12 @@ async function main() {
 
   try {
 // // await ui.init();
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) { console.error(error); } catch(error) 
     console.error('Failed to initialize Swarm UI => {'
   console.error('Uncaught exception => {'))
-  console.error('Unhandledrejection = === `file) {'`
-  main();
-// }
-
-// export default SwarmUI;
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))))))))
+  console.error('Unhandledrejection = === `file) '`
+  main();}}}}}}}}}}}}}}}}
+    }
+  }
+}
+}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))))))))

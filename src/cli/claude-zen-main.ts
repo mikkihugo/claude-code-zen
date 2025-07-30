@@ -103,7 +103,7 @@ async function initializeUltimateArchitecture() {
             throw new Error('Task description required');
           //           }
 
-           catch (error) { console.error(error); }// return architecture.executeUnifiedOperation({
+           catch (error) console.error(error); 
             category => {)
       const _query = Object.values(context.arguments).join(' ');
     // if(!query) { // LINT: unreachable code removed

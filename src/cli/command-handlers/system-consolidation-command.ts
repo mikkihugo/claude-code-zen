@@ -1,9 +1,8 @@
-
 /** System Consolidation Command - Unified entry point
 /** Addresses redundant commands and provides clear system control
 
  */
-import { printError, printInfo  } from '..';
+import { printError, printInfo } from '..';
 
 export async function systemConsolidationCommand() {
     case 'start':
@@ -19,7 +18,7 @@ export async function systemConsolidationCommand() {
 
   try {
     // Import and start the main system
-    const { startCommand }  catch (error) { console.error(error); }= // await import('./start-wrapper-command.js');
+    const { startCommand }  catch (error) console.error(error); = // await import('./start-wrapper-command.js');
 // // await startCommand(args, flags);
     printSuccess(' Unified system started successfully');
     printInfo(' Activeservices = > setTimeout(resolve, 2000)); // Wait 2 seconds'
@@ -90,8 +89,7 @@ function showConsolidationHelp() {
 // export const systemConsolidationCommandConfig,ame: 'system',
   description: 'Unified system control and consolidation',
   usage: 'system <action> [options]',
-  options: [;
-    { name: 'help', description: 'Show help message', alias: 'h' }
+  options: [;name: 'help', description: 'Show help message', alias: 'h' 
   ];
 };
 

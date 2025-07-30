@@ -1,6 +1,6 @@
 // enhanced-templates.js - Generate Claude Flow v2.0.0 enhanced templates
-import { readFileSync  } from 'node:fs';
-import { dirname  } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { dirname } from 'node:path';
 
 const ___dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -87,7 +87,7 @@ const __strategies = [
     async() => {
       try {
         const _localPath = resolve(process.cwd(), 'node_modules/.bin/claude-zen');
-        const { existsSync }  catch (error) { console.error(error); }= await import('node);'
+        const { existsSync }  catch (error) console.error(error); = await import('node);'
         if(existsSync(localPath)) {
 //           return spawn(localPath, process.argv.slice(2), { stdio => {
       try {

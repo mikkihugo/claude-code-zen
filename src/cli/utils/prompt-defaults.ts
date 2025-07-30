@@ -1,10 +1,12 @@
-
 /** Prompt Defaults System for Non-Interactive Mode;
 /** Provides a system for supplying default values to prompts when running in non-interactive mode;
 
  */
-import { existsSync, readFileSync  } from
-'node = ============================================================================'
+import {
+  existsSync,
+  readFileSync,
+} from 'node = ============================================================================';
+
 // TYPE DEFINITIONS
 // =============================================================================
 
@@ -40,7 +42,8 @@ this
       const _content = readFileSync(this.configPath, 'utf-8');
       this.config = JSON.parse(content) as PromptDefaultsConfig;
     //     }
-   catch (error) { console.error(error); }} catch(/* _error */) {
+   catch (error) { console.error(error); }} catch(/* _error */ )
+{
     // Silently fail, use empty config
     this.config = {};
   //   }

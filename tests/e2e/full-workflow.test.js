@@ -1,26 +1,28 @@
-
 /** End-to-End Vision-to-Code Workflow Tests;
 /** Complete workflow validation from vision creation to deployment;
 
  */
-import { beforeAll, expect  } from '@jest';
+import { beforeAll, expect } from '@jest';
 import axios from 'axios';
-import { mockAgentConfigurations,
-mockVisions,
-performanceBenchmarks,
-SERVICE_URLS,
-WORKFLOW_STAGES  } from '../vision-to-code/fixtures/vision-workflow-fixtures.js'
+import {
+  mockAgentConfigurations,
+  mockVisions,
+  performanceBenchmarks,
+  SERVICE_URLS,
+  WORKFLOW_STAGES,
+} from '../vision-to-code/fixtures/vision-workflow-fixtures.js';
+
 describe.skip('End-to-End Vision-to-Code Workflow Tests', () =>
 // {
   let _serviceClients;
-  let _testWorkflowId;
-  let _testVisionId;
-  let _testSwarmId;
-  let _testSessionId;
-  let _testWorkspaceDir;
-  let _authTokens;
-  let _eventSubscriptions;
-  beforeAll(async() => {
+let _testWorkflowId;
+let _testVisionId;
+let _testSwarmId;
+let _testSessionId;
+let _testWorkspaceDir;
+let _authTokens;
+let _eventSubscriptions;
+beforeAll(async() => {
     // Initialize clients for all services
     _serviceClients = {
       business: axios.create({ baseURL: SERVICE_URLS.BUSINESS,)
@@ -52,15 +54,14 @@ try {
           authTokens[serviceName] = `mock_\$serviceName_token`;
           client.defaults.headers.Authorization = `Bearer \$authTokens[serviceName]`;
       //       }
-    } catch(error) {
+    } catch(error) 
       console.warn('Service authentication setup failed);'
     //     }
     // Create test workspace
     testWorkspaceDir = path.join(process.cwd(), 'e2e-test-workspace', `workflow_\$Date.now()`);
   // // await fs.mkdir(testWorkspaceDir, { recursive });
     // Initialize event subscriptions for real-time monitoring
-    eventSubscriptions = [];
-  });
+    eventSubscriptions = [];);
   beforeEach(() => {
     testWorkflowId = `e2e_workflow_\$Date.now()`;
     testVisionId = `e2e_vision_\$Date.now()`;
@@ -72,22 +73,22 @@ try {
     const _cleanupPromises = [];
   if(testSessionId) {
       cleanupPromises.push(;)
-        serviceClients.development.delete(`/api/sessions/\$testSessionId`).catch(() => {});
+        serviceClients.development.delete(`/api/sessions/\$testSessionId`).catch(() => );
       );
     //     }
   if(testSwarmId) {
       cleanupPromises.push(;)
-        serviceClients.swarm.delete(`/api/swarms/\$testSwarmId`).catch(() => {});
+        serviceClients.swarm.delete(`/api/swarms/\$testSwarmId`).catch(() => );
       );
     //     }
   if(testWorkflowId) {
       cleanupPromises.push(;)
-        serviceClients.core.delete(`/api/workflows/\$testWorkflowId`).catch(() => {});
+        serviceClients.core.delete(`/api/workflows/\$testWorkflowId`).catch(() => );
       );
     //     }
   if(testVisionId) {
       cleanupPromises.push(;)
-        serviceClients.business.delete(`/api/visions/\$testVisionId`).catch(() => {});
+        serviceClients.business.delete(`/api/visions/\$testVisionId`).catch(() => );
       );
     //     }
   // // await Promise.all(cleanupPromises);
@@ -144,8 +145,7 @@ try {
       const _swarmConfig = {
         swarm_id,
         workflow_id,
-        topology: 'hierarchical',
-        { enabled },
+        topology: 'hierarchical',enabled ,
         configuration: mockAgentConfigurations.simple_workflow };
 // const _swarmResponse = awaitserviceClients.swarm.post('/api/swarms/initialize', swarmConfig);
       expect(swarmResponse.status).toBe(201);
@@ -170,9 +170,6 @@ vision,
   directory,
   git_enabled,
   auto_commit
-// }
-
-{}
   swarm_id,
   coordination_enabled
 // }
@@ -280,7 +277,7 @@ decision: 'approved')
 workflowEvents.push(
 // {
   stage: 'vision_approved', timestamp;)
-  : Date.now() {}
+  : Date.now() 
 })
 // Stage 2: Register workflow with medium complexity
 console.warn(' Stage 2)'
@@ -306,7 +303,7 @@ configuration: mockAgentConfigurations.medium_workflow)
 expect(swarmResponse.status).toBe(201)
 // Spawn full development team
 // const _agentSpawnResponse = awaitserviceClients.swarm.post(;
-`/api/swarms/${testSwarmId}/spawn-agents`,
+`/api/swarms/$testSwarmId/spawn-agents`,
 // {
   agent_types: ['full_stack_developer', 'data_engineer', 'devops_engineer', 'qa_engineer'],
   coordination_mode: 'collaborative')
@@ -330,7 +327,7 @@ expect(devSessionResponse.status).toBe(201)
 // Stage 5: Execute multi-step development workflow
 console.warn(' Stage 5)'
 // const _workflowResponse2 = awaitserviceClients.development.post(;
-`/api/claude-integration/${testSessionId}/workflow`,
+`/api/claude-integration/$testSessionId/workflow`,
 // {
   workflow_name: 'ecommerce_dashboard',
   steps: [;
@@ -349,37 +346,54 @@ console.warn(' Stage 5)'
             //             {
               step,
               name: 'integration_tests',
-              instruction: 'Implement comprehensive integration tests' } ])
+              instruction: 'Implement comprehensive integration tests' }
+])
 })
 expect(workflowResponse2.status).toBe(200)
 expect(workflowResponse2.data.data.steps_completed).toBe(4)
 // Stage 6: Advanced quality assurance
 console.warn(' Stage 6)'
 // const _qaResponse = awaitserviceClients.development.post(;
-`/api/quality-assurance/${testSessionId}/run-checks`,
+`/api/quality-assurance/$
+{
+  testSessionId;
+}
+/,-;`ccehknrsu;
 // {
-  check_types: ['unit_tests', 'integration_tests', 'security_scan', 'performance_test'],
+check_types: ['unit_tests', 'integration_tests', 'security_scan', 'performance_test'],
   test_pass_rate,
   coverage_minimum,
-  security_high_severity_max)
+  security_high_severity_max;
+)
 })
 expect(qaResponse.status).toBe(200)
 expect(qaResponse.data.data.overall_quality_score).toBeGreaterThan(85)
 // Stage 7: Performance benchmarking
 console.warn(' Stage 7)'
 // const _perfResponse = awaitserviceClients.development.post(;
-`/api/performance-testing/${testSessionId}/run`,
+`/api/performance-testing/$
+{
+  testSessionId;
+}
+/,;`nru;
 // {
-  scenarios: [;
+scenarios: [
+  ;
             { name: 'dashboard_load', concurrent_users, duration: '1m' },
-            { name: 'api_stress', requests_per_second, duration: '30s' } ])
+            { name: 'api_stress', requests_per_second, duration: '30s' },,
+];
+)
 })
 expect(perfResponse.status).toBe(200)
 expect(perfResponse.data.data.benchmark_comparison.meets_targets).toBe(true)
 // Stage 8: Final validation and completion
 console.warn(' Stage 8)'
 // const _completionResponse = awaitserviceClients.core.patch(;
-`/api/workflows/${testWorkflowId}`,
+`/api/workflows/$
+{
+  testWorkflowId;
+}
+`,
 // {
   status: 'completed',
   current_stage: WORKFLOW_STAGES.COMPLETED,
@@ -393,7 +407,15 @@ const _totalDuration = Date.now() - startTime;
 const _expectedMaxDuration =;
 performanceBenchmarks.medium_workflow.max_duration_minutes * 60 * 1000;
 expect(totalDuration).toBeLessThan(expectedMaxDuration);
-console.warn(` Medium complexity workflow completed in ${totalDuration}ms`);
+console.warn(`;
+Medium;
+complexity;
+workflow;
+completed in $;
+{
+  totalDuration;
+}
+ms`);
 }, 1200000) // 20 minute timeout for complex workflow
 })
 describe('Service Communication and Event Flow', () =>
@@ -431,17 +453,20 @@ monitorEvents('business', `/api/events?entity_id=$`
 // {
   testVisionId;
 // }/g))
-`),`
+`
+),`
 monitorEvents('core', ` 
   api 
   events 
   workflow 
-  $;
+  $
 // {
-  testWorkflowId;
+testWorkflowId
 // }
-`),`
-monitorEvents('swarm', ` 
+`),`;
+monitorEvents(
+  'swarm',
+  ` 
   api 
   events 
   swarm 
@@ -449,22 +474,26 @@ monitorEvents('swarm', `
 // {
   testSwarmId;
 // }
-`) ])`
+`
+);
+])`
 // Validate event propagation
-expect(eventLog.some((e) => e.event_type === 'vision.created')).toBe(true);
-expect(eventLog.some((e) => e.event_type === 'workflow.registered')).toBe(true);
+expect(eventLog.some((e) => e.event_type === 'vision.created')).toBe(true)
+expect(eventLog.some((e) => e.event_type === 'workflow.registered')).toBe(true)
 expect(eventLog.some((e) => e.event_type === 'swarm.initialized')).toBe(true);
-console.warn(;)
+console.warn(;
+)
 ' Events captured) => `;'`
-$;
+$
 // {
-  e.service;
+e.service
 // }
 :$
 // {
-  e.event_type;
+  e.event_type
 // }
-`);`
+`)
+`;
 // )
 })
 it('should handle cross-service coordination requests', async() =>
@@ -476,7 +505,8 @@ it('should handle cross-service coordination requests', async() =>
   // // await serviceClients.core.post('/api/workflows/register', {
         workflow_id,
 vision_id,
-type: 'vision_to_code')
+type: 'vision_to_code';
+)
 })
 // Test coordination between services
 // const _coordinationResponse = awaitserviceClients.core.post('/api/coordination/request', {
@@ -490,22 +520,27 @@ target_service: 'development',
 // }/g)
 })
 expect(coordinationResponse.status).toBe(200)
-expect(coordinationResponse.data.data).toMatchObject({ coordination_id: expect.any(String),
-status: 'pending',
+expect(coordinationResponse.data.data).toMatchObject(
+{
+  coordination_id: expect.any(String), status;
+  : 'pending',
 participating_services: expect.arrayContaining(['swarm', 'development'])
-  })
+}
+)
 })
 })
 describe('Error Recovery and Resilience', () =>
 // {
-  it('should recover from service failures during workflow execution', async() => {
-    // Start workflow
+  it('should recover from service failures during workflow execution', async() =>
+{
+  // Start workflow
   // await serviceClients.business.post('/api/visions', { ...mockVisions.simple,/g)
-    id });
-  // // await serviceClients.core.post('/api/workflows/register', {
-        workflow_id,
-  vision_id,
-  type: 'vision_to_code')
+  id;
+}
+)
+// // await serviceClients.core.post('/api/workflows/register', {
+workflow_id, vision_id, type;
+: 'vision_to_code')
 })
 // Simulate service failure and recovery
 // const _failureResponse = awaitserviceClients.core.post(;
@@ -518,16 +553,17 @@ describe('Error Recovery and Resilience', () =>
 expect(failureResponse.status).toBe(200)
 // Check circuit breaker status
 // const _cbStatus = awaitserviceClients.core.get('/api/circuit-breakers/status');
-expect(cbStatus.data.data.circuit_breakers.swarm_service.failure_count).toBeGreaterThan(0);
+expect(cbStatus.data.data.circuit_breakers.swarm_service.failure_count).toBeGreaterThan(0)
 // Simulate recovery
 // const _recoveryResponse = awaitserviceClients.core.post(;
 '/api/circuit-breakers/report-success',
-// {
-  service: 'swarm_service',
+  // {
+  service;
+: 'swarm_service',
   health_status: 'healthy')
 })
 expect(recoveryResponse.status).toBe(200)
-expect(recoveryResponse.data.data.new_state).toMatch(/closed|half_open/);
+expect(recoveryResponse.data.data.new_state).toMatch(/closed|half_open/)
 })
 it('should handle workflow timeout and cleanup', async() =>
 // {
@@ -535,130 +571,163 @@ it('should handle workflow timeout and cleanup', async() =>
   // await serviceClients.core.post('/api/workflows/register', {
         workflow_id,
   vision_id: 'test_vision',
-  type: 'vision_to_code',
+type: 'vision_to_code',
   timeout_minutes, // Very short timeout for testing/g)
 })
 // Wait for timeout
   // // await new Promise((resolve) => setTimeout(resolve, 65000)); // 65 seconds
 
 // Check workflow status
-// const _statusResponse = awaitserviceClients.core.get(` /`
+// const _statusResponse = awaitserviceClients.core.get(` /
+  `
   api 
   workflows 
-  $;
+  $
 // {
-  testWorkflowId;
+testWorkflowId;
 // }/g)
-`);`
+`;
+)
+`;
 expect(statusResponse.status).toBe(200);
 expect(statusResponse.data.data.status).toMatch(/timeout|failed|cancelled/);
 }, 70000) // 70 second timeout for this test
 })
 describe('Performance and Scalability', () =>
 // {
-  it('should handle multiple concurrent workflows', async() => {
-      const _concurrentWorkflows = 5;
-      const _workflowPromises = [];
-  for(let i = 0; i < concurrentWorkflows; i++) {
-        const _visionId = `;`
-concurrent_vision_$;
-// {
-  i;
-// }
-_$;
-// {
-  Date.now();
-// }
-`;`
-        const _workflowId = `;`
-concurrent_workflow_$;
-// {
-  i;
-// }
-_$;
-// {
-  Date.now();
-// }
-`;`
-        const _workflowPromise = async() => {
-          // Create vision
-  // await serviceClients.business.post('/api/visions', { ...mockVisions.simple,
-            id,)
-            title);
-          // Register workflow
-  // // await serviceClients.core.post('/api/workflows/register', {
-            workflow_id,
-            vision_id,)
-            type);
-          // return { visionId, workflowId };
-    //   // LINT: unreachable code removed};
-        workflowPromises.push(workflowPromise());
+  it('should handle multiple concurrent workflows', async() =>
+{
+  const _concurrentWorkflows = 5;
+  const _workflowPromises = [];
+  for (let i = 0; i < concurrentWorkflows; i++) {
+    const _visionId = `;
+`;
+    concurrent_vision_$;
+    // {
+    i;
+    // }
+    _$;
+    // {
+    Date.now();
+    // }
+    `;
+`;
+    const _workflowId = `;
+`;
+    concurrent_workflow_$;
+    // {
+    i;
+    // }
+    _$;
+    // {
+    Date.now();
+    // }
+    `;
+`;
+    const _workflowPromise = async () => {
+      // Create vision
+      // await serviceClients.business.post('/api/visions', { ...mockVisions.simple,
+      id,
+      )
+            title)
+      // Register workflow
+      // // await serviceClients.core.post('/api/workflows/register', {
+      workflow_id,
+            vision_id,
+      )
+      type;
+      )
+      // return { visionId, workflowId };
+      //   // LINT: unreachable code removed};
+      workflowPromises.push(workflowPromise());
       //       }
-  const _startTime = Date.now();
-// const _results = awaitPromise.allSettled(workflowPromises);
-  const _endTime = Date.now();
-  const _successfulWorkflows = results.filter((r) => r.status === 'fulfilled').length;
-  const _totalTime = endTime - startTime;
-  expect(successfulWorkflows).toBeGreaterThanOrEqual(4); // At least 80% success rate
-  expect(totalTime).toBeLessThan(10000); // Under 10 seconds for initialization
+      const _startTime = Date.now();
+      // const _results = awaitPromise.allSettled(workflowPromises);
+      const _endTime = Date.now();
+      const _successfulWorkflows = results.filter((r) => r.status === 'fulfilled').length;
+      const _totalTime = endTime - startTime;
+      expect(successfulWorkflows).toBeGreaterThanOrEqual(4); // At least 80% success rate
+      expect(totalTime).toBeLessThan(10000); // Under 10 seconds for initialization
 
-  console.warn(;
-  `;`
- \$
+      console.warn(;
+      `;
+`;
+      \$
 // {
-  successfulWorkflows;
-// }
-//  \$\$5;TW`accccccddeeeeeeffiikklllmmnnnnnooooooorrrrrrssssttttuuuwww{{{}}};`/g)
-// )
-// Cleanup concurrent workflows
-const _cleanupPromises = results;
-filter((r) => r.status === 'fulfilled')
-map((r) => r.value)
-map(async(visionId, workflowId ) =>
-  // await serviceClients.core.delete(`/api/workflows/\$workflowId`).catch(() =>
-// {
-})
-  // // await serviceClients.business.delete(`/api/visions/\$visionId`).catch(() =>
-// {
-})
-// )
+  successfulWorkflows
+      // }
+      //  \$\$5;TW`;
+accccccddeeeeeeffiikklllmmnnnnnooooooorrrrrrssssttttuuuwww;
+{
+}
+`/g)
+      // )
+      // Cleanup concurrent workflows
+      const _cleanupPromises = results;
+      filter((r) => r.status === 'fulfilled');
+      map((r) => r.value);
+      map(async(visionId, workflowId ) =>
+      // await serviceClients.core.delete(`/api/workflows/\
+$workflowId`).catch(() =>
+      // {
+    };
+    )
+    // // await serviceClients.business.delete(`/api/visions/\
+$visionId`).catch(() =>
+    // {
+  }
+  )
+  // )
   // // await Promise.all(cleanupPromises)
-})
+}
+)
 it('should maintain performance under sustained load', async() =>
 // {
-  const _loadTestDuration = 30000; // 30 seconds
-  const _requestInterval = 500; // 500ms between requests
-  const _startTime = Date.now();
-  const _responseTimes = [];
-  while(Date.now() - startTime < loadTestDuration) {
-    const _requestStart = Date.now();
-    try {
-          // Make requests to all services
-  // // await Promise.all([;/g)
-            serviceClients.business.get('/api/health'),
-            serviceClients.core.get('/api/health'),
-            serviceClients.swarm.get('/api/health'),
-            serviceClients.development.get('/api/health') ]);
-          const _responseTime = Date.now() - requestStart;
-          responseTimes.push(responseTime);
-        } catch (error) { console.error(error); } catch(/* _error */) {
-          // Continue load test despite individual failures
-        //         }
-  // // await new Promise((resolve) => setTimeout(resolve, requestInterval));
-  //   }
-  const _averageResponseTime = responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length;
-  const _p95ResponseTime = responseTimes.sort((a, b) => a - b)[;
-  Math.floor(responseTimes.length * 0.95);
-  //   ]
-  expect(averageResponseTime).toBeLessThan(500) // Average under 500ms
-  expect(p95ResponseTime).toBeLessThan(1000) // P95 under 1 second
-  expect(responseTimes.length).toBeGreaterThan(50) // Completed at least 50 requests
+const _loadTestDuration = 30000; // 30 seconds
+const _requestInterval = 500; // 500ms between requests
+const _startTime = Date.now();
+const _responseTimes = [];
+while (Date.now() - startTime < loadTestDuration) {
+  const _requestStart = Date.now();
+  try {
+    // Make requests to all services
+    // // await Promise.all([;/g)
+    serviceClients.business.get('/api/health'),
+      serviceClients.core.get('/api/health'),
+      serviceClients.swarm.get('/api/health'),
+      serviceClients.development.get('/api/health');
+    ])
+    const _responseTime = Date.now() - requestStart;
+    responseTimes.push(responseTime);
+  } catch (error) {
+    console.error(error);
+  }
+  catch(/* _error */)
+  {
+    // Continue load test despite individual failures
+    //         }
+    // // await new Promise((resolve) => setTimeout(resolve, requestInterval));
+    //   }
+    const _averageResponseTime = responseTimes.reduce((a, b) => a + b, 0) / responseTimes.length;
+    const _p95ResponseTime = responseTimes.sort((a, b) => a - b)[;
+    Math.floor(responseTimes.length * 0.95);
+    //   ]
+    expect(averageResponseTime).toBeLessThan(500); // Average under 500ms
+    expect(p95ResponseTime).toBeLessThan(1000); // P95 under 1 second
+    expect(responseTimes.length).toBeGreaterThan(50); // Completed at least 50 requests
 
-  console.warn(
-  ` Load test: \$responseTimes.lengthrequests, avg: \$averageResponseTimems, p95: \$p95ResponseTimems`)
-  //   )
-// }
-, 35000) // 35 second timeout for load test
-})
-})
+    console.warn(
+      `;
+Load;
+test:
+\$responseTimes.lengthrequests, avg: \$averageResponseTimems, p95: \$p95ResponseTimems`
+    ),
+      //   )
+      // }
+      35000
+) // 35 second timeout for load test
+  }
+  )
+}
+)
 }}

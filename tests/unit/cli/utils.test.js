@@ -1,10 +1,10 @@
-import { afterEach, beforeEach, describe, expect, it  } from '@jest';
+import { afterEach, beforeEach, describe, expect, it } from '@jest';
 
 describe('CLI Utils', () => {
   let originalConsoleLog;
   let consoleOutput;
   let utils;
-  beforeEach(async() => {
+  beforeEach(async () => {
     // Capture console.log output
     consoleOutput = [];
     originalConsoleLog = console.log;
@@ -106,61 +106,63 @@ describe('CLI Utils', () => {
       beforeEach(() => {
         // Mock process.mkdir
         mockProcess = {
-          mkdir: jest.fn() };
-      // Replace process global for testing
-      global.process = { ...global.process, mkdir: mockProcess.mkdir };
+          mkdir: jest.fn(),
+        };
+        // Replace process global for testing
+        global.process = { ...global.process, mkdir: mockProcess.mkdir };
+      });
+      it('should create directory successfully', async () => {
+        mockProcess.mkdir.mockResolvedValue(undefined);
+        // const _result = awaitutils.ensureDirectory('/test/path');
+        expect(result).toBe(true);
+        expect(mockProcess.mkdir).toHaveBeenCalledWith('/test/path', { recursive });
+      });
+      it('should handle existing directory', async () => {
+        const _existsError = new Error('Directory exists');
+        existsError.code = 'EEXIST';
+        mockProcess.mkdir.mockRejectedValue(existsError);
+        // const _result = awaitutils.ensureDirectory('/existing/path');
+        expect(result).toBe(true);
+      });
+      it('should rethrow non-EEXIST errors', async () => {
+        const _permissionError = new Error('Permission denied');
+        permissionError.code = 'EACCES';
+        mockProcess.mkdir.mockRejectedValue(permissionError);
+        // // await expect(utils.ensureDirectory('/forbidden/path')).rejects.toThrow('Permission denied');
+      });
     });
-    it('should create directory successfully', async() => {
-      mockProcess.mkdir.mockResolvedValue(undefined);
-// const _result = awaitutils.ensureDirectory('/test/path');
-      expect(result).toBe(true);
-      expect(mockProcess.mkdir).toHaveBeenCalledWith('/test/path', { recursive });
-    });
-    it('should handle existing directory', async() => {
-      const _existsError = new Error('Directory exists');
-      existsError.code = 'EEXIST';
-      mockProcess.mkdir.mockRejectedValue(existsError);
-// const _result = awaitutils.ensureDirectory('/existing/path');
-      expect(result).toBe(true);
-    });
-    it('should rethrow non-EEXIST errors', async() => {
-      const _permissionError = new Error('Permission denied');
-      permissionError.code = 'EACCES';
-      mockProcess.mkdir.mockRejectedValue(permissionError);
-  // // await expect(utils.ensureDirectory('/forbidden/path')).rejects.toThrow('Permission denied');
-    });
-  });
-  describe('fileExists', () => {
-    let mockProcess;
-    beforeEach(() => {
+    describe('fileExists', () => {
+      let mockProcess;
+      beforeEach(() => {
         // Mock process.stat
         mockProcess = {
-          stat: jest.fn() };
-    global.process = { ...global.process, stat: mockProcess.stat };
+          stat: jest.fn(),
+        };
+        global.process = { ...global.process, stat: mockProcess.stat };
+      });
+      it('should return true for existing files', async () => {
+        mockProcess.stat.mockResolvedValue({ isFile) => true   });
+        // ; // LINT: unreachable code removed
+        // const _result = awaitutils.fileExists('/existing/file.txt');
+        expect(result).toBe(true);
+        expect(mockProcess.stat).toHaveBeenCalledWith('/existing/file.txt');
+      });
+      it('should return false for non-existing files', async () => {
+        const _notFoundError = new Error('File not found');
+        // notFoundError.code = 'ENOENT'; // LINT: unreachable code removed
+        mockProcess.stat.mockRejectedValue(notFoundError);
+        // const _result = awaitutils.fileExists('/nonexistent/file.txt');
+        expect(result).toBe(false);
+      });
+      it('should return false for any stat error', async () => {
+        const _permissionError = new Error('Permission denied');
+        // mockProcess.stat.mockRejectedValue(permissionError); // LINT: unreachable code removed
+        // const _result = awaitutils.fileExists('/forbidden/file.txt');
+        expect(result).toBe(false);
+      });
+    });
   });
-  it('should return true for existing files', async() => {
-    mockProcess.stat.mockResolvedValue({ isFile) => true   });
-    // ; // LINT: unreachable code removed
-// const _result = awaitutils.fileExists('/existing/file.txt');
-    expect(result).toBe(true);
-    expect(mockProcess.stat).toHaveBeenCalledWith('/existing/file.txt');
-  });
-  it('should return false for non-existing files', async() => {
-    const _notFoundError = new Error('File not found');
-    // notFoundError.code = 'ENOENT'; // LINT: unreachable code removed
-    mockProcess.stat.mockRejectedValue(notFoundError);
-// const _result = awaitutils.fileExists('/nonexistent/file.txt');
-    expect(result).toBe(false);
-  });
-  it('should return false for any stat error', async() => {
-    const _permissionError = new Error('Permission denied');
-    // mockProcess.stat.mockRejectedValue(permissionError); // LINT: unreachable code removed
-// const _result = awaitutils.fileExists('/forbidden/file.txt');
-    expect(result).toBe(false);
-  });
-});
-})
-describe('integration scenarios', () =>
+  describe('integration scenarios', () =>
 // {
   it('should combine validation and error printing', () => {
     const _invalidArgs = [];
@@ -179,7 +181,7 @@ describe('integration scenarios', () =>
     expect(consoleOutput[1]).toContain('');
     expect(consoleOutput[2]).toContain('');
   });
-})
+});
 describe('edge cases', () =>
 // {
   it('should handle undefined messages', () => {
@@ -187,21 +189,21 @@ describe('edge cases', () =>
     expect(consoleOutput).toHaveLength(1);
     expect(consoleOutput[0]).toBe(' undefined');
   });
-  it('should handle null messages', () => {
-    utils.printError(null);
-    expect(consoleOutput).toHaveLength(1);
-    expect(consoleOutput[0]).toBe(' null');
-  });
-  it('should handle numeric messages', () => {
-    utils.printInfo(12345);
-    expect(consoleOutput).toHaveLength(1);
-    expect(consoleOutput[0]).toBe('  12345');
-  });
-  it('should handle object messages', () => {
-    const _obj = { key: 'value' };
-    utils.printWarning(obj);
-    expect(consoleOutput).toHaveLength(1);
-    expect(consoleOutput[0]).toBe('  [object Object]');
-  });
+it('should handle null messages', () => {
+  utils.printError(null);
+  expect(consoleOutput).toHaveLength(1);
+  expect(consoleOutput[0]).toBe(' null');
+});
+it('should handle numeric messages', () => {
+  utils.printInfo(12345);
+  expect(consoleOutput).toHaveLength(1);
+  expect(consoleOutput[0]).toBe('  12345');
+});
+it('should handle object messages', () => {
+  const _obj = { key: 'value' };
+  utils.printWarning(obj);
+  expect(consoleOutput).toHaveLength(1);
+  expect(consoleOutput[0]).toBe('  [object Object]');
+});
 })
 })

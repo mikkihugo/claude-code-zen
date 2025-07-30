@@ -1,10 +1,14 @@
-
 /** NAT Traversal Plugin
 /** Provides NAT/firewall traversal capabilities for distributed coordination
 
  */
-import dgram from 'node:dgram';'
-import { nanoid  } from 'nanoid';'
+import dgram from 'node:dgram';
+
+'
+
+import { nanoid } from 'nanoid';
+
+'
 
 export class NATTraversalPlugin {
   // // static metadata = {name = null;
@@ -131,7 +135,7 @@ for(const [punchId, punch] of this.holePunches.entries()) {
               resolve(ip);
               // return;
     //   // LINT: unreachable code removed}
-           catch (error) { console.error(error); }//           }
+           catch (error) console.error(error); 
 
           offset += 4 + attrLength;
   if(attrLength % 4 !== 0) {
@@ -161,7 +165,7 @@ for(const [punchId, punch] of this.holePunches.entries()) {
   if(this.upnpClient) {
       try {
         _externalPort = // // await this.createUPnPMapping(internalPort, protocol);
-      } catch (error) { console.error(error); } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) 
         console.warn('UPnP mapping failed = {id = this.natMappings.get(mappingId);'
     if(!mapping) return false;
     // ; // LINT: unreachable code removed
@@ -242,14 +246,13 @@ for(const [punchId, punch] of this.holePunches.entries()) {
   //   }
 
   // Relay service
-  async startRelayService() { 
+  async startRelayService() 
     if(this.relayServer) return;
     // ; // LINT: unreachable code removed
     this.relayServer = dgram.createSocket('udp4');'
 
     this.relayServer.on('message', (msg, rinfo) => '
-      this.handleRelayMessage(msg, rinfo);
-    });
+      this.handleRelayMessage(msg, rinfo););
 
     this.relayServer.bind(this.options.relayPort);
 
@@ -328,10 +331,5 @@ for(const [punchId, punch] of this.holePunches.entries()) {
     //     }
 
     // Clear collections
-    this.relayNodes.clear(); this.natMappings.clear() {;
-    this.holePunches.clear();
-// }
-
-// export default NATTraversalPlugin;
-
-}}}}}}}}}}}}}))))))))
+    this.relayNodes.clear(); this.natMappings.clear() ;
+    this.holePunches.clear();}}}}}}}}}}}))))))))

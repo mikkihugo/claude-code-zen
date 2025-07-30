@@ -12,7 +12,7 @@ process.env.DB_NAME = 'vision_to_code_test';
 jest.mock('axios');
 jest.mock('@google'
 // Set up performance monitoring
-  if(process.env.MEASURE_PERFORMANCE) {
+if(process.env.MEASURE_PERFORMANCE) {
   const { performance, PerformanceObserver } = require('node);'
   const _perfObserver = new PerformanceObserver((items) => {
     items.getEntries().forEach((entry) => {

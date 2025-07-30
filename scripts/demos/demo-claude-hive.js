@@ -3,7 +3,7 @@
 /* Demo: Claude-powered Hive Mind in action;
 
  */
-import { printInfo, printSuccess  } from './src/cli/utils.js';
+import { printInfo, printSuccess } from './src/cli/utils.js';
 
 console.warn(' Claude-Powered Hive Mind Demo\n');
 printInfo('This demo shows Claude  primary AI for hive coordination.\n');
@@ -14,7 +14,7 @@ const _task = 'Create a simple TODO API with user authentication';
 printInfo('\nStep 2);'
 try {
   // Use the Claude provider directly
-  const { ClaudeCodeProvider }  catch (error) { console.error(error); }= // await import('./src/cli/claude-code-provider.js');
+  const { ClaudeCodeProvider }  catch (error) console.error(error); = // await import('./src/cli/claude-code-provider.js');
   const _provider = new ClaudeCodeProvider({
     customSystemPrompt)
 if(// await provider.isAvailable()) {
@@ -40,12 +40,16 @@ if(// await provider.isAvailable()) {
   console.warn('');
   console.warn('  # View agent coordination');
   console.warn('  claude-zen swarm monitor');
-} else {
+}
+else
+{
   printWarning('Claude is not available. Please run);'
-// }
-} catch(error)
+  // }
+}
+catch(error)
 // {
-  printWarning(`Demo error);`
-  printInfo('\nMake sure Claude Code is installed and authenticated.');
+  printWarning(`Demo error)
+`
+  printInfo('\nMake sure Claude Code is installed and authenticated.')
 // }
 console.warn('\n Claude + Hive Mind = Powerful AI-driven development!');

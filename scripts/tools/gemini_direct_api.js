@@ -11,8 +11,8 @@
  */
 
 import fs from 'node:fs';
-import { GoogleGenerativeAI  } from '@google';
-import { glob  } from 'glob';
+import { GoogleGenerativeAI } from '@google';
+import { glob } from 'glob';
 
 class GeminiDirectAPI {
   constructor(apiKey, options = {}) {
@@ -34,7 +34,7 @@ class GeminiDirectAPI {
     const _prompt = `;`
 Analyze this neural network output and respond in JSON format: null
 Neural Output: $JSON.stringify(neuralData)}
-Context: ${JSON.stringify(context)}
+Context: $JSON.stringify(context)
 Respond with this exact JSON structure: null
 // {
     "confidence_level": "high|medium|low",
@@ -143,7 +143,7 @@ Respond with this exact JSON structure: null
 /** Analyze files in current directory;
 
           async;
-          analyzeDirectory((pattern = '**/*.{js,ts,rs,ex,exs,py}'), (analysisType = 'performance'));
+          analyzeDirectory((pattern = '**/*.js,ts,rs,ex,exs,py'), (analysisType = 'performance'));
           try {
 // const _files = awaitglob(pattern, {
         ignore: ['node_modules/**', '.git/**', 'dist/**', 'build/**'], */
@@ -162,14 +162,14 @@ Respond with this exact JSON structure: null
             fileContents[file] = content; totalSize += content.length;
   if(totalSize > 200000) {break; // Limit total content
           //           }
-         catch (error) { console.error(error); }} catch(/* _error */) {
+         catch (error) console.error(error); } catch(/* _error */) {
           // Skip files that can't be read'
         //         }
             //             }
             const _prompt = `;`
 Analyze these codebase files for ${analysisType} issues and respond in JSON format: null
 Files: null
-${Object.entries(fileContents);
+$Object.entries(fileContents);
 map(([file, content]) => `--- \$file---\;`
             n\$content.slice(0, 5000);
             \n`)`
@@ -198,7 +198,7 @@ join('\n')
             error: `;`
           Directory;
           analysis;
-          failed: \$error.message` };`
+          failed: \$error.message` ;`
           //   // LINT: unreachable code removed}
         //         }
 
@@ -333,7 +333,7 @@ Examples: null
   //   }
   try {
     // Parse options
-    const _options = {} catch (error) { console.error(error); };
+    const _options = {} catch (error) console.error(error); ;
     const _cleanArgs = [];
   for(let i = 0; i < args.length; i++) {
       if(args[i].startsWith('--')) {
@@ -414,7 +414,7 @@ console.warn(JSON.stringify(result, null, 2));
 // export { GeminiDirectAPI };
 
 // Run CLI if called directly
-  if(import.meta.url === `file) {`
+  if(import.meta.url === `file) `
   main().catch(console.error);
 
 }}}}}}

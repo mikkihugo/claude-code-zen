@@ -6,7 +6,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { glob  } from 'glob';
+import { glob } from 'glob';
 
 class DocumentationGenerator {
   constructor() {
@@ -14,7 +14,7 @@ class DocumentationGenerator {
     this.docsDir = 'docs'
     this.outputFile = 'docs/api/generated-api.md';
   //   }
-  async generate() { 
+  async generate() 
     console.warn(' Generating API documentation...');
     try 
       // Ensure docs directory exists
@@ -108,7 +108,7 @@ class DocumentationGenerator {
   line;
 
   startsWith('@return')
-  ) {
+  ) 
   currentSection = 'returns';
   // const _returnMatch = line.match(/@returns?\s+\{([^ // LINT]+)\}\s*(.*)/);
   if(returnMatch) {
@@ -148,7 +148,7 @@ generateMarkdown(apiDocs);
 // {
     const _markdown = `# Generated API Documentation`
 This documentation is automatically generated from JSDoc comments in the source code.
-*Generated on: ${new Date().toISOString()}*
+*Generated on: $new Date().toISOString()*
 ## Table of Contents
 `;`
     // Generate table of contents

@@ -1,4 +1,3 @@
-
 /** SQLite Performance Benchmark Suite;
 /** Tests and measures performance improvements for SQLite memory backend;
 
@@ -6,9 +5,9 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { performance  } from 'node:perf_hooks';
-import { SqliteMemoryStore  } from '../../src/memory/sqlite-store.js';
-import { isSQLiteAvailable  } from '../../src/memory/sqlite-wrapper.js';
+import { performance } from 'node:perf_hooks';
+import { SqliteMemoryStore } from '../../src/memory/sqlite-store.js';
+import { isSQLiteAvailable } from '../../src/memory/sqlite-wrapper.js';
 
 class SQLitePerformanceBenchmark {
   constructor(options = {}) {
@@ -129,13 +128,12 @@ measureOperation(name, operation);
     //     }
   //   }
   async;
-  benchmarkConcurrentOperations() {;
+  benchmarkConcurrentOperations() ;
   //   {
     console.warn('\n Benchmarking Concurrent Operations...');
 // const _store = awaitthis.createStore('concurrent', {
       enableCache,
-    maxConnections)
-})
+    maxConnections))
   const _testData = this.generateTestData(this.options.testDataSize);
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {
     console.warn(`  Iteration ${iteration + 1}`
@@ -328,7 +326,7 @@ printSummary(report);
   if(cold && warm) {
       const _improvement = ((cold.mean - warm.mean) / cold.mean) * 100;
       console.warn(;)
-      `\n Cache Improvement: ${improvement.toFixed(1)}% faster(${warm.mean.toFixed(2)}ms vs ${cold.mean.toFixed(2)}ms)`;
+      `\n Cache Improvement: $improvement.toFixed(1)% faster($warm.mean.toFixed(2)ms vs $cold.mean.toFixed(2)ms)`;
       //       )
     //     }
   //   }
@@ -337,7 +335,7 @@ printSummary(report);
   const _sequential = report.results['retrieve-cached'];
   if(concurrent && sequential) {
     console.warn(;)
-    `\n Concurrency: ${this.options.concurrentOperations}x operations in ${concurrent.mean.toFixed(2)}ms`;
+    `\n Concurrency: $this.options.concurrentOperationsx operations in $concurrent.mean.toFixed(2)ms`;
     //     )
   //   }
 // }
@@ -361,14 +359,14 @@ run();
   // // await this.benchmarkConcurrentOperations();
   // // await this.benchmarkIndexPerformance();
   // // await this.benchmarkCacheEffectiveness();
-    const { report, reportPath }  catch (error) { console.error(error); }= // await this.generateReport();
+    const { report, reportPath }  catch (error) console.error(error); = // await this.generateReport();
     console.warn(`\n Benchmark completed successfully!`);
     console.warn(` Report saved to);`
     // return report;
     //   // LINT: unreachable code removed} catch(error) {
     console.error(' Benchmark failed);'
     throw error;
-  } finally {
+  } finally 
   // // await this.cleanup();
   //   }
 // }
@@ -382,8 +380,7 @@ run();
 benchmark.run().catch((error) =>
 // {
   console.error('Benchmark execution failed);'
-  process.exit(1);
-})
+  process.exit(1);)
 // }
 // export { SQLitePerformanceBenchmark };
 // export default SQLitePerformanceBenchmark;

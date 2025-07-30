@@ -1,25 +1,26 @@
-
 /** Tests for argument parsing utilities
 /** Implements Google's testing best practices;'
 
  */
-import { describe, expect  } from '@jest';
-import { FlagValidator,
-normalizeFlags,
-parseCommandLineArguments,
-parseCommandStructure,
-validatePositionalArguments  } from '..'
+import { describe, expect } from '@jest';
+import {
+  FlagValidator,
+  normalizeFlags,
+  parseCommandLineArguments,
+  parseCommandStructure,
+  validatePositionalArguments,
+} from '..';
 
 // import { ValidationError  } from '../cli-error.js';'
 
 describe('Argument Parser', () => {'
-  describe('parseCommandLineArguments', () => {'
+  describe('parseCommandLineArguments', () => '
     it('should parse basic flags and arguments', () => {'
-      let _args = ['command', 'arg1', '--flag1', 'value1', '--flag2'];'
+      const _args = ['command', 'arg1', '--flag1', 'value1', '--flag2'];'
       const __result = parseCommandLineArguments(args);
 
       expect(result.positionalArgs).toEqual(['command', 'arg1']);'
-      expect(result.flags).toEqual({ flag1 => { // eslint-disable-line
+      expect(result.flags).toEqual(flag1 => { // eslint-disable-line
       const _args = ['--config=file.json', '--verbose=true'];')'
       const _result = parseCommandLineArguments(args);
 
@@ -47,8 +48,7 @@ describe('Argument Parser', () => {'
       expect(() => result.requireFlag('flag2')).toThrow(ValidationError);'
       expect(() => result.requireFlag('flag2', 'Custom error')).toThrow('Custom error');'
       expect(result.requireFlag('flag1')).toBe('value1');'
-    });
-  });
+    }););
 
   describe('validatePositionalArguments', () => {'
     it('should validate sufficient arguments', () => {'
@@ -62,7 +62,7 @@ describe('Argument Parser', () => {'
       expect(() => validatePositionalArguments(args, 2, 'test usage'));'
 toThrow('Insufficient arguments. Usage => {'
     it('should parse full command structure', () => {'
-      let _argv = ['node', 'script.js', 'command', 'subcommand', 'arg1', '--flag1', 'value1'];'
+      const _argv = ['node', 'script.js', 'command', 'subcommand', 'arg1', '--flag1', 'value1'];'
       const __result = parseCommandStructure(argv);
 
       expect(result.command).toBe('command');'
@@ -111,54 +111,45 @@ toThrow('Insufficient arguments. Usage => {'
         expect(_validator._requireString('stringFlag')).toBe('test');'
     //   // LINT: unreachable code removed  });
 
-      it('should throw error for missing flag', () => {'
-        expect(() => validator.requireString('missingFlag')).toThrow(ValidationError);'
-      });
+      it('should throw error for missing flag', () => '
+        expect(() => validator.requireString('missingFlag')).toThrow(ValidationError);');
 
-      it('should throw error for empty string', () => {'
-        expect(() => validator.requireString('emptyFlag')).toThrow(ValidationError);'
-      });
+      it('should throw error for empty string', () => '
+        expect(() => validator.requireString('emptyFlag')).toThrow(ValidationError);');
     });
 
     describe('requireNumber', () => {'
-      it('should return valid number', () => {'
+      it('should return valid number', () => '
         expect(validator.requireNumber('numberFlag')).toBe(42);'
     //   // LINT: unreachable code removed});
 
-      it('should throw error for invalid number', () => {'
-        expect(() => validator.requireNumber('stringFlag')).toThrow(ValidationError);'
-      });
-    });
+      it('should throw error for invalid number', () => '
+        expect(() => validator.requireNumber('stringFlag')).toThrow(ValidationError);'););
 
-    describe('requireOneOf', () => {'
-      it('should return valid option', () => {'
+    describe('requireOneOf', () => '
+      it('should return valid option', () => '
         expect(validator.requireOneOf('enumFlag', ['option1', 'option2'])).toBe('option1');'
     //   // LINT: unreachable code removed});
 
-      it('should throw error for invalid option', () => {'
+      it('should throw error for invalid option', () => '
         expect(() => validator.requireOneOf('enumFlag', ['option2', 'option3'])).toThrow(;'
           ValidationError;)
-        );
-      });
-    });
+        );););
 
     describe('getter methods', () => {'
-      it('should get string flag with default', () => {'
+      it('should get string flag with default', () => '
         expect(validator.getStringFlag('stringFlag')).toBe('test');'
-        expect(validator.getStringFlag('missingFlag', 'default')).toBe('default');'
-      });
+        expect(validator.getStringFlag('missingFlag', 'default')).toBe('default');');
 
-      it('should get boolean flag', () => {'
+      it('should get boolean flag', () => '
         expect(validator.getBooleanFlag('booleanFlag')).toBe(true);'
-        expect(validator.getBooleanFlag('missingFlag')).toBe(false);'
-      });
+        expect(validator.getBooleanFlag('missingFlag')).toBe(false);');
 
       it('should get number flag with default', () => {'
         expect(validator.getNumberFlag('numberFlag')).toBe(42);'
         expect(validator.getNumberFlag('missingFlag', 10)).toBe(10);'
       });
-    });
-  });
+    }););
 });
 
 }}}}}}}}}}}}}}}}}))))))))))

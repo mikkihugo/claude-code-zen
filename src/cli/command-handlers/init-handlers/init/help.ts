@@ -1,4 +1,3 @@
-
 /** Help Module
 /** Converted from JavaScript to TypeScript
 
@@ -57,7 +56,7 @@ export function showInitHelp() {
   console.warn('  claude-zen init --sparc --modes architect,tdd,code  # Selective initialization')
   console.warn('  claude-zen init --dry-run --sparc          # Preview initialization')
   console.warn('  claude-zen init --minimal                  # Minimal setup')
-  console.warn() {}
+  console.warn() 
   console.warn(' VALIDATION & ROLLBACK)'
   console.warn('  claude-zen init --validate                 # Validate existing setup')
   console.warn('  claude-zen init --rollback --full          # Full system rollback');

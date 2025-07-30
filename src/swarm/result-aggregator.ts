@@ -1,4 +1,3 @@
-
 /** Advanced Result Aggregation and Reporting System;
  *;
 /** This module provides comprehensive result aggregation, analysis, and reporting;
@@ -6,8 +5,8 @@
  * performs quality analysis, generates insights, and creates detailed reports.;
  */
 
-'node = new Map(); // eslint-disable-line'
-  // private resultCache = new Map() {}
+'node = new Map(); // eslint-disable-line';
+// private resultCache = new Map() {}
 // private(processingQueue =
 // {
 // }
@@ -15,7 +14,9 @@
 this.config = this.createDefaultConfig(config)
 this.memoryManager = memoryManager
 this.processingQueue = new ProcessingQueue(this.config.aggregationInterval)
-this.setupEventHandlers() {}
+this.setupEventHandlers()
+{
+}
 // }
 
 /** Initialize the result aggregator;
@@ -24,15 +25,19 @@ this.setupEventHandlers() {}
  */
 : Promise<void>
 
-  this.logger.info('Initializing swarm result aggregator...');
-  try {
-// // await this.processingQueue.start();
-    this.logger.info('Swarm result aggregator initialized successfully');
-    this.emit('initialized');
-  } catch (error) { console.error(error); } catch(error) {
+  this.logger.info('Initializing swarm result aggregator...')
+try {
+  // // await this.processingQueue.start();
+  this.logger.info('Swarm result aggregator initialized successfully');
+  this.emit('initialized');
+} catch (error) {
+  console.error(error);
+}
+catch(error)
+{
     this.logger.error('Failed to initialize result aggregator', error);
     throw error;
-  //   }
+//   }
 // }
 
 /** Shutdown the aggregator gracefully;

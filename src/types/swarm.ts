@@ -1,9 +1,8 @@
-
 /** Swarm System Types;
 /** Enhanced swarm orchestration with neural integration and advanced coordination;
 
  */
-import type { Identifiable, JSONObject, TypedEventEmitter, UUID  } from '.';
+import type { Identifiable, JSONObject, TypedEventEmitter, UUID } from '.';
 
 // =============================================================================
 // SWARM CORE TYPES
@@ -189,9 +188,9 @@ export type SwarmStrategy = 'parallel';
 //     // tasks: ComponentHealth
 //     // communication: ComponentHealth
 //   };
-  issues;
-  recommendations;
-  trends;
+  issues
+recommendations
+trends;
 // }
 // export // interface ComponentHealth {
 //   status: 'healthy' | 'warning' | 'critical' | 'failed';
@@ -238,12 +237,12 @@ export type SwarmStrategy = 'parallel';
 //     // start: Date
 //     // end: Date
 //   };
-  // summary: JSONObject
-  // details: JSONObject
-  // metrics: JSONObject
-  recommendations;
-  charts;
-  appendices;
+// summary: JSONObject
+// details: JSONObject
+// metrics: JSONObject
+recommendations;
+charts;
+appendices;
 // }
 // export // interface Chart {
 //   type: 'line' | 'bar' | 'pie' | 'scatter' | 'heatmap';

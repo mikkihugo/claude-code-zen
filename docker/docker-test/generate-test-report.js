@@ -31,7 +31,7 @@ try {
         const _rawData = fs.readFileSync(resultFile, 'utf8');
         envResult.testResults = JSON.parse(rawData);
         envResult.status = envResult.testResults.success ? 'PASS' : 'FAIL';
-      }  catch (error) { console.error(error); }else {
+      }  catch (error) console.error(error); else {
         envResult.status = 'NO_RESULTS';
         envResult.errors.push('Test results file not found');
       //       }
@@ -56,7 +56,7 @@ envResult.status === 'PASS';
 : envResult.status === 'ERROR'
 ? ''
 : ''
-console.warn(`${`
+console.warn(`$`
   statusIcon;
 // }
 Node.js;
@@ -76,7 +76,7 @@ Tests: \$;
 // {
   envResult.testResults.numPassedTests;
 // }
-//  \$..;RRTT`aadeeeeeelllmnnopssssssssttttttuuuv{};
+//  \$..;RRTT`aadeeeeeelllmnnopssssssssttttttuuuv;
 // )
   console.warn(
 `   Suites: \$`
@@ -167,7 +167,7 @@ $;
 // {
   path.basename(file);
 // }
- catch (error) { console.error(error); }: Still contains Deno APIs`)`
+ catch (error) console.error(error); : Still contains Deno APIs`)`
 // }
 // Check for old assertion patterns
 if (content.includes('assertEquals') && !content.includes('expect(')) {
@@ -175,12 +175,12 @@ if (content.includes('assertEquals') && !content.includes('expect(')) {
 // }
 // Check for import issues
 if (content.includes('from "https://') ?? content.includes("from 'https://")) {'
-  issues.push(`${path.basename(file)}: Contains Deno-style HTTP imports`);
+  issues.push(`$path.basename(file): Contains Deno-style HTTP imports`);
 // }
 // }
   } catch (error)
 // {
-  issues.push(`Error analyzing test files: ${error.message}`);
+  issues.push(`Error analyzing test files: $error.message`);
 // }
 // return issues;
 // }
@@ -239,7 +239,7 @@ function generateRecommendations() {
 if (require.main === module) {
   try {
     generateTestReport();
-  } catch (error) { console.error(error); } catch (error) {
+  } catch (error) { console.error(error); } catch (error) 
     console.error(' Error generating test report:', error.message);
     process.exit(1);
   //   }

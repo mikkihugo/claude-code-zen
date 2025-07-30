@@ -1,4 +1,3 @@
-
 /** TypeScript definitions for ruv-FANN Node.js bindings;
 
  */
@@ -72,9 +71,9 @@ export class NetworkTrainer {
 
   trainingOutputs: number[][];
 
-  // config: TrainingConfig
-  ): null
-  Promise<_number>;
+// config: TrainingConfig
+): null
+  Promise<_number>
 // }
 
 /** Get the version of the ruv-FANN bindings;

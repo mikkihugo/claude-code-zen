@@ -1,17 +1,16 @@
-
+// Hook implementations
+export * from '.';
+export * from '.';
+export * from '.';
+export * from '.';
+// Core types and manager
+export * from '.';
+export * from '.';
 /** Agentic-Flow Hook System - Main Export;
 /** Comprehensive hook-based automation and workflow management system;
 
  */
-export { HookManager  } from '.'
-// Hook implementations
-export * from '.'
-export * from '.'
-export * from '.'
-export * from '.'
-// Core types and manager
-export * from '.'
-export * from '.'
+export { HookManager } from '.';
 
 // Quick start function
 export async function createHookManager() {
@@ -37,12 +36,11 @@ const _allHooks = [..LLM_HOOKS,
   for(const hookRegistration of allHooks) {
   try {
 // // await manager.registerHook(hookRegistration); 
-  } catch (error) { console.error(error); } catch(error) {
-    console.warn(`Failed to register hook ${hookRegistration.name}); `
+  } catch (error) { console.error(error); } catch(error) 
+    console.warn(`Failed to register hook $hookRegistration.name); `
   //   }
 // }
-console.warn(`Successfully registered ${allHooks.length} built-in hooks`) {;
-} catch(error)
+console.warn(`Successfully registered $allHooks.lengthbuilt-in hooks`) {;catch(error)
 // {
   console.error('Failed to register built-inhooks = createHookContext('pre-task');'
   const _payload = {
@@ -109,7 +107,7 @@ const _payload = {
     // version = {DEVELOPMENT = {success = 3600000) => createLLMRequestHook(; // LINT) => {
       // Caching logic would go here
 //       return {
-        success => {
+        success => 
       console.warn(`[Hook] LLM Request => {`)
   if(_payload._error) {
         console.error(`[Hook] Error in LLM request = {BASIC_SETUP = // await createHookManager(HOOK_PRESETS.PRODUCTION);`
@@ -126,8 +124,7 @@ const _payload = {
       duration,
       timestamp: new Date();
     };
-  },
-  { ;
+  },;
     description: 'My custom processing hook',
     priority,
     // timeout: 5000
@@ -145,12 +142,9 @@ const _payload = {
 // // await hookManager.registerHook(HOOK_PATTERNS.CACHE_MIDDLEWARE(1800000));
 // Add logging
 // // await hookManager.registerHook(HOOK_PATTERNS.REQUEST_LOGGER);
-`;`
-};
+`;`;
 
 console.warn('Agentic-Flow Hook System loaded successfully');
 console.warn('Available hook types, Neural, Performance, Memory, Workflow');
 console.warn('Built-in hooks);'
-console.warn('Features);'
-
-}}}}}}}}}}}}}}))))))))
+console.warn('Features);'}}}}}}}}}}}}}))))))))

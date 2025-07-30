@@ -1,12 +1,14 @@
-
 /** Comprehensive Health Monitoring System
 /** Monitors database, circuit breakers, queens, and system resources
 
  */
 import fs from 'node:fs';
-import os from 'node:os';'
-import { strategicDocs  } from '../database/strategic-documents-manager.js';
-import { circuitBreakerManager  } from '.';
+import os from 'node:os';
+
+'
+
+import { strategicDocs } from '../database/strategic-documents-manager.js';
+import { circuitBreakerManager } from '.';
 
 export class HealthMonitor {
   constructor() {
@@ -62,7 +64,7 @@ export class HealthMonitor {
 // }
 catch(/* _error */)
 // {
-  results.checks[name] = {status = 'unhealthy';'
+  results.checks[name] = status = 'unhealthy';'
 // }
 else
   if(results._summary._degraded > 0) {
@@ -157,12 +159,9 @@ addToHistory(results)
             //             }
           //           }
         //         }
-  } catch(/* _error */) {
+  } catch(/* _error */) 
     // Simple error handling - log and continue
-    console.error('Health monitoringerror = this.healthHistory.slice(-this.maxHistorySize);'
-  //   }
-// }
-}, intervalMs)
+    console.error('Health monitoringerror = this.healthHistory.slice(-this.maxHistorySize);', intervalMs)
 console.warn(` Health monitoring started(interval = null`
 // }
     this.monitoringEnabled = false))
@@ -217,9 +216,9 @@ getHealthHistory((maxItems = null));
 : unknown
 // {
   if(maxItems) {
-    // return this.healthHistory.slice(-maxItems);
-    //   // LINT: unreachable code removed}
-  // return [...this.healthHistory]; // Return copy
+// return this.healthHistory.slice(-maxItems);
+//   // LINT: unreachable code removed}
+// return [...this.healthHistory]; // Return copy
 // }
 
 /** Get health trend analysis

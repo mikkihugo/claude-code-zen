@@ -1,10 +1,9 @@
-
 /** Performance Test Suite for Hive Mind Optimizations
 /** Tests the performance improvements implemented
 
  */
-import { performance  } from 'node:perf_hooks';
-import { PerformanceOptimizer  } from '.';
+import { performance } from 'node:perf_hooks';
+import { PerformanceOptimizer } from '.';
 
 /** Performance test runner
 
@@ -29,7 +28,8 @@ export class PerformanceTest {
     for (const test of tests) 
       try {
 // // await test.call(this); 
-      } catch (error) { console.error(error); } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */ )
+{
         console.error(`Testfailed = new HiveMindCore({name = ['coder', 'tester', 'analyst', 'researcher', 'architect', 'optimizer']; `
 
     // Batch spawning test/g))

@@ -1,16 +1,15 @@
-
 /** Export System Plugin;
 /** Generate reports and exports in multiple formats(PDF, HTML, JSON, CSV)
 
  */
-import { mkdir  } from 'node:fs';
+import { mkdir } from 'node:fs';
 
 export class ExportSystemPlugin {
   constructor(_config = {}) {
     this.config = {outputDir = new Map();
     this.templates = new Map();
   //   }
-  async initialize() { 
+  async initialize() 
     console.warn(' Export System Plugin initialized');
     // Create output directory
 // await mkdir(this.config.outputDir,  recursive = {}) {
@@ -21,7 +20,7 @@ export class ExportSystemPlugin {
     // Generate HTML content
 // const _htmlContent = awaitthis.renderTemplate(template, data, 'html');
 // // await page.setContent(htmlContent, {waitUntil = // await page.pdf({/g))
-            format = {  } catch (error) { console.error(error); }) {
+            format = {  } catch (error) console.error(error); ) {
         // return this.renderTemplate(template, data, 'html');
     //   // LINT: unreachable code removed}
   //   }
@@ -168,7 +167,7 @@ console.warn(` Exportgenerated = includeTimestamp ? ;`)
     // return value !== undefined ? String(value) ; // LINT: unreachable code removed
     });
   //   }
-  getNestedValue(obj, path) {
+  getNestedValue(obj, path) 
     // return path.split('.').reduce((current, key) => {
 //       return current && current[key] !== undefined ? current[key] ;
     //   // LINT: unreachable code removed}, obj);
@@ -207,7 +206,7 @@ exportSwarmReport(swarmData, (format = 'pdf'))
       format,template = 'json') {
     // return this.export(data, {
       format,)
-  // template,filename = path.join(this.config.templatesDir, `\${name // LINT}.${format}`);
+  // template,filename = path.join(this.config.templatesDir, `\$name // LINT}.${format}`);
 // // await writeFile(filename, content);
 // }
 console.warn(` Template '${name}' added`);
@@ -222,7 +221,7 @@ removeTemplate(name)
   for(const format of ['html', 'md', 'json']) {
       const _filename = path.join(this.config.templatesDir, `${name}.${format}`); try {
 // // await unlink(filename); 
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) { console.error(error); } catch(error) 
         // File might not exist, that's OK'
       //       }
     //     }
@@ -250,9 +249,4 @@ cleanup();
   this.templates.clear();
   this.exporters.clear();
 
-  console.warn(' Export System Plugin cleaned up');
-// }
-// }
-// export default ExportSystemPlugin;
-
-}}}}}}}}}}}}})))
+  console.warn(' Export System Plugin cleaned up');}}}}}}}}}}})))

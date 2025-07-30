@@ -1,4 +1,3 @@
-
 /** Monitor Module;
 /** Converted from JavaScript to TypeScript;
 
@@ -10,7 +9,7 @@ import path from 'node:path';
 export async function monitorCommand(subArgs = getFlag(subArgs, '--interval')  ?? flags.interval  ?? 5000;
 const _format = getFlag(subArgs, '--format') ?? flags.format ?? 'pretty';
 const _continuous = subArgs.includes('--watch') ?? flags.watch;
-  if(continuous) {
+if(continuous) {
 // // await runContinuousMonitoring(interval, format);
 } else {
 // // await showCurrentMetrics(format);
@@ -133,19 +132,19 @@ async function _countMCPConnections() {
 
   // System metrics
   console.warn('\n  SystemResources = > l.toFixed(2)).join(', ')} catch (error) { console.error(error); }`);'`
-  console.warn(`Uptime = === 'running') {`
+  console.warn(`Uptime = === 'running') `
     console.warn(`   ActiveAgents = Math.floor(seconds / 86400);`
   const _hours = Math.floor((seconds % 86400) / 3600);
   const _minutes = Math.floor((seconds % 3600) / 60);
   const _secs = seconds % 60;
   if(days > 0) {
-    // return `${days}d ${hours}h ${minutes}m`;
+    // return `$daysd $hoursh $minutesm`;
     //   // LINT: unreachable code removed} else if(hours > 0) {
-    // return `${hours}h ${minutes}m ${secs}s`;
+    // return `$hoursh $minutesm $secss`;
     //   // LINT: unreachable code removed} else if(minutes > 0) {
-    // return `${minutes}m ${secs}s`;
+    // return `$minutesm $secss`;
     //   // LINT: unreachable code removed} else {
-    // return `${secs}s`;
+    // return `$secss`;
     //   // LINT: unreachable code removed}
 // }
 

@@ -1,11 +1,10 @@
-
 /** Architect Advisor Plugin;
 /** Comprehensive architectural analysis, design pattern recommendations, and ADR generation;
 
  */
 import crypto from 'crypto';
-import { EventEmitter  } from 'events';
-import { mkdir, readdir, readFile, stat  } from 'fs';
+import { EventEmitter } from 'events';
+import { mkdir, readdir, readFile, stat } from 'fs';
 import path from 'path';
 
 export class ArchitectAdvisorPlugin extends EventEmitter {
@@ -28,7 +27,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
     this.principles = this.initializePrinciples();
   //   }
 
-  async initialize() { 
+  async initialize() 
     try 
       console.warn(' Architect Advisor Plugin initializing...');
 
@@ -38,7 +37,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
         this.aiProvider = aiProvider;
         console.warn(' AI Provider connected for architectural analysis');
       //       }
-    } catch(error) {
+    } catch(error) 
       console.warn(' AI Provider not available, using rule-based analysis only');
     //     }
   //   }
@@ -169,8 +168,8 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       '.rb': 'Ruby';
     };
 
-    // return langMap[ext]  ?? 'Unknown';
-    //   // LINT: unreachable code removed}
+// return langMap[ext]  ?? 'Unknown';
+//   // LINT: unreachable code removed}
 
 /** Architecture Analysis;
 

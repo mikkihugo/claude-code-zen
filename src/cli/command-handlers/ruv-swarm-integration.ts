@@ -1,10 +1,10 @@
+* ruv-swarm NPM Library Integration
 
- * ruv-swarm NPM Library Integration
 /** Import as library for high-performance coordination
 /** NO CLI commands - pure programmatic usage
 
  */
-import { printError, printInfo  } from '..';
+import { printError, printInfo } from '..';
 
 // Import ruv-swarm as library components
 const _ruvSwarmLib = null;
@@ -18,7 +18,8 @@ async function ensureRuvSwarmLoaded() {
       ruvSwarmLib = await import('ruv-swarm');
       _isAvailable = true;
       printInfo(' ruv-swarm library classes imported successfully');
-    } catch (error) { console.error(error); } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */ )
+{
       printWarning(' ruv-swarm library not available, using local fallback');
       _isAvailable = false;
       throw new Error('ruv-swarm library not available');
@@ -33,9 +34,9 @@ async function ensureRuvSwarmLoaded() {
   try {
 // await ensureRuvSwarmLoaded();
 //     return true;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */)
 //     return false;
-    //   // LINT: unreachable code removed}
+//   // LINT: unreachable code removed}
 // }
 
 /** Export the loader function for direct access

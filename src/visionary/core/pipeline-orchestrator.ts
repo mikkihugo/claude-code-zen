@@ -1,4 +1,3 @@
-
 /** Core Pipeline Orchestrator
 
 /** Main entry point for the Visionary Software Intelligence System.
@@ -8,7 +7,9 @@
  * @version 1.0.0
  */
 
-import { existsSync  } from 'node:fs';'
+import { existsSync } from 'node:fs';
+
+'
 // import { mkdir  } from 'node:fs/promises';'
 // import path from 'node:path';'
 
@@ -110,8 +111,9 @@ import { existsSync  } from 'node:fs';'
    * @param config - Configuration options
 
  */
-  constructor(_config) {
-    this.config = {
+  constructor(_config)
+{
+  this.config = {
       outputDir: '.'
     enableAnalytics,
     supportedFormats: [;
@@ -127,26 +129,27 @@ import { existsSync  } from 'node:fs';'
         'c','
         'php','
         'rb' ],'
-..config }
-  // Initialize analysis engines
-  this;
+..config
+}
+// Initialize analysis engines
+this;
 
-  codeAnalysisEngine = new CodeAnalysisEngine(this.config);
-  this;
+codeAnalysisEngine = new CodeAnalysisEngine(this.config);
+this;
 
-  patternDetectionSystem = new PatternDetectionSystem(this.config);
-  this;
+patternDetectionSystem = new PatternDetectionSystem(this.config);
+this;
 
-  qualityAssessmentEngine = new QualityAssessmentEngine(this.config);
-  this;
+qualityAssessmentEngine = new QualityAssessmentEngine(this.config);
+this;
 
-  refactoringGenerator = new RefactoringGenerator(this.config);
-  this;
+refactoringGenerator = new RefactoringGenerator(this.config);
+this;
 
-  optimizationEngine = new OptimizationEngine(this.config);
-  this;
+optimizationEngine = new OptimizationEngine(this.config);
+this;
 
-  analyticsReporter = new AnalyticsReporter(this.config);
+analyticsReporter = new AnalyticsReporter(this.config);
 // }
 
 /** Initialize all system components
@@ -162,7 +165,7 @@ initialize();
 // }
 >
 // {
-  try {
+try {
       // Create output directory
       if(!existsSync(this.config.outputDir)) {
 // // // await mkdir(this.config.outputDir, { recursive} catch (error) { console.error(error); });
@@ -335,7 +338,7 @@ codeData,
         //         }
 
         results.metadata?.stagesCompleted.push(stage);
-        console.warn(` Stage ${stage} completed`);`
+        console.warn(` Stage $stagecompleted`);`
       } catch(error) {
         console.warn(` Stage ${stage} failed);`
         results.metadata?.stagesFailed.push(stage);
@@ -409,7 +412,7 @@ readCodeData(codeFiles)
   if(output.files && output.files.size > 0) {
   for(const [fileName, content] of output.files) {
         const _filePath = path.join(outputDir, fileName); // // // await writeFile(filePath, content as string, 'utf8'); '
-        console.warn(` Generated) {;`
+        console.warn(` Generated) ;`
       //       }
     //     }
 

@@ -1,4 +1,3 @@
-
 /** Code Analysis Engine
 
 /** Handles AST parsing, code metrics calculation, and complexity analysis.
@@ -8,7 +7,9 @@
  * @version 1.0.0
  */
 
-import { existsSync  } from 'node:fs';'
+import { existsSync } from 'node:fs';
+
+'
 // import { readFile  } from 'node:fs/promises';'
 // import path from 'node:path';'
 
@@ -131,7 +132,8 @@ import { existsSync  } from 'node:fs';'
    * @param config - Configuration options
 
  */
-  constructor(config) {
+  constructor(config)
+{
     this.config = config;
   //   }
 
@@ -283,7 +285,7 @@ validateCodeInputs(codeFiles, language)
     if(!existsSync(filePath)) {
       throw new Error(`Code file not found); `
     //     }
-    const _extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) {
+    const _extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) 
       throw new Error(`Unsupported code file format);`
     //     }
   //   }
@@ -307,7 +309,7 @@ extractAST(codeData)
   for(const file of codeData) {
       try {
 // const _ast = awaitthis.parseFileAST(file); 
-        astResults.push(...ast); } catch (error) { console.error(error); } catch(error) {
+        astResults.push(...ast); } catch (error) { console.error(error); } catch(error) 
         console.warn(` AST parsing failed for ${file.path});`
       //       }
     //     }
@@ -355,11 +357,11 @@ extractAST(codeData)
 
       // Identify significant nodes
       if(line.includes('function')  ?? line.includes('class')  ?? line.includes('=>')) {'
-        nodes.push({ type: this.getJavaScriptNodeType(line),
+        nodes.push(type: this.getJavaScriptNodeType(line),
           name: this.extractNodeName(line),
           line: i + 1,
           depth,
-          complexity: this.calculateNodeComplexity(line)   });
+          complexity: this.calculateNodeComplexity(line)   );
       //       }
     //     }
 
@@ -530,10 +532,10 @@ extractAST(codeData)
         // return {
           name: match[2]  ?? match[1],
     // parameters: (match[3]  ?? match[2]  ?? ''); // LINT: unreachable code removed'
-  split(',') {;'
+  split(',') ;'
 map((p) => p.trim());
 filter((p) => p),
-          isAsync: line.includes('async') };'
+          isAsync: line.includes('async') ;'
       //       }
     //     }
 
@@ -888,9 +890,8 @@ filter((p) => p),
       // Extract import statements
       const _importMatch = line.match(/import\s+.*\s+from\s+['"]([^'"]+)['"]/); "'
   if(importMatch) {
-        const _dep = importMatch[1]; if(dep.startsWith('.') {?? dep.startsWith('/')) {'
-          dependencies.internal.add(dep);
-        } else {
+        const _dep = importMatch[1]; if(dep.startsWith('.') {?? dep.startsWith('/')) '
+          dependencies.internal.add(dep);else {
           dependencies.external.add(dep);
         //         }
       //       }
@@ -958,9 +959,8 @@ filter((p) => p),
     const _classes = 0;
   for(const line of lines) {
       const _trimmed = line.trim(); if(!trimmed) {
-        blankLines++; } else if(this.isCommentLine(trimmed, file.language) {) {
-        commentLines++;
-      } else {
+        blankLines++; } else if(this.isCommentLine(trimmed, file.language) {) 
+        commentLines++;else 
         codeLines++;
 
         if(this.matchFunction(line, file.language)) {
@@ -1032,4 +1032,4 @@ filter((p) => p),
 
 // export default CodeAnalysisEngine;
 
-}}
+}

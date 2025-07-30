@@ -1,17 +1,31 @@
-
 /** WorkerThreadPool - Manages a pool of worker threads for parallel swarm execution
 
  */
-import { EventEmitter  } from 'node:events';'
-import os from 'node:os';'
-import path from 'node:path';'
-import { fileURLToPath  } from 'node:url';'
-import { Worker  } from 'node:worker_threads';'
+import { EventEmitter } from 'node:events';
+
+'
+
+import os from 'node:os';
+
+'
+
+import path from 'node:path';
+
+'
+
+import { fileURLToPath } from 'node:url';
+
+'
+
+import { Worker } from 'node:worker_threads';
+
+'
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);
 // export class WorkerThreadPool extends EventEmitter {
-  constructor(options = {}) {
+constructor((options = {}));
+{
 //     super();
     this.maxWorkers = options.maxWorkers  ?? Math.max(2, Math.floor(os.cpus().length / 2));
     this.minWorkers = options.minWorkers  ?? 1;
@@ -40,19 +54,19 @@ const ___dirname = path.dirname(__filename);
       throw new Error('Maximum worker limit reached');'
     //     }
 
-    const _workerId = `worker-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`;`
+    const _workerId = `worker-$Date.now()-$Math.random().toString(36).substr(2, 6)`;`
 
     try {
       const __worker = new Worker(this.workerScript, {
         workerData => {
       this.handleWorkerMessage(workerId, message);
     //     }
-     catch (error) { console.error(error); }//     )
+     catch (error) console.error(error); 
 
     worker.on('error', (_error) => ;'
       console.error(`Worker $workerIderror => ;`)
   if(code !== 0) {
-        console.error(`Worker ${workerId} exited with code ${code}`);`
+        console.error(`Worker $workerIdexited with code $code`);`
       this.handleWorkerExit(workerId, code);
   //   }
   //   )
@@ -106,12 +120,12 @@ const ___dirname = path.dirname(__filename);
     this.workerStats.delete(workerId);
     this.metrics.workerUtilization.delete(workerId);
 
-    console.warn(` Worker ${workerId} exited`);`
+    console.warn(` Worker $workerIdexited`);`
 
     // Restart worker if needed and not shutting down
   if(!this.isShuttingDown && this.workers.size < this.minWorkers) {
       setTimeout(() => this.createWorker(), 1000);
-    //     }
+//     }
 
 /** Update worker statistics
 

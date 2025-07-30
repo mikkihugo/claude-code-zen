@@ -1,4 +1,3 @@
-
 /** MCP Integration Wrapper for Swarm System;
  *;
 /** This module provides a comprehensive wrapper around MCP tools to enable;
@@ -6,19 +5,19 @@
  * tool discovery, execution, error handling, and result aggregation.;
  */
 
-'node = new Map();'
-  // private activeExecutions = new Map() {}
+'node = new Map();';
+// private activeExecutions = new Map() {}
 // private metrics =
 // {
 // }
 // )
 // {
 //   super();
-  this.logger = new Logger('MCPIntegrationWrapper');
-  this.config = this.createDefaultConfig(config);
-  this.toolRegistry = this.initializeToolRegistry();
-  this.metrics = this.initializeMetrics();
-  this.setupEventHandlers();
+this.logger = new Logger('MCPIntegrationWrapper');
+this.config = this.createDefaultConfig(config);
+this.toolRegistry = this.initializeToolRegistry();
+this.metrics = this.initializeMetrics();
+this.setupEventHandlers();
 // }
 
 /** Initialize the MCP integration wrapper;
@@ -28,15 +27,15 @@ async;
 initialize();
 : Promise<void>
 // {
-    this.logger.info('Initializing MCP integration wrapper...');
+    this.logger.info('Initializing MCP integration wrapper...')
 
-    try {
+try {
       // Register Claude Flow tools
   if(this.config.enableClaudeFlowTools) {
 // // await this.registerClaudeFlowTools();
       //       }
 
-       catch (error) { console.error(error); }// Register ruv-swarm tools
+       catch (error) console.error(error); 
   if(this.config.enableRuvSwarmTools) {
 // // await this.registerRuvSwarmTools();
       //       }
@@ -91,7 +90,7 @@ initialize();
           execution.context; ) {;
         results.push(result);
       //       }
-       catch (error) { console.error(error); }// return results;
+       catch (error) console.error(error); 
     //   // LINT: unreachable code removed}
 
     this.logger.info('Executing tools in parallel', {toolCount = new Semaphore(this.config.maxConcurrentTools);
@@ -114,7 +113,7 @@ initialize();
         // Create error result
 //         return {
           success = {}): MCPTool[] {
-    let _tools = Array.from(this.toolRegistry.tools.values());
+    const _tools = Array.from(this.toolRegistry.tools.values());
     // ; // LINT: unreachable code removed
     // Filter by category
   if(options.category) {
@@ -134,7 +133,7 @@ initialize();
     //     }
 // 
     return tools;
-    //   // LINT: unreachable code removed}
+//   // LINT: unreachable code removed}
 
 /** Get tool information;
 

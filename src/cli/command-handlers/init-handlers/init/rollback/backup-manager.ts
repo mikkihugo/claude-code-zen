@@ -30,8 +30,7 @@ createBackup((type = 'manual'), (description = ''));
   for(const file of criticalFiles) {
 // const _backupResult = awaitthis.backupFile(file, backupPath); 
   if(backupResult.success) {
-      manifest.files.push(backupResult.fileInfo); result.files.push(file) {;
-    } else {
+      manifest.files.push(backupResult.fileInfo); result.files.push(file) ;else 
       result.warnings.push(`Failed to backupfile = // await this.getCriticalDirectories();`
   for(const dir of criticalDirs) {
 // const _backupResult = awaitthis.backupDirectory(dir, backupPath); 
@@ -74,7 +73,7 @@ createBackup((type = 'manual'), (description = ''));
             const _manifest = JSON.parse(// await node.readTextFile(manifestPath));
 
             backups.push({id = > b.created - a.created);
-  //   }
+//   }
 
 /** Delete a backup
 

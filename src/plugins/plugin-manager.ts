@@ -1,10 +1,9 @@
-
 /** Enhanced Plugin Manager(TypeScript);
 /** Advanced plugin lifecycle management with health monitoring, security, and metrics;
 
  */
-import { readFile  } from 'node:fs';
-import { join  } from 'node:path';
+import { readFile } from 'node:fs';
+import { join } from 'node:path';
 import { Plugin,
 // type PluginCacheAPI
 
@@ -34,26 +33,26 @@ type PluginSecretsAPI
 // )
 // {
 //   super();
-  this.config = {pluginDir = this.createSystemContext();
-  // Initialize security and monitoring systems
-  this.securityManager = new SecurityManager({enableSecurity = new ResourceMonitor({enabled = new HealthMonitor({enabled = join(path, 'package.json');
+this.config = {pluginDir = this.createSystemContext();
+// Initialize security and monitoring systems
+this.securityManager = new SecurityManager({enableSecurity = new ResourceMonitor({enabled = new HealthMonitor({enabled = join(path, 'package.json');
 // const _manifestContent = awaitreadFile(manifestPath, 'utf-8');
-  const _packageJson = JSON.parse(manifestContent);
-  // Extract plugin manifest from package.json
-  const _manifest = this.extractManifest(packageJson, path);
-  // Validate manifest
+const _packageJson = JSON.parse(manifestContent);
+// Extract plugin manifest from package.json
+const _manifest = this.extractManifest(packageJson, path);
+// Validate manifest
 // // await this.validateManifest(manifest);
-  // Create plugin configuration
-  const _pluginConfig = {name = // await this.loadPluginModule(path, manifest);
+// Create plugin configuration
+const _pluginConfig = {name = // await this.loadPluginModule(path, manifest);
   const _PluginClass = pluginModule.default ?? pluginModule[manifest.name] ?? pluginModule;
-  // Create plugin context
-  const _context = this.createPluginContext(manifest, pluginConfig);
-  // Instantiate plugin
-  const _plugin = new PluginClass(manifest, pluginConfig, context);
-  // Security validation
+// Create plugin context
+const _context = this.createPluginContext(manifest, pluginConfig);
+// Instantiate plugin
+const _plugin = new PluginClass(manifest, pluginConfig, context);
+// Security validation
 // // await this.securityManager.validatePlugin(plugin, manifest, pluginConfig);
-  // Create loaded plugin entry
-  const __loadedPlugin = {plugin = // await this.createSandboxWorker(plugin, manifest, pluginConfig);
+// Create loaded plugin entry
+const __loadedPlugin = {plugin = // await this.createSandboxWorker(plugin, manifest, pluginConfig);
 // }
 // Store plugin
 this.plugins.set(manifest.name, loadedPlugin);
@@ -68,7 +67,8 @@ this.emit('loaded', manifest.name, plugin.metadata);
 // ; // LINT: unreachable code removed
 } catch(error)
 // {
-      this.emit('error', path, {message = this.plugins.get(name);
+      this.emit('error', path,
+{message = this.plugins.get(name);
   if(!loadedPlugin) {
       // return false;
     //   // LINT: unreachable code removed}
@@ -83,7 +83,7 @@ this.emit('loaded', manifest.name, plugin.metadata);
 // // await this.securityManager.destroySandbox(name);
       //       }
 
-       catch (error) { console.error(error); }// Unregister from resource monitoring
+       catch (error) console.error(error); 
       this.resourceMonitor.unregisterPlugin(name);
 
       // Unregister from health monitoring
@@ -97,8 +97,8 @@ this.emit('loaded', manifest.name, plugin.metadata);
       this.emit('unloaded', name);
       // return true;
     // ; // LINT: unreachable code removed
-    } catch(/* _error */) {
-      this.emit('error', name, {message = this.plugins.get(name);
+    } catch(/* _error */) 
+      this.emit('error', name, message = this.plugins.get(name);
   if(!loadedPlugin) {
       throw new Error(`Plugin notfound = loadedPlugin.manifest.entryPoints.main;`
     const _originalConfig = { ...loadedPlugin.config };
@@ -124,11 +124,11 @@ this.emit('loaded', manifest.name, plugin.metadata);
     // return loadedPlugin?.plugin  ?? null;
     //   // LINT: unreachable code removed}
 
-  async getAllPlugins(): Promise<Plugin[]> {
+  async getAllPlugins(): Promise<Plugin[]> 
     // return Array.from(this.plugins.values()).map(lp => lp.plugin);
     //   // LINT: unreachable code removed}
 
-  async getActivePlugins(): Promise<Plugin[]> {
+  async getActivePlugins(): Promise<Plugin[]> 
 //     return Array.from(this.plugins.values());
     // .filter(lp => lp.config.enabled && lp.plugin.metadata.status === 'active'); // LINT: unreachable code removed
 map(lp => lp.plugin);
@@ -145,8 +145,7 @@ map(lp => lp.plugin);
   for(const dir of pluginDirs) {
         const _pluginPath = join(directory, dir.name); try {
 // const _result = awaitthis.discoverSinglePlugin(pluginPath); 
-          results.push(result) {;
-        } catch (error) { console.error(error); } catch(error) {
+          results.push(result) ;catch (error) console.error(error); catch(error) {
           results.push({manifest = > r.valid).map(r => r.manifest);
   //   }
 
@@ -176,7 +175,7 @@ map(lp => lp.plugin);
   if(result.stop) {
           break;
         //         }
-       catch (error) { console.error(error); }} catch(error) {
+       catch (error) console.error(error); } catch(error) 
         hook.errorCount++;
         this.emit('hook-failed', hook.pluginName, type, {message = this.apis.get(pluginName);
     // return pluginAPIs?.get(apiName)  ?? null;
@@ -208,7 +207,7 @@ map(lp => lp.plugin);
     // return results;
     //   // LINT: unreachable code removed}
 
-  async performHealthCheck() {: Promise<PluginHealthReport> {
+  async performHealthCheck() : Promise<PluginHealthReport> {
     const _plugins = {};
 // const _systemHealth = awaitthis.getSystemHealth();
   for(const [name, loadedPlugin] of this.plugins) {
@@ -248,7 +247,7 @@ filter(i => i.severity === 'critical').length;
     //     }
   //   }
 
-  async auditPermissions(): Promise<PermissionAuditReport> {
+  async auditPermissions(): Promise<PermissionAuditReport> 
     // return await this.permissionAuditor.generateReport();
     //   // LINT: unreachable code removed}
 
@@ -283,7 +282,7 @@ filter(i => i.severity === 'critical').length;
     context.plugin = null as any; // Will be set after plugin instantiation
     context.config = config;
     context.manifest = manifest;)
-    context.security = {permissions = // await this.securityManager.createSandboxedPlugin(plugin, manifest, config);
+    context.security = permissions = // await this.securityManager.createSandboxedPlugin(plugin, manifest, config);
   if(!worker) {
         throw new Error('Failed to create sandboxed worker');
       //       }
@@ -328,7 +327,7 @@ filter(i => i.severity === 'critical').length;
 // // await new Promise(resolve => setTimeout(resolve, this.config.restartDelay));
 // // await this.reloadPlugin(pluginName);
       this.emit('plugin-restarted', pluginName);
-    } catch(error) {
+    } catch(error) 
       this.emit('plugin-restart-failed', pluginName, error.message);
     //     }
   //   }
@@ -451,9 +450,8 @@ filter(i => i.severity === 'critical').length;
         try {
 // // await this.restartPlugin(data.pluginName);
           console.info(`Auto-restarted plugin ${data.pluginName}  catch (error) { console.error(error); }due to health issues`);
-        } catch(error => {
-      this.emit('plugin-metrics-collected', data);
-    });
+        } catch(error => 
+      this.emit('plugin-metrics-collected', data););
 
     this.healthMonitor.on('metrics-error', (error) => {
       console.error('Health metrics collectionerror = this.plugins.get(pluginName);'
@@ -462,10 +460,10 @@ filter(i => i.severity === 'critical').length;
     // return usage.heapUsed / 1024 / 1024; // MB // LINT: unreachable code removed
   //   }
 
-  async getSystemResourceUsage(): Promise<ResourceUsage> {
+  async getSystemResourceUsage(): Promise<ResourceUsage> 
     // return {memory = new Map<string, any>();
     // ; // LINT: unreachable code removed
-  async get(key = `${namespace  ?? 'default'}:`;
+  async get(key = `$namespace  ?? 'default':`;
     // return Array.from(this.storage.keys()).filter(k => k.startsWith(prefix));
     //   // LINT: unreachable code removed}
 
@@ -561,4 +559,4 @@ class SecretsAPI implements PluginSecretsAPI {
 
 // export default PluginManager;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))))))))))))

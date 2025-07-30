@@ -18,7 +18,11 @@ let manifest;
 try {
   manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
   log(' Manifest loaded successfully', 'green');
-} catch (error) { console.error(error); } catch(/* _error */) {
+} catch (error) {
+  console.error(error);
+}
+catch(/* _error */)
+{
   log(' Failed to loadmanifest = 0;'
 let _passedTests = 0;
 
@@ -31,7 +35,7 @@ test(`File ${file.destination} exists`, fs.existsSync(filePath));
 // Test4 = ['commands/sparc.md', 'commands/sparc/architect.md', 'BATCHTOOLS_GUIDE.md'];
   for(const fileName of sampleFiles) {
   const _filePath = path.join(TEMPLATE_DIR, fileName); if(fs.existsSync(filePath)) {
-    const _content = fs.readFileSync(filePath, 'utf8'); test(`${fileName} has content`, content.length > 100) {;
+    const _content = fs.readFileSync(filePath, 'utf8'); test(`${fileName} has content`, content.length > 100) ;
     test(`${fileName} contains frontmatter`, content.startsWith('---'));
   //   }
 // }
@@ -41,7 +45,7 @@ for (const cmd of sparcCommands.slice(0, 3)) {
   const _filePath = path.join(TEMPLATE_DIR, cmd.destination); if(fs.existsSync(filePath)) {
     const _content = fs.readFileSync(filePath, 'utf8'); test(;
     `${cmd.destination} has proper structure`,
-    content.includes('## Instructions') {?? content.includes('You are');
+    content.includes('## Instructions') ?? content.includes('You are');
     //     )
   //   }
 // }
@@ -51,7 +55,7 @@ for (const testFile of testFiles.slice(0, 3)) {
   const _filePath = path.join(TEMPLATE_DIR, testFile.destination); if(fs.existsSync(filePath)) {
     const _content = fs.readFileSync(filePath, 'utf8'); test(;
     `${testFile.destination} has test structure`,
-    content.includes('describe') {?? content.includes('test') ?? content.includes('it');
+    content.includes('describe') ?? content.includes('test') ?? content.includes('it');
     //     )
   //   }
 // }
@@ -94,5 +98,5 @@ log('\nTemplateInformation = > f.category === 'documentation').length}`;'`
 // )
 log(`  Commandfiles = > f.category === 'command').length}`)
 log(`  SPARC modefiles = > f.category === 'sparc-mode').length}`)
-log(`  Testfiles = > f.category === 'test').length}`)
+log(`  Testfiles = > f.category === 'test').length`)
 process.exit(passedTests = === totalTests ? 0 )

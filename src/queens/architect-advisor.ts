@@ -1,10 +1,9 @@
-
 /** Architect Advisor Queen
 /** Uses neural networks to provide intelligent architectural recommendations
 
  */
-import { NeuralEngine  } from '../neural/neural-engine.js';
-import { BaseQueen  } from '.';
+import { NeuralEngine } from '../neural/neural-engine.js';
+import { BaseQueen } from '.';
 
 export class ArchitectAdvisor extends BaseQueen {
   constructor() {
@@ -30,7 +29,7 @@ export class ArchitectAdvisor extends BaseQueen {
             //             }
 
             this.logger.info('ArchitectAdvisor initialized with neural engine');'
-        } catch(/* _error */) {
+        } catch(/* _error */) 
             this.logger.warn('Neural engine initialization failed, using fallbackmode = performance.now();'
         this.trackTaskStart(task.id);
 
@@ -67,7 +66,7 @@ export class ArchitectAdvisor extends BaseQueen {
                 requirements.teamSize = size <= 5 ? 'small' : size <= 20 ? 'medium' : 'large';'
             //             }
 
-             catch (error) { console.error(error); }// Extract timeline
+             catch (error) console.error(error); 
             const _timelineMatch = task.prompt.match(/(\d+)\s*(?)/i)
   if(timelineMatch) {
                 requirements.timeline = timelineMatch[0];
@@ -79,7 +78,7 @@ export class ArchitectAdvisor extends BaseQueen {
                 requirements.traffic = trafficMatch[0];
             //             }
 
-        } catch(error) {
+        } catch(error) 
             this.logger.debug('Neural requirement analysis failed, usingfallback = this.createNeuralPrompt(task, requirements);'
 
             // Get neural inference
@@ -87,10 +86,10 @@ export class ArchitectAdvisor extends BaseQueen {
 
             // return {architecture = Object.entries(requirements);
     // .filter(([_, value]) => value === true  ?? (typeof value === 'string' && value !== 'unknown')); // LINT: unreachable code removed'
-map(([key, value]) => `${key}: ${value}`);`
+map(([key, value]) => `$key: $value`);`
 join(', ');'
 
-        // return `Analyze architecture for = {architecture = ['microservices', 'monolith', 'serverless', 'event-driven', 'layered'];'`
+        // return `Analyze architecture for = architecture = ['microservices', 'monolith', 'serverless', 'event-driven', 'layered'];'`
     // for (const pattern of patterns) { // LINT: unreachable code removed
             if(neuralText.toLowerCase().includes(pattern)) {
                 recommendation.architecture = pattern; break; //             }
@@ -115,8 +114,8 @@ filter(c => c.length > 0);
 
         recommendation.reasoning = neuralText.substring(0, 500);
 
-        // return recommendation;
-    //   // LINT: unreachable code removed}
+// return recommendation;
+//   // LINT: unreachable code removed}
 
 /** Synthesize final recommendation
 

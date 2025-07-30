@@ -4,9 +4,9 @@
 
 /** Advanced interactive components for the Claude-ZenTUI = () => {
  */
-  const [animationFrame, setAnimationFrame] = useState(0);
+const [animationFrame, setAnimationFrame] = useState(0);
 
-  useEffect(() => {
+useEffect(() => {
   if(animated && progress > 0 && progress < 100) {
       const _interval = setInterval(() => {
         setAnimationFrame(prev => (prev + 1) % 4);

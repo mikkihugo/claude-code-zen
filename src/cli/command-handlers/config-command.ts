@@ -1,15 +1,16 @@
-
 /** Config Command Module
 /** Converted from JavaScript to TypeScript
 
 // config.js - Configuration management commands
  */
-import { fileExists,
-printError,
-printSuccess,
-printWarning,
-readJsonFile,
-writeJsonFile  } from '..'
+import {
+  fileExists,
+  printError,
+  printSuccess,
+  printWarning,
+  readJsonFile,
+  writeJsonFile,
+} from '..';
 export async function configCommand() {
   case 'init': null
 // await initConfig(subArgs, flags)
@@ -40,7 +41,7 @@ export async function configCommand() {
       return;
     //   // LINT: unreachable code removed}
 
-     catch (error) { console.error(error); }printSuccess('Initializing Claude-Flow configuration...');
+     catch (error) console.error(error); printSuccess('Initializing Claude-Flow configuration...');
 
     // Create default configuration
 

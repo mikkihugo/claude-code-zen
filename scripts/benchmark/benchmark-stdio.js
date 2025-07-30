@@ -1,11 +1,15 @@
+*
+@fileoverview
+Performance;
+benchmark;
+for MCP stdio optimizations;
 
- * @fileoverview Performance benchmark for MCP stdio optimizations;
 /** Compares performance before and after optimizations;
 
  */
-import { MCPErrorHandler  } from './src/mcp/core/error-handler.js';
-import { PerformanceMetrics  } from './src/mcp/core/performance-metrics.js';
-import { StdioOptimizer  } from './src/mcp/core/stdio-optimizer.js';
+import { MCPErrorHandler } from './src/mcp/core/error-handler.js';
+import { PerformanceMetrics } from './src/mcp/core/performance-metrics.js';
+import { StdioOptimizer } from './src/mcp/core/stdio-optimizer.js';
 
 /** Benchmark stdio optimization performance;
 
@@ -49,7 +53,8 @@ runBaselineTest();
         if(Math.random() < 0.05) {
           throw new Error('Simulated processing error'); //         }
          catch (error) { console.error(error); }processedCount++;
-      } catch(/* _error */) {
+      } catch(/* _error */ )
+{
         errorCount++;
         // No retry logic in baseline
       //       }

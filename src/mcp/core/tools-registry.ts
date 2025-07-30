@@ -1,10 +1,15 @@
+*
+@fileoverview
+MCP;
+Tools;
+Registry;
 
- * @fileoverview MCP Tools Registry
 /** Claude Zen CLI command tools for MCP protocol
  * @module MCPToolsRegistry
 
  */
-import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
+import type { JSONSchema, ToolResult } from '../../types/mcp.js';
+
 // =============================================================================
 // TOOL HANDLER TYPES
 // =============================================================================
@@ -17,7 +22,7 @@ import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
 
 // export // interface EnhancedTool {name = Record<string
 // , EnhancedTool>
-// /\*\*//  * Tool category information
+// /\*\*/ / + Tool category information
 
 // // export interface ToolCategory {name = ============================================================================
 // // CLAUDE ZEN CORE TOOLS
@@ -98,7 +103,7 @@ import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
 // export function _initializeAllTools() {
 //   return {
 ..initializeClaudeZenTools(),
-  // ...initializeProductTools(), // LINT: unreachable code removed
+// ...initializeProductTools(), // LINT: unreachable code removed
 ..initializeNeuralTools(),
 ..initializeMemoryTools(),
 ..initializeAgentTools(),
@@ -111,7 +116,7 @@ import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
  * @param toolName - Name of the tool
  * @returns Tool schema or null if not found
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // export function getToolSchema(toolName = initializeAllTools();
 // return allTools[toolName] ?? null;
 // }
@@ -121,16 +126,16 @@ import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
  * @param args - Arguments to validate
  * @returns Validation result
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // export function validateToolArgs(toolName = getToolSchema(toolName);
-  if(!schema) {
-//   return {valid = schema.inputSchema.required  ?? [];
+if (!schema) {
+  //   return {valid = schema.inputSchema.required  ?? [];
   // const _properties = schema.inputSchema.properties  ?? { // LINT: unreachable code removed};
-  for(const field of required) {
-    if(!(field in args)) {
-      // return {valid = properties[key] as JSONSchema; 
+  for (const field of required) {
+    if (!(field in args)) {
+      // return {valid = properties[key] as JSONSchema;
       // ; // LINT: unreachable code removed
-  if(prop.enum && !prop.enum.includes(value) {) {
+      if(prop.enum && !prop.enum.includes(value) {) 
         // return {valid = === 'number' && typeof value !== 'number') {'
         // return {valid = === 'string' && typeof value !== 'string') {'
         // return {
@@ -151,23 +156,30 @@ import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
     // { // LINT: unreachable code removed
       name: 'claude-zen','
       description: 'Core Claude Zen operations','
-      count: Object.keys(initializeClaudeZenTools()).length },
+      count: Object.keys(initializeClaudeZenTools()).length ,
     //     {
       name: 'product','
       description: 'Product management tools','
-      count: Object.keys(initializeProductTools()).length },
+      count: Object.keys(initializeProductTools()).length }
+      ,
     //     {
       name: 'neural','
       description: 'Neural network operations','
-      count: Object.keys(initializeNeuralTools()).length },
+      count: Object.keys(initializeNeuralTools()).length
+    }
+    ,
     //     {
       name: 'memory','
       description: 'Memory management operations','
-      count: Object.keys(_initializeMemoryTools()).length },
+      count: Object.keys(_initializeMemoryTools()).length
+  }
+  ,
     //     {
       name: 'agent','
       description: 'Agent lifecycle management','
-      count: Object.keys(initializeAgentTools()).length },
+      count: Object.keys(initializeAgentTools()).length
+}
+,
     //     {
       name: 'task','
       description: 'Task orchestration and monitoring','
@@ -179,7 +191,7 @@ import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
     //     {
       name: 'git','
       description: 'Git version control operations','
-      count: Object.keys(initializeGitTools()).length } ];
+      count: Object.keys(initializeGitTools()).length } ]
 // }
 
 }}}}}}}}}}}}}}}}}}}}}}}}}})

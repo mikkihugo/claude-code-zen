@@ -1,5 +1,5 @@
-import { EventEmitter  } from 'node:events';
-import { beforeEach, describe, expect, it  } from '@jest';
+import { EventEmitter } from 'node:events';
+import { beforeEach, describe, expect, it } from '@jest';
 
 // Mock dependencies
 jest.mock('../../../src/coordination/workers/worker-pool.js', () => ({ WorkerThreadPool: jest.fn().mockImplementation(() => ({
@@ -17,38 +17,42 @@ jest.mock('../../../src/cli/command-handlers/swarm-orchestrator.js', () => (
 describe('Parallel Swarm Orchestrator', () =>
 // {
   let _orchestrator;
-  let ParallelSwarmOrchestrator;
-  beforeEach(async() => {
-    // Dynamic import to get the class after mocks are set up
-// const _module = awaitimport('../../../src/coordination/parallel-swarm-orchestrator.js');
-    ParallelSwarmOrchestrator = module.ParallelSwarmOrchestrator;
-    _orchestrator = new ParallelSwarmOrchestrator({ maxWorkers,
-    parallelMode   });
-})
+let ParallelSwarmOrchestrator;
+beforeEach(async () => {
+  // Dynamic import to get the class after mocks are set up
+  // const _module = awaitimport('../../../src/coordination/parallel-swarm-orchestrator.js');
+  ParallelSwarmOrchestrator = module.ParallelSwarmOrchestrator;
+  _orchestrator = new ParallelSwarmOrchestrator({ maxWorkers, parallelMode });
+});
 afterEach(async() =>
 // {
-  if(orchestrator) {
+if (orchestrator) {
   // await orchestrator.shutdown();
   //   }
-})
+}
+)
 describe('constructor', () =>
 // {
-  it('should initialize with default options', () => {
-    const _defaultOrchestrator = new ParallelSwarmOrchestrator();
-    expect(defaultOrchestrator.parallelMode).toBe(true);
-    expect(defaultOrchestrator.maxWorkers).toBeGreaterThan(1);
-    expect(defaultOrchestrator.loadBalancingStrategy).toBe('round-robin');
-    expect(defaultOrchestrator.activeTasks).toBeInstanceOf(Map);
-    expect(defaultOrchestrator.taskResults).toBeInstanceOf(Map);
-  });
-  it('should initialize with custom options', () => {
-    const _customOrchestrator = new ParallelSwarmOrchestrator({ maxWorkers,
+  it('should initialize with default options', () =>
+{
+  const _defaultOrchestrator = new ParallelSwarmOrchestrator();
+  expect(defaultOrchestrator.parallelMode).toBe(true);
+  expect(defaultOrchestrator.maxWorkers).toBeGreaterThan(1);
+  expect(defaultOrchestrator.loadBalancingStrategy).toBe('round-robin');
+  expect(defaultOrchestrator.activeTasks).toBeInstanceOf(Map);
+  expect(defaultOrchestrator.taskResults).toBeInstanceOf(Map);
+}
+)
+it('should initialize with custom options', () =>
+{
+  const _customOrchestrator = new ParallelSwarmOrchestrator({ maxWorkers,
     parallelMode,
     loadBalancingStrategy);
   expect(customOrchestrator.maxWorkers).toBe(8);
   expect(customOrchestrator.parallelMode).toBe(false);
   expect(customOrchestrator.loadBalancingStrategy).toBe('least-loaded');
-  })
+}
+)
 it('should extend EventEmitter', () =>
 // {
   expect(orchestrator).toBeInstanceOf(EventEmitter);
@@ -56,51 +60,60 @@ it('should extend EventEmitter', () =>
 })
 describe('initialization', () =>
 // {
-  it('should initialize successfully', async() => {
+  it('should initialize successfully', async() =>
+{
   // await expect(orchestrator.initialize()).resolves.not.toThrow();
-    expect(orchestrator.baseOrchestrator.initialize).toHaveBeenCalled();
-  });
-  it('should initialize worker pool in parallel mode', async() => {
+  expect(orchestrator.baseOrchestrator.initialize).toHaveBeenCalled();
+}
+)
+it('should initialize worker pool in parallel mode', async () =>
+{
   // await orchestrator.initialize();
-  if(orchestrator.parallelMode) {
-      expect(orchestrator.workerPool).toBeDefined();
+  if (orchestrator.parallelMode) {
+    expect(orchestrator.workerPool).toBeDefined();
     //     }
-  });
-  it('should skip worker pool in sequential mode', async() => {
-    const _sequentialOrchestrator = new ParallelSwarmOrchestrator({ parallelMode   });
-  // await sequentialOrchestrator.initialize();
+  }
+  )
+  it('should skip worker pool in sequential mode', async () =>
+  {
+    const _sequentialOrchestrator = new ParallelSwarmOrchestrator({ parallelMode });
+    // await sequentialOrchestrator.initialize();
     expect(sequentialOrchestrator.workerPool).toBeNull();
-  });
-})
+  }
+  )
+}
+)
 describe('task execution', () =>
 // {
     beforeEach(async() => {
   // await orchestrator.initialize();
     });
-    it('should execute tasks in parallel', async() => {
-      const _tasks = [
-        { id: 'task1', type: 'analysis', payload: { file: 'test1.js' } },
-        { id: 'task2', type: 'analysis', payload: { file: 'test2.js' } },
-        { id: 'task3', type: 'analysis', payload: { file: 'test3.js' } } ];
-      const _executeTasksInParallel = async(tasks) => {
-        const _promises = tasks.map((task) => {
-//           return new Promise((resolve) => {
-            setTimeout(() => {
-              resolve({
+it('should execute tasks in parallel', async () => {
+  const _tasks = [
+    { id: 'task1', type: 'analysis', payload: { file: 'test1.js' } },
+    { id: 'task2', type: 'analysis', payload: { file: 'test2.js' } },
+    { id: 'task3', type: 'analysis', payload: { file: 'test3.js' } },
+  ];
+  const _executeTasksInParallel = async (tasks) => {
+    const _promises = tasks.map((task) => {
+      //           return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
                 taskId);
-            }, Math.random() * 100);
-          });
-        });
-        // return Promise.all(promises);
-    //   // LINT: unreachable code removed};
-// const _results = awaitexecuteTasksInParallel(tasks);
-      expect(results).toHaveLength(3);
-      expect(results[0].taskId).toBe('task1');
-      expect(results[1].taskId).toBe('task2');
-      expect(results[2].taskId).toBe('task3');
-      expect(results.every((r) => r.success)).toBe(true);
+      }, Math.random() * 100);
     });
-    it('should handle task failures gracefully', async() => {
+  };
+  )
+  // return Promise.all(promises);
+  //   // LINT: unreachable code removed};
+  // const _results = awaitexecuteTasksInParallel(tasks);
+  expect(results).toHaveLength(3)
+  expect(results[0].taskId).toBe('task1');
+  expect(results[1].taskId).toBe('task2');
+  expect(results[2].taskId).toBe('task3');
+  expect(results.every((r) => r.success)).toBe(true);
+});
+it('should handle task failures gracefully', async() => {
       const _mockTaskWithFailure = async(taskId) => {
   if(taskId === 'failing-task') {
           throw new Error('Task failed');
@@ -110,12 +123,11 @@ describe('task execution', () =>
       try {
   // // await mockTaskWithFailure('failing-task');
         expect(true).toBe(false); // Should not reach here
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) { console.error(error); } catch(error) 
         expect(error.message).toBe('Task failed');
       //       }
 // const _successResult = awaitmockTaskWithFailure('working-task');
-      expect(successResult.result).toBe('success');
-    });
+      expect(successResult.result).toBe('success'););
     it('should balance load across workers', () => {
       const _loadBalancer = {
         strategy: 'round-robin',

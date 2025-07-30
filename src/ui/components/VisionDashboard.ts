@@ -1,10 +1,15 @@
-
 /** Vision Dashboard Component - Works in both TUI and Web
 
  */
-import { Box  } from 'ink';'
-import React, { useEffect, useState  } from 'react';'
-import { visionAPI  } from '../shared/vision-api.js';
+import { Box } from 'ink';
+
+'
+
+import React, { useEffect, useState } from 'react';
+
+'
+
+import { visionAPI } from '../shared/vision-api.js';
 
 const _VisionDashboard = () => {
   const [_visions, setVisions] = useState([]);
@@ -16,7 +21,7 @@ const _VisionDashboard = () => {
       try {
 // const _data = awaitvisionAPI.fetchVisions();
         setVisions(data);
-      } catch (error) { console.error(error); } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) 
         console.error('Failed to loadvisions = setInterval(loadVisions, 30000);'
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
@@ -50,4 +55,4 @@ const _VisionDashboard = () => {
 
 // export default VisionDashboard;
 
-}}}}}}}}}}}}
+}}}}}}}}}}}

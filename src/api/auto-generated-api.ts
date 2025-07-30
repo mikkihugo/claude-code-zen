@@ -15,10 +15,11 @@
  * -  Metrics & monitoring;
  */
 
-import { EventEmitter  } from 'node:events';
-import { createServer  } from 'node:http';
+import { EventEmitter } from 'node:events';
+import { createServer } from 'node:http';
 import cors from 'cors';
-import express, { type NextFunction, type Request, type Response  } from 'express';
+import express, { type NextFunction, type Request, type Response } from 'express';
+
 // import rateLimit from 'express-rate-limit';
 // import helmet from 'helmet';
 // import type { WebSocket  } from 'ws';
@@ -60,10 +61,10 @@ import express, { type NextFunction, type Request, type Response  } from 'expres
   // errors: 0
    //    }
  */
-constructor(options)
+constructor(options);
 // {
 //   super();
-  this.options = {
+this.options = {
       port,
   host: 'localhost',
   enableGraphQL,
@@ -72,9 +73,10 @@ constructor(options)
   cors,
   rateLimit,
   authentication,
-..options }
-this.app = express();
-this.setupMiddleware();
+..options
+}
+this.app = express()
+this.setupMiddleware()
 // }
 
 /** Start the API server;
@@ -308,22 +310,28 @@ this.app.get('/api/metrics', (_req, res) =>
         try {
           const _message = JSON.parse(data.toString());
           this.handleWebSocketMessage(ws, message);
-        } catch (error) { console.error(error); } catch(/* _error */) {
-          ws.send(;
-            JSON.stringify({))
-              error);
-          );
-        //         }
-  });
-  ws.on('close', () => {
-    this.metrics.websocketConnections--;
-    this.removeWebSocketSubscriptions(ws);
-  });
-  // Send welcome message
+        } catch (error) { console.error(error); } catch(/* _error */ )
+{
   ws.send(;
-  JSON.stringify({
-          type: 'welcome',
-  message: 'Connected to Claude Code Flow API' }))
+  JSON.stringify({))
+              error);
+  )
+  //         }
+}
+)
+ws.on('close', () =>
+{
+  this.metrics.websocketConnections--;
+  this.removeWebSocketSubscriptions(ws);
+}
+)
+// Send welcome message
+ws.send(;
+JSON.stringify({
+  type: 'welcome',
+  message: 'Connected to Claude Code Flow API',
+});
+)
 // )
 // )
 })

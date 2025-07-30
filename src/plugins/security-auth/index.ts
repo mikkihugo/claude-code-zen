@@ -1,10 +1,9 @@
-
 /** Security & Authentication Plugin;
 /** JWT authentication, basic security scanning, and access control;
 
  */
 import crypto from 'node:crypto';
-import { readFile  } from 'node:fs';
+import { readFile } from 'node:fs';
 
 export class SecurityAuthPlugin {
   constructor(_config = {}) {
@@ -13,7 +12,7 @@ export class SecurityAuthPlugin {
     this.securityRules = null;
     this.authenticators = new Map();
   //   }
-  async initialize() { 
+  async initialize() 
     console.warn(' Security & Auth Plugin initialized');
     // Load security rules
 // await this.loadSecurityRules();
@@ -26,7 +25,7 @@ export class SecurityAuthPlugin {
     try {
 // const _content = awaitreadFile(this.config.securityRulesFile, 'utf8');
       this.securityRules = JSON.parse(content);
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) { console.error(error); } catch(error) 
   if(error.code === 'ENOENT') {
         // Create default security rules
         this.securityRules = {authentication = // await import('jsonwebtoken');
@@ -50,7 +49,7 @@ export class SecurityAuthPlugin {
   keys;
 set(
   key;
-  , {
+  , 
   userId;
 
   permissions;
@@ -83,7 +82,7 @@ try {
   if(method === 'jwt') {
         // Verify username/password(in production, check against database)
         user = // await this.verifyCredentials(username, password);
-      }  catch (error) { console.error(error); }else if(method === 'apikey') {
+      }  catch (error) console.error(error); else if(method === 'apikey') {
         // Verify API key
         const __authenticator = this.authenticators.get('apikey');
 // const __keyData = awaitauthenticator.verifyKey(apiKey);

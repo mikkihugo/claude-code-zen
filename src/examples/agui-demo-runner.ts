@@ -6,13 +6,13 @@
 /** Runwith = ' .repeat(60));'
 
  */
-  try {
+try {
     // Option1 = // await runAGUIDemo();
       console.warn('\n Demo completed! Check the event logs above.');
       return;
     //   // LINT: unreachable code removed}
 
-     catch (error) { console.error(error); }// Option2 = new ClaudeZenServer({ port  });
+     catch (error) console.error(error); 
 
     // Start server
 // // await server.start();
@@ -28,10 +28,11 @@
 // // await server.stop();
       console.warn(' Server stopped');
       process.exit(0);
-    });
+    }
+)
 
-  } catch(error)
+} catch(error)
 // {
   console.error(' Demofailed = === `file) {'`
-  main();
+  main()
 // }

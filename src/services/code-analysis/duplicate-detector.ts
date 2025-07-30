@@ -1,18 +1,21 @@
-
 /** Duplicate Code Detector;
 /** Uses jscpd to detect duplicate code patterns across the codebase;
 
  */
-import { exec  } from 'node:child_process';
-import { createHash  } from 'node:crypto';
-import { promisify  } from 'node:util';
+import { exec } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { promisify } from 'node:util';
 
 // Import glob using dynamic import to avoid ESM issues
 let _glob;
 try {
-// const _globModule = awaitimport('glob');
-  _glob = globModule.glob  ?? globModule.default;
-} catch (error) { console.error(error); } catch(/* _e */) {
+  // const _globModule = awaitimport('glob');
+  _glob = globModule.glob ?? globModule.default;
+} catch (error) {
+  console.error(error);
+}
+catch(/* _e */)
+{
   console.warn('Glob not available, using fallback file discovery');
   _glob = null;
 // }
@@ -21,12 +24,12 @@ const _execAsync = promisify(exec);
 const __jscpdAvailable = false;
 try {
 // // await execAsync('which jscpd', {timeout = true;
-} catch (error) { console.error(error); } catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) 
   console.warn('jscpd not available, using fallback duplicate detection');
   _jscpdAvailable = false;
 // }
 // export class DuplicateCodeDetector {
-  constructor(config = {}) {
+  constructor(config = {}) 
     this.config = {minTokens = '.') {
     console.warn(` Detecting duplicate codein = // await this.runJSCPD(targetPath);`
 
@@ -260,7 +263,7 @@ trim();
             continue; // Skip short lines and comments
           //           }
 
-           catch (error) { console.error(error); }const _lineHash = createHash('md5').update(line).digest('hex');
+           catch (error) console.error(error); const _lineHash = createHash('md5').update(line).digest('hex');
 
           if(!lineHashes.has(lineHash)) {
             lineHashes.set(lineHash, []);
@@ -284,7 +287,7 @@ trim();
     async function walk(currentPath = // await readdir(currentPath);
   for(const entry of entries) {
           const _fullPath = join(currentPath, entry); // const _stats = awaitstat(fullPath); 
-  if(stats.isDirectory() {) {
+  if(stats.isDirectory() {) 
             // Skip common ignored directories
             if(!['node_modules', '.git', 'dist', 'build'].includes(entry)) {
 // // await walk(fullPath);
@@ -294,13 +297,4 @@ trim();
           //           }
         //         }
       } catch(error) ;
-        console.warn(`Skipping directory \$currentPath);`
-    //     }
-// // await walk(dirPath);
-    // return files;
-    //   // LINT: unreachable code removed}
-// }
-
-// export default DuplicateCodeDetector;
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}))))))
+        console.warn(`Skipping directory \$currentPath);`}}}}}}}}}}}}}}}}}}}}}}}))))))

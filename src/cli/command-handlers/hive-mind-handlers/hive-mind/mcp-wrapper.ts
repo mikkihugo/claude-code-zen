@@ -1,9 +1,8 @@
-
 /** MCP Tool Wrapper for Hive Mind System
 /** Wraps all 87 MCP tools for coordinated swarm usage
 
  */
-import { RuvSwarm  } from '../../../../../ruv-FANN/ruv-swarm/npm/src/index.js';
+import { RuvSwarm } from '../../../../../ruv-FANN/ruv-swarm/npm/src/index.js';
 
 /** MCP Tool categories and their methods
 
@@ -30,12 +29,13 @@ this.ruvSwarmInstance = null;
   if(this.defaultRegistry) {
       this.memoryRagPlugin = this.defaultRegistry.pluginSystem.getPlugin('memory-rag');
     //     }
-   catch (error) { console.error(error); }} catch(/* _error */) {
-    console.error('[MCPToolWrapper] Failed to initialize RuvSwarm = {}) {'
-    const _startTime = Date.now();
-    const __lastError = null;
-  for(let attempt = 1; attempt <= this.config.retryCount; attempt++) {
-      try {
+   catch (error) { console.error(error); }} catch(/* _error */ )
+{
+  console.error('[MCPToolWrapper] Failed to initialize RuvSwarm = {}) {'
+  const _startTime = Date.now();
+  const __lastError = null;
+  for (let attempt = 1; attempt <= this.config.retryCount; attempt++) {
+    try {
 // const _result = awaitthis._executeToolInternal(toolName, params);
 
         // Track statistics
@@ -91,7 +91,7 @@ this.ruvSwarmInstance = null;
             const _result = batchResults[j];
   if(result.status === 'fulfilled') {
               groupResults.push(result.value);
-            }  catch (error) { console.error(error); }else {
+            }  catch (error) console.error(error); else 
               console.warn(`Tool executionfailed = Date.now() - startTime;`
     this._trackBatchPerformance(toolCalls.length, executionTime, concurrencyLimit);
 
@@ -146,7 +146,7 @@ _executeWithTimeout(call, timeout);
 
   // return new Promise((resolve, reject) => {
       const _timer = setTimeout(() => {
-        reject(new Error(`Tool ${call.tool} timed out after ${timeout}ms`));
+        reject(new Error(`Tool $call.tooltimed out after $timeoutms`));
     //   // LINT: unreachable code removed}, timeout);
 
       this.executeTool(call.tool, call.params);
@@ -281,7 +281,7 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
       console.warn('[MCPToolWrapper] MemoryRAGPlugin not available. Memory operations will not be persisted.'); // return {success = // await this.memoryRagPlugin.storeMemory(swarmId, key, value, type) {;
     // return {success = // await this.memoryRagPlugin.retrieveMemory(swarmId, key); // LINT: unreachable code removed
       // return result;
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch(/* _error */) 
       console.error('Error retrieving memory viaMemoryRAGPlugin = // await this.memoryRagPlugin.searchMemory(swarmId, pattern);'
       // return {success = 'parallel', metadata = {}) {
   if(!this._ruvSwarmInstance) {
@@ -295,7 +295,7 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
   if(!swarm) {
         throw new Error(`Swarm \$swarmIdnot found for task orchestration.`);
       //       }
-   catch (error) { console.error(error); }if(!swarm) {
+   catch (error) console.error(error); if(!swarm) {
         throw new Error(`Swarm \$swarmIdnot found for performance analysis.`);
       //       }
       // return // await swarm.analyzePerformance();
@@ -332,4 +332,7 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
 // Export tool categories for reference
 // export type { MCP_TOOLS };
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))
+}}}}}}}}}}}}}}}}}}}}
+  }
+}
+}}}}}))

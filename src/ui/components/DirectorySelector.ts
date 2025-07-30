@@ -1,10 +1,14 @@
-
 /** DirectorySelector Module
 /** Converted from JavaScript to TypeScript
 
  */
-import { Box  } from 'ink';'
-import React, { useEffect, useState  } from 'react';'
+import { Box } from 'ink';
+
+'
+
+import React, { useEffect, useState } from 'react';
+
+'
 
 const _DirectorySelector = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -17,7 +21,7 @@ const _DirectorySelector = () => {
     else;
   if(key.upArrow) {
       setSelectedIndex((prev) => Math.max(0, prev - 1));
-    }  catch (error) { console.error(error); }else if(key.downArrow) {
+    }  catch (error) console.error(error); else if(key.downArrow) {
       setSelectedIndex((prev) => Math.min(directories.length - 1, prev + 1));
     } else if(key.return) {
       const _selected = directories[selectedIndex];
@@ -38,7 +42,7 @@ const _DirectorySelector = () => {
 // let _displayName = dir.name; // LINT: unreachable code removed/g)
 if(dir.isParent) displayName = '  ..';'
 else if(dir.isCurrent) displayName = ' . (Select this directory)';'
-else displayName = ` ${dir.name}`;`
+else displayName = ` $dir.name`;`
 // return React.createElement(;
 // Box, // LINT: unreachable code removed
 // {
@@ -52,7 +56,7 @@ Text,
   backgroundColor: isSelected ? 'cyan' ,'
   bold}
 
-`\${isSelected ? ' ' }'`
+`\$isSelected ? ' ' '`
 $;
 // {
   displayName;

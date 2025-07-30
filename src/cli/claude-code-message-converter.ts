@@ -1,4 +1,3 @@
-
 /** Message converter for Claude Code format;
 /** Based on claude-task-master implementation;
 
@@ -72,8 +71,8 @@ replace(/([ ]\s*)(\w+):/g, '$1"$2":') // Quote unquoted keys
 replace(/'/g, '"'); // Replace single quotes"'
 
   try {
-    // return JSON.parse(fixed);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _e2 */) {
-    // return null;
-    //   // LINT: unreachable code removed}
+// return JSON.parse(fixed);
+//   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _e2 */) {
+// return null;
+//   // LINT: unreachable code removed}
 // }

@@ -3,7 +3,7 @@
 /* Test Service Document MCP Tools Directly;
 
  */
-import { ClaudeFlowMCPServer  } from './src/mcp/mcp-server.js';
+import { ClaudeFlowMCPServer } from './src/mcp/mcp-server.js';
 
 async function testServiceDocumentTools() {
   console.warn(' Testing Service Document MCP Tools...\n');
@@ -18,7 +18,8 @@ async function testServiceDocumentTools() {
       version: '2.0.0-alpha.61',
       description: 'Core orchestration service for Claude-Flow microservices',
       responsibilities: ['Service coordination', 'Memory management', 'Task orchestration'])
-  })
+}
+)
 console.warn('Create result:', JSON.stringify(createResult, null, 2))
 // Test 2: List service documents
 console.warn('\nTest 2)'
@@ -50,7 +51,7 @@ validation
 // }
 // }
 // Run test if called directly
-  if(import.meta.url === `file) {`
+if(import.meta.url === `file) {`
   testServiceDocumentTools();
 then((results) =>
       console.warn('\n Final Test Results)'
@@ -58,10 +59,10 @@ then((results) =>
   console.warn('- List:', results.list.success ? '' : '')
   console.warn('- Approval:', results.approval.success ? '' : '')
   console.warn('- Validation:', results.validation.success ? '' : '')
-  //   )
+//   )
 catch((error) =>
       console.error(' Test failed:', error)
   process.exit(1)
-  //   )
+//   )
 // }
 // export { testServiceDocumentTools };

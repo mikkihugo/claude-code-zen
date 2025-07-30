@@ -1,14 +1,15 @@
-
 /** Integration module for ruv-FANN bindings with claude-zen;
 
  */
-import { getActivationFunctions,
-getBackendInfo,
-getVersion,
-init,
-isGpuAvailable,
-NetworkTrainer,
-NeuralNetwork  } from '../bindings/index.js'
+import {
+  getActivationFunctions,
+  getBackendInfo,
+  getVersion,
+  init,
+  isGpuAvailable,
+  NetworkTrainer,
+  NeuralNetwork,
+} from '../bindings/index.js';
 
 /** Network metadata interface;
 

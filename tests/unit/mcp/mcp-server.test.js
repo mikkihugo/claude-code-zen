@@ -1,47 +1,58 @@
-import { promises   } from 'node:fs';
+import { promises } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { afterEach, beforeEach, describe, expect, it  } from '@jest';
+import { afterEach, beforeEach, describe, expect, it } from '@jest';
 
 // Mock all the dependencies
-jest.mock('../../../src/mcp/core/stdio-optimizer.js', () => ({ StdioOptimizer: jest.fn().mockImplementation(() => ({
+jest.mock('../../../src/mcp/core/stdio-optimizer.js', () => ({
+  StdioOptimizer: jest.fn().mockImplementation(() => ({
     initialize: jest.fn(),
-optimize: jest.fn(),
-cleanup: jest.fn()   })) }))
+    optimize: jest.fn(),
+    cleanup: jest.fn(),
+  })),
+}));
 jest.mock('../../../src/mcp/core/error-handler.js', () => (
 // {
   MCPErrorHandler: jest.fn().mockImplementation(() => ({
     handleError: jest.fn(),
   formatError: jest.fn() {}
 // }
-)) }))
+)) })
+)
 jest.mock('../../../src/mcp/core/performance-metrics.js', () => (
 // {
-  PerformanceMetrics: jest.fn().mockImplementation(() => ({ startTimer: jest.fn(),
-  endTimer: jest.fn(),
+  PerformanceMetrics: jest.fn().mockImplementation(() => (
+{
+  startTimer: jest.fn(), endTimer;
+  : jest.fn(),
   recordMetric: jest.fn(),
-  getMetrics: jest.fn(() => ({ requests, averageTime   }))
+  getMetrics: jest.fn(() => (requests, averageTime   ))
 // }
-)) }))
+))
+}
+))
 jest.mock('../../../src/memory/sqlite-store.js', () => (
 // {
-  SqliteMemoryStore: jest.fn().mockImplementation(() => ({
-    initialize: jest.fn(),
-  store: jest.fn(),
+  SqliteMemoryStore: jest.fn().mockImplementation(() => (
+{
+  initialize: jest.fn(), store;
+  : jest.fn(),
   retrieve: jest.fn(),
   list: jest.fn(() => []),
   search: jest.fn(() => []),
-  close: jest.fn() {}
+  close: jest.fn() 
 // }
-)) }))
+))
+}
+))
 describe('MCP Server', () =>
 // {
-  let testDir;
-  beforeEach(async() => {
-    testDir = await fs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-mcp-test-'));
-    process.chdir(testDir);
-  });
-  afterEach(async() => {
+let testDir;
+beforeEach(async () => {
+  testDir = await fs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-mcp-test-'));
+  process.chdir(testDir);
+});
+afterEach(async() => {
     try {
   // await fs.rm(testDir, { recursive, force } catch (error) { console.error(error); });
     } catch(/* _error */) {
@@ -55,13 +66,12 @@ describe('MCP Server', () =>
       let _mcpServerModule;
       try {
         _mcpServerModule = // await import('../../../src/mcp/mcp-server.js');
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) { console.error(error); } catch(error) 
         // If import fails, that's part of what we're testing
         expect(error).toBeDefined();
       //       }
       // The module should either import successfully or fail gracefully
-      expect(true).toBe(true); // Placeholder assertion
-    });
+      expect(true).toBe(true); // Placeholder assertion);
   });
   describe('Error Handling', () => {
     it('should handle missing dependencies gracefully', async() => {
@@ -77,13 +87,10 @@ describe('MCP Server', () =>
 
         // Should have warnings about missing dependencies
         expect(warnings.some((w) => w.includes('not available'))).toBe(true);
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) { console.error(error); } catch(error) 
         // Import might fail, which is acceptable for testing
-        expect(error).toBeDefined();
-      } finally {
-        console.warn = originalConsoleWarn;
-      //       }
-    });
+        expect(error).toBeDefined();finally 
+        console.warn = originalConsoleWarn;);
   });
   describe('Configuration', () => {
     it('should handle different configuration options', () => {

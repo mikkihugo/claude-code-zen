@@ -1,13 +1,25 @@
+*
+@fileoverview
+Neural - enhanced;
+commands;
+using ruv;
+-FANN;
+integration;
 
- * @fileoverview Neural-enhanced commands using ruv-FANN integration
 /** Provides AI-powered development tools with neural intelligence
  * @module NeuralCommand
 
  */
-import { performance  } from 'node:perf_hooks';'
-import chalk from 'chalk';'
-import { NeuralEngine  } from '../../neural/neural-engine.js';
-import { initializeSwarm  } from '..';
+import { performance } from 'node:perf_hooks';
+
+'
+
+import chalk from 'chalk';
+
+'
+
+import { NeuralEngine } from '../../neural/neural-engine.js';
+import { initializeSwarm } from '..';
 
 const _neuralEngine = null;
 
@@ -18,9 +30,11 @@ const _neuralEngine = null;
  */
 
 // export async function neuralCommand(args, flags = args[0]; // LINT);
-console.warn(chalk.cyan(' Neural AI Development Tools'));'
-console.warn(chalk.gray('Powered by ruv-FANN neural intelligence'));'
-console.warn();
+console.warn(chalk.cyan(' Neural AI Development Tools'));
+'
+console.warn(chalk.gray('Powered by ruv-FANN neural intelligence'))
+'
+console.warn()
 try {
     // Initialize neural engine if not already done
   if(!neuralEngine) {
@@ -29,7 +43,7 @@ try {
 // const _initialized = awaitneuralEngine.initialize();
   if(initialized) {
         console.warn(chalk.green(' Neural engine initialized successfully'));'
-      }  catch (error) { console.error(error); }else {
+      }  catch (error) console.error(error); else 
         console.warn(chalk.yellow('  Neural engine running in fallback mode'));'
       //       }
       console.warn();
@@ -83,7 +97,7 @@ try {
   for(const model of availableModels) {
     const _isLoaded = loadedModels.some(loaded => loaded.name === model.name); const _status = isLoaded ? chalk.green(' Loaded') : chalk.gray(' Available'); '
 
-    console.warn(`${status} ${chalk.bold(model.name) {}`);`
+    console.warn(`$status$chalk.bold(model.name) `);`
     console.warn(`Type = neuralEngine.getPerformanceMetrics();`
   console.warn(chalk.cyan(' Neural EngineStatus = args.join(' ');'
   if(!prompt) {
@@ -146,10 +160,10 @@ try {
       console.warn();
       console.warn(chalk.yellow(` Optimized version would be savedto = === 'ENOENT') {'`
       console.error(chalk.red(' File not found), filePath);'
-    }  catch (error) { console.error(error); }else {
+    }  catch (error) console.error(error); else 
       console.error(chalk.red(' Optimization failed), error.message);'
-    //     }
-  //   }
+//     }
+//   }
 // }
 
 /** Show neural command help

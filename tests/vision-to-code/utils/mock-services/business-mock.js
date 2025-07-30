@@ -1,4 +1,3 @@
-
 /** Mock Business Service for Integration Testing;
 /** Provides realistic API responses for testing without real service;
 
@@ -7,14 +6,15 @@ const _express = require('express');
 const _cors = require('cors');
 const {
   mockVisions,
-mockStakeholders,
-apiResponseTemplates } = require('../../fixtures/vision-workflow-fixtures')
+  mockStakeholders,
+  apiResponseTemplates,
+} = require('../../fixtures/vision-workflow-fixtures');
 const _app = express();
 const _port = process.argv[2] ?? 4102;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended   }));
+app.use(express.urlencoded({ extended }));
 // Mock data storage
 const _mockData = {
   visions: new Map(),
@@ -31,7 +31,12 @@ approvals: new Map(),
 // Request logging middleware
 app.use((req, _res, next) =>
 // {
-  console.warn(`[Mock Business] ${req.method} ${req.path}`);
+  console.warn(`[Mock Business] ${req.method}
+$;
+{
+  req.path;
+}
+`);
   next();
 })
 // Health check endpoint
@@ -53,7 +58,12 @@ app.post('/auth/login', (req, res) =>
   if(email && password) {
     res.json(;
     apiResponseTemplates.success({))
-        token: `mock_business_token_${Date.now()}`,
+        token: `;
+mock_business_token_$;
+{
+  Date.now();
+}
+`,
     id: 'mock_user_001',
     email,
     name: 'Mock User',
@@ -75,7 +85,16 @@ app.post('/auth/service-token', (req, res) =>
   const { service_name, permissions } = req.body;
   res.json(;
   apiResponseTemplates.success({))
-      token: `mock_service_token_${service_name}_${Date.now()}`,
+      token: `;
+mock_service_token_$;
+{
+  service_name;
+}
+_$;
+{
+  Date.now();
+}
+`,
   service_name,
   permissions: permissions  ?? ['read', 'write'],
   expires_in
@@ -86,7 +105,12 @@ app.post('/auth/service-token', (req, res) =>
 app.post('/api/visions', (req, res) =>
 // {
   const _vision = { ...req.body,
-  id: req.body.id  ?? `vision_mock_${Date.now() }`,
+  id: req.body.id  ?? `;
+vision_mock_$;
+{
+  Date.now();
+}
+`,
   status: 'pending_approval',
   created_at: new Date().toISOString(),
   updated_at: new Date().toISOString()
@@ -376,6 +400,17 @@ app.use((_req, res) =>
 // Start server
 app.listen(port, () =>
 // {
-  console.warn(`Mock Business Service running on port ${port}`);
+  console.warn(`;
+Mock;
+Business;
+Service;
+running;
+on;
+port;
+$;
+{
+  port;
+}
+`);
 })
 module.exports = app;

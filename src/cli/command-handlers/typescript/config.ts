@@ -1,13 +1,12 @@
-
 /** Config Command Handler - TypeScript Edition
 /** Configuration management with comprehensive validation and type safety
 
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { CLIError  } from '../../types/cli.js';
-import type { Logger  } from '../../types/core.js';
-import { FlagValidator  } from '../core/argument-parser.js';
+import { CLIError } from '../../types/cli.js';
+import type { Logger } from '../../types/core.js';
+import { FlagValidator } from '../core/argument-parser.js';
 
 // =============================================================================
 // CONFIG COMMAND TYPES
@@ -137,7 +136,7 @@ try {
   if(!config[section]) {
       errors.push(`Missing required section = {valid = === 0,`
       errors,)
-      warnings; } catch (error) { console.error(error); }; if(errors.length === 0 && warnings.length === 0) {
+      warnings; } catch (error) console.error(error); ; if(errors.length === 0 && warnings.length === 0) {
       console.warn(' Configuration is valid');
     } else {
   if(errors.length > 0) {

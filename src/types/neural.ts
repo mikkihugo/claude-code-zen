@@ -1,9 +1,8 @@
-
 /** Neural Network Types;
 /** Rust-based neural processing with FANN integration and GPU acceleration;
 
  */
-import type { JSONObject, UUID  } from '.';
+import type { JSONObject, UUID } from '.';
 
 // =============================================================================
 // NEURAL CORE TYPES
@@ -127,7 +126,10 @@ export type NeuralArchitecture = 'feedforward';
 // ('optimization-completed')
 // : (modelId = > void
 // // }
- catch (error) { console.error(error); }// =============================================================================
+ catch (error)
+{
+  console.error(error);
+} // =============================================================================
 // AUXILIARY TYPES
 // =============================================================================
 
@@ -227,16 +229,16 @@ uncertainty?;
 //     // message: string
 //   }[];
 // {
-  severity: 'low' | 'medium' | 'high' | 'critical';
-  category: 'performance' | 'accuracy' | 'availability' | 'resource';
-  // description: string
-  // recommendation: string
+severity: 'low' | 'medium' | 'high' | 'critical';
+category: 'performance' | 'accuracy' | 'availability' | 'resource';
+// description: string
+// recommendation: string
 // }
 [];
 // {
-  // metric: string
-  direction: 'improving' | 'stable' | 'degrading';
-  // confidence: number
+// metric: string
+direction: 'improving' | 'stable' | 'degrading';
+// confidence: number
 // }
 [];
 // lastCheck: Date

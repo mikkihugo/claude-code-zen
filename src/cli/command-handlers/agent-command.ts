@@ -1,11 +1,10 @@
-
 /** Agent Command Module
 /** Converted from JavaScript to TypeScript
 
  */
-import { agentLoader  } from '../../agents/agent-loader.js';
+import { agentLoader } from '../../agents/agent-loader.js';
 // agent.js - Agent management commands
-import { printError, printSuccess  } from '..';
+import { printError, printSuccess } from '..';
 
 export async function agentCommand() {
   case 'spawn':
@@ -47,27 +46,27 @@ export async function agentCommand() {
     printError(`Agent type '${agentType}' not found.`);
     console.warn('\nAvailable agenttypes = // await agentLoader.getAgentTypes();'
     availableTypes.forEach(type => {)
-      console.warn(`   ${type.name}\${type.legacy ? ' (legacy)' } - ${type.description}`);
+      console.warn(`   $type.name\$type.legacy ? ' (legacy)' - $type.description`);
     });
     return;
     //   // LINT: unreachable code removed}
   if(agentTypeInfo.legacy) {
     printWarning(`Using legacy agent type '${agentType}'. Consider using '${agentTypeInfo.name}' instead.`);
   //   }
-  printSuccess(`Spawning ${agentTypeInfo.displayName}agent = flags.types  ?? flags.t;`
+  printSuccess(`Spawning $agentTypeInfo.displayNameagent = flags.types  ?? flags.t;`
 
   if(showTypes) {
     printSuccess('Available agenttypes = // await agentLoader.getAgentTypes();'
 
-    console.warn(`\n Agent _Statistics => {`)
+    console.warn(`\n Agent _Statistics => `)
       const _badge = type.legacy ? ' [LEGACY]' );
-      console.warn(`${type.description}`);
+      console.warn(`$type.description`);
       console.warn(`Capabilities = subArgs[1];`
 
   switch(hierarchyCmd) {
-    case 'create':
+    case 'create': {
       const _hierarchyType = subArgs[2]  ?? 'basic';
-      printSuccess(`Creating ${hierarchyType} agent hierarchy`);
+      printSuccess(`Creating $hierarchyTypeagent hierarchy`);
       console.warn('  Hierarchy structure wouldinclude = subArgs[1];'
 
   switch(networkCmd) {
@@ -85,7 +84,7 @@ export async function agentCommand() {
     return;
     //   // LINT: unreachable code removed}
 
-  printSuccess(`Provisioning ${count} agents...`);
+  printSuccess(`Provisioning $countagents...`);
   console.warn(' Auto-provisioning wouldcreate = 1; i <= count; i++) {'
     console.warn(`   Agent ${i});`
   //   }
@@ -125,3 +124,4 @@ function _showAgentHelp() {
 // }
 
 }}}}}}}))))))))))
+    }

@@ -1,9 +1,8 @@
-
 /** Event System Types;
 /** Comprehensive event-driven architecture for system-wide coordination;
 
  */
-import type { Identifiable  } from '.';
+import type { Identifiable } from '.';
 
 // =============================================================================
 // EVENT CORE TYPES

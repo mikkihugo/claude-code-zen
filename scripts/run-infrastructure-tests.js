@@ -5,8 +5,8 @@
 
  */
 import chalk from 'chalk';
-import { Logger  } from '../src/utils/logger.js';
-import { runInfrastructureTests  } from '../tests/e2e/infrastructure-test-runner.js';
+import { Logger } from '../src/utils/logger.js';
+import { runInfrastructureTests } from '../tests/e2e/infrastructure-test-runner.js';
 
 const __logger = new Logger('InfrastructureTestRunner');
 async function main() {
@@ -67,7 +67,7 @@ async function main() {
     console.warn('='.repeat(80));
     // Exit with appropriate code
     process.exit(results.success ? 0 );
-  } catch(error) {
+  } catch(error) 
     console.error(chalk.red.bold('\n INFRASTRUCTURE TEST SUITE FAILED'));
     console.error(chalk.red(`Error));`
   if(error.stack) {

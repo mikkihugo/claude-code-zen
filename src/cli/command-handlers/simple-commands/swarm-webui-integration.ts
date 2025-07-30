@@ -1,4 +1,3 @@
-
 /** Swarm Orchestration WebUI Integration
 /** Integrates ruv-swarm capabilities with the cross-platform WebUI
 
@@ -17,9 +16,9 @@ export class SwarmWebUIIntegration {
   this;
 
   tasks = new Map();
-// }
+  // }
 
-/** Initialize swarm integration
+  /** Initialize swarm integration
 
 async;
 initializeSwarm((topology = 'hierarchical'), (maxAgents = 8));
@@ -46,12 +45,18 @@ initializeSwarm((topology = 'hierarchical'), (maxAgents = 8));
 
     // Update UI with swarm status
     this.updateSwarmStatus();
-  } catch(/* _err */) {
-    this.ui.addLog('error', `Failed to initializeswarm = === 'true';`)
-    } catch(/* err */) {
-      // return false;
-    //   // LINT: unreachable code removed}
-  //   }
+  } catch(/* _err */ ) {
+    this.
+  ui;
+  .
+  addLog('error', `Failed to initializeswarm = === 'true';
+  `)
+}
+catch(/* err */)
+{
+// return false;
+//   // LINT: unreachable code removed}
+//   }
 
 /** Initialize mock swarm for demonstration
 

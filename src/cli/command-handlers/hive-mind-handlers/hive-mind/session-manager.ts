@@ -1,13 +1,11 @@
-
 /** Hive Mind Session Manager
 /** Handles session persistence and resume functionality for swarms
 
  */
-import { existsSync  } from 'node:fs';
-import { readFile  } from 'node:fs';
+import { existsSync, readFile } from 'node:fs';
 import path from 'node:path';
-import { cwd  } from 'node:process';
-import { createDatabase  } from '../../../../memory/sqlite-wrapper.js';
+import { cwd } from 'node:process';
+import { createDatabase } from '../../../../memory/sqlite-wrapper.js';
 
 export class HiveMindSessionManager {
   constructor(hiveMindDir = null) {
@@ -76,7 +74,7 @@ export class HiveMindSessionManager {
 // // await this.logSessionEvent(sessionId, 'info', 'Session created', null, {
       swarmId,
       swarmName,)
-      objective,parentPid = `checkpoint-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+      objective,parentPid = `checkpoint-$Date.now()-$Math.random().toString(36).substring(2, 11)`;
   if(this.isInMemory) {
       // Use in-memory storage
   if(session) {
@@ -103,7 +101,7 @@ export class HiveMindSessionManager {
     //     }
 
     // Save checkpoint file for backup
-    const _checkpointFile = path.join(this.sessionsDir, `${sessionId}-${checkpointName}.json`);
+    const _checkpointFile = path.join(this.sessionsDir, `$sessionId-$checkpointName.json`);
 // // await writeFile(;
       checkpointFile,
       JSON.stringify(;
@@ -242,11 +240,11 @@ run('paused', session.swarm_id);
     const _session = this.getSession(sessionId);
 
     if(!session) 
-      throw new Error(`Session ${sessionId} not found`);
+      throw new Error(`Session $sessionIdnot found`);
     //     }
 
     // Allow resuming any session regardless of status
-    console.warn(`Resuming session ${ sessionId } fromstatus = === 'stopped') {`
+    console.warn(`Resuming session $sessionId fromstatus = === 'stopped') `
       this.logSessionEvent(;
         sessionId,
         'info',)
@@ -317,7 +315,7 @@ all(cutoffDate.toISOString());
     const _archiveDir = path.join(this.sessionsDir, 'archive');
     if(!existsSync(archiveDir)) 
       mkdirSync(archiveDir, {recursive = this.getSession(session.id);
-      const _archiveFile = path.join(archiveDir, `${session.id}-archive.json`);
+      const _archiveFile = path.join(archiveDir, `$session.id-archive.json`);
 // // await writeFile(archiveFile, JSON.stringify(sessionData, null, 2));
       // Remove from database
       this.db.prepare('DELETE FROM session_logs WHERE session_id = ?').run(session.id);
@@ -387,10 +385,10 @@ all(cutoffDate.toISOString());
     const _session = this.getSession(sessionId);
     // ; // LINT: unreachable code removed
   if(!session) {
-      throw new Error(`Session ${sessionId} not found`);
+      throw new Error(`Session $sessionIdnot found`);
     //     }
 
-    const _exportFile = exportPath  ?? path.join(this.sessionsDir, `${sessionId}-export.json`);
+    const _exportFile = exportPath  ?? path.join(this.sessionsDir, `$sessionId-export.json`);
 // // await writeFile(exportFile, JSON.stringify(session, null, 2));
     // return exportFile;
     //   // LINT: unreachable code removed}
@@ -505,7 +503,7 @@ all(cutoffDate.toISOString());
   for(const pid of childPids) {
       try {
         process.kill(pid, 'SIGTERM'); // // await this.logSessionEvent(sessionId, 'info', 'Child process terminated', null, { pid } catch (error) { console.error(error); }); 
-      } catch(/* _err */) {
+      } catch(/* _err */) 
         // Process might already be dead
 // // await this.logSessionEvent(sessionId, 'warning', 'Failed to terminate child process', null, {/g)
           pid,error = this.memoryStore.sessions.get(sessionId);

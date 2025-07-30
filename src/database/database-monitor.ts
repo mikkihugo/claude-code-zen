@@ -1,19 +1,19 @@
-
 /** Database Monitor - TypeScript Edition;
 /** Comprehensive database health monitoring and metrics collection system;
  * with alerting, performance tracking, and automated issue detection
 
  */
-import { EventEmitter  } from 'events';
-import { JSONValue  } from '../types/core';
-import { DatabaseConnection,
-DatabaseHealthReport,
-DatabaseManager,
-DatabaseMetrics,
-JSONObject,
-// type UUID
+import { EventEmitter } from 'events';
+import { JSONValue } from '../types/core';
+import {
+  DatabaseConnection,
+  DatabaseHealthReport,
+  DatabaseManager,
+  DatabaseMetrics,
+  JSONObject,
+  // type UUID
+} from '../types/database';
 
- } from '../types/database'
 // // interface MonitorConfig {
 //   checkInterval?;
 //   metricsRetention?;
@@ -50,7 +50,9 @@ this.databaseManager = databaseManager;
 this.config = {checkInterval = = false,enableTrends = = false,enablePredictiveAnalysis = = false;
 // }
 // Listen to database manager events
-this.setupEventListeners() {}
+this.setupEventListeners();
+{
+}
 // }
 
 /** Start monitoring

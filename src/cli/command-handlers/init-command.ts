@@ -1,16 +1,22 @@
 // init-command.js - Enhanced init command with template support
 // Integrated into meow/ink CLI system
 
-import { promises as fs  } from 'node:fs';'
-import path from 'node:path';'
-import { TemplateManager  } from '..';
-import { printSuccess  } from '..';
+import { promises as fs } from 'node:fs';
+
+'
+
+import path from 'node:path';
+
+'
+
+import { printSuccess, TemplateManager } from '..';
 
 /** Initialize a new Claude Zen project
 
  */
 export async function initCommand(input = Array.isArray(input) ? input = args[0]  ?? process.cwd();
-const _templateName = flags.template ?? 'claude-zen';'
+const _templateName = flags.template ?? 'claude-zen';
+'
 try {
     printSuccess(' Initializing Claude Zen project...');'
 
@@ -32,7 +38,7 @@ try {
         "CLAUDE_ZEN_AUTO_PUSH": "false","
         "CLAUDE_ZEN_HOOKS_ENABLED": "true","
         "CLAUDE_ZEN_TELEMETRY_ENABLED": "true";"
-      } catch (error) { console.error(error); },
+      } catch (error) console.error(error); ,
       "permissions": null"
         "allow": [;"
           "Bash(npm run *)","

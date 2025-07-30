@@ -1,10 +1,9 @@
-
 /** Centralized help system
 /** Implements Google's single responsibility principle;'
 /** Provides comprehensive help and usage information for CLI commands
 
  */
-import { HelpFormatter  } from '..';
+import { HelpFormatter } from '..';
 
 /** Help system options interface
 
@@ -64,14 +63,15 @@ console.warn(' QUICKSTART = this.commandExecutor.getCommandInfo(commandName);'
    * @param details - Command details text
    * @returns Parsed help options
  */
-    // */; // LINT: unreachable code removed
-  // // private parseOptionsFromDetails(details = details.match(/Options:([\s\S]*?)(?=\n\n|$)/)
-    if(!optionsMatch) return [];
-    // ; // LINT: unreachable code removed
-    const _optionsText = optionsMatch[1];
-    const _options = [];
-    const _optionLines = optionsText.split('\n').filter(line => line.trim());'
-  for(const line of optionLines) {
+// */; // LINT: unreachable code removed
+// // private parseOptionsFromDetails(details = details.match(/Options:([\s\S]*?)(?=\n\n|$)/)
+if (!optionsMatch) return [];
+// ; // LINT: unreachable code removed
+const _optionsText = optionsMatch[1];
+const _options = [];
+const _optionLines = optionsText.split('\n').filter((line) => line.trim());
+'
+for(const line of optionLines) {
       const _match = line.match(/^\s*(--.+?)\s{2 }(.+)$/)
   if(match) {
         const [ flags, description] = match; // Check for default value in description
@@ -79,7 +79,7 @@ console.warn(' QUICKSTART = this.commandExecutor.getCommandInfo(commandName);'
         //         }
 
 ))
-        options.push(option) {;
+        options.push(option) ;
       //       }
     //     }
 

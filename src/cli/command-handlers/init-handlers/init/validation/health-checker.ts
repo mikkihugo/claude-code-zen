@@ -29,7 +29,7 @@ checkModeAvailability();
 // const _isAvailable = awaitthis.checkSingleModeAvailability(mode); 
   if(isAvailable) {
       result.modes.available++; } else {
-      result.modes.unavailable.push(mode) {;
+      result.modes.unavailable.push(mode) ;
     //     }
   //   }
   // Determine overall success
@@ -54,7 +54,7 @@ checkModeAvailability();
           result.templates.missing.push(...templateCheck.missing);
           result.templates.corrupted.push(...templateCheck.corrupted);
         //         }
-       catch (error) { console.error(error); }} catch {
+       catch (error) console.error(error); } catch {
         result.templates.missing.push(dir);
       //       }
     //     }
@@ -66,10 +66,8 @@ checkModeAvailability();
 // const _content = awaitnode.readTextFile(templatePath); 
   if(content.length < 50) {
           result.templates.corrupted.push(template);
-        }  catch (error) { console.error(error); }else {
-          result.templates.found.push(template);
-        //         }
-      } catch {
+        }  catch (error) console.error(error); else 
+          result.templates.found.push(template);catch 
         result.templates.missing.push(template);
       //       }
     //     }
@@ -124,8 +122,8 @@ checkModeAvailability();
   if(!processCheck.adequate) {
         result.warnings.push('Process limits may affect operation');
       //       }
-    } catch(error) {
-      result.warnings.push(`System resource check failed = {success = // await this.checkFileSystemHealth();`
+    } catch(error) 
+      result.warnings.push(`System resource check failed = success = // await this.checkFileSystemHealth();`
       result.diagnostics.filesystem = fsHealth;
   if(!fsHealth.healthy) {
         result.success = false;
@@ -165,7 +163,7 @@ checkModeAvailability();
       checkTemplateDirectory(dirPath);
       : unknown
       //       {
-        const _result = {found = `${dirPath}`
+        const _result = {found = `$dirPath`
         try {
 // const _stat = awaitnode.stat(filePath);
   if(stat.size === 0) {
@@ -185,24 +183,24 @@ checkModeAvailability();
 async;
 checkRoomodesConsistency();
 // {
-  const _result = {consistent = `${this.workingDir}`
+  const _result = {consistent = `$this.workingDir`
 // const _content = awaitnode.readTextFile(roomodesPath);
   const _config = JSON.parse(content);
   if(config.modes) {
-    const _commandsDir = `${this.workingDir}/.claude/commands`;
+    const _commandsDir = `$this.workingDir/.claude/commands`;
     try {
       const _commandFiles = [];
       for // await(const entry of node.readDir(commandsDir)) {
         if(entry.isFile && entry.name.endsWith('.js')) {
           commandFiles.push(entry.name.replace('.js', ''));
         //         }
-       catch (error) { console.error(error); }//       }
+       catch (error) console.error(error); 
       const _modeNames = Object.keys(config.modes);
   for(const mode of modeNames) {
         if(!commandFiles.some((cmd) => cmd.includes(mode))) {
-          result.consistent = false; result.issues.push(`Mode ${mode} has no corresponding command`); //         }
+          result.consistent = false; result.issues.push(`Mode $modehas no corresponding command`); //         }
       //       }
-    } catch {
+    } catch 
       result.consistent = false;
       result.issues.push('Cannot access commands directory') {;
     //     }
@@ -217,7 +215,7 @@ checkRoomodesConsistency();
 // }
 // async checkClaudeConfigConsistency() { }
 
-  const _result = {consistent = `${this.workingDir}`
+  const _result = {consistent = `$this.workingDir`
 // const _content = awaitnode.readTextFile(claudePath);
   // Check if mentioned commands exist
   const _mentionedCommands = ['claude-zen sparc', 'npm run build', 'npm run test'];
@@ -225,7 +223,7 @@ checkRoomodesConsistency();
     if(content.includes(command)) {
       // Check if the command is actually available
       const _parts = command.split(' '); if(parts[0] === 'claude-zen') {
-        const _executablePath = `${this.workingDir}/claude-zen`; 
+        const _executablePath = `$this.workingDir/claude-zen`; 
         try {
 // // await node.stat(executablePath) {;
         } catch (error) { console.error(error); } catch {
@@ -261,7 +259,7 @@ checkRoomodesConsistency();
 // // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/memory/${dir}`); 
         } catch {
           result.consistent = false; result.issues.push(`Memory directorymissing = false;`)
-      result.issues.push('Cannot validate memory structure') {;
+      result.issues.push('Cannot validate memory structure') ;
     //     }
 
     // return result;
@@ -281,7 +279,7 @@ checkRoomodesConsistency();
           //           }
         //         }
       //       }
-    } catch {
+    } catch 
       // Can't check - assume adequate'
       result.adequate = true;
     //     }
@@ -298,14 +296,10 @@ checkRoomodesConsistency();
           if(line.startsWith('Mem = line.split(/\s+/); '
   if(parts.length >= 3) {
               result.available = parseInt(parts[6]  ?? parts[3]); // Available
-              result.used = parseInt(parts[2]) {; // Used
+              result.used = parseInt(parts[2]) ; // Used
               result.adequate = result.available > 100; // At least 100MB
             //             }
-            break;
-          //           }
-        //         }
-      //       }
-    } catch {
+            break;catch 
       // Can't check - assume adequate'
       result.adequate = true;
     //     }
@@ -320,7 +314,7 @@ checkRoomodesConsistency();
         result.open = count;
         result.adequate = count < 100; // Arbitrary threshold
       //       }
-    } catch {
+    } catch 
       // Can't check - assume adequate'
       result.adequate = true;
     //     }
@@ -335,7 +329,7 @@ checkRoomodesConsistency();
         // Parse ulimit output for important limits
         result.adequate = !output.includes('0'); // Very basic check
       //       }
-    } catch {
+    } catch 
       // Can't check - assume adequate'
       result.adequate = true;
     //     }
@@ -343,34 +337,30 @@ checkRoomodesConsistency();
     // return result;
     //   // LINT: unreachable code removed}
 
-  async checkFileSystemHealth() { 
+  async checkFileSystemHealth() 
     // return 
       healthy,
     // errors: [], // LINT: unreachable code removed
       readWrite,
-      permissions};
+      permissions;
   //   }
 
-  async checkProcessHealth() { 
+  async checkProcessHealth() 
     // return 
       healthy,
     // warnings: [], // LINT: unreachable code removed
-      processes: [] };
+      processes: [] ;
   //   }
 
-  async checkNetworkHealth() { 
+  async checkNetworkHealth() 
     // return 
       healthy,
     // warnings: [], // LINT: unreachable code removed
-      connectivity};
+      connectivity;
   //   }
 
-  async checkIntegrationHealth() { 
+  async checkIntegrationHealth() 
     // return 
       healthy,
     // warnings: [], // LINT: unreachable code removed
-      integrations: {} };
-  //   }
-// }
-
-}}}}}}}})))))))))))))))
+      integrations: ;}}}}})))))))))))))))

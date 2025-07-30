@@ -1,4 +1,3 @@
-
 /**  HIVE-MIND PRIMARY SYSTEM;
  * ;
 /** UNIFIED COORDINATION SYSTEM with = {name = 'created';
@@ -33,7 +32,8 @@
   // private learningEvents = [];
   // private adaptationStrategies = new Map();
  */
-  constructor(options = {}) {
+constructor((options = {}));
+{
 //     super();
 
     this.id = `hive-mind-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -556,7 +556,7 @@ let _globalHiveMind = null;
   if(!globalHiveMind) {
     globalHiveMind = new HiveMindPrimary(options);
 // await globalHiveMind.initialize();
-  //   }
+//   }
 //   return globalHiveMind;
 // }
 

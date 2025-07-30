@@ -1,48 +1,142 @@
-import { EventEmitter  } from 'node:events';'
-import { performance  } from 'node:perf_hooks';'
-import { Logger  } from '../utils/logger.js';
+import { EventEmitter } from 'node:events';
 
- * @typedef {Object} Task
- * @property {string} id - Task ID
- * @property {'code-generation' | 'bug-detection' | 'refactoring' | 'test-generation' | 'documentation' | 'architecture-review'} type - Task type;'
- * @property {string} prompt - Task prompt
- * @property {{code?, language?, framework?, testType?, fileType?}} [context] - Task context
- * @property {'low' | 'medium' | 'high' | 'critical'} priority - Task priority;'
- * @property {Date} [deadline] - Task deadline
- * @property {any} [metadata] - Additional metadata
+'
+
+import { performance } from 'node:perf_hooks';
+
+'
+
+import { Logger } from '../utils/logger.js';
+
+*
+@typedef
+{
+  Object;
+}
+Task
+ * @property {string}
+id - Task;
+ID
+ * @property {'code-generation' | 'bug-detection' | 'refactoring' | 'test-generation' | 'documentation' | 'architecture-review'}
+type - Task;
+type;
+'
+ *
+@property
+{
+  string;
+}
+prompt - Task;
+prompt
+ * @property {{code?, language?, framework?, testType?, fileType?}
+} [context] - Task context
+ *
+@property
+{
+  'low' | 'medium' | 'high' | 'critical';
+}
+priority - Task;
+priority;
+'
+ *
+@property
+{
+  Date;
+}
+[deadline] - Task;
+deadline
+ * @property {any} [metadata] - Additional
+metadata
  */
 
- * @typedef {Object} Result
- * @property {string} taskId - Task ID
- * @property {string} queenName - Queen name
- * @property {string} recommendation - Recommended solution
- * @property {number} confidence - Confidence score(0-1)
- * @property {string} reasoning - Reasoning for solution
+ * @typedef {Object}
+Result
+ * @property {string}
+taskId - Task;
+ID
+ * @property {string}
+queenName - Queen;
+name
+ * @property {string}
+recommendation - Recommended;
+solution
+ * @property {number}
+confidence - Confidence;
+score(0-1)
+ * @property {string}
+reasoning - Reasoning;
+for solution
  * @property {number} processingTime - Processing time in ms
- * @property {string[]} [alternatives] - Alternative solutions
- * @property {any} [metadata] - Additional metadata
+ * @property {string[]} [alternatives] - Alternative
+solutions
+ * @property {any} [metadata] - Additional
+metadata
  */
 
- * @typedef {Object} Consensus
- * @property {string} taskId - Task ID
- * @property {string} decision - Consensus decision
- * @property {number} confidence - Confidence score(0-1)
- * @property {number} participants - Number of participants
- * @property {'majority' | 'weighted' | 'expert' | 'unanimous'} method - Consensus method;'
- * @property {Result[]} [dissenting] - Dissenting opinions
- * @property {number} processingTime - Processing time in ms
- * @property {string} reasoning - Reasoning for consensus
+ * @typedef {Object}
+Consensus
+ * @property {string}
+taskId - Task;
+ID
+ * @property {string}
+decision - Consensus;
+decision
+ * @property {number}
+confidence - Confidence;
+score(0-1)
+ * @property {number}
+participants - Number;
+of;
+participants
+ * @property {'majority' | 'weighted' | 'expert' | 'unanimous'}
+method - Consensus;
+method;
+'
+ *
+@property
+{
+  Result[]
+}
+[dissenting] - Dissenting;
+opinions
+ * @property {number}
+processingTime - Processing;
+time in
+  ms
+ * @property {string};
+reasoning - Reasoning;
+for consensus
  */
 
  * @typedef {Object} QueenMetrics
- * @property {number} tasksProcessed - Number of tasks processed
- * @property {number} averageConfidence - Average confidence score
- * @property {number} averageProcessingTime - Average processing time
- * @property {number} successRate - Success rate
- * @property {number} specialtyMatch - Specialty match rate
- * @property {number} collaborations - Number of collaborations
- * @property {number} consensusReached - Number of consensus reached
- */
+ * @property {number} tasksProcessed - Number
+of;
+tasks;
+processed
+ * @property {number}
+averageConfidence - Average;
+confidence;
+score
+ * @property {number}
+averageProcessingTime - Average;
+processing;
+time
+ * @property {number}
+successRate - Success;
+rate
+ * @property {number}
+specialtyMatch - Specialty;
+match;
+rate
+ * @property {number}
+collaborations - Number;
+of;
+collaborations
+ * @property {number}
+consensusReached - Number;
+of;
+consensus;
+reached * /;;
 
 // Export the JSDoc types as empty exports so they can be imported
 // export const Task = /** @type {Task} */ ({  })
@@ -51,30 +145,30 @@ import { Logger  } from '../utils/logger.js';
 // export const QueenMetrics = /** @type {QueenMetrics} */ ({  })
 
 // export class BaseQueen extends EventEmitter {
-  constructor(name = name;
-  this;
+constructor(name = name;
+this;
 
-  specialty = specialty;
-  this;
+specialty = specialty;
+this;
 
-  confidence = 0.8;
-  this;
+confidence = 0.8;
+this;
 
-  workload = 0;
-  this;
+workload = 0;
+this;
 
-  maxConcurrentTasks = 5;
-  this;
+maxConcurrentTasks = 5;
+this;
 
-  isActive = true;
-  this;
+isActive = true;
+this;
 
-  activeTasks = new Set();
-  this;
+activeTasks = new Set();
+this;
 
-  logger = new Logger(`Queen = {tasksProcessed = performance.now();`
+logger = new Logger(`Queen = {tasksProcessed = performance.now();`
 
-        try {
+try {
             this.logger.info(`Collaborating on task ${task.id}  catch (error) { console.error(error); }with ${otherQueens.length} other queens`);`
 
   // Process task with all queens in parallel
@@ -325,7 +419,9 @@ reachConsensus(task, results, method);
     //   // LINT: unreachable code removed}
 
     async shutdown() { 
-        this.logger.info(`Shutting down $this.name}...`);`
+        this.logger.info(`Shutting down $this.name}
+...`)
+`
         this.isActive = false;
 
         // Wait for active tasks to complete(with timeout)

@@ -1,14 +1,13 @@
-
 /** Queen Council System - Multi-Queen Strategic Coordination;
 /** Integrates with PRDs, Roadmaps, Architecture Docs, and Strategic Planning;
 
  */
-import { mkdir  } from 'node:fs';
+import { mkdir } from 'node:fs';
 import path from 'node:path';
-import { circuitBreakerManager  } from '../core/circuit-breaker.js';
-import { log  } from '../core/logger.js';
-import { strategicDocs  } from '../database/strategic-documents-manager.js';
-import { printError, printInfo  } from '..';
+import { printError, printInfo } from '..';
+import { circuitBreakerManager } from '../core/circuit-breaker.js';
+import { log } from '../core/logger.js';
+import { strategicDocs } from '../database/strategic-documents-manager.js';
 
 const _QUEEN_COUNCIL_DIR = path.join(process.cwd(), '.hive-mind', 'queen-council');
 
@@ -216,11 +215,14 @@ export class QueenCouncil {
         objective,consensusResult = =================== ERROR RECOVERY METHODS ====================
 
     // /** // LINT: unreachable code removed */
-   * Execute emergency decision when most queens are unavailable;
-   */;/g)
-  async executeEmergencyDecision(objective, context, relevantDocs): unknown
+* Execute emergency decision when most queens are unavailable
+*/
+/)g
+async;
+executeEmergencyDecision(objective, context, relevantDocs);
+: unknown
   printWarning(' EMERGENCYMODE = this.queens[this.errorRecovery.emergencyQueen];'
-      if(!emergencyQueen) {
+if(!emergencyQueen) {
         throw new Error('Emergency queen not available');
       //       }
 
@@ -262,7 +264,7 @@ export class QueenCouncil {
         'PARTIALCONSENSUS = Math.max(0.3, consensus.confidence * 0.8);'
   printWarning(` Partial consensusachieved = originalThreshold;`
     //     }
-   catch (error) { console.error(error); }//   }
+   catch (error) { console.error(error); } //   }
 
 /** Get comprehensive error recovery status;
 

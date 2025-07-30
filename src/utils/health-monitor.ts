@@ -1,9 +1,8 @@
-
 /** Health Monitoring Utilities;
 /** System health checks and monitoring for Claude Flow servers
 
  */
-import { EventEmitter  } from 'node:events';
+import { EventEmitter } from 'node:events';
 import fs from 'node:fs';
 import os from 'node:os';
 import process from 'node:process';

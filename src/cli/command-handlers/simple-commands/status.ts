@@ -1,4 +1,3 @@
-
 /** Status Module;
 /** Converted from JavaScript to TypeScript;
 
@@ -6,7 +5,7 @@
 export async function statusCommand(subArgs = subArgs.includes('--verbose')  ?? subArgs.includes('-v')  ?? flags.verbose;
 const _json = subArgs.includes('--json') ?? flags.json;
 // const _status = awaitgetSystemStatus(verbose);
-  if(json) {
+if(json) {
   console.warn(JSON.stringify(status, null, 2));
 } else {
   displayStatus(status, verbose);
@@ -101,12 +100,5 @@ function formatUptime(milliseconds = === 0) return '0s';
         } else {
           flags[flagName] = true;
         //         }
-      } else {
-        args.push(arg);
-      //       }
-    //     }
-  //   }
-// // await statusCommand(args, flags);
-// }
-
-}}))
+      } else 
+        args.push(arg);}))

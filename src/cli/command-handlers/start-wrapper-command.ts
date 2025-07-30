@@ -1,11 +1,9 @@
-
 /** Start Wrapper Command Module
 /** Converted from JavaScript to TypeScript
 
  */
-import { compat  } from '..';
 // start-wrapper.js - Wrapper to maintain backward compatibility with the new modular start command
-import { printError, printInfo, printSuccess  } from '..';
+import { compat, printError, printInfo, printSuccess } from '..';
 
 export async function startCommand(subArgs = subArgs.includes('--daemon')  ?? subArgs.includes('-d')  ?? flags.daemon;
 const _port =;
@@ -29,7 +27,7 @@ try {
 
     // 1. Start Claude Zen API server(schema-driven)
     try {
-      const { claudeZenServer }  catch (error) { console.error(error); }= // await import('../../api/claude-zen-server.js');
+      const { claudeZenServer }  catch (error) console.error(error); = // await import('../../api/claude-zen-server.js');
       claudeZenServer.port = apiPort;
 // // await claudeZenServer.start();
       services.push('API Server');
@@ -57,7 +55,7 @@ try {
         // If web UI fails, fall back to terminal UI
         printWarning('Web UI failed, launching terminal UI...');
         try {
-          const { launchEnhancedUI }  catch (error) { console.error(error); }= // await import('./process-ui-enhanced.js');
+          const { launchEnhancedUI }  catch (error) console.error(error); = // await import('./process-ui-enhanced.js');
 // // await launchEnhancedUI();
           return;
     //   // LINT: unreachable code removed} catch(/* fallbackErr */) {
@@ -68,7 +66,7 @@ try {
     for (const dir of requiredDirs) {
       try {
 // // await node.stat(dir); 
-      } catch (error) { console.error(error); } catch {
+      } catch (error) { console.error(error); } catch 
         missingDirs.push(dir); //       }
     //     }
   if(missingDirs.length > 0) {
@@ -118,11 +116,7 @@ async function cleanup() {
 // await compat.safeCall(async() => {
   if(compat.runtime === 'node') {
         await node.remove('.claude-zen.pid');
-      }  catch (error) { console.error(error); }else {
-// const _fs = awaitimport('fs/promises');
-// // await fs.unlink('.claude-zen.pid');
-      //       }
-    });
+      }  catch (error) console.error(error); else );
   } catch {
     // File might not exist
   //   }

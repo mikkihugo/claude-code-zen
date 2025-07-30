@@ -1,4 +1,3 @@
-
 /**  AG-UI WebSocket Middleware for Claude Code Zen;
  *;
 /** Integrates AG-UI protocol with existing WebSocket infrastructure;
@@ -7,8 +6,8 @@
  * @module AGUIWebSocketMiddleware;
  */
 
-import { WebSocket  } from 'ws';
-import { AGUIAdapter, type AGUIEvent  } from '../ai/agui-adapter.js';
+import { WebSocket } from 'ws';
+import { AGUIAdapter, type AGUIEvent } from '../ai/agui-adapter.js';
 
 export // interface AGUIWebSocketOptions {
 //   enableBroadcast?;
@@ -35,17 +34,19 @@ export // interface ClientSession {
 
 // export class AGUIWebSocketMiddleware {
  */
-  constructor(webSocketService, _options = {}) {
-    this.wss = webSocketService;
-    this.options = {
+constructor(webSocketService, (_options = {}));
+{
+  this.wss = webSocketService;
+  this.options = {
       enableBroadcast,
     enableFiltering,
     maxClients,
     sessionTimeout: 30 * 60 * 1000, // 30 minutes
-..options }
-  this;
+..options
+}
+this;
 
-  stats = {
+stats = {
       clientsConnected,
   // totalConnections: 0
   // eventsRouted: 0
@@ -53,9 +54,12 @@ export // interface ClientSession {
    //    }
 // Global AG-UI adapter for server-wide events
 this.globalAdapter = new AGUIAdapter({ sessionId: 'server-global',
-threadId: 'server-thread'   })
+threadId: 'server-thread'   }
+)
 // Setup global event forwarding
-this.setupGlobalEventForwarding() {}
+this.setupGlobalEventForwarding()
+{
+}
 // }
 
 /** Setup global event forwarding;

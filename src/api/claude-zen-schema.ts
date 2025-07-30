@@ -1,4 +1,3 @@
-
 /**  CLAUDE ZEN UNIFIED SCHEMA;
 /** Single source of truth for workflow management APIs;
 /** Auto-generates CLI/TUI/Web interfaces with proper hierarchy
@@ -15,14 +14,14 @@ export // interface SchemaCommand {
 //       // endpoint: string
 //       // method: string
 //     };
-    tui?;
-  };
-  storage?;
-  permissions?;
-  validation?: {
+tui?;
+}
+storage?
+permissions?;
+validation?: {
     required;
-    optional?;
-  };
+optional?;
+}
 // }
 // export // interface SchemaMetadata {
 //   // version: string
@@ -31,69 +30,81 @@ export // interface SchemaCommand {
 //   // totalCommands: number
 // // }
 // export const CLAUDE_ZEN_SCHEMA: Record<string, SchemaCommand> = {
-  // === STRATEGIC VISIONS ===
-  // High-level strategic visions that drive product development
-  'visions-create': {
-    description: 'Create new strategic vision',
-    category: 'strategic',
+// === STRATEGIC VISIONS ===
+// High-level strategic visions that drive product development
+('visions-create')
+:
+{
+  description: 'Create new strategic vision', category;
+  : 'strategic',
     priority,
-    interfaces: {
+    interfaces: 
   cli,
-      web: {
+      web: 
         enabled, endpoint: '/api/visions',
-        method: 'POST' },
-      tui},
+        method: 'POST' ,
+      tui,
     storage: 'visions',
-    validation: {
-  required: ['title', 'description'] } },
-  'visions-list': {
-    description: 'List all strategic visions',
-    category: 'strategic',
+    validation: 
+  required: ['title', 'description']
+}
+,
+  'visions-list':
+{
+  description: 'List all strategic visions', category;
+  : 'strategic',
     priority,
-    interfaces: {
+    interfaces: 
   cli,
-      web: {
+      web: 
         enabled, endpoint: '/api/visions',
-        method: 'GET' },
-      tui},
-    storage: 'visions' },
+        method: 'GET' ,
+      tui,
+    storage: 'visions'
+}
+,
   // === FOUNDATIONAL ARCHITECTURE DECISIONS ===
   // ADRs are cross-cutting architectural principles that inform ALL other work
-  'adrs-create': {
-    description: 'Create Architecture Decision Record',
-    category: 'architecture',
+  'adrs-create':
+{
+  description: 'Create Architecture Decision Record', category;
+  : 'architecture',
     priority,
-    interfaces: {
+    interfaces: 
   cli,
-      web: {
+      web: 
         enabled, endpoint: '/api/adrs',
-        method: 'POST' },
-      tui},
+        method: 'POST' ,
+      tui,
     storage: 'adrs',
-    validation: {
-  required: ['title', 'status', 'context'] } },
-  'adrs-generate': {
-    description: 'Auto-generate ADR from context',
-    category: 'architecture',
+    validation: 
+  required: ['title', 'status', 'context']
+}
+,
+  'adrs-generate':
+{
+  description: 'Auto-generate ADR from context', category;
+  : 'architecture',
     priority,
-    interfaces: {
+    interfaces: 
   cli,
-      web: {
+      web: 
         enabled, endpoint: '/api/adrs/generate',
-        method: 'POST' },
-      tui},
-  required: ['context']  }
+        method: 'POST' ,
+      tui,
+  required: ['context']
+}
 
 // === STRATEGIC PLANNING ===
-'roadmaps-create'
+('roadmaps-create');
 : null
 // {
   description: 'Create strategic roadmap',
   category: 'planning',
   priority,
   cli,
-  enabled, endpoint;
-  : '/api/roadmaps', method: 'POST' ,
+  enabled, endpoint
+: '/api/roadmaps', method: 'POST' ,
   tui,
 
   storage: 'roadmaps',
@@ -107,8 +118,8 @@ export // interface SchemaCommand {
   category: 'planning',
   priority,
   cli,
-  enabled, endpoint;
-  : '/api/epics', method: 'POST' ,
+  enabled, endpoint
+: '/api/epics', method: 'POST' ,
   tui,
 
   storage: 'epics',
@@ -122,8 +133,8 @@ export // interface SchemaCommand {
   category: 'development',
   priority,
   cli,
-  enabled, endpoint;
-  : '/api/features', method: 'POST' ,
+  enabled, endpoint
+: '/api/features', method: 'POST' ,
   tui,
 
   storage: 'features',
@@ -137,8 +148,8 @@ export // interface SchemaCommand {
   category: 'product',
   priority,
   cli,
-  enabled, endpoint;
-  : '/api/prds', method: 'POST' ,
+  enabled, endpoint
+: '/api/prds', method: 'POST' ,
   tui,
 
   storage: 'prds',
@@ -152,8 +163,8 @@ export // interface SchemaCommand {
   category: 'development',
   priority,
   cli,
-  enabled, endpoint;
-  : '/api/tasks', method: 'POST' ,
+  enabled, endpoint
+: '/api/tasks', method: 'POST' ,
   tui,
 
   storage: 'tasks',
@@ -167,8 +178,8 @@ export // interface SchemaCommand {
   category: 'system',
   priority,
   cli,
-  enabled, endpoint;
-  : '/api/coordination/status', method: 'GET' ,
+  enabled, endpoint
+: '/api/coordination/status', method: 'GET' ,
   tui}
 
 // === SWARM INTELLIGENCE ===
@@ -179,8 +190,8 @@ export // interface SchemaCommand {
   category: 'ai',
   priority,
   cli,
-  enabled, endpoint;
-  : '/api/swarms', method: 'POST' ,
+  enabled, endpoint
+: '/api/swarms', method: 'POST' ,
   tui,
 
   storage: 'swarms',
@@ -194,8 +205,8 @@ export // interface SchemaCommand {
   category: 'system',
   priority,
   cli,
-  enabled, endpoint;
-  : '/api/meta', method: 'GET' ,
+  enabled, endpoint
+: '/api/meta', method: 'GET' ,
   tui}
 
 // === METADATA ===

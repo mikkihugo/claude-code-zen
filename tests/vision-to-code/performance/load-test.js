@@ -1,7 +1,5 @@
-import { htmlReport  } from 'https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js';
-import { check  } from 'k6';
-import http from 'k6';
-import { Rate  } from 'k6';
+import { htmlReport } from 'https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js';
+import http, { check, Rate } from 'k6';
 
 // Custom metrics
 const _errorRate = new Rate('errors');
@@ -72,17 +70,18 @@ function checkResponse() {
     'h JSON body': (r) =>
       try {
         JSON.parse(r.body);
-//         return true;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
-//         return false;
-    //   // LINT: unreachable code removed}
-    });
-  errorRate.add(!success);
-  // return success;
+  //         return true;
+  //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+  //         return false;
+  //   // LINT: unreachable code removed}
+}
+)
+errorRate.add(!success)
+// return success;
 // }
 // Main test scenario
 // export default function() {
-  const _headers = {
+const _headers = {
     Authorization: `Bearer ${API_KEY}`,
   ('Content-Type');
   : 'application'
@@ -98,8 +97,8 @@ name: `test-${Date.now()}.png`
 // }
 const _uploadStart = Date.now();
 const _uploadRes = http.post(`${BASE_URL}/api/v1/images/upload`, JSON.stringify(uploadPayload), {
-    headers
-})
+  headers,
+});
 const _uploadDuration = Date.now() - uploadStart;
 apiResponseTime.add(uploadDuration);
 if(!checkResponse(uploadRes)) {
@@ -140,7 +139,7 @@ sleep(Math.random() * 2 + 1); // 1-3 seconds
 //   return {
     'summary.html': htmlReport(data),
     // 'summary.json': JSON.stringify(data), // LINT: unreachable code removed
-    stdout: textSummary(data, { indent: ' ', enableColors })
+    stdout: textSummary(data, indent: ' ', enableColors )
 // }
 // }
 // Custom text summary

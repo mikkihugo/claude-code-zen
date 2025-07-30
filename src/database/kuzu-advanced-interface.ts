@@ -1,10 +1,10 @@
-
 /** Kuzu Advanced Graph Database Interface - Extended Edition TypeScript;
 /** PRODUCTION-GRADE GRAPH OPERATIONS WITH ADVANCED ANALYTICS;
 /** Built on the existing kuzu-graph-interface.js with enhanced capabilities;
 
  */
 import path from 'node:path';
+
 // // interface KuzuAdvancedConfig {
 //   enableAnalytics?;
 //   enableCache?;
@@ -18,22 +18,22 @@ import path from 'node:path';
 // )
 // {
 //   super(config);
-  // Enhanced configuration
-  this.advancedConfig = {enableAnalytics = = false,enableCache = = false,enableMetrics = = false,
+// Enhanced configuration
+this.advancedConfig = {enableAnalytics = = false,enableCache = = false,enableMetrics = = false,
   maxQueryComplexity = {totalQueries = {
       nodeTypes = {GraphMetrics = `node_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-  const __now = new Date();
-  const _now = new Date();
-  const {
-    startNode,
+const __now = new Date();
+const _now = new Date();
+const {
+  startNode,
   algorithm = 'dfs',
   maxDepth = 10,
   nodeFilter = '',
   relationshipFilter = '',
   direction = 'both',
   collectMetrics = true,
-  endNode }
-= options
+  endNode,
+} = options;
 try {
       const __query = this.buildDFSQuery(startNode, maxDepth, nodeFilter, relationshipFilter, direction);
           break;
@@ -51,7 +51,7 @@ try {
 // // await this.recordTraversalMetrics(algorithm, executionTime, result.data?.length  ?? 0);
       //       }
 
-       catch (error) { console.error(error); }// return {
+       catch (error) console.error(error); 
 ..result,
     // algorithm,execution_time = this.buildRelationshipPattern(direction, relationshipFilter); // LINT: unreachable code removed
     const __filterClause = nodeFilter ? `WHERE ${nodeFilter}` : '';
@@ -104,7 +104,7 @@ try {
           break;default = this.normalizeCentralityScores(centralityScores);
       //       }
 
-       catch (error) { console.error(error); }// Store centrality scores if using real Kuzu
+       catch (error) console.error(error); 
       if((this.stats as any).usingRealKuzu) {
 // // await this.storeCentralityScores(centralityScores, algorithm);
       //       }
@@ -131,7 +131,7 @@ try {
               if(betweennessScores.has(intermNode)) {
                 betweennessScores.set(intermNode, betweennessScores.get(intermNode)! + 1);
               //               }
-             catch (error) { console.error(error); }//             }
+             catch (error) console.error(error); 
           //           }
         } catch(error)
       //       }
@@ -178,7 +178,7 @@ computeClosenessCentrality((nodeType = 10), (dampingFactor = 0.85))
       const _newScores = new Map<string, number>();
 
       nodes.forEach((node => {))
-        let _score = (1 - dampingFactor) / nodes.length;
+        const _score = (1 - dampingFactor) / nodes.length;
 
         // Sum contributions from incoming links
         const _incoming = inLinks.get(node)  ?? [];
@@ -200,7 +200,7 @@ computeClosenessCentrality((nodeType = 10), (dampingFactor = 0.85))
     // return Array.from(pageRankScores.entries()).map(([node, score]) => ({ node,
     // score; // LINT: unreachable code removed
       }));
-  //   }
+//   }
 
 /** Community detection using modularity optimization;
 

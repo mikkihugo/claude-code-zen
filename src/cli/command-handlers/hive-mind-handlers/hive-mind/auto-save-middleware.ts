@@ -1,4 +1,3 @@
-
 /** Auto-save middleware for Hive Mind swarms
 /** Automatically saves session state during operations
 
@@ -12,9 +11,9 @@ export class AutoSaveMiddleware {
     this.pendingChanges = [];
     this.isActive = false;
     this.childProcesses = new Set();
-  //   }
+    //   }
 
-/** Start auto-save monitoring
+    /** Start auto-save monitoring
 
   start() {
   if(this.isActive) {
@@ -168,32 +167,33 @@ performAutoSave();
             try {
               process.kill(childProcess.pid, 0); // Check if still alive
               childProcess.kill('SIGKILL');
-            } catch (error) { console.error(error); } catch(/* e */) {
-              // Process already dead, good
-            //             }
-          //           }
-        } catch(error) {
+            } catch (error) { console.error(error); } catch(/* e */ ) catch(error) 
           console.error(`Failed to terminate childprocess = // await this.sessionManager.getSession(this.sessionId);`
-      if(session && (session.status === 'active'  ?? session.status === 'paused')) {
-// // await this.sessionManager.stopSession(this.sessionId);
+    if (session && (session.status === 'active' ?? session.status === 'paused')) {
+      // // await this.sessionManager.stopSession(this.sessionId);
       //       }
 
       // Close database connection
       this.sessionManager.close();
 
       console.warn('Cleanup completed successfully');
-    } catch(error) {
+    }
+    catch(error)
+    {
       console.error('Error during cleanup = {}) {'
-  const _saveInterval = options.saveInterval  ?? 30000; // Default 30 seconds
-  const _middleware = new AutoSaveMiddleware(sessionId, sessionManager, saveInterval);
-  if(options.autoStart !== false) {
-    middleware.start();
-  //   }
+      const _saveInterval = options.saveInterval ?? 30000; // Default 30 seconds
+      const _middleware = new AutoSaveMiddleware(sessionId, sessionManager, saveInterval);
+      if (options.autoStart !== false) {
+        middleware.start();
+        //   }
 
-  // return middleware;
-// }
+        // return middleware;
+        // }
 
-// Export for use in swarm operations
-// export default AutoSaveMiddleware;
-
-}}}}}}))
+        // Export for use in swarm operations
+        // export default AutoSaveMiddleware;
+      }
+    }
+  }
+}
+}))

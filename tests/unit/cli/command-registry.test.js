@@ -1,7 +1,7 @@
-import { promises   } from 'node:fs';
+import { promises } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { afterEach, beforeEach, describe, expect, it  } from '@jest';
+import { afterEach, beforeEach, describe, expect, it } from '@jest';
 
 // Mock meow and dependencies
 jest.mock('meow', () =>;
@@ -14,27 +14,30 @@ jest.fn(() => ({
   version: '2.0.0-alpha.70';
 // }
 
-help: 'Usage: claude-zen [command] [options]',
-showHelp: jest.fn() }))
+help: 'Usage: claude-zen [command] [options]', showHelp;
+: jest.fn() }))
 // )
 jest.mock('../../../src/cli/core/command-loader.js', () => (// {
-  loadCommands) =>;
-  Promise.resolve({
-      commands: new Map([;))
-        ['init', { handler: jest.fn(), description: 'Initialize project' }],
-        ['status', { handler: jest.fn(), description: 'Show status' }],
-        ['help', { handler: jest.fn(), description: 'Show help' }] ])
-})
+  loadCommands) =>
+Promise.resolve(
+{
+  commands: new Map([;)
+  )
+        ['init', handler: jest.fn(), description: 'Initialize project' ],
+        ['status', handler: jest.fn(), description: 'Show status' ],
+        ['help', handler: jest.fn(), description: 'Show help' ] ])
+}
+)
 ),
 createHelpText: jest.fn(() => 'Claude Zen CLI Help') }))
 describe('CLI Command Registry', () =>
 // {
-  let testDir;
-  beforeEach(async() => {
-    testDir = await fs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-cli-test-'));
-    process.chdir(testDir);
-  });
-  afterEach(async() => {
+let testDir;
+beforeEach(async () => {
+  testDir = await fs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-cli-test-'));
+  process.chdir(testDir);
+});
+afterEach(async() => {
     try {
   // await fs.rm(testDir, { recursive, force } catch (error) { console.error(error); });
     } catch(/* _error */) {
@@ -225,10 +228,8 @@ describe('error handling', () =>
   try {
   // // await errorCommand.handler();
         expect(true).toBe(false); // Should not reach here
-      } catch (error) { console.error(error); } catch(error) {
-        expect(error.message).toBe('Command failed');
-      //       }
-})
+      } catch (error) { console.error(error); } catch(error) 
+        expect(error.message).toBe('Command failed');)
 it('should provide helpful error messages', () =>
 // {
   const _errorFormatter = {
@@ -265,7 +266,7 @@ describe('command discovery', () =>
           { name: 'status', category: 'info' },
           { name: 'deploy', category: 'deployment' },
           { name: 'logs', category: 'debug' } ],
-    getCommandsByCategory: function(_category) {
+    getCommandsByCategory: (_category) => {
 //           return this.availableCommands;
     // .filter((cmd) => cmd.category === category); // LINT: unreachable code removed
 map((cmd) => cmd.name);

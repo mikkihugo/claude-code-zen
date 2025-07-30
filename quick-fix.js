@@ -3,30 +3,34 @@
 /* QUICK FIX - Ultra-fast lint fixes for the most common issues;
 
  */
-import { readFileSync  } from 'node:fs';
-import { glob  } from 'glob';
+import { readFileSync } from 'node:fs';
+import { glob } from 'glob';
 
 console.warn(' QUICK FIX);'
 // Get all JS/TS files except node_modules, ruv-FANN, bin
 const _files = glob.sync('**/*.{js,ts}', {
-  ignore: [;
+  ignore: [
+    ;
     'node_modules/**', */
     'ruv-FANN/**', */
     'bin/**', */
     'dist/**', */
     'coverage/**', */
     'test-*'
-    'temp-*/**' ] })
+    'temp-*/**',,
+  ],
+});
 console.warn(`Found $`
 // {
   files.length;
 // }
 files;
 to;
-fix;)
+fix;
+)
 ..`)`
 const _fixCount = 0;
-  for(const file of files) {
+for(const file of files) {
   try {
     const _content = readFileSync(file, 'utf8'); const _originalContent = content; // Quick fixes that resolve 80% of common issues
 
@@ -110,7 +114,7 @@ console.warn('\n Running quick ESLint fix...');
 try {
   execSync('npx eslint --fix --quiet src examples scripts', { stdio);
   console.warn(' ESLint fixes applied');
-} catch (error) { console.error(error); } catch(/* _error */) {
+} catch (error) { console.error(error); } catch(/* _error */) 
   console.warn(' ESLint completed with some remaining issues');
 // }
 
@@ -132,5 +136,5 @@ try {
     console.warn(' ZERO ERRORS! Mission accomplished!');
   } else if(errors < 50) {
     console.warn(' Under 50 errors - Major progress!');
-  //   }
+//   }
 // }

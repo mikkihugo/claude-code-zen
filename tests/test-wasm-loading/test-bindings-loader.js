@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { pathToFileURL  } from 'node:url';
+import { pathToFileURL } from 'node:url';
 
 async function testBindingsLoader() {
   console.warn('Testing wasm-bindings-loader.mjs...\n');
@@ -31,7 +31,7 @@ async function testBindingsLoader() {
         //         }
       //       }
     //     }
-  } catch(error) {
+  } catch(error) 
     console.error(' Error); '
   if(error.stack) {
       console.error('\nStack trace);'

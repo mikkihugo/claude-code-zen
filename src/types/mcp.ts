@@ -1,9 +1,8 @@
-
 /** Model Context Protocol(MCP) Types;
 /** Types for MCP server integration and tool execution
 
  */
-import type { JSONObject  } from '.';
+import type { JSONObject } from '.';
 
 // =============================================================================
 // MCP CORE TYPES
@@ -16,27 +15,29 @@ export type MCPTransport = 'stdio' | 'sse' | 'websocket' | 'http';
 export // interface MCPCapabilities {
 //   // Logging capabilities
 //   logging?: {};
-  // Prompts capabilities
-  prompts?: {
+// Prompts capabilities
+prompts?: {
     listChanged?;
-  };
-  // Resources capabilities
-  resources?: {
-    subscribe?;
+}
+// Resources capabilities
+resources?:
+{
+  subscribe?;
+  listChanged?;
+}
+// Tools capabilities
+tools?: {
     listChanged?;
-  };
-  // Tools capabilities
-  tools?: {
-    listChanged?;
-  };
-  // Roots capabilities(for client)
-  roots?: {
-    listChanged?;
-  };
-  // Sampling capabilities(for client)
-  sampling?: {};
-  // Experimental capabilities
-  experimental?: Record<string, JSONObject>;
+}
+// Roots capabilities(for client)
+roots?:
+{
+  listChanged?;
+}
+// Sampling capabilities(for client)
+sampling?: {};
+// Experimental capabilities
+experimental?: Record<string, JSONObject>;
 // }
 // export // interface MCPImplementation {name = ============================================================================
 // // MCP MESSAGES

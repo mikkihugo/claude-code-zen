@@ -1,24 +1,23 @@
-
 /** Process Ui Enhanced Module;
 /** Converted from JavaScript to TypeScript;
 
  */
-import { compat  } from '..';
 // process-ui-enhanced.js - Enhanced process management UI with multiple views
-import { printSuccess  } from '..';
+import { compat, printSuccess } from '..';
 
 // Simple color utilities
 const _colors = {
   cyan = > `\x1b[36m${text}\x1b[0m`,
-gray = > `\x1b[90m${text}\x1b[0m`,
-white = > `\x1b[37m${text}\x1b[0m`,
-yellow = > `\x1b[33m${text}\x1b[0m`,
-green = > `\x1b[32m${text}\x1b[0m`,
-red = > `\x1b[31m${text}\x1b[0m`,
-blue = > `\x1b[34m${text}\x1b[0m`,
-magenta = > `\x1b[35m${text}\x1b[0m`,
-bold = > `\x1b[1m${text}\x1b[0m`,
-dim = > `\x1b[2m${text}\x1b[0m` }
+  gray = > `\x1b[90m${text}\x1b[0m`,
+  white = > `\x1b[37m${text}\x1b[0m`,
+  yellow = > `\x1b[33m${text}\x1b[0m`,
+  green = > `\x1b[32m${text}\x1b[0m`,
+  red = > `\x1b[31m${text}\x1b[0m`,
+  blue = > `\x1b[34m${text}\x1b[0m`,
+  magenta = > `\x1b[35m${text}\x1b[0m`,
+  bold = > `\x1b[1m${text}\x1b[0m`,
+  dim = > `\x1b[2m${text}\x1b[0m`,
+};
 const __PROCESSES = [
   { id = {_PROCESSES = new Map();
     this.running = true;
@@ -43,7 +42,7 @@ const __PROCESSES = [
     this.initializeSwarm();
   //   }
 
-  async initializeSwarm() { 
+  async initializeSwarm() 
     // Initialize swarm with mock data
 // await this.swarmIntegration.initializeSwarm('hierarchical', 8);
     // Mock memory namespaces
@@ -103,7 +102,7 @@ const __PROCESSES = [
       const _statusIcon = agent.status === 'working' ? colors.green('') : colors.gray('');
       const _name = selected ? colors.yellow(agent.name) : colors.white(agent.name);
 
-      console.warn(`${prefix}${statusIcon} ${name} ($, { agent.type })`);
+      console.warn(`$prefix$statusIcon$name($, { agent.type })`);
       console.warn(`     _ID => {`
       const _statusColor =;
         task.status === 'completed';
@@ -360,7 +359,7 @@ const __PROCESSES = [
         break;
     //     }
   //   }
-  addLog(level, message) {
+  addLog(level, message) 
     this.logs.push({time = Math.min(;
       100,))
       Math.max(0, this.systemStats.cpuUsage + (Math.random() - 0.5) * 10));
@@ -380,7 +379,7 @@ const __PROCESSES = [
     const _process = Array.from(this.processes.values())[this.selectedIndex];
     if(process.status === 'stopped') 
 // await this.startProcess(process.id);
-    } else {
+    } else 
 // // await this.stopProcess(process.id);
     //     }
   //   }
@@ -411,21 +410,21 @@ const __PROCESSES = [
     this.addLog('success', `${process.name} stopped`);
   //   }
 
-  async startAll() { }
+  async startAll() 
     this.addLog('info', 'Starting all processes...');
     for (const [id, process] of this.processes) 
   if(process.status === 'stopped') {
 // // await this.startProcess(id); 
       //       }
     //     }
-    this.addLog('success', 'All processes started'); async stopAll() { }
+    this.addLog('success', 'All processes started'); async stopAll() 
     this.addLog('info', 'Stopping all processes...');
     for (const [id, process] of this.processes) 
   if(process.status === 'running') {
 // // await this.stopProcess(id); 
       //       }
     //     }
-    this.addLog('success', 'All processes stopped'); async restartAll() { }
+    this.addLog('success', 'All processes stopped'); async restartAll() 
 // await this.stopAll();
 // await new Promise((resolve) => setTimeout(resolve, 500));
 // await this.startAll();
@@ -436,4 +435,4 @@ const __PROCESSES = [
 // await ui.start();
 // }
 
-}}}}}}}}}}}}})))
+}}}}}}}}}}})))

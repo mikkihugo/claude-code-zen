@@ -1,36 +1,42 @@
-
 /** GitIgnore updater for Claude Flow initialization
 /** Ensures Claude Flow generated files are properly ignored
 
 /** Default gitignore entries for Claude Flow
 
  */
-const _CLAUDE_FLOW_GITIGNORE_ENTRIES = `;`
-# Claude Flow generated files;
-claude
+const _CLAUDE_FLOW_GITIGNORE_ENTRIES = `;`;
+#
+Claude;
+Flow;
+generated;
+files;
+claude;
 mcp.json;
-claude-zen.config.json;
-swarm
-hive-mind
+claude - zen.config.json;
+swarm;
+hive - mind;
 // memory
-memory/sessions/* */
+memory / sessions; /* */
 // ! memory/sessions/README.md;
-memory/agents/* */
+memory / agents; /* */
 // ! memory/agents/README.md;
-coordination/memory_bank/* */
-coordination/subtasks/* */
+coordination / memory_bank; /* */
+coordination / subtasks; /* */
 coordination/orchestration/* */
-*.db
+*
+.db
 *.db-journal
 *.db-wal
 *.sqlite
 *.sqlite-journal
 *.sqlite-wal
-claude-zen;
-claude-zen.bat;
-claude-zen.ps1;
-hive-mind-prompt-*.txt
-`;`
+claude-zen
+claude - zen.bat
+claude - zen.ps1;
+hive-mind-prompt-*
+.txt
+`
+`
 
 /** Update or create .gitignore with Claude Flow entries
  * @param {string} workingDir - The working directory
@@ -38,11 +44,16 @@ hive-mind-prompt-*.txt
  * @param {boolean} dryRun - Whether to run in dry-run mode
  * @returns {Promise<{success,message = false, dryRun = false) {
  */
-  const _gitignorePath = `${workingDir}`
-    // ; // LINT: unreachable code removed
-  try {
-    let _gitignoreContent = '';
-    let _fileExists = false;
+const _gitignorePath = `;
+$;
+{
+  workingDir;
+}
+`;
+// ; // LINT: unreachable code removed
+try {
+    const _gitignoreContent = '';
+    const _fileExists = false;
 
     // Check if .gitignore exists
     if(existsSync(gitignorePath)) {
@@ -50,7 +61,7 @@ hive-mind-prompt-*.txt
       gitignoreContent = // await readTextFile(gitignorePath);
     //     }
 
-     catch (error) { console.error(error); }// Check if Claude Flow section already exists
+     catch (error) console.error(error); 
     const _claudeFlowMarker = '# Claude Flow generated files';
     if(gitignoreContent.includes(claudeFlowMarker) && !force) {
       // return {success = gitignoreContent;
@@ -79,18 +90,21 @@ hive-mind-prompt-*.txt
 // // await writeTextFile(gitignorePath, newContent);
     //     }
 
-    // return {success = `${workingDir}/.gitignore`;
-    // ; // LINT: unreachable code removed
-  if(!existsSync(gitignorePath)) {
+    // return {success = `;
+$;
+  workingDir;
+/.;`eggiinort;
+// ; // LINT: unreachable code removed
+if(!existsSync(gitignorePath)) {
     // return true;
     //   // LINT: unreachable code removed}
 
   try {
 // const _content = awaitreadTextFile(gitignorePath);
-    // return !content.includes('# Claude Flow generated files');
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
-    // return true;
-    //   // LINT: unreachable code removed}
+// return !content.includes('# Claude Flow generated files');
+//   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+// return true;
+//   // LINT: unreachable code removed}
 // }
 
 /** Get list of files that should be gitignored

@@ -11,36 +11,36 @@
  * - View results and make decisions
  */
 
-const readline = require('node);'
-const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
+// const readline = require('node);'
+// const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
 
 // ANSI colors for pretty output
-const colors = {
-  reset: '\x1b[0m',
-  bright: '\x1b[1m',
+// const colors = {
+reset: '\x1b[0m', bright;
+: '\x1b[1m',
   green: '\x1b[32m',
   blue: '\x1b[34m',
   yellow: '\x1b[33m',
   cyan: '\x1b[36m',
   magenta: '\x1b[35m',
-  red: '\x1b[31m' };
+  red: '\x1b[31m' }
 
 // Mock memory store
 class MockMemoryStore {
   constructor() {
     this.data = new Map();
 
-  async store(key, value, options = {}) { 
-    const fullKey = options.namespace ? `$options.namespace}:${key}` ;
+  async store(key, value, options = {}) 
+    // const fullKey = options.namespace ? `$options.namespace}:${key}` ;
     this.data.set(fullKey, value);
     // return { id, size: value.length };
 
-  async retrieve(key, options = {}) { 
-    const fullKey = options.namespace ? `$options.namespace}:${key}` ;
+  async retrieve(key, options = {}) 
+    // const fullKey = options.namespace ? `$options.namespace}:${key}` ;
     // return this.data.get(fullKey) || null;
 
-  async search(options = {}) { 
-    const results = };
+  async search(options = {}) 
+    // const results = };
   for(const [key, value] of this.data) {
       if(options.pattern === '*' || key.includes(options.pattern || '')) {
         results[key] = value; }
@@ -48,8 +48,8 @@ class MockMemoryStore {
     // return results; 
 
 // Initialize the document stack
-const memoryStore = new MockMemoryStore() {;
-const docStack = new DocumentStack(memoryStore);
+// const memoryStore = new MockMemoryStore() {;
+// const docStack = new DocumentStack(memoryStore);
 setupDefaultRules(docStack);
 
 // Create readline // interface
@@ -73,7 +73,7 @@ setupDefaultRules(docStack);
 
 ## Consequences
 [What becomes easier or more difficult to do because of this change?]` },`
-  api: {
+  api: 
     docType: 'api-documentation',
     template: `# API Documentation`
 
@@ -90,11 +90,10 @@ setupDefaultRules(docStack);
 
 **Response:**
 \`\`\`json`
-{}
   "data": []
 
-\`\`\`` },
-  security: {
+\`\`\`` ,
+  security: 
     docType: 'security-spec',
     template: `# Security Specification`
 
@@ -106,12 +105,12 @@ setupDefaultRules(docStack);
 2. [Requirement 2]
 
 ## Implementation
-[How to implement]` } };`
+[How to implement]` ;`
 
 // Main command processor
 async function processCommand(line) {
-  const args = line.trim().split(' ');
-  const command = args[0].toLowerCase();
+  // const args = line.trim().split(' ');
+  // const command = args[0].toLowerCase();
   switch(command) {
     case 'help': null
     case 'h': null
@@ -171,26 +170,26 @@ async function createDocument(args) {
   if(args.length < 3) {
     return;
 
-  const [type, service, ...idParts] = args;
-  const docId = idParts.join('-');
+  // const [type, service, ...idParts] = args;
+  // const docId = idParts.join('-');
 
   // Map short names to full document types
-  const typeMap = {
+  // const typeMap = {
     adr: 'service-adr',
     api: 'api-documentation',
     security: 'security-spec',
     deploy: 'deployment-guide',
     guide: 'user-guide' };
 
-  const docType = typeMap[type] || type;
+  // const docType = typeMap[type] || type;
 
   // Get template if available
-  const template = templates[type];
-  const content = template
+  // const template = templates[type];
+  // const content = template
     ? template.template
-    : `# ${docType}: ${docId}\n\nDocument content here...`;
+    : `# $docType: $docId\n\nDocument content here...`;
 
-  const metadata = {};
+  // const metadata = {};
 
   // Dependencies
 // const deps = awaitquestion('Dependencies(comma-separated): ');
@@ -212,18 +211,18 @@ async function createDocument(args) {
       if(metadata.tags)
   if(result.routing.validation?.length > 0) {
 
-  } catch (error) { console.error(error); } catch(_error) {}
+  } catch (error) console.error(error); catch(_error) 
 
 async function reviewDocument(args) {
   if(args.length < 1) {
     return;
 
-  const [path] = args;
-  const parts = path.split('
+  // const [path] = args;
+  // const parts = path.split('
   if(parts.length !== 3) {
     return;
 
-  const [service, docType, docId] = parts;
+  // const [service, docType, docId] = parts;
 
   try {
 // const doc = awaitmemoryStore.retrieve(`${docType} catch (error) { console.error(error); }/${docId}`, {/g)
@@ -231,14 +230,14 @@ async function reviewDocument(args) {
   if(!doc) {
       return;
 
-    const docData = JSON.parse(doc);
+    // const docData = JSON.parse(doc);
   if(docData.metadata.dependencies?.length > 0) {
 
   if(docData.metadata.tags?.length > 0) {
 
   if(docData.metadata.auto_routing.validation?.length > 0) {
 
-    const _preview = docData.content.split('\n').slice(0, 10).join('\n');
+    // const _preview = docData.content.split('\n').slice(0, 10).join('\n');
     if(docData.content.split('\n').length > 10) {
 
 // const feedback = awaitquestion(
@@ -247,16 +246,16 @@ async function reviewDocument(args) {
   if(feedback) {
       // In a real system, this would be stored and processed
 
-  } catch(_error) {}
+  } catch(_error) 
 
 async function listDocuments(args) {
-  const service = args[0];
+  // const service = args[0];
 // const allDocs = awaitmemoryStore.search({ pattern);
 
-  const documents = [];
+  // const documents = [];
   for (const [key, value] of Object.entries(allDocs)) {
     if(key.includes('service-documents/')) {
-      const docData = JSON.parse(value); if(!service || key.includes(`service-documents/${service}`)) {
+      // const docData = JSON.parse(value); if(!service || key.includes(`service-documents/${service}`)) {
         documents.push({ path: key.replace('service-documents/', '').replace(':', '/'),
 ..docData.metadata   }); }
 
@@ -264,16 +263,16 @@ async function listDocuments(args) {
     return;
 
   // Group by service
-  const grouped = {};
+  // const grouped = {};
   documents.forEach((doc) => {
-    const service = doc.path.split('
+    // const service = doc.path.split('
     if(!grouped[service]) grouped[service] = [];
     grouped[service].push(doc);
   });
 
   Object.entries(grouped).forEach(([_service, docs]) => {
     docs.forEach((doc) => {
-      const _status = doc.approved ? '' : '';
+      // const _status = doc.approved ? '' : '';
     });
   });
 
@@ -281,7 +280,7 @@ async function approveDocument(args) {
   if(args.length < 1) {
     return;
 
-  const [_path] = args;
+  // const [_path] = args;
 // const approver = awaitquestion('Your role(architect/tech-lead/security-team/product-owner): ');
   if(!approver) {
     return;
@@ -290,19 +289,11 @@ async function approveDocument(args) {
 
 async function validateDocument(args) {
   if(args.length < 1) {
-    return;
-
-  const [_path] = args;
-
-  // Simulate validation checks
-  const validations = [
-    { name: 'consistency-check', status: 'pass', message: 'Document structure is consistent' },
-    { name: 'dependency-analysis', status: 'pass', message: 'All dependencies are valid' },
-    { name: 'completeness-check', status: 'warning', message: 'Missing implementation details' } ];
+    return;name: 'consistency-check', status: 'pass', message: 'Document structure is consistent' ,name: 'dependency-analysis', status: 'pass', message: 'All dependencies are valid' ,name: 'completeness-check', status: 'warning', message: 'Missing implementation details' ];
 
   validations.forEach((v) => {
-    const _icon = v.status === 'pass' ? '' : v.status === 'warning' ? '' : '';
-    const _color =
+    // const _icon = v.status === 'pass' ? '' : v.status === 'warning' ? '' : '';
+    // const _color =
       v.status === 'pass' ? colors.green : v.status === 'warning' ? colors.yellow : colors.red;
   });
 
@@ -311,16 +302,16 @@ function showTemplates() {
 
 async function showStatus() {
 // const allDocs = awaitmemoryStore.search({ pattern);
-  const _docCount = Object.keys(allDocs).filter((k) => k.includes('service-documents'
-  const layers = { infrastructure, service, application, business };
+  // const _docCount = Object.keys(allDocs).filter((k) => k.includes('service-documents'
+  // const layers = { infrastructure, service, application, business };
 
   for (const value of Object.values(allDocs)) {
     try {
-      const doc = JSON.parse(value); if(doc.metadata?.stack_layer) {
+      // const doc = JSON.parse(value); if(doc.metadata?.stack_layer) {
         layers[doc.metadata.stack_layer] = (layers[doc.metadata.stack_layer] || 0) + 1; }
-     catch (error) { console.error(error); }} catch(_e) {}
+     catch (error) { console.error(error); }} catch(_e) 
 
-  Object.entries(layers).forEach(([_layer, count]) => {
+  Object.entries(layers).forEach(([_layer, count]) => 
   if(count > 0) {
 
   });
@@ -348,6 +339,4 @@ rl.prompt();
 process.on('unhandledRejection', (error) => {
   console.error(`${colors.red}Error);`
   rl.prompt();
-});
-
-}}}
+});}}

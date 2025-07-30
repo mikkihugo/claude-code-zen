@@ -1,4 +1,3 @@
-
 /** Timeout Protection Utilities;
 /** Prevents hooks and commands from hanging indefinitely;
 /** Based on upstream commits 43ab723d + 3dfd2ee1;
@@ -30,8 +29,8 @@ export // interface RuvSwarmHookResult {success = 3000 // 3 seconds default
 //         const __timeoutId = setTimeout(() => {
 //           reject(new Error(`Timeout = > clearTimeout(timeoutId));`
 //       });
-    ]);
-  //   }
+])
+//   }
 
 /** Force process exit with timeout(for stubborn processes);
    * @param timeout - Time to wait before force exit;
@@ -45,18 +44,22 @@ export // interface RuvSwarmHookResult {success = 3000 // 3 seconds default
 
 /** Check if ruv-swarm is available with timeout protection;
    * @returns Whether ruv-swarm is available;
-    // */; // LINT: unreachable code removed
-  // static async checkRuvSwarmAvailableWithTimeout(): Promise<boolean> {
-    try {
-      const _checkPromise = import('../cli/utils.js').then(utils =>/g)
+    // */ // LINT: unreachable code removed
+// static async checkRuvSwarmAvailableWithTimeout(): Promise<boolean> {
+try {
+  const _checkPromise = import('../cli/utils.js').then(utils =>/g)
         utils.checkRuvSwarmAvailable ? utils.checkRuvSwarmAvailable() ;
-      );
-//       return // await TimeoutProtection.withTimeout(;/g)
-    // checkPromise, // LINT);
-    } catch (error) { console.error(error); } catch(error) {
-      const _errorMessage = error instanceof Error ? error.message = {}
-  ): Promise<RuvSwarmHookResult> {
-    try {
+  )
+  //       return // await TimeoutProtection.withTimeout(;/g)
+  // checkPromise, // LINT);
+} catch (error) {
+  console.error(error);
+}
+catch(error)
+{
+  const _errorMessage = error instanceof Error ? error.message = {}
+  ): Promise<RuvSwarmHookResult>
+  try {
       const _execPromise = import('../cli/utils.js').then(utils =>/g)
         utils.execRuvSwarmHook ? utils.execRuvSwarmHook(hookName, params) ;
       );
@@ -194,10 +197,8 @@ debounceWithTimeout<TArgs extends unknown[], TReturn>(fn = > Promise<TReturn>,de
               operationName;
             );
             resolve(result);
-          } catch (error) { console.error(error); } catch(error) {
-            reject(error);
-          //           }
-        }, delay);
+          } catch (error) { console.error(error); } catch(error) 
+            reject(error);, delay);
       });
     };
 // }
@@ -205,4 +206,5 @@ debounceWithTimeout<TArgs extends unknown[], TReturn>(fn = > Promise<TReturn>,de
 
 // export default TimeoutProtection;
 
-}}}}}}}
+}}}}}
+}

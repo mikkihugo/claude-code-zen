@@ -1,37 +1,55 @@
-
 /** Ink Tui Module
 /** Converted from JavaScript to TypeScript
 
  */
-import path from 'node:path';'
-import { Box, render, Text  } from 'ink';'
-import React, { useEffect, useState  } from 'react';'
+import path from 'node:path';
+
+'
+
+import { Box, render, Text } from 'ink';
+
+'
+
+import React, { useEffect, useState } from 'react';
+
+'
 
 // API client for auto-generated API
 class ApiClient {
   constructor(baseUrl = 'http = baseUrl;'
 // }
 async;
-fetchHives();
-// {
-  try {
-// const _response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error); }/api/hives`);`
-    // return // // await response.json();
-    //   // LINT: unreachable code removed} catch(/* _error */) {
-    console.error('Failed to fetchhives = // // await fetch(`${this.baseUrl}/hive-mind/${hiveName}`);`'`
-    // return // // await response.json();
-    //   // LINT: unreachable code removed}
-  catch(error) ;
-      console.error(`Failed to fetch hive details;`
-  for ${hiveName})
-  );
-  // return null;
+  fetchHives();
+  // {
+  try;
+  {
+  // const _response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error); }/api/hives`);`
+  // return // // await response.json();
+  //   // LINT: unreachable code removed} catch(/* _error */) {
+  console;
+  .
+  error('Failed to fetchhives = // // await fetch(`${this.baseUrl}/hive-mind/${hiveName}`);`'`
+  // return // // await response.json();
+  //   // LINT: unreachable code removed}
+  catch(error);
+  console;
+  .
+  error(`Failed to fetch hive details;
+  `
+  for
+  $;
+  {
+  hiveName;
+}
+)
+  )
+// return null;
 // }
 
-async;
+async
 executeCommand(command, (args = []), (flags = {}));
 
-    try {
+try {
 // const __response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error); }/${command}`, {method = new ApiClient();`
 
 const __SingularityAlpha = () => {
@@ -142,7 +160,7 @@ const __SingularityAlpha = () => {
 // 
   return React.createElement(Box, {borderStyle = === 'hives' && React.createElement(Box, {flexDirection = === 1 ? "double" );"
         ),
-        React.createElement(Box, { ;)
+        React.createElement(Box, ;)
           borderStyle = === 2 ? "double" );"
         );
       ),
@@ -155,11 +173,10 @@ const __SingularityAlpha = () => {
     currentView === 'details' && selectedHive && React.createElement(HiveDetails, hive = === 'create' && React.createElement(Box, borderStyle = === 'directory' && React.createElement(DirectorySelector,'
       _currentPath => ;)))
         setSelectedDirectory(_dir);
-        setCommandResult({ success = > setCurrentView('hives');'
-      }),
-    React.createElement(Box, { borderStyle: "single", paddingX},"
-      React.createElement(Text, { color: "gray" },"))"
-        `View: ${currentView} | Services: ${Object.keys(hives).length} | API: Connected`;`
+        setCommandResult({ success = > setCurrentView('hives');'),
+    React.createElement(Box, borderStyle: "single", paddingX,"
+      React.createElement(Text, color: "gray" ,"))"
+        `View: $currentView| Services: $Object.keys(hives).length| API: Connected`;`
       );
     );
   );

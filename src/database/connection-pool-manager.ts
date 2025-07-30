@@ -1,4 +1,3 @@
-
 /** Connection Pool Manager - TypeScript Edition;
 /** Manages connection pools across multiple database types with advanced features;
  * like load balancing, failover, and adaptive sizing;
@@ -17,21 +16,21 @@
 // {
  */
 //   super();
-  this.options = {loadBalancing = = false,healthCheckInterval = = false,maxPoolsPerType = = false;
+this.options = {loadBalancing = = false,healthCheckInterval = = false,maxPoolsPerType = = false;
 // }
-  if(this.options.monitoringEnabled) {
+if (this.options.monitoringEnabled) {
   this.startMonitoring();
-// }
-// Initialize pool type tracking
-['sqlite', 'lancedb', 'kuzu', 'postgresql'].forEach((type) => {
-  this.poolsByType.set(type, new Set());
-});
-// Handle graceful shutdown
-process.on('SIGINT', () => this.shutdown());
-process.on('SIGTERM', () => this.shutdown());
-// }
+  // }
+  // Initialize pool type tracking
+  ['sqlite', 'lancedb', 'kuzu', 'postgresql'].forEach((type) => {
+    this.poolsByType.set(type, new Set());
+  });
+  // Handle graceful shutdown
+  process.on('SIGINT', () => this.shutdown());
+  process.on('SIGTERM', () => this.shutdown());
+  // }
 
-/** Create a new connection pool;
+  /** Create a new connection pool;
 
 // async
 createPool(config = this.generatePoolId(config.
@@ -327,32 +326,78 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
 
 // Placeholder connection pool classes for different database types
 class LanceDBConnectionPool {
-  async initialize(): Promise<void> { /* Implementation */ }
-  async acquire(_priority): Promise<any> { /* Implementation */ return {}; }
-  release(_connection) { /* Implementation */ }
-  async shutdown(): Promise<void> { /* Implementation */ }
-  getStats() { return { totalConnections, activeConnections}; }
-  getHealth() { return { status: 'healthy', issues: [] }; }
+  async initialize(): Promise<void> { /* Implementation */
+}
+async;
+acquire(_priority);
+: Promise<any>
+{
+  /* Implementation */ return {};
+}
+release(_connection);
+{
+  /* Implementation */
+}
+async;
+shutdown();
+: Promise<void>
+{
+  /* Implementation */
+}
+getStats();
+{
+  return { totalConnections, activeConnections};
+}
+getHealth();
+{
+  return { status: 'healthy', issues: [] };
+}
 // }
 
 class KuzuConnectionPool {
-  async initialize(): Promise<void> { /* Implementation */ }
-  async acquire(_priority): Promise<any> { /* Implementation */ return {}; }
-  release(_connection) { /* Implementation */ }
-  async shutdown(): Promise<void> { /* Implementation */ }
-  getStats() { return { totalConnections, activeConnections}; }
-  getHealth() { return { status: 'healthy', issues: [] }; }
-// }
+  async initialize(): Promise<void> {
+    /* Implementation */
+  }
+  async acquire(_priority): Promise<any> {
+    /* Implementation */ return {};
+  }
+  release(_connection) {
+    /* Implementation */
+  }
+  async shutdown(): Promise<void> {
+    /* Implementation */
+  }
+  getStats() {
+    return { totalConnections, activeConnections };
+  }
+  getHealth() {
+    return { status: 'healthy', issues: [] };
+  }
+  // }
 
-class PostgreSQLConnectionPool {
-  async initialize(): Promise<void> { /* Implementation */ }
-  async acquire(_priority): Promise<any> { /* Implementation */ return {}; }
-  release(_connection) { /* Implementation */ }
-  async shutdown(): Promise<void> { /* Implementation */ }
-  getStats() { return { totalConnections, activeConnections}; }
-  getHealth() { return { status: 'healthy', issues: [] }; }
-// }
+  class;
+  PostgreSQLConnectionPool;
+  {
+  async initialize(): Promise<void> {
+    /* Implementation */
+  }
+  async acquire(_priority): Promise<any> {
+    /* Implementation */ return {};
+  }
+  release(_connection) {
+    /* Implementation */
+  }
+  async shutdown(): Promise<void> {
+    /* Implementation */
+  }
+  getStats() {
+    return { totalConnections, activeConnections };
+  }
+  getHealth() {
+    return { status: 'healthy', issues: [] };
+  }
+  // }
 
-// export default ConnectionPoolManager;
-
-}}}}}}}}}}}}}}}})))))))))))))))))))
+  // export default ConnectionPoolManager;
+}
+}}}}}}}}}}}}}}})))))))))))))))))))

@@ -1,9 +1,8 @@
-
 /** Start Wrapper Module;
 /** Converted from JavaScript to TypeScript;
 
  */
-import { compat  } from '..';
+import { compat } from '..';
 
 export async function startCommand(subArgs = [];
 // }
@@ -33,7 +32,7 @@ try {
     printSuccess(' Starting Claude Zen Unified Server...');
 
     // Import and start the unified interface plugin
-    const { UnifiedInterfacePlugin }  catch (error) { console.error(error); }= // await import('../../../plugins/unified-interface/index.js');
+    const { UnifiedInterfacePlugin }  catch (error) console.error(error); = // await import('../../../plugins/unified-interface/index.js');
 
     const _server = new UnifiedInterfacePlugin({
       webPort,
@@ -58,7 +57,7 @@ return;
   if(web) {
   try {
         // Launch the web server
-        const { startWebServer }  catch (error) { console.error(error); }= // await import('./web-server.js');
+        const { startWebServer }  catch (error) console.error(error); = // await import('./web-server.js');
 // const __server = awaitstartWebServer(port);
 
         printSuccess(` Web UI is running!`);
@@ -81,7 +80,7 @@ return;
         // If unified UI fails, fall back to existing terminal UI
         printWarning('Unified UI failed, launching fallback UI...');
         try {
-          const { launchEnhancedUI }  catch (error) { console.error(error); }= // await import('./process-ui-enhanced.js');
+          const { launchEnhancedUI }  catch (error) console.error(error); = // await import('./process-ui-enhanced.js');
 // // await launchEnhancedUI();
           return;
     //   // LINT: unreachable code removed} catch(/* fallbackErr */) {
@@ -91,7 +90,7 @@ return;
     for (const dir of requiredDirs) {
       try {
 // // await node.stat(dir); 
-      } catch (error) { console.error(error); } catch {
+      } catch (error) { console.error(error); } catch 
         missingDirs.push(dir); //       }
     //     }
   if(missingDirs.length > 0) {

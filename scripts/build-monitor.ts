@@ -7,8 +7,8 @@
  * @version 2.0.0;
  */
 
-import { exec  } from 'node:child_process';
-import { promisify  } from 'node:util';
+import { exec } from 'node:child_process';
+import { promisify } from 'node:util';
 
 const _execAsync = promisify(exec);
 
@@ -65,8 +65,7 @@ const _execAsync = promisify(exec);
 
  */
 class BuildMonitor {
-
-/** Initializes build monitor with baseline metrics;
+  /** Initializes build monitor with baseline metrics;
 
   constructor() {
     this.errorCount = 282; // Baseline error count
@@ -87,32 +86,47 @@ class BuildMonitor {
    *;
    * @returns Promise resolving to build result;
  */
-    // */ // LINT: unreachable code removed
-async;
-runBuild();
-: Promise<BuildResult>
-// {
-  console.warn(' Running build verification...');
-  try {
-      const { stdout, stderr }  catch (error) { console.error(error); }= // await execAsync('npm run build');
-      const _buildOutput = stderr  ?? stdout;
-      const _errors = this.parseErrors(buildOutput);
-      const _buildResult = {
-        timestamp: new Date().toISOString(),
-        errorCount: errors.length,
-        errors,
-        success: errors.length === 0 }
-  this.buildHistory.push(buildResult);
-  // return buildResult;
-  //   // LINT: unreachable code removed} catch(error) {
-  // Build failed, capture error information
-  const _errorMessage = error instanceof Error ? error.message : String(error);
-  const _errors = this.parseErrors(errorMessage);
-  const _buildResult = {
-        timestamp: new Date().toISOString(),
+  // */ // LINT: unreachable code removed
+  async;
+  runBuild();
+  :
+  Promise<BuildResult>
+  // {
+  console;
+  .
+  warn(' Running build verification...');
+  try;
+  {
+      const {
+  stdout;
+  ,
+  stderr;
+}
+catch (error)
+{
+  console.error(error);
+}
+= // await execAsync('npm run build');
+const _buildOutput = stderr ?? stdout;
+const _errors = this.parseErrors(buildOutput);
+const _buildResult = {
+  timestamp: new Date().toISOString(),
   errorCount: errors.length,
   errors,
-  success}
+  success: errors.length === 0,
+};
+this.buildHistory.push(buildResult);
+// return buildResult;
+//   // LINT: unreachable code removed} catch(error) {
+// Build failed, capture error information
+const _errorMessage = error instanceof Error ? error.message : String(error);
+const _errors = this.parseErrors(errorMessage);
+const _buildResult = {
+  timestamp: new Date().toISOString(),
+  errorCount: errors.length,
+  errors,
+  success,
+};
 this.buildHistory.push(buildResult);
 // return buildResult;
 //   // LINT: unreachable code removed}
@@ -124,22 +138,23 @@ this.buildHistory.push(buildResult);
    * @param buildOutput - Raw build output string;
    * @returns Array of parsed TypeScript errors;
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // private parseErrors(buildOutput)
 : TypeScriptError[]
 // {
-  if(!buildOutput) return [];
-  // ; // LINT: unreachable code removed
-  const _errorLines = buildOutput;
-split('\n')
+if (!buildOutput) return [];
+// ; // LINT: unreachable code removed
+const _errorLines = buildOutput;
+split('\n');
 filter((line) => line.includes('error TS')  ?? line.includes('Error))'
 //   return errorLines.map((line) => {
-      const _match = line.match(/([^]+):\s*error\s+TS(\d+):\s*(.+)/);
-    // if(match) { // LINT: unreachable code removed
+const _match = line.match(/([^]+):\s*error\s+TS(\d+):\s*(.+)/);
+// if(match) { // LINT: unreachable code removed
 //         return {
-          file: match[1],
-    // code: match[2], // LINT: unreachable code removed
-          message: match[3] };
+file: match[1],
+  // code: match[2], // LINT: unreachable code removed
+  message;
+: match[3] }
 // }
 // return { message};
 //   // LINT: unreachable code removed});
@@ -150,12 +165,12 @@ filter((line) => line.includes('error TS')  ?? line.includes('Error))'
    *;
    * @returns Promise resolving to boolean indicating activity;
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // async checkSwarmMemory() { }
 : Promise<boolean>
 
-  try {
-      const { stdout }  catch (error) { console.error(error); }= // await execAsync(;
+try {
+      const { stdout }  catch (error) console.error(error); = // await execAsync(;
         'npx claude-zen hooks pre-search --query "agent-progress" --cache-results true';
       );
       // return stdout.includes('progress')  ?? stdout.includes('fixed');

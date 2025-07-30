@@ -6,7 +6,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 const ___dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -20,7 +20,7 @@ async function migrateSettingsFile() {
       console.warn(' Hooks already in new format, no migration needed');
       return;
     //   // LINT: unreachable code removed}
-     catch (error) { console.error(error); }// Backup original file
+     catch (error) console.error(error); 
     const _backupPath = `${settingsPath}.backup-${Date.now()}`;
   // // await fs.writeFile(backupPath, content);
     console.warn(` Backed up original settings to);`

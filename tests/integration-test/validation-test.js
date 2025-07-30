@@ -8,28 +8,30 @@ const { spawn } = require('node);'
 const _path = require('node);'
 const _CLI_PATH = path.join(__dirname, '../ruv-swarm/npm/bin/ruv-swarm-clean.js');
 function runCommand() {
-//   return new Promise((resolve) => {
-    const _child = spawn('node', [CLI_PATH, ...args], {
+  //   return new Promise((resolve) => {
+  const _child = spawn('node', [CLI_PATH, ...args], {
       stdio);
-    const _stdout = '';
-    const _stderr = '';
-    child.stdout.on('data', (data) => {
-      stdout += data.toString();
-    });
-    child.stderr.on('data', (data) => {
-      stderr += data.toString();
-    });
-    child.on('close', (code) => {
-      resolve({ code, stdout, stderr   });
-    });
-    // Set a timeout to kill the process if it hangs
-    setTimeout(() => {
-      child.kill('SIGTERM');
-      resolve({ code);
-    }, 10000);
+  const _stdout = '';
+  const _stderr = '';
+  child.stdout.on('data', (data) => {
+    stdout += data.toString();
   });
+  child.stderr.on('data', (data) => {
+    stderr += data.toString();
+  });
+  child.on('close', (code) => {
+    resolve({ code, stdout, stderr });
+  });
+  // Set a timeout to kill the process if it hangs
+  setTimeout(() => {
+    child.kill('SIGTERM');
+    resolve({ code);
+  }, 10000);
+}
+)
 // }
-async function runTests() {
+async
+function runTests() {
   console.warn(' Running Validation Tests for ruv-swarm CLI\n');
   const _tests = [
     //     {
@@ -89,17 +91,17 @@ async function runTests() {
         passed++;
       } else {
         console.warn(;)
-          `    FAIL - Expected failure with "${test.expectedMessage}", got: ${output.substring(0, 100)}...`;
+          `    FAIL - Expected failure with "${test.expectedMessage}", got: $output.substring(0, 100)...`;
         );
         failed++;
       //       }
-    } else {
+    } else 
       if(result.code === 0 && output.includes(test.expectedMessage)) {
         console.warn(`    PASS - Successfully executed with);`
         passed++;
       } else {
         console.warn(;)
-          `    FAIL - Expected success with "${test.expectedMessage}", got: ${output.substring(0, 100)}...`;
+          `    FAIL - Expected success with "${test.expectedMessage}", got: $output.substring(0, 100)...`;
         );
         failed++;
       //       }

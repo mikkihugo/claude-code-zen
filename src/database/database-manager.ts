@@ -1,4 +1,3 @@
-
 /** Unified Database Manager - TypeScript Edition;
 /** Provides a unified interface for managing multiple database types;
  * (SQLite, LanceDB, Kuzu, PostgreSQL) with connection pooling,
@@ -8,6 +7,7 @@
 import ConnectionPoolManager from '.';
 import DatabaseMonitor from '.';
 import TransactionManager from '.';
+
 // // interface DatabaseInstance {id = new Map() {}
 // private;
 // options = false
@@ -18,8 +18,8 @@ import TransactionManager from '.';
 // )
 // {
 //   super();
-  this.options = {enableMetrics = = false,enableHealthChecks = = false,healthCheckInterval = new TransactionManager(this, {defaultTimeout = new ConnectionPoolManager({loadBalancing = new DatabaseMonitor(this, {checkInterval = > this.shutdown());
-  process.on('SIGTERM', () => this.shutdown());
+this.options = {enableMetrics = = false,enableHealthChecks = = false,healthCheckInterval = new TransactionManager(this, {defaultTimeout = new ConnectionPoolManager({loadBalancing = new DatabaseMonitor(this, {checkInterval = > this.shutdown());
+process.on('SIGTERM', () => this.shutdown());
 // }
 
 /** Add a database to the manager;
@@ -28,8 +28,9 @@ import TransactionManager from '.';
 async;
 addDatabase(config = `${config.type}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 console.warn(` Adding ${config.type} database = {id = new SQLiteConnectionPool(;`
-            config.filePath  ?? `${config.name}.db`,))
-            {minConnections = new SQLiteOperations(instance.pool);
+            config.filePath  ?? `${config.name}.db`,)
+)
+{minConnections = new SQLiteOperations(instance.pool);
           break;
 
         case 'lancedb':
@@ -56,8 +57,8 @@ console.warn(` Removingdatabase = === 'function') {`
     //   // LINT: unreachable code removed}
 
     instance.metrics.lastUsed = new Date();
-    // return instance.connection;
-    //   // LINT: unreachable code removed}
+// return instance.connection;
+//   // LINT: unreachable code removed}
 
 /** Get all database connections;
 

@@ -4,13 +4,16 @@
 
 /** Modern CLI with advanced TUIfeaturing = () => {
  */
-  const _filled = Math.floor((progress / 100) * width)
-  const _empty = width - filled;
+const _filled = Math.floor((progress / 100) * width);
+const _empty = width - filled;
 
-  return(;
-    // <Box>; // LINT: unreachable code removed
-      <Text color={color}>;
-        {label && `${label}: `}`
+return(;
+// <Box>; // LINT: unreachable code removed
+<Text color={color}>;
+{
+  label && `${label}: `;
+}
+`
         [{''.repeat(filled)}{''.repeat(empty)}] {progress.toFixed(1)}%;'
       <
     <
@@ -333,7 +336,8 @@ slice(0, 8);
     launchMeowInkInterface(input[0], input.slice(1), flags);
   } else {
     // Return parsed command for normal CLI execution
-    // return {command = === `file => {`
+    // return {command = === `;
+file => {`
     console.warn('\n Claude-Zen interface shutting down...');'
     // process.exit(0); // LINT: unreachable code removed
   });

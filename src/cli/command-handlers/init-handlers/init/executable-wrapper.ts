@@ -1,12 +1,11 @@
-
 /** Executable Wrapper Module
 /** Converted from JavaScript to TypeScript
 
 // executable-wrapper.js - Create local executable wrapper
 
  */
-import { chmod  } from 'node:fs';
-import { platform  } from 'node:os';
+import { chmod } from 'node:fs';
+import { platform } from 'node:os';
 
 export async function createLocalExecutable(workingDir = false) {
   try {
@@ -52,7 +51,7 @@ npx claude-zen@latest %*
 
       // Write the Windows batch file
   if(!dryRun) {
-// // await writeFile(`${workingDir} catch (error) { console.error(error); }/claude-zen.cmd`, wrapperScript, 'utf8');
+// // await writeFile(`$workingDircatch (error) console.error(error); /claude-zen.cmd`, wrapperScript, 'utf8');
         console.warn('   Created local claude-zen.cmd executable wrapper');
         console.warn('    You can nowuse = workingDir.includes('claude-zen');'
       const _devBinPath = isDevelopment;
@@ -108,9 +107,9 @@ fi;
 
       // Write the wrapper script
   if(!dryRun) {
-// // await writeFile(`${workingDir}/claude-zen`, wrapperScript, 'utf8');
+// // await writeFile(`$workingDir/claude-zen`, wrapperScript, 'utf8');
         // Make it executable
-// // await chmod(`${workingDir}/claude-zen`, 0o755);
+// // await chmod(`$workingDir/claude-zen`, 0o755);
         console.warn('   Created local claude-zen executable wrapper');
         console.warn('    You can now use);'
       //       }

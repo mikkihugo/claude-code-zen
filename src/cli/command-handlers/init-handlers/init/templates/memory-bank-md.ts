@@ -1,4 +1,3 @@
-
 /** Memory Bank Md Module
 /** Converted from JavaScript to TypeScript
 
@@ -46,13 +45,13 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 Memory settings are configured in \`claude-zen.config.json\`:
 \`\`\`json;`
 // {
-  "memory": {
+  "memory": 
     "backend": "kuzu", // Graph database for relationships
     "path": "./memory/claude-zen-data.json",
     "cacheSize",
     "indexing",
     "namespaces": ["default", "agents", "tasks", "sessions"],
-    "retentionPolicy": {
+    "retentionPolicy": 
       "sessions": "30d",
       "tasks": "90d",
       "agents": "permanent";
@@ -128,27 +127,25 @@ The Claude-Flow memory system provides persistent storage and intelligent retrie
 Memory settings are configured in \`claude-zen.config.json\` with batchtools optimizations: null
 \`\`\`json;`
 // {
-  "memory": {
+  "memory": 
     "backend": "kuzu", // Graph database for relationships
     "path": "./memory/claude-zen-data.json",
     "cacheSize",
     "indexing",
-    "batchtools": {
+    "batchtools": 
       "enabled",
       "maxConcurrent",
       "batchSize",
       "parallelIndexing",
-      "concurrentBackups";
-    },
+      "concurrentBackups";,
     "namespaces": ["default", "agents", "tasks", "sessions", "sparc", "batchtools"],
-    "retentionPolicy": {
+    "retentionPolicy": 
       "sessions": "30d",
       "tasks": "90d",
       "agents": "permanent",
       "sparc": "180d",
-      "batchtools": "60d";
-    },
-    "performance": {
+      "batchtools": "60d";,
+    "performance": 
       "enableParallelAccess",
       "concurrentQueries",
       "batchWriteSize",

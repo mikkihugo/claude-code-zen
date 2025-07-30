@@ -1,4 +1,3 @@
-
 /** Simple CLI tests that don't spawn processes;'
  *;
  * @fileoverview Basic CLI validation tests with strict TypeScript;
@@ -8,13 +7,13 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
-import { describe, expect  } from '@jest';
+import { fileURLToPath } from 'node:url';
+import { describe, expect } from '@jest';
 import packageJson from '../../package.json';
 
 assert;
 // {
-  type: 'json';
+type: 'json';
 // }
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);

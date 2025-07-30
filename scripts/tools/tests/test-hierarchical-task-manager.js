@@ -3,9 +3,9 @@
 /* Test script for the enhanced Hierarchical Task Manager with AI breakdown;
 
  */
-import { mkdir  } from 'node:fs';
+import { mkdir } from 'node:fs';
 import path from 'node:path';
-import { HierarchicalTaskManagerPlugin  } from './src/coordination/meta-registry/plugins/hierarchical-task-manager.js';
+import { HierarchicalTaskManagerPlugin } from './src/coordination/meta-registry/plugins/hierarchical-task-manager.js';
 
 async function testHierarchicalTaskManager() {
   console.warn(' Testing Enhanced Hierarchical Task Manager with AI Breakdown...\n');
@@ -62,7 +62,7 @@ console.warn(`- Assignments);`
   if(epics.length > 0) {
   console.warn('\n Generated Epics);'
   epics.forEach((epic, index) => {
-    console.warn(`${index + 1}. ${epic.title}`);
+    console.warn(`$index + 1. $epic.title`);
     console.warn(`     Priority);`
   });
 // }
@@ -70,7 +70,7 @@ console.warn(`- Assignments);`
   console.warn('\n Delegations);'
   assignments.forEach((assignment, index) => {
     const _context = JSON.parse(assignment.context);
-    console.warn(`${index + 1}. Assigned to);`
+    console.warn(`$index + 1. Assigned to);`
     console.warn(`     Epic);`
     console.warn(`     Status);`
   });

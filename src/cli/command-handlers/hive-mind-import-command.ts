@@ -1,41 +1,44 @@
-
 /** Hive Mind Import Command Module
 /** Converted from JavaScript to TypeScript
 
  */
 import path from 'node:path';
-import { glob  } from 'glob';
-import { createHive  } from '.';
+import { glob } from 'glob';
+import { createHive } from '.';
 
 async function generateScopeFromCode(servicePath = path.basename(servicePath);
 // return `;`
-    // ---name = path.basename(servicePath); // LINT: unreachable code removed
-  const _projectJsonPath = path.join(servicePath, 'project.json');
+// ---name = path.basename(servicePath); // LINT: unreachable code removed
+const _projectJsonPath = path.join(servicePath, 'project.json');
 
-  let scopeMdContent;
+let scopeMdContent;
 
-  if(existsSync(projectJsonPath)) {
-    const _projectJson = JSON.parse(readFileSync(projectJsonPath, 'utf8'));
-    scopeMdContent = `;`
----name = > `- ${dep}`;
-).join('\n')}
-    `
+if (existsSync(projectJsonPath)) {
+  const _projectJson = JSON.parse(readFileSync(projectJsonPath, 'utf8'));
+  scopeMdContent = `;`;
+  ---name = > `- ${dep}`;
+  ).join('\n')
+}
+`
 } else
 // {
   scopeMdContent = // await generateScopeFromCode(servicePath);
 // }
-console.warn(`\n[Suggestion for ${serviceName}]`);
-console.warn('------------------');
+console.warn(`;
+\n[Suggestion
+for ${serviceName}
+]`)
+console.warn('------------------')
 console.warn(scopeMdContent);
 console.warn('------------------');
 // This is a placeholder for the interactive prompt
 // const _answer = awaitnew Promise((resolve) => {
-  const __readline = import('node).then((rl) => {'
-    const _rlInterface = rl.createInterface({ input => {)
+const __readline = import('node).then((rl) => {'
+const _rlInterface = rl.createInterface({ input => {)
         rlInterface.close();
-    resolve(answer);
-    });
-});
+resolve(answer);
+})
+})
 })
 if(answer.toLowerCase() === 'y') {
 // // await createHive([serviceName], {path = // await glob('services/*', { onlyDirectories}); */

@@ -1,10 +1,10 @@
-
 /** Node.js 22 Native WebSocket Client Implementation;
 /** Uses the built-in WebSocket client available in Node.js 22+;
 /** Provides high-performance, standards-compliant WebSocket connectivity;
 
  */
-import { EventEmitter  } from 'node:events';
+import { EventEmitter } from 'node:events';
+
 // // interface WebSocketClientOptions {
 //   reconnect?;
 //   reconnectInterval?;
@@ -23,24 +23,26 @@ import { EventEmitter  } from 'node:events';
  */
 
 // export class WebSocketClient extends EventEmitter {
-  constructor(url, _options = {}) {
-//     super();
-    this.url = url;
-    this.options = {
+constructor(url, (_options = {}));
+{
+  //     super();
+  this.url = url;
+  this.options = {
       reconnect,
     reconnectInterval,
     maxReconnectAttempts,
     timeout,
-..options }
-  this;
+..options
+}
+this;
 
-  isConnected = false;
-  this;
+isConnected = false;
+this;
 
-  reconnectAttempts = 0;
-  this;
+reconnectAttempts = 0;
+this;
 
-  messageQueue = [];
+messageQueue = [];
 // }
 
 /** Connect to WebSocket server;
@@ -72,33 +74,36 @@ connect();
           try {
             const _data = JSON.parse(event.data);
             this.emit('message', data);
-          } catch (error) { console.error(error); } catch(/* _error */) {
-            this.emit('message', event.data);
-          //           }
-        };
+          } catch (error) { console.error(error); } catch(/* _error */ )
+{
+  this.emit('message', event.data);
+  //           }
+}
 
-        this.ws.onclose = () => {
-          clearTimeout(timeout);
-          this.isConnected = false;
-          this.stopHeartbeat();
-          this.emit('disconnected', event.code, event.reason);
+this.ws.onclose = () => {
+  clearTimeout(timeout);
+  this.isConnected = false;
+  this.stopHeartbeat();
+  this.emit('disconnected', event.code, event.reason);
 
-          if(;
-            this.options.reconnect &&;
-            this.reconnectAttempts < this.options.maxReconnectAttempts;
-          //           )
-            this.scheduleReconnect();
-        };
+  if(;
+  this.options.reconnect &&;
+  this.reconnectAttempts < this.options.maxReconnectAttempts;
+  //           )
+  this.scheduleReconnect();
+};
 
-        this.ws.onerror = () => {
-          clearTimeout(timeout);
-          this.emit('error', error);
-          reject(error);
-        };
-      } catch(error) {
-        reject(error);
-      //       }
-    });
+this.ws.onerror = () => {
+  clearTimeout(timeout);
+  this.emit('error', error);
+  reject(error);
+};
+} catch(error)
+{
+  reject(error);
+  //       }
+}
+)
 // }
 
 /** Disconnect from WebSocket server;

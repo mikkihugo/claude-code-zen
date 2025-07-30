@@ -1,4 +1,3 @@
-
 /** Claude Md Module
 /** Converted from JavaScript to TypeScript
 
@@ -39,7 +38,7 @@ export function createMinimalClaudeMd() {
 **Examples of WRONG sequential execution:**
 \`\`\`javascript;`
 //  WRONG: Multiple messages(NEVER DO THIS)
-Message 1: TodoWrite { todos: [single todo] }
+Message 1: TodoWrite todos: [single todo] 
 Message 2: Task("Agent 1");
 Message 3: Task("Agent 2");
 Message 4: Read("file1.js");

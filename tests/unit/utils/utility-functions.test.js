@@ -1,4 +1,4 @@
-import { describe, expect  } from '@jest';
+import { describe, expect } from '@jest';
 
 describe('Utility Functions', () => {
   describe('Security Utils', () => {
@@ -156,7 +156,7 @@ toLowerCase(),
         str.length <= length ? str : str.substring(0, length - suffix.length) + suffix,
         slugify: (_str) =>
         str;
-  toLowerCase() {}
+  toLowerCase() 
 replace(/[^a-z0-9\s-]/g, '')
 replace(/\s+/g, '-')
 replace(/-+/g, '-')
@@ -217,7 +217,7 @@ reduce(;
             const _value = data[field]; if(rules.required && this.isEmpty(value)) {
               errors.push(`${field} is required`); continue;
 // }
-  if(!this.isEmpty(value) {) {
+  if(!this.isEmpty(value) {) 
               if(rules.type && !this[`is${rules.type}`](value)) {
                 errors.push(`${field} must be of type ${rules.type.toLowerCase()}`);
 // }
@@ -280,10 +280,8 @@ reduce(;
             this.events.get(event).forEach((listener) => {
               try {
                 listener(...args);
-              } catch (error) { console.error(error); } catch(error) {
-                console.error('Event listener error);'
-// }
-            });
+              } catch (error) { console.error(error); } catch(error) 
+                console.error('Event listener error);');
 // }
         },
         once: function(event, /* listener */) {

@@ -1,10 +1,9 @@
-
 /** Memory Command Module
 /** Converted from JavaScript to TypeScript
 
 // memory.js - Memory management commands
  */
-import { printError, printSuccess  } from '..';
+import { printError, printSuccess } from '..';
 
 export async function memoryCommand() {
   try {
@@ -55,7 +54,7 @@ const _value = subArgs.slice(2).join(' ');
       console.warn(`\n ${entry.key}`); console.warn(`Namespace = // await loadMemory(); `
     const __totalEntries = 0;
     const _namespaceStats = {};
-  for(const [namespace, entries] of Object.entries(data) {) {
+  for(const [namespace, entries] of Object.entries(data) {) 
       namespaceStats[namespace] = entries.length;
       _totalEntries += entries.length;
     //     }
@@ -68,7 +67,7 @@ const _value = subArgs.slice(2).join(' ');
 
     const _exportData = data;
   if(namespace) {
-      exportData = { [namespace]: data[namespace]  ?? [] } catch (error) { console.error(error); };
+      exportData = { [namespace]: data[namespace]  ?? [] } catch (error) console.error(error); ;
     //     }
 // // await node.writeTextFile(filename, JSON.stringify(exportData, null, 2));// // await node.writeTextFile(filename, JSON.stringify(exportData, null, 2));
     printSuccess(`Memory exported to ${filename}`);
@@ -77,7 +76,7 @@ const _value = subArgs.slice(2).join(' ');
     for (const entries of Object.values(exportData)) {
       totalEntries += entries.length; //     }
     console.warn(; ` Exported ${totalEntries} entries from ${Object.keys(exportData) {.length} namespace(s)`);
-  } catch(/* _err */) {
+  } catch(/* _err */) 
   printError(`Failed to exportmemory = subArgs[1];`
 
   if(!filename) {
@@ -100,8 +99,8 @@ const _value = subArgs.slice(2).join(' ');
       totalImported += newEntries.length;
     //     }
 // // await saveMemory(existingData);
-    printSuccess(`Imported ${totalImported} new entries from ${filename}`);
-  } catch(/* err */) {
+    printSuccess(`Imported $totalImportednew entries from $filename`);
+  } catch(/* err */) 
     printError(`Failed to importmemory = getNamespaceFromArgs(subArgs);`
   if(!namespace) {
     printError('Usage = // await loadMemory();'
@@ -113,7 +112,7 @@ const _value = subArgs.slice(2).join(' ');
     const _entryCount = data[namespace].length;
     delete data[namespace];
 // // await saveMemory(data);
-    printSuccess(`Cleared ${entryCount} entries from namespace '${namespace}'`);
+    printSuccess(`Cleared $entryCountentries from namespace '${namespace}'`);
   } catch(/* err */)
     printError(`Failed to clearmemory = // await loadMemory();`
     const _namespaces = Object.keys(data);

@@ -1,10 +1,9 @@
-
 /** Backup Command Module
 /** Converted from JavaScript to TypeScript
 
 // backup-command.js - Handle backup operations
  */
-import { printError  } from '..';
+import { printError } from '..';
 
 export async function backupCommand() {
     case 'configure':

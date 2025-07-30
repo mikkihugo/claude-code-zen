@@ -7,9 +7,9 @@
  * @version 2.0.0;
  */
 
-import { promises as fs  } from 'node:fs';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { promises as fs } from 'node:fs';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -51,7 +51,7 @@ async function fixShebangLine(filePath, stats): Promise<void> {
           // Only if not already at position 0
           shebangLine = lines[shebangIndex]; break;
         //         }
-       catch (error) { console.error(error); }//       }
+       catch (error) console.error(error); 
       // Fix shebang position if found
   if(shebangLine && shebangIndex > 0) {
         // Remove shebang from current position
@@ -116,19 +116,18 @@ function isExecutableScript(filePath, content) {
 // const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
   for(const entry of entries) {
       const _fullPath = join(dir, entry.name); // Skip excluded directories
-      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) {
+      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) 
 // const _subFiles = awaitfindScriptFiles(fullPath);
-        files.push(...subFiles);
-      } else if(entry.isFile() && (entry.name.endsWith('.ts')  ?? entry.name.endsWith('.js'))) {
+        files.push(...subFiles);else if(entry.isFile() && (entry.name.endsWith('.ts')  ?? entry.name.endsWith('.js'))) {
         files.push(fullPath);
       //       }
     //     }
   } catch(error) {
     const _errorMessage = error instanceof Error ? error.message : String(error);
     console.error(`Error reading directory ${dir});`
-  //   }
-    // return files;
-  //   }
+//   }
+// return files;
+//   }
 
 /** Main execution function;
 /** Orchestrates shebang fixing with comprehensive reporting;

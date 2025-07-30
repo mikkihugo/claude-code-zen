@@ -1,10 +1,12 @@
 // validation/index.js - Comprehensive validation system for SPARC initialization
 
-import { ConfigValidator  } from '.';
-import { HealthChecker  } from '.';
-import { ModeValidator  } from '.';
-import { PostInitValidator  } from '.';
-import { PreInitValidator  } from '.';
+import {
+  ConfigValidator,
+  HealthChecker,
+  ModeValidator,
+  PostInitValidator,
+  PreInitValidator,
+} from '.';
 
 /** Main validation orchestrator
 
@@ -102,7 +104,7 @@ catch(error)
   if(!permissionCheck.success) {
         results.warnings.push(...permissionCheck.errors);
       //       }
-    } catch(error) {
+    } catch(error) 
       results.success = false;
       results.errors.push(`Post-initialization validation failed = {success = // await this.configValidator.validateRoomodes();`
   results.checks.roomodes = roomodesCheck;
@@ -141,7 +143,7 @@ catch(error)
   if(modeTests.warnings.length > 0) {
         results.warnings.push(...modeTests.warnings);
       //       }
-    } catch(error) {
+    } catch(error) 
       results.success = false;
       results.errors.push(`Mode functionality testing failed = {success = // await this.healthChecker.checkModeAvailability();`
   results.health.modes = modeHealth;

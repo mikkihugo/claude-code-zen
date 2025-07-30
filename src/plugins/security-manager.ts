@@ -1,9 +1,9 @@
-
 /** Plugin Security Manager;
 /** Comprehensive security system for plugin sandboxing, permission management, and threat detection;
 
  */
-import { Worker  } from 'node:worker_threads';
+import { Worker } from 'node:worker_threads';
+
 // // interface SecurityPolicy {allowedOperations = new Map() {}
 // private;
 // violations = []
@@ -23,7 +23,7 @@ import { Worker  } from 'node:worker_threads';
 // )
 // {
 //   super();
-  this.config = {isolateMemory = // await this.validatePluginSecurity(plugin, manifest, config);
+this.config = {isolateMemory = // await this.validatePluginSecurity(plugin, manifest, config);
   if(!securityValidation.isValid) {
     throw new Error(`Security validationfailed = this.createSecurityPolicy(manifest, config);`
       this.securityPolicies.set(manifest.name, policy);
@@ -48,7 +48,7 @@ import { Worker  } from 'node:worker_threads';
   for(const permission of requestedPermissions) {
       const _validation = this.validateSinglePermission(permission); if(!validation.isValid) {
         errors.push(`Permission ${permission}: ${validation.errors.join(', ')}`); //   }
-  riskScore += this.calculatePermissionRisk(permission) {;
+  riskScore += this.calculatePermissionRisk(permission) ;
 // }
 // Check if risk score exceeds threshold
   if(riskScore > 75) {
@@ -84,7 +84,7 @@ import { Worker  } from 'node:worker_threads';
         warnings.push(...permissionValidation.warnings);
       //       }
 
-       catch (error) { console.error(error); }// 4. Check resource limits
+       catch (error) console.error(error); 
       const _resourceValidation = this.validateResourceLimits(config);
       errors.push(...resourceValidation.errors);
       warnings.push(...resourceValidation.warnings);

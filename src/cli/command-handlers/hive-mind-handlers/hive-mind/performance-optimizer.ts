@@ -1,69 +1,72 @@
-
 /** Performance Optimizer for Hive Mind System
 /** Implements advanced performance optimizationsincluding = 10, timeout = 30000) {
  */
-    this.maxConcurrency = maxConcurrency;
-    this.timeout = timeout;
-    this.running = 0;
-    this.queue = [];
-    this.results = new Map();
-    this.metrics = {processed = 5) {
+this.maxConcurrency = maxConcurrency;
+this.timeout = timeout;
+this.running = 0;
+this.queue = [];
+this.results = new Map();
+this.metrics = {processed = 5) {
     // return new Promise((resolve, reject) => {
       const _queueItem = {
         operation,
     // priority, // LINT: unreachable code removed
         resolve,
         reject,addedAt = this.queue.findIndex((item) => item.priority < priority);
-  if(insertIndex === -1) {
-        this.queue.push(queueItem);
-      } else {
-        this.queue.splice(insertIndex, 0, queueItem);
-      //       }
+if (insertIndex === -1) {
+  this.queue.push(queueItem);
+} else {
+  this.queue.splice(insertIndex, 0, queueItem);
+  //       }
 
-      this._processQueue();
-    });
-  //   }
+  this._processQueue();
+}
+)
+//   }
 
-  async _processQueue() { 
-    if(this.running >= this.maxConcurrency  ?? this.queue.length === 0) 
-      return;
-    //   // LINT: unreachable code removed}
+async
+_processQueue();
+{
+  if (this.running >= this.maxConcurrency ?? this.queue.length === 0) return;
+  //   // LINT: unreachable code removed}
 
-    const _item = this.queue.shift();
-    this.running++;
+  const _item = this.queue.shift();
+  this.running++;
 
-    const _startTime = performance.now();
+  const _startTime = performance.now();
 
-    try {
+  try {
       // Add timeout wrapper
       const _timeoutPromise = new Promise((_, reject) => {
         setTimeout(() => reject(new Error('Operation timeout')), this.timeout);
-      } catch (error) { console.error(error); });
-// const _result = awaitPromise.race([item.operation(), timeoutPromise]);
+      } catch (error) { console.error(error); }
+  )
+  // const _result = awaitPromise.race([item.operation(), timeoutPromise]);
 
-      const _processingTime = performance.now() - startTime;
-      this._updateMetrics(processingTime, true);
-
-      item.resolve(result);
-    } catch(error)
-// {
   const _processingTime = performance.now() - startTime;
-  this._updateMetrics(processingTime, false);
-  item.reject(error);
+  this._updateMetrics(processingTime, true);
+
+  item.resolve(result);
+}
+catch(error)
+// {
+const _processingTime = performance.now() - startTime;
+this._updateMetrics(processingTime, false);
+item.reject(error);
 // }
 // finally
 // {
-  this.running--;
-  setImmediate(() => this._processQueue());
+this.running--;
+setImmediate(() => this._processQueue());
 // }
 // }
-_updateMetrics(processingTime, success)
+_updateMetrics(processingTime, success);
 : unknown
 // {
-  this.metrics.processed++;
-  this.metrics.totalProcessingTime += processingTime;
-  this.metrics.avgProcessingTime = this.metrics.totalProcessingTime / this.metrics.processed;
-  if(!success) {
+  this.metrics.processed++
+this.metrics.totalProcessingTime += processingTime
+this.metrics.avgProcessingTime = this.metrics.totalProcessingTime / this.metrics.processed;
+if(!success) {
     this.metrics.failures++;
   //   }
 // }
@@ -121,7 +124,7 @@ _processBatch(batchKey);
   if(item._resolve) {
           item._resolve(results[index]  ?? results);
         //         }
-       catch (error) { console.error(error); }});
+       catch (error) console.error(error); });
 
       this.emit('batch => {')
   if(item._reject) {
@@ -139,14 +142,14 @@ _processBatch(batchKey);
 // }
 , this.config.flushInterval)
 // }
-  getMetrics() {}
+  getMetrics() 
 // {
   // return {
 ..this.metrics,pendingBatches = > sum + batch.items.length,
   // 0, // LINT: unreachable code removed
   ) }
 // }
-  close() {}
+  close() 
 // {
   // Process all remaining batches
   const _batchKeys = Array.from(this.batches.keys()); // return Promise.all(batchKeys.map((key) {=> this._processBatch(key)));
@@ -200,16 +203,16 @@ _processBatch(batchKey);
       //       }
 
        catch (error) { console.error(error); }// return result;
-    //   // LINT: unreachable code removed} catch(/* _error */) {
-      this.emit('error', { type = {}) {
+    //   // LINT: unreachable code removed} catch(/* _error */) 
+      this.emit('error', type = {}) 
   if(!this._config._enableBatchProcessing) {
       // return // await processor([item]);
     //   // LINT: unreachable code removed}
 
     this.metrics.optimizations.batchOperations++;
 
-    // return // await this.batchProcessor.addToBatch(batchKey, item, processor);
-    //   // LINT: unreachable code removed}
+// return // await this.batchProcessor.addToBatch(batchKey, item, processor);
+//   // LINT: unreachable code removed}
 
 /** Optimized caching with automatic expiration
 

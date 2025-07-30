@@ -1,9 +1,8 @@
-
 /** Circuit Breaker Implementation for Queen Operations
 /** Provides fault tolerance and prevents cascading failures
 
  */
-import { CliError  } from '.';
+import { CliError } from '.';
 
 export class CircuitBreaker {
   constructor(options = {}) {
@@ -104,7 +103,7 @@ _getState();
     //     }
   if(this.state === 'HALF_OPEN'  ?? this.failureCount >= this.failureThreshold) {'
       // Open circuit on any failure in half-open state or when threshold reached
-      this._changeState('OPEN', {successCount = === 'CLOSED' && to === 'OPEN') {'
+      this._changeState('OPEN', successCount = === 'CLOSED' && to === 'OPEN') '
       // return `Failure threshold reached(${this.failureCount}/${this.failureThreshold})`;`
     //   // LINT: unreachable code removed}
   if(from === 'OPEN' && to === 'HALF_OPEN') {'
@@ -114,10 +113,10 @@ _getState();
       // return `Success threshold reached(${this.successCount}/${this.successThreshold})`;`
     //   // LINT: unreachable code removed}
   if(from === 'HALF_OPEN' && to === 'OPEN') {'
-      // return 'Failure in half-open state';'
-    //   // LINT: unreachable code removed}
-    // return 'Unknown';'
-    // ; // LINT: unreachable code removed
+// return 'Failure in half-open state';'
+//   // LINT: unreachable code removed}
+// return 'Unknown';'
+// ; // LINT: unreachable code removed
 
 /** Reset circuit breaker to closed state
 

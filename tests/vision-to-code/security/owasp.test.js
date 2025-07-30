@@ -51,8 +51,7 @@ get(`/api/v1/projects/\$id`)
 set('Authorization', authToken)
 expect(404)
         expect(response.body.error.code).toBe('NOT_FOUND'); // }
-    }) {;
-  });
+    }) ;);
   describe('A02) => {'
     it('should use HTTPS in production', async() => {
 // const _response = awaitrequest(server);
@@ -135,7 +134,7 @@ expect(400)
         '<img src=x onerror=alert(1)>',
         'javascript:alert(1)',
         '<svg'
-  for(const _payload of xssPayloads) {
+  for(const _payload of xssPayloads) 
 // const _response = awaitrequest(server); 
 post('/api/v1/projects')
 set('Authorization', authToken)
@@ -144,11 +143,8 @@ send(
           description)
 expect(201)
         // Check that HTML is escaped
-        expect(response.body.data.name).not.toContain('<script>'); expect(response.body.data.name) {.not.toContain('javascript);'
-        expect(response.body.data.description).not.toContain('onerror=');
-// }
-    });
-  });
+        expect(response.body.data.name).not.toContain('<script>'); expect(response.body.data.name) .not.toContain('javascript);'
+        expect(response.body.data.description).not.toContain('onerror=');););
   describe('A04) => {'
     it('should enforce business logic constraints', async() => {
       // Try to create more projects than allowed

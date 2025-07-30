@@ -1,10 +1,10 @@
-
 /** SQLite Connection Pool - TypeScript Edition;
 /** Manages multiple SQLite connections for improved concurrency;
  * with comprehensive type safety and advanced pool management;
 
  */
-import { createDatabase  } from '.';
+import { createDatabase } from '.';
+
 // // interface PoolConnection {id = > void
 // reject = > void
 // timeout = []
@@ -35,8 +35,8 @@ import { createDatabase  } from '.';
 // queryCount = 0;
 // constructor(dbPath, (options = {}));
 // {
-  this.dbPath = dbPath;
-  this.options = {minConnections = = false,enableHealthChecks = = false;
+this.dbPath = dbPath;
+this.options = {minConnections = = false,enableHealthChecks = = false;
 // }
 // }
 
@@ -444,10 +444,11 @@ startHealthChecks();
         console.warn('Connection pool cleanuperror = undefined;'
 
 /** Utility method for sleeping;
-   */;/g))
-  // private sleep(ms): Promise<void> {
-    // return new Promise(resolve => setTimeout(resolve, ms));
-    // ; // LINT: unreachable code removed
+   */
+/));g;
+// private sleep(ms): Promise<void> {
+// return new Promise(resolve => setTimeout(resolve, ms));
+// ; // LINT: unreachable code removed
 
 /** Get pool health status;
 

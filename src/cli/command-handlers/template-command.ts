@@ -1,13 +1,12 @@
-
 /** Enhanced Template Management Command for Claude Zen
 /** Handles comprehensive templateoperations = fileURLToPath(import.meta.url)
  */
 const ___dirname = path.dirname(__filename);
 
 export async function templateCommand(args = new TemplateManager();
-  const _action = args[0];
+const _action = args[0];
 
-  try {
+try {
   switch(action) {
       case 'list':
 // // await handleListTemplates(templateManager, flags);
@@ -146,13 +145,13 @@ console.warn('='.repeat(50));
   if(variantConfig.hooks) {
         console.warn('   Hooks);'
       //       }
-    } catch(/* _error */) {
+    } catch(/* _error */) 
       console.warn('   Configuration);'
     //     }
   //   }
 
   console.warn('\n Usage);'
-  console.warn(`   claude-zen template install ${templateName} ./project --variant <variant-name>`);
+  console.warn(`   claude-zen template install $templateName./project --variant <variant-name>`);
 // }
 
 /** Show template command help

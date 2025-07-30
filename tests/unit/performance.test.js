@@ -1,14 +1,13 @@
-
 /** Performance tests for Claude-Flow;
 
  */
-import { jest  } from '@jest';
+import { jest } from '@jest';
 import fs from 'fs-extra';
-import { agentCommand  } from '../../cli/simple-commands/agent.js';
-import { memoryCommand  } from '../../cli/simple-commands/memory.js';
-import { parseFlags  } from '../../cli/utils.js';
-import { deepMerge  } from '../../utils/helpers.js';
-import { perfHelpers  } from '../utils/test-helpers.js';
+import { agentCommand } from '../../cli/simple-commands/agent.js';
+import { memoryCommand } from '../../cli/simple-commands/memory.js';
+import { parseFlags } from '../../cli/utils.js';
+import { deepMerge } from '../../utils/helpers.js';
+import { perfHelpers } from '../utils/test-helpers.js';
 
 describe('Performance Tests', () => {
   describe('Utility Functions Performance', () => {

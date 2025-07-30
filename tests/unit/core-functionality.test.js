@@ -1,4 +1,4 @@
-import { describe, expect  } from '@jest';
+import { describe, expect } from '@jest';
 
 describe('Core Functionality Tests', () => {
   describe('Memory Management', () => {
@@ -41,7 +41,7 @@ describe('Core Functionality Tests', () => {
           { key: 'doc1', content: 'hello world test' },
           { key: 'doc2', content: 'goodbye universe' },
           { key: 'doc3', content: 'hello testing framework' } ],
-        search: function(_term) {
+        search: (_term) => {
 //           return this.data.filter((_item) =>;
     // item.content.toLowerCase().includes(term.toLowerCase()); // LINT: unreachable code removed
           );
@@ -291,15 +291,14 @@ describe('Core Functionality Tests', () => {
         server: { port, host: 'localhost' },type: 'sqlite', file: 'default.db' ,analytics  };
       const _userConfig = {
         server: { port },file: 'custom.db', pool, max ,analytics, newFeature  };
-      const _merged = configManager.merge(baseConfig, userConfig) {;
+      const _merged = configManager.merge(baseConfig, userConfig) ;
       expect(merged.server.port).toBe(8080);
       expect(merged.server.host).toBe('localhost');
       expect(merged.database.type).toBe('sqlite');
       expect(merged.database.file).toBe('custom.db');
       expect(merged.database.pool.min).toBe(1);
       expect(merged.features.analytics).toBe(false);
-      expect(merged.features.newFeature).toBe(true);
-    });
+      expect(merged.features.newFeature).toBe(true););
     it('should validate configuration schema', () => {
       const _schemaValidator = {
         schema: {

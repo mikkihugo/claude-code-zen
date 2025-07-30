@@ -82,7 +82,7 @@ async function checkGHCLI() {
   try {
 // const response = awaitrunGHModel('Respond with just "OK"', 'openai/gpt-4o-mini');
 //     return response.includes('OK');
-  } catch (error) { console.error(error); } catch(_error) {
+  } catch (error) { console.error(error); } catch(_error) 
 //     return false;
 
 // AI Document Analysis
@@ -90,18 +90,17 @@ async function analyzeDocumentWithAI(docType, service, docId, content, metadata)
   const prompt = `You are an expert document reviewer for microservices architecture. Analyze this document and provide structured feedback.`
 
 Document Information: null
-- Type: ${docType}
-- Service: ${service}
-- ID: ${docId}
+- Type: $docType
+- Service: $service
+- ID: $docId
 
 Current Metadata: null
-${JSON.stringify(metadata, null, 2)}
+$JSON.stringify(metadata, null, 2)
 
 Document Content: null
-${content}
+$content
 
 Please analyze and provide feedback in this JSON format: null
-{}
   "quality_score": <1-10>,
   "suggested_approvers": ["role1", "role2"],
   "required_validations": ["validation1", "validation2"],
@@ -124,29 +123,27 @@ Focus on practical, actionable feedback. IMPORTANT: Respond with ONLY the JSON o
     } else {
       // return null;
 
-  } catch(_error) {
+  } catch(_error) 
     // return null;
 
 // Review routing decisions with AI
 async function reviewRoutingWithAI(docType, service, currentApprovers, content) {
   const prompt = `You are an architecture reviewer. Evaluate if these approvers are appropriate for this document type and content.`
 
-Document Type: ${docType}
-Service: ${service}
-Current Approvers: ${currentApprovers.join(', ')}
+Document Type: $docType
+Service: $service
+Current Approvers: $currentApprovers.join(', ')
 
 Document Content Summary: null
-${content.substring(0, 1000)}...
+$content.substring(0, 1000)...
 
 Provide feedback in JSON format: null
-{}
   "routing_appropriate": true
   "reasoning": "explanation of the routing assessment",
-  "suggested_changes": {
+  "suggested_changes": 
     "add_approvers": ["role1", "role2"],
     "remove_approvers": ["role3"],
-    "alternative_approvers": ["role4", "role5"]
-  },
+    "alternative_approvers": ["role4", "role5"],
   "additional_validations": ["validation1", "validation2"],
   "risk_assessment": "low/medium/high",
   "recommendations": ["action1", "action2"]
@@ -163,7 +160,7 @@ IMPORTANT: Respond with ONLY the JSON object, no other text.`;`
     } else {
       // return null;
 
-  } catch(_error) {
+  } catch(_error) 
     // return null;
 
 // Generate document from requirements
@@ -176,10 +173,10 @@ async function generateDocumentWithAI(docType, service, requirements) {
 
   const prompt = `Generate a professional ${docType} document for the ${service} service.`
 
-Template Style: ${templates[docType] || 'Standard technical document'}
+Template Style: $templates[docType] || 'Standard technical document'
 
 Requirements: null
-${requirements}
+$requirements
 
 Generate a complete, well-structured document following best practices for ${docType}. Include: null
 - Proper markdown formatting

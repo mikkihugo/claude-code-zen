@@ -1,18 +1,17 @@
-
 /** Markdown Scanner Plugin;
 /** Validates markdown files using markdownlint and checks for standard headers;
 
  */
-import { readFile  } from 'node:fs';
+import { readFile } from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { lint  } from 'markdownlint';
+import { lint } from 'markdownlint';
 
 export class MarkdownScannerPlugin {
   constructor(_config = {}) {
     this.config = {filePatterns = new Map();
   //   }
-  async initialize() { 
+  async initialize() 
     console.warn(' Markdown Scanner Plugin initialized');
     this.setupDefaultRules();
   //   }
@@ -138,8 +137,8 @@ this.updateStats(stats, analysis)
 
         try {
 // // await readFile(fullPath);
-        } catch (error) { console.error(error); } catch(/* _error */) {
-          issues.push({id = path.basename(filepath, '.md');
+        } catch (error) { console.error(error); } catch(/* _error */) 
+          issues.push(id = path.basename(filepath, '.md');
 
 /** Count headings in content;
 

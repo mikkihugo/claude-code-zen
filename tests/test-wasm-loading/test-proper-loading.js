@@ -27,7 +27,7 @@ async function testProperWasmLoading() {
       const _version = wasmModule.get_version();
       console.warn('   Version);'
     //     }
-   catch (error) { console.error(error); }if(wasmModule.get_features) {
+   catch (error) console.error(error); if(wasmModule.get_features) {
       const _features = wasmModule.get_features();
       console.warn('   Features);'
     //     }
@@ -40,11 +40,8 @@ async function testProperWasmLoading() {
       try {
         const _nn = wasmModule.create_neural_network(3, 'relu');
         console.warn('    Neural network created);'
-      } catch (error) { console.error(error); } catch(/* e */) {
-        console.warn('    Neural network creation failed);'
-      //       }
-    //     }
-  } catch(error) {
+      } catch (error) { console.error(error); } catch(/* e */) 
+        console.warn('    Neural network creation failed);'catch(error) 
     console.error('\n Error);'
   if(error.stack) {
       console.error('Stack:', error.stack.split('\n').slice(0, 5).join('\n'));

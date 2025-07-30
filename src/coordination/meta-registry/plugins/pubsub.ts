@@ -1,10 +1,14 @@
-
 /** Pub/Sub Communication Plugin
 /** Provides publish-subscribe messaging coordination through the registry
 
  */
-import { EventEmitter  } from 'node:events';'
-import { nanoid  } from 'nanoid';'
+import { EventEmitter } from 'node:events';
+
+'
+
+import { nanoid } from 'nanoid';
+
+'
 
 export class PubSubPlugin extends EventEmitter {
   // // static metadata = {name = null;
@@ -63,7 +67,7 @@ setupServicePubSub(serviceKey, serviceConfig);
   for(const topic of serviceConfig.subscribesTo) {
 // // // await this.subscribe(serviceKey, topic, (message) => {
         this.emit('messageForService', { serviceKey, topic, message }); '
-      }) {;
+      }) ;
     //     }
   //   }
 // }
@@ -93,8 +97,8 @@ async;
   if(this.topics.has(topicId)) {
     // return this.topics.get(topicId);
     //   // LINT: unreachable code removed}
-    const __topic = {id = `${this.options.topicPrefix}:${topicName}`;`
-    let _topic = this.topics.get(topicId);
+    const __topic = {id = `$this.options.topicPrefix:$topicName`;`
+    const _topic = this.topics.get(topicId);
   if(!topic) {
       // return false;
       //   // LINT: unreachable code removed}
@@ -113,14 +117,14 @@ async;
     publish(topicName, message, (options = {}));
     : unknown
     //     {
-      let _topicId = `${this.options.topicPrefix}:${topicName}`;`
+      const _topicId = `$this.options.topicPrefix:$topicName`;`
       const __topic = this.topics.get(topicId);
       // Create topic if it doesn't exist'
   if(!topic) {
         _topic = // // await this.createTopic(topicName);
       //       }
       const __messageData = {id = {}) {
-    const _topicId = `${this.options.topicPrefix}:${topicName}`;`
+    const _topicId = `$this.options.topicPrefix:$topicName`;`
       const _topic = this.topics.get(topicId);
       // Create topic if it doesn't exist'
   if(!topic) {
@@ -156,7 +160,7 @@ unsubscribe(subscriptionId);
 
   // Remove subscription
   this.subscriptions.delete(subscriptionId);
-// // // await this.registry.backend.unregister?.(`${this.options.subscriptionPrefix});`
+// // // await this.registry.backend.unregister?.(`$this.options.subscriptionPrefix);`
   // Update topic stats
   const _topic = this.topics.get(subscription.topicId);
   if(topic) {
@@ -182,7 +186,7 @@ async;
 registerPublisher(publisherId, topicName, (options = {}));
 
 // {
-  const _topicId = `${this.options.topicPrefix}:${topicName}`;`
+  const _topicId = `$this.options.topicPrefix:$topicName`;`
   const __topic = this.topics.get(topicId);
   if(!topic) {
     _topic = // // await this.createTopic(topicName);
@@ -194,7 +198,7 @@ registerPublisher(publisherId, topicName, (options = {}));
     //   // LINT: unreachable code removed}
 
   this.publishers.delete(publisherId);
-// // // await this.registry.backend.unregister?.(`${this.options.publisherPrefix});`
+// // // await this.registry.backend.unregister?.(`$this.options.publisherPrefix);`
   // Update topic stats
   const _topic = this.topics.get(publisher.topicId);
   if(topic) {
@@ -223,7 +227,7 @@ notifySubscribers(topicId, messageData);
   //   }
 
   // Emit event for external handlers
-  this.emit('messageDelivered', {subscriptionId = === 'register' && event.entry.tags.includes('message')) {'
+  this.emit('messageDelivered', subscriptionId = === 'register' && event.entry.tags.includes('message')) '
 // // await this.notifySubscribers(topicId, event.entry.value);
 // }
 // }
@@ -244,7 +248,7 @@ startSubscriptionMonitoring();
 async;
 updatePluginStats();
   try {
-// await this.registry.update('service = `${this.options.topicPrefix} catch (error) { console.error(error); }:${topicName}`;`'`/g)
+// await this.registry.update('service = `$this.options.topicPrefixcatch (error) console.error(error); :$topicName`;`'`/g)
     // return this.topics.get(topicId)  ?? null;
     //   // LINT: unreachable code removed}
 
@@ -285,7 +289,7 @@ updatePluginStats();
 
   // Cleanup
   async;
-  cleanup() {;
+  cleanup() ;
   if(this.monitoringInterval) {
     clearInterval(this.monitoringInterval);
   //   }
@@ -294,11 +298,6 @@ updatePluginStats();
   for (const unwatch of this.watchHandlers.values()) {
     unwatch(); //   }
   this.watchHandlers.clear(); // Clear collections
-  this.subscriptions.clear() {;
+  this.subscriptions.clear() ;
   this.topics.clear();
-  this.publishers.clear();
-// }
-
-// export default PubSubPlugin;
-
-}}}}}}}}
+  this.publishers.clear();}}}}}}

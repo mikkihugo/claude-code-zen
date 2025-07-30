@@ -1,22 +1,36 @@
 #!/usr/bin/env node;
 
- * @fileoverview Refactored Claude-Flow MCP Server
+*
+@fileoverview
+Refactored;
+Claude - Flow;
+MCP;
+Server;
+
 /** Clean architecture implementation of the Model Context Protocol server
  * @module MCPServerRefactored
 
  */
-import { fileURLToPath  } from 'node:url';'
-import { NeuralEngine  } from '../neural/neural-engine.js';
-import { MCPErrorHandler  } from './core/error-handler.js';
-import { PerformanceMetrics  } from './core/performance-metrics.js';
+import { fileURLToPath } from 'node:url';
+
+'
+
+import { NeuralEngine } from '../neural/neural-engine.js';
+import { MCPErrorHandler } from './core/error-handler.js';
+import { PerformanceMetrics } from './core/performance-metrics.js';
+
 // import { StdioOptimizer  } from './core/stdio-optimizer.js';'
 
 // Try to import dependencies, fall back to mocks if not available
 let SqliteMemoryStore, RuvSwarm, initializeAllTools, MCPMessageHandler, MCPToolExecutor;
 try {
-// const _memoryModule = awaitimport('../memory/sqlite-store.js');'
+  // const _memoryModule = awaitimport('../memory/sqlite-store.js');'
   SqliteMemoryStore = memoryModule.SqliteMemoryStore;
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) {
+  console.error(error);
+}
+catch(error)
+{
   console.warn('[MCP-Server] SqliteMemoryStore not available, using mock implementation');'
 // const _mockModule = awaitimport('./core/mock-memory-store.js');'
   SqliteMemoryStore = mockModule.SqliteMemoryStore;
@@ -24,7 +38,7 @@ try {
 try {
 // const _ruvSwarmModule = awaitimport('../../ruv-FANN/ruv-swarm/npm/src/index.js');'
   RuvSwarm = ruvSwarmModule.RuvSwarm;
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) { console.error(error); } catch(error) 
   console.warn('[MCP-Server] RuvSwarm not available, using mock implementation');'
 // const _mockModule = awaitimport('./core/mock-ruv-swarm.js');'
   RuvSwarm = mockModule.RuvSwarm;
@@ -32,7 +46,7 @@ try {
 try {
 // const _toolsModule = awaitimport('./core/tools-registry.js');'
   initializeAllTools = toolsModule.initializeAllTools;
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) { console.error(error); } catch(error) 
   console.warn('[MCP-Server] Tools registry not available, using mock implementation');'
 // const _mockModule = awaitimport('./core/mock-tools-registry.js');'
   initializeAllTools = mockModule.initializeAllTools;
@@ -57,11 +71,11 @@ try {
 
 // export class ClaudeFlowMCPServer {
 
- * @param {Object} options - Server configuration options
+ * @param Objectoptions - Server configuration options
 
-  constructor(_options = {}) {
+  constructor(_options = {}) 
     this.version = '2.0.0-alpha.70';'
-    this.sessionId = `session-cf-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;`
+    this.sessionId = `session-cf-$Date.now()-$Math.random().toString(36).substr(2, 4)`;`
 
     // Initialize core components
     this.memoryStore = new SqliteMemoryStore({dbName = new RuvSwarm({memoryStore = new Map();
@@ -81,7 +95,7 @@ try {
 
     // Initialize memory store
     this.initializeMemory().catch(_err => {)
-      console.error(`[${new Date().toISOString()}] ERROR [MCP-Server] Memory initialization failed => {`
+      console.error(`[$new Date().toISOString()] ERROR [MCP-Server] Memory initialization failed => `
 // // // await this.processBatch(batch);
     });
 
@@ -92,7 +106,7 @@ try {
 
     // Handle connection loss
     this.stdioOptimizer.on('connectionLost', () => {'
-      console.error(`[${new Date().toISOString()}] CRITICAL [MCP-Server] Stdio connection lost, initiating shutdown`);`
+      console.error(`[$new Date().toISOString()] CRITICAL [MCP-Server] Stdio connection lost, initiating shutdown`);`
       this.shutdown();
     });
   //   }
@@ -104,9 +118,9 @@ try {
     const _batchStartTime = Date.now();
     this.performanceMetrics.recordBatchMetrics(batch.length, 0); // Will update processing time later
 
-    console.error(`[$new Date().toISOString()}] DEBUG [MCP-Server] Processing batch of ${batch.length} messages`);`
+    console.error(`[$new Date().toISOString()] DEBUG [MCP-Server] Processing batch of $batch.lengthmessages`);`
   for(const item of batch) {
-      const { message, receivedAt } = item; const _requestId = message.id  ?? `req-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`; `
+      const { message, receivedAt } = item; const _requestId = message.id  ?? `req-$Date.now()-$Math.random().toString(36).substr(2, 4)`; `
 
       try {
         // Record request start for metrics
@@ -162,7 +176,7 @@ try {
 
 // Start server if run directly
 startMCPServer().catch(error => {)
-  console.error(`[${new Date().toISOString()}] FATAL [MCP-Server] Failed to start:`, error);`
+  console.error(`[$new Date().toISOString()] FATAL [MCP-Server] Failed to start:`, error);`
   process.exit(1);
 });
 

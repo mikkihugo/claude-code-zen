@@ -2,7 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);
@@ -32,7 +32,7 @@ describe('Typo and Syntax Fixes', () => {
       // Check that the ternary operator on line 6-8 is complete
       const _ternaryMatch = fileContent.match(;)
 // mode\.roleDefinition\.length > 100\s*\?\s*`[^`]+`\s*)`
-      expect(ternaryMatch).toBeTruthy() {}
+      expect(ternaryMatch).toBeTruthy() 
       // Check that Array.isArray ternary is complete(h )
       // The pattern is: Array.isArray(mode.groups) ? ... : 'None'}
       const _arrayTernaryPattern = /Array\.isArray\(mode\.groups\)\s*\?[\s\S]+?\)\s*:\s*'None'\}/;
@@ -50,10 +50,8 @@ describe('Typo and Syntax Fixes', () => {
         imported = // await import(filePath);
         expect(imported).toBeDefined();
         expect(typeof imported.createSparcSlashCommand).toBe('function');
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) { console.error(error); } catch(error) 
         // If import fails, it's a syntax error'
-        throw new Error(`Syntax error in sparc-commands.js);`
-      //       }
-    });
+        throw new Error(`Syntax error in sparc-commands.js);`);
   });
 });

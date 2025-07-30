@@ -1,10 +1,10 @@
-
 /** LanceDB Vector Database Interface - Enhanced Edition TypeScript;
 /** ADVANCED VECTOR OPERATIONS WITH PRODUCTION-GRADE CAPABILITIES;
 /** Supports embeddings, similarity search, clustering, and analytics;
 
  */
-import { connect  } from '@lancedb';
+import { connect } from '@lancedb';
+
 // // interface LanceDBConfig {
 //   dbPath?;
 //   dbName?;
@@ -25,7 +25,7 @@ import { connect  } from '@lancedb';
 // maxCacheSize = {}
 // )
 // {
-  this.config = {
+this.config = {
       dbPath = {totalVectors = this.config.cacheSize!;
 // }
 

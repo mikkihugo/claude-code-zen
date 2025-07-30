@@ -1,10 +1,9 @@
-
 /** Base Provider Implementation;
 /** Abstract base class for all AI providers with common functionality;
 
  */
-import { EventEmitter  } from 'node:events';
-import type { BaseProvider as IBaseProvider  } from '.';
+import { EventEmitter } from 'node:events';
+import type { BaseProvider as IBaseProvider } from '.';
 
 export abstract class BaseProvider extends EventEmitter implements IBaseProvider {
   abstract name = {inputTokenPrice = {totalRequests = [];
@@ -99,7 +98,7 @@ this.lastHealthCheck = new Date() {}
 // }
 // }
 protected
-  getAverageResponseTime() {}
+  getAverageResponseTime() 
 : number
 // {
   if(this.responseTimeHistory.length === 0) return 0;
@@ -149,7 +148,7 @@ sleep(ms = > setTimeout(resolve, ms));
 : void
 // {
   // Reset metrics periodically to prevent memory leaks
-  setInterval(() => {
+  setInterval(() => 
     // Keep only recent history
   if(this.responseTimeHistory.length > 10000) {
       this.responseTimeHistory = this.responseTimeHistory.slice(-1000);
@@ -161,38 +160,38 @@ protected;
 emitRequest(request);
 : void
 // {
-  this.emit('request', {
+  this.emit('request', 
     type: 'request',
   provider: this.name,)
   timestamp: new Date(),
   id: request.id,
   model: request.model,
-  messageCount: request.messages.length })
+  messageCount: request.messages.length )
 // }
 protected
 emitResponse(response)
 : void
 // {
-  this.emit('response', {
+  this.emit('response', 
     type: 'response',
   provider: this.name,)
   timestamp: new Date(),
   id: response.id,
   model: response.model,
   usage: response.usage,
-  responseTime: response.responseTime })
+  responseTime: response.responseTime )
 // }
 protected
 emitError(error, request?)
 : void
 // {
-  this.emit('error', {
+  this.emit('error', 
     type: 'error',
   provider: this.name,)
   timestamp: new Date(),
   error: error.message,
   requestId: request?.id,
-  model: request?.model })
+  model: request?.model )
 // }
 // }
 

@@ -1,9 +1,10 @@
-
 /** Render Adapter - Unified rendering for TUI and Web
 /** Auto-detects environment and renders components appropriately
 
  */
-import React from 'react';'
+import React from 'react';
+
+'
 
 // Environment detection
 export const isWeb = () => typeof window !== 'undefined'; // eslint-disable-line
@@ -17,17 +18,15 @@ if(isTUI()) {
   try {
 // const _ink = awaitimport('ink');'
     inkComponents = ink;
-  } catch (error) { console.error(error); } catch(/* _error */) {
-    console.warn('Ink not available, falling back to console output');'
-  //   }
-} else if(isWeb()) {
+  } catch (error) { console.error(error); } catch(/* _error */) 
+    console.warn('Ink not available, falling back to console output');'else if(isWeb()) {
   // Dynamic import for web environment
   try {
 // const _reactDOM = awaitimport('react-dom');'
-    webComponents = { reactDOM } catch (error) { console.error(error); };
+    webComponents = { reactDOM } catch (error) console.error(error); ;
   } catch(/* _error */) {
     console.warn('React DOM not available');'
-  //   }
+//   }
 // }
 
 /** Universal Box component - works in both TUI and Web

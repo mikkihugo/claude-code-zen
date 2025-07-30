@@ -14,12 +14,18 @@ async function testDirectWasmLoading() {
     // Try to instantiate
     const _imports = {
       env: {
-        memory: new WebAssembly.Memory({ initial, maximum   } catch (error) { console.error(error); }) },
-        proc_exit: (code) => {
-          throw new Error(`WASI exit ${code}`);
-        },
+        memory: new WebAssembly.Memory({ initial, maximum   } catch (error) { console.error(error); }
+  )
+}
+,
+        proc_exit: (code) =>
+{
+  throw new Error(`WASI exit ${code}`);
+}
+,
         fd_write: () => 0,
-        random_get: (_ptr, _len) => {
+        random_get: (_ptr, _len) =>
+{
 //           return 0;
     //   // LINT: unreachable code removed} },
     console.warn('\nInstantiating WASM module...');
@@ -36,4 +42,4 @@ catch(error)
   //   }
 // }
 // }
-  testDirectWasmLoading() {}
+  testDirectWasmLoading()

@@ -12,12 +12,12 @@
  * - Multi-Queen hive-mind coordination
  */
 
-import { createServer  } from 'node:http';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { createServer } from 'node:http';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import cors from 'cors';
-import express, { type Request, type Response  } from 'express';
-import { WebSocketServer  } from 'ws';
+import express, { type Request, type Response } from 'express';
+import { WebSocketServer } from 'ws';
 import config from '../config/default.js';
 
 const ___filename = fileURLToPath(import.meta.url);

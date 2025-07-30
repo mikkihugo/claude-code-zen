@@ -1,4 +1,3 @@
-
 /** Server Examples;
 /** Demonstrates how to use the TypeScript server implementations;
 
@@ -73,25 +72,28 @@ import type { MiddlewareDefinition: true,
       handler: authorize(['read', 'write']),
       order: true,
       routes: ['/api/protected/*'], */
-      enabled};
-    server.addMiddleware(authzMiddleware);
+enabled;
+}
+server.addMiddleware(authzMiddleware)
 
-    // Custom API route
-    const protectedRoute = {
-      path: '/api/protected/data',
-      method: 'GET',
-      handler: async(req, res) => {
-        res.success()
-          message).toISOString() );
-      },
-      auth: true,
-      cache};
-    server.addRoute(protectedRoute);
+// Custom API route
+const protectedRoute = {
+  path: '/api/protected/data',
+  method: 'GET',
+  handler: async (req, res) => {
+    res.success();
+    message;
+    ).toISOString() )
+  },
+  auth: true,
+  cache,
+};
+server.addRoute(protectedRoute);
 // }
 // // await server.start();
-  console.warn(' API server with middleware started on port 3002');
-  console.warn()
-    ' Try);'
+console.warn(' API server with middleware started on port 3002');
+console.warn();
+(' Try);');
 // }
 
 /** Example 3: MCP Server with Health Monitoring

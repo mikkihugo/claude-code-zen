@@ -1,19 +1,21 @@
-
 /** TypeScript Command Registry;
 /** Clean, maintainable command registration system with comprehensive type safety;
 
  */
-import type { CommandContext, CommandRegistry as ICommandRegistry  } from '../types/cli';
-import { loadCommands  } from './core/command-loader.js';
+import type { CommandContext, CommandRegistry as ICommandRegistry } from '../types/cli';
+import { loadCommands } from './core/command-loader.js';
 
 // =============================================================================
 // COMMAND REGISTRY IMPLEMENTATION
 // =============================================================================
 
 class TypeSafeCommandRegistry implements ICommandRegistry {}
- catch (error) { console.error(error); }// Registration methods
+catch (error)
+{
+  console.error(error);
+} // Registration methods
 register(name,definition = this.commands.get(name);
-  if(!definition) {
+if(!definition) {
   // return false;
 // }
 // Remove aliases
@@ -36,7 +38,7 @@ this.commands.delete(name); this.logger.debug(`Unregisteredcommand = this.comman
     // return undefined;
     //   // LINT: unreachable code removed}
 
-  list(): CommandDefinition[] {
+  list(): CommandDefinition[] 
     // return Array.from(this.commands.values()).sort((a, b) => ;
     // a.name.localeCompare(b.name); // LINT: unreachable code removed
     );

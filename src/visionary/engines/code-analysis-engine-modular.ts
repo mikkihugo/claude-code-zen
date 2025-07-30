@@ -1,4 +1,3 @@
-
 /** Code Analysis Engine - Modular Version
 
 /** Orchestrates code analysis using specialized components for AST parsing,
@@ -8,7 +7,9 @@
  * @version 2.0.0
  */
 
-import { existsSync  } from 'node:fs';'
+import { existsSync } from 'node:fs';
+
+'
 // import { readFile  } from 'node:fs/promises';'
 // import path from 'node:path';'
 
@@ -94,7 +95,8 @@ MetricsCalculator  } from './code-analysis/metrics-calculator''
    * @param config - Configuration options
 
  */
-  constructor(config) {
+  constructor(config)
+{
     this.config = config;
     this.astParser = new ASTParser();
     this.metricsCalculator = new MetricsCalculator();
@@ -201,7 +203,7 @@ validateCodeInputs(codeFiles, language)
     if(!existsSync(filePath)) {
       throw new Error(`Code file not found); `
     //     }
-    const _extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) {
+    const _extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) 
       throw new Error(`Unsupported code file format);`
     //     }
   //   }

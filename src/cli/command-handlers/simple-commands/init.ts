@@ -1,4 +1,3 @@
-
 /** Init Module;
 /** Converted from JavaScript to TypeScript;
 

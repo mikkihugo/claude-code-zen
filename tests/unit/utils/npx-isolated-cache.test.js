@@ -1,13 +1,15 @@
-
 /** Jest-compatible tests for NPX isolated cache functionality;
 
  */
 import os from 'node:os';
 import path from 'node:path';
-import { afterEach, beforeEach, describe, expect  } from '@jest';
-import { cleanupAllCaches,
-createIsolatedCache,
-getIsolatedNpxEnv  } from '../../../src/utils/npx-isolated-cache.js'
+import { afterEach, beforeEach, describe, expect } from '@jest';
+import {
+  cleanupAllCaches,
+  createIsolatedCache,
+  getIsolatedNpxEnv,
+} from '../../../src/utils/npx-isolated-cache.js';
+
 describe('NPX Isolated Cache', () =>
 // {
   beforeEach(() => {

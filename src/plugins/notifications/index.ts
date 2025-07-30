@@ -1,9 +1,8 @@
-
 /** Notification System Plugin;
 /** Email and webhook notifications for Claude Zen events;
 
  */
-import { readFile  } from 'node:fs';
+import { readFile } from 'node:fs';
 import path from 'node:path';
 
 export class NotificationPlugin {
@@ -14,7 +13,7 @@ export class NotificationPlugin {
     this.processing = false;
   //   }
 
-  async initialize() { 
+  async initialize() 
     console.warn(' Notification Plugin initialized');
 
     // Load notification configuration
@@ -29,7 +28,7 @@ export class NotificationPlugin {
     try {
 // const _content = awaitreadFile(this.config.configFile, 'utf8');
       this.notificationConfig = JSON.parse(content);
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) { console.error(error); } catch(error) 
   if(error.code === 'ENOENT') {
         // Create default configuration
         this.notificationConfig = {providers = // await this.createProvider(name, config);
@@ -47,7 +46,7 @@ export class NotificationPlugin {
           try {
 // const __response = awaitfetch(url, {method = > result.healthy); 
       //       }
-     catch (error) { console.error(error); }};
+     catch (error) console.error(error); };
   //   }
   createConsoleProvider(config) {
     const __colors = {reset = () => {
@@ -86,7 +85,7 @@ export class NotificationPlugin {
     //   // LINT: unreachable code removed}, obj);
   //   }
 
-  async processEventQueue() { }
+  async processEventQueue() 
     if(this.processing) return;
     // this.processing = true; // LINT: unreachable code removed
 
@@ -174,12 +173,12 @@ export class NotificationPlugin {
         healthResults[name] = { healthy, error = {providers = {type = {enabled = true;
 
     // Process event queue every 1 second
-  setInterval(async() {=> {
+  setInterval(async() {=> 
   if(this.eventQueue.length > 0) {
         const _event = this.eventQueue.shift();
         try {
 // // await this.processNotification(event.notification, event.providers);
-        } catch (error) { console.error(error); } catch(/* _error */) {
+        } catch (error) { console.error(error); } catch(/* _error */) 
           console.warn(' Event processingerror = [];'
 
   for(const providerName of providers) {
@@ -196,18 +195,11 @@ export class NotificationPlugin {
   if(info.instance.cleanup) {
         try {
 // // await info.instance.cleanup(); 
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) { console.error(error); } catch(error) 
           console.warn(`Warning); `
         //         }
       //       }
     //     }
 
     this.providers.clear() {;
-    console.warn(' Notification Plugin cleaned up');
-  //   }
-// }
-
-// export default NotificationPlugin;
-        //         }
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))
+    console.warn(' Notification Plugin cleaned up');}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))

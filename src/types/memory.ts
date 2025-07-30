@@ -1,9 +1,8 @@
-
 /** Memory System Types;
 /** Persistent memory and state management across sessions;
 
  */
-import type { Identifiable, JSONObject  } from '.';
+import type { Identifiable, JSONObject } from '.';
 
 // =============================================================================
 // MEMORY CORE TYPES
@@ -93,12 +92,12 @@ errors;
 //     // applied: boolean
 //   }[];
 // {
-  // before: PerformanceSnapshot
-  // after: PerformanceSnapshot
-  improvement, // percentage
-// }
-duration, // milliseconds
-errors;
+// before: PerformanceSnapshot
+// after: PerformanceSnapshot
+improvement, // percentage
+  // }
+  duration, // milliseconds
+  errors;
 // }
 // export // interface VacuumResult {
 //   // bytesReclaimed: number
@@ -115,7 +114,7 @@ errors;
 //     searchSpeedup, // percentage
 //     writeSlowdown, // percentage
 //   };
-  errors;
+errors;
 // }
 // export // interface PerformanceSnapshot {
 //   // timestamp: Date

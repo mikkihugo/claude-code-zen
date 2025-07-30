@@ -1,13 +1,19 @@
+*
+@fileoverview
+Hive;
+Mind;
+Swarm;
+Management;
+Module;
 
- * @fileoverview Hive Mind Swarm Management Module;
 /** Handles swarm spawning, status monitoring, and lifecycle management;
  * @module HiveMindSwarmManagement;
 
  */
-import { existsSync  } from 'node:fs';
+import { existsSync } from 'node:fs';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import { isInteractive  } from '../../utils/interactive-detector.js';
+import { isInteractive } from '../../utils/interactive-detector.js';
 
 /** Interactive swarm spawning wizard;
  * @returns {Promise<void>}
@@ -117,11 +123,11 @@ if(!isInteractive()) {
  * @returns {Promise<void>}
  */
 
-    // export async function stopSession() {
-  throw new Error('Session ID is required');
+// export async function stopSession() {
+throw new Error('Session ID is required');
 // }
 
-const _sessionDir = flags.sessionDir  ?? './.claude/hive-mind';
+const _sessionDir = flags.sessionDir ?? './.claude/hive-mind';
 const _dbPath = path.join(sessionDir, 'hive-mind.db');
 const _db = new Database(dbPath);
 

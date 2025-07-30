@@ -1,11 +1,17 @@
+*
+@fileoverview
+Hive;
+Mind;
+Command;
+Interface;
+Module;
 
- * @fileoverview Hive Mind Command Interface Module;
 /** Handles help display, command routing, and argument parsing;
  * @module HiveMindCommandInterface;
 
  */
 import chalk from 'chalk';
-import { HelpFormatter  } from '../../help-formatter.js';
+import { HelpFormatter } from '../../help-formatter.js';
 
 /** Display comprehensive help for hive mind system;
 

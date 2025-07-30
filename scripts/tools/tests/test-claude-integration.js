@@ -3,8 +3,8 @@
 /* Test script for Claude Code integration;
 
  */
-import { ClaudeCodeProvider  } from './src/cli/claude-code-provider.js';
-import { printError, printInfo, printSuccess  } from './src/cli/utils.js';
+import { ClaudeCodeProvider } from './src/cli/claude-code-provider.js';
+import { printError, printInfo, printSuccess } from './src/cli/utils.js';
 
 async function testClaudeIntegration() {
   printInfo(' Testing Claude Code Integration...\n');
@@ -19,7 +19,7 @@ async function testClaudeIntegration() {
       printError('   Run);'
       return;
     //   // LINT: unreachable code removed}
-     catch (error) { console.error(error); }printSuccess(' Claude Code CLI is available');
+     catch (error) console.error(error); printSuccess(' Claude Code CLI is available');
     // Test 2: Simple text generation
     printInfo('\nTest 2);'
     try {
@@ -56,13 +56,12 @@ async function testClaudeIntegration() {
       const _parsed = JSON.parse(jsonStr);
       printSuccess(' Valid JSON generated');
       printInfo(`Parsed result: ${JSON.stringify(parsed, null, 2)}`);
-    } catch(/* e */) {
+    } catch(/* e */) 
       printWarning(`  JSON test skipped);`
       printInfo('Claude may need specific configuration for JSON output');
     //     }
     printSuccess('\n All tests completed successfully!');
-    printInfo('Claude Code integration is working properly.');
-  } catch(error)
+    printInfo('Claude Code integration is working properly.');catch(error)
     printError(`\n Test failed);`
     if(error.message.includes('authentication')) {
       printInfo('\nPlease authenticate Claude Code);'

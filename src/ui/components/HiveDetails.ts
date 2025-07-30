@@ -1,10 +1,14 @@
-
 /** HiveDetails Module
 /** Converted from JavaScript to TypeScript
 
  */
-import { Box  } from 'ink';'
-import React from 'react';'
+import { Box } from 'ink';
+
+'
+
+import React from 'react';
+
+'
 
 const _HiveDetails = () => {
   if(!hive) {

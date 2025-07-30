@@ -1,12 +1,17 @@
 #!/usr/bin/env node;
-import { Box  } from 'ink';'
+import { Box } from 'ink';
+
+'
 
 /** Ink-based TUI Dashboard - Modern replacement for blessed
 /** Features vision roadmaps, swarm monitoring, and system metrics
 
  */
-import React, { useEffect, useState  } from 'react';'
-import { visionAPI  } from './shared/vision-api.js';
+import React, { useEffect, useState } from 'react';
+
+'
+
+import { visionAPI } from './shared/vision-api.js';
 
 const __VisionDashboard = () => {
   const [_visions, setVisions] = useState([]);
@@ -17,7 +22,7 @@ const __VisionDashboard = () => {
       try {
 // const _data = awaitvisionAPI.fetchVisions();
         setVisions(data);
-      } catch (error) { console.error(error); } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) 
         console.error('Failed to loadvisions = setInterval(loadVisions, 30000);'
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
@@ -58,7 +63,7 @@ const __VisionDashboard = () => {
         ]);
         setSwarmData(swarm);
         setSystemMetrics(metrics);
-      } catch (error) { console.error(error); } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) 
         console.error('Failed to update swarmdata = setInterval(updateData, 2000);'
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);

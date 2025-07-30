@@ -1,10 +1,9 @@
-
 /** Mcp Module;
 /** Converted from JavaScript to TypeScript;
 
 // mcp.js - MCP server management commands
  */
-import { printSuccess  } from '..';
+import { printSuccess } from '..';
 
 export async function mcpCommand() {
   case 'status': null

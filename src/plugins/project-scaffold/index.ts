@@ -1,10 +1,9 @@
-
 /** Project Scaffold Plugin;
 /** Template-based project creation and scaffolding;
 
  */
-import { EventEmitter  } from 'node:events';
-import { mkdir, readdir, readFile  } from 'node:fs';
+import { EventEmitter } from 'node:events';
+import { mkdir, readdir, readFile } from 'node:fs';
 import path from 'node:path';
 
 export class ProjectScaffoldPlugin extends EventEmitter {
@@ -41,7 +40,7 @@ export class ProjectScaffoldPlugin extends EventEmitter {
   app;
 
   listen(PORT, ();
-  => {
+  => 
   console;
 
   warn(\`Server is running on port \${PORT}\`);
@@ -238,7 +237,7 @@ initialize();
     console.warn('Executing {{pluginName}} withoptions = false;')
     console.warn(' {{pluginName}} Plugin cleaned up');
 
-// export default {{className}Plugin;`,encoding = new {{className}}Plugin({ `
+// export default {{className}Plugin;`,encoding = new {{className}Plugin({ `
   // Configuration options
   });
 // // await plugin.initialize();
@@ -316,7 +315,7 @@ initialize();
 // // await this.runPostGenerateCommands(template.postGenerate, outputDir);
       //       }
 
-       catch (error) { console.error(error); }// Initialize git repository
+       catch (error) console.error(error); 
   if(this.config.gitInit && !options.skipGit) {
 // // await this.initializeGit(outputDir);
       //       }
@@ -330,12 +329,12 @@ initialize();
 
     // Process template variables
     for (const [key, varDef] of Object.entries(template.variables  ?? {})) {
-      let _value = providedVars[key]; // Use default if not provided
+      const _value = providedVars[key]; // Use default if not provided
   if(value === undefined && varDef.default !== undefined) {
         value = varDef.default; //       }
 
       // Process template references in defaults
-  if(typeof value === 'string' && value.includes('{{') {) {
+  if(typeof value === 'string' && value.includes('{{') {) 
         value = this.processTemplate(value, processed);
       //       }
 
@@ -443,7 +442,7 @@ initialize();
 
     // return value;
     //   // LINT: unreachable code removed}
-  applyFilter(value, filter) {;
+  applyFilter(value, filter) ;
   switch(filter) {
       case 'uppercase':
         // return String(value).toUpperCase();
@@ -475,7 +474,7 @@ toLowerCase();
       const [_cmd, ..._args] = command.split(' ');
     // const _child = spawn(cmd, args, { // LINT: unreachable code removed
 ..options,
-        _shell => {
+        _shell => 
   if(code === 0) {
           resolve();
         } else {
@@ -483,8 +482,7 @@ toLowerCase();
         //         }
       });
 
-      child.on('error', reject);
-    });
+      child.on('error', reject););
 
   async listTemplates(options = {}) { 
     const _templates = Array.from(this.templates.values());
@@ -505,7 +503,7 @@ toLowerCase();
   for(const template of templates) {
         const _category = template.category  ?? 'other'; if(!grouped[category]) {
           grouped[category] = []; //         }
-        grouped[category].push(template) {;
+        grouped[category].push(template) ;
       //       }
       // return grouped;
     //   // LINT: unreachable code removed}

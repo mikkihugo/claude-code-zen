@@ -1,30 +1,29 @@
-
+// Core types and interfaces
+export * from '.';
+// Utilities
+export * from '.';
 /** Multi-LLM Provider Architecture - Main Export;
 /** Comprehensive AI provider management system;
 
 // Provider implementations
  */
-export { AnthropicProvider  } from '.'
-
 // Base provider implementation
-export { BaseProvider  } from '.'
-export { CohereProvider  } from '.'
-export { GoogleProvider  } from '.'
-export { OllamaProvider  } from '.'
-export { OpenAIProvider  } from '.'
 // Provider manager
-export { ProviderManager  } from '.'
-// Core types and interfaces
-export * from '.'
-
-// Utilities
-export * from '.'
+export {
+  AnthropicProvider,
+  BaseProvider,
+  CohereProvider,
+  GoogleProvider,
+  OllamaProvider,
+  OpenAIProvider,
+  ProviderManager,
+} from '.';
 
 // Quick start function for easy initialization
 // export async function createProviderManager() {
-  const { ProviderManager } = await import('.'
+const { ProviderManager } = await import('.'
 
-  const _manager = new ProviderManager(configs.manager);
+const _manager = new ProviderManager(configs.manager);
 // // await manager.initializeBuiltInProviders(configs.providers ?? {});
 //   return manager;
 // }
@@ -59,17 +58,18 @@ const _ollama = new OllamaProvider();
 // return ollama;
 // ; // LINT: unreachable code removed
 default =
-{ anthropic = {ROUND_ROBIN = > ({ type = > ({ ;
-    //     type = {DEVELOPMENT = `;`
-// Quick start
-// import { createProviderManager  } from './providers/index.js';
-// const _manager = awaitcreateProviderManager({
-..COMMON_CONFIGS.PRODUCTION,providers = // await manager.generateText({id = // await manager.getProviderStatuses();
-console.warn(statuses);
-`;`
+{
+  anthropic = {ROUND_ROBIN = > ({ type = > ({ ;
+  //     type = {DEVELOPMENT = `;`
+  // Quick start
+  // import { createProviderManager  } from './providers/index.js';
+  // const _manager = awaitcreateProviderManager({
+  ..COMMON_CONFIGS.PRODUCTION,providers = // await manager.generateText({id = // await manager.getProviderStatuses();
+console.warn(statuses)
+  `;`;
 
-console.warn('Multi-LLM Provider Architecture loaded successfully');
-console.warn('Available providers, OpenAI, Cohere, Google, Ollama');
-console.warn('Features);'
-
-}}}}}}})))))
+  console.warn('Multi-LLM Provider Architecture loaded successfully');
+  console.warn('Available providers, OpenAI, Cohere, Google, Ollama');
+  console.warn('Features);'
+}
+}}}}}})))))

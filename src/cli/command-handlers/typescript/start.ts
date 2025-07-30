@@ -1,11 +1,10 @@
-
 /** Start Command Handler - TypeScript Edition
 /** Comprehensive system startup with full type safety and enhanced features
 
  */
-import { CLIError  } from '../../types/cli';
-import type { Logger  } from '../../types/core';
-import { FlagValidator  } from '../core/argument-parser';
+import { CLIError } from '../../types/cli';
+import type { Logger } from '../../types/core';
+import { FlagValidator } from '../core/argument-parser';
 
 // =============================================================================
 // START COMMAND TYPES
@@ -23,11 +22,12 @@ import { FlagValidator  } from '../core/argument-parser';
 // }
 },
 // {
-  name = > value > 0 && value <= 100;
+  name = > value > 0 && value <= 100
 // }
 
-{}
-  (_name) => {
+{
+}
+(_name) => {
     const _logger = context.logger.child({command = parseStartOptions(context, logger);
     // Validate environment and prerequisites
 // // await validateEnvironment(logger);
@@ -207,7 +207,7 @@ try {
       server.status = 'stopped';
       logger.success('Server shutdown complete');
       process.exit(0);
-    } catch (error) { console.error(error); } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) 
       logger.error('Error during shutdown', error);
       process.exit(1);
     //     }
@@ -237,7 +237,6 @@ process.on('unhandledRejection', async(reason) =>
 async function cleanup(logger = // await import('node);'
 // await fs.unlink('.claude-zen.pid');
 logger.debug('PID file removed');
-} /* catch */
 // {
   // File might not exist
 // }

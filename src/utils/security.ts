@@ -1,4 +1,3 @@
-
 /** Security utilities for input validation and sanitization;
 /** Provides secure input handling for process operations and user inputs;
 
@@ -6,7 +5,7 @@
  * @param pid - Process ID to validate;
  * @returns Validated PID or null if invalid;
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 export function validatePID(pid = String(pid).trim();
 
 // Check if it's a valid positive integer'

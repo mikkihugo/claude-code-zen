@@ -1,4 +1,4 @@
-import { chromium  } from 'playwright';
+import { chromium } from 'playwright';
 
 async function testWebInterface() {
 // const _browser = awaitchromium.launch({ headless   });
@@ -18,7 +18,7 @@ async function testWebInterface() {
           Object.getOwnPropertyNames(Object.getPrototypeOf(window.dashboard));
         );
       //       }
-     catch (error) { console.error(error); }});
+     catch (error) console.error(error); });
     // Check if dashboard loads
 // const _title = awaitpage.title();
     console.warn(' Page title);'
@@ -89,10 +89,8 @@ async function testWebInterface() {
       try {
   // // await page.click('text=Create Project');
   // // await page.waitForTimeout(1000);
-      } catch (error) { console.error(error); } catch(error) {
-        console.warn(' Could not click Create Project button);'
-      //       }
-    } else if(createButton > 0 && !projectsContent) {
+      } catch (error) { console.error(error); } catch(error) 
+        console.warn(' Could not click Create Project button);'else if(createButton > 0 && !projectsContent) {
       console.warn(' Create Project button exists but Projects content is not visible');
     //     }
     // Check global project filter
@@ -109,9 +107,8 @@ async function testWebInterface() {
     // Take a screenshot
   // // await page.screenshot({ path);
     console.warn(' Screenshot saved to /tmp/web-interface-test.png');
-  } catch(error) {
-    console.error(' Test error);'
-  } finally {
+  } catch(error) 
+    console.error(' Test error);'finally 
   // // await browser.close();
   //   }
 // }

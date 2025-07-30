@@ -1,10 +1,9 @@
-
 /** Test Runner Plugin;
 /** Multi-framework test execution with coverage reporting;
 
  */
-import { EventEmitter  } from 'node:events';
-import { readFile  } from 'node:fs';
+import { EventEmitter } from 'node:events';
+import { readFile } from 'node:fs';
 import path from 'node:path';
 
 export class TestRunnerPlugin extends EventEmitter {
@@ -58,14 +57,11 @@ export class TestRunnerPlugin extends EventEmitter {
 
   normalizeJestResults(results);
 // }
-  catch (error) { console.error(error); } catch(error) {
-  // return null;
-// }
-    })
+  catch (error) console.error(error); catch(error) )
 
 // Mocha runner
 this.runners.set('mocha',
-  command = {};)
+  command = ;)
   ) =>;
   //   {
     const _args = [];
@@ -78,7 +74,7 @@ this.runners.set('mocha',
     args.push('--reporter', 'json');
     args.push(;
       '--reporter-options',)
-      `output=${path.join(this.config.outputDir, 'mocha-results.json')}`;
+      `output=$path.join(this.config.outputDir, 'mocha-results.json')`;
     );
   if(this.config.timeout) {
       args.push('--timeout', this.config.timeout);
@@ -207,7 +203,7 @@ this.runners.set('tap',
       args.push('--coverage');
       args.push('--coverage-report=lcov');
       args.push('--coverage-report=json');
-      args.push(`--coverage-dir=${path.join(this.config.outputDir, 'coverage', 'tap')}`);
+      args.push(`--coverage-dir=$path.join(this.config.outputDir, 'coverage', 'tap')`);
     //     }
   if(options.grep) {
       args.push('--grep', options.grep);
@@ -220,7 +216,7 @@ this.runners.set('tap',
     //     }
 
     args.push('--reporter=tap');
-    args.push(`--output-file=${path.join(this.config.outputDir, 'tap-results.tap')}`);
+    args.push(`--output-file=$path.join(this.config.outputDir, 'tap-results.tap')`);
 
     // return args;
     //   // LINT: unreachable code removed}
@@ -432,7 +428,7 @@ loadJestConfig();
       if(testScript.includes(framework)) {
         // return framework; 
     //   // LINT: unreachable code removed}
-     catch (error) { console.error(error); }//     }
+     catch (error) console.error(error); 
   } catch(error)
 
   // Use first detected framework
@@ -661,7 +657,7 @@ normalizeJestResults(results);
 
       // return coverage;
     // ; // LINT: unreachable code removed
-    } catch(error) {
+    } catch(error) 
       console.warn(` Could not collect coveragedata = this.config.coverage.threshold.global;`
 
     // return(;/g))
@@ -698,7 +694,7 @@ normalizeJestResults(results);
 // await mkdir(reportDir,  recursive = {runId = '# Test Failures Report\n\n';
     content += `Generated = `Total Failures: \$failures.length\n\n`;`
   for(const failure of failures) {
-      content += `## ${failure.test}\n`; content += `**File = '```\n'; content += failure.error  ?? 'No error message';
+      content += `## $failure.test\n`; content += `**File = '```\n'; content += failure.error  ?? 'No error message';
       content += '\n```\n\n';`
     //     }
 // // await writeFile(path.join(reportDir, 'failures.md') {, content);
@@ -856,12 +852,7 @@ slice(0, limit);
   for(const [_runId, child] of this.activeRuns) {
       child.kill('SIGTERM'); //     }
 
-    this.activeRuns.clear(); this.results.clear() {;
+    this.activeRuns.clear(); this.results.clear() ;
     this.removeAllListeners();
 
-    console.warn(' Test Runner Plugin cleaned up');
-// }
-
-// export default TestRunnerPlugin;
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))
+    console.warn(' Test Runner Plugin cleaned up');}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))

@@ -1,10 +1,9 @@
-
 /** Help System - TypeScript Edition;
 /** Comprehensive help generation and display system with rich formatting;
 
  */
-import type { CommandCategory, HelpSystem as IHelpSystem  } from '../../types/cli';
-import { formatTable, getIcon  } from '.';
+import type { CommandCategory, HelpSystem as IHelpSystem } from '../../types/cli';
+import { formatTable, getIcon } from '.';
 
 // =============================================================================
 // HELP SYSTEM IMPLEMENTATION
@@ -68,8 +67,8 @@ export class TypeScriptHelpSystem implements IHelpSystem {
     //     }
   // Examples section
   if(_opts._includeExamples && definition._examples && _definition.examples._length > 0) {
-      help += this.colorizeText('EXAMPLES = `${this.colorizeText(example.command, 'green', opts.colorize)}\n`;'
-        help += `${example.description}\n\n`;
+      help += this.colorizeText('EXAMPLES = `$this.colorizeText(example.command, 'green', opts.colorize)\n`;'
+        help += `$example.description\n\n`;
       //       }
 // }
 // Status indicators
@@ -107,7 +106,7 @@ neural networks, vector search, and graph databases.;
   help += this.colorizeText('GLOBALFLAGS = ['
       { name => {
       const _alias = flag.alias ? `, -${flag.alias}` : '';))
-  help += `  --${this.colorizeText(flag.name, 'bright', opts.colorize)}${alias}\n`;
+  help += `  --$this.colorizeText(flag.name, 'bright', opts.colorize)$alias\n`;
   help += `${flag.description}\n`;
 // }
 // )
@@ -129,10 +128,9 @@ help += '\n';
 // Quick start section
 help += this.colorizeText('QUICKSTART = ['
 // {/g)
-  (cmd) => {
-    help += `${this.colorizeText(cmd, 'green', opts.colorize)}\n`;
-    help += `${desc}\n`;
-  };
+  (cmd) => 
+    help += `$this.colorizeText(cmd, 'green', opts.colorize)\n`;
+    help += `${desc}\n`;;
   //   )
   help += '\n'
   // Environment variables
@@ -183,7 +181,7 @@ help += this.colorizeText('QUICKSTART = ['
   //   }
 
   // private formatCategory(category = {core = true) {
-    let _name = cmd.name;
+    const _name = cmd.name;
   if(!colorize) {
       if(cmd.deprecated) name += ' (deprecated)';
       if(cmd.isExperimental) name += ' (experimental)';
@@ -238,7 +236,7 @@ help += this.colorizeText('QUICKSTART = ['
     //   // LINT: unreachable code removed}, {} as Record<string, CommandDefinition[]>);
 
   Object.keys(categories).forEach(category => {)
-    markdown += `- [${category.charAt(0).toUpperCase() + category.slice(1)}](#${category})\n`;
+    markdown += `- [$category.charAt(0).toUpperCase() + category.slice(1)](#$category)\n`;
   });
   markdown += '\n';
 
@@ -265,7 +263,7 @@ help += this.colorizeText('QUICKSTART = ['
         const _alias = flag.alias ? `, \`-${flag.alias}\`` : '';
         const _required = flag.required ? ' *(required)*' : '';
         const __defaultValue = flag.default !== undefined ? ` (default = `- \`--${flag.name}\`${alias}${required}${_defaultValue}\n`;`
-        markdown += `${flag.description}\n`;
+        markdown += `$flag.description\n`;
       //       }
       //       )
 markdown += '\n'

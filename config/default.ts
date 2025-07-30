@@ -1,4 +1,3 @@
-
 /** Default configuration for Claude-Zen
  * Comprehensive system configuration with TypeScript types
  */

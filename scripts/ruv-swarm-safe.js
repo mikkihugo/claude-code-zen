@@ -4,8 +4,8 @@
 /** Handles known logger issue in v1.0.8;
 
  */
-import { spawn  } from 'node:child_process';
-import { createInterface  } from 'node:readline';
+import { spawn } from 'node:child_process';
+import { createInterface } from 'node:readline';
 
 console.warn(' Starting ruv-swarm MCP server with error handling...');
 const _ruvSwarmProcess = spawn('npx', ['ruv-swarm', 'mcp', 'start'], {
@@ -16,13 +16,11 @@ const _ruvSwarmProcess = spawn('npx', ['ruv-swarm', 'mcp', 'start'], {
  //  }
 })
 // Forward stdin to ruv-swarm
-process.stdin.pipe(ruvSwarmProcess.stdin)
+process.stdin.pipe(ruvSwarmProcess.stdin);
 // Handle stdout(JSON-RPC messages)
-ruvSwarmProcess.stdout.pipe(process.stdout)
+ruvSwarmProcess.stdout.pipe(process.stdout);
 // Handle stderr with filtering
-const _rlErr = createInterface({ input: ruvSwarmProcess.stderr,
-crlfDelay
-  })
+const _rlErr = createInterface({ input: ruvSwarmProcess.stderr, crlfDelay });
 const _errorHandled = false;
 rlErr.on('line', (line) => {
   // Filter out the known logger error

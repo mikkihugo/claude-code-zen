@@ -4,7 +4,7 @@
 
  */
 import chalk from 'chalk';
-import { SystemIntegration  } from '../dist/integration/system-integration.js';
+import { SystemIntegration } from '../dist/integration/system-integration.js';
 
 // Load test configuration
 const _LOAD_CONFIGS = {
@@ -24,22 +24,24 @@ duration, // 5 minutes
   : 'Medium load test'
 // }
 
-{}
-  swarms,
+{
+}
+swarms,
   agentsPerSwarm,
   tasksPerSwarm,
   duration, // 20 minutes
-    description;
-  : 'Heavy load test'
+  description;
+: 'Heavy load test'
 // }
 
-{}
-  swarms,
+{
+}
+swarms,
   agentsPerSwarm,
   tasksPerSwarm,
   duration, // 30 minutes
-    description;
-  : 'Extreme load test'
+  description;
+: 'Extreme load test'
 // }
 
 class SwarmLoadTester {
@@ -363,7 +365,7 @@ reportCurrentMetrics();
       this.log(;)
         `Current metrics: ${health.metrics.healthyComponents} catch (error) { console.error(error); }/${health.metrics.totalComponents} components healthy, avg response: ${avgResponseTime.toFixed(2)}ms`;
       );
-    } catch(error) {
+    } catch(error) 
       this.log(`Failed to get current metrics);`
     //     }
 // }
@@ -394,7 +396,7 @@ generateReport();
   const _totalOperations =;
   this.metrics.swarmsCreated + this.metrics.agentsSpawned + this.metrics.tasksCreated;
   const _throughput = totalOperations / (totalDuration / 1000);
-  console.warn(`\n${'='.repeat(80)}`);
+  console.warn(`\n$'='.repeat(80)`);
   console.warn(chalk.bold.blue(' SWARM LOAD TEST REPORT'));
   console.warn('='.repeat(80));
   console.warn(`\n Test Configuration);`
@@ -404,19 +406,19 @@ generateReport();
   console.warn(`   Tasks per Swarm);`
   console.warn(`   Duration);`
   console.warn(`\n  Execution Metrics);`
-  console.warn(`   Total Duration: ${(totalDuration / 1000).toFixed(2)}s`);
-  console.warn(`   Swarms Created: ${chalk.green(this.metrics.swarmsCreated)}`);
-  console.warn(`   Agents Spawned: ${chalk.green(this.metrics.agentsSpawned)}`);
-  console.warn(`   Tasks Created: ${chalk.green(this.metrics.tasksCreated)}`);
-  console.warn(`   Total Operations: ${chalk.cyan(totalOperations)}`);
-  console.warn(`   Throughput: ${chalk.yellow(throughput.toFixed(2))} ops`
+  console.warn(`   Total Duration: $(totalDuration / 1000).toFixed(2)s`);
+  console.warn(`   Swarms Created: $chalk.green(this.metrics.swarmsCreated)`);
+  console.warn(`   Agents Spawned: $chalk.green(this.metrics.agentsSpawned)`);
+  console.warn(`   Tasks Created: $chalk.green(this.metrics.tasksCreated)`);
+  console.warn(`   Total Operations: $chalk.cyan(totalOperations)`);
+  console.warn(`   Throughput: $chalk.yellow(throughput.toFixed(2))ops`
   console.warn(`\n Performance Metrics);`
-  console.warn(`   Average Response Time: ${chalk.cyan(avgResponseTime.toFixed(2))}ms`);
-  console.warn(`   Min Response Time: ${chalk.green(minResponseTime.toFixed(2))}ms`);
-  console.warn(`   Max Response Time: ${chalk.yellow(maxResponseTime.toFixed(2))}ms`);
-  console.warn(`   Total Requests: ${chalk.blue(this.metrics.responseTimes.length)}`);
+  console.warn(`   Average Response Time: $chalk.cyan(avgResponseTime.toFixed(2))ms`);
+  console.warn(`   Min Response Time: $chalk.green(minResponseTime.toFixed(2))ms`);
+  console.warn(`   Max Response Time: $chalk.yellow(maxResponseTime.toFixed(2))ms`);
+  console.warn(`   Total Requests: $chalk.blue(this.metrics.responseTimes.length)`);
   if(this.metrics.errors.length > 0) {
-    console.warn(`\n Errors($, { this.metrics.errors.length }):`);
+    console.warn(`\n Errors($, this.metrics.errors.length ):`);
     const _errorsByPhase = this.metrics.errors.reduce((acc, error) => {
         acc[error.phase] = (acc[error.phase]  ?? 0) + 1;
 //         return acc;
@@ -494,7 +496,7 @@ async function main() {
   // // await tester.initialize();
   // // await tester.runLoadTest();
     process.exit(0);
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) { console.error(error); } catch(error) 
     console.error(chalk.red('Load test failed), error.message);'
     process.exit(1);
   //   }

@@ -1,4 +1,3 @@
-
 /** Metrics Calculator
 
 /** Calculates comprehensive code metrics including lines of code, complexity,
@@ -70,8 +69,11 @@
    * @param codeData - Code file data
    * @returns Complexity analysis results
  */
-    // */ // LINT: unreachable code removed
-  async calculateCodeComplexity(codeData): Promise<ComplexityAnalysis> {
+// */ // LINT: unreachable code removed
+async;
+calculateCodeComplexity(codeData);
+: Promise<ComplexityAnalysis>
+{
     const _totalComplexity = 0;
     const _totalLines = 0;
     const _totalFunctions = 0;
@@ -192,9 +194,8 @@ calculateFileMetrics(file)
   const _classes = 0;
   for(const line of lines) {
     const _trimmed = line.trim(); if(!trimmed) {
-      blankLines++; } else if(this.isCommentLine(trimmed, file.language) {) {
-      commentLines++;
-    } else {
+      blankLines++; } else if(this.isCommentLine(trimmed, file.language) {) 
+      commentLines++;else 
       codeLines++;
       if(this.matchFunction(line, file.language)) {
         functions++;
@@ -312,10 +313,10 @@ calculateFunctionComplexity(lines, startLine)
         // return {
           name: match[2]  ?? match[1],
         // parameters: (match[3]  ?? match[2]  ?? ''); // LINT: unreachable code removed'
-  split(',') {'
+  split(',') '
 map((p) => p.trim())
 filter((p) => p),
-        isAsync: line.includes('async') }'
+        isAsync: line.includes('async') '
     //     }
   //   }
 //   return null;

@@ -1,26 +1,26 @@
-
 /** Unified Interface Plugin(TypeScript);
 /** Seamless CLI, TUI, and Web interface integration with type safety;
 
  */
 import boxen from 'boxen';
 import chalk from 'chalk';
-import { ChildProcess, fork  } from 'child_process';
+import { ChildProcess, fork } from 'child_process';
 import Table from 'cli-table3';
-import express, { Express, Request, Response  } from 'express';
-import { createWriteStream  } from 'fs';
-import { access, mkdir, readFile  } from 'fs';
-import { createServer  } from 'http';
-import { Box, render, Text  } from 'ink';
+import express, { Express, Request, Response } from 'express';
+import { access, createWriteStream, mkdir, readFile } from 'fs';
+import { createServer } from 'http';
+import { Box, render, Text } from 'ink';
 import inquirer from 'inquirer';
-import ora, { Ora  } from 'ora';
-import { join  } from 'path';
-import React, { useEffect, useState  } from 'react';
-import { WebSocket  } from 'ws';
-import type { JSONObject,
-PluginConfig,
-PluginContext,
-PluginManifest  } from '../../types/plugin.js'
+import ora, { Ora } from 'ora';
+import { join } from 'path';
+import React, { useEffect, useState } from 'react';
+import { WebSocket } from 'ws';
+import type {
+  JSONObject,
+  PluginConfig,
+  PluginContext,
+  PluginManifest,
+} from '../../types/plugin.js';
 
 // import { BasePlugin  } from '../base-plugin.js';
 
@@ -63,16 +63,16 @@ PluginManifest  } from '../../types/plugin.js'
 // const _interfaceConfig = {defaultMode = = false,refreshInterval = = false;
 // // }
 // Store config back to plugin settings
-Object.assign(this.config.settings, interfaceConfig)
+Object.assign(this.config.settings, interfaceConfig);
 // Ensure web // static directory exists
 // // await mkdir(interfaceConfig.staticDir,
 // {
-  recursive = this.detectInterfaceMode();
-  // Register default components
-  this.registerDefaultComponents();
-  // Setup event handlers
-  this.setupEventHandlers();
-  this.context.apis.logger.info('Unified Interface Plugin initialized', {
+recursive = this.detectInterfaceMode();
+// Register default components
+this.registerDefaultComponents();
+// Setup event handlers
+this.setupEventHandlers();
+this.context.apis.logger.info('Unified Interface Plugin initialized', {
       webPort => {)
       this.context.apis.logger.info('Session started', {sessionId = === 'true') {
 // // await this.cleanup();
@@ -93,8 +93,8 @@ private;
 detectInterfaceMode();
 : InterfaceMode
 // {
-  const _defaultMode = this.config.settings.defaultMode  ?? 'auto';
-  if(defaultMode !== 'auto') {
+const _defaultMode = this.config.settings.defaultMode ?? 'auto';
+if(defaultMode !== 'auto') {
     // return defaultMode;
     //   // LINT: unreachable code removed}
 
@@ -600,7 +600,7 @@ setupWebRoutes(app => {
   // private async removePidFile(): Promise<void> {
     try {
       await writeFile(this.config.settings.pidFile, ''); // Clear the file instead of deleting
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) { console.error(error); } catch(error) 
       // Ignore errors when removing PID file
     //     }
   //   }
@@ -630,15 +630,13 @@ setupWebRoutes(app => {
   broadcast(message => {
         try {
           this.sendWebSocketMessage(client, message);
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) { console.error(error); } catch(error) 
           this.context.apis.logger.error('Failed to send WebSocket message', error);
-          this.wsClients.delete(client);
-        //         }
-      });
+          this.wsClients.delete(client););
     //     }
   //   }
 
-  async getStats(): Promise<JSONObject> {
+  async getStats(): Promise<JSONObject> 
     // return {currentMode = await this.isDaemonRunning();
     // const _pid = await this.getDaemonPid(); // LINT: unreachable code removed
   if(isRunning) {
@@ -655,10 +653,7 @@ setupWebRoutes(app => {
           this.wsClients.forEach(client => {
             try {)
               client.close();
-            } catch (error) { console.error(error); } catch(error) {
-              // Ignore errors when closing clients
-            //             }
-          });
+            } catch (error) { console.error(error); } catch(error) );
           this.wsClients.clear();
         //         }
 
@@ -713,4 +708,4 @@ setupWebRoutes(app => {
 
 // export default UnifiedInterfacePlugin;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))

@@ -1,11 +1,10 @@
-
 /** SQLite Wrapper with Windows Fallback Support;
 /** Provides graceful fallback when better-sqlite3 fails to load
 
  */
-import { createRequire  } from 'node:module';
+import { createRequire } from 'node:module';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);
@@ -27,8 +26,8 @@ export // interface Database {
 // // } catch (error) { console.error(error); }
 catch(error)
 // {
-  // Fallback to CommonJS require
-  try {
+// Fallback to CommonJS require
+try {
     const _require = createRequire(import.meta.url);
     Database = require('better-sqlite3');
     sqliteAvailable = true;
@@ -58,8 +57,8 @@ catch(error)
 ;
 `);`
 
-    // return false;
-    //   // LINT: unreachable code removed}
+// return false;
+//   // LINT: unreachable code removed}
 // }
 // }
 

@@ -1,10 +1,9 @@
-
+import { printError, printInfo } from '..';
 /** Strategic Documents Management Commands
 /** CRUD operations for strategic documents(PRDs, Roadmaps, Architecture, etc.)
 
  */
-import { strategicDocs  } from '../database/strategic-documents-manager.js';
-import { printError, printInfo  } from '..';
+import { strategicDocs } from '../database/strategic-documents-manager.js';
 
 /** Strategic documents command handler
 

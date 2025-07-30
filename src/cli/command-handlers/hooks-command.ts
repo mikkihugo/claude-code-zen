@@ -1,4 +1,3 @@
-
 /** Hooks Command Module;
 /** Converted from JavaScript to TypeScript;
 
@@ -6,13 +5,10 @@
 //  } from;
  */
 ('../types/core.js');
-printSuccess,
-printError,
-printWarning,
-execRuvSwarmHook,
-checkRuvSwarmAvailable } from '..'
+printSuccess, printError, printWarning, execRuvSwarmHook, checkRuvSwarmAvailable;
+} from '..'
 
-import { SqliteMemoryStore  } from '../../memory/sqlite-store.js';
+import { SqliteMemoryStore } from '../../memory/sqlite-store.js';
 import TimeoutProtection from '../../utils/timeout-protection.js';
 
 // Initialize memory store
@@ -105,7 +101,7 @@ async function preTaskCommand(subArgs, flags = flags;
         description,
         'task-id',
         'auto-spawn-agents',)
-..(agentId ? { 'agent-id'}  catch (error) { console.error(error); }) });
+..(agentId ? 'agent-id'catch (error) console.error(error); ) });
   if(hookResult.success) {
 // // await store.store(;
           `task = flags;`
@@ -119,7 +115,7 @@ async function preTaskCommand(subArgs, flags = flags;
 
     // Auto-assign agents based on file type
     let _assignedAgentType = 'general';
-    let _recommendedAgent = null;
+    const _recommendedAgent = null;
   if(autoAssignAgents) {
 // const _path = awaitimport('path');
       const _ext = path.extname(file).toLowerCase();
@@ -196,7 +192,7 @@ async function preTaskCommand(subArgs, flags = flags;
       if(!fs.existsSync(workingDir)) {
         fs.mkdirSync(workingDir, {recursive = fs.statSync(workingDir);
         console.warn(`   Working directory prepared`);
-      } catch (error) { console.error(error); } catch(/* err */) {
+      } catch (error) console.error(error); catch(/* err */) {
         console.warn(`    Warning = {command = ==== POST-OPERATION HOOKS = ====`
 
 async function postTaskCommand(_subArgs, flags = flags;))

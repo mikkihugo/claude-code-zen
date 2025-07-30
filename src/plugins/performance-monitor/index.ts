@@ -1,10 +1,9 @@
-
 /** Performance Monitor Plugin;
 /** Real-time performance monitoring, metrics collection, and analysis;
 
  */
-import { EventEmitter  } from 'node:events';
-import { mkdir, readFile  } from 'node:fs';
+import { EventEmitter } from 'node:events';
+import { mkdir, readFile } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
@@ -73,7 +72,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
           //           }
           setupPerformanceObserver();
           try {
-      const { PerformanceObserver }  catch (error) { console.error(error); }= require('node);'
+      const { PerformanceObserver }  catch (error) console.error(error); = require('node);'
 
       this.performanceObserver = new PerformanceObserver((list) => {
         const _entries = list.getEntries();
@@ -124,7 +123,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
   if(metrics) {
             if(!this.metrics.custom.has(name)) {
               this.metrics.custom.set(name, []); //             }
-             catch (error) { console.error(error); }this.metrics.custom.get(name) {.push(metrics);
+             catch (error) console.error(error); this.metrics.custom.get(name) .push(metrics);
           //           }
         //         }
       //       }
@@ -326,7 +325,7 @@ getMetricsSummary((duration = '5m'));
       },alerts = > a.timestamp >= cutoff)
 // }
 // }
-  getCustomMetrics() {}
+  getCustomMetrics() 
 // {
   const __metrics = {counters = counter.value;
 // }
@@ -378,7 +377,7 @@ catch(error)
 // }
 // }
 // Export metrics in Prometheus format
-  exportPrometheus() {}
+  exportPrometheus() 
 // {
   const _lines = [];
   const _timestamp = Date.now();
@@ -405,13 +404,13 @@ catch(error)
   // Custom counters
   for(const [_key, counter] of this.counters) {
     const _safeName = counter.name.replace(/[^a-zA-Z0-9_]/g, '_'); 
-    lines.push(`# HELP ${safeName} Counter ${counter.name}`); lines.push(`# TYPE ${safeName} counter`) {;
+    lines.push(`# HELP ${safeName} Counter ${counter.name}`); lines.push(`# TYPE ${safeName} counter`) ;
     lines.push(`${safeName}${this.formatLabels(counter.labels)} ${counter.value} ${timestamp}`);
   //   }
   // Custom gauges
   for(const [_key, gauge] of this.gauges) {
     const _safeName = gauge.name.replace(/[^a-zA-Z0-9_]/g, '_'); 
-    lines.push(`# HELP ${safeName} Gauge ${gauge.name}`); lines.push(`# TYPE ${safeName} gauge`) {;
+    lines.push(`# HELP ${safeName} Gauge ${gauge.name}`); lines.push(`# TYPE ${safeName} gauge`) ;
     lines.push(`${safeName}${this.formatLabels(gauge.labels)} ${gauge.value} ${timestamp}`);
   //   }
   // Custom histograms
@@ -429,7 +428,7 @@ catch(error)
       //       )
     //     }
     lines.push(;)
-    `${safeName}_bucket{le="+Inf"${labels ? `,${labels.slice(1, -1)}` : ''}} ${histogram.count} ${timestamp}`;
+    `$safeName_bucketle="+Inf"$labels ? `,$labels.slice(1, -1)` : ''$histogram.count$timestamp`;
     //     )
   //   }
   // return lines.join('\n');
@@ -440,7 +439,7 @@ formatLabels(labels);
   const _pairs = Object.entries(labels);
   if(pairs.length === 0) return '';
   // ; // LINT: unreachable code removed
-  const _formatted = pairs.map(([k, v]) => `${k}="${v}"`).join(',');
+  const _formatted = pairs.map(([k, v]) => `$k="${v}"`).join(',');
 //   return `{${formatted}}`;
 // }
 async;
@@ -503,4 +502,4 @@ cleanup();
 // }
 // export default PerformanceMonitorPlugin;
 
-}}}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}

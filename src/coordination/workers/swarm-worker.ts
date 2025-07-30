@@ -1,8 +1,9 @@
-
 /** Swarm Worker Thread - Executes individual swarm tasks in parallel
 
  */
-import { parentPort  } from 'node:worker_threads';'
+import { parentPort } from 'node:worker_threads';
+
+'
 
 class SwarmWorker {
   constructor(workerId = workerId;

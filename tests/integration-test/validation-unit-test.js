@@ -195,7 +195,7 @@ function testValidationFunctions() {
       const _result = test.func(); if(test.expectError) {
         console.warn(`    FAIL - Expected error, but got result);`
         failed++;
-      }  catch (error) { console.error(error); }else {
+      }  catch (error) console.error(error); else 
   if(result === test.expectedResult) {
           console.warn(`    PASS - Got expected result);`
           passed++;
@@ -204,7 +204,7 @@ function testValidationFunctions() {
           failed++;
         //         }
       //       }
-    } catch(error) {
+    } catch(error) 
   if(test.expectError) {
         if(error.message.includes(test.expectedMessage)) {
           console.warn(`    PASS - Correctly threw error);`
@@ -223,7 +223,7 @@ function testValidationFunctions() {
   console.warn(`\n Test Results);`
   console.warn(`    Passed);`
   console.warn(`    Failed);`
-  console.warn(`    Success Rate: ${((passed / (passed + failed)) * 100).toFixed(1)}%`);
+  console.warn(`    Success Rate: $((passed / (passed + failed)) * 100).toFixed(1)%`);
   if(failed === 0) {
     console.warn(;
       '\n All validation unit tests passed! Input validation logic is working correctly.';)

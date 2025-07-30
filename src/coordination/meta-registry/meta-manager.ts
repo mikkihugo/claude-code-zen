@@ -1,11 +1,16 @@
-
 /** Meta Registry Manager
 /** High-level orchestration system that manages multiple meta registries
  * and provides advanced coordination patterns
 
  */
-import { EventEmitter  } from 'node:events';'
-import { nanoid  } from 'nanoid';'
+import { EventEmitter } from 'node:events';
+
+'
+
+import { nanoid } from 'nanoid';
+
+'
+
 import MetaRegistry from '.';
 
 export class MetaRegistryManager extends EventEmitter {
@@ -20,7 +25,7 @@ export class MetaRegistryManager extends EventEmitter {
     this.healthMonitor = null;
     this.id = nanoid();
     this.state = 'initialized';'
-  //   }
+//   }
 
 /** Initialize the meta registry manager
 

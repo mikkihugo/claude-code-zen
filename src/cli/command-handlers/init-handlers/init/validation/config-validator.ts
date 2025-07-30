@@ -21,7 +21,7 @@ validateRoomodes();
         // return result;
     //   // LINT: unreachable code removed}
 
-       catch (error) { console.error(error); }// Read and parse JSON
+       catch (error) console.error(error); 
 // const _content = awaitnode.readTextFile(roomodesPath);
 
       try {
@@ -34,8 +34,8 @@ validateRoomodes();
           result.success = false;
           result.errors.push(...validationResult.errors);
         //         }
-         catch (error) { console.error(error); }result.warnings.push(...validationResult.warnings);
-      } catch(/* _jsonError */) {
+         catch (error) console.error(error); result.warnings.push(...validationResult.warnings);
+      } catch(/* _jsonError */) 
         result.success = false;
         result.errors.push(`Invalid JSON in .roomodes = false;`
         result.errors.push(`Could not read .roomodes = {success = `${this.workingDir}
@@ -56,9 +56,9 @@ validateRoomodes();
   for(const command of importantCommands) {
         if(!content.includes(command)) {
           result.warnings.push(`Missing important commandreference = false; `)
-        result.errors.push('CLAUDE.md appears to be too short or empty') {;
+        result.errors.push('CLAUDE.md appears to be too short or empty') ;
       //       }
-     catch (error) { console.error(error); }} catch(error) ;
+     catch (error) console.error(error); catch(error) ;
       result.success = false;
       result.errors.push(`Could not read CLAUDE.md = {success = `${this.workingDir}/memory/claude-zen-data.json`;`
 
@@ -75,8 +75,8 @@ validateRoomodes();
           result.success = false;
           result.errors.push(...validationResult.errors);
         //         }
-         catch (error) { console.error(error); }result.warnings.push(...validationResult.warnings);
-      } catch(/* jsonError */) {
+         catch (error) console.error(error); result.warnings.push(...validationResult.warnings);
+      } catch(/* jsonError */) 
         result.success = false;
         result.errors.push(`Invalid JSON in memorydata = false;`
       result.errors.push(`Could not read memory data = {success = `${this.workingDir}
@@ -103,7 +103,7 @@ validateRoomodes();
         // return result;
     //   // LINT: unreachable code removed}
 
-       catch (error) { console.error(error); }// Check if executable(on Unix systems)
+       catch (error) console.error(error); 
   if(node.build.os !== 'windows') {
         const _isExecutable = (stat.mode & 0o111) !== 0;
   if(!isExecutable) {
@@ -180,4 +180,4 @@ validateRoomodes();
     //   // LINT: unreachable code removed}
 // }
 
-}}}}}}}}}}}}}}}}}}}}}}}}) {)))))))
+}}}}}}}}}}}}}}}}}}}}}}}) )))))))

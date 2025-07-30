@@ -1,4 +1,3 @@
-
 /** Coordination Md Module
 /** Converted from JavaScript to TypeScript
 
@@ -72,15 +71,14 @@ npx claude-zen workflow examples/development-config.json --async;
 Coordination settings in \`claude-zen.config.json\`:
 \`\`\`json;`
 // {
-  "orchestrator": {
+  "orchestrator": 
     "maxConcurrentTasks",
     "taskTimeout",
-    "defaultPriority";
-  },
-  "agents": {
+    "defaultPriority";,
+  "agents": 
     "maxAgents",
     "defaultCapabilities": ["research", "code", "terminal"],
-    "resourceLimits": {
+    "resourceLimits": 
       "memory": "1GB",
       "cpu": "50%";
     //     }
@@ -210,33 +208,28 @@ npx claude-zen workflow concurrent-monitor --all-workflows --real-time;
 Coordination settings in \`claude-zen.config.json\` with batchtools optimizations: null
 \`\`\`json;`
 // {
-  "orchestrator": {
+  "orchestrator": 
     "maxConcurrentTasks",
     "taskTimeout",
     "defaultPriority",
-    "batchtools": {
+    "batchtools": 
       "enabled",
       "maxParallelTasks",
       "batchSize",
       "concurrentAgents",
-      "parallelWorkflows";
-    //     }
-  },
-  "agents": {
+      "parallelWorkflows";,
+  "agents": 
     "maxAgents",
     "defaultCapabilities": ["research", "code", "terminal", "batch", "parallel"],
-    "resourceLimits": {
+    "resourceLimits": 
       "memory": "4GB",
-      "cpu": "80%";
-    },
-    "batchProcessing": {
+      "cpu": "80%";,
+    "batchProcessing": 
       "maxConcurrentOperations",
       "batchQueueSize",
       "parallelSpawning",
-      "concurrentMonitoring";
-    //     }
-  },
-  "performance": {
+      "concurrentMonitoring";,
+  "performance": 
     "enableParallelCoordination",
     "concurrentTaskExecution",
     "batchWorkflowSize",

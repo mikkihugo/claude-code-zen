@@ -1,4 +1,3 @@
-
 /** Mock data fixtures for Vision-to-Code tests;
 
 // Sample images for different test scenarios
@@ -13,19 +12,19 @@ size, // 100KB
 // {
   width, height;
 // }
- },
+},
 // {
   name: 'medium-dashboard.jpg',
   size, // 500KB
-    type;
-  : 'image'
+type;
+: 'image'
   width, height
 // }
 // {
   name: 'large-app.webp',
   size, // 2MB
-    type;
-  : 'image'
+type;
+: 'image'
   width, height
 // }
  },
@@ -39,8 +38,9 @@ size, // 100KB
   : 'File size exceeds limit',
 
   name: 'document.pdf',
-  type: 'application'
-  error: 'Unsupported file format' }
+type: 'application';
+error: 'Unsupported file format';
+}
 // }
 // Mock vision analysis results
 const _mockVisionResults = {
@@ -90,7 +90,8 @@ const _mockVisionResults = {
         children: ['toolbar', 'data-grid', 'pagination'] } ],
   type: 'dashboard',
   responsive,
-  fixedWidth }
+  fixedWidth
+}
 // }
 // Mock code generation templates
 const _mockCodeTemplates = {
@@ -101,27 +102,36 @@ const _mockCodeTemplates = {
   className?;
 // }
 // export const ${name}: React.FC<${name}Props> = () => {
-  return(;
-    // <div className={\`\${styles.container // LINT);`
-};
+return(;
+// <div className={\`\${styles.container // LINT);`
+}
 // export default ${name};`,`
 
-    styles: (name) => `.container {`
-  /* ${name} styles */
-}`,`
-test: (name) => `import React from 'react';`
+styles: (name) => `.container
+{
+  `;
+/* ${name} styles */
+}`,
+    `
+test: (name) => `;
+  import React from 'react';
+  `
 // import { render  } from '@testing-library/react';
-// import ${ name } from './${name}';
+// import ${name} from './${name}';
 
 describe('${name}', () => {
   it('renders without crashing', () => {
     render(<${name} 
     expect(screen.getByRole('region')).toBeInTheDocument();
   });
-});` },`
+});`;
+}
+,`
 // {
-  component: (name) => `<template>;`
-  <div class="${name.toLowerCase()}">;
+  component: (name) => `<template>
+`
+  <div
+class="${name.toLowerCase()}">;
     <!-- ${name} content -->;
   <
 <
@@ -134,7 +144,8 @@ describe('${name}', () => {
 };
 <
 <style scoped>;
-${name.toLowerCase()} {
+${name.toLowerCase()}
+{
   /* ${name} styles */
 // }
 <

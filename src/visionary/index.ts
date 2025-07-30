@@ -1,4 +1,3 @@
-
 /** Visionary Software Intelligence System - Main Entry Point
 
 /** Comprehensive software intelligence and code analysis system with decomposed architecture.
@@ -9,10 +8,14 @@
  * @version 2.0.0 - Decomposed Architecture
  */
 
-export type { CodeFileData,
-PipelineConfig,
-PipelineResult,
-ProcessingOptions  } from './core/pipeline-orchestrator''
+export type {
+  CodeFileData,
+  PipelineConfig,
+  PipelineResult,
+  ProcessingOptions,
+} from './core/pipeline-orchestrator';
+
+'
 
 // Core Components
 // export { PipelineOrchestrator  } from './core/pipeline-orchestrator';'
@@ -73,7 +76,8 @@ ReportingOptions  } from './reporting/analytics-reporter''
    * @param config - Configuration options for the system
 
  */
-  constructor(config) {
+  constructor(config)
+{
     this.orchestrator = new PipelineOrchestrator(config);
   //   }
 
@@ -81,7 +85,7 @@ ReportingOptions  } from './reporting/analytics-reporter''
 
    * @returns Initialization status and capabilities
     // */; // LINT: unreachable code removed
-  async initialize(): Promise<{ status, capabilities }> {
+  async initialize(): Promise<status, capabilities > 
     // return this.orchestrator.initialize();
     //   // LINT: unreachable code removed}
 
@@ -105,7 +109,7 @@ ReportingOptions  } from './reporting/analytics-reporter''
     // */; // LINT: unreachable code removed
   async processCodeIntelligence(;
     codeFiles,
-    options: Partial<ProcessingOptions> = {}
+    options: Partial<ProcessingOptions> = 
   ): Promise<AnalysisReport>
     // return this.orchestrator.processCodeIntelligence(codeFiles, options);
     //   // LINT: unreachable code removed}
@@ -175,4 +179,4 @@ ReportingOptions  } from './reporting/analytics-reporter''
 // // await processor.close();
 // }
 
- catch (error) { console.error(error); }}}}
+ catch (error) console.error(error); }}}

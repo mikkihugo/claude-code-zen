@@ -1,12 +1,11 @@
-
 /** Tests for SIGINT handling in hive-mind spawn command;
 
  */
-import { spawn  } from 'node:child_process';
-import { existsSync  } from 'node:fs';
+import { spawn } from 'node:child_process';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
-import { afterEach, beforeEach, describe, expect  } from '@jest';
+import { fileURLToPath } from 'node:url';
+import { afterEach, beforeEach, describe, expect } from '@jest';
 import Database from 'better-sqlite3';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -92,9 +91,9 @@ hiveMindProcess.on('exit', () => {
     const _checkpoint = db;
 prepare('SELECT * FROM session_checkpoints WHERE session_id = ? AND checkpoint_name = ?')
 get(sessionId, 'auto-pause')
-    expect(checkpoint).toBeTruthy() {}
+    expect(checkpoint).toBeTruthy() 
     expect(checkpoint.checkpoint_data).toContain('paused_by_user')
-    db.close() {}
+    db.close() 
   //   }
   done();
 });

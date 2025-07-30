@@ -1,4 +1,3 @@
-
 /** AG-UI Protocol Integration for Claude Code Zen
 
 /** Standardizes agent-to-UI communication using the AG-UI protocol
@@ -7,7 +6,7 @@
  * @module AGUIAdapter
 
  */
-import { EventEmitter  } from 'node:events';
+import { EventEmitter } from 'node:events';
 
 // Define types for AG-UI protocol events
 // export // interface AGUIEvent {

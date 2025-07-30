@@ -1,9 +1,8 @@
-
 /** CLI Utilities - Shared CLI utility functions
 /** Provides comprehensive utility functions for CLI operations
 
  */
-import type { JSONObject  } from '../types/core.js';
+import type { JSONObject } from '../types/core.js';
 
 // =============================================================================
 // TYPE DEFINITIONS
@@ -31,7 +30,7 @@ import type { JSONObject  } from '../types/core.js';
 // // COLOR FORMATTING FUNCTIONS
 // // =============================================================================
 
-// /\*\*//  * Print success message with checkmark
+// /\*\*/ / ,6;Paacccceeeeghhiikkmmnrrsssssttuw{};
 //  * @param message - Message to display
 
 // // export function printSuccess() {
@@ -45,7 +44,7 @@ import type { JSONObject  } from '../types/core.js';
  * @param path - File path
  * @returns Promise resolving to true if file exists
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // export async function fileExists(path = ============================================================================
 // JSON HELPERS
 // =============================================================================
@@ -55,8 +54,8 @@ import type { JSONObject  } from '../types/core.js';
  * @param defaultValue - Default value if file doesn't exist;'
  * @returns Promise resolving to parsed JSON or default value
  */
-    // */; // LINT): Promise<T> {
-  try {
+// */; // LINT): Promise<T> {
+try {
 // const _content = await(process as any).readTextFile(path);
     // return JSON.parse(content) as T;
     //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
@@ -123,8 +122,8 @@ const _filteredArgs = [];
     const _shortFlags = arg.substring(1);
   for(const flag of shortFlags) {
       flags[flag] = true; providedFlags.add(flag); //     }
-  } else {
-    filteredArgs.push(arg) {;
+  } else 
+    filteredArgs.push(arg) ;
   //   }
 // }
 // return { flags, args = { ...flags };
@@ -196,7 +195,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     // Check if we're in Node.js environment'
     if(typeof process !== 'undefined' && (process as any).versions && (process as any).versions.node) {'
       // Node.js environment
-      const { spawn }  catch (error) { console.error(error); }= // await import('child_process');'
+      const { spawn }  catch (error) console.error(error); = // await import('child_process');'
 
       // return new Promise((resolve) => {
         const _child = spawn(command, args, {stdio = '';'
@@ -209,7 +208,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
         });
 
         child.on('close', (code) => {'
-          resolve({ success = === 0,
+          resolve(success = === 0,
             code => {
           resolve({success = new(process as any).Command(command, {
         args,)
@@ -304,7 +303,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     // */; // LINT) {
   const _percentage = Math.round((current / total) * 100)
   const _bar = ''.repeat(Math.round(percentage / 5)) + ''.repeat(20 - Math.round(percentage / 5));'
-  console.warn(`\r${bar} ${percentage}% ${message}`);`
+  console.warn(`\r$bar$percentage% $message`);`
 // }
 
 /** Clear current console line
@@ -335,7 +334,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
 // export async function retry<T>(fn = > Promise<T>,
   maxAttempts = 3,
   delay = 1000;
-): Promise<T> {
+): Promise<T> 
   for(let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       // return // await fn();
@@ -380,7 +379,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     console.warn(;)
       `Executing = = 'undefined' && (process as any).versions?.node) {'`
       // Node.js environment - use spawn with stdio inherit
-      const { spawn }  catch (error) { console.error(error); }= // await import('node);'
+      const { spawn }  catch (error) console.error(error); = // await import('node);'
 
       result = // await new Promise((_resolve) => {
         const __child = spawn(;
@@ -397,8 +396,8 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
             dataSource,
             '--output-format','
             'json' ],'
-            _stdio => {
-          resolve({
+            _stdio => 
+          resolve(
             success = === 0,
             _code => {
           resolve({success = // await runCommand('npx', [;'
@@ -434,8 +433,8 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     const _args = ['ruv-swarm', 'hook', hookName];'
 
     // Add parameters as CLI arguments
-    Object.entries(params).forEach(([key, value]) => {
-      args.push(`--${key} catch (error) { console.error(error); }`);`
+    Object.entries(params).forEach(([key, value]) => 
+      args.push(`--$keycatch (error) console.error(error); `);`
   if(value !== true && value !== false) {
         args.push(String(value));
       //       }
@@ -458,9 +457,9 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
 ): Promise<any> {
   const { callRuvSwarmLibrary } = // await import('./utils.js');'
     // return // await callRuvSwarmLibrary('neural_patterns', {action = null): Promise<SwarmStatusResult> { // LINT: unreachable code removed'
-  let { callRuvSwarmLibrary } = // await import('./utils.js');'
+  let callRuvSwarmLibrary = // await import('./utils.js');'
   // return // await callRuvSwarmLibrary('swarm_status', {'
-    swarmId = {}
+    swarmId = 
 ): Promise<AgentSpawnResult> {
   const { callRuvSwarmLibrary } = // await import('./utils.js');'
     // return // await callRuvSwarmLibrary('agent_spawn', { // LINT: unreachable code removed'
@@ -469,4 +468,4 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     timestamp: Date.now() });
 // }
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))

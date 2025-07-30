@@ -1,4 +1,3 @@
-
 /** Test helper utilities for Vision-to-Code tests
 
  * @fileoverview Comprehensive test utilities with strict TypeScript standards

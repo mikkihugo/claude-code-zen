@@ -6,9 +6,9 @@
 /** Mission: ZERO TOLERANCE - Fix ALL 1712 remaining issues;
 
  */
-import { execSync  } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
-import { glob  } from 'glob';
+import { glob } from 'glob';
 
 console.warn(' LINT TERMINATOR');
 console.warn(' TARGET: 1712 problems(449 errors, 1263 warnings)');
@@ -27,7 +27,7 @@ class LintTerminator {
     try 
       execSync('npx biome check --write .', { stdio);
       console.warn(' Biome formatting complete');
-    } catch(/* _error */) {
+    } catch(/* _error */) 
       console.warn(' Biome had issues, continuing...');
 // }
 // }
@@ -37,7 +37,7 @@ class LintTerminator {
   async applyAdvancedFixes() { 
     console.warn(' PHASE 2');
     // Get all files that need processing
-// const _files = awaitglob('**/*.js,ts,jsx,tsx}', {
+// const _files = awaitglob('**/*.js,ts,jsx,tsx', {
       ignore: [;
         'node_modules/**', */
         'dist/**', */
@@ -117,7 +117,7 @@ applyUnusedVarFixes(content);
     //   // LINT: unreachable code removed}
           // return match;,pattern: /catch\s*\(\s*(\w+)\s*\)\s*{/g, replacement: 'catch(/* $1 */) {' ,
         pattern: /function\s*\w*\s*\([^)]*,\s*(\w+)\s*\)\s*/g: true,
-        replacement: (match, unusedParam) => {
+        replacement: (match, unusedParam) => 
 //           return match.replace(unusedParam, `/* ${unusedParam} */`);
     //   // LINT: unreachable code removed} } ];
 // 
@@ -195,7 +195,7 @@ join(', ');
   applyDeadCodeFixes(content) {
     const _fixes = [;
       // Remove empty catch blocks
-      { pattern: /catch\s*\([^)]*\)\s*\s*/g, replacement: 'catch(error) { /* empty */ }' },
+      { pattern: /catch\s*\([^)]*\)\s*\s*/g, replacement: 'catch(error) { /* empty */ }' ,
         pattern: /(return[^;]*;)\s*\n\s*([^}\n]+)/g: true,
         replacement: '$1\n    // $2 // LINT: unreachable code removed',pattern: /(import\s+[^;]+;\s*\n)\s*\1/g, replacement: '$1'  ];
 
@@ -231,7 +231,7 @@ join(', ');
     try 
       execSync('npx eslint . --cache --fix', { stdio);
       console.warn(' ESLint autofix complete');
-    } catch(/* _error */) {
+    } catch(/* _error */) 
       console.warn(' ESLint completed with remaining issues');
 // }
 
@@ -265,4 +265,4 @@ terminator.terminate().catch((error) => {
 
 // export default LintTerminator;
 
-}}}}
+}}}

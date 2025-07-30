@@ -1,10 +1,12 @@
-
 /** In-Memory Registry Backend
 /** Simple, fast backend for development and testing
 
  */
-import { EventEmitter  } from 'node:events';'
-import { RegistryInterface  } from '..';
+import { EventEmitter } from 'node:events';
+
+'
+
+import { RegistryInterface } from '..';
 
 export class MemoryBackend extends RegistryInterface {
   constructor(options = {}) {
@@ -21,7 +23,7 @@ export class MemoryBackend extends RegistryInterface {
     }, options.cleanupInterval  ?? 30000);
   //   }
 
-  async initialize(config = {}) { 
+  async initialize(config = {}) 
     this.config = config;
 
     // Initialize with any predefined data

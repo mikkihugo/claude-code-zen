@@ -1,11 +1,20 @@
-
 /** Critical Fixes Template - For Claude Flow Init
 /** Includes timeout protection, GitHub CLI safety, and dynamic agent loading
 
  */
-export const criticalFixesTemplate = `# Critical System Fixes Applied`
+export const criticalFixesTemplate = `# Critical System Fixes Applied`;
 
-This Claude Flow project includes critical upstream fixes that prevent commonissues = await TimeoutProtection.checkRuvSwarmAvailableWithTimeout();
+This;
+Claude;
+Flow;
+project;
+includes;
+critical;
+upstream;
+fixes;
+that;
+prevent;
+commonissues = await TimeoutProtection.checkRuvSwarmAvailableWithTimeout();
 
 // Execute hooks with timeout protection
 // const _result = awaitTimeoutProtection.execRuvSwarmHookWithTimeout('pre-task', params);
@@ -16,16 +25,27 @@ TimeoutProtection.setupSafeExit();
 
 ## 2. GitHub CLI Safety Utilities 
 
-**Problem Solved**: 2-minute timeouts with backticks and command substitution in GitHub CLI operations
-
-**Features Added**:
+**Problem Solved**: 2-minute timeouts
+with backticks and
+command;
+substitution in GitHub;
+CLI;
+operations ** Features;
+Added**
+:
 - Safe handling of special characters(\`, \$, ", newlines);
-- Temporary file approach for complex content;
-- Command substitution sanitization;
-- Repository name validation
+- Temporary file approach
+for complex content;
+- Command substitution
+sanitization;
+-Repository;
+name;
+validation
 
-**Usage**:
-\`\`\`javascript;
+**Usage**
+:
+\`\`\`javascript
+
 // Import GitHub CLI safety utilities
 import GitHubCliSafe from './src/utils/github-cli-safe.js';
 

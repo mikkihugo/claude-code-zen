@@ -1,10 +1,9 @@
-
 /** MCP Command Handler - TypeScript Edition
 /** Model Context Protocol server management with full type safety
 
  */
-import { CLIError  } from '../../types/cli.js';
-import { FlagValidator  } from '../core/argument-parser.js';
+import { CLIError } from '../../types/cli.js';
+import { FlagValidator } from '../core/argument-parser.js';
 
 // =============================================================================
 // MCP COMMAND TYPES
@@ -31,7 +30,7 @@ import { FlagValidator  } from '../core/argument-parser.js';
 //     //   // LINT: unreachable code removed}
 //         return true;
 // }
-    },
+},
 {name = neural','
       description => {
 
@@ -109,7 +108,7 @@ async function showMcpStatus(options = {status = // await import('url');
       logger.info('MCP server started successfully');
       // Keep the process alive
       // await new Promise(() => {}); // Never resolves, keeps server running
-    } catch(error) {
+    } catch(error) 
       logger.error('Failed to start MCP server', error);
 
       // Fallback to status display

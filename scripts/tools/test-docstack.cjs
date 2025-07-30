@@ -6,7 +6,8 @@
 const {
   DocumentStack,
   setupDefaultRules,
-  documentTemplates } = require('./src/mcp/document-stack.cjs');
+  documentTemplates,
+} = require('./src/mcp/document-stack.cjs');
 
 // Mock memory store for testing
 class MockMemoryStore {

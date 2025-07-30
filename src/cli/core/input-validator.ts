@@ -1,9 +1,8 @@
-
 /** Comprehensive Input Validation System
 /** Prevents injection attacks, validates data types, and sanitizes input
 
  */
-import { CliError  } from '.';
+import { CliError } from '.';
 
 export class InputValidator {
   constructor() {
@@ -28,7 +27,7 @@ export class InputValidator {
 // \b(or|and)\s+\d+\s*=\s*\d+/gi,
 // \b(or|and)\s+['"]\w+['"]s*=\s*['"]\w+['"]/gi;"
     ];
-  //   }
+//   }
 
 /** Validate and sanitize string input
 

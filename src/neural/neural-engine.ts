@@ -1,22 +1,22 @@
-
 /** Neural Engine - Enhanced AI/ML Integration System;
 /** PRODUCTION-READY NEURAL NETWORK INTEGRATION with fallback support;
 /** Provides AI capabilities for the Hive Mind system
 
  */
-import { performance  } from 'node:perf_hooks';
+import { performance } from 'node:perf_hooks';
 
 InferenceRequest,
-JSONObject,
-NeuralConfig,
-NeuralEvents,
-NeuralInput,
-NeuralNetwork,
-NeuralOutput,
-TrainingJob,
-TrainingMetrics } from '../types/neural.js'
+  JSONObject,
+  NeuralConfig,
+  NeuralEvents,
+  NeuralInput,
+  NeuralNetwork,
+  NeuralOutput,
+  TrainingJob,
+  TrainingMetrics;
+} from '../types/neural.js'
 
-import { loadNeuralBindings  } from '.';
+import { loadNeuralBindings } from '.';
 
 /** Neural model interface for fallback implementations
 
@@ -309,31 +309,31 @@ metadata = {};
   // private calculateReadability(code = code.split('\n');
     const _avgLineLength = lines.reduce((sum, line) => sum + line.length, 0) / lines.length;
     const _commentRatio = lines.filter(line => line.trim().startsWith('//')  ?? line.trim().startsWith('/*')).length / lines.length; */
-    const _blankLineRatio = lines.filter(line => line.trim() === '').length / lines.length;
+const _blankLineRatio = lines.filter((line) => line.trim() === '').length / lines.length;
 
-    let _score = 100;
+const _score = 100;
 
-    // Penalize very long lines
-    if(avgLineLength > 80) score -= 15;
-    if(avgLineLength > 120) score -= 25;
+// Penalize very long lines
+if (avgLineLength > 80) score -= 15;
+if (avgLineLength > 120) score -= 25;
 
-    // Reward good commenting
-    score += commentRatio * 25;
+// Reward good commenting
+score += commentRatio * 25;
 
-    // Reward reasonable blank line usage
-    if(blankLineRatio > 0.1 && blankLineRatio < 0.3) score += 10;
+// Reward reasonable blank line usage
+if (blankLineRatio > 0.1 && blankLineRatio < 0.3) score += 10;
 
-    // Check for meaningful variable names
-    const _meaningfulNames = (code.match(/\b[a-zA-Z_][a-zA-Z0-9_]{2 }\b/g)  ?? []).length;
-    const _totalIdentifiers = (code.match(/\b[a-zA-Z_][a-zA-Z0-9_]*\b/g)  ?? []).length;
-    const _meaningfulRatio = meaningfulNames / (totalIdentifiers  ?? 1);
-    score += meaningfulRatio * 15;
+// Check for meaningful variable names
+const _meaningfulNames = (code.match(/\b[a-zA-Z_][a-zA-Z0-9_]{2 }\b/g) ?? []).length;
+const _totalIdentifiers = (code.match(/\b[a-zA-Z_][a-zA-Z0-9_]*\b/g) ?? []).length;
+const _meaningfulRatio = meaningfulNames / (totalIdentifiers ?? 1);
+score += meaningfulRatio * 15;
 
-    // return Math.max(0, Math.min(100, score));
-    //   // LINT: unreachable code removed}
+// return Math.max(0, Math.min(100, score));
+//   // LINT: unreachable code removed}
 
-  // private calculateTestability(code = 100;
-  if(complexity) {
+// private calculateTestability(code = 100;
+if(complexity) {
       score -= complexity.cyclomaticComplexity * 3;
       score -= complexity.nestingDepth * 5;
     //     }
@@ -368,7 +368,7 @@ metadata = {};
     const _functionCount = (code.match(/function|=>/g)  ?? []).length;
     const _jsdocRatio = jsdocCount / (functionCount  ?? 1);
 
-    let _score = Math.min(100, docRatio * 150);
+    const _score = Math.min(100, docRatio * 150);
     score += jsdocRatio * 25;
 // 
     return Math.max(0, Math.min(100, score));
@@ -400,7 +400,7 @@ map(method => ({ smell = code.split('\n').map(line => line.trim()).filter(line =
 
       // Calculate additional complexity featurescodeComplexity = [];
     const _lines = code.split('\n');
-    let _currentMethod = null;
+    const _currentMethod = null;
     const _braceCount = 0;
   for(let i = 0; i < lines.length; i++) {
       const _line = lines[i];
@@ -443,26 +443,25 @@ map(method => ({ smell = code.split('\n').map(line => line.trim()).filter(line =
     this.options = { ...this.getDefaults(), ...options };
     this.state = {};
   //   }
-  getDefaults() {
+  getDefaults() 
     // return {};
     //   // LINT: unreachable code removed}
 
   // Main processing method
-  process(input) {
+  process(input) 
     if(!this.isValidInput(input)) {
       throw new Error('Invalid input provided');
     //     }
 
     // return this.performProcessing(input);
     //   // LINT: unreachable code removed}
-  isValidInput(input) {
+  isValidInput(input) 
     // return input !== null;
     //   // LINT: unreachable code removed}
-  performProcessing(input) {
+  performProcessing(input) 
     //TODO = () => {},
   className = '',
-..otherProps ;
-}) => {
+..otherProps ;) => {
   const [data, setData] = useState(initialData);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -476,19 +475,11 @@ map(method => ({ smell = code.split('\n').map(line => line.trim()).filter(line =
       setData(initialData);
     //     }
   }, [initialData]);
-  if(error) {
-    // return <div className="error">Error = "loading">Loading...</div>;
-    //   // LINT: unreachable code removed}
-
-  // return(;
-    // <div className={\`generated-component \\${className // LINT}\`} {...otherProps}>;
-      {data ? (;
+  if(error) {data ? (;
         <div className="data-display">;
-          {/*TODO = "no-data">No data available</div> */
-      )}
+      )
     <
-  );
-};
+  );;
 
 GeneratedComponent.propTypes = {initialData = 0;
   for(let i = 0; i < str.length; i++) {
@@ -536,7 +527,7 @@ GeneratedComponent.propTypes = {initialData = 0;
     this.models.forEach((model, type) => {
       capabilities.push({ type,source = memoryStore;)
     console.warn(' Enhanced NeuralEngine = > m.loaded).length,'
-      metrics = {  }): Promise<string> => {
+      metrics = ): Promise<string> => {
         const _context = code.substring(Math.max(0, code.length - 200));
 //         return `\$code\n// Suggested completion based on context`;
     //   // LINT: unreachable code removed}
@@ -589,7 +580,7 @@ $;
 // {
   m.name;
 // }/g)
-\nLines = new GeneratedClass() {}
+\nLines = new GeneratedClass() 
 \n```';'`
 // }
 // private generateReadme(code =

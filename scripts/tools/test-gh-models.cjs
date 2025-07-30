@@ -10,11 +10,10 @@ async function testGHModels() {
   const prompt = `Here is a document to analyze: null`
 "This is a test document for architecture decisions. We need to choose between PostgreSQL and MongoDB for our user service database."
 
-Please analyze this document and respond with ONLY this JSON format(no other text) {
+Please analyze this document and respond with ONLY this JSON format(no other text) 
   "quality_score",
   "summary": "Simple test document",
-  "status": "success"
-}`;`
+  "status": "success"`;`
 
   try {
 // const result = awaitrunGHModel(prompt, 'openai/gpt-4o-mini');
@@ -27,7 +26,7 @@ Please analyze this document and respond with ONLY this JSON format(no other tex
   if(jsonMatch) {
       } else {
 
-  } catch(error) {
+  } catch(error) 
     console.error(' Error);'
 
 // Run GitHub Models CLI

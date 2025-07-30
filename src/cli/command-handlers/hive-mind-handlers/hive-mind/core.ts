@@ -1,11 +1,9 @@
-
 /** Hive Mind Core System
 /** Central orchestration and coordination logic
 
  */
 import EventEmitter from 'node:events';
-import { MCPToolWrapper  } from '.';
-import { PerformanceOptimizer  } from '.';
+import { MCPToolWrapper, PerformanceOptimizer } from '.';
 
 /** HiveMindCore - Main orchestration class
 

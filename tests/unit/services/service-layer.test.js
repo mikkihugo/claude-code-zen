@@ -1,4 +1,4 @@
-import { describe, expect  } from '@jest';
+import { describe, expect } from '@jest';
 
 describe('Service Layer Tests', () => {
   describe('Code Analysis Service', () => {
@@ -48,7 +48,7 @@ describe('Service Layer Tests', () => {
           // return smells;
     //   // LINT: unreachable code removed} };
       const _sampleCode = `;`
-        fun/* c */tion complexFunction(a, b, c) {
+        fun/* c */tion complexFunction(a, b, c) 
   if(a > 0) {
   for(const i = 0; i < b; i++) {
   if(i % 2 === 0 && c > 100) {
@@ -221,7 +221,7 @@ describe('Service Layer Tests', () => {
               filename: file.filename,
               success,
               processedAt: Date.now(),
-              size: file.content.length } catch (error) { console.error(error); };
+              size: file.content.length } catch (error) console.error(error); ;
             this.results.set(file.filename, result);
             // return result;
     //   // LINT: unreachable code removed} catch(error) {
@@ -300,7 +300,7 @@ describe('Service Layer Tests', () => {
   if(plugin.hooks) {
               for (const [hookName, handler] of Object.entries(plugin.hooks)) {
                 this.addHook(hookName, handler); // }
- catch (error) { console.error(error); }// }
+ catch (error) console.error(error); 
             // return true; 
     //   // LINT: unreachable code removed} catch(error) {
             plugin.status = 'error';
@@ -320,8 +320,8 @@ describe('Service Layer Tests', () => {
           for (const handler of handlers) 
             try {
 // const _result = awaithandler(context); 
-              results.push({ success, result   } catch (error) { console.error(error); }); } catch(error) {
-              results.push({ success, error);
+              results.push({ success, result   } catch (error) { console.error(error); }); } catch(error) 
+              results.push(success, error);
 // }
 // }
           // return results;
@@ -373,9 +373,8 @@ then((results) =>
   for(const dep of pluginInfo.dependencies) {
                 visit(dep); // }
 // }
-            visiting.delete(name); visited.add(name) {;
-            order.push(name);
-          };
+            visiting.delete(name); visited.add(name) ;
+            order.push(name);;
           for (const name of this.plugins.keys()) {
             visit(name); // }
           // return order; 
@@ -388,8 +387,7 @@ then((results) =>
               try {
   // // await pluginInfo.plugin.init(); 
                 pluginInfo.initialized = true;
-                results.push({ name, success   } catch (error) { console.error(error); }) {;
-              } catch(error) {
+                results.push({ name, success   } catch (error) { console.error(error); }) ;catch(error) {
                 results.push({ name, success, error);
 // }
 // }

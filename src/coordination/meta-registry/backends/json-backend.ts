@@ -1,12 +1,20 @@
-
 /** JSON File Registry Backend
 /** Persistent file-based backend for simple setups
 
  */
-import { EventEmitter  } from 'node:events';'
-import path from 'node:path';'
-import fs from 'fs-extra';'
-import { RegistryInterface  } from '..';
+import { EventEmitter } from 'node:events';
+
+'
+
+import path from 'node:path';
+
+'
+
+import fs from 'fs-extra';
+
+'
+
+import { RegistryInterface } from '..';
 
 export class JSONBackend extends RegistryInterface {
   constructor(filePath = {}) {
@@ -23,7 +31,7 @@ export class JSONBackend extends RegistryInterface {
     this.isSaving = false;
   //   }
 
-  async initialize(config = {}) { 
+  async initialize(config = {}) 
     this.config = config;
 // // await this.ensureDirectoryExists();
 // // await this.load();
@@ -143,7 +151,7 @@ export class JSONBackend extends RegistryInterface {
 
   async createBackup() { 
     const _timestamp = new Date().toISOString().replace(/[]/g, '-');'
-    const _backupPath = `$this.filePath}.backup.${timestamp}`;`
+    const _backupPath = `$this.filePath}.backup.$timestamp`;`
 // await fs.copy(this.filePath, backupPath);
     // Clean old backups
   if(this.options.maxBackups > 0) {

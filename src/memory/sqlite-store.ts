@@ -1,12 +1,11 @@
-
 /** SQLite-based memory store for MCP server;
 /** Provides persistent storage that works with both local and remote npx execution
 
  */
-import { promises as fs  } from 'node:fs';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
-import { createDatabase  } from '.';
+import { fileURLToPath } from 'node:url';
+import { createDatabase } from '.';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);
@@ -19,12 +18,14 @@ const ___dirname = path.dirname(__filename);
 //   enableCache?;
 //   cacheTimeout?;
 //   [key = {}) {
-    this.options = {dbName = = false
+this.options = {dbName = = false
 ,cacheTimeout = null
 this.statements = new Map() {}
-this.queryCache = new Map() {}
+this.queryCache = new Map();
+{
+}
 this.cacheStats =
-// {
+  // {
   hits = false;
 // }
 
@@ -45,15 +46,15 @@ _directoryExists(dir = await fs.stat(dir);
 // return stats.isDirectory();
 } /* catch */
 // {
-  // return false;
+// return false;
 // }
 // }
 // async initialize() { }
 : Promise<void>
 
-    if(this.isInitialized) return;
-    // ; // LINT: unreachable code removed
-    try {
+if (this.isInitialized) return;
+// ; // LINT: unreachable code removed
+try {
       // Ensure directory exists
 // // await fs.mkdir(this.options.directory!, {recursive = path.join(this.options.directory!, this.options.dbName!);
       this.db = // await createDatabase(dbPath);
@@ -75,7 +76,7 @@ _directoryExists(dir = await fs.stat(dir);
       this.isInitialized = true;
 
       console.error(;)
-        `[${new Date().toISOString()}] INFO [memory-store] Initialized SQLiteat = excluded.value,`
+        `[$new Date().toISOString()] INFO [memory-store] Initialized SQLiteat = excluded.value,`
         metadata = excluded.metadata,
         ttl = excluded.ttl,
         expires_at = excluded.expires_at,
@@ -146,7 +147,7 @@ get('upsert');
 run(key, valueStr, namespace, metadata, ttl, expiresAt);
 
       // Invalidate related cache entries
-      this._invalidateCache(`retrieve = {} catch (error) { console.error(error); }): Promise<any> {`
+      this._invalidateCache(`retrieve = {} catch (error) console.error(error); ): Promise<any> `
 // // await this.initialize();
     const _namespace = options.namespace  ?? 'default';
     const _cacheKey = this._getCacheKey('retrieve', key, namespace);
@@ -164,7 +165,7 @@ run(key, valueStr, namespace, metadata, ttl, expiresAt);
         // return null;
     //   // LINT: unreachable code removed}
 
-       catch (error) { console.error(error); }// Update access stats
+       catch (error) console.error(error); 
       this.statements.get('updateAccess').run(key, namespace);
 
       // Try to parse as JSON, fall back to raw string
@@ -203,11 +204,11 @@ run(key, valueStr, namespace, metadata, ttl, expiresAt);
 
       // Invalidate related cache entries
   if(result.changes > 0) {
-        this._invalidateCache(`retrieve = {} catch (error) { console.error(error); }): Promise<any[]> {`
+        this._invalidateCache(`retrieve = {} catch (error) console.error(error); ): Promise<any[]> {`
 // // await this.initialize();
     const _namespace = options.namespace  ?? 'default';
     const _limit = options.limit  ?? 50;
-    const _searchPattern = `%${pattern}%`;
+    const _searchPattern = `%$pattern%`;
     const _cacheKey = this._getCacheKey('search', pattern, namespace, limit);
 
     // Check cache first
@@ -261,10 +262,10 @@ all(namespace, searchPattern, searchPattern, limit);
           this.queryCache.delete(key); //         }
       //       }
     //     }
-    else {
+    else 
       this.queryCache.clear(); //     }
     this.cacheStats.size = this.queryCache.size;
-  close() {;
+  close() ;
   if(this.db) {
       this.db.close();
       this.db = null;
@@ -292,9 +293,4 @@ all(namespace, searchPattern, searchPattern, limit);
       ];
   for(const query of commonQueries) {
         try {
-          const _plan = this.db?.prepare(`EXPLAIN QUERY PLAN ${query.sql} catch (error) { console.error(error); }`).all(); plans[query.name] = plan; } catch(_error = error = new SqliteMemoryStore() {;
-
-// export type { SqliteMemoryStore };
-// export default SqliteMemoryStore;
-
-}}}}}}}}}}}}})))))
+          const _plan = this.db?.prepare(`EXPLAIN QUERY PLAN ${query.sql} catch (error) { console.error(error); }`).all(); plans[query.name] = plan; } catch(_error = error = new SqliteMemoryStore() ;}}}}}}}}}})))))

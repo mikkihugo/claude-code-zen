@@ -1,23 +1,24 @@
-
 /**  CLAUDE ZEN SERVER - Schema-Driven API;
 /** Unified API server with auto-generated routes from schema;
 /** Replaces hard-coded endpoints with maintainable schema approach
 
  */
-import { EventEmitter  } from 'node:events';
-import { createServer  } from 'node:http';
+import { EventEmitter } from 'node:events';
+import { createServer } from 'node:http';
 import cors from 'cors';
-import express, { type NextFunction, type Request, type Response  } from 'express';
+import express, { type NextFunction, type Request, type Response } from 'express';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
-import { v4 as uuidv4  } from 'uuid';
-import { WebSocketServer  } from 'ws';
+import { v4 as uuidv4 } from 'uuid';
+import { WebSocketServer } from 'ws';
 
-import { CLAUDE_ZEN_SCHEMA,
-generateOpenAPISpec,
-getWebEnabledCommands,
-SCHEMA_METADATA,
-validateCommandArgs  } from '.'
+import {
+  CLAUDE_ZEN_SCHEMA,
+  generateOpenAPISpec,
+  getWebEnabledCommands,
+  SCHEMA_METADATA,
+  validateCommandArgs,
+} from '.';
 
 /** Server configuration interface
 

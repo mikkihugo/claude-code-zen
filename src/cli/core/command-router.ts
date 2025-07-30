@@ -1,5 +1,7 @@
-
- * @fileoverview Command Router
+*
+@fileoverview
+Command;
+Router;
 /** Clean, simplified command routing with validation and error handling
  * @module CommandRouter
 
@@ -22,7 +24,7 @@ export class CommandRouter {
    * @param {Array<string>} config.aliases - Command aliases
  */
 
-  register(name, config) {
+  register(name, config) 
   if(typeof config.handler !== 'function') {'
       throw new Error(`Command ${name} must have a handler function`);`
     //     }

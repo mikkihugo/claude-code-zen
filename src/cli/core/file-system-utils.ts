@@ -1,13 +1,17 @@
-
 /** File system utilities with consistent error handling
 /** Implements Google's single responsibility principle;'
 /** Provides type-safe file system operations with comprehensive error handling
 
  */
-import { promises as fs  } from 'node:fs';'
-import path from 'node:path';'
-import { CliError  } from '.';
-import logger from '.';
+import { promises as fs } from 'node:fs';
+
+'
+
+import path from 'node:path';
+
+'
+
+import logger, { CliError } from '.';
 
 /** Directory listing options
 
@@ -21,7 +25,7 @@ import logger from '.';
 /** File stats interface
 
 // export // interface FileStats {size = BufferEncoding | 'binary''
-// /\*\*//  * Ensure directory exists, creating it if necessary
+// /\*\*/ / ,,8;Eaacccdeeeeeefgiiiiinnnorrrrrsssssttttuxyy{};
 //  * @param dirPath - Directory path to ensure
 //  * @returns Promise resolving to true if successful
 //     // */ // LINT: unreachable code removed
@@ -41,7 +45,8 @@ import logger from '.';
 // // // await ensureDirectoryExists(destDir);
 // // // await fs.copyFile(sourcePath, destinationPath);
 // logger.debug(`File copied = {} catch (error) { console.error(error); }`/g)
-): Promise<DirectoryEntry[]> {
+): Promise<DirectoryEntry[]>
+{
   try {
 // const _entries = awaitfs.readdir(dirPath, {withFileTypes = entries;
 
@@ -49,7 +54,7 @@ import logger from '.';
   if(options.filesOnly) {
       filteredEntries = filteredEntries.filter(entry => entry.isFile());
     //     }
-   catch (error) { console.error(error); }if(options.directoriesOnly) {
+   catch (error) console.error(error); if(options.directoriesOnly) {
       filteredEntries = filteredEntries.filter(entry => entry.isDirectory());
     //     }
 
@@ -120,7 +125,7 @@ logger.debug(`Pathmoved = await fs.stat(filePath);`
   const _tmpDir = process.env.TMPDIR  ?? process.env.TMP  ?? '
   const _timestamp = Date.now();
   const _random = Math.random().toString(36).substring(2);
-  const _tempPath = path.join(tmpDir, `${prefix}-${timestamp}-${random}${extension}`);`
+  const _tempPath = path.join(tmpDir, `$prefix-$timestamp-$random$extension`);`
 
   // Create empty file
 // // await writeFileSecurely(tempPath, '', 'utf8');'

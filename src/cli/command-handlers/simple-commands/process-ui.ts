@@ -1,4 +1,3 @@
-
 /** Process Ui Module;
 /** Converted from JavaScript to TypeScript;
 
@@ -6,11 +5,12 @@
  */
 const _colors = {
   cyan = > `\x1b[36m${text}\x1b[0m`,
-gray = > `\x1b[90m${text}\x1b[0m`,
-white = > `\x1b[37m${text}\x1b[0m`,
-yellow = > `\x1b[33m${text}\x1b[0m`,
-green = > `\x1b[32m${text}\x1b[0m`,
-red = > `\x1b[31m${text}\x1b[0m` }
+  gray = > `\x1b[90m${text}\x1b[0m`,
+  white = > `\x1b[37m${text}\x1b[0m`,
+  yellow = > `\x1b[33m${text}\x1b[0m`,
+  green = > `\x1b[32m${text}\x1b[0m`,
+  red = > `\x1b[31m${text}\x1b[0m`,
+};
 const __PROCESSES = [
   {id = new Map();
     this.running = true;
@@ -28,7 +28,7 @@ const __PROCESSES = [
       console.warn(`${colors.gray(process.description)}`);
   if(process.status === 'running') {
         console.warn(;)
-          `\${colors.gray(`PID = new TextDecoder();
+          `\$colors.gray(`PID = new TextDecoder();
     const _encoder = new TextEncoder();
 // // await node.stdout.write(encoder.encode('\nCommand = new Uint8Array(1024);'
 // const _n = awaitnode.stdin.read(buf);
@@ -49,7 +49,7 @@ const __PROCESSES = [
     const _process = Array.from(this.processes.values())[this.selectedIndex];
     if(process.status === 'stopped') 
 // await this.startProcess(process.id);
-    } else {
+    } else 
 // // await this.stopProcess(process.id);
     //     }
   //   }
@@ -91,7 +91,7 @@ const __PROCESSES = [
     console.warn(colors.green(` ${process.name} stopped`));
   //   }
 
-  async startAll() { 
+  async startAll() 
     console.warn(colors.yellow('Starting all processes...'));
     for (const [id, process] of this.processes) 
   if(process.status === 'stopped') {
@@ -100,7 +100,7 @@ const __PROCESSES = [
     //     }
     console.warn(colors.green(' All processes started')); //   }
 
-  async stopAll() { 
+  async stopAll() 
     console.warn(colors.yellow('Stopping all processes...'));
     for (const [id, process] of this.processes) 
   if(process.status === 'running') {

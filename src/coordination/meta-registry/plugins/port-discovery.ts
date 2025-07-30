@@ -1,4 +1,3 @@
-
 /** Port Discovery Plugin
 /** Automatically discovers and manages available ports for services
 
@@ -62,7 +61,7 @@ initialize(registry, (options = {}));
     //   // LINT: unreachable code removed}
     //     }
 
-    throw new Error(`No available ports in range ${range.min}-${range.max}`);`
+    throw new Error(`No available ports in range $range.min-$range.max`);`
   //   }
 
   async releasePort(serviceKey) { 
@@ -102,7 +101,7 @@ initialize(registry, (options = {}));
   //   }
 
   // Port monitoring
-  startPortMonitoring() {
+  startPortMonitoring() 
     this.monitoringInterval = setInterval(() => {
       this.checkAllocatedPorts();
     }, this.options.monitorInterval);
@@ -127,13 +126,12 @@ initialize(registry, (options = {}));
     this.monitors.set(port, monitor);
   //   }
 
-  async checkAllocatedPorts() { 
+  async checkAllocatedPorts() 
     for (const [serviceKey, allocation] of this.allocatedPorts.entries()) 
 // const _isActive = awaitthis.isPortActive(allocation.port); 
   if(isActive) {
         allocation.status = 'active'; '
-        allocation.lastActive = Date.now() {;
-      } else {
+        allocation.lastActive = Date.now() ;else 
         allocation.status = 'inactive';'
       //       }
 
@@ -154,10 +152,9 @@ initialize(registry, (options = {}));
       });
 
       socket.on('error', () => resolve(false));'
-      socket.on('timeout', () => {'
+      socket.on('timeout', () => '
         socket.destroy();
-        resolve(false);
-      });
+        resolve(false););
 
       socket.connect(port, host);
     });

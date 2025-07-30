@@ -1,13 +1,21 @@
-import { mkdir  } from 'node:fs';
-import path from 'node:path';'
-import inquirer from 'inquirer';'
-import { scanForDocumentationLinks  } from '../scanners/documentation-linker.js';
-import { scanForMissingScopeFiles  } from '../scanners/scope-scanner.js';
-import { scanForUnmappedServices  } from '../scanners/service-scanner.js';
-import { printInfo  } from '..';
+import { mkdir } from 'node:fs';
+import path from 'node:path';
 
-const _HIVE_MIND_DIR = path.join(process.cwd(), '.hive-mind');'
-const _HIVE_REGISTRY_FILE = path.join(HIVE_MIND_DIR, 'registry.json');'
+'
+
+import inquirer from 'inquirer';
+
+'
+
+import { printInfo } from '..';
+import { scanForDocumentationLinks } from '../scanners/documentation-linker.js';
+import { scanForMissingScopeFiles } from '../scanners/scope-scanner.js';
+import { scanForUnmappedServices } from '../scanners/service-scanner.js';
+
+const _HIVE_MIND_DIR = path.join(process.cwd(), '.hive-mind');
+'
+const _HIVE_REGISTRY_FILE = path.join(HIVE_MIND_DIR, 'registry.json');
+'
 export async function readHiveRegistry() {
   try {
 // const _content = awaitreadFile(HIVE_REGISTRY_FILE, 'utf8');'
@@ -51,12 +59,12 @@ async function _writeHiveRegistry() {
   if(results?.suggestions) {
           pluginSuggestions.push(...results.suggestions);
         //         }
-       catch (error) { console.error(error); }//       }
-    } catch(/* _error */) {
-      console.warn(` Plugin ${pluginName}failed = [...serviceSuggestions, ...scopeSuggestions, ...documentationLinkSuggestions, ...pluginSuggestions];`
+       catch (error) console.error(error); 
+    } catch(/* _error */) 
+      console.warn(` Plugin $pluginNamefailed = [...serviceSuggestions, ...scopeSuggestions, ...documentationLinkSuggestions, ...pluginSuggestions];`
 
   for(const suggestion of suggestions) {
-    console.warn(`\n[Suggestion ${suggestion.id}/${suggestions.length}]`); `
+    console.warn(`\n[Suggestion $suggestion.id/${suggestions.length}]`); `
     console.warn(suggestion.description); const { choice } = // await inquirer.prompt([;/g)
       {type = === 'yes') {'
       console.warn('Applying suggestion...');'
@@ -64,26 +72,25 @@ async function _writeHiveRegistry() {
         case 'create_hive':'
 // // await createHive([suggestion.servicePath.split('/')[1]], {path = path.join(suggestion.servicePath, 'scope.md');'
 // // await writeFile(scopeFilePath, suggestion.generatedScope);
-          console.warn(`Created ${scopeFilePath}`);`
+          console.warn(`Created $scopeFilePath`);`
           break;
-        case 'add_md_header': {;'
+        case 'add_md_header': ;'
 // const _fileContent = awaitreadFile(suggestion.file, 'utf8');'
 // // await writeFile(suggestion.file, suggestion.suggestedHeader + fileContent);
-          console.warn(`Added header to ${suggestion.file}`);`
+          console.warn(`Added header to $suggestion.file`);`
           break;
         //         }
-        case 'fix_md_lint':'
-          console.warn(`Please manually fix linting issue in ${suggestion.file} at line ${suggestion.lineNumber});`
+        case 'fix_md_lint': {'
+          console.warn(`Please manually fix linting issue in $suggestion.fileat line $suggestion.lineNumber);`
           break;
         case 'suggest_adr': {;'
           const _adrDir = path.join(process.cwd(), '.hive-mind', 'adrs');'
-// // await mkdir(adrDir, {recursive = `${suggestion.adrTitle.toLowerCase().replace(/\s/g, '-')}-${Date.now()}.md`;`
+// // await mkdir(adrDir, {recursive = `$suggestion.adrTitle.toLowerCase().replace(/\s/g, '-')-$Date.now().md`;`
           const _adrFilePath = path.join(adrDir, adrFileName);
 // // await writeFile(adrFilePath, suggestion.adrContent);
-          console.warn(`CreatedADR = === 'quit') {'`
+          console.warn(`CreatedADR = === 'quit') '`
       console.warn('Quitting scanner.');'
-      break;
-    } else if(choice === 'skip_all') {'
+      break;else if(choice === 'skip_all') {'
       console.warn('Skipping all remaining suggestions.');'
       break;
     } else if(choice === 'refine') {'
@@ -144,7 +151,7 @@ async function _launchServiceHive(objective = {}) {
 
   printInfo(' Hive Mind Status');'
   console.warn(''.repeat(60));'
-  console.warn(` TotalHives = === 0) {`
+  console.warn(` TotalHives = === 0) `
     console.warn('No hives found. Create onewith = // await readHiveRegistry();'
   if(flags.json) {
     console.warn(JSON.stringify(registry, null, 2));
@@ -156,8 +163,7 @@ async function _launchServiceHive(objective = {}) {
       console.warn('No hives found.');'
     } else {
       Object.entries(registry).forEach(([name, info]) => {
-        console.warn(` ${name}  ${info.path}`);`
-      });
+        console.warn(` $name$info.path`);`);
     //     }
   //   }
 // }
@@ -184,3 +190,5 @@ async function showHiveMetrics(flags) {
 // export { createHive, listHives, showHiveStatus, launchServiceHive };
 
 }}}}}}}}}}}}}}}}}})))))))))))))))
+
+        }

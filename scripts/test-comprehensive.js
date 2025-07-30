@@ -3,9 +3,9 @@
 /* Comprehensive Test Runner for Claude Zen v2.0.0;
 
  */
-import { spawn  } from 'node:child_process';
+import { spawn } from 'node:child_process';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import chalk from 'chalk';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -118,15 +118,17 @@ class TestRunner {
     //     }
   //   }
   async runTest(test) { 
-    this.log(`Starting);`
-    const _startTime = Date.now();
-    // return new Promise((_resolve) => 
-      const _child = spawn(test.command, test.args, {
+    this.log(`Starting
+)
+`
+const _startTime = Date.now();
+// return new Promise((_resolve) =>
+const _child = spawn(test.command, test.args, {
         cwd,
       // stdio);
     const _stdout = '';
-    const _stderr = '';
-  if(!this.verbose) {
+const _stderr = '';
+if(!this.verbose) {
       child.stdout?.on('data', (data) => {
         stdout += data.toString();
       });
@@ -170,8 +172,19 @@ class TestRunner {
   stderr
 
   if(code === 0) {
-  this.log(`Completed: ${test.name} (${duration}ms)`, 'success');
-} else {
+  this.log(`;
+Completed: $;
+{
+  test.name;
+}
+($
+{
+  duration;
+}
+ms;
+)`, 'success')
+} else
+{
   this.log(`Failed: ${test.name} (exit code)`, 'error');
   if(!this.verbose && stderr) {
     console.warn(chalk.red('Error output));'
@@ -201,7 +214,7 @@ resolve(result);
 // async
 runTestSuite(tests, suiteName)
 // {
-  this.log(`\n Running ${suiteName} (${tests.length} tests)`);
+  this.log(`\n Running $suiteName($tests.lengthtests)`);
   if(this.parallel) {
 // const _results = awaitPromise.all(tests.map((test) => this.runTest(test)));
 //     return results;
@@ -261,13 +274,13 @@ forEach((result) =>
       performanceResults.forEach((_result) =>
   if(result.success) {
         console.warn(;)
-        `    ${result.name}: ${chalk.green('PASSED')} (${(result.duration / 1000).toFixed(2)}s)`;
+        `    $result.name: $chalk.green('PASSED')($(result.duration / 1000).toFixed(2)s)`;
         //         )
       } else {
         console.warn(`    ${result.name}: ${chalk.red('FAILED')}`);
       })
     //     }
-    console.warn(`\n${'='.repeat(80)}`);
+    console.warn(`\n$'='.repeat(80)`);
     // return {
       total,
     // passed, // LINT: unreachable code removed
@@ -288,7 +301,7 @@ run();
   if(this.includeLoad) {
   // // await this.runTestSuite(loadTests, 'Load Tests');
       //       }
-   catch (error) { console.error(error); }if(this.includeDocker) {
+   catch (error) console.error(error); if(this.includeDocker) {
   // // await this.runTestSuite(dockerTests, 'Docker Tests');
       //       }
   if(this.includeNpx) {
@@ -363,7 +376,7 @@ process.on('unhandledRejection', (reason, promise) => {
   process.exit(1);
 });
 // Run if called directly
-  if(import.meta.url === `file) {`
+  if(import.meta.url === `file) `
   main();
 // }
 // export default TestRunner;

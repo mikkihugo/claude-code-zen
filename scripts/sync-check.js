@@ -4,8 +4,8 @@
 /** Monitors alignment with ruvnet/claude-flow and provides sync status;
 
  */
-import { execSync  } from 'node:child_process';
-import { readFileSync  } from 'node:fs';
+import { execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 
 class UpstreamSyncChecker {
   constructor() {
@@ -14,7 +14,7 @@ class UpstreamSyncChecker {
     this.ourVersion = this.getOurVersion();
     this.lastSyncFile = '.'
   //   }
-  getOurVersion() {
+  getOurVersion() 
     try {
       const _packageJson = JSON.parse(readFileSync('./package.json', 'utf8'));
       // return packageJson.version;
@@ -29,7 +29,7 @@ class UpstreamSyncChecker {
     // stdio: options.silent ? 'pipe' : 'inherit', // LINT: unreachable code removed
 ..options
 // }
-     catch (error) { console.error(error); }).trim() {}
+     catch (error) console.error(error); ).trim() 
     catch(error)
   if(!options.ignoreError) {
       console.error(`Command failed);`
@@ -187,7 +187,7 @@ class UpstreamSyncChecker {
       console.warn(`   Version Gap);`
       console.warn(`\n SYNC STATUS);`
       console.warn(`   Commits Behind);`
-      console.warn(`   Priority:         ${report.sync.priority.toUpperCase()}`);
+      console.warn(`   Priority:         $report.sync.priority.toUpperCase()`);
       console.warn(`\n RECENT ACTIVITY(7 days):`);
       console.warn(`   Total Commits);`
       console.warn(`   Files Changed);`
@@ -211,7 +211,7 @@ class UpstreamSyncChecker {
       // Save status
       this.saveSyncStatus(report);
       console.warn(;)
-      `\n Next sync check: ${new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString()}`;
+      `\n Next sync check: $new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString()`;
       //       )
       console.warn('='.repeat(50))
       // return report;
@@ -227,13 +227,13 @@ class UpstreamSyncChecker {
   if(analysis.security > 0) {
         recommendations.push({
         icon: '',)
-        message: `${analysis.security} security update(s) available. Priority integration recommended.`
+        message: `$analysis.securitysecurity update(s) available. Priority integration recommended.`
 })
     //     }
   if(analysis.bugFixes > 2) {
       recommendations.push({
         icon: '',
-      message: `${analysis.bugFixes} bug fixes available. Consider selective integration.`)
+      message: `$analysis.bugFixesbug fixes available. Consider selective integration.`)
 })
   if(commitsBehind > 10) {
       recommendations.push({ icon: '',
@@ -252,19 +252,19 @@ class UpstreamSyncChecker {
   return;
   recommendations;
   //   // LINT: unreachable code removed}
-  saveSyncStatus(report) {
+  saveSyncStatus(report) 
     try {
       writeFileSync(this.lastSyncFile, JSON.stringify(report, null, 2));
-      console.warn(`\n Sync status saved to ${this.lastSyncFile} catch (error) { console.error(error); }`);
+      console.warn(`\n Sync status saved to $this.lastSyncFilecatch (error) console.error(error); `);
     } catch(/* _error */) {
       console.warn(' Could not save sync status');
     //     }
   //   }
-  quickStatus() {
+  quickStatus() 
     try {
       const _status = JSON.parse(readFileSync(this.lastSyncFile, 'utf8'));
       const _age = Math.floor((Date.now() - new Date(status.timestamp)) / (1000 * 60 * 60 * 24));
-      console.warn(`\n QUICK SYNC STATUS(${age}  catch (error) { console.error(error); }days old):`);
+      console.warn(`\n QUICK SYNC STATUS($agecatch (error) console.error(error); days old):`);
       console.warn(`   Status);`
       console.warn(`   Commits Behind);`
       console.warn(`   Version Gap);`

@@ -1,5 +1,5 @@
 import cors from 'cors';
-import express, { type Express, type Request, type Response  } from 'express';
+import express, { type Express, type Request, type Response } from 'express';
 
 /** Main API server entry point for Claude-Zen;
 /** Provides REST API endpoints for the system;

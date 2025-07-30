@@ -1,12 +1,11 @@
-
 /** Dynamic Agent Loading System;
 /** Discovers and loads agent types dynamically with legacy mapping;
 /** Based on upstream commit 00dd0094;
 
  */
-import { promises as fs  } from 'node:fs';
-import { dirname, extname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { promises as fs } from 'node:fs';
+import { dirname, extname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);

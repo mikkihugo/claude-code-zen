@@ -1,6 +1,6 @@
 import fs from 'node:fs';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -41,7 +41,7 @@ async function checkWasmFiles() {
   // Try to load the WASM module directly
   console.warn('\nTrying to load WASM module...');
   try {
-    const { WasmModuleLoader }  catch (error) { console.error(error); }= // await import(
+    const { WasmModuleLoader }  catch (error) console.error(error); = // await import(
       '/home/codespace/nvm/current/lib/node_modules/ruv-swarm/src/wasm-loader.js';
     );
     const _loader = new WasmModuleLoader();

@@ -1,10 +1,10 @@
-
 /** Transaction Manager - TypeScript Edition;
 /** Provides unified transaction management across multiple database types;
  * with advanced features like distributed transactions, savepoints, and deadlock detection;
 
  */
-import { Transaction, type TransactionIsolation, type UUID  } from '../types/database';
+import { Transaction, type TransactionIsolation, type UUID } from '../types/database';
+
 // // interface TransactionOptions {
 //   isolation?;
 //   timeout?;
@@ -23,8 +23,8 @@ import { Transaction, type TransactionIsolation, type UUID  } from '../types/dat
 // )
 // {
 //   super();
-  this.databaseManager = databaseManager;
-  this.options = {
+this.databaseManager = databaseManager;
+this.options = {
       defaultTimeout = {totalTransactions = = false) {
       this.startDeadlockDetection();
 // }

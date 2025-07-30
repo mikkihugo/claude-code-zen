@@ -1,9 +1,8 @@
-
 /** API System Types;
 /** RESTful API, GraphQL, WebSocket, and gRPC interfaces;
 
  */
-import type { Identifiable, JSONObject, JSONValue  } from '.';
+import type { Identifiable, JSONObject, JSONValue } from '.';
 
 // =============================================================================
 // API CORE TYPES
@@ -70,9 +69,9 @@ export type AuthenticationType = 'none';
 //   termsOfService?;
 // // }
 // External documentation
-externalDocs?;
+externalDocs?
 // Extensions
-extensions?: Record<string, JSONValue>;
+extensions?: Record<string, JSONValue>
 // }
 // export // interface ComponentsObject {
 //   schemas: Record<string, JSONSchema>;
@@ -266,17 +265,17 @@ extensions?: Record<string, JSONValue>;
 geographicDistribution: Record<string, number>;
 // Time-based statistics
 // {
-  // start: Date
-  // end: Date
+// start: Date
+// end: Date
 // }
 // Resource usage
 // resourceUsage: ResourceUsage
 // Cache statistics
 // {
-  // hits: number
-  // misses: number
-  hitRate, // 0-1
-  // evictions: number
+// hits: number
+// misses: number
+hitRate, // 0-1
+// evictions: number
 // }
 // }
 // export // interface DocumentationConfig {

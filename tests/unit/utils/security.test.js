@@ -1,5 +1,5 @@
-import { describe, expect  } from '@jest';
-import { validateCommandArgs  } from '../../../src/utils/security.js';
+import { describe, expect } from '@jest';
+import { validateCommandArgs } from '../../../src/utils/security.js';
 
 describe('Security Utils', () => {
   describe('validatePID', () => {

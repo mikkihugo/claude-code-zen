@@ -1,4 +1,3 @@
-
 /** JSON/YAML Validator Plugin;
 /** Validation, formatting, and schema checking for JSON/YAML files;
 
@@ -9,7 +8,7 @@ export class JsonYamlValidatorPlugin {
     this.schemas = new Map();
     this.stats = {filesScanned = [];
 
-        try {
+    try {
           const _parsed = JSON.parse(content);
 
           // Check formatting
@@ -20,7 +19,7 @@ export class JsonYamlValidatorPlugin {
 
           // return {valid = JSON.parse(content);
     // return JSON.stringify(parsed, null, this.config.indentSize); // LINT: unreachable code removed
-        } catch (error) { console.error(error); } catch(error) ;
+        } catch (error) console.error(error); catch(error) ;
           throw new Error(`Cannot format invalidJSON = [];`
 
         try {
@@ -97,7 +96,7 @@ find(v => v.extensions.includes(ext));
 // const _securityIssues = awaitthis.performSecurityChecks(content, filePath);
       result.issues.push(...securityIssues);
 
-    } catch(error) {
+    } catch(error) 
       result.valid = false;
       result.issues.push({type = [];
 
@@ -142,7 +141,7 @@ find(v => v.extensions.includes(ext));
     const _issues = [];
 
     // Find matching schema: }
-    let _matchingSchema = null;
+    const _matchingSchema = null;
     const _fileName = path.basename(filePath);
   for(const [pattern, schema] of this.schemas) {
       if(this.matchesPattern(filePath, pattern)  ?? fileName === pattern) {
@@ -185,7 +184,7 @@ find(v => v.extensions.includes(ext));
 // // await writeFile(filePath, formatted, 'utf8');
         console.warn(` Auto-fixed formatting in ${filePath} catch (error) { console.error(error); }`);
       //       }
-    } catch(error) {
+    } catch(error) 
       console.warn(` Auto-fix failed for ${filePath});`
   //   }
 
@@ -203,7 +202,7 @@ find(v => v.extensions.includes(ext));
     //     }
     // return count; 
     // ; // LINT: unreachable code removed
-  calculateDepth(obj, depth = 0) {;
+  calculateDepth(obj, depth = 0) ;
     if(typeof obj !== 'object'  ?? obj === null) return depth;
     // return Math.max(...Object.values(obj).map(v => this.calculateDepth(v, depth + 1))); // LINT: unreachable code removed
   checkYamlIndentation(lines) {
@@ -224,7 +223,7 @@ find(v => v.extensions.includes(ext));
 
     // Simple schema validation
   if(schema.type && typeof data !== schema.type) {
-      errors.push(`Expected type ${schema.type}, got ${typeof data}`);
+      errors.push(`Expected type ${schema.type}, got $typeof data`);
     //     }
   if(schema.required) {
   for(const field of schema.required) {
@@ -254,4 +253,7 @@ find(v => v.extensions.includes(ext));
 
 // export default JsonYamlValidatorPlugin;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+  }
+}
+}}}}}}}}}}}}}))))))))))))))))

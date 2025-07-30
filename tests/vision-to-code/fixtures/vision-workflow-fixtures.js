@@ -1,9 +1,8 @@
-
 /** Vision Workflow Test Fixtures;
 /** Comprehensive test data for Vision-to-Code integration tests;
 
  */
-import { v4   } from 'uuid';
+import { v4 } from 'uuid';
 
 // Vision workflow stages
 export const WORKFLOW_STAGES = {
@@ -24,9 +23,9 @@ export const SERVICE_URLS = { // eslint-disable-line
   DEVELOPMENT: process.env.DEVELOPMENT_SERVICE_URL ?? 'http://localhost:4103' };
 // Mock vision data for different complexity levels
 // export const mockVisions = {
-  simple: {
-    id: 'vision_simple_001',
-title: 'Simple Landing Page',
+{
+  id: 'vision_simple_001', title;
+  : 'Simple Landing Page',
 description: 'Create a responsive landing page with hero section, features, and contact form',
 stakeholder: 'product_team',
 priority: 'medium',
@@ -45,8 +44,9 @@ complexity: 'simple',
   conversion_rate_target: 0.05,
   bounce_rate_target: 0.3,
   load_time_target: 2.0
-// }
- },
+  // }
+}
+,
 // {
   id: 'vision_medium_001',
   title: 'E-commerce Dashboard',
@@ -55,16 +55,15 @@ complexity: 'simple',
   stakeholder: 'business_team',
   priority: 'high',
   complexity: 'medium',
-  technical: [;
-        'Real-time data updates',
-        'Chart visualizations',
-        'Data export functionality',
-        'Role-based access control' ],
-  business: [;
-        'Inventory tracking',
-        'Sales analytics',
-        'Order management',
-        'Performance monitoring' ],
+  technical: [
+'Real-time data updates',
+  'Chart visualizations',
+  'Data export functionality',
+  'Role-based access control'
+],
+  business: [
+'Inventory tracking', 'Sales analytics', 'Order management', 'Performance monitoring'
+],
   design: ['Data-dense layouts', 'Interactive charts', 'Consistent navigation'],
 
   deadline: '2024-03-15',
@@ -82,18 +81,20 @@ complexity: 'simple',
   stakeholder: 'engineering_team',
   priority: 'critical',
   complexity: 'complex',
-  technical: [;
-        'Multi-tenant architecture',
-        'API rate limiting',
-        'Automated scaling',
-        'Monitoring and alerting',
-        'Data encryption',
-        'Backup and recovery' ],
-  business: [;
-        'Subscription management',
-        'Usage tracking',
-        'Custom branding per tenant',
-        'Integration marketplace' ],
+  technical: [
+'Multi-tenant architecture',
+  'API rate limiting',
+  'Automated scaling',
+  'Monitoring and alerting',
+  'Data encryption',
+  'Backup and recovery'
+],
+  business: [
+'Subscription management',
+  'Usage tracking',
+  'Custom branding per tenant',
+  'Integration marketplace'
+],
   design: ['Customizable themes', 'White-label options', 'Responsive admin panel'],
 
   deadline: '2024-06-30',
@@ -106,12 +107,15 @@ complexity: 'simple',
 // }
 // Mock stakeholder approval workflows
 // export const mockStakeholders = {
-  product_team: {
-    id: 'stakeholder_product',
-name: 'Product Team',
+  product_team:
+{
+  id: 'stakeholder_product', name;
+  : 'Product Team',
 email: 'product@company.com',
 approval_threshold: 'medium',
-notification_preferences: ['email', 'slack'] },
+notification_preferences: ['email', 'slack']
+}
+,
 // {
   id: 'stakeholder_business',
   name: 'Business Team',
@@ -128,8 +132,9 @@ notification_preferences: ['email', 'slack'] },
 // }// }
 // Mock agent configurations
 // export const mockAgentConfigurations = {
-  simple_workflow: {
-    agents: [;
+  simple_workflow:
+{
+  agents: [;
 // {
         type: 'frontend_developer',
         capabilities: ['react', 'typescript', 'css'],
@@ -139,57 +144,59 @@ notification_preferences: ['email', 'slack'] },
         capabilities: ['figma', 'responsive_design', 'accessibility'],
         priority: 'medium' } ],
 // {
-  topology: 'hierarchical',
+  topology
+  : 'hierarchical',
   queen_agent,
   max_parallel_tasks
-// }
- },
+  // }
+}
+,
 // {
-  agents: [;
+  agents: [
 // {
-        type: 'full_stack_developer',
-        capabilities: ['react', 'nodejs', 'postgresql', 'apis'],
+type: 'full_stack_developer', capabilities;
+: ['react', 'nodejs', 'postgresql', 'apis'],
         priority: 'high' },
 // {
-        type: 'data_engineer',
-        capabilities: ['sql', 'analytics', 'etl'],
+type: 'data_engineer', capabilities;
+: ['sql', 'analytics', 'etl'],
         priority: 'high' },
 // {
-        type: 'devops_engineer',
-        capabilities: ['docker', 'ci_cd', 'monitoring'],
+type: 'devops_engineer', capabilities;
+: ['docker', 'ci_cd', 'monitoring'],
         priority: 'medium' },
 // {
-        type: 'qa_engineer',
-        capabilities: ['testing', 'automation', 'security'],
+type: 'qa_engineer', capabilities;
+: ['testing', 'automation', 'security'],
         priority: 'medium' } ],
   topology: 'mesh',
   queen_agent,
   max_parallel_tasks }
 // {
-  agents: [;
+  agents: [
 // {
-        type: 'solutions_architect',
-        capabilities: ['microservices', 'scalability', 'security'],
+type: 'solutions_architect', capabilities;
+: ['microservices', 'scalability', 'security'],
         priority: 'critical' },
 // {
-        type: 'backend_developer',
-        capabilities: ['nodejs', 'postgresql', 'redis', 'apis'],
+type: 'backend_developer', capabilities;
+: ['nodejs', 'postgresql', 'redis', 'apis'],
         priority: 'high' },
 // {
-        type: 'frontend_developer',
-        capabilities: ['react', 'typescript', 'state_management'],
+type: 'frontend_developer', capabilities;
+: ['react', 'typescript', 'state_management'],
         priority: 'high' },
 // {
-        type: 'devops_engineer',
-        capabilities: ['kubernetes', 'docker', 'monitoring', 'ci_cd'],
+type: 'devops_engineer', capabilities;
+: ['kubernetes', 'docker', 'monitoring', 'ci_cd'],
         priority: 'high' },
 // {
-        type: 'security_engineer',
-        capabilities: ['encryption', 'auth', 'compliance'],
+type: 'security_engineer', capabilities;
+: ['encryption', 'auth', 'compliance'],
         priority: 'high' },
 // {
-        type: 'qa_engineer',
-        capabilities: ['testing', 'automation', 'performance'],
+type: 'qa_engineer', capabilities;
+: ['testing', 'automation', 'performance'],
         priority: 'medium' } ],
   topology: 'hierarchical',
   queen_agent,
@@ -197,14 +204,17 @@ notification_preferences: ['email', 'slack'] },
 // }
 // Mock workflow events for testing event flow
 // export const mockWorkflowEvents = {
-  vision_created: {
-    event: 'vision.created',
-// {
-  vision_id: 'vision_simple_001',
+  vision_created:
+{
+  event: 'vision.created',
+    // {
+    vision_id;
+  : 'vision_simple_001',
   stakeholder: 'product_team',
   timestamp: new Date().toISOString()
-// }
- },
+  // }
+}
+,
 // {
   event: 'workflow.registered',
   workflow_id: 'workflow_001',
@@ -221,16 +231,16 @@ notification_preferences: ['email', 'slack'] },
   event: 'implementation.started',
   workflow_id: 'workflow_001',
   development_session_id: 'dev_session_001',
-  repository_url: 'https://github.com/company/project-001', timestamp;
-  : new Date().toISOString() }
+  repository_url: 'https://github.com/company/project-001', timestamp
+: new Date().toISOString() }
 // }
 // Performance benchmarks for different workflow types
 // export const performanceBenchmarks = {
-  simple_workflow: {
-    max_duration_minutes,
-expected_duration_minutes,
-max_memory_mb,
-max_cpu_percent },
+  simple_workflow:
+{
+  max_duration_minutes, expected_duration_minutes, max_memory_mb, max_cpu_percent;
+}
+,
 // {
   max_duration_minutes,
   expected_duration_minutes,
@@ -245,35 +255,41 @@ max_cpu_percent },
 // }// }
 // Error scenarios for resilience testing
 // export const errorScenarios = {
-  service_unavailable: {
-    type: 'service_error',
-service: 'development',
+  service_unavailable:
+{
+  type: 'service_error', service;
+  : 'development',
 error: 'SERVICE_UNAVAILABLE',
-expected_recovery: 'circuit_breaker_activation' },
+expected_recovery: 'circuit_breaker_activation'
+}
+,
 // {
-  type: 'timeout_error',
-  service: 'swarm',
+type: 'timeout_error', service;
+: 'swarm',
   timeout_seconds,
   expected_recovery: 'retry_with_backoff'
 // }
 // {
-  type: 'validation_error',
-  field: 'requirements',
+type: 'validation_error', field;
+: 'requirements',
   error: 'MISSING_REQUIRED_FIELD',
   expected_recovery: 'user_notification'
 // }
 // {
-  type: 'resource_error',
-  resource: 'memory',
+type: 'resource_error', resource;
+: 'memory',
   threshold: '90%',
   expected_recovery: 'graceful_degradation'
 // }// }
 // API response templates
 // export const apiResponseTemplates = {
-  success: (_data) => ({ status: 'success',
-data,
-timestamp: new Date().toISOString(),
-requestId: uuidv4()   }),
+  success: (_data) => (
+{
+  status: 'success', data, timestamp;
+  : new Date().toISOString(),
+requestId: uuidv4()
+}
+),
 error: (error, code = 'INTERNAL_ERROR') => (
 // {
   status: 'error',
@@ -281,7 +297,9 @@ error: (error, code = 'INTERNAL_ERROR') => (
   message,
   timestamp: new Date().toISOString(),
 
-requestId: uuidv4() {}
+requestId: uuidv4()
+{
+}
 // }
 ),
 partial: (data, warnings = []) => (
@@ -290,38 +308,48 @@ partial: (data, warnings = []) => (
   data,
   warnings,
   timestamp: new Date().toISOString(),
-  requestId: uuidv4() {}
+  requestId: uuidv4()
+{
+}
 })
 // }
 // Test helper functions
 // export const testHelpers = {
-  createVisionWorkflow: (complexity = 'simple') => ({ ...mockVisions[complexity],
-id: `vision_${complexity }_${Date.now()}`,
-created_at: new Date().toISOString() }),
+  createVisionWorkflow: (complexity = 'simple') => (
+{
+  ...mockVisions[complexity],
+  id: `vision_$complexity_$Date.now()`, created_at
+  : new Date().toISOString()
+}
+),
 createWorkflowEvents: (workflowId) =>
-Object.values(mockWorkflowEvents).map((event) => ({ ...event,
-..event.data,
+Object.values(mockWorkflowEvents).map((event) => (
+{
+  ...event,
+  ..event.data,
   workflow_id,
-  timestamp: new Date().toISOString()   })),
+  timestamp: new Date().toISOString()
+}
+)),
 generateApiKey: () => `sk_test_$`
 // {
-  Math.random().toString(36).substr(2, 24);
+  Math.random().toString(36).substr(2, 24)
 // }
 `,`
 waitForEvent: (eventName, timeout = 5000) =>;
 new Promise((resolve, reject) => {
-      const _timer = setTimeout(;
-        () => reject(new Error(`;`
+  const _timer = setTimeout(;
+  () => reject(new Error(`;`
 Timeout;
-waiting;
-for ${eventName}`)),`
+  waiting;
+  for ${eventName}`)),`
         timeout;
-      );
-      // In real implementation, this would listen for actual events
-      setTimeout(() => {
-        clearTimeout(timer);
-        resolve({ event, timestamp: new Date().toISOString()   });
-      }, Math.random() * 1000);
-    })
+  )
+  // In real implementation, this would listen for actual events
+  setTimeout(() => 
+    clearTimeout(timer)
+  resolve({ event, timestamp: new Date().toISOString() });
+  , Math.random() * 1000)
+});
 // }
 // export default testHelpers;

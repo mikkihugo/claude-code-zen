@@ -1,4 +1,3 @@
-
 /** Test Mocks for CLI Testing;
 /** Provides mock implementations for testing CLI components;
 
@@ -27,15 +26,15 @@ export // interface TaskExecutionResult {success = =============================
 //   // public id = {}
 // )
 // {
-  this.id = config.id ?? 'test-agent';
-  this;
+this.id = config.id ?? 'test-agent';
+this;
 
-  type = config;
+type = config;
 
-  type ?? 'test';
-  this;
+type ?? 'test';
+this;
 
-  config = config
+config = config;
 // }
 
 /** Initialize the agent;
@@ -51,8 +50,11 @@ initialize();
  * @returns Promise resolving to task execution result;
  */
     // */ // LINT: unreachable code removed
-async;
-execute((task = {}));
+async
+execute((task =
+{
+}
+))
 this.config = config;
 this.agents = new Map<string, Agent>();
 
@@ -70,17 +72,18 @@ init();
  * @returns Promise resolving to spawned agent;
  */
     // */ // LINT: unreachable code removed
-async;
-spawnAgent(type = new Agent({ type, ...config   });
+async
+spawnAgent(
+type = new Agent({ type, ...config });
 this.agents.set(agent.id, agent);
 // return agent;
 // }
 
 /** Orchestrate a task across agents;
-   * @param task - Task to orchestrate;
-   * @returns Promise resolving to orchestration result;
+ * @param task - Task to orchestrate;
+ * @returns Promise resolving to orchestration result;
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // async
 orchestrate(task = new Map<string, any>()
 // }
@@ -116,7 +119,7 @@ for (const [key, value] of this.memory.entries()) {
 size();
 : number
 // {
-  // return this.memory.size;
+// return this.memory.size;
 // }
 // }
 // =============================================================================

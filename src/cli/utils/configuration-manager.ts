@@ -1,11 +1,10 @@
-
 /** Configuration Management System - TypeScript Edition;
 /** Comprehensive configuration loading, validation, and management;
 
  */
-import { EventEmitter  } from 'node:events';
-import type { CLIConfig, ConfigurationManager as IConfigurationManager  } from '../../types/cli';
-import { ConfigurationError  } from '../core/cli-error';
+import { EventEmitter } from 'node:events';
+import type { CLIConfig, ConfigurationManager as IConfigurationManager } from '../../types/cli';
+import { ConfigurationError } from '../core/cli-error';
 
 // =============================================================================
 // CONFIGURATION SCHEMA DEFINITIONS
@@ -70,7 +69,7 @@ load(path?)
       if(validationResults.some(r => !r.valid)) {
 
         throw new ConfigurationError(;
-          `Configuration validationfailed = > `${e.key}).join('\n')}
+          `Configuration validationfailed = > `$e.key).join('\n')}
   `,`
           configPath;
 );
@@ -79,7 +78,7 @@ load(path?)
       this.emit('config-loaded', this.config, configPath);
 // return this.config;
     // ; // LINT: unreachable code removed
-} catch(error) {
+} catch(error) 
   if(error instanceof ConfigurationError) {
     throw error;
   //   }
@@ -100,7 +99,7 @@ load(path?)
       const _configDir = pathModule.dirname(configPath);
 // // await fs.mkdir(configDir, {recursive = JSON.stringify(configToSave, null, 2);
       //       }
-     catch (error) { console.error(error); }else
+     catch (error) console.error(error); else
     if(configPath.endsWith('.js') ?? configPath.endsWith('.mjs')) {
       content = `module.exports = ${JSON.stringify(configToSave, null, 2)};`
   `;`
@@ -164,7 +163,7 @@ delete(key = this.has(key);
         result.valid = false; result.message = `;`
   Required;
   field;
-  ('${key}') {;
+  ('${key}') ;
   is;
   missing`;`
     results.push(result);
@@ -196,7 +195,6 @@ delete(key = this.has(key);
     result.valid = false;
     result.message = validationResult;
     results.push(result);
-    continue;
   } else if(!validationResult) {
     result.valid = false;
     result.message = `Field '${key}' failed custom validation`;
@@ -253,10 +251,8 @@ startWatching();
       try {
 // await this.reload();
       this.emit('config-reloaded', this.config);
-    } catch (error) { console.error(error); } catch(error) {
-      this.emit('config-reload-error', error);
-    //     }
-    });
+    } catch (error) { console.error(error); } catch(error) 
+      this.emit('config-reload-error', error););
   //   }
   stopWatching();
   : void
@@ -294,7 +290,7 @@ startWatching();
       case 'yaml': null
         // return this.toYaml(this.config);
       // ; // LINT: unreachable code removed
-      case 'env': null
+      case 'env': { null
         // return this.toEnvFormat(this.config);
         // default = ============================================================================; // LINT: unreachable code removed
         // PRIVATE HELPER METHODS
@@ -395,11 +391,8 @@ startWatching();
       for (const [key, value] of Object.entries(current)) {
         const _envKey = currentPrefix ? `${currentPrefix}_${key.toUpperCase()}` : key.toUpperCase(); if(typeof value === 'object' && value !== null && !Array.isArray(value)) {
           processObject(value, envKey); } else {
-          const _envValue = Array.isArray(value) {? value.join(',') : String(value);
-          envString += `${envKey}=${envValue}\n`;
-        //         }
-      //       }
-    };
+          const _envValue = Array.isArray(value) ? value.join(',') : String(value);
+          envString += `${envKey}=${envValue}\n`;;
     processObject(obj, prefix);
     // return envString;
   //   }
@@ -443,3 +436,4 @@ const _globalConfigManager = null;
 // export type { TypeScriptConfigurationManager as ConfigurationManager };
 // export type { CLI_CONFIG_SCHEMA as DEFAULT_CLI_SCHEMA };
 )))))))))))))
+      }

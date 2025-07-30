@@ -3,7 +3,7 @@
 /* Test script for the unified server with MCP integration;
 
  */
-import { UnifiedInterfacePlugin  } from './src/plugins/unified-interface/index.js';
+import { UnifiedInterfacePlugin } from './src/plugins/unified-interface/index.js';
 
 async function testUnifiedServer() {
   console.warn(' Testing Unified Server with MCP Integration...');
@@ -36,4 +36,4 @@ catch(error)
   process.exit(1);
 // }
 // }
-  testUnifiedServer() {}
+  testUnifiedServer()

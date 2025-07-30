@@ -6,8 +6,8 @@
  * and working in the current version of Claude Code Zen.;
 
  */
-import { QueenCoordinator  } from './src/cli/command-handlers/hive-mind-handlers/hive-mind/queen.js';
-import { SqliteMemoryStore  } from './src/memory/sqlite-store.js';
+import { QueenCoordinator } from './src/cli/command-handlers/hive-mind-handlers/hive-mind/queen.js';
+import { SqliteMemoryStore } from './src/memory/sqlite-store.js';
 
 console.warn(' Claude Code Zen - Working Features Demo\n');
 async function demoSqliteMemory() {
@@ -21,13 +21,15 @@ async function demoSqliteMemory() {
     // Store some data
   // // await memoryStore.store('demo-key-1', {
       message: 'Hello from Claude Zen!',)
-      timestamp: Date.now() {}
- catch (error) { console.error(error); }})
+      timestamp: Date.now() 
+ catch (error) console.error(error); }
+  )
   // // await memoryStore.store('demo-key-2',
 // {
   status: 'working',
   features: ['sqlite', 'cli', 'plugins'])
-})
+}
+)
 // Retrieve data
 // const _result1 = awaitmemoryStore.retrieve('demo-key-1');
 // const _result2 = awaitmemoryStore.retrieve('demo-key-2');
@@ -44,12 +46,13 @@ console.warn(' SQLite demo completed\n');
   console.error(' SQLite demo failed);'
 // }
 // }
-async function demoQueenCoordinator() {
+async
+function demoQueenCoordinator() {
   console.warn(' 2. Queen Coordinator Demo');
   console.warn('=============================\n');
   try {
     const _queen = new QueenCoordinator({ type);
-  // // await queen.initialize();
+    // // await queen.initialize();
     console.warn(' Queen coordinator initialized');
     console.warn('  Type);'
     console.warn('  Traits);'
@@ -58,11 +61,15 @@ async function demoQueenCoordinator() {
       type: 'task_prioritization',
       options: ['feature-implementation', 'bug-fixes', 'documentation'],
       context: 'development-phase')
-  } catch (error) { console.error(error); })
+  } catch (error) {
+    console.error(error);
+  }
+  )
 // const _decision2 = awaitqueen.makeDecision({ type: 'resource_allocation',
 options: ['database-optimization', 'cli-features', 'testing'],
 context: 'prototype-improvement')
-  })
+}
+)
 console.warn(' Decision 1:', decision1)
 console.warn(' Decision 2:', decision2)
 // Get status
@@ -74,26 +81,30 @@ console.warn(' Queen coordinator demo completed\n');
   console.error(' Queen coordinator demo failed);'
 // }
 // }
-async function demoStubFeatures() {
+async
+function demoStubFeatures() {
   console.warn(' 3. Stub Features(Pending Implementation)');
   console.warn('=============================================\n');
   try {
     // Import the stub implementation
-    const { RuvSwarm }  catch (error) { console.error(error); }= // await import('./ruv-FANN/ruv-swarm/npm/src/index.js');
+    const { RuvSwarm }  catch (error) console.error(error); = // await import('./ruv-FANN/ruv-swarm/npm/src/index.js');
 // const _swarm = awaitRuvSwarm.initialize({ loadingStrategy);
     console.warn(' Neural swarm stub initialized');
 // const _task = awaitswarm.executeTask({
       type: 'code-analysis',file: 'demo.js')
-  })
+  }
+  )
 console.warn(' Task execution result:', task)
   // // await swarm.shutdown() {}
 console.warn(' Stub features demo completed\n')
-} catch(error)
+}
+catch(error)
 // {
   console.error(' Stub features demo failed);'
 // }
 // }
-async function showGapSummary() {
+async
+function showGapSummary() {
   console.warn(' 4. Feature Status Summary');
   console.warn('============================\n');
   const _features = [
@@ -142,13 +153,10 @@ async function main() {
   // // await demoStubFeatures();
   // // await showGapSummary();
     console.warn(' Demo completed! Check FEATURE_REVIEW_ANALYSIS.md for detailed analysis.');
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) { console.error(error); } catch(error) 
     console.error(' Demo failed);'
     process.exit(1);
   //   }
 // }
   if(import.meta.url === `file) {`
-  main();
-// }
-
-}}}
+  main();}}

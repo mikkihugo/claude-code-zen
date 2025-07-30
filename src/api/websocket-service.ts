@@ -1,11 +1,10 @@
-
 /** WebSocket Service Integration;
 /** Combines WebSocket server and Node.js 22 native client capabilities;
 /** Provides unified WebSocket management for claude-zen;
 
  */
-import { EventEmitter  } from 'node:events';
-import { WebSocketConnectionManager  } from '.';
+import { EventEmitter } from 'node:events';
+import { WebSocketConnectionManager } from '.';
 // =============================================================================
 // WEBSOCKET SERVICE TYPES
 // =============================================================================

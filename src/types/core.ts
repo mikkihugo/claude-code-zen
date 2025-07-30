@@ -1,9 +1,8 @@
-
 /** Core System Types;
 /** Fundamental types used throughout the Claude Code Flow system
 
  */
-import type { EventEmitter  } from 'node:events';
+import type { EventEmitter } from 'node:events';
 
 // =============================================================================
 // BASIC TYPES
@@ -114,4 +113,5 @@ export // interface Identifiable {id = =========================================
 //   removeAllListeners<K extends keyof T>(event?);
 // // }
 
-}}}}}}}}}}}))))))
+}
+}}}}}}}}}}))))))

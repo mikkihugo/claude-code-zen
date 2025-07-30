@@ -1,12 +1,11 @@
-
 /** Batch Manager Command Module
 /** Converted from JavaScript to TypeScript
 
  */
-import { promises as fs  } from 'node:fs';
+import { promises as fs } from 'node:fs';
 // batch-manager.js - Batch configuration management utility
-import { printError  } from '..';
-import { ENVIRONMENT_CONFIGS  } from '.';
+import { printError } from '..';
+import { ENVIRONMENT_CONFIGS } from '.';
 
 export async function batchManagerCommand() {
     case 'create-config':
@@ -48,7 +47,7 @@ export async function batchManagerCommand() {
   if(!config.projects && !config.projectConfigs) {
       issues.push('Missing "projects" array or "projectConfigs" object');
     //     }
-   catch (error) { console.error(error); }if(config.projects && config.projectConfigs) {
+   catch (error) console.error(error); if(config.projects && config.projectConfigs) {
       warnings.push(;)
         'Both "projects" and "projectConfigs" specified. "projectConfigs" will take precedence.');
     //     }
@@ -65,23 +64,23 @@ export async function batchManagerCommand() {
           `Unknowntemplate = === 0) ;`
       printSuccess(' Configuration is valid!');
   if(warnings.length > 0) {
-        console.warn('\nWarnings = > console.warn(`  - ${warning}`));'
+        console.warn('\nWarnings = > console.warn(`  - $warning`));'
       //       }
 
       // Summary
       console.warn('\n ConfigurationSummary = config.projects;')
-        ? config.projects.length = > console.error(`  - ${issue}`));
+        ? config.projects.length = > console.error(`  - $issue`));
   if(warnings.length > 0) {
-        console.warn('\nWarnings = > console.warn(`  - ${warning}`));'
+        console.warn('\nWarnings = > console.warn(`  - $warning`));'
       //       }
   } catch(error) {
   if(error.code === 'ENOENT') {
       printError(`Configuration file notfound = =============================\n');'`
 
   for (const [key, template] of Object.entries(PROJECT_TEMPLATES)) {
-    console.warn(`  ${key}`); console.warn(`Name = ======================================\n'); '`
+    console.warn(`  $key`); console.warn(`Name = ======================================\n'); '`
   for(const [key, _env] of Object.entries(ENVIRONMENT_CONFIGS) {) {
-    console.warn(`  ${key}`);
+    console.warn(`  $key`);
     console.warn(`Name = args[0];`
 
   if(!configFile) {

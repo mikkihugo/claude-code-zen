@@ -1,4 +1,3 @@
-
 /** Hive Mind Wizard Module;
 /** Converted from JavaScript to TypeScript;
 
@@ -17,7 +16,7 @@ async function _runInteractiveWizard() {
     const _configPath = path.join(process.cwd(), '.hive-mind', 'config.json');
     const __config = {initialized = JSON.parse(fs.readFileSync(configPath, 'utf8'));
     //     }
-   catch (error) { console.error(error); }if(!config.initialized) {
+   catch (error) console.error(error); if(!config.initialized) {
       console.warn(chalk.yellow(' Step1 = 'Build a modern web application'; // Placeholder for demo'/g))
     console.warn(chalk.cyan(` Using example objective = {topology = // await createSwarm(objective, swarmConfig);`
   if(result.success) {
@@ -179,4 +178,6 @@ async function createSwarm() {
 
 module.exports,d };
 
-}}}}})))))))
+}}}
+}
+})))))))

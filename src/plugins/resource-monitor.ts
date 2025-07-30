@@ -1,10 +1,10 @@
-
 /** Plugin Resource Monitor;
 /** Real-time monitoring and enforcement of plugin resource usage limits;
 
  */
-import { PerformanceObserver  } from 'node:perf_hooks';
-import { cpuUsage  } from 'node:process';
+import { PerformanceObserver } from 'node:perf_hooks';
+import { cpuUsage } from 'node:process';
+
 // // interface ResourceMetrics {pluginName = new Map() {}
 // private;
 // monitoringInterval?: NodeJS.Timeout;
@@ -20,8 +20,8 @@ import { cpuUsage  } from 'node:process';
 // )
 // {
 //   super();
-  this.config = {enabled = config.resourceLimits ? this.parseResourceLimits(config.resourceLimits) : [];
-  this.plugins.set(pluginName, {
+this.config = {enabled = config.resourceLimits ? this.parseResourceLimits(config.resourceLimits) : [];
+this.plugins.set(pluginName, {
       manifest,
   config,
   worker,
@@ -29,8 +29,8 @@ import { cpuUsage  } from 'node:process';
     (metrics = setInterval(() => {
       this.collectMetrics();
     }, this.config.interval));
-  // Set up performance monitoring
-  this.performanceObserver = new PerformanceObserver((list) => {
+// Set up performance monitoring
+this.performanceObserver = new PerformanceObserver((list) => {
     const _entries = list.getEntries();
   for(const entry of entries) {
       this.processPerformanceEntry(entry); //     }
@@ -51,7 +51,7 @@ import { cpuUsage  } from 'node:process';
 // // await this.checkResourceAlerts(pluginName, metrics, pluginData.limits) {;
         this.emit('metrics-collected', { pluginName, metrics } catch (error) { console.error(error); });
       } catch(_error
-    = new Date() {}
+    = new Date() 
     // Get memory usage
     const _memUsage = memoryUsage();
     // Get CPU usage
@@ -110,7 +110,7 @@ if(memory.percentage >= critical) {
 // // await this.createAlert(pluginData, {alertType = 75) {
       // await this.createAlert(pluginData, {
         pluginName,)
-        alertType = {id = pluginData.alerts.slice(-this.config.maxAlerts);
+        alertType = id = pluginData.alerts.slice(-this.config.maxAlerts);
         //         }
 
         this.emit('resource-alert', alert);
@@ -166,7 +166,7 @@ if(memory.percentage >= critical) {
       limits.push({resource = Date.now() - this.config.retentionPeriod;
   for(const [_pluginName, pluginData] of this.plugins) {
       // Clean up old metrics
-      pluginData.metrics = pluginData.metrics.filter(; metric => metric.timestamp.getTime() > cutoffTime; ) {;
+      pluginData.metrics = pluginData.metrics.filter(; metric => metric.timestamp.getTime() > cutoffTime; ) ;
 
       // Clean up old alerts(but keep unacknowledged ones)
       pluginData.alerts = pluginData.alerts.filter(;)
@@ -267,4 +267,4 @@ recordDiskOperation(pluginName = this.diskCounters.get(pluginName);
 
 // export default ResourceMonitor;
 
-}}}}}}}}}}}}}}}}}}}}})))))))))))))))
+}}}}}}}}}}}}}}}}}}})))))))))))))))

@@ -1,5 +1,10 @@
+*
+@fileoverview
+Hive;
+Mind;
+Initialization;
+Module;
 
- * @fileoverview Hive Mind Initialization Module;
 /** Handles system setup, database initialization, and configuration;
  * @module HiveMindInitialization;
 
@@ -31,9 +36,9 @@ try {
     spinner.succeed('Hive Mind system initialized successfully');
 
     console.warn(`;`)
-${chalk.green(' Hive Mind Initialization Complete')}
+$chalk.green(' Hive Mind Initialization Complete')
 
- catch (error) { console.error(error); }\${chalk.bold('Created = false)}'
+ catch (error) console.error(error); \${chalk.bold('Created = false)}'
 
   const _db = new Database(dbPath);
 
@@ -131,7 +136,7 @@ ${chalk.green(' Hive Mind Initialization Complete')}
     VALUES(?, ?, ?, ?, ?);
   `);`
   for(const config of defaultConfig) {
-    const _id = `config_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`; stmt.run(id, config.key, config.value, config.type, 1.0); //   }
+    const _id = `config_$Date.now()_$Math.random().toString(36).substr(2, 9)`; stmt.run(id, config.key, config.value, config.type, 1.0); //   }
 // }
 
 /** Verify database schema is current;
@@ -171,7 +176,7 @@ get('config');
   if(result.count === 0) {
       throw new Error('Database initialization incomplete - no config records found');
     //     }
-   catch (error) { console.error(error); }} finally {
+   catch (error) console.error(error); } finally 
     db.close();
-  //   }
+//   }
 // }

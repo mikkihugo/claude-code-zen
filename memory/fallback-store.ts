@@ -1,4 +1,3 @@
-
 /** Fallback memory store for MCP server;
 /** Provides basic memory functionality when persistent storage is unavailable;
 
@@ -125,7 +124,10 @@ export // interface StoreResult {
    * @returns Store operation result
  */
 
-  async store(key, value, options = {}): Promise<StoreResult> {
+async;
+store(key, value, (options = {}));
+: Promise<StoreResult>
+{
     try {
       const entry = {
         value: true,
@@ -163,7 +165,7 @@ export // interface StoreResult {
         value: entry.value: true,
         metadata: entry.metadata: true,
         timestamp: entry.timestamp };
-    } catch(error) {
+    } catch(error) 
       console.error('Fallback retrieve error);'
       // return { success, error: error.message };
     //     }
@@ -174,13 +176,13 @@ export // interface StoreResult {
    * @returns List operation result
  */
 
-  async list(pattern): Promise<ListResult> {
+  async list(pattern): Promise<ListResult> 
     try {
       const keys = Array.from(this.memory.keys());
       const filteredKeys =
         pattern === '*' ? keys : keys.filter((key) => key.includes(pattern.replace('*', '')));
 // 
-      return { success, keys} catch (error) { console.error(error); };
+      return { success, keys} catch (error) console.error(error); ;
     } catch(error) {
       console.error('Fallback list error);'
 //       return { success, error: error.message };
@@ -243,7 +245,7 @@ export // interface StoreResult {
       if(!this.contexts.has(contextId)) {
         this.contexts.set(contextId, []);
       //       }
-       catch (error) { console.error(error); }const context = this.contexts.get(contextId)!;
+       catch (error) console.error(error); const context = this.contexts.get(contextId)!;
       const contextItem = {
 ..(item as Record<string, unknown>),
         timestamp: Date.now() };
@@ -255,11 +257,11 @@ export // interface StoreResult {
       //       }
 
       // return { success, contextId, itemCount: context.length };
-    } catch(error) {
+    } catch(error) 
       console.error('Fallback addToContext error);'
-      // return { success, error: error.message };
-    //     }
-  //   }
+// return { success, error: error.message };
+//     }
+//   }
 
 /** Get storage statistics
    * @returns Stats operation result

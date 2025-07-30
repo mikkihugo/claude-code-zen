@@ -1,4 +1,3 @@
-
 /** Build Configuration for Claude Zen;
  *;
  * @fileoverview TypeScript build configuration with Google standards;
@@ -26,12 +25,15 @@
 // export const buildConfig = {
   // Module aliases for Node.js build compatibility
  */
-  moduleAliases: {
-    '@cliffy/ansi/colors': './src/adapters/cliffy-node.js',
+{
+  ('@cliffy/ansi/colors');
+  : './src/adapters/cliffy-node.js',
 ('@cliffy'
 : './src/adapters/cliffy-node.js',
 ('@cliffy'
-: './src/adapters/cliffy-node.js' },
+: './src/adapters/cliffy-node.js'
+}
+,
 // Modules to exclude from Node.js build
 excludeModules: [
 'vscode', // VS Code extension API

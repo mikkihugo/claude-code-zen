@@ -34,7 +34,7 @@ async function main() {
     } catch (error) { console.error(error); } catch(error)
 // {
   printError(` Failed to initialize Hive-Mind PrimarySystem = // await executeCommand(command, input.slice(1), {`
-..flags,hiveMind = === 'object') {
+..flags,hiveMind = === 'object') 
   if(result.success === false) {
         printError(` Commandfailed = === 'hive-mind-primary')`
   printInfo(' Coordinated by Hive-Mind Primary System');
@@ -52,7 +52,7 @@ async function main() {
     //  System Status
     console.warn('\\n HIVE-MINDSYSTEM = ['roadmap', 'prd', 'architecture', 'development', 'research', 'integration', 'performance'];'
     availableQueens.forEach(queen => {))
-      console.warn(`    ${queen.charAt(0).toUpperCase() + queen.slice(1)} _Queen => {`
+      console.warn(`    $queen.charAt(0).toUpperCase() + queen.slice(1)_Queen => {`
       const _query = context.args.join(' ');
   if(!query) {
         throw new Error('Please provide a question or request.Example = // await naturalLanguageHandler.processNaturalLanguage(query);'

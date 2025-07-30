@@ -1,4 +1,3 @@
-
 /** Batch Init Fixed Module
 /** Converted from JavaScript to TypeScript
 
@@ -6,9 +5,12 @@
 // Fixed imports and integrated with meow/ink system
 
  */
-import { promises as fs  } from 'node:fs';'
-import { printError  } from '..';
-import { ENVIRONMENT_CONFIGS  } from '.';
+import { promises as fs } from 'node:fs';
+
+'
+
+import { printError } from '..';
+import { ENVIRONMENT_CONFIGS } from '.';
 
 // Progress tracking for batch operations
 class BatchProgressTracker {
@@ -67,15 +69,14 @@ updateDisplay();
     this.queue = [];
   //   }
 
-  async acquire() { 
+  async acquire() 
     while(this.currentTasks >= this.maxConcurrency) 
 // // await new Promise((resolve) => {
-        this.queue.push(resolve);
-      });
+        this.queue.push(resolve););
     //     }
     this.currentTasks++;
   //   }
-  release() {
+  release() 
     this.currentTasks--;
   if(this.queue.length > 0) {
       const _resolve = this.queue.shift();
@@ -133,7 +134,7 @@ async function initializeProject(projectPath = {}) {
 
   for(const project of projects) {
   for(const env of environments) {
-      const _projectPath = environments.length > 1 ? `${project}-${env}` ; `
+      const _projectPath = environments.length > 1 ? `$project-$env` ; `
 
       const _initTask = async() => {
         if(tracker) tracker.startProject(projectPath); // const _result = awaitresourceManager.withResource(async() {=> {
@@ -158,7 +159,7 @@ async function initializeProject(projectPath = {}) {
 // return JSON.parse(content);
 } catch(error)
 // {
-  printError(`Failed to read batch config file = {}) {`
+  printError(`Failed to read batch config file = {}) `
 // const _config = awaitparseBatchConfig(configFile);
   if(!config) return;
     // ; // LINT: unreachable code removed
@@ -193,7 +194,7 @@ async function initializeProject(projectPath = {}) {
   //   }
   if(options.template && !PROJECT_TEMPLATES[options.template]) {
     errors.push(;)
-      `Unknown template: ${options.template}. Available: ${Object.keys(PROJECT_TEMPLATES).join(', ')}`)`
+      `Unknown template: $options.template. Available: $Object.keys(PROJECT_TEMPLATES).join(', ')`)`
 // }
   if(options.environments) {
   for(const env of options.environments) {

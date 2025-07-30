@@ -1,4 +1,3 @@
-
 /** Centralized error handling for Claude Code CLI
 /** Implements Google's consistent error handling principle;'
 
@@ -6,7 +5,7 @@
 
  */
 export // // enum CliErrorCode {
-  GENERIC_ERROR = 'GENERIC_ERROR','
+GENERIC_ERROR = 'GENERIC_ERROR','
 VALIDATION_ERROR = 'VALIDATION_ERROR','
 CONFIG_ERROR = 'CONFIG_ERROR','
 COMMAND_ERROR = 'COMMAND_ERROR','
@@ -15,7 +14,8 @@ FILE_ERROR = 'FILE_ERROR','
 PERMISSION_ERROR = 'PERMISSION_ERROR','
 TIMEOUT_ERROR = 'TIMEOUT_ERROR','
 AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR','
-NOT_FOUND_ERROR = 'NOT_FOUND_ERROR' }'
+NOT_FOUND_ERROR = 'NOT_FOUND_ERROR';
+}'
 
 /** Logger interface for error handling
 

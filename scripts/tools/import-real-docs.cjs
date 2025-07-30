@@ -82,8 +82,8 @@ async function importRealDocs() {
       // Check if file exists
       try {
 // // await fs.access(docInfo.file); 
-      } catch (error) { console.error(error); } catch(_error) {
-        continue; }
+      } catch (error) { console.error(error); } catch(_error) 
+        continue; 
 // const content = awaitfs.readFile(docInfo.file, 'utf-8') {;
 
       // Extract real metadata from content
@@ -140,7 +140,7 @@ async function importRealDocs() {
         file_size: content.length,)
         word_count: content.split(/\s+/).length });
       _successCount++;
-    } catch(_error) {}
+    } catch(_error) 
 
   // Show verification
   const storedDocs = memoryStore.getStoredDocs();

@@ -1,9 +1,8 @@
-
 /** Tests for cli-main.js
 
  */
-import { jest  } from '@jest';
-import { parseFlags  } from '..';
+import { jest } from '@jest';
+import { parseFlags } from '..';
 
 // Mock the command registry
 jest.mock('../command-registry.js', () => ({ '
@@ -13,7 +12,7 @@ listCommands: () => ['init', 'agent', 'task', 'memory', 'swarm'],'
 getCommand: () => ({ flags: [], args: []   }) }))
 jest.mock('../utils.js', () => (// {'
   parseFlags) =>;
-  args.reduce((acc, arg, i, arr) => {
+args.reduce((acc, arg, i, arr) => {
       if(arg.startsWith('--')) {'
         if(arr[i + 1] && !arr[i + 1].startsWith('--')) {'
           acc[arg.slice(2)] = arr[i + 1];
@@ -24,9 +23,9 @@ jest.mock('../utils.js', () => (// {'
       // return acc;
     //   // LINT: unreachable code removed}, {});
   ),
-  getCLIInfo: () => ({ argv: process.argv.slice(2),
+  getCLIInfo: () => (argv: process.argv.slice(2),
     cwd: process.cwd(),
-    isMainModule  }) }
+    isMainModule  ) }
 ))
 describe('Claude-Flow CLI', () =>'
 // {
@@ -86,7 +85,7 @@ describe('Claude-Flow CLI', () =>'
       executeCommand.mockResolvedValue(undefined);
 // // // await import('../cli-main.js');'
       expect(hasCommand).toHaveBeenCalledWith('init');'
-      expect(executeCommand).toHaveBeenCalledWith('init', ['--sparc'], {});'
+      expect(executeCommand).toHaveBeenCalledWith('init', ['--sparc'], );'
     });
     test('should handle command with multiple arguments', async() => {'
       process.argv = ['node','
@@ -100,9 +99,8 @@ describe('Claude-Flow CLI', () =>'
       executeCommand.mockResolvedValue(undefined);
 // // // await import('../cli-main.js');'
       expect(hasCommand).toHaveBeenCalledWith('swarm');'
-      expect(executeCommand).toHaveBeenCalledWith('swarm', ['Build a REST API'], {')'
-        strategy);
-  });
+      expect(executeCommand).toHaveBeenCalledWith('swarm', ['Build a REST API'], ')'
+        strategy););
   test('should show error for unknown command', async() => {'
     const { hasCommand, listCommands } = // await import('../command-registry.js');'
     hasCommand.mockReturnValue(false);
@@ -110,14 +108,14 @@ describe('Claude-Flow CLI', () =>'
     expect(consoleErrorSpy).toHaveBeenCalledWith(;
     expect.stringContaining('Unknown command => {'))
     test('should parse boolean flags correctly', () => {'
-      let _flags = parseFlags(['--force', '--verbose']);'
-      expect(flags).toEqual({ force => {)
+      const _flags = parseFlags(['--force', '--verbose']);'
+      expect(flags).toEqual(force => {)
       const _flags = parseFlags(['--port', '8080', '--name', 'test']);'
-      expect(flags).toEqual({ port => {)
+      expect(flags).toEqual(port => {)
       const _flags = parseFlags(['arg1', '--flag', 'value', 'arg2', '--bool']);'
-      expect(flags).toEqual({ flag => {)
+      expect(flags).toEqual(flag => {)
       const _flags = parseFlags(['--port=8080', '--name=test']);'
-      expect(flags).toEqual({ port => {)
+      expect(flags).toEqual(port => )
     test('should handle command execution errors gracefully', _async() => {'
       process.argv = ['node', 'claude-zen', 'init'];'
 
@@ -135,9 +133,4 @@ describe('Claude-Flow CLI', () =>'
 // // // await import('../cli-main.js');'
       expect(consoleErrorSpy).toHaveBeenCalledWith(;)
         expect.stringContaining('Missing required argument'));'
-    });
-  });
-// }
-// )
-
-}}}}}}}}}}}}}))))))))
+    }););}}}}}}}}}))))))))

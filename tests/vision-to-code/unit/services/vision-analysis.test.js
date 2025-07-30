@@ -1,11 +1,14 @@
 const { mockImages, mockVisionResults } = require('../../fixtures/mock-data');
 const _TestHelpers = require('../../utils/test-helpers');
 // Mock the vision analysis service
-jest.mock('@/services/vision-analysis', () => ({ VisionAnalysisService: jest.fn().mockImplementation(() => ({
+jest.mock('@/services/vision-analysis', () => ({
+  VisionAnalysisService: jest.fn().mockImplementation(() => ({
     analyzeImage: jest.fn(),
-extractComponents: jest.fn(),
-detectLayout: jest.fn(),
-extractColors: jest.fn()   })) }))
+    extractComponents: jest.fn(),
+    detectLayout: jest.fn(),
+    extractColors: jest.fn(),
+  })),
+}));
 const { VisionAnalysisService } = require('@/services/vision-analysis');
 describe('Vision Analysis Service', () => {
   let visionService;
@@ -37,14 +40,12 @@ describe('Vision Analysis Service', () => {
   for(const format of formats) {
         // Arrange
 // const _mockImage = awaitTestHelpers.createMockImage({ format   }); 
-        const _expectedResult = TestHelpers.createMockVisionResult(); visionService.analyzeImage.mockResolvedValue(expectedResult) {;
+        const _expectedResult = TestHelpers.createMockVisionResult(); visionService.analyzeImage.mockResolvedValue(expectedResult) ;
         // Act
 // const _result = awaitvisionService.analyzeImage(mockImage.buffer);
         // Assert
         expect(result).toEqual(expectedResult);
-        expect(result.metadata.confidence).toBeGreaterThan(0.9);
-// }
-    });
+        expect(result.metadata.confidence).toBeGreaterThan(0.9););
     it('should reject corrupted images', async() => {
       // Arrange
       const _corruptedBuffer = Buffer.from('corrupted data');

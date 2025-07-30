@@ -1,4 +1,3 @@
-
 /** Refactoring Generator
 
 /** Generates comprehensive refactoring recommendations and micro-refactorings
@@ -8,7 +7,7 @@
  * @version 1.0.0
  */
 
-import type { QualityAssessment  } from '../engines/quality-assessment-engine';
+import type { QualityAssessment } from '../engines/quality-assessment-engine';
 
 /** Configuration for refactoring generator
 
@@ -131,7 +130,8 @@ import type { QualityAssessment  } from '../engines/quality-assessment-engine';
    * @param config - Configuration options
 
  */
-  constructor(config) {
+constructor(config);
+{
     this.config = config;
   //   }
 
@@ -301,7 +301,7 @@ generateMicroRefactoring(issue, language)
 : Promise<MicroRefactoring>
 // {
   // return {
-      name: `Fix ${issue.type}`,`
+      name: `Fix $issue.type`,`
   // description: issue.description, // LINT: unreachable code removed
   before: this.generateBeforeExample(issue, language),
   after: this.generateAfterExample(issue, language),
@@ -421,13 +421,13 @@ _quality,
   codeExample: this.generateSecurityExample(language, 'input-validation') }'
 // )
   if(language === 'javascript') {'
-  improvements.push({
+  improvements.push(
         type: 'xss-prevention',')'
   vulnerability: 'Cross-Site Scripting(XSS)','
   description: 'Prevent XSS attacks through proper output encoding','
   severity: 'high','
   mitigation: 'Use proper HTML encoding and Content Security Policy','
-  codeExample: this.generateSecurityExample(language, 'xss-prevention') }'
+  codeExample: this.generateSecurityExample(language, 'xss-prevention') '
 // )
 // }
 // return improvements;
@@ -534,7 +534,7 @@ function saveOrderToDatabase() { /* save logic */ }`;`
 
   // // private generateDependencyInjectionExample(language): string
   switch(language) {
-      case 'javascript':'
+      case 'javascript': {'
         // return `;`
     // // Before: Hard-coded dependency // LINT: unreachable code removed
 class OrderService {
@@ -593,14 +593,15 @@ function sanitizeInput() {
   // // private estimateRefactoringTime(issue): string
   switch(issue.severity) {
       case 'low':'
-        // return '15-30 minutes';'
-    // case 'medium': // LINT: unreachable code removed'
-        // return '1-2 hours';'
-    // case 'high': // LINT: unreachable code removed'
-        // return '4-8 hours';'
-    // default: // LINT: unreachable code removed
-        // return '1-2 hours';'
-    //   // LINT: unreachable code removed}
-  //   }
+      }
+// return '15-30 minutes';'
+// case 'medium': // LINT: unreachable code removed'
+// return '1-2 hours';'
+// case 'high': // LINT: unreachable code removed'
+// return '4-8 hours';'
+// default: // LINT: unreachable code removed
+// return '1-2 hours';'
+//   // LINT: unreachable code removed}
+//   }
 
 // export default RefactoringGenerator;

@@ -1,11 +1,10 @@
-
 /** Server Command Handler
 /** Manages the Claude Zen API server lifecycle
 
  */
 import fs from 'node:fs';
 
-const _SERVER_PID_FILE = '.'
+const _SERVER_PID_FILE = '.';
 export async function serverCommand() {
   case 'start': null
 //   return await startServer(flags);
@@ -39,13 +38,13 @@ export async function serverCommand() {
   // Handle graceful shutdown
   process.on('SIGINT', async() =>
     console.warn('\n Shutting down server...')
-  await claudeZenServer.stop() {}
+  await claudeZenServer.stop() 
   console.warn(' Server stopped gracefully')
   process.exit(0)
   //   )
   process.on('SIGTERM', async() =>
     console.warn('\n Shutting down server...')
-  await claudeZenServer.stop() {}
+  await claudeZenServer.stop() 
   console.warn(' Server stopped gracefully')
   process.exit(0);
   //   )
@@ -70,7 +69,7 @@ export async function serverCommand() {
         console.warn(` Server stopped(PID = === 'ESRCH') {`
           console.warn('  Server process not found, cleaning up PID file');
           fs.unlinkSync(SERVER_PID_FILE);
-        }  catch (error) { console.error(error); }else {
+        }  catch (error) { console.error(error); }else 
     throw error;
   //   }
 // }

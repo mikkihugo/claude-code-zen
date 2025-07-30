@@ -1,4 +1,3 @@
-
 /** EMERGENCY INFRASTRUCTURE TEST RUNNER;
 /** Fixes E2E test failures and authentication errors;
 /** Production-ready test infrastructure with proper mocking and service simulation;
@@ -7,9 +6,9 @@
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
-import { KuzuGraphInterface  } from '../../src/cli/database/kuzu-graph-interface.js';
-import { RealFannEngine  } from '../../src/neural/real-fann-integration.js';
-import { Logger  } from '../../src/utils/logger.js';
+import { KuzuGraphInterface } from '../../src/cli/database/kuzu-graph-interface.js';
+import { RealFannEngine } from '../../src/neural/real-fann-integration.js';
+import { Logger } from '../../src/utils/logger.js';
 
 const _logger = new Logger('InfrastructureTestRunner');
 
@@ -386,7 +385,8 @@ catch(error)
     // Cleanup
     try {
   // // await fs.rm(testDbDir, { recursive, force } catch (error) { console.error(error); });
-      } catch(/* _cleanupError */) {
+      } catch(/* _cleanupError */ )
+{
         // Ignore cleanup errors
       //       }
   //   }

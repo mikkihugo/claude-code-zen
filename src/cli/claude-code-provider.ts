@@ -1,22 +1,27 @@
-
 /** Claude Code Provider for AI Service
 /** Uses Claude Code CLI for AI generation without API keys
 /** Based on claude-task-master implementation
 
  */
-import { exec  } from 'node:child_process';'
-import { promisify  } from 'node:util';'
+import { exec } from 'node:child_process';
+
+'
+
+import { promisify } from 'node:util';
+
+'
 
 const _execAsync = promisify(exec);
 // Claude Code module will be loaded dynamically if needed
 const _claudeCodeModule = null;
 // export class ClaudeCodeProvider {
-  constructor(config = {}) {
+constructor((config = {}));
+{
     this.config = {modelId = null;
     this.conversationHistory = [];
   //   }
 
-  async isAvailable() { 
+  async isAvailable() 
     try 
 // // await execAsync('which claude');'
       // return true;
@@ -104,7 +109,7 @@ const _claudeCodeModule = null;
       enhancedPrompt = `Task = `Previous context:\n${context.previousResponse}\n\n${prompt}`;`
     //     }
   if(this.config.appendSystemPrompt) {
-      enhancedPrompt = `${this.config.appendSystemPrompt}\n\n${enhancedPrompt}`;`
+      enhancedPrompt = `$this.config.appendSystemPrompt\n\n$enhancedPrompt`;`
     //     }
 
     // return this.generateText(enhancedPrompt, context.options  ?? {});

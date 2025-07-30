@@ -1,9 +1,17 @@
+*
+@fileoverview
+Demo;
+script;
+showing;
+optimized;
+MCP;
+server;
+capabilities;
 
- * @fileoverview Demo script showing optimized MCP server capabilities;
 /** Demonstrates the performance improvements and new features;
 
  */
-import { ClaudeFlowMCPServer  } from './src/mcp/mcp-server.js';
+import { ClaudeFlowMCPServer } from './src/mcp/mcp-server.js';
 
 async function demonstrateMCPOptimizations() {
   console.warn(' Claude Flow MCP Server Optimization Demo\n');
@@ -72,7 +80,7 @@ console.warn('\n Performance Metrics)'
 const _metrics = server.performanceMetrics.getMetrics();
 console.warn(`   Total requests);`
 console.warn(;)
-`   Success rate: ${((metrics.requests.successful / metrics.requests.total) * 100).toFixed(1)}%`;
+`   Success rate: $((metrics.requests.successful / metrics.requests.total) * 100).toFixed(1)%`;
 // )
 console.warn(`   Average latency);`
 // }
@@ -169,7 +177,7 @@ rate: $;
 // {/g)
   (perfSummary.overview.successRate * 100).toFixed(1);
 // }
- catch (error) { console.error(error); }%`)`
+ catch (error) console.error(error); %`)`
 console.warn(`   Throughput);`
 // }
 messages 

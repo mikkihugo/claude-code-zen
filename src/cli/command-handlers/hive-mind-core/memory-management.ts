@@ -1,15 +1,21 @@
+*
+@fileoverview
+Hive;
+Mind;
+Memory;
+Management;
+Module;
 
- * @fileoverview Hive Mind Memory Management Module;
 /** Handles collective memory storage, retrieval, and maintenance operations;
  * @module HiveMindMemoryManagement;
 
  */
-import { existsSync  } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 import Database from 'better-sqlite3';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import { isInteractive  } from '../../utils/interactive-detector.js';
+import { isInteractive } from '../../utils/interactive-detector.js';
 
 /** Interactive memory management wizard;
  * @returns {Promise<void>}
@@ -291,13 +297,16 @@ if(!isInteractive()) {
  * @param {Database} db - Database instance;
  * @returns {Promise<number>} Estimated size in bytes;
  */
-    // */; // LINT: unreachable code removed
+// */; // LINT: unreachable code removed
 async function estimateMemorySize(db = db.prepare(`;`)
-    SELECT SUM(LENGTH(key) + LENGTH(value) + LENGTH(type) + 50) as total_size;
-    FROM collective_memory;
-  `).get();`
-// 
-  return result.total_size  ?? 0;
+    SELECT SUM(LENGTH(key)
++LENGTH(value) + LENGTH(type) + 50;
+) as total_size
+FROM
+collective_memory;
+`).get();`;
+//
+return result.total_size  ?? 0;
 // }
 
 /** Identify memories to delete based on criteria;
@@ -305,31 +314,34 @@ async function estimateMemorySize(db = db.prepare(`;`)
  * @param {Object} criteria - Cleanup criteria;
  * @returns {Promise<Array>} Memories to delete;
  */
-    // */; // LINT: unreachable code removed
+// */; // LINT: unreachable code removed
 async function identifyMemoriesToDelete() {
-    const _cutoffTime = Math.floor((Date.now() - criteria.maxAge * 24 * 60 * 60 * 1000) / 1000);
-    conditions.push('created_at < ?');
-    params.push(cutoffTime);
+  const _cutoffTime = Math.floor((Date.now() - criteria.maxAge * 24 * 60 * 60 * 1000) / 1000);
+  conditions.push('created_at < ?');
+  params.push(cutoffTime);
   //   }
-  if(criteria.minImportance !== undefined) {
+  if (criteria.minImportance !== undefined) {
     conditions.push('importance < ?');
     params.push(criteria.minImportance);
-  //   }
-  if(criteria.maxAccess !== undefined) {
-    conditions.push('access_count <= ?');
-    params.push(criteria.maxAccess);
-  //   }
+    //   }
+    if (criteria.maxAccess !== undefined) {
+      conditions.push('access_count <= ?');
+      params.push(criteria.maxAccess);
+      //   }
 
-  // Never delete config memories
-  conditions.push("type !== 'config'");
-  if(conditions.length === 1 && conditions[0] === "type !== 'config'") {
-    // return []; // No other criteria specified
-  //   }
+      // Never delete config memories
+      conditions.push("type !== 'config'");
+      if (conditions.length === 1 && conditions[0] === "type !== 'config'") {
+        // return []; // No other criteria specified
+        //   }
 
-  query += conditions.join(' AND ');
-  query += ' ORDER BY importance ASC, access_count ASC';
+        query += conditions.join(' AND ');
+        query += ' ORDER BY importance ASC, access_count ASC';
 
-  // return db.prepare(query).all(...params);
-// }
-
-}}}}}}}}}}}}}}))))))))))))))))
+        // return db.prepare(query).all(...params);
+        // }
+      }
+    }
+  }
+}
+}}}}}}}}}}))))))))))))))))

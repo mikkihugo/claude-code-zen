@@ -1,4 +1,3 @@
-
 /** Swarm Communication System for Hive Mind
 /** Handles inter-agent messaging and coordination
 
@@ -136,7 +135,8 @@ this.state.messageHistory.set(messageId, {
   if(envelope.encrypted && this.config.encryption) {
       try {
         envelope.message = this._decrypt(envelope.message);
-      } catch (error) { console.error(error); } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */ )
+{
         this.emit('error', {type = envelope.message._gossip;
 
     // Check if we've seen this message'/g)
@@ -167,8 +167,8 @@ this.state.messageHistory.set(messageId, {
 
     this.state.channels.set(agentId, channel);
 
-    // return channel;
-    //   // LINT: unreachable code removed}
+// return channel;
+//   // LINT: unreachable code removed}
 
 /** Add message to buffer
 

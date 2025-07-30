@@ -1,4 +1,3 @@
-
 /** Hive-Mind System Integration Interface;
  *;
 /** This module provides seamless integration with the existing hive-mind system,
@@ -7,8 +6,8 @@
  * with the current claude-flow architecture.;
  */
 
-'node = new Map(); // eslint-disable-line'
-  // private globalKnowledgeBase = false
+'node = new Map(); // eslint-disable-line';
+// private globalKnowledgeBase = false
 constructor(
 config =
 // {
@@ -27,7 +26,7 @@ this.setupEventHandlers() {}
  */
 : Promise<void>
 
-  if(this.isInitialized) {
+if(this.isInitialized) {
     this.logger.warn('Hive-mind integration already initialized');
     return;
     //   // LINT: unreachable code removed}
@@ -42,14 +41,14 @@ this.setupEventHandlers() {}
       this.startPeriodicSync();
     //     }
 
-     catch (error) { console.error(error); }this.isInitialized = true;
+     catch (error) console.error(error); this.isInitialized = true;
     this.logger.info('Hive-mind integration initialized successfully');
     this.emit('initialized');
-  } catch(error) {
+  } catch(error) 
     this.logger.error('Failed to initialize hive-mind integration', error);
     throw error;
-  //   }
-  //   }
+//   }
+//   }
 
 /** Shutdown the integration gracefully;
 

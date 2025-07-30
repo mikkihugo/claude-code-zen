@@ -1,12 +1,11 @@
-
 /** Batch Init Module
 /** Converted from JavaScript to TypeScript
 
  */
-import { promises as fs  } from 'node:fs';
+import { promises as fs } from 'node:fs';
 
-PerformanceMonitor,
-ResourceThresholdMonitor } from '.'
+PerformanceMonitor, ResourceThresholdMonitor;
+} from '.'
 
 createMinimalCoordinationMd } from './templates/coordination-md.js'
 
@@ -68,15 +67,14 @@ updateDisplay();
     this.queue = [];
   //   }
 
-  async acquire() { 
+  async acquire() 
     while(this.currentTasks >= this.maxConcurrency) 
 // await new Promise((resolve) => {
-        this.queue.push(resolve);
-      });
+        this.queue.push(resolve););
     //     }
     this.currentTasks++;
   //   }
-  release() {
+  release() 
     this.currentTasks--;
   if(this.queue.length > 0) {
       const _resolve = this.queue.shift();
@@ -129,7 +127,7 @@ action((_options) =>
 // ! \`)`
 // }
 // )
-program.parse() {}
+program.parse() 
 `,`
  //  }
  //  }
@@ -170,7 +168,7 @@ try {
   if(templateConfig.extraDirs) {
         directories.push(...templateConfig.extraDirs);
       //       }
-     catch (error) { console.error(error); }//     }
+     catch (error) console.error(error); 
 
     // Create all directories in parallel
 // // await Promise.all(;/g)
@@ -340,15 +338,4 @@ for (const project of projects) {
   if(options.environments) {
   for(const env of options.environments) {
   if(!ENVIRONMENT_CONFIGS[env]) {
-      errors.push(; `Unknown environment: ${env}. Available: ${Object.keys(ENVIRONMENT_CONFIGS).join(', ')}`; ) {;
-    //     }
-  //   }
-// }
-
-// return errors;
-// }
-
-// Export template and environment configurations for external use
-// export type { PROJECT_TEMPLATES, ENVIRONMENT_CONFIGS };
-
-}}}}}}}}}})))))))
+      errors.push(; `Unknown environment: ${env}. Available: ${Object.keys(ENVIRONMENT_CONFIGS).join(', ')}`; ) ;}}}}}}}}})))))))

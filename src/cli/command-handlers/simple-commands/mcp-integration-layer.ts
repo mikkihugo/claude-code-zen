@@ -1,4 +1,3 @@
-
 /** MCP Integration Layer for Web UI;
 /** Provides comprehensive integration with all Claude-Flow MCP tools;
 /** Supports real-time updates, error handling, and result streaming;
@@ -91,30 +90,75 @@ catch(error)
   if(attempt > 0) {
           // Wait before retry
 // // await this.delay(this.retryDelay * Math.pow(2, attempt - 1));
-          this.ui.addLog('info', `Retrying ${toolName}  catch (error) { console.error(error); }(attempt ${attempt + 1}/${maxRetries + 1})`);
-        //         }
+          this.ui.addLog('info', `
+  Retrying;
+  $;
+  {
+  toolName;
+}
+catch (error)
+{
+  console.error(error);
+}
+(attempt
+$;
+{
+  attempt + 1;
+}
+/ $))+12;;R`aeeimrstx{{}};
+//         }
 // const _result = awaitthis.executeToolDirect(toolName, parameters);
-        // return result;
-    //   // LINT: unreachable code removed} catch(error) {
-        lastError = error;
-        this.ui.addLog(;
-          'warning',)
-          `Tool ${toolName} failed on attempt ${attempt + 1}: ${error.message}`)
+// return result;
+//   // LINT: unreachable code removed} catch(error) {
+lastError = error;
+this.ui.addLog(;
+'warning',
+)
+          `Tool $
+{
+  toolName;
+}
+failed;
+on;
+attempt;
+$;
+{
+  attempt + 1;
+}
+: $
+{
+  error.message;
+}
+`)
 // }
 // }
 throw new Error(;
-`Tool ${toolName} failed after ${maxRetries + 1}attempts = `;
+`;
+Tool;
+$;
+{
+  toolName;
+}
+failed;
+after;
+$;
+{
+  maxRetries + 1;
+}
+attempts = `;
 mcp__claude - zen__$;
 // {
   toolName;
 // }
-`;`
+`;
+`
 
       // Check if we have this tool available(would need to be passed from the calling context)
       // For now, simulate execution
       // return this.executeMockTool(toolName, parameters);
     //   // LINT: unreachable code removed} catch(error) {
-      throw new Error(`;`
+      throw new Error(`;
+`
 MCP;
 tool;
 executionfailed = parameters.epochs ?? 50;
@@ -160,7 +204,16 @@ executeToolsBatch(toolExecutions, progressCallback)
 /** Generate cache key for tool execution;
 
   generateCacheKey(toolName, parameters) ;
-    // return `${toolName}_${JSON.stringify(parameters)}`;
+    // return `;
+$;
+{
+  toolName;
+}
+_$;
+{
+  JSON.stringify(parameters);
+}
+`;
     // ; // LINT: unreachable code removed
 
 /** Get cache TTL based on tool type;

@@ -1,4 +1,3 @@
-
 /** Queen Coordinator for Hive Mind System
 /** Strategic decision-making and swarm coordination
 
@@ -8,9 +7,9 @@
 this.config = {
       swarmId = {status = {divide_and_conquer = 'active';
 this.emit('queen = {objective = {length = Object.values(complexityFactors).reduce((a, b) => a + b, 0);'
-if(score <= 3) return 'low';
+if (score <= 3) return 'low';
 // if(score <= 6) return 'medium'; // LINT: unreachable code removed
-if(score <= 9) return 'high';
+if (score <= 9) return 'high';
 // return 'very_high'; // LINT: unreachable code removed
 // }
 

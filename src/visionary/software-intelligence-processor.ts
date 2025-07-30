@@ -1,8 +1,9 @@
 VisionarySoftwareIntelligenceProcessor as NewProcessor,
-// type PipelineConfig
+  // type PipelineConfig
 
-type ProcessingOptions
- } from '.'
+  type;
+ProcessingOptions;
+} from '.'
 
 /** Legacy configuration interface for backward compatibility
 
@@ -54,7 +55,8 @@ type ProcessingOptions
    * @param config - Legacy configuration object
 
  */
-  constructor(config) {
+  constructor(config)
+{
     // Map legacy config to new config format
     const _newConfig: Partial<PipelineConfig> = {
       outputDir: config.outputDir  ?? '.'
@@ -129,7 +131,7 @@ compliance;
    * @returns Analysis results
  */
     // */; // LINT: unreachable code removed
-  async processCodeIntelligence(codeFiles, options = {}): Promise<AnalysisReport> {
+  async processCodeIntelligence(codeFiles, options = {}): Promise<AnalysisReport> 
   if(!this.isInitialized) {
       throw new Error('Processor not initialized. Call initialize() first.');'
     //     }
@@ -155,9 +157,9 @@ compliance;
    * @returns Analytics information
  */
     // */; // LINT: unreachable code removed
-  async getAnalytics(): Promise<any> {
-    // return this.newProcessor.getAnalytics();
-    //   // LINT: unreachable code removed}
+  async getAnalytics(): Promise<any>
+// return this.newProcessor.getAnalytics();
+//   // LINT: unreachable code removed}
 
 /** Close the processor and cleanup resources
 

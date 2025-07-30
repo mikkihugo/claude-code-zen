@@ -1,14 +1,26 @@
 // terminal-command.js - Modern terminal management system with session integration
 
-import { spawn  } from 'node:child_process';'
-import { existsSync, promises as fs  } from 'node:fs';'
-import path from 'node:path';'
-import { printError, printInfo, printSuccess  } from '..';
+import { spawn } from 'node:child_process';
+
+'
+
+import { existsSync, promises as fs } from 'node:fs';
+
+'
+
+import path from 'node:path';
+
+'
+
+import { printError, printInfo, printSuccess } from '..';
 
 // Terminal storage paths
-const _TERMINAL_BASE_DIR = path.join(process.cwd(), '.claude-terminals');'
-const _ACTIVE_TERMINALS_FILE = path.join(TERMINAL_BASE_DIR, 'active-terminals.json');'
-const __TERMINAL_HISTORY_FILE = path.join(TERMINAL_BASE_DIR, 'terminal-history.json');'
+const _TERMINAL_BASE_DIR = path.join(process.cwd(), '.claude-terminals');
+'
+const _ACTIVE_TERMINALS_FILE = path.join(TERMINAL_BASE_DIR, 'active-terminals.json');
+'
+const __TERMINAL_HISTORY_FILE = path.join(TERMINAL_BASE_DIR, 'terminal-history.json');
+'
 // Terminal states
 const _TERMINAL_STATES = {ACTIVE = new Map();
 this.poolSize = 10;
@@ -20,8 +32,8 @@ this.commandHistory = new Map();
 // // await initializeTerminalStorage();
 // const _activeTerminals = awaitloadActiveTerminals();
 
-    // Restore active terminals from previous session
-    for (const [id, terminalData] of Object.entries(activeTerminals)) {
+// Restore active terminals from previous session
+for (const [id, terminalData] of Object.entries(activeTerminals)) {
   if(terminalData.state === TERMINAL_STATES.ACTIVE) {
         this.terminals.set(id, {
 ..terminalData,)
@@ -64,7 +76,7 @@ this.commandHistory = new Map();
   if(options.timeout) {
         setTimeout(() => {
           childProcess.kill('SIGTERM');'
-          reject(new Error(`Command timeout after ${options.timeout}ms`));`
+          reject(new Error(`Command timeout after $options.timeoutms`));`
         }, options.timeout);
       //       }
     });
@@ -115,7 +127,7 @@ this.commandHistory = new Map();
   async getTerminalOutput(terminalId, options = {}) { 
     const _terminal = this.terminals.get(terminalId);
     if(!terminal) 
-      throw new Error(`Terminal ${terminalId} not found`);`
+      throw new Error(`Terminal $terminalIdnot found`);`
     //     }
 
     const _output = [...terminal.outputBuffer];
@@ -159,15 +171,12 @@ async function _initializeTerminalStorage() {
       mkdirSync(TERMINAL_BASE_DIR, {recursive = await fs.readFile(ACTIVE_TERMINALS_FILE, 'utf8');'
 //       return JSON.parse(content);
     //   // LINT: unreachable code removed}
-   catch (error) { console.error(error); }} catch(/* _error */) {
-    printWarning(`Failed to load activeterminals = // await fs.readFile(TERMINAL_HISTORY_FILE, 'utf8');'`
-      // return JSON.parse(content);
-    //   // LINT: unreachable code removed}
-  } catch(error) {
+   catch (error) console.error(error); } catch(/* _error */) 
+    printWarning(`Failed to load activeterminals = // await fs.readFile(TERMINAL_HISTORY_FILE, 'utf8');'`catch(error) {
     printWarning(`Failed to load terminalhistory = Date.now();`
   const _random = Math.random().toString(36).substring(2, 8);
   const _safeName = name.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();'
-  // return `term-${safeName}-${timestamp}-${random}`;`
+  // return `term-$safeName-$timestamp-$random`;`
 // }
 
 /** Get terminal pool instance
@@ -274,14 +283,14 @@ async function createTerminal(args = // await getTerminalPool();
     console.warn(' Active terminals verified');'
     console.warn(' Output buffers optimized');'
 
-  } catch (error) { console.error(error); } catch(/* _error */) {
+  } catch (error) { console.error(error); } catch(/* _error */) 
   printError(`Cleanupfailed = args[0];`
 
   if(!terminalId) {
     printError('Usage = // await getTerminalPool();'
   const _terminal = pool.getTerminal(terminalId);
   if(!terminal) {
-    printError(`Terminal ${terminalId} not found`);`
+    printError(`Terminal $terminalIdnot found`);`
     return;
     //   // LINT: unreachable code removed}
 
@@ -311,7 +320,7 @@ function getStateIcon(state = {
   const _hours = Math.floor(minutes / 60);
   const _days = Math.floor(hours / 24);
 
-  if(days > 0) return `${days}d ago`;`
+  if(days > 0) return `$daysd ago`;`
     // if(hours > 0) return `\${hours // LINT}h ago`;`
   if(_minutes > 0) return `${minutes}m ago`;`
     // return 'just now'; // LINT: unreachable code removed'
@@ -325,7 +334,7 @@ function getTimeDuration(start = new Date(start);
   const _hours = Math.floor(diff / (1000 * 60 * 60))
   const _minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
 
-  if(hours > 0) return `${hours}h ${minutes}m`;`
+  if(hours > 0) return `$hoursh $minutesm`;`
     // return `\${minutes // LINT}m`;`
 // }
 

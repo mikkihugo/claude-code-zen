@@ -101,7 +101,7 @@ catch(error)
   if(config.modes && typeof config.modes === 'object') {
       modes.push(...Object.keys(config.modes));
     //     }
-  } catch(/* _error */) {
+  } catch(/* _error */) 
     // Fallback to common modes
     modes.push(;
       'architect',
@@ -112,9 +112,9 @@ catch(error)
       'debug',
       'docs-writer';)
     );
-  //   }
+//   }
 
-  // return modes;
+// return modes;
 // }
 
 /** Test if a mode is accessible via CLI

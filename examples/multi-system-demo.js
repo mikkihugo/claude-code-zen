@@ -32,10 +32,9 @@ run();
       // Generate comprehensive report
   // // await this.generateReport();
       console.warn('\n Multi-System Demo completed successfully!');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) { console.error(error); } catch(error) 
       console.error('\n Demo failed);'
-      throw error;
-    } finally {
+      throw error;finally 
   if(this.coordinator) {
   // // await this.coordinator.close();
 // }
@@ -303,7 +302,7 @@ catch(error)
   for(const test of routingTests) {
         try {
 // const _result = awaitthis.coordinator.intelligentRoute(test.operation, test.input, {/g)
-            limit } catch (error) { console.error(error); }); routingResults[test.operation] = result; console.warn(`     - ${test.operation}`) {;
+            limit } catch (error) { console.error(error); }); routingResults[test.operation] = result; console.warn(`     - ${test.operation}`) ;
           console.warn(`       Systems used: ${result.result?.systemsUsed?.join(', ')  ?? 'N'
         } catch(error)
           console.warn(`     - \$test.operation: Failed(\$error.message)`);
@@ -314,7 +313,7 @@ catch(error)
 // const _crossAnalytics = awaitthis.coordinator.generateCrossSystemAnalytics();
   console.warn(`     - Total operations`);
   console.warn(;)
-  `     - Systems integrated: ${Object.keys(crossAnalytics.systems ?? {}).length}`;
+  `     - Systems integrated: $Object.keys(crossAnalytics.systems ?? {}).length`;
   //   )
   console.warn(`     - Insights generated)`
   this.demoResults.integration.analytics = crossAnalytics

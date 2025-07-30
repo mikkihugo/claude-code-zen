@@ -12,6 +12,7 @@ getNeuralServiceStatus: true,
 initializeNeuralService: true,
 predictWithNetwork: true,
 trainNeuralNetwork  } from '../src/neural/integration.js'
+
 async function main() {
   console.warn(' Claude Zen + ruv-FANN Neural Network Example\n');
   try {
@@ -50,7 +51,7 @@ console.warn('Testing XOR network)'
   const _predicted = predictWithNetwork('xor-solver', input)[0];
   const _correct = Math.abs(predicted - expected) < 0.5 ? '' : '';
   console.warn(;)
-  `${input[0]} XOR ${input[1]} = ${predicted.toFixed(3)} (expected) ${correct}`;
+  `$input[0]XOR $input[1]= $predicted.toFixed(3)(expected) $correct`;
   //   )
 // }
 // Example 2: Pattern Recognition

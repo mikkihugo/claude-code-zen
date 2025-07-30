@@ -1,11 +1,10 @@
-
 /** Documentation Linker Plugin;
 /** Cross-reference validation, broken link detection, and intelligent linking suggestions;
 
  */
-import { access, readFile  } from 'node:fs';
+import { access, readFile } from 'node:fs';
 import path from 'node:path';
-import { safeRegexExec  } from '../../utils/security.js';
+import { safeRegexExec } from '../../utils/security.js';
 
 export class DocumentationLinkerPlugin {
   constructor(_config = {}) {
@@ -24,7 +23,7 @@ export class DocumentationLinkerPlugin {
 // // await this.processDocument(filePath); 
     //     }
 
-     catch (error) { console.error(error); }this.stats.documentsProcessed = this.documents.size; console.warn(` Processed ${this.stats.documentsProcessed} documents`) {;
+     catch (error) console.error(error); this.stats.documentsProcessed = this.documents.size; console.warn(` Processed ${this.stats.documentsProcessed} documents`) ;
   //   }
 
   async processDocument(filePath) ;
@@ -34,7 +33,7 @@ export class DocumentationLinkerPlugin {
 
       const _document = {filePath = === '.md'  ?? ext === '.mdx') {
         document = // await this.parseMarkdown(document);
-      }  catch (error) { console.error(error); }else if(ext === '.rst') {
+      }  catch (error) console.error(error); else if(ext === '.rst') {
         document = // await this.parseRestructuredText(document);
       } else if(ext === '.adoc'  ?? ext === '.asciidoc') {
         document = // await this.parseAsciidoc(document);
@@ -67,7 +66,7 @@ export class DocumentationLinkerPlugin {
       // Extract anchors/headings
       document.anchors = this.extractMarkdownAnchors(parsed.content);
 
-    } catch (error) { console.error(error); } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) 
       console.warn(` Failed to parse markdown \$document.filePath);`
     //     }
 
@@ -112,10 +111,10 @@ export class DocumentationLinkerPlugin {
     const _autoLinkMatches = safeRegexExec(autoLinkRegex, content, 500);
   for(const _match of autoLinkMatches) {
       links.push({type = []; const _imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/; 
-    const _imageMatches = safeRegexExec(imageRegex, content, 500) {;
+    const _imageMatches = safeRegexExec(imageRegex, content, 500) ;
   for(const _match of imageMatches) {
-      images.push({alt = []; const _headingRegex = /^(#{1,6  })\s+(.+)$/m; 
-    const _headingMatches = safeRegexExec(headingRegex, content, 200) {;
+      images.push({alt = []; const _headingRegex = /^(#{1,6 {2}})\s+(.+)$/m; 
+    const _headingMatches = safeRegexExec(headingRegex, content, 200) ;
   for(const match of headingMatches) {
       const _level = match[1].length; const _text = match[2].trim(); const __slug = this.createSlug(text) {;
 
@@ -241,7 +240,7 @@ trim();
     // return anchor ? `${resolvedPath}#${anchor}` ;
     //   // LINT: unreachable code removed}
 
-  async validateLinks() { 
+  async validateLinks() 
     console.warn(' Validating links...');
 
     for (const [targetPath, linkInfo] of this.linkMap) 
@@ -261,7 +260,7 @@ trim();
             const _anchorExists = document.anchors.some(a => a.slug === anchor);
   if(!anchorExists) {
               this.brokenLinks.push({type = false;)
-        this.brokenLinks.push({type = Array.from(this.documents.values());
+        this.brokenLinks.push(type = Array.from(this.documents.values());
 
     // Generate suggestions based on keyword similarity
   for(let i = 0; i < documents.length; i++) {
@@ -284,7 +283,7 @@ trim();
       norm1 += count1 * count1;
       norm2 += count2 * count2;
     //     }
-   catch (error) { console.error(error); }if(norm1 === 0  ?? norm2 === 0) {return 0;
+   catch (error) console.error(error); if(norm1 === 0  ?? norm2 === 0) {return 0;
     // ; // LINT: unreachable code removed
     // return dotProduct / (Math.sqrt(norm1) * Math.sqrt(norm2));
     //   // LINT: unreachable code removed}

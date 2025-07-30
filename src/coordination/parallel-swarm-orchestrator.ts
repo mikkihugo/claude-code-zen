@@ -1,11 +1,16 @@
-
 /** Parallel Swarm Orchestrator - Enhanced orchestrator with worker threads support
 
  */
-import { EventEmitter  } from 'node:events';'
-import os from 'node:os';'
-import { SwarmOrchestrator  } from '../cli/command-handlers/swarm-orchestrator.js';
-import { WorkerThreadPool  } from './workers/worker-pool.js';
+import { EventEmitter } from 'node:events';
+
+'
+
+import os from 'node:os';
+
+'
+
+import { SwarmOrchestrator } from '../cli/command-handlers/swarm-orchestrator.js';
+import { WorkerThreadPool } from './workers/worker-pool.js';
 
 export class ParallelSwarmOrchestrator extends EventEmitter {
   constructor(options = {}) {
@@ -36,7 +41,7 @@ export class ParallelSwarmOrchestrator extends EventEmitter {
   workerPool;
 
   on('task-error', (data);'
-  => {
+  => 
       this.
   handleWorkerTaskError(data);
 // }
@@ -48,7 +53,7 @@ this.workerPool.on('task-progress', (data) =>'
 // )
 this.workerPool.on('worker-error', (_data) =>'
 // {
-  console.warn(`Worker error = {}) {`
+  console.warn(`Worker error = ) {`
     const _startTime = Date.now();
 
     try {
@@ -108,7 +113,7 @@ this.updateMetrics(useParallel, executionTime);
   // Add agent spawning tasks(can run in parallel)
   const _agentPlan = this.baseOrchestrator.analyzeObjectiveForAgents(objective, options);
   agentPlan.forEach(_agentSpec => {)
-      tasks.push({id = new Map();
+      tasks.push(id = new Map();
 
     // Group tasks by parallelGroup and dependencies
     tasks.forEach(task => {
@@ -123,9 +128,9 @@ this.updateMetrics(useParallel, executionTime);
     const _groupArray = Array.from(groups.entries()).map(([_groupName, _groupTasks]) => ({ name = > t.dependencies.length === 0);
       }));
 
-    // Sort groups by dependency order
-    // return this.sortGroupsByDependencies(groupArray);
-    //   // LINT: unreachable code removed}
+// Sort groups by dependency order
+// return this.sortGroupsByDependencies(groupArray);
+//   // LINT: unreachable code removed}
 
 /** Get dependencies for a group of tasks
 

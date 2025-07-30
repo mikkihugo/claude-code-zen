@@ -1,11 +1,10 @@
-
 /** Environment Detection Utility for Claude-Flow v2.0;
 /** Detects execution environment and recommends appropriate flags;
 
  */
 import chalk from 'chalk';
 
-'node = ============================================================================;'
+('node = ============================================================================;');
 // TYPE DEFINITIONS
 // =============================================================================
 
@@ -34,7 +33,7 @@ export // interface CliOptions {
 //  * @returns Environment information with recommendations;
 //     // */ // LINT: unreachable code removed
 // export function detectExecutionEnvironment(options = {}) {
-  const _env = {isInteractive = Boolean(process.stdin.isTTY && process.stdout.isTTY)
+const _env = {isInteractive = Boolean(process.stdin.isTTY && process.stdout.isTTY)
 // Terminal program detection
 const _termProgram = process.env.TERM_PROGRAM?.toLowerCase() ?? ''
 env.isVSCode = termProgram === 'vscode'
@@ -73,16 +72,17 @@ readFileSyncSafe('/proc/version', 'utf8').toLowerCase().includes('microsoft');
 // )
 // )
 // Raw mode support check
-env.supportsRawMode = checkRawModeSupport() {}
+env.supportsRawMode = checkRawModeSupport();
+{
+}
 // Color support check
 env.supportsColor =
-process.env.NO_COLOR !== '1' &&
-process.env.TERM !== 'dumb' &&
-process.stdout.isTTY ?? process.env.FORCE_COLOR === '1'
+  (process.env.NO_COLOR !== '1' && process.env.TERM !== 'dumb' && process.stdout.isTTY) ??
+  process.env.FORCE_COLOR === '1';
 // Generate recommendations based on environment
 generateRecommendations(env);
 // Show warnings if requested
-  if(!options.skipWarnings && env.warnings.length > 0) {
+if(!options.skipWarnings && env.warnings.length > 0) {
   showEnvironmentWarnings(env);
 // }
 // return env;

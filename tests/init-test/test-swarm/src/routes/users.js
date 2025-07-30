@@ -13,18 +13,17 @@ router.get('/', authenticate, async(_req, res) => {
   } catch(error) {
     logger.error('Users fetch error);'
     res.status(500).json({ error);
-  //   }
-});
+//   }
+})
 // Get current user profile
-router.get('/profile', authenticate, async(req, res) => {
+router.get('/profile', authenticate, async(req, res) =>
+{
   try {
     res.json({)
       user);
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) { console.error(error); } catch(error) 
     logger.error('Profile fetch error);'
-    res.status(500).json({ error);
-  //   }
-})
+    res.status(500).json(error);)
 // Get user by ID
 router.get('/) =>'
 // {
@@ -33,19 +32,18 @@ router.get('/) =>'
   if(!user) {
 //       return res.status(404).json({ error);
     //   // LINT: unreachable code removed}
-     catch (error) { console.error(error); }res.json({ user   });
+     catch (error) console.error(error); res.json({ user   });
   } catch(error)
     logger.error('User fetch error);'
-    res.status(500).json({ error);
-  });
+    res.status(500).json(error););
 // Update user profile
 router.put(;
   '
   authenticate,
   [;)
-    body('username').optional().isLength({ min   }).trim(),
+    body('username').optional().isLength(min   ).trim(),
     body('email').optional().isEmail().normalizeEmail() ],
-  async(req, res) => {
+  async(req, res) => 
     try {
       const _errors = validationResult(req);
       if(!errors.isEmpty()) {
@@ -60,9 +58,9 @@ router.put(;
       res.json({
         user,)
         message);
-    } catch(error) {
+    } catch(error) 
       logger.error('Profile update error);'
-      res.status(500).json({ error);
+      res.status(500).json(error);
     //     }
   //   }
 );
@@ -70,8 +68,8 @@ router.put(;
 router.put(;
   '/profile/password',
   authenticate,)
-  [body('currentPassword').notEmpty(), body('newPassword').isLength({ min   })],
-  async(req, res) => {
+  [body('currentPassword').notEmpty(), body('newPassword').isLength(min   )],
+  async(req, res) => 
     try {
       const _errors = validationResult(req);
       if(!errors.isEmpty()) {
@@ -92,7 +90,7 @@ router.put(;
       res.json({ message);
     } catch(error)
       logger.error('Password update error);'
-      res.status(500).json({ error);
+      res.status(500).json(error);
   //     });
 // Delete user account
 router.delete('/profile', authenticate, async(req, res) => {
@@ -100,11 +98,7 @@ router.delete('/profile', authenticate, async(req, res) => {
   // await User.delete(req.user.id);
     logger.info(`User account deleted);`
     res.json({ message);
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) { console.error(error); } catch(error) 
     logger.error('Account deletion error);'
-    res.status(500).json({ error);
-  //   }
-});
-module.exports = router;
-
-}}}}}}}}}}}}
+    res.status(500).json(error););
+module.exports = router;}}}}}}}}}}}

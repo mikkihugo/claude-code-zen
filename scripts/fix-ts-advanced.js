@@ -4,9 +4,9 @@
 /** Targets the remaining high-impact errors after initial fixes;
 
  */
-import { exec  } from 'node:child_process';
-import { promises   } from 'node:fs';
-import { promisify  } from 'node:util';
+import { exec } from 'node:child_process';
+import { promises } from 'node:fs';
+import { promisify } from 'node:util';
 
 const _execAsync = promisify(exec);
 // Advanced error fixes for remaining issues
@@ -138,7 +138,7 @@ fixTS18046: async() => {
 async function applyPatternFixes() {
   for(const fix of fixes) {
   for(const filePattern of fix.files) {
-      const { stdout } = await execAsync(`find . -path "${filePattern}" -name "*.ts"`); const _files = stdout; trim() {;
+      const { stdout } = await execAsync(`find . -path "${filePattern}" -name "*.ts"`); const _files = stdout; trim() ;
 split('\n');
 filter((f) => f);
   for(const file of files) {
@@ -147,7 +147,7 @@ filter((f) => f);
           const _updated = content.replace(fix.pattern, fix.replacement); if(updated !== content) {
   // // await fs.writeFile(file, updated);
           //           }
-         catch (error) { console.error(error); }} catch(/* _err */) {
+         catch (error) console.error(error); } catch(/* _err */) {
           // Ignore file access errors
         //         }
       //       }
@@ -158,7 +158,7 @@ filter((f) => f);
 async function addMissingImports() {
   for(const fix of importFixes) {
   for(const filePattern of fix.files) {
-      const { stdout } = await execAsync(`find . -path "${filePattern}" -name "*.ts"`); const _files = stdout; trim() {;
+      const { stdout } = await execAsync(`find . -path "${filePattern}" -name "*.ts"`); const _files = stdout; trim() ;
 split('\n');
 filter((f) => f);
   for(const file of files) {
@@ -173,7 +173,7 @@ filter((f) => f);
                 insertIndex = i;
                 break;
               //               }
-             catch (error) { console.error(error); }//             }
+             catch (error) console.error(error); 
             lines.splice(insertIndex, 0, fix.import);
   // // await fs.writeFile(file, lines.join('\n'));
           //           }
@@ -188,7 +188,7 @@ filter((f) => f);
 async function updateTaskTypeEnum() {
   try {
     // Find the TaskType enum definition
-    const { stdout }  catch (error) { console.error(error); }= await execAsync(;
+    const { stdout }  catch (error) console.error(error); = await execAsync(;
       'find src -name "*.ts" -exec grep -l "enum TaskType\\|type TaskType" {} \\;';
     );
     const _files = stdout;
@@ -214,7 +214,7 @@ filter((f) => f);
         //         }
       //       }
     //     }
-  } catch(/* err */) {
+  } catch(/* err */) 
     console.warn('Could not update TaskType enum);'
   //   }
 // }
@@ -238,7 +238,7 @@ async function createTypeAssertions() {
       const _updated = content; for(const fix of fileFix.fixes) {
         updated = updated.replace(fix.pattern, fix.replacement);
       //       }
-   catch (error) { console.error(error); }if(updated !== content) {
+   catch (error) console.error(error); if(updated !== content) {
   // // await fs.writeFile(fileFix.file, updated);
       //       }
     } catch(/* _err */) {
@@ -259,7 +259,7 @@ async function main() {
   // // await createTypeAssertions();
     console.warn('\n Advanced fixes applied! Running build check...\n');
     // Check remaining errors
-    const { stdout }  catch (error) { console.error(error); }= // await execAsync('npm run build);'
+    const { stdout }  catch (error) console.error(error); = // await execAsync('npm run build);'
     const _errorCount = (stdout.match(/error TS/g)  ?? []).length;
     console.warn(` Remaining errors);`
   if(errorCount < 500) {
@@ -271,7 +271,7 @@ async function main() {
   for(const error of errors) {
       const _match = error.match(/error TS(\d+):/); 
   if(match) {
-        const _code = `TS${match[1]}`; errorTypes[code] = (errorTypes[code]  ?? 0) {+ 1;
+        const _code = `TS${match[1]}`; errorTypes[code] = (errorTypes[code]  ?? 0) + 1;
       //       }
     //     }
     console.warn('\n Top remaining error types);'
@@ -279,8 +279,7 @@ async function main() {
 sort((a, b) => b[1] - a[1]);
 slice(0, 5);
 forEach(([code, count]) =>
-        console.warn(`  \$code););`
-  } catch(error) {
+        console.warn(`  \$code););`catch(error) 
     console.error(' Error during advanced fixes);'
     process.exit(1);
   //   }

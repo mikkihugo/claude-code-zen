@@ -1,11 +1,13 @@
-
 /** Universal Vision Dashboard - Works in TUI(Ink) and Web(React DOM)
 /** Same component, automatically adapts rendering based on environment
 
  */
-import React, { useEffect, useState  } from 'react';'
-import { UniversalBox as Box  } from '../adapters/render-adapter.js';
-import { visionAPI  } from '../shared/vision-api.js';
+import React, { useEffect, useState } from 'react';
+
+'
+
+import { UniversalBox as Box } from '../adapters/render-adapter.js';
+import { visionAPI } from '../shared/vision-api.js';
 
 const _UniversalVisionDashboard = () => { // eslint-disable-line
   const [visions, setVisions] = useState([]);
@@ -18,13 +20,13 @@ const _UniversalVisionDashboard = () => { // eslint-disable-line
       try {
 // const _data = awaitvisionAPI.fetchVisions();
         setVisions(data);
-      } catch (error) { console.error(error); } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) 
         console.error('Failed to loadvisions = setInterval(loadVisions, 30000);'
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
 
   // Universal input handling(works in both TUI and Web)
-  useUniversalInput((input, key) => {
+  useUniversalInput((input, key) => 
   if(key.upArrow && selectedIndex > 0) {
       setSelectedIndex(selectedIndex - 1);
     } else if(key.downArrow && selectedIndex < visions.length - 1) {
@@ -65,8 +67,8 @@ const _UniversalVisionDashboard = () => { // eslint-disable-line
         );
       );
     }),
-    React.createElement(Box, { marginTop, borderStyle: "single", borderColor: "gray", paddingX},"
-      React.createElement(Text, { color: "gray" },"))"
+    React.createElement(Box, marginTop, borderStyle: "single", borderColor: "gray", paddingX,"
+      React.createElement(Text, color: "gray" ,"))"
         isTUI() && ' TUI: [] Navigate  [R] Refresh  [Enter] Details','
         isWeb() && ' Web: Click buttons  Keyboard shortcuts active';'
       );
@@ -77,4 +79,4 @@ const _UniversalVisionDashboard = () => { // eslint-disable-line
 
 // export default UniversalVisionDashboard;
 
-}}}}}}}}}}}}
+}}}}}}}}}}}

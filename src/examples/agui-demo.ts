@@ -1,4 +1,3 @@
-
 /**  AG-UI Integration Demo for Claude Code Zen;
  *;
 /** Demonstrates the AG-UI protocol integration with the existing architecture;
@@ -7,7 +6,7 @@
  * @module AGUIDemoIntegration;
  */
 
-import { AGUIAdapter  } from '../ai/agui-adapter.js';
+import { AGUIAdapter } from '../ai/agui-adapter.js';
 
 /** Demo class showcasing AG-UI integration;
 

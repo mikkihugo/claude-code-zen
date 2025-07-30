@@ -1,34 +1,37 @@
-
 /** Unified AST Parser Interface;
 /** Provides consistent parsing for JavaScript/TypeScript and other languages;
 
  */
-import { readFile  } from 'node:fs';
+import { readFile } from 'node:fs';
 
 // Try to import optional dependencies with fallbacks
 let _parseTypeScript, _parseJavaScript, acorn;
 try {
-// const _tsModule = awaitimport('@typescript-eslint/parser');
+  // const _tsModule = awaitimport('@typescript-eslint/parser');
   _parseTypeScript = tsModule.parse;
-} catch (error) { console.error(error); } catch(/* _e */) {
+} catch (error) {
+  console.error(error);
+}
+catch(/* _e */)
+{
   console.warn('TypeScript parser not available, using fallback');
   _parseTypeScript = null;
 // }
 try {
 // const _jsModule = awaitimport('esprima');
   _parseJavaScript = jsModule.parse;
-} catch (error) { console.error(error); } catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) 
   console.warn('Esprima parser not available, using fallback');
   _parseJavaScript = null;
 // }
 try {
   acorn = // await import('acorn');
-} catch (error) { console.error(error); } catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) 
   console.warn('Acorn parser not available, using fallback');
   acorn = null;
 // }
 // export class ASTParser {
-  constructor(_config = {}) {
+  constructor(_config = {}) 
     this.config = {parseOptions = null) {
   if(!content) {
       content = // await readFile(filePath, 'utf8');
@@ -51,7 +54,7 @@ try {
           _parseResult = this.parseJavaScript(content, filePath);
           break;default = parseTypeScript(content, {
 ..this.config.typeScriptOptions,
-      filePath,project = parseJavaScript(content, {sourceType = acorn.parse(content, {
+      filePath,project = parseJavaScript(content, sourceType = acorn.parse(content, 
 ..this.config.parseOptions,locations = `file = {`
       functions => {)
   switch(node.type) {
@@ -87,7 +90,7 @@ try {
   if(language === 'typescript') {
             result.types.push(this.extractTypeInfo(node, fileId, filePath));
           //           }
-           catch (error) { console.error(error); }break;
+           catch (error) console.error(error); break;
       //       }
     });
 
@@ -353,7 +356,7 @@ try {
       imports.push({id = exportPattern.exec(content)) !== null) {
       exports.push({id = match.match(/(?:function\s+(\w+)|const\s+(\w+)|(\w+)\s*:)/);
 //     return nameMatch ? (nameMatch[1]  ?? nameMatch[2]  ?? nameMatch[3]) ;
-    //   // LINT: unreachable code removed}
+//   // LINT: unreachable code removed}
 
 /** Count parameters in function signature;
 

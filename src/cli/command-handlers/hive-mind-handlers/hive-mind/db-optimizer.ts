@@ -1,4 +1,3 @@
-
 /** Hive Mind Database Optimizer
 
 /** Safe, backward-compatible database optimization for existing deployments
@@ -309,22 +308,40 @@ map((_row) => row.name);
   indexes.forEach((sql) => {
     try {
       db.exec(sql);
-    } catch (error) { console.error(error); } catch(/* _error */) {
-      console.warn(`Warning = 'completed' OR NEW.status = 'failed';`
-    BEGIN;)
-      INSERT OR REPLACE INTO agent_performance(agent_id, tasks_completed, tasks_failed);
-      VALUES(;
-        NEW.agent_id,
-        COALESCE((SELECT tasks_completed FROM agent_performance WHERE agent_id = NEW.agent_id), 0) + ;
-          CASE WHEN NEW.status = 'completed' THEN 1 ELSE 0 END,
-        COALESCE((SELECT tasks_failed FROM agent_performance WHERE agent_id = NEW.agent_id), 0) + ;
-          CASE WHEN NEW.status = 'failed' THEN 1 ELSE 0 END;
-      );
-    END;
-  `);`
-// }
+    } catch (error) { console.error(error); } catch(/* _error */ )
+{
+  console.warn(`Warning = 'completed' OR NEW.status = 'failed';`
+    BEGIN;
+  )
+      INSERT OR REPLACE INTO agent_performance(agent_id, tasks_completed, tasks_failed)
+  VALUES(
+  NEW.agent_id,
+        COALESCE((SELECT tasks_completed FROM agent_performance WHERE agent_id = NEW.agent_id), 0
+  ) +
+  CASE
+  WHEN;
+  NEW.status = 'completed';
+  THEN;
+  1;
+  ELSE;
+  0;
+  END,
+        COALESCE((SELECT tasks_failed FROM agent_performance WHERE agent_id = NEW.agent_id), 0
+  ) +
+  CASE
+  WHEN;
+  NEW.status = 'failed';
+  THEN;
+  1;
+  ELSE;
+  0;
+  END;
+  )
+  END
+  `);`;
+  // }
 
-/** Add memory optimization features
+  /** Add memory optimization features
 
 function addMemoryOptimization(db = db;
 prepare(;
@@ -482,128 +499,201 @@ prepare(;
 run(cutoffDate.toISOString());
 
           console.warn(chalk.green(` Removed ${result.changes}  catch (error) { console.error(error); }old memory entries`));
-        } catch(/* _error */) {
-          console.warn(chalk.yellow(` Could not clean memoryentries = 'Archiving completed tasks...';`
+        } catch(/* _error */ ) 
+          console.warn(chalk.yellow(` Could not clean memoryentries = 'Archiving completed tasks...'
+  `
 
       // Create archive table if not exists
-      db.exec(`;`
+      db.exec(`
+  `
         CREATE TABLE IF NOT EXISTS tasks_archive AS ;
         SELECT * FROM tasks WHERE 1=0)))
-      `);`
+      `;
+  )
+  `
 
-      // Check if completed_at column exists
-      const _hasCompletedAt = db;
-prepare(;
-          `;`
-        SELECT COUNT(*) as count FROM pragma_table_info('tasks') 
-        WHERE name = 'completed_at';
-      `);`
-get();
+  // Check if completed_at column exists
+  const _hasCompletedAt = db;
+  prepare(;
+  `;
+  `;
+  SELECT;
+  COUNT(*) as count
+  FROM;
+  pragma_table_info('tasks');
+  WHERE;
+  name = 'completed_at';
+  `;
+  )
+  `;
+  get();
 
-      let _archived = {changes = new Date();
-        archiveCutoff.setDate(archiveCutoff.getDate() - (options.taskRetentionDays  ?? 7));
+  const _archived = {changes = new Date();
+  archiveCutoff.setDate(archiveCutoff.getDate() - (options.taskRetentionDays ?? 7));
 
-        db.exec(`;`
+  db.exec(`;
+  `
           INSERT INTO tasks_archive ;
-          SELECT * FROM tasks )
-          WHERE status = 'completed' AND completed_at < '${archiveCutoff.toISOString()}';
-        `);`
+  SELECT * FROM;
+  tasks;
+  )
+          WHERE status = 'completed' AND completed_at < '${archiveCutoff.toISOString()}'
+  `;
+  )
+  `;
 
-        archived = db;
-prepare(;
-            `;`
-          DELETE FROM tasks ;
-          WHERE status = 'completed' AND completed_at < ?;
-        `);`
-run(archiveCutoff.toISOString());
-      } else {
+  archived = db;
+  prepare(;
+  `;
+  `;
+  DELETE;
+  FROM;
+  tasks;
+  WHERE;
+  status = 'completed';
+  AND;
+  completed_at < ?;
+  `;
+  )
+  `;
+  run(archiveCutoff.toISOString());
+}
+else
+{
         // Use created_at as fallback
         const _archiveCutoff = new Date();
         archiveCutoff.setDate(archiveCutoff.getDate() - (options.taskRetentionDays  ?? 7));
 
-        db.exec(`;`
+        db.exec(`;
+  `
           INSERT INTO tasks_archive ;
           SELECT * FROM tasks )
           WHERE status = 'completed' AND created_at < '${archiveCutoff.toISOString()}';
-        `);`
+        `;
+  )
+  `
 
         archived = db;
 prepare(;
-            `;`
+            `;
+  `
           DELETE FROM tasks ;
           WHERE status = 'completed' AND created_at < ?;
-        `);`
+        `;
+  )
+  `
 run(archiveCutoff.toISOString());
       //       }
 
-      console.warn(chalk.green(` Archived \$archived.changescompleted tasks`));
-    //     }
+      console.warn(chalk.green(`;
+  Archived;
+  \$archived.changescompleted tasks`))
+  //     }
 
-    // Update statistics
-    spinner.text = 'Updating database statistics...';
-    db.exec('ANALYZE');
+  // Update statistics
+  spinner.text = 'Updating database statistics...';
+  db.exec('ANALYZE');
 
-    // Check integrity
-  if(options.checkIntegrity) {
-      spinner.text = 'Checking database integrity...';
-      const _integrityCheck = db.prepare('PRAGMA integrity_check').get();
-  if(integrityCheck.integrity_check === 'ok') {
-        console.warn(chalk.green(' Database integrity check passed'));
-      } else {
-        console.warn(chalk.yellow(' Database integrity issues detected'));
+  // Check integrity
+  if (options.checkIntegrity) {
+    spinner.text = 'Checking database integrity...';
+    const _integrityCheck = db.prepare('PRAGMA integrity_check').get();
+    if (integrityCheck.integrity_check === 'ok') {
+      console.warn(chalk.green(' Database integrity check passed'));
+    } else {
+      console.warn(chalk.yellow(' Database integrity issues detected'));
       //       }
-    //     }
+      //     }
 
-    db.close();
-    spinner.succeed('Database maintenance complete!');
-  } catch(error)
-    spinner.fail('Database maintenance failed');
+      db.close();
+      spinner.succeed('Database maintenance complete!');
+    }
+    catch(error)
+    spinner.fail('Database maintenance failed')
     console.error(chalk.red('Error = new Database(dbPath, { readonly = {schemaVersion = db;'
 prepare(;
-        `;`
-      SELECT name FROM sqlite_master WHERE type='table';))))
-    `);`
+    `;`;
+    SELECT;
+    name;
+    FROM;
+    sqlite_master;
+    WHERE;
+    type = 'table';
+    ))))
+    `)
+    `
 all();
   for(const table of tables) {
-      const _count = db.prepare(`SELECT COUNT(*) as count FROM \$table.name`).get()
-      const _size = db; prepare(; `;`
-        SELECT SUM(pgsize) {as size FROM dbstat WHERE name=?;
-      `);`
-get(table.name);
+      const _count = db.prepare(`;
+    SELECT;
+    COUNT(*) as count
+    FROM;
+    \$table.name`).get()
+    const _size = db;
+    prepare(;
+    `;`;
+    SELECT;
+    SUM(pgsize);
+      as;
+      size;
+      FROM;
+      dbstat;
+      WHERE;
+      name=
+      ?
+      `);`;
+      get(table.name);
 
       report.tables[table.name] = {rowCount = db;
-prepare(;
-        `;`
-      SELECT name, tbl_name FROM sqlite_master WHERE type='index';
-    `);`
-all();
+      prepare(;
+      `;`;
+      SELECT;
+      name, tbl_name;
+      FROM;
+      sqlite_master;
+      WHERE;
+      type = 'index';
+      `);`;
+      all();
 
-    // Get performance metrics(check if completed_at column exists)
-    const _avgTaskTime = {avg_minutes = db;
-prepare(;
-          `;`
-        SELECT COUNT(*) as count FROM pragma_table_info('tasks') 
-        WHERE name = 'completed_at';
-      `);`
-get();
-  if(hasCompletedAt && hasCompletedAt.count > 0) {
+      // Get performance metrics(check if completed_at column exists)
+      const _avgTaskTime = {avg_minutes = db;
+      prepare(;
+      `;`;
+      SELECT;
+      COUNT(*) as count
+      FROM;
+      pragma_table_info('tasks');
+      WHERE;
+      name = 'completed_at';
+      `);`;
+      get();
+      if (hasCompletedAt && hasCompletedAt.count > 0) {
         avgTaskTime = db;
-prepare(;
-            `;`
-          SELECT AVG(julianday(completed_at) - julianday(created_at)) * 24 * 60 as avg_minutes
-          FROM tasks WHERE completed_at IS NOT NULL;
-        `);`
-get();
-      //       }
-    } catch(error)
+        prepare(;
+        `;`;
+        SELECT;
+        (AVG(julianday(completed_at) - julianday(created_at)) * 24 * 60) as avg_minutes;
+        FROM;
+        tasks;
+        WHERE;
+        completed_at;
+        IS;
+        NOT;
+        NULL;
+        `);`;
+        get();
+        //       }
+      }
+      catch(error)
       // If error, just use default value
       console.warn('Could not calculate average tasktime = avgTaskTime?.avg_minutes  ?? 0;'
 
-    db.close();
+    db.close()
 
-    // return report;
-    //   // LINT: unreachable code removed} catch(error) {
-    console.error('Error generating report);'
+      // return report;
+      //   // LINT: unreachable code removed} catch(error) {
+      console.error('Error generating report);'
     // return null;
 
 // Export for use in CLI
@@ -611,5 +701,7 @@ get();
   optimizeHiveMindDatabase,
   performMaintenance,
   generateOptimizationReport
-
-}}}}}}}}))))))))))
+    }
+  }
+}
+}}}}))))))))))

@@ -95,31 +95,29 @@ async function analyzeDocument(docType, service, _docId, content) {
   const prompt = `Analyze this ${docType} document for ${service}: null`
 "${content}"
 
-Respond with ONLY this JSON(no other text) {
+Respond with ONLY this JSON(no other text) 
   "quality_score": <number 1-10>,
   "summary": "<brief summary>",
   "suggested_approvers": ["<role1>", "<role2>"],
   "issues": ["<issue1>", "<issue2>"],
   "improvements": ["<suggestion1>", "<suggestion2>"],
   "dependencies": ["<dep1>", "<dep2>"],
-  "tags": ["<tag1>", "<tag2>"]
-}`;`
+  "tags": ["<tag1>", "<tag2>"]`;`
 
   try {
 // const response = awaitrunGHModel(prompt);
     // return extractJSON(response);
-  } catch (error) { console.error(error); } catch(_error) {
+  } catch (error) { console.error(error); } catch(_error) 
     // return null;
 
 // Review routing decisions
 async function reviewRouting(docType, currentApprovers, content) {
   const prompt = `Review if these approvers are appropriate for this ${docType}: null`
-Current approvers: ${currentApprovers.join(', ')}
+Current approvers: $currentApprovers.join(', ')
 
 Document excerpt: "${content.substring(0, 200)}..."
 
 Respond with ONLY JSON: null
-{}
   "appropriate": true
   "reasoning": "<explanation>",
   "add_approvers": ["<role>"],
@@ -130,7 +128,7 @@ Respond with ONLY JSON: null
   try {
 // const response = awaitrunGHModel(prompt);
     // return extractJSON(response);
-  } catch (error) { console.error(error); } catch(_error) {
+  } catch (error) { console.error(error); } catch(_error) 
     // return null;
 
 // Main demo

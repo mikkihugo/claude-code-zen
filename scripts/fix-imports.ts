@@ -7,9 +7,9 @@
  * @version 2.0.0;
  */
 
-import { promises as fs  } from 'node:fs';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { promises as fs } from 'node:fs';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -107,8 +107,10 @@ const _IMPORT_REPLACEMENTS = [
  *;
  * @param filePath - Path to the file to process;
  * @param stats - Statistics object to update;
- *//g)
-async function processFile(filePath, stats): Promise<void> {
+ *//g
+)
+async
+function processFile(filePath, stats): Promise<void> {
   try {
     stats.filesProcessed++;
 // const _content = awaitfs.readFile(filePath, 'utf-8');
@@ -121,14 +123,14 @@ async function processFile(filePath, stats): Promise<void> {
         fileReplacements++;
         stats.replacementsApplied++;
       //       }
-     catch (error) { console.error(error); }//     }
+     catch (error) console.error(error); 
     // Additional TypeScript-specific fixes
     if(filePath.endsWith('.ts')) {
       // Fix missing .js extensions in relative imports(ESM requirement)
       const _beforeExtensions = content;
       content = content.replace(;)
 // from\s+['"](\.\/?[^'"]*?)['"];?/g,"'
-        (match, importPath) => {
+        (match, importPath) => 
           if(!importPath.includes('.') && !importPath.includes('node)) {'
 //             return match.replace(importPath, `${importPath}.js`);
     //   // LINT: unreachable code removed}
@@ -167,18 +169,17 @@ async function findTypeScriptFiles(dir): Promise<string[]> {
 // const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
   for(const entry of entries) {
       const _fullPath = join(dir, entry.name); // Skip excluded directories
-      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) {
+      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) 
 // const _subFiles = awaitfindTypeScriptFiles(fullPath);
-        files.push(...subFiles);
-      } else if(entry.isFile() && (entry.name.endsWith('.ts')  ?? entry.name.endsWith('.js'))) {
+        files.push(...subFiles);else if(entry.isFile() && (entry.name.endsWith('.ts')  ?? entry.name.endsWith('.js'))) {
         files.push(fullPath);
       //       }
     //     }
   } catch(error) {
     const _errorMessage = error instanceof Error ? error.message : String(error);
     console.error(`Error reading directory ${dir});`
-  //   }
-  // return files;
+//   }
+// return files;
 // }
 
 /** Main execution function;

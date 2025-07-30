@@ -1,12 +1,11 @@
-
 /** Template Manager for Claude Zen;
 /** Handles template discovery, validation, and installation;
 
  */
-import { promises as fs  } from 'node:fs';
+import { promises as fs } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath  } from 'node:url';
-import { printWarning  } from '.';
+import { fileURLToPath } from 'node:url';
+import { printWarning } from '.';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);
@@ -17,9 +16,9 @@ export class TemplateManager {
       path.join(__dirname, '../../templates'),
       path.join(process.env.HOME  ?? process.env.USERPROFILE, '.claude-zen'
     ];
-  //   }
+    //   }
 
-/** Discover available templates;
+    /** Discover available templates;
 
   async discoverTemplates() { 
     const _templates = new Map();
@@ -124,50 +123,73 @@ export class TemplateManager {
 // // await fs.mkdir(path.join(targetPath, '.claude'), {recursive = path.join(templatePath, 'settings.json');
 // // await fs.copyFile(defaultSettingsPath, targetSettingsPath);
         console.warn(` Installed default settings(${variant}  catch (error) { console.error(error); }variant not found)`);
-      } catch(/* fallbackError */) {
-        console.warn(` Could not install settingsvariant = 'enhanced') ;`
-    console.warn('\\n NextSteps = '.repeat(30));
-  if(manifest.setup?.postInstall) {
+      } catch(/* fallbackError */ ) 
+        console.warn(` Could not install settingsvariant = 'enhanced')
+    `
+    console.warn('\\n NextSteps = '.repeat(30))
+    if (manifest.setup?.postInstall) {
       console.warn('1. Run the setup commands shown above');
-      console.warn(`2. Your ${variant} settings variant is configured in .claude`
-    } else {
-      console.warn(`1. Your ${variant} settings variant is configured in .claude`
+      console.warn(`;
+    2;
+    Your;
+    $;
+    {
+      variant;
+    }
+    settings;
+    variant;
+    is;
+    configured in
+    .claude`
+    } else;
+    console;
+    .
+  warn(`1. Your $variantsettings variant is configured in .claude`
     //     }
 
     // Show variant-specific next steps
-  if(variant === 'optimized') {
+    if (variant === 'optimized') {
       console.warn('3. Performance features are enabled - check cache and neural settings');
-    } else if(variant === 'basic') {
+    } else;
+    if (variant === 'basic') {
       console.warn('3. Basic configuration - you can upgrade by changing the variant later');
-    //     }
-  if(manifest.documentation) {
-      console.warn('3. Read the documentation = {}) {'
-    const { description = '', version = '1.0.0', category = 'custom' } = options;
-    const _sourcePath = process.cwd();
-    const _targetPath = path.join(sourcePath, 'templates', templateName);
+      //     }
+      if (manifest.documentation) {
+        console.warn('3. Read the documentation = {}) {'
+        const { description = '', version = '1.0.0', category = 'custom' } = options;
+        const _sourcePath = process.cwd();
+        const _targetPath = path.join(sourcePath, 'templates', templateName);
 
-    // Create template directory
-// // await fs.mkdir(targetPath, {recursive = path.join(sourcePath, '.claude');
-    try {
-// // await fs.access(claudePath);
-      const _templateClaudePath = path.join(targetPath, 'claude');
-// // await this.copyDirectory(claudePath, templateClaudePath);
-    } catch (error) { console.error(error); } catch(/* _error */) {
-      printWarning('No .claude directory found to include in template');
-    //     }
+        // Create template directory
+        // // await fs.mkdir(targetPath, {recursive = path.join(sourcePath, '.claude');
+        try {
+          // // await fs.access(claudePath);
+          const _templateClaudePath = path.join(targetPath, 'claude');
+          // // await this.copyDirectory(claudePath, templateClaudePath);
+        } catch (error) {
+          console.error(error);
+        }
+        catch(/* _error */)
+        {
+          printWarning('No .claude directory found to include in template');
+          //     }
 
-    // Create template manifest
-    const __manifest = {name = // await fs.readdir(source, {withFileTypes = path.join(source, entry.name);
+          // Create template manifest
+          const __manifest = {name = // await fs.readdir(source, {withFileTypes = path.join(source, entry.name);
       const _targetFile = path.join(target, entry.name);
 
-      if(entry.isDirectory()) {
-// // await this.copyDirectory(sourceFile, targetFile);
-      } else {
-// // await fs.copyFile(sourceFile, targetFile);
-      //       }
-    //     }
-// }
-
-// export default TemplateManager;
-
-}}}}}}}}}}}}}}}}})))))))
+          if (entry.isDirectory()) {
+            // // await this.copyDirectory(sourceFile, targetFile);
+          } else {
+            // // await fs.copyFile(sourceFile, targetFile);
+            //       }
+            //     }
+            // }
+            // export default TemplateManager;
+          }
+        }
+      }
+    }
+  }
+}
+}}}}}}}}})))))))

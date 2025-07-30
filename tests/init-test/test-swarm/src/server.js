@@ -16,20 +16,21 @@ const _PORT = process.env.PORT ?? 3000;
 app.use(helmet());
 app.use(cors());
 // Rate limiting
-const _limiter = rateLimit({ windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS)  ?? 15 * 60 * 1000,
-max: parseInt(process.env.RATE_LIMIT_MAX)  ?? 100,
-message: 'Too many requests from this IP'
-  })
-app.use('/api/', limiter)
+const _limiter = rateLimit({
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) ?? 15 * 60 * 1000,
+  max: parseInt(process.env.RATE_LIMIT_MAX) ?? 100,
+  message: 'Too many requests from this IP',
+});
+app.use('/api/', limiter);
 // Body parsing
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded(
 // {
   extended;
 // }/g))
 ))
 // Metrics middleware
-  if(process.env.ENABLE_METRICS === 'true') {
+if(process.env.ENABLE_METRICS === 'true') {
   app.use(metricsMiddleware);
   registerMetrics(app);
 // }

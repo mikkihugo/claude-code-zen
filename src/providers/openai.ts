@@ -1,18 +1,20 @@
-
 /** OpenAI Provider Implementation;
 /** Integration with OpenAI GPT models including GPT-4, GPT-3.5, and function calling;
 
  */
-import { BaseProvider  } from '.';
-import { AIRequest,
-AIResponse,
-FunctionCall,
-Message,
-ProviderCapabilities,
-ProviderConfig,
-ProviderError,
-RateLimitError,
-TokenUsage  } from '.'
+import {
+  AIRequest,
+  AIResponse,
+  BaseProvider,
+  FunctionCall,
+  Message,
+  ProviderCapabilities,
+  ProviderConfig,
+  ProviderError,
+  RateLimitError,
+  TokenUsage,
+} from '.';
+
 // // interface OpenAIMessage {role = 'openai'
 // version = '2024-07-29'
 // config = {enabled = {textGeneration = 'https = ['
@@ -32,20 +34,20 @@ TokenUsage  } from '.'
 //   if(!this.apiKey) {
 //     throw new ProviderError('OpenAI API key is required', this.name, 'MISSING_API_KEY');
 //   //   }
-  if(config.baseUrl) {
-    this.baseUrl = config.baseUrl;
+if (config.baseUrl) {
+  this.baseUrl = config.baseUrl;
   //   }
   // Update pricing based on model
-  if(config.model?.includes('gpt-3.5')) {
+  if (config.model?.includes('gpt-3.5')) {
     this.pricing = {
         inputTokenPrice = { ...this.config, ...config };
-// // await this.healthCheck();
-  //   }
-  async;
-  generateText(request = Date.now();
-  this.validateRequest(request);
-  this.emitRequest(request);
-  try {
+    // // await this.healthCheck();
+    //   }
+    async;
+    generateText(request = Date.now();
+    this.validateRequest(request);
+    this.emitRequest(request);
+    try {
       const _openaiRequest = {model = request.functions.map(fn => ({name = 'auto';
       //       } catch (error) { console.error(error); }/g))
 // const _response = awaitthis.makeRequest('/chat/completions', openaiRequest);
@@ -68,13 +70,7 @@ TokenUsage  } from '.'
   if(delta?.content) {
           yield delta.content;
         //         }
-       catch (error) { console.error(error); }} catch(/* e */) {
-        // Ignore parsing errors for streaming
-      //       }
-    //     }
-  //   }
-// }
-} catch(error)
+       catch (error) console.error(error); } catch(/* e */) catch(error)
 // {
   this.emitError(error, request);
   throw this.handleError(error);
@@ -88,7 +84,7 @@ TokenUsage  } from '.'
     // return response.data;
     // .filter((model = > this.availableModels.includes(model.id)); // LINT: unreachable code removed
 map((model = > model.id);
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) { console.error(error); } catch(error) 
     // Fallback to // static list if API call fails
     // return [...this.availableModels];
     //   // LINT: unreachable code removed}
@@ -117,8 +113,8 @@ createErrorFromResponse(response = await response.text();
 const _errorData = {};
 try {
   errorData = JSON.parse(text);
-} catch (error) { console.error(error); } catch(/* e */) {
-  errorData = {message = === 429) {
+} catch (error) { console.error(error); } catch(/* e */) 
+  errorData = message = === 429) {
       const _retryAfter = response.headers.get('retry-after');
   // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );
 // }
@@ -141,4 +137,7 @@ response.status;
   //   }
 // }
 
-}}}}}}}}}}}}}}})))))))
+}}}}}}}}}}
+  }
+}
+)))))))

@@ -1,15 +1,13 @@
-
 /** Enhanced Web UI Complete - Full Integration;
 /** Combines all MCP tools with enhanced UI views and real-time updates;
 /** Provides access to all 87 Claude-Flow MCP tools through a comprehensive interface;
 
  */
-import { printSuccess  } from '..';
-import { ENHANCED_VIEWS  } from '.';
+import { printSuccess } from '..';
 import MCPIntegrationLayer from '.';
 import RealtimeUpdateSystem from '.';
 import SwarmWebUIIntegration from '.';
-import ToolExecutionFramework from '.';
+import ToolExecutionFramework, { ENHANCED_VIEWS } from '.';
 
 // Enhanced view modes with all tool categories
 const _ALL_VIEWS = {
@@ -72,9 +70,8 @@ initializeEnhancedUI();
       this.startSystemMonitoring();
 
       this.addLog('success', ' Enhanced Web UI fully initialized with all 87 MCP tools');
-    } catch (error) { console.error(error); } catch(/* _error */) {
-      this.addLog('error', `Failed to initialize enhancedUI = [`
-      { id => {
+    } catch (error) { console.error(error); } catch(/* _error */) 
+      this.addLog('error', `Failed to initialize enhancedUI = [`id => {
       this.processes.set(p.id, {
 ..p,
         status = {totalEntries = [
@@ -215,9 +212,9 @@ const _toolTabs = [
           // Handle original input
 // // await this.handleOriginalInput(key);
         } catch(/* _error */)
-          this.addLog('error', `Input handling error = {1 = navigationMap[key];`
+          this.addLog('error', `Input handling error = 1 = navigationMap[key];`
       this.selectedIndex = 0;)
-      this.addLog('info', `Switched to ${this.currentView} view`);
+      this.addLog('info', `Switched to $this.currentViewview`);
       // return true;
     //   // LINT: unreachable code removed}
 
@@ -270,8 +267,7 @@ const _toolTabs = [
     } catch(error) {
       this.addLog('error', `Tool executionfailed = // await this.toolFramework.executePredefinedWorkflow('performance_analysis');`
       this.addLog('success', 'Workflow completed successfully');catch(error)
-      this.addLog('error', `Workflowfailed = [`)
-      {toolName = // await this.toolFramework.executeToolsBatch(batchTools, {parallel = === ALL_VIEWS.PROCESSES) {
+      this.addLog('error', `Workflowfailed = [`)toolName = // await this.toolFramework.executeToolsBatch(batchTools, {parallel = === ALL_VIEWS.PROCESSES) {
   switch(_key) {
         case '\x1b[A': // Up arrow
           this.selectedIndex = Math.max(0, this.selectedIndex - 1);
@@ -283,9 +279,9 @@ const _toolTabs = [
         case '\r':
 // // await this.toggleSelectedProcess();
           break;
-      //       }
-    //     }
-  //   }
+//       }
+//     }
+//   }
 
 /** Toggle selected process status;
 

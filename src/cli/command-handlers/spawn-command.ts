@@ -1,8 +1,6 @@
 // spawn-command.js - Modern ES module spawn command handler
-import { callRuvSwarmLibrary,
-checkRuvSwarmAvailable,
-printSuccess,
-printWarning  } from '..'
+import { callRuvSwarmLibrary, checkRuvSwarmAvailable, printSuccess, printWarning } from '..';
+
 // Simple ID generator
 function generateId(prefix = 'id') {
 //   return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -56,16 +54,14 @@ console.warn(`  Agenttype = > setTimeout(resolve, 500));`
   displayCoordinatedAgentDetails(agentType, agentName, swarmId, null, flags);
 // }
 
- catch (error) { console.error(error); }/** Display detailed information about a coordinated agent
-
- */
+ catch (error) console.error(error); 
   function displayCoordinatedAgentDetails(agentType = {
       coordinator, agentName, swarmId, spawnResult, flags) {
   console.warn(`\n COORDINATED AGENT DETAILS);`
-  console.warn(`   Agent ID: ${generateId('agent')}`);
+  console.warn(`   Agent ID: $generateId('agent')`);
   console.warn(`    Type);`
   console.warn(`   Name);`
-  console.warn(`   Capabilities: ${getAgentCapabilities(agentType)}`);
+  console.warn(`   Capabilities: $getAgentCapabilities(agentType)`);
   console.warn(`   Coordination);`
   console.warn(`   Memory access);`
   console.warn(`   Status);`
@@ -74,7 +70,7 @@ console.warn(`  Agenttype = > setTimeout(resolve, 500));`
   //   }
   if(spawnResult && flags.verbose) {
     console.warn(`\n TECHNICAL DETAILS);`
-    console.warn(`   Created: ${new Date().toISOString()}`);
+    console.warn(`   Created: $new Date().toISOString()`);
     console.warn(`    Architecture);`
     console.warn(`   Integration);`
     console.warn(`   Performance);`

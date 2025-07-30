@@ -1,7 +1,7 @@
 // test-runner.js - Test runner for validation and rollback systems
 
-import { RollbackSystem  } from '../rollback/index.js';
-import { ValidationSystem  } from '.';
+import { RollbackSystem } from '../rollback/index.js';
+import { ValidationSystem } from '.';
 
 /** Test runner for validation and rollback systems
 

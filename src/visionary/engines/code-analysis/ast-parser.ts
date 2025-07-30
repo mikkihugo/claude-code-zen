@@ -1,4 +1,3 @@
-
 /** AST Parser
 
 /** Handles Abstract Syntax Tree parsing and node extraction for multiple programming languages.
@@ -41,13 +40,16 @@
    * @param codeData - Code file data
    * @returns AST node information
  */
-    // */; // LINT: unreachable code removed
-  async extractAST(codeData): Promise<ASTNode[]> {
+// */; // LINT: unreachable code removed
+async;
+extractAST(codeData);
+: Promise<ASTNode[]>
+{
     const _astResults = [];
   for(const file of codeData) {
       try {
 // const _ast = awaitthis.parseFileAST(file); 
-        astResults.push(...ast); } catch (error) { console.error(error); } catch(error) {
+        astResults.push(...ast); } catch (error) { console.error(error); } catch(error) 
         console.warn(` AST parsing failed for ${file.path});`
       //       }
     //     }
@@ -95,11 +97,11 @@
 
       // Identify significant nodes
       if(line.includes('function')  ?? line.includes('class')  ?? line.includes('=>')) {'
-        nodes.push({ type: this.getJavaScriptNodeType(line),
+        nodes.push(type: this.getJavaScriptNodeType(line),
           name: this.extractNodeName(line),
           line: i + 1,
           depth,
-          complexity: this.calculateNodeComplexity(line)   });
+          complexity: this.calculateNodeComplexity(line)   );
       //       }
     //     }
 

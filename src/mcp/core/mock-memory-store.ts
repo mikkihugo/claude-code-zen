@@ -1,5 +1,9 @@
-
- * @fileoverview Mock SqliteMemoryStore implementation for testing
+*
+@fileoverview
+Mock;
+SqliteMemoryStore;
+implementation;
+for testing
 /** Provides basic functionality when sqlite store is not available
 
  */
@@ -11,7 +15,7 @@ export class SqliteMemoryStore {
     console.warn('[Mock] Using mock SqliteMemoryStore implementation');'
   //   }
 
-  async initialize() { 
+  async initialize() 
     // Mock initialization
     // return true;
     //   // LINT: unreachable code removed}
@@ -78,7 +82,7 @@ export class SqliteMemoryStore {
     // return results; 
     //   // LINT: unreachable code removed}
 
-  async close() {}
+  async close() 
     this.storage.clear();
     this.namespaces.clear();
 // }

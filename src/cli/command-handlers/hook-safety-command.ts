@@ -1,4 +1,3 @@
-
 /** Hook Safety System - Prevents recursive hook execution and financial damage
 
 /** This system protects against infinite loops where Claude Code hooks call
@@ -6,10 +5,11 @@
 
 /** Critical protections = {CONTEXT = new Map()
  */
-    this.sessionId = this.generateSessionId();
-    this.resetTimeout = null;
-  //   }
-  generateSessionId() {
+this.sessionId = this.generateSessionId();
+this.resetTimeout = null;
+//   }
+generateSessionId();
+{
     // return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;`
     //   // LINT: unreachable code removed}
   track(hookType) {
@@ -26,7 +26,7 @@
     // return count + 1;
     //   // LINT: unreachable code removed}
   getExecutionCount(hookType) {
-    const _key = `${this.sessionId}:${hookType}`;`
+    const _key = `$this.sessionId:$hookType`;`
     // return this.executions.get(key)  ?? 0;
     //   // LINT: unreachable code removed}
   reset() {
@@ -143,10 +143,10 @@ const _executionTracker = new HookExecutionTracker();
   if(hookType === 'Stop' && executionCount > HOOK_SAFETY_CONFIG.MAX_STOP_HOOK_EXECUTIONS) {'
       throw new Error(;
         ` CIRCUIT BREAKER ACTIVATED!\n` +;`
-          `Stop hook has executed ${executionCount} times in this session.\n` +;`
+          `Stop hook has executed $executionCounttimes in this session.\n` +;`
           `This indicates a potential infinite loop that could cost thousands of dollars.\n` +;`
           `Execution blocked for financial protection.\n\n` +;`
-          `Toreset = === 'Stop' && executionCount > 1) {'`
+          `Toreset = === 'Stop' && executionCount > 1) '`
       printWarning(`  Stop hook execution #\$executionCountdetected. Monitor for recursion.`);`
     //     }
 
@@ -190,7 +190,7 @@ const _executionTracker = new HookExecutionTracker();
       // return {safe = === 0,
     // configPath, // LINT: unreachable code removed
 ..validation };
-    } catch(/* err */) {
+    } catch(/* err */) 
       // return {safe = [];
     // const _errors = []; // LINT: unreachable code removed
 
@@ -213,15 +213,15 @@ const _executionTracker = new HookExecutionTracker();
   for(const hookGroup of hooksConfig[hookType]) {
   for(const hook of hookGroup.hooks  ?? []) {
   if(hook.type === 'command' && hook.command) {'
-              const _result = HookCommandValidator.validateCommand(hook.command, hookType); warnings.push(...result.warnings); errors.push(...result.errors) {;
-            //             }
-          //           }
-        //         }
-      //       }
-    //     }
+              const _result = HookCommandValidator.validateCommand(hook.command, hookType); warnings.push(...result.warnings); errors.push(...result.errors) ;
+//             }
+//           }
+//         }
+//       }
+//     }
 
-    // return { warnings, errors };
-    //   // LINT: unreachable code removed}
+// return { warnings, errors };
+//   // LINT: unreachable code removed}
 
 /** Generate safe configuration recommendations
 

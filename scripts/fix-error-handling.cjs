@@ -8,36 +8,35 @@ const glob = require('glob');
 const files = glob.sync('src/**/*.ts', {)
   ignore);
 
-let _totalFixed = 0;
+const _totalFixed = 0;
 
 files.forEach((file) => {
-  let content = fs.readFileSync(file, 'utf8');
-  let modified = false;
+  const content = fs.readFileSync(file, 'utf8');
+  const modified = false;
 
   // Fix error handling patterns
   const patterns = [
     // Fix unknown error types in catch blocks
 {}
-      regex: /catch\s*\(\s*error\s*\)\s*{([^}]+error\.message)/g,
-      replacement: 'catch(error) {$1' },
-    // Fix error.message access
-{}
-      regex: /(\$\{|`)error\.message/g,`
+      regex: /catch\s*\(\s*error\s*\)\s*([^}
+]+error\.message)/g,
+      replacement: 'catch(error) {$1' ,
+      regex: /(\$\
+  |`)error\.message/g,`
+      replacement: '$1(error instanceof Error ? error.message : String(error))'
+,
+regex: /([^`$])error\.message/g,
+  `
       replacement: '$1(error instanceof Error ? error.message : String(error))' },
-    // Fix standalone error.message
-{}
-      regex: /([^`$])error\.message/g,`
-      replacement: '$1(error instanceof Error ? error.message : String(error))' },
-    // Fix error type annotations
-{}
-      regex: /catch\s*\(\s*error)/g,
-      replacement: 'catch(error)' },
-    // Fix error type in functions
-{}
+// Fix error type annotations
+{
+}
+regex: /catch\s*\(\s*error)/g, replacement;
+: 'catch(error)' },
       regex: /\(error)/g,
-      replacement: '(error)' } ];
+      replacement: '(error)' } ]
 
-  patterns.forEach((pattern) => {
+patterns.forEach((pattern) => {
     const before = content;
     content = content.replace(pattern.regex, pattern.replacement);
   if(before !== content) {
@@ -53,7 +52,11 @@ files.forEach((file) => {
       const importPath = file.includes('cli'
         ? '../../utils/error-handler'
         : '../utils/error-handler';
-      content = `import { getErrorMessage  } from '${importPath}';\n${content}`;
+      content = `;
+import { getErrorMessage  } from '${importPath}';
+\n$
+  content;
+`;
 
     fs.writeFileSync(file, content);
     _totalFixed++;

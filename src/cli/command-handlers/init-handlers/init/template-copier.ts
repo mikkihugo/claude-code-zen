@@ -1,8 +1,8 @@
 // template-copier.js - Copy template files instead of generating them dynamically
 
-import { promises as fs  } from 'node:fs';
-import { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import { promises as fs } from 'node:fs';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -19,22 +19,28 @@ const ___dirname = dirname(__filename);
  * @param {string[]} options.selectedModes - Selected SPARC modes to copy
  * @returns {Promise<{success = {}) {
  */
-  const _results = {success = join(__dirname, 'templates');
-    // ; // LINT: unreachable code removed
-    // Determine which template variants to use
-    const _templateVariant = options.optimized ? 'optimized' :
-                          options.enhanced ? 'enhanced' :
-                          options.minimal ? 'minimal' :
-                          options.sparc ? 'sparc' : 'full';
+const _results = {success = join(__dirname, 'templates');
+// ; // LINT: unreachable code removed
+// Determine which template variants to use
+const _templateVariant = options.optimized
+  ? 'optimized'
+  : options.enhanced
+    ? 'enhanced'
+    : options.minimal
+      ? 'minimal'
+      : options.sparc
+        ? 'sparc'
+        : 'full';
 
-    // Core files to copy
+// Core files to copy
 
-      const _sourcePath = join(templatesDir, sourceFile);
-      const _destPath = join(targetDir, file.destination);
+const _sourcePath = join(templatesDir, sourceFile);
+const _destPath = join(targetDir, file.destination);
 
-      if(// await copyFile(sourcePath, destPath, options)) {
+if(// await copyFile(sourcePath, destPath, options)) {
         results.copiedFiles.push(file.destination);
-      } else if(!options.dryRun) {
+} else
+if(!options.dryRun) {
         results.errors.push(`Failed to copy ${file.destination}`);
       //       }
     //     }
@@ -94,7 +100,7 @@ try {
           const _sourcePath = join(categoryPath, file); const _destPath = join(destCategoryPath, file); if(// await copyFile(sourcePath, destPath, options) {) {
             results.copiedFiles.push(join('.claude', 'commands', category, file));
           //           }
-         catch (error) { console.error(error); }//         }
+         catch (error) console.error(error); 
       //       }
     //     }
   } catch(err) ;
@@ -147,16 +153,16 @@ try {
 // // await fs.writeFile(destPath, content); 
       //       }
 
-       catch (error) { console.error(error); }console.warn(`${options.dryRun ? '[DRY RUN] Would create' ) {;`
+       catch (error) console.error(error); console.warn(`${options.dryRun ? '[DRY RUN] Would create' ) {;`
       results.copiedFiles.push(join('.claude', 'commands', 'swarm', filename));
     //     }
-  } catch(/* err */) {
+  } catch(/* err */) 
     results.errors.push(`Failed to copy swarmtemplates = join(targetDir, '.claude', 'helpers');`
 
   try {
   if(!options.dryRun) {
 // // await fs.mkdir(helpersDir, {recursive = ['setup-mcp.sh', 'quick-start.sh', 'github-setup.sh'];/g)
-    const { createHelperScript }  catch (error) { console.error(error); }= // await import('./templates/enhanced-templates.js');
+    const { createHelperScript }  catch (error) console.error(error); = // await import('./templates/enhanced-templates.js');
   for(const helper of helpers) {
       const _content = createHelperScript(helper); if(content) {
         const _destPath = join(helpersDir, helper); if(!options.dryRun) {
@@ -164,7 +170,7 @@ try {
 // // await fs.chmod(destPath, 0o755);
         //         }
 
-        console.warn(`${options.dryRun ? '[DRY RUN] Would create' );`
+        console.warn(`$options.dryRun ? '[DRY RUN] Would create' );`
         results.copiedFiles.push(join('.claude', 'helpers', helper));
       //       }
     //     }
@@ -296,7 +302,7 @@ async function createMemoryReadmeFiles(targetDir = // await import('./templates/
   if(generator) {
     try {
       // return // await generator();
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* err */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* err */) 
       console.warn(`    Failed to generate template content for ${filename});`
       // return null;
     //   // LINT: unreachable code removed}
@@ -312,7 +318,7 @@ async function generateCommandTemplates(targetDir = // await import('./templates
   for (const [category, commands] of Object.entries(COMMAND_STRUCTURE)) {
     const _categoryDir = join(targetDir, '.claude', 'commands', category); try {
   if(!options.dryRun) {
-// // await fs.mkdir(categoryDir, {recursive = `# ${category.charAt(0).toUpperCase() + category.slice(1)}  catch (error) { console.error(error); }Commands`
+// // await fs.mkdir(categoryDir, {recursive = `# $category.charAt(0).toUpperCase() + category.slice(1)catch (error) console.error(error); Commands`
 Commands for ${category} operations in Claude Flow.
 
 ## Available Commands
@@ -325,7 +331,7 @@ ${commands.map(cmd => `- [${cmd}](.`
       // Create individual command docs
   for(const command of commands) {
         const _doc = createCommandDoc(category, command); if(doc) {
-          const _docPath = join(categoryDir, `${command}.md`); if(!options.dryRun) {
+          const _docPath = join(categoryDir, `$command.md`); if(!options.dryRun) {
 // // await fs.writeFile(docPath, doc);
           //           }
           results.copiedFiles.push(join('.claude', 'commands', category, `${command}.md`));
@@ -333,10 +339,5 @@ ${commands.map(cmd => `- [${cmd}](.`
       //       }
 
       console.warn(`${options.dryRun ? '[DRY RUN] Would create' );`
-    } catch(/* err */) {
-      results.errors.push(`Failed to generate ${category} command templates);`
-    //     }
-  //   }
-// }
-
-}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))
+    } catch(/* err */) 
+      results.errors.push(`Failed to generate $categorycommand templates);`}}}}}}}}}}}}}}}}}}})))))))))))))))))

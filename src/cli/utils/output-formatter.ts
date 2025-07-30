@@ -1,9 +1,8 @@
-
 /** Output Formatting Utilities;
 /** Comprehensive output formatting with colors, tables, and structured data
 
  */
-import type { OutputFormatter as IOutputFormatter  } from '../../types/cli';
+import type { OutputFormatter as IOutputFormatter } from '../../types/cli';
 
 // =============================================================================
 // COLOR UTILITIES
@@ -111,7 +110,7 @@ finish(message?)
 // }
 // }
 // export class Spinner {
-  ) {
+  ) 
     this.
   message = message;
 // }
@@ -396,10 +395,8 @@ join('\n');
         lines.push(currentLine.trim()); currentLine = `${word} `;
       } else {
         // Word is longer than width, force break
-        lines.push(word) {;
-      //       }
-    } else {
-      currentLine += `${word} `;
+        lines.push(word) ;else 
+      currentLine += `$word`;
     //     }
   if(currentLine) {
     lines.push(currentLine.trim());

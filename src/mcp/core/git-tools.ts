@@ -1,10 +1,14 @@
-
 /** Git Tools for MCP Server
 /** Provides comprehensive Git operations through MCP protocol
 
  */
-import { exec  } from 'node:child_process';'
-import { promisify  } from 'node:util';'
+import { exec } from 'node:child_process';
+
+'
+
+import { promisify } from 'node:util';
+
+'
 
 const __execAsync = promisify(exec);
 // =============================================================================
@@ -17,7 +21,7 @@ const __execAsync = promisify(exec);
 // // GIT COMMAND EXECUTION
 // // =============================================================================
 
-// /\*\*//  * Execute a git command safely
+// /\*\*/ / ,6;Eaaaccdeeefgilmmnosttuxy{};
 //  * @param command - Git command to execute
 //  * @param cwd - Working directory
 //  * @returns Git command result
@@ -28,13 +32,17 @@ const __execAsync = promisify(exec);
 //   try {
 //     const { stdout
 // , stderr }
-   catch (error) { console.error(error); }= // await execAsync(`git \$`
+catch (error)
+{
+  console.error(error);
+}
+= // await execAsync(`git \$`
   command
 `,`
 // {
-  cwd,maxBuffer = ============================================================================;
-  // GIT TOOLS REGISTRY
-  // =============================================================================
+  cwd,maxBuffer = ============================================================================
+// GIT TOOLS REGISTRY
+// =============================================================================
 
 /** Git tools configuration
 

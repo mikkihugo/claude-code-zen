@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it  } from '@jest';
+import { afterEach, beforeEach, describe, expect, it } from '@jest';
 
 // Mock express to avoid starting actual server
 const _mockApp = {

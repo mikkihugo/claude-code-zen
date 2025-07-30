@@ -8,10 +8,10 @@
  * @version 2.0.0;
  */
 
-import { execSync  } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
-import path, { dirname  } from 'node:path';
-import { fileURLToPath  } from 'node:url';
+import path, { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = dirname(__filename);
@@ -51,7 +51,7 @@ const _rootDir = path.resolve(__dirname, '..');
  *;
  * @returns Package.json content;
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 function getPackageVersion() {
   const _packageJsonPath = path.join(rootDir, 'package.json');
   const _packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
@@ -116,16 +116,16 @@ function updateVersionFiles(version) {
       const _newContent = content.replace(pattern, replacement);
   if(content !== newContent) {
         fs.writeFileSync(fullPath, newContent);
-        console.warn(`    Updated ${filePath}`);
+        console.warn(`    Updated $filePath`);
         updatedCount++;
       } else {
-        console.warn(`     ${filePath} already up to date`);
+        console.warn(`     $filePathalready up to date`);
       //       }
     } else {
-      console.warn(`     ${filePath} not found`);
+      console.warn(`     $filePathnot found`);
     //     }
   });
-  console.warn(`\n   Updated ${updatedCount} files\n`);
+  console.warn(`\n   Updated $updatedCountfiles\n`);
   // return updatedCount;
 // }
 
@@ -149,7 +149,7 @@ function buildTypeScriptFiles() {
     // First try to build CLI files with relaxed config
     execSync('npx tsc -p tsconfig.cli.json', { cwd, stdio);
     console.warn('    CLI files built successfully');
-  } catch (error) { console.error(error); } catch(/* _error */) {
+  } catch (error) { console.error(error); } catch(/* _error */) 
     console.warn('     Build had errors, trying fallback...');
     try {
       // Fallback: try the regular build
@@ -180,13 +180,9 @@ function verifyDistFiles(version) {
         } else {
           console.warn(`    ${distFile}: ${versionMatch[1]} (expected ${version})`);
         //         }
-      } else {
-        console.warn(`     ${distFile});`
-      //       }
-    } else {
-      console.warn(`     ${distFile});`
-    //     }
-  });
+      } else 
+        console.warn(`     $distFile);`else 
+      console.warn(`     $distFile);`);
 // }
 
 /** Checks what files will be published;

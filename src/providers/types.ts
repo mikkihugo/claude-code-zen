@@ -1,4 +1,3 @@
-
 /** Multi-LLM Provider Type Definitions;
 /** Comprehensive type system for AI provider integration;
 
@@ -6,7 +5,7 @@
 export // interface AIProvider {name = === 0) {
 //       throw new Error('Messages are required');
 //     //     }
-  if(!request.model) {
+if(!request.model) {
   throw new Error('Model is required');
 // }
 // }
@@ -29,12 +28,12 @@ export class ProviderError extends Error {
   retryAfter?;
 // }
 // export class QuotaExceededError extends ProviderError {
-  constructor(provider) {
+  constructor(provider) 
 //     super(`Quota exceeded for ${provider}`, provider, 'QUOTA_EXCEEDED');
   //   }
 // }
 // export class ModelNotAvailableError extends ProviderError {
-  constructor(provider, model) {
+  constructor(provider, model)
 //     super(`Model ${model} not available for ${provider}`, provider, 'MODEL_NOT_AVAILABLE');
-  //   }
+//   }
 // }

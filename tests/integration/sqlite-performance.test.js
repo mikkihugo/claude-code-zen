@@ -1,4 +1,3 @@
-
 /** SQLite Performance Optimization Tests;
 /** Validates the performance improvements work correctly;
 
@@ -6,9 +5,9 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { afterEach, beforeEach, describe  } from '@jest';
-import { SqliteMemoryStore  } from '../../src/memory/sqlite-store.js';
-import { isSQLiteAvailable  } from '../../src/memory/sqlite-wrapper.js';
+import { afterEach, beforeEach, describe } from '@jest';
+import { SqliteMemoryStore } from '../../src/memory/sqlite-store.js';
+import { isSQLiteAvailable } from '../../src/memory/sqlite-wrapper.js';
 
 describe('SQLite Performance Optimization Tests', () => {
   let testDir;
@@ -316,8 +315,7 @@ all('test-key', 'test-ns');
           //           {
             id,
             data: `Large dataset entry number \$i`,)
-            metadata: { batch: Math.floor(i / 100) } },
-          { namespace: `batch-\$Math.floor(i / 100)` }
+            metadata: batch: Math.floor(i / 100) },namespace: `batch-\$Math.floor(i / 100)` 
         );
       //       }
       const _insertTime = Date.now() - startTime;

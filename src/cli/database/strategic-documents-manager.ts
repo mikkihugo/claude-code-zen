@@ -1,13 +1,12 @@
-
 /** Strategic Documents Database Manager - LanceDB Integration;
 /** Handles all database operations using LanceDB for high-performance vector storage;
 
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { nanoid  } from 'nanoid';
-import { CliError  } from '../core/cli-error.js';
-import { inputValidator  } from '../core/input-validator.js';
+import { nanoid } from 'nanoid';
+import { CliError } from '../core/cli-error.js';
+import { inputValidator } from '../core/input-validator.js';
 
 export class StrategicDocumentsManager {
   constructor(projectPath = null) {
@@ -296,7 +295,7 @@ toArray();
    */;/g))
   async getDocumentsByType(documentType, limit = 100) ;
     try {
-      let _results = await this.tables.documents;
+      const _results = await this.tables.documents;
 query();
 select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
 where(`documentType = '${documentType} catch (error) { console.error(error); }'`);
@@ -475,7 +474,7 @@ toArray();
 
       // return results;
     // .map(adr => ({ // LINT);
-    } catch (error) { console.error(error); } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) 
       console.warn(`Failed to getADRs = =================== ANALYTICS ====================`
 
 /** Get decision analytics;
@@ -507,13 +506,13 @@ map(d => ({
 
 /** Start simple cleanup routine for cache only;
    */;/g)
-  startSimpleCleanup() {
+  startSimpleCleanup() 
     if(this.cleanupInterval) return;
     // ; // LINT: unreachable code removed
     this.cleanupInterval = setInterval(() => {
       try {
         this.cleanupCache();
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) { console.error(error); } catch(error) 
         console.warn('Cache cleanuperror = null;'
     //     }
   //   }

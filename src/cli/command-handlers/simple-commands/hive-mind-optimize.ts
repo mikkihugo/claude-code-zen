@@ -1,4 +1,3 @@
-
 /** Hive Mind Database Optimization Command;
  *;
 /** Safe optimization of existing hive mind databases without breaking compatibility;

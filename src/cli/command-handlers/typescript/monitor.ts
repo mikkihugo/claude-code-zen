@@ -1,4 +1,3 @@
-
 /** Monitor Command Handler - TypeScript Edition
 /** Real-time system monitoring with comprehensive metrics
 
@@ -6,8 +5,8 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { CLIError  } from '../../types/cli.js';
-import { FlagValidator  } from '../core/argument-parser.js';
+import { CLIError } from '../../types/cli.js';
+import { FlagValidator } from '../core/argument-parser.js';
 
 // =============================================================================
 // MONITOR COMMAND TYPES
@@ -25,7 +24,8 @@ import { FlagValidator  } from '../core/argument-parser.js';
 // }
 },
 // {
-  (_name) => {
+  (_name) =>
+{
     const _logger = context.logger.child({command = parseMonitorOptions(context, logger);
     // Run monitoring
   if(options.watch) {
@@ -193,19 +193,19 @@ function _getPerformanceMetrics() {
   console.warn('================');
   // System metrics
   console.warn('\n  SystemResources = > l.toFixed(2)).join(', ')}`);'`
-  console.warn(`Uptime = === 'running') {`
+  console.warn(`Uptime = === 'running') `
     console.warn(`   ActiveAgents = Math.floor(seconds / 86400);`
   const _hours = Math.floor((seconds % 86400) / 3600);
   const _minutes = Math.floor((seconds % 3600) / 60);
   const _secs = Math.floor(seconds % 60);
   if(days > 0) {
-    // return `${days}d ${hours}h ${minutes}m`;
+    // return `$daysd $hoursh $minutesm`;
   } else if(hours > 0) {
-    // return `${hours}h ${minutes}m ${secs}s`;
+    // return `$hoursh $minutesm $secss`;
   } else if(minutes > 0) {
-    // return `${minutes}m ${secs}s`;
+    // return `$minutesm $secss`;
   } else {
-    // return `${secs}s`;
+    // return `$secss`;
   //   }
 // }
 

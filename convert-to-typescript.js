@@ -4,9 +4,8 @@
 /** Converts all remaining JavaScript files to TypeScript with proper types;
 
  */
-import { existsSync, readFileSync, unlinkSync  } from 'node:fs';
-import { readdir  } from 'node:fs';
-import { basename  } from 'node:path';
+import { existsSync, readdir, readFileSync, unlinkSync } from 'node:fs';
+import { basename } from 'node:path';
 
 const _BASE_DIR = '/home/mhugo/code/claude-zen/src';
 const _TYPE_IMPORTS = `import type { Logger: true,
@@ -24,7 +23,8 @@ import type { CommandDefinition: true,
   CommandRegistry: true,
   CliConfig: true,
   ParsedArguments;
- } from '../types/cli.js';`;`
+ } from '../types/cli.js';`;
+`
 
 /** Priority conversion order;
 
@@ -34,13 +34,22 @@ const _CONVERSION_PATTERNS = [
   // Add type imports
 // {
 //     pattern: /^(import .+?;?\s*\n\n)/,
-//     replacement: `$1\n\${`
+//     replacement: `;
+$1;
+\n\$
+{
+  `
 //   TYPE_IMPORTS;
-// }\n` },`
+// }\n`;
+}
+,`
 // Function parameters
 // {
-    pattern: /function\s+(\w+)\s*\(([^)]*)\)/g, // eslint-disable-line
-    replacement: (_match, _name, params) => {
+    pattern: /
+function
+\s+(\w+)\s*\(([^)]*)\)/g, // eslint-disable-line
+    replacement: (_match, _name, params) =>
+{
       const _typedParams = params;
 split(',')
 map((param) => {
@@ -148,8 +157,8 @@ join(' ');
     // return { success, skipped };
     //   // LINT: unreachable code removed} catch(error) {
     console.error(` Failed to convert ${jsPath});`
-    // return { success, error: error.message };
-    //   // LINT: unreachable code removed}
+// return { success, error: error.message };
+//   // LINT: unreachable code removed}
 // }
 
 /** Find all JavaScript files in a directory recursively;

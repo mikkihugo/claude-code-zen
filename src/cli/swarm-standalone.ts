@@ -1,15 +1,14 @@
-
 /** Standalone swarm executable for npm package;
 /** This handles swarm execution when installed via npm;
 
  */
-import { spawn  } from
-'node = fileURLToPath(import.meta.url); // eslint-disable-line'
+import { spawn } from 'node = fileURLToPath(import.meta.url); // eslint-disable-line';
+
 const ___dirname = dirname(__filename);
 // Parse arguments
 const _args = [];
 const _flags = {};
-  for(let i = 0; i < process.args.length; i++) {
+for(let i = 0; i < process.args.length; i++) {
   const _arg = process.args[i];
   if(arg.startsWith('--')) {
     const _flagName = arg.substring(2);
@@ -51,7 +50,7 @@ const _objective = args.join(' ');
   if(flags.auto ?? flags['dangerously-skip-permissions']) {
       claudeArgs.push('--dangerously-skip-permissions');
     //     }
-     catch (error) { console.error(error); }// Spawn claude process
+     catch (error) console.error(error); 
     const _claudeProcess = spawn('claude', claudeArgs, {
       stdio => {
       claudeProcess.on('close', (_code) => {

@@ -4,16 +4,16 @@
 /** Provides GitHub workflow automation capabilities
 
  */
-import { access  } from 'node:fs';
-import { platform  } from 'node:os';
-import { join  } from 'node:path';
-import { printError  } from '..';
+import { access } from 'node:fs';
+import { platform } from 'node:os';
+import { join } from 'node:path';
+import { printError } from '..';
 
 /** Cross-platform check for executable availability
  * @param {string} command - The command to check
  * @returns {Promise<boolean>} - True if command is available
  */
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 async function checkCommandAvailable(command = // await import('node);'
 
 if(platform() === 'win32') {
@@ -68,7 +68,7 @@ const _objective = args.slice(1).join(' ').trim();
           printSuccess(' GitHub automation completed successfully!');
           resolve();
         } else {
-          reject(new _Error(`_Claude _process _exited with _code _${code}`));
+          reject(new _Error(`_Claude _process _exited with _code _$code`));
 // }
 })
 claudeProcess.on('error', (err) =>

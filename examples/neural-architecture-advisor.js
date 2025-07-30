@@ -5,9 +5,9 @@
  * to provide intelligent architectural recommendations;
 
  */
-import { ArchitectAdvisor  } from '../src/queens/architect-advisor.js';
-import { createQueenCoordinator  } from '../src/queens/index.js';
-import { Logger  } from '../src/utils/logger.js';
+import { ArchitectAdvisor } from '../src/queens/architect-advisor.js';
+import { createQueenCoordinator } from '../src/queens/index.js';
+import { Logger } from '../src/utils/logger.js';
 
 const __logger = new Logger('ArchitectureExample');
 async function demonstrateArchitectureAnalysis() {
@@ -60,10 +60,10 @@ async function demonstrateArchitectureAnalysis() {
           performance } } } ];
   // Process each scenario
   for(const scenario of scenarios) {
-    console.warn(`\n${'='.repeat(80)}`); console.warn(` Scenario`); console.warn(`   Question`) {;
+    console.warn(`\n${'='.repeat(80)}`); console.warn(` Scenario`); console.warn(`   Question`) ;
 // const _result = awaitarchitect.process(scenario);
     console.warn(;)
-      `  Recommended Architecture)}`;
+      `  Recommended Architecture)`;
     );
     console.warn(`   Confidence).toFixed(1)}%`);
     console.warn(;)

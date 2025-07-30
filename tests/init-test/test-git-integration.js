@@ -4,7 +4,7 @@
 /** This script shows how agent completions automatically commit to Git;
 
  */
-import { execSync  } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -13,7 +13,11 @@ console.warn(' ruv-swarm Git Integration Demo\n');
 try {
   execSync('git rev-parse --git-dir', { stdio);
   console.warn(' Git repository detected');
-} catch (error) { console.error(error); } catch(/* _error */) {
+} catch (error) {
+  console.error(error);
+}
+catch(/* _error */)
+{
   console.warn(' Not in a git repository. Initializing...');
   execSync('git init');
   console.warn(' Git repository initialized');
@@ -64,7 +68,7 @@ try {
     const _latestCommit = execSync('git log -1 --pretty=format);'
     console.warn(latestCommit);
   //   }
- catch (error) { console.error(error); }// Show the generated report if it exists
+ catch (error) console.error(error); 
   if(parsed.reportPath) {
   console.warn('\n Generated Report Preview);'
   const _reportContent = fs.readFileSync(parsed.reportPath, 'utf-8');

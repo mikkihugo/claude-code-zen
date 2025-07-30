@@ -1,14 +1,10 @@
-
 /** Index Module
 /** Converted from JavaScript to TypeScript
 
  */
-export { ArchitectAdvisor  } from '.'
 // Base Queen class and types
-export { BaseQueen  } from '.'
 // Specialized Queen implementations
-export { CodeQueen  } from '.'
-export { DebugQueen  } from '.'
+export { ArchitectAdvisor, BaseQueen, CodeQueen, DebugQueen } from '.';
 
 // Queen Coordinator
 // export { QueenCoordinator  } from './queen-coordinator.js';'

@@ -1,13 +1,12 @@
-
 /** REAL ruv-FANN Neural Network Integration;
 /** Replaces stub implementations with actual neural network bindings;
 /** Achieves 84.8% SWE-Bench performance through real ML integration
 
  */
-import { existsSync  } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { Logger  } from '../utils/logger.js';
-import { NativeFannBindings  } from '.';
+import { Logger } from '../utils/logger.js';
+import { NativeFannBindings } from '.';
 
 /** Real ruv-FANN Neural Network Engine;
 /** Provides actual ML capabilities instead of stub responses

@@ -4,8 +4,8 @@
 /** Provides authentication, rate limiting, and API wrappers for GitHub workflow commands
 
  */
-import { timingSafeEqual  } from 'node = ';
-import { printError, printInfo  } from '..';
+import { timingSafeEqual } from 'node = ';
+import { printError, printInfo } from '..';
 
 https = 5000; // API calls per hour
 const __GITHUB_WEBHOOK_SECRET = process.env.GITHUB_WEBHOOK_SECRET;
@@ -17,7 +17,7 @@ class GitHubAPIClient {
     this.lastRequestTime = 0;
     this.requestQueue = [];
     this.isProcessingQueue = false;
-  //   }
+//   }
 
 /** Authentication Methods
 

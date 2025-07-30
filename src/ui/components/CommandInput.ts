@@ -1,10 +1,14 @@
-
 /** CommandInput Module
 /** Converted from JavaScript to TypeScript
 
  */
-import { Text  } from 'ink';'
-import React, { useState  } from 'react';'
+import { Text } from 'ink';
+
+'
+
+import React, { useState } from 'react';
+
+'
 
 const _CommandInput = () => {
   const [command, setCommand] = useState('');'
