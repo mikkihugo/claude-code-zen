@@ -2,6 +2,7 @@
 /** Anthropic Claude Provider Implementation;
 /** High-performance integration with Claude models;
 
+ */
 import { ProviderError  } from '.';
 // // interface AnthropicMessage {role = 'anthropic'
 // version = '2024-07-29'
@@ -34,7 +35,7 @@ this.emitRequest(request);
 try {
       const __anthropicRequest = {model = request.systemPrompt;
       //       }
-// const __response = awaitthis.makeRequest('/messages', anthropicRequest);
+ catch (error) { console.error(error); }// const __response = awaitthis.makeRequest('/messages', anthropicRequest);
 // }
 // const _response = awaitfetch(`${this.baseUrl}/messages`, {method = response.body?.getReader();
   if(!reader) {
@@ -54,7 +55,7 @@ const _buffer = '';
   if(parsed.type === 'content_block_delta') {
         yield parsed.delta?.text  ?? '';
       //       }
-    } catch(/* _e */) {
+     catch (error) { console.error(error); }} catch(/* _e */) {
       // Ignore parsing errors for streaming
     //     }
   //   }
@@ -83,7 +84,7 @@ map(_msg => ({role = === 'user' ? 'user' );
 const _errorData = {};
 try {
   errorData = JSON.parse(text);
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   errorData = {message = === 429) {
       const _retryAfter = response.headers.get('retry-after');
   // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );

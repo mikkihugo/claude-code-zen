@@ -2,6 +2,7 @@
 /** Comprehensive Input Validation System
 /** Prevents injection attacks, validates data types, and sanitizes input
 
+ */
 import { CliError  } from '.';
 
 export class InputValidator {
@@ -186,7 +187,7 @@ export class InputValidator {
   if(itemValidator) {
       // return value.map((item, _index) => {
         try {
-          // return itemValidator(item, { fieldName = {}, options = {}) {
+          // return itemValidator(item, { fieldName = {} catch (error) { console.error(error); }, options = {}) {
     const { required = false, fieldName = 'value' } = options;'
     // ; // LINT: unreachable code removed
     // Type check
@@ -204,7 +205,7 @@ export class InputValidator {
       try {
         const _fieldValue = value[key]; result[key] = validator(fieldValue, {fieldName = > pattern.test(value)); //   }
 
-/** Check for SQL injection patterns
+ catch (error) { console.error(error); }/** Check for SQL injection patterns
 
   containsSqlInjection(value) {;
     // return this.sqlInjectionPatterns.some(pattern => pattern.test(value));

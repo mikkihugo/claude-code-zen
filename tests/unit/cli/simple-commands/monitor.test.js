@@ -55,9 +55,9 @@ describe('Output Formats', () => {
     const _jsonOutput = calls.find((call) => {
       try {
           JSON.parse(call[0]);
-          return true;
-    //   // LINT: unreachable code removed} catch {
-          return false;
+//           return true;
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+//           return false;
     //   // LINT: unreachable code removed}
       })
       expect(jsonOutput).toBeDefined() {}

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Real-time Performance Monitoring Dashboard;
+/* Real-time Performance Monitoring Dashboard;
 
+ */
 import blessed from 'blessed';
 
 class PerformanceMonitor {
@@ -30,7 +31,7 @@ this.startMonitoring();
   left,
   width: '100%',
   height,
-  content: '{center}Claude Flow Performance Monitor{
+  content: '{center}Claude Flow Performance Monitor{'
   tags,
   fg: 'white',
   bg: 'blue')
@@ -111,7 +112,7 @@ this.screen.render();
 // }
 createMetricBox(options)
 // {
-  return blessed.box({ ...options,
+//   return blessed.box({ ...options,
   type: 'line',
 
   fg: 'white',)
@@ -151,7 +152,7 @@ render();
   //   )
   // Update memory metrics
   this.memoryBox.setContent(
-  `bold
+  `bold`
 // }
 $;
 // {
@@ -168,7 +169,7 @@ $;
   `{bold}Hit Rate:{/bold} ${((this.metrics.memory.cacheHits / Math.max(1, this.metrics.memory.reads)) * 100).toFixed(1)}%`;
   //   )
   // Update neural metrics
-  this.neuralBox.setContent(`bold
+  this.neuralBox.setContent(`bold`
 // }
 $;
 // {
@@ -184,7 +185,7 @@ $;
 `{bold}Accuracy)`
   // Update agent metrics
   this.agentBox.setContent(
-  `bold
+  `bold`
 // }
 $;
 // {
@@ -227,7 +228,7 @@ this.logBox.log('{yellow-fg}{/yellow-fg} Metrics reset')
 // Check if blessed is available
 try {
   new PerformanceMonitor();
-} catch(/* _error */) {
+} catch (error) { console.error(error); } catch(/* _error */) {
   console.warn(' Performance Monitoring Dashboard(Text Mode)\n');
   console.warn('Real-time metrics would be displayed here.');
   console.warn('\nInstall blessed for interactive dashboard);'

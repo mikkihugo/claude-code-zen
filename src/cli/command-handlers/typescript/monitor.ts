@@ -2,6 +2,7 @@
 /** Monitor Command Handler - TypeScript Edition
 /** Real-time system monitoring with comprehensive metrics
 
+ */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -20,7 +21,7 @@ import { FlagValidator  } from '../core/argument-parser.js';
 //         if(value < 1000  ?? value > 60000) {
 //           return 'Interval must be between 1000ms and 60000ms';
 //     //   // LINT: unreachable code removed}
-return true;
+// return true;
 // }
 },
 // {
@@ -84,7 +85,7 @@ return true;
   monitorInterval = setInterval(async() => {
     try {
       console.warn(` Monitoring Claude-Flow System`);
-      console.warn(` ${new Date().toLocaleTimeString()}\n`);
+      console.warn(` ${new Date().toLocaleTimeString()} catch (error) { console.error(error); }\n`);
 // const _metrics = awaitcollectMetrics(logger);
   if(options.format === 'json') {
         console.warn(JSON.stringify(metrics, null, 2));
@@ -130,7 +131,7 @@ async function collectMetrics(_logger = Date.now();
 function _getMemoryInfo() {
   const __totalMem = os.totalmem();
   const __freeMem = os.freemem();
-
+// 
   return {totalMB = // await fs.statfs(process.cwd());
     // const __totalBytes = stats.blocks * stats.bsize; // LINT: unreachable code removed
     const __freeBytes = stats.bavail * stats.bsize
@@ -160,7 +161,7 @@ function _getMemoryInfo() {
 function _getPerformanceMetrics() {
 
   const __cpuUsage = process.cpuUsage();
-
+// 
   return {avg_task_duration = path.join(process.cwd(), '.claude-zen', 'memory.db');
     // ; // LINT: unreachable code removed
     // Count terminal sessions
@@ -171,10 +172,10 @@ function _getPerformanceMetrics() {
 // const _files = awaitfs.readdir(sessionsPath);
     const _count = files.filter((f) => f.endsWith('.json')).length;
     logger.debug('Counted terminal sessions', { count });
-    return count;
+//     return count;
     //   // LINT: unreachable code removed} catch(error) {
     logger.debug('Could not count terminal sessions', error);
-  return 0;
+//   return 0;
 // }
 // }
 

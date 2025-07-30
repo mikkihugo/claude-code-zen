@@ -109,9 +109,10 @@ import { existsSync  } from 'node:fs';'
 
    * @param config - Configuration options
 
+ */
   constructor(_config) {
     this.config = {
-      outputDir: '.
+      outputDir: '.'
     enableAnalytics,
     supportedFormats: [;
         'js','
@@ -164,7 +165,7 @@ initialize();
   try {
       // Create output directory
       if(!existsSync(this.config.outputDir)) {
-// // // await mkdir(this.config.outputDir, { recursive});
+// // // await mkdir(this.config.outputDir, { recursive} catch (error) { console.error(error); });
       //       }
 
       // Initialize all engines
@@ -225,7 +226,7 @@ options: Partial<ProcessingOptions> =
 ..options }
 try {
       console.warn(;
-        ` Analyzing ${codeFiles.length} files with ${processingOptions.analysisDepth} depth`;`)
+        ` Analyzing ${codeFiles.length}  catch (error) { console.error(error); }files with ${processingOptions.analysisDepth} depth`;`)`
       );
 
       // Read and validate code files
@@ -323,7 +324,7 @@ codeData,
                 options.language;)
               );
             //             }
-            break;
+             catch (error) { console.error(error); }break;
 
           case 'validation':'
             results.validation = // // await this.qualityAssessmentEngine.validateRecommendations(;
@@ -441,7 +442,7 @@ readCodeData(codeFiles)
 // // await this.analyticsReporter.close();
       this.isInitialized = false;
       console.warn(' Pipeline Orchestrator closed');'
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.error(` Error closing Pipeline Orchestrator);`
       throw error;
     //     }

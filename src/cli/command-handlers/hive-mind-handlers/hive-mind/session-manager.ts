@@ -2,6 +2,7 @@
 /** Hive Mind Session Manager
 /** Handles session persistence and resume functionality for swarms
 
+ */
 import { existsSync  } from 'node:fs';
 import { readFile  } from 'node:fs';
 import path from 'node:path';
@@ -133,7 +134,7 @@ export class HiveMindSessionManager {
       // return sessions.map((session) => ({
 ..session,metadata = this.memoryStore.sessions.get(sessionId);
     // if(!session) { // LINT: unreachable code removed
-        return null;
+//         return null;
     //   // LINT: unreachable code removed}
 
       // Return simplified session data for in-memory mode
@@ -379,9 +380,9 @@ all(cutoffDate.toISOString());
       acc[agent.type].completed += agentTasks.filter((t) => t.status === 'completed').length;
       acc[agent.type].inProgress += agentTasks.filter((t) => t.status === 'in_progress').length;
       acc[agent.type].pending += agentTasks.filter((t) => t.status === 'pending').length;
-      return acc;
+//       return acc;
     //   // LINT: unreachable code removed});
-
+// 
     return {sessionId = null) {
     const _session = this.getSession(sessionId);
     // ; // LINT: unreachable code removed
@@ -503,7 +504,7 @@ all(cutoffDate.toISOString());
     // Terminate child processes
   for(const pid of childPids) {
       try {
-        process.kill(pid, 'SIGTERM'); // // await this.logSessionEvent(sessionId, 'info', 'Child process terminated', null, { pid }); 
+        process.kill(pid, 'SIGTERM'); // // await this.logSessionEvent(sessionId, 'info', 'Child process terminated', null, { pid } catch (error) { console.error(error); }); 
       } catch(/* _err */) {
         // Process might already be dead
 // // await this.logSessionEvent(sessionId, 'warning', 'Failed to terminate child process', null, {/g)
@@ -543,7 +544,7 @@ all(cutoffDate.toISOString());
   for(const pid of childPids) {
         try {
           process.kill(pid, 0); // Signal 0 just checks if process exists
-          aliveChildPids.push(pid); } catch(/* _err */) {
+          aliveChildPids.push(pid); } catch (error) { console.error(error); } catch(/* _err */) {
           // Process is dead
         //         }
       //       }
@@ -558,7 +559,7 @@ all();
   for(const session of sessions) {
       // Check if parent process is still alive
       try {
-        process.kill(session.parent_pid, 0); } catch(/* _err */) {
+        process.kill(session.parent_pid, 0); } catch (error) { console.error(error); } catch(/* _err */) {
         // Parent is dead, clean up session
         this.stopSession(session.id); cleanedCount++;
         this.logSessionEvent(session.id, 'info', 'Orphaned session cleaned up') {;

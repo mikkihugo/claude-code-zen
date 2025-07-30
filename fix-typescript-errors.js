@@ -1,7 +1,7 @@
 /* eslint-disable */
 #!/usr/bin/env node
 
-/** Comprehensive TypeScript Syntax Error Fixer;
+/* Comprehensive TypeScript Syntax Error Fixer;
  *;
 /** Fixes systematic errors introduced during JavaScript to TypeScript conversion: null
  * 1. Constructor parameter syntax: `options = {}: unknown` -> `options = {}`;
@@ -34,7 +34,7 @@ class TypeScriptErrorFixer {
   for(const filePath _of _tsFiles) {
       try {
 // // await this.fixFile(filePath); 
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         this.errors.push( file, error); console.error(` Error processing ${filePath) {;`
 // }
 // }
@@ -68,7 +68,7 @@ fixFile(filePath);
     const _conditionalPattern = /if\s*\([^)]+\)\s*:\s*any\s*\{/g;
     if(conditionalPattern.test(fixedContent)) {
       fixedContent = fixedContent.replace(conditionalPattern, (match) => {
-        return match.replace(
+//         return match.replace(
     //   // LINT: unreachable code removed});
       hasChanges = true;
       this.errorsPatternsFixed++;
@@ -77,7 +77,7 @@ fixFile(filePath);
     const _whilePattern = /while\s*\([^)]+\)\s*:\s*any\s*\{/g;
     if(whilePattern.test(fixedContent)) {
       fixedContent = fixedContent.replace(whilePattern, (match) => {
-        return match.replace(
+//         return match.replace(
     //   // LINT: unreachable code removed});
       hasChanges = true;
       this.errorsPatternsFixed++;
@@ -86,7 +86,7 @@ fixFile(filePath);
     const _forPattern = /for\s*\([^)]+\)\s*:\s*any\s*\{/g; 
     if(forPattern.test(fixedContent)) {
       fixedContent = fixedContent.replace(forPattern, (match) => {
-        return match.replace(/); 
+//         return match.replace(/); 
     //   // LINT: unreachable code removed}) {;
       hasChanges = true;
       this.errorsPatternsFixed++;
@@ -98,11 +98,11 @@ fixFile(filePath);
       hasChanges = true;
       this.errorsPatternsFixed++;
 // }
-    // Pattern 7: Fix catch statements like `catch(e) {` -> `catch(/* e */) {`
+     catch (error) { console.error(error); }// Pattern 7: Fix catch statements like `catch(e) {` -> `catch(/* e */) {`
     const _catchPattern = /catch\s*\([^)]+\)\s*:\s*any\s*\{/g;
     if(catchPattern.test(fixedContent)) {
       fixedContent = fixedContent.replace(catchPattern, (match) => {
-        return match.replace(
+//         return match.replace(
     //   // LINT: unreachable code removed});
       hasChanges = true;
       this.errorsPatternsFixed++;
@@ -111,7 +111,7 @@ fixFile(filePath);
     const _switchPattern = /switch\s*\([^)]+\)\s*:\s*any\s*\{/g;
     if(switchPattern.test(fixedContent)) {
       fixedContent = fixedContent.replace(switchPattern, (match) => {
-        return match.replace(
+//         return match.replace(
     //   // LINT: unreachable code removed});
       hasChanges = true;
       this.errorsPatternsFixed++;

@@ -3,6 +3,7 @@
  *;
 /** Safe optimization of existing hive mind databases without breaking compatibility;
 
+ */
 import chalk from 'chalk';
 
 /** Show help for hive-mind-optimize command;

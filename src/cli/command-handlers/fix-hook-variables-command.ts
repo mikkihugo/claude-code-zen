@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Fix hook variable interpolation in Claude Code settings.json files
+/* Fix hook variable interpolation in Claude Code settings.json files
 /** Addresses issue #249 - ${file} and ${command} variables not working
 
+ */
 import { existsSync  } from 'node:fs';
 import fs from 'node:fs';
 import chalk from 'chalk';
@@ -47,7 +48,7 @@ import { printError  } from '..';
 /** Create wrapper scripts for hooks
 
 async;
-function createWrapperScripts(commands = '.claude
+function createWrapperScripts(commands = '.claude'
 // await fs.mkdir(hooksDir, {recursive = new Map();
   for(const command of commands) {
     if(command.includes('post-edit')) {
@@ -74,7 +75,7 @@ else;
       // return {success = `\$settingsPath.backup-\$Date.now()`;
     // // await fs.writeFile(backupPath, content); // LINT: unreachable code removed
       console.warn(chalk.gray(`  Createdbackup = syntax === 'auto' ? // await detectWorkingSyntax() ;`
-    console.warn(chalk.blue(`  Using ${targetSyntax} syntax`));
+    console.warn(chalk.blue(`  Using ${targetSyntax}  catch (error) { console.error(error); }syntax`));
 
     // Collect all commands that need transformation
     const _commands = [];
@@ -83,7 +84,7 @@ else;
     // Transform hooks
     const __transformHooks = () => {
       if(Array.isArray(hooks)) {
-        return hooks.map((hook) => {
+//         return hooks.map((hook) => {
           if(hook.hooks && Array.isArray(hook.hooks)) {
             hook.hooks = hook.hooks.map((h) => {
               if(h.command?.includes('\${')) {
@@ -151,7 +152,7 @@ else;
     { flag: '--test', description: 'Create test hook configuration' } ],
   _examples: [;
     'claude-zen fix-hook-variables',
-    'claude-zen fix-hook-variables .claude
+    'claude-zen fix-hook-variables .claude'
     'claude-zen fix-hook-variables --syntax wrapper',
     'claude-zen fix-hook-variables --test' ],
   _details: `;`

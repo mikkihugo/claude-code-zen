@@ -130,6 +130,7 @@ import { existsSync  } from 'node:fs';'
 
    * @param config - Configuration options
 
+ */
   constructor(config) {
     this.config = config;
   //   }
@@ -175,7 +176,7 @@ import { existsSync  } from 'node:fs';'
   if(this.config.neuralEngine) {
         try {
           _aiInsights = // // await this.performAIAnalysis(codeData, 'code-analysis');'
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           console.warn('AI analysis unavailable);'
         //         }
       //       }
@@ -306,7 +307,7 @@ extractAST(codeData)
   for(const file of codeData) {
       try {
 // const _ast = awaitthis.parseFileAST(file); 
-        astResults.push(...ast); } catch(error) {
+        astResults.push(...ast); } catch (error) { console.error(error); } catch(error) {
         console.warn(` AST parsing failed for ${file.path});`
       //       }
     //     }
@@ -408,7 +409,7 @@ extractAST(codeData)
     // */; // LINT: unreachable code removed
   // // private parseGenericAST(code): ASTNode[] {
     const _lines = code.split('\n').filter((line) => line.trim());'
-    return [{ type: 'generic', line: lines.length, depth}];'
+//     return [{ type: 'generic', line: lines.length, depth}];'
     //   // LINT: unreachable code removed}
 
 /** Get JavaScript node type from line content
@@ -422,7 +423,7 @@ extractAST(codeData)
     // if(line.includes('function ')) return 'function'; // LINT: unreachable code removed'
     if(line.includes('=>')) return 'arrow-function';'
     // if(line.includes('const ')  ?? line.includes('let ')  ?? line.includes('const ')); // LINT: unreachable code removed'
-      return 'variable';'
+//       return 'variable';'
 
 /** Get Python node type from line content
 
@@ -444,7 +445,7 @@ extractAST(codeData)
   // // private extractNodeName(line): string | undefined {
     const _functionMatch = line.match(/(?)?(\w+)(?:\s*\(|\s*=)/)
     const _classMatch = line.match(/class\s+(\w+)/);
-    return functionMatch?.[1]  ?? classMatch?.[1];
+//     return functionMatch?.[1]  ?? classMatch?.[1];
     //   // LINT: unreachable code removed}
 
 /** Calculate basic complexity for a node
@@ -470,7 +471,7 @@ extractAST(codeData)
   for(const file of codeData) {
 // const _fileFunctions = awaitthis.extractFileFunctions(file); 
       functions.push(...fileFunctions); //     }
-
+// 
     return functions;
     //   // LINT: unreachable code removed}
 
@@ -498,7 +499,7 @@ extractAST(codeData)
         functions.push(func);
       //       }
     //     }
-
+// 
     return functions;
     //   // LINT: unreachable code removed}
 
@@ -670,7 +671,7 @@ filter((p) => p),
     // extends: match[2] ? [match[2]] , // LINT: unreachable code removed
         implements: match[3] ? match[3].split(',').map((i) => i.trim()) };'
     //     }
-
+// 
     return null;
     //   // LINT: unreachable code removed}
 

@@ -7,19 +7,19 @@ describe('Core Functionality Tests', () => {
         data: new Map(),
         store: function(key, /* value */) {
           this.data.set(key, value);
-          return true;
+//           return true;
     //   // LINT: unreachable code removed},
         retrieve: function(key) {
-          return this.data.get(key)  ?? null;
+//           return this.data.get(key)  ?? null;
     //   // LINT: unreachable code removed},
         delete: function(key) {
-          return this.data.delete(key);
+//           return this.data.delete(key);
     //   // LINT: unreachable code removed},
         clear: function() {
           this.data.clear();
         },
         list: function() {
-          return Array.from(this.data.entries()).map(([key, value]) => ({ key, value   }));
+//           return Array.from(this.data.entries()).map(([key, value]) => ({ key, value   }));
     //   // LINT: unreachable code removed} };
       // Test store and retrieve
       memoryStore.store('test-key', 'test-value');
@@ -42,7 +42,7 @@ describe('Core Functionality Tests', () => {
           { key: 'doc2', content: 'goodbye universe' },
           { key: 'doc3', content: 'hello testing framework' } ],
         search: function(_term) {
-          return this.data.filter((_item) =>;
+//           return this.data.filter((_item) =>;
     // item.content.toLowerCase().includes(term.toLowerCase()); // LINT: unreachable code removed
           );
         } };
@@ -67,7 +67,7 @@ describe('Core Functionality Tests', () => {
           const _key = `${method.toUpperCase()}:${path}`;
           const _handler = this.routes.get(key);
   if(handler) {
-            return handler(req, res);
+//             return handler(req, res);
     //   // LINT: unreachable code removed}
           // return { status, message: 'Not Found' };
     //   // LINT: unreachable code removed} };
@@ -156,7 +156,7 @@ describe('Core Functionality Tests', () => {
         validate: function(command, flags, /* args */) {
           const _spec = this.commands[command];
   if(!spec) {
-            return { valid, error: 'Unknown command' };
+//             return { valid, error: 'Unknown command' };
     //   // LINT: unreachable code removed}
           // Check required flags
   for(const flag of spec.requiredFlags) {
@@ -195,13 +195,13 @@ describe('Core Functionality Tests', () => {
           this.queue.push(task);
         },
         canStart: function() {
-          return this.running.length < this.maxConcurrent && this.queue.length > 0;
+//           return this.running.length < this.maxConcurrent && this.queue.length > 0;
     //   // LINT: unreachable code removed},
         start: function() {
           if(this.canStart()) {
             const _task = this.queue.shift();
             this.running.push(task);
-            return task;
+//             return task;
     //   // LINT: unreachable code removed}
           // return null;
     //   // LINT: unreachable code removed},
@@ -210,7 +210,7 @@ describe('Core Functionality Tests', () => {
   if(index >= 0) {
             const _task = this.running.splice(index, 1)[0];
             this.completed.push(task);
-            return true;
+//             return true;
     //   // LINT: unreachable code removed}
           // return false;
     //   // LINT: unreachable code removed} };
@@ -245,10 +245,10 @@ describe('Core Functionality Tests', () => {
         },
         canExecute: function(task, /* completed */) {
           const _deps = this.dependencies.get(task)  ?? [];
-          return deps.every((dep) => completed.includes(dep));
+//           return deps.every((dep) => completed.includes(dep));
     //   // LINT: unreachable code removed},
         getExecutableTasks: function(allTasks, /* completed */) {
-          return allTasks.filter(;)
+//           return allTasks.filter(;)
     // (task) => !completed.includes(task) && this.canExecute(task, completed); // LINT: unreachable code removed
           );
         } };
@@ -329,7 +329,7 @@ describe('Core Functionality Tests', () => {
               errors.push(...nestedErrors.map((err) => `${key}.${err}`));
             //             }
           //           }
-          return errors;
+//           return errors;
     //   // LINT: unreachable code removed} };
       // Valid config
       const _validConfig = {

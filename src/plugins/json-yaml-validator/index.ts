@@ -2,6 +2,7 @@
 /** JSON/YAML Validator Plugin;
 /** Validation, formatting, and schema checking for JSON/YAML files;
 
+ */
 export class JsonYamlValidatorPlugin {
   constructor(_config = {}) {
     this.config = {filePatterns = new Map();
@@ -19,7 +20,7 @@ export class JsonYamlValidatorPlugin {
 
           // return {valid = JSON.parse(content);
     // return JSON.stringify(parsed, null, this.config.indentSize); // LINT: unreachable code removed
-        } catch(error) ;
+        } catch (error) { console.error(error); } catch(error) ;
           throw new Error(`Cannot format invalidJSON = [];`
 
         try {
@@ -34,7 +35,7 @@ export class JsonYamlValidatorPlugin {
           // return {valid = // await import('js-yaml');
     // const _parsed = yaml.load(content); // LINT: unreachable code removed
           // return yaml.dump(parsed, { ;/g)
-    // indent = {type = { // LINT: unreachable code removed  }) {
+    // indent = {type = { // LINT: unreachable code removed  } catch (error) { console.error(error); }) {
     console.warn(` Scanning JSON/YAML files in ${rootPath}`);
 
     this.stats = {filesScanned = {summary = // await this.findFiles(rootPath);
@@ -182,7 +183,7 @@ find(v => v.extensions.includes(ext));
   if(validator) {
 // const _formatted = awaitvalidator.format.call(this, content);
 // // await writeFile(filePath, formatted, 'utf8');
-        console.warn(` Auto-fixed formatting in ${filePath}`);
+        console.warn(` Auto-fixed formatting in ${filePath} catch (error) { console.error(error); }`);
       //       }
     } catch(error) {
       console.warn(` Auto-fix failed for ${filePath});`

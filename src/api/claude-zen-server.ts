@@ -3,6 +3,7 @@
 /** Unified API server with auto-generated routes from schema;
 /** Replaces hard-coded endpoints with maintainable schema approach
 
+ */
 import { EventEmitter  } from 'node:events';
 import { createServer  } from 'node:http';
 import cors from 'cors';
@@ -16,7 +17,7 @@ import { CLAUDE_ZEN_SCHEMA,
 generateOpenAPISpec,
 getWebEnabledCommands,
 SCHEMA_METADATA,
-validateCommandArgs  } from '.
+validateCommandArgs  } from '.'
 
 /** Server configuration interface
 
@@ -53,7 +54,7 @@ validateCommandArgs  } from '.
 // private storage = new Map<string, Map<string, any>>();
 constructor(config)
 // {
-  super();
+//   super();
   this.config = {
       port,
   host: 'localhost',
@@ -153,9 +154,9 @@ this.app.post(`${`
 // }/g)
 //  (),7::=>RR`acceeeeeeeeennopqqrrsssssttuuxy{{};`
 try {
-        const { command, args = {} } = req.body;
+        const { command, args = {}  catch (error) { console.error(error); }} = req.body;
   if(!command) {
-          return res.status(400).json({ error: 'Command is required',)
+//           return res.status(400).json({ error: 'Command is required',)
     // available: Object.keys(CLAUDE_ZEN_SCHEMA), // LINT: unreachable code removed
             });
         //         }
@@ -214,7 +215,7 @@ this.app.use('*', (req, res) =>
       // Create route handler
       const _handler = async(req, res) => {
         try {
-          const _args = { ...req.query, ...req.body };
+          const _args = { ...req.query, ...req.body } catch (error) { console.error(error); };
 
           // Validate arguments
           const _validation = validateCommandArgs(commandName, args);
@@ -331,7 +332,7 @@ executeCommand(commandName, args)
           this.setupWebSocket();
         //         }
 
-        this.server.listen(this.config.port, this.config.host, () => {
+         catch (error) { console.error(error); }this.server.listen(this.config.port, this.config.host, () => {
           this.isRunning = true;
           this.metrics.startTime = Date.now();
 
@@ -421,9 +422,9 @@ stop();
 // {
     const _endpoints = [
       '
-      `${this.config.apiPrefix}
-      `${this.config.apiPrefix}
-      `${this.config.apiPrefix}
+      `${this.config.apiPrefix}`
+      `${this.config.apiPrefix}`
+      `${this.config.apiPrefix}`
       `${this.config.apiPrefix}/metrics` ];
 
     // Add schema-based endpoints

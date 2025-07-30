@@ -2,6 +2,7 @@
 /** Prompt Defaults System for Non-Interactive Mode;
 /** Provides a system for supplying default values to prompts when running in non-interactive mode;
 
+ */
 import { existsSync, readFileSync  } from
 'node = ============================================================================'
 // TYPE DEFINITIONS
@@ -17,7 +18,7 @@ export // interface DefaultEntry {id = =========================================
 
 // export class PromptDefaultsManager {
 //   // private config = {}
-this;
+ catch (error) { console.error(error); }this;
 
   configPath = configPath ?? join(homedir(), '.claude-zen', 'prompt-defaults.json')
 this
@@ -39,7 +40,7 @@ this
       const _content = readFileSync(this.configPath, 'utf-8');
       this.config = JSON.parse(content) as PromptDefaultsConfig;
     //     }
-  } catch(/* _error */) {
+   catch (error) { console.error(error); }} catch(/* _error */) {
     // Silently fail, use empty config
     this.config = {};
   //   }
@@ -61,7 +62,7 @@ saveConfig();
       this.environmentDefaults.set('confirm = JSON.parse(env.CLAUDE_PROMPT_DEFAULTS);'
         Object.entries(defaults).forEach(([key, value]) => {
           this.environmentDefaults.set(key, value);
-        });
+        } catch (error) { console.error(error); });
       } catch(error) ;
     //     }
   //   }
@@ -89,7 +90,7 @@ saveConfig();
         (d) => d.id === promptId ?? (d.pattern && this.matchPattern(promptId, d.pattern));
         //         )
   if(commandDefault) {
-          return commandDefault.defaultValue;
+//           return commandDefault.defaultValue;
           //   // LINT: unreachable code removed}
         //         }
         // Check environment-specific defaults
@@ -99,7 +100,7 @@ saveConfig();
           (d) => d.id === promptId ?? (d.pattern && this.matchPattern(promptId, d.pattern));
           //           )
   if(envDefault) {
-            return envDefault.defaultValue;
+//             return envDefault.defaultValue;
             //   // LINT: unreachable code removed}
           //           }
           // Check global defaults
@@ -108,7 +109,7 @@ saveConfig();
             (d) => d.id === promptId ?? (d.pattern && this.matchPattern(promptId, d.pattern));
             //             )
   if(globalDefault) {
-              return globalDefault.defaultValue;
+//               return globalDefault.defaultValue;
               //   // LINT: unreachable code removed}
             //             }
             // Return undefined if no default found
@@ -256,7 +257,7 @@ saveConfig();
   if(!instance) {
     instance = new PromptDefaultsManager(configPath);
   //   }
-  return instance;
+//   return instance;
 // }
   // =============================================================================
   // CONVENIENCE FUNCTIONS
@@ -293,7 +294,7 @@ saveConfig();
  */
     // */ // LINT: unreachable code removed
 // export function hasPromptDefault(promptId, command?, promptType?) {
-  return getPromptDefaultsManager().hasDefault(promptId, command, promptType);
+//   return getPromptDefaultsManager().hasDefault(promptId, command, promptType);
 // }
 
 /** Clear prompt defaults;
@@ -309,7 +310,7 @@ saveConfig();
  * @returns Configuration object;
     // */ // LINT: unreachable code removed
 // export function exportPromptDefaults() {
-  return getPromptDefaultsManager().exportConfig();
+//   return getPromptDefaultsManager().exportConfig();
 // }
 
 /** Import prompt defaults configuration;

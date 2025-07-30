@@ -14,14 +14,15 @@ const _SESSION_STATES = {ACTIVE = null;
 
 /** Initialize session storage directories and memory store
 
+ */
 async function _initializeSessionStorage() {
   try {
     if(!existsSync(SESSION_BASE_DIR)) {
       mkdirSync(SESSION_BASE_DIR, {recursive = new EnhancedMemory({
         directory,namespace = // await fs.readFile(ACTIVE_SESSIONS_FILE, 'utf8');
-      return JSON.parse(content);
+//       return JSON.parse(content);
     //   // LINT: unreachable code removed}
-  } catch(/* _error */)
+   catch (error) { console.error(error); }} catch(/* _error */)
     printWarning(`Failed to load activesessions = // await fs.readFile(SESSION_HISTORY_FILE, 'utf8');`
       // return JSON.parse(content);
     //   // LINT: unreachable code removed}
@@ -80,7 +81,7 @@ async function _createSession() {
       return;
     //   // LINT: unreachable code removed}
 
-    printSuccess(` Found ${sessionIds.length} session(s):`);
+     catch (error) { console.error(error); }printSuccess(` Found ${sessionIds.length} session(s):`);
     console.warn();
 
     // Sort by creation date(newest first)
@@ -109,7 +110,7 @@ sort((a, b) => new Date(b.created) - new Date(a.created));
     // Try exact match first
   if(activeSessions[sessionId]) {
       sessionData = activeSessions[sessionId];
-    } else {
+    }  catch (error) { console.error(error); }else {
       // Try partial match
       const _matchingIds = Object.keys(activeSessions).filter(id => ;)
         id.includes(sessionId)  ?? activeSessions[id].name.includes(sessionId);
@@ -172,7 +173,7 @@ sort((a, b) => new Date(b.created) - new Date(a.created));
 // const _activeSessions = awaitloadActiveSessions();
     const _sessionData = activeSessions[sessionId];
   if(!sessionData) {
-      printError(`Session '${sessionId}' not found.`);
+      printError(`Session '${sessionId} catch (error) { console.error(error); }' not found.`);
       return;
     //   // LINT: unreachable code removed}
 
@@ -234,7 +235,7 @@ sort((a, b) => new Date(b.created) - new Date(a.created));
       printInfo('No active session found in current directory.');
       console.warn(` Currentdirectory = getStateIcon(session.state);`
 
-      console.warn(`${stateIcon} Current Session`);
+      console.warn(`${stateIcon}  catch (error) { console.error(error); }Current Session`);
       console.warn(`ID = session.activities.slice(-5);`
   if(recentActivities.length === 0) {
           console.warn('   No activities recorded yet.');
@@ -316,7 +317,7 @@ function _showSessionHelp() {
         printError(`Unknown session command);`
         _showSessionHelp();
     //     }
-  } catch(error) {
+   catch (error) { console.error(error); }} catch(error) {
     printError(`Session command failed);`
   if(flags.verbose) {
       console.error('Stack trace);'

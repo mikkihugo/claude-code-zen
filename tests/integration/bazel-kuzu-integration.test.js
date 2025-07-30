@@ -1,6 +1,7 @@
 
 /** Integration tests for Bazel-Kuzu graph database integration;
 
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -37,7 +38,7 @@ afterEach(async() =>
   //   }
   // Clean up test directory
   try {
-  // // await fs.rm(testDir, { recursive, force });
+  // // await fs.rm(testDir, { recursive, force } catch (error) { console.error(error); });
     } catch(/* _error */) {
       // Ignore cleanup errors
     //     }
@@ -52,7 +53,7 @@ test('should initialize with Kuzu integration', async() =>
       expect(plugin.config.enableKuzuIntegration).toBe(true);
       expect(plugin.graphBackend).toBeDefined();
       expect(plugin.stats.graphNodesStored).toBeGreaterThanOrEqual(0);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       // Skip test if Kuzu is not available
       if(error.message.includes('Kuzu not available')) {
         console.warn('Skipping Kuzu integration test - Kuzu not available');
@@ -78,7 +79,7 @@ test('should initialize with Kuzu integration', async() =>
         `);`
         expect(result[0]?.target_count).toBeGreaterThan(0);
       //       }
-    } catch(error) {
+     catch (error) { console.error(error); }} catch(error) {
       if(error.message.includes('Kuzu not available')) {
         console.warn('Skipping graph storage test - Kuzu not available');
         return;
@@ -97,7 +98,7 @@ test('should initialize with Kuzu integration', async() =>
       expect(impact).toBeDefined();
       expect(impact.affectedTargets).toBeDefined();
       expect(impact.analysisMethod).toBeDefined();
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       if(error.message.includes('Kuzu not available')) {
         console.warn('Skipping impact analysis test - Kuzu not available');
         return;
@@ -121,7 +122,7 @@ test('should initialize with Kuzu integration', async() =>
       expect(graphvizViz.content).toContain('digraph');
       expect(mermaidViz.format).toBe('mermaid');
       expect(mermaidViz.content).toContain('graph TD');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       if(error.message.includes('Kuzu not available')) {
         console.warn('Skipping visualization test - Kuzu not available');
         return;
@@ -146,7 +147,7 @@ test('should initialize with Kuzu integration', async() =>
       expect(impact).toBeDefined();
       expect(impact.affectedTargets).toBeDefined();
   // // await fallbackPlugin.cleanup();
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.error('Fallback test failed);'
       throw error;
     })

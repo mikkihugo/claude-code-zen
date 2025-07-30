@@ -2,6 +2,7 @@
 /** Cli Main Module;
 /** Converted from JavaScript to TypeScript;
 
+ */
 #;
 // ! /usr/bin / env;
 node;
@@ -11,7 +12,7 @@ import { commandRegistry,
 createMeowCLI,
 executeCommand,
 hasCommand,
-showCommandHelp  } from '.
+showCommandHelp  } from '.'
 
 import { initializePlugins  } from '.';
 
@@ -56,7 +57,7 @@ async function _main() {
       _pluginManager = // await initializePlugins({errorHandling = // await import('./plugin-activation.js');
         registerPluginCommands(commandRegistry);
       //       }
-  //   }
+   catch (error) { console.error(error); }//   }
   catch(error);
   if(flags.debug) {
     console.error(' Plugin initialization failed);'
@@ -73,7 +74,7 @@ async function _main() {
 if(hasCommand(command)) {
   try {
 // // await executeCommand(command, input.slice(1), flags);
-  } catch(/* err */) {
+  } catch (error) { console.error(error); } catch(/* err */) {
     console.error(` Error executing command "${command}");`
   if(flags.debug) {
       console.error('Stack trace);'

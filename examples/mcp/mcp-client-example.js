@@ -2,6 +2,7 @@
 /** MCP Client Example;
 /** Demonstrates how to connect to and use MCP tools;
 
+ */
 import { ClaudeFlowMCPServer  } from '../src/mcp/mcp-server.js';
 
 class MCPClientExample {
@@ -256,7 +257,7 @@ console.warn('Feature Detection:', features)
       console.warn('Step 7');
   // // await this.systemDiagnosticsExample();
       console.warn('\n Complete workflow example finished successfully');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.error(' Workflow error);'
       throw error;
 // }
@@ -283,7 +284,7 @@ runExample(exampleName);
   console.warn('\n Running all MCP examples...');
   for(const [name, example] of this.examples) {
     try {
-        console.warn(`\n--- Running ${name} ---`); // // await example(); 
+        console.warn(`\n--- Running ${name}  catch (error) { console.error(error); }---`); // // await example(); 
       } catch(error) {
         console.error(` Example ${name} failed);`
 // }

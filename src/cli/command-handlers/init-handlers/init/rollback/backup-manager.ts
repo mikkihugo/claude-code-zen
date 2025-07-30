@@ -8,11 +8,12 @@ export class BackupManager {
   constructor(workingDir = workingDir;
   this;
 
-  backupDir = `${workingDir}
+  backupDir = `${workingDir}`
 // }
 
 /** Create a backup of the current state
 
+ */
 async;
 createBackup((type = 'manual'), (description = ''));
 : unknown
@@ -22,7 +23,7 @@ createBackup((type = 'manual'), (description = ''));
   result.id = backupId;
 
   // Create backup directory
-  const _backupPath = `${this.backupDir}
+  const _backupPath = `${this.backupDir}`
   result.location = backupPath;
 // // await this.ensureBackupDir();
 // // await node.mkdir(backupPath, { recursive = {id = // await this.getCriticalFiles();
@@ -42,7 +43,7 @@ createBackup((type = 'manual'), (description = ''));
       // Check if backup exists
       try {))
 // // await node.stat(backupPath) {;
-      } catch {
+      } catch (error) { console.error(error); } catch {
         result.success = false;
         result.errors.push(`Backup notfound = `${backupPath}/manifest.json`;`/g)
 // const _manifestContent = awaitnode.readTextFile(manifestPath);
@@ -66,7 +67,7 @@ createBackup((type = 'manual'), (description = ''));
   for(const entry of entries) {
   if(entry.isDirectory) {
           try {
-            const _metadataPath = `${this.backupDir}/${entry.name}/metadata.json`; 
+            const _metadataPath = `${this.backupDir} catch (error) { console.error(error); }/${entry.name}/metadata.json`; 
             const _manifestPath = `${this.backupDir}/${entry.name}/manifest.json`; 
 
             const _metadata = JSON.parse(// await node.readTextFile(metadataPath) {);
@@ -78,7 +79,7 @@ createBackup((type = 'manual'), (description = ''));
 /** Delete a backup
 
   async deleteBackup(backupId) { 
-    const _result = success = `${this.backupDir}
+    const _result = success = `${this.backupDir}`
 // await node.remove(backupPath, {recursive = false;/g)
       result.errors.push(`Failed to deletebackup = 5);`
 
@@ -133,7 +134,7 @@ createBackup((type = 'manual'), (description = ''));
             'memory/claude-zen-data.json' ];
   for(const file of potentialFiles) {
             try {
-// const _stat = awaitnode.stat(`${this.workingDir}/${file}`); 
+// const _stat = awaitnode.stat(`${this.workingDir} catch (error) { console.error(error); }/${file}`); 
   if(stat.isFile) {
                 files.push(file); //               }
             } catch {
@@ -151,12 +152,12 @@ createBackup((type = 'manual'), (description = ''));
           const _potentialDirs = [
             '.claude',
             '.roo',
-            'memory
-            'memory
+            'memory'
+            'memory'
             'coordination' ];
   for(const dir of potentialDirs) {
             try {
-// const _stat = awaitnode.stat(`${this.workingDir}/${dir}`); 
+// const _stat = awaitnode.stat(`${this.workingDir} catch (error) { console.error(error); }/${dir}`); 
   if(stat.isDirectory) {
                 dirs.push(dir); //               }
             } catch {
@@ -171,8 +172,8 @@ createBackup((type = 'manual'), (description = ''));
   backupFile(relativePath, backupPath) {;
 
         //         {
-          const _result = {success = `${this.workingDir}
-          const _destPath = `${backupPath}
+          const _result = {success = `${this.workingDir}`
+          const _destPath = `${backupPath}`
 
           // Ensure destination directory exists
           const _destDir = destPath.split('/').slice(0, -1).join('/');
@@ -188,8 +189,8 @@ createBackup((type = 'manual'), (description = ''));
       backupDirectory(relativePath, backupPath);
 
       //       {
-        const _result = {success = `${this.workingDir}
-        const _destPath = `${backupPath}
+        const _result = {success = `${this.workingDir}`
+        const _destPath = `${backupPath}`
 
         // Create destination directory
 // // await node.mkdir(destPath, { recursive = {originalPath = false;
@@ -200,8 +201,8 @@ createBackup((type = 'manual'), (description = ''));
     //   // LINT);
 
     for // await(const entry of node.readDir(source)) {
-      const _sourcePath = `${source}
-      const _destPath = `${dest}
+      const _sourcePath = `${source}`
+      const _destPath = `${dest}`
   if(entry.isFile) {
 // // await node.copyFile(sourcePath, destPath);
       } else if(entry.isDirectory) {
@@ -214,7 +215,7 @@ createBackup((type = 'manual'), (description = ''));
 
     //     {
       const _result = {success = fileInfo.backupPath;
-      const _destPath = `${this.workingDir}
+      const _destPath = `${this.workingDir}`
 
       // Ensure destination directory exists
       const _destDir = destPath.split('/').slice(0, -1).join('/');
@@ -227,7 +228,7 @@ createBackup((type = 'manual'), (description = ''));
 
   //   {
     const _result = {success = dirInfo.backupPath;
-    const _destPath = `${this.workingDir}
+    const _destPath = `${this.workingDir}`
 
     // Remove existing directory if it exists
     try {
@@ -235,7 +236,7 @@ createBackup((type = 'manual'), (description = ''));
       result.error = error.message;
     //     }
 
-    // return result;/g)
+     catch (error) { console.error(error); }// return result;/g)
     //   // LINT);
 
   //   {
@@ -243,7 +244,7 @@ createBackup((type = 'manual'), (description = ''));
 
     try {
       for // await(const entry of node.readDir(backupPath)) {
-        const _entryPath = `${backupPath}
+        const _entryPath = `${backupPath} catch (error) { console.error(error); }`
 // const _stat = awaitnode.stat(entryPath);
   if(stat.isFile) {
           totalSize += stat.size;
@@ -262,7 +263,7 @@ createBackup((type = 'manual'), (description = ''));
   createTestBackup();
   try {
     // return await this.createBackup('test', 'System validation test');
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
     // return {
         success = {adequate = new Command('df', {args = // await command.output();
     // ; // LINT: unreachable code removed

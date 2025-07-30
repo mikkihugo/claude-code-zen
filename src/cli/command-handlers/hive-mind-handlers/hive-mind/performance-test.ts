@@ -2,6 +2,7 @@
 /** Performance Test Suite for Hive Mind Optimizations
 /** Tests the performance improvements implemented
 
+ */
 import { performance  } from 'node:perf_hooks';
 import { PerformanceOptimizer  } from '.';
 
@@ -28,7 +29,7 @@ export class PerformanceTest {
     for (const test of tests) 
       try {
 // // await test.call(this); 
-      } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) {
         console.error(`Testfailed = new HiveMindCore({name = ['coder', 'tester', 'analyst', 'researcher', 'architect', 'optimizer']; `
 
     // Batch spawning test/g))
@@ -52,7 +53,7 @@ export class PerformanceTest {
   for(let i = 0; i < 20; i++) {
       operations.push(async() => {
 // await new Promise((resolve) => setTimeout(resolve, Math.random() * 100 + 50))
-        return `Operation ${i} completed`;
+//         return `Operation ${i} completed`;
     //   // LINT: unreachable code removed});
     //     }
 
@@ -75,7 +76,7 @@ export class PerformanceTest {
 fill(null);
 map(async(_, i) => {
 // await new Promise((resolve) => setTimeout(resolve, Math.random() * 10))
-        return {key = performance.now() - pooledStart;
+//         return {key = performance.now() - pooledStart;
     // ; // LINT: unreachable code removed
     // Simulate without pooling
     const _serialStart = performance.now();
@@ -116,7 +117,7 @@ map(async(_, i) => {
 // // await optimizer.optimizeWithCache(cacheKey, async() => {
       _cacheMisses++;
 // await new Promise((resolve) => setTimeout(resolve, 100));
-      return 'cached-value';
+//       return 'cached-value';
     //   // LINT: unreachable code removed  });
 
     // Subsequent calls should be hits
@@ -124,7 +125,7 @@ map(async(_, i) => {
 // // await optimizer.optimizeWithCache(cacheKey, async() => {
         _cacheMisses++;
 // await new Promise((resolve) => setTimeout(resolve, 100));
-        return 'cached-value';
+//         return 'cached-value';
     //   // LINT: unreachable code removed});
       _cacheHits++;
     //     }
@@ -137,7 +138,7 @@ map(async(_, i) => {
         optimizer.optimizeBatchOperation(;
           'test-batch',_id => {))
 // // await new new Promise((resolve) => setTimeout(resolve, 50));
-            return items.map((_item) => ({processed = performance.now() - batchStart;
+//             return items.map((_item) => ({processed = performance.now() - batchStart;
     // ; // LINT: unreachable code removed
     this.results.push({test = '.repeat(80));'
 

@@ -3,6 +3,7 @@
 /** HIGH-PERFORMANCE REAL KUZU DATABASE INTEGRATION;
 /** Replaces file-based simulation with actual Kuzu database connections;
 
+ */
 import { existsSync  } from 'node:fs';
 import { readFile  } from 'node:fs';
 import path from 'node:path';
@@ -12,7 +13,7 @@ import { printError, printInfo, printSuccess  } from '..';
 const _kuzu = null;
 try {
   kuzu = // await import('kuzu');
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   console.warn('Kuzu database not available, using fallback mode = {}) {'
     this.config = {dbPath = = false,compression = = false,memoryLimit = = false, // Default to real Kuzu
 ..config;
@@ -106,7 +107,7 @@ loadExistingData();
         this.stats.nodeCount = this.nodes.size;
       //       }
 
-      if(existsSync(relationshipsPath)) {
+       catch (error) { console.error(error); }if(existsSync(relationshipsPath)) {
         const _relationshipsData = JSON.parse(// await readFile(relationshipsPath, 'utf8'));
         this.relationships = new Map(relationshipsData);
         this.stats.relationshipCount = this.relationships.size;
@@ -125,7 +126,7 @@ loadExistingData();
 // // await this.processBatch(batch, 'nodes');
         batch.length = 0;
       //       }
-    //     }
+     catch (error) { console.error(error); }//     }
 
     // Process remaining batch
   if(batch.length > 0) {
@@ -192,7 +193,7 @@ loadExistingData();
       try {
         // Build WHERE clauses based on criteria
         const _whereClauses = []; if(criteria.name) {
-          whereClauses.push(`s.name CONTAINS '${criteria.name.replace(/'/g, "''")}' `);'
+          whereClauses.push(`s.name CONTAINS '${criteria.name.replace(/'/g, "''")} catch (error) { console.error(error); }' `);'
         //         }
   if(criteria.type) {
           whereClauses.push(`s.type = '${criteria.type.replace(/'/g, "''")}' `);'
@@ -233,7 +234,7 @@ loadExistingData();
 
     // Sort by name by default
     results.sort((a, b) => a.properties.name.localeCompare(b.properties.name));
-
+// 
     return results;
     //   // LINT: unreachable code removed}
 
@@ -271,7 +272,7 @@ filter(node => node.type === 'Function' && ;
     results.sort((_a, _b) => ;
       b.properties.cyclomatic_complexity - a.properties.cyclomatic_complexity;
     );
-
+// 
     return results;
     //   // LINT: unreachable code removed}
 
@@ -288,7 +289,7 @@ filter(node => node.type === 'SourceFile' && ;
     results.sort((_a, _b) => ;
       b.properties.complexity_score - a.properties.complexity_score;
     );
-
+// 
     return results;
     //   // LINT: unreachable code removed}
 
@@ -315,11 +316,11 @@ filter(rel => rel.type === 'DUPLICATES');
   for(const _duplicate of duplicates) {
       const _occurrences = duplicateRelationships; filter(rel => rel.from === duplicate.id); map(rel => {
           const _file = this.nodes.get(rel.to) {;
-          return {
+//           return {
             file => {
       const _impactA = a.similarity * a.occurrences.length;
     // const _impactB = b.similarity * b.occurrences.length; // LINT: unreachable code removed
-      return impactB - impactA;
+//       return impactB - impactA;
     //   // LINT: unreachable code removed  });
 
     // return patterns;
@@ -550,7 +551,7 @@ filter(node => node.type === 'Function' && node.properties.parameter_count > 5);
       'const ': 'Use const or let for block scoping',
       'require(': 'Use ES6 import/export statements',
       'setInterval': 'Consider requestAnimationFrame for animations',
-      'setTimeout': 'Consider using Promises or async
+      'setTimeout': 'Consider using Promises or async'
     };
 
     // return recommendations[pattern]  ?? 'Consider using modern alternatives';
@@ -617,18 +618,18 @@ join(', ');
         try {
           // Use the synchronous getAllSync() method to avoid async iteration issues
           rows = result.getAllSync();
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           printWarning(` Error getting query results = {}) ;`
     try {
       // Basic query simulation logic
       if(query.includes('MATCH') && query.includes('Service')) {
         const _results = Array.from(this.nodes.values());
 filter(node => node.type === 'Service');
-        return {success = === 'nodes') {
+//         return {success = === 'nodes') {
   for(const node _of _batch) {
             const _query = this.generateInsertNodeQuery(node); // this.connection.querySync(query); // LINT: unreachable code removed
           //           }
-        } else if(type === 'relationships') {
+         catch (error) { console.error(error); }} else if(type === 'relationships') {
   for(const rel of batch) {
             const _query = this.generateInsertRelQuery(rel); this.connection.querySync(query); //           }
         //         }
@@ -645,11 +646,11 @@ filter(node => node.type === 'Service');
       printWarning(` Batch processingwarning = Object.entries(node.properties);`
 map(([key, value]) => `${key}: '${value}'`);
 join(', ');
-
+// 
     return `CREATE(n = Object.entries(rel.properties  ?? {});`
     // .map(([key, value]) => `$key: '\${value // LINT}'`);
 join(', ');
-
+// 
     return `MATCH(a {id = {`
       'express': 'web-framework',
     // 'fastify': 'web-framework', // LINT: unreachable code removed

@@ -15,7 +15,7 @@ async(req, res) => {
   try {
       const _errors = validationResult(req);
       if(!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array()   });
+//         return res.status(400).json({ errors: errors.array()   } catch (error) { console.error(error); });
     //   // LINT: unreachable code removed}
       const { username, email, password } = req.body;
       // Check if user exists
@@ -44,7 +44,7 @@ async(req, res) =>
     try {
       const _errors = validationResult(req);
       if(!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array()   });
+//         return res.status(400).json({ errors: errors.array()   } catch (error) { console.error(error); });
     //   // LINT: unreachable code removed}
       const { email, password } = req.body;
       // Find user

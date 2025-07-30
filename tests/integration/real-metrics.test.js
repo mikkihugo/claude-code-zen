@@ -2,6 +2,7 @@
 /** Integration tests for real metrics implementation;
 /** Tests that the updated files correctly collect real system metrics;
 
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -12,8 +13,8 @@ describe('Real Metrics Integration Tests', () => { test('monitor.js should exist
 // const _content = awaitfs.readFile(monitorPath, 'utf8');
       // Check for real metrics collection imports
       expect(content).toContain("import os from 'os'");
-      expect(content).toContain("import { performance  } from 'perf_hooks'");
-      expect(content).toContain("import fs from 'fs
+      expect(content).toContain("import { performance  }  catch (error) { console.error(error); }from 'perf_hooks'");
+      expect(content).toContain("import fs from 'fs'
 
       // Check for real CPU usage calculation
       expect(content).toContain('async function getCPUUsage()');
@@ -62,7 +63,7 @@ describe('Real Metrics Integration Tests', () => { test('monitor.js should exist
         'loadMonitor',
         'capacityPlan' ];
   for(const method of toolMethods) {
-        expect(content).toMatch(new RegExp(`async ${method}\\(\\)[\\s\\S]*?try[\\s\\S]*?catch`)); expect(content).toMatch(/displayError\([^ ]+, [^)]*analysis service is running/); 
+        expect(content).toMatch(new RegExp(`async ${method} catch (error) { console.error(error); }\\(\\)[\\s\\S]*?try[\\s\\S]*?catch`)); expect(content).toMatch(/displayError\([^ ]+, [^)]*analysis service is running/); 
       //       }
       // Check that displayError method exists
   expect(content) {.toContain('displayError(containerId, message)');

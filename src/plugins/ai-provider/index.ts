@@ -2,6 +2,7 @@
 /** AI Provider Plugin(TypeScript);
 /** Comprehensive multi-model AI/LLM provider support with production features;
 
+ */
 import crypto from 'node:crypto';
 import { performance  } from 'node:perf_hooks';
 
@@ -31,7 +32,7 @@ parseJSONResponse(text)
 : unknown
 // {
   try {
-    const _jsonMatch = text.match(/\{[\s\S]*\}/);
+    const _jsonMatch = text.match(/\{[\s\S]*\} catch (error) { console.error(error); }/);
   if(jsonMatch) {
       // return JSON.parse(jsonMatch[0]);
     //   // LINT: unreachable code removed}
@@ -87,7 +88,7 @@ generateText(prompt, (options = {}));
 
     try {
   while(true) {
-        const { done, value } = // await reader.read();
+        const { done, value }  catch (error) { console.error(error); }= // await reader.read();
         if(done) break;
 
         buffer += decoder.decode(value, {stream = buffer.split('\n');
@@ -100,7 +101,7 @@ generateText(prompt, (options = {}));
   if(parsed.delta?.text) {
                 yield parsed.delta.text;
               //               }
-            } catch(/* e */) {
+             catch (error) { console.error(error); }} catch(/* e */) {
               // Skip invalid JSON
             //             }
           //           }
@@ -158,7 +159,7 @@ class OpenAIProvider extends BaseProvider {
 
     try {
   while(true) {
-        const { done, value } = // await reader.read();
+        const { done, value }  catch (error) { console.error(error); }= // await reader.read();
         if(done) break;
 
         buffer += decoder.decode(value, {stream = buffer.split('\n');
@@ -171,7 +172,7 @@ class OpenAIProvider extends BaseProvider {
   if(parsed.choices[0]?.delta?.content) {
                 yield parsed.choices[0].delta.content;
               //               }
-            } catch(/* e */) {
+             catch (error) { console.error(error); }} catch(/* e */) {
               // Skip invalid JSON
             //             }
           //           }
@@ -198,7 +199,7 @@ class OpenAIProvider extends BaseProvider {
   if(!this.activeProvider) {
       throw new Error(`Failed to initialize primary _provider => {`
       // Could enhance tasks with AI capabilities
-      return {success = [];
+//       return {success = [];
     // ; // LINT: unreachable code removed
     // Persist cache
   if(this.config.settings.caching?.enabled) {
@@ -211,7 +212,7 @@ class OpenAIProvider extends BaseProvider {
   for(const [name, provider] of this.providers) {
       try {
 // // await provider.cleanup(); 
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         this.context.apis.logger.error(`Failed to cleanup provider ${name}`, error); //       }
     //     }
 
@@ -243,7 +244,7 @@ class OpenAIProvider extends BaseProvider {
 // // await this.saveToCache(cacheKey, result);
         //         }
 
-        // Log request
+         catch (error) { console.error(error); }// Log request
   if(this.config.settings.logging?.enabled) {
 // // await this.logRequest({ requestId,/g)
             //             type = {  }): Promise<any>
@@ -253,7 +254,7 @@ class OpenAIProvider extends BaseProvider {
 
       try {
         // Check cache
-        const _cacheKey = this.getCacheKey('structured', prompt, { schema, ...options });
+        const _cacheKey = this.getCacheKey('structured', prompt, { schema, ...options } catch (error) { console.error(error); });
   if(this.config.settings.caching?.enabled && !options.noCache) {
 // const _cached = awaitthis.getFromCache(cacheKey);
   if(cached) {
@@ -285,7 +286,7 @@ class OpenAIProvider extends BaseProvider {
         // return this.createStreamFromText(result.text);
     //   // LINT: unreachable code removed}
 
-      this.emit('stream_start', { requestId,provider = // await this.activeProvider?.streamText(prompt, options);
+       catch (error) { console.error(error); }this.emit('stream_start', { requestId,provider = // await this.activeProvider?.streamText(prompt, options);
 
       // Wrap stream to track metrics
       // return this.wrapStream(stream, requestId);
@@ -300,7 +301,7 @@ class OpenAIProvider extends BaseProvider {
         const _provider = new PrimaryClass(this.config.settings);
 // // await provider.initialize();
         this.providers.set(primaryProvider, provider);
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         this.context.apis.logger.warn(`Failed to initialize ${primaryProvider}`, {error = this.config.settings.fallbackProviders  ?? [];)
   for(const fallbackName of fallbackProviders) {
       if(this.providers.has(fallbackName)) continue; const _FallbackClass = providerClasses[fallbackName as keyof typeof providerClasses]; if(FallbackClass) {
@@ -308,7 +309,7 @@ class OpenAIProvider extends BaseProvider {
           const _provider = new FallbackClass(this.config.settings);
 // // await provider.initialize();
           this.providers.set(fallbackName, provider);
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           this.context.apis.logger.warn(`Failed to initialize fallback ${fallbackName}`, {error = > Promise<T>): Promise<T> {
     const _maxAttempts = this.config.settings.retryAttempts  ?? 3;
     const _retryDelay = this.config.settings.retryDelay  ?? 1000;
@@ -317,7 +318,7 @@ class OpenAIProvider extends BaseProvider {
   if(this.activeProvider) {
           // return // await operation();
     //   // LINT: unreachable code removed}
-      } catch(error)
+       catch (error) { console.error(error); }} catch(error)
         _lastError = error as Error;
         this.context.apis.logger.warn(`Attempt ${attempt + 1} failed`, {error = > ;)
             setTimeout(resolve, retryDelay * 2 ** attempt);
@@ -364,7 +365,7 @@ class OpenAIProvider extends BaseProvider {
       const _waitTime = (minute + 1) * 60000 - now;
       this.context.apis.logger.info(`Rate limit reached, waiting ${waitTime}ms`);
 // // await new Promise(resolve => setTimeout(resolve, waitTime));
-      return this.checkRateLimit();
+//       return this.checkRateLimit();
     //   // LINT: unreachable code removed}
 
     currentMinute.requests++;
@@ -439,7 +440,7 @@ sort(([ a], [ b]) => a.timestamp - b.timestamp)[0];
       for (const [key, value] of Object.entries(parsed)) {
         const _cached = value as {data = ttl) {
           this.cache.set(key, cached); //         }
-      //       }
+       catch (error) { console.error(error); }//       }
 
       this.context.apis.logger.info(`Loaded ${this.cache.size} cached entries`); } catch(error) {
       // No cache file, that's OK'
@@ -451,7 +452,7 @@ sort(([ a], [ b]) => a.timestamp - b.timestamp)[0];
       const _cachePath = join(this.config.settings.caching?.path  ?? './.hive-mind/ai-cache', 'cache.json');
       const _data = Object.fromEntries(this.cache);
 // // await writeFile(cachePath, JSON.stringify(data, null, 2));
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       this.context.apis.logger.error('Failed to persist cache', error);
     //     }
   //   }
@@ -467,7 +468,7 @@ sort(([ a], [ b]) => a.timestamp - b.timestamp)[0];
         // await new Promise(resolve => setTimeout(resolve, 50)); // Simulate streaming
       //       }
     //     }
-    return textGenerator();
+//     return textGenerator();
     //   // LINT: unreachable code removed}
 
   // private wrapStream(stream = this;
@@ -479,7 +480,7 @@ sort(([ a], [ b]) => a.timestamp - b.timestamp)[0];
           totalTokens += chunk.length;
           yield chunk;
         //         }
-        self.emit('stream_complete', { requestId, totalTokens });
+         catch (error) { console.error(error); }self.emit('stream_complete', { requestId, totalTokens });
       } catch(error) {
         self.emit('stream_error', { requestId, error => {)
       const _now = Date.now();

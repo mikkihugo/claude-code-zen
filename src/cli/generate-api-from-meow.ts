@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/**  ENHANCED API GENERATION FROM MEOW CLI;
+/*  ENHANCED API GENERATION FROM MEOW CLI;
  *;
 /** Generates comprehensive REST/GraphQL/WebSocket APIs from CLI commands;
  * with full OpenAPI documentation, validation, and real-time features.;
@@ -48,13 +48,14 @@ Object.entries(flags).forEach(([flagName, flagConfig]) => {
 /** Generate GraphQL schema from commands(future enhancement);
 
 // export function generateGraphQLSchema(commands = > commands, command = > commands.find(_cmd => cmd.name === name)
+ */
 },Mutation = [], flags =
 // {
 // }
 }) =>
 // {
   // This would call the actual command execution
-  return {
+//   return {
             success,
   // result: { // LINT: unreachable code removed},
   sessionId: Date.now().toString(),

@@ -1,6 +1,7 @@
 
 /** Jest-compatible tests for NPX isolation in init command;
 
+ */
 import { describe, expect, it  } from '@jest';
 
 describe('Init Command NPX Isolation', () => {

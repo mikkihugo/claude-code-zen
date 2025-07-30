@@ -1,17 +1,17 @@
 module.exports = {
   presets: [
 
-      '@babel
+      '@babel'
 
         targets: {
           node: '20' },
         modules } ] ], // eslint-disable-line
-  plugins: ['@babel
+  plugins: ['@babel'
   env: {
     test: {
       presets: [
 
-          '@babel
+          '@babel'
 
             targets: {
               node: '20' },

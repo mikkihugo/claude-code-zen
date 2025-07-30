@@ -3,6 +3,7 @@
 /** Comprehensive database health monitoring and metrics collection system;
  * with alerting, performance tracking, and automated issue detection
 
+ */
 import { EventEmitter  } from 'events';
 import { JSONValue  } from '../types/core';
 import { DatabaseConnection,
@@ -44,7 +45,7 @@ JSONObject,
 // // Statistics
 // private;
 // stats = {totalChecks = {}) {
-    super();
+//     super();
 this.databaseManager = databaseManager;
 this.config = {checkInterval = = false,enableTrends = = false,enablePredictiveAnalysis = = false;
 // }
@@ -70,10 +71,10 @@ this.setupEventListeners() {}
     this.monitoringTimer = setInterval(async() => {
       try {
 // await this.performHealthCheck();
-      } catch(error = setInterval(async() => ;
+      } catch (error) { console.error(error); } catch(error = setInterval(async() => ;
       try {
 // await this.collectMetrics();
-      } catch(error = false;
+      } catch (error) { console.error(error); } catch(error = false;
   if(this.monitoringTimer) {
       clearInterval(this.monitoringTimer);
     //     }
@@ -91,7 +92,7 @@ filter(alert =>
         if(filters.database && alert.database !== filters.database) return false;);
 sort((a, b) =>
   if(!alert) {
-      return false;
+//       return false;
     //   // LINT: unreachable code removed}
 
     alert.acknowledged = true;
@@ -138,7 +139,7 @@ sort((a, b) =>
   if(database) {
       // return trends.filter(t => t.database === database);
     //   // LINT: unreachable code removed}
-
+// 
     return trends;
     // ; // LINT: unreachable code removed
 
@@ -186,7 +187,7 @@ sort((a, b) =>
         if(!this.healthHistory.has(dbId)) {
           this.healthHistory.set(dbId, []); //         }
 
-        const _history = this.healthHistory.get(dbId)!; history.push({overall = 100;)
+         catch (error) { console.error(error); }const _history = this.healthHistory.get(dbId)!; history.push({overall = 100;)
   if(history.length > maxHistory) {
           history.splice(0, history.length - maxHistory);
         //         }
@@ -271,7 +272,7 @@ sort((a, b) =>
     const _totalVariation = values.reduce((sum, yi) => sum + (yi - yMean) ** 2, 0);
     const _residualVariation = values.reduce((sum, yi, i) => {
       const _predicted = slope * i + (sumY - slope * sumX) / n;
-      return sum + (yi - predicted) ** 2;
+//       return sum + (yi - predicted) ** 2;
     //   // LINT: unreachable code removed}, 0);
 
     const _rSquared = totalVariation > 0 ? 1 - (residualVariation / totalVariation) ;
@@ -316,7 +317,7 @@ sort((a, b) =>
         `Query error););`
 
   // private generateAlertId() ;
-    return `alert_\$Date.now()_\$Math.random().toString(36).substr(2, 9)` as UUID;
+//     return `alert_\$Date.now()_\$Math.random().toString(36).substr(2, 9)` as UUID;
     // ; // LINT: unreachable code removed
 // export default DatabaseMonitor;
 

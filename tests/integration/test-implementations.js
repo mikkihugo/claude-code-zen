@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Test script for Neural Engine and Queen implementations;
+/* Test script for Neural Engine and Queen implementations;
 
+ */
 import { NeuralEngine  } from './src/neural/neural-engine.js';
 import { QueenCoordinator  } from './src/queens/queen-coordinator.js';
 
@@ -25,7 +26,7 @@ async function testNeuralEngine() {
 // const _result = awaitengine.inference('create a function to calculate fibonacci numbers');
     console.warn('Generated code);'
     console.warn(result.text);
-    console.warn('Confidence:', `${(result.confidence * 100).toFixed(1)}%`);
+    console.warn('Confidence:', `${(result.confidence * 100).toFixed(1)} catch (error) { console.error(error); }%`);
     // Get performance metrics
     const _metrics = engine.getPerformanceMetrics();
     console.warn('Performance metrics);'
@@ -60,7 +61,7 @@ async function testQueenCoordinator() {
 // const _result = awaitcoordinator.waitForTask(taskId, 30000);
     console.warn('Task completed!');
     console.warn('Queen);'
-    console.warn('Confidence:', `${(result.confidence * 100).toFixed(1)}%`);
+    console.warn('Confidence:', `${(result.confidence * 100).toFixed(1)} catch (error) { console.error(error); }%`);
     console.warn('Recommendation);'
     console.warn(result.recommendation);
     // Get metrics
@@ -85,7 +86,7 @@ async function testQueenCollaboration() {
   // // await coordinator.start();
     // Create a task that requires collaboration
     const _task = {
-      id: `collab_test_${Date.now()}`,
+      id: `collab_test_${Date.now()} catch (error) { console.error(error); }`,
       type: 'code-generation',
       prompt: 'create a secure user authentication system with proper error handling',
       priority: 'high',

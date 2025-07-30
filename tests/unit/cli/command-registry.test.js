@@ -36,7 +36,7 @@ describe('CLI Command Registry', () =>
   });
   afterEach(async() => {
     try {
-  // await fs.rm(testDir, { recursive, force });
+  // await fs.rm(testDir, { recursive, force } catch (error) { console.error(error); });
     } catch(/* _error */) {
       // Ignore cleanup errors
     //     }
@@ -77,7 +77,7 @@ catch(() => false))
         //         )
         throw new Error('Configuration already exists. Use --force to overwrite.');
   // // await fs.writeFile(configFile, 'export default { version);'
-        return { success, message: 'Project initialized successfully' };
+//         return { success, message: 'Project initialized successfully' };
         //   // LINT: unreachable code removed})
 // }
 // const _result = awaitinitCommand.handler([], {});
@@ -164,7 +164,7 @@ catch(() => false))
         if(!args.includes('target') ?? args.length < 1) {
           missing.push('target');
         //         }
-        return missing.length > 0 ? { valid, missing } : { valid };
+//         return missing.length > 0 ? { valid, missing } : { valid };
         //   // LINT: unreachable code removed} };
       const _validResult = commandSpec.validate(['production']);
       expect(validResult.valid).toBe(true);
@@ -205,7 +205,7 @@ catch(() => false))
         f: 'force',
         q: 'quiet' };
   const _expandFlag = () => {
-        return flagAliases[flag]  ?? flag;
+//         return flagAliases[flag]  ?? flag;
     //   // LINT: unreachable code removed};
       expect(expandFlag('h')).toBe('help');
       expect(expandFlag('v')).toBe('version');
@@ -225,7 +225,7 @@ describe('error handling', () =>
   try {
   // // await errorCommand.handler();
         expect(true).toBe(false); // Should not reach here
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         expect(error.message).toBe('Command failed');
       //       }
 })
@@ -234,10 +234,10 @@ it('should provide helpful error messages', () =>
   const _errorFormatter = {
         formatError: (error, command) => {
   if(error.code === 'MISSING_ARGS') {
-            return `Missing required arguments for '${command}': ${error.missing.join(', ')}`;
+//             return `Missing required arguments for '${command}': ${error.missing.join(', ')}`;
     //   // LINT: unreachable code removed}
   if(error.code === 'INVALID_FLAG') {
-            return `Invalid flag '${error.flag}' for command '${command}'`;
+//             return `Invalid flag '${error.flag}' for command '${command}'`;
     //   // LINT: unreachable code removed}
           // return `Error executing '${command}': ${error.message}`;
     //   // LINT: unreachable code removed} };
@@ -266,14 +266,14 @@ describe('command discovery', () =>
           { name: 'deploy', category: 'deployment' },
           { name: 'logs', category: 'debug' } ],
     getCommandsByCategory: function(_category) {
-          return this.availableCommands;
+//           return this.availableCommands;
     // .filter((cmd) => cmd.category === category); // LINT: unreachable code removed
 map((cmd) => cmd.name);
         //         }
 
     // getAllCommands: null
   function() {
-          return this.availableCommands.map((cmd) => cmd.name);
+//           return this.availableCommands.map((cmd) => cmd.name);
     //   // LINT: unreachable code removed}
 // }
     const _setupCommands = commandDiscovery.getCommandsByCategory('setup');

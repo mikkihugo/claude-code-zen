@@ -2,6 +2,7 @@
 /** End-to-End Vision-to-Code Workflow Tests;
 /** Complete workflow validation from vision creation to deployment;
 
+ */
 import { beforeAll, expect  } from '@jest';
 import axios from 'axios';
 import { mockAgentConfigurations,
@@ -25,16 +26,16 @@ describe.skip('End-to-End Vision-to-Code Workflow Tests', () =>
       business: axios.create({ baseURL: SERVICE_URLS.BUSINESS,)
         timeout,'Content-Type': 'application/json'    }),
   core: axios.create({ baseURL);
-  : 'application
+  : 'application'
 //   }),
 swarm: axios.create(// {/g)
   baseURL);
-  : 'application
+  : 'application'
 
 ),
 development: axios.create(// {/g)
   baseURL);
-  : 'application
+  : 'application'
 
 })
 // }
@@ -46,7 +47,7 @@ try {
       for (const [serviceName, client] of Object.entries(serviceClients)) {
         try {
 // const _authResponse = awaitclient.post('/auth/service-token', {/g)
-            service_name); authTokens[serviceName] = authResponse.data.token; client.defaults.headers.Authorization = `Bearer ${authTokens[serviceName]}`;
+            service_name); authTokens[serviceName] = authResponse.data.token; client.defaults.headers.Authorization = `Bearer ${authTokens[serviceName]} catch (error) { console.error(error); }`;
         } catch(error) {console.warn(`\$serviceNameauthentication failed, using _mock token);`
           authTokens[serviceName] = `mock_\$serviceName_token`;
           client.defaults.headers.Authorization = `Bearer \$authTokens[serviceName]`;
@@ -100,7 +101,7 @@ try {
     });
     // Cleanup test workspace
     try {
-  // // await fs.rmdir(testWorkspaceDir, { recursive });
+  // // await fs.rmdir(testWorkspaceDir, { recursive } catch (error) { console.error(error); });
     } catch(error) {
       console.warn('Failed to cleanup test workspace);'
     //     }
@@ -408,7 +409,7 @@ describe('Service Communication and Event Flow', () =>
 ..response.data.data.events.map((e) => (service, ...e ));
             );
           //           }
-        } catch(/* _error */) {
+         catch (error) { console.error(error); }} catch(/* _error */) {
           // Continue monitoring despite errors
         //         }
     };
@@ -640,7 +641,7 @@ it('should maintain performance under sustained load', async() =>
             serviceClients.development.get('/api/health') ]);
           const _responseTime = Date.now() - requestStart;
           responseTimes.push(responseTime);
-        } catch(/* _error */) {
+        } catch (error) { console.error(error); } catch(/* _error */) {
           // Continue load test despite individual failures
         //         }
   // // await new Promise((resolve) => setTimeout(resolve, requestInterval));

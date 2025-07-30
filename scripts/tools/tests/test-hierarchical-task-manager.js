@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Test script for the enhanced Hierarchical Task Manager with AI breakdown;
+/* Test script for the enhanced Hierarchical Task Manager with AI breakdown;
 
+ */
 import { mkdir  } from 'node:fs';
 import path from 'node:path';
 import { HierarchicalTaskManagerPlugin  } from './src/coordination/meta-registry/plugins/hierarchical-task-manager.js';
@@ -17,10 +18,10 @@ async function testHierarchicalTaskManager() {
   const _mockRegistry = {
     register: async(key, _value, _options) => {
       console.warn(` Registered);`
-      return true;
+//       return true;
       getPlugin: (name) => {
         console.warn(` Plugin requested);`
-        return null; // Mock plugins not available
+//         return null; // Mock plugins not available
       }};
   try {
     // Initialize with test configuration
@@ -45,7 +46,7 @@ async function testHierarchicalTaskManager() {
       timeline: '6 months',
       priority: 'high'
 // }
-// const _visionId = awaittaskManager.createVision(testVision);
+ catch (error) { console.error(error); }// const _visionId = awaittaskManager.createVision(testVision);
 console.warn(` Vision created with ID);`
 // Wait a moment for async breakdown to complete
   // await new Promise((resolve) => setTimeout(resolve, 2000));

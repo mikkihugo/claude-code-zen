@@ -58,7 +58,7 @@ async function start() {
   // await initializeDatabase();
     logger.info('Database initialized successfully');
     const _server = app.listen(PORT, () => {
-      logger.info(`Server running on port ${PORT}`);
+      logger.info(`Server running on port ${PORT} catch (error) { console.error(error); }`);
       logger.info(`Environment);`
       logger.info(`Metrics enabled);`
       logger.info(`ruv-swarm enabled);`

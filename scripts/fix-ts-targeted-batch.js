@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Targeted TypeScript Fix Script;
+/* Targeted TypeScript Fix Script;
 /** Fixes specific high-impact issues identified in the build;
 
+ */
 import { exec  } from 'node:child_process';
 import { promises   } from 'node:fs';
 import { promisify  } from 'node:util';
@@ -27,7 +28,7 @@ async function fixSpecificIssues() {
             insertIndex = i;
             break;
           //           }
-        //         }
+         catch (error) { console.error(error); }//         }
         lines.splice(insertIndex, 0, "import chalk from 'chalk';");
   // // await fs.writeFile(file, lines.join('\n'));
         console.warn(`   Added chalk import to ${file}`);
@@ -51,7 +52,7 @@ filter((f) => f);
       updated = updated.replace(/\.outputHelp\(\)/g, '.help()');
   if(updated !== content) {
   // // await fs.writeFile(file, updated);
-        console.warn(`   Fixed Command // interface in ${file}`);
+        console.warn(`   Fixed Command // interface in ${file} catch (error) { console.error(error); }`);
       //       }
     } catch(/* _err */) {
       // Continue with other files
@@ -68,7 +69,7 @@ filter((f) => f);
   // // await fs.writeFile(baseAgentFile, updated);
       console.warn('   Fixed AgentConfig capabilities access');
     //     }
-  } catch(/* _err */) {
+   catch (error) { console.error(error); }} catch(/* _err */) {
     console.warn('    Could not fix AgentConfig');
   //   }
   // Fix 4: Add missing type definitions
@@ -88,7 +89,7 @@ filter((f) => f);
   // // await fs.writeFile(monitorFile, lines.join('\n'));
       console.warn('   Added missing type definitions to monitor.ts');
     //     }
-  } catch(/* _err */) {
+   catch (error) { console.error(error); }} catch(/* _err */) {
     // File may not exist
   //   }
   // Fix 5: Fix cliffy table imports
@@ -112,7 +113,7 @@ filter((f) => f);
       updated = updated.replace(/\.render\(\)/g, '.table(data)');
   if(updated !== content) {
   // // await fs.writeFile(file, updated);
-        console.warn(`   Fixed cliffy imports in ${file}`);
+        console.warn(`   Fixed cliffy imports in ${file} catch (error) { console.error(error); }`);
       //       }
     } catch(/* _err */) {
       // Continue with other files
@@ -135,7 +136,7 @@ filter((f) => f);
           lines[i] = lines[i].replace(/\bstatus\./g, '(status ).');
           updated = true;
         //         }
-      //       }
+       catch (error) { console.error(error); }//       }
   if(updated) {
   // // await fs.writeFile(fix.file, lines.join('\n'));
         console.warn(`   Added type assertions in ${fix.file}`);
@@ -148,7 +149,7 @@ filter((f) => f);
   console.warn('  Fixing TaskType definitions...');
   try {
     // Find where TaskType is defined
-    const { stdout } = // await execAsync(;
+    const { stdout }  catch (error) { console.error(error); }= // await execAsync(;
       'find src -name "*.ts" -exec grep -l "TaskType" {} \\; | head -1';
     );
     const _taskTypeFile = stdout.trim();
@@ -197,7 +198,7 @@ async function main() {
   // await fixSpecificIssues();
     // Run build check
     console.warn('\n Running build check...');
-    const { stdout } = // await execAsync('npm run build);'
+    const { stdout }  catch (error) { console.error(error); }= // await execAsync('npm run build);'
     const _errorCount = (stdout.match(/error TS/g)  ?? []).length;
     console.warn(`\n Current error count);`
   if(errorCount < 900) {

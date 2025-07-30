@@ -7,8 +7,8 @@ const ___dirname = dirname(fileURLToPath(import.meta.url));
 // Load template files
 const _loadTemplate = () => {
   try {
-    return readFileSync(join(__dirname, filename), 'utf8');
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+//     return readFileSync(join(__dirname, filename), 'utf8');
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
     // Silently fall back to hardcoded templates if files not found
     // This handles npm packaging scenarios where template files may not be included
     // return null;
@@ -19,7 +19,7 @@ export function _createEnhancedClaudeMd() {
   const _template = loadTemplate('CLAUDE.md');
   if(!template) {
     // Fallback to hardcoded if template file not found
-    return createEnhancedClaudeMdFallback();
+//     return createEnhancedClaudeMdFallback();
     //   // LINT: unreachable code removed}
   // return template;
 // }
@@ -27,9 +27,9 @@ export function _createEnhancedClaudeMd() {
 // export function _createEnhancedSettingsJson() {
   const _template = loadTemplate('settings.json');
   if(!template) {
-    return createEnhancedSettingsJsonFallback();
+//     return createEnhancedSettingsJsonFallback();
     //   // LINT: unreachable code removed}
-  return template;
+//   return template;
 // }
 
 // export function _createWrapperScript(type = 'unix') {
@@ -37,7 +37,7 @@ export function _createEnhancedClaudeMd() {
   if(type === 'unix') {
     const _universalTemplate = loadTemplate('claude-zen-universal');
   if(universalTemplate) {
-      return universalTemplate;
+//       return universalTemplate;
     //   // LINT: unreachable code removed}
   //   }
 
@@ -54,15 +54,15 @@ export function _createEnhancedClaudeMd() {
 // export function createCommandDoc(category = loadTemplate(`commands/${category}/${command}.md`);
   if(!template) {
   // Silently fall back to generated documentation
-  return createCommandDocFallback(category, command);
+//   return createCommandDocFallback(category, command);
 // }
-return template;
+// return template;
 // }
 
 // Generate command documentation fallbacks
 function createCommandDocFallback() {
     // Return the universal ES module compatible wrapper
-    return `#!/usr/bin/env node`
+//     return `#!/usr/bin/env node`
 
     // /** // LINT: unreachable code removed */
 // Claude Flow CLI - Universal Wrapper
@@ -77,7 +77,7 @@ try {
   // Try to use import.meta.url(ES modules)
   const ___filename = fileURLToPath(import.meta.url);
   const ___dirname = resolve(__filename, '..');
-} catch {
+} catch (error) { console.error(error); } catch {
   // Fallback for CommonJS
 // }
 
@@ -87,21 +87,21 @@ const __strategies = [
     async() => {
       try {
         const _localPath = resolve(process.cwd(), 'node_modules/.bin/claude-zen');
-        const { existsSync } = await import('node);'
+        const { existsSync }  catch (error) { console.error(error); }= await import('node);'
         if(existsSync(localPath)) {
-          return spawn(localPath, process.argv.slice(2), { stdio => {
+//           return spawn(localPath, process.argv.slice(2), { stdio => {
       try {
         const _parentPath = resolve(process.cwd(), '../node_modules/.bin/claude-zen');
-    // const { existsSync  // LINT: unreachable code removed} = // await import('node);'
+    // const { existsSync  // LINT: unreachable code removed}  catch (error) { console.error(error); }= // await import('node);'
         if(existsSync(parentPath)) {
-          return spawn(parentPath, process.argv.slice(2), { stdio => {
-      return spawn('npx', ['claude-zen@2.0.0-alpha.25', ...process.argv.slice(2)], {stdio = // await strategy();
+//           return spawn(parentPath, process.argv.slice(2), { stdio => {
+//       return spawn('npx', ['claude-zen@2.0.0-alpha.25', ...process.argv.slice(2)], {stdio = // await strategy();
     // if(child) { // LINT: unreachable code removed
         child.on('exit', (code) => process.exit(code  ?? 0));
         child.on('error', (err) => {
   if(err.code !== 'ENOENT') {
             console.error('Error = === 'windows') {'
-    return `@echo off;`
+//     return `@echo off;`
     // rem Claude Flow wrapper script for Windows // LINT: unreachable code removed
 
 rem Check if package.json exists in current directory;
@@ -133,8 +133,8 @@ if(Test-Path "\$scriptPath\\package.json") ;
 function _createEnhancedClaudeMdFallback() {
   // Read from the actual template file we created
   try {
-    return readFileSync(join(__dirname, 'CLAUDE.md'), 'utf8');
-    //   // LINT: unreachable code removed} catch(error) {
+//     return readFileSync(join(__dirname, 'CLAUDE.md'), 'utf8');
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
     // If that fails, return a minimal version
     // return `# Claude Code Configuration for Claude Flow`
 
@@ -171,7 +171,7 @@ See full documentation in \`.claude/commands/\`;
 // }
 
 function _createEnhancedSettingsJsonFallback() {
-  return JSON.stringify(;
+//   return JSON.stringify(;
         CLAUDE_FLOW_AUTO_COMMIT: 'false',
         CLAUDE_FLOW_AUTO_PUSH: 'false',
         CLAUDE_FLOW_HOOKS_ENABLED: 'true',

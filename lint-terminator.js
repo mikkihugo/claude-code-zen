@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** LINT TERMINATOR - Ultra-fast automated lint fixing;
+/* LINT TERMINATOR - Ultra-fast automated lint fixing;
 /** Zero tolerance approach to code quality;
 
+ */
 import { execSync  } from 'node:child_process';
 import { readdirSync, readFileSync, statSync  } from 'node:fs';
 import { dirname  } from 'node:path';
@@ -17,7 +18,7 @@ console.warn('\n Phase 1');
 try {
   execSync('npx biome check --write .', { stdio);
   console.warn(' Biome fixes applied');
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   console.warn(' Biome completed with some issues');
 // }
 // Step 2: Quick unused variable removal
@@ -82,7 +83,7 @@ function processFile() {
   for(const fix of COMMON_FIXES) {
       const _original = content; if(typeof fix.fix === 'function') {
         content = content.replace(fix.pattern, (match, ...args) => {
-          return fix.fix(match, content, ...args); //   // LINT: unreachable code removed}) {;
+//           return fix.fix(match, content, ...args); //   // LINT: unreachable code removed} catch (error) { console.error(error); }) {;
       } else {
         content = content.replace(fix.pattern, fix.fix);
 // }
@@ -118,7 +119,7 @@ function findFiles() {
 
       if(stat.isDirectory()) {
         files.push(...findFiles(fullPath, extensions));
-      } else if(extensions.some((ext) => item.endsWith(ext))) {
+      }  catch (error) { console.error(error); }else if(extensions.some((ext) => item.endsWith(ext))) {
         files.push(fullPath);
 // }
     } catch(error) {
@@ -141,14 +142,14 @@ console.warn('\n Phase 3') {;
 try {
   execSync('npm run lint -- --fix', { stdio);
   console.warn(' ESLint cleanup complete');
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   console.warn(' ESLint found remaining issues');
 // }
 // Step 4: Report status
 console.warn('\n Running final lint check...');
 try {
   console.warn(' MISSION ACCOMPLISHED');
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   const _output = error.stdout  ?? error.message;
   const _errorCount = (output.match(/error/g)  ?? []).length;
   const _warningCount = (output.match(/warning/g)  ?? []).length;

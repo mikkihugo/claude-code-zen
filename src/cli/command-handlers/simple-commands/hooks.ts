@@ -4,12 +4,13 @@
 
 // { Logger, JSONObject, JSONValue, JSONArray;
 //  } from;
+ */
 ('../types/core.js');
 printSuccess,
 printError,
 printWarning,
 execRuvSwarmHook,
-checkRuvSwarmAvailable } from '..
+checkRuvSwarmAvailable } from '..'
 
 import { SqliteMemoryStore  } from '../../memory/sqlite-store.js';
 import TimeoutProtection from '../../utils/timeout-protection.js';
@@ -21,11 +22,11 @@ async function getMemoryStore() {
     memoryStore = new SqliteMemoryStore();
 // await memoryStore.initialize();
   //   }
-  return memoryStore;
+//   return memoryStore;
 // }
 // Simple ID generator
 function generateId(prefix = 'id') {
-  return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+//   return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 // }
 // export async function hooksAction() {
   showHooksHelp();
@@ -104,7 +105,7 @@ async function preTaskCommand(subArgs, flags = flags;
         description,
         'task-id',
         'auto-spawn-agents',)
-..(agentId ? { 'agent-id'} ) });
+..(agentId ? { 'agent-id'}  catch (error) { console.error(error); }) });
   if(hookResult.success) {
 // // await store.store(;
           `task = flags;`
@@ -171,7 +172,7 @@ async function preTaskCommand(subArgs, flags = flags;
   if(validateSafety) {
       // Basic safety validation
       const _dangerousCommands = [
-        'rm -rf 
+        'rm -rf '
         'rm -rf .',
         'rm -rf *',
         'format',
@@ -195,7 +196,7 @@ async function preTaskCommand(subArgs, flags = flags;
       if(!fs.existsSync(workingDir)) {
         fs.mkdirSync(workingDir, {recursive = fs.statSync(workingDir);
         console.warn(`   Working directory prepared`);
-      } catch(/* err */) {
+      } catch (error) { console.error(error); } catch(/* err */) {
         console.warn(`    Warning = {command = ==== POST-OPERATION HOOKS = ====`
 
 async function postTaskCommand(_subArgs, flags = flags;))
@@ -378,7 +379,7 @@ async function postTaskCommand(_subArgs, flags = flags;))
     console.warn(`${message}`);
     console.warn(`   Swarm);`
 
-    console.warn(`\n   Notification saved to .swarm
+    console.warn(`\n   Notification saved to .swarm`
     printSuccess(` Notify hook completed`);
   } catch(err) ;
     printError(`Notify hook failed);`

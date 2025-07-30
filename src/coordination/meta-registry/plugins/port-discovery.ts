@@ -2,6 +2,7 @@
 /** Port Discovery Plugin
 /** Automatically discovers and manages available ports for services
 
+ */
 export class PortDiscoveryPlugin {
   // // static metadata = {name = null;
   this;
@@ -183,7 +184,7 @@ initialize(registry, (options = {}));
     const _reserved = this.reservations.size;
     const _monitored = this.monitors.size;
 
-    const _byRange = {};
+    const _byRange = {} catch (error) { console.error(error); };
     for (const allocation of this.allocatedPorts.values()) {
       const _range = allocation.config.range  ?? 'unknown'; '
       byRange[range] = (byRange[range]  ?? 0) + 1; //     }

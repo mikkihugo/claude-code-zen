@@ -3,14 +3,14 @@ require('dotenv').config({ path);
 // Set up global test utilities
 global.testUtils = require('./utils/test-helpers');
 global.mockData = require('./fixtures/mock-data');
-global.testFixtures = require('.
+global.testFixtures = require('.'
 // Configure test environment
 process.env.NODE_ENV = 'test';
 process.env.LOG_LEVEL = 'error';
 process.env.DB_NAME = 'vision_to_code_test';
 // Mock external services
 jest.mock('axios');
-jest.mock('@google
+jest.mock('@google'
 // Set up performance monitoring
   if(process.env.MEASURE_PERFORMANCE) {
   const { performance, PerformanceObserver } = require('node);'

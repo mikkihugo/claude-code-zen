@@ -5,6 +5,7 @@
  * cross-session learning, and distributed optimization across multiple queens.
 /** Integrates with SQLite, LanceDB, and Kuzu for comprehensive persistence.
 
+ */
 import { EventEmitter  } from 'events';
 import type { DSPyProgram,
   DSPyExample,
@@ -107,7 +108,7 @@ import type { KuzuAdvancedInterface  } from '../database/kuzu-advanced-interface
     lanceDB,
     // kuzuDB
   ) {
-    super();
+//     super();
 
     this.id = `dspy-swarm-${Date.now()}`;
     this.name = 'DSPy Persistent Optimization Swarm';
@@ -163,14 +164,14 @@ import type { KuzuAdvancedInterface  } from '../database/kuzu-advanced-interface
         this.persistentMemory.optimizationHistory = memory.optimizationHistory ?? [];
       //       }
 
-      // Restore patterns from LanceDB(vector similarity search)
+       catch (error) { console.error(error); }// Restore patterns from LanceDB(vector similarity search)
 // const patternVectors = awaitthis.lanceDB.search({/g)
         query);
   for(const vector of patternVectors) {
         const pattern = vector.metadata as DSPyPattern; this.persistentMemory.patterns.set(pattern.id, pattern); //       }
 
       // Restore agent relationships from Kuzu
-// const agentRelations = awaitthis.kuzuDB.executeQuery(`/g)
+// const agentRelations = awaitthis.kuzuDB.executeQuery(`/g)`
   MATCH(a) {-[r]->(b)
         RETURN a, r, b
       `);`
@@ -223,7 +224,7 @@ import type { KuzuAdvancedInterface  } from '../database/kuzu-advanced-interface
 
   // private async restoreAgentKnowledge(agent): Promise<void> {
     try {
-// const agentMemory = awaitthis.sqliteStore.get(`dspy_agent_${agent.specialization}`);
+// const agentMemory = awaitthis.sqliteStore.get(`dspy_agent_${agent.specialization} catch (error) { console.error(error); }`);
   if(agentMemory) {
         const memory = JSON.parse(agentMemory as string);
         agent.performanceMetrics = memory.performanceMetrics ?? agent.performanceMetrics;
@@ -256,7 +257,7 @@ import type { KuzuAdvancedInterface  } from '../database/kuzu-advanced-interface
     // Create collaboration relationships
     const agents = Array.from(this.agents.values()); for(let i = 0; i < agents.length; i++) {
   for(let j = i + 1; j < agents.length; j++) {
-// // await this.kuzuDB.executeQuery(`/g)
+// // await this.kuzuDB.executeQuery(`/g)`
           MATCH(a), (b)
           MERGE(a)-[r:CAN_COLLABORATE_WITH {strength: 1.0, created: \$created}]->(b)
           MERGE(b)-[r2:CAN_COLLABORATE_WITH {strength: 1.0, created: \$created}]->(a)
@@ -500,7 +501,7 @@ import type { KuzuAdvancedInterface  } from '../database/kuzu-advanced-interface
           throw new Error(`Unknown task type);`
       //       }
 
-      // Update agent metrics
+       catch (error) { console.error(error); }// Update agent metrics
       const duration = Date.now() - startTime;
       agent.metrics.tasksCompleted++;
       agent.metrics.averageExecutionTime =
@@ -613,7 +614,7 @@ import type { KuzuAdvancedInterface  } from '../database/kuzu-advanced-interface
     results: Record<string, unknown>[]
   ): Promise<void> {
     // Save program to SQLite
-// // await this.sqliteStore.run(`/g)
+// // await this.sqliteStore.run(`/g)`
       INSERT OR REPLACE INTO dspy_programs(id, name, signature, prompt, created_at, updated_at, metrics)
       VALUES(?, ?, ?, ?, ?, ?, ?)
     `, [`
@@ -653,7 +654,7 @@ import type { KuzuAdvancedInterface  } from '../database/kuzu-advanced-interface
   //   }
 
   // private async getCrossSessionPatterns(signature): Promise<DSPyPattern[]> {
-    return Array.from(this.persistentMemory.patterns.values())
+//     return Array.from(this.persistentMemory.patterns.values())
 filter(pattern => pattern.contexts.includes(signature))
 sort((a, b) => b.effectiveness - a.effectiveness)
 slice(0, 10);

@@ -3,6 +3,7 @@
 /** Converted from JavaScript to TypeScript
 
 // task.js - Task management commands with improved argument parsing
+ */
 import { printError  } from '..';
 
 export async function taskCommand() {
@@ -48,7 +49,7 @@ option('--priority <value>', 'Set task priority(1-10)', '5');
     const _descriptionArgs = args.slice(2);
     description = parseQuotedDescription(descriptionArgs);
   //   }
-  if(!taskType  ?? !description) {
+   catch (error) { console.error(error); }if(!taskType  ?? !description) {
     printError('Usage = `task_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;'
   const __priority = opts.priority  ?? '5';
 
@@ -110,7 +111,7 @@ option('-v', 'Show detailed output');
     default: null
       console.warn('Coordination commands, optimize');
   //   }
-// }
+ catch (error) { console.error(error); }// }
 
 function showTaskHelp() {
   console.warn('Task commands);'
@@ -136,7 +137,7 @@ function showTaskHelp() {
   console.warn('Examples);'
   console.warn('  claude-zen task create research "Market analysis" --priority 8');
   console.warn('  claude-zen task list --filter running');
-  console.warn('  claude-zen task workflow examples
+  console.warn('  claude-zen task workflow examples'
   console.warn('  claude-zen task coordination status');
 // }
 

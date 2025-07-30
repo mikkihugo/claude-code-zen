@@ -1,6 +1,7 @@
 
 /** Swarm Worker Thread - Executes individual swarm tasks in parallel
 
+ */
 import { parentPort  } from 'node:worker_threads';'
 
 class SwarmWorker {
@@ -40,7 +41,7 @@ initialize();
     const _startTime = Date.now();
 
     try {
-      console.warn(` Worker ${this.workerId} executing task ${task.id} ($, { task.type })`);`
+      console.warn(` Worker ${this.workerId}  catch (error) { console.error(error); }executing task ${task.id} ($, { task.type })`);`
 
       // Send progress update
       this.sendProgress(task.id, {status = // // await this.executeAgentSpawn(task);
@@ -115,7 +116,7 @@ initialize();
   for(const _subtask of plan.subtasks) {
     // Simulate subtask execution
 // // // await this.delay(200); 
-    results.push({subtaskId = > ({bottleneck = === 'high' ? '20-30%' : '5-15%',effort = === 'high' ? 'medium' : 'low'; '))
+    results.push({subtaskId = > ({bottleneck = === 'high' ? '20-30%' : '5-15%',effort = === 'high' ? 'medium' : 'low'; '))'
   //     }) {)
 // }
 

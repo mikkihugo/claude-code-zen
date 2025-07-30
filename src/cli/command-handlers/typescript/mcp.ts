@@ -2,6 +2,7 @@
 /** MCP Command Handler - TypeScript Edition
 /** Model Context Protocol server management with full type safety
 
+ */
 import { CLIError  } from '../../types/cli.js';
 import { FlagValidator  } from '../core/argument-parser.js';
 
@@ -28,7 +29,7 @@ import { FlagValidator  } from '../core/argument-parser.js';
 //         if(_value < 1  ?? value > 65535) {
 //           return 'Port must be between 1 and 65535';
 //     //   // LINT: unreachable code removed}
-        return true;
+//         return true;
 // }
     },
 {name = neural','
@@ -120,7 +121,7 @@ async function showMcpStatus(options = {status = // await import('url');
       'swarm_init            Initialize swarm with topology',
       'agent_spawn           Create specialized AI agents',
       'task_orchestrate      Orchestrate complex workflows',
-      'swarm_status          Monitor swarm health
+      'swarm_status          Monitor swarm health'
       'agent_list            List active agents & capabilities',
       'agent_metrics         Agent performance metrics',
       'swarm_monitor         Real-time swarm monitoring',

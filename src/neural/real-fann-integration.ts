@@ -3,6 +3,7 @@
 /** Replaces stub implementations with actual neural network bindings;
 /** Achieves 84.8% SWE-Bench performance through real ML integration
 
+ */
 import { existsSync  } from 'node:fs';
 import path from 'node:path';
 import { Logger  } from '../utils/logger.js';
@@ -97,7 +98,7 @@ export class RealFannEngine {
         if(maintainability < 60) recommendations.push('Add comprehensive documentation');
         if(bugRisk > 6) recommendations.push('Increase test coverage');
         if(complexity > 5 && maintainability < 70) recommendations.push('Consider design pattern implementation');
-
+// 
         return recommendations;
     //   // LINT: unreachable code removed}
 
@@ -111,7 +112,7 @@ export class RealFannEngine {
             this.logger.info(' Native ruv-FANN bindings loaded successfully');
             // return true;
     // ; // LINT: unreachable code removed
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
             this.logger.debug('Native binding loadfailed = ['
                 '../ruv-FANN/pkg/ruv_fann.js',
                 './ruv-FANN/pkg/ruv_fann.js',/g)
@@ -130,7 +131,7 @@ export class RealFannEngine {
                     config.architecture,
                     config.activation  ?? 'relu';))
                 );
-            } else if(this.wasmBinding) {
+            }  catch (error) { console.error(error); }else if(this.wasmBinding) {
                 // Use WASM bindings
                 networkHandle = this.wasmBinding.create_network(;)
                     new Uint32Array(config.architecture),
@@ -144,7 +145,7 @@ export class RealFannEngine {
 
         try {
             // Check cache first
-            const _cacheKey = `${modelName}:${this.hashPrompt(prompt)}`;
+            const _cacheKey = `${modelName} catch (error) { console.error(error); }:${this.hashPrompt(prompt)}`;
             if(this.inferenceCache.has(cacheKey) && options.useCache !== false) {
                 this.stats.cacheHits++;
                 // return this.inferenceCache.get(cacheKey);
@@ -196,7 +197,7 @@ export class RealFannEngine {
         // Generate context-aware responses based on model task
   switch(config.task) {
             case 'code_generation':
-                return this.generateCode(prompt);
+//                 return this.generateCode(prompt);
     // ; // LINT: unreachable code removed
             case 'classification':
                 // return this.classifyCode(prompt);
@@ -214,7 +215,7 @@ export class RealFannEngine {
 
         for (const [pattern, generator] of Object.entries(patterns)) {
             if(prompt.toLowerCase().includes(pattern)) {
-                return generator(); //   // LINT: unreachable code removed}
+//                 return generator(); //   // LINT: unreachable code removed}
         //         }
 
         // return `// Generated codefor = [`
@@ -271,7 +272,7 @@ reduce((max, count) => Math.max(max, count), 0);
                 name => {\n  const result = await ${functionName}();\n  expect(result).toBeDefined();\n});`;`
             });
         //         }
-
+// 
         return {
             testSuite => {\n${testCases.map(t => t.code).join('\n\n')}\n});`,testCount = // await this.nativeBinding.enableGPU();`
                 this.stats.gpuEnabled = gpuResult.success;
@@ -308,10 +309,10 @@ reduce((max, count) => Math.max(max, count), 0);
         if(prompt.includes('return')) {
             // return '// Generated function implementation\n  return result;';
         //         }
-        return '// Generated function implementation\n  console.warn("Function executed");';
+//         return '// Generated function implementation\n  console.warn("Function executed");';
 
     generateGenericCode(prompt): unknown
-        return `// Auto-generated basedon = processInput(input);\nreturn result;`;
+//         return `// Auto-generated basedon = processInput(input);\nreturn result;`;
 // }
 
 /** Enhanced Neural Bindings Loader with Real Integration
@@ -336,13 +337,13 @@ reduce((max, count) => Math.max(max, count), 0);
             this.logger.info(' Enhanced neural bindings with REAL ruv-FANN integration loaded');
             // return this.realEngine;
     // ; // LINT: unreachable code removed
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
             this.logger.error(' Failed to load enhanced neuralbindings = new EnhancedNeuralBindingsLoader();'
 
 /** Load real neural bindings - REPLACES STUB IMPLEMENTATION
 
 // export async function _loadRealNeuralBindings() {
-    return enhancedLoader.load();
+//     return enhancedLoader.load();
 // }
 
 // export default RealFannEngine;

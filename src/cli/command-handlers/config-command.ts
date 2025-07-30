@@ -3,12 +3,13 @@
 /** Converted from JavaScript to TypeScript
 
 // config.js - Configuration management commands
+ */
 import { fileExists,
 printError,
 printSuccess,
 printWarning,
 readJsonFile,
-writeJsonFile  } from '..
+writeJsonFile  } from '..'
 export async function configCommand() {
   case 'init': null
 // await initConfig(subArgs, flags)
@@ -39,7 +40,7 @@ export async function configCommand() {
       return;
     //   // LINT: unreachable code removed}
 
-    printSuccess('Initializing Claude-Flow configuration...');
+     catch (error) { console.error(error); }printSuccess('Initializing Claude-Flow configuration...');
 
     // Create default configuration
 
@@ -49,7 +50,7 @@ export async function configCommand() {
 // const _config = awaitreadJsonFile(configFile);
   printSuccess('Currentconfiguration = === 'json') {'
       console.warn(JSON.stringify(config, null, 2));
-    } else {
+    }  catch (error) { console.error(error); }else {
       // Pretty format
       console.warn('\n SystemConfiguration = subArgs[1];'
   const __configFile = 'claude-zen.config.json';
@@ -98,7 +99,7 @@ async function _setConfigValue() {
         errors.push(`Missing requiredsection = === 0 && warnings.length === 0) ; `
       printSuccess(' Configuration is valid'); else ;
   if(errors.length > 0) {
-        printError(`Found ${errors.length} error(s):`);
+        printError(`Found ${errors.length}  catch (error) { console.error(error); }error(s):`);
         errors.forEach((error) => console.warn(`   ${error}`));
       //       }
   if(warnings.length > 0) {
@@ -126,13 +127,13 @@ function getNestedValue(obj = > current?.[key], obj);
   const _last = keys.pop();
   const _target = keys.reduce((current, key) => {
     if(!current[key]) current[key] = {};
-    return current[key];
+//     return current[key];
     //   // LINT: unreachable code removed}, obj);
   target[last] = value;
 // }
 
   function getFlag(args = args.indexOf(flagName);
-  return index !== -1 && index + 1 < args.length ? args[index + 1] ;
+//   return index !== -1 && index + 1 < args.length ? args[index + 1] ;
 // }
 // fileExists is now imported from utils.js
 

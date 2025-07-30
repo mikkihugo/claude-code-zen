@@ -3,6 +3,7 @@
 /** Converted from JavaScript to TypeScript;
 
 // start-ui.js - Standalone UI launcher(Web UI by default)
+ */
 import { printError  } from '..';
 
 export async function launchUI(args = []) {
@@ -16,7 +17,7 @@ export async function launchUI(args = []) {
   if(web) {
       // Launch Web UI
       try {
-        const { ClaudeCodeWebServer } = // await import('./web-server.js');
+        const { ClaudeCodeWebServer }  catch (error) { console.error(error); }= // await import('./web-server.js');
         const _webServer = new ClaudeCodeWebServer(port);
 // // await webServer.start();
         printSuccess(' Claude Flow Web UI is running!');
@@ -48,7 +49,7 @@ export async function launchUI(args = []) {
 // const _puiModule = awaitimport('../../../dist/cli/commands/start/process-ui-simple.js');
         ProcessManager = pmModule.ProcessManager;
         ProcessUI = puiModule.ProcessUI;
-      } catch(/* distError */) {
+      } catch (error) { console.error(error); } catch(/* distError */) {
         // If dist version not found, try TypeScript version(for development)
 // const _pmModule = awaitimport('../commands/start/process-manager.ts');
 // const _puiModule = awaitimport('../commands/start/process-ui-simple.ts');

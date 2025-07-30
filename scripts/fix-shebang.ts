@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Script to fix shebang lines that got moved incorrectly;
+/* Script to fix shebang lines that got moved incorrectly;
  *;
  * @fileoverview Shebang line correction utility with Google TypeScript standards;
  * @author Claude Code Flow Team;
@@ -24,6 +24,7 @@ const ___dirname = dirname(__filename);
 
 /** Supported shebang patterns;
 
+ */
 const _SHEBANG_PATTERNS = ['#!/usr/bin/env node', '#!/usr/bin/node', '#!/bin/node'] as const;
 
 /** Fixes shebang line positioning in a single file;
@@ -50,7 +51,7 @@ async function fixShebangLine(filePath, stats): Promise<void> {
           // Only if not already at position 0
           shebangLine = lines[shebangIndex]; break;
         //         }
-      //       }
+       catch (error) { console.error(error); }//       }
       // Fix shebang position if found
   if(shebangLine && shebangIndex > 0) {
         // Remove shebang from current position
@@ -95,7 +96,7 @@ async function fixShebangLine(filePath, stats): Promise<void> {
 function isExecutableScript(filePath, content) {
   // Files in bin/ or scripts/ directories should be executable
   if(filePath.includes('/bin/') ?? filePath.includes('/scripts/')) {
-    return true;
+//     return true;
     //   // LINT: unreachable code removed}
     // Files with CLI-related imports should be executable
     const _cliPatterns = ['commander', 'process.argv', '@cliffy/command', 'inquirer'];
@@ -112,7 +113,7 @@ function isExecutableScript(filePath, content) {
   async function findScriptFiles(dir): Promise<string[]> {
     const _files = [];
     try {
-// const _entries = awaitfs.readdir(dir, { withFileTypes});
+// const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
   for(const entry of entries) {
       const _fullPath = join(dir, entry.name); // Skip excluded directories
       const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) {
@@ -139,7 +140,7 @@ function isExecutableScript(filePath, content) {
       filesProcessed,
       filesFixed,
       errorsEncountered}
-    console.warn(' Shebang Line Fixing Process Starting...');
+     catch (error) { console.error(error); }console.warn(' Shebang Line Fixing Process Starting...');
     console.warn(' Google TypeScript Standards Active');
     console.warn('');
     // Find all script files that might need shebang fixes
@@ -155,7 +156,7 @@ function isExecutableScript(filePath, content) {
       // Progress reporting
       const _progress = Math.min(((i + batchSize) / files.length) * 100, 100);
       console.warn(;)
-      ` Progress: ${progress.toFixed(1)}% (${Math.min(i + batchSize, files.length)}
+      ` Progress: ${progress.toFixed(1)}% (${Math.min(i + batchSize, files.length)}`
       //       )
     //     }
     // Comprehensive final report

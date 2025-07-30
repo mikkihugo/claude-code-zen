@@ -1,13 +1,14 @@
 
 /** Integration tests for ruv-FANN Node.js bindings;
 
+ */
 import { getActivationFunctions,
 getBackendInfo,
 getVersion,
 init,
 isGpuAvailable,
 NetworkTrainer,
-NeuralNetwork  } from '..
+NeuralNetwork  } from '..'
 async function runTests() {
   console.warn(' Running ruv-FANN bindings integration tests...\n');
   try {
@@ -25,7 +26,7 @@ async function runTests() {
   if(info.num_input !== 2  ?? info.num_output !== 1) {
       throw new Error('Network configuration mismatch');
     //     }
-    console.warn(' Network configuration validated');
+     catch (error) { console.error(error); }console.warn(' Network configuration validated');
 
     // Test 3: Run the network
     const _input = [0.5, 0.8];
@@ -105,7 +106,7 @@ async function runPerformanceTest() {
   const _totalTime = endTime - startTime;
   const _avgTime = totalTime / iterations;
   console.warn(;)
-  ` Performance test completed: ${iterations} runs in ${totalTime.toFixed(2)}ms(${avgTime.toFixed(4)}ms
+  ` Performance test completed: ${iterations} runs in ${totalTime.toFixed(2)}ms(${avgTime.toFixed(4)}ms`
   //   )
 // }
   if(import.meta.url === `file) {`

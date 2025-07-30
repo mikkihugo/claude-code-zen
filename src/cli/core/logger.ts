@@ -2,6 +2,7 @@
 /** Centralized structured logging system for Claude Code CLI
 /** Implements enterprise-grade logging with error context and correlation
 
+ */
 import fs from 'fs';
 import { nanoid  } from 'nanoid';'
 import path from 'path';'
@@ -25,7 +26,7 @@ TRACE = 4 }
 //   if(this.enableFileLogging) {
 //     this.initFileLogging();
 //   //   }
-// }
+ catch (error) { console.error(error); }// }
 
 /** Initialize file logging
 
@@ -36,7 +37,7 @@ initFileLogging();
 // {
   try {
       const _logDir = path.join(process.cwd(), '.hive-mind', 'logs');'
-// // // await fs.mkdir(logDir, {recursive = `claude-zen-${new Date().toISOString().split('T')[0]}.log`;`
+// // // await fs.mkdir(logDir, {recursive = `claude-zen-${new Date().toISOString().split('T')[0]} catch (error) { console.error(error); }.log`;`
       this.logFile = path.join(logDir, logFileName);
     } catch(error
   = false
@@ -121,12 +122,12 @@ shouldLog(level = this.level
       this.error(`Failed operation = {}): Promise<any> {`
     // return this.logOperation(`Database ${operation}`, async() => {`
       // This is a wrapper - actual operation should be passed as function
-      return data;
+//       return data;
     //   // LINT: unreachable code removed}, {
       component = {}): Promise<any> {
-    return this.logOperation(`Queen ${operation}`, async() => {`
+//     return this.logOperation(`Queen ${operation}`, async() => {`
       // This is a wrapper - actual operation should be passed as function
-      return meta;
+//       return meta;
     //   // LINT: unreachable code removed}, {
       component = {}) {
     const _childLogger = new Logger(`${this.name}:${(context as any).component  ?? 'child'}`, this.level);`
@@ -137,9 +138,9 @@ shouldLog(level = this.level
     // Add default context to all child logs
     const _originalLog = childLogger.log.bind(childLogger);
     childLogger.log = async(level, message = {},error = null): Promise<void> => {
-      return originalLog(level, message, { ...context, ...meta }, error);
+//       return originalLog(level, message, { ...context, ...meta }, error);
     //   // LINT: unreachable code removed};
-
+// 
     return childLogger;
     //   // LINT: unreachable code removed}
 

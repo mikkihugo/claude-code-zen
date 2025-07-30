@@ -2,6 +2,7 @@
  * @fileoverview Test script for MCP stdio optimizations
 /** Validates message batching, retry logic, and performance metrics
 
+ */
 import { dirname  } from 'node:path';'
 import { fileURLToPath  } from 'node:url';'
 
@@ -38,7 +39,7 @@ class StdioOptimizationTests {
       this.addTestResult(;
         'Server Initialization','
         hasStdioOptimizer && hasErrorHandler && hasPerformanceMetrics,
-        'All optimization components initialized';')))
+        'All optimization components initialized';')))'
       );
 
       // Check configuration
@@ -48,7 +49,7 @@ class StdioOptimizationTests {
       this.addTestResult(;
         'Configuration','
         correctBatchSize && correctTimeout,
-        'Batch size and timeout configured correctly';')
+        'Batch size and timeout configured correctly';')'
       );
     //     }
     catch(error) ;
@@ -72,7 +73,7 @@ class StdioOptimizationTests {
 
       this.addTestResult('Metrics Collection','
         hasMetrics,
-        'Stdio metrics available';')
+        'Stdio metrics available';')'
       );
 
     } catch(error) {
@@ -94,7 +95,7 @@ class StdioOptimizationTests {
 
       this.addTestResult('Error Statistics','
         hasStats,
-        'Error statistics tracking available';')
+        'Error statistics tracking available';')'
       );
 
       // Test circuit breaker state
@@ -128,7 +129,7 @@ class StdioOptimizationTests {
       this.addTestResult(;
         'Performance Metrics','
         hasRequestMetrics,
-        'Performance metrics collection active';')
+        'Performance metrics collection active';')'
       );
 
       // Test request tracking
@@ -166,7 +167,7 @@ class StdioOptimizationTests {
 
       this.addTestResult('Non-retryable Errors','
         isNonRetryable,
-        'JSON errors correctly identified as non-retryable';')
+        'JSON errors correctly identified as non-retryable';')'
       );
 
     } catch(error) {

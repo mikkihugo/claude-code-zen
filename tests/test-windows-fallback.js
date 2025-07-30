@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Test script for Windows SQLite fallback functionality;
+/* Test script for Windows SQLite fallback functionality;
 /** This script simulates various SQLite failure scenarios to ensure fallback works;
 
+ */
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
 import chalk from 'chalk';
@@ -13,7 +14,7 @@ console.warn(chalk.blue.bold('\n Testing Windows SQLite Fallback Solution\n'));
 // Test 1: SQLite Wrapper
 console.warn(chalk.yellow('Test 1));'
 try {
-  const { isSQLiteAvailable, isWindows, getStorageRecommendations } = // await import(
+  const { isSQLiteAvailable, isWindows, getStorageRecommendations }  catch (error) { console.error(error); }= // await import(
     '../src/memory/sqlite-wrapper.js';
   );
 // const _sqliteAvailable = awaitisSQLiteAvailable();
@@ -37,7 +38,7 @@ try {
   // // await store.store('test-key', 'test-value', { namespace);
 // const _value = awaitstore.retrieve('test-key', { namespace);
   console.warn(` Fallback store initialized`);
-  console.warn(` Using fallback: ${store.isUsingFallback()}`);
+  console.warn(` Using fallback: ${store.isUsingFallback()} catch (error) { console.error(error); }`);
   console.warn(` Store/retrieve works);`
   store.close();
 } catch(error) {
@@ -46,7 +47,7 @@ try {
 // Test 3: Session Manager
 console.warn(chalk.yellow('\nTest 3));'
 try {
-  const { HiveMindSessionManager } = // await import(
+  const { HiveMindSessionManager }  catch (error) { console.error(error); }= // await import(
     '../src/cli/command-handlers/simple-commands/hive-mind/session-manager.js';
   );
   const _sessionManager = new HiveMindSessionManager();
@@ -63,7 +64,7 @@ try {
 // Test 4: MCP Wrapper
 console.warn(chalk.yellow('\nTest 4));'
 try {
-  const { MCPToolWrapper } = // await import(
+  const { MCPToolWrapper }  catch (error) { console.error(error); }= // await import(
     '../src/cli/command-handlers/simple-commands/hive-mind/mcp-wrapper.js';
   );
   const _wrapper = new MCPToolWrapper();
@@ -82,7 +83,7 @@ try {
   // Simulate Windows environment
   const _originalPlatform = process.platform;
   Object.defineProperty(process, 'platform', { value);
-  const { isWindows } = // await import('../src/memory/sqlite-wrapper.js');
+  const { isWindows }  catch (error) { console.error(error); }= // await import('../src/memory/sqlite-wrapper.js');
 
   if(isWindows()) {
     console.warn(` Windows-specific error messages would be shown`);

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Script to fix incorrect import paths in the codebase
+/* Script to fix incorrect import paths in the codebase
  *;
  * @fileoverview Automated import path correction with Google standards compliance
  * @author Claude Code Flow Team;
@@ -46,7 +46,7 @@ async function _fixImportPaths(filePath, stats): Promise<void> {
       const _relativePaths = [
         //         {
           wrong: '../utils/error-handler.js',
-          correct: '../../utils/error-handler.js' },
+          correct: '../../utils/error-handler.js' } catch (error) { console.error(error); },
         //         {
           wrong: '../core/logger.js',
           correct: '../../core/logger.js' },
@@ -91,7 +91,7 @@ async function _fixImportPaths(filePath, stats): Promise<void> {
     content = content.replace(relativeImportPattern, (match, importPath) => {
       // Don't modify if already has extension or is JSON'
       if(importPath.includes('.')) {
-        return match;
+//         return match;
     //   // LINT: unreachable code removed}
       // Add .js extension for TypeScript files
       const _updatedMatch = match.replace(importPath, `${importPath}.js`);
@@ -123,7 +123,7 @@ async function _fixImportPaths(filePath, stats): Promise<void> {
 async function findTypeScriptFiles(dir): Promise<string[]> {
   const _files = [];
   try {
-// const _entries = awaitfs.readdir(dir, { withFileTypes});
+// const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
   for(const entry of entries) {
       const _fullPath = join(dir, entry.name); // Skip excluded directories
       const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) {
@@ -143,13 +143,14 @@ async function findTypeScriptFiles(dir): Promise<string[]> {
 /** Main execution function;
 /** Orchestrates the import path fixing process with comprehensive reporting
 
+ */
 async function _main(): Promise<void> {
   try {
     const _srcDir = join(dirname(__dirname), 'src');
     const _stats = {
       filesProcessed,
       filesModified,
-      errorsEncountered};
+      errorsEncountered} catch (error) { console.error(error); };
     console.warn(' Scanning for TypeScript files...');
 // const _files = awaitfindTypeScriptFiles(srcDir);
     console.warn(` Found ${files.length} TypeScript files to check for import path issues...`);
@@ -162,7 +163,7 @@ async function _main(): Promise<void> {
 // // await Promise.all(batchPromises);
       // Progress reporting
       const _progress = Math.min(((i + batchSize) / files.length) * 100, 100);
-      console.warn(` Progress: ${progress.toFixed(1)}% (${i + batchSize}
+      console.warn(` Progress: ${progress.toFixed(1)}% (${i + batchSize}`
     //     }
     // Final comprehensive report
     console.warn('\n Import Path Fix Summary);'

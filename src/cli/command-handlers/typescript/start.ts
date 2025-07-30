@@ -2,6 +2,7 @@
 /** Start Command Handler - TypeScript Edition
 /** Comprehensive system startup with full type safety and enhanced features
 
+ */
 import { CLIError  } from '../../types/cli';
 import type { Logger  } from '../../types/core';
 import { FlagValidator  } from '../core/argument-parser';
@@ -18,7 +19,7 @@ import { FlagValidator  } from '../core/argument-parser';
 //         if(value < 1  ?? value > 65535) {
 //           return 'Port must be between 1 and 65535';
 //     //   // LINT: unreachable code removed}
-return true;
+// return true;
 // }
 },
 // {
@@ -86,14 +87,14 @@ return true;
   for(const dir of requiredDirs) {
     try {
 // // await fs.access(dir); 
-    } catch {
+    } catch (error) { console.error(error); } catch {
       issues.push(`Missing requireddirectory = // await fs.readFile('.claude-zen.pid', 'utf-8'); `
       const _pid = parseInt(pidContent.trim() {);
       // Check if process is still running
       try {
         process.kill(pid, 0); // Signal 0 checks if process exists
         issues.push(;
-        `Server already running with PID ${pid}. Stop it first with 'claude-zen stop'.`;)
+        `Server already running with PID ${pid} catch (error) { console.error(error); }. Stop it first with 'claude-zen stop'.`;)
         //         )
       } catch {
         // Process doesn't exist, remove stale PID file'
@@ -185,7 +186,7 @@ const _server = http.createServer((req, _res) => {
     logger.info(`Basic server listening on port ${options.port}`);
     resolve({ server,
           _shutdown => {
-            return new Promise<void>((resolve) => {
+//             return new Promise<void>((resolve) => {
               server.close(() => resolve());
     //   // LINT: unreachable code removed  });
   //   }
@@ -206,7 +207,7 @@ try {
       server.status = 'stopped';
       logger.success('Server shutdown complete');
       process.exit(0);
-    } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) {
       logger.error('Error during shutdown', error);
       process.exit(1);
     //     }

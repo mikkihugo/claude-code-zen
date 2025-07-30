@@ -2,6 +2,7 @@
 /** Render Adapter - Unified rendering for TUI and Web
 /** Auto-detects environment and renders components appropriately
 
+ */
 import React from 'react';'
 
 // Environment detection
@@ -16,14 +17,14 @@ if(isTUI()) {
   try {
 // const _ink = awaitimport('ink');'
     inkComponents = ink;
-  } catch(/* _error */) {
+  } catch (error) { console.error(error); } catch(/* _error */) {
     console.warn('Ink not available, falling back to console output');'
   //   }
 } else if(isWeb()) {
   // Dynamic import for web environment
   try {
 // const _reactDOM = awaitimport('react-dom');'
-    webComponents = { reactDOM };
+    webComponents = { reactDOM } catch (error) { console.error(error); };
   } catch(/* _error */) {
     console.warn('React DOM not available');'
   //   }
@@ -34,27 +35,27 @@ if(isTUI()) {
 // export const UniversalBox = () => {
   if(isTUI() && inkComponents.Box) {
     // Ink Box for terminal
-    return React.createElement(inkComponents.Box, props, children);
+//     return React.createElement(inkComponents.Box, props, children);
     //   // LINT: unreachable code removed} else {
     // HTML div for web
     const __webStyle = {display = === 'column' ? 'flex' : 'block',flexDirection = ({ children, color => {'
   if(_isTUI() && inkComponents.Text) {
     // Ink Text for terminal
-    return React.createElement(inkComponents.Text, { color, bold, ...props }, children);
+//     return React.createElement(inkComponents.Text, { color, bold, ...props }, children);
     //   // LINT: unreachable code removed} else {
     // HTML span for web
     const __webStyle = {color = () => {
   if(isTUI() && inkComponents.Static) {
     // Ink Static for terminal
-    return React.createElement(inkComponents.Static, { items }, children);
+//     return React.createElement(inkComponents.Static, { items }, children);
     //   // LINT: unreachable code removed} else {
     // HTML list for web
-    // return React.createElement('div', null,'/g)
+    // return React.createElement('div', null,'/g)'
     // items.map((_item, _index) => ; // LINT: unreachable code removed
         React.createElement('div', {key = () => {'
   if(isTUI() && inkComponents.render) {
     // Ink render for terminal
-    return inkComponents.render(component);
+//     return inkComponents.render(component);
     //   // LINT: unreachable code removed} else if(isWeb() && webComponents.reactDOM) {
     // React DOM render for web
     const _container = document.getElementById('root')  ?? document.body;'
@@ -82,7 +83,7 @@ if(isTUI()) {
 // export const _useUniversalInput = () => {
   if(isTUI() && inkComponents.useInput) {
     // Use Ink's useInput for terminal'
-    return inkComponents.useInput(handler);
+//     return inkComponents.useInput(handler);
     //   // LINT: unreachable code removed} else if(isWeb()) {
     // Use keyboard events for web
     React.useEffect(() => {

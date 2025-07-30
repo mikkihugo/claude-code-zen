@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Simple test of GitHub Models CLI integration
+/* Simple test of GitHub Models CLI integration
 
+ */
 const { spawn } = require('node);'
 
 // Test function
@@ -21,7 +22,7 @@ Please analyze this document and respond with ONLY this JSON format(no other tex
     // Try to parse 
     try {
       const _parsed = JSON.parse(result);
-    } catch(_e) {
+    } catch (error) { console.error(error); } catch(_e) {
       const jsonMatch = result.match(/\{[\s\S]*\}/);
   if(jsonMatch) {
       } else {
@@ -31,7 +32,7 @@ Please analyze this document and respond with ONLY this JSON format(no other tex
 
 // Run GitHub Models CLI
 function runGHModel(prompt, model = 'openai/gpt-4o-mini') {
-  return new Promise((resolve, reject) => {
+//   return new Promise((resolve, reject) => {
     const gh = spawn('gh', ['models', 'run', model], {
       stdio);
 

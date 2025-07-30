@@ -2,6 +2,7 @@
 /** WebUI Cross-Platform Validator;
 /** Validates that WebUI components work across Node.js and node;
 
+ */
 import { compat  } from '..';
 
 export class WebUIValidator {
@@ -12,7 +13,7 @@ export class WebUIValidator {
       failed => {
       const _isValidRuntime = compat.runtime === 'node'  ?? compat.runtime === 'node';
     const _hasPlatform = compat.platform?.os;
-    return isValidRuntime && hasPlatform;
+//     return isValidRuntime && hasPlatform;
     //   // LINT: unreachable code removed}
   //   )
 
@@ -38,8 +39,8 @@ export class WebUIValidator {
   try {
 // await import('./start-wrapper.js');
 // await import('./process-ui-enhanced.js');
-    return true;
-    //   // LINT: unreachable code removed} catch(/* _err */) {
+//     return true;
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _err */) {
     // return false;
     //   // LINT: unreachable code removed}
 // }
@@ -48,9 +49,9 @@ export class WebUIValidator {
 // UI Instantiation Test
 // // await this.asyncTest('UI Instantiation', async() =>;
   try {
-    const { EnhancedProcessUI } = await import('.
+    const { EnhancedProcessUI }  catch (error) { console.error(error); }= await import('.'
     const _ui = new EnhancedProcessUI();
-    return ui?.processes && ui.processes.size > 0;
+//     return ui?.processes && ui.processes.size > 0;
     //   // LINT: unreachable code removed} catch(/* _err */) {
     // return false;
     //   // LINT: unreachable code removed}
@@ -64,7 +65,7 @@ export class WebUIValidator {
   if(compat.runtime === 'node') {
         await node.writeTextFile('.webui-test', 'test');
 // await node.remove('.webui-test');
-      } else {
+      }  catch (error) { console.error(error); }else {
 // const _fs = awaitimport('node);'
 // // await fs.writeFile('.webui-test', 'test');
 // // await fs.unlink('.webui-test');
@@ -85,7 +86,7 @@ this.printSummary();
   try {
     const _result = testFn();
   if(result) {
-      console.warn(` ${name}`);
+      console.warn(` ${name} catch (error) { console.error(error); }`);
       this.results.passed++;
     } else {
       console.warn(` ${name}`);
@@ -103,7 +104,7 @@ asyncTest(name, testFn);
   try {
 // const _result = awaittestFn();
   if(result) {
-      console.warn(` ${name}`);
+      console.warn(` ${name} catch (error) { console.error(error); }`);
       this.results.passed++;
     } else {
       console.warn(` ${name}`);

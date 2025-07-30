@@ -13,7 +13,7 @@ async function testMCPIntegration() {
       action: 'retrieve',
       key: 'test-integration',
       namespace: 'tests')
-})
+} catch (error) { console.error(error); })
 console.warn(' Memory test passed:', memoryResult.found)
 console.warn()
 ('\n Basic integration test passed\! Claude-zen MCP server is working with library mode.')

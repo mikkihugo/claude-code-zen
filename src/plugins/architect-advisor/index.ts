@@ -2,6 +2,7 @@
 /** Architect Advisor Plugin;
 /** Comprehensive architectural analysis, design pattern recommendations, and ADR generation;
 
+ */
 import crypto from 'crypto';
 import { EventEmitter  } from 'events';
 import { mkdir, readdir, readFile, stat  } from 'fs';
@@ -9,7 +10,7 @@ import path from 'path';
 
 export class ArchitectAdvisorPlugin extends EventEmitter {
   constructor(config = {}) {
-    super();
+//     super();
     this.config = {confidence_threshold = new Map();
     this.analysis_history = [];
     this.pattern_library = new Map();
@@ -59,7 +60,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
         analysis.findings.push(...// await this.analyzeArchitecture(codebase));
         analysis.patterns.push(...// await this.detectPatterns(codebase));
       //       }
-  if(analysisType === 'all'  ?? analysisType === 'performance') {
+   catch (error) { console.error(error); }if(analysisType === 'all'  ?? analysisType === 'performance') {
         analysis.findings.push(...// await this.analyzePerformance(codebase));
       //       }
   if(analysisType === 'all'  ?? analysisType === 'security') {
@@ -100,7 +101,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       try {
         const _dirPath = path.join(process.cwd(), dir); // const _dirFiles = awaitthis.scanDirectory(dirPath); 
         files.push(...dirFiles) {;
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         // Directory doesn't exist, skip'
       //       }
     //     }
@@ -132,9 +133,9 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
                 path => {)
       if(pattern.includes('*')) {
         const _regex = new RegExp(pattern.replace(/\*/g, '.*'));
-        return regex.test(name);
+//         return regex.test(name);
     //   // LINT: unreachable code removed}
-      return name === pattern  ?? name.includes(pattern);
+//       return name === pattern  ?? name.includes(pattern);
     //   // LINT: unreachable code removed});
   //   }
   calculateCodebaseStats(codebase) {
@@ -317,7 +318,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
         exports.push(...match[2].split(',').map(s => s.trim()));
       //       }
     //     }
-
+// 
     return exports;
     //   // LINT: unreachable code removed}
   calculateAbstractness(file) {
@@ -492,7 +493,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       const _complexity = conditions + functions + 1;
       totalComplexity += complexity;
     //     }
-
+// 
     return {
       total,average = 0;
     // ; // LINT: unreachable code removed
@@ -517,7 +518,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
     // return {total = codebase.filter(file => ;/g)
     // file.name.includes('.test.')  ?? file.name.includes('.spec.')).length; // LINT: unreachable code removed
     const _sourceFiles = codebase.length - testFiles;
-
+// 
     return {
       test_files,source_files = 0;
     // let _totalLines = 0; // LINT: unreachable code removed
@@ -644,7 +645,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       try {
 // const _aiContext = awaitthis.aiProvider.generateText(;
           `Provide additional architectural context for thisissue = `**Architectural Implications**:\n\$aiContext.text\n\n`;`)
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         // AI analysis failed, continue with basic context
       //       }
     //     }
@@ -664,7 +665,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       try {
 // const _aiDecision = awaitthis.aiProvider.generateText(;
           `Provide a detailed architectural decision for addressing thisissue = `\n\n**Implementation Strategy**:\n\$aiDecision.text`;`)
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         // AI analysis failed, continue with basic decision
       //       }
     //     }
@@ -750,7 +751,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       this.analysis_history = JSON.parse(data);
 
       console.warn(` Loaded \$this.analysis_history.lengthprevious analyses`);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       // No existing history, start fresh
     //     }
 
@@ -762,7 +763,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       // Update history
       const _historyPath = path.join(this.config.recommendations_path, 'history.json');
 // // await writeFile(historyPath, JSON.stringify(this.analysis_history, null, 2));
-      console.warn(` Analysis ${analysis.id} persisted`);
+      console.warn(` Analysis ${analysis.id}  catch (error) { console.error(error); }persisted`);
     } catch(error) {
       console.error('Failed to persistanalysis = 10) {'
     // return this.analysis_history;

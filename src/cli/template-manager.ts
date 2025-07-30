@@ -2,6 +2,7 @@
 /** Template Manager for Claude Zen;
 /** Handles template discovery, validation, and installation;
 
+ */
 import { promises as fs  } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -14,7 +15,7 @@ export class TemplateManager {
     this.templatePaths = [
       path.join(process.cwd(), 'templates'),
       path.join(__dirname, '../../templates'),
-      path.join(process.env.HOME  ?? process.env.USERPROFILE, '.claude-zen
+      path.join(process.env.HOME  ?? process.env.USERPROFILE, '.claude-zen'
     ];
   //   }
 
@@ -37,7 +38,7 @@ export class TemplateManager {
     // return templates.get(templateName);
     //   // LINT: unreachable code removed}
 
-/** List all available templates;
+ catch (error) { console.error(error); }/** List all available templates;
 
   async listTemplates() { 
 // const _templates = awaitthis.discoverTemplates();
@@ -54,7 +55,7 @@ export class TemplateManager {
       const { manifest } = template;)
       console.warn(`\\n ${manifest.name}`);
       console.warn(`Description = '.repeat(50));'`
-    return templateList;
+//     return templateList;
     //   // LINT: unreachable code removed}
 
 /** Install template to target directory;
@@ -75,7 +76,7 @@ export class TemplateManager {
       if(targetStats.isDirectory()) {
 // const _entries = awaitfs.readdir(absoluteTargetPath);
   if(entries.length > 0 && !force) {
-          throw new Error(`Directory '${targetPath}' is not empty. Use --force to overwrite.`);
+          throw new Error(`Directory '${targetPath} catch (error) { console.error(error); }' is not empty. Use --force to overwrite.`);
         //         }
       //       }
     } catch(error) {
@@ -96,7 +97,7 @@ export class TemplateManager {
           continue;
         //         }
 
-        // Skip optional files in minimal mode
+         catch (error) { console.error(error); }// Skip optional files in minimal mode
   if(minimal && manifest.files && manifest.files[entry.name] && !manifest.files[entry.name].required) {
           continue;
         //         }
@@ -122,15 +123,15 @@ export class TemplateManager {
       // Ensure .claude directory exists
 // // await fs.mkdir(path.join(targetPath, '.claude'), {recursive = path.join(templatePath, 'settings.json');
 // // await fs.copyFile(defaultSettingsPath, targetSettingsPath);
-        console.warn(` Installed default settings(${variant} variant not found)`);
+        console.warn(` Installed default settings(${variant}  catch (error) { console.error(error); }variant not found)`);
       } catch(/* fallbackError */) {
         console.warn(` Could not install settingsvariant = 'enhanced') ;`
     console.warn('\\n NextSteps = '.repeat(30));
   if(manifest.setup?.postInstall) {
       console.warn('1. Run the setup commands shown above');
-      console.warn(`2. Your ${variant} settings variant is configured in .claude
+      console.warn(`2. Your ${variant} settings variant is configured in .claude`
     } else {
-      console.warn(`1. Your ${variant} settings variant is configured in .claude
+      console.warn(`1. Your ${variant} settings variant is configured in .claude`
     //     }
 
     // Show variant-specific next steps
@@ -151,7 +152,7 @@ export class TemplateManager {
 // // await fs.access(claudePath);
       const _templateClaudePath = path.join(targetPath, 'claude');
 // // await this.copyDirectory(claudePath, templateClaudePath);
-    } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) {
       printWarning('No .claude directory found to include in template');
     //     }
 

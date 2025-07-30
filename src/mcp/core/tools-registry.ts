@@ -3,6 +3,7 @@
 /** Claude Zen CLI command tools for MCP protocol
  * @module MCPToolsRegistry
 
+ */
 import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
 // =============================================================================
 // TOOL HANDLER TYPES
@@ -95,7 +96,7 @@ import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
  * @returns Complete tools registry
     // */ // LINT: unreachable code removed
 // export function _initializeAllTools() {
-  return {
+//   return {
 ..initializeClaudeZenTools(),
   // ...initializeProductTools(), // LINT: unreachable code removed
 ..initializeNeuralTools(),
@@ -112,7 +113,7 @@ import type { JSONSchema, ToolResult  } from '../../types/mcp.js';
  */
     // */ // LINT: unreachable code removed
 // export function getToolSchema(toolName = initializeAllTools();
-return allTools[toolName] ?? null;
+// return allTools[toolName] ?? null;
 // }
 
 /** Validate tool arguments against schema: {}
@@ -123,7 +124,7 @@ return allTools[toolName] ?? null;
     // */ // LINT: unreachable code removed
 // export function validateToolArgs(toolName = getToolSchema(toolName);
   if(!schema) {
-  return {valid = schema.inputSchema.required  ?? [];
+//   return {valid = schema.inputSchema.required  ?? [];
   // const _properties = schema.inputSchema.properties  ?? { // LINT: unreachable code removed};
   for(const field of required) {
     if(!(field in args)) {
@@ -146,7 +147,7 @@ return allTools[toolName] ?? null;
  * @returns Array of tool categories
     // */ // LINT: unreachable code removed
 // export function _getToolCategories(): ToolCategory[] {
-  return [;
+//   return [;
     // { // LINT: unreachable code removed
       name: 'claude-zen','
       description: 'Core Claude Zen operations','

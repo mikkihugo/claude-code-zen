@@ -3,6 +3,7 @@
 /** Implements Google's single responsibility principle;'
 /** Provides comprehensive help and usage information for CLI commands
 
+ */
 import { HelpFormatter  } from '..';
 
 /** Help system options interface

@@ -8,6 +8,7 @@ import { printSuccess  } from '..';
 
 /** Initialize a new Claude Zen project
 
+ */
 export async function initCommand(input = Array.isArray(input) ? input = args[0]  ?? process.cwd();
 const _templateName = flags.template ?? 'claude-zen';'
 try {
@@ -31,7 +32,7 @@ try {
         "CLAUDE_ZEN_AUTO_PUSH": "false","
         "CLAUDE_ZEN_HOOKS_ENABLED": "true","
         "CLAUDE_ZEN_TELEMETRY_ENABLED": "true";"
-      },
+      } catch (error) { console.error(error); },
       "permissions": null"
         "allow": [;"
           "Bash(npm run *)","

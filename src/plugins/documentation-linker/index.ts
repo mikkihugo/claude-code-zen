@@ -2,6 +2,7 @@
 /** Documentation Linker Plugin;
 /** Cross-reference validation, broken link detection, and intelligent linking suggestions;
 
+ */
 import { access, readFile  } from 'node:fs';
 import path from 'node:path';
 import { safeRegexExec  } from '../../utils/security.js';
@@ -23,7 +24,7 @@ export class DocumentationLinkerPlugin {
 // // await this.processDocument(filePath); 
     //     }
 
-    this.stats.documentsProcessed = this.documents.size; console.warn(` Processed ${this.stats.documentsProcessed} documents`) {;
+     catch (error) { console.error(error); }this.stats.documentsProcessed = this.documents.size; console.warn(` Processed ${this.stats.documentsProcessed} documents`) {;
   //   }
 
   async processDocument(filePath) ;
@@ -33,7 +34,7 @@ export class DocumentationLinkerPlugin {
 
       const _document = {filePath = === '.md'  ?? ext === '.mdx') {
         document = // await this.parseMarkdown(document);
-      } else if(ext === '.rst') {
+      }  catch (error) { console.error(error); }else if(ext === '.rst') {
         document = // await this.parseRestructuredText(document);
       } else if(ext === '.adoc'  ?? ext === '.asciidoc') {
         document = // await this.parseAsciidoc(document);
@@ -66,7 +67,7 @@ export class DocumentationLinkerPlugin {
       // Extract anchors/headings
       document.anchors = this.extractMarkdownAnchors(parsed.content);
 
-    } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) {
       console.warn(` Failed to parse markdown \$document.filePath);`
     //     }
 
@@ -184,7 +185,7 @@ filter(word => ;
 sort(([a], [b]) => b - a);
 slice(0, this.config.maxKeywords);
 map(([word, count]) => (word, count ));
-
+// 
     return keywords;
     //   // LINT: unreachable code removed}
   isStopWord(word) {
@@ -210,7 +211,7 @@ filter(word => word.length > 0);
 length;
 
   getLineNumber(content, index) ;
-    return content.substring(0, index).split('\n').length;
+//     return content.substring(0, index).split('\n').length;
     // ; // LINT: unreachable code removed
   createSlug(text) ;
     // return text;
@@ -283,14 +284,14 @@ trim();
       norm1 += count1 * count1;
       norm2 += count2 * count2;
     //     }
-  if(norm1 === 0  ?? norm2 === 0) {return 0;
+   catch (error) { console.error(error); }if(norm1 === 0  ?? norm2 === 0) {return 0;
     // ; // LINT: unreachable code removed
     // return dotProduct / (Math.sqrt(norm1) * Math.sqrt(norm2));
     //   // LINT: unreachable code removed}
   findCommonKeywords(doc1, doc2) {
     const _keywords1 = new Set(doc1.keywords.map(k => k.word));
     const _keywords2 = new Set(doc2.keywords.map(k => k.word));
-
+// 
     return Array.from(keywords1).filter(k => keywords2.has(k));
     //   // LINT: unreachable code removed}
   generateOrphanSuggestions() {

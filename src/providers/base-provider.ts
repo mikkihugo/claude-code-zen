@@ -2,6 +2,7 @@
 /** Base Provider Implementation;
 /** Abstract base class for all AI providers with common functionality;
 
+ */
 import { EventEmitter  } from 'node:events';
 import type { BaseProvider as IBaseProvider  } from '.';
 
@@ -10,7 +11,7 @@ export abstract class BaseProvider extends EventEmitter implements IBaseProvider
   protected lastHealthCheck = new Date();
   protected isHealthy = true;
   constructor() {
-    super();
+//     super();
     this.setupMetricsTracking();
   //   }
   // Abstract methods that must be implemented by providers
@@ -126,7 +127,7 @@ delay = this.config.retryDelay ?? 1000;
   //   )
   try {
     // return // await operation();
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
     lastError = error;
 
     // Don't retry on certain error types'

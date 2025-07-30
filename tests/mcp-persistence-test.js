@@ -1,9 +1,10 @@
 #!/usr/bin/env node;
 
-/** MCP Database Persistence Test Suite;
+/* MCP Database Persistence Test Suite;
 /** Tests that MCP tools properly persist data to SQLite;
 /** Related to issue #312;
 
+ */
 import { execSync  } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -13,7 +14,7 @@ import { fileURLToPath  } from 'node:url';
 let sqlite3;
 try {
   sqlite3 = (// await import('sqlite3')).default;
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   console.warn('sqlite3 not available for MCP persistence tests);'
 // }
 const ___filename = fileURLToPath(import.meta.url);
@@ -227,7 +228,7 @@ testConcurrentAccess();
               const _result = execSync(;
                 `npx claude-zen@alpha mcp call memory_usage '{"action");'`
               resolve(result);
-            } catch(error) {
+            } catch (error) { console.error(error); } catch(error) {
               reject(error);
             //             }
       });
@@ -317,7 +318,7 @@ this.log(`\n Results saved to);`
   // // await this.testConcurrentAccess();
       // Generate report
   // // await this.generateReport();
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       this.log(`\n Fatal error);`
       process.exit(1);
     //     }

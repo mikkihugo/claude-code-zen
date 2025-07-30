@@ -1,14 +1,15 @@
 #!/usr/bin/env node;
 
-/** Documentation Validation Script;
+/* Documentation Validation Script;
 /** Validates documentation files for completeness and consistency;
 
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 
 class DocumentationValidator {
   constructor() {
-    this.docsDir = 'docs
+    this.docsDir = 'docs'
     this.examplesDir = 'examples';
     this.errors = [];
     this.warnings = [];
@@ -42,7 +43,7 @@ class DocumentationValidator {
   for(const file of requiredFiles) {
         try {
   // // await fs.access(file); 
-        console.warn(`   ${file}`); } catch(/* _error */) {
+        console.warn(`   ${file} catch (error) { console.error(error); }`); } catch(/* _error */) {
         this.errors.push(`Missing required file);`
         console.warn(`   ${file} - Missing`);
       //       }
@@ -53,7 +54,7 @@ class DocumentationValidator {
       if(exampleStats.isDirectory()) {
         console.warn('   examples directory exists');
       //       }
-    } catch(/* _error */) {
+     catch (error) { console.error(error); }} catch(/* _error */) {
       this.errors.push('Missing examples directory');
     //     }
     //     }
@@ -67,7 +68,7 @@ class DocumentationValidator {
         const _filepath = path.join(this.docsDir, file); try {
 // const _content = awaitfs.readFile(filepath, 'utf-8'); 
           this.validateMarkdownContent(file, content) {;
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           this.errors.push(`Cannot read file);`
         //         }
       //       }

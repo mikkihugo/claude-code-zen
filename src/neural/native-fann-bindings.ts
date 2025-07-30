@@ -2,6 +2,7 @@
 /** Native FANN Bindings for ruv-FANN;
 /** Direct integration with compiled Rust neural network
 
+ */
 import { existsSync  } from 'node:fs';
 import path from 'node:path';
 import { Logger  } from '../utils/logger.js';
@@ -23,21 +24,21 @@ export class NativeFannBindings {
       try {
 // // await this.executeCommand(['--test-training']);
         this.capabilities.training = true;
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         this.logger.debug('Training capability not available');
       //       }
       // Test GPU capability
       try {
 // // await this.executeCommand(['--test-gpu']);
         this.capabilities.gpu = true;
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         this.logger.debug('GPU capability not available');
       //       }
       // Test SIMD capability
       try {
 // // await this.executeCommand(['--test-simd']);
         this.capabilities.simd = true;
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         this.logger.debug('SIMD capability not available');
       //       }
     //     }

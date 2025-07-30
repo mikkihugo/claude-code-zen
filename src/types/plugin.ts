@@ -2,6 +2,7 @@
 /** Plugin System Types;
 /** Comprehensive plugin architecture for extensible functionality;
 
+ */
 import type { Identifiable  } from '.';
 
 // =============================================================================

@@ -1,8 +1,9 @@
 #!/usr/bin/env node;
 
-/** Documentation Generation Script;
+/* Documentation Generation Script;
 /** Generates comprehensive API documentation from JSDoc comments and schema;
 
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { glob  } from 'glob';
@@ -10,7 +11,7 @@ import { glob  } from 'glob';
 class DocumentationGenerator {
   constructor() {
     this.sourceDir = 'src';
-    this.docsDir = 'docs
+    this.docsDir = 'docs'
     this.outputFile = 'docs/api/generated-api.md';
   //   }
   async generate() { 
@@ -41,7 +42,7 @@ class DocumentationGenerator {
 // const _content = awaitfs.readFile(file, 'utf-8'); 
         const _docs = this.extractJSDocFromContent(content, file); if(docs.length > 0) {
           apiDocs.push({ file,)
-            docs   });
+            docs   } catch (error) { console.error(error); });
         //         }
     //     }
     catch(error)
@@ -72,7 +73,7 @@ class DocumentationGenerator {
           filepath });
       //       }
   })
-  return
+//   return
   docs;
   //   // LINT: unreachable code removed}
   parseJSDocComment(comment) {

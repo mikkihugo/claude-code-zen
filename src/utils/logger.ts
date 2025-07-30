@@ -3,6 +3,7 @@
 /** Simple wrapper around the core logger for component-specific logging;
  * @module Logger
 
+ */
 export class Logger {}
 
 info(message, meta?);

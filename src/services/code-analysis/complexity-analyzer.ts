@@ -2,6 +2,7 @@
 /** Complexity Analyzer;
 /** Uses escomplex for detailed complexity analysis;
 
+ */
 import { readFile  } from 'node:fs';
 
 // Try to import escomplex with fallback
@@ -9,7 +10,7 @@ let escomplex;
 try {
 // const _escomplexModule = awaitimport('escomplex');
   escomplex = escomplexModule.default  ?? escomplexModule;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('ESComplex not available, using simplified complexity analysis');
   escomplex = null;
 // }
@@ -83,7 +84,7 @@ analyzeWithESComplex(filePath, content);
   for(const pattern of patterns) {
       const _matches = content.match(pattern); if(matches) {
         complexity += matches.length; //       }
-    //     }
+     catch (error) { console.error(error); }//     }
 
     // return complexity;
     //   // LINT: unreachable code removed}
@@ -133,7 +134,7 @@ analyzeWithESComplex(filePath, content);
 
   calculateFunctionComplexity(content, funcStartIndex) ;
     // Extract function body(simplified = content.substring(funcStartIndex, funcStartIndex + 500); // Limited scope
-    return this.calculateBasicComplexity(funcContent);
+//     return this.calculateBasicComplexity(funcContent);
     // ; // LINT: unreachable code removed
 
 /** Count parameters in function signature;
@@ -188,7 +189,7 @@ analyzeWithESComplex(filePath, content);
     overall.averageMaintainability = Math.round((totalMaintainability / results.functions.length) * 100) / 100;
     overall.totalLOC = results.files.reduce((_sum, _file) => ;
       sum + (file.complexity.logicalLOC  ?? 0), 0);
-
+// 
     return overall;
     //   // LINT: unreachable code removed}
 
@@ -222,7 +223,7 @@ slice(0, 10);
         action: 'Focus on refactoring complex functions and reducing code duplication';
       });
     //     }
-
+// 
     return insights;
     //   // LINT: unreachable code removed}
 
@@ -232,9 +233,9 @@ slice(0, 10);
   if(complexity > 20) {
       // return 'Critical: Break down into smaller functions immediately';
     //   // LINT: unreachable code removed} else if(complexity > 10) {
-      return 'High: Consider refactoring to reduce complexity';
+//       return 'High: Consider refactoring to reduce complexity';
     //   // LINT: unreachable code removed} else if(complexity > 5) {
-      return 'Medium: Monitor and consider simplification';
+//       return 'Medium: Monitor and consider simplification';
     //   // LINT: unreachable code removed} else {
       // return 'Good: Complexity is within acceptable range';
     //   // LINT: unreachable code removed}

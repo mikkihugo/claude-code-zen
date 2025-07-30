@@ -3,6 +3,7 @@
 /** Converted from JavaScript to TypeScript;
 
 // Simple color utilities
+ */
 const _colors = {
   cyan = > `\x1b[36m${text}\x1b[0m`,
 gray = > `\x1b[90m${text}\x1b[0m`,

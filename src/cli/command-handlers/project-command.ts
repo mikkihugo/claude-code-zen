@@ -4,6 +4,7 @@
 
 // project-command.js - Handles the project command
 
+ */
 import { log  } from '../core/logger.js';
 
 // Helper functions

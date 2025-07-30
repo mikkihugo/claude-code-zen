@@ -2,6 +2,7 @@
 /** Ink Tui Module
 /** Converted from JavaScript to TypeScript
 
+ */
 import path from 'node:path';'
 import { Box, render, Text  } from 'ink';'
 import React, { useEffect, useState  } from 'react';'
@@ -14,7 +15,7 @@ async;
 fetchHives();
 // {
   try {
-// const _response = awaitfetch(`${this.baseUrl}/api/hives`);`
+// const _response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error); }/api/hives`);`
     // return // // await response.json();
     //   // LINT: unreachable code removed} catch(/* _error */) {
     console.error('Failed to fetchhives = // // await fetch(`${this.baseUrl}/hive-mind/${hiveName}`);`'`
@@ -31,7 +32,7 @@ async;
 executeCommand(command, (args = []), (flags = {}));
 
     try {
-// const __response = awaitfetch(`${this.baseUrl}/${command}`, {method = new ApiClient();`
+// const __response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error); }/${command}`, {method = new ApiClient();`
 
 const __SingularityAlpha = () => {
   const [_hives, setHives] = useState({  });
@@ -138,7 +139,7 @@ const __SingularityAlpha = () => {
 // const _hivesData = awaitapiClient.fetchHives();
     setHives(hivesData);
   };
-
+// 
   return React.createElement(Box, {borderStyle = === 'hives' && React.createElement(Box, {flexDirection = === 1 ? "double" );"
         ),
         React.createElement(Box, { ;)
@@ -157,7 +158,7 @@ const __SingularityAlpha = () => {
         setCommandResult({ success = > setCurrentView('hives');'
       }),
     React.createElement(Box, { borderStyle: "single", paddingX},"
-      React.createElement(Text, { color: "gray" },"))
+      React.createElement(Text, { color: "gray" },"))"
         `View: ${currentView} | Services: ${Object.keys(hives).length} | API: Connected`;`
       );
     );

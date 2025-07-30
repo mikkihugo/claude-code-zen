@@ -2,6 +2,7 @@
 /** Collective Memory System for Hive Mind
 /** Shared knowledge base and learning system
 
+ */
 import Database from 'better-sqlite3';
 
 /** Memory types and their characteristics
@@ -114,7 +115,7 @@ delete(key);
 getStats();
   // return {
       size = {}) {
-    super();
+//     super();
     // ; // LINT: unreachable code removed
   /** @type {import('better-sqlite3').Database | null} */
   this.db = null;
@@ -160,7 +161,7 @@ this._initialize();
       this.db.pragma('optimize');
 
       // Ensure table exists with optimized schema: {}
-      this.db.exec(`;`
+       catch (error) { console.error(error); }this.db.exec(`;`
         CREATE TABLE IF NOT EXISTS collective_memory(;
           id TEXT PRIMARY KEY,
           swarm_id TEXT NOT NULL,
@@ -428,7 +429,7 @@ run(this.config.swarmId, key);
         params.push(type);
       //       }
 
-      query += ' ORDER BY access_count DESC, confidence DESC LIMIT ?';
+       catch (error) { console.error(error); }query += ' ORDER BY access_count DESC, confidence DESC LIMIT ?';
       params.push(limit);
 
       const _results = this.db.prepare(query).all(...params);
@@ -455,7 +456,7 @@ prepare(;
 all(key, key, this.config.swarmId, limit);
 
       // return result;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       this.emit('error', error);
       throw error;
     //     }
@@ -489,7 +490,7 @@ all(this.config.swarmId);
           consolidated.set(category, []);
         //         }
 
-        consolidated.get(category).push({ ..memory,)
+         catch (error) { console.error(error); }consolidated.get(category).push({ ..memory,)
           value   });
       });
 
@@ -695,7 +696,7 @@ sort((a, b) => b[1] - a[1]);
 slice(0, Math.min(1000, memoryStats.entryCount * 0.2))
 
     const __optimalCacheEntries = hotKeys.length * 1.2; // 20% buffer
-
+// 
     return {
       entries = {timestamp = analytics.performance.avgQueryTime;
     // report.summary.cacheHitRate = analytics.cache.hitRate  ?? 0; // LINT: unreachable code removed

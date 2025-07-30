@@ -2,6 +2,7 @@
 /** Performance Monitor Plugin;
 /** Real-time performance monitoring, metrics collection, and analysis;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { mkdir, readFile  } from 'node:fs';
 import os from 'node:os';
@@ -9,7 +10,7 @@ import path from 'node:path';
 
 export class PerformanceMonitorPlugin extends EventEmitter {
   constructor(_config = {}) {
-    super();
+//     super();
     this.config = {metricsInterval = {system = new Map();
     this.alerts = [];
     this.collectors = new Map();
@@ -33,7 +34,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
       const _cpus = os.cpus();
       // Calculate CPU usage
       const __cpuUsage = this.calculateCPUUsage(cpus);
-      return {
+//       return {
         timestamp => {
       const _memoryUsage = process.memoryUsage();
       // const _cpuUsage = process.cpuUsage(); // LINT: unreachable code removed
@@ -46,9 +47,9 @@ export class PerformanceMonitorPlugin extends EventEmitter {
         // This requires --expose-gc flag
   if(global._gc) {
           global.gc();
-          return {timestamp = cpus.map(_cpu => ({idle = > acc + time, 0);
+//           return {timestamp = cpus.map(_cpu => ({idle = > acc + time, 0);
           //   // LINT: unreachable code removed  }));
-          return 0;
+//           return 0;
           //   // LINT: unreachable code removed}
           const _totalUsage = 0;
           cpus.forEach((cpu, i) => {
@@ -72,7 +73,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
           //           }
           setupPerformanceObserver();
           try {
-      const { PerformanceObserver } = require('node);'
+      const { PerformanceObserver }  catch (error) { console.error(error); }= require('node);'
 
       this.performanceObserver = new PerformanceObserver((list) => {
         const _entries = list.getEntries();
@@ -123,7 +124,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
   if(metrics) {
             if(!this.metrics.custom.has(name)) {
               this.metrics.custom.set(name, []); //             }
-            this.metrics.custom.get(name) {.push(metrics);
+             catch (error) { console.error(error); }this.metrics.custom.get(name) {.push(metrics);
           //           }
         //         }
       //       }
@@ -224,7 +225,7 @@ percentile(values, p);
 // {
   const _sorted = values.slice().sort((a, b) => a - b);
   const _index = Math.ceil(sorted.length * p) - 1;
-  return sorted[index];
+//   return sorted[index];
 // }
 // Custom metric methods
 startTimer(name, (labels = {}));
@@ -311,9 +312,9 @@ getMetricsSummary((duration = '5m'));
   const _systemMetrics = this.metrics.system.filter((m) => m.timestamp >= cutoff);
   const _processMetrics = this.metrics.process.filter((m) => m.timestamp >= cutoff);
   if(systemMetrics.length === 0 ?? processMetrics.length === 0) {
-    return null;
+//     return null;
     //   // LINT: unreachable code removed}
-    return {
+//     return {
       duration,samples = > m.cpu.usage)),max = > m.cpu.usage));
     //   // LINT: unreachable code removed},memory = > m.memory.percentage;
     )),max = > m.memory.percentage))
@@ -440,7 +441,7 @@ formatLabels(labels);
   if(pairs.length === 0) return '';
   // ; // LINT: unreachable code removed
   const _formatted = pairs.map(([k, v]) => `${k}="${v}"`).join(',');
-  return `{${formatted}}`;
+//   return `{${formatted}}`;
 // }
 async;
 getHealthReport();

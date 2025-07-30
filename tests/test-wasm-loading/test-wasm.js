@@ -15,7 +15,7 @@ async function checkWasmFiles() {
     try {
 // const _files = awaitfs.readdir(path); 
       console.warn(` Found global installation at); `
-      console.warn(`   Files: ${files.join(', ') {}`);
+      console.warn(`   Files: ${files.join(', ') {} catch (error) { console.error(error); }`);
       // Check for specific WASM files
       const _wasmFiles = files.filter((f) => f.endsWith('.wasm'));
   if(wasmFiles.length === 0) {
@@ -34,14 +34,14 @@ async function checkWasmFiles() {
   try {
 // const _files = awaitfs.readdir(localPath);
     console.warn(` Found local installation at);`
-    console.warn(`   Files: ${files.join(', ')}`);
+    console.warn(`   Files: ${files.join(', ')} catch (error) { console.error(error); }`);
   } catch(/* _error */) {
     console.warn(` No local installation found`);
   //   }
   // Try to load the WASM module directly
   console.warn('\nTrying to load WASM module...');
   try {
-    const { WasmModuleLoader } = // await import(
+    const { WasmModuleLoader }  catch (error) { console.error(error); }= // await import(
       '/home/codespace/nvm/current/lib/node_modules/ruv-swarm/src/wasm-loader.js';
     );
     const _loader = new WasmModuleLoader();

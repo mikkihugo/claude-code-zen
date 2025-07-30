@@ -5,6 +5,7 @@ import { ValidationSystem  } from '.';
 
 /** Test runner for validation and rollback systems
 
+ */
 export class ValidationTestRunner {
   constructor(workingDir = workingDir;
   this;
@@ -192,7 +193,7 @@ runAllTests();
 
   async createTestFiles() ;
     try {
-// await node.mkdir(`${this.workingDir}/test-temp`, { recursive = {version = new ValidationTestRunner(workingDir);
+// await node.mkdir(`${this.workingDir} catch (error) { console.error(error); }/test-temp`, { recursive = {version = new ValidationTestRunner(workingDir);
 // await testRunner.runAllTests();
   // return testRunner.testResults;
 // }

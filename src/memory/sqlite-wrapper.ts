@@ -2,6 +2,7 @@
 /** SQLite Wrapper with Windows Fallback Support;
 /** Provides graceful fallback when better-sqlite3 fails to load
 
+ */
 import { createRequire  } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -23,7 +24,7 @@ export // interface Database {
 // Database = module.default  ?? module
 // sqliteAvailable = true
 // return true;
-// // }
+// // } catch (error) { console.error(error); }
 catch(error)
 // {
   // Fallback to CommonJS require
@@ -32,7 +33,7 @@ catch(error)
     Database = require('better-sqlite3');
     sqliteAvailable = true;
     // return true;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
     loadError = requireErr;
 
     // Check for specific Windows errors
@@ -66,10 +67,10 @@ catch(error)
 
 // export async function isSQLiteAvailable(): Promise<boolean> {
   if(sqliteAvailable !== null) {
-    return sqliteAvailable;
+//     return sqliteAvailable;
     //   // LINT: unreachable code removed}
 // // await tryLoadSQLite();
-  return sqliteAvailable;
+//   return sqliteAvailable;
 // }
 
 /** Get SQLite Database constructor or null
@@ -85,7 +86,7 @@ catch(error)
 /** Get the load error if any
 
 // export function getLoadError(): Error | null {
-  return loadError;
+//   return loadError;
 // }
 
 /** Create a SQLite database instance with fallback
@@ -97,7 +98,7 @@ catch(error)
 
 try {
     // return new DB(dbPath);
-    //   // LINT: unreachable code removed} catch(_err;
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(_err;
 = === 'win32';
 // }
 

@@ -1,6 +1,7 @@
 
 /** Tests for SIGINT handling in hive-mind spawn command;
 
+ */
 import { spawn  } from 'node:child_process';
 import { existsSync  } from 'node:fs';
 import path from 'node:path';
@@ -106,7 +107,7 @@ it('should terminate Claude Code process when SIGINT is received', (done) =>
   try {
     execSync('which claude', { stdio);
     _claudeAvailable = true;
-  } catch {
+  } catch (error) { console.error(error); } catch {
     console.warn('Skipping test);'
     done();
     return;

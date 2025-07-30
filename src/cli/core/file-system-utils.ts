@@ -3,6 +3,7 @@
 /** Implements Google's single responsibility principle;'
 /** Provides type-safe file system operations with comprehensive error handling
 
+ */
 import { promises as fs  } from 'node:fs';'
 import path from 'node:path';'
 import { CliError  } from '.';
@@ -29,7 +30,7 @@ import logger from '.';
 // // const _content = awaitfs.readFile(filePath/g)
 // , encoding)
 // const __size = typeof content === 'string' ? content.length = encoding === 'utf8' ? 'characters' : 'bytes';'
-// logger.debug(`Fileread = 'utf8';'`/g)
+// logger.debug(`Fileread = 'utf8';'`/g)'
 // ): Promise<boolean> {
 //   try {
 //     // Ensure directory exists
@@ -39,7 +40,7 @@ import logger from '.';
 //     logger.debug(`Filewritten = path.dirname(destinationPath);`
 // // // await ensureDirectoryExists(destDir);
 // // // await fs.copyFile(sourcePath, destinationPath);
-// logger.debug(`File copied = {}`/g)
+// logger.debug(`File copied = {} catch (error) { console.error(error); }`/g)
 ): Promise<DirectoryEntry[]> {
   try {
 // const _entries = awaitfs.readdir(dirPath, {withFileTypes = entries;
@@ -48,7 +49,7 @@ import logger from '.';
   if(options.filesOnly) {
       filteredEntries = filteredEntries.filter(entry => entry.isFile());
     //     }
-  if(options.directoriesOnly) {
+   catch (error) { console.error(error); }if(options.directoriesOnly) {
       filteredEntries = filteredEntries.filter(entry => entry.isDirectory());
     //     }
 
@@ -57,7 +58,7 @@ import logger from '.';
       const _regex = new RegExp(options.pattern);
       filteredEntries = filteredEntries.filter(entry => regex.test(entry.name));
     //     }
-
+// 
     return {
       size = {}): Promise<boolean> {
   try {
@@ -65,7 +66,7 @@ import logger from '.';
     // ; // LINT: unreachable code removed
     if(stats.isDirectory()) {
 // // await fs.rmdir(targetPath, {recursive = === 'ENOENT' && options.ignoreNotFound) {'
-      logger.debug(`Path not found(ignored): ${targetPath}`);`
+      logger.debug(`Path not found(ignored): ${targetPath} catch (error) { console.error(error); }`);`
 // return true;
 // }
 throw new CliError(`Failed to remove '${targetPath}');'`
@@ -82,7 +83,7 @@ throw new CliError(`Failed to remove '${targetPath}');'`
 // await ensureDirectoryExists(destDir);
 // await fs.rename(sourcePath, destinationPath);
 logger.debug(`Pathmoved = await fs.stat(filePath);`
-    return stats.isFile();
+//     return stats.isFile();
     //   // LINT: unreachable code removed} catch {
     // return false;
     //   // LINT: unreachable code removed}
@@ -94,9 +95,9 @@ logger.debug(`Pathmoved = await fs.stat(filePath);`
  */
     // */; // LINT: unreachable code removed
 // export async function isDirectory(dirPath = // await fs.stat(dirPath);
-    return stats.isDirectory();
+//     return stats.isDirectory();
     //   // LINT: unreachable code removed} catch {
-    return false;
+//     return false;
     //   // LINT: unreachable code removed}
 // }
 
@@ -106,16 +107,16 @@ logger.debug(`Pathmoved = await fs.stat(filePath);`
  */
     // */; // LINT: unreachable code removed
 // export async function getFileSize(filePath = // await fs.stat(filePath);
-    return stats.size;
+//     return stats.size;
     //   // LINT: unreachable code removed} catch(error = any>(filePath): Promise<T> {
   try {
 // const _content = awaitreadFileSecurely(filePath, 'utf8') as string;'
-    return JSON.parse(content) as T;
-    //   // LINT: unreachable code removed} catch(error = true): Promise<boolean> {
+//     return JSON.parse(content) as T;
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error = true): Promise<boolean> {
   try {
     const _content = pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data);
     // return // await writeFileSecurely(filePath, content, 'utf8');'
-    //   // LINT: unreachable code removed} catch(error = 'temp', extension = '.tmp'): Promise<string> {'
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error = 'temp', extension = '.tmp'): Promise<string> {'
   const _tmpDir = process.env.TMPDIR  ?? process.env.TMP  ?? '
   const _timestamp = Date.now();
   const _random = Math.random().toString(36).substring(2);

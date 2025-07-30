@@ -1,17 +1,18 @@
 #!/usr/bin/env node;
 
-/**  AG-UI Demo Runner for Claude Code Zen;
+/*  AG-UI Demo Runner for Claude Code Zen;
  * ;
 /** Demonstrates the AG-UI protocol integration;
 /** Runwith = ' .repeat(60));'
 
+ */
   try {
     // Option1 = // await runAGUIDemo();
       console.warn('\n Demo completed! Check the event logs above.');
       return;
     //   // LINT: unreachable code removed}
 
-    // Option2 = new ClaudeZenServer({ port  });
+     catch (error) { console.error(error); }// Option2 = new ClaudeZenServer({ port  });
 
     // Start server
 // // await server.start();

@@ -74,11 +74,12 @@ const ___dirname = dirname(__filename);
 
 /** Copy command templates
 
+ */
 async function copyCommandTemplates(templatesDir = join(templatesDir, 'commands');
 const _commandsDestDir = join(targetDir, '.claude', 'commands');
 if(!existsSync(commandsSourceDir)) {
   // Use generated command templates as fallback
-  return // await generateCommandTemplates(targetDir, options, results);
+//   return // await generateCommandTemplates(targetDir, options, results);
 // }
 try {
   if(!options.dryRun) {
@@ -93,7 +94,7 @@ try {
           const _sourcePath = join(categoryPath, file); const _destPath = join(destCategoryPath, file); if(// await copyFile(sourcePath, destPath, options) {) {
             results.copiedFiles.push(join('.claude', 'commands', category, file));
           //           }
-        //         }
+         catch (error) { console.error(error); }//         }
       //       }
     //     }
   } catch(err) ;
@@ -108,8 +109,8 @@ try {
     const _templatesToCreate = options.selectedModes ;
       ? Object.entries(sparcTemplates).filter(([filename]) => {
           const _mode = filename.replace('.md', '');
-          return options.selectedModes.includes(mode);
-    //   // LINT: unreachable code removed});
+//           return options.selectedModes.includes(mode);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); });
       : Object.entries(sparcTemplates);
 
     // Write SPARC mode files
@@ -146,7 +147,7 @@ try {
 // // await fs.writeFile(destPath, content); 
       //       }
 
-      console.warn(`${options.dryRun ? '[DRY RUN] Would create' ) {;`
+       catch (error) { console.error(error); }console.warn(`${options.dryRun ? '[DRY RUN] Would create' ) {;`
       results.copiedFiles.push(join('.claude', 'commands', 'swarm', filename));
     //     }
   } catch(/* err */) {
@@ -155,7 +156,7 @@ try {
   try {
   if(!options.dryRun) {
 // // await fs.mkdir(helpersDir, {recursive = ['setup-mcp.sh', 'quick-start.sh', 'github-setup.sh'];/g)
-    const { createHelperScript } = // await import('./templates/enhanced-templates.js');
+    const { createHelperScript }  catch (error) { console.error(error); }= // await import('./templates/enhanced-templates.js');
   for(const helper of helpers) {
       const _content = createHelperScript(helper); if(content) {
         const _destPath = join(helpersDir, helper); if(!options.dryRun) {
@@ -196,15 +197,15 @@ try {
   } catch(err) ;
     results.errors.push(`Failed to copy wrapperscripts = [`
     'memory',
-    'memory
-    'memory
+    'memory'
+    'memory'
     'coordination',
-    'coordination
-    'coordination
-    'coordination
+    'coordination'
+    'coordination'
+    'coordination'
     '.claude',
-    '.claude
-    '.claude
+    '.claude'
+    '.claude'
     '.swarm', // For memory persistence
   ];
 
@@ -218,7 +219,7 @@ try {
     const _dirPath = join(targetDir, dir); try {
   if(!options.dryRun) {
 // // await fs.mkdir(dirPath, {recursive = = 'EEXIST') {
-        console.warn(`   Failed to create ${dir}/); `
+        console.warn(`   Failed to create ${dir} catch (error) { console.error(error); }/); `
     //     }
 // }
 
@@ -232,70 +233,70 @@ async function createMemoryReadmeFiles(targetDir = // await import('./templates/
   // Map template files to their generator functions
   const _templateGenerators = {
     'CLAUDE.md': async() => {
-      const { createFullClaudeMd } = await import('./templates/claude-md.js');
-      return createFullClaudeMd();
+      const { createFullClaudeMd }  catch (error) { console.error(error); }= await import('./templates/claude-md.js');
+//       return createFullClaudeMd();
     //   // LINT: unreachable code removed},
     'CLAUDE.md.sparc': async() => {
       const { createSparcClaudeMd } = await import('./templates/claude-md.js');
-      return createSparcClaudeMd();
+//       return createSparcClaudeMd();
     //   // LINT: unreachable code removed},
     'CLAUDE.md.minimal': async() => {
       const { createMinimalClaudeMd } = await import('./templates/claude-md.js');
-      return createMinimalClaudeMd();
+//       return createMinimalClaudeMd();
     //   // LINT: unreachable code removed},
     'CLAUDE.md.optimized': async() => {
       const { createOptimizedSparcClaudeMd } = await import('./templates/claude-md.js');
-      return createOptimizedSparcClaudeMd();
+//       return createOptimizedSparcClaudeMd();
     //   // LINT: unreachable code removed},
     'CLAUDE.md.enhanced': async() => {
       const { createEnhancedClaudeMd } = await import('./templates/enhanced-templates.js');
-      return createEnhancedClaudeMd();
+//       return createEnhancedClaudeMd();
     //   // LINT: unreachable code removed},
     'memory-bank.md': async() => {
       const { createFullMemoryBankMd } = await import('./templates/memory-bank-md.js');
-      return createFullMemoryBankMd();
+//       return createFullMemoryBankMd();
     //   // LINT: unreachable code removed},
     'memory-bank.md.minimal': async() => {
       const { createMinimalMemoryBankMd } = await import('./templates/memory-bank-md.js');
-      return createMinimalMemoryBankMd();
+//       return createMinimalMemoryBankMd();
     //   // LINT: unreachable code removed},
     'memory-bank.md.optimized': async() => {
       const { createOptimizedMemoryBankMd } = await import('./templates/memory-bank-md.js');
-      return createOptimizedMemoryBankMd();
+//       return createOptimizedMemoryBankMd();
     //   // LINT: unreachable code removed},
     'coordination.md': async() => {
       const { createFullCoordinationMd } = await import('./templates/coordination-md.js');
-      return createFullCoordinationMd();
+//       return createFullCoordinationMd();
     //   // LINT: unreachable code removed},
     'coordination.md.minimal': async() => {
       const { createMinimalCoordinationMd } = await import('./templates/coordination-md.js');
-      return createMinimalCoordinationMd();
+//       return createMinimalCoordinationMd();
     //   // LINT: unreachable code removed},
     'coordination.md.optimized': async() => {
       const { createOptimizedCoordinationMd } = await import('./templates/coordination-md.js');
-      return createOptimizedCoordinationMd();
+//       return createOptimizedCoordinationMd();
     //   // LINT: unreachable code removed},
     'settings.json': async() =>
-      return await fs.readFile(join(__dirname, 'templates', 'settings.json'), 'utf8');
+//       return await fs.readFile(join(__dirname, 'templates', 'settings.json'), 'utf8');
     //   // LINT: unreachable code removed},
     'settings.json.enhanced': async() => {
       const { createEnhancedSettingsJson } = await import('./templates/enhanced-templates.js');
-      return createEnhancedSettingsJson();
+//       return createEnhancedSettingsJson();
     //   // LINT: unreachable code removed},
     'claude-zen-universal': async() =>
-      return await fs.readFile(join(__dirname, 'templates', 'claude-zen-universal'), 'utf8');
+//       return await fs.readFile(join(__dirname, 'templates', 'claude-zen-universal'), 'utf8');
     //   // LINT: unreachable code removed},
     'claude-zen.bat': async() => {
-      return await fs.readFile(join(__dirname, 'templates', 'claude-zen.bat'), 'utf8');
+//       return await fs.readFile(join(__dirname, 'templates', 'claude-zen.bat'), 'utf8');
     //   // LINT: unreachable code removed},
     'claude-zen.ps1': async() =>
-      return await fs.readFile(join(__dirname, 'templates', 'claude-zen.ps1'), 'utf8');
+//       return await fs.readFile(join(__dirname, 'templates', 'claude-zen.ps1'), 'utf8');
 
   const _generator = templateGenerators[filename]  ?? templateGenerators[filename.replace(/\.(sparc|minimal|optimized|enhanced)$/, '')];
   if(generator) {
     try {
       // return // await generator();
-    //   // LINT: unreachable code removed} catch(/* err */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* err */) {
       console.warn(`    Failed to generate template content for ${filename});`
       // return null;
     //   // LINT: unreachable code removed}
@@ -311,12 +312,12 @@ async function generateCommandTemplates(targetDir = // await import('./templates
   for (const [category, commands] of Object.entries(COMMAND_STRUCTURE)) {
     const _categoryDir = join(targetDir, '.claude', 'commands', category); try {
   if(!options.dryRun) {
-// // await fs.mkdir(categoryDir, {recursive = `# ${category.charAt(0).toUpperCase() + category.slice(1)} Commands`
+// // await fs.mkdir(categoryDir, {recursive = `# ${category.charAt(0).toUpperCase() + category.slice(1)}  catch (error) { console.error(error); }Commands`
 Commands for ${category} operations in Claude Flow.
 
 ## Available Commands
 
-${commands.map(cmd => `- [${cmd}](.
+${commands.map(cmd => `- [${cmd}](.`
 `; `
 // // await fs.writeFile(join(categoryDir, 'README.md') {, categoryReadme);
       //       }

@@ -47,6 +47,7 @@ import type { ArchitectureAnalysis, PatternDetectionResult  } from '.';
 //   recommendations;
 //   solidCompliance: {
 //     srp: { score, violations};
+ */
     ocp: { score, violations};
     lsp: { score, violations};
     isp: { score, violations};

@@ -3,35 +3,36 @@
 /** Comprehensive AI provider management system;
 
 // Provider implementations
-export { AnthropicProvider  } from '.
+ */
+export { AnthropicProvider  } from '.'
 
 // Base provider implementation
-export { BaseProvider  } from '.
-export { CohereProvider  } from '.
-export { GoogleProvider  } from '.
-export { OllamaProvider  } from '.
-export { OpenAIProvider  } from '.
+export { BaseProvider  } from '.'
+export { CohereProvider  } from '.'
+export { GoogleProvider  } from '.'
+export { OllamaProvider  } from '.'
+export { OpenAIProvider  } from '.'
 // Provider manager
-export { ProviderManager  } from '.
+export { ProviderManager  } from '.'
 // Core types and interfaces
-export * from '.
+export * from '.'
 
 // Utilities
-export * from '.
+export * from '.'
 
 // Quick start function for easy initialization
 // export async function createProviderManager() {
-  const { ProviderManager } = await import('.
+  const { ProviderManager } = await import('.'
 
   const _manager = new ProviderManager(configs.manager);
 // // await manager.initializeBuiltInProviders(configs.providers ?? {});
-  return manager;
+//   return manager;
 // }
 // Provider factory for dynamic loading
 // export async function createProvider(name = // await import('./anthropic.js');
 const _anthropic = new AnthropicProvider();
 // await anthropic.initialize(config);
-return anthropic;
+// return anthropic;
 // ; // LINT: unreachable code removed
 case 'openai': null
 const { OpenAIProvider } = // await import('./openai.js');

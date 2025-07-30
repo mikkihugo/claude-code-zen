@@ -50,7 +50,7 @@ try {
   const _template = flags.template  ?? flags.t;
   const _interactive = flags.interactive  ?? flags.i;
   if(!workflowName && !interactive) {
-    printError('Usage = `workflow_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;'
+    printError('Usage = `workflow_${Date.now()} catch (error) { console.error(error); }_${Math.random().toString(36).substr(2, 9)}`;'
   let workflowData;
   if(template && WORKFLOW_TEMPLATES[template]) {
     // Create from template
@@ -67,6 +67,7 @@ try {
 
 /** Interactive workflow creation
 
+ */
 async function createInteractiveWorkflow(flags => {
     console.warn(`${key.padEnd(15)}`
 -$;
@@ -120,7 +121,7 @@ ID = args[0];)
   printSuccess(`${dryRun ? 'Simulating' )`
     //     {
       const _phase = workflow.phases[i];
-      console.warn(`\n Phase ${i + 1}
+      console.warn(`\n Phase ${i + 1}`
       console.warn(`Mode = > setTimeout(resolve, 1000));`
       printSuccess(` Phase ${phase.name} completed`);
     } else {
@@ -211,7 +212,7 @@ async function showWorkflowInfo() {
 // // await fs.mkdir(dir, {recursive = = 'EEXIST') {
       throw error;
     //     }
-  //   }
+   catch (error) { console.error(error); }//   }
 // }
 
 async function findWorkflow(identifier = path.join('.claude-zen', 'workflows');
@@ -224,7 +225,7 @@ async function findWorkflow(identifier = path.join('.claude-zen', 'workflows');
   if(workflow.id === identifier  ?? workflow.name === identifier) {
           // return workflow;
     //   // LINT: unreachable code removed}
-      } catch(error) {
+       catch (error) { console.error(error); }} catch(error) {
         continue;
       //       }
     //     }

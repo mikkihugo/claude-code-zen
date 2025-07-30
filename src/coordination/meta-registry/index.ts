@@ -2,6 +2,7 @@
 /** Ultra-Modular Meta Registry System
 
 /** A universal coordination substrate that can beANYTHING = > Promise<void>
+ */
   metadata?;
   [key = {}): Promise<string> {
     throw new Error('register() must be implemented by registry backend');'
@@ -129,7 +130,7 @@ const _result = data;
   for(const hook of hooks) {
   try {
         result = (// // await hook(result))  ?? result; 
-      } catch(_error; = 0
+      } catch (error) { console.error(error); } catch(_error; = 0
 
   const _dispatch = async(i) {: Promise<any> => {
     if(i <= index) return Promise.reject(new Error('next() called multiple times'));'
@@ -161,7 +162,7 @@ getPlugin(name = this.plugins.get(name);
   listPlugins():
   name = > ({ name,
       metadata = {  })
-    super();
+//     super();
   this.backend = backend;
   this.options = options;
   this.pluginSystem = new RegistryPluginSystem();
@@ -171,11 +172,11 @@ getPlugin(name = this.plugins.get(name);
   this.state = 'initialized';'
 
   // Bind plugin system events
-  this.pluginSystem.on('pluginRegistered', (event => {'))
+  this.pluginSystem.on('pluginRegistered', (event => {'))'
       this.emit('pluginRegistered', event);'
     });
 
-  this.pluginSystem.on('pluginInitialized', (event => {'))
+  this.pluginSystem.on('pluginInitialized', (event => {'))'
       this.emit('pluginInitialized', event);'
     });
 
@@ -195,13 +196,13 @@ initialize((config = {}));
 // // // await this.backend.initialize(config);
       //       }
 
-      // Initialize plugins
+       catch (error) { console.error(error); }// Initialize plugins
   for(const [name] of this.pluginSystem.plugins) {
 // // // await this.pluginSystem.initializePlugin(name, this, config); 
       //       }
 
       this.state = 'ready'; '
-      this.emit('ready', {id = 'error';')
+      this.emit('ready', {id = 'error';')'
       this.emit('error', error) {;'
       throw error;
     //     }
@@ -223,7 +224,7 @@ register((key = {}));
       [data.key, data.value, data.options],))
       async(k = > this.backend.register(k, v, o);
     );
-// // await this.pluginSystem.executeHooks('afterRegister', {'/g)
+// // await this.pluginSystem.executeHooks('afterRegister', {'/g)'
       key = {}): Promise<any[]> {
 // const _data = awaitthis.pluginSystem.executeHooks('beforeDiscover', {'
       query, options,registry = // // await this.pluginSystem.executeMiddleware(;
@@ -231,7 +232,7 @@ register((key = {}));
       [data.query, data.options],))
       async(q = > this.backend.discover(q, o);
     );
-// // await this.pluginSystem.executeHooks('afterDiscover', {'/g)
+// // await this.pluginSystem.executeHooks('afterDiscover', {'/g)'
       query = {}): Promise<SwarmCoordinator> {
     const _coordinator = new SwarmCoordinator(swarmId, this, config);
 // // // await coordinator.initialize();
@@ -261,7 +262,7 @@ status();
 
 // export class SwarmCoordinator extends EventEmitter {
   ) {
-    super();
+//     super();
   this;
 
   swarmId = swarmId;
@@ -291,7 +292,7 @@ initialize();
     this.state = 'initializing';'
 
     // Register swarm in meta registry
-// // // await this.registry.register(`swarm = 'ready';'`/g)
+// // // await this.registry.register(`swarm = 'ready';'`/g)'
     this.emit('ready');'
   //   }
 

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** HTTP MCP Server - Runs MCP protocol over HTTP on port 3000
+/* HTTP MCP Server - Runs MCP protocol over HTTP on port 3000
 /** Provides all Claude Flow tools including Git integration
 
+ */
 import cors from 'cors';'
 import { EventEmitter  } from 'events';'
 import express, { Application, NextFunction, Request, Response  } from 'express';'
@@ -54,7 +55,7 @@ ValidationResult  } from '../types/server.js''
 // _mcpServer = {requests = []
 // constructor((config = {}))
 // {
-  super();
+//   super();
   this._config = {port = = false,enableAllTools = = false,httpMode = = false,timeout = this._config.port!;
   this._host = this._config.host!;
   this._app = express();
@@ -141,7 +142,7 @@ this._app.use((req =>
         if((message as MCPRequest).method === 'tools/call') {'
           this._metrics.toolCalls++;
         //         }
-// const _response = awaitthis._mcpServer.handleMessage(message);
+ catch (error) { console.error(error); }// const _response = awaitthis._mcpServer.handleMessage(message);
         res.json(response);
       } catch(error) ;
         this.handleMCPError(req, res, error as Error, req.body.id);
@@ -154,7 +155,7 @@ this._app.use((req =>
         res.json({success = > ({
             name => {
       try {
-        const { toolName } = req.params;))
+        const { toolName }  catch (error) { console.error(error); }= req.params;))
 // const _tools = awaitthis._mcpServer.toolsRegistry?.getAllTools()  ?? [];
         const _tool = tools.find(t => t.name === toolName);
   if(!tool) {

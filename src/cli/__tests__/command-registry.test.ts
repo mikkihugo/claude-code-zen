@@ -1,6 +1,7 @@
 
 /** Tests for command-registry.js
 
+ */
 import { jest  } from '@jest';
 import { commandRegistry,
 executeCommand,
@@ -8,7 +9,7 @@ hasCommand,
 listCommands,
 registerCoreCommands,
 showAllCommands,
-showCommandHelp  } from '..
+showCommandHelp  } from '..'
 // Mock all command modules
 jest.mock('../simple-commands/init.js', () => (// {'
   initCommand);

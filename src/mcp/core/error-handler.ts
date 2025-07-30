@@ -5,6 +5,7 @@
 
 /** Enhanced error handler with retry logic and circuit breaker
 
+ */
 export class MCPErrorHandler {
 
  * @param {Object} options - Configuration options
@@ -44,7 +45,7 @@ export class MCPErrorHandler {
         this.onOperationSuccess();
         // return result;
     // ; // LINT: unreachable code removed
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         _lastError = error;
         this.recordError(error, context);
 
@@ -166,7 +167,7 @@ export class MCPErrorHandler {
  */
 
     // delay(ms) ; // LINT: unreachable code removed
-    return new Promise(resolve => setTimeout(resolve, ms));
+//     return new Promise(resolve => setTimeout(resolve, ms));
 // }
 
 /** Error recovery strategies
@@ -186,10 +187,10 @@ export class MCPErrorHandler {
 
     try {
       // Try to find valid JSON objects in the buffer
-      const _jsonMatches = buffer.match(/\{[^{}]*\}/g)  ?? []
+      const _jsonMatches = buffer.match(/\{[^{} catch (error) { console.error(error); }]*\}/g)  ?? []
   for(const match of jsonMatches) {
         try {
-          const _message = JSON.parse(match); recovered.push(message); } catch(error) {
+          const _message = JSON.parse(match); recovered.push(message); } catch (error) { console.error(error); } catch(error) {
           // Skip invalid JSON
         //         }
       //       }

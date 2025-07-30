@@ -19,6 +19,7 @@
 /** Global test environment configuration;
 /** Sets up environment variables and error handling for tests;
 
+ */
 function setupTestEnvironment() {
   // Set test environment flags
   process.env.CLAUDE_FLOW_ENV = 'test';

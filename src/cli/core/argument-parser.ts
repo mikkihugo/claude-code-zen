@@ -3,6 +3,7 @@
 /** Implements Google's single responsibility principle;'
 /** Separated from command execution logic
 
+ */
 import { ValidationError  } from '.';
 
 // =============================================================================
@@ -73,7 +74,7 @@ else {
 if(!(_name in _flags)) {
   throw new ValidationError(errorMessage ?? `Required flag --${name} is missing`);`
 // }
-return flags[name];
+// return flags[name];
 // }
   //   }
 // }
@@ -93,7 +94,7 @@ if(/^-?\d+$/.test(value)) return parseInt(value, 10);
 if(value.startsWith('[') && value.endsWith(']')) {'
   try {
     // return JSON.parse(value);
-    //   // LINT: unreachable code removed} catch {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
     // If JSON parsing fails, return as string
   //   }
 // }
@@ -221,7 +222,7 @@ requireOneOf<T>((name = null));
     const _value = this.flags[name];
     if(Array.isArray(value)) return value;
     // if(typeof value === 'string') return value.split(',').map(item => item.trim()); // LINT: unreachable code removed'
-    return defaultValue;
+//     return defaultValue;
     //   // LINT: unreachable code removed}
 
 /** Validate flag with custom options

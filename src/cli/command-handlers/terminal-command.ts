@@ -81,7 +81,7 @@ this.commandHistory = new Map();
   for(const cmd of terminal.cleanupCommands) {
         try {
 // // // await this.executeCommand(terminalId, cmd); 
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           // Ignore cleanup errors unless in strict mode
           if(options.strict) throw error; //         }
       //       }
@@ -157,9 +157,9 @@ async function _initializeTerminalStorage() {
   try {
     if(!existsSync(TERMINAL_BASE_DIR)) {
       mkdirSync(TERMINAL_BASE_DIR, {recursive = await fs.readFile(ACTIVE_TERMINALS_FILE, 'utf8');'
-      return JSON.parse(content);
+//       return JSON.parse(content);
     //   // LINT: unreachable code removed}
-  } catch(/* _error */) {
+   catch (error) { console.error(error); }} catch(/* _error */) {
     printWarning(`Failed to load activeterminals = // await fs.readFile(TERMINAL_HISTORY_FILE, 'utf8');'`
       // return JSON.parse(content);
     //   // LINT: unreachable code removed}
@@ -172,12 +172,13 @@ async function _initializeTerminalStorage() {
 
 /** Get terminal pool instance
 
+ */
 async function getTerminalPool() {
   if(!terminalPool) {
     terminalPool = new TerminalPool();
 // await terminalPool.initialize();
   //   }
-  return terminalPool;
+//   return terminalPool;
 // }
 
 /** Create a new terminal session
@@ -190,7 +191,7 @@ async function createTerminal(args = // await getTerminalPool();
     console.warn(` TerminalID = // await getTerminalPool();`
 
   try {
-    const _filter = {};
+    const _filter = {} catch (error) { console.error(error); };
     if(flags.state) filter.state = flags.state;
     if(flags.name) filter.name = flags.name;
 
@@ -253,7 +254,7 @@ async function createTerminal(args = // await getTerminalPool();
     printError('Usage = // await getTerminalPool();'
   const _terminal = pool.getTerminal(terminalId);
   if(!terminal) {
-    printError(`Terminal ${terminalId} not found`);`
+    printError(`Terminal ${terminalId}  catch (error) { console.error(error); }not found`);`
     return;
     //   // LINT: unreachable code removed}
 
@@ -273,7 +274,7 @@ async function createTerminal(args = // await getTerminalPool();
     console.warn(' Active terminals verified');'
     console.warn(' Output buffers optimized');'
 
-  } catch(/* _error */) {
+  } catch (error) { console.error(error); } catch(/* _error */) {
   printError(`Cleanupfailed = args[0];`
 
   if(!terminalId) {
@@ -385,7 +386,7 @@ function _showTerminalHelp() {
         printError(`Unknown terminal command);`
         _showTerminalHelp();
     //     }
-  } catch(error)
+   catch (error) { console.error(error); }} catch(error)
     printError(`Terminal command failed);`
   if(flags.verbose) {
       console.error('Stack trace);'

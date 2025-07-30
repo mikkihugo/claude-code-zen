@@ -2,6 +2,7 @@
 /** Neural Network Types;
 /** Rust-based neural processing with FANN integration and GPU acceleration;
 
+ */
 import type { JSONObject, UUID  } from '.';
 
 // =============================================================================
@@ -126,7 +127,7 @@ export type NeuralArchitecture = 'feedforward';
 // ('optimization-completed')
 // : (modelId = > void
 // // }
-// =============================================================================
+ catch (error) { console.error(error); }// =============================================================================
 // AUXILIARY TYPES
 // =============================================================================
 

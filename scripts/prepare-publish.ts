@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Prepare for npm publish by ensuring all versions are synchronized;
+/* Prepare for npm publish by ensuring all versions are synchronized;
  * and dist files are built correctly;
  *;
  * @fileoverview Publication preparation script with strict TypeScript compliance;
@@ -56,7 +56,7 @@ function getPackageVersion() {
   const _packageJsonPath = path.join(rootDir, 'package.json');
   const _packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
   const _packageJson = JSON.parse(packageJsonContent) as PackageJson;
-  return packageJson.version;
+//   return packageJson.version;
 // }
 
 /** Gets list of files that need version updates;
@@ -66,7 +66,7 @@ function getPackageVersion() {
  */
     // */ // LINT: unreachable code removed
 function getVersionFiles(version): VersionFile[] {
-  return [;
+//   return [;
     // { // LINT: unreachable code removed
       path: 'src/cli/cli-main.ts',
       pattern: /const VERSION = '[^']+';/,'
@@ -131,6 +131,7 @@ function updateVersionFiles(version) {
 
 /** Cleans the dist directory;
 
+ */
 function cleanDistDirectory() {
   console.warn(' Cleaning dist directory...');
   const _distDir = path.join(rootDir, 'dist');
@@ -148,12 +149,12 @@ function buildTypeScriptFiles() {
     // First try to build CLI files with relaxed config
     execSync('npx tsc -p tsconfig.cli.json', { cwd, stdio);
     console.warn('    CLI files built successfully');
-  } catch(/* _error */) {
+  } catch (error) { console.error(error); } catch(/* _error */) {
     console.warn('     Build had errors, trying fallback...');
     try {
       // Fallback: try the regular build
       execSync('npm run build);'
-    } catch(/* _fallbackError */) {
+    } catch (error) { console.error(error); } catch(/* _fallbackError */) {
       console.warn('     Build had errors, but continuing...');
       // Continue anyway as there might be type errors that don't affect runtime'
     //     }
@@ -196,7 +197,7 @@ function checkPublishFiles() {
     const _packOutput = execSync('npm pack --dry-run --json', {
       cwd,
       encoding: 'utf8'
-})
+} catch (error) { console.error(error); })
   const _packInfo = JSON.parse(packOutput) as PackInfo[];
   if(packInfo[0]?.files) {
     const _importantFiles = packInfo[0].files.filter()
@@ -260,7 +261,7 @@ async function _main(): Promise<void> {
     checkPublishFiles();
     // Display next steps
     displayNextSteps(version);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     const _errorMessage = error instanceof Error ? error.message : String(error);
     console.error(' Publication preparation failed);'
     process.exit(1);

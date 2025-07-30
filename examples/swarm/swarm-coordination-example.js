@@ -2,12 +2,13 @@
 /** Advanced Swarm Coordination Example;
 /** Demonstrates sophisticated swarm patterns and coordination strategies;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { ParallelSwarmOrchestrator  } from '../src/coordination/parallel-swarm-orchestrator.js';
 
 class SwarmCoordinationExample extends EventEmitter {
   constructor() {
-    super();
+//     super();
     this.orchestrator = null;
     this.swarms = new Map();
     this.activeWorkflows = new Map();
@@ -161,7 +162,7 @@ setTimeout(() => this.simulateAgentFailure(swarm.id, 'MeshProcessor-5'), 2000)
 setTimeout(() => this.simulateAgentFailure(swarm.id, 'MeshProcessor-7'), 4000)
 // const _result = awaitthis.orchestrateTask(swarm.id, resilientTask);
 console.warn('Resilient Processing Result');
-return { swarm, result };
+// return { swarm, result };
 //   // LINT: unreachable code removed}
 // Example 3: Pipeline Processing with Ring Topology
 async;
@@ -491,7 +492,7 @@ orchestrateMultiSwarmTask(task);
   // // await this.dynamicLoadBalancingExample();
   // // await this.multiSwarmCoordinationExample();
       console.warn('\n All swarm coordination examples completed successfully');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.error(' Swarm coordination example failed);'
 // }
 // }

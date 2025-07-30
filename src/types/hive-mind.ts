@@ -2,11 +2,12 @@
 /** Hive Mind Types;
 /** Multi-Queen coordination and persistent intelligence system;
 
+ */
 import type { Identifiable,
 JSONObject,
 LifecycleManager,
 ResourceUsage,
-TypedEventEmitter  } from '.
+TypedEventEmitter  } from '.'
 
 import type { QueenMetrics  } from '.';
 

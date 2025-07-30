@@ -3,7 +3,7 @@ import { BaseQueen  } from '.';
 
 export class CodeQueen extends BaseQueen {
   constructor() {
-    super('CodeQueen', 'code-generation');'
+//     super('CodeQueen', 'code-generation');'
     this.confidence = 0.9;
     this.neuralEngine = new NeuralEngine();
     this.codePatterns = new Map();
@@ -48,9 +48,9 @@ this.codePatterns.set('class', ['
             'class {{name}} {\n  constructor({{params}}) {\n    {{body}}\n  }\n}','
             'export class {{name}} {\n  // // private {{field}}: {{type}};\n\n  constructor({{params}}) {\n    {{body}}\n  }\n}',]);'
 this.codePatterns.set('interface', [;'
-            'interface {{name}} {\n  {{properties}}\n}',')
+            'interface {{name}} {\n  {{properties}}\n}',')'
             'export interface {{name}} {\nid = // await fetch("{{url}}");\n  return response.json();\n}','
-            'export const {{name}} = async({{params}}) => {\n  try {\n    const response = // await fetch("{{url}}", {\nmethod = "{{className}}">\n      {{content}}\n    </div>\n  );\n}','
+            'export const {{name}} = async({{params}}) => {\n  try {\n    const response = // await fetch("{{url} catch (error) { console.error(error); }}", {\nmethod = "{{className}}">\n      {{content}}\n    </div>\n  );\n}','
             'import { Component  } from "@angular/core";\n\n@Component({\nselector = performance.now();"'
         this.trackTaskStart(task.id);
 
@@ -65,7 +65,7 @@ this.codePatterns.set('interface', [;'
                 // Use neural network for complex tasks
                 recommendation = // await this.generateWithNeuralNetwork(task);
                 confidence = 0.85;
-            } else {
+            }  catch (error) { console.error(error); }else {
                 // Use pattern-based generation for simpler tasks
                 recommendation = // await this.generateWithPatterns(task, codeType, language);
                 confidence = 0.9;
@@ -93,13 +93,13 @@ this.codePatterns.set('interface', [;'
         ];
 
         if(highComplexityIndicators.some(indicator => prompt.includes(indicator))) {
-            return 'high';'
+//             return 'high';'
     //   // LINT: unreachable code removed}
 
         if(mediumComplexityIndicators.some(indicator => prompt.includes(indicator))) {
-            return 'medium';'
+//             return 'medium';'
     //   // LINT: unreachable code removed}
-
+// 
         return 'low';'
     //   // LINT: unreachable code removed}
 
@@ -155,8 +155,8 @@ this.codePatterns.set('interface', [;'
         };
 
         for (const [type, patterns] of Object.entries(codeTypePatterns)) ; if(patterns.some((pattern) => prompt.includes(pattern))) {
-  return type; //   // LINT: unreachable code removed}
-  return 'function'; // Default'
+//   return type; //   // LINT: unreachable code removed}
+//   return 'function'; // Default'
 // }
 
 /** Generate code using neural network
@@ -175,7 +175,7 @@ async;
         const _codeType = this.detectCodeType(task);
         const __context = task.context;
 
-        const __prompt = `Generate ${language} ${codeType} codefor = `Framework: \$context.framework\n`;`
+        const __prompt = `Generate ${language}  catch (error) { console.error(error); }${codeType} codefor = `Framework: \$context.framework\n`;`
         //         }
   if(context?.code) {
             prompt += `Existing codecontext = `Requirements:`
@@ -255,7 +255,7 @@ async;
         const _defaults = {
             'function': 'data = {this = {};`,`'
             'interface': '','
-            'component': 'return <div>{props.children}<
+            'component': 'return <div>{props.children}<'
             'api': 'res.json({message = useState(initialValue);\n  return [value, setValue];','
             'middleware': 'next();';'
         };
@@ -269,7 +269,7 @@ replace(/;\$/gm, '');'
                 // return `// // public class Generated {\n  ${code.replace(/function\s+(\w+)/g, '// // public void $1')}\n}`;`
     // ; // LINT: unreachable code removed
             case 'go':'
-                return code;
+//                 return code;
     // .replace(/function\s+(\w+)/g, 'func $1'); // LINT: unreachable code removed'
 replace(/const\s+(\w+)\s*=/g, '$1 :=');default = code;'
 
@@ -305,7 +305,7 @@ replace(/const\s+(\w+)\s*=/g, '$1 :=');default = code;'
         patterns.forEach(pattern => {)
             code = code.replace(pattern.from, pattern.to);
         });
-
+// 
         return code;
     //   // LINT: unreachable code removed}
 
@@ -323,7 +323,7 @@ replace(/const\s+(\w+)\s*=/g, '$1 :=');default = code;'
                 const _bodyMatch = code.match(/{([^}]+)}/s);
   if(bodyMatch) {
                     const _body = bodyMatch[1].trim();
-                    const __errorHandling = `  try {\n    ${body.replace(/\n/g, '\n    ')}\n  } catch(error) {\n    console.error('Error = code.replace(bodyMatch[0], `\n\$errorHandling\n`);`'
+                    const __errorHandling = `  try {\n    ${body.replace(/\n/g, '\n    ')} catch (error) { console.error(error); }\n  } catch(error) {\n    console.error('Error = code.replace(bodyMatch[0], `\n\$errorHandling\n`);`'
                 //                 }
             //             }
         //         }
@@ -404,7 +404,7 @@ trim();
                 const _altCode = altPattern;
 
                 for (const [key, value] of Object.entries(variables)) {
-                    altCode = altCode.replace(new RegExp(`{{${key}}}`, 'g'), value); '
+                    altCode = altCode.replace(new RegExp(`{{${key} catch (error) { console.error(error); }}}`, 'g'), value); '
                 //                 }
 
                 alternatives.push(altCode); } catch(/* _error */) {

@@ -1,6 +1,7 @@
 
 /** Parallel Swarm Orchestrator - Enhanced orchestrator with worker threads support
 
+ */
 import { EventEmitter  } from 'node:events';'
 import os from 'node:os';'
 import { SwarmOrchestrator  } from '../cli/command-handlers/swarm-orchestrator.js';
@@ -8,7 +9,7 @@ import { WorkerThreadPool  } from './workers/worker-pool.js';
 
 export class ParallelSwarmOrchestrator extends EventEmitter {
   constructor(options = {}) {
-    super();
+//     super();
 
     // Initialize base orchestrator
     this.baseOrchestrator = new SwarmOrchestrator(options);
@@ -55,7 +56,7 @@ this.workerPool.on('worker-error', (_data) =>'
   if(useParallel && this.workerPool) {
     console.warn(' Using parallel execution with worker threads');'
     // return // // await this.launchParallelSwarm(objective, options);
-    //   // LINT: unreachable code removed} else {
+    //   // LINT: unreachable code removed}  catch (error) { console.error(error); }else {
     console.warn(' Using sequential execution');'
     // return // // await this.launchSequentialSwarm(objective, options);
     //   // LINT: unreachable code removed}
@@ -111,7 +112,7 @@ this.updateMetrics(useParallel, executionTime);
 
     // Group tasks by parallelGroup and dependencies
     tasks.forEach(task => {
-      const _groupKey = task.parallelGroup  ?? 'default';')
+      const _groupKey = task.parallelGroup  ?? 'default';')'
       if(!groups.has(groupKey)) {
         groups.set(groupKey, []);
       //       }
@@ -205,7 +206,7 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
         console.error(`Task ${task.id}failed = Date.now();`
 
     try {
-      console.warn(` Submitting task ${task.id} to worker pool`);`
+      console.warn(` Submitting task ${task.id}  catch (error) { console.error(error); }to worker pool`);`
 // const _result = awaitthis.workerPool.executeTask({type = Date.now() - startTime;
       console.warn(` Task ${task.id} completed in ${executionTime}ms`);`
 

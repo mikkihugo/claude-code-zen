@@ -2,6 +2,7 @@
 /** Provider Manager;
 /** Central coordination system for multi-LLM provider management;
 
+ */
 AIResponse,
 BaseProvider,
 LoadBalancingStrategy,
@@ -10,7 +11,7 @@ ProviderError,
 ProviderMetrics,
 ProviderStatus,
 QuotaExceededError,
-RateLimitError } from '.
+RateLimitError } from '.'
 // // interface ProviderInstance {provider = new Map() {}
 // private;
 // requestCache = new Map() {}
@@ -42,7 +43,7 @@ if(cached)
       this.cacheResponse(request, result);
     //     }
 
-    // return result;
+     catch (error) { console.error(error); }// return result;
     //   // LINT: unreachable code removed} catch(error) {
     this.emit('request_failed', {requestId = // await this.selectProvider(request);
   if(!provider) {
@@ -51,7 +52,7 @@ if(cached)
 
     try {
       yield * provider.provider.generateStream(request);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       // Try fallback for streaming
   if(this.config.enableFallback) {
 // const _fallbackProvider = awaitthis.selectFallbackProvider(request, provider.provider.name);
@@ -104,7 +105,7 @@ if(cached)
       this.updateCircuitBreaker(provider, false);
 
       // return response;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       // Update circuit breaker status
       this.updateCircuitBreaker(provider, true);
 
@@ -150,7 +151,7 @@ if(cached)
   const _currentCostPerToken =;
     current.metrics.totalCost / Math.max(current.metrics.totalTokensUsed, 1);
   const _bestCostPerToken = best.metrics.totalCost / Math.max(best.metrics.totalTokensUsed, 1);
-  return currentCostPerToken < bestCostPerToken ?current = providers.filter(p => weights[p.provider.name] > 0);
+//   return currentCostPerToken < bestCostPerToken ?current = providers.filter(p => weights[p.provider.name] > 0);
     // if(weightedProviders.length === 0) return providers[0]; // LINT: unreachable code removed
 
   const _totalWeight = weightedProviders.reduce(;)
@@ -168,7 +169,7 @@ private;
   selectByPriority(_providers => {
       const _currentPriority = priorities[current.provider.name]  ?? 0;
       const _bestPriority = priorities[best.provider.name]  ?? 0;
-      return currentPriority > bestPriority ?current = provider.metrics.failedRequests / Math.max(provider.metrics.totalRequests, 1) {;
+//       return currentPriority > bestPriority ?current = provider.metrics.failedRequests / Math.max(provider.metrics.totalRequests, 1) {;
     // ; // LINT: unreachable code removed
   if(errorRate >= this.config.circuitBreakerThreshold) {
         provider.circuitBreakerOpen = true;
@@ -191,7 +192,7 @@ private;
           provider.status = // await provider.provider.getStatus(); 
           provider.metrics = // await provider.provider.getMetrics() {;
   if(!isHealthy && provider.config.enabled) {
-            this.emit('provider_unhealthy', { name, provider });
+            this.emit('provider_unhealthy', { name, provider } catch (error) { console.error(error); });
           //           }
         } catch(error) {
           this.emit('health_check_error', { name, error => {)

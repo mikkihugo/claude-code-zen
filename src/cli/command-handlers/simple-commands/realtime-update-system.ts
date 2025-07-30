@@ -3,6 +3,7 @@
 /** Provides event-driven architecture for live data updates;
 /** Supports WebSocket-like functionality and progressive loading;
 
+ */
 export class RealtimeUpdateSystem {
   constructor(ui = ui;
   this;
@@ -91,7 +92,7 @@ emit(eventType, data)
     subscribers.forEach((callback) => {
       try {
         callback(data, timestamp);
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.error(`Error in event subscriber for ${eventType});`
       //       }
     });
@@ -189,7 +190,7 @@ applyUpdatesToView(viewName, groupedUpdates);
           break;default = === viewName) {
         this.requestUIRefresh();
       //       }
-    } catch(error) ;
+     catch (error) { console.error(error); }} catch(error) ;
       console.error(`Error applying updates to \$viewName);`
       this.updateMetrics.droppedUpdates++;
   //   }
@@ -320,7 +321,7 @@ applyUpdatesToView(viewName, groupedUpdates);
     this.updateQueues.forEach((queue, viewName) => {
       queueSizes[viewName] = queue.length;
     });
-
+// 
     return {
       subscribers = {}) {
     const { chunkSize = 10, delay = 100, onProgress = null, onComplete = null } = options;
@@ -336,7 +337,7 @@ applyUpdatesToView(viewName, groupedUpdates);
 
           this.broadcastUpdate(viewName, {type = > setTimeout(resolve, delay));
           //           }
-        //         }
+         catch (error) { console.error(error); }//         }
 
         if(onComplete) onComplete(data);
       } catch(error) {

@@ -8,20 +8,20 @@ const __logger = new Logger('cli-utils');
 export function printSuccess() {
   throw err;
 // }
-return true;
+// return true;
 // }
 // }
 export async function fileExists(path = {}): Promise<object> {
   try {
 // const _content = await(process as any).readTextFile(path);
-    return JSON.parse(content);
-    //   // LINT: unreachable code removed} catch {
-    return defaultValue;
+//     return JSON.parse(content);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+//     return defaultValue;
     //   // LINT: unreachable code removed}
 // }
 
 // export async function _writeJsonFile(_path = 100) {
-  return str.length > length ? `${str.substring(0, length)}...` ;
+//   return str.length > length ? `${str.substring(0, length)}...` ;
 // }
 
 // export function _formatBytes() {
@@ -63,7 +63,7 @@ const _filteredArgs = [];
     // Check if we're in Node.js or node environment'
     if(typeof process !== 'undefined' && (_process _as _any).versions && (process as any).versions.node) {
       // Node.js environment
-      const { spawn } = // await import('node);'
+      const { spawn }  catch (error) { console.error(error); }= // await import('node);'
 // const { promisify  // LINT: unreachable code removed} = // await import('node);'
 
 // return new Promise((resolve) => {
@@ -99,14 +99,14 @@ const _filteredArgs = [];
 // export function generateId(prefix = '') {
   const _timestamp = Date.now();
   const _random = Math.random().toString(36).substr(2, 9);
-  return prefix ? `${prefix}-${timestamp}-${random}` : `${timestamp}-${random}`;
+//   return prefix ? `${prefix}-${timestamp}-${random}` : `${timestamp}-${random}`;
 // }
 // Array helpers
 // export function chunk<_T>(array = [];
   for(let i = 0; i < array.length; i += size) {
   chunks.push(array.slice(i, i + size));
 // }
-return chunks;
+// return chunks;
 // }
 // Environment helpers
 // export function getEnvVar(name = null) {
@@ -126,8 +126,8 @@ return chunks;
 // export async function retry<T>(fn = > Promise<T>, maxAttempts = 3, delay = 1000): Promise<T> {
   for(let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      return await fn();
-    //   // LINT: unreachable code removed} catch(/* err */) {
+//       return await fn();
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* err */) {
   if(attempt === maxAttempts) {
         throw err;
       //       }
@@ -157,7 +157,7 @@ async function _getRuvSwarmInstance(): Promise<any> {
     // return {success = // await ruvSwarm.orchestrateTask(params); // LINT: unreachable code removed
         // return {success = // await ruvSwarm.getStatus();
     // return { // LINT: unreachable code removed
-          success = {}): Promise<any> {
+          success = {} catch (error) { console.error(error); }): Promise<any> {
   // Convert MCP tool names to library operations
   const _toolMapping = {
     'neural_train': 'neural_train',
@@ -183,7 +183,7 @@ async function _getRuvSwarmInstance(): Promise<any> {
     console.warn(;)
       `Executing = = 'undefined' && (process as any).versions && (process as any).versions.node) {`
       // Node.js environment - use spawn with stdio inherit
-      const { spawn } = // await import('child_process');
+      const { spawn }  catch (error) { console.error(error); }= // await import('child_process');
 
       result = // await new Promise((resolve) => {
         const _child = spawn(;
@@ -205,14 +205,14 @@ async function _getRuvSwarmInstance(): Promise<any> {
           resolve({
             success = === 0,
             code => {
-          resolve({success = '.ruv-swarm
+          resolve({success = '.ruv-swarm'
 // const _files = await(process as any).readDir(neuralDir);
       let _latestFile = null;
       let _latestTime = 0;
 
       for // await(const file of files) {
         if(file.name.startsWith(`training-\$modelName-`) && file.name.endsWith('.json')) {
-          const _filePath = `\$neuralDir
+          const _filePath = `\$neuralDir`
 // const _stat = await(process as any).stat(filePath);
   if(stat.mtime > latestTime) {
             latestTime = stat.mtime;
@@ -235,7 +235,7 @@ async function _getRuvSwarmInstance(): Promise<any> {
   if(value !== true && value !== false) {
         args.push(String(value));
       //       }
-    });
+     catch (error) { console.error(error); }});
 // const _result = awaitrunCommand(command, args, {stdout = // await runCommand('npx', ['ruv-swarm', '--version'], {stdout = 50): Promise<any> {
   // return // await callRuvSwarmMCP('neural_train', {
     model = {}): Promise<any> {

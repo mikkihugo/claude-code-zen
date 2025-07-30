@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-/** Multi-System Integration Demo;
+/* Multi-System Integration Demo;
 /** DEMONSTRATES ENHANCED LANCEDB, KUZU, AND VISION-TO-CODE CAPABILITIES;
 /** Shows coordinated operations across all three systems;
 
+ */
 import MultiSystemCoordinator from '../src/integration/multi-system-coordinator.js';
 
 class MultiSystemDemo {
@@ -31,7 +32,7 @@ run();
       // Generate comprehensive report
   // // await this.generateReport();
       console.warn('\n Multi-System Demo completed successfully!');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.error('\n Demo failed);'
       throw error;
     } finally {
@@ -78,7 +79,7 @@ console.warn(`   - Features: ${Object.keys(result.features).join(', ')}\n`);
           id: 'doc1',
           content: 'React components for building user interfaces',
           title: 'React Components Guide',
-          source: 'documentation' },
+          source: 'documentation' } catch (error) { console.error(error); },
 // {
           id: 'doc2',
           content: 'Vue.js reactive data and computed properties',
@@ -139,7 +140,7 @@ catch(error)
           name: 'user-service',
           path: '/services/user',
           type: 'microservice',
-          codeStats: { complexity: 'medium', lineCount, fileCount },
+          codeStats: { complexity: 'medium', lineCount, fileCount } catch (error) { console.error(error); },
           technologies: ['nodejs', 'postgresql'],
           apis: [{ file] },
 // {
@@ -224,7 +225,7 @@ runVisionDemo();
         includeTests: true,
         optimizeCode: true,
         generateDocumentation)
-})
+} catch (error) { console.error(error); })
   if(result.success) {
     console.warn(` - Generated;`)
   \$result.files.sizefiles`);`
@@ -260,7 +261,7 @@ const _multiFrameworkResults = {};
           console.warn(` - \$;`
   framework;)
   );
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           console.warn(` - \$;`
   framework;
   : Failed(\$error.message))
@@ -292,7 +293,7 @@ catch(error)
       const _routingTests = [
 // {
           operation: 'semantic-search',
-          input: { query: 'React component patterns', type: 'code' },
+          input: { query: 'React component patterns', type: 'code' } catch (error) { console.error(error); },
           expected: 'lancedb' },
 // {
           operation: 'graph-analysis',
@@ -302,8 +303,8 @@ catch(error)
   for(const test of routingTests) {
         try {
 // const _result = awaitthis.coordinator.intelligentRoute(test.operation, test.input, {/g)
-            limit }); routingResults[test.operation] = result; console.warn(`     - ${test.operation}`) {;
-          console.warn(`       Systems used: ${result.result?.systemsUsed?.join(', ')  ?? 'N
+            limit } catch (error) { console.error(error); }); routingResults[test.operation] = result; console.warn(`     - ${test.operation}`) {;
+          console.warn(`       Systems used: ${result.result?.systemsUsed?.join(', ')  ?? 'N'
         } catch(error)
           console.warn(`     - \$test.operation: Failed(\$error.message)`);
 // }
@@ -326,7 +327,7 @@ catch(error)
   if(comprehensiveResult.success) {
     console.warn('     - Comprehensive analysis completed');
     console.warn(;)
-    `     - Systems involved: \$comprehensiveResult.result?.systemsUsed?.join(', ') ?? 'N
+    `     - Systems involved: \$comprehensiveResult.result?.systemsUsed?.join(', ') ?? 'N'
     //     )
   } else {
     console.warn('     - Comprehensive analysis failed(expected for demo)');
@@ -457,7 +458,7 @@ report.key_achievements.forEach((achievement) => {
     console.warn(`    ${rec}`);
   });
 // }
-return report;
+// return report;
 //   // LINT: unreachable code removed}
 countSuccessfulOperations();
 // {

@@ -5,6 +5,7 @@
 
 /** Command router class for handling CLI command dispatch
 
+ */
 export class CommandRouter {
   constructor() {
     this.commands = new Map();

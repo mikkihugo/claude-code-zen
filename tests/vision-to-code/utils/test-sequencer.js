@@ -2,7 +2,8 @@
 /** Custom Jest Test Sequencer for Vision-to-Code Integration Tests;
 /** Orders tests by priority and dependencies;
 
-const _Sequencer = require('@jest
+ */
+const _Sequencer = require('@jest'
 class VisionToCodeTestSequencer extends Sequencer {
   sort(tests) {
     // Define test execution order based on dependencies and priority
@@ -27,7 +28,7 @@ class VisionToCodeTestSequencer extends Sequencer {
         // Find matching pattern in testOrder
   for(let i = 0; i < testOrder.length; i++) {
           if(testPath.includes(testOrder[i])) {
-            return i;
+//             return i;
     //   // LINT: unreachable code removed}
 // }
         // Unknown tests go last
@@ -46,7 +47,7 @@ class VisionToCodeTestSequencer extends Sequencer {
       const _fileName = test.path.split('
       console.warn(`${index + 1}. ${fileName}`);
     });
-    return sortedTests;
+//     return sortedTests;
     //   // LINT: unreachable code removed}
   allFailedTests(tests)
     // Run failed tests first on retry

@@ -2,12 +2,13 @@
 /** Tests for argument parsing utilities
 /** Implements Google's testing best practices;'
 
+ */
 import { describe, expect  } from '@jest';
 import { FlagValidator,
 normalizeFlags,
 parseCommandLineArguments,
 parseCommandStructure,
-validatePositionalArguments  } from '..
+validatePositionalArguments  } from '..'
 
 // import { ValidationError  } from '../cli-error.js';'
 
@@ -19,17 +20,17 @@ describe('Argument Parser', () => {'
 
       expect(result.positionalArgs).toEqual(['command', 'arg1']);'
       expect(result.flags).toEqual({ flag1 => { // eslint-disable-line
-      const _args = ['--config=file.json', '--verbose=true'];')
+      const _args = ['--config=file.json', '--verbose=true'];')'
       const _result = parseCommandLineArguments(args);
 
       expect(result.flags).toEqual({
         config => {
-      const _args = ['-v', '-f', 'file.txt', '-h'];')
+      const _args = ['-v', '-f', 'file.txt', '-h'];')'
       const _result = parseCommandLineArguments(args);
 
       expect(result.flags).toEqual({
         v => {
-      const _args = ['--flag1', 'value1', '--flag2'];')
+      const _args = ['--flag1', 'value1', '--flag2'];')'
       const _result = parseCommandLineArguments(args);
 
       expect(result.hasFlag('flag1')).toBe(true);'
@@ -68,7 +69,7 @@ toThrow('Insufficient arguments. Usage => {'
       expect(result.subcommand).toBe('subcommand');'
       expect(result.args).toEqual(['arg1']);'
       expect(result.flags).toEqual({ flag1 => {
-      const _argv = ['node', 'script.js'];')
+      const _argv = ['node', 'script.js'];')'
       const _result = parseCommandStructure(argv);
 
       expect(result.command).toBe(null);

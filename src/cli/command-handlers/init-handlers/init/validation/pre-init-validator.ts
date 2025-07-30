@@ -6,14 +6,15 @@ export class PreInitValidator {
 
 /** Check file system permissions
 
+ */
 async;
 checkPermissions();
 // {
-  const __result = {success = `${this.workingDir}
+  const __result = {success = `${this.workingDir}`
 // // await node.writeTextFile(testFile, 'test');
 // // await node.remove(testFile);
   // Test directory creation permission
-  const _testDir = `${this.workingDir}
+  const _testDir = `${this.workingDir}`
 // // await node.mkdir(testDir);
 // // await node.remove(testDir);
 // // await node.mkdir(testDir);
@@ -61,7 +62,7 @@ catch(error)
   if(stat.isFile) {
           result.conflicts.push(file); if(!force) {
             result.success = false;
-            result.errors.push(`File alreadyexists = // await node.stat(`${this.workingDir}/${dir}`);`
+            result.errors.push(`File alreadyexists = // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/${dir}`);`
   if(stat.isDirectory) {
           // Check if directory has important content
           const _entries = [];
@@ -110,7 +111,7 @@ catch(error)
   if(!success) {
         result.warnings.push('Not in a git repository - version control recommended');
       //       }
-    } catch {
+     catch (error) { console.error(error); }} catch {
       result.environment.gitRepo = false;
       result.warnings.push('Could not check git repository status');
     //     }
@@ -124,7 +125,7 @@ catch(error)
     const _results = permissions = Object.values(results).every((r) => r.success);
     const _allErrors = Object.values(results).flatMap((r) => r.errors  ?? []);
     const _allWarnings = Object.values(results).flatMap((r) => r.warnings  ?? []);
-
+// 
     return {
       success,
     // results, // LINT: unreachable code removed

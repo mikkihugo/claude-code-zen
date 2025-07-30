@@ -2,6 +2,7 @@
 /** Config Command Handler - TypeScript Edition
 /** Configuration management with comprehensive validation and type safety
 
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { CLIError  } from '../../types/cli.js';
@@ -136,7 +137,7 @@ try {
   if(!config[section]) {
       errors.push(`Missing required section = {valid = === 0,`
       errors,)
-      warnings; }; if(errors.length === 0 && warnings.length === 0) {
+      warnings; } catch (error) { console.error(error); }; if(errors.length === 0 && warnings.length === 0) {
       console.warn(' Configuration is valid');
     } else {
   if(errors.length > 0) {
@@ -169,16 +170,16 @@ const _last = keys.pop();
 if(!last) throw new Error('Invalid path');
 const _target = keys.reduce((current, key) => {
   if(!current[key]) current[key] = {};
-  return current[key];
+//   return current[key];
 }, obj);
 target[last] = value;
 // }
 async function fileExists(filePath = // await fs.readFile(filePath, 'utf-8');
-return JSON.parse(content);
+// return JSON.parse(content);
 } catch(error)
 // {
   if(defaultValue !== undefined) {
-    return defaultValue;
+//     return defaultValue;
     //   // LINT: unreachable code removed}
     throw error;
   //   }

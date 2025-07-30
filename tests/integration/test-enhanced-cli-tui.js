@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-/**  TEST ENHANCED CLI/TUI FUNCTIONALITY;
+/*  TEST ENHANCED CLI/TUI FUNCTIONALITY;
  *;
 /** Simple test to validate the enhancements work without requiring full dependencies.;
 /** Tests the enhanced command registry, API generation, and component structure.;
 
+ */
 import { strict   } from 'node:assert';
 import { dirname  } from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -47,7 +48,7 @@ async function testAPIGeneration() {
     // Mock the command registry functions
     const _mockGenerateAPIEndpoints = async() => {
 // const _commands = awaitmockListCommands();
-      const _endpoints = {};
+      const _endpoints = {} catch (error) { console.error(error); };
       commands.forEach((cmd) => {
         endpoints[`/api/execute/${cmd.name}`] = {
           method: 'POST',
@@ -82,7 +83,7 @@ async function testCommandValidation() {
     const _mockValidateCommand = () => {
       const _commands = {
         init: {
-          flags: { auto: { type: 'boolean' }, minimal: { type: 'boolean' } } },minArgs ,type: 'number' , name, 'string' };
+          flags: { auto: { type: 'boolean' } catch (error) { console.error(error); }, minimal: { type: 'boolean' } } },minArgs ,type: 'number' , name, 'string' };
       const _command = commands[commandName];
   if(!command) {
         // return { valid, errors: [`Command '${commandName}' not found`] };
@@ -137,7 +138,7 @@ async function testOpenAPIGeneration() {
         openapi: '3.0.0',
           title: 'Claude-Zen Auto-Generated API',
           version: '2.0.0-alpha.70',
-          description: 'REST API auto-generated from CLI commands',,type: 'object' ,type: 'object' ,type: 'object' };
+          description: 'REST API auto-generated from CLI commands',,type: 'object' ,type: 'object' ,type: 'object' } catch (error) { console.error(error); };
       commands.forEach((cmd) => {
         openapi.paths[`/api/execute/${cmd.name}`] = {
           post: {
@@ -181,15 +182,15 @@ async function testTUIComponents() {
     const _mockProgressBar = () => {
       const _filled = Math.floor((progress / 100) * width);
       const _empty = width - filled;
-      return `[${''.repeat(filled)}${''.repeat(empty)}] ${progress.toFixed(1)}%`;
+//       return `[${''.repeat(filled)} catch (error) { console.error(error); }${''.repeat(empty)}] ${progress.toFixed(1)}%`;
     //   // LINT: unreachable code removed};
     const _mockCommandCompletion = () => {
-      return commands;
+//       return commands;
     // .filter((cmd) => cmd.name.toLowerCase().startsWith(input.toLowerCase())); // LINT: unreachable code removed
 slice(0, 5);
     };
     const _mockLogFiltering = () => {
-      return logs.filter((log) => filter === 'all'  ?? log.type === filter);
+//       return logs.filter((log) => filter === 'all'  ?? log.type === filter);
     //   // LINT: unreachable code removed};
     // Test progress bar rendering
     const _progressBar = mockProgressBar(50, 20);
@@ -243,7 +244,7 @@ async function testWebSocketMessages() {
         'pong',
         'error' ];
       if(!message.type  ?? !validTypes.includes(message.type)) {
-        // return { valid, error: 'Invalid message type' };
+        // return { valid, error: 'Invalid message type' } catch (error) { console.error(error); };
     //   // LINT: unreachable code removed}
       // Type-specific validation
   switch(message.type) {
@@ -295,7 +296,7 @@ async function runTests() {
   for(const test of tests) {
     try {
   // // await test(); 
-      passed++; } catch(error) {
+      passed++; } catch (error) { console.error(error); } catch(error) {
       console.error(`Test failed);`
       failed++;
     //     }

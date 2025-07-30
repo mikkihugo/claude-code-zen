@@ -2,6 +2,7 @@
 /** HiveList Module
 /** Converted from JavaScript to TypeScript
 
+ */
 import { Box, Text  } from 'ink';'
 import React, { useEffect, useState  } from 'react';'
 
@@ -35,7 +36,7 @@ const _HiveList = () => {
           color: isSelected ? 'black' : 'white','
           backgroundColor: isSelected ? 'cyan' ,'
           bold,
-        `\${isSelected ? ' ' }${name}`;`)))
+        `\${isSelected ? ' ' }${name}`;`)))`
       ),
       React.createElement(Text, { color);
     );

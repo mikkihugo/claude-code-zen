@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Mass JavaScript to TypeScript Converter;
+/* Mass JavaScript to TypeScript Converter;
 /** Converts all JavaScript files to strict TypeScript with Google standards;
  *;
  * @fileoverview Automated mass conversion tool with comprehensive type safety;
@@ -46,6 +46,7 @@ const ___dirname = dirname(__filename);
 
 /** Google TypeScript standards enforcement rules;
 
+ */
 const _GOOGLE_STANDARDS = {
   // Maximum file size limits
   MAX_LINES_PER_FILE,
@@ -114,11 +115,11 @@ map((param) => {
           if(!trimmed.includes(') && trimmed) {'
             // Guess type based on parameter name
             if(trimmed.includes('callback')  ?? trimmed.includes('cb')) {
-              return `${trimmed}: () => void`;
+//               return `${trimmed}: () => void`;
     //   // LINT: unreachable code removed} else if(trimmed.includes('path')  ?? trimmed.includes('file')) {
-              return `${trimmed}: string`;
+//               return `${trimmed}: string`;
     //   // LINT: unreachable code removed} else if(trimmed.includes('count')  ?? trimmed.includes('index')) {
-              return `${trimmed}: number`;
+//               return `${trimmed}: number`;
     //   // LINT: unreachable code removed} else {
               // return `${trimmed}: unknown`;
     //   // LINT: unreachable code removed}
@@ -140,9 +141,9 @@ split(',');
 map((param) => {
           const _trimmed = param.trim();
           if(!trimmed.includes(') && trimmed) {'
-            return `${trimmed}: unknown`;
+//             return `${trimmed}: unknown`;
     //   // LINT: unreachable code removed}
-          return trimmed;
+//           return trimmed;
     //   // LINT: unreachable code removed});
 join(', ');
       // return `const ${funcName} = ($, { typedParams }) =>`;
@@ -194,9 +195,9 @@ function _applyGoogleStandards(content) {
 // from\s+['"](\.\/?[^'"]*?)['"];?/g,"'
     (match, importPath) => {
       if(!importPath.includes('.') && !importPath.includes('node)) {'
-        return match.replace(importPath, `${importPath}.js`);
+//         return match.replace(importPath, `${importPath}.js`);
     //   // LINT: unreachable code removed}
-      return match;
+//       return match;
     //   // LINT: unreachable code removed}
   );
   // Add JSDoc comments to functions without them
@@ -214,7 +215,7 @@ split('\n');
 
 ${match}`;`
       //       }
-      return match;
+//       return match;
     //   // LINT: unreachable code removed}
   );
   // return standardizedContent;
@@ -236,7 +237,7 @@ length;
       `File exceeds ${GOOGLE_STANDARDS.MAX_FUNCTIONS_PER_FILE} functions($, { functionCount })`;
     );
   //   }
-  return warnings;
+//   return warnings;
 // }
 
 /** Converts a single JavaScript file to TypeScript;
@@ -248,7 +249,7 @@ async function _convertFile(jsPath, stats): Promise<void> {
     const _tsPath = jsPath.replace(/\.js$/, '.ts');
     try {
 // // await fs.access(tsPath);
-      console.warn(`  Skipping ${jsPath} - TypeScript version already exists`);
+      console.warn(`  Skipping ${jsPath}  catch (error) { console.error(error); }- TypeScript version already exists`);
       stats.filesSkipped++;
       return;
     //   // LINT: unreachable code removed} catch {
@@ -262,7 +263,7 @@ async function _convertFile(jsPath, stats): Promise<void> {
       newPath,
       content,
       isTestFile: jsPath.includes('test')  ?? jsPath.includes('spec'),
-      isScriptFile: jsPath.includes('scripts
+      isScriptFile: jsPath.includes('scripts'
       lineCount: lines.length };
     // Apply Google standards and type safety
     const _convertedContent = _applyGoogleStandards(content);
@@ -296,7 +297,7 @@ async function _convertFile(jsPath, stats): Promise<void> {
 async function findJavaScriptFiles(dir): Promise<string[]> {
   const _files = [];
   try {
-// const _entries = awaitfs.readdir(dir, { withFileTypes});
+// const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
   for(const entry of entries) {
       const _fullPath = path.join(dir, entry.name); // Skip excluded directories
       const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build', 'claude-zen-mcp']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) {
@@ -323,7 +324,7 @@ async function main(): Promise<void> {
       filesConverted,
       filesSkipped,
       errorsEncountered,
-      totalLinesConverted};
+      totalLinesConverted} catch (error) { console.error(error); };
     console.warn(' Mass JavaScript to TypeScript Conversion Starting...');
     console.warn(' Google TypeScript Standards Enforcement Active');
     console.warn('');
@@ -337,7 +338,7 @@ async function main(): Promise<void> {
       const _bIsScript = b.includes('scripts/') ? 1 ;
       const _aIsTest = a.includes('test') ? 1 ;
       const _bIsTest = b.includes('test') ? 1 ;
-      return bIsScript - aIsScript  ?? bIsTest - aIsTest;
+//       return bIsScript - aIsScript  ?? bIsTest - aIsTest;
     //   // LINT: unreachable code removed});
     // Convert files in batches for performance
     const _batchSize = 5;
@@ -348,7 +349,7 @@ async function main(): Promise<void> {
       // Progress reporting
       const _progress = Math.min(((i + batchSize) / prioritizedFiles.length) * 100, 100);
       console.warn(;)
-        ` Progress: ${progress.toFixed(1)}% (${Math.min(i + batchSize, prioritizedFiles.length)}
+        ` Progress: ${progress.toFixed(1)}% (${Math.min(i + batchSize, prioritizedFiles.length)}`
       );
       console.warn('');
     //     }

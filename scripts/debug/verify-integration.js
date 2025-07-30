@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 
-/** Verify that professional code analysis tools are integrated with Kuzu graph storage;
+/* Verify that professional code analysis tools are integrated with Kuzu graph storage;
 /** This addresses the user's question: "@copilot w done??";'
 
+ */
 import { CodeAnalysisService  } from './src/services/code-analysis/index.js';
 
 async function verifyIntegration() {
   console.warn(' Verifying professional code analysis tools integration...\n');
   const _checklist = {
     ' TypeScript/JavaScript Analysis',
-    ' Dependency Analysis(madge
+    ' Dependency Analysis(madge'
     ' Duplicate Detection(jscpd)',
     ' Complexity Analysis(escomplex)',
     ' Multi-language Support(tree-sitter)',
@@ -21,9 +22,9 @@ async function verifyIntegration() {
 // }
 try {
     // 1. Verify service can be instantiated
-    const _service = new CodeAnalysisService({ projectPath: '.
+    const _service = new CodeAnalysisService({ projectPath: '.'
       outputDir: './tmp/verification-test'
-  })
+  } catch (error) { console.error(error); })
 // 2. Verify initialization works
 console.warn(' Testing initialization...')
 // const _initResult = awaitservice.initialize();

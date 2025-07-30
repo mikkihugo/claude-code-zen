@@ -2,6 +2,7 @@
 /** Batch Manager Command Module
 /** Converted from JavaScript to TypeScript
 
+ */
 import { promises as fs  } from 'node:fs';
 // batch-manager.js - Batch configuration management utility
 import { printError  } from '..';
@@ -9,9 +10,9 @@ import { ENVIRONMENT_CONFIGS  } from '.';
 
 export async function batchManagerCommand() {
     case 'create-config':
-      return await createBatchConfig(subArgs.slice(1), flags);
+//       return await createBatchConfig(subArgs.slice(1), flags);
     // case 'validate-config': // LINT: unreachable code removed
-      return // await validateBatchConfig(subArgs.slice(1), flags);
+//       return // await validateBatchConfig(subArgs.slice(1), flags);
     // case 'list-templates': // LINT: unreachable code removed
       // return listTemplates();
     // case 'list-environments': // LINT: unreachable code removed
@@ -47,7 +48,7 @@ export async function batchManagerCommand() {
   if(!config.projects && !config.projectConfigs) {
       issues.push('Missing "projects" array or "projectConfigs" object');
     //     }
-  if(config.projects && config.projectConfigs) {
+   catch (error) { console.error(error); }if(config.projects && config.projectConfigs) {
       warnings.push(;)
         'Both "projects" and "projectConfigs" specified. "projectConfigs" will take precedence.');
     //     }
@@ -101,7 +102,7 @@ export async function batchManagerCommand() {
       projectCount = config.projects.length;
       const _environments = config.baseOptions?.environments  ?? ['dev'];
       totalEnvironments = projectCount * environments.length
-    } else if(config.projectConfigs) {
+    }  catch (error) { console.error(error); }else if(config.projectConfigs) {
       projectCount = Object.keys(config.projectConfigs).length;
       totalEnvironments = projectCount; // Each project has its own environment
     //     }

@@ -2,13 +2,14 @@
 /** Mock data fixtures for Vision-to-Code tests;
 
 // Sample images for different test scenarios
+ */
 export const mockImages = {
   valid: {
     small: {
       name: 'small-ui.png',
 size, // 100KB
   type;
-: 'image
+: 'image'
 // {
   width, height;
 // }
@@ -17,14 +18,14 @@ size, // 100KB
   name: 'medium-dashboard.jpg',
   size, // 500KB
     type;
-  : 'image
+  : 'image'
   width, height
 // }
 // {
   name: 'large-app.webp',
   size, // 2MB
     type;
-  : 'image
+  : 'image'
   width, height
 // }
  },
@@ -38,7 +39,7 @@ size, // 100KB
   : 'File size exceeds limit',
 
   name: 'document.pdf',
-  type: 'application
+  type: 'application'
   error: 'Unsupported file format' }
 // }
 // Mock vision analysis results

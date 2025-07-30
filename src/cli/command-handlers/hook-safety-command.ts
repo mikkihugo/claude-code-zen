@@ -5,6 +5,7 @@
  * 'claude' commands, which could bypass rate limits and cost thousands of dollars.;'
 
 /** Critical protections = {CONTEXT = new Map()
+ */
     this.sessionId = this.generateSessionId();
     this.resetTimeout = null;
   //   }
@@ -237,7 +238,7 @@ const _executionTracker = new HookExecutionTracker();
   for(const warning of validation.warnings) {
         printWarning(warning.message); //       }
 
-      // Block on errors
+       catch (error) { console.error(error); }// Block on errors
   if(!validation.safe) {
   for(const error of validation.errors) {
           printError(error.message); //         }

@@ -117,7 +117,7 @@ describe('Status Command', () =>
       });
       // The function should still try to execute
       try {
-  // // await statusCommand([], {});
+  // // await statusCommand([], {} catch (error) { console.error(error); });
       } catch(error) {
         expect(error.message).toBe('Mock error');
       //       }

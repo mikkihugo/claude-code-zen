@@ -2,6 +2,7 @@
 /** Performance Monitor Module
 /** Converted from JavaScript to TypeScript
 
+ */
 export class PerformanceMonitor {
   constructor(options = {}) {
     this.enabled = options.enabled !== false;
@@ -95,7 +96,7 @@ export class PerformanceMonitor {
       \n`
     //     }
     //     )
-    return report;
+//     return report;
     //   // LINT: unreachable code removed}
     // Real-time monitoring display
     displayRealTimeStats();

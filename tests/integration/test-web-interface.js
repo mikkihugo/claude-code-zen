@@ -18,13 +18,13 @@ async function testWebInterface() {
           Object.getOwnPropertyNames(Object.getPrototypeOf(window.dashboard));
         );
       //       }
-    });
+     catch (error) { console.error(error); }});
     // Check if dashboard loads
 // const _title = awaitpage.title();
     console.warn(' Page title);'
     // Check if dashboard object exists
 // const _dashboardExists = awaitpage.evaluate(() => {
-      return typeof window.dashboard !== 'undefined';
+//       return typeof window.dashboard !== 'undefined';
     //   // LINT: unreachable code removed});
     console.warn(' Dashboard object exists);'
     // Check for JavaScript errors and logs
@@ -56,7 +56,7 @@ async function testWebInterface() {
     //     }
     // Check if switchTab method exists
 // const _switchTabExists = awaitpage.evaluate(() => {
-      return window.dashboard && typeof window.dashboard.switchTab === 'function';
+//       return window.dashboard && typeof window.dashboard.switchTab === 'function';
     //   // LINT: unreachable code removed});
     console.warn(' switchTab method exists);'
     // Try calling switchTab manually
@@ -89,7 +89,7 @@ async function testWebInterface() {
       try {
   // // await page.click('text=Create Project');
   // // await page.waitForTimeout(1000);
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.warn(' Could not click Create Project button);'
       //       }
     } else if(createButton > 0 && !projectsContent) {

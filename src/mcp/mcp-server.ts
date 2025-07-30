@@ -4,6 +4,7 @@
 /** Clean architecture implementation of the Model Context Protocol server
  * @module MCPServerRefactored
 
+ */
 import { fileURLToPath  } from 'node:url';'
 import { NeuralEngine  } from '../neural/neural-engine.js';
 import { MCPErrorHandler  } from './core/error-handler.js';
@@ -15,7 +16,7 @@ let SqliteMemoryStore, RuvSwarm, initializeAllTools, MCPMessageHandler, MCPToolE
 try {
 // const _memoryModule = awaitimport('../memory/sqlite-store.js');'
   SqliteMemoryStore = memoryModule.SqliteMemoryStore;
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   console.warn('[MCP-Server] SqliteMemoryStore not available, using mock implementation');'
 // const _mockModule = awaitimport('./core/mock-memory-store.js');'
   SqliteMemoryStore = mockModule.SqliteMemoryStore;
@@ -23,7 +24,7 @@ try {
 try {
 // const _ruvSwarmModule = awaitimport('../../ruv-FANN/ruv-swarm/npm/src/index.js');'
   RuvSwarm = ruvSwarmModule.RuvSwarm;
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   console.warn('[MCP-Server] RuvSwarm not available, using mock implementation');'
 // const _mockModule = awaitimport('./core/mock-ruv-swarm.js');'
   RuvSwarm = mockModule.RuvSwarm;
@@ -31,7 +32,7 @@ try {
 try {
 // const _toolsModule = awaitimport('./core/tools-registry.js');'
   initializeAllTools = toolsModule.initializeAllTools;
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   console.warn('[MCP-Server] Tools registry not available, using mock implementation');'
 // const _mockModule = awaitimport('./core/mock-tools-registry.js');'
   initializeAllTools = mockModule.initializeAllTools;
@@ -39,7 +40,7 @@ try {
 try {
 // const _handlerModule = awaitimport('./core/message-handler.js');'
   MCPMessageHandler = handlerModule.MCPMessageHandler;
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   console.warn('[MCP-Server] Message handler not available, using simplified version');'
   MCPMessageHandler = class {
     async handleMessage(_message) { 
@@ -119,7 +120,7 @@ try {
     this.performanceMetrics.updateMemoryMetrics(this.stdioOptimizer.messageBuffer?.length  ?? 0);
 
 /** Handle individual message errors
-   * @param {Error} error - The error that occurred
+   * @param {Error}  catch (error) { console.error(error); }error - The error that occurred
    * @param {Object} message - The message that caused the error
  */
 

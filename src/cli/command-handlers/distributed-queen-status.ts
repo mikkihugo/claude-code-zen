@@ -2,6 +2,7 @@
 /** Distributed Queen Council Status Checker
 /** Comprehensive analysis of all queen capabilities and readiness
 
+ */
 import { printError, printInfo, printSuccess  } from '..';
 import { QueenCouncil  } from '.';
 
@@ -36,7 +37,7 @@ checkSystemInitialization();
 
       console.warn(`    TotalQueens = false;`
     //     }
-  //   }
+   catch (error) { console.error(error); }//   }
 
 /** Check database integration
    *//g)
@@ -86,7 +87,7 @@ checkQueenCapabilities();
       // Check if queens can work independently
       const _distributionFeatures = {consensus = === 'function',conflict_resolution = === 'function',decision_logging = === 'function',document_updates = === 'function';
       //       }
-    const _workingFeatures = Object.values(distributionFeatures).filter((f) => f).length;
+     catch (error) { console.error(error); }const _workingFeatures = Object.values(distributionFeatures).filter((f) => f).length;
     const _totalFeatures = Object.keys(distributionFeatures).length;
     this.statusData.distribution = workingFeatures === totalFeatures;
     console.warn('    Distribution Features => {')
@@ -128,7 +129,7 @@ catch(error)
   try {
       const _coordinationFeatures = {multi_queen_analysis = === 'function',strategic_updates = === 'function';
       //       }
-  const _workingFeatures = Object.values(coordinationFeatures).filter((f) => f).length;
+   catch (error) { console.error(error); }const _workingFeatures = Object.values(coordinationFeatures).filter((f) => f).length;
   const _totalFeatures = Object.keys(coordinationFeatures).length;
   this.statusData.coordination = workingFeatures >= Math.ceil(totalFeatures * 0.8); // 80% threshold
 

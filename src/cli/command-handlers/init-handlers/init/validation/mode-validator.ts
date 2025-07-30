@@ -6,6 +6,7 @@ export class ModeValidator {
 
 /** Test all SPARC modes for basic functionality
 
+ */
 async;
 testAllModes();
 // {
@@ -64,7 +65,7 @@ testAllModes();
   async;
   checkSparcInitialization();
   //   {
-    const _result = {initialized = await node.stat(`${this.workingDir}
+    const _result = {initialized = await node.stat(`${this.workingDir}`
     result.hasRoomodes = stat.isFile;
   //   }
   catch ;
@@ -72,7 +73,7 @@ testAllModes();
 
   // Check for claude-zen executable
   try {
-// const _stat = awaitnode.stat(`${this.workingDir}/claude-zen`);
+// const _stat = awaitnode.stat(`${this.workingDir} catch (error) { console.error(error); }/claude-zen`);
     result.hasExecutable = stat.isFile;
   } catch {
     result.error = 'claude-zen executable not found';
@@ -94,7 +95,7 @@ catch(error)
 
   try {
     // Try to get modes from .roomodes
-    const _roomodesPath = `${this.workingDir}
+    const _roomodesPath = `${this.workingDir} catch (error) { console.error(error); }`
 // const _content = awaitnode.readTextFile(roomodesPath);
     const _config = JSON.parse(content);
   if(config.modes && typeof config.modes === 'object') {
@@ -127,7 +128,7 @@ testModeAccess(modeName);
         result.success = true;
       } else {
         const __errorOutput = new TextDecoder().decode(stderr);
-        result.error = `Mode notaccessible = `Failed to test mode access = {success = `${this.workingDir}
+        result.error = `Mode notaccessible = `Failed to test mode access = {success = `${this.workingDir}`
 // const _content = awaitnode.readTextFile(roomodesPath);
       const _config = JSON.parse(content);
   if(!config.modes  ?? !config.modes[modeName]) {
@@ -177,7 +178,7 @@ testModeAccess(modeName);
           if(entry.isFile && entry.name.endsWith('.json')) {
             entries.push(entry.name);
           //           }
-        //         }
+         catch (error) { console.error(error); }//         }
 
         // Test each workflow file
   for(const workflowFile of entries) {

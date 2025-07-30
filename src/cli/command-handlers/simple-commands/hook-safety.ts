@@ -5,6 +5,7 @@
  * 'claude' commands, which could bypass rate limits and cost thousands of dollars.;
  *;
 /** Critical protections = {CONTEXT = new Map();
+ */
     this.sessionId = this.generateSessionId();
     this.resetTimeout = null;
   //   }
@@ -21,7 +22,7 @@
     this.resetTimeout = setTimeout(() => {
       this.executions.clear();
     }, HOOK_SAFETY_CONFIG.CIRCUIT_BREAKER_TIMEOUT);
-
+// 
     return count + 1;
     //   // LINT: unreachable code removed}
   getExecutionCount(hookType) {
@@ -183,7 +184,7 @@ const _executionTracker = new HookExecutionTracker();
 
       configPath = possiblePaths.find((p) => existsSync(p));
   if(!configPath) {
-        return {safe = JSON.parse(readFileSync(configPath, 'utf8'));
+//         return {safe = JSON.parse(readFileSync(configPath, 'utf8'));
     // const _validation = HookConfigValidator.validateHooksConfig(config.hooks  ?? { // LINT);
 
       // return {safe = === 0,
@@ -236,7 +237,7 @@ const _executionTracker = new HookExecutionTracker();
   for(const warning of validation.warnings) {
         printWarning(warning.message); //       }
 
-      // Block on errors
+       catch (error) { console.error(error); }// Block on errors
   if(!validation.safe) {
   for(const error of validation.errors) {
           printError(error.message); //         }

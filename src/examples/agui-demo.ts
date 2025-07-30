@@ -11,6 +11,7 @@ import { AGUIAdapter  } from '../ai/agui-adapter.js';
 
 /** Demo class showcasing AG-UI integration;
 
+ */
 export class AGUIDemoIntegration {
   constructor() {
     this.adapter = new AGUIAdapter({
@@ -77,7 +78,7 @@ export class AGUIDemoIntegration {
 // export async function runAGUIDemo() {
   const _demo = new AGUIDemoIntegration();
 // await demo.runAllDemos();
-  return demo;
+//   return demo;
 // }
 
 /** Integration test helper;

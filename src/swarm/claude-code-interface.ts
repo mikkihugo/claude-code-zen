@@ -42,6 +42,7 @@ catch(error)
 /** Spawn a new Claude agent with specified configuration;
 
 // async
+ */
 spawnAgent((options = this.config.maxConcurrentAgents))
 // {
   throw new Error('Maximum concurrent agents limit reached');
@@ -205,7 +206,7 @@ this.logger.info('Executing task with Claude agent', {)
         this.logger.debug('Agent stdout', {
           agentId => {))
         this.logger.debug('Agent stderr', {agentId = 30000): Promise<void> {
-    return new Promise((resolve, reject) => {
+//     return new Promise((resolve, reject) => {
       const _startTime = Date.now();
     // const _checkInterval = 1000; // 1 second // LINT: unreachable code removed
 
@@ -241,7 +242,7 @@ this.logger.info('Executing task with Claude agent', {)
       if(this.getTotalActiveAgents() < this.config.maxConcurrentAgents) {
 // const __agentId = awaitthis.spawnAgent({type = availableAgents.map(agent => ({/g)))
       agent,score = > b.score - a.score);
-    return scoredAgents[0].agent;
+//     return scoredAgents[0].agent;
     //   // LINT: unreachable code removed}
 
   // private calculateAgentScore(agent = 0;
@@ -259,7 +260,7 @@ this.logger.info('Executing task with Claude agent', {)
     // Load balancing - prefer agents with fewer completed tasks
     const _maxTasks = Math.max(...this.processPool.idle.map(a => a.totalTasks), 1);
     score += (1 - agent.totalTasks / maxTasks) * 20;
-    return score;
+//     return score;
     //   // LINT: unreachable code removed}
 
   // private async executeTaskWithAgent(agent = performance.now();
@@ -281,7 +282,7 @@ this.logger.info('Executing task with Claude agent', {)
 
       throw error;
     //     }
-  //   }
+   catch (error) { console.error(error); }//   }
 
   // private convertToAgentState(agent = === 'busy' ? 1 ,health = === 'error' ? 0 ,config = > ['javascript', 'typescript', 'python', 'java'].includes(c)),frameworks = > ['react', 'node', 'express'].includes(c)),domains = > ['web', 'api', 'database'].includes(c)),tools = > ['bash', 'git', 'npm'].includes(c)),maxConcurrentTasks = > setTimeout(resolve, 1000));
 
@@ -384,10 +385,10 @@ calculateThroughput();
   const _agents = Array.from(this.agents.values());
   const _totalTasks = agents.reduce((sum, a) => sum + a.totalTasks, 0);
   const _totalTime = agents.reduce((sum, a) => sum + a.totalDuration, 0);
-
+// 
   return totalTime > 0 ? (totalTasks / totalTime) *60000 = this.getTotalActiveAgents();
     // const _busy = this.processPool.busy.length; // LINT: unreachable code removed
-
+// 
   return total > 0 ? busy /total = setInterval(() => {
       this.performHealthCheck();
     //   // LINT: unreachable code removed}, this.config.healthCheckInterval);

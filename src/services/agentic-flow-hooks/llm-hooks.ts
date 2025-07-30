@@ -4,11 +4,12 @@
 
 /** Request preprocessing hook for LLM requests;
 
+ */
 export const llmRequestPreprocessor = {name = payload.data;
 
 try {
       const _optimizedMessages = [...messages];
-      const _optimizedParameters = { ...parameters };
+      const _optimizedParameters = { ...parameters } catch (error) { console.error(error); };
       const _metadata = {};
 
       // Message optimization
@@ -34,7 +35,7 @@ try {
           success = {name = Date.now();
     // ; // LINT: unreachable code removed
     try {
-      const { response } = payload.data;
+      const { response }  catch (error) { console.error(error); }= payload.data;
       const _processedResponse = response;
       const _metadata = {};
 
@@ -67,7 +68,7 @@ try {
     // data = {name = Date.now(); // LINT: unreachable code removed
 
     try {
-      const { messages, parameters } = payload.data;
+      const { messages, parameters }  catch (error) { console.error(error); }= payload.data;
       const _optimizedMessages = [...messages];
       const _originalTokenCount = estimateTokenCount(messages);
 
@@ -91,7 +92,7 @@ try {
         success = {name = Date.now();
     // ; // LINT: unreachable code removed
     try {
-      const { messages, parameters, requestType } = payload.data;
+      const { messages, parameters, requestType }  catch (error) { console.error(error); }= payload.data;
       const _currentModel = payload.data.model;
 
       // Analyze request characteristics
@@ -128,7 +129,7 @@ try {
   );
 // }
 
-function optimizeParameters(model = { ...params };
+ catch (error) { console.error(error); }function optimizeParameters(model = { ...params };
 
   // Model-specific optimizations
   if(model.includes('gpt-3.5')) {
@@ -141,7 +142,7 @@ function optimizeParameters(model = { ...params };
 // }
 
 function estimateTokenCount(messages = messages.map(_m => m.content).join(' ');
-  return Math.ceil(text.length / 4); // Rough estimation
+//   return Math.ceil(text.length / 4); // Rough estimation
 // }
 
 function estimateCost(provider = {input = pricing[provider]  ?? { input).join(' ');
@@ -189,7 +190,7 @@ function removeRedundantContext() {
       result.push(messages[i]);
     //     }
   //   }
-  return result;
+//   return result;
 // }
 
 async function compressVerboseMessages() {
@@ -236,7 +237,7 @@ function _calculateCostSavings(_provider = > sum + m.content.length, 0) / messag
 
   if(totalLength < 500) return 'low';
     // if(totalLength < 2000) return 'medium'; // LINT: unreachable code removed
-  return 'high';
+//   return 'high';
 // }
 function _detectLanguage() {
   return(
@@ -248,10 +249,10 @@ function _detectLanguage() {
       availableModels.find((m) => m.includes('haiku') ?? m.includes('3.5')) ?? availableModels[0]
     );
   //   }
-  return availableModels[0];
+//   return availableModels[0];
 // }
 function calculateModelImprovements() {
-    return {
+//     return {
       reasoning = {model = [
     // { // LINT: unreachable code removed
     name: 'llm-request-preprocessor',

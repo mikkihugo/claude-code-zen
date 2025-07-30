@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Import real documents from Singularity Engine into Document Stack
+/* Import real documents from Singularity Engine into Document Stack
 /** For Claude Desktop access via MCP
 
+ */
 const fs = require('node).promises;'
 const _path = require('node);'
 const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
@@ -92,7 +93,7 @@ async function importDocuments() {
         tags,
         dependencies,)
         source);
-    } catch(_error) {}
+    } catch (error) { console.error(error); } catch(_error) {}
 
   // Show summary
   const summary = memoryStore.getDocumentSummary();

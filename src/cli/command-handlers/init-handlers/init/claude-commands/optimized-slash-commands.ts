@@ -4,6 +4,7 @@
 
 // optimized-slash-commands.js - Create batchtools-optimized Claude Code slash commands
 
+ */
 import { promises as fs  } from 'node:fs';
 import { join  } from 'node:path';
 import { createOptimizedMainSparcCommand  } from '.';
@@ -14,7 +15,7 @@ export async function createOptimizedClaudeSlashCommands(workingDir = null) {
     console.warn('\n Creating batchtools-optimized Claude Code slash commands...');
 
     // Use template copier with optimized flag
-    const __optimizedOptions = {sparc = `${workingDir}
+    const __optimizedOptions = {sparc = `${workingDir} catch (error) { console.error(error); }`
     try {
 // const _roomodesContent = awaitfs.readFile(roomodesPath, 'utf8');
       const _roomodes = JSON.parse(roomodesContent);
@@ -24,7 +25,7 @@ export async function createOptimizedClaudeSlashCommands(workingDir = null) {
         ? roomodes.customModes.filter((mode) => selectedModes.includes(mode.slug));
         : roomodes.customModes;
 
-      console.warn(`   Creating optimized commands for ${modesToCreate.length} modes...`);
+      console.warn(`   Creating optimized commands for ${modesToCreate.length}  catch (error) { console.error(error); }modes...`);
 
       // Create slash commands for each SPARC mode with batchtools optimization
 // // await fs.mkdir(join(workingDir, '.claude', 'commands', 'sparc'), {recursive = createOptimizedMainSparcCommand(roomodes.customModes);

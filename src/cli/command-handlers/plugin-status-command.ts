@@ -1,6 +1,7 @@
 
 /** Plugin Status Command - Check plugin system health and status
 
+ */
 export async function pluginStatusCommand(args = [], flags = {}) {
   const _subcommand = args[0]  ?? 'status';
   switch(subcommand) {
@@ -104,7 +105,7 @@ export async function pluginStatusCommand(args = [], flags = {}) {
 
     console.warn(` Successfully restarted plugin);`
 
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     console.error(` Failed to restart plugin '${pluginName}');`
   //   }
 

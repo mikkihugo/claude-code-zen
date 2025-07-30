@@ -2,7 +2,8 @@
 /** ROCKET ULTIMATE UNIFIED ARCHITECTURE
 
 /** REVOLUTIONARY MONOREPO INTEGRATION combining = {}) {
-    super();
+ */
+//     super();
 
     this.options = {
       // Architecture configurationenableAllPlugins = = false,enableNativeSwarm = = false,enableGraphDatabase = = false,enableVectorSearch = = false,
@@ -37,7 +38,7 @@
         this.plugins.set(config.name, {instance = (// // await Promise.all(pluginPromises)).filter(name => name !== null);
 
     this.pluginCount = initializedPlugins.length;
-    console.warn(`CHECK Initialized ${this.pluginCount} plugins with unified integration`);`
+    console.warn(`CHECK Initialized ${this.pluginCount}  catch (error) { console.error(error); }plugins with unified integration`);`
   //   }
 
   async establishCrossPluginConnections() { 
@@ -148,7 +149,7 @@ this.metrics.crossPluginCalls++
 
     // Enhance with plugin-specific searches
 
-    // return {semantic = // // await this.nativeSwarm.orchestrateComplexTask({ task = // await this.plugins.get('workflow-engine').instance.executeWorkflow({'/g)
+    // return {semantic = // // await this.nativeSwarm.orchestrateComplexTask({ task = // await this.plugins.get('workflow-engine').instance.executeWorkflow({'/g)'
 ..params.workflow,swarmOrchestration = // // await this.nativeSwarm.spawnSpecializedAgent({type = // await this.plugins.get('github-integration').instance.analyzeRepository(params.repository);'
     // ; // LINT: unreachable code removed
       // return {swarmAgent = // // await this.nativeSwarm.initializeSwarmCoordination({topology = this.plugins.has('architect-advisor');'
@@ -164,7 +165,7 @@ this.metrics.crossPluginCalls++
       if(!results  ?? !results.combined_results) return;
     // ; // LINT: unreachable code removed
       results.combined_results.forEach(result => {)
-        const _key = `${result.entity_type  });`
+        const _key = `${result.entity_type  } catch (error) { console.error(error); });`
   if(existing) {
           existing.combined_score += result.combined_score * (1 - index * 0.1)
           existing.sources.push(`source_${index}`);`
@@ -211,7 +212,7 @@ this.metrics.crossPluginCalls++
   if(plugin.instance.cleanup) {
 // // // await plugin.instance.cleanup(); 
         //         }
-      } catch(error) {
+       catch (error) { console.error(error); }} catch(error) {
         console.warn(`Failed to cleanup plugin ${name}); `
       //       }
     //     }
@@ -229,7 +230,7 @@ const _globalUnifiedArchitecture = null;
     globalUnifiedArchitecture = new UltimateUnifiedArchitecture(options);
 // await globalUnifiedArchitecture.initialize();
   //   }
-  return globalUnifiedArchitecture;
+//   return globalUnifiedArchitecture;
 // }
 
 // export async function initializeUltimateArchitecture(options = {}) {
@@ -250,7 +251,7 @@ const _globalUnifiedArchitecture = null;
   console.warn('   - Monorepo shared dependencies');'
   console.warn('   - Direct function calls(no external APIs)');'
   console.warn('   - 100x performance improvement');'
-
+// 
   return architecture;
 // }
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Demo: Claude-powered Hive Mind in action;
+/* Demo: Claude-powered Hive Mind in action;
 
+ */
 import { printInfo, printSuccess  } from './src/cli/utils.js';
 
 console.warn(' Claude-Powered Hive Mind Demo\n');
@@ -13,7 +14,7 @@ const _task = 'Create a simple TODO API with user authentication';
 printInfo('\nStep 2);'
 try {
   // Use the Claude provider directly
-  const { ClaudeCodeProvider } = // await import('./src/cli/claude-code-provider.js');
+  const { ClaudeCodeProvider }  catch (error) { console.error(error); }= // await import('./src/cli/claude-code-provider.js');
   const _provider = new ClaudeCodeProvider({
     customSystemPrompt)
 if(// await provider.isAvailable()) {

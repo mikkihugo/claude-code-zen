@@ -5,12 +5,13 @@
 // batch-constants.js - Extracted constants for batch operations
 // Avoiding broken init system imports
 
+ */
 export const PROJECT_TEMPLATES = {
   'basic-api': {
     name = {
       development: 'Basic API Server',
 description: 'Simple REST API with Express.js',
-files: ['package.json', 'server.js', 'routes
+files: ['package.json', 'server.js', 'routes'
 dependencies: ['express', 'cors', 'helmet']; // eslint-disable-line
 },
 ('fullstack-app')

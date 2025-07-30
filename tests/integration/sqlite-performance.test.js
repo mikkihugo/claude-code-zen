@@ -2,6 +2,7 @@
 /** SQLite Performance Optimization Tests;
 /** Validates the performance improvements work correctly;
 
+ */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';

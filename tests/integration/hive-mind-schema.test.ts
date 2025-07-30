@@ -38,13 +38,14 @@ import Database from 'better-sqlite3';
 //   // sql: string
 // // }
 
-/** Database test context
+ catch (error) { console.error(error); }/** Database test context
 
 // // interface TestContext {
 //   // testDir: string
 //   // dbPath: string
 //   db: Database.Database | null;
 // // }
+ */
 describe('Hive Mind Database Schema - Issue #403', () => {
   let _testContext,
   beforeEach(async(): Promise<void> => {

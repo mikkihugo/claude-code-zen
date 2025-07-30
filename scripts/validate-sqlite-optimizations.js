@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** SQLite Performance Optimization Validation Script;
+/* SQLite Performance Optimization Validation Script;
 /** Quick test to validate the performance improvements;
 
+ */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -55,7 +56,7 @@ prepare(`;`
 get();
   if(indexCheck.count >= 10) {
       log(` Performance indexes created(\$indexCheck.countindexes)`, 'green');
-    } else {
+    }  catch (error) { console.error(error); }else {
       log(` Expected at least 10 indexes, found ${indexCheck.count}`, 'red');
       allTestsPassed = false;
     //     }

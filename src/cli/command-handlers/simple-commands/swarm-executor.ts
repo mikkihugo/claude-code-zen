@@ -1,6 +1,7 @@
 
 /** Simple Swarm Executor - Provides basic swarm functionality without TypeScript dependencies;
 
+ */
 import { promises as fs  } from 'node:fs';
 import path from 'node:path';
 import { generateId  } from '../../utils/helpers.js';
@@ -42,7 +43,7 @@ initialize();
   async createAPIProject() { 
     console.warn(`    Creating API project structure...`);
 
-    const _projectDir = '.
+    const _projectDir = '.'
 // // await fs.mkdir(projectDir, recursive = `import express from 'express';`/g)
   const _app = express();
   const __port = process.env.PORT ?? 3000;
@@ -78,7 +79,7 @@ initialize();
 async function executeSwarm(objective = {}) {
   try {
     // Parse configuration from flags
-    const _config = {name = = false },security = new SwarmCoordinator(config);
+    const _config = {name = = false } catch (error) { console.error(error); },security = new SwarmCoordinator(config);
 // // await coordinator.initialize();
     // Spawn agents based on strategy
   if(config.strategy === 'development'  ?? config.strategy === 'auto') {

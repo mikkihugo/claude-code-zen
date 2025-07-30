@@ -4,6 +4,7 @@
 /** TypeScript-first implementation with comprehensive type exports
 
 // Re-export types from CLI types module for convenience
+ */
 export type { // eslint-disable-line
   ArgumentParserConfig,
 ArgumentValidationResult,
@@ -41,7 +42,7 @@ normalizeFlags,
 parseCommandLineArguments,
 parseCommandStructure,
 processArrayFlags,
-validatePositionalArguments  } from '.
+validatePositionalArguments  } from '.'
 
 // export { CircuitBreaker  } from './circuit-breaker.js';'
 // Error handling types and functions
@@ -52,7 +53,7 @@ CommandExecutionError,
 ConfigurationError,
 formatErrorMessage,
 handleError,
-ValidationError  } from '.
+ValidationError  } from '.'
 
 // Command execution
 // export { CommandExecutor, createCommandExecutor  } from './command-executor.js';'
@@ -86,7 +87,7 @@ readFileSecurely,
 readJsonFile,
 removePathSafely,
 writeFileSecurely,
-writeJsonFile  } from '.
+writeJsonFile  } from '.'
 
 // export { HealthMonitor  } from './health-monitor.js';'
 // Help system
@@ -99,7 +100,7 @@ type HelpOption
 
 HelpSystem,
 // type HelpSystemOptions
-  } from '.
+  } from '.'
 
 // Additional utilities(if they exist as TypeScript files)
 // export { InputValidator  } from './input-validator.js';'

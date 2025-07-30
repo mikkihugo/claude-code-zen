@@ -2,6 +2,7 @@
 /** Web Server for Claude Code Console;
 /** Serves the web-based UI and provides WebSocket communication;
 
+ */
 import { createServer  } from 'node:http';
 import { dirname  } from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -138,7 +139,7 @@ serveConsoleHTML(res);
 
     res.writeHead(200, { 'Content-Type');
     res.end(content);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     this.handle500(res, error);
   //   }
 // }
@@ -157,7 +158,7 @@ serveFile(res, filename, contentType);
 
   try {
     const _content = readFileSync(filePath);
-    res.writeHead(200, { 'Content-Type'});
+    res.writeHead(200, { 'Content-Type'} catch (error) { console.error(error); });
     res.end(content);
   } catch(error) {
     this.handle500(res, error);
@@ -180,7 +181,7 @@ serveStaticFile(res, requestPath);
 
   try {
     const _content = readFileSync(filePath);
-    res.writeHead(200, { 'Content-Type'});
+    res.writeHead(200, { 'Content-Type'} catch (error) { console.error(error); });
     res.end(content);
   } catch(error) {
     this.handle500(res, error);
@@ -254,7 +255,7 @@ handleWebSocketMessage(ws, data)
     const __response = {jsonrpc = [
       //       {
         name = {jsonrpc = {status = {)
-            nodeVersion = {}) {
+            nodeVersion = {} catch (error) { console.error(error); }) {
   switch(_command) {
       case 'status':
         // return `Claude FlowStatus = 'status', args = []) ;`
@@ -306,7 +307,7 @@ handleWebSocketMessage(ws, data)
       console.warn('\n  Shutting down web server...');
 // await server.stop();
       process.exit(0);
-    };
+    } catch (error) { console.error(error); };
 
     compat.terminal.onSignal('SIGINT', shutdown);
     compat.terminal.onSignal('SIGTERM', shutdown);

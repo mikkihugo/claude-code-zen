@@ -7,6 +7,7 @@ import { printInfo  } from '..';
 /** Advanced Swarm Orchestration System
 /** Leverages ruv-swarm library v1.0.18 with full integration
 
+ */
 export class SwarmOrchestrator {
   constructor(_options = {}) {
     this.memoryStore = null;
@@ -27,7 +28,7 @@ initialize();
   try {
       // Initialize memory store
       this.memoryStore = new SqliteMemoryStore({ dbName = new RuvSwarm({
-        memoryStore = {  }) {
+        memoryStore = {  } catch (error) { console.error(error); }) {
   if(!this._ruvSwarm) {
       throw new Error('Orchestrator not initialized. Call initialize() first.');
     //     }
@@ -55,7 +56,7 @@ initialize();
         spawnedAgents.push(agent); this.globalAgents.set(agent.id, agent) {;
       //       }
 
-      // Create orchestrated task
+       catch (error) { console.error(error); }// Create orchestrated task
       const _task = new Task({id = // await swarm.orchestrate(task);
 
       // Store results in memory
@@ -105,7 +106,7 @@ initialize();
 
     for (const [level, words] of Object.entries(indicators)) {
       if(words.some(word => obj.includes(word))) {
-        return level; //   // LINT: unreachable code removed}
+//         return level; //   // LINT: unreachable code removed}
     //     }
 
     // Default based on length and keywords
@@ -184,7 +185,7 @@ initialize();
     Date.now();
     `,`
         JSON.stringify({)
-          sessionEndedAt = {  }) {
+          sessionEndedAt = {  } catch (error) { console.error(error); }) {
     // Fire and forget - don't block main execution'
     setTimeout(_async() => {
       try {
@@ -192,7 +193,7 @@ initialize();
 map(([key, value]) => `--;`
     $;
     key;
-    '${value}'`);`
+    '${value} catch (error) { console.error(error); }'`);`
 join(' ');
 
         execSync(`;`

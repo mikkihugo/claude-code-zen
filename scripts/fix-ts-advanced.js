@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Advanced TypeScript Error Fix Script;
+/* Advanced TypeScript Error Fix Script;
 /** Targets the remaining high-impact errors after initial fixes;
 
+ */
 import { exec  } from 'node:child_process';
 import { promises   } from 'node:fs';
 import { promisify  } from 'node:util';
@@ -146,7 +147,7 @@ filter((f) => f);
           const _updated = content.replace(fix.pattern, fix.replacement); if(updated !== content) {
   // // await fs.writeFile(file, updated);
           //           }
-        } catch(/* _err */) {
+         catch (error) { console.error(error); }} catch(/* _err */) {
           // Ignore file access errors
         //         }
       //       }
@@ -172,7 +173,7 @@ filter((f) => f);
                 insertIndex = i;
                 break;
               //               }
-            //             }
+             catch (error) { console.error(error); }//             }
             lines.splice(insertIndex, 0, fix.import);
   // // await fs.writeFile(file, lines.join('\n'));
           //           }
@@ -187,7 +188,7 @@ filter((f) => f);
 async function updateTaskTypeEnum() {
   try {
     // Find the TaskType enum definition
-    const { stdout } = await execAsync(;
+    const { stdout }  catch (error) { console.error(error); }= await execAsync(;
       'find src -name "*.ts" -exec grep -l "enum TaskType\\|type TaskType" {} \\;';
     );
     const _files = stdout;
@@ -237,7 +238,7 @@ async function createTypeAssertions() {
       const _updated = content; for(const fix of fileFix.fixes) {
         updated = updated.replace(fix.pattern, fix.replacement);
       //       }
-  if(updated !== content) {
+   catch (error) { console.error(error); }if(updated !== content) {
   // // await fs.writeFile(fileFix.file, updated);
       //       }
     } catch(/* _err */) {
@@ -258,7 +259,7 @@ async function main() {
   // // await createTypeAssertions();
     console.warn('\n Advanced fixes applied! Running build check...\n');
     // Check remaining errors
-    const { stdout } = // await execAsync('npm run build);'
+    const { stdout }  catch (error) { console.error(error); }= // await execAsync('npm run build);'
     const _errorCount = (stdout.match(/error TS/g)  ?? []).length;
     console.warn(` Remaining errors);`
   if(errorCount < 500) {

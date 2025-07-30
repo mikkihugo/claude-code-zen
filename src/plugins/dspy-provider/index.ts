@@ -5,6 +5,7 @@
  * automatic few-shot example selection, and LM pipeline optimization.
 /** Features swarm coordination for distributed AI enhancement.
 
+ */
 import type { PluginConfig, PluginContext, PluginManifest  } from '../../types/plugin';
 import { BasePlugin  } from '..';
 import type { SwarmCoordinator  } from '../../swarm/types';
@@ -83,7 +84,7 @@ export // interface DSPyConfig {
   // private optimizationQueue = [];
   // private isInitialized = false;
   constructor(manifest, config, context) {
-    super(manifest, config, context);
+//     super(manifest, config, context);
     this.context.apis.logger.info(' DSPy Provider Plugin with Swarm Coordination Initialized');
   //   }
 
@@ -121,7 +122,7 @@ export // interface DSPyConfig {
         throw new Error('Required database instances not available');
       //       }
 
-      // Import and initialize integration manager
+       catch (error) { console.error(error); }// Import and initialize integration manager
       const { DSPyIntegrationManager } = // await import('./dspy-integration');
 
       const integrationConfig = {
@@ -176,7 +177,7 @@ export // interface DSPyConfig {
         name);
 
       this.context.apis.logger.info(' DSPy Swarm Coordination Initialized');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       this.context.apis.logger.warn(' Swarm coordination unavailable, using single-threaded DSPy');
     //     }
   //   }
@@ -189,7 +190,7 @@ export // interface DSPyConfig {
     try {
       this.neuralEngine = // await this.context.apis.getNeuralEngine?.();
       this.context.apis.logger.info(' DSPy Neural Integration Activated');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       this.context.apis.logger.warn(' Neural engine unavailable, using standard DSPy');
     //     }
   //   }
@@ -355,7 +356,7 @@ export // interface DSPyConfig {
 // const programs = awaitPromise.all(/g)
         programSpecs.map(async(spec) => {
 // const program = awaitthis.createProgram(spec.name, spec.signature, spec.prompt, []);
-          return { program, dataset: spec.dataset };
+//           return { program, dataset: spec.dataset };
         })
       );
 
@@ -410,7 +411,7 @@ export // interface DSPyConfig {
 
     // Execute optimization rounds with swarm coordination
   for(let round = 0; round < rounds; round++) {
-      this.context.apis.logger.info(` DSPy Optimization Round ${round + 1}
+      this.context.apis.logger.info(` DSPy Optimization Round ${round + 1}`
 
       // Parallel execution of optimization tasks
 // const results = awaitPromise.all(/g)
@@ -484,7 +485,7 @@ export // interface DSPyConfig {
           result = // await this.evaluateProgram(task.program, task.dataset);
           break;
       //       }
-    } catch(error) {
+     catch (error) { console.error(error); }} catch(error) {
       this.context.apis.logger.error(` Swarm task failed);`
       result = { error: error instanceof Error ? error.message : 'Unknown error' };
     //     }
@@ -766,7 +767,7 @@ export // interface DSPyConfig {
   //   }
 
   // private calculateAverageLatency(programs) {
-    return programs.reduce((sum, p) => sum + p.metrics.latency, 0) / programs.length;
+//     return programs.reduce((sum, p) => sum + p.metrics.latency, 0) / programs.length;
   //   }
 // }
 

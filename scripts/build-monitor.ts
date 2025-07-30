@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Build Monitor - Continuous build verification for alpha release;
+/* Build Monitor - Continuous build verification for alpha release;
  *;
  * @fileoverview Advanced build monitoring with strict TypeScript standards;
  * @author Claude Code Flow Team;
@@ -63,6 +63,7 @@ const _execAsync = promisify(exec);
 /** Build Monitor class for continuous build verification;
 /** Monitors TypeScript compilation progress toward zero-error alpha release;
 
+ */
 class BuildMonitor {
 
 /** Initializes build monitor with baseline metrics;
@@ -93,7 +94,7 @@ runBuild();
 // {
   console.warn(' Running build verification...');
   try {
-      const { stdout, stderr } = // await execAsync('npm run build');
+      const { stdout, stderr }  catch (error) { console.error(error); }= // await execAsync('npm run build');
       const _buildOutput = stderr  ?? stdout;
       const _errors = this.parseErrors(buildOutput);
       const _buildResult = {
@@ -132,10 +133,10 @@ this.buildHistory.push(buildResult);
   const _errorLines = buildOutput;
 split('\n')
 filter((line) => line.includes('error TS')  ?? line.includes('Error))'
-  return errorLines.map((line) => {
+//   return errorLines.map((line) => {
       const _match = line.match(/([^]+):\s*error\s+TS(\d+):\s*(.+)/);
     // if(match) { // LINT: unreachable code removed
-        return {
+//         return {
           file: match[1],
     // code: match[2], // LINT: unreachable code removed
           message: match[3] };
@@ -154,7 +155,7 @@ filter((line) => line.includes('error TS')  ?? line.includes('Error))'
 : Promise<boolean>
 
   try {
-      const { stdout } = // await execAsync(;
+      const { stdout }  catch (error) { console.error(error); }= // await execAsync(;
         'npx claude-zen hooks pre-search --query "agent-progress" --cache-results true';
       );
       // return stdout.includes('progress')  ?? stdout.includes('fixed');
@@ -189,7 +190,7 @@ filter((line) => line.includes('error TS')  ?? line.includes('Error))'
             // Store progress and alert swarm
 // // await this.storeProgress(buildResult);
 // // await this.alertSwarm(buildResult);
-          } else if(buildResult.errorCount > this.errorCount) {
+          }  catch (error) { console.error(error); }else if(buildResult.errorCount > this.errorCount) {
             const _increase = buildResult.errorCount - this.errorCount;
             console.warn(;)
               `  WARNING);`
@@ -223,7 +224,7 @@ filter((line) => line.includes('error TS')  ?? line.includes('Error))'
   storeProgress(buildResult)
   : Promise<void>
   try {
-      const _message = `BUILD PROGRESS: $buildResult.errorCounterrors remaining(${this.errorCount - buildResult.errorCount} fixed)`;
+      const _message = `BUILD PROGRESS: $buildResult.errorCounterrors remaining(${this.errorCount - buildResult.errorCount}  catch (error) { console.error(error); }fixed)`;
 // // await execAsync(`npx claude-zen hooks notification --message "${message}" --telemetry true`);
     } catch(error) {
       const _errorMessage = error instanceof Error ? error.message : String(error);
@@ -243,7 +244,7 @@ filter((line) => line.includes('error TS')  ?? line.includes('Error))'
     const _message = ` BUILD UPDATE: \$buildResult.errorCounterrors remaining. Progress: \$this.errorCount - buildResult.errorCounterrors fixed.`;
     console.warn(message);
     try {
-// // await execAsync(`npx claude-zen hooks notification --message "${message}" --telemetry true`);
+// // await execAsync(`npx claude-zen hooks notification --message "${message} catch (error) { console.error(error); }" --telemetry true`);
     } catch(error) {
       const _errorMessage = error instanceof Error ? error.message : String(error);
       console.error('Failed to alert swarm);'
@@ -263,7 +264,7 @@ filter((line) => line.includes('error TS')  ?? line.includes('Error))'
     const _message = ` REGRESSION ALERT: \$buildResult.errorCount - this.errorCountnew errors introduced. Review recent changes.`;
     console.warn(message);
     try {
-// // await execAsync(`npx claude-zen hooks notification --message "${message}" --telemetry true`);
+// // await execAsync(`npx claude-zen hooks notification --message "${message} catch (error) { console.error(error); }" --telemetry true`);
     } catch(error) {
       const _errorMessage = error instanceof Error ? error.message : String(error);
       console.error('Failed to alert regression);'
@@ -293,7 +294,7 @@ filter((line) => line.includes('error TS')  ?? line.includes('Error))'
 // // await execAsync(;
         `npx claude-zen hooks post-task --task-id "alpha-build-verification" --analyze-performance true`;
       );
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       const _errorMessage = error instanceof Error ? error.message : String(error);
       console.error('Failed to certify alpha);'
     //     }
@@ -319,7 +320,7 @@ const _reportPath = path.join(process.cwd(), 'build-verification-status.json');
 fs.writeFile(reportPath, JSON.stringify(report, null, 2)).catch((error) => {
   console.error('Failed to write report);'
 });
-return report;
+// return report;
 //   // LINT: unreachable code removed}
 // }
 

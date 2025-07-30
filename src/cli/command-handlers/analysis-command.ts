@@ -4,12 +4,13 @@
 
 // { Logger, JSONObject, JSONValue, JSONArray;
 //  } from;
+ */
 ('../types/core.js');
 printSuccess,
 printError,
 printWarning,
 callRuvSwarmLibrary,
-checkRuvSwarmAvailable } from '..
+checkRuvSwarmAvailable } from '..'
 
 import CodeAnalysisService from '../../services/code-analysis/index.js';
 
@@ -50,7 +51,7 @@ try {
 // // await tokenUsageCommand(subArgs, flags);
         break;default = flags;
   const __projectPath = options.path  ?? process.cwd();
-  const __outputDir = options.output  ?? '.
+  const __outputDir = options.output  ?? '.'
 
   console.warn(` Analyzingcodebase = new CodeAnalysisService({`
       projectPath,
@@ -61,7 +62,7 @@ try {
 
     console.warn(`\n ANALYSISSUMMARY = issue.severity === 'critical' ? '' );`
       //       }
-    //     }
+     catch (error) { console.error(error); }//     }
 // // await analysisService.cleanup();
 } catch(error)
 // {
@@ -155,7 +156,7 @@ try {
               ? '';
               : '';
         console.warn(;)
-          `${icon} ${bottleneck.severity}: ${bottleneck.component} ($, { bottleneck.metric })`);
+          `${icon}  catch (error) { console.error(error); }${bottleneck.severity}: ${bottleneck.component} ($, { bottleneck.metric })`);
   //   }
   //   )
   console.warn(`\nRECOMMENDATIONS = analysisResult.recommendations  ?? [`

@@ -2,6 +2,7 @@
 /** Strategic Documents Database Manager - LanceDB Integration;
 /** Handles all database operations using LanceDB for high-performance vector storage;
 
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { nanoid  } from 'nanoid';
@@ -50,7 +51,7 @@ export class StrategicDocumentsManager {
     // return this.withRetry(async() => 
       try {
         // Dynamic import for LanceDB
-        this.lancedb = await import('@lancedb
+        this.lancedb = await import('@lancedb'
     // // Ensure persist directory exists // LINT: unreachable code removed
 // // await fs.mkdir(this.dbPath, {recursive = // await this.lancedb.connect(this.dbPath);
         // Initialize all tables with proper error handling
@@ -60,7 +61,7 @@ export class StrategicDocumentsManager {
         console.warn(` Strategic Documents initialized forproject = `Failed to initialize strategic documents LanceDB);
         throw new CliError(errorMsg, 'DATABASE_INIT_ERROR');
       //       }
-    }, 'initialize');
+     catch (error) { console.error(error); }}, 'initialize');
   //   }
 
 /** Generate consistent project ID from path;
@@ -79,7 +80,7 @@ replace(/[^a-zA-Z0-9]/g, '_')
       try {
         // Try to open existing table
         this.tables[namespace] = // await this.db.openTable(tableName); 
-        console.warn(` LanceDB table '${tableName}' opened`); } catch(/* _error */) {
+        console.warn(` LanceDB table '${tableName} catch (error) { console.error(error); }' opened`); } catch(/* _error */) {
         // Table doesn't exist, create it with appropriate schema'
         const _schema = this.getTableSchema(namespace);
         this.tables[namespace] = // await this.db.createTable(tableName, schema);
@@ -181,7 +182,7 @@ toArray();
     'version'
   //   )
 
-  where(`id = '${documentId}'`);
+  where(`id = '${documentId} catch (error) { console.error(error); }'`);
 limit(1);
 toArray();
   if(results.length === 0) {
@@ -229,7 +230,7 @@ updateDocument(documentId, updates);
 
     try {
       // Delete from both tables
-// // await this.tables.documents.delete(`id = '${documentId}'`);
+// // await this.tables.documents.delete(`id = '${documentId} catch (error) { console.error(error); }'`);
 // // await this.tables.metadata.delete(`id = '${document.documentType}_${documentId}'`);
       console.warn(` Deleteddocument = '',`
     documentType = null,
@@ -254,7 +255,7 @@ try {
   if(validatedParams.documentType && validatedParams.status) {
           results = // await this.tables.documents.query();
 select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
-where(`documentType = '${validatedParams.documentType}' AND status = '${validatedParams.status}'`);
+where(`documentType = '${validatedParams.documentType} catch (error) { console.error(error); }' AND status = '${validatedParams.status}'`);
 limit(validatedParams.limit);
 toArray();
         } else if(validatedParams.documentType) {
@@ -287,7 +288,7 @@ toArray();
         results = results.map(result => ({
 ..result,metadata = [];
     //     }
-
+// 
     return results;
     //   // LINT: unreachable code removed}
 
@@ -298,7 +299,7 @@ toArray();
       let _results = await this.tables.documents;
 query();
 select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
-where(`documentType = '${documentType}'`);
+where(`documentType = '${documentType} catch (error) { console.error(error); }'`);
 limit(limit);
 toArray();
 
@@ -314,7 +315,7 @@ toArray();
       const _filteredResults = results.filter(_doc => ;)
         doc.content.toLowerCase().includes(objective.toLowerCase())  ?? doc.title.toLowerCase().includes(objective.toLowerCase());
       );
-
+// 
       return filteredResults.slice(0, limit).map(result => ({
 ..result,metadata = =================== DECISION OPERATIONS ====================
 
@@ -328,7 +329,7 @@ toArray();
     dissentingQueens = [],
     reasoning,
     documentReferences = [];)))
-     }) { 
+     } catch (error) { console.error(error); }) { 
     // Comprehensive input validation
     const _validatedData = inputValidator.validateDecisionData(
       objective,
@@ -429,7 +430,7 @@ slice(0, limit);
     consequences,
     implementationNotes = '',
     tags = [];
-     }) ;
+     } catch (error) { console.error(error); }) ;
     // Get next ADR number
     try {
 // const _existingADRs = awaitthis.tables.adrs;
@@ -445,7 +446,7 @@ toArray();
         id,projectId = // await this.tables.adrs;
 query();
 select('id', 'adrNumber', 'title', 'context', 'decision', 'consequences', 'implementationNotes', 'tags', 'status', 'metadata');
-where(`id = '${adrId}'`);
+where(`id = '${adrId} catch (error) { console.error(error); }'`);
 limit(1);
 toArray();
   if(results.length === 0) {
@@ -474,7 +475,7 @@ toArray();
 
       // return results;
     // .map(adr => ({ // LINT);
-    } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) {
       console.warn(`Failed to getADRs = =================== ANALYTICS ====================`
 
 /** Get decision analytics;
@@ -512,7 +513,7 @@ map(d => ({
     this.cleanupInterval = setInterval(() => {
       try {
         this.cleanupCache();
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.warn('Cache cleanuperror = null;'
     //     }
   //   }
@@ -669,7 +670,7 @@ toArray();
     try {
 // const _result = awaitoperation();
       // return result;
-    //   // LINT: unreachable code removed} finally {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } finally {
       // Always release lock
       this.operationLocks.delete(lockKey);
     //     }
@@ -681,7 +682,7 @@ toArray();
     let lastError;
   for(let attempt = 1; attempt <= this.maxRetries; attempt++) {try {
         // return // await operation();
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
         lastError = error;
   if(attempt === this.maxRetries) {
           console.error(`\u26a0\ufe0f  ${operationName} failed after ${this.maxRetries}attempts = this.retryDelay * 2 ** (attempt - 1); // Exponential backoff`
@@ -695,7 +696,7 @@ toArray();
 // const __count = awaittable.countRows(); 
           tableStatus[namespace] = { status = {status = Object.values(tableStatus).some(t => t.status === 'unhealthy'); return {status = []) {
   if(!_data  ?? typeof data !== 'object') {
-      throw new CliError('Invalid input = { ...data };'
+      throw new CliError('Invalid input = { ...data } catch (error) { console.error(error); };'
     // for (const [key, value] of Object.entries(sanitized)) { // LINT: unreachable code removed
   if(typeof value === 'string') {
         // Basic SQL injection prevention and sanitization
@@ -757,7 +758,7 @@ trim(); //       }
       for (const [namespace, table] of Object.entries(this.tables)) {
         try {
 // const _count = awaittable.countRows(); 
-          _totalEntries += count; } catch(error) {
+          _totalEntries += count; } catch (error) { console.error(error); } catch(error) {
           console.warn(`Failed to count rows in ${namespace});`
         //         }
       //       }

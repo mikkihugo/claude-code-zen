@@ -34,8 +34,9 @@ import { DebugQueen  } from '.';
 /** Creates a new QueenCoordinator instance
    * @param {QueenCoordinatorConfig} [config={}] - Configuration options
 
+ */
   constructor(_config = {}) {
-        super();
+//         super();
 
         this.config = {maxConcurrentTasks = new Logger('QueenCoordinator');'
         this.queens = new Map();
@@ -166,7 +167,7 @@ executeWithBestQueen(task);
       this.metrics.completedTasks;
   } else {
     this.logger.warn(;
-      `Consensus confidence ${consensus.confidence} below threshold ${this.config.consensusThreshold}`;`)
+      `Consensus confidence ${consensus.confidence} below threshold ${this.config.consensusThreshold}`;`)`
     );
   //   }
 
@@ -232,7 +233,7 @@ processTaskQueue();
 
                     // Process task asynchronously
                     this.executeTask(task).catch(_error => {)
-                        this.logger.error(`Task ${task.id}failed = > setTimeout(resolve, 100));`
+                        this.logger.error(`Task ${task.id} catch (error) { console.error(error); }failed = > setTimeout(resolve, 100));`
             } catch(error) {
                 this.logger.error('Error in task queueprocessing = 0;')
         for (const [name, queen] of this.queens.entries()) {
@@ -253,7 +254,7 @@ processTaskQueue();
         const _recentTasks = this.metrics.completedTasks; // Simplified calculation
         this.metrics.throughput = (recentTasks / timeWindow) * 60000
 
-        this.emit('healthCheck', {')
+        this.emit('healthCheck', {')'
             healthyQueens,totalQueens = (this.metrics.averageProcessingTime * (this.metrics.completedTasks + this.metrics.failedTasks - 1) + processingTime) / 
             (this.metrics.completedTasks + this.metrics.failedTasks);
     //     }

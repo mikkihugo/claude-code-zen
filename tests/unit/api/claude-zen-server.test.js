@@ -12,7 +12,7 @@ jest.mock('express', () => {
   : jest.fn(),
   listen: jest.fn((_port, callback) =>
   if(callback) callback();
-  return { close: jest.fn() };
+//   return { close: jest.fn() };
   //   // LINT: unreachable code removed}),
   set: jest.fn())
   //   )
@@ -88,7 +88,7 @@ describe('server lifecycle', () =>
     try {
   // // await startPromise;
         expect(server.isRunning).toBe(true);
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         // Server might fail to start in test environment, which is acceptable
         expect(error).toBeDefined();
       //       }
@@ -98,7 +98,7 @@ describe('server lifecycle', () =>
   // await server.start();
   // await server.stop();
         expect(server.isRunning).toBe(false);
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         // Server operations might fail in test environment
         expect(error).toBeDefined();
       //       }
@@ -108,7 +108,7 @@ describe('server lifecycle', () =>
     const _invalidServer = new ClaudeZenServer({ port);
     try {
   // // await invalidServer.start();
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         expect(error).toBeDefined();
       //       }
   });
@@ -249,7 +249,7 @@ describe('error handling', () =>
       const _errorHandler = {
         handleError: jest.fn((error, _req, res, next) => {
   if(res.headersSent) {
-            return next(error);
+//             return next(error);
     //   // LINT: unreachable code removed}
           res.status(500).json({ error: 'Internal Server Error',
             message: error.message,)

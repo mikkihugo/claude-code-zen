@@ -3,6 +3,7 @@
 /** Manages multiple SQLite connections for improved concurrency;
  * with comprehensive type safety and advanced pool management;
 
+ */
 import { createDatabase  } from '.';
 // // interface PoolConnection {id = > void
 // reject = > void
@@ -79,7 +80,7 @@ import { createDatabase  } from '.';
     // return; // LINT: unreachable code removed
       //       }
 
-      // Check for available connection
+       catch (error) { console.error(error); }// Check for available connection
   if(this.available.length > 0) {
         const _connection = this.available.pop()!;
         connection.inUse = true;
@@ -106,7 +107,7 @@ import { createDatabase  } from '.';
             this.totalWaitTime += Date.now() - requestStart;
           //           }
 
-          resolve(connection);
+           catch (error) { console.error(error); }resolve(connection);
           return;
     //   // LINT: unreachable code removed} catch(error) {
           reject(error);
@@ -190,7 +191,7 @@ import { createDatabase  } from '.';
           // This would need to be implemented with a Promise.race pattern
         //         }
 
-        // Determine if this is a SELECT query(returns data) or not(INSERT/UPDATE/DELETE)
+         catch (error) { console.error(error); }// Determine if this is a SELECT query(returns data) or not(INSERT/UPDATE/DELETE)
         const _isSelectQuery = query.trim().toUpperCase().startsWith('SELECT')  ?? query.trim().toUpperCase().startsWith('WITH')  ?? query.trim().toUpperCase().startsWith('EXPLAIN');
     // ; // LINT: unreachable code removed
         let _result = stmt.all(...params);
@@ -243,7 +244,7 @@ import { createDatabase  } from '.';
     try {
       const _transaction = connection.db.transaction(() => {
         const _results = [];
-  for(const { query, params = [] } of queries) {
+  for(const { query, params = [] }  catch (error) { console.error(error); }of queries) {
           const _stmt = connection.db.prepare(query); const _isSelectQuery = query.trim().toUpperCase().startsWith('SELECT'); if(isSelectQuery) {
             results.push(stmt.all(...params));
           } else {
@@ -285,10 +286,10 @@ import { createDatabase  } from '.';
       // Execute queries in parallel using multiple connections
       const _promises = queries.map(async(queryInfo) => {
         try {
-          return await this.execute(queryInfo.query, queryInfo.params, {
+//           return await this.execute(queryInfo.query, queryInfo.params, {
 ..queryInfo.options,)
     // priority; // LINT);
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
   if(failFast) {
             throw error;
           //           }
@@ -306,7 +307,7 @@ import { createDatabase  } from '.';
   for(const queryInfo of queries) {
           try {
             const _stmt = connection.db.prepare(queryInfo.query); const _isSelectQuery = queryInfo.query.trim().toUpperCase().startsWith('SELECT'); let _result = stmt.all(...(queryInfo.params  ?? []) {);
-            } else {
+            }  catch (error) { console.error(error); }else {
               result = stmt.run(...(queryInfo.params  ?? []));
             //             }
 
@@ -351,7 +352,7 @@ import { createDatabase  } from '.';
   while(this.connections.length < this.options.minConnections) {
       try {
 // // await this._createConnection(); 
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.error(`Failed to create minimumconnection = Date.now();`
 
     // Check if connection exceeded max lifetime
@@ -411,7 +412,7 @@ startHealthChecks();
   if(this.healthCheckTimer) {
       clearInterval(this.healthCheckTimer);
     //     }
-    this.stopCleanupInterval();
+     catch (error) { console.error(error); }this.stopCleanupInterval();
 
     // Reject all waiting requests
   for(const waiter of this.waiting) {
@@ -487,7 +488,7 @@ startHealthChecks();
   while(this.connections.length < this.options.minConnections) {
     try {
 // // await this._createConnection();
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.error(`Failed to create replacement connection);`
       break;
     //     }

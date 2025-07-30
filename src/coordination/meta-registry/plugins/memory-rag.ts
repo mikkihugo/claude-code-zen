@@ -2,6 +2,7 @@
 /** Memory & RAG(Retrieval Augmented Generation) Plugin
 /** Provides intelligent memory and retrieval capabilities for meta registries
 
+ */
 import { EventEmitter  } from 'events';'
 import fs from 'fs-extra';'
 import { nanoid  } from 'nanoid';'
@@ -298,7 +299,7 @@ learnFromDiscovery(data);
       // Update pattern confidences
 // // // await this.updatePatternConfidences();
       this.emit('learningCycleCompleted');'
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       this.emit('learningError', error);'
     //     }
 
@@ -456,7 +457,7 @@ map(([tag]) => tag);
     const _toRemove = memories.slice(0, Math.floor(this.options.maxMemorySize * 0.1))
   for(const [memoryId] of toRemove) {
       this.memoryBank.delete(memoryId); //     }
-  //   }
+   catch (error) { console.error(error); }//   }
 
   // Public API methods
   async query(question, context = {}) { 

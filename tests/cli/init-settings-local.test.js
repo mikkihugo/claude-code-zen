@@ -2,6 +2,7 @@
 /** Test for settings.local.json creation during init command;
 /** Issue #162: init command does not create .claude
 
+ */
 import { execSync  } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';

@@ -2,6 +2,7 @@
 /** Cohere Provider Implementation;
 /** Integration with Cohere's Command and Embed models;'
 
+ */
 import { ProviderError  } from '.';
 // // interface CohereRequest {model = 'cohere'
 // version = '2024-07-29'
@@ -36,7 +37,7 @@ try {
         throw new ProviderError('No response body', this.name);
       //       }
 
-      const _decoder = new TextDecoder();
+       catch (error) { console.error(error); }const _decoder = new TextDecoder();
       const _buffer = '';
   while(true) {
         const { done, value } = // await reader.read();
@@ -51,7 +52,7 @@ try {
   if(parsed.text) {
                 yield parsed.text;
               //               }
-            } catch(/* _e */) {
+             catch (error) { console.error(error); }} catch(/* _e */) {
               // Ignore parsing errors for streaming
             //             }
           //           }
@@ -71,7 +72,7 @@ try {
     // return response.models;
     // .filter((model = > model.name && this.availableModels.includes(model.name)); // LINT: unreachable code removed
 map((model = > model.name);
-  } catch(/* _error */) {
+  } catch (error) { console.error(error); } catch(/* _error */) {
     // return [...this.availableModels];
     //   // LINT: unreachable code removed}
 // }
@@ -109,7 +110,7 @@ map((model = > model.name);
   const _errorData = {};
   try {
   errorData = JSON.parse(text);
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   errorData = {message = === 429) {
       const _retryAfter = response.headers.get('retry-after');
   // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );

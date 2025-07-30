@@ -2,6 +2,7 @@
 /** Notification System Plugin;
 /** Email and webhook notifications for Claude Zen events;
 
+ */
 import { readFile  } from 'node:fs';
 import path from 'node:path';
 
@@ -28,7 +29,7 @@ export class NotificationPlugin {
     try {
 // const _content = awaitreadFile(this.config.configFile, 'utf8');
       this.notificationConfig = JSON.parse(content);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
   if(error.code === 'ENOENT') {
         // Create default configuration
         this.notificationConfig = {providers = // await this.createProvider(name, config);
@@ -46,7 +47,7 @@ export class NotificationPlugin {
           try {
 // const __response = awaitfetch(url, {method = > result.healthy); 
       //       }
-    };
+     catch (error) { console.error(error); }};
   //   }
   createConsoleProvider(config) {
     const __colors = {reset = () => {
@@ -75,13 +76,13 @@ export class NotificationPlugin {
       event,
       _timestamp => {
       const _value = this.getNestedValue(context, path.trim());
-      return value !== undefined ? String(value) ;
+//       return value !== undefined ? String(value) ;
     //   // LINT: unreachable code removed});
   //   }
 
   getNestedValue(obj, path): unknown
     // return path.split('.').reduce((current, key) => {
-      return current && current[key] !== undefined ? current[key] ;
+//       return current && current[key] !== undefined ? current[key] ;
     //   // LINT: unreachable code removed}, obj);
   //   }
 
@@ -158,7 +159,7 @@ export class NotificationPlugin {
       // Remove from active providers
       this.providers.delete(providerName);
 
-      // return `Provider ${providerName} disabled`;
+      // return `Provider ${providerName}  catch (error) { console.error(error); }disabled`;
     //   // LINT: unreachable code removed}
     throw new Error(`Provider ${providerName} not found`);
   //   }
@@ -178,7 +179,7 @@ export class NotificationPlugin {
         const _event = this.eventQueue.shift();
         try {
 // // await this.processNotification(event.notification, event.providers);
-        } catch(/* _error */) {
+        } catch (error) { console.error(error); } catch(/* _error */) {
           console.warn(' Event processingerror = [];'
 
   for(const providerName of providers) {
@@ -195,7 +196,7 @@ export class NotificationPlugin {
   if(info.instance.cleanup) {
         try {
 // // await info.instance.cleanup(); 
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           console.warn(`Warning); `
         //         }
       //       }

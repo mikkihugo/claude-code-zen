@@ -167,7 +167,7 @@ calculateFileComplexity(file)
       maxFunctionComplexity = Math.max(maxFunctionComplexity, funcComplexity);
     //     }
   //   }
-  return {
+//   return {
       cyclomatic,
   // lines: lines.length, // LINT: unreachable code removed
   functions,
@@ -318,7 +318,7 @@ filter((p) => p),
         isAsync: line.includes('async') }'
     //     }
   //   }
-  return null;
+//   return null;
   //   // LINT: unreachable code removed}
 
 /** Match class patterns in code
@@ -342,7 +342,7 @@ filter((p) => p),
     // extends: match[2] ? [match[2]] , // LINT: unreachable code removed
     implements: match[3] ? match[3].split(',').map((i) => i.trim()) }'
 // }
-return null;
+// return null;
 //   // LINT: unreachable code removed}
 
 /** Check if a line is a comment

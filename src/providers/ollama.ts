@@ -2,12 +2,13 @@
 /** Ollama Provider Implementation;
 /** Integration with local Ollama models for self-hosted AI;
 
+ */
 import { BaseProvider  } from '.';
 import { AIRequest,
 AIResponse,
 ProviderCapabilities,
 ProviderConfig,
-ProviderError  } from '.
+ProviderError  } from '.'
 // // interface OllamaRequest {model = 'ollama'
 // version = '2024-07-29'
 // config = {enabled = {textGeneration = 'http = [];'
@@ -33,7 +34,7 @@ try {
     throw new ProviderError('No response body', this.name);
   //   }
 
-  const _decoder = new TextDecoder();
+   catch (error) { console.error(error); }const _decoder = new TextDecoder();
   const _buffer = '';
   while(true) {
     const { done, value } = // await reader.read();
@@ -46,7 +47,7 @@ try {
         try {
           const _parsed = JSON.parse(line); if(parsed.message?.content) {
             yield parsed.message.content; //           }
-  if(parsed.done) {
+   catch (error) { console.error(error); }if(parsed.done) {
             return;
     //   // LINT: unreachable code removed}
         } catch(/* e */)
@@ -64,7 +65,7 @@ getModels();
   try {
 // // await this.loadAvailableModels();
     // return [...this.availableModels];
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
     // Return cached models if API call fails
     // return [...this.availableModels];
     //   // LINT: unreachable code removed}

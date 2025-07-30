@@ -1,7 +1,8 @@
 #!/usr/bin/env node;
 
-/** Test WebSocket connection to verify it's working;'
+/* Test WebSocket connection to verify it's working;'
 
+ */
 import WebSocket from 'ws';
 
 async function testWebSocket() {
@@ -12,7 +13,7 @@ async function testWebSocket() {
 
     ws.on('open', () => {
       console.warn(' WebSocket connected successfully!');
-      ws.send(JSON.stringify({ type: 'test', message: 'Hello server'   }));
+      ws.send(JSON.stringify({ type: 'test', message: 'Hello server'   } catch (error) { console.error(error); }));
     });
     ws.on('message', (data) => {
       console.warn(' Received message:', data.toString());

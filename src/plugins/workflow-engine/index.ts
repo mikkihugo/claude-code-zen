@@ -2,13 +2,14 @@
 /** Workflow Engine Plugin;
 /** Default sequential workflow processing engine;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { mkdir, unlink  } from 'node:fs';
 import path from 'node:path';
 
 export class WorkflowEnginePlugin extends EventEmitter {
   constructor(config = {}) {
-    super();
+//     super();
     this.config = {maxConcurrentWorkflows = null;
     this.activeWorkflows = new Map();
     this.workflowMetrics = new Map();
@@ -41,16 +42,16 @@ export class WorkflowEnginePlugin extends EventEmitter {
     this.registerStepHandler('delay', async(context, params) => {
       const _duration = params.duration  ?? 1000;
 // await new Promise(resolve => setTimeout(resolve, duration));
-      return { delayed => {
+//       return { delayed => {
 
     // return { result, branch => { // LINT: unreachable code removed
       const _data = this.getContextValue(context, params.input);
-
+// 
       return { output => {
 // const _results = awaitPromise.all(;/g)
     // params.tasks.map(task => this.executeStep(task, context)); // LINT: unreachable code removed
       );
-      return { results };
+//       return { results };
     //   // LINT: unreachable code removed});
 
     // Loop step
@@ -69,7 +70,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
   if(!handler) {
       throw new Error(`No handler registered for steptype = Object.keys(context).map(key => `const ${key} = context.${key};`).join('\n');`
       const _func = new Function('context', `${contextVars}\n return ${expression};`);
-      return func(context);
+//       return func(context);
     //   // LINT: unreachable code removed} catch(error) ;
       throw new Error(`Failed to evaluatecondition = path.split('.');`
     let _value = context;
@@ -81,7 +82,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
 
   async applyTransformation(data, transformation) { 
     if(typeof transformation === 'function') 
-      return transformation(data);
+//       return transformation(data);
     //   // LINT: unreachable code removed}
 
     // Simple object transformation
@@ -112,7 +113,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
     if(!this.config.persistWorkflows) return;
     // ; // LINT: unreachable code removed
     try {
-      const _filePath = path.join(this.config.persistencePath, `${workflowId}.workflow.json`);
+      const _filePath = path.join(this.config.persistencePath, `${workflowId} catch (error) { console.error(error); }.workflow.json`);
 // // await unlink(filePath);
     } catch(/* _error */) {
       // File might not exist
@@ -158,7 +159,7 @@ filter(w => w.status === 'running').length;
         history.push({id = > new Date(b.startTime) {- new Date(a.startTime));
   //   }
 
-  async getWorkflowMetrics() { 
+   catch (error) { console.error(error); }async getWorkflowMetrics() { 
     const _metrics = total = Array.from(this.activeWorkflows.values());
     metrics.total = workflows.length;
 
@@ -169,7 +170,7 @@ filter(w => w.status === 'running').length;
     const _completed = workflows.filter(w => w.status === 'completed');
   if(completed.length > 0) {
       const _totalDuration = completed.reduce((sum, w) => {
-        return sum + (new Date(w.endTime) - new Date(w.startTime));
+//         return sum + (new Date(w.endTime) - new Date(w.startTime));
     //   // LINT: unreachable code removed}, 0);
       metrics.averageDuration = totalDuration / completed.length;
     //     }
@@ -228,7 +229,7 @@ filter(w => w.status === 'running').length;
         this.emit('step = step.timeout  ?? this.config.stepTimeout;')
         const _timeoutPromise = new Promise((_, reject) => {
           setTimeout(() => reject(new Error('Step timeout')), timeout);
-        });
+        } catch (error) { console.error(error); });
 
         // Execute step
         const _stepPromise = this.plugin.executeStep(step, workflow.context);

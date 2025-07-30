@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Revolutionary Claude Zen CLI;
+/* Revolutionary Claude Zen CLI;
  * ;
 /** ULTIMATE UNIFIEDARCHITECTURE = ============================================================================;
 // TYPE DEFINITIONS
@@ -8,6 +8,7 @@
 
 /** Ultimate architecture configuration;
 
+ */
 export // interface UltimateArchitectureConfig {
 //   enableAllPlugins?;
 //   enableNativeSwarm?;
@@ -97,12 +98,12 @@ export // interface UltimateArchitectureConfig {
     // */; // LINT: unreachable code removed/g)
 async function initializeUltimateArchitecture() {
         case 'init':
-          return architecture.executeUnifiedOperation({category = Object.values(context.arguments).slice(1).join(' ');
+//           return architecture.executeUnifiedOperation({category = Object.values(context.arguments).slice(1).join(' ');
     // if(!task) { // LINT: unreachable code removed
             throw new Error('Task description required');
           //           }
 
-          // return architecture.executeUnifiedOperation({
+           catch (error) { console.error(error); }// return architecture.executeUnifiedOperation({
             category => {)
       const _query = Object.values(context.arguments).join(' ');
     // if(!query) { // LINT: unreachable code removed
@@ -115,7 +116,7 @@ async function initializeUltimateArchitecture() {
     // ; // LINT: unreachable code removed/g)
   switch(operation) {
         case 'search':
-          return architecture.executeUnifiedOperation({
+//           return architecture.executeUnifiedOperation({
             category => {)
       const _stats = architecture.getUnifiedStats();
     // ; // LINT: unreachable code removed
@@ -145,7 +146,7 @@ process.on('SIGINT', async(): Promise<void> => {
     try {
 // // await globalArchitecture.cleanup();
       printSuccess(' Ultimate Unified Architecture shutdown complete');
-    } catch(_error => ;
+    } catch (error) { console.error(error); } catch(_error => ;
   if(globalArchitecture) {
 // // await globalArchitecture.cleanup();
   //   }

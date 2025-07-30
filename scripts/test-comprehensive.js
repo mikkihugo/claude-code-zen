@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Comprehensive Test Runner for Claude Zen v2.0.0;
+/* Comprehensive Test Runner for Claude Zen v2.0.0;
 
+ */
 import { spawn  } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -52,14 +53,14 @@ const _loadTests = [
   //   {
     name: 'Swarm Load Test',
     command: 'node',
-    args: ['scripts
+    args: ['scripts'
     description: 'Test swarm coordination under heavy load',
     timeout, // 20 minutes
   },
   //   {
     name: 'Memory Load Test',
     command: 'node',
-    args: ['scripts
+    args: ['scripts'
     description: 'Test memory management under high throughput',
     timeout, // 10 minutes
   } ];
@@ -203,7 +204,7 @@ runTestSuite(tests, suiteName)
   this.log(`\n Running ${suiteName} (${tests.length} tests)`);
   if(this.parallel) {
 // const _results = awaitPromise.all(tests.map((test) => this.runTest(test)));
-    return results;
+//     return results;
     //   // LINT: unreachable code removed} else {
     const _results = [];
   for(const test of tests) {
@@ -211,7 +212,7 @@ runTestSuite(tests, suiteName)
       results.push(result); // Short delay between tests
   // // await new Promise((resolve) {=> setTimeout(resolve, 1000));
     //     }
-    return results;
+//     return results;
     //   // LINT: unreachable code removed}
   //   }
   generateReport();
@@ -287,7 +288,7 @@ run();
   if(this.includeLoad) {
   // // await this.runTestSuite(loadTests, 'Load Tests');
       //       }
-  if(this.includeDocker) {
+   catch (error) { console.error(error); }if(this.includeDocker) {
   // // await this.runTestSuite(dockerTests, 'Docker Tests');
       //       }
   if(this.includeNpx) {

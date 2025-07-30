@@ -4,6 +4,7 @@
 
 // status-command.js - Handles the status command
 
+ */
 import { printSuccess  } from '..';
 
 export async function statusCommand(_args, _flags) {

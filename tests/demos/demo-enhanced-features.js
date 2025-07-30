@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-/**  VISUAL DEMO OF ENHANCED CLI/TUI FEATURES;
+/*  VISUAL DEMO OF ENHANCED CLI/TUI FEATURES;
  *;
 /** Creates a visual demonstration of the enhanced components;
  * without requiring full dependencies.;
 
+ */
 console.warn(' Claude-Zen Enhanced CLI/TUI Features Demo');
 console.warn(''.repeat(60));
 console.warn('');

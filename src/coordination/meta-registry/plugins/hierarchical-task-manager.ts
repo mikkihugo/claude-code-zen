@@ -1,6 +1,7 @@
 
 /** Hierarchical Task Management Plugin
 /** Manages the complete hierarchy = {name = null
+ */
     this.memoryRag = null;
     this.architectAdvisor = null;
     this.db = null;
@@ -153,7 +154,7 @@
 // const _content = awaitreadFile(scopePath, 'utf8'); '
 
         const _scopeData = {name = scopeData;
-      } catch(error) {// {
+      } catch (error) { console.error(error); } catch(error) {// {
   // Scope file might not exist, which is fine.
   console.warn(`Could not load scope for ${name});`
 // }
@@ -175,7 +176,7 @@ startIntelligentMonitoring();
       try {
 // // await this.analyzeCompleteness();
 // // await this.optimizeDelegations();
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.warn('Monitoring cycleerror = this.db.prepare(`;`'
       SELECT v.* FROM visions v ))
       WHERE v.status IN('draft', 'in_progress');'
@@ -185,7 +186,7 @@ startIntelligentMonitoring();
       if(Math.random() < 0.1) { // Only suggest occasionally to avoid spam
         this.emit('suggestionGenerated', {type = this.db.prepare(`; `
       SELECT * FROM assignments 
-      WHERE status = 'delegated' ; '))
+      WHERE status = 'delegated' ; '))'
       AND assigned_at < datetime('now', '-24 hours') {;'
     `).all();`
   for(const assignment of stalledAssignments) {
@@ -239,13 +240,13 @@ startIntelligentMonitoring();
     stmt.run(assignment);
 
     this.db.prepare('UPDATE tasks SET assignee = ?, status = ? WHERE id = ?').run(queenId, 'assigned', taskId);'
-// // // await this.registry.register(`assignment = `;`/g)
+// // // await this.registry.register(`assignment = `;`/g)`
       VisionTitle = // // await generateText(breakdownPrompt);
     let epics;
 
     try {
       epics = JSON.parse(aiBreakdown);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.warn('Failed to parse AI breakdown, creating fallback epic');'
       epics = [{title = 3; // Prevent overwhelming the system
     const _delegatedEpics = [];
@@ -276,7 +277,7 @@ run('in_progress', visionId); '
         bestScore = score;
         bestMatch = service;
       //       }
-    //     }
+     catch (error) { console.error(error); }//     }
 
     // Only return if we have a reasonable match
     // return bestScore > 0.3 ?bestMatch = new Set(['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by']);'
@@ -300,7 +301,7 @@ slice(0, 20); // Limit to most relevant keywords
   // Delegate an epic to a specific service hive
   async delegateEpicToService(epicId, epicData, service): unknown
     try {
-      console.warn(` Delegating epic "${epicData.title}" toservice = `;`)
+      console.warn(` Delegating epic "${epicData.title} catch (error) { console.error(error); }" toservice = `;`)`
         EPIC DELEGATION from ProjectHive = > `${i + 1}. ${criteria}`).join('\n')}'
 
         Please break this down into actionable tasks and begin implementation.;

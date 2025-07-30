@@ -4,6 +4,7 @@
 
 // help.js - Help text for init command
 
+ */
 export function showInitHelp() {
   console.warn('Initialize Claude Code integration files with Claude Flow v2.0.0');
   console.warn();

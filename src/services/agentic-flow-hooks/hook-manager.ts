@@ -2,6 +2,7 @@
 /** Agentic-Flow Hook Manager;
 /** Central orchestrator for all hook-based automation and workflow management;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { Hook  } from '.';
 
@@ -70,7 +71,7 @@ this.emit('hook_unregistered', {type = 'parallel';)
         context.results[name] = result;
   if(result.success) {
           context.hooksExecuted.push(name);
-        } else {
+        }  catch (error) { console.error(error); }else {
           context.hooksFailed.push(name);
         //         }
       } catch(/* _error */) {
@@ -87,7 +88,7 @@ this.emit('hook_unregistered', {type = 'parallel';)
 ..currentPayload,previousResult = === 'stop') {
             break;
           //           }
-        //         }
+         catch (error) { console.error(error); }//         }
       } catch(/* _error */) {
         context.hooksFailed.push(name);
         context.results[name] = {success = === 'stop') {
@@ -128,7 +129,7 @@ map(name => (
     context.results[name] = result;
   if(result.success) {
       context.hooksExecuted.push(name);
-    } else {
+    }  catch (error) { console.error(error); }else {
       context.hooksFailed.push(name);
     //     }
   } catch(/* _error */) {
@@ -174,7 +175,7 @@ map(name => (
 // const _result = awaithook.execute(payload);
     clearTimeout(timer);
     resolve(result);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     clearTimeout(timer);
     reject(error);
   //   }
@@ -218,17 +219,17 @@ map(name => (
   const _fieldValue = this.getNestedValue(payload, field);
   switch(type) {
     case 'equals': null
-      return fieldValue === value;
+//       return fieldValue === value;
       // case 'contains': // LINT: unreachable code removed
       // return String(fieldValue).includes(String(value));
       // case 'regex': // LINT: unreachable code removed
       // return new RegExp(value).test(String(fieldValue));
       // case 'function': // LINT: unreachable code removed
-      return conditionFn ? conditionFn(payload) ;
+//       return conditionFn ? conditionFn(payload) ;
       // case 'exists': // LINT: unreachable code removed
-      return fieldValue !== undefined && fieldValue !== null;
+//       return fieldValue !== undefined && fieldValue !== null;
       // case 'greater': // LINT: unreachable code removed
-      return Number(fieldValue) > Number(value);
+//       return Number(fieldValue) > Number(value);
       // case 'less': // LINT: unreachable code removed
       // return Number(fieldValue) < Number(value);
     // default = > current?.[key], obj); // LINT: unreachable code removed
@@ -278,7 +279,7 @@ map(name => (
               threshold,
               _timestamp => {)
       this.log('error', `Failed to register system performancemonitor = new Date();`
-    return {
+//     return {
       executionId = {debug = levels[this.config.logLevel]  ?? 1;
     // const _messageLevel = levels[level]  ?? 1; // LINT: unreachable code removed
   if(messageLevel >= currentLevel) {

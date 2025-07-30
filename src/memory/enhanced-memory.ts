@@ -3,6 +3,7 @@
 /** Provides persistent storage for session data and cross-session memory;
  * with comprehensive type safety and performance optimizations;
 
+ */
 import { existsSync  } from 'node:fs';
 import path from 'node:path';
 // // interface EnhancedMemoryOptions {
@@ -47,7 +48,7 @@ initialize();
       // Ensure memory directory exists
       if(!existsSync(this.directory)) {
         mkdirSync(this.directory, {recursive = true;
-      console.warn(` Enhanced memory initialized = {};`
+      console.warn(` Enhanced memory initialized = {} catch (error) { console.error(error); };`
       this.initialized = true;
     //     }
   //   }
@@ -64,7 +65,7 @@ initialize();
           content = this.decrypt(content);
         //         }
 
-        // Decompress if compression is enabled
+         catch (error) { console.error(error); }// Decompress if compression is enabled
   if(this.compressionEnabled) {
           content = this.decompress(content);
         //         }
@@ -88,7 +89,7 @@ initialize();
         content = this.compress(content);
       //       }
 
-      // Encrypt if encryption is enabled
+       catch (error) { console.error(error); }// Encrypt if encryption is enabled
   if(this.encryptionEnabled) {
         content = this.encrypt(content);
       //       }
@@ -141,7 +142,7 @@ initialize();
     try {
       const _namespace = options.namespace  ?? 'general';
   if(!this.data[namespace]) {
-        this.data[namespace] = {};
+        this.data[namespace] = {} catch (error) { console.error(error); };
       //       }
 
       const _entry = {value = options.ttl;
@@ -177,7 +178,7 @@ initialize();
           // return null;
     //   // LINT: unreachable code removed}
 
-        // Update access tracking
+         catch (error) { console.error(error); }// Update access tracking
   if(options.updateAccess !== false) {
           entry.accessed = new Date().toISOString();
           entry.accessCount = (entry.accessCount  ?? 0) + 1;
@@ -339,7 +340,7 @@ initialize();
       const _priorityOrder = {low = priorityOrder[a.entry.metadata.priority as keyof typeof priorityOrder]  ?? 1; const _bPriority = priorityOrder[b.entry.metadata.priority as keyof typeof priorityOrder]  ?? 1;
 
   if(aPriority !== bPriority) {
-        return aPriority - bPriority; // Low priority first
+//         return aPriority - bPriority; // Low priority first
       //       }
 
       // return a.lastAccess.getTime() - b.lastAccess.getTime(); // Older first
@@ -365,7 +366,7 @@ initialize();
 reduce((sum, stat) => sum + stat.count, 0);
 
     // Simplified hit rate calculation
-    return totalAccesses > 0 ? 0.85 = setInterval(async() => {
+//     return totalAccesses > 0 ? 0.85 = setInterval(async() => {
   if(this.initialized) {
 // await this.saveMemoryData();
     //   // LINT: unreachable code removed}
@@ -409,16 +410,16 @@ reduce((sum, stat) => sum + stat.count, 0);
   if(typeof this.data[namespace] === 'object') {
         xml += `  <namespace name="${namespace}">\n`; for(const key in this.data[namespace]) {
           const _entry = this.data[namespace][key] as StoredEntry; xml += `    <entry key="${key}" stored="${entry.stored}" accessed="${entry.accessed  ?? ''}" accessCount="${entry.accessCount  ?? 0}">\n`;
-          xml += `      <value>${this.escapeXML(JSON.stringify(entry.value) {)}<
-          xml += `      <metadata>${this.escapeXML(JSON.stringify(entry.metadata))}<
-          xml += `    <
+          xml += `      <value>${this.escapeXML(JSON.stringify(entry.value) {)}<`
+          xml += `      <metadata>${this.escapeXML(JSON.stringify(entry.metadata))}<`
+          xml += `    <`
         //         }
 
-        xml += `  <
+        xml += `  <`
       //       }
     //     }
 
-    xml += '<
+    xml += '<'
     // return xml;
     //   // LINT: unreachable code removed}
 

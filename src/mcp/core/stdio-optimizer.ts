@@ -3,6 +3,7 @@
 /** Implements message batching, retry logic, and performance monitoring
  * @module StdioOptimizer
 
+ */
 import { EventEmitter  } from 'node:events';'
 
 /** Optimized stdio communication handler for MCP protocol
@@ -13,7 +14,7 @@ import { EventEmitter  } from 'node:events';'
  * @param {Object} options - Configuration options
 
   constructor(options = {}) {
-    super();
+//     super();
 
     // Configuration
     this.batchSize = options.batchSize  ?? 10;
@@ -49,7 +50,7 @@ try {
   if(this.messageBuffer.length > this.maxBufferSize) {
     this.metrics.bufferOverflows++;
     console.error(;)
-      `[${new Date().toISOString()}] WARN [StdioOptimizer] Buffer overflow, truncating`;`
+      `[${new Date().toISOString()} catch (error) { console.error(error); }] WARN [StdioOptimizer] Buffer overflow, truncating`;`
     );
     this.messageBuffer = this.messageBuffer.slice(-this.maxBufferSize / 2);
   //   }
@@ -85,7 +86,7 @@ try {
           message,receivedAt = this.batchSize) {
       this.processBatch();
     //     }
-    else;
+     catch (error) { console.error(error); }else;
   if(!this.batchTimer) {
       // Set timer for batch timeout
       this.batchTimer = setTimeout(() => {
@@ -108,7 +109,7 @@ try {
 
     try {
       console.error(;)
-        `[${new Date().toISOString()}] DEBUG [StdioOptimizer] Processing batch of ${batch.length} messages`;`
+        `[${new Date().toISOString()} catch (error) { console.error(error); }] DEBUG [StdioOptimizer] Processing batch of ${batch.length} messages`;`
       );
 
       // Emit batch for processing
@@ -128,7 +129,7 @@ try {
 // // // await this.writeToStdout(responseStr);
         // return true;
     // ; // LINT: unreachable code removed
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         this.metrics.retryAttempts++;
   if(attempt === this.retryAttempts) {
           console.error(`[${new Date().toISOString()}`
@@ -164,7 +165,7 @@ try {
     this.metrics.errorCount++
   if(this.retryCount <= this.retryAttempts) {
       console.error(;)
-        `[${new Date().toISOString()}] WARN [StdioOptimizer] Retrying batch(attempt ${this.retryCount}
+        `[${new Date().toISOString()}] WARN [StdioOptimizer] Retrying batch(attempt ${this.retryCount}`
       );
 
       // Re-queue batch for retry with delay
@@ -214,7 +215,7 @@ try {
   attemptReconnect();
   for(let attempt = 1; attempt <= this.retryAttempts; attempt++) {
     console.error(;)
-      `[${new Date().toISOString()}] INFO [StdioOptimizer] Reconnection attempt ${attempt}
+      `[${new Date().toISOString()}] INFO [StdioOptimizer] Reconnection attempt ${attempt}`
     );
 // // // await this.delay(this.retryDelay * attempt)
     try {
@@ -222,7 +223,7 @@ try {
   if(process.stdout.writable && process.stdin.readable) {
         this.isConnected = true;
         this.retryCount = 0;
-        console.error(`[${new Date().toISOString()}] INFO [StdioOptimizer] Connection restored`);`
+        console.error(`[${new Date().toISOString()} catch (error) { console.error(error); }] INFO [StdioOptimizer] Connection restored`);`
         // return;
     //   // LINT: unreachable code removed}
     } catch(error)

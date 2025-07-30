@@ -2,6 +2,7 @@
 /** Git Tools for MCP Server
 /** Provides comprehensive Git operations through MCP protocol
 
+ */
 import { exec  } from 'node:child_process';'
 import { promisify  } from 'node:util';'
 
@@ -27,7 +28,7 @@ const __execAsync = promisify(exec);
 //   try {
 //     const { stdout
 // , stderr }
-  = // await execAsync(`git \$`
+   catch (error) { console.error(error); }= // await execAsync(`git \$`
   command
 `,`
 // {
@@ -287,6 +288,6 @@ break;
 //   registerTool(name => {
 //     toolsRegistry.registerTool(key, tool);
 //   //   }
-// )
+ catch (error) { console.error(error); }// )
 // }
 // export default gitTools;

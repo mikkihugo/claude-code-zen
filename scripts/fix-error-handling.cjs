@@ -50,7 +50,7 @@ files.forEach((file) => {
 // ! content.includes("from '../../utils/error-handler'") &&
       content.includes('error instanceof Error')
     ) {
-      const importPath = file.includes('cli
+      const importPath = file.includes('cli'
         ? '../../utils/error-handler'
         : '../utils/error-handler';
       content = `import { getErrorMessage  } from '${importPath}';\n${content}`;

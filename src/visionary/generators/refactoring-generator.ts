@@ -130,6 +130,7 @@ import type { QualityAssessment  } from '../engines/quality-assessment-engine';
 
    * @param config - Configuration options
 
+ */
   constructor(config) {
     this.config = config;
   //   }
@@ -247,7 +248,7 @@ quality,
           'Identify hard-coded dependencies','
           'Create interfaces for dependencies','
           'Implement dependency injection container','
-          'Update constructors to accept dependencies' ],')
+          'Update constructors to accept dependencies' ],')'
   codeExample: this.generateDependencyInjectionExample(language) }
 // )
 // }
@@ -265,7 +266,7 @@ quality,
           'Identify classes with multiple responsibilities','
           'Extract separate classes for each responsibility','
           'Update dependencies and tests','
-          'Ensure proper interfaces' ] }')
+          'Ensure proper interfaces' ] }')'
 // )
 // }
 // Performance optimizations
@@ -282,7 +283,7 @@ quality,
           'Profile code to identify bottlenecks','
           'Optimize algorithms and data structures','
           'Implement caching where appropriate','
-          'Remove unnecessary computations' ] }')
+          'Remove unnecessary computations' ] }')'
 // )
 // }
 // return recommendations;
@@ -337,7 +338,7 @@ quality,
   title: 'Implement Caching Strategy','
   description: 'Cache expensive computations and database queries','
   implementation: 'Add memoization for pure functions and cache database results','
-  expectedImprovement: '40-60% faster response times',')
+  expectedImprovement: '40-60% faster response times',')'
   priority: 'medium')'
 // }
   if(quality.maintainability < 70) {
@@ -347,7 +348,7 @@ quality,
   description: 'Reorganize code structure for better maintainability','
   implementation: 'Group related functions, extract utilities, improve naming','
   expectedImprovement: 'Better code navigation and understanding','
-  priority: 'medium' }')
+  priority: 'medium' }')'
 // )
 // }
 // return optimizations;
@@ -374,27 +375,27 @@ _quality,
       description: 'Enable strict mode for better error handling','
       rationale: 'Prevents common JavaScript pitfalls and silent errors','
       implementation: 'Add "use strict"; at the top of files or functions','
-      language: 'javascript' }')
+      language: 'javascript' }')'
   //   )
   practices.push({ practice: 'Implement Proper Error Handling','
   description: 'Add comprehensive error handling throughout the application','
   rationale: 'Improves application reliability and debugging','
-  implementation: 'Use try-catch blocks and proper error propagation',')
+  implementation: 'Use try-catch blocks and proper error propagation',')'
   language: 'javascript')'
   break;
   case 'python': null'
 practices.push({ practice: 'Follow PEP 8 Style Guide','
   description: 'Adhere to Python coding standards','
   rationale: 'Consistent code style improves readability','
-  implementation: 'Use automated tools like black and flake8',')
+  implementation: 'Use automated tools like black and flake8',')'
   language: 'python')'
 practices.push({ practice: 'Use Type Hints','
   description: 'Add type annotations to function signatures','
-  rationale: 'Better code documentation and IDE support',')
+  rationale: 'Better code documentation and IDE support',')'
   implementation: 'Add type hints to parameters and return values')'
   break;
 // }
-return practices;
+// return practices;
 //   // LINT: unreachable code removed}
 
 /** Generate security improvement recommendations
@@ -416,12 +417,12 @@ _quality,
   vulnerability: 'Insufficient Input Validation','
   description: 'Add comprehensive input validation to prevent injection attacks','
   severity: 'high','
-  mitigation: 'Implement proper input sanitization and validation',')
+  mitigation: 'Implement proper input sanitization and validation',')'
   codeExample: this.generateSecurityExample(language, 'input-validation') }'
 // )
   if(language === 'javascript') {'
   improvements.push({
-        type: 'xss-prevention',')
+        type: 'xss-prevention',')'
   vulnerability: 'Cross-Site Scripting(XSS)','
   description: 'Prevent XSS attacks through proper output encoding','
   severity: 'high','
@@ -447,7 +448,7 @@ _quality,
 // {
   const _enhancements = [];
   enhancements.push({
-      type: 'algorithm-optimization',')
+      type: 'algorithm-optimization',')'
   currentIssue: 'Inefficient nested loops causing O(n) complexity','
   improvement: 'Use hash maps or optimized data structures','
   implementation: 'Replace nested loops with hash-based lookups','
@@ -461,7 +462,7 @@ enhancements.push(
   improvement: 'Implement lazy loading for expensive resources','
   implementation: 'Load data on-demand using lazy initialization patterns','
   expectedGain: '40% faster startup time','
-  complexity: 'low' }')
+  complexity: 'low' }')'
 // )
 // return enhancements;
 //   // LINT: unreachable code removed}
@@ -494,7 +495,7 @@ performanceEnhancements;
   largeEffortCount > 2 ? 'Large' : largeEffortCount > 0 ? 'Medium' : 'Small';'
   const _expectedBenefit =;
   highPriorityCount > 3 ? 'Significant' : highPriorityCount > 1 ? 'Moderate' : 'Minor';'
-  return {
+//   return {
       totalRecommendations,
   // highPriorityCount, // LINT: unreachable code removed
   estimatedEffort,
@@ -527,7 +528,7 @@ function calculateOrderTotal() { /* calculation logic */ }
 function saveOrderToDatabase() { /* save logic */ }`;`
 
       default: null
-        return '// Code example would be provided for the specific language';'
+//         return '// Code example would be provided for the specific language';'
     //   // LINT: unreachable code removed}
   //   }
 

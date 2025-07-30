@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/**  UNIFIED CLAUDE-ZEN SERVER;
+/*  UNIFIED CLAUDE-ZEN SERVER;
 /** Single server combining API + MCP + WebSocket on configurable port(default 3000);
  *;
 /** Features: null
@@ -38,6 +38,7 @@ const ___dirname = dirname(__filename);
 /** Unified Server Class;
 /** Orchestrates all Claude-Zen components in a single process
 
+ */
 class UnifiedServer {
   constructor(_options) {
     this.options = {
@@ -166,7 +167,7 @@ this.app.get('/health', (_req, res) =>
           ws.send(;
             JSON.stringify({ type: 'response',
               data,))
-              timestamp: new Date().toISOString()   });
+              timestamp: new Date().toISOString()   } catch (error) { console.error(error); });
           );
         } catch(error) {
           console.error(' WebSocket message error);'
@@ -204,7 +205,7 @@ console.warn(' WebSocket server enabled')
         // Integration point for ruv-FANN
       //       }
 
-      // Initialize MCP server
+       catch (error) { console.error(error); }// Initialize MCP server
   if(this.options.enableMCP) {
         console.warn(' Initializing MCP server...');
         // MCP server integration
@@ -247,7 +248,7 @@ start();
           console.warn(` WebSocket);`
           console.warn(` Neural);`
           resolve();
-        });
+        } catch (error) { console.error(error); });
 
         this.server?.on('error', (error) => {
           console.error(' Server error);'
@@ -276,7 +277,7 @@ start();
         this.wss = null;
       //       }
 
-      // Close HTTP server
+       catch (error) { console.error(error); }// Close HTTP server
   if(this.server) {
 // // await new Promise<void>((resolve) => {
           this.server?.close(() => {
@@ -315,7 +316,7 @@ async function main() {
     try {
 // await server.stop();
       process.exit(0);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.error(' Error during shutdown);'
       process.exit(1);
     //     }
@@ -324,7 +325,7 @@ async function main() {
   process.on('SIGTERM', () => shutdown('SIGTERM'));
   try {
 // // await server.start();
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     console.error(' Failed to start server);'
     process.exit(1);
   //   }

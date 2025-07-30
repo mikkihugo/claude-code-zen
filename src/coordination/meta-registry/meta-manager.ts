@@ -3,13 +3,14 @@
 /** High-level orchestration system that manages multiple meta registries
  * and provides advanced coordination patterns
 
+ */
 import { EventEmitter  } from 'node:events';'
 import { nanoid  } from 'nanoid';'
 import MetaRegistry from '.';
 
 export class MetaRegistryManager extends EventEmitter {
   constructor(_options = {}) {
-    super();
+//     super();
     this.options = {maxRegistries = new Map();
     this.activeRegistry = null;
     this.topologies = new Map();
@@ -226,7 +227,7 @@ coordinateOperation(operation, (targets = []), (options = {}));
         healthResults.set(name, {status = 'error'; '
         registryInfo.stats.errors++;
       //       }
-    //     }
+     catch (error) { console.error(error); }//     }
 
     // Handle failover if needed/g)
   if(this.options.failoverEnabled) {
@@ -261,7 +262,7 @@ coordinateOperation(operation, (targets = []), (options = {}));
 
   setupRegistryEventHandlers(name, registry) ; registry.on('registered', (_event) {=> ;'
       this.emit('registryEvent', registry => {'
-      this.emit('registryEvent', { registry => {'))
+      this.emit('registryEvent', { registry => {'))'
       this.emit('registryError', {registry = this.registries.get(name);'
   if(registryInfo) {
         registryInfo.stats.errors++;
@@ -284,7 +285,7 @@ coordinateOperation(operation, (targets = []), (options = {}));
     for (const [name, info] of this.registries.entries()) {
       try {
         stats.registryDetails[name] = // // await info.registry.status(); 
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         stats.registryDetails[name] = {error = 'closing'; '
 
     // Clear intervals
@@ -364,7 +365,7 @@ map(([name, info]) => (name, ...info ));
 
 class RegistryFederation extends EventEmitter {
   constructor(id = {}) {
-    super();
+//     super();
     this.id = id;
     this.manager = manager;
     this.options = options;
@@ -381,7 +382,7 @@ class RegistryFederation extends EventEmitter {
   async addMember(registryName) 
     this.members.add(registryName);
     this.emit('memberAdded', { registry = {}) {'
-    super();
+//     super();
     this.id = id;
     this.manager = manager;
     this.options = options;
@@ -454,7 +455,7 @@ class RegistryFederation extends EventEmitter {
     try {
   for(const target of this.options.targets) {
         const _registry = this.manager.getRegistry(target); if(!registry) {
-          throw new Error(`Registry '${target}' not found`); `
+          throw new Error(`Registry '${target} catch (error) { console.error(error); }' not found`); `
         //         }
 // const _result = awaitthis.executeOnRegistry(registry, this.options.operation) {;
         results.set(target, result);

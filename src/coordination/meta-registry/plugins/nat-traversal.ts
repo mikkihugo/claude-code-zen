@@ -2,6 +2,7 @@
 /** NAT Traversal Plugin
 /** Provides NAT/firewall traversal capabilities for distributed coordination
 
+ */
 import dgram from 'node:dgram';'
 import { nanoid  } from 'nanoid';'
 
@@ -130,7 +131,7 @@ for(const [punchId, punch] of this.holePunches.entries()) {
               resolve(ip);
               // return;
     //   // LINT: unreachable code removed}
-          //           }
+           catch (error) { console.error(error); }//           }
 
           offset += 4 + attrLength;
   if(attrLength % 4 !== 0) {
@@ -160,7 +161,7 @@ for(const [punchId, punch] of this.holePunches.entries()) {
   if(this.upnpClient) {
       try {
         _externalPort = // // await this.createUPnPMapping(internalPort, protocol);
-      } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) {
         console.warn('UPnP mapping failed = {id = this.natMappings.get(mappingId);'
     if(!mapping) return false;
     // ; // LINT: unreachable code removed
@@ -168,7 +169,7 @@ for(const [punchId, punch] of this.holePunches.entries()) {
   if(mapping.method === 'upnp' && this.upnpClient) {'
       try {
 // // // await this.removeUPnPMapping(mapping.externalPort, mapping.protocol);
-      } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) {
         console.warn('UPnP removal failed = {}) {'
     const __punchId = nanoid();
     const _punch = {id = // // await this.executeHolePunch(punch, options);

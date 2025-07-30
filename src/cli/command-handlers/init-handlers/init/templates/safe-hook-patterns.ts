@@ -7,6 +7,7 @@
 /** DANGEROUS PATTERN - DO NOT USE
 /** This creates an infinite loop that can cost thousands of dollars!
 
+ */
 export const DANGEROUS_PATTERN_EXAMPLE = {
   name = {name = {name = {name = {name = "~/.claude/update.lock";
 LOG_FILE = '~/.claude/session_log.txt';
@@ -60,7 +61,7 @@ PROCESSING_INTERVAL = 300  # 5 minutes
 
 def process_queue():
     if not QUEUE_FILE.exists():
-        return
+//         return
 
     // # Read and clear queue atomically; // LINT: unreachable code removed
     with open(QUEUE_FILE, 'r') as f = f.readlines() {}
@@ -87,7 +88,7 @@ def process_queue():
 /** Generate safe hooks documentation
 
 // export function generateSafeHooksGuide() {
-  return `;`
+//   return `;`
 // #; // LINT: unreachable code removed
  Safe Hook Patterns
 for Claude Code

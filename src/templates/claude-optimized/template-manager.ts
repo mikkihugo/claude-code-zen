@@ -6,6 +6,7 @@ import fs from 'node:fs';
 /** Claude Optimized Template Manager;
 /** Unified interface for template operations;
 
+ */
 const _commands = {install = > execSync('node install-template.js', {stdio = > execSync('node validate-template.js', { stdio => {
   if(!_targetPath) {
       console.error('Usage => {')
@@ -31,7 +32,7 @@ if(fs.existsSync('.claude/tests/test-harness.js')) {
   if(commands[command]) {
   try {
     commands[command](...args.slice(1));
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     console.error(`Error executing ${command});`
     process.exit(1);
   //   }

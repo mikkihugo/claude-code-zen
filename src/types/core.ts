@@ -2,6 +2,7 @@
 /** Core System Types;
 /** Fundamental types used throughout the Claude Code Flow system
 
+ */
 import type { EventEmitter  } from 'node:events';
 
 // =============================================================================
@@ -99,7 +100,7 @@ export // interface Identifiable {id = =========================================
 // , K> & Required<Pick<T, K>>
 // export type OptionalKeys<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
-// export type Constructor<_T = {}> = new(...args = > T;
+// export type Constructor<_T = {} catch (error) { console.error(error); }> = new(...args = > T;
 
 // export type Mixin<T extends Constructor> = T & Constructor;
 

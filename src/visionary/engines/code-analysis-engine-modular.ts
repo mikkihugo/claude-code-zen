@@ -93,6 +93,7 @@ MetricsCalculator  } from './code-analysis/metrics-calculator''
 
    * @param config - Configuration options
 
+ */
   constructor(config) {
     this.config = config;
     this.astParser = new ASTParser();
@@ -131,7 +132,7 @@ MetricsCalculator  } from './code-analysis/metrics-calculator''
   if(this.config.neuralEngine) {
         try {
           _aiInsights = // // await this.performAIAnalysis(codeData, 'code-analysis');'
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           console.warn('AI analysis unavailable);'
         //         }
       //       }

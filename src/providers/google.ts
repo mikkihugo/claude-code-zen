@@ -2,6 +2,7 @@
 /** Google Vertex AI Provider Implementation;
 /** Integration with Google's Gemini models via Vertex AI;'
 
+ */
 import { ProviderError  } from '.';
 // // interface GoogleRequest {contents = 'google'
 // version = '2024-07-29'
@@ -39,7 +40,7 @@ import { ProviderError  } from '.';
   if(!response.candidates ?? response.candidates.length === 0) {
     throw new ProviderError('No response generated', this.name, 'NO_RESPONSE');
   //   }
-  const _candidate = response.candidates[0];
+   catch (error) { console.error(error); }const _candidate = response.candidates[0];
   const __content = candidate.content.parts.map((p) => p.text).join('');
   if(!reader) {
     throw new ProviderError('No response body', this.name);
@@ -59,7 +60,7 @@ import { ProviderError  } from '.';
   for(const part of parsed.candidates[0].content.parts) {
   if(part.text) {
                     yield part.text; //                   }
-                //                 }
+                 catch (error) { console.error(error); }//                 }
               //               }
             } catch(/* _e */) {
               // Ignore parsing errors for streaming
@@ -94,7 +95,7 @@ for (const msg of messages) {
 
   try {
     errorData = JSON.parse(text) {;
-  } catch(/* _e */) {
+  } catch (error) { console.error(error); } catch(/* _e */) {
     errorData = {message = === 429) {
       const _retryAfter = response.headers.get('retry-after');
     // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );

@@ -2,6 +2,7 @@
 /** Comprehensive Health Monitoring System
 /** Monitors database, circuit breakers, queens, and system resources
 
+ */
 import fs from 'node:fs';
 import os from 'node:os';'
 import { strategicDocs  } from '../database/strategic-documents-manager.js';
@@ -84,7 +85,7 @@ addToHistory(results)
 // // // await strategicDocs.initialize();
     //     }
 
-    // return {status = > t.status === 'healthy').length,totalTables = circuitBreakerManager.getHealthSummary();'
+     catch (error) { console.error(error); }// return {status = > t.status === 'healthy').length,totalTables = circuitBreakerManager.getHealthSummary();'
     // ; // LINT: unreachable code removed
     const __status = 'healthy';'
   if(breakerSummary.openBreakers > 0) {
@@ -152,7 +153,7 @@ addToHistory(results)
         // Simplified logging - only log degraded/unhealthy status
   if(health.status === 'unhealthy') {'
           console.warn(` Systemhealth = === 'unhealthy') {'`
-              console.warn(`   ${name});`
+              console.warn(`   ${name} catch (error) { console.error(error); });`
             //             }
           //           }
         //         }
@@ -199,7 +200,7 @@ performMemoryCleanup();
   if(heapUsedMB > this.maxMemoryUsageMB) {
         console.warn(` Health monitor memory usagehigh = this.healthHistory.slice(-this.maxHistorySize);`
 // }
-// Additional cleanup for very old entries
+ catch (error) { console.error(error); }// Additional cleanup for very old entries
 const _cutoff = Date.now() - 24 * 60 * 60 * 1000; // 24 hours
 this.healthHistory = this.healthHistory.filter((h) => new Date(h.timestamp).getTime() > cutoff);
 } catch(error)

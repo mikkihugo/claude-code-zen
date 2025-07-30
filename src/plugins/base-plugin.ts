@@ -2,6 +2,7 @@
 /** Base Plugin Class;
 /** TypeScript foundation for all Claude Code Flow plugins;
 
+ */
 import crypto from 'node:crypto';
 import { EventEmitter  } from 'node:events';
 import { performance  } from 'node:perf_hooks';
@@ -134,7 +135,7 @@ catch(error)
         results.push(result); if(result.stop) {
           break;
         //         }
-      //       }
+       catch (error) { console.error(error); }//       }
 
       const _executionTime = performance.now() - startTime;
       this.updateHookMetrics(type, executionTime, true);
@@ -163,7 +164,7 @@ catch(error)
       this.emit('api-called', this.manifest.name, name, executionTime);
 
       // return result;
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
       const _executionTime = performance.now() - startTime;
       this.updateAPIMetrics(name, executionTime, false);
 
@@ -171,7 +172,7 @@ catch(error)
   if(limits && this.resourceUsage[type as keyof ResourceUsage] + amount > limits.maximum) {
       this.emit('resource-exceeded', this.manifest.name, type,)
         this.resourceUsage[type as keyof ResourceUsage] + amount, limits.maximum);
-      return false;
+//       return false;
     //   // LINT: unreachable code removed}
 
     // Allocate resource(simplified - would integrate with actual resource manager)

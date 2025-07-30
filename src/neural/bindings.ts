@@ -5,6 +5,7 @@ import { loadRealNeuralBindings  } from '.';
 
 /** Neural bindings interface for FANN integration
 
+ */
 export // interface RuvFannBindings {
 //   loadModel(path = // await loadRealNeuralBindings();
 //         if(realBindings) {
@@ -40,7 +41,7 @@ export // interface RuvFannBindings {
                 // return bindings;
     //   // LINT: unreachable code removed}
 
-            // Fallback to WASM bindings
+             catch (error) { console.error(error); }// Fallback to WASM bindings
 // const _wasmBindings = awaitthis.loadWasmBindings();
   if(wasmBindings) {
                 this.logger.info('WASM ruv-FANN bindings loaded successfully');
@@ -92,48 +93,48 @@ export // interface RuvFannBindings {
   if(wasmModule.loadModel) {
                         this.logger.info(`WASM bindings loadedfrom = error instanceof Error ? error.message => {`
                 try {)
-                    return binding.loadModel(path);
-    //   // LINT: unreachable code removed} catch(error) {
+//                     return binding.loadModel(path);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
                     const __errorMessage = error instanceof Error ? error.message => {
-                return binding.unloadModel(modelName);
+//                 return binding.unloadModel(modelName);
     //   // LINT: unreachable code removed} ,
 
             inference = ): Promise<string> => ;
                 try {
-                    return binding.inference(prompt, options);
-    //   // LINT: unreachable code removed} catch(error) {
+//                     return binding.inference(prompt, options);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
                     const __errorMessage = error instanceof Error ? error.message => {
                 try {
-                    return binding.listModels()  ?? [];
-    //   // LINT: unreachable code removed} catch(error) {
+//                     return binding.listModels()  ?? [];
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
                     const __errorMessage = error instanceof Error ? error.message => {
                 try {
-                    return binding.isModelLoaded(modelName);
-    //   // LINT: unreachable code removed} catch(error) {
-                    return false;
+//                     return binding.isModelLoaded(modelName);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+//                     return false;
     //   // LINT: unreachable code removed}
             },
 
             _batchInference = {}): Promise<string[]> => ;
-                return binding.batchInference(prompts, options);,
+//                 return binding.batchInference(prompts, options);,
 
             _finetune => ;
-                return binding.finetune(modelName, trainingData);,
+//                 return binding.finetune(modelName, trainingData);,
 
             _benchmark => ;
-                return binding.benchmark(modelName);,
+//                 return binding.benchmark(modelName);,
 
             _enableGPU => ;
-                return binding.enableGPU();,
+//                 return binding.enableGPU();,
 
             _getGPUInfo => ;
-                return binding.getGPUInfo();,
+//                 return binding.getGPUInfo();,
 
             _getMemoryUsage => ;
-                return binding.getMemoryUsage();,
+//                 return binding.getMemoryUsage();,
 
             _freeMemory => ;
-                return binding.freeMemory();;
+//                 return binding.freeMemory();;
         };
     //     }
 
@@ -145,22 +146,22 @@ export // interface RuvFannBindings {
     // */; // LINT: unreachable code removed
     // private wrapWasmBindings(wasmModule => {
                 try {
-                    return wasmModule.load_model(path);
-    //   // LINT: unreachable code removed} catch(error) {
+//                     return wasmModule.load_model(path);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
                     const __errorMessage = error instanceof Error ? error.message = {}): Promise<string> => ;
                 try {
-                    return wasmModule.inference(prompt, JSON.stringify(options));
-    //   // LINT: unreachable code removed} catch(error) {
+//                     return wasmModule.inference(prompt, JSON.stringify(options));
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
                     const __errorMessage = error instanceof Error ? error.message => {
                 try {
                     const _result = wasmModule.list_models();
-                    return JSON.parse(result);
-    //   // LINT: unreachable code removed} catch(error) {
+//                     return JSON.parse(result);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
                     const __errorMessage = error instanceof Error ? error.message => {
                 try {
-                    return wasmModule.is_model_loaded(modelName);
-    //   // LINT: unreachable code removed} catch(error) {
-                    return false;
+//                     return wasmModule.is_model_loaded(modelName);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+//                     return false;
     //   // LINT: unreachable code removed}
             //             }
         };
@@ -184,11 +185,11 @@ export // interface RuvFannBindings {
 
                 // Generate a realistic stub response based on prompt
                 if(prompt.includes('function')  ?? prompt.includes('def ')) {
-                    return `function generated_${Date.now()}() {\n  // Generated by ruv-FANN stub\n  return "Hello, World!";\n}`;
+//                     return `function generated_${Date.now()}() {\n  // Generated by ruv-FANN stub\n  return "Hello, World!";\n}`;
                 } else if(prompt.includes('class')  ?? prompt.includes('interface')) {
-                    return `// interface Generated {\n  id => {\n  expect(true).toBe(true);\n});`;else ;
-                    return `// Generated response for => {`
-                return [;
+//                     return `// interface Generated {\n  id => {\n  expect(true).toBe(true);\n});`;else ;
+//                     return `// Generated response for => {`
+//                 return [;
     // 'code-completion-base', // LINT: unreachable code removed
                     'bug-detector-v2',
                     'refactor-assistant',
@@ -200,7 +201,7 @@ export // interface RuvFannBindings {
             isModelLoaded => {
                 // Simulate some models being loaded
                 const _loadedModels = ['code-completion-base', 'bug-detector-v2'];
-                return loadedModels.includes(modelName);
+//                 return loadedModels.includes(modelName);
     //   // LINT: unreachable code removed},
 
             batchInference = {}): Promise<string[]> => {
@@ -208,15 +209,15 @@ export // interface RuvFannBindings {
   for(const prompt of prompts) {
                     results.push(// await this.inference(prompt, options)); 
                 //                 }
-                return results; //   // LINT: unreachable code removed},
+//                 return results; //   // LINT: unreachable code removed},
 
             benchmark => {
 // // await new Promise(resolve => setTimeout(resolve, 1000) {);
-                return {
+//                 return {
                     modelName,
     // averageInferenceTime => { // LINT: unreachable code removed
                 this.logger.debug('Stub => {'
-                return {
+//                 return {
                     available,)
     // deviceName => { // LINT);
 
@@ -225,7 +226,7 @@ export // interface RuvFannBindings {
     // * @private; // LINT: unreachable code removed
 
 async function loadNeuralBindingsFromLoader(): Promise<RuvFannBindings | null> {
-    return bindingsLoader.load();
+//     return bindingsLoader.load();
 // }
 
 // Export the class name as default

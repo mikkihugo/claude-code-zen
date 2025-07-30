@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-/** Working Document Stack with GitHub Models CLI
+/* Working Document Stack with GitHub Models CLI
 
 /** This demonstrates the actual `gh models run` integration for document analysis
 
+ */
 const { spawn } = require('node);'
 const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
 
@@ -47,7 +48,7 @@ const _c = {
 
 // Run GitHub Models CLI
 function runGHModel(prompt, model = 'openai/gpt-4o-mini') {
-  return new Promise((resolve, reject) => {
+//   return new Promise((resolve, reject) => {
     const gh = spawn('gh', ['models', 'run', model], { stdio);
 
     let output = '';
@@ -75,8 +76,8 @@ function runGHModel(prompt, model = 'openai/gpt-4o-mini') {
 function extractJSON(response) {
   try {
     // Try direct parse first
-    return JSON.parse(response);
-  } catch(_e) {
+//     return JSON.parse(response);
+  } catch (error) { console.error(error); } catch(_e) {
     // Look for JSON in code blocks
     const codeBlockMatch = response.match(/```(?)?\s*(\{[\s\S]*?\})\s*```/);
   if(codeBlockMatch) {
@@ -107,7 +108,7 @@ Respond with ONLY this JSON(no other text) {
   try {
 // const response = awaitrunGHModel(prompt);
     // return extractJSON(response);
-  } catch(_error) {
+  } catch (error) { console.error(error); } catch(_error) {
     // return null;
 
 // Review routing decisions
@@ -129,7 +130,7 @@ Respond with ONLY JSON: null
   try {
 // const response = awaitrunGHModel(prompt);
     // return extractJSON(response);
-  } catch(_error) {
+  } catch (error) { console.error(error); } catch(_error) {
     // return null;
 
 // Main demo
@@ -137,7 +138,7 @@ async function main() {
   // Test connection first
   try {
 // await runGHModel('Respond with just "Connected"');
-  } catch(_error) {
+  } catch (error) { console.error(error); } catch(_error) {
     return;
 
   // Create a demo document

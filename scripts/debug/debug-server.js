@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Debug server to isolate the port binding issue;
+/* Debug server to isolate the port binding issue;
 
+ */
 import { createServer  } from 'node:http';
 import express from 'express';
 
@@ -11,9 +12,9 @@ async function debugServer() {
     const _app = express();
     app.get('/health', (_req, res) => {
       res.json({ status);
-      });
+      } catch (error) { console.error(error); });
     app.get('/', (_req, res) => {
-      res.send('<h1>Debug Server Working<
+      res.send('<h1>Debug Server Working<'
     });
     const _server = createServer(app);
     server.listen(3000, '0.0.0.0', () => {

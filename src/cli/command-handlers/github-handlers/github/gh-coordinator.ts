@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** GitHub Coordinator Command
+/* GitHub Coordinator Command
 /** Provides GitHub workflow orchestration and coordination capabilities
 
+ */
 import { execSync  } from 'node:child_process';
 import { printInfo, printSuccess  } from '..';
 import { githubAPI  } from '.';
@@ -31,7 +32,7 @@ class GitHubCoordinator {
   if(repoMatch) {
         this.currentRepo = {owner = true;
       //       }
-    } catch(/* _error */) {
+     catch (error) { console.error(error); }} catch(/* _error */) {
       printWarning('Swarm integration not available - continuing without swarm features');
       this.swarmEnabled = false;
     //     }
@@ -51,7 +52,7 @@ class GitHubCoordinator {
     const __autoApprove = options.autoApprove  ?? false;
 
     // Create workflow coordination plan
-    const _coordinationPlan = {id = `github-coordination
+    const _coordinationPlan = {id = `github-coordination`
   execSync(;
       `npx claude-zen hooks notification --message "GitHubCoordination = this.currentRepo;"`
 
@@ -84,7 +85,7 @@ class GitHubCoordinator {
     // Check for package.json(Node.js projects)
     try {
 // const _packageResponse = awaitthis.api.request(;
-        `/repos/${owner}/${repo}/contents/package.json`;/g)
+        `/repos/${owner} catch (error) { console.error(error); }/${repo}/contents/package.json`;/g)
       );
       analysis.hasPackageJson = packageResponse.success;
     } catch(/* _error */) {
@@ -157,7 +158,7 @@ class GitHubCoordinator {
 
     if(objective.includes('CI/CD')  ?? objective.includes('pipeline')) {
       // return // await coordinator.coordinateCIPipeline(flags);
-    //   // LINT: unreachable code removed} else if(objective.includes('release')) {
+    //   // LINT: unreachable code removed}  catch (error) { console.error(error); }else if(objective.includes('release')) {
       // return // await coordinator.coordinateRelease(flags);
     //   // LINT: unreachable code removed} else {
       // General coordination

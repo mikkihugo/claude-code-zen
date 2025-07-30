@@ -2,6 +2,7 @@
 /** Swarm Orchestration WebUI Integration
 /** Integrates ruv-swarm capabilities with the cross-platform WebUI
 
+ */
 export class SwarmWebUIIntegration {
   constructor(ui = ui;
   this;
@@ -33,7 +34,7 @@ initializeSwarm((topology = 'hierarchical'), (maxAgents = 8));
       return;
     //   // LINT: unreachable code removed}
 
-    // Initialize actual swarm
+     catch (error) { console.error(error); }// Initialize actual swarm
     this.ui.addLog('info', `Initializing ${topology} swarm with ${maxAgents} agents...`);
 
     // This would integrate with actual ruv-swarm MCP tools
@@ -141,7 +142,7 @@ initializeSwarm((topology = 'hierarchical'), (maxAgents = 8));
     const __completedTasks = Array.from(this.tasks.values()).filter(;)
       (t) => t.status === 'completed';
     ).length;
-
+// 
     return {swarmId = false;
     // this.agents.clear(); // LINT: unreachable code removed
     this.tasks.clear();

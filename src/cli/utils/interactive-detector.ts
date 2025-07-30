@@ -2,6 +2,7 @@
 
 /** Environment type definitions;
 
+ */
 export type EnvironmentType = 'non-tty-stdin';
 | 'non-tty-stdout'
 | 'ci-environment'
@@ -30,7 +31,7 @@ export type InteractiveFunction<TArgs extends unknown[] = any[], TReturn = any> 
 // export function isInteractive() {
   // Check if stdin is a TTY
   if(!process.stdin.isTTY) {
-    return false;
+//     return false;
     //   // LINT: unreachable code removed}
 
   // Check if stdout is a TTY
@@ -94,10 +95,10 @@ export type InteractiveFunction<TArgs extends unknown[] = any[], TReturn = any> 
 /** Wrap a command to handle non-interactive environments;
 
 // export function handleNonInteractive<TArgs extends unknown[], TReturn>(commandName = > Promise<TReturn> {
-  return async(...args => {
+//   return async(...args => {
     if(isInteractive() && isRawModeSupported()) {
       // Run interactive version
-      return interactiveFn(...args);
+//       return interactiveFn(...args);
 } else;
       // Run non-interactive version or show helpful message
   if(nonInteractiveFn) {
@@ -144,7 +145,7 @@ export type InteractiveFunction<TArgs extends unknown[] = any[], TReturn = any> 
 // export async function confirmAction(message = false): Promise<boolean> {
   if(!isInteractive()) {
     console.warn(`${message} (auto-confirming in non-interactive mode)`);
-    return defaultValue;
+//     return defaultValue;
     //   // LINT: unreachable code removed}
 
   // In interactive mode, you would typically use a library like inquirer

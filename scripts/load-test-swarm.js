@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Swarm Load Testing for Claude Zen v2.0.0;
+/* Swarm Load Testing for Claude Zen v2.0.0;
 
+ */
 import chalk from 'chalk';
 import { SystemIntegration  } from '../dist/integration/system-integration.js';
 
@@ -95,7 +96,7 @@ initialize();
           enabled, // Disable monitoring during load test
           metrics,
           realTime)
-  })
+  } catch (error) { console.error(error); })
   this.swarmCoordinator = this.systemIntegration.getComponent('swarmCoordinator')
   this.agentManager = this.systemIntegration.getComponent('agentManager')
   this.taskEngine = this.systemIntegration.getComponent('taskEngine')
@@ -128,7 +129,7 @@ catch(error)
   // // await this.cleanup();
       this.metrics.endTime = Date.now();
       this.generateReport();
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       this.log(`Load test failed);`
       this.metrics.errors.push({ message: error.message,)
         timestamp: Date.now(),
@@ -153,7 +154,7 @@ catch(error)
       swarmIds.forEach((id) => this.activeSwarms.add(id));
       this.metrics.swarmsCreated = swarmIds.length;
       const _duration = Date.now() - startTime;
-      this.log(`Created ${swarmIds.length} swarms in ${duration}ms`, 'success');
+      this.log(`Created ${swarmIds.length}  catch (error) { console.error(error); }swarms in ${duration}ms`, 'success');
     } catch(error) {
       this.log(`Failed to create swarms);`
       throw error;
@@ -165,7 +166,7 @@ createSwarm(index);
   const _swarmStartTime = Date.now();
   try {
 // const _swarmId = awaitthis.swarmCoordinator.createSwarm({
-        objective: `Load test swarm ${index}`,
+        objective: `Load test swarm ${index} catch (error) { console.error(error); }`,
         strategy: 'auto',
         topology: 'mesh',
         maxAgents: this.config.agentsPerSwarm)
@@ -194,7 +195,7 @@ throw error;
 // const _agents = awaitPromise.all(agentPromises);
       this.metrics.agentsSpawned = agents.length;
       const _duration = Date.now() - startTime;
-      this.log(`Spawned ${agents.length} agents in ${duration}ms`, 'success');
+      this.log(`Spawned ${agents.length}  catch (error) { console.error(error); }agents in ${duration}ms`, 'success');
     } catch(error) {
       this.log(`Failed to spawn agents);`
       throw error;
@@ -209,7 +210,7 @@ spawnAgent(swarmId, index);
   try {
 // const _agentId = awaitthis.swarmCoordinator.spawnAgentInSwarm(swarmId, {
         type,
-        name: `LoadAgent-${index}`,
+        name: `LoadAgent-${index} catch (error) { console.error(error); }`,
         capabilities: ['general', 'load-testing'])
 })
   const _duration = Date.now() - agentStartTime;
@@ -237,7 +238,7 @@ throw error;
 // const _tasks = awaitPromise.all(taskPromises);
       this.metrics.tasksCreated = tasks.length;
       const _duration = Date.now() - startTime;
-      this.log(`Created ${tasks.length} tasks in ${duration}ms`, 'success');
+      this.log(`Created ${tasks.length}  catch (error) { console.error(error); }tasks in ${duration}ms`, 'success');
     } catch(error) {
       this.log(`Failed to create tasks);`
       throw error;
@@ -251,7 +252,7 @@ createTask(swarmId, index);
 // const _taskId = awaitthis.taskEngine.createTask({
         swarmId,
         type: 'development',
-        objective: `Load test task ${index}`,
+        objective: `Load test task ${index} catch (error) { console.error(error); }`,
         priority: index % 3 === 0 ? 'high' : 'medium')
 })
   const _duration = Date.now() - taskStartTime;
@@ -283,7 +284,7 @@ throw error;
   if(elapsed % 60000 < checkInterval) {
           // Report every minute
           this.log(;)
-            `Load test progress: ${Math.floor(elapsed / 1000)}s elapsed, ${Math.floor(remaining / 1000)}s remaining`;
+            `Load test progress: ${Math.floor(elapsed / 1000)} catch (error) { console.error(error); }s elapsed, ${Math.floor(remaining / 1000)}s remaining`;
           );
   // // await this.reportCurrentMetrics();
         //         }
@@ -360,7 +361,7 @@ reportCurrentMetrics();
             this.metrics.responseTimes.length;
 
       this.log(;)
-        `Current metrics: ${health.metrics.healthyComponents}/${health.metrics.totalComponents} components healthy, avg response: ${avgResponseTime.toFixed(2)}ms`;
+        `Current metrics: ${health.metrics.healthyComponents} catch (error) { console.error(error); }/${health.metrics.totalComponents} components healthy, avg response: ${avgResponseTime.toFixed(2)}ms`;
       );
     } catch(error) {
       this.log(`Failed to get current metrics);`
@@ -374,7 +375,7 @@ cleanup();
       // Shutdown system gracefully
   // // await this.systemIntegration.shutdown();
       this.log('Cleanup completed successfully', 'success');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       this.log(`Cleanup failed);`
     //     }
 // }
@@ -408,7 +409,7 @@ generateReport();
   console.warn(`   Agents Spawned: ${chalk.green(this.metrics.agentsSpawned)}`);
   console.warn(`   Tasks Created: ${chalk.green(this.metrics.tasksCreated)}`);
   console.warn(`   Total Operations: ${chalk.cyan(totalOperations)}`);
-  console.warn(`   Throughput: ${chalk.yellow(throughput.toFixed(2))} ops
+  console.warn(`   Throughput: ${chalk.yellow(throughput.toFixed(2))} ops`
   console.warn(`\n Performance Metrics);`
   console.warn(`   Average Response Time: ${chalk.cyan(avgResponseTime.toFixed(2))}ms`);
   console.warn(`   Min Response Time: ${chalk.green(minResponseTime.toFixed(2))}ms`);
@@ -418,7 +419,7 @@ generateReport();
     console.warn(`\n Errors($, { this.metrics.errors.length }):`);
     const _errorsByPhase = this.metrics.errors.reduce((acc, error) => {
         acc[error.phase] = (acc[error.phase]  ?? 0) + 1;
-        return acc;
+//         return acc;
     //   // LINT: unreachable code removed}, {});
       Object.entries(errorsByPhase).forEach(([phase, count]) => {
         console.warn(`${phase}: ${chalk.red(count)} errors`);
@@ -440,13 +441,13 @@ generateReport();
     console.warn(`   Response Time: ${chalk.red('POOR')} (> 1000ms)`);
   //   }
   if(throughput > 50) {
-    console.warn(`   Throughput: ${chalk.green('EXCELLENT')} (> 50 ops
+    console.warn(`   Throughput: ${chalk.green('EXCELLENT')} (> 50 ops`
   } else if(throughput > 20) {
-    console.warn(`   Throughput: ${chalk.yellow('GOOD')} (20-50 ops
+    console.warn(`   Throughput: ${chalk.yellow('GOOD')} (20-50 ops`
   } else if(throughput > 10) {
-    console.warn(`   Throughput: ${chalk.yellow('ACCEPTABLE')} (10-20 ops
+    console.warn(`   Throughput: ${chalk.yellow('ACCEPTABLE')} (10-20 ops`
   } else {
-    console.warn(`   Throughput: ${chalk.red('POOR')} (< 10 ops
+    console.warn(`   Throughput: ${chalk.red('POOR')} (< 10 ops`
   //   }
   const _errorRate = (this.metrics.errors.length / totalOperations) * 100;
   if(errorRate === 0) {
@@ -493,7 +494,7 @@ async function main() {
   // // await tester.initialize();
   // // await tester.runLoadTest();
     process.exit(0);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     console.error(chalk.red('Load test failed), error.message);'
     process.exit(1);
   //   }

@@ -2,6 +2,7 @@
 /** Security & Authentication Plugin;
 /** JWT authentication, basic security scanning, and access control;
 
+ */
 import crypto from 'node:crypto';
 import { readFile  } from 'node:fs';
 
@@ -25,7 +26,7 @@ export class SecurityAuthPlugin {
     try {
 // const _content = awaitreadFile(this.config.securityRulesFile, 'utf8');
       this.securityRules = JSON.parse(content);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
   if(error.code === 'ENOENT') {
         // Create default security rules
         this.securityRules = {authentication = // await import('jsonwebtoken');
@@ -82,7 +83,7 @@ try {
   if(method === 'jwt') {
         // Verify username/password(in production, check against database)
         user = // await this.verifyCredentials(username, password);
-      } else if(method === 'apikey') {
+      }  catch (error) { console.error(error); }else if(method === 'apikey') {
         // Verify API key
         const __authenticator = this.authenticators.get('apikey');
 // const __keyData = awaitauthenticator.verifyKey(apiKey);
@@ -136,9 +137,9 @@ try {
     const _hasWildcardPermission = permissions.some(permission => {)
       if(permission.endsWith('.*')) {
         const _prefix = permission.slice(0, -2);
-        return action.startsWith(`${prefix}.`);
+//         return action.startsWith(`${prefix}.`);
     //   // LINT: unreachable code removed}
-      return false;
+//       return false;
     //   // LINT: unreachable code removed});
   if(hasWildcardPermission) {
       // return true;

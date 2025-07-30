@@ -1,6 +1,7 @@
 
 /** Default configuration for Claude-Zen
-/** Comprehensive system configuration with TypeScript types
+ * Comprehensive system configuration with TypeScript types
+ */
 
 const _config = {
   app: {

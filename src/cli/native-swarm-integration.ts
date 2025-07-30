@@ -4,7 +4,8 @@
 /** REVOLUTIONARY REPLACEMENT for MCP + Plugin architecture
 
 /** This completely eliminates = {}) {
-    super();
+ */
+//     super();
 
     this.options = {
       // Native integration settingsenableAutoSpawn = = false,defaultAgentTypes = = false,enableGraphRelationships = = false,enableNeuralLearning = = false,
@@ -68,7 +69,7 @@
 
     try {
       // Check cache first
-      const _cacheKey = `swarm_init_${JSON.stringify(options)}`;`
+      const _cacheKey = `swarm_init_${JSON.stringify(options)} catch (error) { console.error(error); }`;`
       const _cached = this.getCachedResult(cacheKey);
   if(cached) {
         this.metrics.cacheHitRate++;
@@ -82,7 +83,7 @@
 
     try {
 // const _result = awaitthis.nativeHiveMind.spawnAgent({ type = = false,/g)
-        cognitivePattern = {  }) {
+        cognitivePattern = {  } catch (error) { console.error(error); }) {
 // // // await this.ensureInitialized();
     const _operation = this.trackOperation('task_orchestrate');'
 
@@ -98,7 +99,7 @@
 
       // return {
 ..result,
-    // claudeZenIntegration = { // LINT: unreachable code removed  }) {
+    // claudeZenIntegration = { // LINT: unreachable code removed  } catch (error) { console.error(error); }) {
 // // // await this.ensureInitialized();
   if(!this.options.enableSemanticMemory) {
       throw new Error('Semantic memory search is disabled');'
@@ -111,7 +112,7 @@
 
     try {
 // // // await this.nativeHiveMind.learnFromCoordination({ operation = = false;/g)
-        });
+        } catch (error) { console.error(error); });
 
       this.completeOperation(operation, true);
 
@@ -125,7 +126,7 @@
     const _batchOperation = this.trackOperation('batch_operations') {;'
 
     try {
-      printInfo(`ZAP Executing ${operations.length} operations in parallel...`);`
+      printInfo(`ZAP Executing ${operations.length}  catch (error) { console.error(error); }operations in parallel...`);`
 
       // Group operations by type for optimal batching
       const _groupedOps = this.groupOperationsByType(operations);
@@ -144,7 +145,7 @@
       const _batchEfficiency = operations.length / batchOperation.duration * 1000
       this.metrics.batchEfficiency = (this.metrics.batchEfficiency + batchEfficiency) / 2;
 
-      printSuccess(`CHECK Completed ${operations.length} operations in ${batchOperation.duration}ms(${batchEfficiency.toFixed(1)} ops
+      printSuccess(`CHECK Completed ${operations.length} operations in ${batchOperation.duration}ms(${batchEfficiency.toFixed(1)} ops`
 
       // return {
         results,
@@ -239,7 +240,7 @@ let _globalNativeSwarm = null;
     globalNativeSwarm = new ClaudeZenNativeSwarm(options);
 // await globalNativeSwarm.initialize();
   //   }
-  return globalNativeSwarm;
+//   return globalNativeSwarm;
 // }
 
 // export async function initializeNativeSwarmIntegration(options = {}) {

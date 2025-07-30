@@ -3,6 +3,7 @@
 /** COMPREHENSIVE TESTING OF ENHANCED LANCEDB, KUZU, AND VISION-TO-CODE SYSTEMS;
 /** Tests individual systems and cross-system coordination;
 
+ */
 import { existsSync  } from 'node:fs';
 import { mkdir, rm  } from 'node:fs';
 import path from 'node:path';
@@ -17,7 +18,7 @@ describe('Multi-System Integration Tests', () => {
   let testDataDir;
   beforeAll(async() => {
     // Setup test data directory
-    testDataDir = '.
+    testDataDir = '.'
     if(existsSync(testDataDir)) {
   // // await rm(testDataDir, { recursive, force });
     //     }
@@ -422,7 +423,7 @@ describe('Individual System Unit Tests', () =>
 // {
   describe('LanceDBInterface Unit Tests', () => {
     let lancedb;
-    const _testDbPath = '.
+    const _testDbPath = '.'
     beforeAll(async() => {
       if(existsSync(testDbPath)) {
   // await rm(testDbPath, { recursive, force });
@@ -456,7 +457,7 @@ describe('Individual System Unit Tests', () =>
 describe('KuzuAdvancedInterface Unit Tests', () =>
 // {
   let kuzu;
-  const _testDbPath = '.
+  const _testDbPath = '.'
   beforeAll(async() => {
     if(existsSync(testDbPath)) {
   // await rm(testDbPath, { recursive, force });
@@ -502,7 +503,7 @@ test('should track performance metrics', async() =>
 describe('VisionarySoftwareIntelligenceProcessor Unit Tests', () =>
 // {
   let vision;
-  const _testOutputDir = '.
+  const _testOutputDir = '.'
   beforeAll(async() => {
     if(existsSync(testOutputDir)) {
   // await rm(testOutputDir, { recursive, force });

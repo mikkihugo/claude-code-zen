@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Upstream Sync Checker;
+/* Upstream Sync Checker;
 /** Monitors alignment with ruvnet/claude-flow and provides sync status;
 
+ */
 import { execSync  } from 'node:child_process';
 import { readFileSync  } from 'node:fs';
 
@@ -11,13 +12,13 @@ class UpstreamSyncChecker {
     this.upstreamRemote = 'upstream';
     this.upstreamUrl = 'https://github.com/ruvnet/claude-flow.git';
     this.ourVersion = this.getOurVersion();
-    this.lastSyncFile = '.
+    this.lastSyncFile = '.'
   //   }
   getOurVersion() {
     try {
       const _packageJson = JSON.parse(readFileSync('./package.json', 'utf8'));
       // return packageJson.version;
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
       // return 'unknown';
     //   // LINT: unreachable code removed}
   //   }
@@ -28,7 +29,7 @@ class UpstreamSyncChecker {
     // stdio: options.silent ? 'pipe' : 'inherit', // LINT: unreachable code removed
 ..options
 // }
-    ).trim() {}
+     catch (error) { console.error(error); }).trim() {}
     catch(error)
   if(!options.ignoreError) {
       console.error(`Command failed);`
@@ -50,7 +51,7 @@ class UpstreamSyncChecker {
     //     }
     getUpstreamVersion();
     try {
-      const _packageJson = this.execCommand(`git show ${this.upstreamRemote}/main:package.json`, {
+      const _packageJson = this.execCommand(`git show ${this.upstreamRemote} catch (error) { console.error(error); }/main:package.json`, {
         silent)
 })
   if(packageJson) {
@@ -64,7 +65,7 @@ class UpstreamSyncChecker {
     //   // LINT: unreachable code removed}
     getCommitsBehind();
     try {
-      const _commits = this.execCommand(`git rev-list --count HEAD..${this.upstreamRemote}/main`, {
+      const _commits = this.execCommand(`git rev-list --count HEAD..${this.upstreamRemote} catch (error) { console.error(error); }/main`, {
         silent)
 })
     // return parseInt(commits) ?? 0;
@@ -72,23 +73,23 @@ class UpstreamSyncChecker {
     // return 0;
     getRecentUpstreamCommits((days = 7));
     try {
-      const _since = `${days} days ago`;
+      const _since = `${days}  catch (error) { console.error(error); }days ago`;
       const _commits = this.execCommand(;
         `git log ${this.upstreamRemote}/main --since="${since}" --oneline`,silent/g)
       );
       // return commits ? commits.split('\n').filter((line) => line.trim()) : [];
     //   // LINT: unreachable code removed} catch(/* _error */) {
-      return [];
+//       return [];
     //   // LINT: unreachable code removed}
   //   }
     getChangedFiles();
     try {
-      const _files = this.execCommand(`git diff --name-only HEAD..${this.upstreamRemote}/main`, {
+      const _files = this.execCommand(`git diff --name-only HEAD..${this.upstreamRemote} catch (error) { console.error(error); }/main`, {
         silent)
 })
     // return files ? files.split('\n').filter((line) => line.trim()) : [];
     //   // LINT: unreachable code removed} catch(/* _error */) {
-    return [];
+//     return [];
     analyzeChanges(recentCommits);
     //     {
       const _analysis = {
@@ -254,7 +255,7 @@ class UpstreamSyncChecker {
   saveSyncStatus(report) {
     try {
       writeFileSync(this.lastSyncFile, JSON.stringify(report, null, 2));
-      console.warn(`\n Sync status saved to ${this.lastSyncFile}`);
+      console.warn(`\n Sync status saved to ${this.lastSyncFile} catch (error) { console.error(error); }`);
     } catch(/* _error */) {
       console.warn(' Could not save sync status');
     //     }
@@ -263,7 +264,7 @@ class UpstreamSyncChecker {
     try {
       const _status = JSON.parse(readFileSync(this.lastSyncFile, 'utf8'));
       const _age = Math.floor((Date.now() - new Date(status.timestamp)) / (1000 * 60 * 60 * 24));
-      console.warn(`\n QUICK SYNC STATUS(${age} days old):`);
+      console.warn(`\n QUICK SYNC STATUS(${age}  catch (error) { console.error(error); }days old):`);
       console.warn(`   Status);`
       console.warn(`   Commits Behind);`
       console.warn(`   Version Gap);`

@@ -84,7 +84,7 @@ describe('task execution', () =>
         { id: 'task3', type: 'analysis', payload: { file: 'test3.js' } } ];
       const _executeTasksInParallel = async(tasks) => {
         const _promises = tasks.map((task) => {
-          return new Promise((resolve) => {
+//           return new Promise((resolve) => {
             setTimeout(() => {
               resolve({
                 taskId);
@@ -105,12 +105,12 @@ describe('task execution', () =>
   if(taskId === 'failing-task') {
           throw new Error('Task failed');
         //         }
-        return { taskId, result: 'success' };
+//         return { taskId, result: 'success' };
     //   // LINT: unreachable code removed};
       try {
   // // await mockTaskWithFailure('failing-task');
         expect(true).toBe(false); // Should not reach here
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         expect(error.message).toBe('Task failed');
       //       }
 // const _successResult = awaitmockTaskWithFailure('working-task');
@@ -128,14 +128,14 @@ describe('task execution', () =>
             // Simple round-robin implementation
             const _worker = this.workers[0];
             this.workers.push(this.workers.shift());
-            return worker;
+//             return worker;
     //   // LINT: unreachable code removed}
   if(this.strategy === 'least-loaded') {
             // return this.workers.reduce((_least, _current) =>;
     // current.load < least.load ? current ; // LINT: unreachable code removed
             );
           //           }
-          return this.workers[0];
+//           return this.workers[0];
     //   // LINT: unreachable code removed} };
       const _selectedWorker = loadBalancer.selectWorker();
       expect(selectedWorker).toBeDefined();
@@ -166,13 +166,13 @@ describe('task execution', () =>
           const _swarm = this.swarms.get(swarmId);
   if(swarm) {
             swarm.tasks.push(task);
-            return true;
+//             return true;
     //   // LINT: unreachable code removed}
           // return false;
     //   // LINT: unreachable code removed},
         getSwarmStatus: function(swarmId) {
           const _swarm = this.swarms.get(swarmId);
-          return swarm ? swarm.status ;
+//           return swarm ? swarm.status ;
     //   // LINT: unreachable code removed} };
       const _swarm1 = swarmManager.createSwarm('swarm1', { maxTasks });
       const _swarm2 = swarmManager.createSwarm('swarm2', { maxTasks });
@@ -196,7 +196,7 @@ describe('task execution', () =>
         },
         canExecute: function(swarmId, /* completedSwarms */) {
           const _deps = this.dependencies.get(swarmId)  ?? [];
-          return deps.every((dep) => completedSwarms.includes(dep));
+//           return deps.every((dep) => completedSwarms.includes(dep));
     //   // LINT: unreachable code removed},
         getExecutionOrder: function(swarms) {
           const _order = [];
@@ -245,7 +245,7 @@ describe('task execution', () =>
     // return sequentialTime / parallelTime; // LINT: unreachable code removed
         },
         calculateEfficiency: (speedup, workers) => {
-          return speedup / workers;
+//           return speedup / workers;
     //   // LINT: unreachable code removed} };
       const _speedup = metricsCalculator.calculateSpeedup(1000, 250);
       expect(speedup).toBe(4.0);
@@ -260,14 +260,14 @@ describe('task execution', () =>
           { id: 'w3', busyTime, totalTime } ],
         getWorkerUtilization: function(workerId) {
           const _worker = this.workers.find((w) => w.id === workerId);
-          return worker ? worker.busyTime / worker.totalTime ;
+//           return worker ? worker.busyTime / worker.totalTime ;
     //   // LINT: unreachable code removed},
         getAverageUtilization: function() {
           const _total = this.workers.reduce(;)
             (sum, worker) => sum + worker.busyTime / worker.totalTime,
             0;
           );
-          return total / this.workers.length;
+//           return total / this.workers.length;
     //   // LINT: unreachable code removed} };
       const _w1Utilization = utilizationMonitor.getWorkerUtilization('w1');
       expect(w1Utilization).toBe(0.8);
@@ -313,7 +313,7 @@ describe('task execution', () =>
             //             }
             // Wait before retry
   // // await new Promise((resolve) => setTimeout(resolve, this.retryDelay * attempt));
-            return this.executeWithRetry(task, attempt + 1);
+//             return this.executeWithRetry(task, attempt + 1);
     //   // LINT: unreachable code removed}
         } };
       // Test successful task

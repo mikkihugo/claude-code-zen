@@ -2,6 +2,7 @@
 /** Configuration Management System - TypeScript Edition;
 /** Comprehensive configuration loading, validation, and management;
 
+ */
 import { EventEmitter  } from 'node:events';
 import type { CLIConfig, ConfigurationManager as IConfigurationManager  } from '../../types/cli';
 import { ConfigurationError  } from '../core/cli-error';
@@ -17,7 +18,7 @@ const _CLI_CONFIG_SCHEMA = {name = =============================================
 export class TypeScriptConfigurationManager extends EventEmitter implements IConfigurationManager {
   // private config = (> void>> = new Map());
   ) {
-  super() {}
+//   super() {}
   this
 
   schema = schema;
@@ -44,7 +45,7 @@ load(path?)
       // Check if config file exists
       try {
 // // await fs.access(configPath);
-      } catch {
+      } catch (error) { console.error(error); } catch {
         // Config file doesn't exist, create default'
 // // await this.createDefaultConfigFile(configPath);
         // return this.config;
@@ -99,7 +100,7 @@ load(path?)
       const _configDir = pathModule.dirname(configPath);
 // // await fs.mkdir(configDir, {recursive = JSON.stringify(configToSave, null, 2);
       //       }
-    else
+     catch (error) { console.error(error); }else
     if(configPath.endsWith('.js') ?? configPath.endsWith('.mjs')) {
       content = `module.exports = ${JSON.stringify(configToSave, null, 2)};`
   `;`
@@ -252,7 +253,7 @@ startWatching();
       try {
 // await this.reload();
       this.emit('config-reloaded', this.config);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       this.emit('config-reload-error', error);
     //     }
     });
@@ -360,7 +361,7 @@ startWatching();
   if(watchers) {
   for(const callback of watchers) {
     try {
-      callback(newValue); } catch(error) {
+      callback(newValue); } catch (error) { console.error(error); } catch(error) {
       this.emit('watcher-error', error, key, callback); //     }
   //   }
 // }
@@ -408,7 +409,7 @@ startWatching();
 // =============================================================================
 
 // export function validateConfigSchema(config = new TypeScriptConfigurationManager(config, schema);
-return manager.validate(schema);
+// return manager.validate(schema);
 // }
 // export function mergeConfigs(...configs = new TypeScriptConfigurationManager();
 const _result = manager.getConfig();
@@ -417,7 +418,7 @@ const _result = manager.getConfig();
 // return result;
 // }
 // export function createConfigFromEnvironment() {: Partial<CLIConfig> {
-  return {flags = === 'true',debug = === 'true',quiet = === 'true';
+//   return {flags = === 'true',debug = === 'true',quiet = === 'true';
   //   // LINT: unreachable code removed},environment = === 'development',isProduction = === 'production',isTest = === 'test';
 // }
 ,paths = ============================================================================
@@ -430,7 +431,7 @@ const _globalConfigManager = null;
     const _envConfig = createConfigFromEnvironment();
     globalConfigManager = new TypeScriptConfigurationManager(envConfig);
   //   }
-  return globalConfigManager;
+//   return globalConfigManager;
 // }
 // export function setGlobalConfigManager(manager = manager;
 // }

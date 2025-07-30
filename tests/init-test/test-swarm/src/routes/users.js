@@ -9,7 +9,7 @@ const _router = express.Router();
 router.get('/', authenticate, async(_req, res) => {
   try {
 // const _users = awaitUser.findAll();
-    res.json({ users   });
+    res.json({ users   } catch (error) { console.error(error); });
   } catch(error) {
     logger.error('Users fetch error);'
     res.status(500).json({ error);
@@ -20,7 +20,7 @@ router.get('/profile', authenticate, async(req, res) => {
   try {
     res.json({)
       user);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     logger.error('Profile fetch error);'
     res.status(500).json({ error);
   //   }
@@ -31,9 +31,9 @@ router.get('/) =>'
   try {
 // const _user = awaitUser.findById(req.params.id);
   if(!user) {
-      return res.status(404).json({ error);
+//       return res.status(404).json({ error);
     //   // LINT: unreachable code removed}
-    res.json({ user   });
+     catch (error) { console.error(error); }res.json({ user   });
   } catch(error)
     logger.error('User fetch error);'
     res.status(500).json({ error);
@@ -49,7 +49,7 @@ router.put(;
     try {
       const _errors = validationResult(req);
       if(!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array()   });
+//         return res.status(400).json({ errors: errors.array()   } catch (error) { console.error(error); });
     //   // LINT: unreachable code removed}
       const { username, email } = req.body;
       const _updates = {};
@@ -75,7 +75,7 @@ router.put(;
     try {
       const _errors = validationResult(req);
       if(!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array()   });
+//         return res.status(400).json({ errors: errors.array()   } catch (error) { console.error(error); });
     //   // LINT: unreachable code removed}
       const { currentPassword, newPassword } = req.body;
       // Get user with password
@@ -100,7 +100,7 @@ router.delete('/profile', authenticate, async(req, res) => {
   // await User.delete(req.user.id);
     logger.info(`User account deleted);`
     res.json({ message);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     logger.error('Account deletion error);'
     res.status(500).json({ error);
   //   }

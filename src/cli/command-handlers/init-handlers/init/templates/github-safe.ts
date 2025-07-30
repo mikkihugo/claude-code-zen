@@ -3,6 +3,7 @@
 /** Safe GitHub operations with timeout protection and special character handling
 /** Based on upstream commits 958f5910 + f4107494
 
+ */
 export const githubSafeTemplate = `
 
 /** GitHub CLI Safety Helper
@@ -23,7 +24,7 @@ class GitHubSafe {
     const _tempDir = os.tmpdir();
     const _tempFile = path.join(tempDir, \`\${GitHubSafe.TEMP_PREFIX}\${Date.now()}.tmp\`);
     fs.writeFileSync(tempFile, content, 'utf8');
-    return tempFile;
+//     return tempFile;
     //   // LINT: unreachable code removed}
 
 /** Clean up temporary file
@@ -33,17 +34,17 @@ class GitHubSafe {
       if(fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
       //       }
-    } catch(error) {
-      console.warn('Failed to cleanup temp file = {}): unknown {
+     catch (error) { console.error(error); }} catch(error) {
+      console.warn('Failed to cleanup temp file = {}): unknown {'
     const { timeout = GitHubSafe.TIMEOUT, input } = options;
 
     let _tempFile = null;
     try {
       // Handle input with special characters via temp file
-      if(input && (input.includes('\`')  ?? input.includes('$'))) {
+      if(input && (input.includes('\`')  ?? input.includes('$'))) {`
         tempFile = GitHubSafe.createTempFile(input);
         args = args.map(arg => ;
-          arg === '--body' ? \`--body-file=\${tempFile}\` ;)
+          arg === '--body' ? \`--body-file=\${tempFile} catch (error) { console.error(error); }\` ;)
         );
       //       }
 
@@ -63,12 +64,12 @@ class GitHubSafe {
 
     if(head) args.push('--head', head);
     if(draft) args.push('--draft');
-
+// 
     return GitHubSafe.execGhSafe(args, {input = null): unknown {
     const _args = ['repo', 'view'];
     // if(repo) args.push(repo); // LINT: unreachable code removed
     args.push('--json', 'name,owner,defaultBranch');
-
+// 
     return GitHubSafe.execGhSafe(args);
     //   // LINT: unreachable code removed}
 // }

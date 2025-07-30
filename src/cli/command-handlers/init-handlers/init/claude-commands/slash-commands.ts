@@ -4,6 +4,7 @@
 
 // slash-commands.js - Create Claude Code slash commands
 
+ */
 import { copyTemplates  } from '..';
 import { createClaudeFlowCommands  } from '.';
 
@@ -15,7 +16,7 @@ export async function createClaudeSlashCommands(workingDir = {force = // await c
 // Create claude-zen specific commands
 try {
 // // await createClaudeFlowCommands(workingDir);
-} catch(/* err */) {
+} catch (error) { console.error(error); } catch(/* err */) {
   console.warn(`    Could not create Claude Code slash commands);`
 // }
 } catch(/* mainErr */)

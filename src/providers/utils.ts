@@ -4,8 +4,9 @@
 
 /** Generate unique request ID;
 
+ */
 export function generateRequestId() {
-  return `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+//   return `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 // }
 
 /** Validate AI request structure;
@@ -33,7 +34,7 @@ export function validateAIRequest() {
 
 // export function calculateTokenCost(promptTokens = (promptTokens / 1000) * inputPrice;
   const _outputCost = (completionTokens / 1000) * outputPrice;
-  return inputCost + outputCost;
+//   return inputCost + outputCost;
 // }
 
 /** Estimate token count for text(rough approximation);
@@ -73,7 +74,7 @@ export function validateAIRequest() {
 
 // export function calculateBackoffDelay(attempt = 1000, maxDelay = 30000, backoffFactor = 2) {
   const _delay = baseDelay * Math.pow(backoffFactor, attempt);
-  return Math.min(delay + Math.random() * 1000, maxDelay); // Add jitter
+//   return Math.min(delay + Math.random() * 1000, maxDelay); // Add jitter
 // }
 
 /** Rate limiting utility;
@@ -92,7 +93,7 @@ export function validateAIRequest() {
 
     // Check limits
   if(this.requests.length >= this.requestsPerMinute) {
-      return false;
+//       return false;
     //   // LINT: unreachable code removed}
   if(tokenCount > 0 && this.tokens.length + tokenCount > this.tokensPerMinute) {
       // return false;
@@ -140,7 +141,7 @@ export function validateAIRequest() {
 // const _result = awaitoperation();
       this.onSuccess();
       // return result;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       this.onFailure();
       throw error;
     //     }
@@ -176,8 +177,8 @@ export function validateAIRequest() {
 ): Promise<T> {
   let _lastError = 0; attempt <= maxRetries; attempt++) {
     try {
-      return // await operation();
-    //   // LINT: unreachable code removed} catch(error) {
+//       return // await operation();
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       lastError = error;
 
       if(attempt === maxRetries  ?? !shouldRetry(error)) {

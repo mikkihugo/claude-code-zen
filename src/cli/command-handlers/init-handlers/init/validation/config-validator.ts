@@ -6,10 +6,11 @@ export class ConfigValidator {
 
 /** Validate .roomodes configuration file
 
+ */
 async;
 validateRoomodes();
 // {
-    const _result = {success = `${this.workingDir}
+    const _result = {success = `${this.workingDir}`
 
     try {
       // Check if file exists
@@ -20,7 +21,7 @@ validateRoomodes();
         // return result;
     //   // LINT: unreachable code removed}
 
-      // Read and parse JSON
+       catch (error) { console.error(error); }// Read and parse JSON
 // const _content = awaitnode.readTextFile(roomodesPath);
 
       try {
@@ -33,7 +34,7 @@ validateRoomodes();
           result.success = false;
           result.errors.push(...validationResult.errors);
         //         }
-        result.warnings.push(...validationResult.warnings);
+         catch (error) { console.error(error); }result.warnings.push(...validationResult.warnings);
       } catch(/* _jsonError */) {
         result.success = false;
         result.errors.push(`Invalid JSON in .roomodes = false;`
@@ -57,7 +58,7 @@ validateRoomodes();
           result.warnings.push(`Missing important commandreference = false; `)
         result.errors.push('CLAUDE.md appears to be too short or empty') {;
       //       }
-    } catch(error) ;
+     catch (error) { console.error(error); }} catch(error) ;
       result.success = false;
       result.errors.push(`Could not read CLAUDE.md = {success = `${this.workingDir}/memory/claude-zen-data.json`;`
 
@@ -74,7 +75,7 @@ validateRoomodes();
           result.success = false;
           result.errors.push(...validationResult.errors);
         //         }
-        result.warnings.push(...validationResult.warnings);
+         catch (error) { console.error(error); }result.warnings.push(...validationResult.warnings);
       } catch(/* jsonError */) {
         result.success = false;
         result.errors.push(`Invalid JSON in memorydata = false;`
@@ -92,7 +93,7 @@ validateRoomodes();
   for(const section of requiredSections) {
         if(!content.includes(section)) {
           result.warnings.push(`Missing recommended section in coordination.md = false; `
-      result.errors.push(`Could not read coordination.md = {success = `${this.workingDir}/claude-zen`; `
+      result.errors.push(`Could not read coordination.md = {success = `${this.workingDir} catch (error) { console.error(error); }/claude-zen`; `
 
     try {))
 // const _stat = awaitnode.stat(executablePath) {;
@@ -102,7 +103,7 @@ validateRoomodes();
         // return result;
     //   // LINT: unreachable code removed}
 
-      // Check if executable(on Unix systems)
+       catch (error) { console.error(error); }// Check if executable(on Unix systems)
   if(node.build.os !== 'windows') {
         const _isExecutable = (stat.mode & 0o111) !== 0;
   if(!isExecutable) {

@@ -2,7 +2,7 @@ VisionarySoftwareIntelligenceProcessor as NewProcessor,
 // type PipelineConfig
 
 type ProcessingOptions
- } from '.
+ } from '.'
 
 /** Legacy configuration interface for backward compatibility
 
@@ -45,7 +45,7 @@ type ProcessingOptions
 
 /** USAGE MIGRATION: null
 /** Instead of: new VisionarySoftwareIntelligenceProcessor(config)
-/** Use: import { VisionarySoftwareIntelligenceProcessor  } from '.
+/** Use: import { VisionarySoftwareIntelligenceProcessor  } from '.'
 
 // export class VisionarySoftwareIntelligenceProcessor {
 
@@ -53,10 +53,11 @@ type ProcessingOptions
 
    * @param config - Legacy configuration object
 
+ */
   constructor(config) {
     // Map legacy config to new config format
     const _newConfig: Partial<PipelineConfig> = {
-      outputDir: config.outputDir  ?? '.
+      outputDir: config.outputDir  ?? '.'
     enableAnalytics: config.enableAnalytics  ?? false,
     supportedFormats: config.supportedFormats  ?? [;
         'js','
@@ -94,7 +95,7 @@ type ProcessingOptions
   import;
   //   { VisionarySoftwareIntelligenceProcessor;
 //  } from;
-('.
+('.'
 
 NEW(7 focused modules, <500 lines each)
 : null
@@ -216,7 +217,7 @@ compliance;
 
 /** Legacy factory function
 
- * @deprecated Use the new architecture from '.
+ * @deprecated Use the new architecture from '.'
 
 // export function createProcessor(config) {
   console.warn(;)

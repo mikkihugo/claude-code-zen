@@ -3,6 +3,7 @@
 /** Fixes E2E test failures and authentication errors;
 /** Production-ready test infrastructure with proper mocking and service simulation;
 
+ */
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -104,7 +105,7 @@ startMockService(config);
     else
         res.writeHead(404,)
       ('Content-Type')
-    : 'application
+    : 'application'
     //     )
     res.end(JSON.stringify(error))
   //   }
@@ -117,10 +118,10 @@ startMockService(config);
       const _body = '';
       req.on('data', (chunk) => {
         body += chunk.toString();
-      });
+      } catch (error) { console.error(error); });
       req.on('end', async() => {
         try {
-          const _requestData = body ? JSON.parse(body) : {};
+          const _requestData = body ? JSON.parse(body) : {} catch (error) { console.error(error); };
 // const _response = awaitendpoint.handler(requestData, req.url);
           res.writeHead(response.status  ?? 200, { 'Content-Type');
           res.end(JSON.stringify(response));
@@ -165,7 +166,7 @@ startMockService(config);
   handler: async(_data, url) =>
   //   {
     const _visionId = url.split('
-    return {
+//     return {
             status,
     // data: { message: `Vision \$visionId // LINT: unreachable code removed} deleted` } }
    //    ]
@@ -200,7 +201,7 @@ createCoreEndpoints();
   method: 'PATCH',
   handler: async(data, url) => {
           const _workflowId = url.split('
-          return {
+//           return {
             status,
                 workflow_id,
                 status: data.status  ?? 'updated',
@@ -237,7 +238,7 @@ createCoreEndpoints();
   path: '/api/swarms/spawn-agents',
   method: 'POST',
   handler: async(data, _url) => {
-          return {
+//           return {
             status,
                 spawned_agents: (data.agent_types  ?? ['agent1', 'agent2']).map((type) => ({
                   id: `${type}_${Date.now()}`,
@@ -276,7 +277,7 @@ createCoreEndpoints();
   path: '/api/vision-to-code/analyze',
   method: 'POST',
   handler: async(_data, _url) => {
-          return {
+//           return {
             status,
                   complexity: 'medium',
                   estimated_time: '2 hours',
@@ -341,7 +342,7 @@ runFullSuite();
     // score, // LINT: unreachable code removed
         results: this.testResults,
         recommendations: this.generateRecommendations() {}
-// }
+ catch (error) { console.error(error); }// }
 // }
 catch(error)
 // {
@@ -357,7 +358,7 @@ catch(error)
   this.logger.info(' Testing Kuzu database integration...');
   try {
       // Create unique test directory
-      const _testDbDir = path.join(process.cwd(), `test-kuzu-${Date.now()}`);
+      const _testDbDir = path.join(process.cwd(), `test-kuzu-${Date.now()} catch (error) { console.error(error); }`);
       const _kuzu = new KuzuGraphInterface({ dbPath,
         useRealKuzu
   })
@@ -384,7 +385,7 @@ catch(error)
   // // await kuzu.close() {}
     // Cleanup
     try {
-  // // await fs.rm(testDbDir, { recursive, force });
+  // // await fs.rm(testDbDir, { recursive, force } catch (error) { console.error(error); });
       } catch(/* _cleanupError */) {
         // Ignore cleanup errors
       //       }
@@ -407,7 +408,7 @@ testNeuralIntegration();
         this.logger.info(` Real neural bindings loaded);`
         // Test inference
 // const _result = awaitneural.inference(;/g)
-          'function calculateSum() { return a + b; }',
+          'function calculateSum() { return a + b; } catch (error) { console.error(error); }',
           'code-completion';
         );
   if(result?.result) {
@@ -441,7 +442,7 @@ testServiceCommunication();
       const _authTests = [];
       for (const [serviceName, url] of Object.entries(serviceInfo.serviceUrls)) {
         authTests.push(this.testServiceAuth(serviceName.toLowerCase(), url)); //       }
-// const _authResults = awaitPromise.allSettled(authTests); 
+ catch (error) { console.error(error); }// const _authResults = awaitPromise.allSettled(authTests); 
       const _successfulAuths = authResults.filter((r) {=> r.status === 'fulfilled').length;
   if(successfulAuths >= 3) {
         // At least 3 out of 4 services
@@ -513,7 +514,7 @@ testEndToEndIntegration();
       // In a real scenario, this would test the complete workflow
 
       const _integrationSteps = [
-        { name: 'Database Connection', test: () => this.testResults.kuzu.passed },
+        { name: 'Database Connection', test: () => this.testResults.kuzu.passed } catch (error) { console.error(error); },
         { name: 'Neural Processing', test: () => this.testResults.neural.passed },
         { name: 'Service Communication', test: () => this.testResults.services.passed } ];
       const _passedSteps = integrationSteps.filter((step) => step.test()).length;
@@ -616,7 +617,7 @@ else
 
 // export async function runInfrastructureTests() {
   const _testSuite = new InfrastructureTestSuite();
-  return testSuite.runFullSuite();
+//   return testSuite.runFullSuite();
 // }
 // export default InfrastructureTestSuite;
 

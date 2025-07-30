@@ -2,6 +2,7 @@
 /** TypeScript Command Registry;
 /** Clean, maintainable command registration system with comprehensive type safety;
 
+ */
 import type { CommandContext, CommandRegistry as ICommandRegistry  } from '../types/cli';
 import { loadCommands  } from './core/command-loader.js';
 
@@ -10,7 +11,7 @@ import { loadCommands  } from './core/command-loader.js';
 // =============================================================================
 
 class TypeSafeCommandRegistry implements ICommandRegistry {}
-// Registration methods
+ catch (error) { console.error(error); }// Registration methods
 register(name,definition = this.commands.get(name);
   if(!definition) {
   // return false;
@@ -92,7 +93,7 @@ try {
             results.push({valid = flagDef.validate(flagValue);
   if(typeof validation === 'string') {
               results.push({valid = = 'function') {
-      throw new CLIError(`Command '${name}' must have a valid handler function`, name);
+      throw new CLIError(`Command '${name} catch (error) { console.error(error); }' must have a valid handler function`, name);
     //     }
 
     if(!definition.description  ?? definition.description.trim() === '') {
@@ -137,7 +138,7 @@ const _commandRouter = null; // Legacy router for backward compatibility
 
 // export async function getCommandRegistry(): Promise<TypeSafeCommandRegistry> {
 // await initializeCommandRegistry();
-  return globalRegistry!;
+//   return globalRegistry!;
 // }
 // =============================================================================
 // MEOW CLI CREATION
@@ -174,13 +175,13 @@ else
 /** Check if command exists;
 
 // export async function hasCommand(name = // await getCommandRegistry();
-return registry.has(name);
+// return registry.has(name);
 // }
 
 /** Get command definition;
 
 // export async function getCommand(name = // await getCommandRegistry();
-return registry.get(name);
+// return registry.get(name);
 // }
 
 /** Register a new command;
@@ -216,7 +217,7 @@ _setLevel => {},getLevel = > 'info';
 // }
 // }
 function _createDefaultConfig() {
-  return { name = === 'development', isProduction = === 'production', isTest = === 'test' }, paths;
+//   return { name = === 'development', isProduction = === 'production', isTest = === 'test' }, paths;
   // : // LINT: unreachable code removed
   dataDir: `\$;`
     process.cwd();

@@ -2,6 +2,7 @@
 /** WebSocket Command Handler
 /** CLI interface for WebSocket testing and management using Node.js 22 native WebSocket
 
+ */
 import { WebSocketService  } from '../../api/websocket-service.js';
 import { printInfo, printSuccess  } from '..';
 
@@ -67,7 +68,7 @@ const _subArgs = input.slice(1);
 
     client.on('disconnected', (info) => {
       printWarning(` Disconnected => {`
-      printInfo(` Reconnecting... attempt ${info.attempt}
+      printInfo(` Reconnecting... attempt ${info.attempt}`
     });
 
     // Keep connection alive
@@ -127,7 +128,7 @@ const _subArgs = input.slice(1);
 // // await service.connectToExternal(name, url, {
           reconnect => {)
       const _timestamp = new Date().toISOString();
-      console.warn(`[${timestamp}]  $info.connectionName: $JSON.stringify(info.data)`);
+      console.warn(`[${timestamp} catch (error) { console.error(error); }]  $info.connectionName: $JSON.stringify(info.data)`);
     });
 
     service.on('clientConnected', (_info) => {
@@ -161,7 +162,7 @@ const _subArgs = input.slice(1);
     const _connections = [];
   for(let i = 0; i < concurrency; i++) {
       try {
-// const __client = awaitservice.connectToExternal(`bench-${i}`, url, {
+// const __client = awaitservice.connectToExternal(`bench-${i} catch (error) { console.error(error); }`, url, {
           reconnect => {
           totalReceived++;)
         });

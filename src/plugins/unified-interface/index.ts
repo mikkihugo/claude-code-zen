@@ -2,6 +2,7 @@
 /** Unified Interface Plugin(TypeScript);
 /** Seamless CLI, TUI, and Web interface integration with type safety;
 
+ */
 import boxen from 'boxen';
 import chalk from 'chalk';
 import { ChildProcess, fork  } from 'child_process';
@@ -246,7 +247,7 @@ showCliPrompt((questions = 'info'));
       return() => clearInterval(interval);
     //   // LINT: unreachable code removed}
   }, []);
-
+// 
   return this.createTuiDashboard({ activeTab, data, status, setActiveTab   });
 // }
 
@@ -513,12 +514,12 @@ setupWebRoutes(app => {
       try {)
 // const _plugins = awaitthis.getPluginsData();
         res.json(plugins);
-      } catch(error => {
+      } catch (error) { console.error(error); } catch(error => {
       try {
         const _stats = {
           sessions => {
       try {
-        const { command } = req.body;
+        const { command }  catch (error) { console.error(error); }= req.body;
 
         res.json({ success => {
       try {
@@ -533,7 +534,7 @@ setupWebRoutes(app => {
         try {
           const _message = JSON.parse(data.toString());
           this.handleWebSocketMessage(websocket, message);
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           this.context.apis.logger.error('Invalid WebSocket message', error);
         //         }
       });
@@ -575,7 +576,7 @@ setupWebRoutes(app => {
         try {
           process.kill(pid, 0); // Signal 0 just checks if process exists
           // return true;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
           // Process not running, remove stale PID file
 // // await this.removePidFile();
           // return false;
@@ -591,7 +592,7 @@ setupWebRoutes(app => {
     try {
 // const _pidContent = awaitreadFile(this.config.settings.pidFile, 'utf8');
       // return parseInt(pidContent.trim());
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       // return null;
     //   // LINT: unreachable code removed}
   //   }
@@ -599,7 +600,7 @@ setupWebRoutes(app => {
   // private async removePidFile(): Promise<void> {
     try {
       await writeFile(this.config.settings.pidFile, ''); // Clear the file instead of deleting
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       // Ignore errors when removing PID file
     //     }
   //   }
@@ -629,7 +630,7 @@ setupWebRoutes(app => {
   broadcast(message => {
         try {
           this.sendWebSocketMessage(client, message);
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           this.context.apis.logger.error('Failed to send WebSocket message', error);
           this.wsClients.delete(client);
         //         }
@@ -654,7 +655,7 @@ setupWebRoutes(app => {
           this.wsClients.forEach(client => {
             try {)
               client.close();
-            } catch(error) {
+            } catch (error) { console.error(error); } catch(error) {
               // Ignore errors when closing clients
             //             }
           });

@@ -7,6 +7,7 @@ import path from 'node:path';
 /** This script copies all template files from the source .claude directory;
  * to the template directory for packaging and distribution;
 
+ */
 const _SOURCE_DIR = path.join(__dirname, '../../../.claude');
 const _DEST_DIR = path.join(__dirname, '.claude');
 const _MANIFEST_PATH = path.join(__dirname, 'manifest.json');
@@ -38,7 +39,7 @@ const _errorCount = 0;
         fs.mkdirSync(destDir, {recursive = '.repeat(50));'
 console.warn('InstallationSummary = manifest.files.filter(;'))
     (_f) => f.category === category && fs.existsSync(path.join(DEST_DIR, f.destination))).length;
-  console.warn(`${category});`
+  console.warn(`${category} catch (error) { console.error(error); });`
 // }
 
 // Verify installation

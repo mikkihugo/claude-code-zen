@@ -5,6 +5,7 @@
 
 /** Performance metrics collector and analyzer
 
+ */
 export class PerformanceMetrics {
 
  * @param {Object} options - Configuration options
@@ -99,7 +100,7 @@ export class PerformanceMetrics {
     //     }
 
     // Add to history
-    this.addToHistory('errors', {')
+    this.addToHistory('errors', {')'
       //       type = {}) {
   switch(event) {
       case 'reconnect':'

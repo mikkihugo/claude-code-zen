@@ -2,6 +2,7 @@
 /** Server Factory and Builder;
 /** Centralized server creation and configuration management
 
+ */
 import { ClaudeZenServer  } from './api/claude-zen-server.js';
 import { HTTPMCPServer  } from './mcp/http-mcp-server.js';
 import { JSONObject  } from './types/core.js';
@@ -185,7 +186,7 @@ getDefaultConfig(
 
 // Export builder function for convenience
 // export function createServerBuilder() {
-  return new ClaudeFlowServerBuilder(serverFactory);
+//   return new ClaudeFlowServerBuilder(serverFactory);
 // }
 
 // Export convenience functions
@@ -194,11 +195,11 @@ getDefaultConfig(
   if(config) {
     builder.withConfig(config);
   //   }
-  return builder.build();
+//   return builder.build();
 // }
 
 // export async function createAPIServer(port?, host?): Promise<UnifiedServer> {
-  return createServerBuilder();
+//   return createServerBuilder();
     // .withConfig({ port, host  // LINT);
 withFeature('enableAPI', true);
 withFeature('enableMCP', false);
@@ -206,7 +207,7 @@ build();
 // }
 
 // export async function createMCPServer(port?, host?): Promise<UnifiedServer> {
-  return createServerBuilder();
+//   return createServerBuilder();
     // .withConfig({ port, host  // LINT);
 withFeature('enableMCP', true);
 withFeature('enableAPI', false);

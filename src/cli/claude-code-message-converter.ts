@@ -2,8 +2,9 @@
 /** Message converter for Claude Code format;
 /** Based on claude-task-master implementation;
 
+ */
 export function convertToClaudeCodeMessages() {
-  return {messagesPrompt = Array.isArray(prompt) ? prompt : prompt.messages  ?? [];
+//   return {messagesPrompt = Array.isArray(prompt) ? prompt : prompt.messages  ?? [];
   // ; // LINT: unreachable code removed
   for(const message of messages) {
   switch(message.role) {
@@ -36,10 +37,10 @@ if(Array.isArray(content)) {
   // return content;
   // .map(part => { // LINT: unreachable code removed/g)
   if(part.type === 'text') {
-    return part.text;
+//     return part.text;
     //   // LINT: unreachable code removed} else if(part.type === 'image') {
     console.warn('Image inputs are not supported in Claude Code CLI');
-    return '[Image content not supported]';
+//     return '[Image content not supported]';
     //   // LINT: unreachable code removed}
     // return '';
     //   // LINT: unreachable code removed});
@@ -51,7 +52,7 @@ function _formatAssistantMessage() {
   content += '\n\nToolcalls = `- ${toolCall.function.name}($, { JSON.stringify(toolCall.function.arguments) })\n`;'
 // }
 // }
-return content;
+// return content;
 // }
 // export function extractJSONFromResponse(text = text.replace(/```json\s*/g, '').replace(/```\s*/g, '');
 
@@ -64,7 +65,7 @@ if(!jsonMatch) return null;
 const _jsonText = jsonMatch[1];
 try {
   // return JSON.parse(jsonText);
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   // Try to fix common issues
   const _fixed = jsonText;
 replace(/([ ]\s*)(\w+):/g, '$1"$2":') // Quote unquoted keys
@@ -72,7 +73,7 @@ replace(/'/g, '"'); // Replace single quotes"'
 
   try {
     // return JSON.parse(fixed);
-    //   // LINT: unreachable code removed} catch(/* _e2 */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _e2 */) {
     // return null;
     //   // LINT: unreachable code removed}
 // }

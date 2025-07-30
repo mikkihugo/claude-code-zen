@@ -1,8 +1,9 @@
 #!/usr/bin/env node;
 
-/** Simple MCP Persistence Verification Script;
+/* Simple MCP Persistence Verification Script;
 /** Verifies that MCP tools persist data without requiring sqlite3 module;
 
+ */
 import { execSync  } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -37,7 +38,7 @@ async function runTest() {
   testsTotal++;
   log('\n2 Testing memory_usage store operation...', 'yellow');
   try {
-    const _testKey = `verify_test_${Date.now()}`;
+    const _testKey = `verify_test_${Date.now()} catch (error) { console.error(error); }`;
     const _testValue = {
       test,
       timestamp: new Date().toISOString(),
@@ -71,7 +72,7 @@ try {
     if(retrieveResult.includes('"found")) {'
       log(' Retrieve operation succeeded - data w!', 'green');
       testsPassed++;
-    } else {
+    }  catch (error) { console.error(error); }else {
       log(' Retrieve operation failed - data not found', 'red');
       log(`   Response);`
 // }
@@ -93,7 +94,7 @@ try {
         if(parsed.entries && Array.isArray(parsed.entries)) {
           log(`   Found \$parsed.entries.lengthentries in namespace "verification"`, 'green');
 // }
-      } catch(/* _e */) {
+       catch (error) { console.error(error); }} catch(/* _e */) {
         // Ignore parse errors
 // }
     } else {
@@ -108,7 +109,7 @@ log('\n5 Testing hooks notification persistence...', 'yellow');
 try {
     const _message = `Persistence test \$Date.now()`;
     const _hookResult = execSync(;
-      `npx claude-zen@alpha hooks notify --message "${message}" --level "test"`,encoding);
+      `npx claude-zen@alpha hooks notify --message "${message} catch (error) { console.error(error); }" --level "test"`,encoding);
     if(hookResult.includes('saved to .swarm/memory.db')) {
       log(' Hook notification persisted to database', 'green');
       testsPassed++;

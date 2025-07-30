@@ -8,6 +8,7 @@
 
 /** Jest configuration object with full TypeScript support
 
+ */
 const config = {
   // TypeScript preset with ESM support
   preset: 'ts-jest/presets/default-esm',
@@ -76,7 +77,7 @@ const config = {
       statements} },
 
   // Test setup and configuration
-  setupFilesAfterEnv: ['<rootDir>
+  setupFilesAfterEnv: ['<rootDir>'
   testTimeout: true,
   verbose: true,
   errorOnDeprecated: true,

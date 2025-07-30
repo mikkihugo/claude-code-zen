@@ -2,6 +2,7 @@
 /** Circuit Breaker Implementation for Queen Operations
 /** Provides fault tolerance and prevents cascading failures
 
+ */
 import { CliError  } from '.';
 
 export class CircuitBreaker {
@@ -99,7 +100,7 @@ _getState();
 
     // Simplified logging - only warn on threshold approach
   if(this.failureCount >= this.failureThreshold - 1) {
-      this.monitor.warn(` Circuit breaker ${this.name}: ${operationName} failed(${this.failureCount}
+      this.monitor.warn(` Circuit breaker ${this.name}: ${operationName} failed(${this.failureCount}`
     //     }
   if(this.state === 'HALF_OPEN'  ?? this.failureCount >= this.failureThreshold) {'
       // Open circuit on any failure in half-open state or when threshold reached

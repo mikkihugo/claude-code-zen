@@ -1,7 +1,8 @@
 #!/usr/bin/env node;
 
-/** Test Service Document MCP Tools Directly;
+/* Test Service Document MCP Tools Directly;
 
+ */
 import { ClaudeFlowMCPServer  } from './src/mcp/mcp-server.js';
 
 async function testServiceDocumentTools() {

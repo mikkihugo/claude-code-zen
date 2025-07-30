@@ -112,7 +112,7 @@ describe('Security Utils', () => {
         ];
         // return !dangerousPatterns.some((pattern) => pattern.test(path));
     //   // LINT: unreachable code removed};
-      expect(validatePath('normal
+      expect(validatePath('normal'
       expect(validatePath('./local/file.txt')).toBe(true);
       expect(validatePath('../parent/file.txt')).toBe(false);
       expect(validatePath('/etc/passwd')).toBe(false);
@@ -123,7 +123,7 @@ describe('Security Utils', () => {
   describe('Input sanitization', () => {
     it('should sanitize HTML content', () => {
       const _sanitizeHtml = () => {
-        return input;
+//         return input;
     // .replace(/</g, '&lt;'); // LINT: unreachable code removed
 replace(/>/g, '&gt;');
 replace(/"/g, '&quot;');"
@@ -139,7 +139,7 @@ replace(/\//g, '&#x2F;');
     it('should validate email addresses', () => {
       const _validateEmail = () => {
         const _emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+//         return emailRegex.test(email);
     //   // LINT: unreachable code removed};
       expect(validateEmail('user@example.com')).toBe(true);
       expect(validateEmail('test.email+tag@domain.co.uk')).toBe(true);
@@ -152,9 +152,9 @@ replace(/\//g, '&#x2F;');
       const _validateUrl = () => {
         try {
           const _parsed = new URL(url);
-          return ['http:', 'https:'].includes(parsed.protocol);
-    //   // LINT: unreachable code removed} catch {
-          return false;
+//           return ['http:', 'https:'].includes(parsed.protocol);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+//           return false;
     //   // LINT: unreachable code removed}
       };
       expect(validateUrl('https)).toBe(true);'

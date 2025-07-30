@@ -2,6 +2,7 @@
 /** Standardized CLI Help Formatter
 /** Follows Unix/Linux conventions for help output
 
+ */
 export class HelpFormatter {
   // // static INDENT = '    ';'
   // // static COLUMN_GAP = 2;
@@ -38,7 +39,7 @@ export class HelpFormatter {
   if(info.globalOptions && info.globalOptions.length > 0) {
       sections.push(;
         HelpFormatter.formatSection(;
-          'GLOBAL OPTIONS','))
+          'GLOBAL OPTIONS','))'
           HelpFormatter.formatOptions(info.globalOptions);
         );
       );

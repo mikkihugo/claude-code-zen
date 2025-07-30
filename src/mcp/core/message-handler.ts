@@ -3,6 +3,7 @@
 /** Handles MCP protocol message routing and processing
  * @module MCPMessageHandler
 
+ */
 import { validateToolArgs  } from '.';
 
 /** MCP Message Handler class
@@ -46,7 +47,7 @@ import { validateToolArgs  } from '.';
         // return // // await this.handleResourceRead(id, params);
     // default = Object.values(this.server.tools); // LINT: unreachable code removed
 
-    console.error(`[${new Date().toISOString()}] INFO [MCP-Handler] Listing ${tools.length} available tools`);`
+    console.error(`[${new Date().toISOString()} catch (error) { console.error(error); }] INFO [MCP-Handler] Listing ${tools.length} available tools`);`
 
     // return {jsonrpc = params;
     // ; // LINT: unreachable code removed

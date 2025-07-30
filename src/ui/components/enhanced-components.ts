@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/**  ENHANCED INK TUI COMPONENTS
+/*  ENHANCED INK TUI COMPONENTS
 
 /** Advanced interactive components for the Claude-ZenTUI = () => {
+ */
   const [animationFrame, setAnimationFrame] = useState(0);
 
   useEffect(() => {
@@ -185,7 +186,7 @@
   const _filteredLogs = logs.filter(log => {)
     if(filter !== 'all' && log.type !== filter) return false;'
     // if(searchTerm && !log.message.toLowerCase().includes(searchTerm.toLowerCase())) return false; // LINT: unreachable code removed
-    return true;
+//     return true;
     //   // LINT: unreachable code removed});
 
   const _visibleLogs = autoScroll ? filteredLogs.slice(-height) : filteredLogs.slice(0, height);

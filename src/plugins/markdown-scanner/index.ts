@@ -2,6 +2,7 @@
 /** Markdown Scanner Plugin;
 /** Validates markdown files using markdownlint and checks for standard headers;
 
+ */
 import { readFile  } from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
@@ -101,7 +102,7 @@ this.updateStats(stats, analysis)
     // return issues;
     //   // LINT: unreachable code removed}
 
-/** Extract headings from markdown content;
+ catch (error) { console.error(error); }/** Extract headings from markdown content;
 
   extractHeadings(content) {
     const _headings = [];
@@ -137,7 +138,7 @@ this.updateStats(stats, analysis)
 
         try {
 // // await readFile(fullPath);
-        } catch(/* _error */) {
+        } catch (error) { console.error(error); } catch(/* _error */) {
           issues.push({id = path.basename(filepath, '.md');
 
 /** Count headings in content;

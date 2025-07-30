@@ -2,13 +2,14 @@
 /** Project Scaffold Plugin;
 /** Template-based project creation and scaffolding;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { mkdir, readdir, readFile  } from 'node:fs';
 import path from 'node:path';
 
 export class ProjectScaffoldPlugin extends EventEmitter {
   constructor(_config = {}) {
-    super();
+//     super();
     this.config = {templatesDir = new Map();
     this.templateCache = new Map();
     this.generatedProjects = [];
@@ -23,7 +24,7 @@ export class ProjectScaffoldPlugin extends EventEmitter {
     const _cors = require('cors');
     const _helmet = require('helmet');
     const _morgan = require('morgan');
-    const _routes = require('.
+    const _routes = require('.'
     const _app = express();
     const _PORT = process.env.PORT ?? 3000;
     // Middleware
@@ -101,7 +102,7 @@ Edit < code > src / App.js < /
 // export default App;
 `,`
             encoding = {preset = {parser = (name) => {
-  return \`Hello, \${name}!\`;
+//   return \`Hello, \${name}!\`;
 };`,`
 encoding = {};
 ): unknown
@@ -163,7 +164,7 @@ healthcheck.js
 #
 Start
 application
-CMD[('node', 'src
+CMD[('node', 'src'
 encoding = require('express');
 const _pino = require('pino');
 const _app = express();
@@ -315,7 +316,7 @@ initialize();
 // // await this.runPostGenerateCommands(template.postGenerate, outputDir);
       //       }
 
-      // Initialize git repository
+       catch (error) { console.error(error); }// Initialize git repository
   if(this.config.gitInit && !options.skipGit) {
 // // await this.initializeGit(outputDir);
       //       }
@@ -416,7 +417,7 @@ initialize();
       const _array = this.evaluateExpression(expression.trim(), variables);
       if(!Array.isArray(array)) return '';
     // ; // LINT: unreachable code removed
-      return array.map((item, index) => {
+//       return array.map((item, index) => {
         const _loopVars = { ...variables, item, index };
     // return this.processTemplate(content, loopVars); // LINT: unreachable code removed
       }).join('');
@@ -457,7 +458,7 @@ map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
 join('');
       case 'camelCase': {
         const _pascal = this.applyFilter(value, 'pascalCase');
-        return pascal.charAt(0).toLowerCase() + pascal.slice(1);
+//         return pascal.charAt(0).toLowerCase() + pascal.slice(1);
     //   // LINT: unreachable code removed}
       case 'kebabCase':
         // return String(value);
@@ -495,7 +496,7 @@ toLowerCase();
 
     // Filter by source
   if(options.source) {
-      return templates.filter(t => t.source === options.source);
+//       return templates.filter(t => t.source === options.source);
     //   // LINT: unreachable code removed}
 
     // Group by category
@@ -519,7 +520,7 @@ toLowerCase();
 // // await mkdir(templateDir, recursive = // await this.scanProjectFiles(fromProject, options.ignore  ?? []);
     // Create template manifest
     const _manifest = {name = path.relative(fromProject, file);
-      const _templatePath = `files
+      const _templatePath = `files`
 
       // Copy file to template
       const _targetPath = path.join(templateDir, templatePath);
@@ -568,7 +569,7 @@ toLowerCase();
       _byCategory => {
         const _category = t.category  ?? 'other';
         acc[category] = (acc[category]  ?? 0) + 1;
-        return acc;
+//         return acc;
     //   // LINT: unreachable code removed}, {}),generatedProjects = [];
     this.removeAllListeners();
 

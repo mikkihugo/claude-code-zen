@@ -2,6 +2,7 @@
 /** Auto-save middleware for Hive Mind swarms
 /** Automatically saves session state during operations
 
+ */
 export class AutoSaveMiddleware {
   constructor(sessionId = 30000) {
     this.sessionId = sessionId;
@@ -114,8 +115,8 @@ performAutoSave();
   if(!acc[change.type]) {
           acc[change.type] = [];
         //         }
-        acc[change.type].push(change);
-        return acc;
+         catch (error) { console.error(error); }acc[change.type].push(change);
+//         return acc;
     //   // LINT: unreachable code removed}, {});
 
       // Calculate progress
@@ -167,7 +168,7 @@ performAutoSave();
             try {
               process.kill(childProcess.pid, 0); // Check if still alive
               childProcess.kill('SIGKILL');
-            } catch(/* e */) {
+            } catch (error) { console.error(error); } catch(/* e */) {
               // Process already dead, good
             //             }
           //           }

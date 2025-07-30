@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-/** Claude Code Zen - Working Features Demo;
+/* Claude Code Zen - Working Features Demo;
  *;
 /** This demo showcases the features that are actually implemented;
  * and working in the current version of Claude Code Zen.;
 
+ */
 import { QueenCoordinator  } from './src/cli/command-handlers/hive-mind-handlers/hive-mind/queen.js';
 import { SqliteMemoryStore  } from './src/memory/sqlite-store.js';
 
@@ -21,7 +22,7 @@ async function demoSqliteMemory() {
   // // await memoryStore.store('demo-key-1', {
       message: 'Hello from Claude Zen!',)
       timestamp: Date.now() {}
-})
+ catch (error) { console.error(error); }})
   // // await memoryStore.store('demo-key-2',
 // {
   status: 'working',
@@ -57,7 +58,7 @@ async function demoQueenCoordinator() {
       type: 'task_prioritization',
       options: ['feature-implementation', 'bug-fixes', 'documentation'],
       context: 'development-phase')
-  })
+  } catch (error) { console.error(error); })
 // const _decision2 = awaitqueen.makeDecision({ type: 'resource_allocation',
 options: ['database-optimization', 'cli-features', 'testing'],
 context: 'prototype-improvement')
@@ -78,7 +79,7 @@ async function demoStubFeatures() {
   console.warn('=============================================\n');
   try {
     // Import the stub implementation
-    const { RuvSwarm } = // await import('./ruv-FANN/ruv-swarm/npm/src/index.js');
+    const { RuvSwarm }  catch (error) { console.error(error); }= // await import('./ruv-FANN/ruv-swarm/npm/src/index.js');
 // const _swarm = awaitRuvSwarm.initialize({ loadingStrategy);
     console.warn(' Neural swarm stub initialized');
 // const _task = awaitswarm.executeTask({
@@ -141,7 +142,7 @@ async function main() {
   // // await demoStubFeatures();
   // // await showGapSummary();
     console.warn(' Demo completed! Check FEATURE_REVIEW_ANALYSIS.md for detailed analysis.');
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     console.error(' Demo failed);'
     process.exit(1);
   //   }

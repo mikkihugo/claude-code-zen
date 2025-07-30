@@ -2,6 +2,7 @@
 /** Queen System Types;
 /** Multi-Queen hive architecture with distributed decision-making;
 
+ */
 import type { Identifiable, JSONObject, TypedEventEmitter  } from '.';
 
 // =============================================================================

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** TypeScript Error Fix Script;
+/* TypeScript Error Fix Script;
 /** Categorizes and fixes common TypeScript errors in parallel;
  *;
  * @fileoverview Advanced TypeScript error fixing automation with Google standards;
@@ -54,6 +54,7 @@ const _execAsync = promisify(exec);
 /** Error categories and their automated fixes;
 /** Follows Google TypeScript style guidelines;
 
+ */
 const _ERROR_FIXES: Record<string, ErrorFix> = {
   // TS1361: Type import used as value
   TS1361: {
@@ -68,9 +69,9 @@ const _ERROR_FIXES: Record<string, ErrorFix> = {
 // import type \{([^}]*)\} from '([^']+)'/g,'
         (m, imports, importPath) => {
           if(imports.includes(match[1])) {
-            return `import { ${imports} } from '${importPath}'`;
+//             return `import { ${imports} } from '${importPath}'`;
     //   // LINT: unreachable code removed}
-          return m;
+//           return m;
     //   // LINT: unreachable code removed}
       );
 // // await fs.writeFile(file, updated);
@@ -241,7 +242,7 @@ async function _fixTypeScriptErrors(): Promise<number> {
 split('\n')
 filter((line) => line.includes('error TS')).length
   console.warn(` Remaining errors)`
-  return remainingErrors;
+//   return remainingErrors;
 // }
 
 /** Advanced pattern-based fixes for complex TypeScript issues;
@@ -260,7 +261,7 @@ async function _applyAdvancedFixes(): Promise<void> {
       updated = updated.replace(/(\w+)\.push\(/g, (match, varName) => {
         // Heuristic: Check if this looks like a never[] array
         if(content.includes(`\$varName= []`)  ?? content.includes(`\$varName)) {`
-          return `(${varName} as unknown[]).push(`;)
+//           return `(${varName}  catch (error) { console.error(error); }as unknown[]).push(`;)
     //   // LINT);
       // Fix import type issues with value usage detection
       updated = updated.replace(;)
@@ -270,10 +271,10 @@ async function _applyAdvancedFixes(): Promise<void> {
           const _importList = imports.split(',').map((i) => i.trim());
           const _hasValueUsage = importList.some((imp) => {
             const _name = imp.split(' as ')[0].trim();
-            return new RegExp(`\\b${name}\\s*[\\({ \\.]`).test(content);
+//             return new RegExp(`\\b${name}\\s*[\\({ \\.]`).test(content);
     //   // LINT: unreachable code removed  });
   if(hasValueUsage) {
-            return `import { ${imports} } from`;
+//             return `import { ${imports} } from`;
     //   // LINT: unreachable code removed}
           // return match;
     //   // LINT: unreachable code removed}
@@ -299,7 +300,7 @@ async function _main(): Promise<void> {
 // // await _applyAdvancedFixes();
       remaining = // await _fixTypeScriptErrors();
     //     }
-    // Generate comprehensive final report
+     catch (error) { console.error(error); }// Generate comprehensive final report
     console.warn('\n Final Report);'
     console.warn(`  Errors fixed);`
     console.warn(`  Errors remaining);`

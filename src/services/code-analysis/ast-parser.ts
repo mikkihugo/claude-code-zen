@@ -2,6 +2,7 @@
 /** Unified AST Parser Interface;
 /** Provides consistent parsing for JavaScript/TypeScript and other languages;
 
+ */
 import { readFile  } from 'node:fs';
 
 // Try to import optional dependencies with fallbacks
@@ -9,20 +10,20 @@ let _parseTypeScript, _parseJavaScript, acorn;
 try {
 // const _tsModule = awaitimport('@typescript-eslint/parser');
   _parseTypeScript = tsModule.parse;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('TypeScript parser not available, using fallback');
   _parseTypeScript = null;
 // }
 try {
 // const _jsModule = awaitimport('esprima');
   _parseJavaScript = jsModule.parse;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('Esprima parser not available, using fallback');
   _parseJavaScript = null;
 // }
 try {
   acorn = // await import('acorn');
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('Acorn parser not available, using fallback');
   acorn = null;
 // }
@@ -86,7 +87,7 @@ try {
   if(language === 'typescript') {
             result.types.push(this.extractTypeInfo(node, fileId, filePath));
           //           }
-          break;
+           catch (error) { console.error(error); }break;
       //       }
     });
 
@@ -109,7 +110,7 @@ try {
     const _methods = (node.body?.body  ?? []).filter(n => ;
       n.type === 'MethodDefinition'  ?? n.type === 'PropertyDefinition';)
     );
-
+// 
     return {id = > m.type === 'MethodDefinition').length,property_count = > m.type === 'PropertyDefinition').length,is_exported = > i.expression?.name  ?? i.name)  ?? []
     };
     //   // LINT: unreachable code removed}
@@ -351,7 +352,7 @@ try {
       classes.push({id = importPattern.exec(content)) !== null) {
       imports.push({id = exportPattern.exec(content)) !== null) {
       exports.push({id = match.match(/(?:function\s+(\w+)|const\s+(\w+)|(\w+)\s*:)/);
-    return nameMatch ? (nameMatch[1]  ?? nameMatch[2]  ?? nameMatch[3]) ;
+//     return nameMatch ? (nameMatch[1]  ?? nameMatch[2]  ?? nameMatch[3]) ;
     //   // LINT: unreachable code removed}
 
 /** Count parameters in function signature;

@@ -4,6 +4,7 @@
 
 /** Queen types and their characteristics
 
+ */
 this.config = {
       swarmId = {status = {divide_and_conquer = 'active';
 this.emit('queen = {objective = {length = Object.values(complexityFactors).reduce((a, b) => a + b, 0);'
@@ -47,7 +48,7 @@ _identifyComponents(objective);
       components.push(component);
     //     }
   });
-  return components;
+//   return components;
 // }
 
 /** Identify required capabilities
@@ -66,7 +67,7 @@ _identifyRequiredCapabilities(objective);
 // )
 // Always include researcher for initial analysis
 capabilities.add('researcher')
-return Array.from(capabilities);
+// return Array.from(capabilities);
 // }
 
 /** Estimate number of tasks
@@ -129,7 +130,7 @@ createExecutionPlan(analysis, workers);
       parallel => {
       phases.push({ name = > ['coder', 'architect'].includes(w.type)),parallel = > ['coder', 'tester'].includes(w.type)),parallel = > ['optimizer', 'documenter'].includes(w.type)),parallel = this._generateAllTasks(analysis);
     const _workerGroups = this._groupWorkersByType(workers);
-
+// 
     return {strategy = 3;
     // const _phases = []; // LINT: unreachable code removed
   for(const i = 0; i < iterations; i++) {
@@ -289,7 +290,7 @@ makeDecision(topic, options, (workerVotes = {}));
   const _strategicKeywords = ['scalable', 'maintainable', 'extensible', 'future'];
   for(const option of options) {
     const _optionLower = option.toLowerCase(); if(strategicKeywords.some((keyword) => optionLower.includes(keyword))) {
-      return option; //   // LINT: unreachable code removed}
+//       return option; //   // LINT: unreachable code removed}
   //   }
 
   // return options[0];
@@ -308,14 +309,14 @@ makeDecision(topic, options, (workerVotes = {}));
 
   const _sorted = Object.entries(voteCounts).sort((a, b) => b[1] - a[1]);
   if(sorted.length > 0 && sorted[0][1] > Object.keys(workerVotes).length * 0.6) {
-    return sorted[0][0];
+//     return sorted[0][0];
     //   // LINT: unreachable code removed}
 
   // Otherwise, prefer quick implementation
   const _tacticalKeywords = ['simple', 'quick', 'fast', 'efficient'];
   for(const option of options) {
     const _optionLower = option.toLowerCase(); if(tacticalKeywords.some((keyword) => optionLower.includes(keyword))) {
-      return option; //   // LINT: unreachable code removed}
+//       return option; //   // LINT: unreachable code removed}
   //   }
 
   // return options[0];
@@ -337,7 +338,7 @@ filter(([_, decision]) => decision.success);
 map(([_, decision]) => decision.result);
   for(const option of options) {
       if(successfulOptions.includes(option)) {
-        return option; //   // LINT: unreachable code removed}
+//         return option; //   // LINT: unreachable code removed}
     //     }
   //   }
 
@@ -361,7 +362,7 @@ _calculateFinalDecision(decision); // {
 
   // Find winner
   const _sorted = Object.entries(voteCounts).sort((a, b) => b[1] - a[1]);
-  return sorted[0][0];
+//   return sorted[0][0];
 // }
 
 /** Learn from decision outcomes

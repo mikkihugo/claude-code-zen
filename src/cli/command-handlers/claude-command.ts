@@ -4,6 +4,7 @@
 
 // claude-command.js - Handles the claude command
 
+ */
 import { spawn  } from 'node:child_process';
 import { printError, printSuccess  } from '..';
 

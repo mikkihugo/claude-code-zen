@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Updates the VERSION in bin/claude-zen shell script to match package.json;
+/* Updates the VERSION in bin/claude-zen shell script to match package.json;
 
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Enhanced Swarm UI with real-time monitoring and control;
+/* Enhanced Swarm UI with real-time monitoring and control;
 /** Uses blessed for terminal UI;
 
+ */
 import { exec  } from 'node:child_process';
 import { promises as fs  } from 'node:fs';
 import path from 'node:path';
@@ -102,7 +103,7 @@ updateSwarmData();
 // {
     try {
       // Load swarm data from file system
-      const _swarmRunsDir = '.
+      const _swarmRunsDir = '.'
 
       try {
 // const _runs = awaitfs.readdir(swarmRunsDir);
@@ -123,7 +124,7 @@ updateSwarmData();
                   const __task = JSON.parse(taskData) {;
 
                   this.swarmData.agents.push({id = 'idle';
-      //       }/g)
+      //       } catch (error) { console.error(error); }/g)
     } catch(error) ;
       this.log(`Error updating swarmdata = this.swarmData.objectives.filter((o) => o.status === 'running').length;`
     this.statusBox.setContent(;
@@ -168,7 +169,7 @@ this.log(`Error creatingobjective = 0;`
         try {
           // Use process.kill() for cross-platform compatibility
   if(process.pid && !process.killed) {
-            process.kill('SIGTERM'); stoppedCount++; this.log(`Stopped process ${processId} (PID = 'stopped';`))
+            process.kill('SIGTERM'); stoppedCount++; this.log(`Stopped process ${processId}  catch (error) { console.error(error); }(PID = 'stopped';`))
 this.updateDisplay() {;
 catch(error)
 this.log(`Error stoppingswarm = === 'win32') ;`
@@ -199,7 +200,7 @@ filter((line) => /^\d+$/.test(line));
   if(error) {
           this.log(`Commanderror = 'info') {`
     const _timestamp = new Date().toLocaleTimeString();
-    const _levelColors = {info = `{${levelColors[level]  ?? 'white'}-fg}[${timestamp}] ${message}{
+    const _levelColors = {info = `{${levelColors[level]  ?? 'white'} catch (error) { console.error(error); }-fg}[${timestamp}] ${message}{`
 
     this.logBuffer.push(coloredMessage);
   if(this.logBuffer.length > this.maxLogLines) {
@@ -221,7 +222,7 @@ filter((line) => /^\d+$/.test(line));
       try {
   if(process.pid && !process.killed) {
           process.kill('SIGTERM'); //         }
-      } catch(/* err */) {
+       catch (error) { console.error(error); }} catch(/* err */) {
         // Ignore errors during cleanup
       //       }
     //     }
@@ -233,7 +234,7 @@ async function main() {
 
   try {
 // // await ui.init();
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     console.error('Failed to initialize Swarm UI => {'
   console.error('Uncaught exception => {'))
   console.error('Unhandledrejection = === `file) {'`

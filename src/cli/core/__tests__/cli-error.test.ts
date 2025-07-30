@@ -2,13 +2,14 @@
 /** Tests for CLI error handling system
 /** Implements Google's testing best practices;'
 
+ */
 import { describe, expect  } from '@jest';
 import { CliError,
 CommandExecutionError,
 ConfigurationError,
 formatErrorMessage,
 handleError,
-ValidationError  } from '..
+ValidationError  } from '..'
 describe('CLI Error System', () =>'
 // {
   describe('CliError', () => {'

@@ -4,11 +4,12 @@ export class StateTracker {
   constructor(workingDir = workingDir;
   this;
 
-  stateFile = `${workingDir}
+  stateFile = `${workingDir}`
 // }
 
 /** Record a rollback point
 
+ */
 async;
 recordRollbackPoint(type, data);
 : unknown

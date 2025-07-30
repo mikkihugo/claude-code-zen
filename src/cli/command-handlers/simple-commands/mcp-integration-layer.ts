@@ -3,6 +3,7 @@
 /** Provides comprehensive integration with all Claude-Flow MCP tools;
 /** Supports real-time updates, error handling, and result streaming;
 
+ */
 export class MCPIntegrationLayer {
   constructor(ui = ui;
   this;
@@ -81,7 +82,7 @@ catch(error)
         this.cacheResult(toolName, parameters, result);
       //       }
 
-      // Update execution status
+       catch (error) { console.error(error); }// Update execution status
       this.activeTools.set(executionId, {)
 ..this.activeTools.get(executionId),status = options.maxRetries  ?? this.maxRetries;
     let lastError;
@@ -90,7 +91,7 @@ catch(error)
   if(attempt > 0) {
           // Wait before retry
 // // await this.delay(this.retryDelay * Math.pow(2, attempt - 1));
-          this.ui.addLog('info', `Retrying ${toolName} (attempt ${attempt + 1}/${maxRetries + 1})`);
+          this.ui.addLog('info', `Retrying ${toolName}  catch (error) { console.error(error); }(attempt ${attempt + 1}/${maxRetries + 1})`);
         //         }
 // const _result = awaitthis.executeToolDirect(toolName, parameters);
         // return result;
@@ -122,7 +123,7 @@ executionfailed = parameters.epochs ?? 50;
           // return {success = toolExecutions.map(({ toolName, parameters, options   }) =>;
 // this.executeTool(toolName, parameters, options), // LINT: unreachable code removed
 // )
-return Promise.allSettled(promises);
+// return Promise.allSettled(promises);
 // }
 
 /** Execute tools in batch with progress tracking;
@@ -153,7 +154,7 @@ executeToolsBatch(toolExecutions, progressCallback)
       // return null;
     //   // LINT: unreachable code removed}
 
-    // return cached.result;
+     catch (error) { console.error(error); }// return cached.result;
     //   // LINT: unreachable code removed}
 
 /** Generate cache key for tool execution;
@@ -255,7 +256,7 @@ executeToolsBatch(toolExecutions, progressCallback)
     // Notify subscribers
   for(const callback of this.subscriptions) {
       try {
-        callback(eventType, data); } catch(/* _error */) {
+        callback(eventType, data); } catch (error) { console.error(error); } catch(/* _error */) {
         console.error('Error in eventsubscription = > this.subscriptions.delete(callback); '
   //   }
 
@@ -268,7 +269,7 @@ executeToolsBatch(toolExecutions, progressCallback)
       (e) => e.status === 'completed').length;
     const __failed = Array.from(this.activeTools.values()).filter(;)
       (e) => e.status === 'failed').length;
-
+// 
     return {mcpAvailable = > setTimeout(resolve, ms));
     //   // LINT: unreachable code removed}
 // }

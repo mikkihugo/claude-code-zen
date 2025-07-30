@@ -2,10 +2,11 @@
 /** Batch Init Module
 /** Converted from JavaScript to TypeScript
 
+ */
 import { promises as fs  } from 'node:fs';
 
 PerformanceMonitor,
-ResourceThresholdMonitor } from '.
+ResourceThresholdMonitor } from '.'
 
 createMinimalCoordinationMd } from './templates/coordination-md.js'
 
@@ -114,7 +115,7 @@ app.get('/', (req, res) => {
   COPY . .;
   EXPOSE;
   8080;
-  CMD[('node', 'src
+  CMD[('node', 'src'
       'docker-compose.yml': `;`
   version = {ENVIRONMENT = 8080restart = new Command();
   program.name('{{PROJECT_NAME}}').description('{{PROJECT_DESCRIPTION}}').version('1.0.0');
@@ -153,14 +154,14 @@ try {
     // Initialize base structure
     const _directories = [
       'memory',
-      'memory
-      'memory
+      'memory'
+      'memory'
       'coordination',
-      'coordination
-      'coordination
-      'coordination
+      'coordination'
+      'coordination'
+      'coordination'
       '.claude',
-      '.claude
+      '.claude'
       '.claude/logs' ];
 
     // Add template-specific directories
@@ -169,7 +170,7 @@ try {
   if(templateConfig.extraDirs) {
         directories.push(...templateConfig.extraDirs);
       //       }
-    //     }
+     catch (error) { console.error(error); }//     }
 
     // Create all directories in parallel
 // // await Promise.all(;/g)
@@ -269,7 +270,7 @@ for (const project of projects) {
         if(tracker) tracker.startProject(projectPath); perfMonitor.recordOperation('project-init-start', {
           projectPath,)
           template,environment = // await resourceManager.withResource(async() {=> {
-          return await initializeProject(projectPath, {
+//           return await initializeProject(projectPath, {
             template,environment = ===============================');'
     // ; // LINT: unreachable code removed
   if(tracker) {
@@ -297,7 +298,7 @@ for (const project of projects) {
 // }
 // Parse batch initialization config from file
 // export async function parseBatchConfig(configFile = // await fs.readFile(configFile, 'utf8');
-return JSON.parse(content);
+// return JSON.parse(content);
 } catch(error)
   printError(`Failed to read batch config file =`
 ): unknown
@@ -317,7 +318,7 @@ return JSON.parse(content);
 
     for (const [projectName, projectConfig] of Object.entries(projectConfigs)) {
       const _projectOptions = { ...mergedOptions, ...projectConfig }; // const _result = awaitresourceManager.withResource(async() => {
-        return await initializeProject(projectName, projectOptions); //   // LINT: unreachable code removed}) {;
+//         return await initializeProject(projectName, projectOptions); //   // LINT: unreachable code removed}) {;
       results.push(result);
     //     }
 

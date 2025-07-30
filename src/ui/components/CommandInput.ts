@@ -2,6 +2,7 @@
 /** CommandInput Module
 /** Converted from JavaScript to TypeScript
 
+ */
 import { Text  } from 'ink';'
 import React, { useState  } from 'react';'
 
@@ -48,7 +49,7 @@ const _CommandInput = () => {
   React.createElement(Text, color: 'cyan' , command),'
   React.createElement(
   Text,
-  color: 'gray' ,')
+  color: 'gray' ,')'
   isExecuting ? ' (executing...)' : ' (press Enter)';'
   //   )
   ),
@@ -65,7 +66,7 @@ const _CommandInput = () => {
   bold,
   color: result.success ? 'green' : 'red','
 
-  result.success ? ' Success' : ' Error'')))
+  result.success ? ' Success' : ' Error'')))'
   ),
   React.createElement(Text, null, resultText)
   //   )

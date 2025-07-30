@@ -3,6 +3,7 @@
 /** ADVANCED VECTOR OPERATIONS WITH PRODUCTION-GRADE CAPABILITIES;
 /** Supports embeddings, similarity search, clustering, and analytics;
 
+ */
 import { connect  } from '@lancedb';
 // // interface LanceDBConfig {
 //   dbPath?;
@@ -82,7 +83,7 @@ initialize();
   const _enrichedDocs = entries.map(_entry => ({id = enrichedDocs.length;))
   this.stats.lastUpdate = new Date();
   console.warn(` Inserted ${enrichedDocs.length} vectors`);
-  return {success = Date.now();
+//   return {success = Date.now();
   // const { // LINT: unreachable code removed
   k = 10,
   namespace = 'default',
@@ -114,7 +115,7 @@ limit(k);
   if(filters) {
         // Convert filters to where clause
         const _filterStr = Object.entries(filters);
-map(([key, value]) => `$key= '${value}'`);
+map(([key, value]) => `$key= '${value} catch (error) { console.error(error); }'`);
 join(' AND ');
   if(filterStr) {
           searchQuery = searchQuery.where(filterStr);
@@ -222,7 +223,7 @@ limit(limit);
   if(filter) {
         searchQuery = searchQuery.where(filter);
       //       }
-// const _results = awaitsearchQuery.toArray();
+ catch (error) { console.error(error); }// const _results = awaitsearchQuery.toArray();
 
       // Filter by similarity threshold
       const _filteredResults = results.filter((_result) => ;
@@ -259,14 +260,14 @@ limit(limit);
       // Assign cluster labels back to data
 
     const _targetTable = this.tables.get(table);
-    if(!targetTable) throw new Error(`Table ${table} not found`);
+    if(!targetTable) throw new Error(`Table ${table}  catch (error) { console.error(error); }not found`);
 
     try {
 // const _data = awaittargetTable.select(['embedding', 'id']).toArray();
       const __vectors = data.map((row) => row.embedding);
 
       // Perform PCA(simplified implementation)
-
+// 
       return {reduced_vectors = 'documents'): Promise<AnalyticsResult | { error = this.tables.get(table);
     // if(!targetTable) throw new Error(`Table ${table // LINT);`
 
@@ -274,7 +275,7 @@ limit(limit);
 // const _data = awaittargetTable.toArray();
       const _embeddings = data.map((row) => row.embedding).filter((emb = > emb);
   if(embeddings.length === 0) {
-        return { error = {total_vectors = {}): Promise<{cross_matches = 100,
+//         return { error = {total_vectors = {} catch (error) { console.error(error); }): Promise<{cross_matches = 100,
     // threshold = 0.8; // LINT: unreachable code removed
     } = options;
 
@@ -297,7 +298,7 @@ toArray();
         );
   if(highSimilarity.length > 0) {
           similarities.push({source_id = > ({target_id = this.tables.get(tableName);
-    if(!table) throw new Error(`Table ${tableName} not found`);
+    if(!table) throw new Error(`Table ${tableName}  catch (error) { console.error(error); }not found`);
 
     const _effectiveBatchSize = batchSize  ?? this.config.batchSize!;
     const _totalBatches = Math.ceil(data.length / effectiveBatchSize);
@@ -310,7 +311,7 @@ toArray();
       try {
 // // await table.add(batch);
         inserted += batch.length;
-        console.warn(` Batch ${i + 1}
+        console.warn(` Batch ${i + 1} catch (error) { console.error(error); }`
       } catch(_error = inserted;
     // return inserted;
     //   // LINT: unreachable code removed}
@@ -332,7 +333,7 @@ toArray();
     return(lines * 0.1) + (functions * 2) + (conditions * 1.5);
     //   // LINT: unreachable code removed}
 
-  // private performKMeansClustering(vectors = vectors[0].length;
+   catch (error) { console.error(error); }// private performKMeansClustering(vectors = vectors[0].length;
     const _centroids = [];
 
     // Initialize centroids randomly
@@ -368,14 +369,14 @@ toArray();
   //   }
 
   // private calculateAverageNorm(vectors = vectors.map(v => Math.sqrt(v.reduce((sum, val) => sum + val * val, 0)));
-    return norms.reduce((sum, norm) => sum + norm, 0) / norms.length;
+//     return norms.reduce((sum, norm) => sum + norm, 0) / norms.length;
     //   // LINT: unreachable code removed}
 
   // private calculateSparsity(vectors = 0;
     const _totalElements = 0;
   for(const vector of vectors) {
       totalElements += vector.length; totalZeros += vector.filter(val => Math.abs(val) < 1e-10).length; //     }
-
+// 
     return totalZeros / totalElements;
     //   // LINT: unreachable code removed}
 
@@ -389,7 +390,7 @@ toArray();
     //     }
 
     similarities.sort((a, b) => a - b);
-
+// 
     return {min = > sum + sim, 0) / similarities.length;
     //   // LINT: unreachable code removed};
   //   }
@@ -443,7 +444,7 @@ toArray();
   // private cosineSimilarity(a = a.reduce((sum, val, i) => sum + val * b[i], 0);
     const _normA = Math.sqrt(a.reduce((sum, val) => sum + val * val, 0));
     const _normB = Math.sqrt(b.reduce((sum, val) => sum + val * val, 0));
-    return dotProduct / (normA * normB);
+//     return dotProduct / (normA * normB);
     //   // LINT: unreachable code removed}
 
   // private async loadStatistics(): Promise<void> {
@@ -451,7 +452,7 @@ toArray();
       const _statsPath = path.join(this.config.dbPath!, 'statistics.json');
       if(existsSync(statsPath)) {
         const _savedStats = JSON.parse(// await readFile(statsPath, 'utf8'));
-        this.stats = { ...this.stats, ...savedStats };
+        this.stats = { ...this.stats, ...savedStats } catch (error) { console.error(error); };
       //       }
     } catch(error = path.join(this.config.dbPath!, 'statistics.json');
 // // await writeFile(statsPath, JSON.stringify(this.stats, null, 2));
@@ -459,7 +460,7 @@ toArray();
   for(const [tableName, table] of this.tables) {
       try {
 // const _count = awaittable.countRows(); 
-        tableStats[tableName] = { count }; } catch(error = {count = null;
+        tableStats[tableName] = { count } catch (error) { console.error(error); }; } catch(error = {count = null;
       //       }
 
       console.warn(' LanceDB connection closed') {;

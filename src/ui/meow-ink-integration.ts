@@ -1,8 +1,9 @@
 #!/usr/bin/env node;
 
-/**  ENHANCED MEOW + INK INTEGRATION
+/*  ENHANCED MEOW + INK INTEGRATION
 
 /** Modern CLI with advanced TUIfeaturing = () => {
+ */
   const _filled = Math.floor((progress / 100) * width)
   const _empty = width - filled;
 
@@ -54,7 +55,7 @@ const _SwarmTopology = () => {
       ) : (;
         swarms.map(swarm => (;
           <Box key={swarm.id} marginLeft={2}>;
-            <Text color="yellow">;"))
+            <Text color="yellow">;"))"
               {swarm.name} ({swarm.agents} agents) - {swarm.status}
             <
           <
@@ -159,7 +160,7 @@ const _CLIInterface = () => {
 ..prev,commandCount = apiServer.getStatus();
           setMetrics({apiCalls = setInterval(updateStatus, 5000);
     // return() => clearInterval(interval);
-    //   // LINT: unreachable code removed}, [apiServer]);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); }, [apiServer]);
 
   // Command auto-completion
   useEffect(() => {
@@ -297,18 +298,18 @@ slice(0, 8);
     // case 'error': return 'red'; // LINT: unreachable code removed'
       case 'command': return 'cyan';'
     // case 'info': return 'yellow';default = () => { // LINT: unreachable code removed'
-    return mode === targetMode ? 'cyan' : 'gray';'
+//     return mode === targetMode ? 'cyan' : 'gray';'
     //   // LINT: unreachable code removed};
 
   // Main render component with enhanced split-pane layout
-  return React.createElement(Box, {flexDirection = === 'cli' }, '[F4] CLI '),'
+//   return React.createElement(Box, {flexDirection = === 'cli' }, '[F4] CLI '),'
     // React.createElement(Text, {color = === 'api'  // LINT: unreachable code removed}, '[F1] API '),'
       React.createElement(Text, {color = === 'monitoring' }, '[F2] Monitor '),'
       React.createElement(Text, {color = === 'help' }, '[F3] Help '),'
       React.createElement(Spacer, null),
       React.createElement(Text, {color = === 'split' ? ;'
       // Split-pane layout
-      React.createElement(Box, {flexGrow = === 'cli' && React.createElement(Box, { flexDirection => {')))
+      React.createElement(Box, {flexGrow = === 'cli' && React.createElement(Box, { flexDirection => {')))'
                 const _parts = cmd.split(' ');'
                 executeCommandWithOutput(parts[0], parts.slice(1), {});
               //               }
@@ -322,7 +323,7 @@ slice(0, 8);
             selectedCommand ;)
           }),
           // Command input area(always visible)
-          React.createElement(Box, {borderStyle = === 'cli' && React.createElement(Box, {flexDirection = === 'monitoring' && React.createElement(Box, {flexDirection = > ;')))
+          React.createElement(Box, {borderStyle = === 'cli' && React.createElement(Box, {flexDirection = === 'monitoring' && React.createElement(Box, {flexDirection = > ;')))'
             React.createElement(Text, {key = () => {
   render(React.createElement(CLIInterface, {initialCommand = () => {
   const _cli = createMeowCLI();

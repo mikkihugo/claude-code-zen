@@ -2,6 +2,7 @@
 /** SQLite-based memory store for MCP server;
 /** Provides persistent storage that works with both local and remote npx execution
 
+ */
 import { promises as fs  } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -60,7 +61,7 @@ _directoryExists(dir = await fs.stat(dir);
       // Enable WAL mode for better concurrency
       this.db.pragma('journal_mode = WAL');
       this.db.pragma('synchronous = NORMAL');
-      this.db.pragma(`cache_size = -${Math.floor(this.options.cacheSize! / 1024)}`); // Negative for KB
+      this.db.pragma(`cache_size = -${Math.floor(this.options.cacheSize! / 1024)} catch (error) { console.error(error); }`); // Negative for KB
       this.db.pragma(`mmap_size = ${this.options.mmapSize!}`);
       this.db.pragma('temp_store = MEMORY');
       this.db.pragma('optimize');
@@ -145,7 +146,7 @@ get('upsert');
 run(key, valueStr, namespace, metadata, ttl, expiresAt);
 
       // Invalidate related cache entries
-      this._invalidateCache(`retrieve = {}): Promise<any> {`
+      this._invalidateCache(`retrieve = {} catch (error) { console.error(error); }): Promise<any> {`
 // // await this.initialize();
     const _namespace = options.namespace  ?? 'default';
     const _cacheKey = this._getCacheKey('retrieve', key, namespace);
@@ -163,14 +164,14 @@ run(key, valueStr, namespace, metadata, ttl, expiresAt);
         // return null;
     //   // LINT: unreachable code removed}
 
-      // Update access stats
+       catch (error) { console.error(error); }// Update access stats
       this.statements.get('updateAccess').run(key, namespace);
 
       // Try to parse as JSON, fall back to raw string
       let result;
       try {
         result = JSON.parse(row.value);
-      } catch {
+      } catch (error) { console.error(error); } catch {
         result = row.value;
       //       }
 
@@ -193,7 +194,7 @@ run(key, valueStr, namespace, metadata, ttl, expiresAt);
     try {
       const _rows = this.statements.get('list').all(namespace, limit);
 
-      const _result = rows.map((row) => ({ key = {  }): Promise<boolean> {
+      const _result = rows.map((row) => ({ key = {  } catch (error) { console.error(error); }): Promise<boolean> {
 // // await this.initialize();
     const _namespace = options.namespace  ?? 'default';
 
@@ -202,7 +203,7 @@ run(key, valueStr, namespace, metadata, ttl, expiresAt);
 
       // Invalidate related cache entries
   if(result.changes > 0) {
-        this._invalidateCache(`retrieve = {}): Promise<any[]> {`
+        this._invalidateCache(`retrieve = {} catch (error) { console.error(error); }): Promise<any[]> {`
 // // await this.initialize();
     const _namespace = options.namespace  ?? 'default';
     const _limit = options.limit  ?? 50;
@@ -221,11 +222,11 @@ get('search');
 all(namespace, searchPattern, searchPattern, limit);
 
       const _result = rows.map((_row) => ({key = this.statements.get('cleanup').run();
-      return result.changes;
-    //   // LINT: unreachable code removed} catch(_error = this.queryCache.get(cacheKey);
+//       return result.changes;
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(_error = this.queryCache.get(cacheKey);
   if(!cached) {
       this.cacheStats.misses++;
-      return null;
+//       return null;
     //   // LINT: unreachable code removed}
 
     if(Date.now() > cached.expires) {
@@ -291,7 +292,7 @@ all(namespace, searchPattern, searchPattern, limit);
       ];
   for(const query of commonQueries) {
         try {
-          const _plan = this.db?.prepare(`EXPLAIN QUERY PLAN ${query.sql}`).all(); plans[query.name] = plan; } catch(_error = error = new SqliteMemoryStore() {;
+          const _plan = this.db?.prepare(`EXPLAIN QUERY PLAN ${query.sql} catch (error) { console.error(error); }`).all(); plans[query.name] = plan; } catch(_error = error = new SqliteMemoryStore() {;
 
 // export type { SqliteMemoryStore };
 // export default SqliteMemoryStore;

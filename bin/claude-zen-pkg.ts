@@ -13,7 +13,7 @@ const cliMain = join(__dirname, '..', 'src', 'cli', 'cli-main.ts');
 
 // Run the CLI with tsx for TypeScript support
 try {
-  execSync(`npx tsx ${cliMain} ${process.argv.slice(2).join(' ')}`, {
+  execSync(`npx tsx ${cliMain}  catch (error) { console.error(error); }${process.argv.slice(2).join(' ')}`, {
     stdio: 'inherit' });
 } catch {
   // Fallback to compiled JS version if tsx fails

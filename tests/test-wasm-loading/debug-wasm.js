@@ -10,10 +10,10 @@ console.warn('Base directory);'
 console.warn('\nChecking path candidates);'
 const _candidates = [
   //   {
-    description: 'Local development(relative to src
+    description: 'Local development(relative to src'
     wasmDir: path.join(baseDir, '..', 'wasm') },
   //   {
-    description: 'NPM package installation(adjacent to src
+    description: 'NPM package installation(adjacent to src'
     wasmDir: path.join(baseDir, '..', '..', 'wasm') } ];
   for(const candidate of candidates) {
   console.warn(`${candidate.description}); `
@@ -21,7 +21,7 @@ const _candidates = [
   try {
     fs.accessSync(candidate.wasmDir) {;
     const _files = fs.readdirSync(candidate.wasmDir);
-    console.warn(`   Exists! Files) => f.endsWith('.wasm')).join(', ')}`);
+    console.warn(`   Exists! Files) => f.endsWith('.wasm')).join(', ')} catch (error) { console.error(error); }`);
   } catch(error) {
     console.warn(`   Not found);`
   //   }

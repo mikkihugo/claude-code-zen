@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Migration script to update Claude Zen settings.json to new hooks format;
+/* Migration script to update Claude Zen settings.json to new hooks format;
 /** Compatible with Claude Code 1.0.51+;
 
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -19,7 +20,7 @@ async function migrateSettingsFile() {
       console.warn(' Hooks already in new format, no migration needed');
       return;
     //   // LINT: unreachable code removed}
-    // Backup original file
+     catch (error) { console.error(error); }// Backup original file
     const _backupPath = `${settingsPath}.backup-${Date.now()}`;
   // // await fs.writeFile(backupPath, content);
     console.warn(` Backed up original settings to);`
@@ -98,7 +99,7 @@ async function findSettingsFiles() {
   for(const location of locations) {
     try {
   // // await fs.access(location); 
-      found.push(location); } catch {
+      found.push(location); } catch (error) { console.error(error); } catch {
       // File doesn't exist, skip'
     //     }
   //   }
@@ -118,7 +119,7 @@ async function main() {
   if(files.length === 0) {
       console.warn(' No settings.json files found to migrate');
       console.warn('\nSearched locations);'
-      console.warn('  - .claude
+      console.warn('  - .claude'
       console.warn('  - settings.json');
       console.warn('  - ~/.claude/settings.json');
       return;

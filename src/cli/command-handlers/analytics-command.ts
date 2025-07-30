@@ -4,6 +4,7 @@
 
 // analytics-command.js - Handles the analytics command
 
+ */
 import { printSuccess  } from '..';
 
 export async function analyticsCommand() {

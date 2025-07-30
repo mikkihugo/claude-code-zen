@@ -25,11 +25,12 @@
 
 // export const buildConfig = {
   // Module aliases for Node.js build compatibility
+ */
   moduleAliases: {
     '@cliffy/ansi/colors': './src/adapters/cliffy-node.js',
-('@cliffy
+('@cliffy'
 : './src/adapters/cliffy-node.js',
-('@cliffy
+('@cliffy'
 : './src/adapters/cliffy-node.js' },
 // Modules to exclude from Node.js build
 excludeModules: [

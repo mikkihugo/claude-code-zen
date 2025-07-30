@@ -2,6 +2,7 @@
 /** Server Examples;
 /** Demonstrates how to use the TypeScript server implementations;
 
+ */
 import { authenticate: true,
   authorize: true,
   corsMiddleware: true,
@@ -53,7 +54,7 @@ import type { MiddlewareDefinition: true,
         extractUser): Promise<UserContext | null> => {
           // Mock user extraction - replace with real implementation
   if(token === 'valid-token') {
-            return {
+//             return {
               id: 'user-123',
               email: 'test@example.com',
               roles: ['user'],
@@ -260,7 +261,7 @@ build();
   if(validation.errors.length > 0) {
       console.warn('    Errors');
       validation.errors.forEach((error) => {
-        console.warn(`       ${error.field}`);
+        console.warn(`       ${error.field} catch (error) { console.error(error); }`);
       });
 // }
   if(validation.warnings.length > 0) {

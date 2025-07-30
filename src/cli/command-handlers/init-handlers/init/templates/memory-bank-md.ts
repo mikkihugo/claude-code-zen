@@ -4,8 +4,9 @@
 
 // memory-bank-md.js - Memory Bank templates
 
+ */
 export function createMinimalMemoryBankMd() {
-  return `# Memory Bank`
+//   return `# Memory Bank`
 
     // ## Quick Reference; // LINT: unreachable code removed
 - Project uses SQLite for memory persistence;
@@ -18,7 +19,7 @@ export function createMinimalMemoryBankMd() {
 `;`
 // }
 export function createFullMemoryBankMd() {
-  return `# Memory Bank Configuration`
+//   return `# Memory Bank Configuration`
 
     // ## Overview; // LINT: unreachable code removed
 The Claude-Flow memory system provides persistent storage and intelligent retrieval of information across agent sessions. It uses a hybrid approach combining SQL databases with semantic search capabilities.
@@ -81,7 +82,7 @@ Memory settings are configured in \`claude-zen.config.json\`:
 // }
 // Create optimized Memory Bank with batchtools support
 // export async function createOptimizedMemoryBankMd() {
-  return `# Memory Bank Configuration(Batchtools Optimized)`
+//   return `# Memory Bank Configuration(Batchtools Optimized)`
 
     // ## Overview; // LINT: unreachable code removed
 The Claude-Flow memory system provides persistent storage and intelligent retrieval of information across agent sessions. It uses a hybrid approach combining SQL databases with semantic search capabilities.

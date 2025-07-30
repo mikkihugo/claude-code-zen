@@ -4,8 +4,9 @@
 
 // claude-md.js - CLAUDE.md templates
 
+ */
 export function createMinimalClaudeMd() {
-  return `# Claude Code Configuration`
+//   return `# Claude Code Configuration`
 
     // ## CRITICAL = ALL RELATED OPERATIONS" // LINT: unreachable code removed"
 

@@ -2,12 +2,13 @@
 /** Hive Mind Import Command Module
 /** Converted from JavaScript to TypeScript
 
+ */
 import path from 'node:path';
 import { glob  } from 'glob';
 import { createHive  } from '.';
 
 async function generateScopeFromCode(servicePath = path.basename(servicePath);
-return `;`
+// return `;`
     // ---name = path.basename(servicePath); // LINT: unreachable code removed
   const _projectJsonPath = path.join(servicePath, 'project.json');
 

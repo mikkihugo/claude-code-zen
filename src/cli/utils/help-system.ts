@@ -2,6 +2,7 @@
 /** Help System - TypeScript Edition;
 /** Comprehensive help generation and display system with rich formatting;
 
+ */
 import type { CommandCategory, HelpSystem as IHelpSystem  } from '../../types/cli';
 import { formatTable, getIcon  } from '.';
 
@@ -161,7 +162,7 @@ help += this.colorizeText('QUICKSTART = ['
       \n\n`
       // Commands table
       const _tableData = commands.map(_cmd => ({name = formatTable(tableData, {columns = '\n\nUse "claude-zen <command> --help" for detailed information about each command.\n';
-      return help;
+//       return help;
       //   // LINT: unreachable code removed}/g)))
       showCommandHelp(command = registry.get(command)
   if(!definition) {
@@ -212,7 +213,7 @@ help += this.colorizeText('QUICKSTART = ['
     Object.keys(categories).forEach(category => {)
       categories[category as CommandCategory].sort((a, b) => a.name.localeCompare(b.name));
     });
-
+// 
     return categories;
     //   // LINT: unreachable code removed}
 // }
@@ -233,7 +234,7 @@ help += this.colorizeText('QUICKSTART = ['
   const _categories = commands.reduce((acc, cmd) => {
     if(!acc[cmd.category]) acc[cmd.category] = [];
     acc[cmd.category].push(cmd);
-    return acc;
+//     return acc;
     //   // LINT: unreachable code removed}, {} as Record<string, CommandDefinition[]>);
 
   Object.keys(categories).forEach(category => {)

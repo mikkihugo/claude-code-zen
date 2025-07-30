@@ -6,6 +6,7 @@ import path from 'node:path';
 /** Validate Claude optimized template installation;
 /** This script verifies that all required files are present and properly formatted;
 
+ */
 const _TEMPLATE_DIR = path.join(__dirname, '.claude');
 const _MANIFEST_PATH = path.join(__dirname, 'manifest.json');
 // Colors for console output
@@ -17,7 +18,7 @@ let manifest;
 try {
   manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
   log(' Manifest loaded successfully', 'green');
-} catch(/* _error */) {
+} catch (error) { console.error(error); } catch(/* _error */) {
   log(' Failed to loadmanifest = 0;'
 let _passedTests = 0;
 

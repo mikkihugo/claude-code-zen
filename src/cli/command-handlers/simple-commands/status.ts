@@ -2,6 +2,7 @@
 /** Status Module;
 /** Converted from JavaScript to TypeScript;
 
+ */
 export async function statusCommand(subArgs = subArgs.includes('--verbose')  ?? subArgs.includes('-v')  ?? flags.verbose;
 const _json = subArgs.includes('--json') ?? flags.json;
 // const _status = awaitgetSystemStatus(verbose);
@@ -34,15 +35,15 @@ async function _getResourceUsage() {
     let os;
     try {
       os = // await import('node = // await import('os');'
-      } catch {
+      } catch (error) { console.error(error); } catch {
         // Fallback for environments without os module
         // return {memory = os.totalmem();
     // ; // LINT: unreachable code removed
-    const __loadAvg = 'N
+    const __loadAvg = 'N'
 
     try {
       const _loadAvgData = os.loadavg();
-      _loadAvg = `${loadAvgData[0].toFixed(2)}, ${loadAvgData[1].toFixed(2)}, ${loadAvgData[2].toFixed(2)}`;
+      _loadAvg = `${loadAvgData[0].toFixed(2)} catch (error) { console.error(error); }, ${loadAvgData[1].toFixed(2)}, ${loadAvgData[2].toFixed(2)}`;
     } catch(/* _e */) {
       // Load average not available on all platforms
     //     }

@@ -31,6 +31,6 @@ const _registerMetrics = () => {
     res.set('Content-Type', register.contentType);
     register.metrics().then((data) => res.send(data));
   });
-  logger.info(`Metrics endpoint available at 
+  logger.info(`Metrics endpoint available at `
 };
 // export { metricsMiddleware, registerMetrics }; // eslint-disable-line

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** QUICK FIX - Ultra-fast lint fixes for the most common issues;
+/* QUICK FIX - Ultra-fast lint fixes for the most common issues;
 
+ */
 import { readFileSync  } from 'node:fs';
 import { glob  } from 'glob';
 
@@ -14,7 +15,7 @@ const _files = glob.sync('**/*.{js,ts}', {
     'bin/**', */
     'dist/**', */
     'coverage/**', */
-    'test-*
+    'test-*'
     'temp-*/**' ] })
 console.warn(`Found $`
 // {
@@ -30,7 +31,7 @@ const _fixCount = 0;
     const _content = readFileSync(file, 'utf8'); const _originalContent = content; // Quick fixes that resolve 80% of common issues
 
     // 1. Remove unused import lines(aggressive) {
-    content = content.replace(/^import\s+{\s*[^}]*}\s+from\s+['"][^'"]*['"];\s*$/gm, (match) => {"'
+    content = content.replace(/^import\s+{\s*[^} catch (error) { console.error(error); }]*}\s+from\s+['"][^'"]*['"];\s*$/gm, (match) => {"'
       // Only remove if it looks like destructured imports that aren't used'
       if(match.includes('spawn')  ?? match.includes('execSync')  ?? match.includes('readFile')) {
         const _varNames =;
@@ -41,18 +42,18 @@ match(/([^}]*)/)?.[1];
         const _stillUsed = varNames.some(;)
           (varName) => content.includes(varName) && content.split(varName).length > 2;
         );
-        return stillUsed ? match : '';
+//         return stillUsed ? match : '';
     //   // LINT: unreachable code removed}
-      return match;
+//       return match;
     //   // LINT: unreachable code removed});
 
     // 2. Remove unused const declarations
     content = content.replace(/^\s*const\s+(\w+)\s*=\s*[^;]+;\s*$/gm, (match, varName) => {
       const _usageCount = content.split(varName).length - 1;
       if(usageCount <= 1 && !varName.startsWith('_')) {
-        return '';
+//         return '';
     //   // LINT: unreachable code removed}
-      return match;
+//       return match;
     //   // LINT: unreachable code removed});
 
     // 3. Fix const -> const
@@ -67,12 +68,12 @@ match(/([^}]*)/)?.[1];
 
     // 6. Add underscore prefix to unused parameters
     content = content.replace(/function\s*\([^)]*\)/g, (match) => {
-      return match.replace(/\b(\w+)(?=\s*[)])/g, (param) => {
+//       return match.replace(/\b(\w+)(?=\s*[)])/g, (param) => {
   if(param === 'error'  ?? param === 'data'  ?? param === 'result') {
           const _usageCount = content.split(param).length - 1;
     // if(usageCount <= 2) { // LINT: unreachable code removed
             // Only declaration + this match
-            return `_${param}`;
+//             return `_${param}`;
     //   // LINT: unreachable code removed}
         //         }
         // return param;
@@ -109,7 +110,7 @@ console.warn('\n Running quick ESLint fix...');
 try {
   execSync('npx eslint --fix --quiet src examples scripts', { stdio);
   console.warn(' ESLint fixes applied');
-} catch(/* _error */) {
+} catch (error) { console.error(error); } catch(/* _error */) {
   console.warn(' ESLint completed with some remaining issues');
 // }
 
@@ -118,7 +119,7 @@ console.warn('\n Quick status check...');
 try {
   const _result = execSync('npm run lint 2>&1 | tail -10', { encoding);
   console.warn(result);
-} catch(error) {
+} catch (error) { console.error(error); } catch(error) {
   const _output = error.stdout  ?? error.message;
   const _errorMatch = output.match(/(\d+)\s+errors?/);
   const _warningMatch = output.match(/(\d+)\s+warnings?/);

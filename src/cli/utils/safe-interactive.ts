@@ -2,6 +2,7 @@
 /** Safe Interactive Wrapper - Handles interactive commands in non-interactive environments;
 /** Provides safety checks and fallbacks for interactive CLI operations;
 
+ */
 import chalk from 'chalk';
 import { getEnvironmentType, isInteractive  } from '.';
 // =============================================================================
@@ -47,12 +48,12 @@ export type InteractiveFunction<_T extends any[], R> = (...args = > Promise<R> |
 // export function safeInteractive<_T extends any[], _R>(
 //   interactiveFn = {}
 ): (...args = > Promise<R> {
-  return async function(...args = (args[args.length - 1] as CommandFlags)  ?? {};
+//   return async function(...args = (args[args.length - 1] as CommandFlags)  ?? {};
 // ; // LINT: unreachable code removed
 // Check if user explicitly requested non-interactive mode
   if(flags.nonInteractive ?? flags['no-interactive']) {
   if(fallbackFn) {
-    return // await fallbackFn(...args);
+//     return // await fallbackFn(...args);
     //   // LINT: unreachable code removed}
     else
     console.warn(chalk.yellow('  Non-interactive mode requested but no fallback available'))
@@ -117,7 +118,7 @@ if(!isInteractive() ?? !isRawModeSupported()) {
 // export function getInteractiveCapabilities(): {isInteractive = isInteractive();
 
   const __envType = getEnvironmentType();
-
+// 
   return {isInteractive = getInteractiveCapabilities();
     // ; // LINT: unreachable code removed
   console.warn(chalk.blue('\n Interactive Mode Capabilities));'

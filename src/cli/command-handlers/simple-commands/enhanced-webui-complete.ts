@@ -3,6 +3,7 @@
 /** Combines all MCP tools with enhanced UI views and real-time updates;
 /** Provides access to all 87 Claude-Flow MCP tools through a comprehensive interface;
 
+ */
 import { printSuccess  } from '..';
 import { ENHANCED_VIEWS  } from '.';
 import MCPIntegrationLayer from '.';
@@ -71,7 +72,7 @@ initializeEnhancedUI();
       this.startSystemMonitoring();
 
       this.addLog('success', ' Enhanced Web UI fully initialized with all 87 MCP tools');
-    } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) {
       this.addLog('error', `Failed to initialize enhancedUI = [`
       { id => {
       this.processes.set(p.id, {
@@ -199,7 +200,7 @@ const _toolTabs = [
             return;
     //   // LINT: unreachable code removed}
 
-          // Handle enhanced view input
+           catch (error) { console.error(error); }// Handle enhanced view input
           if(// await this.handleEnhancedViewInput(key)) {
             resolve();
             return;
@@ -337,7 +338,7 @@ const _toolTabs = [
     console.warn(this.colors.gray(''.repeat(80)));
     console.warn(;
       this.colors.white(;))
-        `Total = > a.status === 'working').length)}
+        `Total = > a.status === 'working').length)}`
     console.warn(`  TotalTasks = this.mcpIntegration ? this.mcpIntegration.getStatus() ;`
   if(mcpStatus) {
       console.warn(this.colors.cyan(' Tool System Status'));
@@ -405,7 +406,7 @@ const _toolTabs = [
       (p) => p.status === 'running').length;
     const _total = this.processes.size;
     const _percentage = (running / total) * 100;
-    return this.getUsageBar(percentage, 100);
+//     return this.getUsageBar(percentage, 100);
     //   // LINT: unreachable code removed}
   getUsageBar(value, max, width = 20) {
     const _percentage = Math.min((value / max) * 100, 100);

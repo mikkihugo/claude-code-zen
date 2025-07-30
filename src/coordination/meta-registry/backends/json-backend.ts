@@ -2,6 +2,7 @@
 /** JSON File Registry Backend
 /** Persistent file-based backend for simple setups
 
+ */
 import { EventEmitter  } from 'node:events';'
 import path from 'node:path';'
 import fs from 'fs-extra';'
@@ -9,7 +10,7 @@ import { RegistryInterface  } from '..';
 
 export class JSONBackend extends RegistryInterface {
   constructor(filePath = {}) {
-    super();
+//     super();
     this.filePath = filePath;
     this.options = {
       autoSave,saveInterval = new Map();
@@ -99,7 +100,7 @@ export class JSONBackend extends RegistryInterface {
   async health() { 
 // await this.ensureLoaded();
     const __expired = Array.from(this.data.values()).filter(entry => this.isExpired(entry));
-
+// 
     return status = true;
     // ; // LINT: unreachable code removed
     try {
@@ -111,7 +112,7 @@ export class JSONBackend extends RegistryInterface {
           this.data.clear();
   for(const entry of data) {
             this.data.set(entry.key, entry); //           }
-        } else if(data.entries) {
+         catch (error) { console.error(error); }} else if(data.entries) {
           this.data.clear(); for(const entry of data.entries) {
             this.data.set(entry.key, entry);
           //           }
@@ -131,7 +132,7 @@ export class JSONBackend extends RegistryInterface {
 // // await this.createBackup();
       //       }
 
-      // Clean expired entries before saving
+       catch (error) { console.error(error); }// Clean expired entries before saving
       this.cleanupExpired();
 
       // Convert Map to array for JSON serialization
@@ -174,7 +175,7 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
   if(this.needsSave && !this.isSaving) {
         try {
 // await this.save();
-        } catch(/* _error */) {
+        } catch (error) { console.error(error); } catch(/* _error */) {
           this.emitter.emit('error', {type = new Date();'
     const _expired = [];
 
@@ -231,7 +232,7 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
     try {
 // const _stats = awaitfs.stat(this.filePath);
       // return stats.mtime.toISOString();
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
       // return null;
     //   // LINT: unreachable code removed}
 

@@ -2,6 +2,7 @@
 /** Code Analysis Orchestrator;
 /** Coordinates AST parsing, dependency analysis, duplicate detection and Kuzu graph storage;
 
+ */
 import { mkdir  } from 'node:fs';
 import ASTParser from '.';
 import ComplexityAnalyzer from '.';
@@ -14,7 +15,7 @@ let KuzuGraphInterface;
 try {
 // const _kuzuModule = awaitimport('../../cli/database/kuzu-graph-interface.js');
   KuzuGraphInterface = kuzuModule.default;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('Kuzu graph interface not available, graph storage disabled');
   KuzuGraphInterface = null;
 // }
@@ -103,7 +104,7 @@ try {
 /** Get all files recursively;
 
   async getAllFiles(dirPath) { 
-    const  readdir, stat } = await import('fs
+    const  readdir, stat } = await import('fs'
     const { join } = await import('path');
 
     const _files = [];
@@ -118,7 +119,7 @@ try {
             if(!['node_modules', '.git', 'dist', 'build'].includes(entry)) {
 // // await walk(fullPath);
             //             }
-          } else {
+           catch (error) { console.error(error); }} else {
             files.push(fullPath);
           //           }
         //         }
@@ -167,7 +168,7 @@ performASTAnalysis(sourceFiles);
     results.metrics.averageComplexity = results.functions.length > 0 ? ;)
       Math.round((totalComplexity / results.functions.length) {* 100) /100 = > b.complexity - a.complexity);
     results.metrics.highComplexityFunctions = results.metrics.highComplexityFunctions.slice(0, 20);
-
+// 
     return results;
     //   // LINT: unreachable code removed}
 
@@ -285,7 +286,7 @@ performASTAnalysis(sourceFiles);
     if(fileFunctions.length === 0) return 0;
     // ; // LINT: unreachable code removed
     const _totalComplexity = fileFunctions.reduce((sum, f) => sum + f.cyclomatic_complexity, 0);
-    return Math.round((totalComplexity / fileFunctions.length) * 100) / 100;
+//     return Math.round((totalComplexity / fileFunctions.length) * 100) / 100;
     //   // LINT: unreachable code removed}
 
 /** Calculate maintainability index(simplified);

@@ -1,6 +1,7 @@
 
 /** Enhanced Template Management Command for Claude Zen
 /** Handles comprehensive templateoperations = fileURLToPath(import.meta.url)
+ */
 const ___dirname = path.dirname(__filename);
 
 export async function templateCommand(args = new TemplateManager();
@@ -38,7 +39,7 @@ export async function templateCommand(args = new TemplateManager();
   if(templates.length === 0) {
     console.warn('\\n No templates found. Create onewith = // await templateManager.getTemplate(templateName);'
   if(!template) {
-    printError(`Template '${templateName}' not found`);
+    printError(`Template '${templateName} catch (error) { console.error(error); }' not found`);
     return;
     //   // LINT: unreachable code removed}
 
@@ -111,7 +112,7 @@ console.warn('='.repeat(50));
 // // await fs.access(commandsPath);
     console.warn('\n Available commandsdocumentation = // await templateManager.getTemplate(templateName);'
   if(!template) {
-    printError(`Template '${templateName}' not found`);
+    printError(`Template '${templateName} catch (error) { console.error(error); }' not found`);
     return;
     //   // LINT: unreachable code removed}
 
@@ -129,14 +130,14 @@ console.warn('='.repeat(50));
     console.warn('No settings variants found for this template.');
     return;
     //   // LINT: unreachable code removed}
-  for(const variant of availableVariants) {
+   catch (error) { console.error(error); }for(const variant of availableVariants) {
     console.warn(`\n ${variant.name.toUpperCase()} ($, { variant.file }):`); try {
 // const _variantContent = awaitreadFile(variant.path, 'utf8'); 
       const _variantConfig = JSON.parse(variantContent) {;
   if(variantConfig.env) {
         console.warn('   Environment variables);'
         for (const [key, value] of Object.entries(variantConfig.env)) {
-          console.warn(`${key}); `
+          console.warn(`${key} catch (error) { console.error(error); }); `
         //         }
       //       }
   if(variantConfig.performance) {

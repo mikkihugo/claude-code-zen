@@ -8,6 +8,7 @@ import { StateTracker  } from '.';
 
 /** Main rollback orchestrator
 
+ */
 export class RollbackSystem {
   constructor(workingDir = workingDir;
   this;
@@ -129,12 +130,12 @@ createPreInitBackup();
       result.errors.push(`Rollback system validationfailed = // await this.stateTracker.getRollbackPoints();`
       const _preInitPoints = rollbackPoints.filter((point) => point.type === 'pre-init');
   if(preInitPoints.length > 0) {
-        return preInitPoints.sort((a, b) => b.timestamp - a.timestamp)[0].backupId;
+//         return preInitPoints.sort((a, b) => b.timestamp - a.timestamp)[0].backupId;
     //   // LINT: unreachable code removed}
-
+// 
       return null;
     //   // LINT: unreachable code removed} catch ;
-      return null;
+//       return null;
     //   // LINT: unreachable code removed}
 
   async findLatestCheckpoint(phase) ;
@@ -142,12 +143,12 @@ createPreInitBackup();
 // const _checkpoints = awaitthis.stateTracker.getCheckpoints();
       const _phaseCheckpoints = checkpoints.filter((checkpoint) => checkpoint.phase === phase);
   if(phaseCheckpoints.length > 0) {
-        return phaseCheckpoints.sort((a, b) => b.timestamp - a.timestamp)[0];
+//         return phaseCheckpoints.sort((a, b) => b.timestamp - a.timestamp)[0];
     //   // LINT: unreachable code removed}
-
+ catch (error) { console.error(error); }// 
       return null;
     //   // LINT: unreachable code removed} catch {
-      return null;
+//       return null;
     //   // LINT: unreachable code removed}
 // }
 
@@ -187,7 +188,7 @@ createPreInitBackup();
 /** Create and manage atomic operations
 
 // export function _createAtomicOperation(rollbackSystem, operationName) {
-  return new AtomicOperation(rollbackSystem, operationName);
+//   return new AtomicOperation(rollbackSystem, operationName);
 // }
 
 }}}}}}}}}}}}}}}})))))))))

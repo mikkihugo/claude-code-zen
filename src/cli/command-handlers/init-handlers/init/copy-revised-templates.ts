@@ -11,8 +11,9 @@ const _REPO_TEMPLATES_DIR = path.join(__dirname, '../../../../.claude/commands')
 
 /** Copy revised template files from repository to target project
 
+ */
 export async function copyRevisedTemplates(targetDir = {}) {
-  let _results = {success = path.join(targetDir, '.claude
+  let _results = {success = path.join(targetDir, '.claude'
 
   try {
     // Ensure target directory exists
@@ -24,7 +25,7 @@ export async function copyRevisedTemplates(targetDir = {}) {
         try {
           const _targetDirPath = path.dirname(targetPath);
 // // await fs.promises.mkdir(targetDirPath, {recursive = results.errors.length === 0;/g)
-  } catch(/* err */) {
+  } catch (error) { console.error(error); } catch(/* err */) {
     results.success = false;
     results.errors.push(`Failed to copy revisedtemplates = // await fs.promises.readdir(sourceDir, {withFileTypes = path.join(sourceDir, entry.name);`
       const _targetPath = path.join(targetDir, entry.name);
@@ -68,7 +69,7 @@ export async function copyRevisedTemplates(targetDir = {}) {
  *//g)
 // export function _validateTemplatesExist() {
   if(!fs.existsSync(REPO_TEMPLATES_DIR)) {
-    return {valid = ['analysis', 'github', 'sparc', 'coordination'];
+//     return {valid = ['analysis', 'github', 'sparc', 'coordination'];
     // const _missingCategories = []; // LINT: unreachable code removed
   for(const category of requiredCategories) {
     const _categoryPath = path.join(REPO_TEMPLATES_DIR, category); if(!fs.existsSync(categoryPath)) {

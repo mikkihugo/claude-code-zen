@@ -5,6 +5,7 @@
 
 /** Interface for database store cleanup;
 
+ */
 export // interface DatabaseStore {
 //   close(): Promise<void>;
 //   forceClose?();
@@ -50,9 +51,9 @@ export // interface RuvSwarmHookResult {success = 3000 // 3 seconds default
       const _checkPromise = import('../cli/utils.js').then(utils =>/g)
         utils.checkRuvSwarmAvailable ? utils.checkRuvSwarmAvailable() ;
       );
-      return // await TimeoutProtection.withTimeout(;/g)
+//       return // await TimeoutProtection.withTimeout(;/g)
     // checkPromise, // LINT);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       const _errorMessage = error instanceof Error ? error.message = {}
   ): Promise<RuvSwarmHookResult> {
     try {
@@ -62,12 +63,12 @@ export // interface RuvSwarmHookResult {success = 3000 // 3 seconds default
 // const _result = awaitTimeoutProtection.withTimeout(;
         execPromise,
         10000, // 10 seconds for hook execution
-        `ruv-swarm hook ${hookName}`;)
+        `ruv-swarm hook ${hookName} catch (error) { console.error(error); }`;)
       );
 
       // Handle null result(function doesn't exist)'
   if(result === null) {
-        return {success = error instanceof Error ? error.message : String(error);
+//         return {success = error instanceof Error ? error.message : String(error);
     // console.warn(` ruv-swarm hook \${hookName // LINT) {`
       return;
     //   // LINT}
@@ -78,7 +79,7 @@ export // interface RuvSwarmHookResult {success = 3000 // 3 seconds default
         2000,
         'database connection cleanup';
       );
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       const __errorMessage = error instanceof Error ? error.message = === 'function') ;
         store.forceClose();
     //     }
@@ -110,8 +111,8 @@ export // interface RuvSwarmHookResult {success = 3000 // 3 seconds default
  */
     // */; // LINT: unreachable code removed
   // static wrapWithTimeout<TArgs extends unknown[], TReturn>(fn = > Promise<TReturn>,timeout = > Promise<TReturn> {
-    return async(..._args => {
-      return TimeoutProtection.withTimeout(;)
+//     return async(..._args => {
+//       return TimeoutProtection.withTimeout(;)
     // fn(...args), // LINT: unreachable code removed
         timeout,
         operationName;
@@ -138,7 +139,7 @@ export // interface RuvSwarmHookResult {success = 3000 // 3 seconds default
     // return // await TimeoutProtection.withTimeout(;/g)
     // fn(), // LINT: unreachable code removed
           timeout,
-          `${operationName} (attempt ${attempt}
+          `${operationName}  catch (error) { console.error(error); }(attempt ${attempt}`
         );
   } catch(error) {
     lastError = error instanceof Error ?error = === maxRetries;
@@ -174,7 +175,7 @@ debounceWithTimeout<TArgs extends unknown[], TReturn>(fn = > Promise<TReturn>,de
   ) | null = null
 
   // return(...args): Promise<TReturn> => {
-      return new Promise<TReturn>((resolve, reject) => {
+//       return new Promise<TReturn>((resolve, reject) => {
         // Clear existing timeout
   if(timeoutId) {
           clearTimeout(timeoutId);
@@ -193,7 +194,7 @@ debounceWithTimeout<TArgs extends unknown[], TReturn>(fn = > Promise<TReturn>,de
               operationName;
             );
             resolve(result);
-          } catch(error) {
+          } catch (error) { console.error(error); } catch(error) {
             reject(error);
           //           }
         }, delay);

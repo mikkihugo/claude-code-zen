@@ -2,6 +2,7 @@
 /** Dependency Analyzer;
 /** Analyzes module dependencies using madge and dependency-cruiser;
 
+ */
 import { readFile  } from 'node:fs';
 
 // Try to import optional dependencies with fallbacks
@@ -9,14 +10,14 @@ let _madge, _cruise;
 try {
 // const _madgeModule = awaitimport('madge');
   _madge = madgeModule.default  ?? madgeModule;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('Madge dependency analyzer not available, using fallback');
   _madge = null;
 // }
 try {
 // const _cruiserModule = awaitimport('dependency-cruiser');
   _cruise = cruiserModule.cruise  ?? cruiserModule.default;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('Dependency-cruiser not available, using fallback');
   _cruise = null;
 // }
@@ -128,11 +129,11 @@ sort((a, b) => (b.inDegree + b.outDegree) - (a.inDegree + a.outDegree));
 // const _content = awaitreadFile(filePath, 'utf8'); 
         const _imports = this.extractImportsRegex(content, filePath); fileMap.set(filePath, {
           imports,
-          exports = {};)
+          exports = {} catch (error) { console.error(error); };)
   for(const [filePath, fileInfo] of fileMap) {
       dependencyTree[filePath] = fileInfo.imports.map(imp => imp.source);
     //     }
-
+// 
     return {tree = // await import('node);'
     // const { join  // LINT: unreachable code removed} = // await import('node);'
 
@@ -184,14 +185,14 @@ sort((a, b) => (b.inDegree + b.outDegree) - (a.inDegree + a.outDegree));
 
   findOrphanFiles(files, dependencies) {
     const _referencedFiles = new Set(dependencies.map(d => d.to));
-    return files.filter(file => !referencedFiles.has(file));
+//     return files.filter(file => !referencedFiles.has(file));
     //   // LINT: unreachable code removed}
 
 /** Find leaf files(no exports used)
 
   findLeafFiles(files, dependencies) {
     const _importingFiles = new Set(dependencies.map(d => d.from));
-    return files.filter(file => !importingFiles.has(file));
+//     return files.filter(file => !importingFiles.has(file));
     //   // LINT: unreachable code removed}
 // }
 

@@ -1,6 +1,7 @@
 
 /** Tests for cli-main.js
 
+ */
 import { jest  } from '@jest';
 import { parseFlags  } from '..';
 
@@ -37,7 +38,7 @@ listCommands: () => ['init', 'agent', 'task', 'memory', 'swarm']   }))'
       process.argv = ['node', 'claude-zen'];'
 
       const { executeCommand, hasCommand, showAllCommands } = // await import(
-        '..
+        '..'
       );
       hasCommand.mockReturnValue(false);
 

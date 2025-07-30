@@ -2,6 +2,7 @@
 /** Plugin Resource Monitor;
 /** Real-time monitoring and enforcement of plugin resource usage limits;
 
+ */
 import { PerformanceObserver  } from 'node:perf_hooks';
 import { cpuUsage  } from 'node:process';
 // // interface ResourceMetrics {pluginName = new Map() {}
@@ -18,7 +19,7 @@ import { cpuUsage  } from 'node:process';
 // config = {}
 // )
 // {
-  super();
+//   super();
   this.config = {enabled = config.resourceLimits ? this.parseResourceLimits(config.resourceLimits) : [];
   this.plugins.set(pluginName, {
       manifest,
@@ -48,7 +49,7 @@ import { cpuUsage  } from 'node:process';
         // Store metrics
         pluginData.metrics.push(metrics); // Check for alerts
 // // await this.checkResourceAlerts(pluginName, metrics, pluginData.limits) {;
-        this.emit('metrics-collected', { pluginName, metrics });
+        this.emit('metrics-collected', { pluginName, metrics } catch (error) { console.error(error); });
       } catch(_error
     = new Date() {}
     // Get memory usage
@@ -196,13 +197,13 @@ if(memory.percentage >= critical) {
     const _allAlerts = [];
   for(const [ pluginData] of this.plugins) {
       allAlerts.push(...pluginData.alerts.filter((alert) => !alert.acknowledged)); //     }
-
+// 
     return allAlerts.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime()); //   // LINT: unreachable code removed}
   acknowledgeAlert(alertId = pluginData.alerts.find(a => a.id === alertId) {;
   if(alert) {
     alert.acknowledged = true;
     this.emit('alert-acknowledged', alert);
-    return true;
+//     return true;
     //   // LINT: unreachable code removed}
 // }
 // return false;
@@ -227,7 +228,7 @@ if(memory.percentage >= critical) {
     _activeAlerts += unacknowledgedAlerts.length;
     _criticalAlerts += unacknowledgedAlerts.filter((a) => a.alertType === 'critical').length;
   //   }
-
+// 
   return {totalPlugins = this.networkCounters.get(pluginName);
     // if(counter) { // LINT: unreachable code removed
     counter.requests++;

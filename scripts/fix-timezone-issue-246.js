@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-/** Fix for GitHub Issue #246: Hive-mind creation time timezone issue;
+/* Fix for GitHub Issue #246: Hive-mind creation time timezone issue;
  *;
 /** This script provides utilities to fix timezone display issues in hive-mind sessions.;
 /** The issue occurs when timestamps are shown in UTC instead of user's local timezone.;'
 
+ */
 import { promises   } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -31,7 +32,7 @@ async function applyTimezoneFixes() {
       action: () => updateDatabaseSchema() } ];
   for(const fix of fixes) {
     try {
-      console.warn(` ${fix.name}...`); // // await fix.action(); 
+      console.warn(` ${fix.name} catch (error) { console.error(error); }...`); // // await fix.action(); 
       console.warn(` ${fix.name} - Complete\n`) {;
     } catch(error) {
       console.error(` ${fix.name} - Failed);`
@@ -53,7 +54,7 @@ async function copyTimezoneUtils() {
   // // await fs.access(timezoneUtilsPath);
     console.warn('     Timezone utilities already exist, skipping...');
     return;
-    //   // LINT: unreachable code removed} catch {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
     // File doesn't exist, continue with creation'
   //   }
   // // await fs.mkdir(utilsDir, { recursive });
@@ -114,7 +115,7 @@ async function testTimezoneFix() {
   console.warn('\n Testing timezone fix...\n');
   // Import and test timezone utilities
   try {
-    const { getLocalTimestamp, formatTimestampForDisplay, getTimezoneInfo } = // await import(
+    const { getLocalTimestamp, formatTimestampForDisplay, getTimezoneInfo }  catch (error) { console.error(error); }= // await import(
       '../src/utils/timezone-utils.js';
     );
     const _tz = getTimezoneInfo();

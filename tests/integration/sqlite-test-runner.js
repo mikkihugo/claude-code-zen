@@ -1,8 +1,9 @@
 #!/usr/bin/env node;
 
-/** SQLite Integration Test Runner;
+/* SQLite Integration Test Runner;
 /** Validates SQLite functionality and runs integration tests;
 
+ */
 import { spawn  } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -34,7 +35,7 @@ async function runTest() {
       child.stdout.on('data', (data) => {
         stdout += data.toString();
         process.stdout.write(data);
-      });
+      } catch (error) { console.error(error); });
       child.stderr.on('data', (data) => {
         stderr += data.toString();
         process.stderr.write(data);
@@ -60,7 +61,7 @@ async function checkSQLiteAvailability() {
   log('\n Checking SQLite availability...', 'cyan');
   try {
     // Try to import better-sqlite3
-    const { isSQLiteAvailable, getLoadError } = // await import('../../src/memory/sqlite-wrapper.js');
+    const { isSQLiteAvailable, getLoadError }  catch (error) { console.error(error); }= // await import('../../src/memory/sqlite-wrapper.js');
 // const _available = awaitisSQLiteAvailable();
   if(available) {
       log(' SQLite(better-sqlite3) is available', 'green');
@@ -115,7 +116,7 @@ async function runIntegrationTests() {
           '--',
           'tests/integration/real-metrics.test.js' ]) ]);
       results.push(...sqliteSpecificResults);
-    } else {
+    }  catch (error) { console.error(error); }else {
       log('\n  Skipping SQLite-specific tests(SQLite not available)', 'yellow');
     //     }
   } catch(error) {

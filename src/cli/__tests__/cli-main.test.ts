@@ -1,6 +1,7 @@
 
 /** Tests for cli-main.js
 
+ */
 import { jest  } from '@jest';
 import { parseFlags  } from '..';
 
@@ -51,12 +52,12 @@ describe('Claude-Flow CLI', () =>'
     test('should show help when no arguments provided', async() => {'
       process.argv = ['node', 'claude-zen'];'
       const { executeCommand, hasCommand, showAllCommands } = // await import(
-        '..
+        '..'
       //       )
       hasCommand.mockReturnValue(false)
       // Import after mocks are set up
 // await
-      import('..
+      import('..'
       expect(consoleLogSpy).toHaveBeenCalled();
       const _output = consoleLogSpy.mock.calls.join('\n');'
       expect(output).toContain('Claude-Flow v2.0.0');'
@@ -99,7 +100,7 @@ describe('Claude-Flow CLI', () =>'
       executeCommand.mockResolvedValue(undefined);
 // // // await import('../cli-main.js');'
       expect(hasCommand).toHaveBeenCalledWith('swarm');'
-      expect(executeCommand).toHaveBeenCalledWith('swarm', ['Build a REST API'], {')
+      expect(executeCommand).toHaveBeenCalledWith('swarm', ['Build a REST API'], {')'
         strategy);
   });
   test('should show error for unknown command', async() => {'

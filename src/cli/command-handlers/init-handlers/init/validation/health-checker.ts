@@ -6,6 +6,7 @@ export class HealthChecker {
 
 /** Check SPARC mode availability
 
+ */
 async;
 checkModeAvailability();
 // {
@@ -53,7 +54,7 @@ checkModeAvailability();
           result.templates.missing.push(...templateCheck.missing);
           result.templates.corrupted.push(...templateCheck.corrupted);
         //         }
-      } catch {
+       catch (error) { console.error(error); }} catch {
         result.templates.missing.push(dir);
       //       }
     //     }
@@ -65,7 +66,7 @@ checkModeAvailability();
 // const _content = awaitnode.readTextFile(templatePath); 
   if(content.length < 50) {
           result.templates.corrupted.push(template);
-        } else {
+        }  catch (error) { console.error(error); }else {
           result.templates.found.push(template);
         //         }
       } catch {
@@ -164,12 +165,12 @@ checkModeAvailability();
       checkTemplateDirectory(dirPath);
       : unknown
       //       {
-        const _result = {found = `${dirPath}
+        const _result = {found = `${dirPath}`
         try {
 // const _stat = awaitnode.stat(filePath);
   if(stat.size === 0) {
             result.corrupted.push(entry.name);
-          } else {
+          }  catch (error) { console.error(error); }else {
             result.found.push(entry.name);
           //           }
         } catch {
@@ -184,7 +185,7 @@ checkModeAvailability();
 async;
 checkRoomodesConsistency();
 // {
-  const _result = {consistent = `${this.workingDir}
+  const _result = {consistent = `${this.workingDir}`
 // const _content = awaitnode.readTextFile(roomodesPath);
   const _config = JSON.parse(content);
   if(config.modes) {
@@ -195,7 +196,7 @@ checkRoomodesConsistency();
         if(entry.isFile && entry.name.endsWith('.js')) {
           commandFiles.push(entry.name.replace('.js', ''));
         //         }
-      //       }
+       catch (error) { console.error(error); }//       }
       const _modeNames = Object.keys(config.modes);
   for(const mode of modeNames) {
         if(!commandFiles.some((cmd) => cmd.includes(mode))) {
@@ -216,7 +217,7 @@ checkRoomodesConsistency();
 // }
 // async checkClaudeConfigConsistency() { }
 
-  const _result = {consistent = `${this.workingDir}
+  const _result = {consistent = `${this.workingDir}`
 // const _content = awaitnode.readTextFile(claudePath);
   // Check if mentioned commands exist
   const _mentionedCommands = ['claude-zen sparc', 'npm run build', 'npm run test'];
@@ -227,7 +228,7 @@ checkRoomodesConsistency();
         const _executablePath = `${this.workingDir}/claude-zen`; 
         try {
 // // await node.stat(executablePath) {;
-        } catch {
+        } catch (error) { console.error(error); } catch {
           result.consistent = false;
           result.issues.push(`Command ${command} mentioned but executable not found`);
         //         }
@@ -257,7 +258,7 @@ checkRoomodesConsistency();
       const _expectedDirs = ['agents', 'sessions'];
   for(const dir of expectedDirs) {
         try {
-// // await node.stat(`${this.workingDir}/memory/${dir}`); 
+// // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/memory/${dir}`); 
         } catch {
           result.consistent = false; result.issues.push(`Memory directorymissing = false;`)
       result.issues.push('Cannot validate memory structure') {;

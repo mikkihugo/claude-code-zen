@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-/** Neural Architecture Advisor Example;
+/* Neural Architecture Advisor Example;
 /** Demonstrates how the ArchitectAdvisor Queen uses neural networks;
  * to provide intelligent architectural recommendations;
 
+ */
 import { ArchitectAdvisor  } from '../src/queens/architect-advisor.js';
 import { createQueenCoordinator  } from '../src/queens/index.js';
 import { Logger  } from '../src/utils/logger.js';
@@ -192,7 +193,7 @@ async function runDemo() {
   // await demonstrateArchitectureAnalysis();
   // await demonstrateQueenCoordination();
   // // await demonstrateNeuralLearning();
-    console.warn(`\n\n${'='.repeat(80)}`);
+    console.warn(`\n\n${'='.repeat(80)} catch (error) { console.error(error); }`);
     console.warn(' Neural Network Integration Demo Complete!\n');
     console.warn('Key Takeaways');
     console.warn('1. Neural networks enhance decision-making with pattern recognition');

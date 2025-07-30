@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Import REAL Singularity Engine documentation into Document Stack
+/* Import REAL Singularity Engine documentation into Document Stack
 /** These are actual project docs that Claude Desktop can access via MCP
 
+ */
 const fs = require('node).promises;'
 const _path = require('node);'
 const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
@@ -81,7 +82,7 @@ async function importRealDocs() {
       // Check if file exists
       try {
 // // await fs.access(docInfo.file); 
-      } catch(_error) {
+      } catch (error) { console.error(error); } catch(_error) {
         continue; }
 // const content = awaitfs.readFile(docInfo.file, 'utf-8') {;
 

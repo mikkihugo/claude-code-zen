@@ -2,29 +2,30 @@
 /** Agentic-Flow Hook System - Main Export;
 /** Comprehensive hook-based automation and workflow management system;
 
-export { HookManager  } from '.
+ */
+export { HookManager  } from '.'
 // Hook implementations
-export * from '.
-export * from '.
-export * from '.
-export * from '.
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
 // Core types and manager
-export * from '.
-export * from '.
+export * from '.'
+export * from '.'
 
 // Quick start function
 export async function createHookManager() {
-  const { HookManager } = await import('.
+  const { HookManager } = await import('.'
   const _manager = new HookManager(config);
   // Auto-register built-in hooks
 // // await registerBuiltInHooks(manager);
-  return manager;
+//   return manager;
 // }
 // Register all built-in hooks
 // export async function registerBuiltInHooks(manager = // await import('./llm-hooks.js');
-const { NEURAL_HOOKS } = await import('.
-const { PERFORMANCE_HOOKS } = await import('.
-const { MEMORY_HOOKS } = await import('.
+const { NEURAL_HOOKS } = await import('.'
+const { PERFORMANCE_HOOKS } = await import('.'
+const { MEMORY_HOOKS } = await import('.'
 const { WORKFLOW_HOOKS } = // await import('./workflow-hooks.js');
 
 // Register all hooks
@@ -36,7 +37,7 @@ const _allHooks = [..LLM_HOOKS,
   for(const hookRegistration of allHooks) {
   try {
 // // await manager.registerHook(hookRegistration); 
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     console.warn(`Failed to register hook ${hookRegistration.name}); `
   //   }
 // }
@@ -51,51 +52,51 @@ console.warn(`Successfully registered ${allHooks.length} built-in hooks`) {;
 // export async function executePostTaskHooks(manager = createHookContext('post-task');
 const __payload = {
     context,data = await manager.executeHooks('post-task', payload);
-return result;
+// return result;
 // }
 // export async function executePreEditHooks(manager = createHookContext('pre-edit');
 const _payload = {
     context,data = await manager.executeHooks('pre-edit', payload);
-return result;
+// return result;
 // }
 // export async function executePostEditHooks(manager = createHookContext('post-edit');
 const _payload = {
     context,data = await manager.executeHooks('post-edit', payload);
-return result;
+// return result;
 // }
 // export async function executeLLMHooks(manager = 'llm-request'): Promise<any> {
   const _context = createHookContext(type);
   const _payload = {
     context,data = await manager.executeHooks(type, payload);
-  return result;
+//   return result;
 // }
 // export async function executeNeuralHooks(manager = createHookContext('neural-operation');
 const _payload = {
     context,data = await manager.executeHooks('neural-operation', payload);
-return result;
+// return result;
 // }
 // export async function executePerformanceHooks(manager = createHookContext('performance-metric');
 const _payload = {
     context,data = await manager.executeHooks('performance-metric', payload);
-return result;
+// return result;
 // }
 // export async function executeMemoryHooks(manager = createHookContext('memory-operation');
 const _payload = {
     context,data = await manager.executeHooks('memory-operation', payload);
-return result;
+// return result;
 // }
 // export async function executeWorkflowHooks(manager = createHookContext('workflow-step');
 const _payload = {
     context,data = await manager.executeHooks('workflow-step', payload);
-return result;
+// return result;
 // }
 // Convenience hook creators
 // export function createLLMRequestHook() {
-  return {
+//   return {
     name,type = = false,async = = false,timeout = > Promise<any>,
     // options = { // LINT: unreachable code removed}
 ) ;
-  return {
+//   return {
     name,type = = false,async = = false,timeout = > Promise<any>,
     // options = { // LINT: unreachable code removed}
 ) ;
@@ -107,7 +108,7 @@ return result;
     name,type = = false,async = = false,timeout = === 'production' ? 'production' : 'development',
     // version = {DEVELOPMENT = {success = 3600000) => createLLMRequestHook(; // LINT) => {
       // Caching logic would go here
-      return {
+//       return {
         success => {
       console.warn(`[Hook] LLM Request => {`)
   if(_payload._error) {
@@ -118,7 +119,7 @@ return result;
   'my-custom-hook',
   async(payload) => {
     // Custom logic here
-    return {
+//     return {
       success,
     // data: { processed: true  // LINT: unreachable code removed},
       hookName: 'my-custom-hook',

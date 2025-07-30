@@ -2,6 +2,7 @@
 /** Hive Mind Core System
 /** Central orchestration and coordination logic
 
+ */
 import EventEmitter from 'node:events';
 import { MCPToolWrapper  } from '.';
 import { PerformanceOptimizer  } from '.';
@@ -10,7 +11,7 @@ import { PerformanceOptimizer  } from '.';
 
 export class HiveMindCore extends EventEmitter {
   constructor(metaRegistryManager = {}) {
-    super();
+//     super();
 
     this.metaRegistryManager = metaRegistryManager;
     this.defaultRegistry = null;
@@ -131,7 +132,7 @@ spawnQueen(queenData);
   if(result?.agentId && !result.error) {
 // // await this.mcpWrapper.executeTool('memory_usage', {action = Date.now() - startTime; 
       this._trackSpawnPerformance(workerTypes.length, spawnTime); // Store worker info in memory(via mcpWrapper) {
-// // await this.mcpWrapper.executeTool('memory_usage', {action = > ({ id: r.agentId,type = 5, metadata = {  }) {
+// // await this.mcpWrapper.executeTool('memory_usage', {action = > ({ id: r.agentId,type = 5, metadata = {  } catch (error) { console.error(error); }) {
     const _timestamp = Date.now();
     const _randomPart = Math.random().toString(36).substring(2, 11); // Use substring instead of substr
     const __taskId = `;`
@@ -237,17 +238,17 @@ task - $;
       case 'majority': {
         // Simple majority
         const __sorted = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
-
+// 
         return {decision = decision.votes.get('queen');
     // voteCount[queenVote] = (voteCount[queenVote]  ?? 0) + 2; // Queen counts as 3 votes // LINT: unreachable code removed
 
         const __weightedSorted = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
-
+// 
         return {decision = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
     // const _byzantineWinner = byzantineSorted[0]; // LINT: unreachable code removed
         const _byzantineConfidence = byzantineWinner[1] / votes.length;
   if(byzantineConfidence >= 0.67) {
-          return {decision = (// await this.mcpWrapper.executeTool('swarm_status', {swarmId = (// await this.mcpWrapper.executeTool('swarm_status', {swarmId = // await this._determineWorkerType();
+//           return {decision = (// await this.mcpWrapper.executeTool('swarm_status', {swarmId = (// await this.mcpWrapper.executeTool('swarm_status', {swarmId = // await this._determineWorkerType();
     // // await this.spawnWorkers([newWorkerType]); // LINT: unreachable code removed
       console.warn(`;`
 Auto-scaled = (// await this.mcpWrapper.executeTool('swarm_status', { swarmId = {};/g)))
@@ -257,7 +258,7 @@ typeScores.coder = 1; // Default to coder for now
 
 // Return type with highest score
 const _sorted = Object.entries(typeScores).sort((a, b) => b[1] - a[1]);
-return sorted.length > 0 ? sorted[0][0] : 'coder'; // Default to coder
+// return sorted.length > 0 ? sorted[0][0] : 'coder'; // Default to coder
 // }
 
 /** Update performance metrics
@@ -285,7 +286,7 @@ _handleError(error)
       const _performanceReport = this.performanceOptimizer.generatePerformanceReport();
   // Save final state and performance report(via mcpWrapper, which uses ruv-swarm's memory)'
 // // await this.mcpWrapper.executeTool('memory_usage', {action = 'shutdown';/g)
-  this.emit('shutdown', { performanceReport });
+  this.emit('shutdown', { performanceReport } catch (error) { console.error(error); });
 // }
 catch(error)
 // {

@@ -2,6 +2,7 @@
 /** Coordination System Types;
 /** Advanced coordination layer for Queens, Swarms, and Hive Mind integration;
 
+ */
 import type { Identifiable, JSONObject  } from '.';
 
 // =============================================================================

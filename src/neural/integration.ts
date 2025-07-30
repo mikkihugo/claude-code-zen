@@ -1,6 +1,7 @@
 
 /** Integration module for ruv-FANN bindings with claude-zen;
 
+ */
 import { getActivationFunctions,
 getBackendInfo,
 getVersion,
@@ -28,7 +29,7 @@ export // interface NetworkMetadata {id = false
 //   try {
 // // // await init();
 //       const _backendInfo = getBackendInfo();
-//       console.warn(` Claude Zen Neural Service initialized with ${backendInfo.backend} backend`);
+//       console.warn(` Claude Zen Neural Service initialized with ${backendInfo.backend}  catch (error) { console.error(error); }backend`);
       console.warn(`Version = true;`)
     } catch(error) {
 
@@ -108,29 +109,29 @@ this.networks.set(id,
 /** Convenience functions for direct access;
 
 // export async function initializeNeuralService(): Promise<void> {
-  return await neuralService.initialize();
+//   return await neuralService.initialize();
 // }
 // export async function createNeuralNetwork(
   id,
 layers): Promise<any>
 // {
-  return // await neuralService.createNetwork(id, layers, options);
+//   return // await neuralService.createNetwork(id, layers, options);
 // }
 // export function getNeuralNetwork(id): unknown | null {
-  return neuralService.getNetwork(id);
+//   return neuralService.getNetwork(id);
 // }
 // export async function trainNeuralNetwork(
   networkId,
 trainingData,
 config?): Promise<any>
 // {
-  return // await neuralService.trainNetwork(networkId, trainingData, config);
+//   return // await neuralService.trainNetwork(networkId, trainingData, config);
 // }
 // export function predictWithNetwork(networkId, input): number[] {
-  return neuralService.predict(networkId, input);
+//   return neuralService.predict(networkId, input);
 // }
 // export function getNeuralServiceStatus() {
-  return neuralService.getStatus();
+//   return neuralService.getStatus();
 // }
 // Export the direct bindings as well for advanced use
 // export type {

@@ -2,6 +2,7 @@
 /** Queen Council System - Multi-Queen Strategic Coordination;
 /** Integrates with PRDs, Roadmaps, Architecture Docs, and Strategic Planning;
 
+ */
 import { mkdir  } from 'node:fs';
 import path from 'node:path';
 import { circuitBreakerManager  } from '../core/circuit-breaker.js';
@@ -97,7 +98,7 @@ export class QueenCouncil {
         queenDecisions[name] = {recommendation = this.errorRecovery.maxRetries) {
         try {
           attempts++;
-          printInfo(` ${name.toUpperCase()} Queen analyzing... (attempt ${attempts})`);
+          printInfo(` ${name.toUpperCase()}  catch (error) { console.error(error); }Queen analyzing... (attempt ${attempts})`);
 
           // Execute queen analysis with circuit breaker protection
 // const _result = awaitcircuitBreakerManager.execute(;
@@ -105,7 +106,7 @@ export class QueenCouncil {
             async() => {
 // const _analysis = awaitqueen.analyzeWithDocuments(objective, relevantDocs, context);
 // const _decision = awaitqueen.makeDecision(objective, analysis, relevantDocs);
-              return { analysis, decision };
+//               return { analysis, decision };
     //   // LINT: unreachable code removed},
             `${name} queen analysis`,failureThreshold = Date.now() - startTime;
           this.updateQueenHealth(name, true, responseTime);
@@ -124,7 +125,7 @@ export class QueenCouncil {
             printError(` ${name.toUpperCase()} Queen = {recommendation = Object.values(queenDecisions).filter(d => d.failed  ?? d.skipped).length;`
   if(failedQueens > this.errorRecovery.maxFailedQueens) {
       printWarning(` Too many queen failures($, { failedQueens }), applying error recovery strategy`);
-      return this.applyErrorRecoveryStrategy(objective, queenDecisions, relevantDocs, context);
+//       return this.applyErrorRecoveryStrategy(objective, queenDecisions, relevantDocs, context);
     //   // LINT: unreachable code removed}
 
     // Step3 = // await this.achieveConsensus(objective, queenDecisions, relevantDocs);
@@ -206,7 +207,7 @@ export class QueenCouncil {
     try {
 // const __adr = awaitstrategicDocs.createADR({/g)
         decisionId,title = > doc.id  ?? doc.path),prds = > doc.id  ?? doc.path),architecture = > doc.id  ?? doc.path),adrs = > doc.id  ?? doc.path);
-    };
+    } catch (error) { console.error(error); };
   //   }
 
   async resolveConflict(objective, queenDecisions, relevantDocs) ;
@@ -229,7 +230,7 @@ export class QueenCouncil {
         async() => {
 // const _analysis = awaitemergencyQueen.analyzeWithDocuments(objective, relevantDocs, context);
 // const _decision = awaitemergencyQueen.makeDecision(objective, analysis, relevantDocs);
-          return { analysis, decision };
+//           return { analysis, decision };
     //   // LINT: unreachable code removed},
         'emergency queen decision',
           failureThreshold = {decision = this.errorRecovery.fallbackStrategy;
@@ -261,7 +262,7 @@ export class QueenCouncil {
         'PARTIALCONSENSUS = Math.max(0.3, consensus.confidence * 0.8);'
   printWarning(` Partial consensusachieved = originalThreshold;`
     //     }
-  //   }
+   catch (error) { console.error(error); }//   }
 
 /** Get comprehensive error recovery status;
 

@@ -72,9 +72,9 @@ function checkResponse() {
     'h JSON body': (r) =>
       try {
         JSON.parse(r.body);
-        return true;
-    //   // LINT: unreachable code removed} catch {
-        return false;
+//         return true;
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+//         return false;
     //   // LINT: unreachable code removed}
     });
   errorRate.add(!success);
@@ -85,10 +85,10 @@ function checkResponse() {
   const _headers = {
     Authorization: `Bearer ${API_KEY}`,
   ('Content-Type');
-  : 'application
+  : 'application'
 // }
 // Scenario 1: Health check
-const _healthCheck = http.get(`${BASE_URL}
+const _healthCheck = http.get(`${BASE_URL}`
 checkResponse(healthCheck);
 // Scenario 2: Upload image
 const _uploadPayload = {
@@ -137,7 +137,7 @@ sleep(Math.random() * 2 + 1); // 1-3 seconds
 // }
 // Handle summary export
 // export function handleSummary() {
-  return {
+//   return {
     'summary.html': htmlReport(data),
     // 'summary.json': JSON.stringify(data), // LINT: unreachable code removed
     stdout: textSummary(data, { indent: ' ', enableColors })
@@ -166,7 +166,7 @@ function textSummary() {
   // Throughput
   const _duration = Date.now() - data.state.testRunDurationMs;
   const _rps = metrics.http_reqs.values.count / (duration / 1000);
-  summary += `Throughput: ${rps.toFixed(2)} requests
+  summary += `Throughput: ${rps.toFixed(2)} requests`
   // Threshold results
   summary += '\nThreshold Results:\n';
   Object.entries(data.metrics).forEach(([name, metric]) => {
@@ -175,13 +175,13 @@ function textSummary() {
       summary += `${name}: \${passed ? ' PASSED' }\n`;
 // }
   });
-  return summary;
+//   return summary;
 // }
 // Additional test scenarios for specific endpoints
 // export function testConcurrentUploads() {
   const _headers = {
     Authorization: `Bearer ${API_KEY}`,
-    'Content-Type': 'application
+    'Content-Type': 'application'
 // }
 const _batch = [];
   for(let i = 0; i < 10; i++) {

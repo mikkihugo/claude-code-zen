@@ -29,6 +29,7 @@ import type { RefactoringRecommendations  } from '../generators/refactoring-gene
 //     memoryOptimizations;
 //     cachingStrategies;
 //   };
+ */
   maintainabilityImprovements: {
     structuralChanges;
     namingImprovements;
@@ -121,7 +122,7 @@ import type { RefactoringRecommendations  } from '../generators/refactoring-gene
         languageOptimizations,
           optimizationTime,
           improvementsApplied,
-          estimatedBenefit};
+          estimatedBenefit} catch (error) { console.error(error); };
     //     }
   catch(error) {
     console.error(' Optimization failed);'
@@ -157,7 +158,7 @@ refactoring,
   //   }
   // Add algorithm optimizations
   refactoring.performanceEnhancements.push({
-      type: 'algorithm-complexity-reduction',')
+      type: 'algorithm-complexity-reduction',')'
   currentIssue: 'Multiple nested loops causing O(n) complexity','
   improvement: 'Use hash tables and optimized algorithms','
   implementation: null
@@ -176,7 +177,7 @@ refactoring.performanceEnhancements.push(
   implementation: null
   'Use object pools for frequently created objects and optimize data structure selection','
   expectedGain: '40% reduction in memory usage and GC pressure','
-  complexity: 'medium' }')
+  complexity: 'medium' }')'
 // )
 memoryOptimizations.push('Object pooling implementation')'
 memoryOptimizations.push('Memory-efficient data structure selection')'
@@ -189,7 +190,7 @@ refactoring.performanceEnhancements.push(
   implementation: null
   'Implement LRU cache for computations and query result caching with smart invalidation','
   expectedGain: '70% faster response times for cached operations','
-  complexity: 'low' }')
+  complexity: 'low' }')'
 // )
 cachingStrategies.push('LRU cache for expensive computations')'
 cachingStrategies.push('Database query result caching')'
@@ -239,7 +240,7 @@ refactoring,
         'Define presentation, business, and data layers','
         'Create clear interfaces between layers','
         'Implement dependency flow rules','
-        'Add layer-specific documentation' ],')
+        'Add layer-specific documentation' ],')'
   codeExample: this.generateLayeredArchitectureExample(language) }
 // )
 structuralChanges.push('Layered architecture implementation')'
@@ -262,7 +263,7 @@ refactoring.mainRecommendations.push(
         'Define naming conventions guide','
         'Rename inconsistent variables and functions','
         'Update documentation to reflect naming standards','
-        'Add linting rules for naming consistency' ] }')
+        'Add linting rules for naming consistency' ] }')'
 // )
 namingImprovements.push('Consistent variable naming conventions')'
 namingImprovements.push('Standardized function naming patterns')'
@@ -311,7 +312,7 @@ refactoring,
   implementation: null
   'Set up ESLint/Prettier for JavaScript, or equivalent tools for other languages','
   expectedImprovement: 'Consistent code quality and reduced review time','
-  priority: 'medium' }')
+  priority: 'medium' }')'
 // )
 codeStandardsCompliance.push('Automated linting configuration')'
 codeStandardsCompliance.push('Code formatting standardization')'
@@ -324,7 +325,7 @@ refactoring.optimizations.push(
   description: 'Refactor code to improve testability and test coverage','
   implementation: 'Extract dependencies, reduce coupling, and add proper interfaces','
   expectedImprovement: 'Higher test coverage and more reliable tests','
-  priority: 'high' }')
+  priority: 'high' }')'
 // )
 testabilityEnhancements.push('Dependency injection for better mocking')'
 testabilityEnhancements.push('Pure function extraction')'
@@ -336,7 +337,7 @@ testabilityEnhancements.push('Test-friendly error handling')'
   vulnerability: 'General Security Weaknesses','
   description: 'Implement comprehensive security measures across the application','
   severity: 'medium','
-  mitigation: 'Apply security best practices and regular security audits',')
+  mitigation: 'Apply security best practices and regular security audits',')'
   codeExample: this.generateSecurityHardeningExample(language) }
 // )
 // }
@@ -372,7 +373,7 @@ refactoring,
       description: 'Implement tree shaking and code splitting for better performance','
       implementation: 'Use dynamic imports and optimize webpack configuration', expectedImprovement;'
       : '30-50% smaller bundle size','
-      priority: 'medium' }')
+      priority: 'medium' }')'
   //   )
   optimizations.push('ES6+ feature utilization')'
   optimizations.push('Bundle size optimization');'

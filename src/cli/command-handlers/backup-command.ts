@@ -3,6 +3,7 @@
 /** Converted from JavaScript to TypeScript
 
 // backup-command.js - Handle backup operations
+ */
 import { printError  } from '..';
 
 export async function backupCommand() {

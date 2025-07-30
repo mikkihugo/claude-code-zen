@@ -2,12 +2,13 @@
 /** Assistant Plugins Plugin;
 /** AI-powered plugin development assistant;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { mkdir  } from 'node:fs';
 
 export class AssistantPluginsPlugin extends EventEmitter {
   constructor(_config = {}) {
-    super();
+//     super();
     this.config = {pluginTemplatesDir = new Map();
     this.knowledgeBase = new Map();
     this.generatedPlugins = [];
@@ -21,7 +22,7 @@ export class AssistantPluginsPlugin extends EventEmitter {
     //     ) {
     try {
       // return // await fn();
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       if(i === maxRetries - 1) throw error;
 // // await new Promise((resolve) => setTimeout(resolve, 2 ** i * 1000));
     //     }
@@ -100,7 +101,7 @@ console.warn(` Loaded \$this.knowledgeBase.sizeknowledge base entries`);
   //   }
 
   // Add feature-based imports
-  if(config.features?.includes('file-operations')) { imports.add("{ readFile, writeFile, mkdir  } from 'fs
+  if(config.features?.includes('file-operations')) { imports.add("{ readFile, writeFile, mkdir  } from 'fs'
     imports.add('path');
   //   }
 
@@ -108,7 +109,7 @@ console.warn(` Loaded \$this.knowledgeBase.sizeknowledge base entries`);
     imports.add('fetch');
   //   }
 
-  if(config.features?.includes('database')) { imports.add("{ Database  } from '.
+  if(config.features?.includes('database')) { imports.add("{ Database  } from '.'
   //   }
 
   // return Array.from(imports);
@@ -131,9 +132,9 @@ generateProperties(config);
       properties.push('metrics = {operations = Object.entries(config.defaults  ?? {});'
 map(([key, value]) => `${key}: ${JSON.stringify(value)}`);
 join(',\n');
-
+// 
     return `constructor(config = {}) {`
-    super();
+//     super();
     // this.config = { // LINT: unreachable code removed
 ${configDefaults}\${configDefaults ? ',\n' }      ...config;
     };
@@ -183,7 +184,7 @@ ${configDefaults}\${configDefaults ? ',\n' }      ...config;
   if(!data) {
       errors.push('Data is required');
     //     }
-  if(errors.length > 0) {
+   catch (error) { console.error(error); }if(errors.length > 0) {
       const _error = new Error('Validation failed');
       error.validationErrors = errors;
       throw error;
@@ -210,7 +211,7 @@ ${configDefaults}\${configDefaults ? ',\n' }      ...config;
       const _item = this.queue.shift();
       try {
 // // await this.processItem(item);
-      } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) {
         this.emit('queue = false;'
   }`;`
         //         }
@@ -238,9 +239,9 @@ ${configDefaults}\${configDefaults ? ',\n' }      ...config;
 
 \${methods.map(method => {)
   if(typeof method === 'object') {
-    return `${method.async ? 'async ' }${method.name}\${method.body.includes(method.name) ? method.body.substring(method.body.indexOf('(')) }'}`;'
+//     return `${method.async ? 'async ' }${method.name}\${method.body.includes(method.name) ? method.body.substring(method.body.indexOf('(')) }'}`;'
     //   // LINT: unreachable code removed}
-  return `${method}`;
+//   return `${method}`;
 }).join('\n\n')}
 
   // Helper methods
@@ -448,7 +449,7 @@ MIT`;`
     // Use the plugin
     ${this.generateExampleUsage(structure)}
 
-  } catch(error)
+   catch (error) { console.error(error); }} catch(error)
     console.error('Error = new ${structure.className}({'
     // Advanced configuration/g))
     ${structure.config.features?.includes('caching') ? 'cacheTimeout => {'
@@ -460,7 +461,7 @@ MIT`;`
     // Advanced usage
     ${this.generateAdvancedUsage(structure)}
 
-    // Get status
+     catch (error) { console.error(error); }// Get status
     const _status = plugin.getStatus();
     console.warn('Pluginstatus = === \`file = {}) {'`
     console.warn(` Analyzingplugin = // await readFile(pluginPath, 'utf8');`
@@ -651,7 +652,7 @@ MIT`;`
 \$suggestions?.map(s => `### ${s.suggestion} (${s.priority} priority);`
 ${s.code ? `\`\`\`javascript\n${s.code}\n\`\`\`` : ''}
 \${s.examples ? `Examples = // await this.analyzePlugin(pluginPath);`
-    return analysis.suggestions;
+//     return analysis.suggestions;
     //   // LINT}
 
   async refactorPlugin(pluginPath, improvements = []) { 
@@ -690,7 +691,7 @@ toLowerCase();
   if(match) {
         const [ key, value] = match; try {
           config[key] = JSON.parse(value) {;
-        } catch(/* e */) {
+        } catch (error) { console.error(error); } catch(/* e */) {
           config[key] = value.replace(/['"]/g, '');"'
         //         }
       //       }

@@ -4,6 +4,7 @@
 
 /** Default gitignore entries for Claude Flow
 
+ */
 const _CLAUDE_FLOW_GITIGNORE_ENTRIES = `;`
 # Claude Flow generated files;
 claude
@@ -37,7 +38,7 @@ hive-mind-prompt-*.txt
  * @param {boolean} dryRun - Whether to run in dry-run mode
  * @returns {Promise<{success,message = false, dryRun = false) {
  */
-  const _gitignorePath = `${workingDir}
+  const _gitignorePath = `${workingDir}`
     // ; // LINT: unreachable code removed
   try {
     let _gitignoreContent = '';
@@ -49,7 +50,7 @@ hive-mind-prompt-*.txt
       gitignoreContent = // await readTextFile(gitignorePath);
     //     }
 
-    // Check if Claude Flow section already exists
+     catch (error) { console.error(error); }// Check if Claude Flow section already exists
     const _claudeFlowMarker = '# Claude Flow generated files';
     if(gitignoreContent.includes(claudeFlowMarker) && !force) {
       // return {success = gitignoreContent;
@@ -87,7 +88,7 @@ hive-mind-prompt-*.txt
   try {
 // const _content = awaitreadTextFile(gitignorePath);
     // return !content.includes('# Claude Flow generated files');
-    //   // LINT: unreachable code removed} catch {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
     // return true;
     //   // LINT: unreachable code removed}
 // }
@@ -96,7 +97,7 @@ hive-mind-prompt-*.txt
  * @returns {string[]}
 
 // export function getGitignorePatterns() { // LINT: unreachable code removed
-return CLAUDE_FLOW_GITIGNORE_ENTRIES.split('\n');
+// return CLAUDE_FLOW_GITIGNORE_ENTRIES.split('\n');
 // .filter((line) => line.trim() && !line.startsWith('#') && !line.startsWith('!')); // LINT: unreachable code removed
 map((line) => line.trim())
 // }

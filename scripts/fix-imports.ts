@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Script to fix import issues in the codebase
+/* Script to fix import issues in the codebase
  *;
  * @fileoverview Advanced import fixing with strict TypeScript and Google standards
  * @author Claude Code Flow Team;
@@ -33,6 +33,7 @@ const ___dirname = dirname(__filename);
 
 /** Comprehensive import replacement rules following Google standards
 
+ */
 const _IMPORT_REPLACEMENTS = [
   // Cliffy to Commander/Inquirer migration
   //   {
@@ -120,7 +121,7 @@ async function processFile(filePath, stats): Promise<void> {
         fileReplacements++;
         stats.replacementsApplied++;
       //       }
-    //     }
+     catch (error) { console.error(error); }//     }
     // Additional TypeScript-specific fixes
     if(filePath.endsWith('.ts')) {
       // Fix missing .js extensions in relative imports(ESM requirement)
@@ -129,9 +130,9 @@ async function processFile(filePath, stats): Promise<void> {
 // from\s+['"](\.\/?[^'"]*?)['"];?/g,"'
         (match, importPath) => {
           if(!importPath.includes('.') && !importPath.includes('node)) {'
-            return match.replace(importPath, `${importPath}.js`);
+//             return match.replace(importPath, `${importPath}.js`);
     //   // LINT: unreachable code removed}
-          return match;
+//           return match;
     //   // LINT: unreachable code removed}
       );
   if(content !== beforeExtensions) {
@@ -163,7 +164,7 @@ async function processFile(filePath, stats): Promise<void> {
 async function findTypeScriptFiles(dir): Promise<string[]> {
   const _files = [];
   try {
-// const _entries = awaitfs.readdir(dir, { withFileTypes});
+// const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
   for(const entry of entries) {
       const _fullPath = join(dir, entry.name); // Skip excluded directories
       const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) {
@@ -190,7 +191,7 @@ async function _main(): Promise<void> {
       filesProcessed,
       filesModified,
       replacementsApplied,
-      errorsEncountered};
+      errorsEncountered} catch (error) { console.error(error); };
     console.warn(' Import Fixing Process Starting...');
     console.warn(' Google TypeScript Standards Active');
     console.warn('');
@@ -207,7 +208,7 @@ async function _main(): Promise<void> {
       // Progress reporting
       const _progress = Math.min(((i + batchSize) / files.length) * 100, 100);
       console.warn(;)
-        ` Progress: ${progress.toFixed(1)}% (${Math.min(i + batchSize, files.length)}
+        ` Progress: ${progress.toFixed(1)}% (${Math.min(i + batchSize, files.length)}`
       );
     //     }
     // Comprehensive final report

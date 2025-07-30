@@ -2,6 +2,7 @@
 /** Centralized configuration management
 /** Implements Google's dependency injection and configuration principles;'
 
+ */
 import os from 'node:os';'
 import path from 'node:path';'
 import logger from '.';
@@ -91,7 +92,7 @@ loadConfiguration((options = {}));
 
         // Merge with defaults(deep merge)
         this.config = this.deepMerge(DEFAULT_CONFIG, parsedConfig);
-        logger.debug(`Configuration loaded from ${configPath}`);`
+        logger.debug(`Configuration loaded from ${configPath} catch (error) { console.error(error); }`);`
       } else {
         logger.debug(`No configuration file found at ${configPath}, using defaults`);`
   if(options.createDefault) {
@@ -117,7 +118,7 @@ loadConfiguration((options = {}));
       // Ensure directory exists
 // // // await mkdir(configDir, {recursive = JSON.stringify(this.config, null, 2);
 // // // await writeFile(configPath, content, 'utf-8');'
-      logger.debug(`Configuration saved to ${configPath}`);`
+      logger.debug(`Configuration saved to ${configPath} catch (error) { console.error(error); }`);`
     } catch(_error;
   = any>(keyPath,defaultValue = null): T | null;
   // return this.getNestedValue(this.config, keyPath, defaultValue);
@@ -149,7 +150,7 @@ validate();
         errors.push('Missing version field');'
       //       }
 
-      // Validate logging configuration
+       catch (error) { console.error(error); }// Validate logging configuration
   if(this.config.logging) {
         const _validLevels = ['error', 'warn', 'info', 'debug', 'trace'];'
         if(!validLevels.includes(this.config.logging.level)) {
@@ -172,7 +173,7 @@ validate();
 
         const _validTopologies = ['hierarchical', 'mesh', 'ring', 'star'];'
         if(!validTopologies.includes(this.config.swarm.defaultTopology)) {
-          errors.push(`Invalidtopology = ['balanced', 'adaptive', 'performance', 'reliability'];'`)
+          errors.push(`Invalidtopology = ['balanced', 'adaptive', 'performance', 'reliability'];'`)'
         if(!validStrategies.includes(this.config.swarm.defaultStrategy)) {
           errors.push(`Invalidstrategy = 0) {`
           errors.push('memory.maxMemoryMb must be positive');'
@@ -296,7 +297,7 @@ const _configManager = new ConfigurationManager();
  * @returns Copy of default configuration
     // */; // LINT: unreachable code removed
 // export function getDefaultConfiguration() {
-  return JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+//   return JSON.parse(JSON.stringify(DEFAULT_CONFIG));
 // }
 
 /** Create configuration manager with custom defaults
@@ -321,7 +322,7 @@ const _configManager = new ConfigurationManager();
     // */; // LINT: unreachable code removed
 // export function validateConfiguration(config = new ConfigurationManager();
   tempManager['config'] = tempManager['deepMerge'](DEFAULT_CONFIG, config);'
-  return tempManager.validate();
+//   return tempManager.validate();
 // }
 
 }}}))))))))))))

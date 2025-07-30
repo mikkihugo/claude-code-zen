@@ -3,6 +3,7 @@
 /** Converted from JavaScript to TypeScript
 
 // mcp.js - MCP server management commands
+ */
 import { printSuccess  } from '..';
 
 export async function mcpCommand() {
@@ -68,7 +69,7 @@ printSuccess('Claude-Flow MCP Tools & Resources(87 total):');
   console.warn('   swarm_init            Initialize swarm with topology');
   console.warn('   agent_spawn           Create specialized AI agents');
   console.warn('   task_orchestrate      Orchestrate complex workflows');
-  console.warn('   swarm_status          Monitor swarm health
+  console.warn('   swarm_status          Monitor swarm health'
   console.warn('   agent_list            List active agents & capabilities');
   console.warn('   agent_metrics         Agent performance metrics');
   console.warn('   swarm_monitor         Real-time swarm monitoring');
@@ -181,7 +182,7 @@ async function _manageMcpAuth() {
   case 'setup': null
   printSuccess('Setting up MCP authentication...')
   console.warn(' Authenticationconfiguration = args.indexOf(flagName);'
-  return index !== -1 && index + 1 < args.length ? args[index + 1] ;
+//   return index !== -1 && index + 1 < args.length ? args[index + 1] ;
 // }
 function _showMcpHelp() {
   console.warn(' Claude-Flow MCP ServerCommands = neural --verbose');

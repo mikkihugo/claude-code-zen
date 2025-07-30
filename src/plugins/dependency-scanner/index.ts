@@ -2,6 +2,7 @@
 /** Dependency Scanner Plugin;
 /** Scans for dependency conflicts across package.json files and generates ADRs for standardization;
 
+ */
 import { readFile  } from 'node:fs';
 import { glob  } from 'glob';
 
@@ -37,7 +38,7 @@ export class DependencyScannerPlugin {
       try {
 // const _pkgContent = awaitreadFile(file, 'utf8'); 
         const _pkg = JSON.parse(pkgContent); for(const depType of includeTypes) {
-          const _deps = pkg[depType]  ?? {};
+          const _deps = pkg[depType]  ?? {} catch (error) { console.error(error); };
 
           for (const [depName, _version] of Object.entries(deps)) {
   if(!analysis[depName]) {
@@ -78,7 +79,7 @@ export class DependencyScannerPlugin {
 
     if(majorVersions.size > 1) return 'major_version';
     // if(minorVersions.size > 1) return 'minor_version'; // LINT: unreachable code removed
-    return 'patch_version';
+//     return 'patch_version';
     //   // LINT: unreachable code removed}
 
 /** Parse semantic version string;
@@ -104,14 +105,14 @@ export class DependencyScannerPlugin {
 
     // Current situation = {critical = conflicts.reduce((acc, c) => { // LINT: unreachable code removed
       acc[c.severity] = (acc[c.severity]  ?? 0) + 1;
-      return acc;
+//       return acc;
     //   // LINT: unreachable code removed}, {});
 
     const _conflictTypes = conflicts.reduce((acc, c) => {
       acc[c.conflictType] = (acc[c.conflictType]  ?? 0) + 1;
-      return acc;
+//       return acc;
     //   // LINT: unreachable code removed}, {});
-
+// 
     return {
       totalConflicts: conflicts.length,
     // severityBreakdown, // LINT: unreachable code removed

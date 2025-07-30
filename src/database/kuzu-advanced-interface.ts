@@ -3,6 +3,7 @@
 /** PRODUCTION-GRADE GRAPH OPERATIONS WITH ADVANCED ANALYTICS;
 /** Built on the existing kuzu-graph-interface.js with enhanced capabilities;
 
+ */
 import path from 'node:path';
 // // interface KuzuAdvancedConfig {
 //   enableAnalytics?;
@@ -16,7 +17,7 @@ import path from 'node:path';
 // performanceMetrics = {}
 // )
 // {
-  super(config);
+//   super(config);
   // Enhanced configuration
   this.advancedConfig = {enableAnalytics = = false,enableCache = = false,enableMetrics = = false,
   maxQueryComplexity = {totalQueries = {
@@ -50,7 +51,7 @@ try {
 // // await this.recordTraversalMetrics(algorithm, executionTime, result.data?.length  ?? 0);
       //       }
 
-      // return {
+       catch (error) { console.error(error); }// return {
 ..result,
     // algorithm,execution_time = this.buildRelationshipPattern(direction, relationshipFilter); // LINT: unreachable code removed
     const __filterClause = nodeFilter ? `WHERE ${nodeFilter}` : '';
@@ -103,7 +104,7 @@ try {
           break;default = this.normalizeCentralityScores(centralityScores);
       //       }
 
-      // Store centrality scores if using real Kuzu
+       catch (error) { console.error(error); }// Store centrality scores if using real Kuzu
       if((this.stats as any).usingRealKuzu) {
 // // await this.storeCentralityScores(centralityScores, algorithm);
       //       }
@@ -130,7 +131,7 @@ try {
               if(betweennessScores.has(intermNode)) {
                 betweennessScores.set(intermNode, betweennessScores.get(intermNode)! + 1);
               //               }
-            //             }
+             catch (error) { console.error(error); }//             }
           //           }
         } catch(error)
       //       }
@@ -226,7 +227,7 @@ computeClosenessCentrality((nodeType = 10), (dampingFactor = 0.85))
 // // await this.storeCommunityResults(communities, algorithm, modularity);
       //       }
 
-      // return {
+       catch (error) { console.error(error); }// return {
         algorithm,
     // communities, // LINT: unreachable code removed
         modularity,num_communities = `;`
@@ -329,7 +330,7 @@ computeClosenessCentrality((nodeType = 10), (dampingFactor = 0.85))
     Object.entries(filters).forEach(([key, value]) => {
   if(typeof value === 'string') {
         filterClauses.push(`;`)
-  $key = '${value}'`);`
+  $key = '${value} catch (error) { console.error(error); }'`);`
       } else if(typeof value === 'number') {
         filterClauses.push(`;`)
   \$key = \$value`);`
@@ -374,7 +375,7 @@ computeClosenessCentrality((nodeType = 10), (dampingFactor = 0.85))
     // const _executionTime = Date.now() - startTime; // LINT: unreachable code removed
 
       // Analyze execution if requested
-      let __optimization = {};
+      let __optimization = {} catch (error) { console.error(error); };
   if(analyzeExecution) {
         _optimization = // await this.analyzeQueryExecution(query, executionTime, result);
       //       }
@@ -485,7 +486,7 @@ for (const _relType of Object.keys((this as any).schema.relationships)) {
               overview.relationship_types[relType] = rows[0].count;
               overview.relationship_count += rows[0].count;
             //             }
-            result.close();
+             catch (error) { console.error(error); }result.close();
           } catch(error) {
             overview.relationship_types[relType] = 0;
           //           }
@@ -533,7 +534,7 @@ console.warn(' Optimization completed');
 // // await writeFile(metricsPath, JSON.stringify(this.performanceMetrics, null, 2));
       //       }
 
-      // Clear caches
+       catch (error) { console.error(error); }// Clear caches
       this.queryCache.clear();
       this.queryHistory.length = 0;
 
@@ -548,7 +549,7 @@ console.warn(' Optimization completed');
   const _maxScore = Math.max(...scores.map((s) => s.score));
   if(maxScore === 0) return scores;
   // ; // LINT: unreachable code removed
-  return scores.map(score => ({))
+//   return scores.map(score => ({))
 ..score,score = 1) return 0;
   // ; // LINT: unreachable code removed
   const _totalEdges = (this.stats as any).relationshipCount ?? 1;

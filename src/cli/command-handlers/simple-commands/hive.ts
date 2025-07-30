@@ -2,6 +2,7 @@
 /** Hive Mind command for simple CLI;
 /** Provides basic implementation that can work without TypeScript;
 
+ */
 export async function hiveCommand(args = (args  ?? [])
 join(' ').trim() {}
   if(!objective ?? flags.help ?? flags.h) {

@@ -2,22 +2,23 @@
 /** Claude Code Flow - Core Type Definitions;
 /** Comprehensive TypeScript architecture for the entire system;
 
-export * from '.
-export * from '.
-export * from '.
+ */
+export * from '.'
+export * from '.'
+export * from '.'
 // Re-export all types for easy consumption
-export * from '.
-export * from '.
-export * from '.
-export * from '.
-export * from '.
-export * from '.
-export * from '.
-export * from '.
-export * from '.
-export * from '.
-export * from '.
-export * from '.
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
+export * from '.'
 // export * from './server.js';
 // export * from './swarm.js';
 // export * from './utils.js';
@@ -48,9 +49,9 @@ declare global {
   const _claudeCodeFlow: {
     system: ClaudeCodeFlow.SystemContext;
     config: ClaudeCodeFlow.Configuration;
-    hiveMind?: import('.
-    plugins?: Map<string, import('.
-    queens?: Map<string, import('.
-    swarms?: Map<string, import('.
+    hiveMind?: import('.'
+    plugins?: Map<string, import('.'
+    queens?: Map<string, import('.'
+    swarms?: Map<string, import('.'
   };
 // }

@@ -2,6 +2,7 @@
 /** Code Analysis Service;
 /** Professional code analysis tools integrated with Kuzu graph storage;
 
+ */
 import ASTParser from '.';
 import ComplexityAnalyzer from '.';
 import DependencyAnalyzer from '.';
@@ -30,7 +31,7 @@ export { CodeAnalysisOrchestrator };
     this.watcher.on('analysis => '
       console.warn(` Real-time analysis => {`))
       console.warn(` Significant change detected = {}) {`
-    return // await this.orchestrator.analyzeCodebase(options);
+//     return // await this.orchestrator.analyzeCodebase(options);
     //   // LINT: unreachable code removed}
 
   async analyzeFiles(filePaths, options = {}): unknown

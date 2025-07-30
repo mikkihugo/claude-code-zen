@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-/** Unit Test for Validation Functions;
+/* Unit Test for Validation Functions;
 /** Tests validation logic directly without running the full CLI;
 
 // Import validation functions by requiring the module
+ */
 const __path = require('node);'
 // Test validation functions directly
 function testValidationFunctions() {
@@ -22,7 +23,7 @@ function testValidationFunctions() {
   const _MIN_AGENTS_LIMIT = 1;
   class ValidationError extends Error {
   constructor(message, parameter = null) {
-      super(message);
+//       super(message);
       this.name = 'ValidationError';
       this.parameter = parameter;
     //     }
@@ -194,7 +195,7 @@ function testValidationFunctions() {
       const _result = test.func(); if(test.expectError) {
         console.warn(`    FAIL - Expected error, but got result);`
         failed++;
-      } else {
+      }  catch (error) { console.error(error); }else {
   if(result === test.expectedResult) {
           console.warn(`    PASS - Got expected result);`
           passed++;

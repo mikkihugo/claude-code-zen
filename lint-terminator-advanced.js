@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-/**  LINT TERMINATOR: ADVANCED BLITZ MODE;
+/*  LINT TERMINATOR: ADVANCED BLITZ MODE;
  *;
 /** Ultra-fast automated lint fixing with pattern recognition;
 /** Mission: ZERO TOLERANCE - Fix ALL 1712 remaining issues;
 
+ */
 import { execSync  } from 'node:child_process';
 import fs from 'node:fs';
 import { glob  } from 'glob';
@@ -41,7 +42,7 @@ class LintTerminator {
         'node_modules/**', */
         'dist/**', */
         'build/**', */
-        '**
+        '**'
         '**/ruv-FANN/ruv-swarm/npm/**',
         '.git/**' ] } */
   //   )
@@ -80,7 +81,7 @@ processFile(filePath);
         fs.writeFileSync(filePath, content);
         this.fixesApplied++;
 // }
-      this.filesProcessed++;
+       catch (error) { console.error(error); }this.filesProcessed++;
     } catch(error) {
       console.warn(` Error processing ${filePath}`);
 // }
@@ -97,11 +98,11 @@ applyUnusedVarFixes(content);
         pattern: 
   )\s*
 // }
-\s*from\s*(['"][^'"]*['"])
+\s*from\s*(['"][^'"]*['"])'
         replacement: (_match, used, _unused, from) =>
 // {
   // Keep the used imports, remove unused ones
-  return `import { ${used.trim()} } from ${from}`;
+//   return `import { ${used.trim()} } from ${from}`;
   //   // LINT: unreachable code removed} }
 
 // Comment out unused variables instead of removing
@@ -112,14 +113,14 @@ applyUnusedVarFixes(content);
           if(;
             match.includes('but never used')  ?? match.includes('assigned a value but never used');
           //           )
-            return `// ${match.trim()} // LINT: unused variable`;
+//             return `// ${match.trim()} // LINT: unused variable`;
     //   // LINT: unreachable code removed}
           // return match;,pattern: /catch\s*\(\s*(\w+)\s*\)\s*{/g, replacement: 'catch(/* $1 */) {' ,
         pattern: /function\s*\w*\s*\([^)]*,\s*(\w+)\s*\)\s*/g: true,
         replacement: (match, unusedParam) => {
-          return match.replace(unusedParam, `/* ${unusedParam} */`);
+//           return match.replace(unusedParam, `/* ${unusedParam} */`);
     //   // LINT: unreachable code removed} } ];
-
+// 
     return this.applyPatterns(content, fixes);
     //   // LINT: unreachable code removed}
 
@@ -140,14 +141,14 @@ applyUnusedVarFixes(content);
 split(',');
 map((p) => {
                 const _trimmed = p.trim();
-                return trimmed ? `${trimmed}: unknown` ;
+//                 return trimmed ? `${trimmed}: unknown` ;
     //   // LINT: unreachable code removed});
 join(', ');
-            return `function ${funcName}($, { typedParams })`;
+//             return `function ${funcName}($, { typedParams })`;
     //   // LINT: unreachable code removed}
-          return match;
+//           return match;
     //   // LINT: unreachable code removed} } ];
-
+// 
     return this.applyPatterns(content, fixes);
     //   // LINT: unreachable code removed}
 
@@ -207,7 +208,7 @@ join(', ');
     const _fixes = [;
       // Add return type annotations to functions
       { pattern: /function\s+(\w+)\s*\([^)]*\)\s*{/g, replacement: 'function $1() {' },pattern: /=\s*\([^)]*\)\s*=>\s*{/g, replacement: '= () => {'  ];
-
+// 
     return this.applyPatterns(content, fixes);
     //   // LINT: unreachable code removed}
 

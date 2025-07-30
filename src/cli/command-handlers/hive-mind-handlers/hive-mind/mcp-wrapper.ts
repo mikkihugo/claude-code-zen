@@ -2,6 +2,7 @@
 /** MCP Tool Wrapper for Hive Mind System
 /** Wraps all 87 MCP tools for coordinated swarm usage
 
+ */
 import { RuvSwarm  } from '../../../../../ruv-FANN/ruv-swarm/npm/src/index.js';
 
 /** MCP Tool categories and their methods
@@ -29,7 +30,7 @@ this.ruvSwarmInstance = null;
   if(this.defaultRegistry) {
       this.memoryRagPlugin = this.defaultRegistry.pluginSystem.getPlugin('memory-rag');
     //     }
-  } catch(/* _error */) {
+   catch (error) { console.error(error); }} catch(/* _error */) {
     console.error('[MCPToolWrapper] Failed to initialize RuvSwarm = {}) {'
     const _startTime = Date.now();
     const __lastError = null;
@@ -41,7 +42,7 @@ this.ruvSwarmInstance = null;
         this._trackToolUsage(toolName, Date.now() - startTime, true);
 
         // return result;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
         _lastError = error;
         console.error(`Attempt ${attempt} failed for ${toolName});`
   if(attempt < this.config.retryCount) {
@@ -90,7 +91,7 @@ this.ruvSwarmInstance = null;
             const _result = batchResults[j];
   if(result.status === 'fulfilled') {
               groupResults.push(result.value);
-            } else {
+            }  catch (error) { console.error(error); }else {
               console.warn(`Tool executionfailed = Date.now() - startTime;`
     this._trackBatchPerformance(toolCalls.length, executionTime, concurrencyLimit);
 
@@ -103,7 +104,7 @@ this.ruvSwarmInstance = null;
     const _heavyTypes = ['neural', 'github', 'workflow'];
     const _hasHeavyOps = toolTypes.some((type) => heavyTypes.includes(type));
   if(hasHeavyOps) {
-      return Math.min(3, Math.max(1, Math.floor(toolCalls.length / 2)));
+//       return Math.min(3, Math.max(1, Math.floor(toolCalls.length / 2)));
     //   // LINT: unreachable code removed}
 
     // Light operations(memory, performance) can handle higher concurrency
@@ -224,11 +225,11 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
     this.toolStats.forEach((value, key) => {
       toolStats[key] = { ...value };
     });
-
+// 
     return {tools = > sum + stat.calls, 0),successRate = Array.from(this.toolStats.values()).reduce((sum, stat) => sum + stat.calls, 0);
     // const _successes = Array.from(this.toolStats.values()).reduce(; // LINT) => sum + stat.successes,
       0);
-
+// 
     return total > 0 ? ((successes / total) * 100).toFixed(2) 
     //   // LINT: unreachable code removed}
 
@@ -258,16 +259,16 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
     // try { // LINT: unreachable code removed
 // const __swarm = awaitthis.ruvSwarmInstance.createSwarm({/g)
         id,topology = === 0) {
-      return [];
+//       return [];
     //   // LINT: unreachable code removed}
 
-    try {
+     catch (error) { console.error(error); }try {
 // const _swarm = awaitthis.ruvSwarmInstance.getSwarm(swarmId);
   if(!swarm) {
         throw new Error(`Swarm \$swarmIdnot found for agent spawning.`);
       //       }
 
-      const _spawnPromises = types.map(type => swarm.spawn({ type   }));
+       catch (error) { console.error(error); }const _spawnPromises = types.map(type => swarm.spawn({ type   }));
 // const _results = awaitPromise.all(spawnPromises);
 
       // Store agent information in memory via MemoryRAGPlugin
@@ -294,7 +295,7 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
   if(!swarm) {
         throw new Error(`Swarm \$swarmIdnot found for task orchestration.`);
       //       }
-  if(!swarm) {
+   catch (error) { console.error(error); }if(!swarm) {
         throw new Error(`Swarm \$swarmIdnot found for performance analysis.`);
       //       }
       // return // await swarm.analyzePerformance();
@@ -305,14 +306,14 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
     //     }
     try {
       // return // await this.ruvSwarmInstance.githubOperations(repo, operation, params);
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
       console.error('Error performing GitHub operation with RuvSwarm = {}) {'
   if(!this.ruvSwarmInstance) {
       throw new Error('RuvSwarm instance not initialized in MCPToolWrapper.');
     //     }
     try {
       // return // await this.ruvSwarmInstance.neuralOperation(operation, params);
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
       console.error('Error performing neural operation with RuvSwarm = {}) {'
   if(!this.ruvSwarmInstance) {
       throw new Error('RuvSwarm instance not initialized in MCPToolWrapper.');
@@ -321,7 +322,7 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
       const _swarmId = params.swarmId  ?? 'default'; // Assuming a default swarm if not specified
 // const _status = awaitthis.ruvSwarmInstance.getSwarmStatus(swarmId);
       // return status;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       console.error('Error getting swarm status from RuvSwarm);'
       throw error;
     //     }

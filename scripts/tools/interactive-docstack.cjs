@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Interactive Document Stack - Run like GitHub models with human feedback
+/* Interactive Document Stack - Run like GitHub models with human feedback
 
 /** Usage: .
 
@@ -212,7 +212,7 @@ async function createDocument(args) {
       if(metadata.tags)
   if(result.routing.validation?.length > 0) {
 
-  } catch(_error) {}
+  } catch (error) { console.error(error); } catch(_error) {}
 
 async function reviewDocument(args) {
   if(args.length < 1) {
@@ -226,7 +226,7 @@ async function reviewDocument(args) {
   const [service, docType, docId] = parts;
 
   try {
-// const doc = awaitmemoryStore.retrieve(`${docType}/${docId}`, {/g)
+// const doc = awaitmemoryStore.retrieve(`${docType} catch (error) { console.error(error); }/${docId}`, {/g)
       namespace);
   if(!doc) {
       return;
@@ -311,14 +311,14 @@ function showTemplates() {
 
 async function showStatus() {
 // const allDocs = awaitmemoryStore.search({ pattern);
-  const _docCount = Object.keys(allDocs).filter((k) => k.includes('service-documents
+  const _docCount = Object.keys(allDocs).filter((k) => k.includes('service-documents'
   const layers = { infrastructure, service, application, business };
 
   for (const value of Object.values(allDocs)) {
     try {
       const doc = JSON.parse(value); if(doc.metadata?.stack_layer) {
         layers[doc.metadata.stack_layer] = (layers[doc.metadata.stack_layer] || 0) + 1; }
-    } catch(_e) {}
+     catch (error) { console.error(error); }} catch(_e) {}
 
   Object.entries(layers).forEach(([_layer, count]) => {
   if(count > 0) {
@@ -327,7 +327,7 @@ async function showStatus() {
 
 // Helper function for interactive prompts
 function question(prompt) {
-  return new Promise((resolve) => {
+//   return new Promise((resolve) => {
     rl.question(prompt, resolve);
   });
 

@@ -56,7 +56,7 @@ Once configured, ruv-swarm MCP tools are available directly in Claude Code: null
   // // await fs.writeFile('claude.md', claudeMdContent);
     console.warn(' Created claude.md');
     // Create .claude directory structure
-  // // await fs.mkdir('.claude', { recursive });
+  // // await fs.mkdir('.claude', { recursive } catch (error) { console.error(error); });
   // // await fs.mkdir('.claude/commands', { recursive });
     // Create basic command files
     const _initContent = `# Initialize ruv-swarm`

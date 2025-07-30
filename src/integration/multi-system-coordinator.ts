@@ -3,6 +3,7 @@
 /** ORCHESTRATES LANCEDB, KUZU, AND VISIONARY SOFTWARE INTELLIGENCE SYSTEMS;
 /** Provides unified interface and cross-system intelligence;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { existsSync  } from 'node:fs';
 import { mkdir  } from 'node:fs';
@@ -13,7 +14,7 @@ import { VisionarySoftwareIntelligenceProcessor  } from '../visionary/software-i
 
 export class MultiSystemCoordinator extends EventEmitter {
   constructor(_config = {}) {
-    super();
+//     super();
 
     this.config = {
       // System configurations from external configlancedb = = false,enableMemorySharing = = false,enableIntelligentRouting = = false,
@@ -122,7 +123,7 @@ export class MultiSystemCoordinator extends EventEmitter {
     // ; // LINT: unreachable code removed
       try {
         // Extract components for vectorization
-        const _components = Object.entries(generatedCode.files  ?? {});
+        const _components = Object.entries(generatedCode.files  ?? {} catch (error) { console.error(error); });
   for(const [fileName, fileContent] of components) {
 // const __codeEmbedding = awaitthis.textToEmbedding(fileContent); 
 // // await this.lancedb.insertCodeSnippets([{
@@ -138,7 +139,7 @@ export class MultiSystemCoordinator extends EventEmitter {
         // Insert components as nodes
 // // await this.kuzu.insertRelationships(relationships);
         console.warn(' Components modeled in graph');
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.warn(' Components-to-graph integration warning => {')
       const _analysis = {vision = === 'image') {
           analysis.vision = // await this.vision.processImage(input.path, {framework = input.text  ?? input.code;/g)
@@ -178,7 +179,7 @@ export class MultiSystemCoordinator extends EventEmitter {
 
       // Update operation status
       this.activeOperations.set(operationId, {)
-..this.activeOperations.get(operationId),status = 'auto', limit = 10 } = input;
+..this.activeOperations.get(operationId),status = 'auto', limit = 10 }  catch (error) { console.error(error); }= input;
     const _results = {systemsUsed = type;
   if(searchType === 'auto') {
       searchType = this.detectSearchType(query);
@@ -322,10 +323,10 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
 
   detectSearchType(query) ;
     if(/function|class|import|export|const|let|var/.test(query)) {
-      return 'code';
+//       return 'code';
     //   // LINT: unreachable code removed}
     if(/MATCH|RETURN|WHERE|CREATE|DELETE/.test(query.toUpperCase())) {
-      return 'graph-query';
+//       return 'graph-query';
     //   // LINT: unreachable code removed}
     if(/decision|choose|recommend|suggest/.test(query.toLowerCase())) {
       // return 'decision';
@@ -414,7 +415,7 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
 // const __analytics = awaitthis.generateCrossSystemAnalytics();
         // In production, this would be sent to monitoring system
         console.warn(' Cross-system analytics updated');
-      } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) {
         console.warn(' Analytics update failed => {')
       this.manageCrossSystemCache();
     }, 300000); // Every 5 minutes
@@ -458,7 +459,7 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
 
       console.warn(' Multi-System Coordinator closed');
 
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.error(` Error closing coordinator);`
       throw error;
     //     }

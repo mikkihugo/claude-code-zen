@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Infrastructure Test Runner Script;
+/* Infrastructure Test Runner Script;
 /** Runs comprehensive infrastructure tests and reports quality score;
 
+ */
 import chalk from 'chalk';
 import { Logger  } from '../src/utils/logger.js';
 import { runInfrastructureTests  } from '../tests/e2e/infrastructure-test-runner.js';
@@ -16,7 +17,7 @@ async function main() {
     // Run the complete infrastructure test suite
 // const _results = awaitrunInfrastructureTests();
     const _duration = Date.now() - startTime;
-    console.warn(`\n${'='.repeat(80)}`);
+    console.warn(`\n${'='.repeat(80)} catch (error) { console.error(error); }`);
     console.warn(chalk.bold.cyan(' INFRASTRUCTURE TEST RESULTS'));
     console.warn('='.repeat(80));
     // Display component results
@@ -38,7 +39,7 @@ async function main() {
         : results.score >= 80;
           ? chalk.yellow.bold;
           : chalk.red.bold;
-    console.warn(`${scoreColor(results.score)}
+    console.warn(`${scoreColor(results.score)}`
     // Display success/failure status
   if(results.success) {
       console.warn(;)

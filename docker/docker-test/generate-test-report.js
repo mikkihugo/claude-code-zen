@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Generate comprehensive test report for PR #228 migration testing;
+/* Generate comprehensive test report for PR #228 migration testing;
 
+ */
 const _fs = require('node:fs');
 const _path = require('node:path');
 function generateTestReport() {
@@ -30,7 +31,7 @@ try {
         const _rawData = fs.readFileSync(resultFile, 'utf8');
         envResult.testResults = JSON.parse(rawData);
         envResult.status = envResult.testResults.success ? 'PASS' : 'FAIL';
-      } else {
+      }  catch (error) { console.error(error); }else {
         envResult.status = 'NO_RESULTS';
         envResult.errors.push('Test results file not found');
       //       }
@@ -55,7 +56,7 @@ envResult.status === 'PASS';
 : envResult.status === 'ERROR'
 ? ''
 : ''
-console.warn(`${
+console.warn(`${`
   statusIcon;
 // }
 Node.js;
@@ -78,7 +79,7 @@ Tests: \$;
 //  \$..;RRTT`aadeeeeeelllmnnopssssssssttttttuuuv{};
 // )
   console.warn(
-`   Suites: \$
+`   Suites: \$`
 // {
   envResult.testResults.numPassedTestSuites;
 // }
@@ -115,12 +116,12 @@ console.warn(`\n Detailed report saved to: ${reportPath}`);
 const _overallStatus = results.environments.every((env) => env.status === 'PASS');
 ? 'PASS'
 : 'FAIL'
-console.warn(`\n Overall Migration Status: $
+console.warn(`\n Overall Migration Status: $`
 // {
   overallStatus;
 // }
 `);
-return results;
+// return results;
 // }
 function calculateCoverageSummary() {
   const _totals = Object.values(coverageData).reduce(;
@@ -133,7 +134,7 @@ function calculateCoverageSummary() {
       acc.totalBranches += file.b ? Object.values(file.b).flat().length ;
       acc.lines += file.l ? Object.values(file.l).filter(Boolean).length ;
       acc.totalLines += file.l ? Object.keys(file.l).length ;
-      return acc;
+//       return acc;
       statements,
       totalStatements,
       functions,
@@ -142,7 +143,7 @@ function calculateCoverageSummary() {
       totalBranches,
       lines,
       totalLines);
-
+// 
   return {
     statements: Math.round((totals.statements / totals.totalStatements) * 100)  ?? 0,
     // functions: Math.round((totals.functions / totals.totalFunctions) * 100)  ?? 0, // LINT: unreachable code removed
@@ -166,14 +167,14 @@ $;
 // {
   path.basename(file);
 // }
-: Still contains Deno APIs`)
+ catch (error) { console.error(error); }: Still contains Deno APIs`)`
 // }
 // Check for old assertion patterns
 if (content.includes('assertEquals') && !content.includes('expect(')) {
   issues.push(`${path.basename(file)}: Uses Deno assertions instead of Jest`);
 // }
 // Check for import issues
-if (content.includes('from "https://') ?? content.includes("from 'https://")) {
+if (content.includes('from "https://') ?? content.includes("from 'https://")) {'
   issues.push(`${path.basename(file)}: Contains Deno-style HTTP imports`);
 // }
 // }
@@ -181,13 +182,13 @@ if (content.includes('from "https://') ?? content.includes("from 'https://")) {
 // {
   issues.push(`Error analyzing test files: ${error.message}`);
 // }
-return issues;
+// return issues;
 // }
 function findTestFiles() {
   const _files = [];
 
   try {
-    const _entries = fs.readdirSync(dir, { withFileTypes });
+    const _entries = fs.readdirSync(dir, { withFileTypes } catch (error) { console.error(error); });
 
     for (const entry of entries) {
       const _fullPath = path.join(dir, entry.name);
@@ -203,7 +204,7 @@ function findTestFiles() {
   } catch (/* _error */) {
     // Directory might not exist
   //   }
-
+// 
   return files;
 // }
 function generateRecommendations() {
@@ -231,14 +232,14 @@ function generateRecommendations() {
     recommendations.push(' Migration appears successful - ready for merge');
     recommendations.push('Consider adding more comprehensive integration tests');
     recommendations.push('Update CI/CD pipeline to use Jest instead of Deno');
-
+// 
   return recommendations;
 // }
 // Run the report generation
 if (require.main === module) {
   try {
     generateTestReport();
-  } catch (error) {
+  } catch (error) { console.error(error); } catch (error) {
     console.error(' Error generating test report:', error.message);
     process.exit(1);
   //   }

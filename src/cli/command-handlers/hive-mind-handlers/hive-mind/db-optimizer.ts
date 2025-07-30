@@ -4,6 +4,7 @@
 /** Safe, backward-compatible database optimization for existing deployments
 /** Adds indexes, performance improvements, and new features without breaking changes
 
+ */
 import Database from 'better-sqlite3';
 import chalk from 'chalk';
 import ora from 'ora';
@@ -27,7 +28,7 @@ export async function optimizeHiveMindDatabase(dbPath = {}) {
       optimizationsApplied.push('Basic performance indexes');
     //     }
 
-    // Version 1.1 -> 1.2 = 'Applying advanced indexes...';
+     catch (error) { console.error(error); }// Version 1.1 -> 1.2 = 'Applying advanced indexes...';
       applyAdvancedIndexes(db);
       optimizationsApplied.push('Advanced query optimization');
     //     }
@@ -165,7 +166,7 @@ map((row) => row.name);
   indexes.forEach((sql) => {
     try {
       db.exec(sql);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       console.warn(`Warning = db;`
 prepare(;
       `;`
@@ -191,7 +192,7 @@ get();
       try {
         db.exec('ALTER TABLE tasks ADD COLUMN priority INTEGER DEFAULT 5');
         console.warn('Added missing priority column to tasks table');
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         if(;
 // ! error.message.includes('duplicate column') &&;
 // ! error.message.includes('no such table');
@@ -212,7 +213,7 @@ get();
       try {
         db.exec('ALTER TABLE tasks ADD COLUMN completed_at DATETIME');
         console.warn('Added missing completed_at column to tasks table');
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         if(;
 // ! error.message.includes('duplicate column') &&;
 // ! error.message.includes('no such table');
@@ -233,7 +234,7 @@ get();
       try {
         db.exec('ALTER TABLE tasks ADD COLUMN result TEXT');
         console.warn('Added missing result column to tasks table');
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         if(;
 // ! error.message.includes('duplicate column') &&;
 // ! error.message.includes('no such table');
@@ -256,7 +257,7 @@ get();
       try {
         db.exec('ALTER TABLE swarms ADD COLUMN updated_at DATETIME');
         console.warn('Added missing updated_at column to swarms table');
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         if(;
 // ! error.message.includes('duplicate column') &&;
 // ! error.message.includes('no such table');
@@ -308,7 +309,7 @@ map((_row) => row.name);
   indexes.forEach((sql) => {
     try {
       db.exec(sql);
-    } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) {
       console.warn(`Warning = 'completed' OR NEW.status = 'failed';`
     BEGIN;)
       INSERT OR REPLACE INTO agent_performance(agent_id, tasks_completed, tasks_failed);
@@ -352,7 +353,7 @@ get();
         ADD COLUMN access_count INTEGER DEFAULT 0;)
       `);`
       console.warn('Added access_count column to collective_memory table');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -374,7 +375,7 @@ get();
         ADD COLUMN accessed_at DATETIME;)
       `);`
       console.warn('Added accessed_at column to collective_memory table');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -395,7 +396,7 @@ get();
         ALTER TABLE collective_memory ;
         ADD COLUMN compressed INTEGER DEFAULT 0;)
       `);`
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -415,7 +416,7 @@ get();
         ALTER TABLE collective_memory ;
         ADD COLUMN size INTEGER DEFAULT 0;)
       `);`
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -480,7 +481,7 @@ prepare(;
           `);`
 run(cutoffDate.toISOString());
 
-          console.warn(chalk.green(` Removed ${result.changes} old memory entries`));
+          console.warn(chalk.green(` Removed ${result.changes}  catch (error) { console.error(error); }old memory entries`));
         } catch(/* _error */) {
           console.warn(chalk.yellow(` Could not clean memoryentries = 'Archiving completed tasks...';`
 

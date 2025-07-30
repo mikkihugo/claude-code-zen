@@ -4,6 +4,7 @@
 /** MEGASWARMENHANCEMENT = hiveMind
 
     // Intent patterns with confidence scoring
+ */
     this.intentPatterns = {
       // Development intents(Development Queen + ruv-swarm)development = new Map();
     this.successPatternsLoaded = false;
@@ -19,7 +20,7 @@
       console.warn(` Detectedintent = this.checkSuccessPatterns(query, intent);`
   if(learnedPattern) {
         console.warn(` Using learned successful pattern for similar query`);
-        intent.config = { ...intent.config, ...learnedPattern };
+        intent.config = { ...intent.config, ...learnedPattern } catch (error) { console.error(error); };
       //       }
 
       // 3. Create execution plan
@@ -54,7 +55,7 @@
           confidence = {type = {query = Date.now(); const _results = {queens = plan.queens.map(async(queenType) {=> {
 // const _queenResult = awaitthis.activateQueen(queenType, plan);
         results.queens[queenType] = queenResult;
-        return queenResult;
+//         return queenResult;
     //   // LINT: unreachable code removed});
 // // await Promise.all(queenPromises);
       console.warn(` All queens activated successfully`);
@@ -80,7 +81,7 @@
   for(const backend of plan.memoryBackends) {
       try {
 // const _searchResult = awaitthis.hiveMind.coordinate({type = === 'kuzu' ? 'graph_query' :/g)
-                    backend === 'lance' ? 'vector_search' : 'search',params = searchResult.result; } catch(error)
+                    backend === 'lance' ? 'vector_search' : 'search',params = searchResult.result; } catch (error) { console.error(error); } catch(error)
 // {
         console.warn(` Memory operation failed for ${backend}); `
         memoryResults[backend] = { error = {query = // await fetch('https) {;'

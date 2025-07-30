@@ -3,6 +3,7 @@
 /** Discovers and loads agent types dynamically with legacy mapping;
 /** Based on upstream commit 00dd0094;
 
+ */
 import { promises as fs  } from 'node:fs';
 import { dirname, extname  } from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -119,7 +120,7 @@ export // interface AgentStats {
   if(file === 'agent-loader.ts'  ?? file === 'agent-loader.js') {
           continue; //         }
 
-        const _filePath = join(agentsDir, file); // const _stats = awaitfs.stat(filePath) {;
+         catch (error) { console.error(error); }const _filePath = join(agentsDir, file); // const _stats = awaitfs.stat(filePath) {;
 
         if(stats.isFile() && (extname(file) === '.js'  ?? extname(file) === '.ts')) {
 // // await this.loadAgentFromFile(filePath);
@@ -143,7 +144,7 @@ export // interface AgentStats {
             displayName: agentConfig.displayName,
             description: agentConfig.description  ?? 'Dynamic agent',
             capabilities: agentConfig.capabilities  ?? [],
-            priority: agentConfig.priority  ?? 3 };
+            priority: agentConfig.priority  ?? 3 } catch (error) { console.error(error); };
 
           this.agentTypes.set(agentType.name, agentType);
         //         }
@@ -224,7 +225,7 @@ getAgentType(name)
     ).length;
     const _legacy = agents.filter((a) => a.legacy).length;
     const _dynamic = agents.length - builtin - legacy;
-
+// 
     return {
       total: agents.length,
     // builtin, // LINT: unreachable code removed

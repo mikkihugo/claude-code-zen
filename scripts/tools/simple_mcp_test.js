@@ -21,7 +21,7 @@ async function testLibraryIntegration() {
       topology: 'mesh',
       maxAgents,
       strategy: 'parallel',
-      memoryStore };
+      memoryStore } catch (error) { console.error(error); };
     const _swarm = new Swarm(swarmConfig);
     console.warn(' Swarm created);'
     console.warn('\n Library integration successful\! Ready for claude-zen MCP tools.');

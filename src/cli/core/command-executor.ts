@@ -2,6 +2,7 @@
 /** Command execution engine - separated from argument parsing
 /** Implements Google's single responsibility and dependency injection principles;'
 
+ */
 import type { CommandContext  } from '../../types/cli.js';
 import { ValidationError  } from '.';
 import logger from '.';
@@ -18,7 +19,7 @@ import logger from '.';
 // , Command]>
 // // }
 
-/** Command definition
+ catch (error) { console.error(error); }/** Command definition
 
 // export // interface Command {handler = > void
 // onCommandComplete?: (commandName = > void;
@@ -98,7 +99,7 @@ executeCommand(commandName, (subArgs = []), (flags = {}), (context = {}));
         this.logger.debug(`Command '${commandName}' completed successfully`, {duration = Date.now() - startTime;`
   if(error instanceof ValidationError  ?? error instanceof CommandExecutionError) {
           // Re-throw CLI errors as-is
-          this.logger.debug(`Command '${commandName}' failed`, {error = > Promise<T> | T, timeoutMs => {`)
+          this.logger.debug(`Command '${commandName}' failed`, {error = > Promise<T> | T, timeoutMs => {`)`
       const _timeoutId = setTimeout(() => {
         reject(new CommandExecutionError(`Command timed out after ${timeoutMs}ms`));`
       }, timeoutMs);
@@ -221,7 +222,7 @@ sleep(ms = > setTimeout(resolve, ms));
  */
     // */; // LINT: unreachable code removed
 // export function _createCommandExecutor(commandRegistry = {}) {
-  return new CommandExecutor(commandRegistry, options);
+//   return new CommandExecutor(commandRegistry, options);
 // }
 
 /** Create command executor with enhanced error handling
@@ -233,7 +234,7 @@ sleep(ms = > setTimeout(resolve, ms));
 // export function _createRobustCommandExecutor(_commandRegistry = {}) {
   const __enhancedOptions = {
       timeout => {
-      logger.error(`Command '${commandName}' failed after ${duration}ms`, {`)
+      logger.error(`Command '${commandName}' failed after ${duration}ms`, {`)`
         error);
   if(options.onCommandError) {
         options.onCommandError(commandName, error, duration);

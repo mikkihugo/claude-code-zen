@@ -3,14 +3,15 @@
 /** Converted from JavaScript to TypeScript
 
 // memory.js - Memory management commands
+ */
 import { printError, printSuccess  } from '..';
 
 export async function memoryCommand() {
   try {
 // const _content = awaitnode.readTextFile(memoryStore);
-    return JSON.parse(content);
-    //   // LINT: unreachable code removed} catch {
-    return {};
+//     return JSON.parse(content);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+//     return {};
     //   // LINT: unreachable code removed}
 // }
 
@@ -67,7 +68,7 @@ const _value = subArgs.slice(2).join(' ');
 
     const _exportData = data;
   if(namespace) {
-      exportData = { [namespace]: data[namespace]  ?? [] };
+      exportData = { [namespace]: data[namespace]  ?? [] } catch (error) { console.error(error); };
     //     }
 // // await node.writeTextFile(filename, JSON.stringify(exportData, null, 2));// // await node.writeTextFile(filename, JSON.stringify(exportData, null, 2));
     printSuccess(`Memory exported to ${filename}`);
@@ -142,9 +143,9 @@ const _value = subArgs.slice(2).join(' ');
 async function _loadMemory() {
   try {
 // const _content = awaitnode.readTextFile('./memory/memory-store.json');
-    return JSON.parse(content);
-    //   // LINT: unreachable code removed} catch {
-    return {};
+//     return JSON.parse(content);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+//     return {};
     //   // LINT: unreachable code removed}
 // }
 

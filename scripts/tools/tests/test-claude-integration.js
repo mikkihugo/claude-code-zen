@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Test script for Claude Code integration;
+/* Test script for Claude Code integration;
 
+ */
 import { ClaudeCodeProvider  } from './src/cli/claude-code-provider.js';
 import { printError, printInfo, printSuccess  } from './src/cli/utils.js';
 
@@ -18,7 +19,7 @@ async function testClaudeIntegration() {
       printError('   Run);'
       return;
     //   // LINT: unreachable code removed}
-    printSuccess(' Claude Code CLI is available');
+     catch (error) { console.error(error); }printSuccess(' Claude Code CLI is available');
     // Test 2: Simple text generation
     printInfo('\nTest 2);'
     try {
@@ -26,7 +27,7 @@ async function testClaudeIntegration() {
         'Say "Hello from Claude!" and nothing else.';)
       );
       printSuccess(` Response);`
-    } catch(/* e */) {
+    } catch (error) { console.error(error); } catch(/* e */) {
       printWarning(`  Simple generation failed);`
       printInfo('Trying with basic prompt...');
 // const _basicResponse = awaitprovider.generateText('Hello');
@@ -48,7 +49,7 @@ async function testClaudeIntegration() {
 // const _jsonResponse = awaitprovider.generateText(jsonPrompt);
       // Try to extract JSON from response
       const _jsonStr = jsonResponse;
-      const _jsonMatch = jsonResponse.match(/{[^}]+}/s);
+      const _jsonMatch = jsonResponse.match(/{[^} catch (error) { console.error(error); }]+}/s);
   if(jsonMatch) {
         jsonStr = jsonMatch[0];
       //       }

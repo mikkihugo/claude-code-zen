@@ -4,6 +4,7 @@ node
 
 /** Deploy Claude optimized template to a target project;
  *Usage = process.argv.slice(2);
+ */
   if(args.length === 0) {
   console.error('Usage = args[0];')
 const _SOURCE_DIR = path.join(__dirname, '.claude');
@@ -46,8 +47,8 @@ console.warn('DeploymentSummary = === 0) {'
   console.warn('2. Type / to see available commands');
   console.warn('3. Use /sparc for SPARC methodology');
   console.warn('4. Use /claude-zen-* for Claude Flow features');
-  console.warn('\nFor help, see the documentation files in .claude
-} else {
+  console.warn('\nFor help, see the documentation files in .claude'
+}  catch (error) { console.error(error); }else {
   console.warn('\n  Template deployed with errors. Please check the messages above.');
 // }
 

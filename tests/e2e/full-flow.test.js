@@ -144,7 +144,7 @@ describe('Performance Tests', () =>
 
   // Check Core Web Vitals
 // const _metrics = awaitpage.evaluate(() => {
-        return {
+//         return {
           lcp: performance.getEntriesByType('largest-contentful-paint')[0]?.startTime,
     // fid: performance.getEntriesByType('first-input')[0]?.processingStart, // LINT: unreachable code removed
           cls;
@@ -221,7 +221,7 @@ describe('Accessibility', () =>
     // Run accessibility tests
 // const _violations = awaitpage.evaluate(async() => {
 // const _results = awaitwindow.axe.run();
-      return results.violations;
+//       return results.violations;
       //   // LINT: unreachable code removed  });
       // Log any violations for debugging
   if(violations.length > 0) {

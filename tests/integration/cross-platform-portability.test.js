@@ -2,6 +2,7 @@
 /** Integration tests for cross-platform portability fixes;
 /** Tests the replaced non-portable shell commands and improved error handling;
 
+ */
 import { platform  } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -32,7 +33,7 @@ describe('Cross-Platform Portability Tests', () => {
       const _mockRlErr = {
         on: jest.fn((event, handler) => {
           mockHandlers[event] = handler;
-          return mockRlErr;
+//           return mockRlErr;
     //   // LINT: unreachable code removed}) };
       // Mock the readline module
       jest.doMock('readline', () => ({ createInterface) => mockRlErr)   }));
@@ -168,7 +169,7 @@ describe('GitHub Command Cross-Platform Executable Check', () =>
       // On Windows, should use 'where'
       try {
           execSync('where node', { stdio);
-        } catch(/* _e */) {
+        } catch (error) { console.error(error); } catch(/* _e */) {
           // Command might not exist, that's ok for the test'
         //         }
       expect(execSyncSpy).toHaveBeenCalledWith(;)
@@ -179,7 +180,7 @@ describe('GitHub Command Cross-Platform Executable Check', () =>
       // On Unix-like systems, should use 'command -v'
       try {
           execSync('command -v node', { stdio);
-        } catch(/* _e */) {
+        } catch (error) { console.error(error); } catch(/* _e */) {
           // Command might not exist, that's ok for the test'
         //         }
       expect(execSyncSpy).toHaveBeenCalledWith(;)
@@ -211,7 +212,7 @@ describe('Integration Test) =>'
             expect(content).toMatch(/process\.kill/);
             expect(content).toMatch(/activeProcesses/);
           //           }
-          if(file.includes('github')) {
+           catch (error) { console.error(error); }if(file.includes('github')) {
             expect(content).toMatch(/checkCommandAvailable|checkClaudeAvailable/);
             expect(content).toMatch(/platform\(\)/);
           //           }

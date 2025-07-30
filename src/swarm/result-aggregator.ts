@@ -21,6 +21,7 @@ this.setupEventHandlers() {}
 /** Initialize the result aggregator;
 
 // async initialize() { }
+ */
 : Promise<void>
 
   this.logger.info('Initializing swarm result aggregator...');
@@ -28,7 +29,7 @@ this.setupEventHandlers() {}
 // // await this.processingQueue.start();
     this.logger.info('Swarm result aggregator initialized successfully');
     this.emit('initialized');
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     this.logger.error('Failed to initialize result aggregator', error);
     throw error;
   //   }
@@ -49,7 +50,7 @@ shutdown();
 // // await Promise.allSettled(completionPromises);// // await this.processingQueue.stop();
     this.logger.info('Swarm result aggregator shut down successfully');
     this.emit('shutdown');
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     this.logger.error('Error during result aggregator shutdown', error);
     throw error;
   //   }
@@ -113,7 +114,7 @@ this.emit('aggregation = this.activeAggregations.get(aggregationId);'
     appendices.push({title = result.taskResults.size;)
     const _successful = Array.from(result.taskResults.values());
 filter(r => r.validated).length;
-
+// 
     return total > 0 ? successful /total = [];
     // const _threshold = 0.8; // LINT: unreachable code removed
 
@@ -141,18 +142,18 @@ filter(r => r.validated).length;
   // private identifyBottlenecks(result = === 0) return 0;
     // ; // LINT: unreachable code removed
     const _total = results.reduce((sum, r) => sum + r.qualityMetrics.overall, 0);
-    return total / results.length;
+//     return total / results.length;
     //   // LINT: unreachable code removed}
 
   // private calculateAverageConfidence(results = === 0) return 0;
     // ; // LINT: unreachable code removed
     const _total = results.reduce((sum, r) => sum + r.confidenceScore, 0);
-    return total / results.length;
+//     return total / results.length;
     //   // LINT: unreachable code removed}
 
   // private calculateContentSize(content = JSON.stringify(result).length;
     size += appendices.reduce((sum, a) => sum + a.size, 0);
-    return size;
+//     return size;
     //   // LINT: unreachable code removed}
 
   // private createDefaultConfig(_config => {

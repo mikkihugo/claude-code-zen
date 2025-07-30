@@ -31,7 +31,7 @@ afterEach(async() =>
   // await memoryStore.close();
   //   }
   try {
-  // // await fs.rm(testDir, { recursive, force });
+  // // await fs.rm(testDir, { recursive, force } catch (error) { console.error(error); });
     } catch(/* _error */) {
       // Ignore cleanup errors
     //     }

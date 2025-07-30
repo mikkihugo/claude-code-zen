@@ -2,12 +2,13 @@
 /** In-Memory Registry Backend
 /** Simple, fast backend for development and testing
 
+ */
 import { EventEmitter  } from 'node:events';'
 import { RegistryInterface  } from '..';
 
 export class MemoryBackend extends RegistryInterface {
   constructor(options = {}) {
-    super();
+//     super();
     this.options = options;
     this.data = new Map();
     this.watchers = new Map();
@@ -112,7 +113,7 @@ export class MemoryBackend extends RegistryInterface {
 
     // Match by custom filter function if(query.filter && typeof query.filter =) {
       if(!query.filter(entry)) return false; //   // LINT: unreachable code removed}
-
+// 
     return true;
     //   // LINT: unreachable code removed}
   cleanupExpired() {

@@ -2,6 +2,7 @@
 /** Memory Backend Plugin Interface - TypeScript Edition;
 /** Pluggable storage backends for the main system with comprehensive type safety;
 
+ */
 import LanceDBInterface from '../../database/lancedb-interface';
 import { JSONValue  } from '../../types/core';
 // // interface MemoryBackendConfig {backend = null
@@ -67,7 +68,7 @@ import { JSONValue  } from '../../types/core';
 // // await this.ensureInitialized();
   // // Delegate to graph query if available // LINT: unreachable code removed
   if(this.storage?.graphQuery) {
-    return this.storage?.graphQuery(query, options);
+//     return this.storage?.graphQuery(query, options);
   //   }
   // Fallback to regular search
   // return this.storage?.search(query, options.namespace  ?? 'default');
@@ -149,7 +150,7 @@ store((key = 'default'))
         // return null;
     //   // LINT: unreachable code removed}
 
-  const _result = searchResult.results[0];
+   catch (error) { console.error(error); }const _result = searchResult.results[0];
   const _metadata = JSON.parse(result.metadata  ?? '{}');
   if(metadata.serialized_data) {
     // return JSON.parse(metadata.serialized_data);
@@ -163,7 +164,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
 
     try {
       // Use semantic search with pattern
-// const __searchResult = awaitthis.lanceInterface.semanticSearch(pattern, {table = JSON.parse(result.metadata  ?? '{}');
+// const __searchResult = awaitthis.lanceInterface.semanticSearch(pattern, {table = JSON.parse(result.metadata  ?? '{} catch (error) { console.error(error); }');
   if(metadata.namespace === namespace && metadata.serialized_data) {
             const _key = metadata.key;
             if(pattern === '*'  ?? key.includes(pattern.replace('*', ''))) {
@@ -185,13 +186,13 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
     // return false; // LINT: unreachable code removed
   //   }
 
-  async listNamespaces(): Promise<string[]> ;
+   catch (error) { console.error(error); }async listNamespaces(): Promise<string[]> ;
     // Extract namespaces from stored metadata
     try {
 // const _searchResult = awaitthis.lanceInterface.semanticSearch('*', {table = new Set<string>();
   for(const result of searchResult.results) {
         try {
-          const _metadata = JSON.parse(result.metadata  ?? '{}'); if(metadata.namespace) {
+          const _metadata = JSON.parse(result.metadata  ?? '{} catch (error) { console.error(error); }'); if(metadata.namespace) {
             namespaces.add(metadata.namespace); //           }
         } catch(_error = // await this.lanceInterface.getStats() {;
       // return {entries = null;
@@ -217,7 +218,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
 // // await sqliteBackend.initialize();
       // return sqliteBackend;
     //   // LINT: unreachable code removed}
-  //   }
+   catch (error) { console.error(error); }//   }
 
   // private async initializeSchema(): Promise<void> {
     try {
@@ -246,7 +247,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
       `);`
 
       console.warn(' Kuzu schema initialized for strategic documents');
-    } catch(error = 'default'): Promise<StorageResult> {
+    } catch (error) { console.error(error); } catch(error = 'default'): Promise<StorageResult> {
     const _fullKey = `\$namespace:\$key`;
     const _timestamp = Date.now();
 
@@ -272,16 +273,16 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
     try {
 // const __result = awaitthis.conn.query(`;`/g)
         MATCH(d = 'default'): Promise<Record<string, JSONValue>> {
-    const _results = {};
+    const _results = {} catch (error) { console.error(error); };
 
     try {
 
         const _metadata = row['d.metadata'];
         try {
           results[key] = JSON.parse(metadata);
-        } catch(error = {}): Promise<any> {
+        } catch (error) { console.error(error); } catch(error = {}): Promise<any> {
     try {
-      // return // await this.conn.query(query, options.params  ?? {});
+      // return // await this.conn.query(query, options.params  ?? {} catch (error) { console.error(error); });
     //   // LINT: unreachable code removed} catch(error = 1.0;
   ): Promise<boolean> {
 
@@ -290,12 +291,12 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
         MATCH(from = [],
     maxDepth = 2;))
   ): Promise<any[]> {
-    const _fullKey = `${namespace}:${key}`;
+    const _fullKey = `${namespace} catch (error) { console.error(error); }:${key}`;
 
     try {
       const __relationFilter = '';
   if(relationshipTypes.length > 0) {
-        const _typeList = relationshipTypes.map(t => `'${t}'`).join(', ');
+        const _typeList = relationshipTypes.map(t => `'${t} catch (error) { console.error(error); }'`).join(', ');
         _relationFilter = `WHERE r.relationship_type IN [${typeList}]`;
       //       }
 
@@ -311,7 +312,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
       `);`
 
       // return result.map((row = > row['d.namespace']).sort();
-    //   // LINT: unreachable code removed} catch(error = // await this.conn.query(`;`/g)
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error = // await this.conn.query(`;`/g)
         MATCH(d) RETURN count(d) as count;
       `);`
 
@@ -343,7 +344,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
     // ; // LINT: unreachable code removed
     try {
       // return JSON.parse(result[0].value);
-    //   // LINT: unreachable code removed} catch(_error = 'default'): Promise<Record<string, JSONValue>> {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(_error = 'default'): Promise<Record<string, JSONValue>> {
     const _results = {};
 
     const _searchPattern = pattern.replace('*', '%');
@@ -353,7 +354,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
     `, [namespace, searchPattern]);`
   for(let row of rows) {
       try {
-        results[row.key] = JSON.parse(row.value); } catch(_error = 'default'): Promise<boolean> {
+        results[row.key] = JSON.parse(row.value); } catch (error) { console.error(error); } catch(_error = 'default'): Promise<boolean> {
 // const _result = awaitthis.connectionPool.execute(`; `
       DELETE FROM storage ;
       WHERE namespace = ? AND key = ?;)
@@ -383,7 +384,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
     // return {
       entries,size = new Map();
     // // private filepath = config; // LINT: unreachable code removed
-    this.filepath = `${config.path}
+    this.filepath = `${config.path}`
   //   }
 
   async initialize(): Promise<void> ;
@@ -393,7 +394,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
 // const _data = awaitfs.readFile(this.filepath, 'utf8');
       const _parsed = JSON.parse(data);
       this.data = new Map(Object.entries(parsed));
-    } catch {
+    } catch (error) { console.error(error); } catch {
       // File doesn't exist or is corrupted, start fresh'
     //     }
 

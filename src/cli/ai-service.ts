@@ -2,6 +2,7 @@
 /** Ai Service Module;
 /** Converted from JavaScript to TypeScript;
 
+ */
 import { readFile  } from 'node:fs';
 import path from 'node:path';
 import { GoogleGenerativeAI  } from '@google';
@@ -12,8 +13,8 @@ const _LLM_PROVIDER_FILE = path.join(process.cwd(), '.hive-mind', 'llm-provider.
 async function _getProviderConfig() {
   try {
 // const _content = awaitreadFile(LLM_PROVIDER_FILE, 'utf8');
-    return JSON.parse(content);
-    //   // LINT: unreachable code removed} catch(error) {
+//     return JSON.parse(content);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
   if(error.code === 'ENOENT') {
       // return {providers = // await _getProviderConfig();
     // const _apiKey = process.env.GEMINI_API_KEY  ?? config.providers.google.apiKey; // LINT: unreachable code removed
@@ -29,7 +30,7 @@ async function _getProviderConfig() {
 
 async function getGenAI() {
 // const _apiKey = awaitgetApiKey();
-  return new GoogleGenerativeAI(apiKey);
+//   return new GoogleGenerativeAI(apiKey);
 // }
 
 let _claudeProvider = null;
@@ -39,7 +40,7 @@ async function getClaudeProvider() {
 // const __config = await_getProviderConfig();
 
     try {
-      claudeProvider = // await createClaudeCodeProvider({ modelId = {  }) {
+      claudeProvider = // await createClaudeCodeProvider({ modelId = {  } catch (error) { console.error(error); }) {
 // const _provider = awaitgetClaudeProvider();
   if(!provider) {
     console.warn('Claude Code not available, falling back to Google AI');
@@ -48,7 +49,7 @@ async function getClaudeProvider() {
 
   try {
     // return // await provider.generateText(prompt, options);
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
     console.warn('Claude generationfailed = 'flash' }) {'
 // const _genAI = awaitgetGenAI();
 
@@ -64,7 +65,7 @@ async function getClaudeProvider() {
   if(config.defaultProvider === 'claude'  ?? (config.providers.claude?.priority < config.providers.google?.priority)) {
     try {
       // return // await generateTextWithClaude(prompt, options);
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       console.warn('Claude generation failed, falling back to Google AI);'
       // return // await generateTextWithGoogle(prompt, options);
     //   // LINT: unreachable code removed}

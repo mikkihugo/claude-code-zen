@@ -2,6 +2,7 @@
 /** AI Provider Plugin System;
 /** Pluggable AI/LLM providers with automatic fallback and load balancing;
 
+ */
 import { readFile  } from 'node:fs';
 
 export class AIProviderPlugin {
@@ -26,7 +27,7 @@ export class AIProviderPlugin {
     try {
 // const _content = awaitreadFile(this.config.configFile, 'utf8');
       this.providerConfig = JSON.parse(content);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
   if(error.code === 'ENOENT') {
         // Create default configuration
         this.providerConfig = {providers = // await this.createProvider(name, config);
@@ -58,7 +59,7 @@ export class AIProviderPlugin {
             const _model = genAI.getGenerativeModel({model = Array.from(this.providers.keys());
   if(availableProviders.length > 0) {
         this.activeProvider = availableProviders[0];
-        console.warn(` Provider ${providerName} not available, using ${this.activeProvider} instead`);
+        console.warn(` Provider ${providerName}  catch (error) { console.error(error); }not available, using ${this.activeProvider} instead`);
         return;
     //   // LINT: unreachable code removed} else {
         console.warn(` No providers available, ${providerName} requested but not found`);
@@ -74,26 +75,26 @@ export class AIProviderPlugin {
       try {
 // const _result = awaitthis.tryProvider(this.activeProvider, 'generateText', prompt, options);
         if(result) return result;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
         console.warn(` ${this.activeProvider} failed = {}) ;`
     // Try active provider first
     if(this.activeProvider && this.providers.has(this.activeProvider)) {
       try {
 // const _result = awaitthis.tryProvider(this.activeProvider, 'generateEmbedding', text, options);
         if(result) return result;
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
         console.warn(` ${this.activeProvider} embeddingfailed = Array.from(this.providers.entries());`
 filter(([_, info]) => info.healthy);
 sort(([ a], [ b]) => {
         const _priorityA = this.providerConfig.providers[a.config]?.priority  ?? 999;
         const _priorityB = this.providerConfig.providers[b.config]?.priority  ?? 999;
-        return priorityA - priorityB;
+//         return priorityA - priorityB;
     //   // LINT: unreachable code removed});
   for(const [name, info] of sortedProviders) {
       try {
 // const _result = awaitthis.tryProvider(name, method, ...args); 
   if(result) {
-          console.warn(` Fallback successful with ${name}`); // return result;
+          console.warn(` Fallback successful with ${name} catch (error) { console.error(error); }`); // return result;
     //   // LINT: unreachable code removed}
       } catch(_error) {;
         console.warn(` $namefallbackfailed = this.providers.get(providerName);`
@@ -117,7 +118,7 @@ sort(([ a], [ b]) => {
       providerInfo.errorCount = Math.max(0, providerInfo.errorCount - 1);
 
       // return result;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       providerInfo.errorCount++;
       throw error;
     //     }
@@ -139,7 +140,7 @@ sort(([ a], [ b]) => {
   if(info.instance.healthCheck) {
 // const _isHealthy = awaitinfo.instance.healthCheck(); 
           info.healthy = isHealthy; healthResults[name] = { healthy, errorCount = {healthy = false;
-        healthResults[name] = { healthy, error = {};
+        healthResults[name] = { healthy, error = {} catch (error) { console.error(error); };
   for(const [name, _info] of this.providers) {
       stats[name] = {type = providerName;
 // // await this.saveProviderConfig();
@@ -165,7 +166,7 @@ sort(([ a], [ b]) => {
         const _availableProviders = Array.from(this.providers.keys());
   if(availableProviders.length > 0) {
 // // await this.setActiveProvider(availableProviders[0]);
-        } else {
+        }  catch (error) { console.error(error); }else {
           this.activeProvider = null;
         //         }
       //       }
@@ -182,7 +183,7 @@ sort(([ a], [ b]) => {
   if(info.instance.cleanup) {
         try {
 // // await info.instance.cleanup(); 
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           console.warn(`Warning); `
         //         }
       //       }

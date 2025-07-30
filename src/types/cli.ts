@@ -3,6 +3,7 @@
 /** Type definitions for command-line interface components;
 
 // Re-export CLI errors
+ */
 export type { // eslint-disable-line
   CliError as CLIError,
 CliErrorCode,
@@ -132,4 +133,4 @@ NOT_FOUND_ERROR = 'NOT_FOUND_ERROR' }
 | 'utility'
 | 'plugin'
 
-}}}}})))
+} catch (error) { console.error(error); }}}}})))

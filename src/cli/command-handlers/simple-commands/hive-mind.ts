@@ -3,6 +3,7 @@
 /** Simplified main entry point using focused modules for better maintainability;
  * @module HiveMindRefactored;
 
+ */
 import chalk from 'chalk';
 import { parseHiveMindArgs,
 routeHiveMindCommand,

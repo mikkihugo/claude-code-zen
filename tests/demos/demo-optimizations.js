@@ -2,6 +2,7 @@
  * @fileoverview Demo script showing optimized MCP server capabilities;
 /** Demonstrates the performance improvements and new features;
 
+ */
 import { ClaudeFlowMCPServer  } from './src/mcp/mcp-server.js';
 
 async function demonstrateMCPOptimizations() {
@@ -34,7 +35,7 @@ const _testMessages = [
     //     {
       message: {
         jsonrpc: '2.0',
-        method: 'resources
+        method: 'resources'
         id: 'read-1',
         params: { uri: 'performance://summary' } },
       receivedAt: Date.now() } ];
@@ -56,7 +57,7 @@ _processedCount += batch.length
   for(const item of batch) {
   try {
 // const _response = awaitserver.handleMessage(item.message); 
-        console.warn(`    ${item.message.method} -> ${response.result ? 'Success' ); `
+        console.warn(`    ${item.message.method}  catch (error) { console.error(error); }-> ${response.result ? 'Success' ); `
       } catch(error) {
         console.warn(`    ${item.message.method} -> Error);`
       //       }
@@ -168,7 +169,7 @@ rate: $;
 // {/g)
   (perfSummary.overview.successRate * 100).toFixed(1);
 // }
-%`)`
+ catch (error) { console.error(error); }%`)`
 console.warn(`   Throughput);`
 // }
 messages 

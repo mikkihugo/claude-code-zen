@@ -5,9 +5,9 @@ roots: ['<rootDir>'],
 testMatch: [; // eslint-disable-line
     '**/__tests__/**/*.js',
     '**/__tests__/**/*.ts',
-    '**
-    '**
-    '**
+    '**'
+    '**'
+    '**'
     '**/*.spec.ts' ],
 // {
   ('^.+\\.(ts|tsx)$');
@@ -16,7 +16,7 @@ testMatch: [; // eslint-disable-line
   : 'babel-jest'
 // }
 moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-coverageDirectory: '<rootDir>
+coverageDirectory: '<rootDir>'
 collectCoverageFrom: [
 'src/**/*.{js,ts}',
     '!src/**/*.d.ts',
@@ -29,21 +29,21 @@ collectCoverageFrom: [
   lines,
   statements }
 
-setupFilesAfterEnv: ['<rootDir>
+setupFilesAfterEnv: ['<rootDir>'
 testTimeout,
 verbose,
 bail,
 maxWorkers: '50%',
 // {
-  ('^@
+  ('^@'
   : '<rootDir>/src/$1',
-  ('^@services
+  ('^@services'
   : '<rootDir>/src/services/$1',
-  ('^@utils
+  ('^@utils'
   : '<rootDir>/src/utils/$1',
-  ('^@models
+  ('^@models'
   : '<rootDir>/src/models/$1',
-  ('^@config
+  ('^@config'
   : '<rootDir>/src/config/$1'
 // }
 // {

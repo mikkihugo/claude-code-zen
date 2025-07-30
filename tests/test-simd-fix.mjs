@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Test SIMD fix by forcing new instance
+/* Test SIMD fix by forcing new instance
 
+ */
 import { RuvSwarm  } from './ruv-swarm/npm/src/index-enhanced.js';
 
 // Clear global cache to force new initialization
@@ -12,5 +13,5 @@ import { RuvSwarm  } from './ruv-swarm/npm/src/index-enhanced.js';
 const _simdSupported = RuvSwarm.detectSIMDSupport();
 try { // eslint-disable-line
 // const _instance = awaitRuvSwarm.initialize({ useSIMD,/g)
-    debug   });
+    debug   } catch (error) { console.error(error); });
 } catch(_error) {}

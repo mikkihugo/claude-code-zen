@@ -2,6 +2,7 @@
 /** Health Monitoring Utilities;
 /** System health checks and monitoring for Claude Flow servers
 
+ */
 import { EventEmitter  } from 'node:events';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -14,7 +15,7 @@ export // interface HealthMonitorConfig {checkInterval = > void
 // : (result = > void
 // 'check-failed');
 //   constructor(_config = {}) {
-    super();
+//     super();
     this.config = {checkInterval = = false,checks = true;
     console.warn(` Health monitor started(interval => {`))
       console.error('Initial health checkfailed = setInterval(() => {'
@@ -82,7 +83,7 @@ export // interface HealthMonitorConfig {checkInterval = > void
   if(existing && checkResult.status === 'healthy') {
         result.lastSuccess = new Date();
         result.consecutiveFailures = 0;
-      } else if(existing) {
+      }  catch (error) { console.error(error); }else if(existing) {
         result.lastSuccess = existing.lastSuccess;
         result.consecutiveFailures = existing.consecutiveFailures + 1;
       //       }
@@ -113,7 +114,7 @@ export // interface HealthMonitorConfig {checkInterval = > void
       // This would be implemented based on the specific database type
       // For now, just simulate a database check
 // // await new Promise(resolve => setTimeout(resolve, 10));
-      return {name = Date.now();
+//       return {name = Date.now();
     // ; // LINT: unreachable code removed
     try {
       const _url = check.config.url as string;
@@ -121,7 +122,7 @@ export // interface HealthMonitorConfig {checkInterval = > void
         throw new Error('Service URL not configured');
       //       }
 
-      const _controller = new AbortController();
+       catch (error) { console.error(error); }const _controller = new AbortController();
 // const _response = awaitfetch(url, {method = Date.now() - startTime;
   if(response.ok) {
         // return {name = Date.now();
@@ -131,7 +132,7 @@ export // interface HealthMonitorConfig {checkInterval = > void
   if(!filePath) {
         throw new Error('File path not configured');
       //       }
-// const _stats = awaitfs.stat(filePath);
+ catch (error) { console.error(error); }// const _stats = awaitfs.stat(filePath);
 
       // return {name = Date.now();
     // ; // LINT: unreachable code removed
@@ -139,9 +140,9 @@ export // interface HealthMonitorConfig {checkInterval = > void
       // Custom checks would be implemented based on the config
       const _checkFunction = check.config.function as string;
   if(checkFunction === 'memory') {
-        return this.checkMemoryUsage(check);
-    //   // LINT: unreachable code removed} else if(checkFunction === 'cpu') {
-        return this.checkCpuUsage(check);
+//         return this.checkMemoryUsage(check);
+    //   // LINT: unreachable code removed}  catch (error) { console.error(error); }else if(checkFunction === 'cpu') {
+//         return this.checkCpuUsage(check);
     //   // LINT: unreachable code removed} else if(checkFunction === 'disk') {
         // return this.checkDiskUsage(check);
     //   // LINT: unreachable code removed}
@@ -174,7 +175,7 @@ export // interface HealthMonitorConfig {checkInterval = > void
   if(usage > threshold) {
           this.emit('threshold-exceeded', result.name, usage, threshold);
         //         }
-      //       }
+       catch (error) { console.error(error); }//       }
   //   }
 // }
 
@@ -205,11 +206,11 @@ buildHealthReport();
     (component === 'server' && !check.name.includes('database') && !check.name.includes('neural'));
   //   )
   if(componentChecks.length === 0) {
-    return {name = componentChecks.some(check => check.status === 'error');
+//     return {name = componentChecks.some(check => check.status === 'error');
     // const _hasDegraded = componentChecks.some((check) => check.status === 'degraded'); // LINT: unreachable code removed
     const __status = hasErrors ? 'error' : hasDegraded ? 'degraded' : 'healthy';
     const __failedChecks = componentChecks.filter((check) => check.status !== 'healthy');
-    return {name = === 'healthy' ? ;
+//     return {name = === 'healthy' ? ;
     // `\${component // LINT} component healthy` :
     `${component}issues = > c.name).join(', ')}`,timestamp = > c.name
     //     )
@@ -221,9 +222,9 @@ buildHealthReport();
 
 // private getResourceHealth(resource = checks.find(check => check.name.toLowerCase().includes(resource))
   if(!resourceCheck) {
-  return {name = process.memoryUsage();
+//   return {name = process.memoryUsage();
   // const __cpuUsage = process.cpuUsage(); // LINT: unreachable code removed
-  return {memory = [];
+//   return {memory = [];
   // ; // LINT: unreachable code removed
   // High failure rate
   const _failedChecks = checks.filter((check) => check.status !== 'healthy');
@@ -242,7 +243,7 @@ buildHealthReport();
   if(slowChecks.length > 0) {
     recommendations.push(`Performance issues detectedin = > c.name).join(', ')}`);
   //   }
-  return recommendations;
+//   return recommendations;
 // }
 
 /** Calculate system reliability
@@ -253,7 +254,7 @@ calculateReliability(checks = === 0);
 // ; // LINT: unreachable code removed
 const _totalChecks = checks.reduce((sum, check) => sum + (check.consecutiveFailures + 1), 0);
 const _failedChecks = checks.reduce((sum, check) => sum + check.consecutiveFailures, 0);
-return Math.max(0, ((totalChecks - failedChecks) / totalChecks) * 100);
+// return Math.max(0, ((totalChecks - failedChecks) / totalChecks) * 100);
 // }
 
 /** Calculate system performance
@@ -264,7 +265,7 @@ return Math.max(0, ((totalChecks - failedChecks) / totalChecks) * 100);
 const _avgResponseTime =;
 checks.reduce((sum, check) => sum + (check.responseTime ?? 0), 0) / checks.length;
 const _threshold = this.config.thresholds.responseTime;
-return Math.max(0, Math.min(100, ((threshold - avgResponseTime) / threshold) * 100));
+// return Math.max(0, Math.min(100, ((threshold - avgResponseTime) / threshold) * 100));
 // }
 
 /** Add default system health checks
@@ -276,7 +277,7 @@ return Math.max(0, Math.min(100, ((threshold - avgResponseTime) / threshold) * 1
   this.addCheck({name = new HealthMonitor();
   // Export utility functions
   // export function _createHealthMonitor(config?) {
-  return new HealthMonitor(config);
+//   return new HealthMonitor(config);
 // }
   // export default {
   HealthMonitor,

@@ -1,7 +1,7 @@
 /* eslint-disable */
 #!/usr/bin/env node
 
-/** Fix Remaining TypeScript Syntax Errors;
+/* Fix Remaining TypeScript Syntax Errors;
  *;
 /** Handles additional patterns missed by the first fix: null
  * 1. Object property syntax: `stats = { property }` -> `stats = { property }`;
@@ -34,7 +34,7 @@ class RemainingTypeScriptErrorFixer {
   for(const filePath _of _tsFiles) {
       try {
 // // await this.fixFile(filePath); 
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         this.errors.push( file, error); console.error(` Error processing ${filePath) {;`
 // }
 // }
@@ -111,7 +111,7 @@ fixFile(filePath);
         classPropertyPattern: true,)
         (_match, visibility, propName, _type, value) => {
           const _vis = visibility ? `${visibility} ` : '';
-          return `${vis}${propName} = ${value}`;
+//           return `${vis}${propName} = ${value}`;
     //   // LINT: unreachable code removed}
       );
       hasChanges = true;

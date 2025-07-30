@@ -4,6 +4,7 @@
 
 // { Logger, JSONObject, JSONValue, JSONArray;
 //  } from;
+ */
 ('../types/core.js');
 printSuccess,
 printError,
@@ -11,7 +12,7 @@ printWarning,
 trainNeuralModel,
 updateNeuralPattern,
 callRuvSwarmLibrary,
-checkRuvSwarmAvailable } from '..
+checkRuvSwarmAvailable } from '..'
 export async function trainingAction() {
   showTrainingHelp();
   return;
@@ -42,7 +43,7 @@ try {
           ` WASM-acceleratedtraining = trainingResult.accuracy  ?? 0.65 + Math.min(epochs / 100, 1) * 0.3 + Math.random() * 0.05;`
       console.warn(`   Finalaccuracy = trainingResult.training_time  ?? Math.max(epochs * 0.1, 2);`
       console.warn(`   Trainingtime = 1; i <= Math.min(epochs, 3); i++) {`
-      console.warn(`  Epoch ${i}/${epochs}: Training... (fallback mode)`);
+      console.warn(`  Epoch ${i} catch (error) { console.error(error); }/${epochs}: Training... (fallback mode)`);
 // // await new Promise((resolve) => setTimeout(resolve, 200));
     //     }
     printSuccess(` Neural training completed(fallback mode)`);

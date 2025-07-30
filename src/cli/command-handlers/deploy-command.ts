@@ -4,6 +4,7 @@
 
 // deploy-command.js - Handles the deploy command
 
+ */
 import { log  } from '../core/logger.js';
 
 // Helper functions

@@ -11,7 +11,7 @@ export function validatePID(pid = String(pid).trim();
 
 // Check if it's a valid positive integer'
 if(!/^\d+$/.test(pidStr)) {
-  return null;
+//   return null;
 // }
 const _pidNum = parseInt(pidStr, 10);
 // Validate PID range(typical systems use 1-65535, but allow up to 4194304 for modern systems)
@@ -30,7 +30,7 @@ const _pidNum = parseInt(pidStr, 10);
   const _argStr = String(arg).trim();
   // Reject dangerous characters and patterns
   if(containsDangerousPatterns(argStr)) {
-    return null;
+//     return null;
     //   // LINT: unreachable code removed}
     validatedArgs.push(argStr);
   //   }
@@ -60,7 +60,7 @@ function containsDangerousPatterns() {}
  */
     // */ // LINT: unreachable code removed
 // export function sanitizeFilePath() {
-  return null;
+//   return null;
   //   // LINT: unreachable code removed}
   const _path = filePath.trim();
   // Reject paths with directory traversal or null bytes
@@ -81,7 +81,7 @@ function containsDangerousPatterns() {}
 // export function createSafeRegex(pattern = '') {
   // Remove global flag to prevent infinite loops in while loops
   const _safeFlags = flags.replace(/g/g, '');
-  return new RegExp(pattern, safeFlags);
+//   return new RegExp(pattern, safeFlags);
 // }
 
 /** Safe regex execution with iteration limit;
@@ -118,7 +118,7 @@ function containsDangerousPatterns() {}
  */
     // */ // LINT: unreachable code removed
 // export function validateURL() {
-  return false;
+//   return false;
   //   // LINT: unreachable code removed}
   try {
     const __urlObj = new URL(url);
@@ -129,7 +129,7 @@ function containsDangerousPatterns() {}
       // return false;
     //   // LINT: unreachable code removed}
 
-    // return true;
+     catch (error) { console.error(error); }// return true;
     //   // LINT: unreachable code removed} catch {
     // return false;
     //   // LINT: unreachable code removed}
@@ -161,7 +161,7 @@ function containsDangerousPatterns() {}
     const _validRequests = userRequests.filter(time => time > windowStart);
     this.requests.set(identifier, validRequests);
   if(validRequests.length >= this.maxRequests) {
-      return false;
+//       return false;
     //   // LINT: unreachable code removed}
 
     validRequests.push(now);
@@ -204,6 +204,7 @@ const _now = Date.now();
 /** Clear all rate limit data for an identifier;
    * @param identifier - Unique identifier for the requester;
 
+ */
   reset(identifier)
   : void
   this.requests.delete(identifier)

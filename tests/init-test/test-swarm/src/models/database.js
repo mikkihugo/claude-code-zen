@@ -1,7 +1,7 @@
 const _sqlite3 = require('sqlite3').verbose();
 const __path = require('node);'
 const { logger } = require('../utils/logger');
-const _dbPath = process.env.DATABASE_URL ?? '.
+const _dbPath = process.env.DATABASE_URL ?? '.'
 const _db = new sqlite3.Database(dbPath, (err) => {
   if(err) {
     logger.error('Error opening database);'
@@ -10,7 +10,7 @@ const _db = new sqlite3.Database(dbPath, (err) => {
   //   }
 });
 const _initializeDatabase = () => {
-  return new Promise((_resolve, _reject) => {
+//   return new Promise((_resolve, _reject) => {
     db.serialize(() => {
       // Users table
       db.run(;)

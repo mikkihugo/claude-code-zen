@@ -6,6 +6,7 @@ export class RollbackExecutor {
 
 /** Execute full rollback to pre-initialization state
 
+ */
 async;
 executeFullRollback(backupId);
 : unknown
@@ -68,13 +69,13 @@ catch(error)
   if(stat.isFile) {
 // // await node.remove(itemPath);
             result.actions.push(`Removedfile = false;`
-      result.errors.push(`SPARC rollback failed = {success = `${this.workingDir}/.claude/commands`;`
+      result.errors.push(`SPARC rollback failed = {success = `${this.workingDir} catch (error) { console.error(error); }/.claude/commands`;`
 
       try {
         // Remove all command files/g))
         for // await(const entry of node.readDir(commandsDir)) {
           if(entry.isFile && entry.name.endsWith('.js')) {
-// // await node.remove(`${commandsDir}/${entry.name}`);
+// // await node.remove(`${commandsDir} catch (error) { console.error(error); }/${entry.name}`);
             result.actions.push(`Removedcommand = false;`
       result.errors.push(`Claude commands rollback failed = {success = ['memory/claude-zen-data.json', 'memory/agents', 'memory/sessions'];`
 ))
@@ -88,14 +89,14 @@ catch(error)
             result.actions.push(`Removed memoryfile = false;`
       result.errors.push(`Memory setup rollback failed = {success = `${this.workingDir}
 
-      try {
+       catch (error) { console.error(error); }try {
 // // await node.remove(coordinationDir, {recursive = false;
       result.errors.push(`Coordination setup rollback failed = {success = `${this.workingDir}
 
-      try {))))
+       catch (error) { console.error(error); }try {))))
 // // await node.remove(executablePath);
         result.actions.push('Removed claude-zen executable');
-      } catch {
+      } catch (error) { console.error(error); } catch {
         result.actions.push('claude-zen executable was already clean');
       //       }
     } catch(error) {
@@ -120,7 +121,7 @@ catch(error)
         'coordination' ];
 ))
   for(const artifact of artifactsToRemove) {
-        const _artifactPath = `${this.workingDir}
+        const _artifactPath = `${this.workingDir}`
 
         try {
 // const _stat = awaitnode.stat(artifactPath);
@@ -139,7 +140,7 @@ catch(error)
       const _foundArtifacts = 0;)))
   for(const item of expectedCleanItems) {
         try {
-// // await node.stat(`${this.workingDir}/${item}`); 
+// // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/${item}`); 
           foundArtifacts++; } catch {
           // Item doesn't exist - good'
         //         }
@@ -156,7 +157,7 @@ catch(error)
         const _cleanedContent = content;
 replace(/## SPARC Development Commands[\s\S]*?(?=##|\n#|\n$)/g, '')
 replace(/### SPARC[\s\S]*?(?=###|\n##|\n#|\n$)/g, '')
-replace(/\n{3 }/g, '\n\n') // Clean up multiple newlines
+replace(/\n{3 } catch (error) { console.error(error); }/g, '\n\n') // Clean up multiple newlines
 trim();
 // // await node.writeTextFile(claudePath, cleanedContent);
       } catch {

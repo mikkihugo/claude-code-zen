@@ -2,6 +2,7 @@
 /** Status Command Handler - TypeScript Edition
 /** Comprehensive system status monitoring with full type safety
 
+ */
 import { FlagValidator  } from '../core/argument-parser.js';
 
 // =============================================================================
@@ -55,17 +56,17 @@ async function getResourceUsage(logger = // await import('node);'
 // {
       try {
         os = // await import('node);'
-      } catch {
+      } catch (error) { console.error(error); } catch {
         logger.warn('OS module unavailable, returning fallback resource info');
     // return {memory = os.totalmem(); // LINT: unreachable code removed
 
     // Get CPU info
 
-    const __loadAvg = 'N
+    const __loadAvg = 'N'
 
     try {
       const _loadAvgData = os.loadavg();
-      _loadAvg = `${loadAvgData[0].toFixed(2)}, ${loadAvgData[1].toFixed(2)}, ${loadAvgData[2].toFixed(2)}`;
+      _loadAvg = `${loadAvgData[0].toFixed(2)} catch (error) { console.error(error); }, ${loadAvgData[1].toFixed(2)}, ${loadAvgData[2].toFixed(2)}`;
     } catch {
       // Load average not available on all platforms
       logger.debug('Load average not available on this platform');

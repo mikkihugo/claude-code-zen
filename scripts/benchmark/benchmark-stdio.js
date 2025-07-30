@@ -2,6 +2,7 @@
  * @fileoverview Performance benchmark for MCP stdio optimizations;
 /** Compares performance before and after optimizations;
 
+ */
 import { MCPErrorHandler  } from './src/mcp/core/error-handler.js';
 import { PerformanceMetrics  } from './src/mcp/core/performance-metrics.js';
 import { StdioOptimizer  } from './src/mcp/core/stdio-optimizer.js';
@@ -47,7 +48,7 @@ runBaselineTest();
   // // await this.delay(Math.random() * 2); // Simulate 5% error rate
         if(Math.random() < 0.05) {
           throw new Error('Simulated processing error'); //         }
-        processedCount++;
+         catch (error) { console.error(error); }processedCount++;
       } catch(/* _error */) {
         errorCount++;
         // No retry logic in baseline
@@ -101,7 +102,7 @@ stdioOptimizer.on('batch', async(batch) => {
             if(Math.random() < 0.05) {
               throw new Error('Simulated processing error');
             //             }
-            // return { success };
+             catch (error) { console.error(error); }// return { success };
     //   // LINT: unreachable code removed});
           processedCount++;
           performanceMetrics.recordRequestEnd(requestId, true);
@@ -182,8 +183,8 @@ createBatches(messages, batchSize);
     const _throughputImprovement =;
       ((optimized.throughput - baseline.throughput) / baseline.throughput) * 100;
     console.warn(`\n THROUGHPUT);`
-    console.warn(`  Baseline:  ${baseline.throughput.toFixed(2)} messages
-    console.warn(`  Optimized: ${optimized.throughput.toFixed(2)} messages
+    console.warn(`  Baseline:  ${baseline.throughput.toFixed(2)} messages`
+    console.warn(`  Optimized: ${optimized.throughput.toFixed(2)} messages`
     console.warn(;)
       `  Improvement: \${throughputImprovement > 0 ? '+' }${throughputImprovement.toFixed(1)}%`;
     );
@@ -223,10 +224,10 @@ createBatches(messages, batchSize);
     const _optimizedSuccessRate = (optimized.processedCount / optimized.messageCount) * 100;
     console.warn(`\n SUCCESS RATES);`
     console.warn(;)
-      `  Baseline:  ${baselineSuccessRate.toFixed(1)}% (${baseline.processedCount}
+      `  Baseline:  ${baselineSuccessRate.toFixed(1)}% (${baseline.processedCount}`
     );
     console.warn(;)
-      `  Optimized: ${optimizedSuccessRate.toFixed(1)}% (${optimized.processedCount}
+      `  Optimized: ${optimizedSuccessRate.toFixed(1)}% (${optimized.processedCount}`
     );
     // Summary
     console.warn(`\n OPTIMIZATION SUMMARY);`
@@ -248,7 +249,7 @@ createBatches(messages, batchSize);
 /** Utility delay function;
 
   delay(ms)
-    return new Promise((resolve) => setTimeout(resolve, ms));
+//     return new Promise((resolve) => setTimeout(resolve, ms));
 // Run benchmark if this file is executed directly
   if(import.meta.url === `file) {`
   const _benchmark = new StdioBenchmark();

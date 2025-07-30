@@ -1,7 +1,8 @@
 #!/usr/bin/env node;
 
-/** Test script for the unified server with MCP integration;
+/* Test script for the unified server with MCP integration;
 
+ */
 import { UnifiedInterfacePlugin  } from './src/plugins/unified-interface/index.js';
 
 async function testUnifiedServer() {
@@ -27,7 +28,7 @@ async function testUnifiedServer() {
       console.warn('\n Shutting down...');
   // await plugin.shutdown();
       process.exit(0);
-      });
+      } catch (error) { console.error(error); });
   //   }
 catch(error)
 // {

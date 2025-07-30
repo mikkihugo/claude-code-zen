@@ -2,6 +2,7 @@
 /** SQLite Performance Benchmark Suite;
 /** Tests and measures performance improvements for SQLite memory backend;
 
+ */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -98,7 +99,7 @@ measureOperation(name, operation);
 // const _storeWithoutCache = awaitthis.createStore('without-cache', { enableCache });
     const _testData = this.generateTestData(100);
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {
-      console.warn(`  Iteration ${iteration + 1}
+      console.warn(`  Iteration ${iteration + 1}`
       // Test store operations
   for(const store of [storeWithCache, storeWithoutCache]) {
         const _suffix = store === storeWithCache ? '-cached' : '-uncached'; // Store operations
@@ -137,7 +138,7 @@ measureOperation(name, operation);
 })
   const _testData = this.generateTestData(this.options.testDataSize);
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {
-    console.warn(`  Iteration ${iteration + 1}
+    console.warn(`  Iteration ${iteration + 1}`
     // Concurrent writes
   // // await this.measureOperation('concurrent-writes', async() => {
       const _chunks = this.chunkArray(testData, this.options.concurrentOperations);
@@ -198,7 +199,7 @@ measureOperation(name, operation);
   })
 // }
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {
-  console.warn(`  Iteration ${iteration + 1}
+  console.warn(`  Iteration ${iteration + 1}`
   // Test queries that should benefit from indexes
   // // await this.measureOperation('namespace-queries', async() => {
   for(let i = 0; i < 10; i++) {
@@ -234,7 +235,7 @@ const _testData = this.generateTestData(200);
   // // await store.store(item.key, item.value, { namespace); 
 // }
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {
-  console.warn(`  Iteration ${iteration + 1}
+  console.warn(`  Iteration ${iteration + 1}`
   // First read(cold cache)
   // // await this.measureOperation('cold-cache-reads', async() => {
   for(let i = 0; i < 50; i++) {
@@ -272,7 +273,7 @@ chunkArray(array, chunkSize)
     // ; // LINT: unreachable code removed
     const _sorted = [...measurements].sort((a, b) => a - b);
     const _sum = measurements.reduce((a, b) => a + b, 0);
-    return {
+//     return {
       count: measurements.length,
     // min: sorted[0], // LINT: unreachable code removed
     max: sorted[sorted.length - 1],
@@ -360,7 +361,7 @@ run();
   // // await this.benchmarkConcurrentOperations();
   // // await this.benchmarkIndexPerformance();
   // // await this.benchmarkCacheEffectiveness();
-    const { report, reportPath } = // await this.generateReport();
+    const { report, reportPath }  catch (error) { console.error(error); }= // await this.generateReport();
     console.warn(`\n Benchmark completed successfully!`);
     console.warn(` Report saved to);`
     // return report;

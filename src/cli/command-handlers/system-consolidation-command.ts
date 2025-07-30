@@ -2,13 +2,14 @@
 /** System Consolidation Command - Unified entry point
 /** Addresses redundant commands and provides clear system control
 
+ */
 import { printError, printInfo  } from '..';
 
 export async function systemConsolidationCommand() {
     case 'start':
-      return await startUnifiedSystem(subArgs.slice(1), flags);
+//       return await startUnifiedSystem(subArgs.slice(1), flags);
     // case 'stop': // LINT: unreachable code removed
-      return // await stopUnifiedSystem(subArgs.slice(1), flags);
+//       return // await stopUnifiedSystem(subArgs.slice(1), flags);
     // case 'restart': // LINT: unreachable code removed
       // return // await restartUnifiedSystem(subArgs.slice(1), flags);
     // case 'status': // LINT: unreachable code removed
@@ -18,7 +19,7 @@ export async function systemConsolidationCommand() {
 
   try {
     // Import and start the main system
-    const { startCommand } = // await import('./start-wrapper-command.js');
+    const { startCommand }  catch (error) { console.error(error); }= // await import('./start-wrapper-command.js');
 // // await startCommand(args, flags);
     printSuccess(' Unified system started successfully');
     printInfo(' Activeservices = > setTimeout(resolve, 2000)); // Wait 2 seconds'
@@ -50,8 +51,8 @@ async function showConsolidationPlan() {
   console.warn('      Dashboard(integrated)');
   console.warn('      Queen Council(auto-convened)');
   console.warn();
-  console.warn('   claude-zen server start = API only(dev
-  console.warn('   claude-zen dashboard start = UI only(dev
+  console.warn('   claude-zen server start = API only(dev'
+  console.warn('   claude-zen dashboard start = UI only(dev'
   console.warn('   claude-zen queen-council convene = Manual council');
   console.warn();
 

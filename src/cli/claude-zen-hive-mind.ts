@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/**  HIVE-MIND CLAUDE ZEN CLI;
+/*  HIVE-MIND CLAUDE ZEN CLI;
  * ;
 /** HIVE-MIND PRIMARYSYSTEM = null;
+ */
 const _naturalLanguageHandler = null;
 
 async function main() {
@@ -30,7 +31,7 @@ async function main() {
 // // await registerHiveMindCommands(commandRegistry, globalHiveMind);
       printSuccess(' Hive-Mind Primary System ready!');
 
-    } catch(error)
+    } catch (error) { console.error(error); } catch(error)
 // {
   printError(` Failed to initialize Hive-Mind PrimarySystem = // await executeCommand(command, input.slice(1), {`
 ..flags,hiveMind = === 'object') {
@@ -94,7 +95,7 @@ async function main() {
     // ; // LINT: unreachable code removed/g)
   switch(action) {
         case 'create':
-          return hiveMind.coordinate({type = context.args.slice(1).join(' ');
+//           return hiveMind.coordinate({type = context.args.slice(1).join(' ');
     // if(!task) { // LINT: unreachable code removed
             throw new Error('Task description required');
           //           }
@@ -149,7 +150,7 @@ async function main() {
     try {
 // // await globalHiveMind.cleanup();
       printSuccess(' Hive-Mind shutdown complete');
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
   printError(` Cleanup failed => {`
   if(globalHiveMind) {
 // // await globalHiveMind.cleanup();

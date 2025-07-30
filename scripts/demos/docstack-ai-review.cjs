@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-/** Document Stack AI Review - Uses GitHub Models CLI for AI feedback
+/* Document Stack AI Review - Uses GitHub Models CLI for AI feedback
 
 /** This integrates the document stack with `gh models run` to provide
 /** AI-powered analysis and feedback on documents
 
+ */
 const { spawn } = require('node);'
 const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
 
@@ -48,7 +49,7 @@ const _colors = {
 
 // Run GitHub Models CLI
 async function runGHModel(prompt, model = 'gpt-4o-mini') {
-  return new Promise((resolve, reject) => {
+//   return new Promise((resolve, reject) => {
     const gh = spawn('gh', ['models', 'run', model], {
       stdio);
 
@@ -80,9 +81,9 @@ async function runGHModel(prompt, model = 'gpt-4o-mini') {
 async function checkGHCLI() {
   try {
 // const response = awaitrunGHModel('Respond with just "OK"', 'openai/gpt-4o-mini');
-    return response.includes('OK');
-  } catch(_error) {
-    return false;
+//     return response.includes('OK');
+  } catch (error) { console.error(error); } catch(_error) {
+//     return false;
 
 // AI Document Analysis
 async function analyzeDocumentWithAI(docType, service, docId, content, metadata) {
@@ -117,7 +118,7 @@ Focus on practical, actionable feedback. IMPORTANT: Respond with ONLY the JSON o
 // const response = awaitrunGHModel(prompt, 'openai/gpt-4o-mini');
 
     // Extract JSON from response if it contains other text
-    const jsonMatch = response.match(/\{[\s\S]*\}/);
+    const jsonMatch = response.match(/\{[\s\S]*\} catch (error) { console.error(error); }/);
   if(jsonMatch) {
       // return JSON.parse(jsonMatch[0]);
     } else {
@@ -156,7 +157,7 @@ IMPORTANT: Respond with ONLY the JSON object, no other text.`;`
 // const response = awaitrunGHModel(prompt, 'openai/gpt-4o-mini');
 
     // Extract JSON from response if it contains other text
-    const jsonMatch = response.match(/\{[\s\S]*\}/);
+    const jsonMatch = response.match(/\{[\s\S]*\} catch (error) { console.error(error); }/);
   if(jsonMatch) {
       // return JSON.parse(jsonMatch[0]);
     } else {
@@ -191,7 +192,7 @@ Return only the document content, no JSON wrapper.`;`
   try {
 // const response = awaitrunGHModel(prompt, 'openai/gpt-4o-mini');
     // return response;
-  } catch(_error) {
+  } catch (error) { console.error(error); } catch(_error) {
     // return null;
 
 // Main CLI // interface

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/**  AUTO-GENERATED API - CLI Commands to REST/GraphQL/WebSocket;
+/*  AUTO-GENERATED API - CLI Commands to REST/GraphQL/WebSocket;
  *;
 /** Automatically generates REST endpoints, GraphQL schema, and WebSocket handlers;
  * from the CLI command registry with full validation and real-time features.;
@@ -59,9 +59,10 @@ import express, { type NextFunction, type Request, type Response  } from 'expres
   // uptime: 0
   // errors: 0
    //    }
+ */
 constructor(options)
 // {
-  super();
+//   super();
   this.options = {
       port,
   host: 'localhost',
@@ -190,7 +191,7 @@ initializeEndpoints();
       this.app.get('/health', (_req, res) => {
         res.json({ status: 'healthy',)
           uptime: Date.now() - this.metrics.uptime,
-          metrics: this.metrics   });
+          metrics: this.metrics   } catch (error) { console.error(error); });
       //       }
   //   )
   // API documentation
@@ -240,7 +241,7 @@ this.app.get('/api/commands', (_req, res) =>
 this.app.post('/api/execute', async(req, res) =>
 // {
   try {
-        const { command, args = {} } = req.body;
+        const { command, args = {}  catch (error) { console.error(error); }} = req.body;
   if(!command) {
           // return res.status(400).json({/g)
             error);
@@ -276,7 +277,7 @@ this.app.get('/api/status/) =>'
 // {
   const _session = this.executionSessions.get(req.params.sessionId);
   if(!session) {
-    return res.status(404).json({)
+//     return res.status(404).json({)
           error);
   //   }
   res.json(session);
@@ -307,7 +308,7 @@ this.app.get('/api/metrics', (_req, res) =>
         try {
           const _message = JSON.parse(data.toString());
           this.handleWebSocketMessage(ws, message);
-        } catch(/* _error */) {
+        } catch (error) { console.error(error); } catch(/* _error */) {
           ws.send(;
             JSON.stringify({))
               error);
@@ -430,7 +431,7 @@ executeCommand(session, ws?)
             type);
         );
       //       }
-  // Simulate command execution
+   catch (error) { console.error(error); }// Simulate command execution
   // In real implementation, this would call the actual CLI command
 // // await this.simulateCommandExecution(session, ws);
   session.status = 'completed';
@@ -515,7 +516,7 @@ ws?
       'POST /api/execute',
       'GET /api/status/:sessionId',
       'GET /api/metrics',
-      'GET 
+      'GET '
       'GET /docs' ];
 
 /** Get current metrics;

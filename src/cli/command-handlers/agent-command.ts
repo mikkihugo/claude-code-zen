@@ -2,6 +2,7 @@
 /** Agent Command Module
 /** Converted from JavaScript to TypeScript
 
+ */
 import { agentLoader  } from '../../agents/agent-loader.js';
 // agent.js - Agent management commands
 import { printError, printSuccess  } from '..';
@@ -95,7 +96,7 @@ async function terminateAgent() {
 
   if(!agentId) {
     printError('Usage = args.indexOf(flagName);'
-  return index !== -1 && index + 1 < args.length ? args[index + 1] ;
+//   return index !== -1 && index + 1 < args.length ? args[index + 1] ;
 // }
 
 function _showAgentHelp() {

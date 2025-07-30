@@ -2,6 +2,7 @@
 /** All 87 Claude Flow MCP Tools
 /** Organized by category with enable/disable configuration
 
+ */
 export const toolCategories = {
   swarm: {
     name: ' SWARM COORDINATION',
@@ -26,7 +27,7 @@ export const toolCategories = {
   handler: async (args) =>
   //   {
     const _command = `npx ruv-swarm init --topology ${args.topology} --max-agents ${args.maxAgents ?? 8} --strategy ${args.strategy ?? 'auto'}`;
-    return new Promise((resolve, _reject) => {
+//     return new Promise((resolve, _reject) => {
             exec(command, (error, stdout, _stderr) => {
               if (error) {
                 console.error(`exec error: ${error}`);
@@ -64,7 +65,7 @@ export const toolCategories = {
   required: ['type'],
 
   handler: (args) =>
-  ` Agent spawned: $args.name  ?? 'Unnamed'($args.
+  ` Agent spawned: $args.name  ?? 'Unnamed'($args.`
   type;
   //   )
   with ${args.capabilities?.length  ?? 0}
@@ -103,7 +104,7 @@ export const toolCategories = {
     const _basic = `;
    Swarm Status: ACTIVE\n Topology: hierarchical\n Agents: 6/8 active\n Tasks: 3 completed, 2 in-progress\n Memory: 512KB used`
   const _detailed = `${basic}\n\nAgent Details:\n  coordinator: Managing workflow\n  researcher: Data analysis\n  coder: Implementation\n  analyst: Waiting for data\n  tester: Running tests\n  optimizer: Idle`;
-  return args.detailed ? detailed ;
+//   return args.detailed ? detailed ;
   //   // LINT: unreachable code removed} }
 
   description: 'List active agents & capabilities',
@@ -112,7 +113,7 @@ type: 'object',
 : 'Filter by agent type' ,
 
   handler: (args) =>
-  ` Active Agents ($
+  ` Active Agents ($`
 // {
   args.type ?? 'all';
 // }
@@ -124,7 +125,7 @@ type: 'string', description;
 : 'Specific agent ID' ,
 
   handler: (args) =>
-  ` Agent Metrics ($
+  ` Agent Metrics ($`
 // {
   args.agentId ?? 'all';
 // }
@@ -136,7 +137,7 @@ type: 'number',
 default, description: 'Monitoring interval (seconds)' ,
 
   handler: (args) =>
-  ` Monitoring started ($
+  ` Monitoring started ($`
 // {
   args.interval ?? 30;
 // }
@@ -162,7 +163,7 @@ enum: ['round-robin', 'least-connections', 'weighted'],
   handler: async (args) =>
 // {
   const _command = `npx ruv-swarm load-balance --algorithm ${args.algorithm ?? 'weighted'}`;
-  return new Promise((resolve, _reject) => {
+//   return new Promise((resolve, _reject) => {
             exec(command, (error, stdout, _stderr) => {
               if (error) {
                 console.error(`exec error: ${error}`);
@@ -181,7 +182,7 @@ default, description: 'Force sync' ,
   handler: async (args) =>
 // {
   const _command = `npx ruv-swarm coordination sync ${args.force ? '--force' : ''}`;
-  return new Promise((resolve, _reject) => {
+//   return new Promise((resolve, _reject) => {
             exec(command, (error, stdout, _stderr) => {
               if (error) {
                 console.error(`exec error: ${error}`);
@@ -202,7 +203,7 @@ default, description: 'Auto-scaling enabled' ,
   handler: async (args) =>
 // {
   const _command = `npx ruv-swarm scale --target-size ${args.targetSize ?? 'auto'} ${args.auto ? '--auto' : ''}`;
-  return new Promise((resolve, _reject) => {
+//   return new Promise((resolve, _reject) => {
             exec(command, (error, stdout, _stderr) => {
               if (error) {
                 console.error(`exec error: ${error}`);
@@ -223,7 +224,7 @@ default, description: 'Shutdown timeout (seconds)' ,
   handler: async (args) =>
 // {
   const _command = `npx ruv-swarm destroy ${args.force ? '--force' : ''} --timeout ${args.timeout ?? 30}`;
-  return new Promise((resolve, _reject) => {
+//   return new Promise((resolve, _reject) => {
             exec(command, (error, stdout, _stderr) => {
               if (error) {
                 console.error(`exec error: ${error}`);
@@ -251,7 +252,7 @@ default, description: 'Shutdown timeout (seconds)' ,
   required: ['action'],
 
   handler: (args) =>
-  ` Memory \$args.action: \$args.key  ?? 'multiple'in \$args.
+  ` Memory \$args.action: \$args.key  ?? 'multiple'in \$args.`
   namespace ?? 'default';
   namespace`,
 
@@ -409,7 +410,7 @@ default, description: 'Shutdown timeout (seconds)' ,
   required: ['logFile'],
 
   handler: (args) =>
-  ` Log analysis
+  ` Log analysis`
   for ${args.logFile}
   :\n Entries processed,432\n Errors found: 12\n Warnings: 45\n Pattern matches: $args.patterns?.length  ?? 0\n Status: Analysis complete`,
 
@@ -458,7 +459,7 @@ default, description: 'Shutdown timeout (seconds)' ,
   required: ['modelPath'],
 
   handler: (args) =>
-  ` Model loaded from \$args.modelPath:\n Type: Neural network\n Parameters: 1.2M\n Memory usage: 45MB\n Status: Ready
+  ` Model loaded from \$args.modelPath:\n Type: Neural network\n Parameters: 1.2M\n Memory usage: 45MB\n Status: Ready`
   for inference`,
 
   description: 'Save trained models',
@@ -471,7 +472,7 @@ default, description: 'Shutdown timeout (seconds)' ,
   required: ['modelId', 'path'],
 
   handler: (args) =>
-  ` Model \$args.modelIdsaved
+  ` Model \$args.modelIdsaved`
   to;
   \$args.path;
   :\n Size: 23.4MB\n Format: ONNX\n Compression: 67%\n Status: Saved successfully`,
@@ -484,7 +485,7 @@ default, description: 'Shutdown timeout (seconds)' ,
   required: ['operation'],
 
   handler: (args) =>
-  ` WASM optimization
+  ` WASM optimization`
   for ${args.operation}
   :\n SIMD enabled: Yes\n Performance gain: 3.2x\n Memory usage: -40%\n Status: Optimized`,
 
@@ -790,7 +791,7 @@ default, description: 'Shutdown timeout (seconds)' ,
   required: ['repo', 'version'],
 
   handler: (args) =>
-  ` Release coordination (\$args.repov\$args.version):\n Build:  Success\n Tests:  All passed\n Docs:  Updated\n Status: Ready
+  ` Release coordination (\$args.repov\$args.version):\n Build:  Success\n Tests:  All passed\n Docs:  Updated\n Status: Ready`
   for release`,
 
   description: 'Workflow automation',
@@ -803,7 +804,7 @@ default, description: 'Shutdown timeout (seconds)' ,
   required: ['repo', 'workflow'],
 
   handler: (args) =>
-  ` Workflow
+  ` Workflow`
   automation (${args.repo})
   :\n Workflows: 3 active\n Success rate: 96.8%\n Avg duration: 4.2 min\n Status: Automation active`,
 
@@ -838,7 +839,7 @@ default, description: 'Shutdown timeout (seconds)' ,
   required: ['repo'],
 
   handler: (args) =>
-  ` Repository metrics (\$args.repo):\n Stars,234\n Forks: 567\n Contributors: 89\n Activity: High\n Health score: 9
+  ` Repository metrics (\$args.repo):\n Stars,234\n Forks: 567\n Contributors: 89\n Activity: High\n Health score: 9`
 
   name: ' DYNAMIC AGENT ARCHITECTURE',
   description: 'Create dynamic agents',
@@ -967,14 +968,14 @@ default, description: 'Shutdown timeout (seconds)' ,
       //       }
     //     }
   //   }
-  return tools;
+//   return tools;
 // }
 // Execute tool based on name and arguments
 export function executeTool() {
   for (const categoryData of Object.values(toolCategories)) {
     if (categoryData.tools[toolName]) {
       const _result = categoryData.tools[toolName].handler(args);
-      return {
+//       return {
         content: [;
     // { // LINT: unreachable code removed
             type: 'text',

@@ -2,6 +2,7 @@
 /** Dashboard Command Handler - Launch unified dashboard interface
 /** Integrates the React/Ink unified dashboard with the API server
 
+ */
 import { spawn  } from 'node:child_process';
 import process from 'node:process';
 import chalk from 'chalk';

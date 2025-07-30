@@ -5,6 +5,7 @@
 /** Validates the core concepts and integration points;
 
 // Mock AG-UI EventType enum
+ */
 const _EventType = {
   TEXT_MESSAGE_START: 'TEXT_MESSAGE_START',
 TEXT_MESSAGE_CONTENT: 'TEXT_MESSAGE_CONTENT',
@@ -202,7 +203,7 @@ async function runAGUIIntegrationTests() {
     totalTests++;
     try {
       testFn();
-      console.warn(` ${name}`);
+      console.warn(` ${name} catch (error) { console.error(error); }`);
       passedTests++;
     } catch(error) {
       console.warn(` ${name});`
@@ -210,7 +211,7 @@ async function runAGUIIntegrationTests() {
   //   }
   function asyncTest() {
     totalTests++;
-    return testFn();
+//     return testFn();
     // .then(() => { // LINT: unreachable code removed
         console.warn(` ${name}`);
         passedTests++;

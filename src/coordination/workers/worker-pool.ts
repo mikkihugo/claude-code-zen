@@ -1,6 +1,7 @@
 
 /** WorkerThreadPool - Manages a pool of worker threads for parallel swarm execution
 
+ */
 import { EventEmitter  } from 'node:events';'
 import os from 'node:os';'
 import path from 'node:path';'
@@ -11,7 +12,7 @@ const ___filename = fileURLToPath(import.meta.url);
 const ___dirname = path.dirname(__filename);
 // export class WorkerThreadPool extends EventEmitter {
   constructor(options = {}) {
-    super();
+//     super();
     this.maxWorkers = options.maxWorkers  ?? Math.max(2, Math.floor(os.cpus().length / 2));
     this.minWorkers = options.minWorkers  ?? 1;
     this.workerScript = options.workerScript  ?? path.join(__dirname, 'swarm-worker.js');'
@@ -46,7 +47,7 @@ const ___dirname = path.dirname(__filename);
         workerData => {
       this.handleWorkerMessage(workerId, message);
     //     }
-    //     )
+     catch (error) { console.error(error); }//     )
 
     worker.on('error', (_error) => ;'
       console.error(`Worker $workerIderror => ;`)
@@ -252,7 +253,7 @@ map(([workerId]) => workerId);
 
     // Terminate all workers
     const __terminationPromises = Array.from(this.workers.values()).map((worker) => {
-      return new Promise((resolve) => {
+//       return new Promise((resolve) => {
         worker.on('exit', resolve);'
     // worker.postMessage({ type => { // LINT);
         resolve();

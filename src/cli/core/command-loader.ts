@@ -3,6 +3,7 @@
 /** Loads and registers all CLI commands with proper error handling
  * @module CommandLoader
 
+ */
 import { CommandRouter  } from '.';
 
 /** Load and register all core commands

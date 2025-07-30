@@ -2,6 +2,7 @@
 /** Duplicate Code Detector;
 /** Uses jscpd to detect duplicate code patterns across the codebase;
 
+ */
 import { exec  } from 'node:child_process';
 import { createHash  } from 'node:crypto';
 import { promisify  } from 'node:util';
@@ -11,7 +12,7 @@ let _glob;
 try {
 // const _globModule = awaitimport('glob');
   _glob = globModule.glob  ?? globModule.default;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('Glob not available, using fallback file discovery');
   _glob = null;
 // }
@@ -20,7 +21,7 @@ const _execAsync = promisify(exec);
 const __jscpdAvailable = false;
 try {
 // // await execAsync('which jscpd', {timeout = true;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('jscpd not available, using fallback duplicate detection');
   _jscpdAvailable = false;
 // }
@@ -38,12 +39,12 @@ try {
       console.warn(` Duplicate detectioncomplete = // await this.createJSCPDConfig();`
 
     try {
-      const _command = `npx jscpd ${targetPath} --config ${configPath}`;
+      const _command = `npx jscpd ${targetPath}  catch (error) { console.error(error); }--config ${configPath}`;
       const { stdout, stderr } = // await execAsync(command, {maxBuffer = path.join(this.config.outputDir, 'jscpd-report.json');
       try {
 // const _reportContent = awaitreadFile(outputFile, 'utf8');
         // return JSON.parse(reportContent);
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
         // Fallback = {minTokens = path.join(this.config.outputDir, '.jscpd.json');
 // // await writeFile(configPath, JSON.stringify(config, null, 2));
     // return configPath;
@@ -89,7 +90,7 @@ try {
 // ! trimmed.startsWith('/*') && */
 // ! trimmed.startsWith('*') &&;
           trimmed !== '{' &&;
-          trimmed !== '}') {
+          trimmed !== '} catch (error) { console.error(error); }') {
         significantLines++;
       //       }
     //     }
@@ -259,7 +260,7 @@ trim();
             continue; // Skip short lines and comments
           //           }
 
-          const _lineHash = createHash('md5').update(line).digest('hex');
+           catch (error) { console.error(error); }const _lineHash = createHash('md5').update(line).digest('hex');
 
           if(!lineHashes.has(lineHash)) {
             lineHashes.set(lineHash, []);

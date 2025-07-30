@@ -3,6 +3,7 @@
 /** Handles swarm spawning, status monitoring, and lifecycle management;
  * @module HiveMindSwarmManagement;
 
+ */
 import { existsSync  } from 'node:fs';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
@@ -23,7 +24,7 @@ if(!isInteractive()) {
   try {
 // const _answers = awaitinquirer.prompt([;/g)
       {type = > input.trim().length > 0  ?? 'Objective is required';
-      },
+      } catch (error) { console.error(error); },
       {type = > (input >= 1 && input <= 32)  ?? 'Must be between 1 and 32';
       },
       {type = > answers.claudeIntegration;
@@ -46,7 +47,7 @@ if(!isInteractive()) {
 // // await verifySystemInitialized(sessionDir);
     // Generate unique swarm ID
     const _swarmId = generateSwarmId();
-    const _swarmName = `swarm-${Date.now()}`;
+    const _swarmName = `swarm-${Date.now()} catch (error) { console.error(error); }`;
 
     // Initialize database connection
     const _dbPath = path.join(sessionDir, 'hive-mind.db');
@@ -60,7 +61,7 @@ if(!isInteractive()) {
 // const _queen = awaitinitializeQueen(swarmId, flags.queenType, db);
 
       // Spawn worker agents
-      spinner.text = `Spawning ${flags.workers} worker agents...`;
+      spinner.text = `Spawning ${flags.workers}  catch (error) { console.error(error); }worker agents...`;
 // const _workers = awaitspawnWorkerAgents(db, swarmId, flags.workers, objective);
 
       // Setup communication layer
@@ -102,7 +103,7 @@ if(!isInteractive()) {
       return;
     //   // LINT: unreachable code removed}
 
-    console.warn(chalk.yellow(`\n Active Swarms($, { sessions.length })\n`));
+     catch (error) { console.error(error); }console.warn(chalk.yellow(`\n Active Swarms($, { sessions.length })\n`));
 
     for (const session of sessions); // // await displaySessionStatus(db, session, flags.verbose); 
   } finally {
@@ -128,7 +129,7 @@ try {
 // const _session = awaitgetSessionById(db, sessionId);
   if(!session) {
       throw new Error(`Session notfound = === 'stopped') {`
-      console.warn(chalk.yellow(`Session ${sessionId} is already stopped`));
+      console.warn(chalk.yellow(`Session ${sessionId}  catch (error) { console.error(error); }is already stopped`));
       return;
     //   // LINT: unreachable code removed}
 
@@ -223,7 +224,7 @@ async function spawnWorkerAgents() {
 async function setupSwarmCommunication(swarmId = new SwarmCommunication({ swarmId, queen, workers;
     });
 // await communication.initialize();
-  return communication;
+//   return communication;
 // }
 
 /** Start coordination loop;

@@ -13,7 +13,7 @@
 // }
 // )
 // {
-  super();
+//   super();
   this.logger = new Logger('MCPIntegrationWrapper');
   this.config = this.createDefaultConfig(config);
   this.toolRegistry = this.initializeToolRegistry();
@@ -23,6 +23,7 @@
 
 /** Initialize the MCP integration wrapper;
 
+ */
 async;
 initialize();
 : Promise<void>
@@ -35,7 +36,7 @@ initialize();
 // // await this.registerClaudeFlowTools();
       //       }
 
-      // Register ruv-swarm tools
+       catch (error) { console.error(error); }// Register ruv-swarm tools
   if(this.config.enableRuvSwarmTools) {
 // // await this.registerRuvSwarmTools();
       //       }
@@ -90,7 +91,7 @@ initialize();
           execution.context; ) {;
         results.push(result);
       //       }
-      // return results;
+       catch (error) { console.error(error); }// return results;
     //   // LINT: unreachable code removed}
 
     this.logger.info('Executing tools in parallel', {toolCount = new Semaphore(this.config.maxConcurrentTools);
@@ -98,9 +99,9 @@ initialize();
     const _promises = toolExecutions.map(async(execution) => {
 // await semaphore.acquire();
       try {
-        return await this.executeTool(;)
+//         return await this.executeTool(;)
     // execution.toolName, // LINT);
-      } finally {
+      } catch (error) { console.error(error); } finally {
         semaphore.release();
       //       }
     });
@@ -108,10 +109,10 @@ initialize();
 
     // return results.map((result, index) => {
   if(result.status === 'fulfilled') {
-        return result.value;
+//         return result.value;
     //   // LINT: unreachable code removed} else {
         // Create error result
-        return {
+//         return {
           success = {}): MCPTool[] {
     let _tools = Array.from(this.toolRegistry.tools.values());
     // ; // LINT: unreachable code removed
@@ -131,7 +132,7 @@ initialize();
   if(options.agent) {
       tools = tools.filter(tool => this.hasPermission(tool, options.agent!));
     //     }
-
+// 
     return tools;
     //   // LINT: unreachable code removed}
 

@@ -1,6 +1,7 @@
 
 /** Basic hook functionality tests;
 
+ */
 import { describe, expect  } from '@jest';
 
 describe('Hook Basic Tests', () => {
@@ -36,9 +37,9 @@ it('should map file extensions to agents', () => {
 it('should detect dangerous commands', () => {
   const _dangerousCommands = ['rm -rf', 'format', 'del /f', 'rmdir /s', 'dd if='];
   const _isDangerous = () => {
-      return dangerousCommands.some((cmd) => command.includes(cmd));
+//       return dangerousCommands.some((cmd) => command.includes(cmd));
     //   // LINT: unreachable code removed};
-    expect(isDangerous('rm -rf 
+    expect(isDangerous('rm -rf '
     expect(isDangerous('echo hello')).toBe(false);
     expect(isDangerous('format c)).toBe(true);'
   };

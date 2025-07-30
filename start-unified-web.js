@@ -20,7 +20,7 @@ try {
     process.on('SIGINT', async() => {
       console.warn('\n Shutting down...');
 // await unifiedInterface.shutdown();
-    });
+    } catch (error) { console.error(error); });
 
     process.on('SIGTERM', async() => {
       console.warn('\n Shutting down...');

@@ -2,6 +2,7 @@
 /** Code Complexity Scanner Plugin;
 /** Analyzes JavaScript/TypeScript code complexity and generates AI-powered refactoring suggestions;
 
+ */
 import pkg from 'escomplex';
 
 const { analyse } = pkg;
@@ -37,7 +38,7 @@ try {
   if(method.cyclomatic > threshold) {
 // const _suggestion = awaitthis.createComplexitySuggestion(method, filepath, content); 
       suggestions.push(suggestion); //     }
-  //   }
+   catch (error) { console.error(error); }//   }
 
   // Analyze overall file complexity
   if(analysis.cyclomatic > threshold * 2) {

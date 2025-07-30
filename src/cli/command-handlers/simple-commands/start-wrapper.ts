@@ -2,6 +2,7 @@
 /** Start Wrapper Module;
 /** Converted from JavaScript to TypeScript;
 
+ */
 import { compat  } from '..';
 
 export async function startCommand(subArgs = [];
@@ -32,7 +33,7 @@ try {
     printSuccess(' Starting Claude Zen Unified Server...');
 
     // Import and start the unified interface plugin
-    const { UnifiedInterfacePlugin } = // await import('../../../plugins/unified-interface/index.js');
+    const { UnifiedInterfacePlugin }  catch (error) { console.error(error); }= // await import('../../../plugins/unified-interface/index.js');
 
     const _server = new UnifiedInterfacePlugin({
       webPort,
@@ -57,7 +58,7 @@ return;
   if(web) {
   try {
         // Launch the web server
-        const { startWebServer } = // await import('./web-server.js');
+        const { startWebServer }  catch (error) { console.error(error); }= // await import('./web-server.js');
 // const __server = awaitstartWebServer(port);
 
         printSuccess(` Web UI is running!`);
@@ -80,7 +81,7 @@ return;
         // If unified UI fails, fall back to existing terminal UI
         printWarning('Unified UI failed, launching fallback UI...');
         try {
-          const { launchEnhancedUI } = // await import('./process-ui-enhanced.js');
+          const { launchEnhancedUI }  catch (error) { console.error(error); }= // await import('./process-ui-enhanced.js');
 // // await launchEnhancedUI();
           return;
     //   // LINT: unreachable code removed} catch(/* fallbackErr */) {
@@ -90,7 +91,7 @@ return;
     for (const dir of requiredDirs) {
       try {
 // // await node.stat(dir); 
-      } catch {
+      } catch (error) { console.error(error); } catch {
         missingDirs.push(dir); //       }
     //     }
   if(missingDirs.length > 0) {
@@ -141,7 +142,7 @@ async function cleanup() {
 // await compat.safeCall(async() => {
   if(compat.runtime === 'node') {
         await node.remove('.claude-zen.pid');
-      } else {
+      }  catch (error) { console.error(error); }else {
 // const _fs = awaitimport('node);'
 // // await fs.unlink('.claude-zen.pid');
       //       }
@@ -164,7 +165,7 @@ function _showStartHelp() {
   console.warn('  Start Claude-Zen orchestration with UI and swarm intelligence enabled by');
   console.warn('  default. Runs dual MCP architecture for both external and internal coordination.\n');
   console.warn('OPTIONS);'
-  console.warn('  -d, --daemon         Run as background daemon(disables UI
+  console.warn('  -d, --daemon         Run as background daemon(disables UI'
   console.warn('  -p, --port <port>    HTTP MCP server port for Claude Desktop(default)');
   console.warn('  --no-ui              Disable interactive user interface');
   console.warn('  --no-swarm           Disable swarm intelligence features');

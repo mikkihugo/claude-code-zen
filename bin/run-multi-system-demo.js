@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Multi-System Enhancement Demo Runner
-/** COMPREHENSIVE DEMONSTRATION OF EXTENDED SYSTEMS
-/** Orchestrates LanceDB, Kuzu, and Vision-to-Code enhancements
+/* Multi-System Enhancement Demo Runner
+ * COMPREHENSIVE DEMONSTRATION OF EXTENDED SYSTEMS  
+ * Orchestrates LanceDB, Kuzu, and Vision-to-Code enhancements
+ */
 
 import { spawn  } from 'child_process';
 import { existsSync  } from 'fs';

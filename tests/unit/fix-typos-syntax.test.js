@@ -50,7 +50,7 @@ describe('Typo and Syntax Fixes', () => {
         imported = // await import(filePath);
         expect(imported).toBeDefined();
         expect(typeof imported.createSparcSlashCommand).toBe('function');
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         // If import fails, it's a syntax error'
         throw new Error(`Syntax error in sparc-commands.js);`
       //       }

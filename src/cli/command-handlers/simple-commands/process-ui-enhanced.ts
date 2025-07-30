@@ -2,6 +2,7 @@
 /** Process Ui Enhanced Module;
 /** Converted from JavaScript to TypeScript;
 
+ */
 import { compat  } from '..';
 // process-ui-enhanced.js - Enhanced process management UI with multiple views
 import { printSuccess  } from '..';
@@ -77,7 +78,7 @@ const __PROCESSES = [
     console.warn(colors.gray(''.repeat(80)));
     console.warn(;
       colors.white(;))
-        `Total = > a.status === 'working').length)}
+        `Total = > a.status === 'working').length)}`
     console.warn(`  TotalTasks = > t.status === 'completed').length)}`);
     console.warn(;)
       `  InProgress = > t.status === 'in_progress').length)}`);

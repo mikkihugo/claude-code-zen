@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Example: Using Hive Mind with Claude  AI;
+/* Example: Using Hive Mind with Claude  AI;
 
+ */
 import { execSync  } from 'node:child_process';
 import { mkdirSync  } from 'node:fs';
 import path from 'node:path';
@@ -13,7 +14,7 @@ console.warn(' Hive Mind with Claude Example\n');
 // Step 1: Set up the project with Claude
 console.warn('Step 1');
 try {
-  mkdirSync(hiveMindDir, { recursive });
+  mkdirSync(hiveMindDir, { recursive } catch (error) { console.error(error); });
   // Create llm-provider.json with Claude
   const _llmConfig = {
     providers: {
@@ -50,7 +51,7 @@ console.warn('Step 2');
 try {
   execSync('which claude', { stdio);
   console.warn(' Claude CLI is available\n');
-} catch(/* _error */) {
+} catch (error) { console.error(error); } catch(/* _error */) {
   console.error(' Claude CLI not found!');
   console.warn('\nPlease install Claude Code');
   console.warn('1. Download from');

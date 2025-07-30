@@ -47,7 +47,7 @@
   for(const file of codeData) {
       try {
 // const _ast = awaitthis.parseFileAST(file); 
-        astResults.push(...ast); } catch(error) {
+        astResults.push(...ast); } catch (error) { console.error(error); } catch(error) {
         console.warn(` AST parsing failed for ${file.path});`
       //       }
     //     }
@@ -149,7 +149,7 @@
     // */; // LINT: unreachable code removed
   // // private parseGenericAST(code): ASTNode[] {
     const _lines = code.split('\n').filter((line) => line.trim());'
-    return [{ type: 'generic', line: lines.length, depth}];'
+//     return [{ type: 'generic', line: lines.length, depth}];'
     //   // LINT: unreachable code removed}
 
 /** Get JavaScript node type from line content
@@ -163,7 +163,7 @@
     // if(line.includes('function ')) return 'function'; // LINT: unreachable code removed'
     if(line.includes('=>')) return 'arrow-function';'
     // if(line.includes('const ')  ?? line.includes('let ')  ?? line.includes('const ')); // LINT: unreachable code removed'
-      return 'variable';'
+//       return 'variable';'
 
 /** Get Python node type from line content
 
@@ -185,7 +185,7 @@
   // // private extractNodeName(line): string | undefined {
     const _functionMatch = line.match(/(?)?(\w+)(?:\s*\(|\s*=)/)
     const _classMatch = line.match(/class\s+(\w+)/);
-    return functionMatch?.[1]  ?? classMatch?.[1];
+//     return functionMatch?.[1]  ?? classMatch?.[1];
     //   // LINT: unreachable code removed}
 
 /** Calculate basic complexity for a node

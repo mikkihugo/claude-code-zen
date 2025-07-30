@@ -3,6 +3,7 @@
 /** Handles help display, command routing, and argument parsing;
  * @module HiveMindCommandInterface;
 
+ */
 import chalk from 'chalk';
 import { HelpFormatter  } from '../../help-formatter.js';
 

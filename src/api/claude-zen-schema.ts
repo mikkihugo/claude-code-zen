@@ -3,6 +3,7 @@
 /** Single source of truth for workflow management APIs;
 /** Auto-generates CLI/TUI/Web interfaces with proper hierarchy
 
+ */
 export // interface SchemaCommand {
 //   // description: string
 //   // category: string
@@ -207,7 +208,7 @@ totalCommands: Object.keys(CLAUDE_ZEN_SCHEMA).length }
 /** Get commands by category
 
 // export function getCommandsByCategory(_category): Record<string, SchemaCommand> {
-  return Object.fromEntries(;)
+//   return Object.fromEntries(;)
   // Object.entries(CLAUDE_ZEN_SCHEMA).filter(([ cmd]) => cmd.category === category); // LINT: unreachable code removed
   //   )
 // }
@@ -215,7 +216,7 @@ totalCommands: Object.keys(CLAUDE_ZEN_SCHEMA).length }
 /** Get web-enabled commands
 
 // export function getWebEnabledCommands(): Record<string, SchemaCommand> {
-  return Object.fromEntries(;)
+//   return Object.fromEntries(;)
   // Object.entries(CLAUDE_ZEN_SCHEMA).filter(([ cmd]) => cmd.interfaces.web?.enabled); // LINT: unreachable code removed
   //   )
 // }
@@ -223,7 +224,7 @@ totalCommands: Object.keys(CLAUDE_ZEN_SCHEMA).length }
 /** Get CLI-enabled commands
 
 // export function getCLIEnabledCommands(): Record<string, SchemaCommand> {
-  return Object.fromEntries(;)
+//   return Object.fromEntries(;)
   // Object.entries(CLAUDE_ZEN_SCHEMA).filter(([ cmd]) => cmd.interfaces.cli); // LINT: unreachable code removed
   //   )
 // }
@@ -287,7 +288,7 @@ args): null
               required: cmdConfig.validation.required,
               properties: cmdConfig.validation.required.reduce((props, field) => {
                 props[field] = { type: 'string' };
-                return props;
+//                 return props;
     //   // LINT: unreachable code removed}, {}) }}
   //   }
   //   )

@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-/** Orchestrator MCP Server - Remote Claude Desktop Access;
+/* Orchestrator MCP Server - Remote Claude Desktop Access;
  *;
 /** PURPOSE: Enable remote Claude Desktop access to Singularity Engine documents;
 /** PROTOCOL: HTTP on port 3000(accessible via Cloudflare
 /** TOOLS: Document management tools always enabled for remote access;
 
+ */
 import cors from 'cors';
 import express from 'express';
 import { ServicesOrchestrator  } from './services/orchestrator.js';
@@ -63,7 +64,7 @@ class MockMemoryStore {
     // MCP tools endpoint
     app.post('/mcp/tools/) =>'
     try {
-    const { toolName } = req.params;
+    const { toolName }  catch (error) { console.error(error); }= req.params;
     const _args = req.body;
     console.warn(` MCP Tool Call);`
 // const _result = awaitmcpServer.callTool(toolName, args);
@@ -94,7 +95,7 @@ class MockMemoryStore {
 
   body;
 
-  })
+  } catch (error) { console.error(error); })
   res.json(result)
 // }
 catch(error)
@@ -108,7 +109,7 @@ app.get('/service-documents/list/) =>'
 // const _result = awaitmcpServer.handleServiceDocumentManager({ action: 'list',
       serviceName: req.params.serviceName,
       documentType: 'all')
-  })
+  } catch (error) { console.error(error); })
   res.json(result)
 // }
 catch(error)
@@ -121,7 +122,7 @@ app.post('/service-documents/validate', async(req, res) =>
   try {
 // const _result = awaitmcpServer.handleServiceDocumentValidator(req.body);
     res.json(result);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     res.status(500).json({ success, error);
   //   }
 })
@@ -130,7 +131,7 @@ app.post('/service-documents/approve', async(req, res) =>
   try {
 // const _result = awaitmcpServer.handleServiceApprovalWorkflow(req.body);
     res.json(result);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     res.status(500).json({ success, error);
   //   }
 })
@@ -140,7 +141,7 @@ app.post('/swarm/init', async(req, res) =>
   try {
 // const _result = awaitmcpServer.callTool('swarm_init', req.body);
     res.json(result);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     res.status(500).json({ success, error);
   //   }
 })
@@ -149,7 +150,7 @@ app.post('/swarm/spawn-agent', async(req, res) =>
   try {
 // const _result = awaitmcpServer.callTool('agent_spawn', req.body);
     res.json(result);
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     res.status(500).json({ success, error);
   //   }
 })
@@ -160,7 +161,7 @@ app.post('/memory/store', async(_req, res) =>
 // const _result = awaitmcpServer.callTool('memory_usage', {
       action: 'store',
 ..req.body)
-})
+} catch (error) { console.error(error); })
   res.json(result)
 // }
 catch(error)
@@ -175,7 +176,7 @@ app.get('/memory/retrieve/) =>'
       action: 'retrieve',
       key: req.params.key,
       namespace: req.query.namespace)
-})
+} catch (error) { console.error(error); })
   res.json(result)
 // }
 catch(error)
@@ -195,12 +196,12 @@ app.get('/status', async(_req, res) =>
         port,
         status: 'running',)
         uptime: process.uptime() {}
-// }
+ catch (error) { console.error(error); }// }
 
   services,
   health,
   endpoints: [
-  'GET 
+  'GET '
   'POST /mcp/tools/:toolName',
   'POST /service-documents/create',
   'GET /service-documents/list/:serviceName?',
@@ -235,7 +236,7 @@ async function startServer() {
       console.warn(`    POST http);`
       console.warn(`    GET  http);`
       console.warn('\n Server ready for external connections!');
-    });
+    } catch (error) { console.error(error); });
     // Graceful shutdown
     process.on('SIGINT', async() => {
       console.warn('\n Shutting down server...');

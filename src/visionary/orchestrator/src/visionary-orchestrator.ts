@@ -4,11 +4,12 @@
 /** Core system for analyzing code patterns, intelligent refactoring, and software insights
 /** Integrated directly into the Hive Mind as a primary capability
 
+ */
 import { EventEmitter  } from 'node:events';'
 
 export class VisionarySoftwareOrchestrator extends EventEmitter {
   constructor(_options = {}) {
-    super();
+//     super();
 
     this.options = {
       // Software intelligence processingenableCodeAnalysis = = false,enablePatternRecognition = = false,enableIntelligentRefactoring = = false,
@@ -52,7 +53,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
       this.activeJobs.set(jobId, {)
 ..this.activeJobs.get(jobId),status = > ({ id,
 ..job;
-      }));
+      } catch (error) { console.error(error); }));
   //   }
 
 /** Clean up completed jobs older than specified time

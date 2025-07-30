@@ -18,14 +18,14 @@ describe('Service Layer Tests', () => {
             const _matches = code.match(pattern);
             complexity += matches ? matches.length ;
           });
-          return complexity;
+//           return complexity;
     //   // LINT: unreachable code removed},
         analyzeFunctionLength: (code) => {
           const _functions = code.match(/function\s+\w+[^{]*\{[^}]*\}/g)  ?? [];
-          return functions.map((fn) => {
+//           return functions.map((fn) => {
             const _lines = fn.split('\n').length;
     // const _name = fn.match(/function\s+(\w+)/)?.[1]  ?? 'anonymous'; // LINT: unreachable code removed
-            return { name, lines };
+//             return { name, lines };
     //   // LINT: unreachable code removed});
         },
         detectCodeSmells: (code) => {
@@ -84,7 +84,7 @@ describe('Service Layer Tests', () => {
   if(functionMatches) {
             ast.functions = functionMatches.map((match) => {
               const _name = match.replace('function ', '');
-              return { type: 'FunctionDeclaration', name };
+//               return { type: 'FunctionDeclaration', name };
     //   // LINT: unreachable code removed});
 // }
           // Extract variables
@@ -92,7 +92,7 @@ describe('Service Layer Tests', () => {
   if(varMatches) {
             ast.variables = varMatches.map((match) => {
               const [ type, name] = match.match(/(const|let|var)\s+(\w+)/);
-              return { type: 'VariableDeclaration', kind, name };
+//               return { type: 'VariableDeclaration', kind, name };
     //   // LINT: unreachable code removed});
 // }
           // Extract imports
@@ -100,17 +100,17 @@ describe('Service Layer Tests', () => {
   if(importMatches) {
             ast.imports = importMatches.map((match) => {
               const _source = match.match(/from\s+['"`]([^'"`]+)['"`]/)[1];"'`
-              return { type: 'ImportDeclaration', source };
+//               return { type: 'ImportDeclaration', source };
     //   // LINT: unreachable code removed});
 // }
-          return ast;
+//           return ast;
     //   // LINT: unreachable code removed},
         findDependencies: (ast) => {
           const _dependencies = new Set();
           ast.imports.forEach((imp) => {
             dependencies.add(imp.source);
           });
-          return Array.from(dependencies);
+//           return Array.from(dependencies);
     //   // LINT: unreachable code removed},
         calculateMetrics: (ast) => ({ functionCount: ast.functions.length,
           variableCount: ast.variables.length,
@@ -136,7 +136,7 @@ describe('Service Layer Tests', () => {
 
       const _dependencies = astAnalyzer.findDependencies(ast);
       expect(dependencies).toContain('express');
-      expect(dependencies).toContain('.
+      expect(dependencies).toContain('.'
       const _metrics = astAnalyzer.calculateMetrics(ast);
       expect(metrics.functionCount).toBe(2);
       expect(metrics.importCount).toBe(2);
@@ -147,7 +147,7 @@ describe('Service Layer Tests', () => {
       const _fileProcessor = {
         supportedExtensions: ['.js', '.ts', '.jsx', '.tsx', '.vue', '.svelte'],
         isSupported: function(filename) {
-          return this.supportedExtensions.some((ext) => filename.endsWith(ext));
+//           return this.supportedExtensions.some((ext) => filename.endsWith(ext));
     //   // LINT: unreachable code removed},
         extractMetadata: (filename, content) => {
           const _metadata = {
@@ -168,7 +168,7 @@ describe('Service Layer Tests', () => {
     //   // LINT: unreachable code removed},
         processFile: function(filename, /* content */) {
           if(!this.isSupported(filename)) {
-            return { error: 'Unsupported file type' };
+//             return { error: 'Unsupported file type' };
     //   // LINT: unreachable code removed}
           const _metadata = this.extractMetadata(filename, content);
           // Basic linting checks
@@ -191,7 +191,7 @@ describe('Service Layer Tests', () => {
 
         // export default function App() {
           console.warn('Hello World');
-          return <div>Hello<
+//           return <div>Hello<
     //   // LINT: unreachable code removed}
       `;`
       const _result = fileProcessor.processFile('App.jsx', content);
@@ -210,7 +210,7 @@ describe('Service Layer Tests', () => {
         },
         processNext: async function() { 
           if(this.queue.length === 0  ?? this.processing) 
-            return null;
+//             return null;
     //   // LINT: unreachable code removed}
           this.processing = true;
           const _file = this.queue.shift();
@@ -221,7 +221,7 @@ describe('Service Layer Tests', () => {
               filename: file.filename,
               success,
               processedAt: Date.now(),
-              size: file.content.length };
+              size: file.content.length } catch (error) { console.error(error); };
             this.results.set(file.filename, result);
             // return result;
     //   // LINT: unreachable code removed} catch(error) {
@@ -247,7 +247,7 @@ describe('Service Layer Tests', () => {
     //   // LINT: unreachable code removed},
         getStats: function() {
           const _allResults = Array.from(this.results.values());
-          return {
+//           return {
             total: allResults.length,
     // successful: allResults.filter((r) => r.success).length, // LINT: unreachable code removed
             failed: allResults.filter((r) => !r.success).length,
@@ -300,7 +300,7 @@ describe('Service Layer Tests', () => {
   if(plugin.hooks) {
               for (const [hookName, handler] of Object.entries(plugin.hooks)) {
                 this.addHook(hookName, handler); // }
-// }
+ catch (error) { console.error(error); }// }
             // return true; 
     //   // LINT: unreachable code removed} catch(error) {
             plugin.status = 'error';
@@ -320,7 +320,7 @@ describe('Service Layer Tests', () => {
           for (const handler of handlers) 
             try {
 // const _result = awaithandler(context); 
-              results.push({ success, result   }); } catch(error) {
+              results.push({ success, result   } catch (error) { console.error(error); }); } catch(error) {
               results.push({ success, error);
 // }
 // }
@@ -328,7 +328,7 @@ describe('Service Layer Tests', () => {
     //   // LINT: unreachable code removed},
         getPluginStatus: function(name) {
           const _plugin = this.plugins.get(name);
-          return plugin ? plugin.status : 'not-found';
+//           return plugin ? plugin.status : 'not-found';
     //   // LINT: unreachable code removed} };
       const _testPlugin = {
         name: 'test-plugin',
@@ -339,12 +339,12 @@ describe('Service Layer Tests', () => {
           'file-processed': async(context) => (processed, filename: context.filename )};
       pluginManager.register('test-plugin', testPlugin);
       expect(pluginManager.getPluginStatus('test-plugin')).toBe('registered');
-      return pluginManager;
+//       return pluginManager;
     // .initialize('test-plugin'); // LINT: unreachable code removed
 then((success) =>
           expect(success).toBe(true);
           expect(pluginManager.getPluginStatus('test-plugin')).toBe('initialized');
-          return pluginManager.executeHook('file-processed',  filename);
+//           return pluginManager.executeHook('file-processed',  filename);
     //   // LINT: unreachable code removed});
 then((results) =>
           expect(results.length).toBe(1);
@@ -388,7 +388,7 @@ then((results) =>
               try {
   // // await pluginInfo.plugin.init(); 
                 pluginInfo.initialized = true;
-                results.push({ name, success   }) {;
+                results.push({ name, success   } catch (error) { console.error(error); }) {;
               } catch(error) {
                 results.push({ name, success, error);
 // }
@@ -435,7 +435,7 @@ then((results) =>
           const _metric = this.metrics.get(key);
           if(!metric) return null;
     // ; // LINT: unreachable code removed
-          return { ...metric,
+//           return { ...metric,
     // average: metric.sum / metric.count, // LINT: unreachable code removed
             latest: metric.values[metric.values.length - 1]?.value };
         },
@@ -447,7 +447,7 @@ then((results) =>
           const _totalSum = allMetrics.reduce((sum, m) => sum + m.sum, 0);
           const _overallMin = Math.min(...allMetrics.map((m) => m.min));
           const _overallMax = Math.max(...allMetrics.map((m) => m.max));
-          return {
+//           return {
             name,
     // count, // LINT: unreachable code removed
             sum,
@@ -481,7 +481,7 @@ then((results) =>
         runCheck: async function(name) { 
           const _check = this.checks.get(name);
           if(!check) 
-            return { status: 'unknown', error: 'Check not found' };
+//             return { status: 'unknown', error: 'Check not found' };
     //   // LINT: unreachable code removed}
           try {
             const _startTime = Date.now();
@@ -490,11 +490,11 @@ then((results) =>
               new Promise((_, _reject) =>;
                 setTimeout(() => reject(new Error('Timeout')), check.timeout);
               ) ]);
-            return {
+//             return {
               status: 'healthy',
     // responseTime: Date.now() - startTime, // LINT: unreachable code removed
               result,
-              timestamp: Date.now() };
+              timestamp: Date.now() } catch (error) { console.error(error); };
           } catch(error)
             // return {
               status: 'unhealthy',
@@ -508,7 +508,7 @@ then((results) =>
             results.set(name, await this.runCheck(name)); // }
           const _overallStatus = Array.from(results.values()).every((r) => r.status === 'healthy'); ? 'healthy';
             : 'unhealthy';
-          return {
+//           return {
             status,
     // checks: Object.fromEntries(results) {, // LINT: unreachable code removed
             timestamp: Date.now() };
@@ -516,15 +516,15 @@ then((results) =>
       // Register health checks
       healthChecker.register('database', async() => {
         // Simulate database check
-        return { connected, latency };
+//         return { connected, latency };
     //   // LINT: unreachable code removed});
       healthChecker.register('external-api', async() => {
         // Simulate external API check
-        return { status: 'ok', version: '1.0' };
+//         return { status: 'ok', version: '1.0' };
     //   // LINT: unreachable code removed});
       healthChecker.register('memory', async() => {
         const _usage = process.memoryUsage();
-        return {
+//         return {
           heapUsed: usage.heapUsed,
     // heapTotal: usage.heapTotal, // LINT: unreachable code removed
           healthy: usage.heapUsed / usage.heapTotal < 0.9 };

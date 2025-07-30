@@ -5,6 +5,7 @@
 // claude-zen-commands.js - Claude-Flow specific slash commands
 
 // Create Claude-Flow specific commands
+ */
 export async function createClaudeFlowCommands(workingDir = `---name = `---name = `---`
 name);
 - **distributed** - Multiple coordinators share management

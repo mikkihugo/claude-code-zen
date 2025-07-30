@@ -6,6 +6,7 @@
 
  * @module AGUIAdapter
 
+ */
 import { EventEmitter  } from 'node:events';
 
 // Define types for AG-UI protocol events
@@ -37,7 +38,7 @@ import { EventEmitter  } from 'node:events';
   // // public currentMessageId: string | null = null;
   // // public currentToolCallId: string | null = null;
   constructor(options) {
-    super();
+//     super();
     this.sessionId = options.sessionId ?? `agui-${Date.now()}`;`
     this.threadId = options.threadId ?? `thread-${Date.now()}`;`
     this.runId = options.runId ?? `run-${Date.now()}`;`

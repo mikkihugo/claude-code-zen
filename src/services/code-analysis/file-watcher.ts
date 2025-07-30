@@ -2,13 +2,14 @@
 /** Real-time Code Analysis Watcher;
 /** Monitors file changes and triggers incremental analysis;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { stat  } from 'node:fs';
 import path from 'node:path';
 
 export class CodeAnalysisWatcher extends EventEmitter {
   constructor(_config = {}) {
-    super();
+//     super();
 
     this.config = {watchPaths = new Map();
     this.changeQueue = new Map();
@@ -39,7 +40,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
 // // await this.watchDirectory(dir); 
       //       }
 
-      this.isWatching = true; console.warn(` Watching ${watchDirs.length} directories for changes`) {;
+       catch (error) { console.error(error); }this.isWatching = true; console.warn(` Watching ${watchDirs.length} directories for changes`) {;
 
       // Emit start event
       this.emit('watcher = false;'
@@ -74,7 +75,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
 
   async processFileChange(eventType, filePath) ;
     try {
-      console.warn(` File ${eventType}: ${path.relative(process.cwd(), filePath)}`);
+      console.warn(` File ${eventType} catch (error) { console.error(error); }: ${path.relative(process.cwd(), filePath)}`);
 
       // Check if file still exists(for 'change' events)
       const _fileExists = false;
@@ -83,7 +84,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
       try {
         _fileStats = // await stat(filePath);
         fileExists = true;
-      } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) {
         // File was deleted or moved
         fileExists = false;
       //       }
@@ -129,7 +130,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
       // Check file extension
       const _validExtensions = ['.js', '.jsx', '.ts', '.tsx'];
       if(!validExtensions.some((ext) => filePath.endsWith(ext))) {
-        return false;
+//         return false;
     //   // LINT: unreachable code removed}
 
       // Check ignore patterns
@@ -171,7 +172,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
         try {
           // Only add if directory exists
           directories.add(fullPath);
-        } catch(/* _error */) {
+        } catch (error) { console.error(error); } catch(/* _error */) {
           // Directory doesn't exist, skip'
         //         }
       //       }
@@ -200,7 +201,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
               if(!['node_modules', '.git', 'dist', 'build'].includes(entry)) {
 // // await walk(fullPath);
               //               }
-            } else {
+             catch (error) { console.error(error); }} else {
               files.push(fullPath);
             //             }
           //           }

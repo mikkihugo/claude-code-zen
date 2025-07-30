@@ -2,6 +2,7 @@
 /** CLI Utilities - Shared CLI utility functions
 /** Provides comprehensive utility functions for CLI operations
 
+ */
 import type { JSONObject  } from '../types/core.js';
 
 // =============================================================================
@@ -36,7 +37,7 @@ import type { JSONObject  } from '../types/core.js';
 // // export function printSuccess() {
 //   throw err;
 // // }
-return true;
+// return true;
 // }
 // }
 
@@ -58,7 +59,7 @@ return true;
   try {
 // const _content = await(process as any).readTextFile(path);
     // return JSON.parse(content) as T;
-    //   // LINT: unreachable code removed} catch {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
     // return defaultValue;
     //   // LINT: unreachable code removed}
 // }
@@ -195,7 +196,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     // Check if we're in Node.js environment'
     if(typeof process !== 'undefined' && (process as any).versions && (process as any).versions.node) {'
       // Node.js environment
-      const { spawn } = // await import('child_process');'
+      const { spawn }  catch (error) { console.error(error); }= // await import('child_process');'
 
       // return new Promise((resolve) => {
         const _child = spawn(command, args, {stdio = '';'
@@ -226,9 +227,9 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     // */; // LINT: unreachable code removed
 // export async function loadConfig(path = 'claude-zen.config.json'): Promise<CliConfiguration> {'
   const _defaultConfig = {terminal = await(process as any).readTextFile(path);
-    return { ...defaultConfig, ...JSON.parse(content) };
+//     return { ...defaultConfig, ...JSON.parse(content) };
     //   // LINT: unreachable code removed} catch {
-    return defaultConfig;
+//     return defaultConfig;
     //   // LINT: unreachable code removed}
 // }
 
@@ -253,7 +254,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
 // export function generateId(prefix = '') {'
   const _timestamp = Date.now();
   const _random = Math.random().toString(36).substr(2, 9);
-  return prefix ? `${prefix}-${timestamp}-${random}` : `${timestamp}-${random}`;`
+//   return prefix ? `${prefix}-${timestamp}-${random}` : `${timestamp}-${random}`;`
 // }
 
 // =============================================================================
@@ -270,7 +271,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
   for(let i = 0; i < array.length; i += size) {
     chunks.push(array.slice(i, i + size));
   //   }
-  return chunks;
+//   return chunks;
 // }
 
 // =============================================================================
@@ -338,7 +339,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
   for(let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       // return // await fn();
-    //   // LINT: unreachable code removed} catch(/* err */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* err */) {
   if(attempt === maxAttempts) {
         throw err;
       //       }
@@ -360,8 +361,8 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     // */; // LINT: unreachable code removed
 // export async function callRuvSwarmMCP(tool = {}): Promise<any> {
   // Redirect to the new library-based implementation
-  const { callRuvSwarmLibrary } = await import('.
-  return await callRuvSwarmLibrary(tool, params);
+  const { callRuvSwarmLibrary } = await import('.'
+//   return await callRuvSwarmLibrary(tool, params);
 // }
 
 /** Direct ruv-swarm neural training(real WASM implementation)
@@ -379,7 +380,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     console.warn(;)
       `Executing = = 'undefined' && (process as any).versions?.node) {'`
       // Node.js environment - use spawn with stdio inherit
-      const { spawn } = // await import('node);'
+      const { spawn }  catch (error) { console.error(error); }= // await import('node);'
 
       result = // await new Promise((_resolve) => {
         const __child = spawn(;
@@ -408,14 +409,14 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
         '--iterations', epochs.toString(),'
         '--data-source', dataSource,'
         '--output-format', 'json';'
-      ], {stdout = '.ruv-swarm
+      ], {stdout = '.ruv-swarm'
 // const _files = await(process as any).readDir(neuralDir);
       const _latestFile = null;
       const _latestTime = 0;
 
       for // await(const file of files) {
         if(file.name.startsWith(`training-${modelName}-`) && file.name.endsWith('.json')) {'
-          const _filePath = `${neuralDir}
+          const _filePath = `${neuralDir}`
 // const _stat = await(process as any).stat(filePath);
   if(stat.mtime > latestTime) {
             latestTime = stat.mtime;
@@ -434,7 +435,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
 
     // Add parameters as CLI arguments
     Object.entries(params).forEach(([key, value]) => {
-      args.push(`--${key}`);`
+      args.push(`--${key} catch (error) { console.error(error); }`);`
   if(value !== true && value !== false) {
         args.push(String(value));
       //       }
@@ -451,8 +452,8 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
  */
     // */; // LINT: unreachable code removed
 // export async function _trainNeuralModel(_modelName = 50): Promise<any> {
-  const { callRuvSwarmLibrary } = await import('.
-  return await callRuvSwarmLibrary('neural_train', {'
+  const { callRuvSwarmLibrary } = await import('.'
+//   return await callRuvSwarmLibrary('neural_train', {'
     model = {}
 ): Promise<any> {
   const { callRuvSwarmLibrary } = // await import('./utils.js');'

@@ -79,7 +79,7 @@ map(() => TestHelpers.createMockImage());
       );
       visionService.analyzeImage.mockImplementation(async() => {
   // await new Promise((resolve) => setTimeout(resolve, 50));
-        return TestHelpers.createMockVisionResult();
+//         return TestHelpers.createMockVisionResult();
     //   // LINT: unreachable code removed});
       // Act
       const _startTime = Date.now();
@@ -188,7 +188,7 @@ map(() => TestHelpers.createMockImage());
 // const _mockImage = awaitTestHelpers.createMockImage({ size); 
         visionService.analyzeImage.mockImplementation(async() => {
   // await new Promise((resolve) => setTimeout(resolve, test.expectedTime - 20)); 
-          return TestHelpers.createMockVisionResult() {;
+//           return TestHelpers.createMockVisionResult() {;
     //   // LINT: unreachable code removed  });
         // Act
 // const _result = awaitTestHelpers.measureExecutionTime(;/g)
@@ -207,11 +207,11 @@ map(() => TestHelpers.createMockImage());
 fill();
 map(async(_, _index) => {
 // const _image = awaitTestHelpers.createMockImage();
-          return visionService.analyzeImage(image.buffer);
+//           return visionService.analyzeImage(image.buffer);
     //   // LINT: unreachable code removed});
       visionService.analyzeImage.mockImplementation(async() => {
   // await new Promise((resolve) => setTimeout(resolve, 10));
-        return TestHelpers.createMockVisionResult();
+//         return TestHelpers.createMockVisionResult();
     //   // LINT: unreachable code removed});
       // Act
       const _startTime = Date.now();

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** GitHub command wrapper for simple CLI
+/* GitHub command wrapper for simple CLI
 /** Provides GitHub workflow automation capabilities
 
+ */
 import { access  } from 'node:fs';
 import { platform  } from 'node:os';
 import { join  } from 'node:path';
@@ -26,7 +27,7 @@ if(platform() === 'win32') {
     try {
 // // await access(join(dir, command), constants.X_OK); 
       // return true; 
-    //   // LINT: unreachable code removed} catch(/* _e */) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _e */) {
       // Continue checking other paths
     //     }
   //   }
@@ -39,7 +40,7 @@ if(platform() === 'win32') {
  * @returns {Promise<boolean>} - True if Claude is available
     // */ // LINT: unreachable code removed
 async function _checkClaudeAvailable() {
-  return checkCommandAvailable('claude');
+//   return checkCommandAvailable('claude');
 // }
 return;
 // }

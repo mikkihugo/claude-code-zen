@@ -4,6 +4,7 @@
 
 // executable-wrapper.js - Create local executable wrapper
 
+ */
 import { chmod  } from 'node:fs';
 import { platform  } from 'node:os';
 
@@ -51,7 +52,7 @@ npx claude-zen@latest %*
 
       // Write the Windows batch file
   if(!dryRun) {
-// // await writeFile(`${workingDir}/claude-zen.cmd`, wrapperScript, 'utf8');
+// // await writeFile(`${workingDir} catch (error) { console.error(error); }/claude-zen.cmd`, wrapperScript, 'utf8');
         console.warn('   Created local claude-zen.cmd executable wrapper');
         console.warn('    You can nowuse = workingDir.includes('claude-zen');'
       const _devBinPath = isDevelopment;

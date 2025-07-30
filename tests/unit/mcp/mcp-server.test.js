@@ -43,7 +43,7 @@ describe('MCP Server', () =>
   });
   afterEach(async() => {
     try {
-  // await fs.rm(testDir, { recursive, force });
+  // await fs.rm(testDir, { recursive, force } catch (error) { console.error(error); });
     } catch(/* _error */) {
       // Ignore cleanup errors
     //     }
@@ -55,7 +55,7 @@ describe('MCP Server', () =>
       let _mcpServerModule;
       try {
         _mcpServerModule = // await import('../../../src/mcp/mcp-server.js');
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         // If import fails, that's part of what we're testing
         expect(error).toBeDefined();
       //       }
@@ -77,7 +77,7 @@ describe('MCP Server', () =>
 
         // Should have warnings about missing dependencies
         expect(warnings.some((w) => w.includes('not available'))).toBe(true);
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         // Import might fail, which is acceptable for testing
         expect(error).toBeDefined();
       } finally {
@@ -129,10 +129,10 @@ describe('Tool Registry', () =>
     const _mockToolExecutor = {
         execute: jest.fn(async(toolName, _args) => {
   if(toolName === 'file_read') {
-            return { content: 'file contents', success };
+//             return { content: 'file contents', success };
     //   // LINT: unreachable code removed}
   if(toolName === 'file_write') {
-            return { written, success };
+//             return { written, success };
     //   // LINT: unreachable code removed}
           // return { error: 'Unknown tool', success };
     //   // LINT: unreachable code removed}) };
@@ -151,12 +151,12 @@ describe('Tool Registry', () =>
   describe('Message Handling', () => {
     it('should handle various MCP message types', () => {
       const _messageTypes = ['initialize',
-        'tools
-        'tools
-        'resources
-        'resources
-        'prompts
-        'prompts
+        'tools'
+        'tools'
+        'resources'
+        'resources'
+        'prompts'
+        'prompts'
       messageTypes.forEach((type) => {
         const _message = {
           jsonrpc: '2.0',
@@ -171,7 +171,7 @@ describe('Tool Registry', () =>
       const _validMessage = {
         jsonrpc: '2.0',
         id,
-        method: 'tools
+        method: 'tools'
   const _invalidMessages = [
 
         {}, // missing required fields
@@ -225,7 +225,7 @@ it('should handle error tracking', () =>
 
 // getErrorCount: null
   function() {
-          return this.errors.length;
+//           return this.errors.length;
     //   // LINT: unreachable code removed}
 // }
 const _testError = new Error('Test error');

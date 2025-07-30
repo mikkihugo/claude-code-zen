@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Direct Gemini API Integration Tool;
+/* Direct Gemini API Integration Tool;
  *;
 /** Reverse-engineered from the open-source Gemini CLI to provide: null
  * - JSON output support;
@@ -29,6 +29,7 @@ class GeminiDirectAPI {
 
 /** Analyze neural network output with structured response;
 
+ */
   async analyzeNeuralOutput(neuralData, context = {}) { 
     const _prompt = `;`
 Analyze this neural network output and respond in JSON format: null
@@ -147,7 +148,7 @@ Respond with this exact JSON structure: null
 // const _files = awaitglob(pattern, {
         ignore: ['node_modules/**', '.git/**', 'dist/**', 'build/**'], */
         maxDepth
-})
+} catch (error) { console.error(error); })
   if(files.length === 0) {
             // return { error: 'No files found matching pattern' };
             //   // LINT: unreachable code removed}
@@ -161,7 +162,7 @@ Respond with this exact JSON structure: null
             fileContents[file] = content; totalSize += content.length;
   if(totalSize > 200000) {break; // Limit total content
           //           }
-        } catch(/* _error */) {
+         catch (error) { console.error(error); }} catch(/* _error */) {
           // Skip files that can't be read'
         //         }
             //             }
@@ -212,7 +213,7 @@ join('\n')
           topK: options.topK  ?? 40,
           topP: options.topP  ?? 0.95,
           maxOutputTokens: options.maxOutputTokens  ?? 8192)
-  })
+  } catch (error) { console.error(error); })
   if(this.verbose) {
             console.warn(`;`
            Generating
@@ -237,7 +238,7 @@ join('\n')
   if(options.format === 'json') {
               try {
           // Try to extract JSON from response
-          const _jsonMatch = responseText.match(/\{[\s\S]*\}/);
+          const _jsonMatch = responseText.match(/\{[\s\S]*\} catch (error) { console.error(error); }/);
   if(jsonMatch) {
             // return JSON.parse(jsonMatch[0]);
     //   // LINT: unreachable code removed} else {
@@ -288,12 +289,12 @@ join('\n')
   if(options.onChunk) {
             options.onChunk(chunkText);
           //           }
-        //         }
+         catch (error) { console.error(error); }//         }
       //       }
       const _fullResponse = chunks.join('');
   if(options.format === 'json') {
         try {
-          const _jsonMatch = fullResponse.match(/\{[\s\S]*\}/);
+          const _jsonMatch = fullResponse.match(/\{[\s\S]*\} catch (error) { console.error(error); }/);
           // return jsonMatch ? JSON.parse(jsonMatch[0]) : JSON.parse(fullResponse);
     //   // LINT: unreachable code removed} catch(/* parseError */) {
           // return {
@@ -332,7 +333,7 @@ Examples: null
   //   }
   try {
     // Parse options
-    const _options = {};
+    const _options = {} catch (error) { console.error(error); };
     const _cleanArgs = [];
   for(let i = 0; i < args.length; i++) {
       if(args[i].startsWith('--')) {
@@ -378,7 +379,7 @@ Examples: null
         break;
       //       }
       case 'directory': {
-        const _pattern = cleanArgs[1]  ?? '**
+        const _pattern = cleanArgs[1]  ?? '**'
         const _analysisType = cleanArgs[2]  ?? 'performance';
         _result = // await gemini.analyzeDirectory(pattern, analysisType);
         break;

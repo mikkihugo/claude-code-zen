@@ -32,8 +32,9 @@
   // private activeDecisions = new Map();
   // private learningEvents = [];
   // private adaptationStrategies = new Map();
+ */
   constructor(options = {}) {
-    super();
+//     super();
 
     this.id = `hive-mind-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     this.createdAt = new Date();
@@ -82,7 +83,7 @@ process.on('unhandledRejection', (reason =>
       console.warn(` Component ${name}health = === 0) return 1.0;`
     // ; // LINT: unreachable code removed
     const _healthScores = Array.from(this.componentHealth.values()).map((h) => h.performance);
-    return healthScores.reduce((sum, score) => sum + score, 0) / healthScores.length;
+//     return healthScores.reduce((sum, score) => sum + score, 0) / healthScores.length;
     //   // LINT: unreachable code removed}
 
 /** Initialize the Hive Mind Primary System;
@@ -213,7 +214,7 @@ process.on('unhandledRejection', (reason =>
 //       this.lanceDBInterface = new LanceDBInterface({dbPath = new KuzuAdvancedInterface({dbPath = new VisionarySoftwareIntelligenceProcessor({outputDir = new MultiSystemCoordinator({lanceDB = // await RuvSwarm.initialize({loadingStrategy = null;/g)
 //       this.updateComponentHealth('simple-swarm', 'failed', 'Integration failed');
 //     //     }
-  //   }
+   catch (error) { console.error(error); }//   }
 
 /** Connect available plugins to the hive mind;
 
@@ -230,11 +231,11 @@ process.on('unhandledRejection', (reason =>
   for(const pluginName of availablePlugins) {
       try {
 // // await this.connectPlugin(pluginName); 
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.warn(` Plugin ${pluginName} not available = {hiveMindIntegration = === 'ai-providers') {`
       try {
         // Load the new TypeScript provider system
-        const { createProviderManager, COMMON_CONFIGS } = // await import('./providers/index.js'); 
+        const { createProviderManager, COMMON_CONFIGS }  catch (error) { console.error(error); }= // await import('./providers/index.js'); 
 
     // Create integrated provider manager
 // const _providerManager = awaitcreateProviderManager({
@@ -271,7 +272,7 @@ catch(error)
   try {)
 // // await this.performHealthCheck();
 // }
-  catch(error) {
+  catch (error) { console.error(error); } catch(error) {
   console.warn(' Health checkfailed = new Date();'
 
     // Check each component
@@ -341,7 +342,7 @@ try {
       // Optional hook execution
       if(this.hooks.has('post-coordination')) {
         const _hook = this.hooks.get('post-coordination');
-        if(hook) hook({ request, result, duration   });
+        if(hook) hook({ request, result, duration   } catch (error) { console.error(error); });
       //       }
 
       const __response = {success = Date.now() - startTime;
@@ -377,7 +378,7 @@ if(!this.hybridMemory) {
       throw new SystemError({code = request;
   switch(operation) {
             case 'generate_text': null
-              return this.providerManager.generateText(params);
+//               return this.providerManager.generateText(params);
               // case 'generate_stream': // LINT: unreachable code removed
               // return this.providerManager.generateStream(params);
               // case 'get_provider_statuses': // LINT: unreachable code removed
@@ -556,7 +557,7 @@ let _globalHiveMind = null;
     globalHiveMind = new HiveMindPrimary(options);
 // await globalHiveMind.initialize();
   //   }
-  return globalHiveMind;
+//   return globalHiveMind;
 // }
 
 /** Initialize the Hive Mind Primary System with comprehensive logging;

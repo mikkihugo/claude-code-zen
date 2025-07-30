@@ -3,6 +3,7 @@
 /** Safe GitHub operations with timeout protection and special character handling;
 /** Based on upstream commits 958f5910 + f4107494;
 
+ */
 import { randomBytes  } from 'node:crypto';
 import { promises as fs  } from 'node:fs';
 import { tmpdir  } from 'node:os';
@@ -78,7 +79,7 @@ execGhSafe(args =
       if(input && (input.includes('`')  ?? input.includes('$')  ?? input.includes('"'))) {"`
         tempFilePath = // await GitHubCliSafe.createTempFile(input);
         finalArgs = finalArgs.map(_arg => ;
-          arg === '--body' ? `--body-file=${tempFilePath}` ;)
+          arg === '--body' ? `--body-file=${tempFilePath} catch (error) { console.error(error); }` ;)
         );
       //       }
 

@@ -2,6 +2,7 @@
 /** Swarm System Types;
 /** Enhanced swarm orchestration with neural integration and advanced coordination;
 
+ */
 import type { Identifiable, JSONObject, TypedEventEmitter, UUID  } from '.';
 
 // =============================================================================

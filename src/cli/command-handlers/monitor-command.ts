@@ -4,6 +4,7 @@
 
 // monitor-command.js - Handles the monitor command
 
+ */
 import { circuitBreakerManager  } from '../core/circuit-breaker.js';
 import { healthMonitor  } from '../core/health-monitor.js';
 import { printSuccess  } from '..';

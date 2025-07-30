@@ -3,6 +3,7 @@
 /** Handles collective memory storage, retrieval, and maintenance operations;
  * @module HiveMindMemoryManagement;
 
+ */
 import { existsSync  } from 'node:fs';
 import path from 'node:path';
 import Database from 'better-sqlite3';
@@ -25,7 +26,7 @@ if(!isInteractive()) {
   try {
 // const __action = awaitinquirer.prompt([;
       //       {/g)
-        //         type = {list = {}) {
+        //         type = {list = {} catch (error) { console.error(error); }) {
   const _sessionDir = filters.sessionDir  ?? './.claude/hive-mind';
   const _dbPath = path.join(sessionDir, 'hive-mind.db');
 
@@ -44,7 +45,7 @@ if(!isInteractive()) {
       conditions.push('type = ?');
       params.push(filters.type);
     //     }
-  if(filters.minImportance) {
+   catch (error) { console.error(error); }if(filters.minImportance) {
       conditions.push('importance >= ?');
       params.push(filters.minImportance);
     //     }
@@ -103,7 +104,7 @@ if(!isInteractive()) {
       WHERE ;
     `;`
 
-    const _searchPattern = `%${answers.query}%`;
+    const _searchPattern = `%${answers.query} catch (error) { console.error(error); }%`;
   if(answers.searchType === 'keys') {
       query += 'key LIKE ?';
     } else if(answers.searchType === 'content') {
@@ -170,7 +171,7 @@ if(!isInteractive()) {
 
     // return memoryId;
     // ; // LINT: unreachable code removed
-  } finally {
+  } catch (error) { console.error(error); } finally {
     db.close();
   //   }
 // }
@@ -200,7 +201,7 @@ if(!isInteractive()) {
 
     console.warn(chalk.bold('\nStorage = // await inquirer.prompt([;'
     //     {
-      //       type = {};
+      //       type = {} catch (error) { console.error(error); };
 )))
   if(answers.strategy === 'age') {
 // const _ageAnswer = awaitinquirer.prompt([;
@@ -231,7 +232,7 @@ if(!isInteractive()) {
       return;
     //   // LINT: unreachable code removed}
 
-    console.warn(chalk.yellow(`\n  Found ${toDelete.length} memories todelete = // await inquirer.prompt([;`/g)))
+     catch (error) { console.error(error); }console.warn(chalk.yellow(`\n  Found ${toDelete.length} memories todelete = // await inquirer.prompt([;`/g)))
       {type = ora(`Deleting ${toDelete.length} memories...`).start();
 
       const _deleteStmt = db.prepare('DELETE FROM collective_memory WHERE id = ?');
@@ -269,7 +270,7 @@ if(!isInteractive()) {
     const _filename = `memory-backup-\$timestamp.json`;
 
     // Ensure exports directory exists
-    const { mkdirSync } = // await import('fs');
+    const { mkdirSync }  catch (error) { console.error(error); }= // await import('fs');
     const _exportsDir = path.join(sessionDir, 'exports');
     if(!existsSync(exportsDir)) {
   mkdirSync(exportsDir, {recursive = // await inquirer.prompt([
@@ -295,7 +296,7 @@ async function estimateMemorySize(db = db.prepare(`;`)
     SELECT SUM(LENGTH(key) + LENGTH(value) + LENGTH(type) + 50) as total_size;
     FROM collective_memory;
   `).get();`
-
+// 
   return result.total_size  ?? 0;
 // }
 

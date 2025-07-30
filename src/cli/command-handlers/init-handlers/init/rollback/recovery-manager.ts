@@ -6,6 +6,7 @@ export class RecoveryManager {
 
 /** Perform automated recovery based on failure type
 
+ */
 async;
 performRecovery(failureType, (context = {}));
 : unknown
@@ -48,7 +49,7 @@ result.actions.push(...recoveryResult.actions);
           const _command = new node.Command('chmod', {args = // await command.output();
   if(success) {
             result.actions.push('Fixed directory permissions');
-          } else {
+          }  catch (error) { console.error(error); }else {
             result.warnings.push('Could not fix permissions automatically');
           //           }
         } catch {
@@ -58,7 +59,7 @@ result.actions.push(...recoveryResult.actions);
 
       // Try to create a test file to verify permissions
       try {
-        const _testFile = `${this.workingDir}
+        const _testFile = `${this.workingDir} catch (error) { console.error(error); }`
 // // await node.writeTextFile(testFile, 'test');
 // // await node.remove(testFile);
   result.actions.push('Verified write permissions restored');
@@ -164,7 +165,7 @@ catch(error)
       try {)
 // // await node.remove(executablePath);
         result.actions.push('Removed corrupted executable');
-      } catch {
+      } catch (error) { console.error(error); } catch {
         // File doesn't exist'
       //       }
 
@@ -179,13 +180,13 @@ catch(error)
             const __command = new node.Command('chmod', {args = false;)
         result.errors.push('Could not recreate executable');
       //       }
-    } catch(error) {
+     catch (error) { console.error(error); }} catch(error) {
       result.success = false;
       result.errors.push(`Executable recovery failed = {success = ['memory', 'memory/agents', 'memory/sessions'];`
 
   for(const dir of memoryDirs) {
         try {
-// // await node.mkdir(`${this.workingDir}/${dir}`, {recursive = `${this.workingDir}/memory/claude-zen-data.json`; /g)
+// // await node.mkdir(`${this.workingDir} catch (error) { console.error(error); }/${dir}`, {recursive = `${this.workingDir}/memory/claude-zen-data.json`; /g)
       result.errors.push(`Memory setup recovery failed = {success = // await this.cleanupTemporaryFiles(); `
       result.actions.push(...tempCleanup.actions) {;
 
@@ -215,7 +216,7 @@ catch(error)
         // Simple cleanup - in a real implementation, use glob matching
         result.actions.push(`Cleaned temporary files = {actions = `${this.workingDir}
 
-      // This would normally integrate with BackupManager/g)
+       catch (error) { console.error(error); }// This would normally integrate with BackupManager/g)
       result.actions.push('Cleaned old backups');
     } catch {
       // Backup cleanup not critical
@@ -237,7 +238,7 @@ catch(error)
     // return result; // LINT: unreachable code removed
   //   }
 
-  async verifyDependencies(dependencies) { 
+   catch (error) { console.error(error); }async verifyDependencies(dependencies) { 
     const _result = allAvailable = new node.Command(dep, {args = await command.output();
   if(!success) {
           result.allAvailable = false;
@@ -257,12 +258,12 @@ catch(error)
     const _checkFiles = ['CLAUDE.md', 'memory-bank.md', 'coordination.md'];
   for(const file of checkFiles) {
       try {
-// // await node.stat(`${this.workingDir}/${file}`); 
+// // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/${file}`); 
         items.push({name = []; const _requiredFiles = ['CLAUDE.md', 'memory-bank.md', 'coordination.md', 'claude-zen'];
 
   for(const file of requiredFiles) {
       try {
-// // await node.stat(`${this.workingDir}/${file}`);
+// // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/${file}`);
       } catch {
         missing.push({ name = {success = {success = {version = false;
     //     }
@@ -290,7 +291,7 @@ exec node run --allow-all --unstable-kv --unstable-cron \\;
     //   // LINT: unreachable code removed}
 
   async verifyBasicPermissions() { 
-    const _result = adequate = `${this.workingDir}
+    const _result = adequate = `${this.workingDir}`
 // await node.writeTextFile(testFile, 'test');
 // await node.remove(testFile);
     } catch ;

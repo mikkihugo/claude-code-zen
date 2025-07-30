@@ -3,6 +3,7 @@
 /** Combines WebSocket server and Node.js 22 native client capabilities;
 /** Provides unified WebSocket management for claude-zen;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { WebSocketConnectionManager  } from '.';
 // =============================================================================
@@ -56,7 +57,7 @@ export // interface WebSocketServiceOptions {
 
 // export class WebSocketService extends EventEmitter {
   constructor(options) {
-    super();
+//     super();
     this.options = options;
     this.connectionManager = new WebSocketConnectionManager({ maxConnections, // Example value
       });
@@ -112,7 +113,7 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
       this.stats.totalConnections++;
       console.warn(` Connected to external WebSocket`);
       // return client;
-    //   // LINT: unreachable code removed} catch(error) {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       console.error(`Error connecting to external WebSocket);`
       throw error;
     //     }
@@ -189,7 +190,7 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
       handlers.forEach((handler) => {
         try {
           handler({ type, data, source);
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           console.error(`Error in message handler for type ${messageType});`
         //         }
       });
@@ -259,7 +260,7 @@ connectToServer((connectionName = 'main'), (customOptions = {}));
 // export function _checkWebSocketSupport() {
   const _nodeVersion = process.version;
   const _majorVersion = parseInt(nodeVersion.substring(1).split('.')[0]);
-
+// 
   return {
     nodeVersion,
     // majorVersion, // LINT: unreachable code removed

@@ -3,6 +3,7 @@
 /** Sandboxed execution environment for plugins with security restrictions;
 /** This file runs in a Worker thread with limited access to system resources;
 
+ */
 const { parentPort, workerData } = require('worker_threads');
 const { createHash, randomUUID } = require('crypto');
 const _fs = require('fs').promises;
@@ -238,7 +239,7 @@ parentPort.on('message', async(message) => {
         "use strict";
   return(function() {
           ${pluginCode}
-        })();
+         catch (error) { console.error(error); }})();
     // `; // LINT: unreachable code removed`
     );
 
@@ -272,7 +273,7 @@ parentPort.on('message', async(message) => {
 
   const _health = {status = 20;
   //   }
-  if(executionTime > secureEnv.executionTimeLimit * 0.8) {
+   catch (error) { console.error(error); }if(executionTime > secureEnv.executionTimeLimit * 0.8) {
     health.issues.push({severity = 15;
   //   }
 

@@ -4,6 +4,7 @@
 
 // security-command.js - Handles the security command
 
+ */
 import { printError  } from '..';
 
 export async function securityCommand() {

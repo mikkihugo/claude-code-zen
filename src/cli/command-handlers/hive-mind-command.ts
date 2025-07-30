@@ -11,8 +11,8 @@ const _HIVE_REGISTRY_FILE = path.join(HIVE_MIND_DIR, 'registry.json');'
 export async function readHiveRegistry() {
   try {
 // const _content = awaitreadFile(HIVE_REGISTRY_FILE, 'utf8');'
-    return JSON.parse(content);
-    //   // LINT: unreachable code removed} catch(error) {
+//     return JSON.parse(content);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
   if(error.code === 'ENOENT') {'
       // return {};
     //   // LINT: unreachable code removed}
@@ -51,7 +51,7 @@ async function _writeHiveRegistry() {
   if(results?.suggestions) {
           pluginSuggestions.push(...results.suggestions);
         //         }
-      //       }
+       catch (error) { console.error(error); }//       }
     } catch(/* _error */) {
       console.warn(` Plugin ${pluginName}failed = [...serviceSuggestions, ...scopeSuggestions, ...documentationLinkSuggestions, ...pluginSuggestions];`
 
@@ -88,7 +88,7 @@ async function _writeHiveRegistry() {
       break;
     } else if(choice === 'refine') {'
       const { refinement } = // await inquirer.prompt([{type = // await generateText(`;`
-        Originalsuggestion = `[REFINED] ${newSuggestionDescription}`;`))
+        Originalsuggestion = `[REFINED] ${newSuggestionDescription}`;`))`
       suggestions.unshift(suggestion);
         //         }
     //     }
@@ -96,6 +96,7 @@ async function _writeHiveRegistry() {
 
 /** Launch persistent service-level hive swarm
 
+ */
 async function _launchServiceHive(objective = {}) {
   const _serviceName = flags.hiveName  ?? flags.service  ?? 'default';'
 
@@ -110,7 +111,7 @@ async function _launchServiceHive(objective = {}) {
         printInfo(' Using local orchestrator(ruv-swarm library unavailable)');'
         const _orchestrator = new SwarmOrchestrator();
 // // await orchestrator.initialize();
-        return // await orchestrator.launchSwarm(objective, hiveConfig);
+//         return // await orchestrator.launchSwarm(objective, hiveConfig);
     //   // LINT: unreachable code removed}
     //     }
 

@@ -2,6 +2,7 @@
 /** Swarm Communication System for Hive Mind
 /** Handles inter-agent messaging and coordination
 
+ */
 import crypto from 'node:crypto';
 
 /** Message types and their priorities
@@ -78,7 +79,7 @@ this.state.messageHistory.set(messageId, {
     const _envelopes = agentIds.map((agentId) => ({id = > this._addToBuffer(envelope));
 
     this.state.metrics.sent += envelopes.length;
-
+// 
     return { messageId,recipients = 'sync') {
     const _messageId = this._generateMessageId();
     // const _timestamp = Date.now(); // LINT: unreachable code removed
@@ -89,7 +90,7 @@ this.state.messageHistory.set(messageId, {
 
     selected.forEach((agentId) => {
       const _envelope = {id = selected.length;
-
+// 
     return { messageId,initialTargets = []) {
     const _consensusId = this._generateMessageId();
     // const _timestamp = Date.now(); // LINT: unreachable code removed
@@ -135,7 +136,7 @@ this.state.messageHistory.set(messageId, {
   if(envelope.encrypted && this.config.encryption) {
       try {
         envelope.message = this._decrypt(envelope.message);
-      } catch(/* _error */) {
+      } catch (error) { console.error(error); } catch(/* _error */) {
         this.emit('error', {type = envelope.message._gossip;
 
     // Check if we've seen this message'/g)
@@ -204,7 +205,7 @@ this.state.messageHistory.set(messageId, {
   if(now - agent.lastSeen > 30000) {
         agent.status = 'offline';
         this.emit('agent = {id = [...agents].sort(() => Math.random() - 0.5);'
-    return shuffled.slice(0, Math.min(count, agents.length));
+//     return shuffled.slice(0, Math.min(count, agents.length));
     //   // LINT: unreachable code removed}
 
 /** Generate unique message ID

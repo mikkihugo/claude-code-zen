@@ -24,6 +24,7 @@ this.setupEventHandlers() {}
 /** Initialize the hive-mind integration;
 
 // async initialize() { }
+ */
 : Promise<void>
 
   if(this.isInitialized) {
@@ -41,7 +42,7 @@ this.setupEventHandlers() {}
       this.startPeriodicSync();
     //     }
 
-    this.isInitialized = true;
+     catch (error) { console.error(error); }this.isInitialized = true;
     this.logger.info('Hive-mind integration initialized successfully');
     this.emit('initialized');
   } catch(error) {
@@ -64,7 +65,7 @@ this.setupEventHandlers() {}
       clearInterval(this.syncInterval);
     //     }
 
-    // Save current state
+     catch (error) { console.error(error); }// Save current state
 // // await this.saveKnowledgeBase();
 // // await this.saveCollectiveIntelligence();
     // Terminate active sessions
@@ -180,7 +181,7 @@ const _session = {id = this.activeSessions.get(sessionId);
         this.loadKnowledgeData(data);
       //       }
 
-      this.logger.debug('Knowledge base loaded', {factsCount = // await this.memoryManager.retrieve({namespace = JSON.parse(entry.content);
+       catch (error) { console.error(error); }this.logger.debug('Knowledge base loaded', {factsCount = // await this.memoryManager.retrieve({namespace = JSON.parse(entry.content);
         this.loadIntelligenceData(data);
       //       }
 
@@ -188,7 +189,7 @@ const _session = {id = this.activeSessions.get(sessionId);
         patternsCount = {facts = {patterns = setInterval(async() => {
       try {
 // await this.performPeriodicSync();
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         this.logger.error('Error during periodic sync', error);
       //       }
     }, this.config.syncInterval);

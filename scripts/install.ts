@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/** Claude-Zen post-install script;
+/* Claude-Zen post-install script;
  *;
  * @fileoverview Post-installation verification with TypeScript standards;
  * @author Claude Code Flow Team;
@@ -10,6 +10,7 @@
 /** Main installation verification function;
 /** Verifies that Claude-Zen has been installed correctly;
 
+ */
 async function main(): Promise<void> {
   try {
     console.warn('Installing Claude-Zen...');
@@ -18,7 +19,7 @@ async function main(): Promise<void> {
     console.warn(' Neural CLI with ruv-FANN integration ready');
     console.warn(' Usage);'
     console.warn(' Full commands);'
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     const _errorMessage = error instanceof Error ? error.message : String(error);
     console.error('Installation verification failed);'
     process.exit(1);

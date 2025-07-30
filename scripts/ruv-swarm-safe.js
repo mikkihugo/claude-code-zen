@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Safe wrapper for ruv-swarm MCP server;
+/* Safe wrapper for ruv-swarm MCP server;
 /** Handles known logger issue in v1.0.8;
 
+ */
 import { spawn  } from 'node:child_process';
 import { createInterface  } from 'node:readline';
 

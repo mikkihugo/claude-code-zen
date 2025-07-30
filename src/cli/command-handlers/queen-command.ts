@@ -3,6 +3,7 @@
 /** Manages CodeQueen, DebugQueen and their collaboration
  * @module QueenCommand
 
+ */
 import chalk from 'chalk';
 import { QueenCoordinator  } from '../../queens/queen-coordinator.js';
 
@@ -32,7 +33,7 @@ try {
     if(utilization > 0.8) color = chalk.red;
     else if(utilization > 0.6) color = chalk.yellow;
 
-    console.warn(`${queenName}: ${color(`${utilizationPercent}%`)}`);
+    console.warn(`${queenName} catch (error) { console.error(error); }: ${color(`${utilizationPercent}%`)}`);
   //   }
 // }
 
@@ -64,7 +65,7 @@ for (const [name, queen] of Object.entries(queens)) {
   if(result.decision) {
       // Consensus result
       console.warn(chalk.cyan(' Queen Consensus Result => {'))
-          console.warn(`${dissent.queenName}: ${dissent.recommendation} (${(_dissent._confidence * 100).toFixed(1)}%)`)
+          console.warn(`${dissent.queenName} catch (error) { console.error(error); }: ${dissent.recommendation} (${(_dissent._confidence * 100).toFixed(1)}%)`)
         });
       //       }
     } else {
@@ -86,7 +87,7 @@ for (const [name, queen] of Object.entries(queens)) {
   if(queens.length < 2) {
       console.warn(chalk.yellow(' Only one queen available, cannot collaborate'));
       console.warn(chalk.gray('Falling back to single queen execution...'));
-    } else {
+    }  catch (error) { console.error(error); }else {
       console.warn(chalk.blue(` \$queens.lengthqueens available for collaboration`));
     //     }
 

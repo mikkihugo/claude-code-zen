@@ -1,6 +1,7 @@
 
 /** Performance tests for Claude-Flow;
 
+ */
 import { jest  } from '@jest';
 import fs from 'fs-extra';
 import { agentCommand  } from '../../cli/simple-commands/agent.js';
@@ -17,7 +18,7 @@ describe('Performance Tests', () => {
         largeArgList.push(`--flag${i}`, `value${i}`);
       //       }
       const { result, duration } = // await perfHelpers.measureTime(() => {
-        return parseFlags(largeArgList);
+//         return parseFlags(largeArgList);
     //   // LINT: unreachable code removed});
       expect(duration).toBeLessThan(100); // Should complete in less than 100ms
       expect(Object.keys(result.flags)).toHaveLength(1000);
@@ -29,7 +30,7 @@ describe('Performance Tests', () => {
         value: Math.random() * 1000,
         description: `Description for item ${i}`.repeat(5) }));
       const { result, duration } = // await perfHelpers.measureTime(() => {
-        return JSON.stringify(largeDataset);
+//         return JSON.stringify(largeDataset);
     //   // LINT: unreachable code removed});
       expect(duration).toBeLessThan(500); // Should complete in less than 500ms
       expect(result).toContain('Item 0');
@@ -41,12 +42,12 @@ describe('Performance Tests', () => {
   for(let i = 0; i < depth; i++) {
           obj = { [`level${i}`] };
         //         }
-        return obj;
+//         return obj;
     //   // LINT: unreachable code removed};
       const _obj1 = createDeepObject(50);
       const _obj2 = createDeepObject(50);
       const { result, duration } = // await perfHelpers.measureTime(() => {
-        return deepMerge(obj1, obj2);
+//         return deepMerge(obj1, obj2);
     //   // LINT: unreachable code removed});
       expect(duration).toBeLessThan(100); // Should complete in less than 100ms
       expect(result).toBeDefined();
@@ -161,7 +162,7 @@ describe('Large Data Handling', () =>
     setting3: Array.from({ length }, (_, j) => `item${j}`) }
 // }
 const { duration } = // await performance.measureTime(() => {
-  return JSON.stringify(largeConfig);
+//   return JSON.stringify(largeConfig);
   //   // LINT: unreachable code removed});
   expect(duration).toBeLessThan(100); // Should serialize in less than 100ms
 });
@@ -179,7 +180,7 @@ const { duration } = // await performance.measureTime(() => {
   // Simulate log processing
   const _errors = largeLogs.filter((log) => log.level === 'error');
   const _recent = largeLogs.slice(0, 100);
-  return { errors: errors.length, recent: recent.length };
+//   return { errors: errors.length, recent: recent.length };
   //   // LINT: unreachable code removed});
   expect(duration).toBeLessThan(200); // Should process in less than 200ms
 });
@@ -192,7 +193,7 @@ describe('Benchmarks', () =>
       // Simulate CLI startup operations
       parseFlags(['--help']);
   // await new Promise((resolve) => setTimeout(resolve, 10)); // Simulate I/O
-      return 'CLI ready';
+//       return 'CLI ready';
       //   // LINT: unreachable code removed};
       const { result, duration } = // await performance.measureTime(mockStartupOperations);
       expect(result).toBe('CLI ready');
@@ -209,7 +210,7 @@ describe('Benchmarks', () =>
           id: 'test-swarm',
         agents: Array.from({ length }, (_, i) => ({ id)) };
   // // await new Promise((resolve) => setTimeout(resolve, 50)); // Simulate setup
-      return swarmData;
+//       return swarmData;
       //   // LINT: unreachable code removed};
       const { result, duration } = // await performance.measureTime(mockSwarmInit);
       expect(result.agents).toHaveLength(8);

@@ -8,6 +8,7 @@
 
 /** Task execution result interface;
 
+ */
 export // interface TaskExecutionResult {success = ============================================================================
 // // MOCK FUNCTIONS
 // // =============================================================================

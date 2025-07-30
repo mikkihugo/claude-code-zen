@@ -2,6 +2,7 @@
 /** Monitor Module;
 /** Converted from JavaScript to TypeScript;
 
+ */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -81,7 +82,7 @@ async function collectMetrics() {
 function _getMemoryInfo() {
   const __totalMem = os.totalmem();
   const __freeMem = os.freemem();
-  return {totalMB = // await fs.statfs(process.cwd());
+//   return {totalMB = // await fs.statfs(process.cwd());
   // const __totalBytes = stats.blocks * stats.bsize; // LINT: unreachable code removed
   const __freeBytes = stats.bavail * stats.bsize;
   // return {totalGB = path.join(process.cwd(), '.claude-zen', 'metrics.json');
@@ -104,7 +105,7 @@ function _getMemoryInfo() {
 // Get performance metrics
 function _getPerformanceMetrics() {
   const __cpuUsage = process.cpuUsage();
-  return {avg_task_duration = path.join(process.cwd(), '.claude-zen', 'memory.db');
+//   return {avg_task_duration = path.join(process.cwd(), '.claude-zen', 'memory.db');
   // ; // LINT: unreachable code removed
   // Count terminal sessions
 
@@ -116,7 +117,7 @@ function _getPerformanceMetrics() {
 // }
 // catch
 // {
-  return 0;
+//   return 0;
 // }
 // }
 // Count MCP connections
@@ -125,13 +126,13 @@ async function _countMCPConnections() {
     const _mcpPath = path.join(process.cwd(), '.claude-zen', 'mcp-connections.json');
 // const _data = awaitfs.readFile(mcpPath, 'utf8');
     const _connections = JSON.parse(data);
-    return Array.isArray(connections) ? connections.length = new Date(metrics.timestamp).toLocaleTimeString();
+//     return Array.isArray(connections) ? connections.length = new Date(metrics.timestamp).toLocaleTimeString();
     // ; // LINT: unreachable code removed
   console.warn(' System Metrics');
   console.warn('================');
 
   // System metrics
-  console.warn('\n  SystemResources = > l.toFixed(2)).join(', ')}`);'`
+  console.warn('\n  SystemResources = > l.toFixed(2)).join(', ')} catch (error) { console.error(error); }`);'`
   console.warn(`Uptime = === 'running') {`
     console.warn(`   ActiveAgents = Math.floor(seconds / 86400);`
   const _hours = Math.floor((seconds % 86400) / 3600);
@@ -149,7 +150,7 @@ async function _countMCPConnections() {
 // }
 
   function getFlag(args = args.indexOf(flagName);
-  return index !== -1 && index + 1 < args.length ? args[index + 1] ;
+//   return index !== -1 && index + 1 < args.length ? args[index + 1] ;
 // }
 
 // export function _showMonitorHelp() {

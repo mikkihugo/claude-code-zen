@@ -2,6 +2,7 @@
 /** Coordination Command Module
 /** Converted from JavaScript to TypeScript
 
+ */
 import { import type
 // {
   Logger, JSONObject, JSONValue, JSONArray;
@@ -15,10 +16,10 @@ initializeSwarm,
 orchestrateTask,
 spawnSwarmAgent,
 getSwarmStatus,
-checkRuvSwarmAvailable } from '..
+checkRuvSwarmAvailable } from '..'
 // Simple ID generator
 function generateId(prefix = 'id') {'
-  return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;`
+//   return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;`
 // }
 // export async function coordinationAction() {
   showCoordinationHelp();
@@ -50,7 +51,7 @@ try {
 // const _swarmResult = awaitinitializeSwarm({
         swarmId,topology = false; // Trigger fallback
     //     }
-  //   }
+   catch (error) { console.error(error); }//   }
   if(!isAvailable) {
     //Fallback = > setTimeout(resolve, 1000));
 
@@ -62,7 +63,7 @@ try {
   const _capabilities = options.capabilities  ?? null;
 
   // Validate agent type
-  const _validTypes = ['coordinator', 'coder', 'developer', 'researcher', 'analyst', 'analyzer', 'tester', 'architect', 'reviewer', 'optimizer', 'general'];')
+  const _validTypes = ['coordinator', 'coder', 'developer', 'researcher', 'analyst', 'analyzer', 'tester', 'architect', 'reviewer', 'optimizer', 'general'];')'
   if(!validTypes.includes(agentType)) {
     printWarning(`  Unknown agent type '${agentType}'. Using 'general' instead.`);`
     agentType = 'general'; // Actually change the type to general'

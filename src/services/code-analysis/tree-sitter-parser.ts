@@ -2,6 +2,7 @@
 /** Tree-sitter Multi-language Parser;
 /** Provides parsing support for 40+ programming languages using tree-sitter;
 
+ */
 import { createHash  } from 'node:crypto';
 import path from 'node:path';
 
@@ -10,21 +11,21 @@ let Parser, JavaScript, TypeScript;
 try {
 // const _TreeSitter = awaitimport('tree-sitter');
   Parser = TreeSitter.default  ?? TreeSitter;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('Tree-sitter not available, using fallback parsing');
   Parser = null;
 // }
 try {
 // const _JSModule = awaitimport('tree-sitter-javascript');
   JavaScript = JSModule.default  ?? JSModule;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('Tree-sitter JavaScript grammar not available');
   JavaScript = null;
 // }
 try {
 // const _TSModule = awaitimport('tree-sitter-typescript');
   TypeScript = TSModule.typescript  ?? TSModule.default  ?? TSModule;
-} catch(/* _e */) {
+} catch (error) { console.error(error); } catch(/* _e */) {
   console.warn('Tree-sitter TypeScript grammar not available');
   TypeScript = null;
 // }
@@ -197,7 +198,7 @@ isAsyncFunction(node, content);
   // Look for 'async' keyword in the function for (let i = 0; i < node.childCount; i++) {
   const _child = node.child(i);
   if(child.type === 'async' ?? this.getNodeText(child, content) === 'async') {
-    return true;
+//     return true;
     //   // LINT: unreachable code removed}
   //   }
   // return false;
@@ -371,17 +372,17 @@ createFallbackAnalysis(filePath, content, language);
         // return 'object';
     // case 'function_expression': // LINT: unreachable code removed
       case 'arrow_function':
-        return 'function';default = node.parent;
+//         return 'function';default = node.parent;
   while(current) {
   switch(current.type) {
         case 'function_declaration':
         case 'function_expression':
         case 'arrow_function':
-          return 'function';
+//           return 'function';
     // case 'class_declaration': // LINT: unreachable code removed
-          return 'class';
+//           return 'class';
     // case 'block_statement': // LINT: unreachable code removed
-          return 'block';
+//           return 'block';
     // case 'program': // LINT: unreachable code removed
           // return 'global';
     //   // LINT: unreachable code removed}

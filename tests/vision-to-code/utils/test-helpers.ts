@@ -16,6 +16,7 @@ import path from 'node:path';
 
 /** Mock image creation options
 
+ */
 export // interface MockImageOptions {
 //   width?;
 //   height?;
@@ -180,7 +181,7 @@ export // interface MockImageOptions {
 //   // timestamp: number
 // // }
 
-/** Error metrics entry
+ catch (error) { console.error(error); }/** Error metrics entry
 
 // export // interface ErrorEntry {
 //   // error: string
@@ -188,7 +189,7 @@ export // interface MockImageOptions {
 //   // timestamp: number
 // // }
 
-/** Performance statistics
+ catch (error) { console.error(error); }/** Performance statistics
 
 // export // interface PerformanceStats {
 //   // totalRequests: number
@@ -298,12 +299,12 @@ export // interface MockImageOptions {
 
     const codeTemplates: Record<string, (name) => string> = {
       react: (name) =>
-        `import React from 'react';\n\nexport const ${name} = (): JSX.Element => {\n  return <div>${name} Component<
+        `import React from 'react';\n\nexport const ${name} = (): JSX.Element => {\n  return <div>${name} Component<`
       vue: (name) =>
         `<template>\n  <div>${name} Component</div>\n</template>\n\n<script>\nexport default {\n  name: '${name}'\n}\n</script>`,
       angular: (name) =>
         `import { Component  } from '@angular/core';\n\n@Component({\n  selector: 'app-${name.toLowerCase()}',\n  template: '<div>${name} Component</div>'\n})\nexport class ${name}Component {}` };
-
+// 
     return {
       id: TestHelpers.generateTestId('code'),
       timestamp: new Date().toISOString(),
@@ -383,22 +384,22 @@ export // interface MockImageOptions {
       body,
       status: function(code) {
         this.statusCode = code;
-        return this;
+//         return this;
       },
       json: function(data) {
-        this.headers['Content-Type'] = 'application
+        this.headers['Content-Type'] = 'application'
         this.body = data;
-        return this;
+//         return this;
       },
       send: function(data) {
         this.body = data;
-        return this;
+//         return this;
       },
       setHeader: function(name, value) {
         this.headers[name] = value;
-        return this;
+//         return this;
       } };
-
+// 
     return res;
   },
 
@@ -411,7 +412,7 @@ export // interface MockImageOptions {
         if(file.startsWith('test_')) {
 // // await fs.unlink(path.join(directory, file)); 
 // }
-// }
+ catch (error) { console.error(error); }// }
     } catch {
       // Directory might not exist
 // }
@@ -442,7 +443,7 @@ export // interface MockImageOptions {
   mockAIResponse(service, response) {
     const mocks: Record<string, () => void> = {
       gemini: () => {
-        const gemini = require('@google
+        const gemini = require('@google'
         gemini.GoogleGenerativeAI.mockImplementation(() => ({ getGenerativeModel) => ({
             generateContent: jest.fn().mockResolvedValue(response)   })) }));
       },
@@ -472,7 +473,7 @@ export // interface MockImageOptions {
       },
       getStats: () => {
         const durations = metrics.durations.sort((a, b) => a - b);
-        return {
+//         return {
           totalRequests: metrics.requests.length,
           totalErrors: metrics.errors.length,
           averageDuration: durations.reduce((a, b) => a + b, 0) / durations.length || 0,

@@ -2,6 +2,7 @@
 /** Model Context Protocol(MCP) Types;
 /** Types for MCP server integration and tool execution
 
+ */
 import type { JSONObject  } from '.';
 
 // =============================================================================

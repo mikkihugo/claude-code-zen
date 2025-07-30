@@ -3,6 +3,7 @@
 /** Handles system setup, database initialization, and configuration;
  * @module HiveMindInitialization;
 
+ */
 import path from 'node:path';
 import chalk from 'chalk';
 
@@ -32,7 +33,7 @@ try {
     console.warn(`;`)
 ${chalk.green(' Hive Mind Initialization Complete')}
 
-\${chalk.bold('Created = false)}'
+ catch (error) { console.error(error); }\${chalk.bold('Created = false)}'
 
   const _db = new Database(dbPath);
 
@@ -42,7 +43,7 @@ ${chalk.green(' Hive Mind Initialization Complete')}
 // // await createDatabaseIndexes(db);
     // Insert initial data
 // // await insertInitialData(db);
-  } finally {
+  } catch (error) { console.error(error); } finally {
     db.close();
   //   }
 // }
@@ -170,7 +171,7 @@ get('config');
   if(result.count === 0) {
       throw new Error('Database initialization incomplete - no config records found');
     //     }
-  } finally {
+   catch (error) { console.error(error); }} finally {
     db.close();
   //   }
 // }

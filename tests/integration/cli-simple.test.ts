@@ -28,6 +28,7 @@ const ___dirname = path.dirname(__filename);
 //   main?;
 //   bin?: Record<string, string> | string;
 // // }
+ */
 describe('CLI Basic Tests', () => {
 
 /** Basic test to ensure test framework is working;

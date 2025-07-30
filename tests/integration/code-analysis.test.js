@@ -2,6 +2,7 @@
 /** Integration Test for Code Analysis Tools;
 /** Tests the basic functionality of the code analysis integration;
 
+ */
 import { mkdir, rm  } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -22,7 +23,7 @@ describe('Code Analysis Integration', () => {
   afterAll(async() => {
     // Cleanup test directory
     try {
-  // await rm(testDir, { recursive, force });
+  // await rm(testDir, { recursive, force } catch (error) { console.error(error); });
     } catch(error) {
       console.warn('Cleanup warning);'
     //     }
@@ -101,7 +102,7 @@ async function createTestFiles() {
 // Complex function for testing
 function processData() {
   if(!data) {
-    return null;
+//     return null;
     //   // LINT: unreachable code removed}
   if(options.validate) {
   if(typeof data !== 'object') {
@@ -137,7 +138,7 @@ function processData() {
   // return result;
 // }
 function simpleFunction() {
-  return x + y;
+//   return x + y;
 // }
 // export { processData, simpleFunction };
 `;`
@@ -171,10 +172,10 @@ class DataManager {
     // File with duplicate code patterns
     const _duplicateJs = `;`
 function transformData() {
-  return { ...data, processed };
+//   return { ...data, processed };
 // }
 function processInfo() {
-  return { ...info, processed };
+//   return { ...info, processed };
 // }
 // export { transformData, processInfo };
 `;`

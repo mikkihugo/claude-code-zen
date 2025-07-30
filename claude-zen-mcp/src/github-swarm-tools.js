@@ -11,14 +11,14 @@ const _execAsync = promisify(exec);
 async function executeRuvSwarmCommand() {
   const _commandString = `npx ruv-swarm github ${command} ${args.join(' ')}`;
   try {
-    const { stdout, stderr } = await execAsync(commandString);
+    const { stdout, stderr }  catch (error) { console.error(error); }= await execAsync(commandString);
     if (stderr) {
       // Handle warnings or non-critical errors
-      return { success, stdout, stderr };
+//       return { success, stdout, stderr };
     //   // LINT: unreachable code removed}
-    return { success, stdout };
+//     return { success, stdout };
     //   // LINT: unreachable code removed} catch (error) {
-    return { success, error: error.message, stderr: error.stderr };
+//     return { success, error: error.message, stderr: error.stderr };
     //   // LINT: unreachable code removed}
 // }
 
@@ -34,7 +34,7 @@ export const _githubSwarmTools = {
       if (args.diff) cliArgs.push(`--diff '${args.diff}'`);
       if (args.agents) cliArgs.push(`--agents "${args.agents}"`);
       if (args.depth) cliArgs.push(`--depth ${args.depth}`);
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__review_security',
     description: 'Run a security-focused review on a pull request',
@@ -44,7 +44,7 @@ export const _githubSwarmTools = {
       const _cliArgs = [`review-security`, `--pr ${args.pr}`, `--files "${args.files}"`];
       if (args.check) cliArgs.push(`--check "${args.check}"`);
       if (args.suggest_fixes) cliArgs.push('--suggest-fixes');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__review_performance',
     description: 'Run a performance-focused review on a pull request',
@@ -55,7 +55,7 @@ export const _githubSwarmTools = {
       if (args.profile) cliArgs.push(`--profile "${args.profile}"`);
       if (args.benchmark_against) cliArgs.push(`--benchmark-against ${args.benchmark_against}`);
       if (args.suggest_optimizations) cliArgs.push('--suggest-optimizations');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__review_architecture',
     description: 'Run an architecture-focused review on a pull request',
@@ -66,7 +66,7 @@ export const _githubSwarmTools = {
       if (args.check) cliArgs.push(`--check "${args.check}"`);
       if (args.visualize_impact) cliArgs.push('--visualize-impact');
       if (args.suggest_refactoring) cliArgs.push('--suggest-refactoring');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__review_context',
     description: 'Review a pull request with full context',
@@ -77,7 +77,7 @@ export const _githubSwarmTools = {
       if (args.load_related_prs) cliArgs.push('--load-related-prs');
       if (args.analyze_impact) cliArgs.push('--analyze-impact');
       if (args.check_breaking_changes) cliArgs.push('--check-breaking-changes');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__review_learn',
     description: 'Learn from past reviews to improve suggestions',
@@ -91,7 +91,7 @@ export const _githubSwarmTools = {
       if (args.identify_patterns) cliArgs.push('--identify-patterns');
       if (args.improve_suggestions) cliArgs.push('--improve-suggestions');
       if (args.reduce_false_positives) cliArgs.push('--reduce-false-positives');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__review_batch',
     description: 'Analyze related pull requests together',
@@ -102,7 +102,7 @@ export const _githubSwarmTools = {
       if (args.check_consistency) cliArgs.push('--check-consistency');
       if (args.verify_integration) cliArgs.push('--verify-integration');
       if (args.combined_impact) cliArgs.push('--combined-impact');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__review_comment',
     description: 'Generate contextual review comments',
@@ -117,7 +117,7 @@ export const _githubSwarmTools = {
       if (args.style) cliArgs.push(`--style ${args.style}`);
       if (args.include_examples) cliArgs.push('--include-examples');
       if (args.suggest_fixes) cliArgs.push('--suggest-fixes');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__review_comments',
     description: 'Manage review comments efficiently',
@@ -128,7 +128,7 @@ export const _githubSwarmTools = {
       if (args.group_by) cliArgs.push(`--group-by "${args.group_by}"`);
       if (args.summarize) cliArgs.push('--summarize');
       if (args.resolve_outdated) cliArgs.push('--resolve-outdated');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__multi_repo_init',
     description: 'Initialize a multi-repo swarm',
@@ -140,7 +140,7 @@ export const _githubSwarmTools = {
       if (args.topology) cliArgs.push(`--topology ${args.topology}`);
       if (args.shared_memory) cliArgs.push('--shared-memory');
       if (args.sync_strategy) cliArgs.push(`--sync-strategy ${args.sync_strategy}`);
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__board_init',
     description: 'Initialize a project board for swarm synchronization',
@@ -150,7 +150,7 @@ export const _githubSwarmTools = {
       const _cliArgs = [`board-init`, `--project-id "${args.project_id}"`];
       if (args.sync_mode) cliArgs.push(`--sync-mode ${args.sync_mode}`);
       if (args.create_views) cliArgs.push(`--create-views "${args.create_views}"`);
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__release_plan',
     description: 'Plan a new release by analyzing commits and pull requests',
@@ -165,7 +165,7 @@ export const _githubSwarmTools = {
       if (args.suggest_version) cliArgs.push('--suggest-version');
       if (args.identify_breaking) cliArgs.push('--identify-breaking');
       if (args.generate_timeline) cliArgs.push('--generate-timeline');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__issue_to_swarm',
     description: 'Create a swarm from a GitHub issue',
@@ -178,7 +178,7 @@ export const _githubSwarmTools = {
       if (args.issue_data) cliArgs.push(`--issue-data '${args.issue_data}'`);
       if (args.auto_decompose) cliArgs.push('--auto-decompose');
       if (args.assign_agents) cliArgs.push('--assign-agents');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__pr_init',
     description: 'Initialize a swarm from a pull request',
@@ -190,7 +190,7 @@ export const _githubSwarmTools = {
       if (args.pr_data) cliArgs.push(`--pr-data '${args.pr_data}'`);
       if (args.diff) cliArgs.push(`--diff '${args.diff}'`);
       if (args.analyze_impact) cliArgs.push('--analyze-impact');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },
     name: 'mcp__github__actions_analyze',
     description: 'Analyze changes and suggest tests for a GitHub Actions workflow',
@@ -200,5 +200,5 @@ export const _githubSwarmTools = {
       const _cliArgs = [`actions`, `analyze`, `--commit ${args.commit}`];
       if (args.suggest_tests) cliArgs.push('--suggest-tests');
       if (args.optimize_pipeline) cliArgs.push('--optimize-pipeline');
-      return await executeRuvSwarmCommand('', cliArgs);
+//       return await executeRuvSwarmCommand('', cliArgs);
     //   // LINT: unreachable code removed} },;

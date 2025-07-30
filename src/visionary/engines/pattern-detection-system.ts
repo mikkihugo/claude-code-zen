@@ -97,6 +97,7 @@ import type { CodeAnalysisResult, CodeFileData  } from '.';
 //   cohesion: 'high' | 'moderate' | 'low';'
 //   principles: {
 //     srp: { score, violations};
+ */
     ocp: { score, violations};
     lsp: { score, violations};
     isp: { score, violations};
@@ -152,7 +153,7 @@ import type { CodeAnalysisResult, CodeFileData  } from '.';
   if(this.config.neuralEngine) {
       try {
         aiDetected = // // await this.performAIAnalysis(codeData, 'pattern-detection');'
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.warn('AI pattern detection unavailable);'
       //       }
     //     }
@@ -315,7 +316,7 @@ import type { CodeAnalysisResult, CodeFileData  } from '.';
       antiPatterns.push({
         antiPattern: 'Global State Abuse','
         severity: 'high','
-        location: 'multiple locations',')
+        location: 'multiple locations',')'
         description: `Excessive use of global state(${globalUsage} occurrences)`,`
         impact: 'Unpredictable behavior, difficult testing','
         recommendation: 'Use dependency injection and local state','
@@ -365,7 +366,7 @@ import type { CodeAnalysisResult, CodeFileData  } from '.';
     const _duplicates = this.findDuplicateCode(lines);
     duplicates.forEach((duplicate) => {
       smells.push({ smell: 'Duplicate Code','
-      severity: 'medium',')
+      severity: 'medium',')'
       location: duplicate.locations.join(', '),'
       description: 'Code block appears multiple times','
       impact: 'maintainability','
@@ -438,7 +439,7 @@ codeData): Promise<ArchitecturalPattern[]>
     confidence: 0.8,
     description: 'Model-View-Controller architectural pattern','
     components: ['Model', 'View', 'Controller'],'
-    benefits: ['Separation of concerns', 'Testability', 'Maintainability'] }')
+    benefits: ['Separation of concerns', 'Testability', 'Maintainability'] }')'
   //   )
 // }
 // Service Layer Pattern
@@ -452,7 +453,7 @@ const _hasAPI = codeData.some(;)
   confidence: 0.7,
   description: 'Service layer for business logic separation','
   components: ['Services', 'Controllers', 'Data Access'],'
-  benefits: ['Business logic encapsulation', 'Reusability'] }')
+  benefits: ['Business logic encapsulation', 'Reusability'] }')'
 // )
 // }
 // return patterns;
@@ -592,7 +593,7 @@ detectLanguageIdioms(codeData)
     if(patterns.designPatterns.some((p) => p.pattern === 'Service')) {'
       layers.push('service');'
     //     }
-
+// 
     return layers.length > 0 ? layers : ['monolithic'];'
     //   // LINT: unreachable code removed}
 
@@ -697,7 +698,7 @@ detectLanguageIdioms(codeData)
     if(patterns.designPatterns.some((p) => p.pattern === 'Factory')) {'
       score += 0.1;
     //     }
-
+// 
     return { score: Math.min(1, score), violations };
     //   // LINT: unreachable code removed}
 
@@ -857,9 +858,9 @@ join('\n');'
   // // private matchFunction(line): name: string | null {
     const _functionMatch = line.match(/function\s+(\w+)|(\w+)\s*[]\s*function|(\w+)\s*\(/)
   if(functionMatch) {
-      return { name: functionMatch[1]  ?? functionMatch[2]  ?? functionMatch[3]  ?? 'anonymous' };'
+//       return { name: functionMatch[1]  ?? functionMatch[2]  ?? functionMatch[3]  ?? 'anonymous' };'
     //   // LINT: unreachable code removed}
-    return null;
+//     return null;
     //   // LINT: unreachable code removed}
 
   // // private countMethodLines(lines, startIndex) {
@@ -900,7 +901,7 @@ join('\n');'
 
     const _codeContent = codeData.map((file) => file.content).join('\n\n');'
 // const _result = awaitthis.config.neuralEngine.infer('analysis', 'detectPatterns', codeContent);'
-
+// 
     return {
       type,
     // patterns, // LINT: unreachable code removed

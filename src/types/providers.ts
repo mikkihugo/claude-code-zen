@@ -3,6 +3,7 @@
 /** Re-export and extend the existing provider types with additional functionality
 
 // Re-export all existing provider types
+ */
 export * from '../providers/types.js';
 
 // Import the existing types to extend them

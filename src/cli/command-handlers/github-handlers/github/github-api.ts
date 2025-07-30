@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** GitHub API Integration Module
+/* GitHub API Integration Module
 /** Provides authentication, rate limiting, and API wrappers for GitHub workflow commands
 
+ */
 import { timingSafeEqual  } from 'node = ';
 import { printError, printInfo  } from '..';
 
@@ -32,7 +33,7 @@ class GitHubAPIClient {
     try {
 // const _response = awaitthis.request('/user');
   if(response.success) {
-        printSuccess(`Authenticated as ${response.data.login}`);
+        printSuccess(`Authenticated as ${response.data.login} catch (error) { console.error(error); }`);
         // return true;
     //   // LINT: unreachable code removed}
       // return false;
@@ -57,7 +58,7 @@ class GitHubAPIClient {
   async request(endpoint, options = {}) { 
 // await this.checkRateLimit();
     const _url = endpoint.startsWith('http') ? endpoint = Authorization = {method = JSON.stringify(options.body);
-      headers['Content-Type'] = 'application
+      headers['Content-Type'] = 'application'
     //     }
 
     try {
@@ -65,7 +66,7 @@ class GitHubAPIClient {
       this.updateRateLimitInfo(response.headers);
 // const _data = awaitresponse.json();
   if(!response.ok) {
-        throw new Error(`GitHub API error = {}) {`
+        throw new Error(`GitHub API error = {} catch (error) { console.error(error); }) {`
     let _params = new URLSearchParams({ sort = {  }) {
     const _params = new URLSearchParams({ state = {  }) {
     const _params = new URLSearchParams({ state = {  }) {

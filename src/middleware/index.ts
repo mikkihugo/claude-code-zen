@@ -2,6 +2,7 @@
 /** Middleware Collection;
 /** Reusable middleware functions for Claude Flow servers
 
+ */
 import compression from 'compression';
 import cors from 'cors';
 import express, { NextFunction, Request, Response  } from 'express';
@@ -58,7 +59,7 @@ req.validation = validation;
 // Check if any validation failed
 const _hasErrors = Object.values(validation).some((v) => !v.valid);
   if(hasErrors) {
-  return res.status(400).json({ success = > Promise<UserContext | null>;)
+//   return res.status(400).json({ success = > Promise<UserContext | null>;)
 //   }): MiddlewareFunction
 // {
   // return async(req => {
@@ -70,7 +71,7 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
         const _token = authHeader.substring(7);
   if(options.extractUser) {
           user = // await options.extractUser(token);
-        } else {
+        }  catch (error) { console.error(error); }else {
           // Default user extraction logic
           user = {id = user;
       next();
@@ -78,7 +79,7 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
       console.error('Authenticationerror = > boolean)) {'
   // return(req => {
   if(!req.user) {
-      return res.status(401).json({success = false;
+//       return res.status(401).json({success = false;
     // ; // LINT: unreachable code removed/g)
   if(typeof permissions === 'function') {
       hasPermission = permissions(req.user);
@@ -94,35 +95,35 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
     // ; // LINT: unreachable code removed
     // Handle different types of errors
   if(err.name === 'ValidationError') {
-      return res.status(400).json({success = === 'UnauthorizedError') {
+//       return res.status(400).json({success = === 'UnauthorizedError') {
       // return res.status(401).json({success = === 'ForbiddenError') {
       // return res.status(403).json({success = === 'NotFoundError') {
       // return res.status(404).json({success = === 'production' ? 'An unexpected error occurred' : err.message,stack = === 'production' ? undefined => {
     // Add success response helper/g)
     res.success = function<T>(data, message?) {
-      return this.json({success = function(message, code?, details?) {
+//       return this.json({success = function(message, code?, details?) {
       const _statusCode = code  ?? 500;
     // return this.status(statusCode).json({success = function<T>(data,pagination = function(data, ttl?) { // LINT: unreachable code removed
   if(ttl) {
         this.set('Cache-Control', `public, max-age=${ttl}`);
       //       }
-      return this.json({success = function(data => {
+//       return this.json({success = function(data => {
         try {))
           for // await(const chunk of data) {
             this.write(JSON.stringify(chunk) + '\n');
     //   // LINT: unreachable code removed}
-          this.end();
+           catch (error) { console.error(error); }this.end();
         } catch(error) {
           this.write(JSON.stringify({error = function<T>() {
-      return this.params as T;
+//       return this.params as T;
     //   // LINT: unreachable code removed};
 
     req.typedQuery = function<T>() {
-      return this.query as any as T;
+//       return this.query as any as T;
     //   // LINT: unreachable code removed};
 
     req.typedBody = function<T>() {
-      return this.body as T;
+//       return this.body as T;
     //   // LINT: unreachable code removed};
 
     next();
@@ -132,14 +133,14 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
 /** Security headers middleware
 
 // export function securityHeaders() {
-  return helmet({contentSecurityPolicy = === 'production';
+//   return helmet({contentSecurityPolicy = === 'production';
     //   // LINT);
 // }
 
 /** CORS middleware with advanced options
 
 // export function corsMiddleware(options?) {
-  return cors({ origin = === 'production' ? false => {
+//   return cors({ origin = === 'production' ? false => {
       res.status(429).json({success = 30000) {
   return(req => {
     const _timer = setTimeout(() => {

@@ -2,6 +2,7 @@
 /** Plugin Health Monitor;
 /** Comprehensive health monitoring, metrics collection, and diagnostic system for plugins;
 
+ */
 import { performance  } from 'node:perf_hooks';
 // // interface HealthMetrics {pluginName = new Map() {}
 // private;
@@ -21,7 +22,7 @@ import { performance  } from 'node:perf_hooks';
 // config = {}
 // )
 // {
-  super();
+//   super();
   this.config = {enabled = this.createDefaultHealthChecks(pluginName, manifest, config);
   this.plugins.set(pluginName, {
       plugin,
@@ -56,7 +57,7 @@ performScheduledHealthChecks();
         if(this.shouldRunHealthCheck(healthCheck, now)) {
           try {
 // // await this.runHealthCheck(pluginName, healthCheck); 
-          } catch(_error = now.getTime() - healthCheck.lastRun.getTime(); // return timeSinceLastRun >= healthCheck.interval;
+          } catch (error) { console.error(error); } catch(_error = now.getTime() - healthCheck.lastRun.getTime(); // return timeSinceLastRun >= healthCheck.interval;
     //   // LINT: unreachable code removed}
 
   // private async runHealthCheck(pluginName = this.plugins.get(pluginName) {;
@@ -119,7 +120,7 @@ performScheduledHealthChecks();
         // Check memory usage
   if(resourceUsage.allocated.memory > 500 * 1024 * 1024) { // 500MB
           detailedIssues.push({severity = 10;
-        //         }/g)
+        //         } catch (error) { console.error(error); }/g)
       } catch(/* _error */) {
         // Resource usage check failed
       //       }
@@ -132,7 +133,7 @@ performScheduledHealthChecks();
         basicResult.metrics.apiCount = apis.length;
   if(apis.length === 0) {
           detailedIssues.push({severity = 5;
-        //         }/g)
+        //         } catch (error) { console.error(error); }/g)
       } catch(/* _error */) {
         // API check failed
       //       }
@@ -148,7 +149,7 @@ performScheduledHealthChecks();
         operations.push(plugin.healthCheck());
       //       }
 
-      const _totalTime = performance.now() - startTime;
+       catch (error) { console.error(error); }const _totalTime = performance.now() - startTime;
       const _averageResponseTime = totalTime / operations.length;
 
       const _issues = [];
@@ -169,7 +170,7 @@ performScheduledHealthChecks();
 
         for (const [_depName, depStatus] of Object.entries(dependencyResults)) {
   if(depStatus === 'failed'  ?? depStatus === 'unhealthy') {
-            issues.push({severity = 20; } else if(depStatus === 'degraded') {
+            issues.push({severity = 20; }  catch (error) { console.error(error); }else if(depStatus === 'degraded') {
             issues.push({severity = 10; //           }
         //         }
       } catch(_error = 15;
@@ -184,7 +185,7 @@ performScheduledHealthChecks();
       try {
 // const _metrics = awaitthis.gatherPluginHealthMetrics(pluginName, pluginData); 
         pluginData.metrics.push(metrics); // Emit metrics collected event
-        this.emit('metrics-collected', { pluginName, metrics }) {;
+        this.emit('metrics-collected', { pluginName, metrics } catch (error) { console.error(error); }) {;
       } catch(_error = new Date();
 
     // Get basic performance metrics
@@ -196,13 +197,13 @@ performScheduledHealthChecks();
     // const _failedChecks = Object.entries(deps); // LINT: unreachable code removed
 filter(([ status]) => status === 'failed');
 map(([name]) => name);
-
+// 
         return {status = === 0 ? 'healthy' : 'failing',
     // failedChecks,latency = === 'function') { // LINT: unreachable code removed
       try {
-        return // await(plugin as any).getMetrics();
-    //   // LINT: unreachable code removed} catch(error) ;
-        return {error = this.healthThresholds.get(pluginName)  ?? [];
+//         return // await(plugin as any).getMetrics();
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) ;
+//         return {error = this.healthThresholds.get(pluginName)  ?? [];
     // ; // LINT: unreachable code removed
   for(const threshold of thresholds) {
       const _metricValue = this.extractMetricValue(result.metrics, threshold.metric); if(metricValue !== null && this.checkThreshold(metricValue, threshold)) {
@@ -263,7 +264,7 @@ map(([name]) => name);
     const __totalVariation = dataPoints.reduce((sum, point) => sum + (point.value - meanY) ** 2, 0);
     const __explainedVariation = dataPoints.reduce((sum, _point, index) => {
       const _predictedY = slope * index + intercept;
-      return sum + (predictedY - meanY) ** 2;
+//       return sum + (predictedY - meanY) ** 2;
     //   // LINT: unreachable code removed}, 0);
 
     // Predict next value
@@ -322,7 +323,7 @@ map(([name]) => name);
     const _highErrorRatePlugins = plugins.filter(p => {)
       const _recentMetrics = p.metrics.slice(-5);
       const _avgErrorRate = this.calculateAverage(recentMetrics.map((m) => m.performance.errorRate));
-      return avgErrorRate > 5; // 5% error rate
+//       return avgErrorRate > 5; // 5% error rate
     });
   if(highErrorRatePlugins.length > 0) {
       recommendations.push(`Review error handling for ${highErrorRatePlugins.length} plugin(s) with high error rates`);
@@ -416,7 +417,7 @@ map(([name]) => name);
     if(!healthCheck) return null;
     // ; // LINT: unreachable code removed
 // // await this.runHealthCheck(pluginName, healthCheck);
-    return pluginData.lastHealthResult  ?? null;
+//     return pluginData.lastHealthResult  ?? null;
     //   // LINT: unreachable code removed}
 
   async cleanup(): Promise<void> {

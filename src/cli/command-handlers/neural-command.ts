@@ -3,6 +3,7 @@
 /** Provides AI-powered development tools with neural intelligence
  * @module NeuralCommand
 
+ */
 import { performance  } from 'node:perf_hooks';'
 import chalk from 'chalk';'
 import { NeuralEngine  } from '../../neural/neural-engine.js';
@@ -28,7 +29,7 @@ try {
 // const _initialized = awaitneuralEngine.initialize();
   if(initialized) {
         console.warn(chalk.green(' Neural engine initialized successfully'));'
-      } else {
+      }  catch (error) { console.error(error); }else {
         console.warn(chalk.yellow('  Neural engine running in fallback mode'));'
       //       }
       console.warn();
@@ -73,7 +74,7 @@ try {
 // const _success = awaitneuralEngine.loadModel(modelName);
     const _loadTime = performance.now() - startTime;
   if(success) {
-      console.warn(chalk.green(` Model ${modelName} loaded successfully in ${loadTime.toFixed(2)}ms`));`
+      console.warn(chalk.green(` Model ${modelName}  catch (error) { console.error(error); }loaded successfully in ${loadTime.toFixed(2)}ms`));`
 
       const _modelInfo = neuralEngine.getModelInfo(modelName);
   if(modelInfo) {
@@ -102,7 +103,7 @@ try {
     'generate unit tests for data validation';'
   ];
 
-  console.warn(chalk.yellow(`Running ${iterations} iterations with ${prompts.length} different prompts...`));`
+  console.warn(chalk.yellow(`Running ${iterations}  catch (error) { console.error(error); }iterations with ${prompts.length} different prompts...`));`
   console.warn();
 
   const __results = [];
@@ -145,7 +146,7 @@ try {
       console.warn();
       console.warn(chalk.yellow(` Optimized version would be savedto = === 'ENOENT') {'`
       console.error(chalk.red(' File not found), filePath);'
-    } else {
+    }  catch (error) { console.error(error); }else {
       console.error(chalk.red(' Optimization failed), error.message);'
     //     }
   //   }

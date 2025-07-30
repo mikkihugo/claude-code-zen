@@ -19,7 +19,7 @@ try {
     // Keep the process running indefinitely
     setInterval(() => {
       // Heartbeat to keep process alive
-    }, 30000);
+    } catch (error) { console.error(error); }, 30000);
 
     // Graceful shutdown handlers
     process.on('SIGINT', async() => {

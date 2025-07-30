@@ -17,13 +17,14 @@ import TransactionManager from '.';
 // transactionManager = {}
 // )
 // {
-  super();
+//   super();
   this.options = {enableMetrics = = false,enableHealthChecks = = false,healthCheckInterval = new TransactionManager(this, {defaultTimeout = new ConnectionPoolManager({loadBalancing = new DatabaseMonitor(this, {checkInterval = > this.shutdown());
   process.on('SIGTERM', () => this.shutdown());
 // }
 
 /** Add a database to the manager;
 
+ */
 async;
 addDatabase(config = `${config.type}_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 console.warn(` Adding ${config.type} database = {id = new SQLiteConnectionPool(;`
@@ -89,9 +90,9 @@ console.warn(` Removingdatabase = === 'function') {`
     const _instance = this.databases.get(databaseId);
   if(!instance) {
       throw new Error(`Database notfound = queries.map(query => ({query = // await instance.pool.executeTransaction(batchQueries);`
-  return results.map((_result, _index) => ({
+//   return results.map((_result, _index) => ({
         success = {overall = > db.status === 'connected').length;
-  //   // LINT: unreachable code removed},errors = 0;
+  //   // LINT: unreachable code removed} catch (error) { console.error(error); },errors = 0;
   const _totalCount = 0;
   for(const [id, instance] of this.databases) {
     totalCount++; // const _dbHealth = awaitthis.checkDatabaseHealth(instance); 
@@ -128,7 +129,7 @@ getMetrics();
         // Perform optimization based on database type
   if('optimize' in instance.connection && typeof instance.connection.optimize === 'function') {
 // // await instance.connection.optimize(); 
-          optimized.push(`${instance.config.name} ($, { instance.type })`); //         }
+          optimized.push(`${instance.config.name}  catch (error) { console.error(error); }($, { instance.type })`); //         }
   if(instance.pool) {
 // // await instance.pool.cleanup();
           optimized.push(`${instance.config.name} connection pool`);
@@ -190,7 +191,7 @@ getMetrics();
         health -= 0.5;
       //       }
 
-      // Check error rate
+       catch (error) { console.error(error); }// Check error rate
 
       // Check response time
   if(instance.metrics.avgResponseTime > 5000) {
@@ -232,12 +233,12 @@ getMetrics();
     // return health.status;
     //   // LINT: unreachable code removed}
 
-  async query<T = any>(sql, params?, options?): Promise<QueryResult<T>> {
+   catch (error) { console.error(error); }async query<T = any>(sql, params?, options?): Promise<QueryResult<T>> {
     const _startTime = Date.now();
 
     try {
 // const _result = awaitthis.pool.execute(sql, params, {timeout = // await this.pool.execute(sql, params);
-      // return {success = queries.map(q => ({query = // await this.pool.executeBatch(batchQueries, {parallel = > ({success = // await this.pool.execute(`EXPLAIN QUERY PLAN ${sql}`, params);
+      // return {success = queries.map(q => ({query = // await this.pool.executeBatch(batchQueries, {parallel = > ({success = // await this.pool.execute(`EXPLAIN QUERY PLAN ${sql} catch (error) { console.error(error); }`, params);
     // return { nodes, totalCost, estimatedRows: 0  // LINT: unreachable code removed};
   //   }
 // }

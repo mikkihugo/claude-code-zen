@@ -3,6 +3,7 @@
 /** Provides comprehensive interfaces for all 71+ missing MCP tools;
 /** Organized by tool categories with real-time updates;
 
+ */
 import ToolExecutionFramework from '.';
 
 // Enhanced view modes with all missing tool categories
@@ -241,7 +242,7 @@ handleEnhancedInput(key, currentView)
   switch(currentView) {
         case ENHANCED_VIEWS.NEURAL = {1 = > this.promptNeuralTrain(),2 = > this.promptNeuralPredict(),3 = > this.executeQuickTool('neural_status'),4 = > this.promptModelSave(),5 = > this.promptModelLoad(),6 = > this.executeQuickTool('pattern_recognize', {data = >;
         this.executeQuickTool('cognitive_analyze', {behavior = >;))
-        this.executeQuickTool('learning_adapt', {experience = > this.promptModelCompress(),a = > this.promptEnsembleCreate(),b = > this.promptTransferLearn(),c = > this.promptNeuralExplain(),d = > this.executeQuickTool('wasm_optimize', {operation = > this.promptInferenceRun() };
+        this.executeQuickTool('learning_adapt', {experience = > this.promptModelCompress(),a = > this.promptEnsembleCreate(),b = > this.promptTransferLearn(),c = > this.promptNeuralExplain(),d = > this.executeQuickTool('wasm_optimize', {operation = > this.promptInferenceRun() } catch (error) { console.error(error); };
 
     const _action = neuralActions[key];
   if(action) {
@@ -255,7 +256,7 @@ handleEnhancedInput(key, currentView)
 
   async executeQuickTool(toolName, parameters = {}) ;
     try {
-      this.ui.addLog('info', `Executing ${toolName}...`);
+      this.ui.addLog('info', `Executing ${toolName} catch (error) { console.error(error); }...`);
 // const _result = awaitthis.toolFramework.executeTool(toolName, parameters);
       this.ui.addLog('success', `${toolName} completed successfully`);
       this.displayToolResult(result);

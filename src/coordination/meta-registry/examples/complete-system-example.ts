@@ -1,6 +1,7 @@
 
 /** Complete Ultra-Modular Meta Registry System Example
 /** Demonstrates the fullhierarchy = null
+ */
     this.mainRegistry = null;
     this.hierarchyManager = null;
   //   }
@@ -14,7 +15,7 @@
 
   try {
 // // // await example.initialize();
-  } catch(error)
+  } catch (error) { console.error(error); } catch(error)
 // {
   console.error(' Error inexample = === `file) {`'
   runCompleteExample().catch(console.error);

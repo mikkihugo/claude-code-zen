@@ -9,15 +9,15 @@ async function checkSqliteBindings() {
 // const _Database = awaitimport('better-sqlite3');
     const _db = new Database.default(');'
     db.close();
-    return true;
-    //   // LINT: unreachable code removed} catch(/* _error */) {
+//     return true;
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
     // return false;
     //   // LINT: unreachable code removed}
 // }
 // Attempt to rebuild better-sqlite3 for ARM64
 async function rebuildSqlite() {
   console.warn(' Rebuilding better-sqlite3 for ARM64...');
-  return new Promise((_resolve) => {
+//   return new Promise((_resolve) => {
     const _rebuild = spawn('npm', ['rebuild', 'better-sqlite3'], {
       stdio);
     rebuild.on('close', (code) => {

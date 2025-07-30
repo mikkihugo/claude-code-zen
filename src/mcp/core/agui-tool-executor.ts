@@ -6,6 +6,7 @@
 
  * @module AGUIMCPToolExecutor
 
+ */
 import { AGUIAdapter  } from '../ai/agui-adapter.js';
 import { MCPToolExecutor  } from '.';
 
@@ -14,7 +15,7 @@ import { MCPToolExecutor  } from '.';
 
 // export class AGUIMCPToolExecutor extends MCPToolExecutor {
   constructor(server = {}) {
-    super(server);
+//     super(server);
 
     // Create AG-UI adapter for tool execution events
     this.aguiAdapter = new AGUIAdapter({ sessionId = {emitToolEvents = {toolCallsWithEvents = {  }) {
@@ -31,7 +32,7 @@ import { MCPToolExecutor  } from '.';
           this.aguiAdapter.addToolCallArgs(JSON.stringify(args), toolCallId);
         //         }
 
-        this.aguiStats.toolCallsWithEvents++;
+         catch (error) { console.error(error); }this.aguiStats.toolCallsWithEvents++;
       //       }
 
       // Emit progress event
@@ -50,11 +51,11 @@ import { MCPToolExecutor  } from '.';
 
       // Emit progress completion event
   if(this.options.emitProgressEvents) {
-        this.aguiAdapter.emitCustomEvent('tool_execution_completed', {')
+        this.aguiAdapter.emitCustomEvent('tool_execution_completed', {')'
           toolName = {name = {name = {}) {
     const _chainId = `chain-${Date.now()}`;`
 
-    this.aguiAdapter.emitCustomEvent('tool_chain_started', {')
+    this.aguiAdapter.emitCustomEvent('tool_chain_started', {')'
       chainId,tools = > t.name),timestamp = // // await this.executeTool(name, args, {
 ..context,
           chainId,)
@@ -103,7 +104,7 @@ import { MCPToolExecutor  } from '.';
         aguiAdapter.addToolCallArgs(JSON.stringify(args), toolCallId);
       //       }
 
-      // Execute original tool
+       catch (error) { console.error(error); }// Execute original tool
 // const _result = awaitoriginalExecuteTool(name, args, context);
 
       // Complete AG-UI tool call
@@ -120,9 +121,9 @@ import { MCPToolExecutor  } from '.';
         aguiAdapter.emitToolCallResult(`Error = () => aguiAdapter;`
   existingExecutor.connectToAGUIBus = () => {
     aguiAdapter.connectGlobalEmitter(eventBus);
-    return existingExecutor;
+//     return existingExecutor;
     //   // LINT: unreachable code removed};
-
+// 
   return existingExecutor;
 // }
 

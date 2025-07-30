@@ -3,7 +3,7 @@ import { BaseQueen  } from '.';
 
 export class DebugQueen extends BaseQueen {
   constructor() {
-        super('DebugQueen', 'bug-detection');'
+//         super('DebugQueen', 'bug-detection');'
         this.confidence = 0.88;
         this.neuralEngine = new NeuralEngine();
         this.errorPatterns = new Map();
@@ -67,9 +67,9 @@ export class DebugQueen extends BaseQueen {
         const _report = ' **Debug Analysis Report**\n\n'; '
 
         // Summary
-        report += `**Summary = `- ${issues.length} issues found\n`;`
+        report += `**Summary = `- ${issues.length}  catch (error) { console.error(error); }issues found\n`;`
         report += `- ${securityIssues.length} security vulnerabilities\n`;`
-        report += `- ${performanceIssues.length} performance concerns\n`;`)
+        report += `- ${performanceIssues.length} performance concerns\n`;`)`
         report += `- RiskScore = [...issues, ...securityIssues].filter(i => i.severity === 'critical') {;'`
   if(criticalIssues.length > 0) {
             report += ' **CriticalIssues = `- \$issue.description\n`;`'`
@@ -228,7 +228,7 @@ export class DebugQueen extends BaseQueen {
         if(code.includes('await') && !code.includes('try')) {'
             const _awaitMatch = code.match(/(.*await.*)/)
   if(awaitMatch) {
-                // return code.replace(awaitMatch[1], `try {\n  $awaitMatch[1]\n} catch(/* _error */) {\n  console.error('Asyncerror = /setInterval|setTimeout/.test(code);'`
+                // return code.replace(awaitMatch[1], `try {\n  $awaitMatch[1]\n} catch (error) { console.error(error); } catch(/* _error */) {\n  console.error('Asyncerror = /setInterval|setTimeout/.test(code);'`
     // const _hasListener = /addEventListener/.test(code); // LINT: unreachable code removed
         const _hasCleanup = /clearInterval|clearTimeout|removeEventListener/.test(code);
 

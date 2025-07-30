@@ -3,6 +3,7 @@
 /** PRODUCTION-READY NEURAL NETWORK INTEGRATION with fallback support;
 /** Provides AI capabilities for the Hive Mind system
 
+ */
 import { performance  } from 'node:perf_hooks';
 
 InferenceRequest,
@@ -44,7 +45,7 @@ constructor((config =
 // }
 ))
 // {
-  super();
+//   super();
   this.config = {
     // Model configurationsenabledModels = = false,enableBatching = = false,enableMetrics = = false
   };
@@ -86,7 +87,7 @@ constructor((config =
         const _embedding = this.generateDeterministicEmbedding(text);
         // Normalize the embedding
         const _norm = Math.sqrt(embedding.reduce((sum, val) => sum + val * val, 0));
-        return embedding.map(val => val / (norm  ?? 1));
+//         return embedding.map(val => val / (norm  ?? 1));
         //   // LINT: unreachable code removed}
 
         // Batch embed multiple texts
@@ -116,7 +117,7 @@ constructor((config =
         const _nesting = this.calculateNesting(code);
         const _cyclomaticComplexity = conditions + 1;
         const _cognitiveComplexity = nesting * 2 + conditions;
-        return {
+//         return {
           cyclomaticComplexity,
         // cognitiveComplexity,linesOfCode = 'javascript'): Promise<CodeQualityResult> => { // LINT: unreachable code removed
 // const _complexity = awaitthis.analyzeComplexity(code);
@@ -186,7 +187,7 @@ constructor((config =
     // for (const item of items) { // LINT: unreachable code removed
     results.push(// await this.classify(item)); 
   //   }
-  return results; // }
+//   return results; // }
 // }
 // }
 
@@ -253,7 +254,7 @@ metadata = {};
         // return cached;
     //   // LINT: unreachable code removed}
 
-      const _result = this.formatPromptForOperation(modelType, operation, input);
+       catch (error) { console.error(error); }const _result = this.formatPromptForOperation(modelType, operation, input);
   if(!model  ?? !model.implementation) {
           throw new Error(`Model ${modelType} not available`);
         //         }
@@ -350,14 +351,14 @@ metadata = {};
     // Reward pure functions
     const _pureFunctionScore = this.estimatePureFunctions(code);
     score += pureFunctionScore * 10;
-
+// 
     return Math.max(0, Math.min(100, score));
     //   // LINT: unreachable code removed}
 
   // private calculateDocumentation(code = code.split('\n');
     const _commentLines = lines.filter(line => {)
       const _trimmed = line.trim();
-      return trimmed.startsWith('//')  ?? trimmed.startsWith('/*')  ?? trimmed.startsWith('*')  ?? trimmed.startsWith('/**'); */
+//       return trimmed.startsWith('//')  ?? trimmed.startsWith('/*')  ?? trimmed.startsWith('*')  ?? trimmed.startsWith('/**'); */
     //   // LINT: unreachable code removed}).length;
 
     const _docRatio = commentLines / lines.length;
@@ -369,7 +370,7 @@ metadata = {};
 
     let _score = Math.min(100, docRatio * 150);
     score += jsdocRatio * 25;
-
+// 
     return Math.max(0, Math.min(100, score));
     //   // LINT: unreachable code removed}
 
@@ -537,7 +538,7 @@ GeneratedComponent.propTypes = {initialData = 0;
     console.warn(' Enhanced NeuralEngine = > m.loaded).length,'
       metrics = {  }): Promise<string> => {
         const _context = code.substring(Math.max(0, code.length - 200));
-        return `\$code\n// Suggested completion based on context`;
+//         return `\$code\n// Suggested completion based on context`;
     //   // LINT: unreachable code removed}
     //     }
   //   }
@@ -551,12 +552,12 @@ GeneratedComponent.propTypes = {initialData = 0;
         const _bugs = [];
     // if(code.includes('const ')) { // LINT: unreachable code removed
     bugs.push({ type => {
-        return ['Extract method', 'Rename variables', 'Remove duplicates'];)
+//         return ['Extract method', 'Rename variables', 'Remove duplicates'];)
     //   // LINT);
         : Promise<any>
-        return {
+//         return {
       //       type => {
-        return `// Generated tests for provided code\ndescribe('Generated Tests', () => {\n  it('should work', () => {\n    expect(true).toBe(true);\n    });\n});`;
+//         return `// Generated tests for provided code\ndescribe('Generated Tests', () => {\n  it('should work', () => {\n    expect(true).toBe(true);\n    });\n});`;
       };
     //     }
     // private async;
@@ -564,7 +565,7 @@ GeneratedComponent.propTypes = {initialData = 0;
     : Promise<any>
     // return {
       //       type => {
-        return `/**\n * Generated documentation\n * @description Auto-generated docs for provided code\n */`;
+//         return `/**\n * Generated documentation\n * @description Auto-generated docs for provided code\n */`;
   //   }
 // }
 // Additional methods for generation model

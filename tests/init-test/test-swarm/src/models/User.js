@@ -1,5 +1,5 @@
 const _bcrypt = require('bcrypt');
-const { db } = require('.
+const { db } = require('.'
 class User {
   // static async create({ username, email, password    }) { 
 // const _hashedPassword = awaitbcrypt.hash(password, 10);

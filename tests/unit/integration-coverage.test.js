@@ -199,7 +199,7 @@ describe('JSON and Data Processing', () =>
   if(shouldThrow) {
           throw new Error('Async error');
         //         }
-        return 'success';
+//         return 'success';
     //   // LINT: unreachable code removed};
   // // await expect(asyncErrorFunction(false)).resolves.toBe('success');
   // await expect(asyncErrorFunction(true)).rejects.toThrow('Async error');
@@ -217,7 +217,7 @@ describe('JSON and Data Processing', () =>
     });
     it('should handle Promise patterns', async() => {
       const _delayedPromise = () => {
-        return new Promise((resolve) => setTimeout(() => resolve(value), ms));
+//         return new Promise((resolve) => setTimeout(() => resolve(value), ms));
     //   // LINT: unreachable code removed};
 // const _result = awaitdelayedPromise(10, 'delayed-result');
       expect(result).toBe('delayed-result');

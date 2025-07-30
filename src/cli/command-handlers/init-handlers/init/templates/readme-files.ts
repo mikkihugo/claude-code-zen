@@ -4,8 +4,9 @@
 
 // readme-files.js - README templates for various directories
 
+ */
 export function createAgentsReadme() {
-  return `# Agent Memory Storage`
+//   return `# Agent Memory Storage`
 
     // ## Purpose; // LINT: unreachable code removed
 This directory stores agent-specific memory data, configurations, and persistent state information for individual Claude agents in the orchestration system.
@@ -38,7 +39,7 @@ ${new Date().toISOString()}
 `;`
 // }
 // export function createSessionsReadme() {
-  return `# Session Memory Storage`
+//   return `# Session Memory Storage`
 
     // ## Purpose; // LINT: unreachable code removed
 This directory stores session-based memory data, conversation history, and contextual information for development sessions using the Claude-Flow orchestration system.

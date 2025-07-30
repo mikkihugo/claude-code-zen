@@ -2,6 +2,7 @@
 /** Architect Advisor Plugin
 /** AI-powered system that analyzes registry usage and suggests new registries via ADRs
 
+ */
 import { EventEmitter  } from 'node:events';'
 import path from 'node:path';'
 import fs from 'fs-extra';'
@@ -49,7 +50,7 @@ try {
 // const _patternsData = awaitfs.readJson(this.patternsFile);
         this.architecturalPatterns = new Map(patternsData);
       //       }
-    } catch(error) {
+     catch (error) { console.error(error); }} catch(error) {
       this.emit('loadError', error);'
     //     }
 async;
@@ -61,9 +62,9 @@ try {
   if(suggestion.confidence > this.options.suggestionThreshold) {
 // // // await this.createSuggestion(suggestion); 
         //         }
-      //       }
+       catch (error) { console.error(error); }//       }
 
-      this.emit('analysisCompleted', {')
+      this.emit('analysisCompleted', {')'
         analysis,suggestions = this.analysisHistory.slice(-100); const _analysis = {registrationPatterns = [];
 
     // Generate suggestions based on analysis

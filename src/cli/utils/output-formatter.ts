@@ -2,6 +2,7 @@
 /** Output Formatting Utilities;
 /** Comprehensive output formatting with colors, tables, and structured data
 
+ */
 import type { OutputFormatter as IOutputFormatter  } from '../../types/cli';
 
 // =============================================================================
@@ -154,7 +155,7 @@ fail(errorMessage?);
 // =============================================================================
 
 // export function formatTable() {
-    return colorize('No data to display', 'dim');
+//     return colorize('No data to display', 'dim');
     //   // LINT: unreachable code removed}
 
 const { columns, title, border = true, striped = false, compact = false } = options;
@@ -166,7 +167,7 @@ const _columnWidths = columns.map((col) => {
 ..data.map((row) => {
       const _value = row[col.key];
       const _formatted = col.format ? col.format(value) : String(value  ?? '');
-      return formatted.length;
+//       return formatted.length;
     //   // LINT: unreachable code removed});
   );
   // return Math.max(headerWidth, dataWidth, col.width  ?? 0);
@@ -184,7 +185,7 @@ result += `${colorize(title.padStart((titleWidth + title.length) / 2).padEnd(tit
 const _headerRow = columns;
 map((col, i) => {
     const _content = col.title.padEnd(columnWidths[i]);
-    return colorize(content, 'bright');
+//     return colorize(content, 'bright');
     //   // LINT: unreachable code removed});
 join(border ? '  ' );
 
@@ -254,12 +255,12 @@ join('\n');
       // return data.map(_item => `\$spaces- \$this.formatYaml(item, indent + 1).trim()`).join('\n');
     //   // LINT: unreachable code removed}
   if(typeof data === 'object' && data !== null) {
-      return Object.entries(data);
+//       return Object.entries(data);
     // .map(([_key, value]) => { // LINT: unreachable code removed
   if(typeof value === 'object' && value !== null) {
-            return `\$spaces\$key:\n\$this.formatYaml(value, indent + 1)`;
+//             return `\$spaces\$key:\n\$this.formatYaml(value, indent + 1)`;
     //   // LINT: unreachable code removed}
-          return `\$spaces\$key: \$value`;
+//           return `\$spaces\$key: \$value`;
     //   // LINT: unreachable code removed});
 join('\n');
     //     }
@@ -279,7 +280,7 @@ join('\n');
 
     const __columns = Object.keys(firstItem).map(key => ({))
       key,title = = 'object'  ?? data === null) {
-      return String(data);
+//       return String(data);
     //   // LINT: unreachable code removed}
 
     const _entries = Object.entries(data).map(([_key, value]) => ({ property = === 'object' ? JSON.stringify(value) : String(value);
@@ -364,15 +365,15 @@ join('\n');
 
 // export function _truncateString(str = '...') {
   if(str.length <= maxLength) {
-    return str;
+//     return str;
     //   // LINT: unreachable code removed}
-
+// 
   return str.substring(0, maxLength - suffix.length) + suffix;
 // }
 
 // export function _padString(str = 'left') {
   if(str.length >= length) {
-    return str;
+//     return str;
     //   // LINT: unreachable code removed}
 
   const _padding = length - str.length;

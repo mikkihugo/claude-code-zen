@@ -1,8 +1,9 @@
 #!/usr/bin/env node;
 
-/**  PRODUCTION VALIDATION TEST SUITE;
+/*  PRODUCTION VALIDATION TEST SUITE;
 /** Comprehensive validation of Claude Code Flow system readiness;
 
+ */
 import { existsSync  } from 'node:fs';
 import fetch from 'node-fetch';
 
@@ -38,7 +39,7 @@ function warn() {
 // Test 1: File Structure Validation
 test('File Structure', () => {
   console.warn('\n Validating file structure...');
-  const _requiredFiles = ['.
+  const _requiredFiles = ['.'
     './src/mcp/mcp-server.js',
     './src/mcp/http-mcp-server.js',
     './src/hive-mind-primary.js',
@@ -56,7 +57,7 @@ test('Dependencies', () => {
     assert(pkg.name === '@claude-zen/monorepo', 'Package name is correct');
     assert(pkg.version.includes('alpha.73'), 'Version includes alpha.73');
 
-    const _deps = Object.keys(pkg.dependencies  ?? {});
+    const _deps = Object.keys(pkg.dependencies  ?? {} catch (error) { console.error(error); });
     warn(deps.includes('express'), 'Express dependency present');
     warn(deps.includes('better-sqlite3'), 'SQLite3 dependency present(better-sqlite3)');
   } catch(/* e */) {
@@ -76,7 +77,7 @@ test('MCP Server', async() => {
     assert(typeof health.system.uptime === 'number', 'Uptime is reported');
     assert(Array.isArray(health.capabilities.api), 'API capabilities listed');
 
-    console.warn(`   Server uptime: ${Math.floor(health.system.uptime / 1000)}s`);
+    console.warn(`   Server uptime: ${Math.floor(health.system.uptime / 1000)} catch (error) { console.error(error); }s`);
     console.warn(`   Memory usage: ${Math.floor(health.system.memory.heapUsed / 1024 / 1024)}MB`);
   } catch(/* e */) {
     assert(false, `MCP server test failed);`
@@ -97,7 +98,7 @@ test('Neural Engine', () => {
     const _rustBinariesExist =;
       existsSync('./ruv-FANN/target/release/libruv_fann.rlib')  ?? existsSync('./ruv-FANN/ruv-swarm/target/release');
     warn(rustBinariesExist, 'Rust binaries compiled(cargo build --release)');
-  } catch(/* e */) {
+  } catch (error) { console.error(error); } catch(/* e */) {
     assert(false, `Neural engine validation failed);`
   //   }
 });
@@ -106,7 +107,7 @@ test('Database Systems', () => {
   console.warn('\n Testing database systems...');
   // Check for SQLite database
   const _sqliteDb = './.swarm/claude-zen-mcp.db';
-  warn(existsSync(sqliteDb), 'SQLite database exists(.swarm
+  warn(existsSync(sqliteDb), 'SQLite database exists(.swarm'
   // Check for memory backend
   const _memoryPlugin = './src/plugins/memory-backend/index.js';
   assert(existsSync(memoryPlugin), 'Memory backend plugin exists');
@@ -126,7 +127,7 @@ test('Plugin System', () => {
   pluginDirs.forEach((dir) => {
     assert(existsSync(dir), `Plugin directory exists: ${dir.split('
     assert(;
-    existsSync(`${dir}
+    existsSync(`${dir}`
     `Plugin entry point exists: ${dir.split('/').pop()}/index.js`;
     //     )
   });
@@ -138,7 +139,7 @@ test('MCP Tools', async() => {
   try {
 // const _response = awaitfetch('http://localhost:3000/api/execute', {
       method: 'POST','Content-Type': 'application/json' ,
-      body: JSON.stringify({ tool: 'swarm_status', args: {} }),
+      body: JSON.stringify({ tool: 'swarm_status', args: {}  catch (error) { console.error(error); }}),
       timeout });
 // const _result = awaitresponse.json();
     assert(response.ok, 'MCP tool execution endpoint responds');
@@ -172,7 +173,7 @@ async function runTests() {
   for(const test of tests) {
     try {
 // // await test.fn(); 
-    } catch(/* e */) {
+    } catch (error) { console.error(error); } catch(/* e */) {
       console.warn(` Test suite "${test.name}" failed`); results.failed++;
     //     }
   //   }

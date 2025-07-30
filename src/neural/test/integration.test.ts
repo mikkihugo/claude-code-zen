@@ -1,6 +1,7 @@
 
 /** Integration test for Claude Zen Neural Service;
 
+ */
 import { getNeuralServiceStatus, predictWithNetwork  } from '..';
 
 async function runNeuralServiceTests() {
@@ -11,7 +12,7 @@ async function runNeuralServiceTests() {
   if(!retrievedNetwork) {
       throw new Error('Failed to retrieve network');
     //     }
-    console.warn(' Network retrieved successfully');
+     catch (error) { console.error(error); }console.warn(' Network retrieved successfully');
 
     // Test 4 = {inputs = {learning_rate = // await trainNeuralNetwork('xor-network', trainingData, config);
     console.warn(` Training completed witherror = [[0, 0], [0, 1], [1, 0], [1, 1]];`

@@ -1,6 +1,7 @@
 
 /** Swarm command - Advanced multi-agent coordination using ruv-swarm library
 
+ */
 import process from 'node:process';
 import { ParallelSwarmOrchestrator  } from '../../coordination/parallel-swarm-orchestrator.js';
 import { printError, printInfo  } from '..';
@@ -40,7 +41,7 @@ function _showSwarmHelp() {
           printInfo('Usage = (subcommand + ' ' + objective).trim();'
         // return // await launchSwarmWithObjective(fullObjective2, flags, orchestrator);
     //   // LINT: unreachable code removed}
-  } catch(error) {
+   catch (error) { console.error(error); }} catch(error) {
     printError(`Swarm command failed = {}, orchestrator = null) ;`
   if(!objective  ?? !objective.trim()) {
     printError('Objective is required');
@@ -112,7 +113,7 @@ async function listActiveSwarms(orchestrator = // await orchestrator.getSwarmSta
     clearInterval(interval);
     printInfo('\\n Monitoring stopped');
     process.exit(0);
-    });
+    } catch (error) { console.error(error); });
 // }
 
 }}}}}}}}}}}}}}}}}))))))))))))))))

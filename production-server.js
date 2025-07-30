@@ -1,8 +1,9 @@
 #!/usr/bin/env node;
 
-/** PRODUCTION CLAUDE ZEN UNIFIED SERVER;
+/* PRODUCTION CLAUDE ZEN UNIFIED SERVER;
 /** The real production server - starts unified interface with MCP + WebSocket;
 
+ */
 import { UnifiedInterfacePlugin  } from './src/plugins/unified-interface/index.js';
 
 async function startProductionServer() {
@@ -36,7 +37,7 @@ async function startProductionServer() {
       console.warn('\n Terminating production server...');
 // await server.shutdown();
       process.exit(0);
-      });
+      } catch (error) { console.error(error); });
   //   }
 catch(error)
 // {

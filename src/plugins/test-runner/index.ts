@@ -2,13 +2,14 @@
 /** Test Runner Plugin;
 /** Multi-framework test execution with coverage reporting;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { readFile  } from 'node:fs';
 import path from 'node:path';
 
 export class TestRunnerPlugin extends EventEmitter {
   constructor(_config = {}) {
-    super();
+//     super();
     this.config = {frameworks = new Map();
     this.results = new Map();
     this.activeRuns = new Map();
@@ -57,7 +58,7 @@ export class TestRunnerPlugin extends EventEmitter {
 
   normalizeJestResults(results);
 // }
-  catch(error) {
+  catch (error) { console.error(error); } catch(error) {
   // return null;
 // }
     })
@@ -98,9 +99,9 @@ this.runners.set('mocha',
       _parseResults =>;
   try {
     const _results = JSON.parse(// await readFile(outputFile, 'utf8'));
-    return this.normalizeMochaResults(results);
-    //   // LINT: unreachable code removed} catch(/* _error */) {
-    return null;
+//     return this.normalizeMochaResults(results);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
+//     return null;
     //   // LINT: unreachable code removed}
 // }
 // )
@@ -144,9 +145,9 @@ this.runners.set('vitest',
       _parseResults =>;
   try {
     const _results = JSON.parse(// await readFile(outputFile, 'utf8'));
-    return this.normalizeVitestResults(results);
-    //   // LINT: unreachable code removed} catch(/* _error */) {
-    return null;
+//     return this.normalizeVitestResults(results);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
+//     return null;
     //   // LINT: unreachable code removed}
 // }
 // )
@@ -184,9 +185,9 @@ this.runners.set('ava',
       _parseResults =>;
   try {
 // const _tapContent = awaitreadFile(outputFile, 'utf8');
-    return this.parseTAPResults(tapContent, 'ava');
-    //   // LINT: unreachable code removed} catch(/* _error */) {
-    return null;
+//     return this.parseTAPResults(tapContent, 'ava');
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
+//     return null;
     //   // LINT: unreachable code removed}
 // }
 // )
@@ -227,9 +228,9 @@ this.runners.set('tap',
       _parseResults =>;
   try {
 // const _tapContent = awaitreadFile(outputFile, 'utf8');
-    return this.parseTAPResults(tapContent, 'tap');
-    //   // LINT: unreachable code removed} catch(/* _error */) {
-    return null;
+//     return this.parseTAPResults(tapContent, 'tap');
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
+//     return null;
     //   // LINT: unreachable code removed}
 // }
 // )
@@ -251,7 +252,7 @@ this.runners.set('tape',
 
       _parseResults =>;
   // Tape outputs TAP format to stdout
-  return this.parseTAPResults(output, 'tape');
+//   return this.parseTAPResults(output, 'tape');
 // }
 // )
 
@@ -272,7 +273,7 @@ runners`);`
 // const _result = awaitthis.executeCommand('which', [runner.command]); 
   if(result.code === 0) {
         detected.push(framework); //       }
-    } catch(error) {
+     catch (error) { console.error(error); }} catch(error) {
       // Framework not available
     //     }
   //   }
@@ -284,7 +285,7 @@ runners`);`
   for(const framework of this.config.frameworks) {
       if(testScript.includes(framework) && !detected.includes(framework)) {
         detected.push(framework); //       }
-    //     }
+     catch (error) { console.error(error); }//     }
   } catch(error) {
     // No package.json
   //   }
@@ -301,7 +302,7 @@ runners`);`
   try {
 // const _jestConfig = awaitthis.loadJestConfig();
   if(jestConfig) {
-      this.testConfigs = this.testConfigs  ?? {};
+      this.testConfigs = this.testConfigs  ?? {} catch (error) { console.error(error); };
       this.testConfigs.jest = jestConfig;
     //     }
   } catch(/* _error */) {
@@ -312,7 +313,7 @@ runners`);`
   try {
 // const _vitestConfig = awaitthis.loadVitestConfig();
   if(vitestConfig) {
-      this.testConfigs = this.testConfigs  ?? {};
+      this.testConfigs = this.testConfigs  ?? {} catch (error) { console.error(error); };
       this.testConfigs.vitest = vitestConfig;
     //     }
   } catch(/* _error */) {
@@ -323,7 +324,7 @@ runners`);`
   try {
 // const _mochaConfig = awaitthis.loadMochaConfig();
   if(mochaConfig) {
-      this.testConfigs = this.testConfigs  ?? {};
+      this.testConfigs = this.testConfigs  ?? {} catch (error) { console.error(error); };
       this.testConfigs.mocha = mochaConfig;
     //     }
   } catch(/* _error */) {
@@ -346,7 +347,7 @@ loadJestConfig();
   if(configPath === 'package.json') {
           const _pkg = JSON.parse(// await readFile(configPath, 'utf8')); 
           // return pkg.jest  ?? null;
-    //   // LINT: unreachable code removed} else if(configPath.endsWith('.json') {) {
+    //   // LINT: unreachable code removed}  catch (error) { console.error(error); }else if(configPath.endsWith('.json') {) {
           // return JSON.parse(// await readFile(configPath, 'utf8'));
     //   // LINT: unreachable code removed} else {
           // For JS/TS configs, we'd need to dynamically import'
@@ -371,7 +372,7 @@ loadJestConfig();
   if(configPath === 'package.json') {
           const _pkg = JSON.parse(// await readFile(configPath, 'utf8'));
           // return pkg.mocha  ?? null;
-    //   // LINT: unreachable code removed} else if(configPath.endsWith('.json')) {
+    //   // LINT: unreachable code removed}  catch (error) { console.error(error); }else if(configPath.endsWith('.json')) {
           // return JSON.parse(// await readFile(configPath, 'utf8'));
     //   // LINT: unreachable code removed} else {
           // return { configFile = {}) {
@@ -431,7 +432,7 @@ loadJestConfig();
       if(testScript.includes(framework)) {
         // return framework; 
     //   // LINT: unreachable code removed}
-    //     }
+     catch (error) { console.error(error); }//     }
   } catch(error)
 
   // Use first detected framework
@@ -756,7 +757,7 @@ normalizeJestResults(results);
     const _getCoverageClass = () => {
       if(pct < 50) return 'coverage-low';
     // if(pct < 80) return 'coverage-medium'; // LINT: unreachable code removed
-      return '';
+//       return '';
     //   // LINT: unreachable code removed};
 
     // return `;`
@@ -844,7 +845,7 @@ normalizeJestResults(results);
     const _results = Array.from(this.results.values());
     // .sort((a, b) => (b.timestamp  ?? 0) - (a.timestamp  ?? 0)); // LINT: unreachable code removed
 slice(0, limit);
-
+// 
     return results;
     // ; // LINT: unreachable code removed
   getResult(runId) ;

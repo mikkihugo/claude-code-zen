@@ -8,6 +8,7 @@ const ___dirname = dirname(__filename);
 
 /** Copy all agent files from the installed package to project directory
 
+ */
 export async function copyAgentFiles(targetDir = {}) {
   const { force = false, dryRun = false } = options;
 
@@ -42,7 +43,7 @@ export async function copyAgentFiles(targetDir = {}) {
 // // await fs.access(destPath);
                 // File exists, skip unless force is true
                 continue;
-              } catch {
+              } catch (error) { console.error(error); } catch {
                 // File doesn't exist, safe to copy'
                 shouldCopy = true;
               //               }
@@ -69,7 +70,7 @@ export async function copyAgentFiles(targetDir = {}) {
     // return {success = false) {
   const _agentDirs = [
     // '.claude', // LINT: unreachable code removed
-    '.claude
+    '.claude'
     '.claude/agents/core',
     '.claude/agents/swarm',
     '.claude/agents/hive-mind',
@@ -112,7 +113,7 @@ export async function copyAgentFiles(targetDir = {}) {
       totalAgents += agentFiles.length;
     //     }
 
-    console.warn('   Agent system validation);'
+     catch (error) { console.error(error); }console.warn('   Agent system validation);'
     console.warn(`     Categories);`
     console.warn(`     Total agents);`
     console.warn(`     Categories: \$agentCategories.join(', ')`);

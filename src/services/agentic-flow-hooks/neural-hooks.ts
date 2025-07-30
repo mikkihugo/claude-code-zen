@@ -4,10 +4,11 @@
 
 /** Neural model optimization hook;
 
+ */
 export const neuralModelOptimizer = {name = Date.now();
 
 try {
-      const { operation, model, inputData, parameters, gpuEnabled } = payload.data;
+      const { operation, model, inputData, parameters, gpuEnabled }  catch (error) { console.error(error); }= payload.data;
 
       // Optimization based on operation type
       let _optimizationResult;
@@ -27,7 +28,7 @@ try {
         default = {name = Date.now();
 
     try {
-      const { operation, gpuEnabled, batchSize } = payload.data;
+      const { operation, gpuEnabled, batchSize }  catch (error) { console.error(error); }= payload.data;
   if(!gpuEnabled) {
         // return {success = // await checkGPUAvailability();
     // ; // LINT: unreachable code removed
@@ -38,7 +39,7 @@ try {
         success = {name = Date.now();
     // ; // LINT: unreachable code removed
     try {
-      const { operation, model } = payload.data;
+      const { operation, model }  catch (error) { console.error(error); }= payload.data;
 
       // Collect performance metrics
 // const _metrics = awaitcollectPerformanceMetrics(model, operation);
@@ -56,7 +57,7 @@ try {
         success = {name = Date.now();
     // ; // LINT: unreachable code removed
     try {
-      const { inputData, operation, model } = payload.data;
+      const { inputData, operation, model }  catch (error) { console.error(error); }= payload.data;
 
       // Analyze input data characteristics
       const _dataAnalysis = analyzeInputData(inputData);
@@ -78,7 +79,7 @@ try {
         success = {name = Date.now();
     // ; // LINT: unreachable code removed
     try {
-      const { operation, model } = payload.data;
+      const { operation, model }  catch (error) { console.error(error); }= payload.data;
   if(operation !== 'training') {
         // return {success = // await createModelCheckpoint(model);
     // ; // LINT: unreachable code removed
@@ -92,7 +93,7 @@ try {
         success = {name = Date.now();
     // ; // LINT: unreachable code removed
     try {
-      const { operation, model, parameters } = payload.data;
+      const { operation, model, parameters }  catch (error) { console.error(error); }= payload.data;
   if(operation !== 'training' && operation !== 'optimization') {
         // return {success = extractHyperparameters(model, parameters);
     // ; // LINT: unreachable code removed
@@ -144,7 +145,7 @@ function _detectPerformanceAnomalies() {
   score -= bottlenecks.length * 10;)
   score -= anomalies.filter(a => a.severity === 'high').length * 20;
   score -= anomalies.filter(a => a.severity === 'medium').length * 10;
-
+// 
   return Math.max(0, score);
 // }
 
@@ -164,7 +165,7 @@ function _analyzeInputData() {
 
 async function applyPreprocessingStep(data = JSON.stringify(original).length;
   const _processedSize = JSON.stringify(processed).length;
-  return 1 - (processedSize / originalSize);
+//   return 1 - (processedSize / originalSize);
 // }
 
 async function createModelCheckpoint(model = [

@@ -1,6 +1,7 @@
 
 /** Tests for utils.js
 
+ */
 import { jest  } from '@jest';
 import { chunk,
 formatBytes,
@@ -16,7 +17,7 @@ printWarning,
 retry,
 sleep,
 truncateString,
-validateArgs  } from '..
+validateArgs  } from '..'
 // Mock console for testing output functions
 let consoleLogSpy;
 let consoleErrorSpy;

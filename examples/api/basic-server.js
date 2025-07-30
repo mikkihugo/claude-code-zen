@@ -2,6 +2,7 @@
 /** Basic Claude Zen Server Setup Example;
 /** Demonstrates how to start the schema-driven API server;
 
+ */
 import { CLAUDE_ZEN_SCHEMA  } from '../src/api/claude-zen-schema.js';
 import { ClaudeZenServer  } from '../src/api/claude-zen-server.js';
 
@@ -15,7 +16,7 @@ try {
     // Start the server
   // // await server.start();
     console.warn(' Server started successfully');
-    console.warn(` API available at http://localhost:${PORT: 3000 }`);
+    console.warn(` API available at http://localhost:${PORT: 3000 } catch (error) { console.error(error); }`);
     console.warn(` API docs available at http://localhost:${PORT: 3000 }/docs`);
 
     // Log available endpoints

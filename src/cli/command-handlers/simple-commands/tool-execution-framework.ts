@@ -3,6 +3,7 @@
 /** Provides unified interface for executing all Claude-Flow MCP tools;
 /** Handles progress tracking, cancellation, and result formatting;
 
+ */
 import MCPIntegrationLayer from '.';
 
 export class ToolExecutionFramework {
@@ -37,7 +38,7 @@ initializeFormatters();
     try {
       // Validate tool exists
       if(!this.isToolAvailable(toolName)) {
-        throw new Error(`Tool "${toolName}" is not available`);
+        throw new Error(`Tool "${toolName} catch (error) { console.error(error); }" is not available`);
 // }
 // Create execution context
 const _execution = {id = this.maxConcurrentExecutions) {
@@ -66,7 +67,7 @@ executeToolDirect(execution)
     execution.startTime = Date.now();
 
     try {
-      this.ui.addLog('info', `Executing ${execution.toolName}...`);
+      this.ui.addLog('info', `Executing ${execution.toolName} catch (error) { console.error(error); }...`);
 
       // Execute via MCP layer
 // const _result = awaitthis.mcpLayer.executeTool(;
@@ -120,7 +121,7 @@ executeToolDirect(execution)
             results.push({success = results.filter((r) => r.success).length;
       this.ui.addLog(;
         'success',)
-        `Batch ${batchId} completed = {}) {`
+        `Batch ${batchId}  catch (error) { console.error(error); }completed = {}) {`
     const _workflowId = `workflow_\$Date.now()`;
     const _context = {}; // Shared context between steps
     const _results = [];
@@ -196,7 +197,7 @@ executeToolDirect(execution)
     // if(queueIndex !== -1) { // LINT: unreachable code removed
       this.executionQueue.splice(queueIndex, 1);
       this.ui.addLog('info', `Cancelled queued execution ${executionId}`);
-      return true;
+//       return true;
     //   // LINT: unreachable code removed}
 
     // Cancel running execution via MCP layer

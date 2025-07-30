@@ -2,6 +2,7 @@
 /** Pub/Sub Communication Plugin
 /** Provides publish-subscribe messaging coordination through the registry
 
+ */
 import { EventEmitter  } from 'node:events';'
 import { nanoid  } from 'nanoid';'
 
@@ -229,7 +230,7 @@ notifySubscribers(topicId, messageData);
 
   async updateTopicStats(topicId, stats);
   try {
-// await this.registry.update(topicId, { stats });
+// await this.registry.update(topicId, { stats } catch (error) { console.error(error); });
   } catch(/* _error */) {
     // Topic might not be registered, ignore
   //   }
@@ -243,7 +244,7 @@ startSubscriptionMonitoring();
 async;
 updatePluginStats();
   try {
-// await this.registry.update('service = `${this.options.topicPrefix}:${topicName}`;`'`/g)
+// await this.registry.update('service = `${this.options.topicPrefix} catch (error) { console.error(error); }:${topicName}`;`'`/g)
     // return this.topics.get(topicId)  ?? null;
     //   // LINT: unreachable code removed}
 
@@ -255,7 +256,7 @@ updatePluginStats();
   if(topicName) {
       // return subscriptions.filter(sub => sub.topicName === topicName);
     //   // LINT: unreachable code removed}
-
+// 
     return subscriptions;
     //   // LINT: unreachable code removed}
 
@@ -267,7 +268,7 @@ updatePluginStats();
   if(topicName) {
       // return publishers.filter(pub => pub.topicName === topicName);
     //   // LINT: unreachable code removed}
-
+// 
     return publishers;
     //   // LINT: unreachable code removed}
 

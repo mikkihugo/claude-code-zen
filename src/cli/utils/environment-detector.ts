@@ -2,6 +2,7 @@
 /** Environment Detection Utility for Claude-Flow v2.0;
 /** Detects execution environment and recommends appropriate flags;
 
+ */
 import chalk from 'chalk';
 
 'node = ============================================================================;'
@@ -104,7 +105,7 @@ function _checkRawModeSupport() {
     process.stdin.setRawMode(originalRawMode);
 
     // return true;
-    //   // LINT: unreachable code removed} catch {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
     // return false;
     //   // LINT: unreachable code removed}
 // }
@@ -206,7 +207,7 @@ function _checkRawModeSupport() {
   if(options?.force) return true;
     // ; // LINT: unreachable code removed
   const _env = detectExecutionEnvironment({ skipWarnings = detectExecutionEnvironment({ skipWarnings  });
-  return env.isCI  ?? env.isVSCode  ?? !env.supportsRawMode;
+//   return env.isCI  ?? env.isVSCode  ?? !env.supportsRawMode;
 // }
 
 /** Determines if color output should be disabled;
@@ -233,9 +234,9 @@ function existsSync(path = =====================================================
 /** Legacy export aliases for backward compatibility
 
 // export const isInteractive = () => {
-  return detectExecutionEnvironment({skipWarnings = () => {
-  return detectExecutionEnvironment({skipWarnings = () => {
-  return getEnvironmentDescription();
+//   return detectExecutionEnvironment({skipWarnings = () => {
+//   return detectExecutionEnvironment({skipWarnings = () => {
+//   return getEnvironmentDescription();
 };
 
 // =============================================================================

@@ -27,7 +27,7 @@ async function testBindingsLoader() {
         console.warn('\n   Available functions);'
   for(const key in bindingsLoader) {
           if(typeof bindingsLoader[key] === 'function' && !key.startsWith('_')) {
-            console.warn(`     - ${key}`); //           }
+            console.warn(`     - ${key} catch (error) { console.error(error); }`); //           }
         //         }
       //       }
     //     }

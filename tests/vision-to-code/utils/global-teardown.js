@@ -2,6 +2,7 @@
 /** Global test teardown for Visionary integration tests;
 /** Cleans up test environment and stops services;
 
+ */
 const _fs = require('node).promises;'
 const _path = require('node);'
 module.exports = async() => {
@@ -11,7 +12,7 @@ module.exports = async() => {
     const _testWorkspaceDir = process.env.TEST_WORKSPACE_DIR;
   if(testWorkspaceDir) {
       try {
-  // // await fs.rmdir(testWorkspaceDir, { recursive });
+  // // await fs.rmdir(testWorkspaceDir, { recursive } catch (error) { console.error(error); });
         console.warn(' Test workspace cleaned up');
       } catch(error) {
         console.warn(' Failed to clean up test workspace);'
@@ -23,7 +24,7 @@ module.exports = async() => {
       try {
   // // await fs.unlink(testDbPath);
         console.warn(' Test database cleaned up');
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.warn(' Failed to clean up test database);'
 // }
 // }
@@ -42,7 +43,7 @@ module.exports = async() => {
 async function generateTestReport() {
   try {
     const _reportDir = path.join(process.cwd(), 'tests/visionary/test-results');
-  // await fs.mkdir(reportDir, { recursive });
+  // await fs.mkdir(reportDir, { recursive } catch (error) { console.error(error); });
     const _testSummary = {
       timestamp: new Date().toISOString(),
         node_version: process.version,

@@ -2,7 +2,8 @@
 /** Critical Fixes Template - For Claude Flow Init
 /** Includes timeout protection, GitHub CLI safety, and dynamic agent loading
 
-export const criticalFixesTemplate = `# Critical System Fixes Applied
+ */
+export const criticalFixesTemplate = `# Critical System Fixes Applied`
 
 This Claude Flow project includes critical upstream fixes that prevent commonissues = await TimeoutProtection.checkRuvSwarmAvailableWithTimeout();
 

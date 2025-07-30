@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Create test documents for Claude Desktop access via MCP
+/* Create test documents for Claude Desktop access via MCP
 
+ */
 const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
 
 // Mock memory store

@@ -1,8 +1,9 @@
 #!/usr/bin/env node;
 
-/** Live Demo: Creating documents through the MCP document stack;
+/* Live Demo: Creating documents through the MCP document stack;
 
 // ANSI colors for pretty output
+ */
 const _colors = {
   reset: '\x1b[0m',
 bright: '\x1b[1m',

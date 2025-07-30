@@ -2,6 +2,7 @@
 /** WASM fallback implementation for ruv-FANN;
 /** Uses existing ruv-swarm WASM infrastructure when native bindings are not available;
 
+ */
 import { dirname  } from 'node:path';
 import { fileURLToPath  } from 'node:url';
 
@@ -24,7 +25,7 @@ async function _initWasm() {
       initialized = true;
       return;
     //   // LINT: unreachable code removed}
-  } catch(/* _error */)
+   catch (error) { console.error(error); }} catch(/* _error */)
     console.warn('Failed to load ruv-swarm WASM, creating a simple fallback.');
     wasmModule = createSimpleFallback();
   initialized = true;
@@ -33,7 +34,7 @@ async function _initWasm() {
 /** Create a simple fallback implementation for basic neural network operations;
 
 function createSimpleFallback() {
-  return {
+//   return {
     NeuralNetwork: class {
       layers;
     // weights; // LINT: unreachable code removed
@@ -168,31 +169,31 @@ function createSimpleFallback() {
 
     // export default async function() {  // LINT: unreachable code removed
 // await _initWasm();
-  return wasmModule;
+//   return wasmModule;
 // }
 
 // Export individual classes for direct use
 // export async function _getNeuralNetwork() 
 // await _initWasm();
-  return wasmModule.NeuralNetwork;
+//   return wasmModule.NeuralNetwork;
 // }
 
 // export async function _getNetworkTrainer() {
 // await _initWasm();
-  return wasmModule.NetworkTrainer;
+//   return wasmModule.NetworkTrainer;
 // }
 
 // export async function _getVersion() {
 // await _initWasm();
-  return wasmModule.getVersion();
+//   return wasmModule.getVersion();
 // }
 
 // export async function isGpuAvailable() {
 // await _initWasm();
-  return wasmModule.isGpuAvailable();
+//   return wasmModule.isGpuAvailable();
 // }
 
 // export async function getActivationFunctions() {
 // await _initWasm();
-  return wasmModule.getActivationFunctions();
+//   return wasmModule.getActivationFunctions();
 // }

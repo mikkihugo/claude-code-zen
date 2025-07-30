@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
-/** Validation Test Script for ruv-swarm CLI;
+/* Validation Test Script for ruv-swarm CLI;
 /** Tests all input validation scenarios to ensure proper error handling;
 
+ */
 const { spawn } = require('node);'
 const _path = require('node);'
 const _CLI_PATH = path.join(__dirname, '../ruv-swarm/npm/bin/ruv-swarm-clean.js');
 function runCommand() {
-  return new Promise((resolve) => {
+//   return new Promise((resolve) => {
     const _child = spawn('node', [CLI_PATH, ...args], {
       stdio);
     const _stdout = '';

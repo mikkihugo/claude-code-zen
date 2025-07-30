@@ -2,6 +2,7 @@
 /** Vision Workflow Test Fixtures;
 /** Comprehensive test data for Vision-to-Code integration tests;
 
+ */
 import { v4   } from 'uuid';
 
 // Vision workflow stages

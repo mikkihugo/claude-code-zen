@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Claude-Flow MCP Bridge;
+/* Claude-Flow MCP Bridge;
 /** Exposes service document tools  MCP tools;
 
+ */
 import { ServicesOrchestrator  } from './services/orchestrator.js';
 import { ClaudeFlowMCPServer  } from './src/mcp/mcp-server.js';
 
@@ -130,7 +131,7 @@ orchestrator: this.orchestrator.getSystemStatus(),
     console.warn(' Approval queued);'
     console.warn('\n MCP Bridge fully operational!');
     console.warn(' Connect Claude Desktop with);'
-  } catch(error) {
+  } catch (error) { console.error(error); } catch(error) {
     console.error(' Failed to start MCP Bridge);'
     process.exit(1);
   //   }

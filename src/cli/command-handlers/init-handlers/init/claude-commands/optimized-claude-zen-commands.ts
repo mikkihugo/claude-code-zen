@@ -5,6 +5,7 @@
 // optimized-claude-zen-commands.js - Batchtools-optimized Claude-Flow specific slash commands
 
 // Create batchtools-optimized Claude-Flow specific commands
+ */
 export async function createOptimizedClaudeFlowCommands(workingDir = `---name = `---name = `---`
 name)
 

@@ -1,6 +1,7 @@
 
 /** Jest-compatible tests for NPX isolated cache functionality;
 
+ */
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect  } from '@jest';
@@ -11,11 +12,11 @@ describe('NPX Isolated Cache', () =>
 // {
   beforeEach(() => {
     // Clean up any existing caches before each test
-    return cleanupAllCaches();
+//     return cleanupAllCaches();
     //   // LINT: unreachable code removed});
     afterEach(() => {
       // Clean up caches after each test
-      return cleanupAllCaches();
+//       return cleanupAllCaches();
       //   // LINT: unreachable code removed});
       describe('createIsolatedCache', () => {
         it('should create unique cache directories for each call', () => {

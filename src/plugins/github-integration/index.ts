@@ -21,6 +21,7 @@
 //     // Persist cache if needed
 //     // Implementation would persist important cache data
 //   };
+ */
   protected;
   async;
   onDestroy();
@@ -77,7 +78,7 @@ getRepository((owner = {}));
     const _issueOptions = {state = new URLSearchParams(;
     Object.entries(issueOptions).map(([key, value]) => [key, value.toString()]);
     //     )
-    return // await this.makeRequest<GitHubIssue[]>(`/repos/${owner}/${repo}/issues?${params}`);
+//     return // await this.makeRequest<GitHubIssue[]>(`/repos/${owner}/${repo}/issues?${params}`);
   //   }
   // Private helper methods
 
@@ -178,12 +179,12 @@ const _recentActivity = []; const __thirtyDaysAgo = Date.now() {- 30 * 24 * 60 *
 
         const __weekOpened = allIssues.filter(issue => {)
           const _created = new Date(issue.created_at).getTime();
-          return created >= weekStart.getTime() && created < weekEnd.getTime();
+//           return created >= weekStart.getTime() && created < weekEnd.getTime();
     //   // LINT: unreachable code removed}).length;
 
         const __weekClosed = closedIssues.filter(issue => {)
           const _closed = issue.closed_at ? new Date(issue.closed_at).getTime() ;
-          return closed >= weekStart.getTime() && closed < weekEnd.getTime();
+//           return closed >= weekStart.getTime() && closed < weekEnd.getTime();
     //   // LINT: unreachable code removed}).length;
 
         recentActivity.push({date = new Date(Date.now() - timeRangeDays * 24 * 60 * 60 * 1000).toISOString();
@@ -209,15 +210,15 @@ map(pr => {
 
         const __weekOpened = allPRs.filter(pr => {)
           const _created = new Date(pr.created_at).getTime();
-          return created >= weekStart.getTime() && created < weekEnd.getTime();
+//           return created >= weekStart.getTime() && created < weekEnd.getTime();
     //   // LINT: unreachable code removed}).length;
-
+// 
           return merged >= weekStart.getTime() && merged < weekEnd.getTime();
     //   // LINT: unreachable code removed}).length;
 
         const _weekClosed = closedPRs.filter(pr => {)
           const _closed = pr.closed_at ? new Date(pr.closed_at).getTime() ;
-          return closed >= weekStart.getTime() && closed < weekEnd.getTime() && !pr.merged_at;
+//           return closed >= weekStart.getTime() && closed < weekEnd.getTime() && !pr.merged_at;
     //   // LINT: unreachable code removed}).length;
 
         recentActivity.push({date = new Date(Date.now() - timeRangeDays * 24 * 60 * 60 * 1000).toISOString();
@@ -252,7 +253,7 @@ slice(0, 10);
 
         const __weekCommits = commits.filter(commit => {)
           const _commitDate = new Date(commit.commit.author.date).getTime();
-          return commitDate >= weekStart.getTime() && commitDate < weekEnd.getTime();
+//           return commitDate >= weekStart.getTime() && commitDate < weekEnd.getTime();
     //   // LINT: unreachable code removed});
 
         activityTimeline.push({date = // await this.makeRequest<Array<{login = 100`);`
@@ -279,7 +280,7 @@ slice(0, 10);
         try {
 
           topContributors.push({login = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString(); // const _recentCommits = awaitthis.makeRequest<GitHubCommit[]>(; 
-        `/repos/${owner}/${repo}/commits?since=${ninetyDaysAgo}&per_page=100`;
+        `/repos/${owner} catch (error) { console.error(error); }/${repo}/commits?since=${ninetyDaysAgo}&per_page=100`;
       ) {;
 
       // return {
@@ -345,7 +346,7 @@ slice(0, 10);
     const _startTime = performance.now();
 
     try {
-// const _response = awaitfetch(`${this.config.settings.baseUrl}${endpoint}`, {headers = // await response.json();
+// const _response = awaitfetch(`${this.config.settings.baseUrl} catch (error) { console.error(error); }${endpoint}`, {headers = // await response.json();
 
       // Update rate limit info from headers
       if(response.headers.get('x-ratelimit-remaining')) {

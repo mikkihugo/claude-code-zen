@@ -4,6 +4,7 @@ import express, { type Express, type Request, type Response  } from 'express';
 /** Main API server entry point for Claude-Zen;
 /** Provides REST API endpoints for the system;
 
+ */
 const _app = express();
 const _PORT = parseInt(process.env.PORT ?? '3000', 10);
 // Middleware setup

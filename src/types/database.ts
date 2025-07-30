@@ -4,6 +4,7 @@
 // CORE DATABASE TYPES
 // =============================================================================
 
+ */
 export type DatabaseType = 'sqlite' | 'postgresql' | 'lancedb' | 'kuzu' | 'redis' | 'mongodb';
 export type DatabaseStatus = 'connecting' | 'connected' | 'disconnected' | 'error' | 'maintenance';
 export type QueryType = 'select' | 'insert' | 'update' | 'delete' | 'vector' | 'graph' | 'aggregate';

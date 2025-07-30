@@ -2,6 +2,7 @@
 /** Global test setup for Visionary integration tests;
 /** Prepares test environment and starts necessary services;
 
+ */
 const _axios = require('axios');
 const { spawn } = require('node);'
 const _fs = require('node).promises;'
@@ -14,7 +15,7 @@ module.exports = async() => {
   try {
     // Create test workspace directory
     const _testWorkspaceDir = path.join(process.cwd(), 'test-workspace');
-  // // await fs.mkdir(testWorkspaceDir, { recursive });
+  // // await fs.mkdir(testWorkspaceDir, { recursive } catch (error) { console.error(error); });
     // Set environment variables for test mode
     process.env.NODE_ENV = 'test';
     process.env.VISIONARY_TEST_MODE = 'true';
@@ -42,7 +43,7 @@ async function waitForServiceOrStartMock() {
   const _retryDelay = 2000;
   for(let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-// const __response = awaitaxios.get(`${serviceUrl}/api/health`, {
+// const __response = awaitaxios.get(`${serviceUrl} catch (error) { console.error(error); }/api/health`, {
         timeout,)
         validateStatus) => status < 500, // Accept any status < 500
       });
@@ -70,7 +71,7 @@ async function startMockService() {
     const _mockProcess = spawn('node', [mockServerScript, port], {
       stdio);
     testProcesses.push({
-      name: `mock-${serviceName}`,
+      name: `mock-${serviceName} catch (error) { console.error(error); }`,
       process)
 })
 // Wait for mock service to start
@@ -170,7 +171,7 @@ async function cleanup() {
   // Kill all test processes
   for(const testProcess of testProcesses) {
     try {
-      testProcess.process.kill('SIGTERM'); console.warn(` Stopped ${testProcess.name}`); } catch(error) {
+      testProcess.process.kill('SIGTERM'); console.warn(` Stopped ${testProcess.name} catch (error) { console.error(error); }`); } catch(error) {
       console.error(` Failed to stop ${testProcess.name});`
 // }
 // }

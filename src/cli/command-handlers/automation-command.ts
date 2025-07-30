@@ -3,8 +3,9 @@
 /** Converted from JavaScript to TypeScript
 
 // Simple ID generator
+ */
 function generateId(prefix = 'id') {
-  return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+//   return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 // }
 export async function automationAction() {
   showAutomationHelp();
@@ -28,7 +29,7 @@ try {
   console.warn(` Task complexity = {coordinator = {coordinator = {coordinator = {coordinator = {`
       coordinator => {)
   if(type !== 'total') {
-      console.warn(`   ${type});`
+      console.warn(`   ${type} catch (error) { console.error(error); });`
     //     }
   //   }
 // )

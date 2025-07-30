@@ -4,8 +4,9 @@
 
 // coordination-md.js - Coordination templates
 
+ */
 export function createMinimalCoordinationMd() {
-  return `# Agent Coordination`
+//   return `# Agent Coordination`
 
     // ## Quick Commands; // LINT: unreachable code removed
 - \`npx claude-zen agent spawn <type>\`: Create new agent;
@@ -17,7 +18,7 @@ export function createMinimalCoordinationMd() {
 `;`
 // }
 export function createFullCoordinationMd() {
-  return `# Agent Coordination System`
+//   return `# Agent Coordination System`
 
     // ## Overview; // LINT: unreachable code removed
 The Claude-Flow coordination system manages multiple AI agents working together on complex tasks. It provides intelligent task distribution, resource management, and inter-agent communication.
@@ -109,7 +110,7 @@ Coordination settings in \`claude-zen.config.json\`:
 // }
 // Create optimized Coordination with batchtools support
 // export async function createOptimizedCoordinationMd() {
-  return `# Agent Coordination System(Batchtools Optimized)`
+//   return `# Agent Coordination System(Batchtools Optimized)`
 
     // ## Overview; // LINT: unreachable code removed
 The Claude-Flow coordination system manages multiple AI agents working together on complex tasks. It provides intelligent task distribution, resource management, and inter-agent communication.

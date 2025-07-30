@@ -3,6 +3,7 @@
 /** Import existing monorepo code and analyze service structure
 /** For 15 microservices pilot - single domain, flat structure
 
+ */
 import { existsSync  } from 'node:fs';
 import { readFile  } from 'node:fs';
 import path from 'node:path';
@@ -42,7 +43,7 @@ printSuccess(` Monorepo importcompleted = new Map();`
       found.forEach(service => {)
         const _key = service.path; if(!services.has(key) {) {
           services.set(key, service);
-        } else {
+        }  catch (error) { console.error(error); }else {
           // Merge service information
           const _existing = services.get(key);
           services.set(key, mergeServiceInfo(existing, service));
@@ -102,7 +103,7 @@ services`);`
       // return services;
     //   // LINT: unreachable code removed}
 
-    const _nxConfig = JSON.parse(// await readFile(nxConfigPath, 'utf8'));
+     catch (error) { console.error(error); }const _nxConfig = JSON.parse(// await readFile(nxConfigPath, 'utf8'));
 
     // Look for project.json files
 
@@ -160,7 +161,7 @@ for (const file of files.slice(0, 100)) {
   const _ext = path.extname(file).toLowerCase(); stats.languages[ext] = (stats.languages[ext]  ?? 0) + 1; try {
 // const _content = awaitreadFile(path.join(servicePath, file) {, 'utf8');
     stats.lineCount += content.split('\n').length;
-  } catch(/* _error */) {
+  } catch (error) { console.error(error); } catch(/* _error */) {
     // Skip files that can't be read'
   //   }
 // }
@@ -185,21 +186,21 @@ async function _detectAPIs() {
   try {
     // Look for database configuration files
     const _configPatterns = [
-      '**
-      '**
-      '**
+      '**'
+      '**'
+      '**'
       '**/migrations/\*\*/*',
       '**/schema/\*\*/*'
     ];
 
   for(const pattern of configPatterns) {
-// const __files = awaitglob(pattern, {cwd = // await glob('**/docker-compose*.{yml,yaml}', {cwd = // await readFile(path.join(servicePath, file), 'utf8')
+// const __files = awaitglob(pattern, {cwd = // await glob('**/docker-compose*.{yml,yaml} catch (error) { console.error(error); }', {cwd = // await readFile(path.join(servicePath, file), 'utf8')
         if(content.includes('postgres')  ?? content.includes('mysql')  ?? content.includes('mongodb')) {
           databases.push({file = new Set(); try {
     // Check package.json for technology indicators
     const _packagePath = path.join(servicePath, 'package.json'); if(existsSync(packagePath) {) {
       const _packageContent = JSON.parse(// await readFile(packagePath, 'utf8'));
-      const _deps = { ...packageContent.dependencies, ...packageContent.devDependencies };
+      const _deps = { ...packageContent.dependencies, ...packageContent.devDependencies } catch (error) { console.error(error); };
 
       // Detect frameworks and libraries
       if(deps.express) technologies.add('express');
@@ -269,7 +270,7 @@ async function _detectAPIs() {
     try {
 // // await createHive([service.name], {
         path => {
-        service.technologies.forEach(tech => acc.add(tech)); return acc; //   // LINT: unreachable code removed}, new Set() {).size;
+        service.technologies.forEach(tech => acc.add(tech)); return acc; //   // LINT: unreachable code removed} catch (error) { console.error(error); }, new Set() {).size;
     },services = > ({name = [];
 
   // Technology standardization recommendations

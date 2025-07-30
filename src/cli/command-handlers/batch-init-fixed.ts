@@ -5,6 +5,7 @@
 // batch-init-fixed.js - Simplified batch initialization
 // Fixed imports and integrated with meow/ink system
 
+ */
 import { promises as fs  } from 'node:fs';'
 import { printError  } from '..';
 import { ENVIRONMENT_CONFIGS  } from '.';
@@ -107,7 +108,7 @@ async function initializeProject(projectPath = {}) {
       minimal,
       template,
       environment;
-    });
+    } catch (error) { console.error(error); });
 
     // return { success = {}) {
   const {
@@ -154,7 +155,7 @@ async function initializeProject(projectPath = {}) {
 // }
 // Parse batch initialization config from file
 // export async function parseBatchConfig(configFile = // await fs.readFile(configFile, 'utf8');'
-return JSON.parse(content);
+// return JSON.parse(content);
 } catch(error)
 // {
   printError(`Failed to read batch config file = {}) {`
@@ -173,7 +174,7 @@ return JSON.parse(content);
 
     for (const [projectName, projectConfig] of Object.entries(projectConfigs)) {
       const _projectOptions = { ...mergedOptions, ...projectConfig }; // const _result = awaitresourceManager.withResource(async() => {
-        return await initializeProject(projectName, projectOptions); //   // LINT: unreachable code removed}) {;
+//         return await initializeProject(projectName, projectOptions); //   // LINT: unreachable code removed}) {;
       results.push(result);
     //     }
 

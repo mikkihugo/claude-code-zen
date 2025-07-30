@@ -6,7 +6,7 @@ const _mockApp = {
 get: jest.fn(),
 listen: jest.fn((_port, callback) => {
     if(callback) callback();
-    return { close: jest.fn() };
+//     return { close: jest.fn() };
     //   // LINT: unreachable code removed}) };
 const _mockExpress = jest.fn(() => mockApp);
 mockExpress.json = jest.fn();

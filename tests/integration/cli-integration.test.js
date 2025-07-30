@@ -1,6 +1,7 @@
 
 /** Integration tests for Claude-Flow CLI;
 
+ */
 import { spawn  } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath  } from 'node:url';
@@ -83,7 +84,7 @@ describe('Init Command', () =>
           const _claudeDir = path.join(testDir, '.claude');
           expect(// await fs.pathExists(claudeDir)).toBe(true);
           done();
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           done(error);
         //         }
   });
@@ -112,7 +113,7 @@ child.on('close', async(code) => {
   for(const file of sparcFiles) {
             expect(// await fs.pathExists(file)).toBe(true); 
           //           }
-          done(); } catch(error) {
+           catch (error) { console.error(error); }done(); } catch(error) {
           done(error);
         //         }
 });

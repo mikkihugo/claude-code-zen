@@ -39,7 +39,7 @@ class ClaudeZenDashboard {
     });
 
   connectWebSocket() {
-    // Use current page's host and port for WebSocket connection
+    // Use current page's host and port for WebSocket connection'
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const host = window.location.host; // includes port
     this.ws = new WebSocket(`${protocol}//${host}/ws`);
@@ -86,7 +86,7 @@ class ClaudeZenDashboard {
         fetch('/api/queens/status').then((r) => r.json()),
       ]);
 
-      this.data = { hives, plugins, stats, queens };
+      this.data = { hives, plugins, stats, queens } catch (error) { console.error(error); };
       this.updateUI();
     } catch (error) {
       console.error('Failed to load data:', error);
@@ -133,7 +133,7 @@ class ClaudeZenDashboard {
     const hives = this.data.hives || {};
 
     if (Object.keys(hives).length === 0) {
-      container.innerHTML = '<div class="loading">No hives found<
+      container.innerHTML = '<div class="loading">No hives found<'
       return;
 
     container.innerHTML = Object.entries(hives)
@@ -152,7 +152,7 @@ class ClaudeZenDashboard {
     const plugins = this.data.plugins || [];
 
     if (plugins.length === 0) {
-      container.innerHTML = '<div class="loading">No plugins found<
+      container.innerHTML = '<div class="loading">No plugins found<'
       return;
 
     container.innerHTML = plugins
@@ -176,7 +176,7 @@ class ClaudeZenDashboard {
       document.getElementById('active-queens').textContent = queensData.summary?.activeQueens || 0;
       document.getElementById('queen-tasks').textContent = queensData.summary?.totalTasks || 0;
       document.getElementById('queen-success-rate').textContent =
-        `${(queensData.summary?.averageSuccessRate || 0).toFixed(1)}%`;
+        `${(queensData.summary?.averageSuccessRate || 0).toFixed(1)} catch (error) { console.error(error); }%`;
 
       // Update queens list
       this.updateQueensList(queensData.queens || []);
@@ -209,7 +209,7 @@ class ClaudeZenDashboard {
                     <div class="queen-capabilities">
                         <strong>Document Types:<
                         <div class="capability-tags">
-                            ${queen.documentTypes.map((type) => `<span class="tag">${type}<
+                            ${queen.documentTypes.map((type) => `<span class="tag">${type}<`
                         <
                     <
                     ${
@@ -259,7 +259,7 @@ class ClaudeZenDashboard {
     try {
       const response = await fetch('/api/execute', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' } catch (error) { console.error(error); },
         body: JSON.stringify({ command }),
       });
 

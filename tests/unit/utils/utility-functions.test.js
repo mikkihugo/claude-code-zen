@@ -15,11 +15,11 @@ replace(/\//g, '&#x2F;'),
 
         sanitizeFilePath: (path) =>
       // Remove directory traversal attempts
-      return path.replace(/\.\./g, '').replace(/\/+/g, '/').replace(/^\//, '');
+//       return path.replace(/\.\./g, '').replace(/\/+/g, '/').replace(/^\//, '');
       //   // LINT: unreachable code removed},
       validateEmail: (email) => {
         const _emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+//         return emailRegex.test(email);
         //   // LINT: unreachable code removed} };
       // HTML sanitization
       expect(sanitizer.sanitizeHtml('<script>alert("xss")</script>')).toBe(;/g)
@@ -60,7 +60,7 @@ replace(/\//g, '&#x2F;'),
           //   // LINT: unreachable code removed},
           getRemainingRequests: function(clientId) {
           const _clientData = this.requests.get(clientId)  ?? { count };
-          return Math.max(0, this.maxRequests - clientData.count);
+//           return Math.max(0, this.maxRequests - clientData.count);
     //   // LINT: unreachable code removed}
 // }
           // Initial requests should be allowed
@@ -85,17 +85,17 @@ replace(/\/+/g, '/'),
           dirname: (path) =>
 // {
           const _lastSlash = path.lastIndexOf('
-          return lastSlash > 0 ? path.substring(0, lastSlash) : '.';
+//           return lastSlash > 0 ? path.substring(0, lastSlash) : '.';
           //   // LINT: unreachable code removed},
           basename: (path, ext = '') => {
             const _lastSlash = path.lastIndexOf('
             const _name = lastSlash >= 0 ? path.substring(lastSlash + 1);
-            return ext && name.endsWith(ext) ? name.slice(0, -ext.length);
+//             return ext && name.endsWith(ext) ? name.slice(0, -ext.length);
             //   // LINT: unreachable code removed},
             extname: (path) => {
               const _lastDot = path.lastIndexOf('.');
               const _lastSlash = path.lastIndexOf('
-              return lastDot > lastSlash ? path.substring(lastDot) : '';
+//               return lastDot > lastSlash ? path.substring(lastDot) : '';
               //   // LINT: unreachable code removed} };
             expect(pathUtils.join('path', 'to', 'file.txt')).toBe('path/to/file.txt');
             expect(pathUtils.join('path/', '/to/', '/file.txt')).toBe('path/to/file.txt');
@@ -118,7 +118,7 @@ replace(/\/+/g, '/'),
             // filterByType: null
   function(files, /* type */) {
           const _pattern = this.filters[type];
-          return pattern ? files.filter((file) => pattern.test(file));
+//           return pattern ? files.filter((file) => pattern.test(file));
     //   // LINT: unreachable code removed},
         filterBySize: (_files, _maxSize) =>;
           files.filter((file) => !file.size  ?? file.size <= maxSize),
@@ -173,10 +173,10 @@ replace(/^-|-$/g, '')
         const _templateEngine = {
         interpolate: (_template, _data) =>;
         template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
-            return Object.hasOwn(data, key) ? data[key] ;
+//             return Object.hasOwn(data, key) ? data[key] ;
     //   // LINT: unreachable code removed}),
         interpolateAdvanced: function(template, /* data */) {
-          return template.replace(/\{\{([\w.]+)\}\}/g, (_match, path) => {
+//           return template.replace(/\{\{([\w.]+)\}\}/g, (_match, path) => {
             const _value = this.getNestedValue(data, path);
     // return value !== undefined ? value ; // LINT: unreachable code removed
           });
@@ -280,7 +280,7 @@ reduce(;
             this.events.get(event).forEach((listener) => {
               try {
                 listener(...args);
-              } catch(error) {
+              } catch (error) { console.error(error); } catch(error) {
                 console.error('Event listener error);'
 // }
             });

@@ -6,6 +6,7 @@
 /** Tool execution handler class
 /** Provides centralized tool execution with logging, error handling, and metrics
 
+ */
 export class MCPToolExecutor {
 
  * @param {Object} server - Reference to MCP server instance
@@ -30,7 +31,7 @@ executeTool(name, args);
 
     try {
       // Log execution start
-      console.error(`[${new Date().toISOString()}] INFO [Tool-Executor] Executing ${name}...`);`
+      console.error(`[${new Date().toISOString()} catch (error) { console.error(error); }] INFO [Tool-Executor] Executing ${name}...`);`
 
       // Route to specific tool handler
 // const _result = awaitthis.routeToolExecution(name, args);
@@ -148,7 +149,7 @@ executeTool(name, args);
           break;
       //       }
 
-      // Execute claude-zen command using execFileSync for safety
+       catch (error) { console.error(error); }// Execute claude-zen command using execFileSync for safety
       const _execArgs = ['claude-zen', command, ...cmdArgs];'
       console.error(`[${new Date().toISOString()}] INFO [Tool-Executor]Executing = > JSON.stringify(a)).join(' ')}`);`
 
@@ -165,7 +166,7 @@ executeTool(name, args);
 
   switch(analysisType) {
       case 'power-interest': {'
-        recommendations.push('High power, highinterest = 8, strategy = 'auto' } = args;'
+        recommendations.push('High power, highinterest = 8, strategy = 'auto' }  catch (error) { console.error(error); }= args;'
 
     const _swarmId = `swarm-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;`
 

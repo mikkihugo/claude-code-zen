@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/** Simple test for document stack - just metadata + rules
+/* Simple test for document stack - just metadata + rules
 
+ */
 const {
   DocumentStack,
   setupDefaultRules,

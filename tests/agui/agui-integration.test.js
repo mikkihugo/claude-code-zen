@@ -3,6 +3,7 @@
  *;
 /** Basic tests to validate AG-UI protocol integration;
 
+ */
 import { EventEmitter  } from 'node:events';
 import { EventType  } from '@ag-ui';
 import { AGUIAdapter  } from '../../src/ai/agui-adapter.js';

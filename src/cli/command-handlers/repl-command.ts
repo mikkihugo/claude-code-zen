@@ -4,6 +4,7 @@
 
 // repl-command.js - Handles the repl command
 
+ */
 import { log  } from '../core/logger.js';
 
 // Helper function

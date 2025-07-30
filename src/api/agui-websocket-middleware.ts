@@ -34,6 +34,7 @@ export // interface ClientSession {
 /** Bridges Claude Zen WebSocket service with AG-UI protocol;
 
 // export class AGUIWebSocketMiddleware {
+ */
   constructor(webSocketService, _options = {}) {
     this.wss = webSocketService;
     this.options = {
@@ -129,7 +130,7 @@ timestamp: Date.now() })
   if(session) {
           session.lastActivity = Date.now();
         //         }
-      } catch(error) {
+       catch (error) { console.error(error); }} catch(error) {
         console.error('Failed to parse client message);'
         this.sendError(ws, 'Invalid JSON message');
       //       }
@@ -213,7 +214,7 @@ timestamp: Date.now() })
   if(ws.readyState === WebSocket.OPEN) {
     try {
         ws.send(JSON.stringify(event));
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         console.error('Failed to send message to client);'
       //       }
   //   }
@@ -243,7 +244,7 @@ timestamp: Date.now() })
   if(ws.readyState === WebSocket.OPEN) {
       try {
           ws.send(message);
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           console.error('Failed to broadcast to client);'
         //         }
     //     }

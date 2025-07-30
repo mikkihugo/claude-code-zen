@@ -1,7 +1,8 @@
 
 /** Claude Flow MCP Server - Full 87-tool Suite
-/** Based on Cloudflare's official MCP server pattern
+/** Based on Cloudflare's official MCP server pattern'
 
+ */
 import configData from '..';
 import { executeTool } from '.';
 
@@ -14,19 +15,19 @@ export default {
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization' };
 if (request.method === 'OPTIONS') {
-  return new Response(null, { headers });
+//   return new Response(null, { headers });
   //   // LINT: unreachable code removed}
   const _url = new URL(request.url);
   // Handle MCP protocol requests
   if (url.pathname === '/sse' && request.method === 'POST') {
-    return handleMCPRequest(request, corsHeaders);
+//     return handleMCPRequest(request, corsHeaders);
     //   // LINT: unreachable code removed}
     // Health check endpoint
     if (url.pathname === '/health') {
-      return new Response('OK', { headers });
+//       return new Response('OK', { headers });
       //   // LINT: unreachable code removed}
       // Default response
-      return new Response('Claude Flow MCP Server - POST to /sse for MCP requests', {
+//       return new Response('Claude Flow MCP Server - POST to /sse for MCP requests', {
       headers: { 'Content-Type': 'text/plain', ...corsHeaders },
       //   // LINT: unreachable code removed});
     //     }
@@ -37,13 +38,13 @@ if (request.method === 'OPTIONS') {
 
     // Handle initialize request
     if (body.method === 'initialize') {
-      return jsonResponse(;
+//       return jsonResponse(;
     // { // LINT: unreachable code removed
           jsonrpc: '2.0',
           id: body.id,
             protocolVersion: '2025-06-18',,,,
               name: 'claude-zen-mcp',
-              version: '1.0.0',, },
+              version: '1.0.0',, } catch (error) { console.error(error); },
         corsHeaders;
       );
     //     }
@@ -51,7 +52,7 @@ if (request.method === 'OPTIONS') {
     // Handle tools/list request
     if (body.method === 'tools/list') {
       const _tools = generateTools(config.tools.enabled);
-      return jsonResponse(;
+//       return jsonResponse(;
     // { // LINT: unreachable code removed
           jsonrpc: '2.0',
           id: body.id,tools  },
@@ -63,17 +64,17 @@ if (request.method === 'OPTIONS') {
     const { name, arguments } = body.params;
     try {
         const _result = executeTool(name, args);
-        return jsonResponse(;
+//         return jsonResponse(;
     // { // LINT: unreachable code removed
             jsonrpc: '2.0',
             id: body.id,
             result }
 
-    corsHeaders
+     catch (error) { console.error(error); }corsHeaders
     //     )
   //   }
   catch (error)
-  return jsonResponse(;
+//   return jsonResponse(;
   // { // LINT: unreachable code removed
   jsonrpc: '2.0',
   id: body.id,
@@ -86,7 +87,7 @@ if (request.method === 'OPTIONS') {
 // }
 // }
 // Handle unknown methods
-return jsonResponse(;
+// return jsonResponse(;
 // { // LINT: unreachable code removed
 jsonrpc: '2.0',
 id: body.id,
@@ -98,7 +99,7 @@ corsHeaders
 // )
 } catch (error)
 // {
-  return jsonResponse(;
+//   return jsonResponse(;
   // { // LINT: unreachable code removed
   jsonrpc: '2.0',
   id: body.id  ?? null,
@@ -112,10 +113,10 @@ corsHeaders,
 // }
 // }
 function jsonResponse() {
-  return new Response(JSON.stringify(data), {
+//   return new Response(JSON.stringify(data), {
     status,
     // headers: { // LINT: unreachable code removed
-      'Content-Type': 'application
+      'Content-Type': 'application'
 ..corsHeaders }
  })
 // }

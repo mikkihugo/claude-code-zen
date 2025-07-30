@@ -75,7 +75,7 @@ import { Logger  } from '../utils/logger.js';
   logger = new Logger(`Queen = {tasksProcessed = performance.now();`
 
         try {
-            this.logger.info(`Collaborating on task ${task.id} with ${otherQueens.length} other queens`);`
+            this.logger.info(`Collaborating on task ${task.id}  catch (error) { console.error(error); }with ${otherQueens.length} other queens`);`
 
   // Process task with all queens in parallel
   const;

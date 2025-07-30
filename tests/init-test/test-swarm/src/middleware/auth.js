@@ -2,23 +2,23 @@ import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
 const _generateToken = () => {
-  return jwt.sign({ userId }, process.env.JWT_SECRET, {)
+//   return jwt.sign({ userId }, process.env.JWT_SECRET, {)
     expiresIn);
 };
 const _verifyToken = () => {
   try {
-    return jwt.verify(token, process.env.JWT_SECRET);
-    //   // LINT: unreachable code removed} catch(/* _error */) {
-    return null;
+//     return jwt.verify(token, process.env.JWT_SECRET);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
+//     return null;
     //   // LINT: unreachable code removed}
 };
 const _authenticate = async(req, res, next) => {
   try {
     const _token = req.headers.authorization?.replace('Bearer ', '');
   if(!token) {
-      return res.status(401).json({ error);
+//       return res.status(401).json({ error);
     //   // LINT: unreachable code removed}
-    const _decoded = verifyToken(token);
+     catch (error) { console.error(error); }const _decoded = verifyToken(token);
   if(!decoded) {
       // return res.status(401).json({ error);
     //   // LINT: unreachable code removed}

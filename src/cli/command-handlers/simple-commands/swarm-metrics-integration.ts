@@ -2,6 +2,7 @@
 /** Swarm Metrics Integration Fix
 /** Resolves task attribution issues between hive-mind and ruv-swarm systems
 
+ */
 import { existsSync  } from 'node:fs';
 import path from 'node:path';
 import Database from 'better-sqlite3';
@@ -11,7 +12,7 @@ import chalk from 'chalk';
 
 export async function getUnifiedSwarmMetrics() {
   const _results = {hiveMind = await integrateMetrics(results.hiveMind, results.ruvSwarm);
-  return results;
+//   return results;
 // }
 
 /** Get hive-mind metrics
@@ -19,7 +20,7 @@ export async function getUnifiedSwarmMetrics() {
 async function _getHiveMindMetrics() {
   const _dbPath = path.join(cwd(), '.hive-mind', 'hive.db');
   if(!existsSync(dbPath)) {
-    return {available = new Database(dbPath);
+//     return {available = new Database(dbPath);
     // ; // LINT: unreachable code removed
     const __stats = db;
 prepare(

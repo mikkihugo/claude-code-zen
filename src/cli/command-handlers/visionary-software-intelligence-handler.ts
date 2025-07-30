@@ -4,6 +4,7 @@
 
 // src/cli/command-handlers/vision-to-code-workflow-handler.js
 
+ */
 let metaRegistryManager;
 let defaultRegistry;
 let hierarchicalTaskManagerPlugin;

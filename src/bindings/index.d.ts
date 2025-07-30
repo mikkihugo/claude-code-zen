@@ -1,6 +1,7 @@
 
 /** TypeScript definitions for ruv-FANN Node.js bindings;
 
+ */
 export interface TrainingConfig {
   // learning_rate: number
   // max_epochs: number

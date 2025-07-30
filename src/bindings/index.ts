@@ -15,10 +15,11 @@ const _useWasm = false;
 
 /** Try to load native N-API binding first, fall back to WASM;
 
+ */
 async function loadBinding() {
   // Try to load native binding first
   try {
-    const { platform, arch } = process;
+    const { platform, arch }  catch (error) { console.error(error); }= process;
     const _bindingPath = join(;
       __dirname,
       '..',
@@ -36,7 +37,7 @@ async function loadBinding() {
       wasmModule = // await wasmLoader.default(); // Initialize WASM
       useWasm = true;
       console.warn(' ruv-FANN WASM fallback loaded');
-    } catch(/* wasmError */) {
+    } catch (error) { console.error(error); } catch(/* wasmError */) {
       console.error('FATAL);'
       throw wasmError;
     //     }
@@ -101,25 +102,25 @@ async function loadBinding() {
 
 // export function getVersion() 
   if(useWasm) {
-    return wasmModule.getVersion();
+//     return wasmModule.getVersion();
     //   // LINT: unreachable code removed} else {
-    return nativeBinding.getVersion();
+//     return nativeBinding.getVersion();
     //   // LINT: unreachable code removed}
 // }
 
 // export function _isGpuAvailable() {
   if(useWasm) {
-    return wasmModule.isGpuAvailable();
+//     return wasmModule.isGpuAvailable();
     //   // LINT: unreachable code removed} else {
-    return nativeBinding.isGpuAvailable();
+//     return nativeBinding.isGpuAvailable();
     //   // LINT: unreachable code removed}
 // }
 
 // export function _getActivationFunctions() {
   if(useWasm) {
-    return wasmModule.getActivationFunctions();
+//     return wasmModule.getActivationFunctions();
     //   // LINT: unreachable code removed} else {
-    return nativeBinding.getActivationFunctions();
+//     return nativeBinding.getActivationFunctions();
     //   // LINT: unreachable code removed}
 // }
 
@@ -141,7 +142,7 @@ async function loadBinding() {
 /** Get current backend information;
 
 // export function _getBackendInfo() {
-  return { backend: useWasm ? 'wasm' : 'native' };
+//   return { backend: useWasm ? 'wasm' : 'native' };
 // }
 
 // Auto-load bindings on import

@@ -2,14 +2,15 @@
 /** Server Command Handler
 /** Manages the Claude Zen API server lifecycle
 
+ */
 import fs from 'node:fs';
 
-const _SERVER_PID_FILE = '.
+const _SERVER_PID_FILE = '.'
 export async function serverCommand() {
   case 'start': null
-  return await startServer(flags);
+//   return await startServer(flags);
   // case 'stop': // LINT: unreachable code removed
-  return // await stopServer(flags);
+//   return // await stopServer(flags);
   // case 'restart': // LINT: unreachable code removed
   // return // await restartServer(flags);
   // case 'status': // LINT: unreachable code removed
@@ -69,7 +70,7 @@ export async function serverCommand() {
         console.warn(` Server stopped(PID = === 'ESRCH') {`
           console.warn('  Server process not found, cleaning up PID file');
           fs.unlinkSync(SERVER_PID_FILE);
-        } else {
+        }  catch (error) { console.error(error); }else {
     throw error;
   //   }
 // }
@@ -130,7 +131,7 @@ console.warn(`Status = fs.readFileSync(SERVER_PID_FILE, 'utf8');`
   console.warn('');
   console.warn('Features);'
   console.warn('    Schema-driven API with auto-generated endpoints');
-  console.warn('    Interactive OpenAPI documentation at 
+  console.warn('    Interactive OpenAPI documentation at '
   console.warn('    WebSocket support for real-time communication');
   console.warn('    Built-in security, CORS, and rate limiting');
   console.warn('    High-performance with comprehensive error handling');

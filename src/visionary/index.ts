@@ -72,6 +72,7 @@ ReportingOptions  } from './reporting/analytics-reporter''
 
    * @param config - Configuration options for the system
 
+ */
   constructor(config) {
     this.orchestrator = new PipelineOrchestrator(config);
   //   }
@@ -152,7 +153,7 @@ ReportingOptions  } from './reporting/analytics-reporter''
     // return // // await processor.processCodeIntelligence(codeFiles, {
       language,)
     // analysisDepth);
-  } finally
+  } catch (error) { console.error(error); } finally
 // // // await processor.close();
 
 /** Comprehensive analysis function for detailed insights
@@ -174,4 +175,4 @@ ReportingOptions  } from './reporting/analytics-reporter''
 // // await processor.close();
 // }
 
-}}}
+ catch (error) { console.error(error); }}}}

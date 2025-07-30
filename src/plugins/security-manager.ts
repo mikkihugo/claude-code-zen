@@ -2,6 +2,7 @@
 /** Plugin Security Manager;
 /** Comprehensive security system for plugin sandboxing, permission management, and threat detection;
 
+ */
 import { Worker  } from 'node:worker_threads';
 // // interface SecurityPolicy {allowedOperations = new Map() {}
 // private;
@@ -21,7 +22,7 @@ import { Worker  } from 'node:worker_threads';
 // config = {};
 // )
 // {
-  super();
+//   super();
   this.config = {isolateMemory = // await this.validatePluginSecurity(plugin, manifest, config);
   if(!securityValidation.isValid) {
     throw new Error(`Security validationfailed = this.createSecurityPolicy(manifest, config);`
@@ -41,7 +42,7 @@ import { Worker  } from 'node:worker_threads';
         this.sandboxWorkers.delete(pluginName);
         this.securityPolicies.delete(pluginName);
 
-        this.emit('sandbox-destroyed', { pluginName });
+        this.emit('sandbox-destroyed', { pluginName } catch (error) { console.error(error); });
       } catch(error = [];
     const _riskScore = 0;
   for(const permission of requestedPermissions) {
@@ -83,7 +84,7 @@ import { Worker  } from 'node:worker_threads';
         warnings.push(...permissionValidation.warnings);
       //       }
 
-      // 4. Check resource limits
+       catch (error) { console.error(error); }// 4. Check resource limits
       const _resourceValidation = this.validateResourceLimits(config);
       errors.push(...resourceValidation.errors);
       warnings.push(...resourceValidation.warnings);
@@ -134,7 +135,7 @@ try {
       const _pluginSource = plugin.toString();
   for(const signature of this.threatSignatures) {
         if(signature.pattern.test(pluginSource)) {
-          const __message = `Threatdetected = === 0, errors, warnings }; `
+          const __message = `Threatdetected = === 0, errors, warnings } catch (error) { console.error(error); }; `
 
     } catch(error = []; const _warnings = [];
   if(config.resourceLimits) {
@@ -156,7 +157,7 @@ try {
         'high',_timeout => {)
       clearTimeout(_timeout);
     });
-
+// 
     return worker;
     //   // LINT: unreachable code removed}
 
@@ -235,7 +236,7 @@ worker.on('error', (_error) => {
             'medium',)
             {threadId = this.violations.filter(v => v.pluginName === pluginName); const __audits = this.permissionAudits.filter(a => a.pluginName === pluginName) {;
     const __quarantined = violations.some(v => v.blocked && v.severity === 'critical');
-
+// 
     return {policy = this.permissionAudits;
     // .filter(audit => audit.riskScore > 75); // LINT: unreachable code removed
 map(audit => audit.pluginName);
@@ -244,9 +245,9 @@ map(audit => audit.pluginName);
 flatMap(audit => audit.deniedPermissions);
 reduce((acc, permission) =>
         acc[permission] = (acc[permission]  ?? 0) + 1;
-        return acc;
+//         return acc;
     //   // LINT: unreachable code removed}, {} as Record<string, number>);
-
+// 
     return {totalAudits = > a.approved).length,deniedAudits = > !a.approved).length,averageRiskScore = > sum + a.riskScore, 0) / this.permissionAudits.length  ?? 0,highRiskPlugins = > b - a);
     // .slice(0, 10); // LINT: unreachable code removed
 map(([permission, _count]) => (permission = 0;

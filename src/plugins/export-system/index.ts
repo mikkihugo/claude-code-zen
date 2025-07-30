@@ -2,6 +2,7 @@
 /** Export System Plugin;
 /** Generate reports and exports in multiple formats(PDF, HTML, JSON, CSV)
 
+ */
 import { mkdir  } from 'node:fs';
 
 export class ExportSystemPlugin {
@@ -20,7 +21,7 @@ export class ExportSystemPlugin {
     // Generate HTML content
 // const _htmlContent = awaitthis.renderTemplate(template, data, 'html');
 // // await page.setContent(htmlContent, {waitUntil = // await page.pdf({/g))
-            format = {  }) {
+            format = {  } catch (error) { console.error(error); }) {
         // return this.renderTemplate(template, data, 'html');
     //   // LINT: unreachable code removed}
   //   }
@@ -38,7 +39,7 @@ set('json',
   // Convert object to array of key-value pairs
   const _array = Object.entries(data).map(([key, _value]) => ({ key,
   value = === 'object' ? JSON.stringify(value)   }))
-return this.arrayToCSV(array, options);
+// return this.arrayToCSV(array, options);
 //   // LINT: unreachable code removed}
 // }
 })
@@ -68,7 +69,7 @@ loadTemplates();
 $;
 // {
   this.config.templatesDir;)
-} /*.{html,md,json}`);` */
+}  catch (error) { console.error(error); }/*.{html,md,json}`);` */
   for(const file of templateFiles) {
       const _name = path.basename(file, path.extname(file)); // const _content = awaitreadFile(file, 'utf8'); 
       const _format = path.extname(file) {.slice(1);
@@ -120,7 +121,7 @@ $;
     try {
 // // await writeFile(_filename, _content._trim());
     //     }
-  catch(error)
+  catch (error) { console.error(error); } catch(error)
 // }
 this.templates.set(name, formats);
 // }
@@ -169,7 +170,7 @@ console.warn(` Exportgenerated = includeTimestamp ? ;`)
   //   }
   getNestedValue(obj, path) {
     // return path.split('.').reduce((current, key) => {
-      return current && current[key] !== undefined ? current[key] ;
+//       return current && current[key] !== undefined ? current[key] ;
     //   // LINT: unreachable code removed}, obj);
   //   }
   arrayToCSV(array, options = {}) {
@@ -185,7 +186,7 @@ console.warn(` Exportgenerated = includeTimestamp ? ;`)
           const _value = row[header];))
           const _stringValue = typeof value === 'object' ? JSON.stringify(value) : String(value);
           // Escape quotes and wrap in quotes if contains separator
-          return stringValue.includes(separator)  ?? stringValue.includes('"') ?;"
+//           return stringValue.includes(separator)  ?? stringValue.includes('"') ?;"
     // `"\${stringValue.replace(/"/g, '""'); // LINT}`
 "` ;"`
         }).join(separator)
@@ -221,7 +222,7 @@ removeTemplate(name)
   for(const format of ['html', 'md', 'json']) {
       const _filename = path.join(this.config.templatesDir, `${name}.${format}`); try {
 // // await unlink(filename); 
-      } catch(error) {
+      } catch (error) { console.error(error); } catch(error) {
         // File might not exist, that's OK'
       //       }
     //     }

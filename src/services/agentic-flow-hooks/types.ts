@@ -2,6 +2,7 @@
 /** Agentic-Flow Hook System Types;
 /** Comprehensive type system for hook-based automation and workflow management;
 
+ */
 export // interface HookContext {id = > Promise<HookResult> | HookResult
 // // }
 export // interface HookCondition {type = > boolean

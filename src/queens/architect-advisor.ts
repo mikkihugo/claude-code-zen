@@ -2,12 +2,13 @@
 /** Architect Advisor Queen
 /** Uses neural networks to provide intelligent architectural recommendations
 
+ */
 import { NeuralEngine  } from '../neural/neural-engine.js';
 import { BaseQueen  } from '.';
 
 export class ArchitectAdvisor extends BaseQueen {
   constructor() {
-        super('ArchitectAdvisor', 'architecture-analysis');'
+//         super('ArchitectAdvisor', 'architecture-analysis');'
         this.confidence = 0.85;
         this.neuralEngine = new NeuralEngine();
         this.architecturePatterns = new Map();
@@ -66,7 +67,7 @@ export class ArchitectAdvisor extends BaseQueen {
                 requirements.teamSize = size <= 5 ? 'small' : size <= 20 ? 'medium' : 'large';'
             //             }
 
-            // Extract timeline
+             catch (error) { console.error(error); }// Extract timeline
             const _timelineMatch = task.prompt.match(/(\d+)\s*(?)/i)
   if(timelineMatch) {
                 requirements.timeline = timelineMatch[0];

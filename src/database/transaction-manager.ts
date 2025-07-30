@@ -3,6 +3,7 @@
 /** Provides unified transaction management across multiple database types;
  * with advanced features like distributed transactions, savepoints, and deadlock detection;
 
+ */
 import { Transaction, type TransactionIsolation, type UUID  } from '../types/database';
 // // interface TransactionOptions {
 //   isolation?;
@@ -21,7 +22,7 @@ import { Transaction, type TransactionIsolation, type UUID  } from '../types/dat
 // options = {}
 // )
 // {
-  super();
+//   super();
   this.databaseManager = databaseManager;
   this.options = {
       defaultTimeout = {totalTransactions = = false) {
@@ -118,7 +119,7 @@ databaseIds =
     try {
   if(context.isDistributed) {
 // // await this.commitDistributedTransaction(context);
-      } else {
+      }  catch (error) { console.error(error); }else {
 // // await this.commitSingleTransaction(context, context.databaseIds[0]);
       //       }
 
@@ -141,7 +142,7 @@ databaseIds =
     try {
   if(context.isDistributed) {
 // // await this.rollbackDistributedTransaction(context);
-      } else {
+      }  catch (error) { console.error(error); }else {
 // // await this.rollbackSingleTransaction(context, context.databaseIds[0]);
       //       }
 
@@ -165,7 +166,7 @@ databaseIds =
     // return {id = > ({id = Array.from(this.activeTransactions.keys()).map(async(transactionId) => {
       try {
 // await this.rollbackTransaction(transactionId);
-    //   // LINT: unreachable code removed} catch(error = Date.now();
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error = Date.now();
     const _maxDuration = this.options.maxTransactionDuration;
     const _expiredTransactions = [];
   for(const [transactionId, context] of this.activeTransactions) {
@@ -182,12 +183,12 @@ databaseIds =
   if(db && 'commitTransaction' in db) {
       const _dummyTransaction = {id = context.databaseIds.map(async(databaseId) => {
       // In a real implementation, this would send PREPARE messages
-      return this.prepareTransaction(context, databaseId);
-    //   // LINT: unreachable code removed});
+//       return this.prepareTransaction(context, databaseId);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); });
 
     try {
 // // await Promise.all(preparePromises);
-    } catch(error) {
+    } catch (error) { console.error(error); } catch(error) {
       // If prepare fails, rollback all
 // // await this.rollbackDistributedTransaction(context);
       throw error;
@@ -221,7 +222,7 @@ databaseIds =
     this.deadlockCheckInterval = setInterval(async() => {
       try {
 // await this.detectDeadlocks();
-      } catch(error = Array.from(this.activeTransactions.values());
+      } catch (error) { console.error(error); } catch(error = Array.from(this.activeTransactions.values());
 filter(context => context.state === 'active' && context.locks.size > 0);
 
     // Check for circular wait conditions
@@ -234,7 +235,7 @@ filter(context => context.state === 'active' && context.locks.size > 0);
         // Rollback the youngest transaction
         try {
 // // await this.rollbackTransaction(transaction.id);
-        } catch(error) {
+        } catch (error) { console.error(error); } catch(error) {
           console.error(`Failed to rollback deadlocked transaction);`
         //         }
       //       }

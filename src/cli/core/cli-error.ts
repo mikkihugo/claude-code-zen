@@ -4,6 +4,7 @@
 
 /** CLI error codes enum
 
+ */
 export // // enum CliErrorCode {
   GENERIC_ERROR = 'GENERIC_ERROR','
 VALIDATION_ERROR = 'VALIDATION_ERROR','
@@ -45,7 +46,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 : Record<string, any>
 // {
   // return {name = null) {
-    super(_message, _CliErrorCode._VALIDATION_ERROR, 1);
+//     super(_message, _CliErrorCode._VALIDATION_ERROR, 1);
   // this.name = 'ValidationError'; // LINT: unreachable code removed'
   this.field = field;
 // }
@@ -56,7 +57,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 // export class ConfigurationError extends CliError {
   // // public readonlyconfigPath = null;
   ) {
-    super(
+//     super(
   message;
 
   CliErrorCode;
@@ -79,7 +80,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 
   originalError = null;
   ) {
-    super(
+//     super(
   message;
 
   CliErrorCode;
@@ -102,7 +103,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 
 // export function formatErrorMessage(error) {
   if(error instanceof ValidationError) {
-    return ` ValidationError = console) {`
+//     return ` ValidationError = console) {`
   const _formattedMessage = formatErrorMessage(error);
     // logger.error(formattedMessage); // LINT: unreachable code removed
 
@@ -117,10 +118,10 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 // export function withErrorHandling<TArgs extends any[], TReturn>(fn = > Promise<TReturn>,
   logger?;))
 ): (...args = > Promise<TReturn> {
-  return async(...args => {
+//   return async(...args => {
     try {
-      return await fn(...args);
-    //   // LINT: unreachable code removed} catch(error) {
+//       return await fn(...args);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
       const _exitCode = handleError(error as Error, logger);
       process.exit(exitCode);
     //     }
@@ -133,8 +134,8 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
   errorMessage?,
   errorCode?): Promise<T> {
   try {
-    return // await operation();
-    //   // LINT: unreachable code removed} catch(error) {
+//     return // await operation();
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
   if(error instanceof CliError) {
       throw error;
     //     }

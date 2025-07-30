@@ -2,10 +2,10 @@
 import { callRuvSwarmLibrary,
 checkRuvSwarmAvailable,
 printSuccess,
-printWarning  } from '..
+printWarning  } from '..'
 // Simple ID generator
 function generateId(prefix = 'id') {
-  return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+//   return `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 // }
 
 /** Main spawn command handler
@@ -56,8 +56,9 @@ console.warn(`  Agenttype = > setTimeout(resolve, 500));`
   displayCoordinatedAgentDetails(agentType, agentName, swarmId, null, flags);
 // }
 
-/** Display detailed information about a coordinated agent
+ catch (error) { console.error(error); }/** Display detailed information about a coordinated agent
 
+ */
   function displayCoordinatedAgentDetails(agentType = {
       coordinator, agentName, swarmId, spawnResult, flags) {
   console.warn(`\n COORDINATED AGENT DETAILS);`

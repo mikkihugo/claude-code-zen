@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/** Comprehensive JavaScript to TypeScript Conversion Script;
+/* Comprehensive JavaScript to TypeScript Conversion Script;
 /** Converts all remaining JavaScript files to TypeScript with proper types;
 
+ */
 import { existsSync, readFileSync, unlinkSync  } from 'node:fs';
 import { readdir  } from 'node:fs';
 import { basename  } from 'node:path';
@@ -80,7 +81,7 @@ map((param) => {
           const _trimmed = param.trim();
           if(!trimmed) return trimmed;
     // if(trimmed.includes(')) return trimmed; // LINT: unreachable code removed'
-          return `${trimmed}: unknown`;
+//           return `${trimmed}: unknown`;
     //   // LINT: unreachable code removed});
 join(', ');
       // return `constructor($, { typedParams })`;
@@ -102,7 +103,7 @@ const _SKIP_FILES = new Set([;
 
 async function convertFile() {
   try {
-    const _relativePath = jsPath.replace(`${BASE_DIR}/`, '');
+    const _relativePath = jsPath.replace(`${BASE_DIR} catch (error) { console.error(error); }/`, '');
 
     if(SKIP_FILES.has(relativePath)) {
       console.warn(`  Skipping ${relativePath} (already converted or special case)`);
@@ -163,7 +164,7 @@ async function findJSFiles() {
   if(stats.isDirectory() {) {
 // const _subFiles = awaitfindJSFiles(fullPath);
         files.push(...subFiles);
-      } else if(stats.isFile() && entry.endsWith('.js')) {
+      }  catch (error) { console.error(error); }else if(stats.isFile() && entry.endsWith('.js')) {
         files.push(fullPath);
 // }
 // }
@@ -234,7 +235,7 @@ async function main() {
     console.warn(`\n Remaining JavaScript files`);
   if(remainingJS.length === 0) {
       console.warn('\n SUCCESS! All JavaScript files have been converted to TypeScript!');
-    } else {
+    }  catch (error) { console.error(error); }else {
       console.warn('\n Some files still need manual conversion');
       remainingJS.slice(0, 10).forEach((file) => {
         console.warn(`    ${file.replace(`${BASE_DIR}/`, '')}`);

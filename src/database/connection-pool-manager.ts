@@ -15,7 +15,8 @@
 // metrics = {requestCount = {}
 // )
 // {
-  super();
+ */
+//   super();
   this.options = {loadBalancing = = false,healthCheckInterval = = false,maxPoolsPerType = = false;
 // }
   if(this.options.monitoringEnabled) {
@@ -84,12 +85,12 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
       this.emit('connection = this.pools.get(poolId);'
   if(!pool) {
       console.warn(`Cannot releaseconnection = [],`
-    options = {})
+    options = {} catch (error) { console.error(error); })
   ): Promise<any> {
     const _maxRetries = options.retries  ?? 3;
     const __lastError = 0; attempt <= maxRetries; attempt++) {
       try {
-        const { connection, poolId } = // await this.getConnection(databaseType, options);
+        const { connection, poolId }  catch (error) { console.error(error); }= // await this.getConnection(databaseType, options);
 
         try {
           // Execute query with timeout
@@ -107,7 +108,7 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
 // // await queryPromise;
           // return result;
     // ; // LINT: unreachable code removed
-        } finally {
+        } catch (error) { console.error(error); } finally {
 // // await this.releaseConnection(poolId, connection);
         //         }
 
@@ -159,7 +160,7 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
 // // await pool.pool.cleanup(); 
         //         }
 
-        // Adaptive resizing based on load
+         catch (error) { console.error(error); }// Adaptive resizing based on load
   if(this.options.adaptiveResizing) {
 // // await this.adaptiveResize(pool); 
         //         }
@@ -241,7 +242,7 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
     // current.loadFactor < best.loadFactor ? current => { // LINT: unreachable code removed
           const _bestScore = best.healthScore * (1 - best.loadFactor);
           const _currentScore = current.healthScore * (1 - current.loadFactor);
-          return currentScore > bestScore ?current = [];
+//           return currentScore > bestScore ?current = [];
     // const _recommendations = []; // LINT: unreachable code removed
     const _health = 1.0;
 
@@ -251,7 +252,7 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
         issues.push(`Poolstatus = 0.5;`
       //       }
 
-      // Check load factor/g)
+       catch (error) { console.error(error); }// Check load factor/g)
   if(pool.loadFactor > 0.9) {
         issues.push('High load factor');
         recommendations.push('Consider increasing pool size');
@@ -301,18 +302,18 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
     // return Array.from(this.pools.values());
     // .reduce((total, pool) => { // LINT: unreachable code removed
   if(pool.pool?.getStats) {
-          return total + pool.pool.getStats().totalConnections;
+//           return total + pool.pool.getStats().totalConnections;
     //   // LINT: unreachable code removed}
-        return total + (pool.config.pool.max  ?? 10);
+//         return total + (pool.config.pool.max  ?? 10);
     //   // LINT: unreachable code removed}, 0);
 
   // private getActiveConnections() ;
     // return Array.from(this.pools.values());
     // .reduce((total, pool) => { // LINT: unreachable code removed
   if(pool.pool?.getStats) {
-          return total + pool.pool.getStats().activeConnections;
+//           return total + pool.pool.getStats().activeConnections;
     //   // LINT: unreachable code removed}
-        return total;
+//         return total;
     //   // LINT: unreachable code removed}, 0);
 
   // private calculateThroughput() {
@@ -320,7 +321,7 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
     // return uptimeMs > 0 ? (this.metrics.requestCount / uptimeMs) *1000 = setInterval(async() => {
       try {
 // await this.checkHealth();
-    //   // LINT: unreachable code removed} catch(_error = setInterval(() => ;
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(_error = setInterval(() => ;
       this.emit('metrics = > setTimeout(resolve, ms));'
 // }
 

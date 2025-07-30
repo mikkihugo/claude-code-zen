@@ -3,6 +3,7 @@
 /** Import as library for high-performance coordination
 /** NO CLI commands - pure programmatic usage
 
+ */
 import { printError, printInfo  } from '..';
 
 // Import ruv-swarm as library components
@@ -17,7 +18,7 @@ async function ensureRuvSwarmLoaded() {
       ruvSwarmLib = await import('ruv-swarm');
       _isAvailable = true;
       printInfo(' ruv-swarm library classes imported successfully');
-    } catch(/* _error */) {
+    } catch (error) { console.error(error); } catch(/* _error */) {
       printWarning(' ruv-swarm library not available, using local fallback');
       _isAvailable = false;
       throw new Error('ruv-swarm library not available');
@@ -31,9 +32,9 @@ async function ensureRuvSwarmLoaded() {
 // export async function isRuvSwarmAvailable() {
   try {
 // await ensureRuvSwarmLoaded();
-    return true;
-    //   // LINT: unreachable code removed} catch(/* _error */) {
-    return false;
+//     return true;
+    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
+//     return false;
     //   // LINT: unreachable code removed}
 // }
 
@@ -45,7 +46,7 @@ async function ensureRuvSwarmLoaded() {
 
   // export async function _getRuvSwarmClasses() {
 // const _lib = awaitensureRuvSwarmLoaded();
-  return {RuvSwarm = await ensureRuvSwarmLoaded();
+//   return {RuvSwarm = await ensureRuvSwarmLoaded();
     // ; // LINT: unreachable code removed
   const _ruvSwarm = new lib.RuvSwarm();
 
@@ -67,7 +68,7 @@ async function ensureRuvSwarmLoaded() {
 // const _hive = awaitruvSwarm.createSwarm({
     name,
     maxAgents,
-    cognitive_diversity = === 'hierarchical' ? 'hierarchy' })
+    cognitive_diversity = === 'hierarchical' ? 'hierarchy' } catch (error) { console.error(error); })
   //   )
   printSuccess(` Persistent hive initialized = ) {`
   if(!isAvailable) {
@@ -84,7 +85,7 @@ async function ensureRuvSwarmLoaded() {
 // const _agent = awaitswarm.spawn(type, {
       name,
       capabilities,)
-      cognitive_pattern = {}) {
+      cognitive_pattern = {} catch (error) { console.error(error); }) {
   if(!isAvailable) {
     throw new Error('ruv-swarm library not available');
   //   }
@@ -101,7 +102,7 @@ async function ensureRuvSwarmLoaded() {
   strategy,
   priority,
   maxAgents;
-// }/g)
+// } catch (error) { console.error(error); }/g)
 // )
 printSuccess(` Task orchestrated = {}): unknown`
   if(!isAvailable) {
@@ -111,7 +112,7 @@ printSuccess(` Task orchestrated = {}): unknown`
   try {
 
     // return {
-      id = {}) {
+      id = {} catch (error) { console.error(error); }) {
   if(!_isAvailable) {
     throw new Error('ruv-swarm library not available');
     //   // LINT: unreachable code removed}
@@ -125,7 +126,7 @@ printSuccess(` Task orchestrated = {}): unknown`
     printInfo(` Training neuralpatterns = // await swarm.neural.train({ `
       iterations,
 data;)
-  })
+  } catch (error) { console.error(error); })
   printSuccess(` Neural training completed = {}) {`
   if(!isAvailable) {
     throw new Error('ruv-swarm library not available');
@@ -140,7 +141,7 @@ data;)
     printInfo(` Running swarmbenchmark = // await swarm.benchmark({ `
       type,
 iterations;)
-  })
+  } catch (error) { console.error(error); })
 printSuccess(` Benchmark completed);`
 // return benchmark;
 // }
