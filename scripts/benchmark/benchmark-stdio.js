@@ -1,8 +1,6 @@
-*
-@fileoverview
-Performance;
-benchmark;
-for MCP stdio optimizations;
+/**
+ * @fileoverview Performance; benchmark; for MCP stdio optimizations;
+ */
 
 /** Compares performance before and after optimizations;
 
@@ -76,17 +74,17 @@ runBaselineTest();
 
 /** Test optimized message processing with batching and error handling;
 
-// async runOptimizedTest() { }
+// async runOptimizedTest() {}
 
   const _messageCount = 1000;
   const _messages = this.generateTestMessages(messageCount);
   // Initialize optimized components
   const _stdioOptimizer = new StdioOptimizer({ batchSize,
   batchTimeout,
-  retryAttempts
+// retryAttempts
   })
 const _errorHandler = new MCPErrorHandler({ maxRetries,
-retryDelay
+// retryDelay
   })
 const _performanceMetrics = new PerformanceMetrics({ enableLogging
   })

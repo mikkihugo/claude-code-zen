@@ -42,7 +42,7 @@ this.options = {minConnections = = false,enableHealthChecks = = false;
 
 /** Initialize the connection pool;
 
-// async initialize() { }
+// async initialize() {}
 : Promise<void>
 
   console.warn(` Initializing SQLite connectionpool = 0; i < this.options.minConnections; i++) {`
@@ -289,7 +289,9 @@ this.options = {minConnections = = false,enableHealthChecks = = false;
 //           return await this.execute(queryInfo.query, queryInfo.params, {
 ..queryInfo.options,)
     // priority; // LINT);
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
   if(failFast) {
             throw error;
           //           }
@@ -352,7 +354,9 @@ this.options = {minConnections = = false,enableHealthChecks = = false;
   while(this.connections.length < this.options.minConnections) {
       try {
 // // await this._createConnection(); 
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         console.error(`Failed to create minimumconnection = Date.now();`
 
     // Check if connection exceeded max lifetime
@@ -489,7 +493,9 @@ startHealthChecks();
   while(this.connections.length < this.options.minConnections) {
     try {
 // // await this._createConnection();
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       console.error(`Failed to create replacement connection);`
       break;
     //     }

@@ -80,8 +80,7 @@ try {
   console.error(error);
 }
 catch (_e)
-{
-} // eslint-disable-line
+{} // eslint-disable-line
 
 // Method 2: Check if specific SIMD opcodes work
 const _simdFeatureTest = () => { // eslint-disable-line

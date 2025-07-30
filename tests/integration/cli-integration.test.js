@@ -95,7 +95,7 @@ test('should initialize with SPARC setup', (_done) =>
   const _child = spawn(cliPath, ['init', '--sparc'], {
         stdio: ['pipe', 'pipe', 'pipe'],
 ..process.env, NODE_ENV: 'test' ,
-  cwd
+// cwd
 })
 const _stdout = '';
 child.stdout.on('data', (data) => {
@@ -133,7 +133,7 @@ test('should store and retrieve memory', (_done) =>
     const _storeChild = spawn(cliPath, ['memory', 'store', 'test-key', 'test-value'], {
         stdio: ['pipe', 'pipe', 'pipe'],
 ..process.env, NODE_ENV: 'test' ,
-  cwd
+// cwd
   });
   storeChild.on('close', (code) =>
 // {
@@ -142,7 +142,7 @@ test('should store and retrieve memory', (_done) =>
   const _retrieveChild = spawn(cliPath, ['memory', 'retrieve', 'test-key'], {
           stdio: ['pipe', 'pipe', 'pipe'],
 ..process.env, NODE_ENV: 'test' ,
-  cwd
+// cwd
 });
 const _stdout = '';
 retrieveChild.stdout.on('data', (data) => {
@@ -161,14 +161,14 @@ test('should list memory entries', (done) =>
 const _store1 = spawn(cliPath, ['memory', 'store', 'key1', 'value1'], {
         stdio: 'ignore',
 ..process.env, NODE_ENV: 'test' ,
-  cwd
+// cwd
 })
 store1.on('close', () =>
 // {
 const _store2 = spawn(cliPath, ['memory', 'store', 'key2', 'value2'], {
           stdio: 'ignore',
 ..process.env, NODE_ENV: 'test' ,
-  cwd
+// cwd
 })
 store2.on('close', () =>
 // {
@@ -176,7 +176,7 @@ store2.on('close', () =>
 const _listChild = spawn(cliPath, ['memory', 'list'], {
             stdio: ['pipe', 'pipe', 'pipe'],
 ..process.env, NODE_ENV: 'test' ,
-  cwd
+// cwd
 })
 const _stdout = '';
 listChild.stdout.on('data', (data) => {
@@ -210,7 +210,7 @@ test('should list available agent types', (_done) =>
 const _child = spawn(cliPath, ['agent', 'list'], {
         stdio: ['pipe', 'pipe', 'pipe'],
 ..process.env, NODE_ENV: 'test' ,
-  cwd
+// cwd
 })
 const _stdout = '';
 child.stdout.on('data', (data) => {
@@ -248,7 +248,7 @@ test('should handle insufficient arguments', (_done) =>
   const _child = spawn(cliPath, ['memory', 'store'], {
         stdio: ['pipe', 'pipe', 'pipe'],
 ..process.env, NODE_ENV: 'test' ,
-  cwd
+// cwd
 }
 )
 const _stderr = '';
@@ -278,7 +278,7 @@ describe('Configuration', () =>
   const _child = spawn(cliPath, ['config', 'show'], {
         stdio: ['pipe', 'pipe', 'pipe'],
 ..process.env, NODE_ENV: 'test' ,
-  cwd
+// cwd
 }
 )
 const _stdout = '';

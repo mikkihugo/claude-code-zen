@@ -1,8 +1,6 @@
-*
-@fileoverview
-Command;
-Loader;
-
+/**
+ * @fileoverview Command; Loader; 
+ */
 /** Loads and registers all CLI commands with proper error handling
  * @module CommandLoader
 

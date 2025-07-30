@@ -44,8 +44,7 @@ async;
 checkDatabaseIntegration();
 { 
     printInfo(' Checking Database Integration...');
-
-    try 
+// try
       // Check strategic documents database
 // // await strategicDocs.initialize();
 // const _backendStats = awaitstrategicDocs.getBackendStats();
@@ -111,8 +110,7 @@ catch(error)
 
   async checkWebSocketIntegration() { 
     printInfo(' Checking WebSocket Integration...');
-
-    try 
+// try
       // Check if WebSocket service is available
       this.websocketService = // await WebSocketService.create({clientPort = this.websocketService.getStatus();
 
@@ -124,7 +122,7 @@ catch(error)
 
 /** Check coordination features
  *//g)
-// async checkCoordinationFeatures() { }
+// async checkCoordinationFeatures() {}
 
   printInfo(' Checking Coordination Features...');
   try {

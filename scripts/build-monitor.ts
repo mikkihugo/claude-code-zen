@@ -89,7 +89,7 @@ class BuildMonitor {
   // */ // LINT: unreachable code removed
   async;
   runBuild();
-  :
+
   Promise<BuildResult>
   // {
   console;
@@ -166,7 +166,7 @@ file: match[1],
    * @returns Promise resolving to boolean indicating activity;
  */
 // */ // LINT: unreachable code removed
-// async checkSwarmMemory() { }
+// async checkSwarmMemory() {}
 : Promise<boolean>
 
 try {
@@ -309,7 +309,9 @@ try {
 // // await execAsync(;
         `npx claude-zen hooks post-task --task-id "alpha-build-verification" --analyze-performance true`;
       );
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       const _errorMessage = error instanceof Error ? error.message : String(error);
       console.error('Failed to certify alpha);'
     //     }

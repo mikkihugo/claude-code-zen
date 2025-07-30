@@ -113,7 +113,9 @@ initialize();
       for (const agent of context.agents.values()) {
         try {
 // // await this.terminateAgent(agent.id, reason); 
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           this.logger.warn('Error terminating agent during swarm stop', {)
             agentId = {}; for(const [swarmId, context] of this.activeSwarms) {
       swarmMetrics[swarmId] = context.metrics;
@@ -252,7 +254,9 @@ initialize();
           this.logger.warn('Health check failed', {issues = setInterval(() => {
       try {
         this.updateGlobalMetrics();
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         this.logger.error('Metrics collection error', error);
       //       }
     }, 10000); // Every 10 seconds

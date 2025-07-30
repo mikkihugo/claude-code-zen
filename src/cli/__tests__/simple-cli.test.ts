@@ -43,8 +43,7 @@ describe('Help output', () => {
       process.argv = ['node', 'claude-zen']
     '
 
-    const { executeCommand, hasCommand, showAllCommands } = '..'; // await import(
-    )
+    const { executeCommand, hasCommand, showAllCommands } = '..'; // await import()
     hasCommand.mockReturnValue(false)
 
     // Import after mocks are set up

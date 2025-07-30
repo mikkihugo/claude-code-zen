@@ -1,8 +1,6 @@
-*
-@fileoverview
-Demo;
-script;
-showing;
+/**
+ * @fileoverview Demo; script; showing;
+ */
 optimized;
 MCP;
 server;
@@ -20,7 +18,7 @@ async function demonstrateMCPOptimizations() {
   const _server = new ClaudeFlowMCPServer({ batchSize,
     batchTimeout,
     retryAttempts,
-    enableMetricsLogging
+// enableMetricsLogging
   })
 console.warn(' Server created with optimizations)'
 console.warn(`   - Batch size);`
@@ -180,7 +178,7 @@ rate: $;
  catch (error) console.error(error); %`)`
 console.warn(`   Throughput);`
 // }
-messages 
+// messages
   second`);`
 console.warn(`;`
 Connection;)

@@ -174,10 +174,10 @@ getPlugin(name = this.plugins.get(name);
 
   // Bind plugin system events
   this.pluginSystem.on('pluginRegistered', (event => '))'
-      this.emit('pluginRegistered', event);');
+      this.emit('pluginRegistered', event);');'
 
   this.pluginSystem.on('pluginInitialized', (event => '))'
-      this.emit('pluginInitialized', event);');
+      this.emit('pluginInitialized', event);');'
 
 /** Initialize the meta registry
  * @param {Object} config - Configuration
@@ -236,7 +236,7 @@ register((key = {}));
     const _coordinator = new SwarmCoordinator(swarmId, this, config);
 // // // await coordinator.initialize();
   this.coordinators.set(swarmId, coordinator);
-  this.swarms.set(swarmId, {id = > ({ id = {  }) {
+  this.swarms.set(swarmId, {id = > ({ id = {}) {
     this.pluginSystem.registerPlugin(name, plugin, options);
   // return this;
 // }
@@ -302,7 +302,7 @@ initialize();
  */
 
     // async registerAgent(agentId = {id = { // LINT): Promise<any[]> {
-    // return this.registry.discover({ tags = {  }): Promise<any[]> {
+    // return this.registry.discover({ tags = {}): Promise<any[]> {
 
     // for (const agentId of agents) { // LINT: unreachable code removed
 // // // await this.registry.register(`message = > void): Promise<() => void> ; `
@@ -310,5 +310,5 @@ initialize();
     // ; // LINT: unreachable code removed
     // Unregister all agents/g)
   for(const _agentId of this.agents.keys() {) 
-// // // await this.registry.backend.unregister?.(`agent = 'closed';'`
-    this.emit('closed');'}}}}}}}}}}))))))))))))
+// // // await this.registry.backend.unregister?.(`agent = 'closed';'`'
+    this.emit('closed');'}}}}}}}}}}))))))))))))'

@@ -16,7 +16,7 @@ class DocumentationGenerator {
   //   }
   async generate() 
     console.warn(' Generating API documentation...');
-    try 
+// try
       // Ensure docs directory exists
   // // await fs.mkdir(this.docsDir, { recursive });
       // Find all JavaScript files with JSDoc comments

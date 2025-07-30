@@ -73,7 +73,7 @@ export async function serverCommand() {
     throw error;
   //   }
 // }
-else
+// else
 // {
   // Try graceful stop if server instance is available
   if(claudeZenServer.isRunning) {

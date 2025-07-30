@@ -15,13 +15,12 @@ this.config = this.createDefaultConfig(config)
 this.memoryManager = memoryManager
 this.processingQueue = new ProcessingQueue(this.config.aggregationInterval)
 this.setupEventHandlers()
-{
-}
+{}
 // }
 
 /** Initialize the result aggregator;
 
-// async initialize() { }
+// async initialize() {}
  */
 : Promise<void>
 
@@ -33,8 +32,6 @@ try {
 } catch (error) {
   console.error(error);
 }
-catch(error)
-{
     this.logger.error('Failed to initialize result aggregator', error);
     throw error;
 //   }
@@ -55,7 +52,9 @@ shutdown();
 // // await Promise.allSettled(completionPromises);// // await this.processingQueue.stop();
     this.logger.info('Swarm result aggregator shut down successfully');
     this.emit('shutdown');
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) {
+  console.error(error);
+}
     this.logger.error('Error during result aggregator shutdown', error);
     throw error;
   //   }

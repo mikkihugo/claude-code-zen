@@ -169,7 +169,7 @@ describe('hasCommand', () => {
     '
     // expect(hasCommand('swarm')).toBe(true); // LINT: unreachable code removed'
       expect(hasCommand('agent')).toBe(true)
-    ');
+    ');'
 
   test('should return false for unregistered commands', () =>
   {

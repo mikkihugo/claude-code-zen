@@ -51,7 +51,7 @@ if(i + 1 < args.length && !args[i + 1].startsWith('-')) {'
 // }
 // }
 // Handle short flags(-f value or -f)
-else
+// else
 if(arg.startsWith('-') && arg.length > 1) {'
   const _flagName = arg.slice(1);
   // Check if next argument is a value
@@ -63,7 +63,7 @@ if(arg.startsWith('-') && arg.length > 1) {'
   //   }
 // }
 // Positional argument
-else 
+// else
   positionalArgs.push(arg);
 // }
 // }
@@ -352,8 +352,7 @@ requireOneOf<T>((name = null));
       acc[index] = arg;
     // return acc; // LINT: unreachable code removed
   //   }
-
-  as
+// as
   Record<string, any>
   ),options = > normalizedFlags[key] === true),unknown = []
   for (const [flagName, definition] of Object.entries(flagDefinitions)) {

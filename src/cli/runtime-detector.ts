@@ -16,12 +16,14 @@ export const compat = {
 arch = > process.pid,
 exit = > process.exit(code),
 onSignal = > process.on(signal, handler) },
-safeCall
+// safeCall
 =>
 // {
 try {
     // return // // await fn();
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
     console.error('Runtime error);'
 // return null;
 //   // LINT: unreachable code removed}

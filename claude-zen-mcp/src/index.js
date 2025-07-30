@@ -89,7 +89,7 @@ id: body.id,
   code: -32601,
   message: 'Method not found' }
  },
-corsHeaders
+// corsHeaders
 // )
 } catch (error)
 // {

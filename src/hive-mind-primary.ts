@@ -231,7 +231,9 @@ process.on('unhandledRejection', (reason =>
   for(const pluginName of availablePlugins) {
       try {
 // // await this.connectPlugin(pluginName); 
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         console.warn(` Plugin ${pluginName} not available = {hiveMindIntegration = === 'ai-providers') {`
       try {
         // Load the new TypeScript provider system

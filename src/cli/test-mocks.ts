@@ -50,10 +50,9 @@ initialize();
  * @returns Promise resolving to task execution result;
  */
     // */ // LINT: unreachable code removed
-async
+// async
 execute((task =
-{
-}
+{}
 ))
 this.config = config;
 this.agents = new Map<string, Agent>();
@@ -72,7 +71,7 @@ init();
  * @returns Promise resolving to spawned agent;
  */
     // */ // LINT: unreachable code removed
-async
+// async
 spawnAgent(
 type = new Agent({ type, ...config });
 this.agents.set(agent.id, agent);
@@ -106,7 +105,7 @@ for (const [key, value] of this.memory.entries()) {
 /** Clear all memory;
    * @returns Promise resolving to true;
     // */ // LINT: unreachable code removed
-// async clear() { }
+// async clear() {}
 : Promise<boolean>
 
   this.memory.clear();

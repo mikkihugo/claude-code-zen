@@ -98,8 +98,7 @@ Current Metadata: null
 $JSON.stringify(metadata, null, 2)
 
 Document Content: null
-$content
-
+// $content
 Please analyze and provide feedback in this JSON format: null
   "quality_score": <1-10>,
   "suggested_approvers": ["role1", "role2"],
@@ -176,8 +175,7 @@ async function generateDocumentWithAI(docType, service, requirements) {
 Template Style: $templates[docType] || 'Standard technical document'
 
 Requirements: null
-$requirements
-
+// $requirements
 Generate a complete, well-structured document following best practices for ${docType}. Include: null
 - Proper markdown formatting
 - Clear sections and headings

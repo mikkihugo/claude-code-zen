@@ -336,7 +336,7 @@ slice(0, 8);
     launchMeowInkInterface(input[0], input.slice(1), flags);
   } else {
     // Return parsed command for normal CLI execution
-    // return {command = === `;
+    // return {command = === `;`
 file => {`
     console.warn('\n Claude-Zen interface shutting down...');'
     // process.exit(0); // LINT: unreachable code removed

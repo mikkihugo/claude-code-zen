@@ -34,7 +34,7 @@ const _globalPluginManager = null;
       //       }
 // // await pluginManager.registerPlugin(plugin.name, PluginClass, plugin.config);
     } catch(error) {
-      console.warn(` Failed to register plugin '${plugin.name}');'`
+      console.warn(` Failed to register plugin '${plugin.name}');'`'
 
       // Continue with other plugins even if one fails
   if(config.strictMode) {
@@ -111,7 +111,9 @@ forEach(plugin => {
   if(instance && instance.getHealth && typeof instance.getHealth === 'function') {'
         try {
           pluginHealth.details = // await instance.getHealth();
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           pluginHealth.status = 'unhealthy';'
           pluginHealth.error = error.message;
         //         }

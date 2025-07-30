@@ -26,38 +26,38 @@ prepare(
     `
     SELECT(SELECT
     COUNT(*)
-    FROM
-    swarms
+// FROM
+// swarms
     ) as total_swarms,
     (SELECT
     COUNT(*)
-    FROM
-    agents
+// FROM
+// agents
     ) as total_agents,
     (SELECT
     COUNT(*)
-    FROM
-    tasks
+// FROM
+// tasks
     ) as total_tasks,
     (SELECT
     COUNT(*)
-    FROM
-    tasks
-    WHERE
+// FROM
+// tasks
+// WHERE
     status = 'completed'
     ) as completed_tasks,
     (SELECT
     COUNT(*)
-    FROM
-    tasks
-    WHERE
+// FROM
+// tasks
+// WHERE
     status = 'in_progress'
     ) as in_progress_tasks,
     (SELECT
     COUNT(*)
-    FROM
-    tasks
-    WHERE
+// FROM
+// tasks
+// WHERE
     status = 'pending'
     ) as pending_tasks
     `
@@ -66,7 +66,7 @@ prepare(
     const __swarmBreakdown = db;
 prepare(
     `
-    SELECT
+// SELECT
     s.id,
     s.name,
     s.objective,
@@ -106,33 +106,33 @@ prepare(
     ) as total_swarms,
     (SELECT
     COUNT(*)
-    FROM
-    agents
+// FROM
+// agents
     ) as total_agents,
     (SELECT
     COUNT(*)
-    FROM
-    tasks
+// FROM
+// tasks
     ) as total_tasks,
     (SELECT
     COUNT(*)
-    FROM
-    tasks
-    WHERE
+// FROM
+// tasks
+// WHERE
     status = 'completed'
     ) as completed_tasks,
     (SELECT
     COUNT(*)
-    FROM
-    tasks
-    WHERE
+// FROM
+// tasks
+// WHERE
     status = 'in_progress'
     ) as in_progress_tasks,
     (SELECT
     COUNT(*)
-    FROM
-    tasks
-    WHERE
+// FROM
+// tasks
+// WHERE
     status = 'pending'
     ) as pending_tasks
     `
@@ -141,7 +141,7 @@ prepare(
     const __swarmBreakdown = db;
 prepare(
       `
-    SELECT
+// SELECT
     s.id,
     s.name,
     s.topology,
@@ -208,7 +208,7 @@ prepare(
         console.warn(`;`)
     \$chalk.cyan(name);
     : \$completed
-      rate
+// rate
     %)`)`
   if(swarm.objective) {
       console.warn(`Objective = // await getUnifiedSwarmMetrics();`

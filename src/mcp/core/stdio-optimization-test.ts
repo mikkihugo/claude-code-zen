@@ -1,8 +1,6 @@
-*
-@fileoverview
-Test;
-script;
-for MCP stdio optimizations
+/**
+ * @fileoverview Test; script; for MCP stdio optimizations
+ */
 /** Validates message batching, retry logic, and performance metrics
 
  */
@@ -28,8 +26,7 @@ class StdioOptimizationTests {
 
   async runAllTests() { 
     console.warn('Starting MCP stdio optimization tests...\n');'
-
-    try 
+// try
 // // // await this.testServerInitialization();
 // // // await this.testBatchProcessing();
 // // // await this.testErrorHandling();
@@ -68,8 +65,7 @@ class StdioOptimizationTests {
 
   async testBatchProcessing() { 
     console.warn('Testing batch processing...');'
-
-    try 
+// try
       const __stdioOptimizer = this.server.stdioOptimizer;
 
       // Mock messages for batch testing
@@ -93,8 +89,7 @@ class StdioOptimizationTests {
 
   async testErrorHandling() { 
     console.warn('Testing error handling...');'
-
-    try 
+// try
       const _errorHandler = this.server.errorHandler;
 
       // Test error statistics
@@ -112,7 +107,7 @@ class StdioOptimizationTests {
 
       this.addTestResult('Circuit Breaker','
         validState,)
-        `Circuit breakerstate = new Error('Test error');'`
+        `Circuit breakerstate = new Error('Test error');'`'
       const _errorResponse = errorHandler.createErrorResponse('test-id', testError);'
       const _validResponse = errorResponse && errorResponse.jsonrpc === '2.0';'
 
@@ -126,8 +121,7 @@ class StdioOptimizationTests {
 
   async testPerformanceMetrics() { 
     console.warn('Testing performance metrics...');'
-
-    try 
+// try
       const _metrics = this.server.performanceMetrics;
 
       // Test metrics collection
@@ -159,8 +153,7 @@ class StdioOptimizationTests {
 
   async testRetryLogic() { 
     console.warn('Testing retry logic...');'
-
-    try 
+// try
       const _errorHandler = this.server.errorHandler;
 
       // Test retry delay calculation
@@ -170,7 +163,7 @@ class StdioOptimizationTests {
 
       this.addTestResult('Exponential Backoff','
         hasExponentialBackoff,)
-        `Delays = new Error('Invalid JSON syntax');'`
+        `Delays = new Error('Invalid JSON syntax');'`'
       const _isNonRetryable = errorHandler.isNonRetryableError(jsonError);
 
       this.addTestResult('Non-retryable Errors','
@@ -187,8 +180,7 @@ class StdioOptimizationTests {
 
   async testConnectionHandling() { 
     console.warn('Testing connection handling...');'
-
-    try 
+// try
       const _stdioOptimizer = this.server.stdioOptimizer;
 
       // Test connection status
@@ -202,7 +194,7 @@ class StdioOptimizationTests {
 
       this.addTestResult('Buffer Management','
         hasBufferTracking,))
-        `Buffersize = passed ? ' PASS' );'`
+        `Buffersize = passed ? ' PASS' );'`'
   //   }
 
 /** Print final test results

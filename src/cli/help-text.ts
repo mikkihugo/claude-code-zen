@@ -76,7 +76,7 @@ if (!plain) {
       //       {
         name: 'help',
         description: 'Show help information' } ],
-    globalOptions
+// globalOptions
   : [
   //       {
   flags: '--config <path>', description

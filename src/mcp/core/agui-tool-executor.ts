@@ -17,7 +17,7 @@ import { MCPToolExecutor } from '.';
 //     super(server);
 
     // Create AG-UI adapter for tool execution events
-    this.aguiAdapter = new AGUIAdapter({ sessionId = {emitToolEvents = {toolCallsWithEvents = {  }) {
+    this.aguiAdapter = new AGUIAdapter({ sessionId = {emitToolEvents = {toolCallsWithEvents = {}) {
     const { parentMessageId } = context;
     const _toolCallId = null;
 
@@ -93,7 +93,7 @@ import { MCPToolExecutor } from '.';
 // export function _enhanceToolExecutorWithAGUI(existingExecutor = {}) {
   const _aguiAdapter = new AGUIAdapter({ sessionId = existingExecutor.executeTool.bind(existingExecutor);
 
-  existingExecutor.executeTool = async(name, args, context = {  }) => {
+  existingExecutor.executeTool = async(name, args, context = {}) => {
     const _toolCallId = null;
 
     try {

@@ -18,7 +18,7 @@ try {
 } catch (error) {
   console.error(error);
 }
-catch
+// catch
 {
   console.error(' Migration script not found. Please ensure you have the latest version.');
   process.exit(1);

@@ -14,17 +14,17 @@ import { CodeQueen, DebugQueen } from '.';
 {
   Object;
 }
-QueenCoordinatorConfig
+// QueenCoordinatorConfig
  * @property {number} [maxConcurrentTasks] - Maximum
 number;
 of;
 concurrent;
-tasks
+// tasks
  * @property {boolean} [enableLoadBalancing] - Whether
 to;
 enable;
 load;
-balancing
+// balancing
  * @property {number} [consensusThreshold] - Threshold
 for consensus acceptance
  * @property {number} [healthCheckInterval] - Health check interval in milliseconds
@@ -32,58 +32,58 @@ for consensus acceptance
 to;
 enable;
 auto;
-scaling
+// scaling
  */
 
  * @typedef {Object}
-TaskQueue
+// TaskQueue
  * @property {Task[]}
 pending - Pending;
 tasks;
-array
+// array
  * @property {Map<string, Task>}
 active - Active;
 tasks;
-map
+// map
  * @property {Map<string, Result | Consensus>}
 completed - Completed;
 tasks;
-map
+// map
  * @property {Map<string, Error>}
 failed - Failed;
 tasks;
-map
+// map
  */
 
  * @typedef {Object}
-CoordinatorMetrics
+// CoordinatorMetrics
  * @property {number}
 totalTasks - Total;
 number;
 of;
-tasks
+// tasks
  * @property {number}
 completedTasks - Number;
 of;
 completed;
-tasks
+// tasks
  * @property {number}
 failedTasks - Number;
 of;
 failed;
-tasks
+// tasks
  * @property {number}
 averageProcessingTime - Average;
 processing;
-time
+// time
  * @property {number}
 consensusRate - Consensus;
 success;
-rate
+// rate
  * @property {Object.<string, number>}
 queenUtilization - Queen;
 utilization;
-stats
+// stats
  * @property {number}
 throughput - Tasks;
 per;
@@ -174,8 +174,7 @@ constructor((_config = {}));
     // */; // LINT: unreachable code removed
     async executeTask(task, requireConsensus = false) { 
         const _startTime = performance.now();
-
-        try 
+// try
             this.logger.info(`Executing task $task.id,requireConsensus = performance.now() - startTime;`
             this.updateProcessingTimeMetrics(processingTime);
         //         }
@@ -300,7 +299,7 @@ processTaskQueue();
         for (const [name, queen] of this.queens.entries()) {
             const _isHealthy = queen.isHealthy(); if(!isHealthy) {
                 this.logger.warn(`Queen $nameis unhealthy`); `
-                this.emit('queenUnhealthy', { name, queen }) ;'else {
+                this.emit('queenUnhealthy', { name, queen }) ;'else {'
                 healthyQueens++;
             //             }
 

@@ -213,7 +213,7 @@ checkRoomodesConsistency();
 // }
 // return result;
 // }
-// async checkClaudeConfigConsistency() { }
+// async checkClaudeConfigConsistency() {}
 
   const _result = {consistent = `$this.workingDir`
 // const _content = awaitnode.readTextFile(claudePath);
@@ -241,7 +241,7 @@ checkRoomodesConsistency();
 // }
 // return result;
 // }
-// async checkMemoryConsistency() { }
+// async checkMemoryConsistency() {}
 
     const _result = {consistent = `${this.workingDir}/memory/claude-zen-data.json`;
       const _data = JSON.parse(// await node.readTextFile(memoryDataPath));

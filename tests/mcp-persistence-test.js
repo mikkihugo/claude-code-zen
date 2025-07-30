@@ -17,8 +17,6 @@ try {
 } catch (error) {
   console.error(error);
 }
-catch(error)
-{
   console.warn('sqlite3 not available for MCP persistence tests);'
 // }
 const ___filename = fileURLToPath(import.meta.url);
@@ -43,7 +41,7 @@ class MCPPersistenceTest {
   //   }
   async runTest(name, testFn) 
     this.testCount++;
-    try 
+// try
   // await testFn();
       this.passedCount++;
       this.testResults.push({ name, passed   });
@@ -296,7 +294,7 @@ const _resultsPath = path.join(__dirname, 'mcp-persistence-test-results.json');
 fs.writeFileSync(resultsPath, JSON.stringify(results, null, 2));
 this.log(`\n Results saved to);`
 // }
-// async run() { }
+// async run() {}
 
   this.log(' MCP Database Persistence Test Suite', 'blue');
   this.log('Testing for issue #312);'
@@ -316,7 +314,9 @@ this.log(`\n Results saved to);`
   // // await this.testConcurrentAccess();
       // Generate report
   // // await this.generateReport();
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       this.log(`\n Fatal error);`
       process.exit(1);
     //     }

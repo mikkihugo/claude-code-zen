@@ -209,7 +209,7 @@ startIntelligentMonitoring();
         VALUES(@id, @epic_id, @title, @description, @functional_requirements, @non_functional_requirements, @dependencies, @risks, @effort, @priority, @status, @metadata);
     `);`
     stmt.run(feature);
-// // // await this.registry.register(`feature = this.db.prepare('SELECT * FROM features WHERE id = ?').get(featureId);'`
+// // // await this.registry.register(`feature = this.db.prepare('SELECT * FROM features WHERE id = ?').get(featureId);'`'
     if(!feature) throw new Error(`Feature ${featureId} not found`);`
 
     const _prd = {id = this.db.prepare(`;`)

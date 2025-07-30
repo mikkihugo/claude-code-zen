@@ -179,7 +179,7 @@ test('should model services in graph database', async () =>
 test('should perform centrality analysis', async () => {
   // Add relationships between services
   const _relationships = [// 
-{ } from: 'test-api-service',
+{} from: 'test-api-service',
           to: 'test-auth-service',
           type: 'DEPENDS_ON',
           strength: 'strong' },
@@ -274,7 +274,7 @@ for (const framework of frameworks) {
   )
     outputName: `Test$framework.charAt(0).toUpperCase() + framework.slice(1)Component`,
     includeTests,
-    optimizeCode
+// optimizeCode
 }
 )
   expect(result).toHaveProperty('framework')

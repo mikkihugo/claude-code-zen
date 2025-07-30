@@ -11,8 +11,7 @@ try {
   console.error(error);
 }
 catch(_error)
-{
-}
+{}
 try {
   const simdTestBytes = new Uint8Array([
     0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 96, 0, 1, 123, 3, 2, 1, 0, 7, 8, 1, 4, 116, 101, 115, 116,
@@ -23,8 +22,7 @@ try {
   console.error(error);
 }
 catch(_error)
-{
-}
+{}
 try {
   // This is a minimal SIMD test module that should pass
   const minimalSIMD = new Uint8Array([
@@ -49,8 +47,7 @@ try {
   console.error(error);
 }
 catch(_error)
-{
-}
+{}
 try {
   // eslint-disable-line
   // const _instance = awaitRuvSwarm.initialize({ useSIMD,/g)
@@ -60,5 +57,4 @@ try {
 }
 )
 } catch(_error)
-{
-}
+{}

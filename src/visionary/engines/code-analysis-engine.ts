@@ -178,7 +178,9 @@ import { existsSync } from 'node:fs';
   if(this.config.neuralEngine) {
         try {
           _aiInsights = // // await this.performAIAnalysis(codeData, 'code-analysis');'
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           console.warn('AI analysis unavailable);'
         //         }
       //       }

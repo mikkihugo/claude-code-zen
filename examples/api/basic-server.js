@@ -10,7 +10,7 @@ async function basicServerExample() {
   // Create server instance with configuration
   const _server = new ClaudeZenServer({ port: 3000,
     host: '0.0.0.0',
-    schema: {  })
+    schema: {})
 try {
     // Start the server
   // // await server.start();

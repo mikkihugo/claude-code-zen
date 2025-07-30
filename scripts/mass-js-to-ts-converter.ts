@@ -102,8 +102,7 @@ function addTypeScriptTypes(content, context) {
 //     }
 //   }
 // Fix function parameter types
-typedContent = typedContent.replace(
-)
+typedContent = typedContent.replace()
 // function\s+(\w+)\s*\(([^)]*)\)/g,
     (_match, funcName, params) =>
 {

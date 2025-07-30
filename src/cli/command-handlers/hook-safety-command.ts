@@ -146,7 +146,7 @@ const _executionTracker = new HookExecutionTracker();
           `Stop hook has executed $executionCounttimes in this session.\n` +;`
           `This indicates a potential infinite loop that could cost thousands of dollars.\n` +;`
           `Execution blocked for financial protection.\n\n` +;`
-          `Toreset = === 'Stop' && executionCount > 1) '`
+          `Toreset = === 'Stop' && executionCount > 1) '`'
       printWarning(`  Stop hook execution #\$executionCountdetected. Monitor for recursion.`);`
     //     }
 

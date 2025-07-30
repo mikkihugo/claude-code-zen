@@ -188,8 +188,8 @@ export type SwarmStrategy = 'parallel';
 //     // tasks: ComponentHealth
 //     // communication: ComponentHealth
 //   };
-  issues
-recommendations
+// issues
+// recommendations
 trends;
 // }
 // export // interface ComponentHealth {

@@ -71,7 +71,7 @@ try {
         'severity classification';,,];
 // }
 // }
-// async cleanup() { }
+// async cleanup() {}
 
   console.warn(' Code Complexity Scanner Plugin cleaned up');
 // }

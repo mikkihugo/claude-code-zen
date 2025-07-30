@@ -253,7 +253,7 @@ getAnalytics();
 
 /** Close analytics reporter and save data
 
-// async close() { }
+// async close() {}
 : Promise<void>
 
   if(this.intervalId) {

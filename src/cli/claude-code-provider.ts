@@ -22,7 +22,7 @@ constructor((config = {}));
   //   }
 
   async isAvailable() 
-    try 
+// try
 // // await execAsync('which claude');'
       // return true;
     //   // LINT: unreachable code removed} catch(/* _error */) {
@@ -43,7 +43,7 @@ constructor((config = {}));
     //   // LINT: unreachable code removed}
 
   async generateWithModule(_prompt, _config) { 
-    try 
+// try
       const { claudeCode } = claudeCodeModule;
       const __settings = {pathToClaudeCodeExecutable = // await claudeCode({model = result.sessionId;
       //       }

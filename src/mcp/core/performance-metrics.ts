@@ -1,8 +1,6 @@
-*
-@fileoverview
-Performance;
-metrics;
-tracking;
+/**
+ * @fileoverview Performance; metrics; tracking;
+ */
 for MCP server
 /** Provides detailed monitoring and logging of server performance
  * @module PerformanceMetrics

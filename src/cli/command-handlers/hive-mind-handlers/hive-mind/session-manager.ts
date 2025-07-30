@@ -26,7 +26,7 @@ export class HiveMindSessionManager {
 /** Initialize database with fallback support
 
   async initializeDatabase() { 
-    try 
+// try
 // const _sqliteAvailable = awaitisSQLiteAvailable();
   if(!sqliteAvailable) {
         console.warn('SQLite not available, using in-memory session storage');

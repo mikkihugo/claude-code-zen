@@ -1,8 +1,6 @@
-*
-@fileoverview
-Mock;
-SqliteMemoryStore;
-implementation;
+/**
+ * @fileoverview Mock; SqliteMemoryStore; implementation;
+ */
 for testing
 /** Provides basic functionality when sqlite store is not available
 

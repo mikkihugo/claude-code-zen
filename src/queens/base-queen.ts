@@ -13,10 +13,10 @@ import { Logger } from '../utils/logger.js';
 {
   Object;
 }
-Task
+// Task
  * @property {string}
 id - Task;
-ID
+// ID
  * @property {'code-generation' | 'bug-detection' | 'refactoring' | 'test-generation' | 'documentation' | 'architecture-review'}
 type - Task;
 type;
@@ -27,7 +27,7 @@ type;
   string;
 }
 prompt - Task;
-prompt
+// prompt
  * @property {{code?, language?, framework?, testType?, fileType?}
 } [context] - Task context
  *
@@ -44,22 +44,22 @@ priority;
   Date;
 }
 [deadline] - Task;
-deadline
+// deadline
  * @property {any} [metadata] - Additional
-metadata
+// metadata
  */
 
  * @typedef {Object}
-Result
+// Result
  * @property {string}
 taskId - Task;
-ID
+// ID
  * @property {string}
 queenName - Queen;
-name
+// name
  * @property {string}
 recommendation - Recommended;
-solution
+// solution
  * @property {number}
 confidence - Confidence;
 score(0-1)
@@ -68,26 +68,26 @@ reasoning - Reasoning;
 for solution
  * @property {number} processingTime - Processing time in ms
  * @property {string[]} [alternatives] - Alternative
-solutions
+// solutions
  * @property {any} [metadata] - Additional
-metadata
+// metadata
  */
 
  * @typedef {Object}
-Consensus
+// Consensus
  * @property {string}
 taskId - Task;
-ID
+// ID
  * @property {string}
 decision - Consensus;
-decision
+// decision
  * @property {number}
 confidence - Confidence;
 score(0-1)
  * @property {number}
 participants - Number;
 of;
-participants
+// participants
  * @property {'majority' | 'weighted' | 'expert' | 'unanimous'}
 method - Consensus;
 method;
@@ -98,11 +98,11 @@ method;
   Result[]
 }
 [dissenting] - Dissenting;
-opinions
+// opinions
  * @property {number}
 processingTime - Processing;
 time in
-  ms
+// ms
  * @property {string};
 reasoning - Reasoning;
 for consensus
@@ -112,26 +112,26 @@ for consensus
  * @property {number} tasksProcessed - Number
 of;
 tasks;
-processed
+// processed
  * @property {number}
 averageConfidence - Average;
 confidence;
-score
+// score
  * @property {number}
 averageProcessingTime - Average;
 processing;
-time
+// time
  * @property {number}
 successRate - Success;
-rate
+// rate
  * @property {number}
 specialtyMatch - Specialty;
 match;
-rate
+// rate
  * @property {number}
 collaborations - Number;
 of;
-collaborations
+// collaborations
  * @property {number}
 consensusReached - Number;
 of;
@@ -139,10 +139,10 @@ consensus;
 reached * /;;
 
 // Export the JSDoc types as empty exports so they can be imported
-// export const Task = /** @type {Task} */ ({  })
-// export const Result = /** @type {Result} */ ({  })
-// export const Consensus = /** @type {Consensus} */ ({  })
-// export const QueenMetrics = /** @type {QueenMetrics} */ ({  })
+// export const Task = /** @type {Task} */ ({})
+// export const Result = /** @type {Result} */ ({})
+// export const Consensus = /** @type {Consensus} */ ({})
+// export const QueenMetrics = /** @type {QueenMetrics} */ ({})
 
 // export class BaseQueen extends EventEmitter {
 constructor(name = name;
@@ -419,8 +419,8 @@ reachConsensus(task, results, method);
     //   // LINT: unreachable code removed}
 
     async shutdown() { 
-        this.logger.info(`Shutting down $this.name}
-...`)
+        this.logger.info(`Shutting down $this.name}`
+...`)`
 `
         this.isActive = false;
 

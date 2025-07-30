@@ -28,7 +28,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
   //   }
 
   async initialize() 
-    try 
+// try
       console.warn(' Architect Advisor Plugin initializing...');
 
       // Create directories
@@ -100,7 +100,9 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       try {
         const _dirPath = path.join(process.cwd(), dir); // const _dirFiles = awaitthis.scanDirectory(dirPath); 
         files.push(...dirFiles) {;
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         // Directory doesn't exist, skip'
       //       }
     //     }
@@ -110,8 +112,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
 
   async scanDirectory(dirPath) { 
     const _files = [];
-
-    try 
+// try
 // const _entries = awaitreaddir(dirPath, {withFileTypes = path.join(dirPath, entry.name);
 
         // Skip excluded patterns
@@ -592,7 +593,7 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
   if(patternCounts.singleton > 3) {
       recommendations.push({ type = []; if(metrics.quality_score < 60) {
       recommendations.push({type = === 'high') {
-      recommendations.push({type = 'all', options = {  }) {
+      recommendations.push({type = 'all', options = {}) {
 // const _analysis = awaitthis.analyzeSystem(analysisType, options);
 // const _proposals = awaitthis.createADRProposals(analysis, options);
 
@@ -644,7 +645,9 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       try {
 // const _aiContext = awaitthis.aiProvider.generateText(;
           `Provide additional architectural context for thisissue = `**Architectural Implications**:\n\$aiContext.text\n\n`;`)
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         // AI analysis failed, continue with basic context
       //       }
     //     }
@@ -664,7 +667,9 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       try {
 // const _aiDecision = awaitthis.aiProvider.generateText(;
           `Provide a detailed architectural decision for addressing thisissue = `\n\n**Implementation Strategy**:\n\$aiDecision.text`;`)
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         // AI analysis failed, continue with basic decision
       //       }
     //     }
@@ -750,7 +755,9 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
       this.analysis_history = JSON.parse(data);
 
       console.warn(` Loaded \$this.analysis_history.lengthprevious analyses`);
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       // No existing history, start fresh
     //     }
 

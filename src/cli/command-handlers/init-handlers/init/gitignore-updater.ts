@@ -44,12 +44,12 @@ hive-mind-prompt-*
  * @param {boolean} dryRun - Whether to run in dry-run mode
  * @returns {Promise<{success,message = false, dryRun = false) {
  */
-const _gitignorePath = `;
+const _gitignorePath = `;`
 $;
 {
   workingDir;
 }
-`;
+`;`
 // ; // LINT: unreachable code removed
 try {
     const _gitignoreContent = '';
@@ -90,10 +90,10 @@ try {
 // // await writeTextFile(gitignorePath, newContent);
     //     }
 
-    // return {success = `;
+    // return {success = `;`
 $;
   workingDir;
-/.;`eggiinort;
+/.;`eggiinort;`
 // ; // LINT: unreachable code removed
 if(!existsSync(gitignorePath)) {
     // return true;

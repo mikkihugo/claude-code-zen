@@ -129,7 +129,9 @@ orchestrator: this.orchestrator.getSystemStatus(),
     console.warn(' Approval queued);'
     console.warn('\n MCP Bridge fully operational!');
     console.warn(' Connect Claude Desktop with);'
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) {
+  console.error(error);
+}
     console.error(' Failed to start MCP Bridge);'
     process.exit(1);
   //   }

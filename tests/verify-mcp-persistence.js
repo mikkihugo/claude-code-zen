@@ -16,7 +16,7 @@ blue: '\x1b[34m',
 reset: '\x1b[0m'
 // }
 function log() {
-  console.warn(`${colors[color]}
+  console.warn(`${colors[color]}`
 $;
 {
   message;
@@ -25,7 +25,7 @@ $;
 {
   colors.reset;
 }
-`);
+`);`
 // }
 async function runTest() {
   log(' MCP Persistence Verification', 'blue');
@@ -37,7 +37,7 @@ async function runTest() {
   testsTotal++;
   log('1 Checking if SQLite database exists...', 'yellow');
   if(fs.existsSync(dbPath)) {
-    log(`;
+    log(`;`
 Database;
 found;
 at;
@@ -48,10 +48,10 @@ Size: $;
 {
   fs.statSync(dbPath).size;
 }
-bytes`, 'green');
+bytes`, 'green');`
     testsPassed++;
   } else {
-    log(`;
+    log(`;`
 Database;
 not;
 found;
@@ -63,7 +63,7 @@ at;
   testsTotal++
 log('\n2 Testing memory_usage store operation...', 'yellow');
 try {
-    const _testKey = `;
+    const _testKey = `;`
 verify_test_$;
 {
   Date.now();
@@ -72,20 +72,20 @@ catch (error)
 {
   console.error(error);
 }
-`;
+`;`
     const _testValue = {
       test,
       timestamp: new Date().toISOString(),
       message: 'Testing MCP persistence for issue #312' };
     const _storeResult = execSync(;
-      `;
+      `;`
 npx;
 claude - zen;
 @alpha
 mcp;
 call;
 memory_usage;
-'{"action": "store", "key": "${testKey}", "value": ${JSON.stringify(JSON.stringify(testValue))}, "namespace": "verification"}'`,encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']
+'{"action": "store", "key": "${testKey}", "value": ${JSON.stringify(JSON.stringify(testValue))}, "namespace": "verification"}'`,encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']`
     );
     if(storeResult.includes('"success")  ?? storeResult.includes('"stored")) {
       log(' Store operation succeeded', 'green');
@@ -94,7 +94,7 @@ memory_usage;
       fs.writeFileSync('.test-key', testKey);
     } else {
       log(' Store operation failed', 'red');
-      log(`;
+      log(`;`
 Response;
 )
 `
@@ -102,7 +102,7 @@ Response;
 // }
 catch(error)
 // {
-  log(`;
+  log(`;`
 Store;
 operation;
 error;
@@ -115,7 +115,7 @@ log('\n3 Testing memory_usage retrieve operation...', 'yellow');
 try {
     const _testKey = fs.existsSync('.test-key');
       ? fs.readFileSync('.test-key', 'utf8');
-      : `;
+      : `;`
 verify_test_;
 \$Date.now()`
 const _retrieveResult = execSync(;
@@ -127,7 +127,7 @@ testsPassed++;
 {
   console.error(error);
 }
-else
+// else
   log(' Retrieve operation failed - data not found', 'red');
   log(`   Response);`
 catch(error)

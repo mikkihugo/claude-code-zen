@@ -286,7 +286,7 @@ handleEnhancedInput(key, currentView)
 /** Refresh analysis data;
 
   async refreshAnalysisData() { 
-    try 
+// try
 // const _report = awaitthis.toolFramework.executeTool('performance_report', {timeframe = this.viewData.get('analysis');
       data.lastUpdate = new Date();
     } catch(error) {

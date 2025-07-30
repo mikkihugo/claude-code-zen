@@ -169,9 +169,9 @@ vision,
 // {
   directory,
   git_enabled,
-  auto_commit
+// auto_commit
   swarm_id,
-  coordination_enabled
+// coordination_enabled
 // }
 
 // const _devSessionResponse = awaitserviceClients.development.post(;
@@ -354,11 +354,11 @@ expect(workflowResponse2.data.data.steps_completed).toBe(4)
 // Stage 6: Advanced quality assurance
 console.warn(' Stage 6)'
 // const _qaResponse = awaitserviceClients.development.post(;
-`/api/quality-assurance/$
+`/api/quality-assurance/$`
 {
   testSessionId;
 }
-/,-;`ccehknrsu;
+/,-;`ccehknrsu;`
 // {
 check_types: ['unit_tests', 'integration_tests', 'security_scan', 'performance_test'],
   test_pass_rate,
@@ -371,14 +371,14 @@ expect(qaResponse.data.data.overall_quality_score).toBeGreaterThan(85)
 // Stage 7: Performance benchmarking
 console.warn(' Stage 7)'
 // const _perfResponse = awaitserviceClients.development.post(;
-`/api/performance-testing/$
+`/api/performance-testing/$`
 {
   testSessionId;
 }
-/,;`nru;
+/,;`nru;`
 // {
 scenarios: [
-  ;
+
             { name: 'dashboard_load', concurrent_users, duration: '1m' },
             { name: 'api_stress', requests_per_second, duration: '30s' },,
 ];
@@ -389,11 +389,11 @@ expect(perfResponse.data.data.benchmark_comparison.meets_targets).toBe(true)
 // Stage 8: Final validation and completion
 console.warn(' Stage 8)'
 // const _completionResponse = awaitserviceClients.core.patch(;
-`/api/workflows/$
+`/api/workflows/$`
 {
   testWorkflowId;
 }
-`,
+`,`
 // {
   status: 'completed',
   current_stage: WORKFLOW_STAGES.COMPLETED,
@@ -407,7 +407,7 @@ const _totalDuration = Date.now() - startTime;
 const _expectedMaxDuration =;
 performanceBenchmarks.medium_workflow.max_duration_minutes * 60 * 1000;
 expect(totalDuration).toBeLessThan(expectedMaxDuration);
-console.warn(`;
+console.warn(`;`
 Medium;
 complexity;
 workflow;
@@ -415,7 +415,7 @@ completed in $;
 {
   totalDuration;
 }
-ms`);
+ms`);`
 }, 1200000) // 20 minute timeout for complex workflow
 })
 describe('Service Communication and Event Flow', () =>
@@ -455,21 +455,21 @@ monitorEvents('business', `/api/events?entity_id=$`
 // }/g))
 `
 ),`
-monitorEvents('core', ` 
-  api 
-  events 
-  workflow 
-  $
+monitorEvents('core', ` `
+// api
+// events
+// workflow
+// $
 // {
-testWorkflowId
+// testWorkflowId
 // }
 `),`;
 monitorEvents(
   'swarm',
-  ` 
-  api 
-  events 
-  swarm 
+  ` `
+// api
+// events
+// swarm
   $;
 // {
   testSwarmId;
@@ -484,7 +484,7 @@ expect(eventLog.some((e) => e.event_type === 'swarm.initialized')).toBe(true);
 console.warn(;
 )
 ' Events captured) => `;'`
-$
+// $
 // {
 e.service
 // }
@@ -492,8 +492,8 @@ e.service
 // {
   e.event_type
 // }
-`)
-`;
+`)`
+`;`
 // )
 })
 it('should handle cross-service coordination requests', async() =>
@@ -578,17 +578,17 @@ type: 'vision_to_code',
   // // await new Promise((resolve) => setTimeout(resolve, 65000)); // 65 seconds
 
 // Check workflow status
-// const _statusResponse = awaitserviceClients.core.get(` /
+// const _statusResponse = awaitserviceClients.core.get(` /`
   `
-  api 
-  workflows 
-  $
+// api
+// workflows
+// $
 // {
 testWorkflowId;
 // }/g)
-`;
+`;`
 )
-`;
+`;`
 expect(statusResponse.status).toBe(200);
 expect(statusResponse.data.data.status).toMatch(/timeout|failed|cancelled/);
 }, 70000) // 70 second timeout for this test
@@ -600,8 +600,8 @@ describe('Performance and Scalability', () =>
   const _concurrentWorkflows = 5;
   const _workflowPromises = [];
   for (let i = 0; i < concurrentWorkflows; i++) {
-    const _visionId = `;
-`;
+    const _visionId = `;`
+`;`
     concurrent_vision_$;
     // {
     i;
@@ -610,10 +610,10 @@ describe('Performance and Scalability', () =>
     // {
     Date.now();
     // }
-    `;
-`;
-    const _workflowId = `;
-`;
+    `;`
+`;`
+    const _workflowId = `;`
+`;`
     concurrent_workflow_$;
     // {
     i;
@@ -622,8 +622,8 @@ describe('Performance and Scalability', () =>
     // {
     Date.now();
     // }
-    `;
-`;
+    `;`
+`;`
     const _workflowPromise = async () => {
       // Create vision
       // await serviceClients.business.post('/api/visions', { ...mockVisions.simple,
@@ -650,17 +650,16 @@ describe('Performance and Scalability', () =>
       expect(totalTime).toBeLessThan(10000); // Under 10 seconds for initialization
 
       console.warn(;
-      `;
-`;
+      `;`
+`;`
       \$
 // {
-  successfulWorkflows
+// successfulWorkflows
       // }
       //  \$\$5;TW`;
 accccccddeeeeeeffiikklllmmnnnnnooooooorrrrrrssssttttuuuwww;
-{
-}
-`/g)
+{}
+`/g)`
       // )
       // Cleanup concurrent workflows
       const _cleanupPromises = results;
@@ -668,14 +667,12 @@ accccccddeeeeeeffiikklllmmnnnnnooooooorrrrrrssssttttuuuwww;
       map((r) => r.value);
       map(async(visionId, workflowId ) =>
       // await serviceClients.core.delete(`/api/workflows/\
-$workflowId`).catch(() =>
-      // {
-    };
+$workflowId`).catch(() =>`
+      // {};
     )
     // // await serviceClients.business.delete(`/api/visions/\
-$visionId`).catch(() =>
-    // {
-  }
+$visionId`).catch(() =>`
+    // {}
   )
   // )
   // // await Promise.all(cleanupPromises)
@@ -717,7 +714,7 @@ while (Date.now() - startTime < loadTestDuration) {
     expect(responseTimes.length).toBeGreaterThan(50); // Completed at least 50 requests
 
     console.warn(
-      `;
+      `;`
 Load;
 test:
 \$responseTimes.lengthrequests, avg: \$averageResponseTimems, p95: \$p95ResponseTimems`

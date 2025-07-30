@@ -181,7 +181,7 @@ for(const [punchId, punch] of this.holePunches.entries()) {
       punch.completed = new Date();
 
       // Register result in registry
-// // // await this.registry.register(`hole-punch = 'error';'`
+// // // await this.registry.register(`hole-punch = 'error';'`'
       punch.error = error.message;
       // return false;
     //   // LINT: unreachable code removed}

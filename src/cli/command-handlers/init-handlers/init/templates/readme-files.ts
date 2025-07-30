@@ -14,14 +14,14 @@ This directory stores agent-specific memory data, configurations, and persistent
 Each agent gets its own subdirectory for isolated memory storage: null
 \`\`\`;`
 memory/agents/;
- agent_001
+// agent_001
     state.json           # Agent state and configuration;
     knowledge.md         # Agent-specific knowledge base;
     tasks.json          # Completed and active tasks;
     calibration.json    # Agent-specific calibrations;
- agent_002
+// agent_002
     ...;
- shared
+// shared
      common_knowledge.md  # Shared knowledge across agents;
      global_config.json  # Global agent configurations;
 \`\`\`
@@ -48,14 +48,14 @@ Sessions are organized by date and session ID for easy retrieval: null
 \`\`\`;`
 memory/sessions/;
  2024-01-10
-    session_001
+// session_001
        metadata.json        # Session metadata and configuration;
        conversation.md      # Full conversation history;
        decisions.md         # Key decisions and rationale;
        artifacts/           # Generated files and outputs;
        coordination_state/  # Coordination system snapshots;
     ...;
- shared
+// shared
      patterns.md              # Common session patterns;
      templates/               # Session template files;
 \`\`\`

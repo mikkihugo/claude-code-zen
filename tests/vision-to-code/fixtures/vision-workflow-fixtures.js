@@ -144,10 +144,10 @@ notification_preferences: ['email', 'slack']
         capabilities: ['figma', 'responsive_design', 'accessibility'],
         priority: 'medium' } ],
 // {
-  topology
+// topology
   : 'hierarchical',
   queen_agent,
-  max_parallel_tasks
+// max_parallel_tasks
   // }
 }
 ,
@@ -245,13 +245,13 @@ type: 'qa_engineer', capabilities;
   max_duration_minutes,
   expected_duration_minutes,
   max_memory_mb,
-  max_cpu_percent
+// max_cpu_percent
 // }
 // {
   max_duration_minutes,
   expected_duration_minutes,
   max_memory_mb,
-  max_cpu_percent
+// max_cpu_percent
 // }// }
 // Error scenarios for resilience testing
 // export const errorScenarios = {
@@ -298,8 +298,7 @@ error: (error, code = 'INTERNAL_ERROR') => (
   timestamp: new Date().toISOString(),
 
 requestId: uuidv4()
-{
-}
+{}
 // }
 ),
 partial: (data, warnings = []) => (
@@ -309,8 +308,7 @@ partial: (data, warnings = []) => (
   warnings,
   timestamp: new Date().toISOString(),
   requestId: uuidv4()
-{
-}
+{}
 })
 // }
 // Test helper functions

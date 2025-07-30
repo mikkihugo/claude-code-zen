@@ -97,7 +97,7 @@ learnFromDiscovery(data);
 
     // Store discovery pattern
 // // // await this.storeMemory({ type = nanoid();
-    const _memory = {id = {  }) {
+    const _memory = {id = {}) {
     const _memories = Array.from(this.memoryBank.values());
     const _relevantMemories = [];
   for(const memory of memories) {

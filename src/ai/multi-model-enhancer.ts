@@ -1,4 +1,4 @@
-* multi-model-enhancer.js - Enhances vision analysis
+ */
 using multiple;
 AI;
 models;

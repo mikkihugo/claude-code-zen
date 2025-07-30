@@ -33,7 +33,7 @@ class SwarmCoordinator {
   `
 
     // Create swarm directory
-    const
+// const
   _swarmDir = `./swarm-runs/${this.id}`;
   // // await fs.mkdir(swarmDir, { recursive = {id = {id = 'completed';/g))
   taskObj;
@@ -42,21 +42,21 @@ class SwarmCoordinator {
 
   console;
   .
-  warn(`   Task completed in ${(_taskObj._endTime - taskObj._startTime)
+  warn(`   Task completed in ${(_taskObj._endTime - taskObj._startTime)`
   / 1000
 }
-s`);
+s`);`
 
     // return taskObj;
     //   // LINT: unreachable code removed}
 
   async createAPIProject() { 
-    console.warn(`;
+    console.warn(`;`
 Creating;
 API;
 project;
 structure;
-...`)
+...`)`
 
 const _projectDir = '.';
 // // await fs.mkdir(projectDir, recursive = `import express from 'express';`/g)

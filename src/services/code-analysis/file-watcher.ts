@@ -101,7 +101,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
         //       }
       }
       catch(error) 
-      console.error(` Error processing file change $
+      console.error(` Error processing file change $`
         filePath;
       )
       `
@@ -221,11 +221,11 @@ export class CodeAnalysisWatcher extends EventEmitter {
     getStatus();
     // return {isWatching = [filePaths];
     // ; // LINT: unreachable code removed
-    console.warn(`;
+    console.warn(`;`
       Manually;
       triggering;
       analysis;
-      for ${filePaths.length} files...`);
+      for ${filePaths.length} files...`);`
       for (const filePath of filePaths) {
         if (this.shouldAnalyzeFile(filePath)) {
           // // await this.analyzeChangedFile(filePath);

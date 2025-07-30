@@ -58,8 +58,7 @@ threadId: 'server-thread'   }
 )
 // Setup global event forwarding
 this.setupGlobalEventForwarding()
-{
-}
+{}
 // }
 
 /** Setup global event forwarding;
@@ -218,7 +217,9 @@ timestamp: Date.now() })
   if(ws.readyState === WebSocket.OPEN) {
     try {
         ws.send(JSON.stringify(event));
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         console.error('Failed to send message to client);'
       //       }
   //   }
@@ -248,7 +249,9 @@ timestamp: Date.now() })
   if(ws.readyState === WebSocket.OPEN) {
       try {
           ws.send(message);
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           console.error('Failed to broadcast to client);'
         //         }
     //     }

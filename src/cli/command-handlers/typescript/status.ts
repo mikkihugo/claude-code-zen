@@ -51,7 +51,7 @@ for (const entries of Object.values(data)) {
   // return 0;
   // }
   // }
-  async
+// async
   function getResourceUsage(logger = // await import('node);'
   // {
   try {
@@ -59,7 +59,7 @@ for (const entries of Object.values(data)) {
   } catch (error) {
     console.error(error);
   }
-  catch
+// catch
   {
     logger.warn('OS module unavailable, returning fallback resource info');
     // return {memory = os.totalmem(); // LINT: unreachable code removed

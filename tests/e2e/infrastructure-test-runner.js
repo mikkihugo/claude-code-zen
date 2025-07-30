@@ -101,7 +101,7 @@ startMockService(config);
   })
       //       )
     //     }
-    else
+// else
         res.writeHead(404,)
       ('Content-Type')
     : 'application'
@@ -287,7 +287,7 @@ createCoreEndpoints();
 
 /** Stop all mock services;
 
-// async stopMockServices() { }
+// async stopMockServices() {}
 
   logger.info(' Stopping mock services...');
   for(const [name, server] of this.servers) {
@@ -352,14 +352,14 @@ catch(error)
 
 /** Test Kuzu database integration;
 
-// async testKuzuIntegration() { }
+// async testKuzuIntegration() {}
 
   this.logger.info(' Testing Kuzu database integration...');
   try {
       // Create unique test directory
       const _testDbDir = path.join(process.cwd(), `test-kuzu-${Date.now()} catch (error) { console.error(error); }`);
       const _kuzu = new KuzuGraphInterface({ dbPath,
-        useRealKuzu
+// useRealKuzu
   })
   // Test initialization
 // const _initResult = awaitkuzu.initialize();
@@ -378,7 +378,7 @@ catch(error)
       throw new Error('Query returned no results');
       //   // LINT: unreachable code removed}
     //     }
-    else
+// else
         this.logger.warn(' Kuzu running in simulation mode')
     this.testResults.kuzu = passed, mode: 'simulation'
   // // await kuzu.close() {}
@@ -454,7 +454,7 @@ testServiceCommunication();
           ` Service communication test passed(${successfulAuths}/${authResults.length} services)`;
         );
       //       }
-  else
+// else
   throw new Error(`Only ${successfulAuths}/${authResults.length} services responding`);
 // }
 catch(error)
@@ -478,7 +478,7 @@ testServiceAuth(serviceName, serviceUrl)
       method);
   : 'application/json' ,
   body: JSON.stringify({ service_name: `test_\$`
-    serviceName
+// serviceName
   `,`)
   permissions: ['read'])
   })
@@ -525,7 +525,7 @@ testEndToEndIntegration();
           totalSteps: integrationSteps.length };
         this.logger.info(' End-to-end integration test passed');
       //       }
-  else
+// else
   throw new Error(`;`
   Only;
   \$;
@@ -573,7 +573,7 @@ generateRecommendations();
     action: 'Install Kuzu database and verify connection strings')
   })
 // }
-else
+// else
   if(this.testResults.kuzu.mode === 'simulation') {
   recommendations.push({ priority: 'MEDIUM',
   component: 'Kuzu Database',

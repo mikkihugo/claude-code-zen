@@ -1,8 +1,6 @@
-*
-@fileoverview
-Neural - enhanced;
-commands;
-using ruv;
+/**
+ * @fileoverview Neural - enhanced; commands; using ruv;
+ */
 -FANN;
 integration;
 
@@ -139,7 +137,7 @@ try {
     else if(metrics.averageInferenceTime < 1000) rating = ' Good';'
     else if(metrics.averageInferenceTime < 2000) rating = ' Fair';'
 
-    console.warn(`   PerformanceRating = args[0]  ?? '.';'`
+    console.warn(`   PerformanceRating = args[0]  ?? '.';'`'
   console.warn(chalk.blue(`Analyzing = // await initializeSwarm({topology = args[0];`
 ))))
   if(!filePath) {
@@ -147,7 +145,7 @@ try {
     console.warn(chalk.cyan('Usage = // await import('fs/promises');'
 // const __code = awaitfs.readFile(filePath, 'utf8');'
 
-    const __analysisPrompt = `Analyze this code for improvements, bugs, andoptimizations = // await neuralEngine.inference(analysisPrompt, {model = === 'ENOENT') {'`
+    const __analysisPrompt = `Analyze this code for improvements, bugs, andoptimizations = // await neuralEngine.inference(analysisPrompt, {model = === 'ENOENT') {'`'
       console.error(chalk.red(' File notfound = args[0];'
 ))
   if(!filePath) {
@@ -158,7 +156,7 @@ try {
     const _optimizePrompt = `Optimize this _code for better performance, readability, andmaintainability = // await neuralEngine.inference(optimizePrompt, {model = filePath.replace(/(\.[^.]+)\$/, '.optimized\$1');'`
       // Extract optimized code from result and save
       console.warn();
-      console.warn(chalk.yellow(` Optimized version would be savedto = === 'ENOENT') {'`
+      console.warn(chalk.yellow(` Optimized version would be savedto = === 'ENOENT') {'`'
       console.error(chalk.red(' File not found), filePath);'
     }  catch (error) console.error(error); else 
       console.error(chalk.red(' Optimization failed), error.message);'

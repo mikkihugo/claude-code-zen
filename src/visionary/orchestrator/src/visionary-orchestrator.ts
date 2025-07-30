@@ -25,8 +25,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
     initialize();
     console.warn(' Initializing Visionary Software Intelligence Orchestrator...');
     '
-
-    try
+// try
     // Initialize core services
     // // // await this._initializeAnalysisService();
     // // // await this._initializePatternService();
@@ -49,7 +48,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
       `
 
     try {
-      console.warn(`;
+      console.warn(`;`
       Starting;
       Software;
       Intelligence;
@@ -97,7 +96,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
     initialized: this.isInitialized,
       // activeJobs: this.activeJobs.size, // LINT: unreachable code removed
       capabilities;
-    : 
+
         codeAnalysis: this.options.enableCodeAnalysis,
         patternRecognition: this.options.enablePatternRecognition,
         intelligentRefactoring: this.options.enableIntelligentRefactoring

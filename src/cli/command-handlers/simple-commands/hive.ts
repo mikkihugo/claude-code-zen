@@ -5,8 +5,7 @@
 export async function hiveCommand(args = (args  ?? [])
 join(' ')
 .trim()
-{
-}
+{}
 if(!objective ?? flags.help ?? flags.h) {
   showHiveHelp();
   return;

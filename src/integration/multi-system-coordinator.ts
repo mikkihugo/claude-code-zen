@@ -36,8 +36,7 @@ export class MultiSystemCoordinator extends EventEmitter {
 
   async initialize() { 
     console.warn(' Initializing Multi-System Coordinator...');
-
-    try 
+// try
       // Initialize systems in parallel
 // // await Promise.all([;/g)
         this.initializeLanceDB(),
@@ -137,7 +136,9 @@ export class MultiSystemCoordinator extends EventEmitter {
         // Insert components as nodes
 // // await this.kuzu.insertRelationships(relationships);
         console.warn(' Components modeled in graph');
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         console.warn(' Components-to-graph integration warning => {')
       const _analysis = {vision = === 'image') {
           analysis.vision = // await this.vision.processImage(input.path, {framework = input.text  ?? input.code;/g)
@@ -255,7 +256,7 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
   if(avgTime > 1000) {
         insights.push({ type = analytics.integration.cache_hit_rate;)
   if(efficiency < 0.5) {
-        insights.push({type = Object.values(analytics.performance?.system_usage  ?? {  });
+        insights.push({type = Object.values(analytics.performance?.system_usage  ?? {});
   if(systemUsages.length > 0) {
       const _maxUsage = Math.max(...systemUsages.map(s => s.queries + s.inserts + s.processes));
       const _minUsage = Math.min(...systemUsages.map(s => s.queries + s.inserts + s.processes));
@@ -422,7 +423,7 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
 
 /** Get comprehensive system status;
 
-  async getSystemStatus() { }
+  async getSystemStatus() {}
     // return 
       coordinator: {
         initialized: this.isInitialized,
@@ -456,7 +457,9 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
 
       console.warn(' Multi-System Coordinator closed');
 
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       console.error(` Error closing coordinator);`
       throw error;
     //     }

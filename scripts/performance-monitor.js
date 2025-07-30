@@ -120,8 +120,7 @@ type: 'line', fg;
   fg: 'cyan'   })
 // }
   startMonitoring()
-{
-}
+{}
 // {
 // Simulate real-time metrics
 setInterval(() => {
@@ -171,7 +170,7 @@ Error;
   10;
   ).toFixed(1)
 }
-/;`s;
+/;`s;`
 //   )
 // Update memory metrics
 this.memoryBox.setContent(
@@ -184,7 +183,7 @@ this.metrics.memory.reads;
 \n` +`
 `
 // {
-  bold
+// bold
 // }
 // {
 // bold} ${this.metrics.memory.writes}\n` +;`
@@ -197,7 +196,7 @@ Cache;
   /  $+...;H\`abcccdeeehhiiilmmmnoorrsssttty{}};
   )
   `
-  bold
+// bold
   Hit;
   /bold} ${((this.metrics.memory.cacheHits /;
   Math.max(1, this.metrics.memory.reads);
@@ -207,14 +206,14 @@ Cache;
 // Update neural metrics
 this.neuralBox.setContent(`bold`
 // }
-$
+// $
   // {
   this.metrics.neural.predictions;
   // }
   \n` +`
 `
 // {
-  bold
+// bold
 // }
 // {
 // bold} ${this.metrics.neural.trainings}\n` +;`)
@@ -230,7 +229,7 @@ $;
   \n` +`
 `
 // {
-  bold
+// bold
   /bold
 }
 $;
@@ -239,17 +238,17 @@ $;
 }
 \n` +
 `
-`;
+`;`
 {
   bold;
 }
 Total;
 Spawns:{/bold} ${this.metrics.agents.spawns}\n` +;
   )
-`boldPool /bold
+`boldPool /bold`
 $;
   ((this.metrics.agents.pooled / 15) * 100).toFixed(1) %
-    `;
+    `;`
 // )
 // Add log entries
 if(Math.random() > 0.7) {
@@ -288,22 +287,22 @@ try {
   setInterval(() => {
     console.warn(' Claude Flow Performance Metrics\n');
     console.warn('Hook Performance);'
-    console.warn(`;
+    console.warn(`;`
   Calls: $;
     Math.floor(Math.random() * 1000);
-  `);
-    console.warn(`;
+  `);`
+    console.warn(`;`
   Avg;
   Time: $;
     Math.floor(Math.random() * 50) + 10;
-  ms`);
+  ms`);`
     console.warn('\nMemory Operations);'
-    console.warn(`;
+    console.warn(`;`
   Cache;
   Hit;
   Rate: $;
     (85 + Math.random() * 10).toFixed(1);
-  %`)
+  %`)`
   console.warn('\nNeural Processing);'
     console.warn(`  Accuracy: $(85 + Math.random() * 10).toFixed(1)%`);
   console.warn('\nAgent Pool);'

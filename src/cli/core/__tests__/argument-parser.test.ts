@@ -75,7 +75,7 @@ toThrow('Insufficient arguments. Usage => {'
       expect(result.command).toBe(null);
       expect(result.subcommand).toBe(null);
       expect(result.args).toEqual([]);
-      expect(result.flags).toEqual({  });
+      expect(result.flags).toEqual({});
     });
 
       it('should handle only command', () => {'
@@ -97,8 +97,8 @@ toThrow('Insufficient arguments. Usage => {'
         let _normalized = normalizeFlags(flags);
 
         expect(normalized).toEqual({ maxAgents => {)
-      const _normalized = normalizeFlags({  });
-        expect(normalized).toEqual({  });
+      const _normalized = normalizeFlags({});
+        expect(normalized).toEqual({});
       });
     });
 
@@ -112,10 +112,10 @@ toThrow('Insufficient arguments. Usage => {'
     //   // LINT: unreachable code removed  });
 
       it('should throw error for missing flag', () => '
-        expect(() => validator.requireString('missingFlag')).toThrow(ValidationError);');
+        expect(() => validator.requireString('missingFlag')).toThrow(ValidationError);');'
 
       it('should throw error for empty string', () => '
-        expect(() => validator.requireString('emptyFlag')).toThrow(ValidationError);');
+        expect(() => validator.requireString('emptyFlag')).toThrow(ValidationError);');'
     });
 
     describe('requireNumber', () => {'
@@ -124,7 +124,7 @@ toThrow('Insufficient arguments. Usage => {'
     //   // LINT: unreachable code removed});
 
       it('should throw error for invalid number', () => '
-        expect(() => validator.requireNumber('stringFlag')).toThrow(ValidationError);'););
+        expect(() => validator.requireNumber('stringFlag')).toThrow(ValidationError);'););'
 
     describe('requireOneOf', () => '
       it('should return valid option', () => '
@@ -139,11 +139,11 @@ toThrow('Insufficient arguments. Usage => {'
     describe('getter methods', () => {'
       it('should get string flag with default', () => '
         expect(validator.getStringFlag('stringFlag')).toBe('test');'
-        expect(validator.getStringFlag('missingFlag', 'default')).toBe('default');');
+        expect(validator.getStringFlag('missingFlag', 'default')).toBe('default');');'
 
       it('should get boolean flag', () => '
         expect(validator.getBooleanFlag('booleanFlag')).toBe(true);'
-        expect(validator.getBooleanFlag('missingFlag')).toBe(false);');
+        expect(validator.getBooleanFlag('missingFlag')).toBe(false);');'
 
       it('should get number flag with default', () => {'
         expect(validator.getNumberFlag('numberFlag')).toBe(42);'

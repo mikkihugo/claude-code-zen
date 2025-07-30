@@ -1,8 +1,6 @@
-*
-@fileoverview
-MCP;
-Message;
-Handler;
+/**
+ * @fileoverview MCP; Message; Handler;
+ */
 
 /** Handles MCP protocol message routing and processing
  * @module MCPMessageHandler
@@ -75,7 +73,7 @@ catch(error)
     console.error(`[$new Date().toISOString()`
   ] INFO [MCP-Handler] Listing $
   resources.length
-  available
+// available
   resources`)`
   // return {jsonrpc = params;
   // ; // LINT: unreachable code removed

@@ -29,7 +29,7 @@ this.metrics = {
 
 console.warn('CHECK Ultimate Unified Architecture initialized successfully!');
 '
-      console.warn(`CHARTStats = new MemoryBackendPlugin(
+      console.warn(`CHARTStats = new MemoryBackendPlugin(`
 {backend = new ClaudeZenNativeSwarm({`
       // Use our unified memory backendmemoryBackend = [/g)))
       {name = pluginConfigs.map(async(config) => {
@@ -79,7 +79,7 @@ console.warn('CHECK Ultimate Unified Architecture initialized successfully!');
     console.warn(`CHECK Established $this.crossPluginConnectionscross-plugin connections`);`
   //   }
   setupUnifiedEventCoordination() 
-    console.warn('SATELLITE Setting up Unified Event Coordination...');'catch(error)
+    console.warn('SATELLITE Setting up Unified Event Coordination...');'catch(error)'
 // {
   console.warn(`Plugin $pluginNamefailed to handle event $eventType);`
 // }

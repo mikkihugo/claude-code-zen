@@ -646,8 +646,7 @@ normalizeJestResults(results);
 
   async collectCoverageData(framework) { 
     const _coverageDir = path.join(this.config.outputDir, 'coverage', framework);
-
-    try 
+// try
       // Look for coverage summary
       const _summaryPath = path.join(coverageDir, 'coverage-summary.json');
       const _summary = JSON.parse(// await readFile(summaryPath, 'utf8'));

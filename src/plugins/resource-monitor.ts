@@ -39,7 +39,7 @@ this.performanceObserver = new PerformanceObserver((list) => {
 // }
 , 300000) // Every 5 minutes
 // }
-// private // async collectMetrics() { }
+// private // async collectMetrics() {}
 : Promise<void>
 
   for(const [pluginName, pluginData] of this.plugins) {

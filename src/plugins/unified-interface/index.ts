@@ -77,13 +77,13 @@ this.context.apis.logger.info('Unified Interface Plugin initialized', {
       this.context.apis.logger.info('Session started', {sessionId = === 'true') {
 // // await this.cleanup();
 // }
-else
+// else
 // {
   this.context.apis.logger.info('Unified server staying alive for external access');
 // }
 // }
-protected
-// async onDestroy() { }
+// protected
+// async onDestroy() {}
 : Promise<void>
 
 // // await this.cleanup();
@@ -202,7 +202,7 @@ showCliPrompt((questions = 'info'));
 
   console.warn(boxen(content, {padding = () => {
       const [activeTab, setActiveTab] = useState('dashboard');
-      const [data, setData] = useState<JSONObject>({  });
+      const [data, setData] = useState<JSONObject>({});
       const [status, setStatus] = useState('Ready');
 
       // Handle keyboard input
@@ -471,7 +471,7 @@ createWebStyles();
     //     }
 
     async loadData() { 
-        try 
+// try
             const [plugins, stats] = await Promise.all([;)
                 fetch('/api/plugins').then(r => r.json()),
                 fetch('/api/stats').then(r => r.json());
@@ -534,7 +534,9 @@ setupWebRoutes(app => {
         try {
           const _message = JSON.parse(data.toString());
           this.handleWebSocketMessage(websocket, message);
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           this.context.apis.logger.error('Invalid WebSocket message', error);
         //         }
       });
@@ -576,7 +578,9 @@ setupWebRoutes(app => {
         try {
           process.kill(pid, 0); // Signal 0 just checks if process exists
           // return true;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
           // Process not running, remove stale PID file
 // // await this.removePidFile();
           // return false;
@@ -592,7 +596,9 @@ setupWebRoutes(app => {
     try {
 // const _pidContent = awaitreadFile(this.config.settings.pidFile, 'utf8');
       // return parseInt(pidContent.trim());
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       // return null;
     //   // LINT: unreachable code removed}
   //   }

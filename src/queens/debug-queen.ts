@@ -70,7 +70,7 @@ export class DebugQueen extends BaseQueen {
         report += `**Summary = `- $issues.lengthcatch (error) console.error(error); issues found\n`;`
         report += `- $securityIssues.lengthsecurity vulnerabilities\n`;`
         report += `- $performanceIssues.lengthperformance concerns\n`;`)`
-        report += `- RiskScore = [...issues, ...securityIssues].filter(i => i.severity === 'critical') {;'`
+        report += `- RiskScore = [...issues, ...securityIssues].filter(i => i.severity === 'critical') {;'`'
   if(criticalIssues.length > 0) {
             report += ' **CriticalIssues = `- \$issue.description\n`;`'`
   if(issue.fix) {

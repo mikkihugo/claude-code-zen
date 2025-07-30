@@ -38,8 +38,7 @@ export class SecurityAuthPlugin {
   //   }
   //   )
   // API Key Authenticator
-  this
-
+// this
   authenticators;
   set('apikey', {type = []) {
 

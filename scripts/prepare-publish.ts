@@ -207,7 +207,7 @@ function checkPublishFiles() {
       console.warn(`    \$`
       file.path(\$))
       (file.size / 1024).toFixed(1)
-    KB
+// KB
     )`)`
     //     )
     console.warn(`\n   Total files)`
@@ -257,7 +257,9 @@ async function _main(): Promise<void> {
     checkPublishFiles();
     // Display next steps
     displayNextSteps(version);
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) {
+  console.error(error);
+}
     const _errorMessage = error instanceof Error ? error.message : String(error);
     console.error(' Publication preparation failed);'
     process.exit(1);

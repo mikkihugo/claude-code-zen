@@ -20,14 +20,13 @@ export class ExportSystemPlugin {
     // Generate HTML content
 // const _htmlContent = awaitthis.renderTemplate(template, data, 'html');
 // // await page.setContent(htmlContent, {waitUntil = // await page.pdf({/g))
-            format = {  } catch (error) console.error(error); ) {
+            format = {} catch (error) console.error(error); ) {
         // return this.renderTemplate(template, data, 'html');
     //   // LINT: unreachable code removed}
   //   }
   //   )
   // JSON Exporter
-  this
-
+// this
   exporters;
 set('json',
 // {

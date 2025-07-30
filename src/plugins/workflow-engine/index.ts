@@ -99,7 +99,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
     //   // LINT: unreachable code removed}
 
   async loadPersistedWorkflows() { 
-    try 
+// try
 // const _files = awaitreaddir(this.config.persistencePath);
       const _workflowFiles = files.filter(f => f.endsWith('.workflow.json'));
   for(const file of workflowFiles) {

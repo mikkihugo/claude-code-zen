@@ -49,8 +49,8 @@ initializeSwarm((topology = 'hierarchical'), (maxAgents = 8));
     this.
   ui;
   .
-  addLog('error', `Failed to initializeswarm = === 'true';
-  `)
+  addLog('error', `Failed to initializeswarm = === 'true';`
+  `)`
 }
 catch(/* err */)
 {

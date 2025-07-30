@@ -181,7 +181,7 @@ try {
   // private async executeWithRetry(tool = null;
     const _maxRetries = context.maxRetries  ?? this.config.maxRetries;
   for(const attempt = 1; attempt <= maxRetries; attempt++) { 
-      try 
+// try
         // Check if execution was aborted
   if(signal.aborted) {
           throw new Error('Execution aborted');

@@ -49,23 +49,17 @@ this;
 
 logger = options.logger ?? logger.createChild('executor');
 '
-  this
-
+// this
   config = options.config ?? configManager
-  this
-
+// this
   timeout = options.timeout ?? 30000
-  this
-
+// this
   retries = options.retries ?? 0
-  this
-
+// this
   onCommandStart = options.onCommandStart
-  this
-
+// this
   onCommandComplete = options.onCommandComplete
-  this
-
+// this
   onCommandError = options.onCommandError
 // }
 
@@ -77,8 +71,8 @@ logger = options.logger ?? logger.createChild('executor');
  * @returns Promise resolving to command result
  */
     // */ // LINT: unreachable code removed
-public
-async
+// public
+// async
 executeCommand(commandName, (subArgs = []), (flags = {}), (context = {}));
 : Promise<any>
 // {

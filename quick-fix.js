@@ -10,7 +10,7 @@ console.warn(' QUICK FIX);'
 // Get all JS/TS files except node_modules, ruv-FANN, bin
 const _files = glob.sync('**/*.{js,ts}', {
   ignore: [
-    ;
+
     'node_modules/**', */
     'ruv-FANN/**', */
     'bin/**', */
@@ -123,7 +123,9 @@ console.warn('\n Quick status check...');
 try {
   const _result = execSync('npm run lint 2>&1 | tail -10', { encoding);
   console.warn(result);
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) {
+  console.error(error);
+}
   const _output = error.stdout  ?? error.message;
   const _errorMatch = output.match(/(\d+)\s+errors?/);
   const _warningMatch = output.match(/(\d+)\s+warnings?/);

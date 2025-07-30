@@ -11,7 +11,7 @@ Object.entries(CLAUDE_ZEN_SCHEMA).forEach(([cmdName, cmdConfig]) => {
     const _httpMethod = method.toLowerCase();
     console.warn(`Testing: ${method} ${endpoint} ($, { cmdName })`);
     try {
-      app[httpMethod](endpoint, (_req, res) => res.json({  } catch (error) { console.error(error); }));
+      app[httpMethod](endpoint, (_req, res) => res.json({} catch (error) { console.error(error); }));
       console.warn(' OK');
     } catch(error) 
       console.warn(' ERROR);'

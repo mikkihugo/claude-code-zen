@@ -43,7 +43,7 @@ class MCPClientExample {
   //   // LINT: unreachable code removed}
   // Helper method to call MCP tools
   async callTool(toolName, params = {}) 
-    try 
+// try
       console.warn(` Calling tool`);
 // const _result = awaitthis.mcpServer.executeToolCall({ name: true,
         arguments)
@@ -95,7 +95,7 @@ agentSpawnExample();
 console.warn(' All agents spawned successfully')
 // }
 // Task orchestration example
-// async taskOrchestrateExample() { }
+// async taskOrchestrateExample() {}
 
   console.warn('\n === Task Orchestration Example ===');
 // const _result = awaitthis.callTool('task_orchestrate', {
@@ -127,7 +127,7 @@ console.warn('Detailed Status:', detailedStatus)
 console.warn('Agent Metrics:', agentMetrics)
 // }
 // Memory operations example
-// async memoryOperationsExample() { }
+// async memoryOperationsExample() {}
 
   console.warn('\n === Memory Operations Example ===');
   // Store project context
@@ -168,7 +168,7 @@ namespace: 'project')
 console.warn('All project memories:', memories)
 // }
 // Memory search example
-// async memorySearchExample() { }
+// async memorySearchExample() {}
 
   console.warn('\n === Memory Search Example ===');
   // Search for optimization-related memories
@@ -192,7 +192,7 @@ console.warn('Task memories:', taskResults)
 console.warn('Memory analytics:', analytics)
 // }
 // Performance analysis example
-// async performanceAnalysisExample() { }
+// async performanceAnalysisExample() {}
 
   console.warn('\n === Performance Analysis Example ===');
   // Generate performance report
@@ -209,7 +209,7 @@ metrics: ['response-time', 'throughput', 'error-rate'])
 console.warn('Bottleneck Analysis:', bottleneckAnalysis)
 // }
 // System diagnostics example
-// async systemDiagnosticsExample() { }
+// async systemDiagnosticsExample() {}
 
   console.warn('\n === System Diagnostics Example ===');
   // Health check
@@ -230,7 +230,7 @@ console.warn('Security Scan:', securityScan)
 console.warn('Feature Detection:', features)
 // }
 // Complete workflow example
-// async completeWorkflowExample() { }
+// async completeWorkflowExample() {}
 
   console.warn('\n === Complete Workflow Example ===');
   try {
@@ -256,7 +256,9 @@ console.warn('Feature Detection:', features)
       console.warn('Step 7');
   // // await this.systemDiagnosticsExample();
       console.warn('\n Complete workflow example finished successfully');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       console.error(' Workflow error);'
       throw error;
 // }

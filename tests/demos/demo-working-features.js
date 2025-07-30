@@ -46,7 +46,7 @@ console.warn(' SQLite demo completed\n');
   console.error(' SQLite demo failed);'
 // }
 // }
-async
+// async
 function demoQueenCoordinator() {
   console.warn(' 2. Queen Coordinator Demo');
   console.warn('=============================\n');
@@ -81,7 +81,7 @@ console.warn(' Queen coordinator demo completed\n');
   console.error(' Queen coordinator demo failed);'
 // }
 // }
-async
+// async
 function demoStubFeatures() {
   console.warn(' 3. Stub Features(Pending Implementation)');
   console.warn('=============================================\n');
@@ -103,7 +103,7 @@ catch(error)
   console.error(' Stub features demo failed);'
 // }
 // }
-async
+// async
 function showGapSummary() {
   console.warn(' 4. Feature Status Summary');
   console.warn('============================\n');

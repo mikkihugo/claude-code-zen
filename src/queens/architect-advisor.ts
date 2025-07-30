@@ -19,7 +19,7 @@ export class ArchitectAdvisor extends BaseQueen {
 /** Initialize neural engine and models
 
     async initialize() { 
-        try 
+// try
 // // await this.neuralEngine.initialize();
             // Load architecture-specific model if available
             const _models = this.neuralEngine.getModels();
@@ -89,7 +89,7 @@ export class ArchitectAdvisor extends BaseQueen {
 map(([key, value]) => `$key: $value`);`
 join(', ');'
 
-        // return `Analyze architecture for = architecture = ['microservices', 'monolith', 'serverless', 'event-driven', 'layered'];'`
+        // return `Analyze architecture for = architecture = ['microservices', 'monolith', 'serverless', 'event-driven', 'layered'];'`'
     // for (const pattern of patterns) { // LINT: unreachable code removed
             if(neuralText.toLowerCase().includes(pattern)) {
                 recommendation.architecture = pattern; break; //             }

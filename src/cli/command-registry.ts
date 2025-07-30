@@ -60,7 +60,7 @@ this.commands.delete(name); this.logger.debug(`Unregisteredcommand = this.comman
       throw new InvalidArgumentError(;
         `Validationfailed = > e.message).join(', ');`
 }`,`
-name
+// name
 // )
 // }
 // Execute command with error handling
@@ -153,7 +153,7 @@ const _commandRouter = null; // Legacy router for backward compatibility
   // Handle legacy context format
   const __commandContext = context as CommandContext;
 // }
-else
+// else
 // {
   commandContext = {
       command,args = // await getCommandRegistry();

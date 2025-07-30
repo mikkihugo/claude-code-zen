@@ -1,8 +1,6 @@
-*
-@fileoverview
-Enhanced;
-error;
-handling;
+/**
+ * @fileoverview Enhanced; error; handling;
+ */
 for MCP server
 /** Provides retry logic, circuit breaker patterns, and error recovery
  * @module ErrorHandler
@@ -52,7 +50,9 @@ constructor((options = {}));
         this.onOperationSuccess();
         // return result;
     // ; // LINT: unreachable code removed
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         _lastError = error;
         this.recordError(error, context);
 
@@ -64,7 +64,7 @@ constructor((options = {}));
 
         // Calculate retry delay with exponential backoff
         const _delay = this.calculateRetryDelay(attempt);
-        console.error(`[$new Date().toISOString()] WARN [ErrorHandler] Attempt $attemptfailed, retrying in $delayms = === 'HALF_OPEN') ;'`
+        console.error(`[$new Date().toISOString()] WARN [ErrorHandler] Attempt $attemptfailed, retrying in $delayms = === 'HALF_OPEN') ;'`'
       this.circuitState = 'CLOSED';'
       this.failureCount = 0;
       console.error(`[${new Date().toISOString()}] INFO [ErrorHandler] Circuit breaker CLOSED after successful operation`);`
@@ -197,7 +197,9 @@ constructor((options = {}));
       const _jsonMatches = buffer.match(/\{[^{} catch (error) { console.error(error); }]*\}/g)  ?? []
   for(const match of jsonMatches) {
         try {
-          const _message = JSON.parse(match); recovered.push(message); } catch (error) { console.error(error); } catch(error) {
+          const _message = JSON.parse(match); recovered.push(message); } catch (error) {
+  console.error(error);
+}
           // Skip invalid JSON
         //         }
       //       }

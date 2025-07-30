@@ -182,7 +182,7 @@ measureOperation(name, operation);
   })
 // }
 // }
-// async benchmarkIndexPerformance() { }
+// async benchmarkIndexPerformance() {}
 
   console.warn('\n Benchmarking Index Performance...');
 // const _storeWithIndexes = awaitthis.createStore('with-indexes');
@@ -220,7 +220,7 @@ measureOperation(name, operation);
     //     }
   }); // }
 // }
-// async benchmarkCacheEffectiveness() { }
+// async benchmarkCacheEffectiveness() {}
 
   console.warn('\n Benchmarking Cache Effectiveness...');
 // const _store = awaitthis.createStore('cache-test', {

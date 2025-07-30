@@ -1,5 +1,4 @@
-* ruv-swarm NPM Library Integration
-
+ */
 /** Import as library for high-performance coordination
 /** NO CLI commands - pure programmatic usage
 
@@ -53,7 +52,7 @@ async function ensureRuvSwarmLoaded() {
 
   printInfo(` Restoring persistenthive = // await ruvSwarm.createSwarm({ `
       name,)
-      maxAgents = {  }) {
+      maxAgents = {}) {
   if(!isAvailable) {
     throw new Error('ruv-swarm library not available - installwith = 'hierarchical','
     maxAgents = 8,

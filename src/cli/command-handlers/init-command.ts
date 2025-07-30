@@ -54,7 +54,7 @@ try {
     const _shouldOverwrite = flags.force  ?? !(// // await fs.access(settingsPath).then(() => true).catch(() => false));
   if(shouldOverwrite) {
 // // // await fs.writeFile(settingsPath, JSON.stringify(basicSettings, null, 2));
-      printSuccess(`  Createdsettings = path.join(targetDir, 'CLAUDE.md');'`
+      printSuccess(`  Createdsettings = path.join(targetDir, 'CLAUDE.md');'`'
     const _basicClaudeMd = `# Claude Zen Project`
 
 This project is configured for Claude Code integration with ruv-swarm coordination.

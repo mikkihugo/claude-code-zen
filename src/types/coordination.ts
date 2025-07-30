@@ -242,8 +242,8 @@ export type CoordinationPattern = 'centralized';
 //     delivery: 'healthy' | 'degraded' | 'failed';
 //     persistence: 'healthy' | 'degraded' | 'failed';
 //   };
-  issues
-recommendations
+// issues
+// recommendations
 // lastCheck: Date
 // }
 // export // interface ProtocolConstraint {

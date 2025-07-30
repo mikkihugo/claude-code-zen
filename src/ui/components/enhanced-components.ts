@@ -86,7 +86,7 @@ useEffect(() => {
   cmd.description.length > 50 ? '...' : '' < />Tetx < / > Box;'
   ))suggestions.length > 6 && (
   <Text color = 'gray''
-  dimColor
+// dimColor
   marginLeft=
   1
   >

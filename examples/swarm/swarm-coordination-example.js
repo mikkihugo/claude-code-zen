@@ -50,7 +50,7 @@ class SwarmCoordinationExample extends EventEmitter {
     topology: 'hierarchical',
     strategy: 'specialized',
     maxAgents: true,
-    queens
+// queens
 // }
   // Create hierarchical swarm
   const;
@@ -126,7 +126,7 @@ meshResilienceExample();
   topology: 'mesh',
   strategy: 'balanced',
   maxAgents: true,
-  faultTolerance
+// faultTolerance
 // }
 // const _swarm = awaitthis.createSwarm(swarmConfig);
 // Create mesh of redundant agents
@@ -154,7 +154,7 @@ redundancyLevel: true,
 // {
   maxFailures: true,
   retryStrategy: 'exponential-backoff',
-  failoverTime
+// failoverTime
 // }// }
 // Simulate failures during processing
 setTimeout(() => this.simulateAgentFailure(swarm.id, 'MeshProcessor-5'), 2000)
@@ -172,7 +172,7 @@ pipelineProcessingExample();
       id: 'pipeline-swarm-003',
   topology: 'ring',
   strategy: 'sequential',
-  maxAgents
+// maxAgents
 // }
 // const _swarm = awaitthis.createSwarm(swarmConfig);
 // Create pipeline stages
@@ -480,7 +480,7 @@ orchestrateMultiSwarmTask(task);
 })
 // }
 // Run all examples
-// async runAllExamples() { }
+// async runAllExamples() {}
 
   console.warn('\n Running all swarm coordination examples...');
   try {
@@ -490,7 +490,9 @@ orchestrateMultiSwarmTask(task);
   // // await this.dynamicLoadBalancingExample();
   // // await this.multiSwarmCoordinationExample();
       console.warn('\n All swarm coordination examples completed successfully');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       console.error(' Swarm coordination example failed);'
 // }
 // }

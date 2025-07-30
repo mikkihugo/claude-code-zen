@@ -51,11 +51,11 @@ export async function copyRevisedTemplates(targetDir = {}) {
               //           }
             }
             catch(/* err */) 
-          results.errors.push(`Failed to copy $
+          results.errors.push(`Failed to copy $`
               entry.name;
             )
-            `catch(/* err */) 
-  results.errors.push(`;
+            `catch(/* err */) `
+  results.errors.push(`;`
             Failed;
             to;
             read;
@@ -91,13 +91,13 @@ export async function copyRevisedTemplates(targetDir = {}) {
   if(missingCategories.length > 0) {
     // return {
       valid,
-    // error: `;
+    // error: `;`
             Missing;
             required;
             template;
             categories:
             \$
-              missingCategories.join(', '); // LINT}`;
+              missingCategories.join(', '); // LINT}`;`
             //   }
 
             // return { valid};

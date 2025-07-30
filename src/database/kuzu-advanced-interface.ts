@@ -306,7 +306,7 @@ computeClosenessCentrality((nodeType = 10), (dampingFactor = 0.85))
     });
 
     // Convert to array format
-    // return Array.from(communities.values()).map((_members, _index) => ({ id = {  }): Promise<QueryResult> {
+    // return Array.from(communities.values()).map((_members, _index) => ({ id = {}): Promise<QueryResult> {
     const {
       limit = 100,
     // filters = { // LINT: unreachable code removed},
@@ -437,7 +437,7 @@ computeClosenessCentrality((nodeType = 10), (dampingFactor = 0.85))
 
     // Alert on performance degradation
   if(avgTime > this.performanceMetrics.avgExecutionTime * 2) {
-      console.warn(' Performance Alert = {  }): Promise<{generated_at = true,'
+      console.warn(' Performance Alert = {}): Promise<{generated_at = true,'
       includeCentrality = true,
       includeCommunities = true,
       includePerformance = true;
@@ -523,7 +523,7 @@ console.warn(' Optimization completed');
 
 /** Enhanced close method;
 
-// async close() { }
+// async close() {}
 : Promise<void>
 
   console.warn(' Closing advanced Kuzu interface...');
@@ -594,7 +594,7 @@ analyzePatternMetrics(data, pattern)
   complexity_score: this.calculateQueryComplexity(pattern);
 // }
 // }
-// private // async generateGraphAnalytics() { }
+// private // async generateGraphAnalytics() {}
 : Promise<
 
   // connectivity: unknown
@@ -609,7 +609,7 @@ analyzePatternMetrics(data, pattern)
   paths: // await this.analyzePathLengths();
 // }
 // }
-// private // async analyzeConnectivity() { }
+// private // async analyzeConnectivity() {}
 : Promise<
 
   // density: number
@@ -625,7 +625,7 @@ analyzePatternMetrics(data, pattern)
   // diameter, // LINT: unreachable code removed
 // }
 // }
-// private // async analyzeClusteringCoefficient() { }
+// private // async analyzeClusteringCoefficient() {}
 : Promise<
 
   // global: number
@@ -639,7 +639,7 @@ analyzePatternMetrics(data, pattern)
   // average_local: 0.25; // LINT: unreachable code removed
 // }
 // }
-// private // async analyzePathLengths() { }
+// private // async analyzePathLengths() {}
 : Promise<
 
   // average_shortest_path: number

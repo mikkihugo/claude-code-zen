@@ -32,7 +32,7 @@ substitution in GitHub;
 CLI;
 operations ** Features;
 Added**
-:
+
 - Safe handling of special characters(\`, \$, ", newlines);
 - Temporary file approach
 for complex content;
@@ -40,10 +40,9 @@ for complex content;
 sanitization;
 -Repository;
 name;
-validation
-
+// validation
 **Usage**
-:
+
 \`\`\`javascript
 
 // Import GitHub CLI safety utilities
@@ -101,5 +100,5 @@ All changes are backward compatible: null
 - 00dd0094: Dynamic agent loading system
 
 Your Claude Flow project is now protected against hanging processes and common injection vulnerabilities! ;
-`;
+`;`
 export default criticalFixesTemplate;

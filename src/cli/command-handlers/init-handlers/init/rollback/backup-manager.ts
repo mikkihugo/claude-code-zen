@@ -262,7 +262,9 @@ createBackup((type = 'manual'), (description = ''));
   createTestBackup();
   try {
     // return await this.createBackup('test', 'System validation test');
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
     // return {
         success = {adequate = new Command('df', {args = // await command.output();
     // ; // LINT: unreachable code removed

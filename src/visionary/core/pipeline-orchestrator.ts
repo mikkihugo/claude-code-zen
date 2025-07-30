@@ -161,7 +161,7 @@ initialize();
 : Promise<
 // {
   // status: string
-  capabilities
+// capabilities
 // }
 >
 // {
@@ -445,7 +445,9 @@ readCodeData(codeFiles)
 // // await this.analyticsReporter.close();
       this.isInitialized = false;
       console.warn(' Pipeline Orchestrator closed');'
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       console.error(` Error closing Pipeline Orchestrator);`
       throw error;
     //     }

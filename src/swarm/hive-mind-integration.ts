@@ -22,7 +22,7 @@ this.setupEventHandlers() {}
 
 /** Initialize the hive-mind integration;
 
-// async initialize() { }
+// async initialize() {}
  */
 : Promise<void>
 
@@ -188,7 +188,9 @@ const _session = {id = this.activeSessions.get(sessionId);
         patternsCount = {facts = {patterns = setInterval(async() => {
       try {
 // await this.performPeriodicSync();
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         this.logger.error('Error during periodic sync', error);
       //       }
     }, this.config.syncInterval);

@@ -161,8 +161,8 @@ initialize(registry, (options = {}));
   //   }
 
   async updatePortStatus(port, status) { 
-    try 
-// // await this.registry.update(`port = 'dynamic', protocol = 'tcp') {'`
+// try
+// // await this.registry.update(`port = 'dynamic', protocol = 'tcp') {'`'
     const _portRange = this.portRanges[range]  ?? this.portRanges.dynamic;
   for(let attempt = 0; attempt < 100; attempt++) {
       const _port = Math.floor(Math.random() * (portRange.max - portRange.min + 1)) + portRange.min

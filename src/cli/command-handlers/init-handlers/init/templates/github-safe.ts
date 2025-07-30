@@ -74,5 +74,5 @@ arg === '--body' ? \`--body-file=\${tempFile} catch (error) { console.error(erro
 // }
 
 module.exports = GitHubSafe;
-`;
+`;`
 export default githubSafeTemplate;

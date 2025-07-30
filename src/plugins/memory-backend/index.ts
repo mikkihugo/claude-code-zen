@@ -64,7 +64,7 @@ if(result && result !== this.storage) {
   //   }
   // Fallback to regular search
 // const _results = awaitthis.storage?.search(embedding.toString(), options.namespace ?? 'default');
-  // return Object.entries(results).map(([_key, _value], _index) => ({ id = {  }): Promise<any> {
+  // return Object.entries(results).map(([_key, _value], _index) => ({ id = {}): Promise<any> {
 // // await this.ensureInitialized();
   // // Delegate to graph query if available // LINT: unreachable code removed
   if(this.storage?.graphQuery) {

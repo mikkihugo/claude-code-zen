@@ -82,7 +82,7 @@ catch(error)
   this.emit('loadError', error);
   '
     //     }
-async
+// async
   performArchitecturalAnalysis()
   try {
 // const _analysis = awaitthis.analyzeCurrentArchitecture();

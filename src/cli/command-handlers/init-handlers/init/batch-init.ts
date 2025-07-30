@@ -84,7 +84,7 @@ updateDisplay();
 
   async withResource(fn) { 
 // await this.acquire();
-    try 
+// try
       // return await fn();
     //   // LINT: unreachable code removed} finally {
       this.release();
@@ -210,14 +210,14 @@ join('\n');
     for (const [_filePath, content] of Object.entries(templateConfig.extraFiles)) {
       const _fileContent = typeof content === 'object' ? JSON.stringify(content, null, 2) ; // Replace template variables
       fileContent = fileContent; replace(
-          PROJECT_NAME
+// PROJECT_NAME
 //  (() {),..;Paaaaabcceeeeeghhjlmnoppprrsttt / { {PROJECT_DESCRIPTION };
     //     }
 
     templateConfig.description;
     //     )
 replace(
-          ENVIRONMENT
+// ENVIRONMENT
 //  ),eegimnnnortv;
     fileCreationTasks.push(fs.writeFile(filePath, fileContent, 'utf8'));
   //   }

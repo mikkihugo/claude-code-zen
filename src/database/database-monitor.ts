@@ -51,8 +51,7 @@ this.config = {checkInterval = = false,enableTrends = = false,enablePredictiveAn
 // }
 // Listen to database manager events
 this.setupEventListeners();
-{
-}
+{}
 // }
 
 /** Start monitoring

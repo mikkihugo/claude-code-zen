@@ -1,8 +1,6 @@
-*
-@fileoverview
-Command;
-Router;
-/** Clean, simplified command routing with validation and error handling
+/**
+ * @fileoverview Command; Router; /** Clean, simplified command routing with validation and error handling
+ */
  * @module CommandRouter
 
 /** Command router class for handling CLI command dispatch

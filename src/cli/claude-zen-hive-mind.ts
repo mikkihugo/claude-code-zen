@@ -150,7 +150,9 @@ async function main() {
     try {
 // // await globalHiveMind.cleanup();
       printSuccess(' Hive-Mind shutdown complete');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
   printError(` Cleanup failed => {`
   if(globalHiveMind) {
 // // await globalHiveMind.cleanup();

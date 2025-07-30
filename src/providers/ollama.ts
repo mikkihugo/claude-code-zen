@@ -67,7 +67,9 @@ getModels();
   try {
 // // await this.loadAvailableModels();
     // return [...this.availableModels];
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
     // Return cached models if API call fails
     // return [...this.availableModels];
     //   // LINT: unreachable code removed}
@@ -107,7 +109,7 @@ getModels();
 // }
 // return response.json();
 // }
-// private // async createErrorFromResponse(response = await response.text() { }
+// private // async createErrorFromResponse(response = await response.text() {}
 if(response.status === 404) 
   // return new ProviderError('Ollama service not found', this.name, 'SERVICE_NOT_FOUND', 404);
 // }

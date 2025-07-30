@@ -79,8 +79,7 @@ ${
 if [ -f "${devBinPath}" ]; then;
   cd "\${PROJECT_DIR}";
   exec "${devBinPath}" "$@";
-fi
-
+// fi
 `;`
     : '';
 }# 1. Local node_modules(npm install claude-zen);

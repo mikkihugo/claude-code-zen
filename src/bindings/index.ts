@@ -1,4 +1,4 @@
-* ruv-FANN Node.js bindings
+ */
 with automatic WASM
 fallback;
 

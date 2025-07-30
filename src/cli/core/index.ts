@@ -71,14 +71,12 @@ createTempFile,
 // type DirectoryEntry
 
 type DirectoryListingOptions
-
-ensureDirectoryExists
+// ensureDirectoryExists
 ,
 // type FileEncoding
 
 type FileStats
-
-getFileSize
+// getFileSize
 ,
 getFileStats,
 isDirectory,
@@ -100,8 +98,7 @@ writeJsonFile  } from '.'
 // type CommandInfo
 
 type HelpInfo
-
-type
+// type
 HelpOption;
 
 HelpSystem,

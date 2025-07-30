@@ -148,7 +148,7 @@ replace(/\/+/g, '/'),
 replace(/[-_\s]+(.)?/g, (_, char) => (char ? char.toUpperCase() : ''))
 replace(/^(.)/, (_, char) => char.toLowerCase()),
         kebabCase: (_str) =>
-        str
+// str
 replace(/([a-z])([A-Z])/g, '$1-$2')
 replace(/[\s_]+/g, '-')
 toLowerCase(),
@@ -241,7 +241,7 @@ reduce(;
       // Empty validation
       expect(validator.isEmpty('')).toBe(true);
       expect(validator.isEmpty([])).toBe(true);
-      expect(validator.isEmpty({  })).toBe(true);
+      expect(validator.isEmpty({})).toBe(true);
       expect(validator.isEmpty(null)).toBe(true);
       expect(validator.isEmpty('hello')).toBe(false);
       // Schema validation

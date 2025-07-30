@@ -98,7 +98,7 @@ class UpstreamSyncChecker {
       security,
       performance,
       breaking,
-      other
+// other
 // }
     recentCommits.forEach((commit) => {
       const _lower = commit.toLowerCase();
@@ -243,7 +243,7 @@ class UpstreamSyncChecker {
       recommendations.push({ icon: '',
       message: 'Fully synced! Monitor for new upstream changes.')
   })
-    else
+// else
   if(commitsBehind <= 5) {
       recommendations.push({ icon: '',
       message: 'Good sync status. Continue weekly monitoring.')

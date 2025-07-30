@@ -67,10 +67,10 @@ class GitHubAPIClient {
 // const _data = awaitresponse.json();
   if(!response.ok) {
         throw new Error(`GitHub API error = {} catch (error) { console.error(error); }) {`
-    let _params = new URLSearchParams({ sort = {  }) {
-    const _params = new URLSearchParams({ state = {  }) {
-    const _params = new URLSearchParams({ state = {  }) {
-    const _params = new URLSearchParams({ per_page = 'main', inputs = {  }) {
+    let _params = new URLSearchParams({ sort = {}) {
+    const _params = new URLSearchParams({ state = {}) {
+    const _params = new URLSearchParams({ state = {}) {
+    const _params = new URLSearchParams({ per_page = 'main', inputs = {}) {
     // return // await this.request(;/g)
         method = {}) {
     const _params = new URLSearchParams({per_page = JSON.parse(payload);

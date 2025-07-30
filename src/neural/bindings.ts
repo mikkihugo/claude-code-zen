@@ -96,7 +96,9 @@ if(this.loadAttempted) {
                         this.logger.info(`WASM bindings loadedfrom = error instanceof Error ? error.message => {`
                 try {)
 //                     return binding.loadModel(path);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
                     const __errorMessage = error instanceof Error ? error.message => {
 //                 return binding.unloadModel(modelName);
     //   // LINT: unreachable code removed} ,
@@ -104,15 +106,21 @@ if(this.loadAttempted) {
             inference = ): Promise<string> => ;
                 try {
 //                     return binding.inference(prompt, options);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
                     const __errorMessage = error instanceof Error ? error.message => {
                 try {
 //                     return binding.listModels()  ?? [];
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
                     const __errorMessage = error instanceof Error ? error.message => {
                 try {
 //                     return binding.isModelLoaded(modelName);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
 //                     return false;
     //   // LINT: unreachable code removed}
             },
@@ -149,20 +157,28 @@ if(this.loadAttempted) {
     // private wrapWasmBindings(wasmModule => {
                 try {
 //                     return wasmModule.load_model(path);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
                     const __errorMessage = error instanceof Error ? error.message = {}): Promise<string> => ;
                 try {
 //                     return wasmModule.inference(prompt, JSON.stringify(options));
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
                     const __errorMessage = error instanceof Error ? error.message => {
                 try {
                     const _result = wasmModule.list_models();
 //                     return JSON.parse(result);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
                     const __errorMessage = error instanceof Error ? error.message => {
                 try {
 //                     return wasmModule.is_model_loaded(modelName);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
 //                     return false;
     //   // LINT: unreachable code removed}
             //             }

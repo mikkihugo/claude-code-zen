@@ -34,9 +34,9 @@ async;
   catch(error);
   console;
   .
-  error(`Failed to fetch hive details;
+  error(`Failed to fetch hive details;`
   `
-  for
+// for
   $;
   {
   hiveName;
@@ -45,15 +45,14 @@ async;
   )
 // return null;
 // }
-
-async
+// async
 executeCommand(command, (args = []), (flags = {}));
 
 try {
 // const __response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error); }/${command}`, {method = new ApiClient();`
 
 const __SingularityAlpha = () => {
-  const [_hives, setHives] = useState({  });
+  const [_hives, setHives] = useState({});
   const [_selectedHive, setSelectedHive] = useState(null);
   const [currentView, setCurrentView] = useState('hives'); // 'hives', 'details', 'command', 'create', 'directory''
   const [_selectedHiveName, setSelectedHiveName] = useState(null);
@@ -173,7 +172,7 @@ const __SingularityAlpha = () => {
     currentView === 'details' && selectedHive && React.createElement(HiveDetails, hive = === 'create' && React.createElement(Box, borderStyle = === 'directory' && React.createElement(DirectorySelector,'
       _currentPath => ;)))
         setSelectedDirectory(_dir);
-        setCommandResult({ success = > setCurrentView('hives');'),
+        setCommandResult({ success = > setCurrentView('hives');'),'
     React.createElement(Box, borderStyle: "single", paddingX,"
       React.createElement(Text, color: "gray" ,"))"
         `View: $currentView| Services: $Object.keys(hives).length| API: Connected`;`

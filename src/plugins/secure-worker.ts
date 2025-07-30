@@ -174,8 +174,7 @@ class SecureEnvironment {
 
     const _controller = new AbortController();
     const _timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-
-    try 
+// try
 // const _response = awaitfetch(url, {
 ..options,
         signal => {
@@ -237,7 +236,7 @@ parentPort.on('message', async(message) => {
       `;`
         "use strict";
   return(function() {
-          $pluginCode
+// $pluginCode
          catch (error) console.error(error); })();
     // `; // LINT: unreachable code removed`
     );

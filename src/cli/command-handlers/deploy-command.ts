@@ -21,17 +21,17 @@ const __regions = args.find((arg) => arg.includes('--regions'));
 '
     : '3''
   //   }
-  `)
+  `)`
 `
           console.warn(
-`;
-`;
+`;`
+`;`
 )
   Regions = ')[1] : '
 '
   us - east - 1, us - west - 2, eu - west - 1
-'}`;
-)`'
+'}`;'
+)`'`
   console.warn(`   ReplicationFactor = ')[1] : '2'}`);`'`
   console.warn('   LoadBalancer = args[1];')
 if(scalingAction === 'configure') {'

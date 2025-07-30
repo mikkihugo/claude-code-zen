@@ -147,7 +147,7 @@ export // interface DSPyConfig {
         sqliteStore,
         lanceDB,
         kuzuDB,
-        neuralEngine
+// neuralEngine
       );
 // // await this.integrationManager.initialize();
       // Setup event listeners
@@ -176,7 +176,9 @@ export // interface DSPyConfig {
         name);
 
       this.context.apis.logger.info(' DSPy Swarm Coordination Initialized');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       this.context.apis.logger.warn(' Swarm coordination unavailable, using single-threaded DSPy');
     //     }
   //   }
@@ -189,7 +191,9 @@ export // interface DSPyConfig {
     try {
       this.neuralEngine = // await this.context.apis.getNeuralEngine?.();
       this.context.apis.logger.info(' DSPy Neural Integration Activated');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       this.context.apis.logger.warn(' Neural engine unavailable, using standard DSPy');
     //     }
   //   }
@@ -499,7 +503,7 @@ export // interface DSPyConfig {
 
   // private async optimizePrompt(
     program,
-    dataset
+// dataset
   ): Promise<Record<string, unknown>> {
     // Implement prompt optimization logic
 // const variations = awaitthis.generatePromptVariations(program.prompt, dataset);
@@ -651,7 +655,7 @@ export // interface DSPyConfig {
 
   async getOptimizationRecommendations(
     programId,
-    dataset
+// dataset
   ): Promise<Record<string, unknown>> {
     const program = this.programs.get(programId);
   if(!program) {

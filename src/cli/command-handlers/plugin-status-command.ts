@@ -51,7 +51,7 @@ export async function pluginStatusCommand(args = [], flags = {}) {
     }
     //       }
   }
-  else
+// else
   {
     console.warn(' Use --verbose for detailed plugin information');
     //     }

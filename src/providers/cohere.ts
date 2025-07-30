@@ -58,7 +58,7 @@ try {
   throw this.handleError(error);
 // }
 // }
-// async getModels() { }
+// async getModels() {}
 : Promise<string[]>
 
   try {

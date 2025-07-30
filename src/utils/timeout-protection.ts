@@ -55,8 +55,6 @@ try {
 } catch (error) {
   console.error(error);
 }
-catch(error)
-{
   const _errorMessage = error instanceof Error ? error.message = {}
   ): Promise<RuvSwarmHookResult>
   try {
@@ -82,7 +80,9 @@ catch(error)
         2000,
         'database connection cleanup';
       );
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       const __errorMessage = error instanceof Error ? error.message = === 'function') ;
         store.forceClose();
     //     }

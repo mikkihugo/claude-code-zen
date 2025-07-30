@@ -86,8 +86,7 @@ class MockMemoryStore {
   }
             )
   // Service document manager endpoints
-  app
-
+// app
             post('/service-documents/create', _async(_req, _res)
   =>
             // {
@@ -247,7 +246,7 @@ app.get('/status', async(_req, res) =>
               res.status(500).json({ success, error);
               )
 // Start server
-async
+// async
               function startServer() {
                 try {
     console.warn(' Starting Claude-Flow HTTP MCP Server...\n');

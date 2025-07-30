@@ -165,7 +165,9 @@ map((row) => row.name);
   indexes.forEach((sql) => {
     try {
       db.exec(sql);
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       console.warn(`Warning = db;`
 prepare(;
       `;`
@@ -191,7 +193,9 @@ get();
       try {
         db.exec('ALTER TABLE tasks ADD COLUMN priority INTEGER DEFAULT 5');
         console.warn('Added missing priority column to tasks table');
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         if(;
 // ! error.message.includes('duplicate column') &&;
 // ! error.message.includes('no such table');
@@ -212,7 +216,9 @@ get();
       try {
         db.exec('ALTER TABLE tasks ADD COLUMN completed_at DATETIME');
         console.warn('Added missing completed_at column to tasks table');
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         if(;
 // ! error.message.includes('duplicate column') &&;
 // ! error.message.includes('no such table');
@@ -233,7 +239,9 @@ get();
       try {
         db.exec('ALTER TABLE tasks ADD COLUMN result TEXT');
         console.warn('Added missing result column to tasks table');
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         if(;
 // ! error.message.includes('duplicate column') &&;
 // ! error.message.includes('no such table');
@@ -256,7 +264,9 @@ get();
       try {
         db.exec('ALTER TABLE swarms ADD COLUMN updated_at DATETIME');
         console.warn('Added missing updated_at column to swarms table');
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         if(;
 // ! error.message.includes('duplicate column') &&;
 // ! error.message.includes('no such table');
@@ -318,7 +328,7 @@ map((_row) => row.name);
   NEW.agent_id,
         COALESCE((SELECT tasks_completed FROM agent_performance WHERE agent_id = NEW.agent_id), 0
   ) +
-  CASE
+// CASE
   WHEN;
   NEW.status = 'completed';
   THEN;
@@ -328,7 +338,7 @@ map((_row) => row.name);
   END,
         COALESCE((SELECT tasks_failed FROM agent_performance WHERE agent_id = NEW.agent_id), 0
   ) +
-  CASE
+// CASE
   WHEN;
   NEW.status = 'failed';
   THEN;
@@ -337,7 +347,7 @@ map((_row) => row.name);
   0;
   END;
   )
-  END
+// END
   `);`;
   // }
 
@@ -370,7 +380,9 @@ get();
         ADD COLUMN access_count INTEGER DEFAULT 0;)
       `);`
       console.warn('Added access_count column to collective_memory table');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -392,7 +404,9 @@ get();
         ADD COLUMN accessed_at DATETIME;)
       `);`
       console.warn('Added accessed_at column to collective_memory table');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -413,7 +427,9 @@ get();
         ALTER TABLE collective_memory ;
         ADD COLUMN compressed INTEGER DEFAULT 0;)
       `);`
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -433,7 +449,9 @@ get();
         ALTER TABLE collective_memory ;
         ADD COLUMN size INTEGER DEFAULT 0;)
       `);`
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -500,7 +518,7 @@ run(cutoffDate.toISOString());
 
           console.warn(chalk.green(` Removed ${result.changes}  catch (error) { console.error(error); }old memory entries`));
         } catch(/* _error */ ) 
-          console.warn(chalk.yellow(` Could not clean memoryentries = 'Archiving completed tasks...'
+          console.warn(chalk.yellow(` Could not clean memoryentries = 'Archiving completed tasks...'`
   `
 
       // Create archive table if not exists
@@ -508,44 +526,44 @@ run(cutoffDate.toISOString());
   `
         CREATE TABLE IF NOT EXISTS tasks_archive AS ;
         SELECT * FROM tasks WHERE 1=0)))
-      `;
+      `;`
   )
   `
 
   // Check if completed_at column exists
   const _hasCompletedAt = db;
   prepare(;
-  `;
-  `;
+  `;`
+  `;`
   SELECT;
   COUNT(*) as count
   FROM;
   pragma_table_info('tasks');
   WHERE;
   name = 'completed_at';
-  `;
+  `;`
   )
-  `;
+  `;`
   get();
 
   const _archived = {changes = new Date();
   archiveCutoff.setDate(archiveCutoff.getDate() - (options.taskRetentionDays ?? 7));
 
-  db.exec(`;
+  db.exec(`;`
   `
           INSERT INTO tasks_archive ;
   SELECT * FROM;
   tasks;
   )
           WHERE status = 'completed' AND completed_at < '${archiveCutoff.toISOString()}'
-  `;
+  `;`
   )
-  `;
+  `;`
 
   archived = db;
   prepare(;
-  `;
-  `;
+  `;`
+  `;`
   DELETE;
   FROM;
   tasks;
@@ -553,39 +571,39 @@ run(cutoffDate.toISOString());
   status = 'completed';
   AND;
   completed_at < ?;
-  `;
+  `;`
   )
-  `;
+  `;`
   run(archiveCutoff.toISOString());
 }
-else
+// else
 {
         // Use created_at as fallback
         const _archiveCutoff = new Date();
         archiveCutoff.setDate(archiveCutoff.getDate() - (options.taskRetentionDays  ?? 7));
 
-        db.exec(`;
+        db.exec(`;`
   `
           INSERT INTO tasks_archive ;
           SELECT * FROM tasks )
           WHERE status = 'completed' AND created_at < '${archiveCutoff.toISOString()}';
-        `;
+        `;`
   )
   `
 
         archived = db;
 prepare(;
-            `;
+            `;`
   `
           DELETE FROM tasks ;
           WHERE status = 'completed' AND created_at < ?;
-        `;
+        `;`
   )
   `
 run(archiveCutoff.toISOString());
       //       }
 
-      console.warn(chalk.green(`;
+      console.warn(chalk.green(`;`
   Archived;
   \$archived.changescompleted tasks`))
   //     }
@@ -620,11 +638,11 @@ prepare(;
     WHERE;
     type = 'table';
     ))))
-    `)
+    `)`
     `
 all();
   for(const table of tables) {
-      const _count = db.prepare(`;
+      const _count = db.prepare(`;`
     SELECT;
     COUNT(*) as count
     FROM;
@@ -700,7 +718,7 @@ all();
 // export default {
   optimizeHiveMindDatabase,
   performMaintenance,
-  generateOptimizationReport
+// generateOptimizationReport
     }
   }
 }

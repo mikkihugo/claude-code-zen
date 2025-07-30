@@ -259,8 +259,7 @@ const _toolTabs = [
     // In a real implementation, this would show an interactive prompt
     // For now, execute a sample tool
     this.addLog('info', 'Tool execution prompt(demo)');
-
-    try 
+// try
 // const _result = awaitthis.toolFramework.executeTool('features_detect');
       this.addLog('success', 'Tool executed successfully');
       this.enhancedViews.displayToolResult(result);

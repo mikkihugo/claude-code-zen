@@ -1,8 +1,6 @@
-*
-@fileoverview
-Hive;
-Mind;
-Command;
+/**
+ * @fileoverview Hive; Mind; Command;
+ */
 Interface;
 Module;
 

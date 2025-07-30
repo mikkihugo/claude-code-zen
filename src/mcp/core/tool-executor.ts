@@ -1,8 +1,6 @@
-*
-@fileoverview
-MCP;
-Tool;
-Executor;
+/**
+ * @fileoverview MCP; Tool; Executor;
+ */
 /** Handles execution of MCP tools with proper error handling and logging
  * @module MCPToolExecutor
 
@@ -56,7 +54,7 @@ try {
       const _executionTime = Date.now() - startTime;
       this.updateExecutionStats(name, executionTime, false);
 
-      console.error(`[$new Date().toISOString()] ERROR [Tool-Executor] $namefailed after $executionTimems = === 'memory_usage'  ?? name === 'benchmark_run') '`
+      console.error(`[$new Date().toISOString()] ERROR [Tool-Executor] $namefailed after $executionTimems = === 'memory_usage'  ?? name === 'benchmark_run') '`'
       // return this.executeMemoryTool(name, args);
     //   // LINT: unreachable code removed}
 
@@ -197,7 +195,7 @@ try {
     // Find target swarm
     const _targetSwarm = swarmId ? this.server.swarms.get(swarmId) ;
   if(swarmId && !targetSwarm) {
-      throw new Error(`Target swarm not found = {id = 'default', ttl } = args;'`
+      throw new Error(`Target swarm not found = {id = 'default', ttl } = args;'`'
   switch(action) {
       case 'store': {'
   if(!key  ?? value === undefined) {

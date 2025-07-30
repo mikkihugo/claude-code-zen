@@ -193,7 +193,7 @@ constructor((config =
 
 /** Create generation model for code/text generation
 
-// private // async createGenerationModel() { }
+// private // async createGenerationModel() {}
 : Promise<any>
 
   // return {
@@ -241,7 +241,7 @@ metadata = {};
       suggestions.push({ //             type => {/g)
             suggestions.push({type = === 'high' ? 'high' ) => {
         suggestions.push({)
-              //               type = {  }): Promise<NeuralInferenceResult> {
+              //               type = {}): Promise<NeuralInferenceResult> {
 // // await this.initialize();
         const _startTime = performance.now();
         try {

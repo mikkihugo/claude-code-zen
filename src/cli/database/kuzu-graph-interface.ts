@@ -14,8 +14,6 @@ try {
 } catch (error) {
   console.error(error);
 }
-catch(error)
-{
   console.warn('Kuzu database not available, using fallback mode = {}) {'
     this.config = {dbPath = = false,compression = = false,memoryLimit = = false, // Default to real Kuzu
 ..config;
@@ -77,7 +75,7 @@ printInfo(' Database schema initialized');
 
 /** Set up performance indices;
 
-// async setupIndices() { }
+// async setupIndices() {}
 
   const _indices = {service_name_idx = indices;
   // Save indices configuration only for simulation mode
@@ -392,7 +390,7 @@ filter(rel => rel.type === 'DUPLICATES');
       } else if(totalConnections >= 5) {
         patterns.dependencyPatterns.central.push({ service = 3) {
         patterns.dependencyPatterns.highlyDependent.push({)
-          service = {  }) {
+          service = {}) {
     this.stats.queryCount++;
   switch(queryType) {
       case 'find_deprecated_apis': {;
@@ -427,7 +425,7 @@ filter(rel => rel.type === 'CALLS_FUNCTION');
       const _calledFunc = this.nodes.get(call.to); if(calledFunc) {
         const _funcName = calledFunc.properties.name; for(const pattern of deprecatedPatterns) {
           if(funcName.includes(pattern.replace('(', ''))) {
-            results.push({ //               type = {  }) {
+            results.push({ //               type = {}) {
     const _rules = parameters.rules  ?? [;
       {name = [];
   for(const rule of rules) {
@@ -443,7 +441,7 @@ filter(rel => rel.type === 'CALLS_FUNCTION');
 
             if(fromPath.includes(rule.forbidden_in) && toPath.includes(rule.pattern)) {
               violations.push({)
-                //                 type = {  }) {
+                //                 type = {}) {
     const _exports = new Map();
     const _imports = new Set();
 
@@ -497,7 +495,7 @@ filter(node => node.type === 'Function');
   for(const [fileId, data] of fileComplexity) {
       const _file = this.nodes.get(fileId); if(file) {
         fileAverages.push({ file = > b.averageComplexity - a.averageComplexity); // return {
-      overview = {  }) {
+      overview = {}) {
     const _threshold = parameters.threshold  ?? 5;
     // const _couplingMap = new Map(); // LINT: unreachable code removed
 
@@ -620,7 +618,9 @@ join(', ');
         try {
           // Use the synchronous getAllSync() method to avoid async iteration issues
           rows = result.getAllSync();
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           printWarning(` Error getting query results = {}) ;`
     try {
       // Basic query simulation logic

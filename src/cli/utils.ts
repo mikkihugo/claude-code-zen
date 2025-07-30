@@ -147,7 +147,7 @@ async function _getRuvSwarmInstance(): Promise<any> {
     // Initialize memory store
     _memoryStoreInstance = new SqliteMemoryStore({ dbName = new RuvSwarm({
       memoryStore,
-      telemetryEnabled = {  }): Promise<any>
+      telemetryEnabled = {}): Promise<any>
   try {
 // const _ruvSwarm = await_getRuvSwarmInstance();
   switch(operation) {

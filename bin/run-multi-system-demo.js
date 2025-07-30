@@ -36,8 +36,7 @@ class MultiSystemDemoRunner {
   async run() { 
     console.log('\n MULTI-SYSTEM ENHANCEMENT DEMO STARTING');
     console.log('=' .repeat(60));
-
-    try 
+// try
   for(const phase of this.phases) {
         console.log(`\n PHASE: ${phase.toUpperCase().replace('-', ' ')}`); console.log('-'.repeat(40)); const startTime = Date.now() {;
 // // await this.executePhase(phase);

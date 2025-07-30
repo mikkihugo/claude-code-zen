@@ -68,10 +68,10 @@ $;
 // {
   envResult.status;
 // }
-`);
+`);`
 if (envResult.testResults) {
   console.warn(;
-  `;
+  `;`
 Tests: \$;
 // {
   envResult.testResults.numPassedTests;
@@ -120,7 +120,7 @@ console.warn(`\n Overall Migration Status: $`
 // {
   overallStatus;
 // }
-`);
+`);`
 // return results;
 // }
 function calculateCoverageSummary() {
@@ -162,7 +162,7 @@ function analyzeMigrationIssues() {
 
       // Check for Deno-specific APIs
       if (content.includes('Deno.')) {
-        issues.push(`;
+        issues.push(`;`
 $;
 // {
   path.basename(file);
@@ -174,7 +174,7 @@ if (content.includes('assertEquals') && !content.includes('expect(')) {
   issues.push(`${path.basename(file)}: Uses Deno assertions instead of Jest`);
 // }
 // Check for import issues
-if (content.includes('from "https://') ?? content.includes("from 'https://")) {'
+if (content.includes('from "https://') ?? content.includes("from 'https://")) {'"
   issues.push(`$path.basename(file): Contains Deno-style HTTP imports`);
 // }
 // }

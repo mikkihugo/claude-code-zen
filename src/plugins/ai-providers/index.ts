@@ -36,7 +36,7 @@ export class AIProviderPlugin {
     //   // LINT: unreachable code removed} catch(error) {
       console.warn('Claude Code provider notavailable = // await import('openai');'
 
-      const _openrouter = new OpenAI({ baseURL = {  }) {
+      const _openrouter = new OpenAI({ baseURL = {}) {
 // const _response = awaitopenrouter.chat.completions.create({model = // await openrouter.embeddings.create({model = // await fetch('https);'
             // return data.data.filter(model => model.pricing.prompt === '0'  ?? model.id.includes('free'));
     //   // LINT: unreachable code removed} catch(error) {
@@ -74,7 +74,9 @@ export class AIProviderPlugin {
       try {
 // const _result = awaitthis.tryProvider(this.activeProvider, 'generateText', prompt, options);
         if(result) return result;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
         console.warn(` ${this.activeProvider} failed = {}) ;`
     // Try active provider first
     if(this.activeProvider && this.providers.has(this.activeProvider)) {
@@ -117,7 +119,9 @@ sort(([ a], [ b]) => {
       providerInfo.errorCount = Math.max(0, providerInfo.errorCount - 1);
 
       // return result;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       providerInfo.errorCount++;
       throw error;
     //     }

@@ -90,11 +90,11 @@ $;
   fields.join(', ');
 }
 , updated_at = CURRENT_TIMESTAMP
-WHERE
+// WHERE
 id =
 ?
 `
-`;
+`;`
 db.run(query, values, (err) => {
   if (err) {
     reject(err);
@@ -107,8 +107,8 @@ db.run(query, values, (err) => {
 //   }
 // static async updatePassword(id, hashedPassword) {
 // return new Promise((resolve, reject) =>
-const _query = `;
-`;
+const _query = `;`
+`;`
 // UPDATE users ; // LINT: unreachable code removed
 SET;
 password =
@@ -116,8 +116,8 @@ password =
 WHERE;
 id =
 ?
-`;
-`;
+`;`
+`;`
 db.run(query, [hashedPassword, id], (err) => {
   if (err) {
     reject(err);

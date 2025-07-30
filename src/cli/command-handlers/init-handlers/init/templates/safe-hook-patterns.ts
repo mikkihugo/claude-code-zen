@@ -63,9 +63,9 @@ minutes;
 
 def;
 process_queue();
-:
+
 if not QUEUE_FILE.exists()
-:
+
 //         return
 
 // # Read and clear queue atomically; // LINT: unreachable code removed
@@ -76,15 +76,14 @@ Clear;
 the;
 queue;
 QUEUE_FILE.unlink();
-{
-}
+{}
 
 #
 Process;
 commands;
 for line inlines = json.loads(line.strip());
             if cmd_data['command'] === 'update-history'
-:
+
                 print(f"Processing history update for session {cmd_data['session']}")
 subprocess.run([
 'claude', '-c', '-p', 'Update history.md', '--skip-hooks';
@@ -113,17 +112,16 @@ ase =
  Safe Hook Patterns
 for Claude Code
 
-;
  **CRITICAL WARNING**: Stop hooks that call 'claude' commands create infinite loops that can cost thousands of dollars per day!
 #
 #
  DANGEROUS PATTERN(NEVER USE)
-$
+// $
 // {
   DANGEROUS_PATTERN_EXAMPLE.description;
 // }
 \`\`\`json`
-$
+// $
 // {
   JSON.stringify(DANGEROUS_PATTERN_EXAMPLE.pattern, null, 2);
 // }
@@ -163,7 +161,7 @@ ${
 ).join('\n')}`
 : ''
 // }
-$
+// $
 // {
   pattern.additionalSetup;
     ? `**Additional Setup:**;`

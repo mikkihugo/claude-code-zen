@@ -22,8 +22,7 @@ this.options = {dbName = = false
 ,cacheTimeout = null
 this.statements = new Map() {}
 this.queryCache = new Map();
-{
-}
+{}
 this.cacheStats =
   // {
   hits = false;
@@ -49,7 +48,7 @@ _directoryExists(dir = await fs.stat(dir);
 // return false;
 // }
 // }
-// async initialize() { }
+// async initialize() {}
 : Promise<void>
 
 if (this.isInitialized) return;
@@ -195,7 +194,7 @@ run(key, valueStr, namespace, metadata, ttl, expiresAt);
     try {
       const _rows = this.statements.get('list').all(namespace, limit);
 
-      const _result = rows.map((row) => ({ key = {  } catch (error) { console.error(error); }): Promise<boolean> {
+      const _result = rows.map((row) => ({ key = {} catch (error) { console.error(error); }): Promise<boolean> {
 // // await this.initialize();
     const _namespace = options.namespace  ?? 'default';
 
@@ -262,7 +261,7 @@ all(namespace, searchPattern, searchPattern, limit);
           this.queryCache.delete(key); //         }
       //       }
     //     }
-    else 
+// else
       this.queryCache.clear(); //     }
     this.cacheStats.size = this.queryCache.size;
   close() ;

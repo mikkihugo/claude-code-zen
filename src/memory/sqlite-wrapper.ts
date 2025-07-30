@@ -32,7 +32,9 @@ try {
     Database = require('better-sqlite3');
     sqliteAvailable = true;
     // return true;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
     loadError = requireErr;
 
     // Check for specific Windows errors
@@ -40,21 +42,21 @@ try {
       requireErr.message.includes('was compiled against a different Node.js version')  ?? requireErr.message.includes('Could not locate the bindings file')  ?? requireErr.message.includes('The specified module could not be found')  ?? requireErr.code === 'MODULE_NOT_FOUND';
     //     )
       console.warn(`;`
-;
+
                      Windows SQLite Installation Issue                         ;
-;
-                                                                              ;
+
+
   The native SQLite namespace failed to load. This is common on Windows when    ;
   using 'npx' or when node-gyp build tools are not available.               ;
                                                                               ;)
   Claude Flow will continue with in-memory storage(non-persistent).         ;
-                                                                              ;
+
   To enable persistent storage onWindows = false                 ;
-                                                                              ;
+
   Option 3 - Use WSL(Windows Subsystem for Linux):                         ;
   Install WSL and run Claude Flow inside a Linux environment                 ;
-                                                                              ;
-;
+
+
 `);`
 
 // return false;

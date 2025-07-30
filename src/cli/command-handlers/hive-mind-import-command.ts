@@ -24,10 +24,10 @@ if (existsSync(projectJsonPath)) {
 // {
   scopeMdContent = // await generateScopeFromCode(servicePath);
 // }
-console.warn(`;
+console.warn(`;`
 \n[Suggestion
 for ${serviceName}
-]`)
+]`)`
 console.warn('------------------')
 console.warn(scopeMdContent);
 console.warn('------------------');

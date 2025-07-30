@@ -30,7 +30,7 @@ function runCommand() {
 }
 )
 // }
-async
+// async
 function runTests() {
   console.warn(' Running Validation Tests for ruv-swarm CLI\n');
   const _tests = [

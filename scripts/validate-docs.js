@@ -16,7 +16,7 @@ class DocumentationValidator {
   //   }
   async validate() { 
     console.warn(' Validating API documentation...');
-    try 
+// try
   // await this.validateDocumentationStructure();
   // // await this.validateMarkdownFiles();
       this.reportResults();

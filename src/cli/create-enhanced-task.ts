@@ -84,7 +84,7 @@ Commits**
 : Commit after completing major phases(planning, implementation, testing)`
 : ''
 // }
-$
+// $
 // {
   flags.commit === 'feature'
 ? `- **Feature Commits**: Commit after each feature or`
@@ -92,7 +92,7 @@ namespace is
 complete`;`;
 : ''
 // }
-$
+// $
 // {
 flags.commit === 'manual';
 ? `- **Manual`
@@ -100,7 +100,7 @@ flags.commit === 'manual';
   : Only commit when explicitly requested by the user`
   : ''
 // }
-$
+// $
 // {
 // ! flags.commit ? `- **Default(Phase)**: Commit after completing major phases` : '';
 // }
@@ -116,13 +116,13 @@ flags.noPermissions;
   #
   #
   No - Permissions
-  Mode
+// Mode
   -All
-  file
-  operations
-  will
-  execute
-without
+// file
+// operations
+// will
+// execute
+// without
 confirmation;
 prompts;
 -Be;
@@ -138,7 +138,7 @@ and;
 well - tested`;`;
 : ''
 // }
-$
+// $
 // {
 flags.verbose;
 ? `
@@ -146,7 +146,7 @@ flags.verbose;
   #
   #
   #
-  Verbose
+// Verbose
 Mode;
 -Provide;
 detailed;
@@ -166,8 +166,8 @@ processes;
 all;
 command;
 outputs;
-comprehensively`;
-`;
+comprehensively`;`
+`;`
 : ''
 // }
 
@@ -177,7 +177,7 @@ with the task: $;
 // {
 task;
 // }
-`;
-`;
+`;`
+`;`
 // return enhancedTask;
 // }

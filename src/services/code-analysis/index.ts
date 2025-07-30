@@ -38,7 +38,7 @@ initialize();
     // return await this.orchestrator.analyzeFiles(filePaths, options);
     //   // LINT: unreachable code removed}
 
-  async startRealTimeAnalysis() { }
+  async startRealTimeAnalysis() {}
   if (!this.orchestrator.isInitialized)
     // await this.initialize();
     //     }
@@ -67,8 +67,7 @@ initialize();
 
 async;
 cleanup();
-{
-}
+{}
 // await this.watcher.stopWatching();
 // return await this.orchestrator.cleanup();
 

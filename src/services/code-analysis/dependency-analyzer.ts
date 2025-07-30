@@ -51,7 +51,7 @@ try {
   if(module.dependencies) {
   for(const _dep of module.dependencies) {
             dependencies.push({ from = = false,rules = new Map(); // Process madge results
-    for(const [file, deps] of Object.entries(madgeResults.tree  ?? {  })) {
+    for(const [file, deps] of Object.entries(madgeResults.tree  ?? {})) {
   for(const dep of deps  ?? []) {
         const _key = `$file->$dep`; dependencies.set(key, {id = `$dep.from->$dep.to`;)
   if(dependencies.has(key) {) {

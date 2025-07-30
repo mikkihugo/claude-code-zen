@@ -86,7 +86,7 @@ updateDisplay();
 
   async withResource(fn) { 
 // // await this.acquire();
-    try 
+// try
       // return // await fn();
     //   // LINT: unreachable code removed} finally {
       this.release();

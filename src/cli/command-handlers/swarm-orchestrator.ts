@@ -28,7 +28,7 @@ initialize();
   try {
       // Initialize memory store
       this.memoryStore = new SqliteMemoryStore({ dbName = new RuvSwarm({
-        memoryStore = {  } catch (error) { console.error(error); }) {
+        memoryStore = {} catch (error) { console.error(error); }) {
   if(!this._ruvSwarm) {
       throw new Error('Orchestrator not initialized. Call initialize() first.');
     //     }
@@ -185,7 +185,7 @@ initialize();
     Date.now();
     `,`
         JSON.stringify({)
-          sessionEndedAt = {  } catch (error) { console.error(error); }) {
+          sessionEndedAt = {} catch (error) { console.error(error); }) {
     // Fire and forget - don't block main execution'
     setTimeout(_async() => {
       try {
@@ -242,12 +242,9 @@ join(' ');
     );
   //   }
   this;
-
-  activeSwarms
+// activeSwarms
   clear() {}
-  this
-
-  globalAgents
+// this// globalAgents
   clear() {}
   printSuccess(' Swarm orchestrator shutdown complete')
 // }

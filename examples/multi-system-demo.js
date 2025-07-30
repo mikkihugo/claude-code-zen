@@ -52,22 +52,22 @@ initializeCoordinator();
 // {
   dbPath: './demo-data/graph',
   dbName: 'demo-graph',
-  enableAnalytics
+// enableAnalytics
 // }
 // {
   outputDir: './demo-data/generated-code',
-  enableAnalytics
+// enableAnalytics
 // }
 enableCrossSystemAnalytics: true,
 enableMemorySharing: true,
-enableIntelligentRouting
+// enableIntelligentRouting
 })
 // const _result = awaitthis.coordinator.initialize();
 console.warn(' Coordinator initialized');
 console.warn(`   - Systems: ${Object.keys(result.systems).join(', ')}`);
 console.warn(`   - Features: ${Object.keys(result.features).join(', ')}\n`);
 // }
-// async runLanceDBDemo() { }
+// async runLanceDBDemo() {}
 
   console.warn(' Running LanceDB Enhanced Demo...');
   try {
@@ -128,7 +128,7 @@ catch(error)
   this.demoResults.lancedb.error = error.message;
 // }
 // }
-// async runKuzuDemo() { }
+// async runKuzuDemo() {}
 
   console.warn(' Running Kuzu Advanced Demo...');
   try {
@@ -236,7 +236,7 @@ runVisionDemo();
     console.warn(` - Framework;`)
   )
 // }
-else
+// else
 // {
   console.warn('     - Generation failed(expected for demo)');
 // }
@@ -260,7 +260,9 @@ const _multiFrameworkResults = {};
           console.warn(` - \$;`
   framework;)
   );
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           console.warn(` - \$;`
   framework;
   : Failed(\$error.message))
@@ -283,7 +285,7 @@ catch(error)
   this.demoResults.vision.error = error.message;
 // }
 // }
-// async runIntegrationDemo() { }
+// async runIntegrationDemo() {}
 
   console.warn(' Running Cross-System Integration Demo...');
   try {
@@ -303,7 +305,7 @@ catch(error)
         try {
 // const _result = awaitthis.coordinator.intelligentRoute(test.operation, test.input, {/g)
             limit } catch (error) { console.error(error); }); routingResults[test.operation] = result; console.warn(`     - ${test.operation}`) ;
-          console.warn(`       Systems used: ${result.result?.systemsUsed?.join(', ')  ?? 'N'
+          console.warn(`       Systems used: ${result.result?.systemsUsed?.join(', ')  ?? 'N'`
         } catch(error)
           console.warn(`     - \$test.operation: Failed(\$error.message)`);
 // }
@@ -340,7 +342,7 @@ catch(error)
   this.demoResults.integration.error = error.message;
 // }
 // }
-// async createDemoImage() { }
+// async createDemoImage() {}
 
   // Ensure demo data directory exists
   if(!existsSync('./demo-data')) {

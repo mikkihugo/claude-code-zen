@@ -45,7 +45,7 @@ this.metrics.latencyP99 = sorted[p99Index] ?? 0;
 // return { ...this.metrics };
 // }
 // Protected helper methods
-protected
+// protected
 validateRequest(request)
 : void
 // {
@@ -68,7 +68,7 @@ calculateCost(usage = (usage.promptTokens / 1000) * this.pricing.inputTokenPrice
 const _outputCost = (usage.completionTokens / 1000) * this.pricing.outputTokenPrice;
 // return inputCost + outputCost;
 // }
-protected
+// protected
 updateMetrics(request = error.constructor.name
 this.metrics.errorsByType[errorType] = (this.metrics.errorsByType[errorType] ?? 0) + 1
 } else
@@ -90,14 +90,14 @@ this.metrics.errorsByType[errorType] = (this.metrics.errorsByType[errorType] ?? 
   this.responseTimeHistory.reduce((sum, time) => sum + time, 0) / this.responseTimeHistory.length;
 // }
 // }
-protected
+// protected
   updateHealthStatus(healthy = healthy
 this.lastHealthCheck = new Date() {}
   if(healthy && responseTime > 0) {
   this.responseTimeHistory.push(responseTime);
 // }
 // }
-protected
+// protected
   getAverageResponseTime() 
 : number
 // {
@@ -126,7 +126,9 @@ delay = this.config.retryDelay ?? 1000;
   //   )
   try {
     // return // await operation();
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
     lastError = error;
 
     // Don't retry on certain error types'
@@ -168,7 +170,7 @@ emitRequest(request);
   model: request.model,
   messageCount: request.messages.length )
 // }
-protected
+// protected
 emitResponse(response)
 : void
 // {
@@ -181,7 +183,7 @@ emitResponse(response)
   usage: response.usage,
   responseTime: response.responseTime )
 // }
-protected
+// protected
 emitError(error, request?)
 : void
 // {

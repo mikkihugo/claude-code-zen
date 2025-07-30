@@ -8,7 +8,7 @@ node;
 /** Handles additional patterns missed by the first fix: null
  * 1. Object property syntax: `stats = { property }` -> `stats = { property }`;
  * 2. Type annotation issues: `property = default` -> `property = value`;
- * 3. Object key assignments: `key = { }` -> `key = { value }`;
+ * 3. Object key assignments: `key = {}` -> `key = { value }`;
  * 4. Arrow function type issues;
  * 5. Variable declarations with incorrect type syntax;
  */
@@ -28,7 +28,7 @@ class RemainingTypeScriptErrorFixer {
     // Find all TypeScript files in src directory
 // const _tsFiles = awaitglob('src/\*\*/*.ts', 
       cwd),
-    absolute 
+// absolute
   //   )
   console;
 
@@ -36,7 +36,9 @@ class RemainingTypeScriptErrorFixer {
   for(const filePath _of _tsFiles) {
       try {
 // // await this.fixFile(filePath); 
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         this.errors.push( file, error); console.error(` Error processing ${filePath) {;`
 // }
 // }

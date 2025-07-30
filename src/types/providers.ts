@@ -82,7 +82,7 @@ satisfaction, // 0-1
 // Competitive analysis
 // {
 marketPosition, // 1-10
-  competitorComparison
+// competitorComparison
 // Differentiation factors
 advantages;
 disadvantages;

@@ -26,17 +26,17 @@ approvals: new Map(),
   average_completion_time, // 30 minutes
     success_rate;
   : 0.92,
-  total_roi_generated
+// total_roi_generated
 // }// }
 // Request logging middleware
 app.use((req, _res, next) =>
 // {
-  console.warn(`[Mock Business] ${req.method}
+  console.warn(`[Mock Business] ${req.method}`
 $;
 {
   req.path;
 }
-`);
+`);`
   next();
 })
 // Health check endpoint
@@ -58,22 +58,21 @@ app.post('/auth/login', (req, res) =>
   if(email && password) {
     res.json(;
     apiResponseTemplates.success({))
-        token: `;
+        token: `;`
 mock_business_token_$;
 {
   Date.now();
 }
-`,
+`,`
     id: 'mock_user_001',
     email,
     name: 'Mock User',
     role: 'admin',
-
-    expires_in
+// expires_in
 })
   //   )
 // }
-else
+// else
 // {
   res;
 status(400)
@@ -85,7 +84,7 @@ app.post('/auth/service-token', (req, res) =>
   const { service_name, permissions } = req.body;
   res.json(;
   apiResponseTemplates.success({))
-      token: `;
+      token: `;`
 mock_service_token_$;
 {
   service_name;
@@ -94,10 +93,10 @@ _$;
 {
   Date.now();
 }
-`,
+`,`
   service_name,
   permissions: permissions  ?? ['read', 'write'],
-  expires_in
+// expires_in
 })
 // )
 })
@@ -105,12 +104,12 @@ _$;
 app.post('/api/visions', (req, res) =>
 // {
   const _vision = { ...req.body,
-  id: req.body.id  ?? `;
+  id: req.body.id  ?? `;`
 vision_mock_$;
 {
   Date.now();
 }
-`,
+`,`
   status: 'pending_approval',
   created_at: new Date().toISOString(),
   updated_at: new Date().toISOString()
@@ -171,7 +170,7 @@ app.patch('/api/visions/) =>'
   mockData.visions.set(req.params.id, updatedVision);
   res.json(apiResponseTemplates.success(updatedVision));
 // }
-else
+// else
 // {
   res.status(404).json(apiResponseTemplates.error('Vision not found', 'VISION_NOT_FOUND'));
 // }
@@ -204,7 +203,7 @@ app.post('/api/visions/) =>'
   mockData.approvals.set(req.params.id, approval);
   res.json(apiResponseTemplates.success(approval));
 // }
-else
+// else
 // {
   res.status(404).json(apiResponseTemplates.error('Vision not found', 'VISION_NOT_FOUND'));
 // }
@@ -232,7 +231,7 @@ app.post('/api/visions/) =>'
   })
   res.json(apiResponseTemplates.success(approval))
 // }
-else
+// else
 // {
   res;
 status(404)
@@ -299,7 +298,7 @@ app.get('/api/visions/) =>'
     memory_usage: Math.random() * 60 }
   res.json(apiResponseTemplates.success(analytics));
 // }
-else
+// else
 // {
   res.status(404).json(apiResponseTemplates.error('Vision not found', 'VISION_NOT_FOUND'));
 // }
@@ -400,7 +399,7 @@ app.use((_req, res) =>
 // Start server
 app.listen(port, () =>
 // {
-  console.warn(`;
+  console.warn(`;`
 Mock;
 Business;
 Service;
@@ -411,6 +410,6 @@ $;
 {
   port;
 }
-`);
+`);`
 })
 module.exports = app;

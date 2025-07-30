@@ -91,7 +91,9 @@ emit(eventType, data)
     subscribers.forEach((callback) => {
       try {
         callback(data, timestamp);
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         console.error(`Error in event subscriber for ${eventType});`
       //       }
     });

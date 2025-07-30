@@ -26,7 +26,7 @@ initialize();
 abstract;
 generateText(prompt = false;
 // }
-protected
+// protected
 parseJSONResponse(text);
 : unknown
 // {
@@ -234,7 +234,7 @@ class OpenAIProvider extends BaseProvider {
          catch (error) console.error(error); 
   if(this.config.settings.logging?.enabled) {
 // // await this.logRequest({ requestId,/g)
-            //             type = {  }): Promise<any>
+            //             type = {}): Promise<any>
     // return this.executeWithRetry(async() => {
       const _startTime = performance.now();
     // let _requestId = crypto.randomBytes(8).toString('hex'); // LINT: unreachable code removed
@@ -253,7 +253,7 @@ class OpenAIProvider extends BaseProvider {
 
         // Update metrics
         const __latency = performance.now() - startTime;
-        this.updateMetrics({ text = {  }): Promise<EmbeddingResponse> {
+        this.updateMetrics({ text = {}): Promise<EmbeddingResponse> {
   if(!this._activeProvider!._supportsEmbeddings) {
       throw new Error(`Provider $this.activeProvider?.namedoes not support embeddings`);
     //     }
@@ -296,7 +296,9 @@ class OpenAIProvider extends BaseProvider {
           const _provider = new FallbackClass(this.config.settings);
 // // await provider.initialize();
           this.providers.set(fallbackName, provider);
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           this.context.apis.logger.warn(`Failed to initialize fallback $fallbackName`, {error = > Promise<T>): Promise<T> {
     const _maxAttempts = this.config.settings.retryAttempts  ?? 3;
     const _retryDelay = this.config.settings.retryDelay  ?? 1000;
@@ -439,7 +441,9 @@ sort(([ a], [ b]) => a.timestamp - b.timestamp)[0];
       const _cachePath = join(this.config.settings.caching?.path  ?? './.hive-mind/ai-cache', 'cache.json');
       const _data = Object.fromEntries(this.cache);
 // // await writeFile(cachePath, JSON.stringify(data, null, 2));
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       this.context.apis.logger.error('Failed to persist cache', error);
     //     }
   //   }

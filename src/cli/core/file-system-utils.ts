@@ -74,7 +74,7 @@ import logger, { CliError } from '.';
       logger.debug(`Path not found(ignored): ${targetPath} catch (error) { console.error(error); }`);`
 // return true;
 // }
-throw new CliError(`Failed to remove '${targetPath}');'`
+throw new CliError(`Failed to remove '${targetPath}');'`'
 // }
 // }
 
@@ -129,7 +129,7 @@ logger.debug(`Pathmoved = await fs.stat(filePath);`
 
   // Create empty file
 // // await writeFileSecurely(tempPath, '', 'utf8');'
-  logger.debug(`Temporary filecreated = 'temp');'`
+  logger.debug(`Temporary filecreated = 'temp');'`'
 : Promise<string>
 // {
   const _tmpDir = process.env.TMPDIR ?? process.env.TMP ?? '

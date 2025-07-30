@@ -209,9 +209,7 @@ async function createDocument(args) {
 // const result = awaitdocStack.createDocument(docType, service, docId, content, metadata);
     if(metadata.dependencies)
       if(metadata.tags)
-  if(result.routing.validation?.length > 0) {
-
-  } catch (error) console.error(error); catch(_error) 
+  if(result.routing.validation?.length > 0) {} catch (error) console.error(error); catch(_error) 
 
 async function reviewDocument(args) {
   if(args.length < 1) {
@@ -312,9 +310,7 @@ async function showStatus() {
      catch (error) { console.error(error); }} catch(_e) 
 
   Object.entries(layers).forEach(([_layer, count]) => 
-  if(count > 0) {
-
-  });
+  if(count > 0) {});
 
 // Helper function for interactive prompts
 function question(prompt) {

@@ -173,7 +173,7 @@ map(() => TestHelpers.createMockImage());
         contrastRatio: 12.63 };
       visionService.extractColors.mockResolvedValue(colors);
       // Act
-// const _result = awaitvisionService.extractColors({  });
+// const _result = awaitvisionService.extractColors({});
       // Assert
       expect(result.contrastRatio).toBeGreaterThan(4.5); // WCAG AA standard
     });

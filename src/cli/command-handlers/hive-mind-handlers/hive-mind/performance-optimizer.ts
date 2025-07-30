@@ -23,8 +23,7 @@ if (insertIndex === -1) {
 }
 )
 //   }
-
-async
+// async
 _processQueue();
 {
   if (this.running >= this.maxConcurrency ?? this.queue.length === 0) return;

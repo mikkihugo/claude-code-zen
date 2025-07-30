@@ -67,7 +67,7 @@ if(!this.projectId) {
   this.emitError(error, request); throw this.handleError(error) ;
 // }
 // }
-// async getModels() { }
+// async getModels() {}
 : Promise<string[]>
 
   // return [...this.availableModels];

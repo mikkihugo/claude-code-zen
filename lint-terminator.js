@@ -21,8 +21,6 @@ try {
 } catch (error) {
   console.error(error);
 }
-catch(error)
-{
   console.warn(' Biome completed with some issues');
 // }
 // Step 2: Quick unused variable removal
@@ -153,7 +151,9 @@ try {
 console.warn('\n Running final lint check...');
 try {
   console.warn(' MISSION ACCOMPLISHED');
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) {
+  console.error(error);
+}
   const _output = error.stdout  ?? error.message;
   const _errorCount = (output.match(/error/g)  ?? []).length;
   const _warningCount = (output.match(/warning/g)  ?? []).length;

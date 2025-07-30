@@ -113,7 +113,7 @@ test('Database Systems', () => {
   // Check for database-related files
   const _dbFiles = ['./src/memory/sqlite-store.js', './src/cli/database/kuzu-graph-interface.js'];
   dbFiles.forEach((file) => {
-    assert(existsSync(file), `Database component exists: $file.split(');
+    assert(existsSync(file), `Database component exists: $file.split(');'
 });
 // Test 6: Plugin Architecture
 test('Plugin System', () => {
@@ -123,7 +123,7 @@ test('Plugin System', () => {
     './src/plugins/unified-interface',
     './src/plugins/workflow-engine',,];
   pluginDirs.forEach((dir) => {
-    assert(existsSync(dir), `Plugin directory exists: ${dir.split('
+    assert(existsSync(dir), `Plugin directory exists: ${dir.split('`
     assert(;
     existsSync(`${dir}`
     `Plugin entry point exists: ${dir.split('/').pop()}/index.js`;

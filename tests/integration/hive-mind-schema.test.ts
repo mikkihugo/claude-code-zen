@@ -111,8 +111,8 @@ testContext.db = new Database(testContext.dbPath);
 const _swarmId = `test-swarm-${Date.now()}`;
 testContext.db;
 prepare(`
-INSERT
-INTO
+// INSERT
+// INTO
 swarms(id, name, objective, topology, status)
 VALUES(?, ?, ?, ?, ?)
 `)`
@@ -127,7 +127,7 @@ test - agent - $;
 const _insertAgent = () => {
   testContext.db;
   ?.prepare(`
-  INSERT
+// INSERT
   INTO;)
   agents(id, swarm_id, name, type, status);
   VALUES(?, ?, ?, ?, ?);
@@ -236,11 +236,11 @@ run(agentId, swarmId, 'Test Agent', 'coordinator', 'leader', 'active');
   DEFAULT;
   CURRENT_TIMESTAMP;))
   //   )
-CREATE
-TABLE
-IF
-NOT
-EXISTS
+// CREATE
+// TABLE
+// IF
+// NOT
+// EXISTS
   agents(
   id;
   TEXT;
@@ -383,8 +383,8 @@ test - swarm - $;
 `;`
 testContext.db;
 prepare(`
-INSERT
-INTO
+// INSERT
+// INTO
 swarms(id, name, objective, topology, status)
 VALUES(?, ?, ?, ?, ?)
 `)`

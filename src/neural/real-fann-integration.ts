@@ -111,7 +111,9 @@ export class RealFannEngine {
             this.logger.info(' Native ruv-FANN bindings loaded successfully');
             // return true;
     // ; // LINT: unreachable code removed
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
             this.logger.debug('Native binding loadfailed = ['
                 '../ruv-FANN/pkg/ruv_fann.js',
                 './ruv-FANN/pkg/ruv_fann.js',/g)
@@ -336,7 +338,9 @@ reduce((max, count) => Math.max(max, count), 0);
             this.logger.info(' Enhanced neural bindings with REAL ruv-FANN integration loaded');
             // return this.realEngine;
     // ; // LINT: unreachable code removed
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
             this.logger.error(' Failed to load enhanced neuralbindings = new EnhancedNeuralBindingsLoader();'
 
 /** Load real neural bindings - REPLACES STUB IMPLEMENTATION

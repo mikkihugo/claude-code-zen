@@ -69,7 +69,7 @@ enum: [
 type;
 //   )
 with ${args.capabilities?.length  ?? 0}
-capabilities`,
+capabilities`,`
 
   description: 'Orchestrate complex workflows',
   type: 'object',
@@ -88,12 +88,12 @@ capabilities`,
   required: ['task'],
 
   handler: (args) =>
-  `;
+  `;`
 Task;
 orchestrated: '${args.task}';
 with ${args.strategy  ?? 'adaptive'}
 strategy, $args.priority ?? 'medium';
-priority`,
+priority`,`
 
   description: 'Monitor swarm health and performance',
   type: 'object',
@@ -102,7 +102,7 @@ priority`,
 
   handler: (args) =>
   //   {
-    const _basic = `;
+    const _basic = `;`
 Swarm;
 Status: ACTIVE;
 \n Topology: hierarchical\n Agents: 6/8 active\n Tasks: 3 completed, 2 in-progress\n Memory: 512KB used`
@@ -145,7 +145,7 @@ default, description: 'Monitoring interval (seconds)' ,
 // {
   args.interval ?? 30
 // }
-s
+// s
 intervals;
 )\n CPU: 45%\n Memory: 2.1GB\n Network: 1.2MB/s\n Active connections: 23`,
 
@@ -264,7 +264,7 @@ default: 'default', description: 'Memory namespace' ,
   handler: (args) =>
   ` Memory \$args.action: \$args.key  ?? 'multiple'in \$args.`
 namespace ?? 'default';
-namespace`,
+namespace`,`
 
   description: 'Search memory with patterns',
   type: 'object',
@@ -278,14 +278,14 @@ namespace`,
   required: ['pattern'],
 
   handler: (args) =>
-  `;
+  `;`
 Memory;
 search: '${args.pattern}';
 found;
 $Math.floor(Math.random() * 20);
 results (limit: $
     args.limit ?? 10
-  )`,
+  )`,`
 
   description: 'Analyze memory usage patterns',
   type: 'object',
@@ -476,7 +476,7 @@ type: 'object', type;
 
   handler: (args) =>
   ` Model loaded from \$args.modelPath:\n Type: Neural network\n Parameters: 1.2M\n Memory usage: 45MB\n Status: Ready`
-for inference`,
+for inference`,`
 
   description: 'Save trained models',
   type: 'object',
@@ -492,8 +492,7 @@ for inference`,
   to;
   \$args.path;
   :\n Size: 23.4MB\n Format: ONNX\n Compression: 67%\n Status: Saved successfully`,
-
-  description
+// description
 : 'WASM SIMD optimization',
 type: 'object', type;
 : 'string', description
@@ -808,7 +807,7 @@ type: 'string', description;
 
   handler: (args) =>
   ` Release coordination (\$args.repov\$args.version):\n Build:  Success\n Tests:  All passed\n Docs:  Updated\n Status: Ready`
-for release`,
+for release`,`
 
   description: 'Workflow automation',
   type: 'object',
@@ -823,8 +822,7 @@ for release`,
   ` Workflow`
   automation (${args.repo})
   :\n Workflows: 3 active\n Success rate: 96.8%\n Avg duration: 4.2 min\n Status: Automation active`,
-
-  description
+// description
 : 'Automated code review',
 type: 'object', type;
 : 'string', description

@@ -28,7 +28,7 @@ class TypeScriptErrorFixer {
     // Find all TypeScript files in src directory
 // const _tsFiles = awaitglob('src/\*\*/*.ts', 
       cwd),
-    absolute 
+// absolute
   //   )
   console;
 
@@ -36,7 +36,9 @@ class TypeScriptErrorFixer {
   for(const filePath _of _tsFiles) {
       try {
 // // await this.fixFile(filePath); 
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         this.errors.push( file, error); console.error(` Error processing ${filePath) {;`
 // }
 // }

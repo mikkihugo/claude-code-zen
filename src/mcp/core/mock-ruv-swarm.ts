@@ -1,8 +1,6 @@
-*
-@fileoverview
-Mock;
-RuvSwarm;
-implementation;
+/**
+ * @fileoverview Mock; RuvSwarm; implementation;
+ */
 for testing
 /** Provides basic functionality when ruv-swarm is not available
 

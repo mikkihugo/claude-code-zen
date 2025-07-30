@@ -34,7 +34,7 @@ type;
 
   name: 'oversized.jpg',
   size, // 10MB
-    error
+// error
   : 'File size exceeds limit',
 
   name: 'document.pdf',
@@ -90,7 +90,7 @@ const _mockVisionResults = {
         children: ['toolbar', 'data-grid', 'pagination'] } ],
   type: 'dashboard',
   responsive,
-  fixedWidth
+// fixedWidth
 }
 // }
 // Mock code generation templates
@@ -107,13 +107,13 @@ return(;
 }
 // export default ${name};`,`
 
-styles: (name) => `.container
+styles: (name) => `.container`
 {
-  `;
+  `;`
 /* ${name} styles */
-}`,
+}`,`
     `
-test: (name) => `;
+test: (name) => `;`
   import React from 'react';
   `
 // import { render  } from '@testing-library/react';
@@ -124,11 +124,11 @@ describe('${name}', () => {
     render(<${name} 
     expect(screen.getByRole('region')).toBeInTheDocument();
   });
-});`;
+});`;`
 }
 ,`
 // {
-  component: (name) => `<template>
+  component: (name) => `<template>`
 `
   <div
 class="${name.toLowerCase()}">;
@@ -244,7 +244,7 @@ const _performanceTestData = {
   max,
 
   acceptable: 0.001, // 0.1%
-    warning
+// warning
   : 0.01, // 1%
       critical: 0.05, // 5%
 // }// }

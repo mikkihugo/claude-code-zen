@@ -63,7 +63,7 @@ export class PerformanceMonitor {
     if(!this.enabled) return;
     // ; // LINT: unreachable code removed
     this.metrics.errors.push({ timestamp = === 'debug') {
-      console.warn(' Error recorded = {  }) {'
+      console.warn(' Error recorded = {}) {'
     if(!this.enabled) return;
     // ; // LINT: unreachable code removed
     this.metrics.warnings.push({timestamp = === 'debug') {

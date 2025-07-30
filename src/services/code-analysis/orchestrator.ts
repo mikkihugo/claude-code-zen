@@ -39,8 +39,7 @@ catch(/* _e */)
 
   async initialize() { 
     console.warn(' Initializing Code Analysis Orchestrator...');
-
-    try 
+// try
       // Create output directory
 // // await mkdir(this.config.outputDir, {recursive = true;
       console.warn(' Code analysis system initialized');

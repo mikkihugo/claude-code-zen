@@ -23,12 +23,11 @@ export // interface DefaultEntry {id = =========================================
  catch (error) { console.error(error); }this;
 
   configPath = configPath ?? join(homedir(), '.claude-zen', 'prompt-defaults.json')
-this
-
+// this
   environmentDefaults = new Map<string, any>()
-this
+// this
   loadConfig() {}
-this
+// this
   loadEnvironmentDefaults() {}
 // }
 
@@ -183,7 +182,7 @@ saveConfig();
             const _regex = new RegExp(pattern.replace(/\*/g, '.*'));
             // return regex.test(promptId);
           //           }
-          else
+// else
           // return pattern.test(promptId);
         //         }
 

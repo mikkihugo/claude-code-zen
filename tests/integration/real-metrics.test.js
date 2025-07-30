@@ -13,7 +13,7 @@ describe('Real Metrics Integration Tests', () => { test('monitor.js should exist
       // Check for real metrics collection imports
       expect(content).toContain("import os from 'os'");
       expect(content).toContain("import { performance  }  catch (error) { console.error(error); }from 'perf_hooks'");
-      expect(content).toContain("import fs from 'fs'
+      expect(content).toContain("import fs from 'fs'"
 
       // Check for real CPU usage calculation
       expect(content).toContain('async function getCPUUsage()');

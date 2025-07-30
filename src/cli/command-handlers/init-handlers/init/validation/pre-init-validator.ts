@@ -30,7 +30,7 @@ catch(error)
 
 /** Check available disk space
 
-// async checkDiskSpace() { }
+// async checkDiskSpace() {}
 
     const _result = {success = new node.Command('df', {args = await command.output();
   if(success) {

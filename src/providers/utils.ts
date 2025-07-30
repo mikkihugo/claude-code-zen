@@ -140,7 +140,9 @@ export function validateAIRequest() {
 // const _result = awaitoperation();
       this.onSuccess();
       // return result;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       this.onFailure();
       throw error;
     //     }
@@ -177,7 +179,9 @@ export function validateAIRequest() {
   let _lastError = 0; attempt <= maxRetries; attempt++) {
     try {
 //       return // await operation();
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       lastError = error;
 
       if(attempt === maxRetries  ?? !shouldRetry(error)) {
@@ -198,7 +202,7 @@ export function validateAIRequest() {
   // private roundRobinIndex = 0;
   constructor(// private strategy) {}
 
-  select(items = > any = () => ({  })): T | null {
+  select(items = > any = () => ({})): T | null {
     if(items.length === 0) return null;
     // if(items.length === 1) return items[0]; // LINT: unreachable code removed
   switch(this.strategy.type) {

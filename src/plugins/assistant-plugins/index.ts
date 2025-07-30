@@ -21,7 +21,9 @@ export class AssistantPluginsPlugin extends EventEmitter {
     //     ) {
     try {
       // return // await fn();
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       if(i === maxRetries - 1) throw error;
 // // await new Promise((resolve) => setTimeout(resolve, 2 ** i * 1000));
     //     }
@@ -99,7 +101,7 @@ console.warn(` Loaded \$this.knowledgeBase.sizeknowledge base entries`);
   //   }
 
   // Add feature-based imports
-  if(config.features?.includes('file-operations')) { imports.add("{ readFile, writeFile, mkdir  } from 'fs'
+  if(config.features?.includes('file-operations')) { imports.add("{ readFile, writeFile, mkdir  } from 'fs'"
     imports.add('path');
   //   }
 
@@ -107,7 +109,7 @@ console.warn(` Loaded \$this.knowledgeBase.sizeknowledge base entries`);
     imports.add('fetch');
   //   }
 
-  if(config.features?.includes('database')) { imports.add("{ Database  } from '.'
+  if(config.features?.includes('database')) { imports.add("{ Database  } from '.'"
   //   }
 
   // return Array.from(imports);
@@ -790,7 +792,7 @@ const _cached = plugin.getCached('key');
     console.warn(` Plugin saved to $pluginDir`);
   //   }
 
-  async getStats() { }
+  async getStats() {}
     // return patterns = [];
     // this.analysisCache.clear(); // LINT: unreachable code removed
     this.removeAllListeners();

@@ -10,13 +10,13 @@ name);
 - **distributed** - Multiple
 coordinators;
 share;
-management
+// management
 - **hierarchical** - Tree
 structure;
 with nested coordination
 - **mesh** - Peer-to-peer
 agent;
-collaboration
+// collaboration
 - **hybrid** - Mixed
 coordination;
 strategies;
@@ -70,7 +70,7 @@ development;
 
 ### Performance Optimization Swarm
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "Optimize database queries and API performance" \\;
 --strategy;
 optimization;
@@ -84,7 +84,7 @@ optimization;
 
 ### Enterprise Development Swarm
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "Implement secure payment processing system" \\;
 --strategy;
 development;
@@ -110,7 +110,7 @@ distributed;
 
 ### Testing and QA Swarm
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "Comprehensive security audit and testing" \\;
 --strategy;
 testing;
@@ -127,7 +127,7 @@ testing;
 
 ### Real-time monitoring: null
 \`\`\`bash
-`;
+`;`
 #
 Monitor;
 swarm;
@@ -143,7 +143,7 @@ component;
 
 ### Check swarm status: null
 \`\`\`bash
-`;
+`;`
 #
 Overall;
 system;
@@ -159,7 +159,7 @@ status;
 
 ### View agent activity: null
 \`\`\`bash
-`;
+`;`
 #
 List;
 all;
@@ -178,7 +178,7 @@ Swarms automatically use distributed memory
 for collaboration
 : null
 \`\`\`bash
-`;
+`;`
 #
 Store;
 swarm;
@@ -283,13 +283,13 @@ run;
 to;
 preview: null;
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "Test task" --dry-run --strategy development;
 \`\`\`
 
 ### Custom quality thresholds: null
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "High quality API" \\;
 --strategy;
 development;
@@ -314,21 +314,21 @@ For;
 detailed;
 documentation,
   see, //github.com/ruvnet/claude-code-flow/docs/swarm-system.md
-  `;
-`;
-// // await node.writeTextFile(`;
+  `;`
+`;`
+// // await node.writeTextFile(`;`
 $;
 {
   workingDir;
 }
 /.claude/acdmmnos / claude -
   zen -
-  swarm.md`, swarmCommand);
-// // await node.writeTextFile(`;
+  swarm.md`, swarmCommand);`
+// // await node.writeTextFile(`;`
 $;
 {
   workingDir;
 }
-/.claude/commands/claude-zen-swarm.md`, swarmCommand);
+/.claude/commands/claude-zen-swarm.md`, swarmCommand);`
 console.warn('   Created slash command);'
 // }

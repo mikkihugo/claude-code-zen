@@ -49,7 +49,7 @@ export async function securityCommand() {
             console.warn('   Format: JSON(encrypted)');
                 console.warn('   Destination);'
             console.warn('\n Export complete,234 events');
-                else
+// else
                 console.warn('Audit commands, search, export, configure')
                 break;
 

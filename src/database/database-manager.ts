@@ -66,7 +66,7 @@ console.warn(` Removingdatabase = === 'function') {`
     const _connections = [];
   for(const [id, instance] of this.databases) {
       connections.push({ id,)
-        //         type = {  }): Promise<QueryResult> {
+        //         type = {}): Promise<QueryResult> {
     const _startTime = Date.now(); const _instance = this.databases.get(databaseId); if(!instance) {
       throw new Error(`Database notfound = = 'connected');`
 // {

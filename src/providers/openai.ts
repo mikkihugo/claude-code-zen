@@ -76,7 +76,7 @@ if (config.baseUrl) {
   throw this.handleError(error);
 // }
 // }
-// async getModels() { }
+// async getModels() {}
 : Promise<string[]>
 
   try {

@@ -483,8 +483,7 @@ toArray();
     const _cutoffDate = new Date();
     cutoffDate.setDate(cutoffDate.getDate() - days);
     const _cutoff = cutoffDate.toISOString();
-
-    try 
+// try
 // const _allDecisions = awaitthis.tables.decisions;
 query();
 select('id', 'consensusResult', 'confidenceScore', 'supportingQueens', 'dissentingQueens', 'status', 'metadata', 'created_at');
@@ -581,8 +580,7 @@ sort((a, b) => a[1].timestamp - b[1].timestamp); // Oldest first
 
   async executeQuery(table, operation, params = {}, cacheKey = null) { 
     const _startTime = Date.now();
-
-    try 
+// try
       // Check cache first
   if(cacheKey) {
         const _cached = this.getCachedQuery(cacheKey);
@@ -681,7 +679,9 @@ toArray();
     let lastError;
   for(let attempt = 1; attempt <= this.maxRetries; attempt++) {try {
         // return // await operation();
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
         lastError = error;
   if(attempt === this.maxRetries) {
           console.error(`\u26a0\ufe0f  ${operationName} failed after ${this.maxRetries}attempts = this.retryDelay * 2 ** (attempt - 1); // Exponential backoff`
@@ -745,7 +745,7 @@ trim(); //       }
 
 /** Get backend statistics for LanceDB;
 
-  async getBackendStats() { }
+  async getBackendStats() {}
     if(!this.db  ?? !this.tables) 
       // return null;
     //   // LINT: unreachable code removed}
@@ -757,7 +757,9 @@ trim(); //       }
       for (const [namespace, table] of Object.entries(this.tables)) {
         try {
 // const _count = awaittable.countRows(); 
-          _totalEntries += count; } catch (error) { console.error(error); } catch(error) {
+          _totalEntries += count; } catch (error) {
+  console.error(error);
+}
           console.warn(`Failed to count rows in ${namespace});`
         //         }
       //       }

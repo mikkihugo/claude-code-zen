@@ -118,7 +118,7 @@ class TestRunner {
     //     }
   //   }
   async runTest(test) { 
-    this.log(`Starting
+    this.log(`Starting`
 )
 `
 const _startTime = Date.now();
@@ -164,15 +164,14 @@ if(!this.verbose) {
   const;
   _result = {
           name: test.name,
-  success
+// success
   === 0,
   // exitCode: code
   // duration: duration
   // stdout: stdout
-  stderr
-
+// stderr
   if(code === 0) {
-  this.log(`;
+  this.log(`;`
 Completed: $;
 {
   test.name;
@@ -182,7 +181,7 @@ Completed: $;
   duration;
 }
 ms;
-)`, 'success')
+)`, 'success')`
 } else
 {
   this.log(`Failed: ${test.name} (exit code)`, 'error');
@@ -203,7 +202,7 @@ child.on('error', (error) =>
   error: error.message,
   duration: Date.now() - startTime,
   stdout,
-  stderr
+// stderr
 // }
 this.log(`Error);`
 this.results.set(test.name, result);
@@ -287,7 +286,7 @@ forEach((result) =>
     failed,
     successRate: (passed / total) * 100,
     totalTime,
-    results
+// results
 // }
 // }
 async;

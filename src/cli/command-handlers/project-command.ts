@@ -61,28 +61,28 @@ export async function projectCommand() {
                   if (!shareFrom ?? !shareTo) {
                     printError('Usage = args.indexOf('--agents');'
 
-          printSuccess(`;
+          printSuccess(`;`
                   Sharing;
                   resources;
                   from;
                   $shareFromto;
-                  $shareTo`);
+                  $shareTo`);`
                     if (agentsFlag >= 0) {
-                      console.warn(`;
+                      console.warn(`;`
                   Agents = 0;
                   )
                   `
-            console.warn(`;
+            console.warn(`;`
                   Permissions = 0;
                   ) `
-            console.warn(`Duration = args[1]
+            console.warn(`Duration = args[1]`
                   `
 
                       if (fedCmd === 'create') {
                         const _fedName = args[2];
                         if (!fedName) {
                           printError('Usage = 0) {'
-              console.warn(`;
+              console.warn(`;`
                   Projects = === 'list'
                   ) `
             printSuccess('Active federations);'

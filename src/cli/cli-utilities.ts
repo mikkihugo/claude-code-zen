@@ -179,7 +179,7 @@ const _FLAG_VALIDATORS = {
 for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     const _value = flags[flagName]; if(value !== undefined) {
       if(config.validValues && !config.validValues.includes(value)) {
-        errors.push(`Invalid ${flagName}: "${value}". Must be oneof = ============================================================================; "`
+        errors.push(`Invalid ${flagName}: "${value}". Must be oneof = ============================================================================; "`"
 // PROCESS EXECUTION HELPERS
 // =============================================================================
 
@@ -377,7 +377,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
 
     console.warn(` Using REAL ruv-swarm WASM neural training...`);`
     console.warn(;)
-      `Executing = = 'undefined' && (process as any).versions?.node) {'`
+      `Executing = = 'undefined' && (process as any).versions?.node) {'`'
       // Node.js environment - use spawn with stdio inherit
       const { spawn }  catch (error) console.error(error); = // await import('node);'
 

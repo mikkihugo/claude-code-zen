@@ -213,7 +213,9 @@ map(lp => lp.plugin);
   for(const [name, loadedPlugin] of this.plugins) {
       try {
         plugins[name] = // await loadedPlugin.plugin.healthCheck(); 
-        loadedPlugin.lastHealthCheck = new Date(); } catch (error) { console.error(error); } catch(error) {
+        loadedPlugin.lastHealthCheck = new Date(); } catch (error) {
+  console.error(error);
+}
         plugins[name] = {status = Object.values(plugins).filter(h => h.status === 'healthy').length;
 
     const _criticalIssues = Object.values(plugins);
@@ -260,7 +262,9 @@ filter(i => i.severity === 'critical').length;
     try {
 // const _module = awaitimport(resolve(entryPoint));
       // return module;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       throw new Error(`Failed to load plugin module from ${entryPoint});`
     //     }
   //   }
@@ -322,8 +326,7 @@ filter(i => i.severity === 'critical').length;
       this.emit('plugin-restart-failed', pluginName, 'Max restart attempts exceeded');
       return;
     //   // LINT: unreachable code removed}
-
-    try 
+// try
 // // await new Promise(resolve => setTimeout(resolve, this.config.restartDelay));
 // // await this.reloadPlugin(pluginName);
       this.emit('plugin-restarted', pluginName);

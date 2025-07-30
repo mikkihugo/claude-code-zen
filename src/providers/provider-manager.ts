@@ -25,12 +25,11 @@ AIResponse,
 // config = {loadBalancing = { ...this.config
 // , ...config }
 this.setupHealthChecking()
-{
-}
+{}
 this.setupCacheCleanup();
 // }
 // Provider Registration
-// async registerProvider(name = > BaseProvider,config = new providerClass() { }
+// async registerProvider(name = > BaseProvider,config = new providerClass() {}
 // await provider.initialize(config)
 if(cached) 
   this.emit('cache_hit', {requestId = new Promise<never>((_, reject) => {
@@ -107,7 +106,9 @@ try {
       this.updateCircuitBreaker(provider, false);
 
       // return response;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       // Update circuit breaker status
       this.updateCircuitBreaker(provider, true);
 

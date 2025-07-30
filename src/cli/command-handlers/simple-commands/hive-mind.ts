@@ -1,8 +1,6 @@
-*
-@fileoverview
-Refactored;
-Hive;
-Mind;
+/**
+ * @fileoverview Refactored; Hive; Mind;
+ */
 Command;
 Handler;
 

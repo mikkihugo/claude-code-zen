@@ -36,8 +36,7 @@ export class HiveMindCore extends EventEmitter {
   _updatePerformanceMetrics();
 // }
   //   )
-  this
-
+// this
   on('task => {'
       console.warn(`Task failed =>;`
   //   {
@@ -130,7 +129,7 @@ spawnQueen(queenData);
   if(result?.agentId && !result.error) {
 // // await this.mcpWrapper.executeTool('memory_usage', {action = Date.now() - startTime; 
       this._trackSpawnPerformance(workerTypes.length, spawnTime); // Store worker info in memory(via mcpWrapper) {
-// // await this.mcpWrapper.executeTool('memory_usage', {action = > ({ id: r.agentId,type = 5, metadata = {  } catch (error) { console.error(error); }) {
+// // await this.mcpWrapper.executeTool('memory_usage', {action = > ({ id: r.agentId,type = 5, metadata = {} catch (error) { console.error(error); }) {
     const _timestamp = Date.now();
     const _randomPart = Math.random().toString(36).substring(2, 11); // Use substring instead of substr
     const __taskId = `;`
@@ -261,7 +260,7 @@ const _sorted = Object.entries(typeScores).sort((a, b) => b[1] - a[1]);
 
 /** Update performance metrics
 
-// async _updatePerformanceMetrics() { }
+// async _updatePerformanceMetrics() {}
 
   // Calculate performance metrics
 

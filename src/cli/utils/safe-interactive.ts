@@ -56,7 +56,7 @@ export type InteractiveFunction<_T extends any[], R> = (...args = > Promise<R> |
     if (fallbackFn) {
       //     return // await fallbackFn(...args);
       //   // LINT: unreachable code removed}
-      else
+// else
     console.warn(chalk.yellow('  Non-interactive mode requested but no fallback available'))
 console.warn(chalk.gray('This command requires interactive mode to function properly'))
 process.exit(1)

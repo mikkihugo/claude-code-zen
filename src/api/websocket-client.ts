@@ -131,7 +131,9 @@ send(data)
   if(this.isConnected && this.ws) {
     try {
         this.ws.send(message);
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         this.emit('error', error);
         this.queueMessage(message);
       //       }
@@ -162,7 +164,9 @@ send(data)
   if(message) {
       try {
           this.ws.send(message);
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           this.emit('error', error);
           this.messageQueue.unshift(message);
           break;
@@ -182,7 +186,9 @@ send(data)
     this.emit('reconnecting', this.reconnectAttempts);
     try {
 // // await this.connect();
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         this.emit('reconnectError', error);
   if(this.reconnectAttempts < this.options.maxReconnectAttempts) {
           this.scheduleReconnect();
@@ -202,7 +208,9 @@ send(data)
   if(this.isConnected && this.ws) {
       try {
           this.ws.ping();
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           this.emit('error', error);
         //         }
     //     }

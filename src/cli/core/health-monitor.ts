@@ -66,7 +66,7 @@ catch(/* _error */)
 // {
   results.checks[name] = status = 'unhealthy';'
 // }
-else
+// else
   if(results._summary._degraded > 0) {
   results.status = 'degraded';'
 // }
@@ -80,7 +80,7 @@ addToHistory(results)
 
 /** Check database health
 
-// async checkDatabase() { }
+// async checkDatabase() {}
 
   try {
   if(!strategicDocs.db) {
@@ -154,7 +154,7 @@ addToHistory(results)
 
         // Simplified logging - only log degraded/unhealthy status
   if(health.status === 'unhealthy') {'
-          console.warn(` Systemhealth = === 'unhealthy') {'`
+          console.warn(` Systemhealth = === 'unhealthy') {'`'
               console.warn(`   ${name} catch (error) { console.error(error); });`
             //             }
           //           }

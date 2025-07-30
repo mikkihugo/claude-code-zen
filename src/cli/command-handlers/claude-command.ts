@@ -77,7 +77,7 @@ export async function claudeCommand() {
   if(_code === 0) {
                     printSuccess(`Claude instance ${instanceId} completed successfully`);
                   //                   }
-                  else 
+// else
                     printError(`_Claude _instance _$instanceId_exited with _code $code`);
   //   }
 // }

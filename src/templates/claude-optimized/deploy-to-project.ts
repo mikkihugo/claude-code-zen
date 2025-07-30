@@ -1,7 +1,6 @@
 #
 // ! /usr/bin / env
-node
-
+// node
 /** Deploy Claude optimized template to a target project;
  *Usage = process.argv.slice(2);
  */

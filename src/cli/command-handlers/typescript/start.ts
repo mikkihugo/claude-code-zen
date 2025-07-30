@@ -25,8 +25,7 @@ import { FlagValidator } from '../core/argument-parser';
   name = > value > 0 && value <= 100
 // }
 
-{
-}
+{}
 (_name) => {
     const _logger = context.logger.child({command = parseStartOptions(context, logger);
     // Validate environment and prerequisites

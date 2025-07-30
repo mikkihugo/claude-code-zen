@@ -33,7 +33,7 @@ optional?;
 // === STRATEGIC VISIONS ===
 // High-level strategic visions that drive product development
 ('visions-create')
-:
+
 {
   description: 'Create new strategic vision', category;
   : 'strategic',

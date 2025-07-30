@@ -27,8 +27,7 @@ onDestroy();
 : Promise<void>
   // Clear all state
   this.cache.clear()
-{
-}
+{}
 this.requestQueue = [];
 this.rateLimitInfo = null;
 // Public API Methods

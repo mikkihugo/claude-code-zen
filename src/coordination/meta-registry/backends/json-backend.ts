@@ -57,7 +57,7 @@ export class JSONBackend extends RegistryInterface {
         continue; //       }
 
       if(this.matchesQuery(entry, query)) {
-        results.push({ key = {  }) {
+        results.push({ key = {}) {
 // // // await this.ensureLoaded(); 
     const _entry = this.data.get(key) {;
     if(!entry  ?? this.isExpired(entry)) {
@@ -162,8 +162,7 @@ export class JSONBackend extends RegistryInterface {
   async cleanupBackups() { 
     const _dir = path.dirname(this.filePath);
     const _filename = path.basename(this.filePath);
-
-    try 
+// try
 // const _files = awaitfs.readdir(dir);
       const _backupFiles = files;
 filter(file => file.startsWith(`\$filename.backup.`));`
@@ -228,8 +227,8 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
     // return filtered;
     //   // LINT: unreachable code removed}
 
-  async getFileSize() { }
-    try 
+  async getFileSize() {}
+// try
 // const _stats = awaitfs.stat(this.filePath);
       // return stats.size;
     //   // LINT: unreachable code removed} catch(error) ;

@@ -34,7 +34,7 @@ try {
       printSuccess(` API Server started on port ${apiPort}`);
       printInfo(`Documentation = // await import('./dashboard-command.js');`
 // // await startDashboard({ api = // await import('./queen-council.js');
-// // await queenCouncilCommand(['convene', '--auto', '--silent'], {  });
+// // await queenCouncilCommand(['convene', '--auto', '--silent'], {});
       services.push('Queen Council');
       printSuccess(` Queen Council convened for strategic oversight`);
     } catch(/* _error */) {

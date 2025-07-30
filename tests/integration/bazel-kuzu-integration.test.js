@@ -121,7 +121,9 @@ test('should initialize with Kuzu integration', async() =>
       expect(graphvizViz.content).toContain('digraph');
       expect(mermaidViz.format).toBe('mermaid');
       expect(mermaidViz.content).toContain('graph TD');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       if(error.message.includes('Kuzu not available')) {
         console.warn('Skipping visualization test - Kuzu not available');
         return;
@@ -133,7 +135,7 @@ test('should initialize with Kuzu integration', async() =>
     //     {
       // Test plugin without Kuzu
       const _fallbackPlugin = new BazelMonorepoPlugin({ workspaceRoot,
-      enableKuzuIntegration
+// enableKuzuIntegration
   })
   // // await createTestBazelWorkspace(testDir)
     try {

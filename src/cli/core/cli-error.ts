@@ -64,8 +64,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 
   CONFIG_ERROR;
   , 1)
-  this
-
+// this
   name = 'ConfigurationError';'
   this;
 
@@ -87,8 +86,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 
   COMMAND_ERROR;
   , 1)
-  this
-
+// this
   name = 'CommandExecutionError';'
   this;
 
@@ -121,7 +119,9 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 //   return async(...args => {
     try {
 //       return await fn(...args);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       const _exitCode = handleError(error as Error, logger);
       process.exit(exitCode);
     //     }
@@ -135,7 +135,9 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
   errorCode?): Promise<T> {
   try {
 //     return // await operation();
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
   if(error instanceof CliError) {
       throw error;
     //     }

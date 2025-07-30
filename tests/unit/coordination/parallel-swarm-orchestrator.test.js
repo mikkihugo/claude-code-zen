@@ -313,7 +313,7 @@ it('should handle task failures gracefully', async() => {
         maxRetries,
         retryDelay,
         executeWithRetry: async function(task, attempt = 1) { 
-          try 
+// try
             // Simulate task execution that might fail
   if(task.shouldFail && attempt <= 2) {
               throw new Error('Task failed');

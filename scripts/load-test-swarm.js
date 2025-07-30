@@ -24,8 +24,7 @@ duration, // 5 minutes
   : 'Medium load test'
 // }
 
-{
-}
+{}
 swarms,
   agentsPerSwarm,
   tasksPerSwarm,
@@ -34,8 +33,7 @@ swarms,
 : 'Heavy load test'
 // }
 
-{
-}
+{}
 swarms,
   agentsPerSwarm,
   tasksPerSwarm,
@@ -59,7 +57,7 @@ class SwarmLoadTester {
     tasksCreated,
     errors: [],
     responseTimes: [],
-    throughput
+// throughput
 // }
   this;
 
@@ -110,7 +108,7 @@ catch(error)
   throw error;
 // }
 // }
-// async runLoadTest() { }
+// async runLoadTest() {}
 
   this.log(`Starting ${this.config.description}`);
   this.log(;
@@ -131,7 +129,9 @@ catch(error)
   // // await this.cleanup();
       this.metrics.endTime = Date.now();
       this.generateReport();
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       this.log(`Load test failed);`
       this.metrics.errors.push({ message: error.message,)
         timestamp: Date.now(),
@@ -144,7 +144,7 @@ catch(error)
   this.isRunning = false;
 // }
 // }
-// async createSwarms() { }
+// async createSwarms() {}
 
   this.log(`Phase 1);`
   const _startTime = Date.now();
@@ -180,12 +180,12 @@ createSwarm(index);
   this.metrics.errors.push({ message: error.message,)
   timestamp: Date.now(),
   phase: 'swarm_creation',
-  index
+// index
   })
 throw error;
 // }
   //   }
-// async spawnAgents() { }
+// async spawnAgents() {}
 
   this.log(`Phase 2);`
   const _startTime = Date.now();
@@ -223,12 +223,12 @@ spawnAgent(swarmId, index);
   timestamp: Date.now(),
   phase: 'agent_spawning',
   swarmId,
-  index
+// index
   })
 throw error;
 // }
   //   }
-// async createTasks() { }
+// async createTasks() {}
 
   this.log(`Phase 3);`
   const _startTime = Date.now();
@@ -265,12 +265,12 @@ createTask(swarmId, index);
   timestamp: Date.now(),
   phase: 'task_creation',
   swarmId,
-  index
+// index
   })
 throw error;
 // }
   //   }
-// async runForDuration() { }
+// async runForDuration() {}
 
   this.log(`Phase 4);`
   const _endTime = Date.now() + this.config.duration;
@@ -301,7 +301,7 @@ throw error;
 // }
 this.log('Load test duration completed', 'success');
 // }
-// async performPeriodicOperations() { }
+// async performPeriodicOperations() {}
 
   // Perform random operations to maintain load
   const _operations = [
@@ -377,7 +377,9 @@ cleanup();
       // Shutdown system gracefully
   // // await this.systemIntegration.shutdown();
       this.log('Cleanup completed successfully', 'success');
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       this.log(`Cleanup failed);`
     //     }
 // }

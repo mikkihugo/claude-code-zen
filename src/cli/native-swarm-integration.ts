@@ -33,8 +33,7 @@ initialize();
     if(this.initialized) return;
     // ; // LINT: unreachable code removed
     printInfo('ROCKET Initializing Claude Zen Native Swarm Integration...');'
-
-    try 
+// try
       // Initialize native hive-mind
       this.nativeHiveMind = new NativeHiveMind({enableSemanticMemory = true;
 
@@ -78,13 +77,13 @@ initialize();
     //   // LINT: unreachable code removed}
 
       // Direct native call(no MCP overhead)
-// const _result = awaitthis.nativeHiveMind.initializeSwarm({ topology = {  }) {
+// const _result = awaitthis.nativeHiveMind.initializeSwarm({ topology = {}) {
 // // // await this.ensureInitialized();
     const _operation = this.trackOperation('agent_spawn');'
 
     try {
 // const _result = awaitthis.nativeHiveMind.spawnAgent({ type = = false,/g)
-        cognitivePattern = {  } catch (error) console.error(error); ) {
+        cognitivePattern = {} catch (error) console.error(error); ) {
 // // // await this.ensureInitialized();
     const _operation = this.trackOperation('task_orchestrate');'
 
@@ -109,7 +108,7 @@ initialize();
     const _operation = this.trackOperation('semantic_search');'
 
     try {
-      printInfo(`SEARCH Performing semanticsearch = // // await this.nativeHiveMind.semanticSearch(query, {vectorLimit = this.trackOperation('neural_learning');'`
+      printInfo(`SEARCH Performing semanticsearch = // // await this.nativeHiveMind.semanticSearch(query, {vectorLimit = this.trackOperation('neural_learning');'`'
 
     try {
 // // // await this.nativeHiveMind.learnFromCoordination({ operation = = false;/g)

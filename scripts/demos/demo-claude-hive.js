@@ -41,14 +41,14 @@ if(// await provider.isAvailable()) {
   console.warn('  # View agent coordination');
   console.warn('  claude-zen swarm monitor');
 }
-else
+// else
 {
   printWarning('Claude is not available. Please run);'
   // }
 }
 catch(error)
 // {
-  printWarning(`Demo error)
+  printWarning(`Demo error)`
 `
   printInfo('\nMake sure Claude Code is installed and authenticated.')
 // }

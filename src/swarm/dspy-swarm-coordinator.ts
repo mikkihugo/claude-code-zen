@@ -591,7 +591,7 @@ import type { SwarmAgent, SwarmCoordinator, SwarmTask } from '.';
         program.signature,)
         existingExamples.concat(examples),
         diversity,
-        quality
+// quality
       );
       examples.push(example);
     //     }

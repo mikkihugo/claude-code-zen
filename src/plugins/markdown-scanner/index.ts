@@ -20,8 +20,7 @@ export class MarkdownScannerPlugin {
     this.markdownRules.set('frontmatter', {description = > this.checkFrontmatter(frontmatter);
   //   }
   //   )
-  this
-
+// this
   markdownRules;
 set('structure', {
   description = > this.checkStructure(content);

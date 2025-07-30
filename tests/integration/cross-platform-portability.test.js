@@ -158,7 +158,7 @@ const _execMock = jest.fn((cmd, callback) => {
     'platform',
     // {
     value,
-    configurable
+// configurable
   );
 });
 })

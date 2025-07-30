@@ -49,9 +49,9 @@ class SwarmUI {
     =>
       this.
     selectedObjective = this.swarmData.objectives[index]
-    this
+// this
   updateTasksList() {}
-    this
+// this
   log(`Selected objective =>`
     //     {
     const _task = this.swarmData.tasks[index];

@@ -112,7 +112,7 @@ import type { CodeAnalysisResult, CodeFileData } from '.';
 }
 // dependencies: unknown
 // modularity: unknown
-issues
+// issues
 recommendations;
 // }
 
@@ -147,7 +147,7 @@ recommendations;
 
 async;
 detectPatterns(
-  codeData
+// codeData
   // analysis
 );
 : Promise<PatternDetectionResult>

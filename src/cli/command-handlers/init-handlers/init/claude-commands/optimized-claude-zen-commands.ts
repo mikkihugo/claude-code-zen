@@ -42,23 +42,23 @@ Usage(Enhanced);
 strategy;
 selection;
 with parallel task
-analysis
+// analysis
 - **development** - Code
 implementation;
 with concurrent review
 and;
-testing
+// testing
 - **research** - Information
 gathering;
 with parallel synthesis
 - **analysis** - Data
 processing;
 with concurrent pattern
-identification
+// identification
 - **testing** - Comprehensive
 QA;
 with parallel test
-execution
+// execution
 - **optimization** - Performance
 tuning;
 with concurrent profiling
@@ -74,7 +74,7 @@ Types(Enhanced);
 and;
 delegates;
 with parallel task
-distribution
+// distribution
 - **developer** - Writes
 code;
 with concurrent optimization
@@ -95,15 +95,15 @@ with concurrent validation
 - **documenter** - Creates
 docs;
 with parallel content
-generation
+// generation
 - **monitor** - Tracks
 performance;
 with real-time parallel
-monitoring
+// monitoring
 - **specialist** - Domain
 experts;
 with batch processing
-capabilities
+// capabilities
 - **batch-processor** - High-throughput
 parallel;
 operation;
@@ -116,15 +116,15 @@ Modes(Enhanced);
 - **centralized** - Single
 coordinator;
 with parallel agent
-management
+// management
 - **distributed** - Multiple
 coordinators;
 with concurrent load
-balancing
+// balancing
 - **hierarchical** - Tree
 structure;
 with parallel nested
-coordination
+// coordination
 - **mesh** - Peer-to-peer
 with concurrent collaboration
 - **hybrid** - Mixed
@@ -199,7 +199,7 @@ with Concurrent Processing;
 ### Performance Optimization Swarm
 with Parallel Analysis;
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "Optimize database queries and API performance" \\;
 --strategy;
 optimization;
@@ -221,7 +221,7 @@ optimization;
 ### Enterprise Development Swarm
 with Full Parallelization;
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "Implement secure payment processing system" \\;
 --strategy;
 development;
@@ -255,7 +255,7 @@ distributed;
 ### Testing and QA Swarm
 with Concurrent Validation;
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "Comprehensive security audit and testing" \\;
 --strategy;
 testing;
@@ -282,7 +282,7 @@ testing;
 ### Real-time monitoring
 with parallel metrics: null
 \`\`\`bash
-`;
+`;`
 #
 Monitor;
 swarm;
@@ -307,7 +307,7 @@ with parallel monitoring;
 ### Check swarm status
 with concurrent analysis: null
 \`\`\`bash
-`;
+`;`
 #
 Overall;
 system;
@@ -332,7 +332,7 @@ with concurrent processing;
 ### View agent activity
 with parallel monitoring: null
 \`\`\`bash
-`;
+`;`
 #
 List;
 all;
@@ -362,7 +362,7 @@ for collaboration
 : null
 ### Standard Memory Operations
 \`\`\`bash
-`;
+`;`
 #
 Store;
 swarm;
@@ -384,7 +384,7 @@ memory;
 
 ### Batchtools Memory Operations
 \`\`\`bash
-`;
+`;`
 #
 Batch;
 store;
@@ -404,7 +404,7 @@ namespaces;
 Performance - optimized;
 swarm;
 memory;
-export
+// export
 // claude-zen memory concurrent-export swarm-backup.json --namespace swarm --compress --parallel
 \`\`\`
 
@@ -531,14 +531,14 @@ Dry;
 run;
 with parallel preview: null
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "Test task" --dry-run --strategy development --parallel --performance;
 \`\`\`
 
 ### Custom quality thresholds
 with concurrent validation: null
 \`\`\`bash
-`;
+`;`
 // claude-zen swarm "High quality API" \\;
 --strategy;
 development;
@@ -555,10 +555,10 @@ development;
 
 ### Batchtools Configuration
 \`\`\`json
-`;
+`;`
 // {
 ('swarm');
-:
+
 {
     "batchtools": 
       "enabled",
@@ -657,21 +657,21 @@ status;
 - **Memory Operations**: 400% faster with parallel processing
 
 For detailed documentation and optimization guides, see,//github.com/ruvnet/claude-code-flow/docs/swarm-batchtools.md
-`;
+`;`
 `
-// // await node.writeTextFile(`;
+// // await node.writeTextFile(`;`
 $;
 {
   workingDir;
 }
 /.claude/acdmmnos / claude -
   zen -
-  swarm.md`, swarmCommand);
-// // await node.writeTextFile(`;
+  swarm.md`, swarmCommand);`
+// // await node.writeTextFile(`;`
 $;
 {
   workingDir;
 }
-/.claude/commands/claude-zen-swarm.md`, swarmCommand);
+/.claude/commands/claude-zen-swarm.md`, swarmCommand);`
 console.warn('   Created optimized slash command: /claude-zen-swarm(Batchtools enhanced)');
 // }

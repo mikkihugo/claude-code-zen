@@ -11,5 +11,5 @@ export async function cleanupTestEnv() { // eslint-disable-line
 // }
 export const TEST_CONFIG = {
   timeout,
-maxRetries
+// maxRetries
 // }

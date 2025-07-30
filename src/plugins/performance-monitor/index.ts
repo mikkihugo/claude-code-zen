@@ -270,7 +270,7 @@ incrementCounter(name, (value = 1), (labels = {}));
   : unknown
   this.recordHistogram(
     `\$`
-  name
+// name
   _duration`,`
     duration,
     labels)
@@ -283,9 +283,9 @@ sort(([a], [b]) => a.localeCompare(b))
 map(
     ([_k, _v]) => `
     \$
-    k
+// k
     =\$
-  v
+// v
   `
     //     )
 join(',')
@@ -464,7 +464,7 @@ const _heapPercent = (health.checks.heap.value / health.checks.heap.limit) * 100
 // }
 // return health;
 // }
-// async stopMonitoring() { }
+// async stopMonitoring() {}
 
   this.isMonitoring = false;
   if(this.monitoringInterval) {

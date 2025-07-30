@@ -72,7 +72,7 @@ catch(error)
 /** Get checkpoints
 
   async getCheckpoints() { 
-    try 
+// try
 // const _state = awaitthis.loadState();
       // return state.checkpoints  ?? [];
     //   // LINT: unreachable code removed} catch {
@@ -83,7 +83,7 @@ catch(error)
 /** Get rollback history
 
   async getRollbackHistory() { 
-    try 
+// try
 // const _state = awaitthis.loadState();
       // return state.rollbackHistory  ?? [];
     //   // LINT: unreachable code removed} catch {

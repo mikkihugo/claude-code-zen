@@ -23,10 +23,7 @@ Please analyze this document and respond with ONLY this JSON format(no other tex
       const _parsed = JSON.parse(result);
     } catch (error) { console.error(error); } catch(_e) {
       const jsonMatch = result.match(/\{[\s\S]*\}/);
-  if(jsonMatch) {
-      } else {
-
-  } catch(error) 
+  if(jsonMatch) {} else {} catch(error) 
     console.error(' Error);'
 
 // Run GitHub Models CLI

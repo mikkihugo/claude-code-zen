@@ -73,8 +73,7 @@ readFileSyncSafe('/proc/version', 'utf8').toLowerCase().includes('microsoft');
 // )
 // Raw mode support check
 env.supportsRawMode = checkRawModeSupport();
-{
-}
+{}
 // Color support check
 env.supportsColor =
   (process.env.NO_COLOR !== '1' && process.env.TERM !== 'dumb' && process.stdout.isTTY) ??

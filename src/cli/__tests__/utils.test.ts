@@ -49,7 +49,7 @@ describe('Utils', () => {'
     test('should separate arguments and flags', () => {'
       const _result = parseFlags(['arg1', '--flag', 'value', 'arg2', '--bool']);'
       expect(result.flags).toEqual(flag);
-      expect(result.args).toEqual(['arg1', 'arg2']);');
+      expect(result.args).toEqual(['arg1', 'arg2']);');'
 
     test('should handle combined short flags', () => {'
       const _result = parseFlags(['-vf', '--port', '8080']);'
@@ -58,7 +58,7 @@ describe('Utils', () => {'
 
     test('should handle no flags or arguments', () => {'
       const _result = parseFlags([]);
-      expect(result.flags).toEqual({  });
+      expect(result.flags).toEqual({});
       expect(result.args).toEqual([]);
     });
   });
@@ -68,20 +68,20 @@ describe('Utils', () => {'
       expect(formatBytes(0)).toBe('0.00 B');'
       expect(formatBytes(1024)).toBe('1.00 KB');'
       expect(formatBytes(1048576)).toBe('1.00 MB');'
-      expect(formatBytes(1073741824)).toBe('1.00 GB');');
+      expect(formatBytes(1073741824)).toBe('1.00 GB');');'
 
     test('should handle large numbers', () => '
       expect(formatBytes(2048)).toBe('2.00 KB');'
-      expect(formatBytes(1536)).toBe('1.50 KB');');
+      expect(formatBytes(1536)).toBe('1.50 KB');');'
   });
 
   describe('truncateString', () => {'
     test('should truncate long strings', () => '
       expect(truncateString('Hello World', 5)).toBe('Hello...');'
-      expect(truncateString('Short', 10)).toBe('Short');');
+      expect(truncateString('Short', 10)).toBe('Short');');'
 
     test('should handle empty string', () => '
-      expect(truncateString('', 5)).toBe('');');
+      expect(truncateString('', 5)).toBe('');');'
 
     test('should use default length', () => {'
       const _longString = 'a'.repeat(150);'
@@ -195,14 +195,14 @@ describe('Utils', () => {'
 
   describe('isValidJson', () => {'
     test('should validate correct JSON', () => {'
-      expect(isValidJson('{"key")).toBe(true);"'
+      expect(isValidJson('{"key")).toBe(true);"'"
       expect(isValidJson('[1,2,3]')).toBe(true);'
       expect(isValidJson('"string"')).toBe(true);'
       expect(isValidJson('123')).toBe(true);'
     });
 
     test('should reject invalid JSON', () => {'
-      expect(isValidJson('{"key")).toBe(false);"'
+      expect(isValidJson('{"key")).toBe(false);"'"
       expect(isValidJson('invalid')).toBe(false);'
       expect(isValidJson('')).toBe(false);'
     });

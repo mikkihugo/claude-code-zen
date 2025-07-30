@@ -21,5 +21,4 @@ if (global._ruvSwarmInstance) {
   )
 }
 catch(_error)
-{
-}
+{}

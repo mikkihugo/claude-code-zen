@@ -148,7 +148,7 @@ performAutoSave();
 /** Clean up all resources and child processes
 
   async cleanup() { 
-    try 
+// try
       // Stop the save timer
   if(this.saveTimer) {
         clearInterval(this.saveTimer);

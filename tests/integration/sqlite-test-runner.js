@@ -21,7 +21,7 @@ cyan: '\x1b[36m',
 reset: '\x1b[0m'
 // }
 function log() {
-  console.warn(`${colors[color]}
+  console.warn(`${colors[color]}`
 $;
 {
   message;
@@ -30,10 +30,10 @@ $;
 {
   colors.reset;
 }
-`);
+`);`
 // }
 async function runTest() {
-  log(`;
+  log(`;`
 \n Running)
 `
 try {
@@ -61,23 +61,23 @@ child.on('error', (error) => {
 })
 if (result.code === 0) {
   log(
-    `;
+    `;`
 $;
 {
   testName;
 }
--PASSED`,
+-PASSED`,`
     'green'
   );
   // return true;
   //   // LINT: unreachable code removed} else {
   log(
-    `;
+    `;`
 $;
 {
   testName;
 }
-- FAILED(exit code)`,
+- FAILED(exit code)`,`
     'red'
   );
   // return false;
@@ -88,7 +88,7 @@ catch(error)
 \$testName- ERROR)
 `
     // return false;
-async
+// async
 function checkSQLiteAvailability() {
   log('\n Checking SQLite availability...', 'cyan');
   try {
@@ -100,7 +100,7 @@ function checkSQLiteAvailability() {
       // return true;
     //   // LINT: unreachable code removed} else {
       const _error = getLoadError();
-      log(`;
+      log(`;`
 SQLite;
 not;
 available;
@@ -110,7 +110,7 @@ available;
       // return false;
     //   // LINT: unreachable code removed}
   } catch(error)
-    log(`;
+    log(`;`
 Error;
 checking;
 SQLite;
@@ -160,7 +160,7 @@ async function runIntegrationTests() {
       results.push(...sqliteSpecificResults);
     }  catch (error) console.error(error); else 
       log('\n  Skipping SQLite-specific tests(SQLite not available)', 'yellow');catch(error) {
-    log(`;
+    log(`;`
 Fatal;
 error;
 during;
@@ -176,23 +176,23 @@ execution;
   const _passed = results.filter((r) => r === true).length;
   const _failed = results.filter((r) => r === false).length;
   const _total = results.length;
-  log(`;
+  log(`;`
 Total;
 Tests;
 )
 `
-  log(`;
+  log(`;`
 Passed;
 )
 `
-  log(`;
+  log(`;`
 Failed;
 )
 `
   if(failed === 0) {
     log('\n All SQLite integration tests passed!', 'green');
     log(;
-      `;
+      `;`
 SQLite;
 Status:
 \$sqliteAvailable ? 'Available' : 'Not Available(using fallbacks)'`,

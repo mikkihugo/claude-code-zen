@@ -35,7 +35,7 @@ const _llmConfig = {
               'You are a coding expert. Write clean, well-documented code following best practices.'}
 // {
   apiKey: process.env.GEMINI_API_KEY  ?? null: true,
-  priority
+// priority
 // }
  },
 defaultProvider: 'claude',

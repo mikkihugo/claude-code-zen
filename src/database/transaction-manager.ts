@@ -188,7 +188,9 @@ databaseIds =
 
     try {
 // // await Promise.all(preparePromises);
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       // If prepare fails, rollback all
 // // await this.rollbackDistributedTransaction(context);
       throw error;
@@ -235,7 +237,9 @@ filter(context => context.state === 'active' && context.locks.size > 0);
         // Rollback the youngest transaction
         try {
 // // await this.rollbackTransaction(transaction.id);
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           console.error(`Failed to rollback deadlocked transaction);`
         //         }
       //       }

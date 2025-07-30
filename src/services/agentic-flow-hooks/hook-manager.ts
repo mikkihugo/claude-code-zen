@@ -173,7 +173,9 @@ map(name => (
 // const _result = awaithook.execute(payload);
     clearTimeout(timer);
     resolve(result);
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) {
+  console.error(error);
+}
     clearTimeout(timer);
     reject(error);
   //   }

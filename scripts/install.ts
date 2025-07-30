@@ -19,7 +19,9 @@ async function main(): Promise<void> {
     console.warn(' Neural CLI with ruv-FANN integration ready');
     console.warn(' Usage);'
     console.warn(' Full commands);'
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) {
+  console.error(error);
+}
     const _errorMessage = error instanceof Error ? error.message : String(error);
     console.error('Installation verification failed);'
     process.exit(1);

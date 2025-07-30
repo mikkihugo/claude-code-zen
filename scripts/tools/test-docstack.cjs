@@ -54,7 +54,7 @@ async function testDocumentStack() {
 // const ruleResults = awaitdocStack.applyRules(testDoc);
   ruleResults.forEach((_result) => {});
 // const searchResults = awaitdocStack.searchByMetadata({ stack_layer);
-  searchResults.forEach((_result) => {  });
+  searchResults.forEach((_result) => {});
   ['infrastructure', 'service', 'application', 'business'].forEach((layer) => {
     const _swarm = docStack.getAvailableSwarm(layer);
   });

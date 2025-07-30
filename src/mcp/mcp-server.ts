@@ -29,8 +29,6 @@ try {
 } catch (error) {
   console.error(error);
 }
-catch(error)
-{
   console.warn('[MCP-Server] SqliteMemoryStore not available, using mock implementation');'
 // const _mockModule = awaitimport('./core/mock-memory-store.js');'
   SqliteMemoryStore = mockModule.SqliteMemoryStore;
@@ -54,7 +52,9 @@ try {
 try {
 // const _handlerModule = awaitimport('./core/message-handler.js');'
   MCPMessageHandler = handlerModule.MCPMessageHandler;
-} catch (error) { console.error(error); } catch(error) {
+} catch (error) {
+  console.error(error);
+}
   console.warn('[MCP-Server] Message handler not available, using simplified version');'
   MCPMessageHandler = class {
     async handleMessage(_message) { 

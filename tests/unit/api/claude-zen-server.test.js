@@ -8,7 +8,7 @@ jest.mock('express', () => {
   get: jest.fn(),
   post: jest.fn(),
   put: jest.fn(),
-  delete
+// delete
   : jest.fn(),
   listen: jest.fn((_port, callback) =>
   if(callback) callback();
@@ -42,8 +42,7 @@ generateOpenAPISpec: jest.fn(() => (
 jest.mock('../../../src/api/agui-websocket-middleware.js', () => (
 // {
   integrateAGUIWithWebSocket: jest.fn()
-{
-}
+{}
 // }
 ))
 describe('ClaudeZenServer', () =>
@@ -166,7 +165,7 @@ expect(bodyParsingConfig.json.limit).toBe('10mb');
   it('should generate routes from schema', () => {
     const _mockSchema = {
       endpoints: [
-        ;
+
           { path: '/api/test', method: 'GET', handler: 'testHandler' },
           { path: '/api/users', method: 'POST', handler: 'createUser' },,
       ],

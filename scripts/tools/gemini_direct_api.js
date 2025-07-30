@@ -147,7 +147,7 @@ Respond with this exact JSON structure: null
           try {
 // const _files = awaitglob(pattern, {
         ignore: ['node_modules/**', '.git/**', 'dist/**', 'build/**'], */
-        maxDepth
+// maxDepth
 } catch (error) { console.error(error); })
   if(files.length === 0) {
             // return { error: 'No files found matching pattern' };
@@ -216,7 +216,7 @@ join('\n')
   } catch (error) { console.error(error); })
   if(this.verbose) {
             console.warn(`;`
-           Generating
+// Generating
           with model)
           );
             console.warn(` Prompt length);`

@@ -1,8 +1,6 @@
-*
-@fileoverview
-Hive;
-Mind;
-Swarm;
+/**
+ * @fileoverview Hive; Mind; Swarm;
+ */
 Management;
 Module;
 

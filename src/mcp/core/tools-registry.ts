@@ -1,8 +1,6 @@
-*
-@fileoverview
-MCP;
-Tools;
-Registry;
+/**
+ * @fileoverview MCP; Tools; Registry;
+ */
 
 /** Claude Zen CLI command tools for MCP protocol
  * @module MCPToolsRegistry

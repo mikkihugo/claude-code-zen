@@ -290,7 +290,9 @@ coordinateOperation(operation, (targets = []), (options = {}));
     for (const [name, info] of this.registries.entries()) {
       try {
         stats.registryDetails[name] = // // await info.registry.status(); 
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         stats.registryDetails[name] = {error = 'closing'; '
 
     // Clear intervals

@@ -1,8 +1,6 @@
-*
-@fileoverview
-Mock;
-tools;
-registry;
+/**
+ * @fileoverview Mock; tools; registry;
+ */
 for testing
 /** Provides basic tools when full registry is not available
 

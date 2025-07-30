@@ -182,7 +182,7 @@ it('should handle data validation patterns', () =>
     //   // LINT: unreachable code removed};
       expect(validateData({ name: 'John', age   })).toEqual([]);
       expect(validateData({ name)).toEqual([]);
-      expect(validateData({  })).toContain('Name is required');
+      expect(validateData({})).toContain('Name is required');
       expect(validateData({ name: 'Bob', age: -5   })).toContain('Age must be a positive number');
     });
   });

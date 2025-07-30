@@ -19,7 +19,7 @@ if(isTUI()) {
 // const _ink = awaitimport('ink');'
     inkComponents = ink;
   } catch (error) { console.error(error); } catch(/* _error */) 
-    console.warn('Ink not available, falling back to console output');'else if(isWeb()) {
+    console.warn('Ink not available, falling back to console output');'else if(isWeb()) {'
   // Dynamic import for web environment
   try {
 // const _reactDOM = awaitimport('react-dom');'

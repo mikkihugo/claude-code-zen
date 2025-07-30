@@ -1,8 +1,6 @@
-*
-@fileoverview
-Queen;
-command;
-handler;
+/**
+ * @fileoverview Queen; command; handler;
+ */
 for Multi-Queen Architecture
 /** Manages CodeQueen, DebugQueen and their collaboration
  * @module QueenCommand

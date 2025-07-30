@@ -37,7 +37,7 @@ catch (error)
   console.error(error);
 }
 = // await execAsync(`git \$`
-  command
+// command
 `,`
 // {
   cwd,maxBuffer = ============================================================================

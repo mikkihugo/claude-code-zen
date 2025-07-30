@@ -61,7 +61,7 @@ const _buffer = '';
   throw this.handleError(error);
 // }
 // }
-// async getModels() { }
+// async getModels() {}
 : Promise<string[]>
 
   // return [...this.availableModels];

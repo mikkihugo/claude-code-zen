@@ -29,8 +29,7 @@ regex: /([^`$])error\.message/g,
   `
       replacement: '$1(error instanceof Error ? error.message : String(error))' },
 // Fix error type annotations
-{
-}
+{}
 regex: /catch\s*\(\s*error)/g, replacement;
 : 'catch(error)' },
       regex: /\(error)/g,
@@ -52,11 +51,11 @@ patterns.forEach((pattern) => {
       const importPath = file.includes('cli'
         ? '../../utils/error-handler'
         : '../utils/error-handler';
-      content = `;
+      content = `;`
 import { getErrorMessage  } from '${importPath}';
 \n$
   content;
-`;
+`;`
 
     fs.writeFileSync(file, content);
     _totalFixed++;

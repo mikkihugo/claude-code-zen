@@ -24,7 +24,7 @@ class LintTerminator {
 
   async runBiomeBlitz() { 
     console.warn(' PHASE 1');
-    try 
+// try
       execSync('npx biome check --write .', { stdio);
       console.warn(' Biome formatting complete');
     } catch(/* _error */) 
@@ -226,9 +226,9 @@ join(', ');
 
 /** PHASE 3: Run ESLint autofix;
 
-  async runESLintAutofix() { }
+  async runESLintAutofix() {}
     console.warn(' PHASE 3');
-    try 
+// try
       execSync('npx eslint . --cache --fix', { stdio);
       console.warn(' ESLint autofix complete');
     } catch(/* _error */) 
@@ -248,8 +248,7 @@ join(', ');
     console.warn(` Fixes applied`);
     console.warn(` Time elapsed`);
     console.warn(`\n Running final lint check...`);
-
-    try 
+// try
       execSync('npx eslint . --cache', { stdio);
     } catch(/* _error */) {
       console.warn('\n Remaining issues detected - ready for manual review');

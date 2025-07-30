@@ -123,10 +123,10 @@ This document outlines security requirements for PCI DSS Level 1 compliance for 
 - Mask PAN when displayed(first 6, last 4 digits max
 // )
 -Render
-PAN
+// PAN
 unreadable in all
-storage
-locations
+// storage
+// locations
 #
 #
 #

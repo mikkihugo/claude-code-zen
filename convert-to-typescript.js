@@ -8,10 +8,10 @@ import { existsSync, readdir, readFileSync, unlinkSync } from 'node:fs';
 import { basename } from 'node:path';
 
 const _BASE_DIR = '/home/mhugo/code/claude-zen/src';
-const _TYPE_IMPORTS = `import type { Logger: true,
+const _TYPE_IMPORTS = `import type { Logger: true,`
   JSONObject: true,
   JSONValue: true,
-  JSONArray
+// JSONArray
  } from '../types/core.js';
 import type { CommandDefinition: true,
   CommandContext: true,
@@ -23,7 +23,7 @@ import type { CommandDefinition: true,
   CommandRegistry: true,
   CliConfig: true,
   ParsedArguments;
- } from '../types/cli.js';`;
+ } from '../types/cli.js';`;`
 `
 
 /** Priority conversion order;
@@ -34,7 +34,7 @@ const _CONVERSION_PATTERNS = [
   // Add type imports
 // {
 //     pattern: /^(import .+?;?\s*\n\n)/,
-//     replacement: `;
+//     replacement: `;`
 $1;
 \n\$
 {
@@ -46,7 +46,7 @@ $1;
 // Function parameters
 // {
     pattern: /
-function
+// function
 \s+(\w+)\s*\(([^)]*)\)/g, // eslint-disable-line
     replacement: (_match, _name, params) =>
 {

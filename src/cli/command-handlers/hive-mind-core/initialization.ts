@@ -1,8 +1,6 @@
-*
-@fileoverview
-Hive;
-Mind;
-Initialization;
+/**
+ * @fileoverview Hive; Mind; Initialization;
+ */
 Module;
 
 /** Handles system setup, database initialization, and configuration;

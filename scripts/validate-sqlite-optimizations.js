@@ -20,7 +20,7 @@ cyan: '\x1b[36m',
 reset: '\x1b[0m'
 // }
 function log() {
-  console.warn(`${colors[color]}
+  console.warn(`${colors[color]}`
 $;
 {
   message;
@@ -29,7 +29,7 @@ $;
 {
   colors.reset;
 }
-`);
+`);`
 // }
 async function validateSQLiteOptimizations() {
   log(' SQLite Performance Optimization Validation', 'blue');
@@ -38,7 +38,7 @@ async function validateSQLiteOptimizations() {
 // const _available = awaitisSQLiteAvailable();
   if(!available) {
     const _error = getLoadError();
-    log(`;
+    log(`;`
 SQLite;
 not;
 available;
@@ -51,7 +51,7 @@ log(' SQLite is available', 'green');
 // Create test directory
 const _testDir = path.join(
   os.tmpdir(),
-  `;
+  `;`
 sqlite - validation - $;
 {
   Date.now();
@@ -59,7 +59,7 @@ sqlite - validation - $;
 `
 );
 // // await fs.mkdir(testDir, { recursive });
-log(`;
+log(`;`
 Test;
 directory;
 )
@@ -75,21 +75,21 @@ try {
     log(' Store initialized with optimizations', 'green');
     // Check indexes were created
     const _indexCheck = store.db;
-prepare(`;
+prepare(`;`
 `
       SELECT COUNT(*)  FROM sqlite_master ;
       WHERE type = 'index' AND tbl_name = 'memory_entries';
-    `;
+    `;`
 )
 `
 get();
   if(indexCheck.count >= 10) {
-      log(`;
+      log(`;`
 Performance;
 indexes;
 created(\$indexCheck.countindexes)`, 'green');
     }  catch (error) console.error(error); else {
-      log(`;
+      log(`;`
 Expected;
 at;
 least;
@@ -99,7 +99,7 @@ $;
 {
   indexCheck.count;
 }
-`, 'red');
+`, 'red');`
       allTestsPassed = false;
     //     }
     // Test cache functionality
@@ -120,40 +120,40 @@ $;
     const _poolDbPath = path.join(testDir, 'pool-test.db');
     const _pool = new SQLiteConnectionPool(poolDbPath, {
       minConnections,
-      maxConnections
+// maxConnections
 })
   // // await pool.initialize() {}
 const _poolStats = pool.getStats();
   if(poolStats.totalConnections === 2 && poolStats.availableConnections === 2) {
   log(' Connection pool initialized correctly', 'green');
 } else {
-  log(`;
+  log(`;`
 Connection;
 pool;
 issue: $;
 {
   JSON.stringify(poolStats);
 }
-`, 'red');
+`, 'red');`
   allTestsPassed = false;
 // }
 // Test concurrent operations
-  // // await pool.execute(`;
+  // // await pool.execute(`;`
 `
       CREATE TABLE IF NOT EXISTS test_concurrent(;
         id INTEGER PRIMARY KEY,
         value TEXT;))
       );
-    `;
+    `;`
 )
 `
 const _concurrentOps = [];
   for(let i = 0; i < 10; i++) {
   concurrentOps.push(;)
-  pool.execute('INSERT INTO test_concurrent(value) VALUES(?)', [`;
+  pool.execute('INSERT INTO test_concurrent(value) VALUES(?)', [`;`
 value - $;
   i;
-`]);
+`]);`
   //   )
 // }
   // // await Promise.all(concurrentOps);
@@ -161,7 +161,7 @@ value - $;
   if(result[0].count === 10) {
   log(' Concurrent operations successful', 'green');
 } else {
-  log(`;
+  log(`;`
 Concurrent;
 operations;
 failed;
@@ -174,43 +174,43 @@ failed;
 log('\n Test 3);'
 const _perfStore = new SqliteMemoryStore({ directory,
 dbName: 'performance-test.db',
-enableCache
+// enableCache
   })
   // // await perfStore.initialize() {}
 const _start = Date.now();
 // Insert 1000 entries
   for(let i = 0; i < 1000; i++) {
   // // await perfStore.store(;
-  `;
+  `;`
 perf - key - $;
 {
   i;
 }
-`,
+`,`
   id,
-  data: `;
+  data: `;`
 Performance;
 test;
 entry;
 $;
   i;
-`,
-  tags: [`;
+`,`
+  tags: [`;`
 tag - $;
   i % 10;
 `, `;
 category - $;
   i % 5;
-`],
+`],`
 
-  namespace: `;
+  namespace: `;`
 namespace - $;
   i % 10;
-`;)
+`;)`
   //   )
 // }
 const _insertTime = Date.now() - start;
-log(`;
+log(`;`
 Insert;
 time;
 for 1000 entries);
@@ -219,10 +219,10 @@ for 1000 entries);
 const _queryStart = Date.now();
 // Key lookups
   for(let i = 0; i < 100; i++) {
-  // // await perfStore.retrieve(`;
+  // // await perfStore.retrieve(`;`
 perf - key - $;
   i;
-`, { namespace);
+`, { namespace);`
 // }
 // List operations
   for(let i = 0; i < 10; i++) {
@@ -231,19 +231,19 @@ perf - key - $;
 // Search operations
   // // await perfStore.search('Performance test', { limit });
 const _queryTime = Date.now() - queryStart;
-log(`;
+log(`;`
 Query;
 time;
 for mixed operations);
 `
 // Check cache effectiveness
 const _finalStats = perfStore.getPerformanceStats();
-log(`;
+log(`;`
 Cache;
 hit;
 rate: $;
   (finalStats.cache.hitRate * 100).toFixed(1);
-%`, 'cyan')
+%`, 'cyan')`
 // Performance assertions
 if (insertTime < 15000) {
   // 15 seconds for 1000 inserts
@@ -278,7 +278,7 @@ log(;
     }
     catch(error)
 // {
-  log(` Test failed
+  log(` Test failed`
     with error);
     `
   console.error(error);
@@ -305,7 +305,7 @@ log('='.repeat(30), 'blue');
 // return allTestsPassed;
 // }
 // Run validation if called directly
-  if(import.meta.url === `;
+  if(import.meta.url === `;`
     file;
     ) `
   validateSQLiteOptimizations()

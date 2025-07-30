@@ -192,7 +192,7 @@ console.warn(' WebSocket server enabled')
 
 /** Initialize components
 
-// private // async initializeComponents() { }
+// private // async initializeComponents() {}
 : Promise<void>
 
   try {
@@ -316,7 +316,9 @@ async function main() {
     try {
 // await server.stop();
       process.exit(0);
-    } catch (error) { console.error(error); } catch(error) {
+    } catch (error) {
+  console.error(error);
+}
       console.error(' Error during shutdown);'
       process.exit(1);
     //     }
@@ -325,7 +327,9 @@ async function main() {
   process.on('SIGTERM', () => shutdown('SIGTERM'));
   try {
 // // await server.start();
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) {
+  console.error(error);
+}
     console.error(' Failed to start server);'
     process.exit(1);
   //   }

@@ -1,8 +1,6 @@
-*
-@fileoverview
-Optimized;
-stdio;
-communication;
+/**
+ * @fileoverview Optimized; stdio; communication;
+ */
 for MCP server
 /** Implements message batching, retry logic, and performance monitoring
  * @module StdioOptimizer
@@ -78,8 +76,7 @@ try {
    * @returns {Array} Array of parsed messages
     // */ // LINT: unreachable code removed
   parseMessages()
-{
-}
+{}
 // {
 const _messages = [];
 const _lines = this.messageBuffer.split('\n');
@@ -140,7 +137,9 @@ for (const line of lines) {
 // // // await this.writeToStdout(responseStr);
         // return true;
     // ; // LINT: unreachable code removed
-      } catch (error) { console.error(error); } catch(error) {
+      } catch (error) {
+  console.error(error);
+}
         this.metrics.retryAttempts++;
   if(attempt === this.retryAttempts) {
           console.error(`[${new Date().toISOString()}`

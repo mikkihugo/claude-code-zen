@@ -109,7 +109,7 @@ const _IMPORT_REPLACEMENTS = [
  * @param stats - Statistics object to update;
  *//g
 )
-async
+// async
 function processFile(filePath, stats): Promise<void> {
   try {
     stats.filesProcessed++;

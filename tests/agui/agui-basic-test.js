@@ -30,7 +30,7 @@ class MockAGUIAdapter {
     this.stats = {
       messagesCreated,
     toolCallsExecuted,
-    eventsEmitted
+// eventsEmitted
 // }
 // }
 startTextMessage((messageId = null), (role = 'assistant'));

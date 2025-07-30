@@ -20,7 +20,9 @@ export async function readHiveRegistry() {
   try {
 // const _content = awaitreadFile(HIVE_REGISTRY_FILE, 'utf8');'
 //     return JSON.parse(content);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
   if(error.code === 'ENOENT') {'
       // return {};
     //   // LINT: unreachable code removed}
@@ -38,7 +40,7 @@ async function _writeHiveRegistry() {
     console.error('Error = // await readHiveRegistry();'
   const _hiveInfo = registry[hiveName];
   if(!hiveInfo) {
-    console.error(`Error = args.join(' ').trim();'`
+    console.error(`Error = args.join(' ').trim();'`'
   if(!objective) {
     console.error('Error = new PluginManager();'
 // // await pluginManager.initialize();
@@ -88,7 +90,7 @@ async function _writeHiveRegistry() {
 // // await mkdir(adrDir, {recursive = `$suggestion.adrTitle.toLowerCase().replace(/\s/g, '-')-$Date.now().md`;`
           const _adrFilePath = path.join(adrDir, adrFileName);
 // // await writeFile(adrFilePath, suggestion.adrContent);
-          console.warn(`CreatedADR = === 'quit') '`
+          console.warn(`CreatedADR = === 'quit') '`'
       console.warn('Quitting scanner.');'
       break;else if(choice === 'skip_all') {'
       console.warn('Skipping all remaining suggestions.');'
@@ -163,7 +165,7 @@ async function _launchServiceHive(objective = {}) {
       console.warn('No hives found.');'
     } else {
       Object.entries(registry).forEach(([name, info]) => {
-        console.warn(` $name$info.path`);`);
+        console.warn(` $name$info.path`);`);`
     //     }
   //   }
 // }

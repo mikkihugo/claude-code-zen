@@ -124,12 +124,12 @@ export class TemplateManager {
 // // await fs.copyFile(defaultSettingsPath, targetSettingsPath);
         console.warn(` Installed default settings(${variant}  catch (error) { console.error(error); }variant not found)`);
       } catch(/* fallbackError */ ) 
-        console.warn(` Could not install settingsvariant = 'enhanced')
+        console.warn(` Could not install settingsvariant = 'enhanced')`
     `
     console.warn('\\n NextSteps = '.repeat(30))
     if (manifest.setup?.postInstall) {
       console.warn('1. Run the setup commands shown above');
-      console.warn(`;
+      console.warn(`;`
     2;
     Your;
     $;

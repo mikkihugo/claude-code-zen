@@ -18,8 +18,7 @@ export class TypeScriptConfigurationManager extends EventEmitter implements ICon
   // private config = (> void>> = new Map());
   ) {
 //   super() {}
-  this
-
+// this
   schema = schema;
   this;
 
@@ -232,7 +231,7 @@ watch(key = > void)
 // HOT RELOAD
 // =============================================================================
 
-// async reload() { }
+// async reload() {}
 : Promise<void>
 
   if(!this.configPath) {
@@ -357,7 +356,9 @@ startWatching();
   if(watchers) {
   for(const callback of watchers) {
     try {
-      callback(newValue); } catch (error) { console.error(error); } catch(error) {
+      callback(newValue); } catch (error) {
+  console.error(error);
+}
       this.emit('watcher-error', error, key, callback); //     }
   //   }
 // }

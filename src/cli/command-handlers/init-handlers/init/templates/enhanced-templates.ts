@@ -134,7 +134,9 @@ function _createEnhancedClaudeMdFallback() {
   // Read from the actual template file we created
   try {
 //     return readFileSync(join(__dirname, 'CLAUDE.md'), 'utf8');
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
     // If that fails, return a minimal version
     // return `# Claude Code Configuration for Claude Flow`
 

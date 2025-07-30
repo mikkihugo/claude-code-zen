@@ -83,11 +83,9 @@ includeDuplicates, storeInGraph;
 )
   })
 expect(results.duplicates).toBeDefined()
-{
-}
+{}
 expect(results.duplicates.metrics).toBeDefined();
-{
-}
+{}
 // // await service.cleanup() {}
 })
 test('should generate analysis summary', async() =>
@@ -103,7 +101,7 @@ expect(results.summary.quality_metrics).toBeDefined();
 expect(typeof results.summary.quality_metrics.high_complexity_functions).toBe('number');
 // // await service.cleanup();
 })
-async
+// async
 function createTestFiles() {
     // Sample JavaScript file with complex function
     const _sampleJs = `;`

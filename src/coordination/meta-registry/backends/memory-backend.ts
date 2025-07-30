@@ -53,7 +53,7 @@ export class MemoryBackend extends RegistryInterface {
         const _valueB = b.metadata[field]  ?? b.value[field];
 
   if(order === 'desc') {'
-          // return valueB > valueA ? 1 = {  }) {
+          // return valueB > valueA ? 1 = {}) {
     let _entry = this.data.get(key);
     // if(!entry) { // LINT: unreachable code removed
       // return false;

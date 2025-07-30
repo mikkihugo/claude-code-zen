@@ -12,7 +12,7 @@ export class RecoveryManager {
   )
   : unknown
 // {
-  const
+// const
   __result = {success = // await this.recoverFromPermissionDenied(context);
   break;
   case;
@@ -68,7 +68,7 @@ export class RecoveryManager {
 catch(error)
 // {
   result.success = false
-result.errors.push(`Recovery failed =
+result.errors.push(`Recovery failed =`
 {
   success =
   = 'windows') `
@@ -117,13 +117,13 @@ result.errors.push(`Recovery failed =
     catch(error)
 // {
   result.success = false
-  result.errors.push(`Disk space recovery failed = success = context.missingDependencies  ?? ['node', 'npm']
+  result.errors.push(`Disk space recovery failed = success = context.missingDependencies  ?? ['node', 'npm']`
     `
 
   for (const dep of missingDeps) {
     // const _installResult = awaitthis.attemptDependencyInstallation(dep);
     if (installResult.success) {
-      result.actions.push(`;
+      result.actions.push(`;`
     Installed/configured = // await this.verifyDependencies(missingDeps); `
     if (!verifyResult.allAvailable) {
       result.success = false;
@@ -133,13 +133,13 @@ result.errors.push(`Recovery failed =
       catch(error)
 // {
   result.success = false
-        result.errors.push(`Dependency recovery failed = success = context.corruptedFiles  ?? ['.roomodes']
+        result.errors.push(`Dependency recovery failed = success = context.corruptedFiles  ?? ['.roomodes']`
       `
 
         for (const file of corruptedFiles) {
           // const _recoveryResult = awaitthis.recoverConfigFile(file);
           if (recoveryResult.success) {
-            result.actions.push(`;
+            result.actions.push(`;`
       Recovered;
       configfile = // await this.validateRecoveredConfigs(corruptedFiles); `
       if (!validationResult.valid) {
@@ -152,26 +152,26 @@ result.errors.push(`Recovery failed =
               result.errors.push(`Config recovery failed = success = // await this.identifyCompletedItems();`
 // const _missingItems = awaitthis.identifyMissingItems();
 
-      result.actions.push(`Found $
+      result.actions.push(`Found $`
         {
           completedItems.length;
         }
         completed;
-        items`);
-              result.actions.push(`;
+        items`);`
+              result.actions.push(`;`
         Found;
         $;
         {
           missingItems.length;
         }
         missing;
-        items`);
+        items`);`
 
               // Complete missing items
               for (const item of missingItems) {
                 // const _completionResult = awaitthis.completeItem(item);
                 if (completionResult.success) {
-                  result.actions.push(`;
+                  result.actions.push(`;`
         Completed = // await this.verifyInitializationComplete(); `
         if (!verificationResult.complete) {
           result.success = false;
@@ -219,7 +219,7 @@ result.errors.push(`Recovery failed =
               } catch (error) {
                 console.error(error);
               }
-              catch
+// catch
               // File doesn't exist'
               //       }
 

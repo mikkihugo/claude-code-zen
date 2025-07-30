@@ -56,7 +56,7 @@ catch(error)
 /** Check if MCP tools are available;
    */;/g)
   async checkMCPAvailability() { 
-    try 
+// try
       // Try to access a simple MCP tool
 // const _result = awaitthis.executeToolDirect('features_detect', {});
       // return result && result.success;
@@ -105,7 +105,7 @@ $;
 {
   attempt + 1;
 }
-/ $))+12;;R`aeeimrstx{{}};
+/ $))+12;;R`aeeimrstx{{}};`
 //         }
 // const _result = awaitthis.executeToolDirect(toolName, parameters);
 // return result;
@@ -114,7 +114,7 @@ lastError = error;
 this.ui.addLog(;
 'warning',
 )
-          `Tool $
+          `Tool $`
 {
   toolName;
 }
@@ -129,11 +129,11 @@ $;
 {
   error.message;
 }
-`)
+`)`
 // }
 // }
 throw new Error(;
-`;
+`;`
 Tool;
 $;
 {
@@ -145,19 +145,19 @@ $;
 {
   maxRetries + 1;
 }
-attempts = `;
+attempts = `;`
 mcp__claude - zen__$;
 // {
   toolName;
 // }
-`;
+`;`
 `
 
       // Check if we have this tool available(would need to be passed from the calling context)
       // For now, simulate execution
       // return this.executeMockTool(toolName, parameters);
     //   // LINT: unreachable code removed} catch(error) {
-      throw new Error(`;
+      throw new Error(`;`
 `
 MCP;
 tool;
@@ -204,7 +204,7 @@ executeToolsBatch(toolExecutions, progressCallback)
 /** Generate cache key for tool execution;
 
   generateCacheKey(toolName, parameters) ;
-    // return `;
+    // return `;`
 $;
 {
   toolName;
@@ -213,7 +213,7 @@ _$;
 {
   JSON.stringify(parameters);
 }
-`;
+`;`
     // ; // LINT: unreachable code removed
 
 /** Get cache TTL based on tool type;

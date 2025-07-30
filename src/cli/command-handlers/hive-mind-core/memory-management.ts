@@ -1,8 +1,6 @@
-*
-@fileoverview
-Hive;
-Mind;
-Memory;
+/**
+ * @fileoverview Hive; Mind; Memory;
+ */
 Management;
 Module;
 
@@ -302,7 +300,7 @@ async function estimateMemorySize(db = db.prepare(`;`)
     SELECT SUM(LENGTH(key)
 +LENGTH(value) + LENGTH(type) + 50;
 ) as total_size
-FROM
+// FROM
 collective_memory;
 `).get();`;
 //

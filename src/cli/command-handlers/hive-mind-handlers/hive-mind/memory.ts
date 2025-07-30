@@ -303,7 +303,7 @@ this._initialize();
 /** Store data in collective memory
 
   async store(key, value, type = 'knowledge', metadata = {}) { 
-    try 
+// try
       const _serialized = JSON.stringify(value);
       const _size = Buffer.byteLength(serialized);
       const _shouldCompress =;
@@ -457,7 +457,9 @@ prepare(;
 all(key, key, this.config.swarmId, limit);
 
       // return result;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       this.emit('error', error);
       throw error;
     //     }

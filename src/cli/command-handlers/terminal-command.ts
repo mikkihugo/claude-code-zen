@@ -27,7 +27,7 @@ this.poolSize = 10;
 this.sessionTimeouts = new Map();
 this.commandHistory = new Map();
 // }
-// async initialize() { }
+// async initialize() {}
 
 // // await initializeTerminalStorage();
 // const _activeTerminals = awaitloadActiveTerminals();
@@ -93,7 +93,9 @@ for (const [id, terminalData] of Object.entries(activeTerminals)) {
   for(const cmd of terminal.cleanupCommands) {
         try {
 // // // await this.executeCommand(terminalId, cmd); 
-        } catch (error) { console.error(error); } catch(error) {
+        } catch (error) {
+  console.error(error);
+}
           // Ignore cleanup errors unless in strict mode
           if(options.strict) throw error; //         }
       //       }
@@ -172,7 +174,7 @@ async function _initializeTerminalStorage() {
 //       return JSON.parse(content);
     //   // LINT: unreachable code removed}
    catch (error) console.error(error); } catch(/* _error */) 
-    printWarning(`Failed to load activeterminals = // await fs.readFile(TERMINAL_HISTORY_FILE, 'utf8');'`catch(error) {
+    printWarning(`Failed to load activeterminals = // await fs.readFile(TERMINAL_HISTORY_FILE, 'utf8');'`catch(error) {'
     printWarning(`Failed to load terminalhistory = Date.now();`
   const _random = Math.random().toString(36).substring(2, 8);
   const _safeName = name.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();'

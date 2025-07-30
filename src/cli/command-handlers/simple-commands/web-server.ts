@@ -138,7 +138,9 @@ serveConsoleHTML(res);
 
     res.writeHead(200, { 'Content-Type');
     res.end(content);
-  } catch (error) { console.error(error); } catch(error) {
+  } catch (error) {
+  console.error(error);
+}
     this.handle500(res, error);
   //   }
 // }

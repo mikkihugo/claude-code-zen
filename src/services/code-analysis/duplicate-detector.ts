@@ -47,7 +47,9 @@ try {
       try {
 // const _reportContent = awaitreadFile(outputFile, 'utf8');
         // return JSON.parse(reportContent);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
         // Fallback = {minTokens = path.join(this.config.outputDir, '.jscpd.json');
 // // await writeFile(configPath, JSON.stringify(config, null, 2));
     // return configPath;

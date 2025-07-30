@@ -16,7 +16,7 @@ this.parallelQueue = [];
 this.executing = false;
 this.ruvSwarmInstance = null;
 // }
-// async initialize() { }
+// async initialize() {}
 
   if(this.ruvSwarmInstance) return;
     // console.warn('[MCPToolWrapper] Initializing RuvSwarm instance...'); // LINT: unreachable code removed
@@ -42,7 +42,9 @@ this.ruvSwarmInstance = null;
         this._trackToolUsage(toolName, Date.now() - startTime, true);
 
         // return result;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
         _lastError = error;
         console.error(`Attempt ${attempt} failed for ${toolName});`
   if(attempt < this.config.retryCount) {
@@ -322,7 +324,9 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
       const _swarmId = params.swarmId  ?? 'default'; // Assuming a default swarm if not specified
 // const _status = awaitthis.ruvSwarmInstance.getSwarmStatus(swarmId);
       // return status;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error) {
+    //   // LINT: unreachable code removed} catch (error) {
+  console.error(error);
+}
       console.error('Error getting swarm status from RuvSwarm);'
       throw error;
     //     }

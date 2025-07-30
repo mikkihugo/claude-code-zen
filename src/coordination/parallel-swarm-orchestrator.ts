@@ -36,8 +36,7 @@ export class ParallelSwarmOrchestrator extends EventEmitter {
       this.handleWorkerTaskCompleted(data);
     //     }
   //   )
-  this
-
+// this
   workerPool;
 
   on('task-error', (data);'
@@ -90,7 +89,7 @@ this.updateMetrics(useParallel, executionTime);
   // Aggregate results
 
   // Store in base orchestrator's tracking'
-  this.baseOrchestrator.activeSwarms.set(swarmConfig.id, {_id = > ({ id = {  }) {
+  this.baseOrchestrator.activeSwarms.set(swarmConfig.id, {_id = > ({ id = {}) {
 // const _result = awaitthis.baseOrchestrator.launchSwarm(objective, options);
   this.metrics.sequentialTasks++;
   // return {
@@ -295,7 +294,7 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
 
 /** Shutdown orchestrator and worker pool
 
-  async shutdown() { }
+  async shutdown() {}
     console.warn(' Shutting down Parallel Swarm Orchestrator...');'
 
     if(this.workerPool) 
