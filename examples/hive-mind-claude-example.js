@@ -13,7 +13,7 @@ const _hiveMindDir = path.join(exampleDir, '.hive-mind');
 ';
 console.warn(' Hive Mind with Claude Example\n')
 // Step 1: Set up the project with Claude';
-console.warn('Step 1');
+console.warn('Step 1')
 try {
   mkdirSync(hiveMindDir, { recursive } catch (error) { console.error(error); }
 
@@ -51,13 +51,11 @@ catch(error)
   console.error('Failed to create configuration);'
 // }
 // Step 2: Test Claude availability';
-console.warn('Step 2');
+console.warn('Step 2')
 try {';
-  execSync('which claude', { stdio);';
-  console.warn(' Claude CLI is available\n');
-} catch (error) {
+  execSync('which claude', stdio);';
+  console.warn(' Claude CLI is available\n');catch (error) 
   console.error(error);
-}
 catch(/* _error */)
 {';
   console.error(' Claude CLI not found!');';

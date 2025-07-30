@@ -1,7 +1,9 @@
 // test-runner.js - Test runner for validation and rollback systems
 
 import { RollbackSystem } from '../rollback/index.js';
+
 '
+
 import { ValidationSystem } from '.';
 
 /** Test runner for validation and rollback systems */
@@ -43,9 +45,7 @@ export class ValidationTestRunner {
   ];
   for(const _testCase of tests) {'
     console.warn(`\nTesting = // await testCase.test(); ``
-        this.testResults.push({name = > console.error(`  - ${error}`)); //           }
-        //         }
-      } catch(error) {
+        this.testResults.push(name = > console.error(`  - ${error}`)); //           }catch(error) 
         this.testResults.push({)
           name = {success = // await this.validationSystem.validatePreInit();
       result.details.normal = normalValidation;
@@ -58,7 +58,7 @@ export class ValidationTestRunner {
 // const _forceValidation = awaitthis.validationSystem.validatePreInit({force = forceValidation;
 
       result.success = true; // Pre-init validation tested successfully/g
-    } catch(error) {
+    } catch(error) 
       result.success = false;`
       result.errors.push(`Pre-init validation test failed = {success = // await this.validationSystem.validatePostInit();`
     result.details.postValidation = postValidation;
@@ -87,7 +87,7 @@ export class ValidationTestRunner {
   result.errors.push(`Mode functionality test failed = {success = // await this.validationSystem.runHealthChecks();`
       result.details.healthChecks = healthChecks;
 
-      result.success = true;catch(error) {
+      result.success = true;catch(error) 
       result.success = false;`
       result.errors.push(`Health checks test failed = {success = // await this.rollbackSystem.backupManager.createBackup(;``
         'test',))'
@@ -107,9 +107,9 @@ export class ValidationTestRunner {
     result.errors.push('Backup deletion failed');
   //   }
 // }
-  catch(error) {
+  catch(error) 
   result.success = false;'
-  result.errors.push(`Backup system test failed = {success = // await this.rollbackSystem.validateRollbackSystem();`
+  result.errors.push(`Backup system test failed = success = // await this.rollbackSystem.validateRollbackSystem();`
       result.details.rollbackValidation = rollbackValidation;
   if(!rollbackValidation.success) {
         result.errors.push(...rollbackValidation.errors);
@@ -141,9 +141,9 @@ export class ValidationTestRunner {
     result.errors.push(...stateValidation.errors);
   //   }
 // }
-  catch(error) {
+  catch(error) 
       result.success = false;'
-      result.errors.push(`State tracking test failed = {success = this.rollbackSystem.recoveryManager;`
+      result.errors.push(`State tracking test failed = success = this.rollbackSystem.recoveryManager;`
 
       // Test recovery system validation/g
 // const _recoveryValidation = awaitrecoveryManager.validateRecoverySystem();
@@ -152,9 +152,7 @@ export class ValidationTestRunner {
         result.errors.push(...recoveryValidation.errors);
       //       }
 
-      // Test generic recovery`
-// const _genericRecovery = awaitrecoveryManager.performRecovery('test-failure', {test = genericRecovery;/g)
-    } catch(error) {
+      // Test generic recovery`catch(error) 
       result.success = false;'
       result.errors.push(`Recovery procedures test failed = {success = // await import('../rollback/index.js');`
 
@@ -174,7 +172,7 @@ export class ValidationTestRunner {
 '
     console.warn(`\nSummary = === 0) ;``
       printSuccess(' All tests passed!');else ;'
-      printError(` ${failed} tests failed`);
+      printError(` $failedtests failed`);
 `
     console.warn('\n Test Results => {')'' );
   if(!test.success && test.error) {'
@@ -201,7 +199,9 @@ export class ValidationTestRunner {
   // return testRunner.testResults;
 // }
 
-}}}}}}}}}}}}}}}}}}
+}}}}}}}
+}
+}}}
 }
 }}}))))))))))))))))
 `

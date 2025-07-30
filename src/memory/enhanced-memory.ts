@@ -6,7 +6,9 @@ performance;
 optimizations;
 
 import { existsSync } from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 // // interface EnhancedMemoryOptions {
@@ -63,7 +65,7 @@ console.warn(` Enhanced memory initialized = {} catch (error) { console.error(er
 
 /** Load memory data from file with compression and encryption support; */
 
-/g;
+/;g;
 // private async loadMemoryData(): Promise<void> {
 try {
       if(existsSync(this.memoryFile)) {`

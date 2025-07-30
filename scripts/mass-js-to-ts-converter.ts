@@ -73,17 +73,19 @@ NODE_IMPORTS: [;
       description: 'Use node: prefix for path module' },
     //     {'']os[''];?/g,"
       replacement: "import os from 'node:os';',"
-      description: 'Use node: prefix for os module' },'']child_process[''];?/g,"
+      description: 'Use node: prefix for os module' },'']child_process[''];
+?/g,"
       replacement: "import { exec  } from 'node:child_process';',"
       description: 'Use node: prefix for child_process' } ] as ImportReplacement[],
   // Type-only import fixes
-  TYPE_IMPORTS: [;
-    //     {'']events[''];?/g,"
-      replacement: "import { EventEmitter  } from 'node:events';',"
-      description: 'EventEmitter should be value import' },
+  TYPE_IMPORTS: [
+//     {'']events[''];?/g,"
+replacement: "import { EventEmitter  } from 'node:events';',";
+description: 'EventEmitter should be value import';
+},
     //     {'']sqlite3['];?/g,"
       replacement: "import { Database  } from 'sqlite3';',"
-      description: 'Database should be value import' } ] as ImportReplacement[] };
+      description: 'Database should be value import' } ] as ImportReplacement[] }
 
 /** Adds comprehensive TypeScript types and interfaces to content; */
 
@@ -91,7 +93,7 @@ function addTypeScriptTypes(content, context) {
   const _typedContent = content;
   // Add strict typing header';
   const _fileHeader = `/**` */`
- * \${context.isTestFile ? 'Test file' } converted to TypeScript with Google standards;
+ * \$context.isTestFile ? 'Test file' converted to TypeScript with Google standards;
  * ;
  * @fileoverview Strict TypeScript implementation with comprehensive type safety;
  * @author Claude Code Flow Team;
@@ -122,11 +124,11 @@ map((param) => {
           if(!trimmed.includes(') && trimmed) {';
             // Guess type based on parameter name';
             if(trimmed.includes('callback')  ?? trimmed.includes('cb')) {';
-//               return `${trimmed}: () => void`;`
+//               return `$trimmed: () => void`;`
     //   // LINT: unreachable code removed} else if(trimmed.includes('path')  ?? trimmed.includes('file')) {';
-//               return `${trimmed}: string`;`
+//               return `$trimmed: string`;`
     //   // LINT: unreachable code removed} else if(trimmed.includes('count')  ?? trimmed.includes('index')) {';
-//               return `${trimmed}: number`;
+//               return `$trimmed: number`;
     //   // LINT: unreachable code removed} else {`
               // return `${trimmed}: unknown`;
     //   // LINT: unreachable code removed}
@@ -141,14 +143,14 @@ join(', ');';
   typedContent = typedContent.replace(;)
 // const\s+(\w+)\s*=\s*\(([^)]*)\)\s*=>/g,
     (_match, funcName, params) => {`
-      if(!params) return `const ${funcName} = () =>`;
+      if(!params) return `const $funcName= () =>`;
     // ; // LINT: unreachable code removed
       const _typedParams = params;`
 split(',');
 map((param) => {
           const _trimmed = param.trim();';
           if(!trimmed.includes('';
-//             return `${trimmed}: unknown`;
+//             return `$trimmed: unknown`;
     //   // LINT: unreachable code removed}
 //           return trimmed;
     //   // LINT: unreachable code removed});`
@@ -210,7 +212,7 @@ function validateGoogleStandards(context): string[] {
 length;
   if(functionCount > GOOGLE_STANDARDS.MAX_FUNCTIONS_PER_FILE) {
     warnings.push(;)`
-      `File exceeds ${GOOGLE_STANDARDS.MAX_FUNCTIONS_PER_FILE} functions($, { functionCount })`;
+      `File exceeds $GOOGLE_STANDARDS.MAX_FUNCTIONS_PER_FILEfunctions($, { functionCount })`;
     );
   //   }
 //   return warnings;
@@ -256,15 +258,15 @@ async function _convertFile(jsPath, stats): Promise<void> {
     stats.totalLinesConverted += context.lineCount;
     // Report conversion with warnings
   if(warnings.length > 0) {';
-      console.warn(` Converted ${jsPath}  ${tsPath} (${warnings.length} warnings)`);`
-      warnings.forEach((warning) => console.warn(`     ${warning}`));
+      console.warn(` Converted $jsPath$tsPath($warnings.lengthwarnings)`);`
+      warnings.forEach((warning) => console.warn(`     $warning`));
     } else {`
       console.warn(` Converted ${jsPath}  ${tsPath}`);
     //     }
   } catch(error) {
     stats.errorsEncountered++;
     const _errorMessage = error instanceof Error ? error.message : String(error);`
-    console.error(` Error converting ${jsPath});`
+    console.error(` Error converting $jsPath);`
   //   }
 // }
 
@@ -276,16 +278,15 @@ async function findJavaScriptFiles(dir): Promise<string[]> {
 // const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
   for(const entry of entries) {
       const _fullPath = path.join(dir, entry.name); // Skip excluded directories`
-      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build', 'claude-zen-mcp']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) {
+      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build', 'claude-zen-mcp']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) 
 // const _subFiles = awaitfindJavaScriptFiles(fullPath);
-        files.push(...subFiles);';
-      } else if(entry.isFile() && entry.name.endsWith('.js')) {
+        files.push(...subFiles);';else if(entry.isFile() && entry.name.endsWith('.js')) {
         files.push(fullPath);
       //       }
     //     }
   } catch(error) {
     const _errorMessage = error instanceof Error ? error.message : String(error);';
-    console.error(`Error reading directory ${dir});`
+    console.error(`Error reading directory $dir);`
   //   }
   // return files;
 // }
@@ -332,7 +333,7 @@ async function main(): Promise<void> {
     console.warn(`  Errors encountered);``
     console.warn(`  Total lines converted: ${stats.totalLinesConverted.toLocaleString()}`);
     console.warn(;)`
-      `  Success rate: ${((stats.filesConverted / stats.filesProcessed) * 100).toFixed(1)}%`;
+      `  Success rate: $((stats.filesConverted / stats.filesProcessed) * 100).toFixed(1)%`;
     );`
     console.warn('');
   if(stats.errorsEncountered === 0) {';

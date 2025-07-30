@@ -2,7 +2,9 @@
 /** Tests that the updated files correctly collect real system metrics; */
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 const _projectRoot = path.resolve(process.cwd());
@@ -64,7 +66,7 @@ describe('Real Metrics Integration Tests', () =>
         'loadMonitor','
         'capacityPlan' ];
   for(const method of toolMethods) {'
-        expect(content).toMatch(new RegExp(`async ${method} catch (error) { console.error(error); }\\(\\)[\\s\\S]*?try[\\s\\S]*?catch`)); expect(content).toMatch(/displayError\([^ ]+, [^)]*analysis service is running/); 
+        expect(content).toMatch(new RegExp(`async $methodcatch (error) console.error(error); \\(\\)[\\s\\S]*?try[\\s\\S]*?catch`)); expect(content).toMatch(/displayError\([^ ]+, [^)]*analysis service is running/); 
       //       }
       // Check that displayError method exists`
   expect(content) {.toContain('displayError(containerId, message)');'
@@ -104,7 +106,7 @@ describe('Real Metrics Integration Tests', () =>
     const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
 // const _content = awaitfs.readFile(monitorPath, 'utf8');
     // Check for try-catch blocks around system calls
-    expect(content).toMatch(/try\s*\{[\s\S]*?fs\.statfs[\s\S]*?\}\s*catch/);
+    expect(content).toMatch(/try\s*\[\s\S]*?fs\.statfs[\s\S]*?\\s*catch/);
     expect(content).toMatch(/try\s*\{[\s\S]*?fs\.readFile[\s\S]*?\}\s*catch/);
     // Check for fallback values'
     expect(content).toContain(''
@@ -129,7 +131,7 @@ describe('Real Metrics Integration Tests', () =>
     console.warn(' System information collection is comprehensive');
   });
 });'
-describe('Metrics Display Tests', () => {'
+describe('Metrics Display Tests', () => '
   test('metrics should be displayed in user-friendly format', async() => {'
     const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
 // const _content = awaitfs.readFile(monitorPath, 'utf8');
@@ -161,9 +163,8 @@ describe('Metrics Display Tests', () => {'
     expect(returnStructure).toContain('performanceMetrics');'
     // expect(returnStructure).toContain('resourceMetrics'); // LINT: unreachable code removed'
     console.warn(' JSON output contains all required fields');
-  });
-});'
-describe('Security and Safety Tests', () => {'
+  }););'
+describe('Security and Safety Tests', () => '
   test('should not expose sensitive information', async() => {'
     const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
 // const _content = awaitfs.readFile(monitorPath, 'utf8');
@@ -182,7 +183,6 @@ describe('Security and Safety Tests', () => {'
     expect(content).not.toMatch(/\.\.\/.*\.\.\//); // No directory traversal
 '
     console.warn(' File access is handled safely');
-  });
-});
+  }););
 )
 '

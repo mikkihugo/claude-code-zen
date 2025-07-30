@@ -4,9 +4,13 @@
 /** Verifies that MCP tools persist data without requiring sqlite3 module; */
 
 import { execSync } from 'node:child_process';
+
 '
+
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 const _colors = {'
@@ -70,13 +74,9 @@ at;
   try {'
     const _testKey = `;`
 verify_test_$;
-{
   Date.now();
-}
 catch (error)
-{
-  console.error(error);
-}`
+  console.error(error);`
 `;`
     const _testValue = {
       test,
@@ -92,12 +92,11 @@ claude - zen;
 mcp;
 call;
 memory_usage;`;
-  '{"action": 'store', "key": '${testKey}', "value": ${JSON.stringify(JSON.stringify(testValue))}, "namespace": "verification"}'`,encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'"success""stored")) {"
+  '{"action": 'store', "key": '${testKey}', "value": ${JSON.stringify(JSON.stringify(testValue))}, "namespace": "verification"}'`,encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'"success""stored")) "
       log(' Store operation succeeded', 'green');
       testsPassed++;
       // Store the key for later retrieval'
-      fs.writeFileSync('.test-key', testKey);
-    } else {'
+      fs.writeFileSync('.test-key', testKey);else '
       log(' Store operation failed', 'red');'
       log(`;
   `
@@ -207,7 +206,7 @@ if(fs.existsSync(dbPath)) {
 // Summary'
 log(`\n\$'='.repeat(50)`, 'yellow');
 log(;'
-` Test Summary: $testsPassed/${testsTotal} passed`,`
+` Test Summary: $testsPassed/$testsTotalpassed`,`
 testsPassed === testsTotal ? 'green' : 'yellow';
 // 
   if(testsPassed === testsTotal) {'

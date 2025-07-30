@@ -5,11 +5,15 @@
 // Fixed imports and integrated with meow/ink system
 
 import { promises as fs } from 'node:fs';
+
 '
 '
 '
+
 import { printError } from '..';
+
 '
+
 import { ENVIRONMENT_CONFIGS } from '.';
 
 // Progress tracking for batch operations
@@ -129,7 +133,7 @@ async function initializeProject(projectPath = {}) {
   const _tracker = progressTracking ? new BatchProgressTracker(totalProjects) ;
   const _resourceManager = new ResourceManager(parallel ? maxConcurrency );
 '
-  printSuccess(`Starting batch initialization for ${projects.length} projects across ${environments.length} environments`);``
+  printSuccess(`Starting batch initialization for ${projects.length} projects across $environments.lengthenvironments`);``
   console.warn(`Template = [];`
 
   for(const project of projects) {
@@ -159,7 +163,7 @@ async function initializeProject(projectPath = {}) {
 // return JSON.parse(content);
 } catch(error)
 // {'
-  printError(`Failed to read batch config file = {}) `
+  printError(`Failed to read batch config file = ) `
 // const _config = awaitparseBatchConfig(configFile);
   if(!config) return;
     // ; // LINT: unreachable code removed
@@ -199,7 +203,7 @@ async function initializeProject(projectPath = {}) {
   if(options.environments) {
   for(const env of options.environments) {
   if(!ENVIRONMENT_CONFIGS[env]) {`
-      errors.push(; `Unknown environment: ${env}. Available: ${Object.keys(ENVIRONMENT_CONFIGS).join(', ')}`; `
+      errors.push(; `Unknown environment: $env. Available: $Object.keys(ENVIRONMENT_CONFIGS).join(', ')`; `
       //       ) {
     //     }
   //   }

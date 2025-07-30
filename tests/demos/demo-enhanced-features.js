@@ -10,7 +10,7 @@ console.warn(' Claude-Zen Enhanced CLI/TUI Features Demo')
 '')
 // Demo 1: Progress Bar Styles'
 console.warn(''
-console.warn('');
+console.warn('')
 function createProgressBar() {
   const _filled = Math.floor((progress / 100) * width);
   const _empty = width - filled;

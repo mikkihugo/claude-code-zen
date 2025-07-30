@@ -2,15 +2,25 @@
 /** Reusable middleware functions for Claude Flow servers */
 
 import compression from 'compression';
+
 '
+
 import cors from 'cors';
+
 '
+
 import express, { NextFunction, Request, Response } from 'express';
+
 '
+
 import { rateLimit } from 'express-rate-limit';
+
 '
+
 import helmet from 'helmet';
+
 '
+
 import type { JSONObject } from '../types/core.js';
 // Import types
 import {
@@ -22,8 +32,8 @@ import {
 
   ValidationError,
   ValidationResult,
-  ',
-} from '../types/server.js';
+',
+} from '../types/server.js'
 
 /** Enhanced request logging middleware */
 
@@ -31,7 +41,7 @@ import {
 return(req) => {
     const _start = Date.now();'
     // const _correlationId =; // LINT: unreachable code removed(req.headers['x-correlation-id'] as string) ??'
-      `req-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      `req-$Date.now()-$Math.random().toString(36).substr(2, 9)`;
     // Add correlation tracking
     req.correlation = {
       id => {
@@ -77,11 +87,10 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
         const _token = authHeader.substring(7);
   if(options.extractUser) {
           user = // await options.extractUser(token);
-        }  catch (error) { console.error(error); }else {
+        }  catch (error) console.error(error); else 
           // Default user extraction logic
           user = {id = user;
-      next();
-    } catch(error) ;'
+      next();catch(error) ;'
       console.error('Authenticationerror = > boolean)) {'
   // return(req => {
   if(!req.user) {
@@ -97,7 +106,7 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
   if(!hasPermission) {
       // return res.status(403).json({
         success => {)'
-    console.error(`Error in ${req.method} ${req.path});`
+    console.error(`Error in $req.method$req.path);`
     // ; // LINT: unreachable code removed
     // Handle different types of errors`
   if(err.name === 'ValidationError') {'
@@ -111,24 +120,24 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
       const _statusCode = code  ?? 500;
     // return this.status(statusCode).json({success = function<T>(data,pagination = function(data, ttl?) { // LINT: unreachable code removed
   if(ttl) {'
-        this.set('Cache-Control', `public, max-age=${ttl}`);
+        this.set('Cache-Control', `public, max-age=$ttl`);
       //       }
 //       return this.json({success = function(data => {
         try {)
           for // await(const chunk of data) {`
             this.write(JSON.stringify(chunk) + '\n');
     //   // LINT: unreachable code removed}
-           catch (error) { console.error(error); }this.end();
-        } catch(error) {
-          this.write(JSON.stringify({error = function<T>() {
+           catch (error) console.error(error); this.end();
+        } catch(error) 
+          this.write(JSON.stringify({error = <T>() => {
 //       return this.params as T;
     //   // LINT: unreachable code removed};
 
-    req.typedQuery = function<T>() {
+    req.typedQuery = <T>() => {
 //       return this.query as any as T;
     //   // LINT: unreachable code removed};
 
-    req.typedBody = function<T>() {
+    req.typedBody = <T>() => {
 //       return this.body as T;
     //   // LINT: unreachable code removed};
 
@@ -156,9 +165,8 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
       clearTimeout(timer);
     //   // LINT: unreachable code removed  });
 '
-    res.on('close', () => {
-      clearTimeout(timer);
-    });
+    res.on('close', () => 
+      clearTimeout(timer););
 
     next();
   };

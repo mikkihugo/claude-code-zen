@@ -3,14 +3,23 @@
 /** Based on upstream commits 958f5910 + f4107494; */
 
 */
+
 import { randomBytes } from 'node:crypto';
+
 '
+
 import { promises as fs } from 'node:fs';
+
 '
+
 import { tmpdir } from 'node:os';
+
 '
+
 import { join } from 'node:path';
+
 '
+
 import TimeoutProtection from '.';
 
 /** GitHub CLI execution options interface; */
@@ -62,7 +71,7 @@ cleanupTempFile(filePath = = 'string')
 // }
 // return text;'
 // .replace(/`/g, '\\`')           // Escape backticks // LINT: unreachable code removed'
-replace(/\$/g, '\\$'); // Escape dollar signs'
+replace(/\$/g, '\\$') // Escape dollar signs'
 replace(/"/g, '\\"'); // Escape double quotes'
 replace(/\n/g, '\\n'); // Escape newlines'
 replace(/\r/g, '\\r'); // Escape carriage returns'
@@ -98,7 +107,7 @@ try {'
       if(input && (input.includes('`')  ?? input.includes('$')  ?? input.includes('"'))) {"`
         tempFilePath = // await GitHubCliSafe.createTempFile(input);
         finalArgs = finalArgs.map(_arg => ;`
-          arg === '--body' ? `--body-file=${tempFilePath} catch (error) { console.error(error); }` ;
+          arg === '--body' ? `--body-file=$tempFilePathcatch (error) console.error(error); ` ;
         );
       //       }
 

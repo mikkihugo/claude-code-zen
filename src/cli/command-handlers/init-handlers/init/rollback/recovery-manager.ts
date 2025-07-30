@@ -106,7 +106,7 @@ result.errors.push(`Recovery failed =`
 } catch(error)
     // {
     result.success = false;'
-    result.errors.push(`Permission recovery failed = {success = // await this.cleanupTemporaryFiles();`
+    result.errors.push(`Permission recovery failed = success = // await this.cleanupTemporaryFiles();`
       result.actions.push(...tempCleanup.actions);
 
     // Clean up old backups
@@ -223,9 +223,8 @@ result.errors.push(`Recovery failed =`
                 
 // // await node.remove(executablePath);`
         result.actions.push('Removed corrupted executable')
-              } catch (error) {
+              } catch (error) 
                 console.error(error);
-              }
 // catch'
               // File doesn't exist'
               //       }
@@ -245,7 +244,7 @@ result.errors.push(`Recovery failed =`
                               catch (error) console.error(error)
                   } catch (error) {
                     result.success = false;'
-                    result.errors.push(`Executable recovery failed = {success = ['memory', 'memory/agents', 'memory/sessions'];`
+                    result.errors.push(`Executable recovery failed = success = ['memory', 'memory/agents', 'memory/sessions'];`
 
                     for (const dir of memoryDirs) {
                       try {`
@@ -262,7 +261,7 @@ result.errors.push(`Recovery failed =`
       // 3. Check for common file conflicts
 // const _conflictCheck = awaitthis.checkForConflicts();
   if(conflictCheck.conflicts.length > 0) {'
-        result.warnings.push(`Found ${conflictCheck.conflicts.length} potential conflicts`);
+        result.warnings.push(`Found $conflictCheck.conflicts.lengthpotential conflicts`);
       //       }
 `
       result.actions.push(`Performed generic recoveryfor = false;``
@@ -321,7 +320,7 @@ result.errors.push(`Recovery failed =`
     const _checkFiles = ['CLAUDE.md', 'memory-bank.md', 'coordination.md'];
   for(const file of checkFiles) {
       try {'
-// // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/${file}`); `
+// // await node.stat(`$this.workingDircatch (error) console.error(error); /${file}`); `
         items.push({name = []; const _requiredFiles = ['CLAUDE.md', 'memory-bank.md', 'coordination.md', 'claude-zen'];
 
   for(const file of requiredFiles) {
@@ -334,16 +333,16 @@ result.errors.push(`Recovery failed =`
     // return result;
     //   // LINT: unreachable code removed}
 
-  async recoverRooDirectory() { `
+  async recoverRooDirectory() `
     const _result = success = ['.roo', '.roo/templates', '.roo/workflows', '.roo/modes'];
   for(const dir of rooDirs) {'
-// // await node.mkdir(`${this.workingDir}/${dir}`, {recursive = false; 
+// // await node.mkdir(`$this.workingDir/${dir}`, {recursive = false; 
     //     }
 
     // return result; 
     //   // LINT: unreachable code removed}
 
-  async recoverSparcCommands() { `
+  async recoverSparcCommands() `
     const __result = success = {success = `#!/usr/bin/env bash;`
 # Claude Flow Local Executable Wrapper;
 exec node run --allow-all --unstable-kv --unstable-cron \\;`

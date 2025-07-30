@@ -2,9 +2,13 @@
 /** Uses jscpd to detect duplicate code patterns across the codebase; */
 
 import { exec } from 'node:child_process';
+
 '
+
 import { createHash } from 'node:crypto';
+
 '
+
 import { promisify } from 'node:util';
 
 // Import glob using dynamic import to avoid ESM issues
@@ -32,7 +36,7 @@ try {'
 // }
 // export class DuplicateCodeDetector {
   constructor(config = {}) '
-    this.config = {minTokens = '.') {'
+    this.config = minTokens = '.') {'
     console.warn(` Detecting duplicate codein = // await this.runJSCPD(targetPath);`
 
       // Process and enhance results
@@ -44,7 +48,7 @@ try {'
       console.warn(` Duplicate detectioncomplete = // await this.createJSCPDConfig();`
 
     try {`
-      const _command = `npx jscpd ${targetPath}  catch (error) { console.error(error); }--config ${configPath}`;`
+      const _command = `npx jscpd $targetPathcatch (error) console.error(error); --config $configPath`;`
       const { stdout, stderr } = // await execAsync(command, {maxBuffer = path.join(this.config.outputDir, 'jscpd-report.json');
       try {'
 // const _reportContent = awaitreadFile(outputFile, 'utf8');
@@ -68,7 +72,7 @@ try {'
         // Parse clone information
         const _match = line.match(/Found(\d+) clones/); 
   if(match) {'
-          console.warn(` Found ${match1} duplicates in output`); //         }
+          console.warn(` Found $match1duplicates in output`); //         }
       //       }
     //     }
 
@@ -93,11 +97,11 @@ try {'
         blocks.push({start = code.split('\n');
     const _significantLines = 0;
   for(const line of lines) {'
-      const _trimmed = line.trim(); if(trimmed && ; !trimmed.startsWith('//') {&&'
+      const _trimmed = line.trim(); if(trimmed && ; !trimmed.startsWith('//') &&'
 // ! trimmed.startsWith('/*') && */'
 // ! trimmed.startsWith('*') &&;'
           trimmed !== '{' &&;'
-          trimmed !== '} catch (error) { console.error(error); }') {
+          trimmed !== '} catch (error) { console.error(error); }') 
         significantLines++;
       //       }
     //     }
@@ -146,7 +150,7 @@ try {'
 
   calculateDuplicateMetrics(duplicates) {
     const _metrics = {total_duplicates = 0;
-    let _largestSize = 0;
+    const _largestSize = 0;
   for(const duplicate of duplicates) {
       metrics.total_duplicate_lines += duplicate.line_count * duplicate.occurrences.length; metrics.total_duplicate_tokens += duplicate.token_count * duplicate.occurrences.length; // Track affected files
   for(const occurrence of duplicate.occurrences) {

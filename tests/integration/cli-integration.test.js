@@ -1,11 +1,17 @@
 /** Integration tests for Claude-Flow CLI; */
 
 import { spawn } from 'node:child_process';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import fs from 'fs-extra';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -37,23 +43,19 @@ describe('CLI Integration Tests', () =>
       '
       const _child = spawn(cliPath, ['--help'], {
         stdio);
-      '';
+      ('');
       '
       child.stdout.on('data', (data) =>
-      {
-        stdout += data.toString();
-      }
+        stdout += data.toString()
       )
       '
       child.on('close', (_code) =>
-      {
         '
         expect(stdout).toContain('Claude-Flow')
         '
         expect(stdout).toContain(''
       expect(stdout).toContain('claude-zen <command> [options]')
-        done();
-      }
+        done()
       )
     }
     , 10000)'
@@ -62,21 +64,17 @@ describe('CLI Integration Tests', () =>
       '
       const _child = spawn(cliPath, ['--version'], {
         stdio);
-      '';
+      ('');
       '
       child.stdout.on('data', (data) =>
-      {
-        stdout += data.toString();
-      }
+        stdout += data.toString()
       )
       '
       child.on('close', (code) =>
-      {
         '
         expect(stdout.trim()).toBe('v2.0.0-alpha.54')
-        expect(code).toBe(0);
-        done();
-      }
+        expect(code).toBe(0)
+      done();
       )
     }
     , 10000)
@@ -86,21 +84,17 @@ describe('CLI Integration Tests', () =>
       '
       const _child = spawn(cliPath, ['unknown-command'], {
         stdio);
-      '';
+      ('');
       '
       child.stderr.on('data', (data) =>
-      {
-        stderr += data.toString();
-      }
+        stderr += data.toString()
       )
       '
       child.on('close', (code) =>
-      {
         '
         expect(stderr).toContain('Unknown command);'
   expect(code).toBe(1)
-        done();
-      }
+        done()
       )
     }
     , 10000)
@@ -112,12 +106,10 @@ describe('CLI Integration Tests', () =>
       '
       const _child = spawn(cliPath, ['init', '--minimal'], {
         stdio);
-      '';
+      ('');
       '
   child.stdout.on('data', (data) =>
-      {
-        stdout += data.toString();
-      }
+        stdout += data.toString()
       )
       '
   child.on('close', async(code) =>
@@ -145,17 +137,14 @@ test('should initialize with SPARC setup', (_done) =>
 ..process.env, NODE_ENV: 'test' ,
         // cwd
       }
-      )'';
+      )''
       '
 child.stdout.on('data', (data) =>
-      {
-        stdout += data.toString();
-      }
+        stdout += data.toString()
       )
       '
 child.on('close', async(code) =>
-      {
-        try {
+      try {
           expect(code).toBe(0);'
           expect(stdout).toContain('SPARC development environment');
           // Check for SPARC files
@@ -169,8 +158,7 @@ child.on('close', async(code) =>
            catch (error) console.error(error); done(); } catch(error) 
           done(error););
 }
-        , 20000
-      }
+      , 20000
       )'
 describe('Memory Command', () =>
 // {
@@ -205,7 +193,7 @@ test('should store and retrieve memory', (_done) =>
   // cwd
 }
 )
-'';
+''
 '
 retrieveChild.stdout.on('data', (data) =>
 {
@@ -218,7 +206,7 @@ retrieveChild.on('close', (code) =>
   expect(code).toBe(0);
   '
   expect(stdout).toContain('test-value')
-  done();
+  done()
 }
 )
 }
@@ -245,7 +233,7 @@ const _listChild = spawn(cliPath, ['memory', 'list'], {'
             stdio: ['pipe', 'pipe', 'pipe'],'
 ..process.env, NODE_ENV: 'test' ,
 // cwd
-})'';
+})''
 '
 listChild.stdout.on('data', (data) =>
 {
@@ -262,7 +250,7 @@ listChild.on('close', (code) =>
   expect(stdout).toContain('key2')
   '
   expect(stdout).toContain('Memory Entries(2)')
-  done();
+  done()
 }
 )
 }
@@ -288,7 +276,7 @@ const _child = spawn(cliPath, ['agent', 'list'], {'
         stdio: ['pipe', 'pipe', 'pipe'],'
 ..process.env, NODE_ENV: 'test' ,
 // cwd
-})'';
+})''
 '
 child.stdout.on('data', (data) =>
 {
@@ -307,7 +295,7 @@ child.on('close', (code) =>
   expect(stdout).toContain('coder')
   '
   expect(stdout).toContain('analyst')
-  done();
+  done()
 }
 )
 }, 10000
@@ -319,21 +307,17 @@ describe('Error Handling', () =>
   '
   const _child = spawn(cliPath, ['agent', 'status'], {
         stdio);
-  '';
+  ('');
   '
   child.stderr.on('data', (data) =>
-  {
-    stderr += data.toString();
-  }
+    stderr += data.toString()
   )
   '
   child.on('close', (code) =>
-  {
-    expect(code).toBe(1);
-    '
+    expect(code).toBe(1)
+  '
     expect(stderr).toContain('Claude-Flow not initialized')
-    done();
-  }
+    done()
   )
   // }
   , 10000)'
@@ -344,7 +328,7 @@ test('should handle insufficient arguments', (_done) =>
 ..process.env, NODE_ENV: 'test' ,
   // cwd
 }
-)'';
+)''
 '
 child.stderr.on('data', (data) =>
 {
@@ -357,7 +341,7 @@ child.on('close', (code) =>
   expect(code).toBe(1);
   '
   expect(stderr).toContain('Missing required')
-  done();
+  done()
 }
 )
 }, 10000
@@ -380,7 +364,7 @@ describe('Configuration', () =>
 ..process.env, NODE_ENV: 'test' ,
   // cwd
 }
-)'';
+)''
 '
 child.stdout.on('data', (data) =>
 {
@@ -388,12 +372,14 @@ child.stdout.on('data', (data) =>
 }
 )
 // // await new Promise((resolve) => {'
-child.on('close', (code) => {
+child.on('close', (code) =>
+{
   expect(code).toBe(0);
   '
   expect(stdout).toContain('Configuration')
-  resolve();
-});
+  resolve()
+}
+)
 }
 }, 10000
 }

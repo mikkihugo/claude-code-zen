@@ -2,18 +2,27 @@
 
 /* Orchestrator MCP Server - Remote Claude Desktop Access; */
 *
+
 /** PURPOSE: Enable remote Claude Desktop access to Singularity Engine documents; */
 /** PROTOCOL: HTTP on port 3000(accessible via Cloudflare */
 /** TOOLS: Document management tools always enabled for remote access; */
 
 import cors from 'cors';
+
 '
+
 import express from 'express';
+
 '
+
 import { ServicesOrchestrator } from './services/orchestrator.js';
+
 '
+
 import { DocumentStack } from './src/mcp/document-stack.cjs';
+
 '
+
 import { ClaudeFlowMCPServer } from './src/mcp/mcp-server.js';
 
 const _app = express();
@@ -82,12 +91,11 @@ class MockMemoryStore {
         )
         `
 // const _result = awaitmcpServer.callTool(toolName, args);
-    res.json({ success,
+    res.json(success,
       tool,
       result,
       timestamp: new Date().toISOString()
-  }
-    catch(error)`;
+    catch(error)`
         console.error(' MCP Tool Error:', error);
         res.status(500).json(
       success,

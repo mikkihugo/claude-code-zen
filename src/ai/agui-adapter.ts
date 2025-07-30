@@ -5,7 +5,8 @@
 
 *
 @module
-AGUIAdapter * /;
+AGUIAdapter * /;;
+
 import { EventEmitter } from 'node:events';
 
 // Define types for AG-UI protocol events
@@ -38,10 +39,10 @@ import { EventEmitter } from 'node:events';
 // // public currentToolCallId: string | null = null;
 constructor(options);
 {
-//     super();'
+//     super()
     this.sessionId = options.sessionId ?? `agui-${Date.now()}`;``
     this.threadId = options.threadId ?? `thread-${Date.now()}`;``
-    this.runId = options.runId ?? `run-${Date.now()}`;`
+    this.runId = options.runId ?? `run-${Date.now()}`;``
     this.startTime = Date.now();
     this.stats = {
       messagesCreated,
@@ -51,13 +52,13 @@ constructor(options);
 // }
 
 /** Start a new text message */
-`
+``
 startTextMessage(messageId?, role = 'assistant')'
 : string
 // {'
-  const _id = messageId ?? `msg-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;`
+  const _id = messageId ?? `msg-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;``
   this.currentMessageId = id;
-  const _event = {`
+  const _event = {``
       type: 'textMessageStart','
   id,
   timestamp: Date.now(),
@@ -68,7 +69,7 @@ startTextMessage(messageId?, role = 'assistant')'
 this.activeMessages.set(id, {
       id,
 role,
-startTime: Date.now(),'' })'
+startTime: Date.now(),' })'
 this.stats.messagesCreated++
 this._emitEvent(event)
 // return id;
@@ -81,7 +82,7 @@ addTextContent(content, messageId?)
 // {
   const _id = messageId ?? this.currentMessageId;
   if(!id) {'
-    throw new Error('No active message. Call startTextMessage first.');'
+    throw new Error('No active message. Call startTextMessage first.')
   //   }
   const _event = {'
       type: 'textMessageContent','
@@ -124,9 +125,9 @@ this._emitEvent(event);
 startToolCall(toolName, toolCallId?, parentMessageId?)
 : string
 // {'
-  const _id = toolCallId ?? `tool-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;`
+  const _id = toolCallId ?? `tool-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;``
   this.currentToolCallId = id;
-  const _event = {`
+  const _event = {``
       type: 'toolCallStart','
   id,
   timestamp: Date.now(),
@@ -152,7 +153,7 @@ addToolCallArgs(args, toolCallId?)
 // {
   const _id = toolCallId ?? this.currentToolCallId;
   if(!id) {'
-    throw new Error('No active tool call. Call startToolCall first.');'
+    throw new Error('No active tool call. Call startToolCall first.')
   //   }
   const _event = {'
       type: 'toolCallArgs','
@@ -254,7 +255,7 @@ emitStateSnapshot(state)
 // {
   const _event = {'
       type: 'stateSnapshot''
-  id: `snapshot-${Date.now()}`,`
+  id: `snapshot-${Date.now()}`,``
   timestamp: Date.now(),
   state,
   sessionId: this.sessionId,
@@ -270,8 +271,8 @@ emitCustomEvent(eventType, data)
 : void
 // {
   const _event = {
-      type,`
-  id: `custom-${Date.now()}`,`
+      type,``
+  id: `custom-${Date.now()}`,``
   timestamp: Date.now(),
 ..data,
   sessionId: this.sessionId,
@@ -281,7 +282,7 @@ this._emitEvent(event);
 
 /** Get adapter statistics */
 
-  getStats() {}
+  getStats() 
 : AGUIStats
 // {
   // return {
@@ -292,7 +293,7 @@ this._emitEvent(event);
 
 /** Get active sessions info */
 
-  getActiveSessions() {}
+  getActiveSessions() 
 : unknown
 // {
   // return {
@@ -305,7 +306,7 @@ this._emitEvent(event);
 
 /** Reset adapter state */
 
-  reset() {}
+  reset() 
 : void
 // {
   this.activeMessages.clear();
@@ -325,10 +326,10 @@ this.startTime = Date.now();
 // // private _emitEvent(event)
 : void
 // {
-  this.stats.eventsEmitted++;`
-  this.emit('agui-event', event);'
+  this.stats.eventsEmitted++;``
+  this.emit('agui-event', event)
   this.emit(event.type, event);
 // }
 // }
-// export default AGUIAdapter;
-'
+// export default AGUIAdapter
+)

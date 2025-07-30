@@ -70,7 +70,7 @@ try {'
 // const _result = awaitTimeoutProtection.withTimeout(;
         execPromise,
         10000, // 10 seconds for hook execution'
-        `ruv-swarm hook ${hookName} catch (error) { console.error(error); }`;
+        `ruv-swarm hook $hookNamecatch (error) console.error(error); `;
       );
 `
       // Handle null result(function doesn't exist)'
@@ -98,7 +98,7 @@ try {'
 
   // static setupSafeExit() {
     const _exitHandler = () => {'
-      console.warn(`\n Received ${signal}, performing safe exit...`);
+      console.warn(`\n Received $signal, performing safe exit...`);
 
       // Set a maximum time for cleanup
       TimeoutProtection.forceExit(3000);
@@ -148,7 +148,7 @@ try {'
     // return // await TimeoutProtection.withTimeout(;/g)
     // fn(), // LINT: unreachable code removed
           timeout,'
-          `${operationName}  catch (error) { console.error(error); }(attempt ${attempt}`
+          `$operationNamecatch (error) console.error(error); (attempt $attempt`
         );
   } catch(error) {
     lastError = error instanceof Error ?error = === maxRetries;

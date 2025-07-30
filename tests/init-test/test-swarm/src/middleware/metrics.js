@@ -1,5 +1,7 @@
 import client from 'prom-client';
+
 '
+
 import { logger } from '../utils/logger.js';
 
 const _register = new client.Registry();
@@ -28,17 +30,15 @@ const _metricsMiddleware = () => {
     httpRequestTotal.labels(req.method, route, res.statusCode).inc();
   }
   )
-  next();
+  next()
 };
 const _registerMetrics = () => {
   const __metricsPort = process.env.METRICS_PORT ?? 9090;
   '
   app.get('/metrics', (_req, res) =>
-  {
     '
     res.set('Content-Type', register.contentType)
-    register.metrics().then((data) => res.send(data));
-  }
+    register.metrics().then((data) => res.send(data))
   )
   '
   logger.info(`Metrics endpoint available at `

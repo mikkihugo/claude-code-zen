@@ -2,7 +2,9 @@
 /** JWT authentication, basic security scanning, and access control; */
 
 import crypto from 'node:crypto';
+
 '
+
 import { readFile } from 'node:fs';
 
 export class SecurityAuthPlugin {
@@ -40,7 +42,7 @@ export class SecurityAuthPlugin {
   // API Key Authenticator
 // this
   authenticators;'
-  set('apikey', {type = []) {
+  set('apikey', type = []) 
 '
   _key = crypto.randomBytes(32).toString('hex');
   this;
@@ -150,7 +152,7 @@ try {
     // ; // LINT: unreachable code removed
     // Basic security patterns
   if(matches) {'
-        issues.push({type = === 'javascript'  ?? type === 'js') {
+        issues.push(type = === 'javascript'  ?? type === 'js') {
       // Additional JavaScript-specific checks
       const _jsPatterns = [
 // innerHTML\s*=/gi,
@@ -159,7 +161,7 @@ try {
       ];
   for(const pattern of jsPatterns) {
         if(pattern.test(content)) {'
-          issues.push({type = issues.filter(issue => issue.severity === 'high').length === 0; if(!safe && this.securityRules.security.scanning.quarantine) {'
+          issues.push(type = issues.filter(issue => issue.severity === 'high').length === 0; if(!safe && this.securityRules.security.scanning.quarantine) {'
 // // await this.auditLog('security_violation', {type = Date.now(); 
     const _windowMs = this.securityRules.security.rateLimit.windowMs;
     const __max = this.securityRules.security.rateLimit.max;

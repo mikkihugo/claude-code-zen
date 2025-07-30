@@ -1,4 +1,3 @@
-
 /** Import as library for high-performance coordination */
 /** NO CLI commands - pure programmatic usage */
 
@@ -23,21 +22,20 @@ async function ensureRuvSwarmLoaded() {
       console.error(error);
     }
     catch(/* _error */ )
-    {
       '
       printWarning(' ruv-swarm library not available, using local fallback')
-      _isAvailable = false;
-      '
-      throw new Error('ruv-swarm library not available');
-      //     }
-      //   }
-      // return ruvSwarmLib;
-      // }
+      _isAvailable = false
+    '
+    throw new Error('ruv-swarm library not available');
+    //     }
+    //   }
+    // return ruvSwarmLib;
+    // }
 
-      /** Check if ruv-swarm is available */
+    /** Check if ruv-swarm is available */
 
-      // export async function isRuvSwarmAvailable() {
-      try {
+    // export async function isRuvSwarmAvailable() {
+    try {
 // await ensureRuvSwarmLoaded();
 //     return true;
     //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */)
@@ -59,7 +57,7 @@ async function ensureRuvSwarmLoaded() {
 '
   printInfo(` Restoring persistenthive = // await ruvSwarm.createSwarm({ `
       name,
-      maxAgents = {}) {
+      maxAgents = ) 
   if(!isAvailable) {`
     throw new Error('ruv-swarm library not available - installwith = 'hierarchical','
     maxAgents = 8,'
@@ -75,7 +73,7 @@ async function ensureRuvSwarmLoaded() {
 // const _hive = awaitruvSwarm.createSwarm({
     name,
     maxAgents,`
-    cognitive_diversity = === 'hierarchical' ? 'hierarchy' } catch (error) { console.error(error); }
+    cognitive_diversity = === 'hierarchical' ? 'hierarchy' } catch (error) console.error(error); 
   //   )'
   printSuccess(` Persistent hive initialized = ) {`
   if(!isAvailable) {`
@@ -84,7 +82,7 @@ async function ensureRuvSwarmLoaded() {
 
   const {'
     //     type = 'researcher','
-    name = `${type}-agent`,
+    name = `$type-agent`,
     capabilities = [];
   } = agentConfig;
 
@@ -133,8 +131,8 @@ printSuccess(` Task orchestrated = {}): unknown`
     printInfo(` Training neuralpatterns = // await swarm.neural.train({ `
       iterations,
 data;
-  } catch (error) { console.error(error); })`
-  printSuccess(` Neural training completed = {}) {`
+  } catch (error) console.error(error); )`
+  printSuccess(` Neural training completed = ) {`
   if(!isAvailable) {`
     throw new Error('ruv-swarm library not available');
   //   }
@@ -169,10 +167,7 @@ spawnAgent,
 orchestrateTask,
 getSwarmStatus,
 trainNeuralPatterns,
-benchmarkSwarm }
-
-}}
-    }
+benchmarkSwarm }}
   }
 }
 }}}}}}}}}))))

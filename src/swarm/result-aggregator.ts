@@ -14,7 +14,7 @@ creates;
 detailed;
 reports.;
 
-'node = new Map(); // eslint-disable-line'
+('node = new Map(); // eslint-disable-line');
 // private resultCache = new Map() {}
 // private(processingQueue =
 // {
@@ -81,7 +81,6 @@ async;
 startAggregation(context = generateId('aggregation')
 '
 this.logger.info('Starting result aggregation',
-{
       aggregationId,swarmId = new AggregationSession(;
 aggregationId,
 context,

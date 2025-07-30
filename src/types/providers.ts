@@ -7,7 +7,9 @@ export * from '../providers/types.js';
 
 // Import the existing types to extend them'
 import type { AIProvider as BaseAIProvider } from '../providers/types.js';
+
 '
+
 import type { Identifiable } from '.';
 
 // =============================================================================
@@ -86,7 +88,7 @@ marketPosition, // 1-10
 // competitorComparison
 // Differentiation factors
 advantages
-disadvantages;
+disadvantages
 // Market trends
 marketTrends;
 // }
@@ -242,7 +244,7 @@ marketShare, // 0-1
 : 'open' | 'investigating' | 'resolved' | 'false_positive'
 resolution?
 resolvedAt?
-actionsTaken;
+actionsTaken
 // }
 // export // interface AnomalyPattern {
 //   // pattern: string

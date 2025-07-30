@@ -13,10 +13,10 @@ async function traceWasmIssue() {'
     console.warn(JSON.stringify(status, null, 2));'
     console.warn('\n4. Checking loaded modules);'
     for (const [name, module] of loader.modules.entries()) {'
-      console.warn(`   - ${name} catch (error) { console.error(error); }:`, {
+      console.warn(`   - $namecatch (error) console.error(error); :`, 
         isPlaceholder: module.isPlaceholder  ?? false,
         hasMemory: !!module.memory,
-        exports: module.exports ? Object.keys(module.exports).slice(0, 5) : [] }); //     }
+        exports: module.exports ? Object.keys(module.exports).slice(0, 5) : [] ); //     }
   //   }
 catch(error)
 // {`

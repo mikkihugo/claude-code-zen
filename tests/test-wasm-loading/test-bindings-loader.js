@@ -1,5 +1,7 @@
 import fs from 'node:fs';
+
 '
+
 import { pathToFileURL } from 'node:url';
 
 async function testBindingsLoader() {'
@@ -28,7 +30,7 @@ async function testBindingsLoader() {'
         console.warn('\n   Available functions);'
   for(const key in bindingsLoader) {'
           if(typeof bindingsLoader[key] === 'function' && !key.startsWith('_')) {'
-            console.warn(`     - ${key} catch (error) { console.error(error); }`); //           }
+            console.warn(`     - $keycatch (error) console.error(error); `); //           }
         //         }
       //       }
     //     }

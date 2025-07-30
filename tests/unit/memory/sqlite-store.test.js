@@ -1,12 +1,21 @@
 import { promises } from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { beforeEach, describe, expect, it } from '@jest';
+
 '
+
 import { SqliteMemoryStore } from '../../../src/memory/sqlite-store.js';
+
 '
 // Mock dependencies that don't need actual implementation'
 const _mockSqliteWrapper = () => ({ createDatabase) => ({
@@ -30,59 +39,59 @@ let testDir;
 beforeEach(async () => {
   '
   testDir = await fs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-sqlite-test-'))
-  _memoryStore = new SqliteMemoryStore({ directory,
-    dbName);
-});
-afterEach(async() =>
-// {
-if (memoryStore?.db) {
-  // await memoryStore.close();
-  //   }
-  try {
+  _memoryStore = new SqliteMemoryStore(directory,
+    dbName)
+  )
+  afterEach(async() =>
+  // {
+  if (memoryStore?.db) {
+    // await memoryStore.close();
+    //   }
+    try {
   // // await fs.rm(testDir, { recursive, force } catch (error) { console.error(error); });
     } catch(/* _error */) {
       // Ignore cleanup errors
     //     }
 }
-  )'
+    )'
 describe('constructor', () =>
 // {'
   it('should initialize with default options', () =>
-  {
-    const _store = new SqliteMemoryStore();
-    '
+    {
+      const _store = new SqliteMemoryStore();
+      '
     expect(store.options.dbName).toBe('memory.db')
-    expect(store.options.cacheSize).toBe(10000);
-    expect(store.options.mmapSize).toBe(268435456);
-    expect(store.options.enableCache).toBe(true);
-  }
-  )'
+    expect(store.options.cacheSize).toBe(10000)
+      expect(store.options.mmapSize).toBe(268435456);
+      expect(store.options.enableCache).toBe(true);
+    }
+    )'
   it('should initialize with custom options', () =>
-  {
-    const _customOptions = {'
+    {
+      const _customOptions = {'
       dbName: 'custom.db',
       cacheSize,
       enableCache,
     };
-    const _store = new SqliteMemoryStore(customOptions);
-    '
+      const _store = new SqliteMemoryStore(customOptions);
+      '
     expect(store.options.dbName).toBe('custom.db')
-    expect(store.options.cacheSize).toBe(5000);
-    expect(store.options.enableCache).toBe(false);
+    expect(store.options.cacheSize).toBe(5000)
+      expect(store.options.enableCache).toBe(false);
+    }
   }
-}
-)'
+  )'
 describe('_getMemoryDirectory', () =>
 // {'
   it('should return .swarm directory in current working directory', () =>
-{
-  const _store = new SqliteMemoryStore();
-  '
+  {
+    const _store = new SqliteMemoryStore();
+    '
   // const _expectedPath = path.join(process.cwd(), '.swarm'); // LINT: unreachable code removed
   expect(store._getMemoryDirectory()).toBe(expectedPath)
-}
-
-})'
+  }
+});
+'
 describe('initialization', () =>
 // {'
   it('should initialize database and create directory if needed', async() =>

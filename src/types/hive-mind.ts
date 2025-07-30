@@ -150,7 +150,7 @@ export type DecisionMaking = 'consensus' | 'majority' | 'weighted' | 'expert' | 
 //     // performance: ComponentHealth
 //   };
 issues
-recommendations;
+recommendations
 // trends: HealthTrends
 // predictions: HealthPredictions
 // }

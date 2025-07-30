@@ -2,11 +2,17 @@
 /** Real-time performance monitoring, metrics collection, and analysis; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { mkdir, readFile } from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
 
 export class PerformanceMonitorPlugin extends EventEmitter {
@@ -248,10 +254,10 @@ startTimer(name, (labels = {}));
 incrementCounter(name, (value = 1), (labels = {}));
 : unknown
 // {
-  let _key = this.getMetricKey(name, labels);
+  const _key = this.getMetricKey(name, labels);
   const _current = this.counters.get(key)  ?? { name, labels,value = value;
   this.counters.set(key, current);'
-  this.emit('counter', { name, value = {}) {
+  this.emit('counter', name, value = {}) {
     const _key = this.getMetricKey(name, labels);
   this.gauges.set(key, { name, labels, value, timestamp = {}) {
     const _key = this.getMetricKey(name, labels);
@@ -388,7 +394,7 @@ catch(error)
   if(systemMetric) {'
     lines.push(`# HELP system_cpu_usage CPU usage percentage`);`
     lines.push(`# TYPE system_cpu_usage gauge`);`
-    lines.push(`system_cpu_usage ${systemMetric.cpu.usage} ${timestamp}`);`
+    lines.push(`system_cpu_usage $systemMetric.cpu.usage$timestamp`);`
     lines.push(`# HELP system_memory_usage Memory usage percentage`);`
     lines.push(`# TYPE system_memory_usage gauge`);`
     lines.push(`system_memory_usage ${systemMetric.memory.percentage} ${timestamp}`);
@@ -398,7 +404,7 @@ catch(error)
   if(processMetric) {`
     lines.push(`# HELP process_heap_used Process heap memory used`);`
     lines.push(`# TYPE process_heap_used gauge`);`
-    lines.push(`process_heap_used ${processMetric.memory.heapUsed} ${timestamp}`);`
+    lines.push(`process_heap_used $processMetric.memory.heapUsed$timestamp`);`
     lines.push(`# HELP process_event_loop_delay Event loop delay in ms`);`
     lines.push(`# TYPE process_event_loop_delay gauge`);`
     lines.push(`process_event_loop_delay ${processMetric.eventLoop} ${timestamp}`);
@@ -406,27 +412,27 @@ catch(error)
   // Custom counters
   for(const [_key, counter] of this.counters) {`
     const _safeName = counter.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
-    lines.push(`# HELP ${safeName} Counter ${counter.name}`); lines.push(`# TYPE ${safeName} counter`) ;`
+    lines.push(`# HELP $safeNameCounter $counter.name`); lines.push(`# TYPE $safeNamecounter`) ;`
     lines.push(`${safeName}${this.formatLabels(counter.labels)} ${counter.value} ${timestamp}`);
   //   }
   // Custom gauges
   for(const [_key, gauge] of this.gauges) {`
     const _safeName = gauge.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
-    lines.push(`# HELP ${safeName} Gauge ${gauge.name}`); lines.push(`# TYPE ${safeName} gauge`) ;`
+    lines.push(`# HELP $safeNameGauge $gauge.name`); lines.push(`# TYPE $safeNamegauge`) ;`
     lines.push(`${safeName}${this.formatLabels(gauge.labels)} ${gauge.value} ${timestamp}`);
   //   }
   // Custom histograms
   for(const [_key, histogram] of this.histograms) {`
     const _safeName = histogram.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
-    const _sorted = histogram.values.slice().sort((a, b) => a - b); lines.push(`# HELP ${safeName} Histogram ${histogram.name}`) {;`
+    const _sorted = histogram.values.slice().sort((a, b) => a - b); lines.push(`# HELP $safeNameHistogram $histogram.name`) {;`
     lines.push(`# TYPE ${safeName} histogram`);
     const _labels = this.formatLabels(histogram.labels);`
-    lines.push(`${safeName}_count${labels} ${histogram.count} ${timestamp}`);`
+    lines.push(`$safeName_count$labels$histogram.count$timestamp`);`
     lines.push(`${safeName}_sum${labels} ${histogram.sum} ${timestamp}`);
     // Buckets
     const _buckets = [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10];
   for(const bucket of buckets) {`
-      const _count = sorted.filter((v) => v <= bucket * 1000).length; lines.push(; `${safeName}_bucket{le="${bucket}"'}} ${count} ${timestamp}`;
+      const _count = sorted.filter((v) => v <= bucket * 1000).length; lines.push(; `$safeName_bucket{le="${bucket}"'}} ${count} ${timestamp}`;
       //       
     //     }
     lines.push(;)`

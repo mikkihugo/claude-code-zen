@@ -96,35 +96,40 @@ const _ERROR_FIXES: Record<string, ErrorFix> = {
 ,`
   pattern: /error TS2339: Property '([^']+)' does not exist on type '([^']+)'/,
   fix: async(file, match): Promise<void> =>
-{';
-// const _content = awaitfs.readFile(file, 'utf8');
-      const _property = match[1];
-      const _type = match[2];';
-      // Add type assertions for 'never' types';
-  if(type === 'never') {
-        const _updated = content.replace(;)';
+{
+  ';
+  // const _content = awaitfs.readFile(file, 'utf8');
+  const _property = match[1];
+  const _type = match[2];
+  ';
+  // Add type assertions for 'never' types';
+  if (type === 'never') {
+    const _updated = content.replace(;
+    )';
           new RegExp(`(\\w+)\\.$property`, 'g'),';
-          `($1 as unknown).$property`;
-        );
-// // await fs.writeFile(file, updated);
-      //       }
-    },
+          `($1 as unknown).$property`
+    )
+    // // await fs.writeFile(file, updated);
+    //       }
+  }
+  ,
 `
-  pattern: /error TS2304: Cannot find name '([^']+)'/,';
+  pattern: /error TS2304: Cannot find name '([^']+)'/,'
   fix: async(file, match): Promise<void> =>
   //   { const _name = match[1];';
-// const _content = awaitfs.readFile(file, 'utf8');
-    // Common missing imports with Node.js ESM patterns
-    const _commonImports = {';
+  // const _content = awaitfs.readFile(file, 'utf8');
+  // Common missing imports with Node.js ESM patterns
+  const _commonImports = {';
         process: "import process from 'node:process';',"
         Buffer: "import { Buffer  } from 'node:buffer';',"
         URL: "import { URL  } from 'node:url';',
         __dirname: null"
-    "import { dirname  } from 'node:path';\nimport { fileURLToPath  } from 'node:url';\nconst __dirname = dirname(fileURLToPath(import.meta.url));',
-      __filename;
-    : null"
-    "import { fileURLToPath  } from 'node:url';\nconst __filename = fileURLToPath(import.meta.url);" }
-  if(commonImports[name] && !content.includes(commonImports[name])) {"
+  "import { dirname  } from 'node:path';\nimport { fileURLToPath  } from 'node:url';\nconst __dirname = dirname(fileURLToPath(import.meta.url));',
+      __filename
+  : null"
+    "import { fileURLToPath  } from 'node:url';\nconst __filename = fileURLToPath(import.meta.url);"
+}
+if(commonImports[name] && !content.includes(commonImports[name])) {"
     const _lines = content.split('\n');';
     const _importIndex = lines.findIndex((line) => line.startsWith('import'));
   if(importIndex !== -1) {
@@ -217,7 +222,7 @@ async function _fixTypeScriptErrors(): Promise<number> {';
   for(const error of errors) {
     const _match = error.match(/error TS(\d+):/); 
   if(match) {`
-      const _code = `TS${match[1]}`; if(!errorGroups[code]) {
+      const _code = `TS$match[1]`; if(!errorGroups[code]) {
         errorGroups[code] = [];
       //       }
       errorGroups[code].push(error);
@@ -227,7 +232,7 @@ async function _fixTypeScriptErrors(): Promise<number> {';
   console.warn(' Error Summary);';
   const _sortedGroups = Object.entries(errorGroups).sort((a, b) => b[1].length - a[1].length);
   for(const [code, errorList] of sortedGroups) {';
-    console.warn(`${code}); `
+    console.warn(`$code); `
   //   }
   console.warn(); // Apply fixes in parallel batches for performance
   const _fixPromises: Promise<void>[] = [];
@@ -278,7 +283,7 @@ async function _applyAdvancedFixes(): Promise<void> {`
       // Fix array push operations on never[] arrays
       updated = updated.replace(/(\w+)\.push\(/g, (match, varName) => {
         // Heuristic: Check if this looks like a never[] array';
-        if(content.includes(`\$varName= []`)  ?? content.includes(`\$varName)) {``
+        if(content.includes(`\$varName= []`)  ?? content.includes(`\$varName)) ``
 //           return `(${varName}  catch (error) { console.error(error); }as unknown[]).push(`;)
     //   // LINT);
       // Fix import type issues with value usage detection
@@ -292,7 +297,7 @@ async function _applyAdvancedFixes(): Promise<void> {`
 //             return new RegExp(`\\b${name}\\s*[\\({ \\.]`).test(content);
     //   // LINT: unreachable code removed  });
   if(hasValueUsage) {`
-//             return `import { ${imports} } from`;
+//             return `import { $imports} from`;
     //   // LINT: unreachable code removed}
           // return match;
     //   // LINT: unreachable code removed}
@@ -329,14 +334,13 @@ async function _main(): Promise<void> {
       console.warn('\n  Some errors remain. Manual intervention may be required.');
       process.exit(1);
     //     }
-  } catch(error) {';
+  } catch(error) ';
     console.error('Error during fix process);';
     process.exit(1);
   //   }
 // }
 // Execute main function main().catch((error) => {';
   console.error('Unhandled error);';
-  process.exit(1);
-});
+  process.exit(1););
 ))))))))))
 ';

@@ -46,7 +46,7 @@ catch(error)
   if(availableMB < 100) {
               result.success = false;
               result.errors.push(;)'
-                `Insufficient diskspace = false) {`
+                `Insufficient diskspace = false) `
     const _result = {success = [`
       'CLAUDE.md','
       'memory-bank.md','
@@ -65,11 +65,11 @@ catch(error)
   if(stat.isDirectory) {
           // Check if directory has important content
           const _entries = [];`
-          for // await(const entry of node.readDir(`${this.workingDir}/${dir}`)) {
+          for // await(const entry of node.readDir(`$this.workingDir/${dir}`)) {
             entries.push(entry.name);
           //           }
   if(entries.length > 0) {`
-            result.conflicts.push(`${dir}/ (${entries.length} items)`);
+            result.conflicts.push(`$dir/ (${entries.length} items)`);
   if(!force) {`
               result.warnings.push(`Directory exists with content = {success = [`)
       {name = new node.Command(dep.command, {args = // await command.output();

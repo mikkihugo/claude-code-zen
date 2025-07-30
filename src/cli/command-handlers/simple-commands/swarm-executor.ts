@@ -1,9 +1,13 @@
 /** Simple Swarm Executor - Provides basic swarm functionality without TypeScript dependencies; */
 
 import { promises as fs } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { generateId } from '../../utils/helpers.js';
 
 // Simple SwarmCoordinator implementation
@@ -57,7 +61,8 @@ s`;
     // return taskObj;
     //   // LINT: unreachable code removed}
 
-  async createAPIProject() { `;
+  async createAPIProject()
+{ `;
 console.warn(`;`
 Creating;
 API;

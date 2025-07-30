@@ -2,9 +2,13 @@
 /** Cross-reference validation, broken link detection, and intelligent linking suggestions; */
 
 import { access, readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { safeRegexExec } from '../../utils/security.js';
 
 export class DocumentationLinkerPlugin {
@@ -315,10 +319,10 @@ trim();
     // return report;
     //   // LINT: unreachable code removed}
 
-  async exportLinkMap() { `
+  async exportLinkMap() `
     const _linkMapData = timestamp = path.join(this.config.outputDir, 'link-map.json');
 // await writeFile(exportPath, JSON.stringify(linkMapData, null, 2));'
-    console.warn(` Link map exported to ${exportPath}`);
+    console.warn(` Link map exported to $exportPath`);
     // return linkMapData;
     //   // LINT: unreachable code removed}
 
@@ -343,15 +347,13 @@ trim();
 ..this.stats,documents = [];
     // this.suggestions = []; // LINT: unreachable code removed
 `
-    console.warn(' Documentation Linker Plugin cleaned up');
-// }
-
-// export default DocumentationLinkerPlugin;
-
-}}}}}}}}}}}}}}}}}}}}}}
+    console.warn(' Documentation Linker Plugin cleaned up');}}}}}}}}}}}}}}}}}
+    }
+  }
+}
+}
     }
   }
 }
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))
 '
-

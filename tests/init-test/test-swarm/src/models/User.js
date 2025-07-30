@@ -77,9 +77,7 @@ const _fields = [];
 Object.keys(updates).forEach((key) => {
   '
   fields.push(`$
-  {
     key;
-  }
   = ?`)
   values.push(updates[key]);
 });
@@ -101,15 +99,13 @@ id =
 ``
 `
 `
-db.run(query, values, (err) => {
+db.run(query, values, (err) => 
   if (err) {
     reject(err);
   } else {
     User.findById(id).then(resolve).catch(reject);
     //         }
-  }
-  
-});
+  });
 //   }
 // static async updatePassword(id, hashedPassword) {
 // return new Promise((resolve, reject) =>`;

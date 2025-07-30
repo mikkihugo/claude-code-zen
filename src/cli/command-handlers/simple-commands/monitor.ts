@@ -2,10 +2,15 @@
 /** Converted from JavaScript to TypeScript; */
 
 import fs from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
 export async function monitorCommand(subArgs = getFlag(subArgs, '--interval')  ?? flags.interval  ?? 5000;
 '
@@ -37,13 +42,13 @@ process.on('SIGTERM', cleanup);
 // Initial display
 // const _initialMetrics = awaitcollectMetrics();'
 console.warn(` Monitoring Claude-Flow System`);`
-console.warn(` ${new Date().toLocaleTimeString()}\n`);`
+console.warn(` $new Date().toLocaleTimeString()\n`);`
   if(format === 'json') {
   console.warn(JSON.stringify(initialMetrics, null, 2));
 } else {
   displayMetrics(initialMetrics);
 // }'
-console.warn(`\n Next update in ${interval}ms...`);
+console.warn(`\n Next update in $intervalms...`);
 // Start continuous monitoring
 monitorInterval = setInterval(async() => {`
   console.warn(` Monitoring Claude-Flow System`);`

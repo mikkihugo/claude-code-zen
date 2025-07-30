@@ -1,4 +1,3 @@
-
 using multiple;
 AI;
 models;
@@ -9,8 +8,7 @@ export class MultiModelEnhancer {
   // // static async analyzeWithGemini(_visionData) {
   logger;
   .'
-  info('Analyzing vision with Gemini');
-  '
+  info('Analyzing vision with Gemini')
   '
   // Placeholder for Gemini API call
   // return
@@ -18,9 +16,7 @@ export class MultiModelEnhancer {
   ,
   teamSize;
   ,
-  duration;
-  '
-  : '3 months'
+  duration: '3 months';
 }
 '
 '

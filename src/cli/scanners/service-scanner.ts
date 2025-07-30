@@ -2,7 +2,9 @@
 /** Converted from JavaScript to TypeScript; */
 
 import { glob } from 'glob';
+
 '
+
 import { readHiveRegistry } from '../command-handlers/hive-mind-command.js';
 
 export async function scanForUnmappedServices(flags = // await readHiveRegistry();

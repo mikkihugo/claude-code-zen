@@ -197,7 +197,7 @@ validation_steps;
 {
   '
   level: 'low' | 'medium' | 'high'
-  factors;
+  factors
   mitigation;
 }
 // confidence: number

@@ -9,7 +9,7 @@ with the current
 claude - flow;
 architecture.;
 
-'node = new Map(); // eslint-disable-line'
+('node = new Map(); // eslint-disable-line');
 // private globalKnowledgeBase = false
 constructor(
 config =
@@ -67,7 +67,7 @@ if(this.isInitialized) {'
       clearInterval(this.syncInterval);
     //     }
 
-     catch (error) { console.error(error); }// Save current state
+     catch (error) console.error(error); 
 // // await this.saveKnowledgeBase();
 // // await this.saveCollectiveIntelligence();
     // Terminate active sessions
@@ -87,9 +87,9 @@ if(this.isInitialized) {'
 
   async;'
   createSession(swarmId = generateId('hive-session');'
-  this.logger.info('Creating hive-mind session', {
+  this.logger.info('Creating hive-mind session', 
   sessionId,
-  swarmId }
+  swarmId 
 // 
 const _session = {id = this.activeSessions.get(sessionId);
   if(!session) {'
@@ -183,12 +183,12 @@ const _session = {id = this.activeSessions.get(sessionId);
         this.loadKnowledgeData(data);
       //       }
 '
-       catch (error) { console.error(error); }this.logger.debug('Knowledge base loaded', {factsCount = // await this.memoryManager.retrieve({namespace = JSON.parse(entry.content);
+       catch (error) console.error(error); this.logger.debug('Knowledge base loaded', {factsCount = // await this.memoryManager.retrieve({namespace = JSON.parse(entry.content);
         this.loadIntelligenceData(data);
       //       }
 '
-      this.logger.debug('Collective intelligence loaded', {)
-        patternsCount = {facts = {patterns = setInterval(async() => {
+      this.logger.debug('Collective intelligence loaded', )
+        patternsCount = facts = {patterns = setInterval(async() => {
       try {
 // await this.performPeriodicSync();
       } catch (error) {
@@ -213,7 +213,7 @@ const _session = {id = this.activeSessions.get(sessionId);
 '
     this.emit('sync = this.getRelevantKnowledge(session, agent.capabilities) {;'
 '
-    this.logger.debug('Sharing knowledge with agent', {sessionId = [];
+    this.logger.debug('Sharing knowledge with agent', sessionId = [];
 
     // Filter facts by capabilities/g
     for (const fact of session.knowledgeBase.facts.values()) {
@@ -244,11 +244,11 @@ const _session = {id = this.activeSessions.get(sessionId);
     this.emit('decision = [];'
 
     for (const fact of session.knowledgeBase.facts.values()) {
-      let _matches = true; if(query.category && !fact.category.includes(query.category)) {
+      const _matches = true; if(query.category && !fact.category.includes(query.category)) {
         matches = false; //       }
 
       if(query.keywords && !query.keywords.some(keyword => ;)
-        fact.statement.toLowerCase() {.includes(keyword.toLowerCase()))) {
+        fact.statement.toLowerCase() .includes(keyword.toLowerCase()))) 
         matches = false;
       //       }
 
@@ -272,16 +272,14 @@ const _session = {id = this.activeSessions.get(sessionId);
     });
 '
     this.on('knowledge => {')'
-      this.logger.debug('Knowledge shared with hive-mind', data);
-    });
+      this.logger.debug('Knowledge shared with hive-mind', data););
 '
     this.on('decision => {')'
-      this.logger.info('Collective decision completed', data);
-    });
+      this.logger.info('Collective decision completed', data););
   //   }
 // }
 
 // export default HiveMindIntegration;
 
-}}}}}}}}}}})))))))))))))))))))
+}}}}}}}})))))))))))))))))))
 '

@@ -15,7 +15,7 @@ export class ValidationHelper {
   )
   HelpFormatter;
   .
-  formatValidationError(value, paramName, validOptions, commandPath)
+  formatValidationError(value, paramName, validOptions, commandPath);
 
   process;
   .
@@ -50,20 +50,18 @@ export class ValidationHelper {
 }
 .`,))`
           commandPath  ?? 'claude-zen'))
-process.exit(1);
+process.exit(1)
 //     }
 if(min !== undefined && num < min) {
       console.error(;
         HelpFormatter.formatError(;))'
-          `${paramName} must be at least ${min}.Got = = undefined && num > max) {`
+          `$paramNamemust be at least $min.Got = = undefined && num > max) `
       console.error(;
         HelpFormatter.formatError(;))`
           `\$paramNamemust be at most \$max.Got = === 'string'')) ;`
       console.error(;
         HelpFormatter.formatError(;))`
-          `Missing requiredparameter = // await import('fs/promises');`
-// // await fs.access(path);
-    } catch(error) {
+          `Missing requiredparameter = // await import('fs/promises');`catch(error) {
       console.error(;
         HelpFormatter.formatError(;`
           `File not found for ${paramName}: $path`,))`

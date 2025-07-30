@@ -1,8 +1,7 @@
 /** Swarm Worker Thread - Executes individual swarm tasks in parallel */
 
 import { parentPort } from 'node:worker_threads';
-'
-'
+('');
 
 class SwarmWorker {
   constructor(workerId = workerId;
@@ -12,55 +11,53 @@ class SwarmWorker {
   this;
 
   currentTask = null;
-  console;
-'
-  warn(` Swarm worker ${this.workerId} initialized`);`
+  console
+  warn(` Swarm worker ${this.workerId} initialized`);``
 // }
 
 /** Initialize worker and set up message handlers */
 
 initialize();
 // {
-  if(!parentPort) {`
-    throw new Error('Worker must be run in a worker thread');'
+  if(!parentPort) {``
+    throw new Error('Worker must be run in a worker thread')
   //   }
   // Listen for messages from main thread'
   parentPort.on('message', (message) => {'
-    this.handleMessage(message);
-  });
+    this.handleMessage(message)});
   // Send ready signal
   parentPort.postMessage({type = message;
   try {
   switch(type) {'
         case 'execute-task':'
 // // // await this.executeTask(task);
-          break;'
+          break
         case 'shutdown':'
 // // // await this.shutdown();
           break;default = task;
     const _startTime = Date.now();
 
     try {'
-      console.warn(` Worker ${this.workerId}  catch (error) { console.error(error); }executing task ${task.id} ($, { task.type })`);`
+      console.warn(` Worker $this.workerIdcatch (error) console.error(error)executing task $task.id($, { task.type })`);``
 
       // Send progress update
       this.sendProgress(task.id, {status = // // await this.executeAgentSpawn(task);
-          break;`
+          break;``
         case 'task-coordination':'
           result = // // await this.executeTaskCoordination(task);
-          break;'
+          break
         case 'neural-analysis':'
           result = // // await this.executeNeuralAnalysis(task);
-          break;'
+          break
         case 'performance-optimization':'
           result = // // await this.executePerformanceOptimization(task);
-          break;'
+          break
         case 'code-analysis':'
           result = // // await this.executeCodeAnalysis(task);
-          break;'
+          break
         case 'research-task':'
           result = // // await this.executeResearchTask(task);
-          break;'
+          break
         case 'testing-task':'
           result = // // await this.executeTestingTask(task);
           break;
@@ -103,7 +100,7 @@ initialize();
     ('tester')  ['test-generation', 'automation', 'validation', 'quality-assurance''
     ('reviewer')  ['code-review', 'best-practices', 'security-analysis', 'compliance']'
   //   }'
-  // return capabilities[agentType]  ?? ['general-purpose'];'
+  // return capabilities[agentType]  ?? ['general-purpose']
   //   // LINT: unreachable code removed}
 
 /** Create coordination plan for subtasks */
@@ -111,12 +108,12 @@ initialize();
   createCoordinationPlan(subtasks, strategy);
   : unknown
   // return {'
-      strategy,subtasks = > ({ ..task,id = === 'parallel' ? 'concurrent' : 'sequential',estimatedTime = [];'
+      strategy,subtasks = > ({ ..task,id = === 'parallel' ? 'concurrent' : 'sequential',estimatedTime = []
   // ; // LINT: unreachable code removed
   for(const _subtask of plan.subtasks) {
     // Simulate subtask execution
-// // // await this.delay(200); '
-    results.push({subtaskId = > ({bottleneck = === 'high' ? '20-30%' : '5-15%',effort = === 'high' ? 'medium' : 'low'; '))'
+// // // await this.delay(200)
+    results.push({subtaskId = > ({bottleneck = === 'high' ? '20-30%' : '5-15%',effort = === 'high' ? 'medium' : 'low'))'
   //     }) {
 // }
 
@@ -135,31 +132,28 @@ analyzeComplexity(codebase);
 /** Graceful shutdown */
 
 async;
-shutdown();'
-console.warn(` Worker ${this.workerId} shutting down...`);`
+shutdown()
+console.warn(` Worker $this.workerIdshutting down...`);``
 this.isShuttingDown = true;
 // Wait for current task to complete if any
-  if(this.currentTask) {`
-  console.warn(` Waiting for current task ${this.currentTask.id} to complete...`);`
+  if(this.currentTask) {``
+  console.warn(` Waiting for current task ${this.currentTask.id} to complete...`);``
   // In a real implementation, you might want to interrupt the task
 // }
 process.exit(0);
 // Initialize and start the worker
 const _worker = new SwarmWorker(workerData.workerId);
 worker.initialize();
-// Handle uncaught exceptions`
+// Handle uncaught exceptions``
 process.on('uncaughtException''
   console.error(`Uncaught exception in worker ${workerData.workerId});`
   if(parentPort) {
     parentPort.postMessage({ type = > process.exit(1), 100); // Brief delay to send message
   });
-`
+``
 process.on('unhandledRejection''
   console.error(`Unhandled rejection in worker ${workerData.workerId});`
   if(parentPort) {
     parentPort.postMessage({ type = > process.exit(1), 100); // Brief delay to send message
-  });
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))
-`
-
+  })}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))
+``

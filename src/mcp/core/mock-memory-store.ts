@@ -13,7 +13,7 @@ export class SqliteMemoryStore {
     this.options = options;
     this.storage = new Map();
     this.namespaces = new Map();
-    console.warn('[Mock] Using mock SqliteMemoryStore implementation');'
+    console.warn('[Mock] Using mock SqliteMemoryStore implementation')
   //   }
 
   async initialize() 
@@ -22,7 +22,7 @@ export class SqliteMemoryStore {
     //   // LINT: unreachable code removed}
 
   async store(key, value, options = }) {'
-    const _namespace = options.namespace  ?? 'default';'
+    const _namespace = options.namespace  ?? 'default''
     if(!this.namespaces.has(namespace)) {
       this.namespaces.set(namespace, new Map());
     //     }
@@ -31,7 +31,7 @@ export class SqliteMemoryStore {
     nsStorage.set(key, {
       value,
       timestamp = {}) {'
-    const _namespace = options.namespace  ?? 'default';'
+    const _namespace = options.namespace  ?? 'default''
     const _nsStorage = this.namespaces.get(namespace);
 
     if(!nsStorage) return null;
@@ -49,7 +49,7 @@ export class SqliteMemoryStore {
     //   // LINT: unreachable code removed}
 
   async delete(key, options = {}) { '
-    const _namespace = options.namespace  ?? 'default';'
+    const _namespace = options.namespace  ?? 'default''
     const _nsStorage = this.namespaces.get(namespace);
 
     if(nsStorage) 
@@ -60,7 +60,7 @@ export class SqliteMemoryStore {
     //   // LINT: unreachable code removed}
 
   async list(options = {}) { '
-    const _namespace = options.namespace  ?? 'default';'
+    const _namespace = options.namespace  ?? 'default''
     const _nsStorage = this.namespaces.get(namespace);
 
     if(!nsStorage) return [];
@@ -69,7 +69,7 @@ export class SqliteMemoryStore {
     //   // LINT: unreachable code removed}
 
   async search(pattern, options = }) {'
-    const _namespace = options.namespace  ?? 'default';'
+    const _namespace = options.namespace  ?? 'default''
     const _nsStorage = this.namespaces.get(namespace);
 
     if(!nsStorage) return [];

@@ -3,6 +3,7 @@
 /* Test WebSocket connection to verify it's working;' */
 
 */'
+
 import WebSocket from 'ws';
 
 async function testWebSocket() {'
@@ -13,7 +14,7 @@ async function testWebSocket() {'
 '
     ws.on('open', () => {'
       console.warn(' WebSocket connected successfully!');'
-      ws.send(JSON.stringify({ type: 'test', message: 'Hello server'   } catch (error) { console.error(error); }));
+      ws.send(JSON.stringify(type: 'test', message: 'Hello server'   catch (error) console.error(error); ));
     }
   )'
   ws.on('message', (data) => '
@@ -23,10 +24,9 @@ async function testWebSocket() {'
     console.warn(' WebSocket connection closed');
     process.exit(0);
   });'
-  ws.on('error', (error) => {'
+  ws.on('error', (error) => '
     console.error(' WebSocket error);'
-      process.exit(1);
-  });
+      process.exit(1););
   // Close after 5 seconds
   setTimeout(() => {'
     console.warn(' Closing WebSocket connection...');

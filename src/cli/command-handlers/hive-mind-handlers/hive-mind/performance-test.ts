@@ -2,7 +2,9 @@
 /** Tests the performance improvements implemented */
 
 import { performance } from 'node:perf_hooks';
+
 '
+
 import { PerformanceOptimizer } from '.';
 
 /** Performance test runner */
@@ -28,8 +30,7 @@ export class PerformanceTest {
     for (const test of tests) 
       try {
 // // await test.call(this); 
-      } catch (error) { console.error(error); } catch(/* _error */ )
-{'
+      } catch (error) { console.error(error); } catch(/* _error */ )'
         console.error(`Testfailed = new HiveMindCore({name = ['coder', 'tester', 'analyst', 'researcher', 'architect', 'optimizer']; `
 
     // Batch spawning test/g)
@@ -136,7 +137,7 @@ map(async(_, i) => {
   for(let i = 0; i < 10; i++) {
       batchPromises.push(;
         optimizer.optimizeBatchOperation(;'
-          'test-batch',_id => {)
+          'test-batch',_id => )
 // // await new new Promise((resolve) => setTimeout(resolve, 50));
 //             return items.map((_item) => ({processed = performance.now() - batchStart;
     // ; // LINT: unreachable code removed'
@@ -146,12 +147,12 @@ map(async(_, i) => {
     const _totalTests = this.results.length;
 
     this.results.forEach((result, index) => {'
-      console.warn(`\n${index + 1}. ${result.test}`);`
+      console.warn(`\n$index + 1. $result.test`);`
       console.warn('-'.repeat(40));
 
       Object.entries(result).forEach(([key, value]) => {'
   if(key !== 'test' && key !== 'status') {'
-          console.warn(`${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`);
+          console.warn(`$key.charAt(0).toUpperCase() + key.slice(1): $value`);
         //         }
       });
 `

@@ -3,15 +3,25 @@
 /** Provides unified interface and cross-system intelligence; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { existsSync, mkdir } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import KuzuAdvancedInterface from '../database/kuzu-advanced-interface.js';
+
 '
+
 import LanceDBInterface from '../database/lancedb-interface.js';
+
 '
+
 import { VisionarySoftwareIntelligenceProcessor } from '../visionary/software-intelligence-processor.js';
 
 export class MultiSystemCoordinator extends EventEmitter {
@@ -38,7 +48,7 @@ export class MultiSystemCoordinator extends EventEmitter {
 
 /** Initialize all three systems with coordination; */
 
-  async initialize() { '
+  async initialize() '
     console.warn(' Initializing Multi-System Coordinator...');
 // try
       // Initialize systems in parallel
@@ -57,7 +67,7 @@ export class MultiSystemCoordinator extends EventEmitter {
       this.isInitialized = true;'
       console.warn(' Multi-System Coordinator initialized successfully');
 '
-      this.emit('initialized', {systems = new LanceDBInterface(this.config.lancedb);
+      this.emit('initialized', systems = new LanceDBInterface(this.config.lancedb);
 // // await this.lancedb.initialize();'
     console.warn(' LanceDB initialized');
   //   }
@@ -400,7 +410,7 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
       if(key.toLowerCase().includes('buffer')  ?? key.toLowerCase().includes('embedding')) {'
         sanitized[key] = '[BINARY_DATA]';'
       } else if(typeof obj[key] === 'string' && obj[key].length > 200) {'
-        sanitized[key] = `${obj[key].substring(0, 200)}...`;
+        sanitized[key] = `$obj[key].substring(0, 200)...`;
       } else {
         sanitized[key] = obj[key];
       //       }
@@ -427,9 +437,7 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
 
 /** Get comprehensive system status; */
 
-  async getSystemStatus() {}
-    // return 
-      coordinator: {
+  async getSystemStatus() 
         initialized: this.isInitialized,
     // activeOperations: this.activeOperations.size, // LINT: unreachable code removed
         cacheSize: this.crossSystemCache.size,
@@ -438,8 +446,7 @@ reduce((sum, system) => sum + system.avgTime, 0) / 3;
         kuzu: this.kuzu ? // await this.kuzu.getAdvancedStats() ,
         vision: this.vision ? // await this.vision.getAnalytics() ;,
       analytics: this.analytics,
-      integrationPatterns: Array.from(this.integrationPatterns.keys());
-    };
+      integrationPatterns: Array.from(this.integrationPatterns.keys());;
 
 /** Cleanup and shutdown; */
 

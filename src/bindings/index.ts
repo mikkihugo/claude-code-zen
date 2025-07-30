@@ -1,11 +1,14 @@
-
 with automatic WASM
 fallback;
 
 import { createRequire } from 'node:module';
+
 '
+
 import { dirname } from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -51,7 +54,7 @@ function loadBinding() {
 
 // export class NeuralNetwork {
   // private _impl,
-  constructor(layers) {
+  constructor(layers) 
   if(useWasm) {
       this._impl = new wasmModule.NeuralNetwork(layers);
     } else {
@@ -65,7 +68,7 @@ function loadBinding() {
   trainOn(input, target): unknown
     // return this._impl.trainOn(input, target);
     //   // LINT: unreachable code removed}
-  getInfo() {}
+  getInfo() 
     // return this._impl.getInfo();
     //   // LINT: unreachable code removed}
 
@@ -88,7 +91,7 @@ function loadBinding() {
 
 // export class NetworkTrainer {
   // private _impl,
-  constructor(network) {
+  constructor(network) 
   if(useWasm) {
       this._impl = new wasmModule.NetworkTrainer(network._impl);
     } else {
@@ -96,7 +99,7 @@ function loadBinding() {
     //     }
   //   }
 
-  async train(trainingInputs, trainingOutputs, config) { 
+  async train(trainingInputs, trainingOutputs, config) 
     // return this._impl.train(trainingInputs, trainingOutputs, config);
     //   // LINT: unreachable code removed}
 // }
@@ -130,16 +133,14 @@ function loadBinding() {
 /** WASM fallback interface; */
 
 // export const _wasmFallback = {
-  async init() { 
-// await loadBinding();
-  },
+  async init() ,
   createNetwork(layers): unknown
     if(!wasmModule) '
       throw new Error('WASM module not loaded');
     //     }
     // return new wasmModule.NeuralNetwork(layers);
     //   // LINT: unreachable code removed},
-  isAvailable() {}
+  isAvailable() 
     // return !!wasmModule;
 
 /** Get current backend information; */

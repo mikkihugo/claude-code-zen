@@ -1,9 +1,13 @@
 // swarm-orchestrator.js - Comprehensive swarm orchestration using ruv-swarm library
 
 import { RuvSwarm } from '../../../ruv-FANN/ruv-swarm/npm/src/index.js';
+
 '
+
 import { SqliteMemoryStore } from '../../memory/sqlite-store.js';
+
 '
+
 import { printInfo } from '..';
 
 /** Advanced Swarm Orchestration System */
@@ -76,9 +80,9 @@ initialize();
 
     // Always start with a coordinator for complex tasks`
   if(complexity !== 'simple') {'
-      agents.push({type = === 'high') {'
-          agents.push({type = === 'high') {'
-          agents.push({type = === 'high') {
+      agents.push(type = === 'high') '
+          agents.push(type = === 'high') '
+          agents.push(type = === 'high') 
       agents.push({type = // await swarm.spawn(agentSpec.type, {id = objective.toLowerCase();
 '
     if(obj.includes('github')  ?? obj.includes('pr')  ?? obj.includes('pull request')  ?? obj.includes('repository')) {'
@@ -116,7 +120,7 @@ initialize();
 
 /** Select optimal topology based on task characteristics */
 
-  selectOptimalTopology(complexity, domain, options) {
+  selectOptimalTopology(complexity, domain, options) 
     if(options.topology) return options.topology;
     // ; // LINT: unreachable code removed
   switch(complexity) {'
@@ -207,7 +211,7 @@ join(' ');
     optionsStr;`
     `, {stdio = > s.status === 'active').length;`
       },
-      agents = {};
+      agents = ;
     for (const agent of this.globalAgents.values()) {
       byType[agent.type] = (byType[agent.type]  ?? 0) + 1; //     }
     // return byType; 
@@ -215,7 +219,7 @@ join(' ');
 
 /** Calculate average task completion time */
 
-  async calculateAverageTaskTime() {;
+  async calculateAverageTaskTime() ;
     // This would analyze stored task data
     // return 0; // Placeholder
 
@@ -244,9 +248,9 @@ join(' ');
   //   }
   this;
 // activeSwarms
-  clear() {}
+  clear() 
 // this// globalAgents
-  clear() {}`
+  clear() `
   printSuccess(' Swarm orchestrator shutdown complete')
 // }
 // Export singleton instance

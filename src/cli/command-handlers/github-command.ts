@@ -4,12 +4,19 @@
 /** Provides GitHub workflow automation capabilities */
 
 */
+
 import { access } from 'node:fs';
+
 '
+
 import { platform } from 'node:os';
+
 '
+
 import { join } from 'node:path';
+
 '
+
 import { printError } from '..';
 
 /** Cross-platform check for executable availability */
@@ -24,7 +31,7 @@ to;
 check
  * @returns {Promise<boolean>} - True
 if command is
-available * /;
+available * /;;
 // */ // LINT: unreachable code removed'
 async function checkCommandAvailable(command = // await import('node);'
 '
@@ -49,7 +56,7 @@ if(platform() === 'win32') {
 // }
 
 /** Check if Claude CLI is available */
- * @returns {Promise<boolean>} - True if Claude is available
+ * @returns Promise<boolean>- True if Claude is available
     // */ // LINT: unreachable code removed
 async function _checkClaudeAvailable() {'
 //   return checkCommandAvailable('claude');
@@ -65,7 +72,7 @@ const _objective = args.slice(1).join(' ').trim();
 // const _isClaudeAvailable = awaitcheckClaudeAvailable();
   if(!isClaudeAvailable) {`
       printWarning('  Claude CLI not found. GitHub automation requires Claude.');'
-      console.warn('InstallClaude = `Execute GitHub workflow automation using ${mode}mode = // await import('node);`
+      console.warn('InstallClaude = `Execute GitHub workflow automation using $modemode = // await import('node);`
 
   const _claudeArgs = [];
   // Add auto-permission flag if requested`
@@ -108,7 +115,7 @@ claudeProcess.on('error', (err) =>
         } else {
           flags[flagName] = true;
         //         }
-      } else {
+      } else 
         args.push(arg);
       //       }
     //     }

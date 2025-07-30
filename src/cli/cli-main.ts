@@ -13,8 +13,8 @@ import {
   hasCommand,
   initializePlugins,
   showCommandHelp,
-  ',
-} from '.';
+',
+} from '.'
 
 async function _main() {
   // Use the comprehensive meow configuration from command-registry

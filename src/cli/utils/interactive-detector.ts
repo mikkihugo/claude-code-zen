@@ -144,7 +144,7 @@ if(!process.stdin.isTTY) {
 
 // export async function confirmAction(message = false): Promise<boolean> {
   if(!isInteractive()) {`
-    console.warn(`${message} (auto-confirming in non-interactive mode)`);
+    console.warn(`$message(auto-confirming in non-interactive mode)`);
 //     return defaultValue;
     //   // LINT: unreachable code removed}
 

@@ -4,7 +4,7 @@
 // { Logger, JSONObject, JSONValue, JSONArray;
 //  } from;
 
-('../types/core.js')
+('../types/core.js');
 printSuccess,
   printError,
   printWarning,

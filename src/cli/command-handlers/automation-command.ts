@@ -28,7 +28,7 @@ try {
   console.warn(` Task complexity = {coordinator = {coordinator = {coordinator = {coordinator = {`
       coordinator => {)`
   if(type !== 'total') {'
-      console.warn(`   ${type} catch (error) { console.error(error); });`
+      console.warn(`   $typecatch (error) console.error(error); );`
     //     }
   //   }
 // )`
@@ -62,7 +62,7 @@ if(requirement.includes('development') ?? requirement.includes('coding')) {
     printSuccess(` Smart spawn analysis completed`);`
     console.warn(`\n RECOMMENDED AGENTCONFIGURATION = 0;`)
 recommendedAgents.forEach((agent) => {`
-  console.warn(`   ${agent.type});`
+  console.warn(`   $agent.type);`
   totalRecommended += agent.count;
   //   )`
     console.warn(`\nSUMMARY = maxAgents ? 'Within limits' )`
@@ -79,12 +79,10 @@ recommendedAgents.forEach((agent) => {`
   console.warn(` Project type = {phases = workflows[projectType]  ?? workflows.general;`)
 // // await new Promise((resolve) => setTimeout(resolve, 800));`
 printSuccess(` Workflow selection completed`);`
-console.warn(`\n SELECTED _WORKFLOW => {`)`
-    console.warn(`${index + 1}. ${phase.charAt(0).toUpperCase() + phase.slice(1)}`);
-  });`
-  console.warn(`\n RECOMMENDED _AGENTS => {`)`
-    console.warn(`   ${type});`
-});`
+console.warn(`\n SELECTED _WORKFLOW => `)`
+    console.warn(`${index + 1}. ${phase.charAt(0).toUpperCase() + phase.slice(1)}`););`
+  console.warn(`\n RECOMMENDED _AGENTS => `)`
+    console.warn(`   ${type});`);`
 console.warn(`\n PRIORITY OPTIMIZATIONS);`
   switch(priority) {`
   case 'speed': null'

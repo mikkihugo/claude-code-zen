@@ -28,10 +28,7 @@ files.forEach((file) => {';
 regex: /([^`$])error\.message/g,`
   ``
       replacement: '$1(error instanceof Error ? error.message : String(error))' },
-// Fix error type annotations
-{
-}
-regex: /catch\s*\(\s*error)/g, replacement;
+regex: /catch\s*\(\s*error)/g, replacement
 ';
 : 'catch(error)' },
       regex: /\(error)/g,';

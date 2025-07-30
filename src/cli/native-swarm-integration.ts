@@ -15,7 +15,7 @@ this.options =
 }
 
 // Core components
-this.nativeHiveMind = null;
+this.nativeHiveMind = null
 this.initialized = false;
 
 // Active operations tracking
@@ -33,44 +33,42 @@ initialize();
 { 
     if(this.initialized) return;
     // ; // LINT: unreachable code removed
-    printInfo('ROCKET Initializing Claude Zen Native Swarm Integration...');'
-// try
+    printInfo('ROCKET Initializing Claude Zen Native Swarm Integration...')
+// try {
       // Initialize native hive-mind
-      this.nativeHiveMind = new NativeHiveMind({enableSemanticMemory = true;
-'
+      this.nativeHiveMind = new NativeHiveMind({enableSemanticMemory = true
       printSuccess('CHECK Claude Zen Native Swarm Integration initialized''
-      printInfo(`TARGET Features = $this.options.enableSemanticMemory, Graph=$this.options.enableGraphRelationships, Neural=$this.options.enableNeuralLearning`);`
-`
-      this.emit('initialized');'
+      printInfo(`TARGET Features = $this.options.enableSemanticMemory, Graph=$this.options.enableGraphRelationships, Neural=$this.options.enableNeuralLearning`);``
+``
+      this.emit('initialized')
 
     } catch(error)
 // {'
-      printError(`X Failed to initialize Native Swarm Integration => {``
-      printSuccess('BRAIN Native Hive-Mind ready for coordination');'
-    });
-'
-    this.nativeHiveMind.on(''
-      printInfo(`BEE Swarm _created => {``
-      printInfo(`ROBOT Agent spawned => {``
+      printError(`X Failed to initialize Native Swarm Integration => {```
+      printSuccess('BRAIN Native Hive-Mind ready for coordination')
+    })
+    this.nativeHiveMind.on('
+      printInfo(`BEE Swarm _created => {```
+      printInfo(`ROBOT Agent spawned => {```
       printInfo(`CLIPBOARD Taskorchestrated = [`
       {type = agentConfigs.map(_config => ;))))
       this.nativeHiveMind.spawnAgent(config);
     );
 // const _agents = awaitPromise.all(spawnPromises);
-`
-    printSuccess(`CHECK Auto-spawned ${agents.length} default agents`);`
+``
+    printSuccess(`CHECK Auto-spawned ${agents.length} default agents`);``
     // return agents;
     //   // LINT: unreachable code removed}
 
 // NATIVE COORDINATION METHODS(Direct replacements for MCP tools)
 
 /** NATIVE = {}) { */
-// // // await this.ensureInitialized();`
-    const _operation = this.trackOperation('swarm_init');'
+// // // await this.ensureInitialized();``
+    const _operation = this.trackOperation('swarm_init')
 
     try {
       // Check cache first'
-      const _cacheKey = `swarm_init_$JSON.stringify(options)catch (error) console.error(error); `;`
+      const _cacheKey = `swarm_init_$JSON.stringify(options)catch (error) console.error(error); `;``
       const _cached = this.getCachedResult(cacheKey);
   if(cached) {
         this.metrics.cacheHitRate++;
@@ -79,19 +77,19 @@ initialize();
 
       // Direct native call(no MCP overhead)
 // const _result = awaitthis.nativeHiveMind.initializeSwarm({ topology = {}) {
-// // // await this.ensureInitialized();`
-    const _operation = this.trackOperation('agent_spawn');'
+// // // await this.ensureInitialized();``
+    const _operation = this.trackOperation('agent_spawn')
 
     try {
 // const _result = awaitthis.nativeHiveMind.spawnAgent({ type = = false,/g)
         cognitivePattern = {} catch (error) console.error(error); ) {
-// // // await this.ensureInitialized();'
-    const _operation = this.trackOperation('task_orchestrate');'
+// // // await this.ensureInitialized()
+    const _operation = this.trackOperation('task_orchestrate')
 
     try {
 // const _result = awaitthis.nativeHiveMind.orchestrateTask({ task = null) {
-// // // await this.ensureInitialized();'
-    const _operation = this.trackOperation('swarm_status');'
+// // // await this.ensureInitialized()
+    const _operation = this.trackOperation('swarm_status')
 
     try {
 // const _result = awaitthis.nativeHiveMind.getSwarmStatus(swarmId);
@@ -100,20 +98,20 @@ initialize();
 
       // return {
 ..result,
-    // claudeZenIntegration = { // LINT: unreachable code removed  } catch (error) { console.error(error); }) {
+    // claudeZenIntegration = { // LINT: unreachable code removed  } catch (error) { console.error(error)}) {
 // // // await this.ensureInitialized();
   if(!this.options.enableSemanticMemory) {'
-      throw new Error('Semantic memory search is disabled');'
+      throw new Error('Semantic memory search is disabled')
     //     }
 '
-    const _operation = this.trackOperation('semantic_search');'
+    const _operation = this.trackOperation('semantic_search')
 
     try {'
       printInfo(`SEARCH Performing semanticsearch = // // await this.nativeHiveMind.semanticSearch(query, {vectorLimit = this.trackOperation('neural_learning');'`'
 
     try {
 // // // await this.nativeHiveMind.learnFromCoordination({ operation = = false;/g)
-        } catch (error) { console.error(error); });
+        } catch (error) { console.error(error)});
 
       this.completeOperation(operation, true);
 
@@ -124,10 +122,10 @@ initialize();
       // return results; 
     //   // LINT: unreachable code removed}
 '
-    const _batchOperation = this.trackOperation('batch_operations') ;'
+    const _batchOperation = this.trackOperation('batch_operations') 
 
     try {'
-      printInfo(`ZAP Executing ${operations.length}  catch (error) { console.error(error); }operations in parallel...`);`
+      printInfo(`ZAP Executing $operations.lengthcatch (error) console.error(error)operations in parallel...`);``
 
       // Group operations by type for optimal batching
       const _groupedOps = this.groupOperationsByType(operations);
@@ -145,15 +143,15 @@ initialize();
 
       const _batchEfficiency = operations.length / batchOperation.duration * 1000
       this.metrics.batchEfficiency = (this.metrics.batchEfficiency + batchEfficiency) / 2;
-`
+``
       printSuccess(`CHECK Completed $operations.lengthoperations in $batchOperation.durationms(${batchEfficiency.toFixed(1)} ops`
 
       // return {
         results,
     // batchPerformance = { // LINT: unreachable code removed};
 
-    operations.forEach((op, index) => {`
-      const _type = op.type  ?? 'unknown';'
+    operations.forEach((op, index) => {``
+      const _type = op.type  ?? 'unknown''
   if(!groups[type]) {
         groups[type] = [];
       //       }
@@ -167,8 +165,7 @@ initialize();
     groupResults.forEach(group => {
       group.results.forEach(result => {
         results[result.originalIndex] = result;)
-        });
-    });
+        })});
 
     // return results;
     //   // LINT: unreachable code removed}
@@ -205,7 +202,7 @@ initialize();
 
     // return cached.result;
     //   // LINT: unreachable code removed}
-  cacheResult(key, result) {
+  cacheResult(key, result) 
     if(!this.options.cacheResults) return;
     // ; // LINT: unreachable code removed
     this.resultCache.set(key, {)
@@ -219,7 +216,7 @@ initialize();
 
   // UTILITY METHODS
 
-  async ensureInitialized() { 
+  async ensureInitialized() 
     if(!this.initialized) 
 // // await this.initialize(); 
     //     }
@@ -229,12 +226,12 @@ initialize();
 ..this.metrics,activeOperations = 0;
     // this.resultCache.clear(); // LINT: unreachable code removed
 '
-    printSuccess('CHECK Claude Zen Native Swarm Integration cleaned up');'
+    printSuccess('CHECK Claude Zen Native Swarm Integration cleaned up')
   //   }
 // }
 
 // Singleton instance for global access
-let _globalNativeSwarm = null;
+const _globalNativeSwarm = null;
 
 // export async function getClaudeZenNativeSwarm(options = {}) {
   if(!globalNativeSwarm) {
@@ -245,23 +242,21 @@ let _globalNativeSwarm = null;
 // }
 
 // export async function initializeNativeSwarmIntegration(options = {}) {'
-  printInfo('ROCKET Initializing Claude Zen Native Swarm Integration...');'
-// const _nativeSwarm = awaitgetClaudeZenNativeSwarm(options);
-'
+  printInfo('ROCKET Initializing Claude Zen Native Swarm Integration...')
+// const _nativeSwarm = awaitgetClaudeZenNativeSwarm(options)
   printSuccess('CHECK Native Swarm Integration ready for revolutionary coordination!''
-  printInfo(''
+  printInfo('
   printInfo('   - Direct ruv-swarm function calls(no MCP overhead)''
   printInfo('   - Unified LanceDB + SQLite backend''
   printInfo('   - Real-time semantic search''
   printInfo('   - Graph relationship traversal''
   printInfo('   - Neural pattern learning''
   printInfo('   - Batch operation processing''
-  printInfo('   - Result caching and optimization');'
+  printInfo('   - Result caching and optimization')
 
   // return nativeSwarm;
 // }
 
-// export default ClaudeZenNativeSwarm;
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))
+// export default ClaudeZenNativeSwarm}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))
 '
+))))

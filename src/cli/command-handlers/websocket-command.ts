@@ -2,7 +2,9 @@
 /** CLI interface for WebSocket testing and management using Node.js 22 native WebSocket */
 
 import { WebSocketService } from '../../api/websocket-service.js';
+
 '
+
 import { printInfo, printSuccess } from '..';
 
 /** WebSocket command handler */
@@ -43,18 +45,16 @@ if(flags.help ?? flags.h ?? !subcommand) {
       break;default = args[0]  ?? `ws = // await WebSocketService.create({clientHost = // await service.connectToExternal('test', url, {`
       reconnect = {type = false;
 ))`
-    client.on('message', (info) => {
+    client.on('message', (info) => 
       responseReceived = true;'
-      printSuccess(` Response received => {`
+      printSuccess(` Response received => `
       setTimeout(() => {
   if(!responseReceived) {`
           printWarning(' No response received within timeout');
         //         }
         client.disconnect();
         service.shutdown();
-        resolve();
-      }, flags.timeout  ?? 5000);
-    });
+        resolve();, flags.timeout  ?? 5000););
 
   } catch(error) {'
     printError(` WebSocket testfailed = args[0]  ?? `ws = flags.name  ?? 'cli-connection';
@@ -62,13 +62,12 @@ if(flags.help ?? flags.h ?? !subcommand) {
   printInfo(` Connecting toWebSocket = // await WebSocketService.create({clientHost = // await service.connectToExternal(connectionName, url, {reconnect = = false,`
       _heartbeatInterval => {)
       const _timestamp = new Date().toISOString();`
-      console.warn(`[${timestamp}]  ${JSON.stringify(info.data, null, 2)}`);
+      console.warn(`[$timestamp]  $JSON.stringify(info.data, null, 2)`);
     });
 `
     client.on('disconnected', (info) => {'
-      printWarning(` Disconnected => {``
-      printInfo(` Reconnecting... attempt ${info.attempt}`
-    });
+      printWarning(` Disconnected => ``
+      printInfo(` Reconnecting... attempt ${info.attempt}`);
 
     // Keep connection alive`
     printInfo(' Connection active. Press Ctrl+C to disconnect.');
@@ -95,16 +94,14 @@ if(flags.help ?? flags.h ?? !subcommand) {
       });
 `
       console.warn('\n Connections => {')'
-        console.warn(`   ${name}: \${conn.isConnected ? ' Connected' } ($, { conn.url })`);
+        console.warn(`   $name: \$conn.isConnected ? ' Connected' ($, { conn.url })`);
   if(flags.stats) {`
           console.warn(`    Messages = args.join(' ');``
   const __url = flags.url  ?? `ws = // await WebSocketService.create();``
 // const _client = awaitservice.connectToExternal('send-client', url, {reconnect = JSON.parse(message);
-      } catch(error) {'
+      } catch(error) '
         printError(' Invalid JSON message');
-        return;
-    //   // LINT: unreachable code removed}
-    } else if(flags.type) {
+        return;else if(flags.type) {
       messageData = {type = message;
     //     }
 
@@ -120,7 +117,7 @@ if(flags.help ?? flags.h ?? !subcommand) {
     // Connect to all URLs
   for(let i = 0; i < urls.length; i++) {
       const _url = urls[i];`
-      const _name = `monitor-${i}`;
+      const _name = `monitor-$i`;
 
       try {
 // // await service.connectToExternal(name, url, {
@@ -135,11 +132,10 @@ if(flags.help ?? flags.h ?? !subcommand) {
       const _timestamp = new Date().toISOString();`
       console.warn(`[${timestamp}]  Disconnected => {`)
         const __status = service.getStatus();`
-        console.warn(` Stats - Active => {`)`
+        console.warn(` Stats - Active => `)`
       printInfo(' Stopping monitor...');
       service.shutdown();
-      process.exit(0);
-    });
+      process.exit(0););
 
     // Keep process alive
 // // await new Promise(() => {});
@@ -161,9 +157,8 @@ if(flags.help ?? flags.h ?? !subcommand) {
   for(let i = 0; i < concurrency; i++) {
       try {'
 // const __client = awaitservice.connectToExternal(`bench-${i} catch (error) { console.error(error); }`, url, {
-          reconnect => {
-          totalReceived++;
-        });
+          reconnect => 
+          totalReceived++;);
 `
         client.on('error', () => {
           _errors++;

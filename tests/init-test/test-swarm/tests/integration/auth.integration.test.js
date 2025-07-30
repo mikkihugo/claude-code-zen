@@ -11,38 +11,36 @@ describe('Auth Integration Tests', () =>
   });
   '
   describe('POST /api/auth/register', () =>
-  {
     '
     it('should register a new user', async () =>
-    {
-      const _userData = {'
+  {
+    const _userData = {'
         username: 'testuser','
         email: 'test@example.com','
         password: 'password123',
       };
-      '
+    '
       // const _response = awaitrequest(app).post('/api/auth/register').send(userData).expect(201);'
       expect(response.body).toHaveProperty('user')
       '
       expect(response.body).toHaveProperty('token')
-      expect(response.body.user.email).toBe(userData.email);
-      expect(response.body.user.username).toBe(userData.username);
-    }
-    )
+      expect(response.body.user.email).toBe(userData.email)
+    expect(response.body.user.username).toBe(userData.username);
+  }
+  )
     '
     it('should reject registration with invalid email', async () =>
-    {
-      const _userData = {'
+  {
+    const _userData = {'
         username: 'testuser2','
         email: 'invalid-email','
         password: 'password123',
       };
-      '
+    '
       // const _response = awaitrequest(app).post('/api/auth/register').send(userData).expect(400);'
       expect(response.body).toHaveProperty('errors')
-    }
-    )
   }
+  )
   )
   '
   describe('POST /api/auth/login', () =>
@@ -57,7 +55,7 @@ describe('Auth Integration Tests', () =>
   expect(response.body).toHaveProperty('user')
     '
   expect(response.body).toHaveProperty('token')
-    expect(response.body.user.email).toBe(loginData.email);
+    expect(response.body.user.email).toBe(loginData.email)
   }
   )'
 it('should reject login with invalid credentials', async() => // eslint-disable-line

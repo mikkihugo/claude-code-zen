@@ -4,18 +4,19 @@
 /** Provides all Claude Flow tools including Git integration */
 
 import cors from 'cors';
+('');
 '
-'
-'
+
 import { EventEmitter } from 'events';
+('');
 '
-'
-'
+
 import express, { Application, NextFunction, Request, Response } from 'express';
+('');
 '
-'
-'
-import { HealthCheck, JSONObject, JSONValue } from '../types/core.js';
+import { HealthCheck, JSONObject, JSONValue } from
+'../types/core.js";
+
 import {
   MCPError,
   MCPMessage,
@@ -24,10 +25,9 @@ import {
   MCPResponse,
   Tool,
   ToolExecutionResult,
-  ',
-} from '../types/mcp.js';
-'
-'
+  ","
+} from '../types/mcp.js'
+('');
 // Import types
 // import { ServerConfig,
 ServerHealth,
@@ -38,9 +38,10 @@ TypedRequest,
 TypedResponse,
 UnifiedServer,
 UserContext,'
-ValidationResult  } from '
+ValidationResult;
+} from '
 '
-// import { ClaudeFlowMCPServer  } from './mcp-server.js';'
+// import { ClaudeFlowMCPServer  } from './mcp-server.js''
 
 /** HTTP MCP Server Configuration */
 
@@ -75,7 +76,7 @@ ValidationResult  } from '
   this._app = express();
   // Initialize MCP server
   this._mcpServer = new ClaudeFlowMCPServer({enableGitTools = this._metrics.errors > 0;
-  const _mcpHealthy = this._mcpServer !== null;'
+  const _mcpHealthy = this._mcpServer !== null
   if(hasErrors ?? !mcpHealthy) return 'degraded''
   // return 'healthy'; // LINT: unreachable code removed'
 // }
@@ -105,16 +106,16 @@ setupMiddleware();
 : void
 // {
   // Enable CORS for all origins
-  this._app.use(cors(this._config.cors ?? {}));
+  this._app.use(cors(this._config.cors ?? ));
   // JSON parsing with size limit
   this._app.use(express.json({ limit => {))
       const _start = Date.now();
-  this._metrics.requests++;'
+  this._metrics.requests++
   if(req.path.startsWith('/mcp')) {'
     this._metrics.mcpRequests++;
   //   }'
-  console.warn(`${new Date().toISOString()} ${req.method} ${req.path}`);`
-  // Track response time`
+  console.warn(`${new Date().toISOString()} ${req.method} ${req.path}`);``
+  // Track response time``
   res.on('finish', () => {'
     const _responseTime = Date.now() - start;
     this._responseTimes.push(responseTime);
@@ -123,8 +124,7 @@ setupMiddleware();
       this._responseTimes.shift();
     //     }
     this._metrics.averageResponseTime =;
-    this._responseTimes.reduce((sum, time) => sum + time, 0) / this._responseTimes.length;
-  });
+    this._responseTimes.reduce((sum, time) => sum + time, 0) / this._responseTimes.length});
   next();
 // }
 // 
@@ -135,7 +135,7 @@ this._app.use((req =>
   if(!res.headersSent) {
           res.status(408).json({
             jsonrpc => {
-      res.json({ ;
+      res.json({
         status => {
       res.json({
         name => {
@@ -156,11 +156,9 @@ this._app.use((req =>
         if((message as MCPRequest).method === 'tools/call') {'
           this._metrics.toolCalls++;
         //         }
- catch (error) { console.error(error); }// const _response = awaitthis._mcpServer.handleMessage(message);
-        res.json(response);
-      } catch(error) ;
-        this.handleMCPError(req, res, error as Error, req.body.id);
-    });
+ catch (error) console.error(error)
+        res.json(response)} catch(error) ;
+        this.handleMCPError(req, res, error as Error, req.body.id)});
 
     // List available tools(human-readable)'
     this._app.get('/mcp/tools', async(req => {'
@@ -169,7 +167,7 @@ this._app.use((req =>
         res.json({success = > ({
             name => {
       try {
-        const { toolName }  catch (error) { console.error(error); }= req.params;)
+        const { toolName }  catch (error) { console.error(error)}= req.params;)
 // const _tools = awaitthis._mcpServer.toolsRegistry?.getAllTools()  ?? [];
         const _tool = tools.find(t => t.name === toolName);
   if(!tool) {
@@ -179,7 +177,7 @@ this._app.use((req =>
         success => {)
       res.status(404).json({
         success => {)'
-      console.error('HTTP MCP Servererror = > setTimeout(resolve, 100));'
+      console.error('HTTP MCP Servererror = > setTimeout(resolve, 100))'
     // ; // LINT: unreachable code removed
     // return new Promise((resolve, reject) => {
       this._server = this._app.listen(this._port, this._host, (err?) => {
@@ -188,16 +186,14 @@ this._app.use((req =>
     // return; // LINT: unreachable code removed
         //         }
 
-        this._isRunning = true;
-'
-        console.warn(` HTTP MCP Server running on http => {`)`
+        this._isRunning = true
+        console.warn(` HTTP MCP Server running on http => {`)``
   if(err.code === 'EADDRINUSE''
-          reject(new Error(`Port ${this._port} is already in use`));`
+          reject(new Error(`Port $this._portis already in use`));``
         } else {
           reject(err);
         //         }
-      });
-    });
+      })});
   //   }
 
 /** Stop the HTTP server */
@@ -206,8 +202,8 @@ this._app.use((req =>
   if(!this._isRunning) {
       // return;
     //   // LINT: unreachable code removed}
-`
-    console.warn(' Shutting down HTTP MCP server...');'
+``
+    console.warn(' Shutting down HTTP MCP server...')
 
     // Cleanup MCP server
   if(this._mcpServer) {
@@ -216,12 +212,10 @@ this._app.use((req =>
 
     // return new Promise((resolve) => {
       this._server.close(() => {
-        this._isRunning = false;'
+        this._isRunning = false
     // console.warn(' HTTP MCP Server stopped successfully''
-        this.emit('stopped');'
-        resolve();
-      });
-    });
+        this.emit('stopped')
+        resolve()})});
   //   }
 
 /** Get server status */
@@ -231,33 +225,25 @@ this._app.use((req =>
     // Basic health checks
     const _healthChecks = ['
       {name = healthChecks.every(check => check.status === 'healthy') ? 'healthy''
-      healthChecks.some(check => check.status === 'error'  ?? check.status === 'offline') ? 'error''
-      'degraded';'
-'
-    // return {status = === `file://${process.argv[1]}`) {`
+      healthChecks.some(check => check.status === 'error'  ?? check.status === 'offline') ? 'error''degraded'''
+    // return {status = === `file://${process.argv[1]}`) {``
   const _server = new HTTPMCPServer();
     // ; // LINT: unreachable code removed
-  // Graceful shutdown`
+  // Graceful shutdown``
   process.on('SIGINT''
-    console.warn('\n Received SIGINT, shutting down gracefully...');'
+    console.warn('\n Received SIGINT, shutting down gracefully...')
 // // await server.stop();
-    process.exit(0);
-  });
-'
+    process.exit(0)})
   process.on('SIGTERM''
-    console.warn('\n Received SIGTERM, shutting down gracefully...');'
+    console.warn('\n Received SIGTERM, shutting down gracefully...')
 // // await server.stop();
-    process.exit(0);
-  });
+    process.exit(0)});
 
   // Start server
   server.start().catch((error) => {'
-    console.error(' Failed to start HTTP MCP server);'
-    process.exit(1);
-  });
+    console.error(' Failed to start HTTP MCP server)'
+    process.exit(1)});
 // }
 
-// export default HTTPMCPServer;
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))
+// export default HTTPMCPServer}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))
 '

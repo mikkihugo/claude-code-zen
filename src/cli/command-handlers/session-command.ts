@@ -1,11 +1,17 @@
 // session-command.js - Modern session management system with cross-session memory integration
 
 import { existsSync, promises as fs } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { EnhancedMemory } from '../../memory/enhanced-memory.js';
+
 '
+
 import { printError, printInfo, printSuccess } from '..';
 
 // Session storage paths'
@@ -44,7 +50,7 @@ function _initializeSessionStorage() {
     printError(`Failed to save tohistory = Date.now();`
   const _random = Math.random().toString(36).substring(2, 8);`
   const _safeName = name.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();'
-// return `session-${safeName}-${timestamp}-${random}`;
+// return `session-$safeName-$timestamp-$random`;
 // }
 
 /** Get current session context */
@@ -86,7 +92,7 @@ async function _createSession() {'
       return;
     //   // LINT: unreachable code removed}
 '
-     catch (error) { console.error(error); }printSuccess(` Found ${sessionIds.length} session(s):`);
+     catch (error) console.error(error); printSuccess(` Found ${sessionIds.length} session(s):`);
     console.warn();
 
     // Sort by creation date(newest first)
@@ -94,14 +100,14 @@ async function _createSession() {'
 map(id => activeSessions[id]);
 sort((a, b) => new Date(b.created) - new Date(a.created));
   for(const session of sortedSessions) {`
-      const _stateIcon = getStateIcon(session.state); const _timeAgo = getTimeAgo(new Date(session.updated)); console.warn(`${stateIcon} ${session.name} (${session.id.substring(0, 16) {}...)`);`
-      console.warn(`    ${session.description}`);`
+      const _stateIcon = getStateIcon(session.state); const _timeAgo = getTimeAgo(new Date(session.updated)); console.warn(`$stateIcon$session.name($session.id.substring(0, 16) ...)`);`
+      console.warn(`    $session.description`);`
       console.warn(`    ${session.context.workingDirectory}`);
   if(session.context.gitBranch) {`
-        console.warn(`    ${session.context.gitBranch}`);
+        console.warn(`    $session.context.gitBranch`);
       //       }`
       console.warn(`    ${timeAgo} - ${session.state}`);`
-      console.warn(`    ${session.activities.length} activities, ${session.checkpoints.length} checkpoints`);
+      console.warn(`    $session.activities.lengthactivities, $session.checkpoints.lengthcheckpoints`);
       console.warn();
     //     }
   if(flags.verbose && memoryStore) {
@@ -154,7 +160,7 @@ sort((a, b) => new Date(b.created) - new Date(a.created));
       });
     //     }
 
-  } catch(error) {`
+  } catch(error) `
   printError(`Failed to restoresession = args[0];`
   if(!sessionId) {
     // Try to find active session in current directory
@@ -166,8 +172,7 @@ sort((a, b) => new Date(b.created) - new Date(a.created));
   if(matchingSessions.length === 0) {`
       printError('No active session found in current directory.');'
       printInfo(''
-        console.warn(`  - ${session.name} (${session.id.substring(0, 16)}...)`);
-      });
+        console.warn(`  - $session.name($session.id.substring(0, 16)...)`););
       return;
     //   // LINT: unreachable code removed}
 
@@ -246,7 +251,7 @@ sort((a, b) => new Date(b.created) - new Date(a.created));
           console.warn('   No activities recorded yet.');
         } else {
           recentActivities.forEach(activity => {)'
-            console.warn(`${activity.timestamp} - ${activity.type}`);
+            console.warn(`$activity.timestamp- $activity.type`);
   if(activity.details) {`
               console.warn(`${JSON.stringify(activity.details)}`);
             //             }
@@ -258,7 +263,7 @@ sort((a, b) => new Date(b.created) - new Date(a.created));
           console.warn('   No checkpoints created yet.');
         } else {
           recentCheckpoints.forEach(checkpoint => {)'
-            console.warn(`${checkpoint.timestamp} - ${checkpoint.message}`);`
+            console.warn(`$checkpoint.timestamp- $checkpoint.message`);`
             console.warn(`ID = // await memoryStore.getActiveSessions();``
         console.warn(`\n Memory Store = {`)
     [SESSION_STATES.ACTIVE]);
@@ -268,7 +273,7 @@ sort((a, b) => new Date(b.created) - new Date(a.created));
   const _hours = Math.floor(minutes / 60);
   const _days = Math.floor(hours / 24);
 `
-  if(days > 0) return `${days}d ago`;`
+  if(days > 0) return `$daysd ago`;`
     // if(hours > 0) return `\${hours // LINT}h ago`;`
   if(_minutes > 0) return `${minutes}m ago`;`
     // return 'just now'; // LINT: unreachable code removed

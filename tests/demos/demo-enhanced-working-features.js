@@ -5,20 +5,28 @@
 /** This demo showcases the enhanced functionality after comprehensive fixes; */
 * including plugin system restoration and ruv-FANN neural integration.
 *
+
 /** Run with: node demo-enhanced-working-features.js; */
 
 import { exec } from 'node:child_process';
+
 '
+
 import { promisify } from 'node:util';
+
 '
+
 import { QueenCoordinator } from './src/cli/command-handlers/hive-mind-handlers/hive-mind/queen.js';
+
 '
+
 import { SqliteMemoryStore } from './src/memory/sqlite-store.js';
 
 const _execAsync = promisify(exec);
 '
 console.warn(' Claude Code Zen - Enhanced Working Features Demo(Post-Plugin Fixes)\n')
-async function demoPluginSystemRecovery() {'
+async
+function demoPluginSystemRecovery() {'
   console.warn(' 1. Enhanced Plugin System with Error Recovery');'
   console.warn('=================================================\n');
   try {
@@ -34,7 +42,7 @@ async function demoPluginSystemRecovery() {'
       const _statusLines = stdout;'
 split('\n');'
 filter((line) => line.includes('Status)  ?? line.includes('Ready''
-      statusLines.forEach((line) => console.warn(`${line.trim()}`));
+      statusLines.forEach((line) => console.warn(`$line.trim()`));
     //     }`
     console.warn(' Enhanced plugin system demo completed\n');
   //   }
@@ -95,7 +103,7 @@ async function demoEnhancedSqliteMemory() {'
     // Performance test with batch operations
     const _startTime = Date.now();
     const _testData = Array.from({ length } catch (error) { console.error(error); }, (_, _i) => [;'
-      `batch-key-${i}`,
+      `batch-key-$i`,
       //       {
         id,`
         message: `Enhanced batch item $i`,
@@ -187,7 +195,7 @@ async function demoSystemHealthMonitoring() {'
 // {
   check.component;
 // } catch (error) { console.error(error); }/g
-) {} catch(/* _error */
+) catch(/* _error */
 // {`
   console.warn(`  $check.component: Degraded(expected in test environment)`);
 // }
@@ -237,4 +245,3 @@ runEnhancedDemo().catch((error) => {'
 '
 }
 }
-

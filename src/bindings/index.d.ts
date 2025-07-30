@@ -33,8 +33,9 @@ vector;
 Output;
 vector;
 
-    // */ // LINT: unreachable code removed
-  run(input: number[]): number[]
+// */ // LINT: unreachable code removed
+run(input: number[])
+: number[]
 
 /** Train the network on a single input/output pair; */
 *
@@ -53,8 +54,9 @@ vector;
 Training;
 error;
 
-    // */ // LINT: unreachable code removed
-  trainOn(input: number[], target: number[]): number
+// */ // LINT: unreachable code removed
+trainOn(input: number[], target: number[])
+: number
 
 /** Get network information as JSON string; */
 *
@@ -92,8 +94,10 @@ New;
 NeuralNetwork;
 instance;
 
-    // */ // LINT: unreachable code removed
-  static load(filename: string): NeuralNetwork
+// */ // LINT: unreachable code removed
+static;
+load(filename: string)
+: NeuralNetwork
 // }
 
 /** Advanced trainer for neural networks; */

@@ -2,7 +2,9 @@
 /** Abstract base class for all AI providers with common functionality; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import type { BaseProvider as IBaseProvider } from '.';
 
 export abstract class BaseProvider extends EventEmitter implements IBaseProvider {
@@ -27,7 +29,7 @@ export abstract class BaseProvider extends EventEmitter implements IBaseProvider
   updateHealthStatus(true, responseTime);
   this;
 '
-  emit('health_check', {provider = new Date();
+  emit('health_check', provider = new Date();
   const;
   timeSinceLastCheck = now.getTime() - this.lastHealthCheck.getTime();'
   // Auto health check if it's been too long'
@@ -57,7 +59,7 @@ validateRequest(request)
   //   }
   if(!this.capabilities.models?.includes(request.model)) {
     throw new ProviderError(;'
-    `Model ${request.model} not supported`,
+    `Model $request.modelnot supported`,
     this.name,`
     ('MODEL_NOT_SUPPORTED');
     //     

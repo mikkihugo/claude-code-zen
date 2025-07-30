@@ -26,8 +26,8 @@ class LintTerminator {
 // try
       execSync('npx biome check --write .', { stdio);
       console.warn(' Biome formatting complete');
-    } catch(/* _error */) 
-      console.warn(' Biome had issues, continuing...');
+    } catch(/* _error */ ) 
+      console.warn(' Biome had issues, continuing...')
 // }
 // }
 
@@ -36,19 +36,19 @@ class LintTerminator {
   async applyAdvancedFixes() { 
     console.warn(' PHASE 2');
     // Get all files that need processing
-// const _files = awaitglob('**/*.js,ts,jsx,tsx', {
-      ignore: [;
-        'node_modules/**', */
-        'dist/**', */
-        'build/**', */
-        '**'
-        '**/ruv-FANN/ruv-swarm/npm/**',
-        '.git/**' ] } */
+// const _files = awaitglob('**/ *.js,ts,jsx,tsx', {
+      ignore: [
+'node_modules/**', */
+'dist/**', */
+'build/**', */
+('**');
+'**/ruv-FANN/ruv-swarm/npm/**', '.git/**';
+] } */
   //   )
-  console;
+  console
 
-  warn(` _Processing _${files.length} _files...`)
-  for(const file _of files) {
+warn(` _Processing _${files.length} _files...`);
+for(const file _of files) {
 // // await this.processFile(file); 
       // Progress indicator
   if(this.filesProcessed % 100 === 0) {

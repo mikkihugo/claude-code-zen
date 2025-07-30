@@ -114,7 +114,7 @@ delete(key);
 
 getStats();
   // return {
-      size = {}) {
+      size = {}) 
 //     super();
     // ; // LINT: unreachable code removed'
   /** @type {import('better-sqlite3').Database | null} */
@@ -133,10 +133,8 @@ this.pools = {queryResults = > ({ results => {
 Object.keys(obj.metadata).forEach((k) => delete obj.metadata[k]);
 
 ),memoryEntries = > (
-(_id) =>
-{'';
+(_id) =>'';
   Object.keys(obj.metadata).forEach((k) => delete obj.metadata[k]);
-}
 ),
 // Prepared statements for better performance
 this.statements = new Map()
@@ -162,7 +160,7 @@ this._initialize();
       this.db.pragma('optimize');
 
       // Ensure table exists with optimized schema: {}'
-       catch (error) { console.error(error); }this.db.exec(`;`
+       catch (error) console.error(error); this.db.exec(`;`
         CREATE TABLE IF NOT EXISTS collective_memory(;
           id TEXT PRIMARY KEY,
           swarm_id TEXT NOT NULL,
@@ -310,7 +308,7 @@ this._initialize();
         size > this.config.compressionThreshold && MEMORY_TYPES[type]?.compress;
 
       const _storedValue = serialized;
-      let _compressed = 0;
+      const _compressed = 0;
   if(shouldCompress) {
         // In production, use proper compression like zlib'
         // For now, we'll just mark it as compressed'
@@ -430,7 +428,7 @@ run(this.config.swarmId, key);
         params.push(type);
       //       }
 '
-       catch (error) { console.error(error); }query += ' ORDER BY access_count DESC, confidence DESC LIMIT ?';
+       catch (error) console.error(error); query += ' ORDER BY access_count DESC, confidence DESC LIMIT ?';
       params.push(limit);
 
       const _results = this.db.prepare(query).all(...params);

@@ -25,18 +25,28 @@ Team;
 *
 @version
 2.0;
-0.0 * /;
+0.0 * /;;
 
 import { execSync } from 'node:child_process';
+
 '
+
 import fs from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { afterEach, beforeEach, describe, expect } from '@jest';
+
 '
+
 import Database from 'better-sqlite3';
 
 /** Database column information structure */
@@ -97,7 +107,7 @@ afterEach(async(): Promise<void> => {
   process.chdir(os.tmpdir());
 // // await fs.rm(testContext.testDir, { recursive, force});
 });'
-describe('Database Initialization via Init Command', () => {
+describe('Database Initialization via Init Command', () => 
 
 /** Verifies that the init command creates database with correct schema: {} */
 '
@@ -117,7 +127,7 @@ catch(() => false)
   const _tableInfo = testContext.db;'
 prepare("SELECT sql FROM sqlite_master WHERE type='table' AND name='")
 get() as SqliteMasterEntry | undefined
-  expect(tableInfo).toBeDefined() {}"
+  expect(tableInfo).toBeDefined() "
   expect(tableInfo?.sql).toContain('CREATE TABLE')'
   expect(tableInfo?.sql).toContain('agents')
   // Critical validation: ensure role column allows NULL values'
@@ -167,7 +177,7 @@ run(agentId, swarmId, 'Test Agent', 'worker', 'active');
 
       // Validate agent record'
       const _agent = testContext.db.prepare('SELECT * FROM agents WHERE id = ?').get(agentId) as;
-        | { id, role: string | null }
+        | id, role: string | null 
         | undefined;
 
       expect(agent).toBeDefined();
@@ -214,16 +224,15 @@ run(agentId, swarmId, 'Test Agent', 'coordinator', 'leader', 'active');
 
       // Verify agent insertion with role'
       const _agent = testContext.db.prepare('SELECT * FROM agents WHERE id = ?').get(agentId) as;
-        | { id, role}
+        | id, role
         | undefined;
 
       expect(agent).toBeDefined();
       expect(agent?.id).toBe(agentId);'
       expect(agent?.role).toBe('leader');
-    });
-  });
+    }););
 '
-  describe('Direct Database Schema Tests', () => {
+  describe('Direct Database Schema Tests', () => 
 
 /** Validates direct database schema creation */
 '
@@ -398,7 +407,6 @@ swarms(id);
         cwd: testContext.testDir,'
   stdio: 'pipe',
 ..process.env
-}
 // Reopen and verify migration success
 testContext.db = new Database(testContext.dbPath)
 // Test that we can now insert without role'

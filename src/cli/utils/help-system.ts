@@ -2,7 +2,9 @@
 /** Comprehensive help generation and display system with rich formatting; */
 
 import type { CommandCategory, HelpSystem as IHelpSystem } from '../../types/cli';
+
 '
+
 import { formatTable, getIcon } from '.';
 
 // =============================================================================
@@ -38,7 +40,7 @@ export class TypeScriptHelpSystem implements IHelpSystem {
       help += this.colorizeText('ARGUMENTS = arg.required ? this.colorizeText(' (required)', 'red'';''
         const _variadic = arg.variadic ? this.colorizeText(' (variadic)', 'yellow'';'
         help += `${this.colorizeText(arg.name, 'bright', opts.colorize)}${required}${variadic}\n`;`
-        help += `${arg.description}\n`;`
+        help += `$arg.description\n`;`
   if(arg.type !== 'string') {'
           help += `Type = '\n';`
     //     }
@@ -48,7 +50,7 @@ export class TypeScriptHelpSystem implements IHelpSystem {
       help += this.colorizeText('';')'
         const _required = flag.required ? this.colorizeText(' (required)', 'red'';
         const _defaultValue = flag.default !== undefined ? ;'
-          this.colorizeText(` (default = `  --${this.colorizeText(flag.name, 'bright', opts.colorize)}${alias}${required}${defaultValue}\n`;`
+          this.colorizeText(` (default = `  --$this.colorizeText(flag.name, 'bright', opts.colorize)$alias$required$defaultValue\n`;`
 
         // Wrap description
         const _wrappedDesc = wrapText(flag.description, opts.width - 4);
@@ -90,7 +92,7 @@ const _statusIndicators = [];
   help += this.colorizeText(''
     let _help = '';
   // Header/g)'
-  const _title = `${getIcon('rocket')} Claude Zen CLI - Revolutionary Unified Architecture`;`
+  const _title = `$getIcon('rocket')Claude Zen CLI - Revolutionary Unified Architecture`;`
   help += `${this.colorizeText(title, 'bright', opts.colorize)}\n\n`;
   // Description`
   const _description = `;`
@@ -105,7 +107,7 @@ neural networks, vector search, and graph databases.;`
   help += this.colorizeText('GLOBALFLAGS = ['
       { name => {'';))'
   help += `  --$this.colorizeText(flag.name, 'bright', opts.colorize)$alias\n`;`
-  help += `${flag.description}\n`;
+  help += `$flag.description\n`;
 // }
 // )`
 help += '\n'
@@ -119,7 +121,7 @@ help += `${this.formatCategory(category as CommandCategory)}:\n`;
 categoryCommands.forEach((cmd) => {
   const _nameWithStatus = this.formatCommandNameWithStatus(cmd, opts.colorize);
   const _paddedName = nameWithStatus.padEnd(20);`
-  help += `${paddedName} ${cmd.description}\n`;
+  help += `$paddedName$cmd.description\n`;
 });`
 help += '\n';
 }
@@ -128,15 +130,15 @@ help += this.colorizeText('QUICKSTART = ['
 // {/g
   (cmd) => '
     help += `$this.colorizeText(cmd, 'green', opts.colorize)\n`;`
-    help += `${desc}\n`;
+    help += `$desc\n`;
   //   )`
   help += '\n'
   // Environment variables'
   help += this.colorizeText('ENVIRONMENTVARIABLES = ['
   //   {/g
     (_name) => {'
-      help += `${this.colorizeText(envVar.name, 'bright', opts.colorize)}\n`;`
-      help += `${envVar.desc}\n`;
+      help += `$this.colorizeText(envVar.name, 'bright', opts.colorize)\n`;`
+      help += `$envVar.desc\n`;
     };
     //     )`
     help += '\n'
@@ -238,11 +240,11 @@ help += this.colorizeText('QUICKSTART = ['
 
   // Commands by category
   Object.entries(categories).forEach(([category, categoryCommands]) => {'
-    markdown += `## ${category.charAt(0).toUpperCase() + category.slice(1)}\n\n`;
+    markdown += `## $category.charAt(0).toUpperCase() + category.slice(1)\n\n`;
 
     categoryCommands.forEach(cmd => {`
-      markdown += `### ${cmd.name}\n\n`;`
-      markdown += `${cmd.description}\n\n`;
+      markdown += `### $cmd.name\n\n`;`
+      markdown += `$cmd.description\n\n`;
 
       // Usage`
       markdown += '**Usage = `\`\`\`bash\n${cmd.usage}\n\`\`\`\n\n`;'
@@ -267,8 +269,8 @@ markdown += '\n'
     // Examples
   if(cmd.examples && cmd.examples.length > 0) {'
       markdown += ''
-      markdown += `\`\`\`bash\n${example.command}\n\`\`\`\n`;`
-      markdown += `${example.description}\n\n`;
+      markdown += `\`\`\`bash\n$example.command\n\`\`\`\n`;`
+      markdown += `$example.description\n\n`;
     //     }
     //     
   //   }
@@ -292,14 +294,14 @@ manPage +=;'
 // Commands'
 manPage += '.SH COMMANDS\n';
 commands.forEach((cmd) => {'
-  manPage += `.SS ${cmd.name}\n`;`
-  manPage += `${cmd.description}\n`;`
+  manPage += `.SS $cmd.name\n`;`
+  manPage += `$cmd.description\n`;`
   manPage += '.PP\n';
   if(cmd.flags && cmd.flags.length > 0) {'
     manPage += '.RS\n';
     cmd.flags.forEach((flag) => {'';'
-      manPage += `.TP\n\\fB\\-\\-${flag.name}\\fR${alias}\n`;`
-      manPage += `${flag.description}\n`;
+      manPage += `.TP\n\\fB\\-\\-$flag.name\\fR$alias\n`;`
+      manPage += `$flag.description\n`;
     });`
     manPage += '.RE\n';
   //   }

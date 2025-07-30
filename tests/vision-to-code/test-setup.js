@@ -13,7 +13,7 @@ process.env.LOG_LEVEL = 'error'
 '
 process.env.DB_NAME = 'vision_to_code_test'
 // Mock external services'
-jest.mock('axios');
+jest.mock('axios')
 '
 jest.mock('@google'
 // Set up performance monitoring

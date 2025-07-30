@@ -8,8 +8,8 @@ const {
   mockVisions,
   mockStakeholders,
   apiResponseTemplates,
-  ',
-} = require('../../fixtures/vision-workflow-fixtures');
+',
+} = require('../../fixtures/vision-workflow-fixtures')
 const _app = express();
 const _port = process.argv[2] ?? 4102;
 // Middleware
@@ -65,9 +65,7 @@ if (email && password) {
   apiResponseTemplates.success({))'
         token: `;`
 mock_business_token_$;
-  {
-    Date.now();
-  }
+  Date.now();
   `
 `,
     ``;
@@ -127,7 +125,7 @@ status: 'pending_approval', created_at;
   updated_at: new Date().toISOString()
 // }
 mockData.visions.set(vision.id, vision)
-mockData.analytics.total_visions++;
+mockData.analytics.total_visions++
 // Simulate processing time
 setTimeout(;
 () => {
@@ -236,14 +234,14 @@ app.post('/api/visions/) =>'
     if (decision === 'approved') {
       '
       approval.approval_status = 'approved'
-      approval.approved_by = approval.approved_by ?? [];
+      approval.approved_by = approval.approved_by ?? []
       approval.approved_by.push(stakeholder_id);
       approval.approval_timestamp = new Date().toISOString();
       '
     } else if (decision === 'rejected') {
       '
       approval.approval_status = 'rejected'
-      approval.rejection_reason = comments;
+      approval.rejection_reason = comments
       approval.required_changes = req.body.required_changes ?? [];
       // }
       approval.comments = approval.comments ?? [];
@@ -426,7 +424,7 @@ app.listen(port, () =>
 // {'
   console.warn(`
 `
-Mock;
+Mock
 Business;
 Service;
 running;
@@ -435,7 +433,10 @@ port;
 $;
 {
   port;
-}``);`;
+}
+``;
+)
+`;
 }
 module.exports = app;
-`
+`;

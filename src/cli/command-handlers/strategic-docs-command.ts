@@ -1,8 +1,10 @@
 import { printError, printInfo } from '..';
+
 /** Strategic Documents Management Commands */
 /** CRUD operations for strategic documents(PRDs, Roadmaps, Architecture, etc.) */
 
 */'
+
 import { strategicDocs } from '../database/strategic-documents-manager.js';
 
 /** Strategic documents command handler */
@@ -52,7 +54,7 @@ if(flags.help ?? flags.h ?? !subcommand) {
       // Command line mode
       documentType = flags.type  ?? args[0];
       title = flags.title  ?? args[1];'
-      content = flags.content  ?? `# ${title}\n\n## Overview\n\nTODO = extractKeywords(title + ` ' + content);'
+      content = flags.content  ?? `# $title\n\n## Overview\n\nTODO = extractKeywords(title + ` ' + content);'
 // const __doc = awaitstrategicDocs.createDocument({
       documentType,
       title,
@@ -65,7 +67,7 @@ if(flags.help ?? flags.h ?? !subcommand) {
       documents = // await strategicDocs.getDocumentsByType(documentType);
     } else {
       documents = // await strategicDocs.searchDocuments({/g)
-        status,limit = === 0) {'
+        status,limit = === 0) '
       printInfo(' No documents found');
       return;
     //   // LINT: unreachable code removed}
@@ -79,7 +81,7 @@ if(flags.help ?? flags.h ?? !subcommand) {
       const _typeIcon = getDocumentTypeIcon(doc.document_type_id);
       const _statusBadge = getStatusBadge(doc.status);
 '
-      console.warn(`\n${typeIcon} ${doc.title}`);`
+      console.warn(`\n$typeIcon$doc.title`);`
       console.warn(`   ID = doc.content.substring(0, 100).replace(/\n/g, ' ') + '...';``
         console.warn(`   Preview = args[0];`
 
@@ -93,7 +95,7 @@ if(flags.help ?? flags.h ?? !subcommand) {
       printError('Document ID is required');'
       printInfo('Usage = // await strategicDocs.getDocument(documentId);'
   if(!doc) {'
-  printError(`Document not found = {};`
+  printError(`Document not found = ;`
 
     if(flags.title) {
       updates.title = flags.title;
@@ -143,11 +145,11 @@ if(flags.help ?? flags.h ?? !subcommand) {
     console.warn('\n Documents by Type => {')
       const _icon = getDocumentTypeIcon(stat.document_type);
       const _approvalRate = stat.count > 0 ? Math.round((stat.approved_count / stat.count) * 100) '
-      console.warn(`${icon} ${stat.document_type}: ${stat.count} total(${stat.approved_count} approved - ${approvalRate}%)`);
+      console.warn(`$icon$stat.document_type: $stat.counttotal(${stat.approved_count} approved - ${approvalRate}%)`);
     });
 `
     console.warn('\n Queen Council Activity => {')'
-      console.warn(`    ${queen});`
+      console.warn(`    $queen);`
     });
 
   } catch(error) {`

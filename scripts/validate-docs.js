@@ -4,7 +4,9 @@
 /** Validates documentation files for completeness and consistency; */
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 class DocumentationValidator {

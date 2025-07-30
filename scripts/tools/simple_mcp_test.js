@@ -1,5 +1,7 @@
 import { Agent, RuvSwarm, Swarm } from 'ruv-swarm';
+
 '
+
 import { SqliteMemoryStore } from './dist/memory/sqlite-store.js';
 
 async function testLibraryIntegration() {

@@ -1,5 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from '@jest';
+
 '
+
 import { ClaudeZenServer } from '../../../src/api/claude-zen-server.js';
 
 // Mock dependencies'
@@ -39,13 +41,11 @@ jest.mock('swagger-ui-express', () => (
 '
 jest.mock('../../../src/api/claude-zen-schema.js', () => (
 {
-  CLAUDE_ZEN_SCHEMA: {
-    endpoints: [
-      ;'
+  endpoints: [
+    ;'
       { path: '/api/health', method: 'GET', handler: 'healthCheck' },'
-      { path: '/api/status', method: 'GET', handler: 'statusCheck' },
-    ];
-  }
+      { path: '/api/status', method: 'GET', handler: 'statusCheck' },,
+  ];
   ,
 generateWorkflowRoutes: jest.fn(),
 generateOpenAPISpec: jest.fn(() => (
@@ -80,15 +80,13 @@ afterEach(async () => {
   )'
   describe('constructor', () => '
     it('should create server with default options', () =>
-  {
-    server = new ClaudeZenServer();
-    expect(server).toBeDefined();
-    expect(server.options.port).toBe(3000);
-    '
+    server = new ClaudeZenServer()
+  expect(server).toBeDefined();
+  expect(server.options.port).toBe(3000);
+  '
     expect(server.options.host).toBe('0.0.0.0')
-    expect(server.options.enableWebSocket).toBe(true);
-    expect(server.options.enableMetrics).toBe(true);
-  }
+    expect(server.options.enableWebSocket).toBe(true)
+  expect(server.options.enableMetrics).toBe(true);
   )'
   it('should create server with custom options', () =>
   {
@@ -102,7 +100,7 @@ afterEach(async () => {
     expect(server.options.port).toBe(4000);
     '
     expect(server.options.host).toBe('127.0.0.1')
-    expect(server.options.enableWebSocket).toBe(false);
+    expect(server.options.enableWebSocket).toBe(false)
     expect(server.options.enableMetrics).toBe(false);
   }
   )
@@ -110,9 +108,11 @@ afterEach(async () => {
   describe('server lifecycle', () =>
 // {
   beforeEach(() =>
+    server = new ClaudeZenServer(
   {
-    server = new ClaudeZenServer({ port });
+    port;
   }
+  )
   )
   '
   it('should start server successfully', async () =>
@@ -158,9 +158,7 @@ afterEach(async () => {
       describe('middleware setup', () =>
 // {
   beforeEach(() =>
-      {
-        server = new ClaudeZenServer();
-      }
+        server = new ClaudeZenServer()
       )
       '
       it('should configure security middleware', () =>
@@ -186,7 +184,7 @@ afterEach(async () => {
   : '10mb'
 // }'
 expect(bodyParsingConfig.json.limit).toBe('10mb')
-      expect(bodyParsingConfig.urlencoded.extended).toBe(true);
+      expect(bodyParsingConfig.urlencoded.extended).toBe(true)
     }
   }
   )
@@ -194,9 +192,7 @@ expect(bodyParsingConfig.json.limit).toBe('10mb')
   describe('route generation', () =>
 // {
   beforeEach(() =>
-  {
-    server = new ClaudeZenServer();
-  }
+    server = new ClaudeZenServer()
   )
   '
   it('should generate routes from schema', () =>
@@ -296,10 +292,10 @@ it('should provide health check endpoint', async () =>
   };
   '
   expect(healthResponse.status).toBe('healthy')
-  expect(healthResponse.timestamp).toBeDefined();
+  expect(healthResponse.timestamp).toBeDefined()
   '
   expect(typeof healthResponse.uptime).toBe('number')
-  expect(healthResponse.version).toBeDefined();
+  expect(healthResponse.version).toBeDefined()
 }
 )'
 it('should provide status check endpoint', async() =>
@@ -313,7 +309,7 @@ const _statusResponse = {'
 expect(statusResponse.server).toBe('running');
 '
 expect(typeof statusResponse.connections).toBe('number')
-expect(statusResponse.memory).toBeDefined();
+expect(statusResponse.memory).toBeDefined()
 expect(statusResponse.cpu).toBeDefined();
 }
 })'
@@ -347,11 +343,9 @@ it('should handle server errors gracefully', () =>
   expect(mockRes.json).toHaveBeenCalledWith(;
   '
   expect.objectContaining(
-  {
     error: 'Internal Server Error','
-    message: 'Test error';
-    )
-  }
+    message: 'Test error'
+  )
   //
 }
 )'

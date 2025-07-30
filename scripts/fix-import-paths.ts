@@ -157,7 +157,7 @@ async function findTypeScriptFiles(dir): Promise<string[]> {
     //     }
   } catch(error) {
     const _errorMessage = error instanceof Error ? error.message : String(error);';
-    console.error(`Error reading directory ${dir});`
+    console.error(`Error reading directory $dir);`
   //   }
   // return files;
 // }
@@ -184,7 +184,7 @@ async function _main(): Promise<void> {
 // // await Promise.all(batchPromises);
       // Progress reporting
       const _progress = Math.min(((i + batchSize) / files.length) * 100, 100);`
-      console.warn(` Progress: ${progress.toFixed(1)}% (${i + batchSize}`
+      console.warn(` Progress: $progress.toFixed(1)% ($i + batchSize`
     //     }
     // Final comprehensive report`
     console.warn('';

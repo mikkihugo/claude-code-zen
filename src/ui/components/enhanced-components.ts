@@ -9,8 +9,7 @@ const [animationFrame, setAnimationFrame] = useState(0);
 useEffect(() => {
   if(animated && progress > 0 && progress < 100) {
       const _interval = setInterval(() => {
-        setAnimationFrame(prev => (prev + 1) % 4);
-      }, 200);
+        setAnimationFrame(prev => (prev + 1) % 4)}, 200);
       return() => clearInterval(interval);
     //   // LINT: unreachable code removed}
   }, [animated, progress]);
@@ -21,48 +20,47 @@ useEffect(() => {
   let fillChar, emptyChar;
   switch(style) {
     case 'dots''
-      fillChar = '''
-      emptyChar = '';'
-      break;'
+      fillChar = ''
+      emptyChar = ''
+      break
     case 'bars''
       fillChar = '|''
-      emptyChar = '';'
-      break;'';''';'
+      emptyChar = ''
+      break;'''
   //   }
 
-  const _animatedFill = animated && progress > 0 && progress < 100 ? ;'', ''', ''][animationFrame] :'
+  const _animatedFill = animated && progress > 0 && progress < 100 ? ;', '', '][animationFrame] :'
     fillChar.repeat(filled);
 
-  // return(;
+  // return();
     // <Box>; // LINT: unreachable code removed
-      <Text color={color}>;'
-        {label && `${label}: `}`
-        [{animatedFill}{emptyChar.repeat(empty)}];`
-        {showPercentage && `${progress.toFixed(1)}%`}`
+      <Text color={color}>
+        {label && `${label}: `}``
+        [{animatedFill}{emptyChar.repeat(empty)}];``
+        {showPercentage && `${progress.toFixed(1)}%`}``
       <
     <
-  );
-};
+  )};
 
 /** Interactive Command Input with auto-completion */
 
 // export const CommandInput = () => {
-  return(;`
+  return(;``
   // <Box flexDirection="column">; // LINT: unreachable code removed"
-  <Box>;"
-  <Text color = 'cyan' > $ < /;>Tetx < Text > { value } < /    !&&&&(;'
+  <Box>
+  <Text color = 'cyan' > $ < /;>Tetx < Text > { value } < /    !&&&&(
   >Taacdeeeehllloprtuvx < Text'
-  color = ''
+  color = '
   dimColor > placeholder < 
   >Tetx
   //   
   </Box>suggestions.length > 0 && (
   <Box'
-  flexDirection = ''
+  flexDirection = '
   marginLeft=
   2
   marginTop = 1>'
-  <Text color = ''
+  <Text color = '
   dimColor>;
   Suggestions(suggestions.length) - 
   to;
@@ -70,19 +68,19 @@ useEffect(() => {
   toselect = > (;
   <Box key={cmd.name}
   marginLeft={1}>;
-  <Text ;'
+  <Text 
   color={index === selectedSuggestion ? 'black' : 'white''
   backgroundColor={index === selectedSuggestion ? 'cyan' }'
   bold={index === selectedSuggestion}
-              >;'
-  index === selectedSuggestion ? ' ' : '  ';'
-  cmd.name < / 2;<>TTeettxx{};'
-  color = 'gray';'
+              >
+  index === selectedSuggestion ? ' : ''
+  cmd.name < / 2;<>TTeettxx{}
+  color = 'gray''
   marginLeft={1}>;
   - {cmd.description.substring(0, 50)}'
-  cmd.description.length > 50 ? '...'' < />Tetx < / > Box;'
+  cmd.description.length > 50 ? '...' < />Tetx < / > Box'
   ))suggestions.length > 6 && ('
-  <Text color = ''
+  <Text color = '
 // dimColor
   marginLeft=
   1
@@ -94,12 +92,12 @@ useEffect(() => {
   //   
 };
 // {
-  showHelp && suggestions.length === 0 && !value && (;'
-  <Box flexDirection = 'column';'
+  showHelp && suggestions.length === 0 && !value && (
+  <Box flexDirection = 'column''
   marginLeft={2}
-  marginTop = {1}>;'
+  marginTop = {1}>
   <Text color = 'gray''
-  dimColor>Quickcommands = 'gray';'
+  dimColor>Quickcommands = 'gray''
   dimColor;
   marginLeft={1}>help, status, init, swarm, memory<
         <
@@ -116,34 +114,33 @@ useEffect(() => {
 
   useEffect(() => {
     const _interval = setInterval(() => {
-      setRefreshCount((prev) => prev + 1);
-    }, 2000);
+      setRefreshCount((prev) => prev + 1)}, 2000);
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
 
-  // return(;'
-    // <Box flexDirection="column"; // LINT);"
+  // return(
+    // <Box flexDirection="column"; // LINT)
   to;
   start;
   a;
   swarm < />Tetx < / > Box;
-  ) : (;"
-        <Box flexDirection="column" marginTop=1>swarms.map(_swarm => (;"
+  ) : (
+        <Box flexDirection="column" marginTop=1>swarms.map(_swarm => (
             <Box key=;
     swarm.id;
   marginLeft=2;
   marginBottom=;
     1;
-  >;"
-              <Box flexDirection="column">;"
+  >
+              <Box flexDirection="column">
                 <Box>;
                   <Text ;
                     color=;))"
-    swarm.id === activeSwarm ? 'cyan' );'
+    swarm.id === activeSwarm ? 'cyan' )
                   <
                   <Text ;
-                    color=;'
-    swarm.status === 'active' ? 'green' : swarm.status === 'idle' ? 'yellow' : 'red';'
+                    color=
+    swarm.status === 'active' ? 'green' : swarm.status === 'idle' ? 'yellow' : 'red''
   marginLeft=1;
                   >swarm.status;
                   <
@@ -151,18 +148,18 @@ useEffect(() => {
                   <Box;
   marginLeft =;
     4;
-  >;'
+  >
                     <Text color = 'gray''
-  dimColor>Tasks = 'column';'
-  marginTop = 1>;'
-          <Text color = 'gray';'
+  dimColor>Tasks = 'column''
+  marginTop = 1>
+          <Text color = 'gray''
   dimColor>Connections = > (;
             <Box key={index}
-  marginLeft={2}>;'
+  marginLeft={2}>
               <Text color="blue">;conn.from"
    conn.to;
-              </Text>conn.bandwidth && (;"
-                <Text color="gray" marginLeft=;"
+              </Text>conn.bandwidth && (
+                <Text color="gray" marginLeft=
     1;
   >;
                   (;
@@ -181,41 +178,39 @@ useEffect(() => {
 
   // export const _LogPane = () => {
   const _filteredLogs = logs.filter(log => {)"
-    if(filter !== 'all' && log.type !== filter) return false;'
+    if(filter !== 'all' && log.type !== filter) return false
     // if(searchTerm && !log.message.toLowerCase().includes(searchTerm.toLowerCase())) return false; // LINT: unreachable code removed
 //     return true;
     //   // LINT: unreachable code removed});
 
-  const _visibleLogs = autoScroll ? filteredLogs.slice(-height) : filteredLogs.slice(0, height);
-'
-      case 'success'';''
-    // case 'command''; // LINT: unreachable code removed''
-      case 'info'';default = "column" borderStyle="single""
+  const _visibleLogs = autoScroll ? filteredLogs.slice(-height) : filteredLogs.slice(0, height)
+      case 'success'''
+    // case 'command'; // LINT: unreachable code removed''
+      case 'info';default = "column" borderStyle="single"
       <Box justifyContent="space-between""
         <Text bold color="cyan"> Command Logs<"
-        <Text color="gray" dimColor>filteredLogs.length/logs.lengthfilter !== 'all' && ` (\$filter)`searchTerm && ` [\$searchTerm]`;`
+        <Text color="gray" dimColor>filteredLogs.length/logs.lengthfilter !== 'all' && ` (\$filter)`searchTerm && ` [\$searchTerm]`;``
         <
       <
-`
+``
       <Box flexDirection="column""
-          <_Text _color="gray" _dimColor>logs.length === 0 ? 'No logs yet' ) : (;'
+          <_Text _color="gray" _dimColor>logs.length === 0 ? 'No logs yet' ) : (
           visibleLogs.map((_log, _index) => (;
-            <Box key=index>;'
-              <Text color="gray" dimColor>showTimestamps && new Date(log.timestamp).toLocaleTimeString();"
+            <Box key=index>
+              <Text color="gray" dimColor>showTimestamps && new Date(log.timestamp).toLocaleTimeString()
               <
               <Text ;
-                color=;"
+                color=
                   log.type === 'error' ? 'red''
                   log.type === 'success' ? 'green''
                   log.type === 'command' ? 'cyan' : 'white''
-                marginLeft={showTimestamps ? 1 = {1 = "gray" dimColor>;"
+                marginLeft={showTimestamps ? 1 = {1 = "gray" dimColor>
 .. filteredLogs.length - heightmore entries;
           <
         <
       );
     <
-  );
-};
+  )};
 
 /** System Status Panel with real-time metrics */
 
@@ -224,22 +219,20 @@ const [lastUpdate, setLastUpdate] = useState(new Date());
 
 useEffect(() => {
     const _interval = setInterval(() => {
-      setLastUpdate(new Date());
-    }, refreshRate);
+      setLastUpdate(new Date())}, refreshRate);
     return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, [refreshRate]);
 
   const __formatUptime = () => {
     const _hours = Math.floor(seconds / 3600);
     const _minutes = Math.floor((seconds % 3600) / 60);
-    const _secs = seconds % 60;
-"
+    const _secs = seconds % 60
     if(hours > 0) return `${hours}h ${minutes}m ${secs}s`;``
     // if(minutes > 0) return `\${minutes // LINT}m ${secs}s`;``
-    // return `${secs}s`;`
+    // return `${secs}s`;``
     //   // LINT: unreachable code removed};
 
-  // return(;`
+  // return(;``
     // <Box flexDirection="column" borderStyle="single""
       <Box justifyContent="space-between""
         <Text bold color="cyan"> System Status<"
@@ -247,59 +240,58 @@ useEffect(() => {
         <
       <
 "
-      <Box flexDirection="column" marginTop={1}>;"
-        <Box>;"
-          <Text>API Server = {status = "gray" marginLeft={1}>;"
-              :{status.port}
+      <Box flexDirection="column" marginTop=1>
+        <Box>
+          <Text>API Server = status = "gray" marginLeft={1}>
+              :status.port
             <
-          )}
+          )
   <
 
-        <Box>;"
+        <Box>
           <Text>Commands = "yellow">{status.commandCount  ?? 0}<
         <
 
-        <Box>;"
+        <Box>
           <Text>Uptime = "blue">;formatUptime(_status._uptime  ?? 0)"
           <
         </Box>showDetails && metrics && Object.keys(metrics).length > 0 && (;
-          <Box;"
-  flexDirection = 'column';'
-  marginTop = {1}>;'
-            <Text color = 'gray';'
+          <Box
+  flexDirection = 'column''
+  marginTop = 1>
+            <Text color = 'gray''
   dimColor>Metrics =;
   = undefined && (;
-              <Box marginLeft=2>;'
+              <Box marginLeft=2>
                 <Text>APICalls = "cyan">metrics.apiCalls<
               <
             )metrics.executions !== undefined && (;
               <Box marginLeft=;
     2;
-  >;"
-                <Text>Executions = "cyan">;"
+  >
+                <Text>Executions = "cyan">
     metrics.executions;
   <
               <
   )metrics.wsConnections !== undefined && (;
               <Box marginLeft=;
     2;
-  >;"
-                <Text>WebSocket = "cyan">;"
+  >
+                <Text>WebSocket = "cyan">
     metrics.wsConnections;
   <
               <
   )metrics.errors !== undefined && metrics.errors > 0 && (;
               <Box marginLeft=;
     2;
-  >;"
-                <Text>Errors = "red">;"
+  >
+                <Text>Errors = "red">
     metrics.errors;
   <
               <
   );
           <
-        );
-};
+        )};
 <
     <
 );
@@ -318,38 +310,38 @@ useEffect(() => {
   }, [selectedCommand, allCommands]);
 
   const _filteredCommands = allCommands.filter(cmd => {)"
-    if(category !== 'all' && cmd.category !== category) return false;'
+    if(category !== 'all' && cmd.category !== category) return false
     // if(searchTerm && !cmd.name.toLowerCase().includes(searchTerm.toLowerCase()) &&; // LINT: unreachable code removed
 // ! cmd.description.toLowerCase().includes(searchTerm.toLowerCase())) return false;
     // return true; // LINT: unreachable code removed
   });
 
-  // return(;'
+  // return(
     // <Box flexDirection="column" borderStyle="single""
       <Text bold color="cyan""
         <Box flexDirection="column""
-          <Text bold color="yellow">{commandHelp.name}<"
-          <Text color="gray" marginTop={1}>{commandHelp.description}</Text>commandHelp.usage && (;"
-            <Box marginTop={1}>;"
+          <Text bold color="yellow">commandHelp.name<"
+          <Text color="gray" marginTop={1}>{commandHelp.description}</Text>commandHelp.usage && (
+            <Box marginTop={1}>
               <Text color="cyan">Usage = "column""
               <Text color="yellow""
-                <Text key={index} color="gray" marginLeft={2}>;example"
+                <Text key=indexcolor="gray" marginLeft={2}>;example"
                 <
               ));
             <
-          )commandHelp.flags && Object.keys(commandHelp.flags).length > 0 && (;"
+          )commandHelp.flags && Object.keys(commandHelp.flags).length > 0 && (
             <Box flexDirection="column""
               <Text color="yellow""
                 <Text key=flagcolor="gray""
-                  --flag: typeof config === 'object' ? config.description = "column""
-          <Text color="gray" dimColor>Keyboard Shortcuts = 2 = 2>/ - Navigate suggestions</Text>;"
+                  --flag: typeof config === 'object' ? config.description = "column"
+          <Text color="gray" dimColor>Keyboard Shortcuts = 2 = 2>/ - Navigate suggestions</Text>
           <Text marginLeft=2>Enter - Execute command<
           <Text marginLeft=2>Ctrl+C - Exit<
           <Text marginLeft=2>F1-F4 - Switch modes<
-          <Text marginLeft=2>Ctrl+L - Toggle layout</Text>searchTerm && (;"
+          <Text marginLeft=2>Ctrl+L - Toggle layout</Text>searchTerm && (
             <Box flexDirection="column""
               <Text color="yellow""
-                <Text key=cmd.namecolor="gray" marginLeft=2>cmd.name- cmd.description.substring(0, 40)...;"
+                <Text key=cmd.namecolor="gray" marginLeft=2>cmd.name- cmd.description.substring(0, 40)...
                 <
               ));
             <
@@ -362,7 +354,7 @@ useEffect(() => {
 /** Split Pane Container with resizing */
 
 // export const _SplitPane = () => {
-  return(;"
+  return(
     // <Box flexDirection={split === 'vertical' ? 'row' )}'
 '
       <Box width={split === 'vertical' ? rightSize = {split = === 'horizontal' ? rightSize }>;right'
@@ -377,8 +369,7 @@ useEffect(() => {
   LogPane,
   StatusPane,
   _HelpPane,
-  _SplitPane;
-};
-
-}}}}
+  _SplitPane}}}}}
 '
+
+}

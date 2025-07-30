@@ -20,7 +20,7 @@ ProcessingOptions;
 @deprecated
 This;
 class is now a wrapper around the new decomposed architecture.'
-/** Please use the new VisionarySoftwareIntelligenceProcessor from './index' instead.;' */
+/** Please use the new VisionarySoftwareIntelligenceProcessor from './index' instead.;' */'
 
 /** MIGRATION NOTICE: null */
 /** This legacy wrapper maintains API compatibility while using the new */
@@ -29,7 +29,7 @@ class is now a wrapper around the new decomposed architecture.'
 /**  BENEFITS OF NEW ARCHITECTURE: null */
  * - 7 focused modules instead of 1 massive 1,317-line file
  * - Each module under 500 lines(Google standards compliant)'
- * - Strict TypeScript typing with zero 'any' types;'
+ * - Strict TypeScript typing with zero 'any' types
  * - Comprehensive JSDoc documentation
  * - Single Responsibility Principle applied
  * - Improved testability and maintainability
@@ -46,7 +46,7 @@ class is now a wrapper around the new decomposed architecture.'
  * 7. AnalyticsReporter - Reporting & analytics(398 lines)
 
 /** USAGE MIGRATION: null */
-/** Instead of: new VisionarySoftwareIntelligenceProcessor(config)' */
+/** Instead of: new VisionarySoftwareIntelligenceProcessor(config)' */'
 /** Use: import { VisionarySoftwareIntelligenceProcessor  } from '.' */
 
 // export class VisionarySoftwareIntelligenceProcessor {
@@ -61,21 +61,13 @@ class is now a wrapper around the new decomposed architecture.'
     const _newConfig: Partial<PipelineConfig> = {'
       outputDir: config.outputDir  ?? '.'
     enableAnalytics: config.enableAnalytics  ?? false,
-    supportedFormats: config.supportedFormats  ?? [;'
-        'js''
-        'ts''
-        'jsx''
-        'tsx''
-        'py''
-        'java''
-        'go''
-        'rs' ],'
+    supportedFormats: config.supportedFormats  ?? [
+        'js''ts''jsx''tsx''py''java''go''rs' ],'
     neuralEngine: config.neuralEngine }
   this;
 
   newProcessor = new NewProcessor(newConfig);
-  console;
-'
+  console
   warn(`;`
   
   DEPRECATION;
@@ -96,18 +88,18 @@ class is now a wrapper around the new decomposed architecture.'
   OLD(1,317 lines, maintenance nightmare):
   import;
   //   { VisionarySoftwareIntelligenceProcessor;
-//  } from;`
+//  } from;``
 ('.'
 
 NEW(7 focused modules, <500 lines each)
 : null'
-// import { VisionarySoftwareIntelligenceProcessor  } from './index';'
+// import { VisionarySoftwareIntelligenceProcessor  } from './index''
 
 // Benefits: Better
 maintainability, strict;
 typing, Google;
 standards;
-compliance;'
+compliance
 `);`
   //   }
 
@@ -132,8 +124,8 @@ compliance;'
 
     // */; // LINT: unreachable code removed
   async processCodeIntelligence(codeFiles, options = {}): Promise<AnalysisReport> 
-  if(!this.isInitialized) {`
-      throw new Error('Processor not initialized. Call initialize() first.');'
+  if(!this.isInitialized) {``
+      throw new Error('Processor not initialized. Call initialize() first.')
     //     }
 
     // Map legacy options to new format
@@ -165,7 +157,7 @@ compliance;'
 
    * @deprecated Use the new decomposed architecture instead
 
-  async close(): Promise<void> {
+  async close(): Promise<void> 
 // // await this.newProcessor.close();
     this.isInitialized = false;
   //   }
@@ -174,40 +166,40 @@ compliance;'
 
  * @deprecated Use processCodeIntelligence instead
 
-  async analyzeCode(codeFiles, options = {}): Promise<AnalysisReport> {'
-    console.warn(' analyzeCode() is deprecated. Use processCodeIntelligence() instead.');'
+  async analyzeCode(codeFiles, options = {}): Promise<AnalysisReport> '
+    console.warn(' analyzeCode() is deprecated. Use processCodeIntelligence() instead.')
     // return this.processCodeIntelligence(codeFiles, options);
     //   // LINT: unreachable code removed}
 
  * @deprecated Use the new decomposed architecture
 
   async executePipeline(codeData, options): Promise<any> {'
-    console.warn(' executePipeline() is deprecated. Use processCodeIntelligence() instead.');'
+    console.warn(' executePipeline() is deprecated. Use processCodeIntelligence() instead.')
     // Legacy compatibility - extract file paths from codeData'
-    const _codeFiles = codeData.map((data) => data.path  ?? 'unknown');'
+    const _codeFiles = codeData.map((data) => data.path  ?? 'unknown')
     // return this.processCodeIntelligence(codeFiles, options);
     //   // LINT: unreachable code removed}
 
  * @deprecated Analytics are now handled automatically
 
-  async updateAnalytics(;
+  async updateAnalytics();
     _processingTime,
     _success,
     // _qualityScore
-  ): Promise<void> {'
-    console.warn(' updateAnalytics() is deprecated. Analytics are handled automatically.');'
+  ): Promise<void> '
+    console.warn(' updateAnalytics() is deprecated. Analytics are handled automatically.')
     // No-op for compatibility
   //   }
 
  * @deprecated Use the new decomposed architecture
 
-  async saveAnalysisResults(;
+  async saveAnalysisResults();
     output,
     _analysisDepth,
     // _language
   ): Promise<string> {'
     console.warn(' saveAnalysisResults() is deprecated. Results are saved automatically.''
-    // return output.metadata?.outputPath  ?? './analysis-output';'
+    // return output.metadata?.outputPath  ?? './analysis-output''
     //   // LINT: unreachable code removed}
 // }
 
@@ -223,7 +215,7 @@ compliance;'
 
 // export function createProcessor(config) {
   console.warn(;)'
-    ' createProcessor() is deprecated. Use createVisionaryProcessor() from "./index" instead.';'
+    ' createProcessor() is deprecated. Use createVisionaryProcessor() from "./index" instead.'
   );
   // return new VisionarySoftwareIntelligenceProcessor(config);
 // }

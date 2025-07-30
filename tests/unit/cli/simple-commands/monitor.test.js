@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, jest } from '@jest';
+
 '
 describe('monitor.js - Real Metrics Implementation', () =>
 {
@@ -18,14 +19,13 @@ afterEach(() => {
   Object.values(consoleSpy).forEach((spy) => spy.mockRestore());
   processExitSpy.mockRestore();
 });'
-describe('Basic Functionality', () => {'
-  test('should import without errors', async() => {
+describe('Basic Functionality', () => '
+  test('should import without errors', async() => 
 // const _monitor = awaitimport('
         '../../../../src/cli/command-handlers/simple-commands/monitor.js';
     //     
     expect(monitor.monitorCommand).toBeDefined() 
-    expect(monitor.showMonitorHelp).toBeDefined() 
-  });'
+    expect(monitor.showMonitorHelp).toBeDefined() );'
   test('should collect and display metrics', async() => {
     const { monitorCommand } = await import('
         '../../../../src/cli/command-handlers/simple-commands/monitor.js';
@@ -44,9 +44,8 @@ describe('Basic Functionality', () => {'
     expect(output).toContain(''
     expect(output).toContain('--interval');'
     expect(output).toContain('--format');
-  });
-});'
-describe('Output Formats', () => {'
+  }););'
+describe('Output Formats', () => '
   test('should output JSON format when specified', async() => {
     const { monitorCommand } = await import('
         '../../../../src/cli/command-handlers/simple-commands/monitor.js';

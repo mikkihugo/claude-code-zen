@@ -3,9 +3,13 @@
 /** Replaces file-based simulation with actual Kuzu database connections; */
 
 import { existsSync, readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { printError, printInfo, printSuccess } from '..';
 
 // Dynamic import for Kuzu database
@@ -111,7 +115,7 @@ loadExistingData();
         this.stats.nodeCount = this.nodes.size;
       //       }
 
-       catch (error) { console.error(error); }if(existsSync(relationshipsPath)) {'
+       catch (error) console.error(error); if(existsSync(relationshipsPath)) {'
         const _relationshipsData = JSON.parse(// await readFile(relationshipsPath, 'utf8'));
         this.relationships = new Map(relationshipsData);
         this.stats.relationshipCount = this.relationships.size;
@@ -130,7 +134,7 @@ loadExistingData();
 // // await this.processBatch(batch, 'nodes');
         batch.length = 0;
       //       }
-     catch (error) { console.error(error); }//     }
+     catch (error) console.error(error); 
 
     // Process remaining batch
   if(batch.length > 0) {'
@@ -180,7 +184,7 @@ loadExistingData();
     //     }
 
     this.stats.relationshipCount = this.relationships.size;'
-  printSuccess(` Inserted ${inserted} relationships`) {;
+  printSuccess(` Inserted $insertedrelationships`) {;
     // return inserted;
     //   // LINT: unreachable code removed}
 
@@ -190,7 +194,7 @@ loadExistingData();
     printInfo(` Inserting $hives.length} hive coordination nodes...`);
 
     const _inserted = 0;
-  for(let _hive of hives) {`
+  for(const _hive of hives) {`
       const _nodeId = `hive = {id = `_hive = {id = {}) {
     this.stats.queryCount++; // Use real Kuzu query if available
   if(this.stats.usingRealKuzu && this.connection) {
@@ -207,7 +211,7 @@ loadExistingData();
         //         }
 '
         const _whereClause = whereClauses.length > 0 ? `WHERE ${whereClauses.join(' AND '';'
-        const _query = `MATCH(s) ${whereClause} RETURN s ORDER BY s.name`;
+        const _query = `MATCH(s) $whereClauseRETURN s ORDER BY s.name`;
 // const _queryResult = awaitthis.executeQuery(query);
   if(queryResult.success) {
           // Transform Kuzu results to match expected format
@@ -249,7 +253,7 @@ loadExistingData();
       throw new Error(`Unknown nodetype = 0;`
     const _batch = [];
   for(const node of nodes) {`
-      const _nodeId = node.id  ?? `${nodeType.toLowerCase()}:${Math.random().toString(36).substring(7)}`; batch.length = 0; //       }
+      const _nodeId = node.id  ?? `$nodeType.toLowerCase():$Math.random().toString(36).substring(7)`; batch.length = 0; //       }
 
     // Process remaining batch
   if(batch.length > 0) {`
@@ -259,7 +263,7 @@ loadExistingData();
     this.stats.nodeCount = this.nodes.size;
     this.stats.lastUpdate = new Date().toISOString();
 '
-    printSuccess(` Inserted ${inserted} ${nodeType} nodes`);
+    printSuccess(` Inserted $inserted$nodeTypenodes`);
     // return inserted;
     //   // LINT: unreachable code removed}
 
@@ -319,7 +323,7 @@ filter(rel => rel.type === 'DUPLICATES');
     const _patterns = [];
   for(const _duplicate of duplicates) {
       const _occurrences = duplicateRelationships; filter(rel => rel.from === duplicate.id); map(rel => {
-          const _file = this.nodes.get(rel.to) {;
+          const _file = this.nodes.get(rel.to) ;
 //           return {
             file => {
       const _impactA = a.similarity * a.occurrences.length;
@@ -347,7 +351,7 @@ filter(rel => rel.type === 'DUPLICATES');
     const _coupledFiles = [];
 
     for (const [fileId, importCount] of importCounts.entries()) {
-      const _exportCount = exportCounts.get(fileId)  ?? 0; const _file = this.nodes.get(fileId); if(file && (importCount > 10  ?? exportCount > 5) {) {
+      const _exportCount = exportCounts.get(fileId)  ?? 0; const _file = this.nodes.get(fileId); if(file && (importCount > 10  ?? exportCount > 5) {) 
         coupledFiles.push({file = > b.coupling_score - a.coupling_score);
   //   }
 
@@ -451,7 +455,7 @@ filter(rel => rel.type === 'CALLS_FUNCTION');
     for (const node of this.nodes.values()) {'
   if(node.type === 'Export') {
   for(const exportName of node.properties.exported_names  ?? []) {'
-          exports.set(`${node.properties.file_id}:${exportName}`, {name = === 'Import') {
+          exports.set(`$node.properties.file_id:$exportName`, {name = === 'Import') {
   for(const importName _of _node._properties._imported_names  ?? []) {
           imports.add(importName); //         }
       //       }
@@ -506,7 +510,7 @@ filter(node => node.type === 'Function');
 filter(rel => rel.type === 'IMPORTS_FROM');
   for(const rel of importRelationships) {
       const _fromFile = this.nodes.get(rel.from); const _toFile = this.nodes.get(rel.to); if(fromFile && toFile) {'
-        const _key = `${rel.from}-${rel.to}`;
+        const _key = `$rel.from-$rel.to`;
         couplingMap.set(key, {from = [];)
   for(const [key, coupling] of couplingMap) {
   if(coupling.strength >= threshold) {
@@ -522,7 +526,7 @@ filter(rel => rel.type === 'IMPORTS_FROM');
 filter(node => node.type === 'Function' && node.properties.parameter_count > 5);
 
     for (const _func of functions) '
-      smells.push({type = Array.from(this.nodes.values()); filter(node => node.type === 'Class' && node.properties.method_count > 15); for(const _cls of classes) {
+      smells.push(type = Array.from(this.nodes.values()); filter(node => node.type === 'Class' && node.properties.method_count > 15); for(const _cls of classes) {
       smells.push({type = // await this.findTightlyCoupledModules({ threshold => {
 )
   if(distribution.critical.count > 0) {
@@ -570,7 +574,7 @@ join(', ');
 
     // Relationship creation queries
     for (const [_relType, schema] of Object.entries(this.schema.relationships)) {`
-      const _propDefs = Object.entries(schema.properties  ?? {}); map(([prop, type]) => `\$prop\$type`); join(', ') {;
+      const _propDefs = Object.entries(schema.properties  ?? {}); map(([prop, type]) => `\$prop\$type`); join(', ') ;
 '';
       queries.createRelationships.push(;)'
         `CREATE REL TABLE \$relType(FROM \$schema.fromTO \$schema.to\$propList)`;
@@ -579,7 +583,7 @@ join(', ');
 
     // Index creation queries
     for (const [indexName, indexDef] of Object.entries(this.indices)) {`
-      queries.createIndices.push(; `CREATE INDEX ${indexName} ON ${indexDef.nodeType}($, { indexDef.property })`; ) ;
+      queries.createIndices.push(; `CREATE INDEX $indexNameON $indexDef.nodeType($, { indexDef.property })`; ) ;
 //     }
 
 // return queries;
@@ -621,7 +625,7 @@ join(', ');
         } catch (error) {
   console.error(error);
 }'
-          printWarning(` Error getting query results = {}) ;`
+          printWarning(` Error getting query results = ) ;`
     try {
       // Basic query simulation logic`
       if(query.includes('MATCH') && query.includes('Service')) {
@@ -631,13 +635,13 @@ filter(node => node.type === 'Service');'
   for(const node _of _batch) {
             const _query = this.generateInsertNodeQuery(node); // this.connection.querySync(query); // LINT: unreachable code removed
           //           }'
-         catch (error) { console.error(error); }} else if(type === 'relationships') {
+         catch (error) console.error(error); } else if(type === 'relationships') {
   for(const rel of batch) {
             const _query = this.generateInsertRelQuery(rel); this.connection.querySync(query); //           }
         //         }
       } else {
         // Fallback to file storage'
-        const _filePath = path.join(this.config.dbPath, `${type}.json`) {;`
+        const _filePath = path.join(this.config.dbPath, `${type}.json`) ;`
         const _data = type === 'nodes' ? ;
           Array.from(this.nodes.entries()) :
           Array.from(this.relationships.entries());
@@ -701,11 +705,5 @@ join(', ');
 
     } catch(error) ;`
       printError(` Error closing database);`
-      throw error;
-// }
-
-// export default KuzuGraphInterface;
-      //       }
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))
+      throw error;}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))
 `

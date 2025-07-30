@@ -1,5 +1,7 @@
 import cors from 'cors';
+
 '
+
 import express, { type Express, type Request, type Response } from 'express';
 
 /** Main API server entry point for Claude-Zen; */
@@ -21,12 +23,10 @@ app.get('/', (_req, res) =>
 {
   '
   res.json(
-  {
     message: 'Claude-Zen API Server','
     status: 'healthy','
-    version: '2.0.0-alpha.73', timestamp;
-    : new Date().toISOString()
-  }
+    version: '2.0.0-alpha.73', timestamp
+  : new Date().toISOString()
   )
 }
 
@@ -54,7 +54,7 @@ app.get('/status', (_req, res) =>
 // Start server if not imported as module'
 if(import.meta.url === `file) {`
   app.listen(PORT, () => {`
-    console.warn(` Claude-Zen API server running on port ${PORT}`);`
+    console.warn(` Claude-Zen API server running on port $PORT`);`
     console.warn(` Environment);``
     console.warn(` Started at: ${new Date().toISOString()}`);
   });

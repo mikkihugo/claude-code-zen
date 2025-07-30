@@ -37,6 +37,6 @@ async function testUnifiedServer() {
   process.exit(1)
   // }
   // }
-  testUnifiedServer();
+  testUnifiedServer()
   '
 }

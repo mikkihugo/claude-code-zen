@@ -4,37 +4,41 @@
 import { promises as fs } from 'node:fs';
 // batch-manager.js - Batch configuration management utility'
 import { printError } from '..';
+
 '
+
 import { ENVIRONMENT_CONFIGS } from '.';
 
-export async function batchManagerCommand() {'
+export async function batchManagerCommand() {
+  '
     case 'create-config':
-//       return await createBatchConfig(subArgs.slice(1), flags);'
-    // case 'validate-config': // LINT: unreachable code removed
-//       return // await validateBatchConfig(subArgs.slice(1), flags);'
-    // case 'list-templates': // LINT: unreachable code removed
-      // return listTemplates();'
-    // case 'list-environments': // LINT: unreachable code removed
-      // return listEnvironments();'
-    // case 'estimate': // LINT: unreachable code removed'
-      // return // await estimateBatchOperation(subArgs.slice(1), flags);default = args[0]  ?? 'batch-config.json';
-  const _interactive = flags.interactive  ?? flags.i;
-  if(interactive) {
+  //       return await createBatchConfig(subArgs.slice(1), flags);'
+  // case 'validate-config': // LINT: unreachable code removed
+  //       return // await validateBatchConfig(subArgs.slice(1), flags);'
+  // case 'list-templates': // LINT: unreachable code removed
+  // return listTemplates();'
+  // case 'list-environments': // LINT: unreachable code removed
+  // return listEnvironments();'
+  // case 'estimate': // LINT: unreachable code removed'
+  // return // await estimateBatchOperation(subArgs.slice(1), flags);default = args[0]  ?? 'batch-config.json';
+  const _interactive = flags.interactive ?? flags.i;
+  if (interactive) {
     // return // await createInteractiveConfig(outputFile);
     //   // LINT: unreachable code removed}
 
-  // Create basic template'
-  const _config = {projects = =========================================\n');'
+    // Create basic template'
+    const _config = {projects = =========================================\n');'
 
   // This would require a proper CLI prompt library in a real implementation'
   // For now, we'll create a comprehensive template with comments'
   const _config = {_comment = args[0];
-  if(!configFile) {'
-    printError('Please specify a configuration file to validate');
-    return;
-    //   // LINT: unreachable code removed}
+    if (!configFile) {
+      '
+    printError('Please specify a configuration file to validate')
+      return;
+      //   // LINT: unreachable code removed}
 
-  try {'
+      try {'
 // const _content = awaitfs.readFile(configFile, 'utf8');
     const _config = JSON.parse(content);
 '
@@ -79,7 +83,7 @@ export async function batchManagerCommand() {'
 
   for (const [key, template] of Object.entries(PROJECT_TEMPLATES)) {`
     console.warn(`  $key`); console.warn(`Name = ======================================\n'); '`
-  for(const [key, _env] of Object.entries(ENVIRONMENT_CONFIGS) {) {`
+  for(const [key, _env] of Object.entries(ENVIRONMENT_CONFIGS) {) `
     console.warn(`  $key`);`
     console.warn(`Name = args[0];`
 
@@ -138,6 +142,8 @@ export async function batchManagerCommand() {'
   console.warn('  Or batch init directly);'
 // }
 
-}}}}}}}}}
-'
+}}}}}}}
+    }
+  }
+  '
 }

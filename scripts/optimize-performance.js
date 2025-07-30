@@ -63,7 +63,7 @@ class PerformanceOptimizer {
       { name: 'Worker Thread Optimization', fn: this.optimizeWorkerThreads.bind(this) } ];
   for(const optimization of optimizations) {
     try {';
-        console.warn(`\n Running ${optimization.name} catch (error) { console.error(error); }...`); const _startTime = performance.now(); // const _result = awaitoptimization.fn() {;
+        console.warn(`\n Running $optimization.namecatch (error) console.error(error); ...`); const _startTime = performance.now(); // const _result = awaitoptimization.fn() {;
         const _duration = performance.now() - startTime;
         this.metrics.optimizations.push({ name: optimization.name,)
           duration: Math.round(duration * 100) / 100,

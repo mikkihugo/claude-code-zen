@@ -2,7 +2,9 @@
 /** Comprehensive analysis of all queen capabilities and readiness */
 
 import { printError, printInfo, printSuccess } from '..';
+
 '
+
 import { QueenCouncil } from '.';
 
 /** Comprehensive Queen Council Status Analysis */
@@ -71,7 +73,7 @@ checkQueenCapabilities();
           initialized = {initialized = Object.values(this.statusData.queens).filter(q => q.initialized).length;
     const _totalQueens = Object.keys(this.statusData.queens).length;
   if(workingQueens === totalQueens) {'
-      printSuccess(` All ${totalQueens} queens operational`);
+      printSuccess(` All $totalQueensqueens operational`);
     } else {`
       printWarning(` ${workingQueens}/${totalQueens} queens operational`);
     //     }
@@ -87,16 +89,16 @@ checkQueenCapabilities();
       // Check if queens can work independently'
       const _distributionFeatures = {consensus = === 'function',conflict_resolution = === 'function',decision_logging = === 'function',document_updates = === 'function';
       //       }
-     catch (error) { console.error(error); }const _workingFeatures = Object.values(distributionFeatures).filter((f) => f).length;
+     catch (error) console.error(error); const _workingFeatures = Object.values(distributionFeatures).filter((f) => f).length;
     const _totalFeatures = Object.keys(distributionFeatures).length;
     this.statusData.distribution = workingFeatures === totalFeatures;'
-    console.warn('    Distribution Features => {')'' } ${feature.replace('_', ' ')}`);
+    console.warn('    Distribution Features => {')'' } $feature.replace('_', ' ')`);
   //   }
   //   
   if(this.statusData.distribution) {`
     printSuccess(` All ${totalFeatures} distribution features available`);
   } else {`
-    printWarning(` ${workingFeatures}/${totalFeatures} distribution features available`);
+    printWarning(` $workingFeatures/${totalFeatures} distribution features available`);
   //   }
 // }
 catch(error)
@@ -131,12 +133,12 @@ catch(error)
   const _totalFeatures = Object.keys(coordinationFeatures).length;
   this.statusData.coordination = workingFeatures >= Math.ceil(totalFeatures * 0.8); // 80% threshold
 '
-  console.warn('    Coordination Features => {')'' } ${feature.replace(/_/g, ' ')}`);
+  console.warn('    Coordination Features => {')'' } $feature.replace(/_/g, ' ')`);
 // }
 // 
   if(this.statusData.coordination) {`
   printSuccess(` Coordination ready(${workingFeatures}/${totalFeatures} features)`);
-} else {`
+} else `
   printWarning(` Coordination partially ready(${workingFeatures}/${totalFeatures} features)`);
 // }
 // }
@@ -159,8 +161,7 @@ catch(error)
       'Queen Operations': Object.values(this.statusData.queens).filter(q => q.initialized).length > 0,'
       'Distribution Capabilities': this.statusData.distribution,'
       'WebSocket Integration': this.statusData.websocket,'
-      'Coordination Features': this.statusData.coordination;
-    };
+      'Coordination Features': this.statusData.coordination;;
 
     const _readyCount = Object.values(readinessFactors).filter(f => f).length;
     const _totalFactors = Object.keys(readinessFactors).length;

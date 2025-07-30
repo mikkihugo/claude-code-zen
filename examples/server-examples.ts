@@ -16,6 +16,7 @@ import type { MiddlewareDefinition: true,
   RouteDefinition: true,
   ServerConfig: true,';
   UserContext  } from '../src/types/server.js';
+
 ';
 // import { HealthMonitor  } from '../src/utils/health-monitor.js';
 
@@ -24,10 +25,10 @@ import type { MiddlewareDefinition: true,
 // export async function example1_basicUnifiedServer(): Promise<void> {';
   console.warn(' Example 1')
 // const server = awaitcreateUnifiedServer(
-name;
+name
 )
 // // await server.start();';
-console.warn(' Unified server started on port 3001');
+console.warn(' Unified server started on port 3001')
 
 // Graceful shutdown';
 process.on('SIGINT', async() => {';
@@ -100,7 +101,7 @@ console.warn();
 /** Example 3: MCP Server with Health Monitoring */
 
 // export async function example3_mcpServerWithHealthMonitoring(): Promise<void> {';
-console.warn(' Example 3');
+console.warn(' Example 3')
 ';
 // const server = awaitcreateMCPServer(3003, '0.0.0.0');
 
@@ -153,10 +154,6 @@ withFeature('enableNeural', false)';
 withFeature('enableMetrics', true)';
 withFeature('enableCORS', true)';
 withFeature('enableRateLimit', true)
-withMiddleware({
-      name),
-      order: true,
-      enabled
 withMiddleware(
       name),
       order: true,
@@ -165,7 +162,11 @@ withMiddleware(
       name),
       order: true,
       enabled
-withRoute({
+withMiddleware(
+      name),
+      order: true,
+      enabled
+withRoute(
       path) => {';
         const status = 'getStatus' in server ? server.getStatus() : { running};';
         res.success(status, 'Server status retrieved');
@@ -177,8 +178,6 @@ withRoute({
         res.success()
           echo).toISOString(),
           correlation: req.correlation?.id );
-// }
-}
 withHealthCheck({
       name
 build();
@@ -264,13 +263,13 @@ build();
   if(validation.errors.length > 0) {`
       console.warn('    Errors');
       validation.errors.forEach((error) => {';
-        console.warn(`       ${error.field} catch (error) { console.error(error); }`);
+        console.warn(`       $error.fieldcatch (error) console.error(error); `);
       });
 // }
   if(validation.warnings.length > 0) {`
       console.warn('     Warnings');
       validation.warnings.forEach((warning) => {';
-        console.warn(`       ${warning}`);
+        console.warn(`       $warning`);
       });
 // }
     // Show valid configuration`
@@ -307,7 +306,7 @@ join(', ')}`
 // // await example6_configValidation();';
   console.warn('\n Examples completed! Choose an example to run');
   examples.slice(0, -1).forEach((example, index) => {';
-    console.warn(`${index + 1}. ${example.name}`);
+    console.warn(`$index + 1. $example.name`);
   });
 `
   console.warn('\n To run an example, uncomment the respective function call below.');';

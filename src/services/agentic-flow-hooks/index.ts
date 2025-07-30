@@ -1,19 +1,29 @@
 // Hook implementations
 export * from '.';
+
 '
+
 export * from '.';
+
 '
+
 export * from '.';
+
 '
+
 export * from '.';
 // Core types and manager'
 export * from '.';
+
 '
+
 export * from '.';
+
 /** Agentic-Flow Hook System - Main Export; */
 /** Comprehensive hook-based automation and workflow management system; */
 
 */'
+
 export { HookManager } from '.';
 
 // Quick start function
@@ -112,7 +122,7 @@ const _payload = {'
       // Caching logic would go here
 //       return {
         success => '
-      console.warn(`[Hook] LLM Request => {`)
+      console.warn(`[Hook] LLM Request => `)
   if(_payload._error) {`
         console.error(`[Hook] Error in LLM request = {BASIC_SETUP = // await createHookManager(HOOK_PRESETS.PRODUCTION);`
     // ; // LINT: unreachable code removed
@@ -127,8 +137,7 @@ const _payload = {'
       hookName: 'my-custom-hook',
       duration,
       timestamp: new Date();
-    };
-  },;'
+    };,;'
     description: 'My custom processing hook',
     priority,
     // timeout: 5000

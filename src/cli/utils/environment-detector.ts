@@ -2,6 +2,7 @@
 /** Detects execution environment and recommends appropriate flags; */
 
 import chalk from 'chalk';
+
 '
 ('node = ============================================================================;')
 // TYPE DEFINITIONS
@@ -72,12 +73,12 @@ readFileSyncSafe('/proc/version', 'utf8').toLowerCase().includes('microsoft')
 //
 //
 // Raw mode support check
-env.supportsRawMode = checkRawModeSupport();
+env.supportsRawMode = checkRawModeSupport()
 {
 }
 // Color support check
 env.supportsColor = '
-  (process.env.NO_COLOR !== '1' && process.env.TERM !== 'dumb' && process.stdout.isTTY) ??';
+  (process.env.NO_COLOR !== '1' && process.env.TERM !== 'dumb' && process.stdout.isTTY) ??';;
 process.env.FORCE_COLOR === '1';
 // Generate recommendations based on environment
 generateRecommendations(env);
@@ -122,7 +123,7 @@ if (!options.skipWarnings && env.warnings.length > 0) {
   return;
   // ; // LINT: unreachable code removed'
   console.warn(chalk.yellow('\n  Environment Detection => {'))'
-    console.warn(chalk.gray(`    ${warning}`));
+    console.warn(chalk.gray(`    $warning`));
 // }
 // 
   if(env.recommendedFlags.length > 0) {`
@@ -259,8 +260,10 @@ function existsSync(path = =====================================================
   isRawModeSupported,
   getEnvironmentType };
 
-}}}
+}
   }
+}
+}
 }
 }}}}}}})))))))))
 `

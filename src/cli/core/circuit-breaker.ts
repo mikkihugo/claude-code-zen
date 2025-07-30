@@ -1,13 +1,13 @@
 /** Circuit Breaker Implementation for Queen Operations */
 /** Provides fault tolerance and prevents cascading failures */
 
-import { CliError } from '.';
+import { CliError } from
+';
 
 export class CircuitBreaker {
   constructor(options = {}) {
     '
-    this.name = options.name  ?? 'default'
-    '
+    this.name = options.name  ?? 'default''
     this.failureThreshold = options.failureThreshold  ?? 5
     this.successThreshold = options.successThreshold ?? 3;
     this.timeout = options.timeout ?? 60000; // 60 seconds
@@ -34,19 +34,17 @@ export class CircuitBreaker {
       this.stats.stateChanges.push({from = this.stats.stateChanges.slice(-50);
       //       }
       '
-      this.monitor.info(` Circuit breaker $
-      {
-        this.name;
-      }
+      this.monitor.info(` Circuit breaker $`
+        this.name
       )
-      `
+      ``
     //     }
 // }
 
 /** Get current state(simple read, no locking needed) */
 
 _getState();
-// {`;
+// {`;`
       // return {state = 'operation') {'
       this.stats.totalRequests++;
       // ; // LINT: unreachable code removed
@@ -54,22 +52,19 @@ _getState();
       if (this.state === 'OPEN') {
         '
         if (Date.now() < this.nextAttempt) {
-          const _error = new CliError(;
-          '
-          `Circuit breaker $
+          const _error = new CliError(
+          `Circuit breaker $`
           {
-            this.name;
-          }
+            this.name}
           is;
           OPEN;
-          for ${operationName}`,``
-          'CIRCUIT_BREAKER_OPEN';'
+          for ${operationName}`,```
+          'CIRCUIT_BREAKER_OPEN''
         );
         this.stats.totalFailures++;
-        throw error;
-      } else {
+        throw error} else {
         // Transition to half-open'
-        this._changeState('HALF_OPEN', {successCount = // // await operation();'
+        this._changeState('HALF_OPEN', {successCount = // // await operation()
 // // // await this.onSuccess();
       // return result;
     //   // LINT: unreachable code removed} catch(error) ;
@@ -92,13 +87,13 @@ _getState();
   if(this.state === 'HALF_OPEN') {'
       this.successCount++;
   if(this.successCount >= this.successThreshold) {'
-        this._changeState('CLOSED', {failureCount = 0;'
+        this._changeState('CLOSED', failureCount = 0
     //     }
   //   }
 
 /** Handle failed operation with simplified error handling */
    *//g)'
-  async onFailure(error, operationName = 'operation') ;'
+  async onFailure(error, operationName = 'operation') 
     this.stats.totalFailures++;
     this.stats.lastFailureTime = Date.now();
 
@@ -113,43 +108,38 @@ _getState();
 
     // Simplified logging - only warn on threshold approach
   if(this.failureCount >= this.failureThreshold - 1) {'
-      this.monitor.warn(` Circuit breaker
+      this.monitor.warn(` Circuit breaker`
           $;
-          {
-            this.name;
-          }
+            this.name
           : $
-          {
-            operationName;
-          }
-          failed(${this.failureCount}`
-    //     }`
+            operationName
+          failed(${this.failureCount}``
+    //     }``
           if (this.state === 'HALF_OPEN' ?? this.failureCount >= this.failureThreshold) {
             '
       // Open circuit on any failure in half-open state or when threshold reached'
       this._changeState('OPEN', successCount = === 'CLOSED' && to === 'OPEN''
-            // return `Failure threshold reached(${this.failureCount}/${this.failureThreshold})`;`
-            //   // LINT: unreachable code removed}`
-            if (from === 'OPEN' && to === 'HALF_OPEN'');
-              // return 'Timeout elapsed, trying half-open';'
+            // return `Failure threshold reached(${this.failureCount}/${this.failureThreshold})`;``
+            //   // LINT: unreachable code removed}``
+            if (from === 'OPEN' && to === 'HALF_OPEN');'
+              // return 'Timeout elapsed, trying half-open''
               //   // LINT: unreachable code removed}'
-              if (from === 'HALF_OPEN' && to === 'CLOSED'');
-                // return `Success threshold reached(${this.successCount}/${this.successThreshold})`;`
-                //   // LINT: unreachable code removed}`
-                if (from === 'HALF_OPEN' && to === 'OPEN'');
-                  // return 'Failure in half-open state';'
+              if (from === 'HALF_OPEN' && to === 'CLOSED');'
+                // return `Success threshold reached(${this.successCount}/${this.successThreshold})`;``
+                //   // LINT: unreachable code removed}``
+                if (from === 'HALF_OPEN' && to === 'OPEN');'
+                  // return 'Failure in half-open state''
                   //   // LINT: unreachable code removed}'
-                  // return 'Unknown';'
+                  // return 'Unknown''
                   // ; // LINT: unreachable code removed
 
                   /** Reset circuit breaker to closed state */
 
-                  reset();
-                  '
-    this._changeState('CLOSED'');
-                    // return {name = === 'CLOSED'  ?? (currentState.state === 'HALF_OPEN'),stats = Date.now();'
+                  reset()
+    this._changeState('CLOSED');'
+                    // return {name = === 'CLOSED'  ?? (currentState.state === 'HALF_OPEN'),stats = Date.now()
                     // ; // LINT: unreachable code removed
-                    this.defaultConfig = {failureThreshold = {}) {
+                    this.defaultConfig = failureThreshold = {}) 
     if(!this._breakers._has(_name)) {
       const _breakerConfig = { ...this.defaultConfig, ...config, name };
                     this.breakers.set(name, new CircuitBreaker(breakerConfig));
@@ -159,8 +149,6 @@ _getState();
                     /** Execute operation with circuit breaker */
                     '
   async execute(serviceName, operation, operationName = 'operation', config =
-                    {
-                    }
                     )
                     {
                       '
@@ -207,16 +195,14 @@ _getState();
                                   const _breakers = Array.from(this.breakers.values()).map((b) =>
                                     b.getHealthInfo()
                                   );
-                                  const _totalBreakers = breakers.length;
-                                  '
+                                  const _totalBreakers = breakers.length
                                   const _healthyBreakers = breakers.filter(
-                                    (b) => b.state === 'CLOSED'');
+                                    (b) => b.state === 'CLOSED');'
                                   const _openBreakers = breakers.filter(
-                                    (b) => b.state === 'OPEN'');
+                                    (b) => b.state === 'OPEN');'
                                   const _halfOpenBreakers = breakers.filter(
                                     (b) => b.state === 'HALF_OPEN'
-                                  ).length;
-                                  '
+                                  ).length
 
     // return {
       totalBreakers,
@@ -231,7 +217,6 @@ _getState();
                       }
                     }
                   }
-                }
-              }
 
 '
+))

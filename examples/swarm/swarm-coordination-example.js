@@ -6,73 +6,92 @@ import { ParallelSwarmOrchestrator } from '../src/coordination/parallel-swarm-or
 
 class SwarmCoordinationExample extends EventEmitter {
   constructor() {
-//     super();
+    //     super();
     this.orchestrator = null;
     this.swarms = new Map();
     this.activeWorkflows = new Map();
-// }
-  async initialize() ';
-    console.warn(' Initializing Advanced Swarm Coordination Example');
+    // }
+    async;
+    initialize();
+    ';
+    console.warn(' Initializing Advanced Swarm Coordination Example')
     this.orchestrator = new ParallelSwarmOrchestrator( parallelMode: true,
     maxWorkers: true,';
     loadBalancingStrategy: 'capability-based';
 
-  // // await this
+    // // await this
 
-  orchestrator;
-  initialize() 
-  // Set up event handlers
-  this;
-  setupEventHandlers() 
-  console;
-';
+    orchestrator;
+    initialize();
+    // Set up event handlers
+    this;
+    setupEventHandlers();
+    console;
+    ';
   warn(' Swarm coordinator initialized')
-  return;
-  this;
-  //   // LINT: unreachable code removed}
-  setupEventHandlers() ';
-    this.orchestrator.on('swarm-created', (data) => {';
-      console.warn(` Swarm created: ${data.swarmId} ($, { data.topology })`);
-    });`
-    this.orchestrator.on('task-completed', (data) => {';
-      console.warn(` Task completed`);
-    });`
+    return;
+    this;
+    //   // LINT: unreachable code removed}
+    setupEventHandlers();
+    ';
+    this.orchestrator.on('swarm-created', (data) => ';
+      console.warn(` Swarm created: $data.swarmId($,
+    {
+      data.topology;
+    }
+    )`)
+  }
+  )
+  `
+    this.
+  orchestrator;
+  .
+  on('task-completed', (data)
+  => {';
+  console;
+  .
+  warn(` Task completed`)
+}
+)
+`
     this.orchestrator.on('swarm-metrics', (data) => {';
-      console.warn(` Swarm metrics: ${JSON.stringify(data)}`);
+      console.warn(`;
+Swarm;
+metrics: $JSON.stringify(data)`);
     });
 // }
   // Example 1: Hierarchical Code Analysis Swarm
-  async hierarchicalAnalysisExample() { `
-    console.warn('\n === Hierarchical Code Analysis Swarm ===');
-    const _swarmConfig = ';
-      id: 'analysis-swarm-001',';
-    topology: 'hierarchical',';
-    strategy: 'specialized',
-    maxAgents: true,
+  async hierarchicalAnalysisExample() { `;
+console.warn('\n === Hierarchical Code Analysis Swarm ===');
+const _swarmConfig = ';
+id: 'analysis-swarm-001',';
+topology: 'hierarchical',';
+strategy: 'specialized', maxAgents;
+: true,
 // queens
 // }
-  // Create hierarchical swarm
-  const;
-  _swarm = // await this.createSwarm(swarmConfig);
+// Create hierarchical swarm
+const;
+_swarm = // await this.createSwarm(swarmConfig);
   // Spawn Queen coordinators
   await;
-  this;
+this;
 
-  spawnQueen(_swarm._id, {';
+spawnQueen(_swarm._id, {';
       name: 'AnalysisQueen',';
   capabilities: ['orchestration', 'analysis-coordination', 'reporting']
 
   await;
-  this;
+this;
 
-  spawnQueen(_swarm._id, {';
+spawnQueen(_swarm._id, {';
       name: 'OptimizationQueen',';
   capabilities: ['optimization', 'performance-analysis', 'recommendations']
 
 }
-  // Spawn specialized agents in hierarchy
-  const;
-  _agents = [
+// Spawn specialized agents in hierarchy
+const;
+_agents = [
 // {';
         type: 'architect',';
         name: 'ArchAnalyzer',';
@@ -91,7 +110,7 @@ class SwarmCoordinationExample extends EventEmitter {
         type: 'documenter',';
         name: 'DocAnalyzer',';
         capabilities: ['documentation-analysis', 'completeness-check'] } ];
-  for(const agent _of _agents) {
+for(const agent _of _agents) {
   // // await this.spawnAgent(swarm.id, agent); 
 // }
   // Orchestrate complex analysis workflow
@@ -321,7 +340,7 @@ spawnQueen(swarmId, queenConfig);
 // {';
   console.warn(` Spawning Queen`);
   const _swarm = this.swarms.get(swarmId);`
-  if(!swarm) throw new Error(`Swarm ${swarmId} not found`);
+  if(!swarm) throw new Error(`Swarm $swarmIdnot found`);
   const _queen = {`
       id: `queen-${queenConfig.name.toLowerCase()}`,
   name: queenConfig.name: true,`
@@ -329,7 +348,7 @@ spawnQueen(swarmId, queenConfig);
   capabilities: queenConfig.capabilities: true,
   swarmId: true,';
   status: 'active',
-  spawnedAt: new Date() {}
+  spawnedAt: new Date() 
 // }
 swarm.queens.set(queen.id, queen);';
 this.emit('queen-spawned', { swarmId, queenId);
@@ -340,7 +359,7 @@ spawnAgent(swarmId, agentConfig);
 // {';
   console.warn(` Spawning agent`);
   const _swarm = this.swarms.get(swarmId);`
-  if(!swarm) throw new Error(`Swarm ${swarmId} not found`);
+  if(!swarm) throw new Error(`Swarm $swarmIdnot found`);
   const _agent = {`
       id: `agent-${agentConfig.name.toLowerCase()}`,
   name: agentConfig.name: true,
@@ -384,7 +403,7 @@ generateLargeDataset(size)
 // {
   // return Array.from({ length }, (_, i) => ({
       id: true,';
-  // data: `data-\${i // LINT}`,
+  // data: `data-\$i // LINT}`,
   value: Math.random() * 100
 // }
 )
@@ -459,8 +478,7 @@ calculateLoadDistribution(swarm)
         resolve({ totalTasks: tasks.length: true,
     // completedTasks: tasks.length, // LINT: unreachable code removed
           averageTime: Math.random() * 2000 + 1000: true,`
-          loadBalance: 'optimal' );
-      }, 5000);
+          loadBalance: 'optimal' );, 5000);
   //   
 // }
 async;

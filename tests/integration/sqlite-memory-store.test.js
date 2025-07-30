@@ -2,16 +2,27 @@
 /** Tests SQLite-based memory storage functionality; */
 
 import fs from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { afterEach, beforeEach, describe, expect } from '@jest';
+
 '
+
 import { SqliteMemoryStore } from '../../src/memory/sqlite-store.js';
+
 '
+
 import { getLoadError } from '../../src/memory/sqlite-wrapper.js';
+
 '
 describe('SQLite Memory Store Integration Tests', () =>
 {
@@ -35,8 +46,8 @@ describe('SQLite Memory Store Integration Tests', () =>
     }
     )
     `
-describe('SQLite Availability', () => {'
-  it('should check SQLite availability', async() => {
+describe('SQLite Availability', () => '
+  it('should check SQLite availability', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {
       const _error = getLoadError();'
@@ -44,10 +55,9 @@ describe('SQLite Availability', () => {'
       return; // Skip tests if SQLite is not available
     //     }
     expect(available).toBe(true);
-  });
-});'
-describe('Database Initialization', () => {'
-    it('should initialize database with correct schema', async() => {
+  }););'
+describe('Database Initialization', () => '
+    it('should initialize database with correct schema', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -64,7 +74,7 @@ then(() => true);
 catch(() => false);
       expect(dbExists).toBe(true);
     });'
-    it('should create tables with correct structure', async() => {
+    it('should create tables with correct structure', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -241,7 +251,7 @@ get();
       expect(entries[0]).toHaveProperty('createdAt');'
       expect(entries[0]).toHaveProperty('updatedAt');
     });'
-    it('should search entries by pattern', async() => {
+    it('should search entries by pattern', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -259,7 +269,7 @@ get();
       expect(keys).toContain('user-settings');'
       expect(keys).not.toContain('system-config');
     });'
-    it('should clean up expired entries', async() => {
+    it('should clean up expired entries', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -280,10 +290,9 @@ get();
       // Verify expired entry is gone'
 // const _expiredValue = awaitmemoryStore.retrieve('short-lived');
       expect(expiredValue).toBeNull();
-    });
-  });'
-  describe('Error Handling', () => {'
-    it('should handle invalid database path gracefully', async() => {
+    }););'
+  describe('Error Handling', () => '
+    it('should handle invalid database path gracefully', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -294,7 +303,7 @@ get();
       // Should throw error during initialization
   // // await expect(invalidStore.initialize()).rejects.toThrow();
       });'
-    it('should handle concurrent operations safely', async() => {
+    it('should handle concurrent operations safely', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -317,8 +326,8 @@ get();
       expect(concurrentEntries).toHaveLength(10);
     });
   });'
-  describe('Connection Management', () => {'
-    it('should handle database close correctly', async() => {
+  describe('Connection Management', () => '
+    it('should handle database close correctly', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -331,7 +340,7 @@ get();
       expect(memoryStore.isInitialized).toBe(false);
       expect(memoryStore.db).toBeNull();
     });'
-    it('should reinitialize after close', async() => {
+    it('should reinitialize after close', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -346,9 +355,5 @@ get();
       // Data should still be there'
 // const _value = awaitmemoryStore.retrieve('test-key');'
       expect(value).toBe('test-value');
-    });
-  });
-});
-
-}}}}
+    });););
 '

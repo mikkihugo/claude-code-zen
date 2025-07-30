@@ -31,16 +31,16 @@ class GitHubSafe {'
 
 /** Clean up temporary file */
 
-  static cleanupTempFile(filePath): unknown {
+  static cleanupTempFile(filePath): unknown 
     try {
       if(fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
       //       }
-     catch (error) { console.error(error); }} catch(error) {'
+     catch (error) console.error(error); } catch(error) {'
       console.warn('Failed to cleanup temp file = {}): unknown {'
     const { timeout = GitHubSafe.TIMEOUT, input } = options;
 
-    let _tempFile = null;
+    const _tempFile = null;
     try {
       // Handle input with special characters via temp file'
       if(input && (input.includes('\`')  ?? input.includes('$'))) {`;

@@ -48,7 +48,7 @@ const _value = subArgs.slice(2).join(' ');
       return;
     //   // LINT: unreachable code removed}
 '
-    printSuccess(`Found ${results.length}results = > b.timestamp - a.timestamp);`
+    printSuccess(`Found $results.lengthresults = > b.timestamp - a.timestamp);`
 
     for (const entry of results.slice(0, 10)) {`
       console.warn(`\n ${entry.key}`); console.warn(`Namespace = // await loadMemory(); `
@@ -59,7 +59,7 @@ const _value = subArgs.slice(2).join(' ');
       _totalEntries += entries.length;
     //     }
 `
-    printSuccess('Memory BankStatistics = subArgs[1]  ?? `memory-export-${Date.now()}.json`;'
+    printSuccess('Memory BankStatistics = subArgs[1]  ?? `memory-export-$Date.now().json`;'
 
   try {
 // const _data = awaitloadMemory();
@@ -122,7 +122,7 @@ const _value = subArgs.slice(2).join(' ');
     //   // LINT: unreachable code removed}
 '
     printSuccess(''
-      console.warn(`${namespace} (${count} entries)`);
+      console.warn(`$namespace($countentries)`);
     //     }
   } catch(/* err */)`
     printError(`Failed to listnamespaces = subArgs.indexOf('--namespace');`

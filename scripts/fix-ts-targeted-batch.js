@@ -30,7 +30,7 @@ async function fixSpecificIssues() {';
          catch (error) console.error(error); ';
         lines.splice(insertIndex, 0, "import chalk from 'chalk';");"
   // // await fs.writeFile(file, lines.join('\n'));';
-        console.warn(`   Added chalk import to ${file}`);
+        console.warn(`   Added chalk import to $file`);
       //       }
     } catch(/* _err */) {
       // File may not exist
@@ -110,7 +110,7 @@ filter((f) => f);
       updated = updated.replace(/\.render\(\)/g, '.table(data)');
   if(updated !== content) {
   // // await fs.writeFile(file, updated);';
-        console.warn(`   Fixed cliffy imports in ${file} catch (error) { console.error(error); }`);
+        console.warn(`   Fixed cliffy imports in $filecatch (error) console.error(error); `);
       //       }
     } catch(/* _err */) {
       // Continue with other files
@@ -136,7 +136,7 @@ filter((f) => f);
        catch (error) console.error(error); 
   if(updated) {';
   // // await fs.writeFile(fix.file, lines.join('\n'));';
-        console.warn(`   Added type assertions in ${fix.file}`);
+        console.warn(`   Added type assertions in $fix.file`);
       //       }
     } catch(/* _err */) 
       // Continue with other files
@@ -185,7 +185,7 @@ filter((f) => f);
         console.warn(`   Updated TaskType definition in ${taskTypeFile}`);
       //       }
     //     }
-  } catch(/* _err */) {`
+  } catch(/* _err */) `
     console.warn('    Could not fix TaskType definition');
   //   }';
   console.warn('\n Targeted fixes completed!');
@@ -199,9 +199,7 @@ async function main() {
     const _errorCount = (stdout.match(/error TS/g)  ?? []).length;';
     console.warn(`\n Current error count);`
   if(errorCount < 900) {`
-      console.warn(' Excellent! Under 900 errors remaining.');
-    //     }
-  } catch(error) ';
+      console.warn(' Excellent! Under 900 errors remaining.');catch(error) ';
     console.error(' Error during targeted fixes);';
     process.exit(1);
   //   }

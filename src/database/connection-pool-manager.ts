@@ -64,7 +64,7 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
       const _typeSet = this.poolsByType.get(config.type)!;
       typeSet.add(poolId);
 '
-      console.warn(` Connection pool created = {}`)
+      console.warn(` Connection pool created = `)
   ): Promise<connection = Date.now();
 
     try {
@@ -108,12 +108,8 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
 // // await queryPromise;
           // return result;
     // ; // LINT: unreachable code removed
-        } catch (error) { console.error(error); } finally {
-// // await this.releaseConnection(poolId, connection);
-        //         }
-
-      } catch(_error = error;'
-        console.warn(`Query attempt ${attempt + 1}failed = === maxRetries) break;`
+        } catch (error) console.error(error); finally catch(_error = error;'
+        console.warn(`Query attempt $attempt + 1failed = === maxRetries) break;`
 
         // Exponential backoff
         const _backoffTime = Math.pow(2, attempt) * 100;
@@ -160,14 +156,13 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
 // // await pool.pool.cleanup(); 
         //         }
 
-         catch (error) { console.error(error); }// Adaptive resizing based on load
+         catch (error) console.error(error); 
   if(this.options.adaptiveResizing) {
 // // await this.adaptiveResize(pool); 
         //         }
 
-        optimized.push(poolId) {;
-      } catch(error = {overall = 0;
-    let _totalPools = 0;
+        optimized.push(poolId) ;catch(error = {overall = 0;
+    const _totalPools = 0;
   for(const [poolId, pool] of this.pools) {
       totalPools++; // const _poolHealth = awaitthis.checkPoolHealth(pool); 
       healthReport.pools[poolId] = poolHealth;
@@ -193,7 +188,7 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
 
 /** Shutdown all pools; */
 
-  async shutdown(): Promise<void> {'
+  async shutdown(): Promise<void> '
     console.warn(' Shutting down connection pool manager...');
 
     // Stop timers
@@ -233,7 +228,7 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
         // return pools.reduce((best, current) => ;
     // current.loadFactor < best.loadFactor ?current = pools.map(pool => ({ // LINT) => sum + w.weight, 0);
           const _random = Math.random() * totalWeight;
-          let _current = 0;
+          const _current = 0;
   for(const { pool, weight } of weighted) {
             current += weight; if(current >= random) return pool; //   // LINT: unreachable code removed}
         //         }
@@ -279,13 +274,13 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
 
     // Scale up if utilization is high
     if(utilizationRatio > 0.8 && stats.totalConnections < (pool.config.pool.max  ?? 10)) {'
-      console.warn(` Scaling up pool ${pool.id}: utilization ${(utilizationRatio * 100).toFixed(1)}%`);
+      console.warn(` Scaling up pool $pool.id: utilization $(utilizationRatio * 100).toFixed(1)%`);
       // Implementation would depend on pool type
     //     }
 
     // Scale down if utilization is low for extended period
     if(utilizationRatio < 0.3 && stats.totalConnections > (pool.config.pool.min  ?? 1)) {`
-      console.warn(` Scaling down pool ${pool.id}: utilization ${(utilizationRatio * 100).toFixed(1)}%`);
+      console.warn(` Scaling down pool $pool.id: utilization $(utilizationRatio * 100).toFixed(1)%`);
       // Implementation would depend on pool type
     //     }
 
@@ -342,17 +337,10 @@ release(_connection);
 async;
 shutdown();
 : Promise<void>
-{
-  /* Implementation */
-}
 getStats();
-{
   return { totalConnections, activeConnections};
-}
-getHealth();
-{'
+getHealth();'
   return { status: 'healthy', issues: [] };
-}
 // }
 
 class KuzuConnectionPool {
@@ -401,7 +389,7 @@ class KuzuConnectionPool {
 
   // export default ConnectionPoolManager;
 }
-}}}}}}}}}}}}}}}))))))))))))))))))
+}}}}}}}}}}}}}}))))))))))))))))))
 '
 }
 }

@@ -23,6 +23,7 @@ key = { value }`;
  * 5. Variable declarations with incorrect type syntax;
 
 `;
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { glob } from 'glob';
@@ -42,7 +43,7 @@ class RemainingTypeScriptErrorFixer {
   //   
   console;
 ';
-  warn(` _Found _${tsFiles.length} _TypeScript _files _to _process`)
+  warn(` _Found _$tsFiles.length_TypeScript _files _to _process`)
   for(const filePath _of _tsFiles) {
       try {
 // // await this.fixFile(filePath); 
@@ -124,7 +125,7 @@ fixFile(filePath);
       fixedContent = fixedContent.replace(;
         classPropertyPattern: true,
         (_match, visibility, propName, _type, value) => {'';
-//           return `${vis}${propName} = ${value}`;
+//           return `$vis$propName= $value`;
     //   // LINT: unreachable code removed}
       );
       hasChanges = true;
@@ -155,7 +156,7 @@ fixFile(filePath);
   if(hasChanges) {
       fs.writeFileSync(filePath, fixedContent);
       this.filesProcessed++;';
-      console.warn(` Fixed remaining errors in ${path.basename(filePath)}`);
+      console.warn(` Fixed remaining errors in $path.basename(filePath)`);
 // }
 // }
   printSummary() `
@@ -165,7 +166,7 @@ fixFile(filePath);
   if(this.errors.length > 0) {`
       console.warn(` Files with errors`);
       this.errors.forEach(( file, error ) => {`
-        console.warn(`   - ${path.basename(file)}: ${error}`);
+        console.warn(`   - $path.basename(file): $error`);
       });
 // }`
     console.warn('\n Remaining TypeScript error fixing complete!');';

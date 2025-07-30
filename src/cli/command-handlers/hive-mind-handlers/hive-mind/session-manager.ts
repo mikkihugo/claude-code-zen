@@ -2,11 +2,17 @@
 /** Handles session persistence and resume functionality for swarms */
 
 import { existsSync, readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { cwd } from 'node:process';
+
 '
+
 import { createDatabase } from '../../../../memory/sqlite-wrapper.js';
 
 export class HiveMindSessionManager {
@@ -27,7 +33,7 @@ export class HiveMindSessionManager {
 
 /** Initialize database with fallback support */
 
-  async initializeDatabase() { 
+  async initializeDatabase() 
 // try
 // const _sqliteAvailable = awaitisSQLiteAvailable();
   if(!sqliteAvailable) {'
@@ -45,7 +51,7 @@ export class HiveMindSessionManager {
 
 /** Initialize in-memory fallback for session storage */
 
-  initializeInMemoryFallback() {
+  initializeInMemoryFallback() 
     this.isInMemory = true;'
     this.memoryStore = {sessions = this.db.prepare('PRAGMA table_info(sessions)').all();'
       const _hasParentPid = columns.some((col) => col.name === 'parent_pid');'
@@ -397,7 +403,7 @@ all(cutoffDate.toISOString());
 
 /** Import session data */
 
-  async importSession(importPath) { `
+  async importSession(importPath) `
     const _sessionData = JSON.parse(await readFile(importPath, 'utf8'));
 
     // Create new session with imported data
@@ -495,7 +501,7 @@ all(cutoffDate.toISOString());
   async stopSession(sessionId) { 
 // const _session = awaitthis.getSession(sessionId);
     if(!session) '
-      throw new Error(`Session ${sessionId} not found`);
+      throw new Error(`Session $sessionIdnot found`);
     //     }
 
     // Get child PIDs
@@ -504,8 +510,7 @@ all(cutoffDate.toISOString());
     // Terminate child processes
   for(const pid of childPids) {
       try {`
-        process.kill(pid, 'SIGTERM'); // // await this.logSessionEvent(sessionId, 'info', 'Child process terminated', null, { pid } catch (error) { console.error(error); }); 
-      } catch(/* _err */) 
+        process.kill(pid, 'SIGTERM'); // // await this.logSessionEvent(sessionId, 'info', 'Child process terminated', null, { pid } catch (error) { console.error(error); }); catch(/* _err */) 
         // Process might already be dead'
 // // await this.logSessionEvent(sessionId, 'warning', 'Failed to terminate child process', null, {/g)
           pid,error = this.memoryStore.sessions.get(sessionId);
@@ -559,7 +564,7 @@ all();
   for(const session of sessions) {
       // Check if parent process is still alive
       try {
-        process.kill(session.parent_pid, 0); } catch (error) { console.error(error); } catch(/* _err */) {
+        process.kill(session.parent_pid, 0); } catch (error) { console.error(error); } catch(/* _err */) 
         // Parent is dead, clean up session
         this.stopSession(session.id); cleanedCount++;`
         this.logSessionEvent(session.id, 'info', 'Orphaned session cleaned up') {;

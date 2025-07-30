@@ -104,7 +104,7 @@ default, description: 'Show detailed status' ,
 const _basic = `;`;
 Swarm;
 Status: ACTIVE;
-\n Topology: hierarchical\n Agents: 6/8 active\n Tasks: 3 completed, 2 in-progress\n Memory: 512KB used`
+\n Topology: hierarchical\n Agents: 6/8 active\n Tasks: 3 completed, 2 in-progress\n Memory: 512KB used``
 const _detailed = `${basic}\n\nAgent Details:\n  coordinator: Managing workflow\n  researcher: Data analysis\n  coder: Implementation\n  analyst: Waiting for data\n  tester: Running tests\n  optimizer: Idle`;
 //   return args.detailed ? detailed ;
 //   // LINT: unreachable code removed} }
@@ -120,7 +120,7 @@ description: 'List active agents & capabilities', type;
   args.
 type ?? 'all';
 // }
-):\n coordinator-1: Managing tasks\n researcher-2: Data analysis\n coder-3: Implementation\n analyst-4: Performance monitoring`,
+):\n coordinator-1: Managing tasks\n researcher-2: Data analysis\n coder-3: Implementation\n analyst-4: Performance monitoring`,`
 
   description: 'Agent performance metrics',
 type: 'object', type;
@@ -132,7 +132,7 @@ type: 'object', type;
 // {
   args.agentId ?? 'all'
 // }
-):\n Tasks completed: 15\n Success rate: 94.2%\n Avg response time: 1.2s\n Memory usage: 128KB`,
+):\n Tasks completed: 15\n Success rate: 94.2%\n Avg response time: 1.2s\n Memory usage: 128KB`,`
 
   description: 'Real-time swarm monitoring',
 type: 'object', type;
@@ -146,7 +146,7 @@ default, description: 'Monitoring interval (seconds)' ,
 // }
 // s
 intervals
-)\n CPU: 45%\n Memory: 2.1GB\n Network: 1.2MB/s\n Active connections: 23`,
+)\n CPU: 45%\n Memory: 2.1GB\n Network: 1.2MB/s\n Active connections: 23`,`
 
   description: 'Auto-optimize swarm topology',
 type: 'object', type;
@@ -188,7 +188,7 @@ default, description: 'Force sync' ,
 
   handler: async (args) =>
 // {
-const _command = `npx ruv-swarm coordination sync ${args.force ? '--force''}`;
+const _command = `npx ruv-swarm coordination sync ${args.force ? '--force'}`;
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -210,7 +210,7 @@ default, description: 'Auto-scaling enabled' ,
 
   handler: async (args) =>
 // {
-const _command = `npx ruv-swarm scale --target-size ${args.targetSize ?? 'auto'} ${args.auto ? '--auto''}`;
+const _command = `npx ruv-swarm scale --target-size ${args.targetSize ?? 'auto'} ${args.auto ? '--auto'}`;
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -232,7 +232,7 @@ default, description: 'Shutdown timeout (seconds)' ,
 
   handler: async (args) =>
 // {
-const _command = `npx ruv-swarm destroy ${args.force ? '--force''} --timeout ${args.timeout ?? 30}`;
+const _command = `npx ruv-swarm destroy ${args.force ? '--force'} --timeout ${args.timeout ?? 30}`;
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -278,27 +278,29 @@ type: 'string', description;
   required: ['pattern'],
 
   handler: (args) =>
-  `
-`
-Memory;
+  ``
+``
+Memory
 search: '${args.pattern}';
 found;
 $Math.floor(Math.random() * 20);
 results (limit: $
     args.limit ?? 10
-  )`,
-  `
+  )`,`
+  ``
 
-  description: 'Analyze memory usage patterns',
-  type: 'object',
-  type: 'string',
-  default: '24h', description: 'Analysis timeframe' ,
+description: 'Analyze memory usage patterns', type;
+: 'object',
+type: 'string',
+default: '24h', description: 'Analysis timeframe' ,
 
   handler: (args) =>
-  `;
+  `
+`
 Memory;
 Analytics (\$args.timeframe  ?? '24h')
 :\n Total entries,234\n Most accessed: user_preferences\n Storage used: 45.2MB\n Growth rate: +12% this week`,
+  `
 
   name: ' ANALYSIS & MONITORING',
   description: 'Generate performance reports',
@@ -312,8 +314,11 @@ enum: ['summary', 'detailed', 'json'],
   default: '24h',
 
   handler: (args) =>
-` Performance Report (${args.timeframe ?? '24h'}, ${args.format ?? 'summary'}):\n Avg response time: 1.2s\n Success rate: 94.2%\n Throughput: 150 req/min\n Error rate: 5.8%`,
-  description;
+`;
+Performance;
+Report (${args.timeframe ?? '24h'}, ${args.format ?? 'summary'})
+:\n Avg response time: 1.2s\n Success rate: 94.2%\n Throughput: 150 req/min\n Error rate: 5.8%`,
+  description
 : 'Identify performance bottlenecks',
 type: 'object', type;
 : 'string', description
@@ -348,7 +353,7 @@ type: 'string', description;
   required: ['command'],
 
   handler: (args) =>
-  ` Executed: \$args.command\$args.args?.join(' ''\n Exit code: 0\n Duration: 1.2s\n Status: Success`,
+  ` Executed: \$args.command\$args.args?.join(''\n Exit code: 0\n Duration: 1.2s\n Status: Success`,
 
   description: 'Configuration management',
 type: 'object', type;
@@ -364,7 +369,7 @@ type: 'string', description;
   required: ['action'],
 
   handler: (args) =>
-  ` Config \$args.action: \$args.key  ?? 'multiple''`,
+  ` Config \$args.action: \$args.key  ?? 'multiple'`,
 
   description: 'Feature detection',
 type: 'object', type;
@@ -428,7 +433,7 @@ type: 'array', type;
   handler: (args) =>
   ` Log analysis`
 for ${args.logFile}
-:\n Entries processed,432\n Errors found: 12\n Warnings: 45\n Pattern matches: $args.patterns?.length  ?? 0\n Status: Analysis complete`,
+:\n Entries processed,432\n Errors found: 12\n Warnings: 45\n Pattern matches: $args.patterns?.length  ?? 0\n Status: Analysis complete`,`
 
   name: ' NEURAL & MACHINE LEARNING',
   description: 'Check neural network status',
@@ -492,7 +497,7 @@ type: 'string', description;
   ` Model \$args.modelIdsaved`
   to
 \$args.path
-:\n Size: 23.4MB\n Format: ONNX\n Compression: 67%\n Status: Saved successfully`,
+:\n Size: 23.4MB\n Format: ONNX\n Compression: 67%\n Status: Saved successfully`,`
 // description
 : 'WASM SIMD optimization',
 type: 'object', type;
@@ -504,7 +509,7 @@ type: 'object', type;
   handler: (args) =>
   ` WASM optimization`
 for ${args.operation}
-:\n SIMD enabled: Yes\n Performance gain: 3.2x\n Memory usage: -40%\n Status: Optimized`,
+:\n SIMD enabled: Yes\n Performance gain: 3.2x\n Memory usage: -40%\n Status: Optimized`,`
 
   description: 'Run neural inference',
 type: 'object', type;
@@ -827,7 +832,7 @@ type: 'object', description;
   args.repo;
 }
 )
-  :\n Workflows: 3 active\n Success rate: 96.8%\n Avg duration: 4.2 min\n Status: Automation active`,
+  :\n Workflows: 3 active\n Success rate: 96.8%\n Avg duration: 4.2 min\n Status: Automation active`,`
 // description
 : 'Automated code review',
 type: 'object', type;
@@ -997,7 +1002,7 @@ export function executeTool() {
     if (categoryData.tools[toolName]) {
       const _result = categoryData.tools[toolName].handler(args);
 //       return {
-        content: [;
+        content: [
     // { // LINT: unreachable code removed
             type: 'text',
             text } ] };
@@ -1005,3 +1010,4 @@ export function executeTool() {
   //   }
 throw new Error(`Unknown tool: ${toolName}`);
 // }
+)

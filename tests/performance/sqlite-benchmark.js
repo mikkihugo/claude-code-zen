@@ -2,15 +2,25 @@
 /** Tests and measures performance improvements for SQLite memory backend; */
 
 import fs from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { performance } from 'node:perf_hooks';
+
 '
+
 import { SqliteMemoryStore } from '../../src/memory/sqlite-store.js';
+
 '
+
 import { isSQLiteAvailable } from '../../src/memory/sqlite-wrapper.js';
 
 class SQLitePerformanceBenchmark {
@@ -102,7 +112,7 @@ measureOperation(name, operation);
 // const _storeWithoutCache = awaitthis.createStore('without-cache', { enableCache });
     const _testData = this.generateTestData(100);
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {'
-      console.warn(`  Iteration ${iteration + 1}`
+      console.warn(`  Iteration $iteration + 1`
       // Test store operations
   for(const store of [storeWithCache, storeWithoutCache]) {`
         const _suffix = store === storeWithCache ? '-cached' : '-uncached'; // Store operations'
@@ -140,7 +150,7 @@ measureOperation(name, operation);
     maxConnections)
   const _testData = this.generateTestData(this.options.testDataSize);
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {'
-    console.warn(`  Iteration ${iteration + 1}`
+    console.warn(`  Iteration $iteration + 1`
     // Concurrent writes`
   // // await this.measureOperation('concurrent-writes', async() => {
       const _chunks = this.chunkArray(testData, this.options.concurrentOperations);
@@ -175,7 +185,7 @@ measureOperation(name, operation);
   if(j % 3 === 0) {'
   // // await store.store(`mixed-${i}-${j}`, { data);
           } else if(j % 3 === 1) {`
-  // // await store.retrieve(`mixed-${i}-${j - 1}`);
+  // // await store.retrieve(`mixed-$i-$j - 1`);
           } else {`
   // // await store.search(`mixed-${i}`, { limit });
           //           }
@@ -201,7 +211,7 @@ measureOperation(name, operation);
   }
 // }
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {'
-  console.warn(`  Iteration ${iteration + 1}`
+  console.warn(`  Iteration $iteration + 1`
   // Test queries that should benefit from indexes`
   // // await this.measureOperation('namespace-queries', async() => {
   for(let i = 0; i < 10; i++) {
@@ -237,7 +247,7 @@ const _testData = this.generateTestData(200);
   // // await store.store(item.key, item.value, { namespace); 
 // }
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {'
-  console.warn(`  Iteration ${iteration + 1}`
+  console.warn(`  Iteration $iteration + 1`
   // First read(cold cache)`
   // // await this.measureOperation('cold-cache-reads', async() => {
   for(let i = 0; i < 50; i++) {'
@@ -299,7 +309,7 @@ for (const [operation, measurements] of Object.entries(this.results)) {
   for(const [name, store] of this.stores) {
 // const _dbStats = awaitstore.getDatabaseStats(); 
   const _perfStats = store.getPerformanceStats() {;'
-  report.results[`${name}-database-stats`] = dbStats;`
+  report.results[`$name-database-stats`] = dbStats;`
   report.results[`${name}-performance-stats`] = perfStats;
 // }
 // Save report`

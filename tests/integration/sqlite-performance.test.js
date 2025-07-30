@@ -2,16 +2,27 @@
 /** Validates the performance improvements work correctly; */
 
 import fs from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { afterEach, beforeEach, describe } from '@jest';
+
 '
+
 import { SqliteMemoryStore } from '../../src/memory/sqlite-store.js';
+
 '
+
 import { isSQLiteAvailable } from '../../src/memory/sqlite-wrapper.js';
+
 '
 describe('SQLite Performance Optimization Tests', () =>
 {
@@ -62,7 +73,7 @@ all();
       expect(indexNames).toContain('idx_memory_key_search');'
       expect(indexNames).toContain('idx_memory_value_search');
     });'
-    it('should use indexes for key lookups', async() => {
+    it('should use indexes for key lookups', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -173,14 +184,14 @@ all('test-key', 'test-ns');
       expect(stats.cache.misses).toBeGreaterThanOrEqual(1);
     });
   });'
-  describe('Performance Monitoring', () => {
+  describe('Performance Monitoring', () => 
     beforeEach(async() => {
 // const _available = awaitisSQLiteAvailable();
   if(available) {
   // await memoryStore.initialize();
       //       }
     });'
-    it('should provide database statistics', async() => {
+    it('should provide database statistics', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -204,7 +215,7 @@ all('test-key', 'test-ns');
       expect(stats.totalSize).toBeGreaterThan(0);
       expect(stats.indexes).toBeGreaterThan(8); // At least our custom indexes
     });'
-    it('should analyze query performance', async() => {
+    it('should analyze query performance', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -218,8 +229,7 @@ all('test-key', 'test-ns');
       expect(analysis.queryPlans).toHaveProperty('list');'
       expect(analysis.queryPlans).toHaveProperty('search');'
       expect(analysis.queryPlans).toHaveProperty('cleanup');
-    });
-  });'
+    }););'
   describe('Connection Pool', () => {
     let pool;
     let poolDbPath;
@@ -231,7 +241,7 @@ all('test-key', 'test-ns');
   // await pool.shutdown();
       //       }
     });'
-    it('should create and manage connection pool', async() => {
+    it('should create and manage connection pool', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -246,7 +256,7 @@ all('test-key', 'test-ns');
       expect(stats.availableConnections).toBe(2);
       expect(stats.activeConnections).toBe(0);
     });'
-    it('should handle concurrent connections', async() => {
+    it('should handle concurrent connections', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -273,7 +283,7 @@ all('test-key', 'test-ns');
 // const _results = awaitpool.execute('SELECT COUNT(*)  FROM test_table');
       expect(results[0].count).toBe(5);
     });'
-    it('should handle transaction operations', async() => {
+    it('should handle transaction operations', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -289,24 +299,20 @@ all('test-key', 'test-ns');
         );`
       `);`
       // Execute transaction
-      const _queries = [`
-        { query: 'INSERT INTO transaction_test(value) VALUES(?)', params: ['tx-value-1'] },'
-        { query: 'INSERT INTO transaction_test(value) VALUES(?)', params: ['tx-value-2'] },'
-        { query: 'INSERT INTO transaction_test(value) VALUES(?)', params: ['tx-value-3'] } ];
+      const _queries = [`query: 'INSERT INTO transaction_test(value) VALUES(?)', params: ['tx-value-1'] ,'query: 'INSERT INTO transaction_test(value) VALUES(?)', params: ['tx-value-2'] ,'query: 'INSERT INTO transaction_test(value) VALUES(?)', params: ['tx-value-3'] ];
   // // await pool.executeTransaction(queries);
       // Verify transaction results'
 // const _results = awaitpool.execute('SELECT COUNT(*)  FROM transaction_test');
       expect(results[0].count).toBe(3);
-    });
-  });'
-  describe('Performance Regression Tests', () => {
+    }););'
+  describe('Performance Regression Tests', () => 
     beforeEach(async() => {
 // const _available = awaitisSQLiteAvailable();
   if(available) {
   // await memoryStore.initialize();
       //       }
     });'
-    it('should handle large datasets efficiently', async() => {
+    it('should handle large datasets efficiently', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -347,7 +353,7 @@ all('test-key', 'test-ns');
       const _stats = memoryStore.getPerformanceStats();
       expect(stats.cache.hitRate).toBeGreaterThan(0); // Some cache hits expected
     });'
-    it('should maintain performance with TTL entries', async() => {
+    it('should maintain performance with TTL entries', async() => 
 // const _available = awaitisSQLiteAvailable();
   if(!available) {'
         console.warn('Skipping test);'
@@ -371,9 +377,6 @@ all('test-key', 'test-ns');
 // const _remaining = awaitmemoryStore.list({ namespace);
       expect(remaining.length).toBeLessThan(500);
       expect(remaining.length).toBeGreaterThan(0);
-      });
-  });
-});
-
-}}}}}
+      }););
+});}}}}
 '

@@ -1,23 +1,36 @@
 import { mkdir } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
 '
 '
+
 import inquirer from 'inquirer';
+
 '
 '
 '
+
 import { printInfo } from '..';
+
 '
+
 import { scanForDocumentationLinks } from '../scanners/documentation-linker.js';
+
 '
+
 import { scanForMissingScopeFiles } from '../scanners/scope-scanner.js';
+
 '
+
 import { scanForUnmappedServices } from '../scanners/service-scanner.js';
+
 '
 const _HIVE_MIND_DIR = path.join(process.cwd(), '.hive-mind');
-''
+('');
 const _HIVE_REGISTRY_FILE = path.join(HIVE_MIND_DIR, 'registry.json');
 '
 '
@@ -85,8 +98,7 @@ export async function readHiveRegistry() {
 
   for(const suggestion of suggestions) {`
     console.warn(`\n[Suggestion $suggestion.id/${suggestions.length}]`); `
-    console.warn(suggestion.description); const { choice } = // await inquirer.prompt([;/g)`
-      {type = === 'yes''
+    console.warn(suggestion.description); const { choice } = // await inquirer.prompt([;/g)`type = === 'yes''
       console.warn('Applying suggestion...');'
   switch(suggestion.action) {'
         case 'create_hive''

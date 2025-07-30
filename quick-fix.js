@@ -4,6 +4,7 @@
 
 import { readFileSync } from 'node:fs';
 import { glob } from 'glob';
+
 ';
 console.warn(' QUICK FIX);'
 // Get all JS/TS files except node_modules, ruv-FANN, bin';
@@ -24,7 +25,7 @@ console.warn(`Found $`
 // {
   files.length
 // }
-files;
+files
 to;
 fix;
 )`
@@ -74,7 +75,7 @@ match(/([^}]*)/)?.[1];';
           const _usageCount = content.split(param).length - 1;
     // if(usageCount <= 2) { // LINT: unreachable code removed
             // Only declaration + this match';
-//             return `_${param}`;
+//             return `_$param`;
     //   // LINT: unreachable code removed}
         //         }
         // return param;
@@ -98,7 +99,7 @@ match(/([^}]*)/)?.[1];';
   if(content !== originalContent) {
       writeFileSync(file, content);
       fixCount++;';
-      console.warn(` ${file}`);
+      console.warn(` $file`);
     //     }
   } catch(error)`
     console.warn(` Error fixing \$file);`
@@ -109,9 +110,8 @@ console.warn(`\n Fixed \$fixCountfiles automatically`);
 // Quick ESLint pass on fixed files only`
 console.warn('\n Running quick ESLint fix...');
 try {';
-  execSync('npx eslint --fix --quiet src examples scripts', { stdio);';
-  console.warn(' ESLint fixes applied');
-} catch (error) { console.error(error); } catch(/* _error */) ';
+  execSync('npx eslint --fix --quiet src examples scripts', stdio);';
+  console.warn(' ESLint fixes applied');catch (error) console.error(error); catch(/* _error */) ';
   console.warn(' ESLint completed with some remaining issues');
 // }
 

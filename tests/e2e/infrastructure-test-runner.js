@@ -3,16 +3,27 @@
 /** Production-ready test infrastructure with proper mocking and service simulation; */
 
 import fs from 'node:fs';
+
 '
+
 import http from 'node:http';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { KuzuGraphInterface } from '../../src/cli/database/kuzu-graph-interface.js';
+
 '
+
 import { RealFannEngine } from '../../src/neural/real-fann-integration.js';
+
 '
+
 import { Logger } from '../../src/utils/logger.js';
+
 '
 const _logger = new Logger('InfrastructureTestRunner');
 
@@ -25,13 +36,16 @@ export class MockServiceManager {
     this.servers = new Map();
     this.isRunning = false;
     this.basePort = 4200;
-  //   }
+    //   }
 
-/** Start mock services for E2E testing; */
+    /** Start mock services for E2E testing; */
 
-  async startMockServices() { '
-    logger.info(' Starting mock services for E2E testing...');
-    const _serviceConfigs = ['
+    async;
+    startMockServices();
+    {
+      '
+    logger.info(' Starting mock services for E2E testing...')
+      const _serviceConfigs = ['
        name: 'business', port: this.basePort, endpoints: this.createBusinessEndpoints() },'
       { name: 'core', port: this.basePort + 1, endpoints: this.createCoreEndpoints() },'
       { name: 'swarm', port: this.basePort + 2, endpoints: this.createSwarmEndpoints() },
@@ -39,12 +53,15 @@ export class MockServiceManager {
         name: 'development',
         port: this.basePort + 3,
         endpoints: this.createDevelopmentEndpoints() } ];
-  for(const config of serviceConfigs) {
-  // // await this.startMockService(config); 
-    //     }'
-    this.isRunning = true; logger.info(' All mock services started successfully') {;
-    // return {
-      serviceUrls: Object.fromEntries(;)'
+      for (const config of serviceConfigs) {
+        // // await this.startMockService(config);
+        //     }'
+        this.isRunning = true;
+        logger.info(' All mock services started successfully');
+        {
+          // return {
+          serviceUrls: Object.fromEntries(;
+          )'
     // serviceConfigs.map((c) => [c.name.toUpperCase(), `http://localhost:\${c.port // LINT}`])
     //     
 // }
@@ -52,21 +69,21 @@ export class MockServiceManager {
 
 /** Start individual mock service; */
 
-async;
-startMockService(config);
-// {
-  // return new Promise((resolve, reject) => {
-      const _server = http.createServer((req, res) => {
-        this.handleRequest(req, res, config);
-    //   // LINT: unreachable code removed});
-      server.listen(config.port, () => {
+async
+          startMockService(config);
+          // {
+          // return new Promise((resolve, reject) => {
+          const _server = http.createServer((req, res) => {
+            this.handleRequest(req, res, config);
+            //   // LINT: unreachable code removed});
+            server.listen(config.port, () => {
         this.servers.set(config.name, server);`
-        logger.info(` Mock ${config.name} service started on port ${config.port}`);
+        logger.info(` Mock $config.nameservice started on port $config.port`);
         resolve();
       });`
       server.on('error', (error) => {'
   if(error.code === 'EADDRINUSE') {'
-          logger.warn(` Port ${config.port} in use, trying next port...`);
+          logger.warn(` Port $config.portin use, trying next port...`);
           config.port++;
           this.startMockService(config).then(resolve).catch(reject);
         } else {
@@ -97,12 +114,11 @@ startMockService(config);
     } else {
       // Default health check`
   if(url.pathname === '/api/health' ?? url.pathname === '/health') {'
-        res.writeHead(200, { 'Content-Type');
+        res.writeHead(200, 'Content-Type');
         res.end(;'
-        JSON.stringify({ status: 'healthy',
+        JSON.stringify(status: 'healthy',
         service: config.name,)
         timestamp: new Date().toISOString()
-  }
       //       
     //     }
 // else
@@ -118,12 +134,11 @@ startMockService(config);
   async;
   handleEndpoint(req, res, endpoint);
   try {'';'
-      req.on('data', (chunk) => {
-        body += chunk.toString();
-      } catch (error) { console.error(error); });'
-      req.on('end', async() => {
+      req.on('data', (chunk) => 
+        body += chunk.toString();catch (error) console.error(error); );'
+      req.on('end', async() => 
         try {
-          const _requestData = body ? JSON.parse(body) : {} catch (error) { console.error(error); };
+          const _requestData = body ? JSON.parse(body) : {} catch (error) console.error(error); ;
 // const _response = awaitendpoint.handler(requestData, req.url);'
           res.writeHead(response.status  ?? 200, { 'Content-Type');
           res.end(JSON.stringify(response));
@@ -132,8 +147,7 @@ startMockService(config);
           res.writeHead(500, { 'Content-Type');
           res.end(JSON.stringify({ error));
         //         }
-      });
-    } catch(error) {'
+      });catch(error) '
       logger.error(` Request handling error);``
       res.writeHead(500, { 'Content-Type');
       res.end(JSON.stringify({ error));
@@ -146,10 +160,10 @@ startMockService(config);
     // { // LINT: unreachable code removed'
         path: '/auth/service-token','
         method: 'POST',
-        handler: async(_data) => ({
+        handler: async(_data) => (
           status,
           data: {'
-            token: `mock_business_token_${Date.now()}`,
+            token: `mock_business_token_$Date.now()`,
             expires_in }
 // }
   ),
@@ -182,10 +196,10 @@ createCoreEndpoints();
     // { // LINT: unreachable code removed`
         path: '/auth/service-token','
         method: 'POST',
-        handler: async(_data) => ({
+        handler: async(_data) => (
           status,
-          data: {'
-            token: `mock_core_token_${Date.now()}`,
+          data: '
+            token: `mock_core_token_$Date.now()`,
             expires_in }
 }
 // }
@@ -193,7 +207,7 @@ createCoreEndpoints();
 {}`
   path: '/api/workflows/register','
   method: 'POST',
-  handler: async(_data) => ({
+  handler: async(_data) => (
           status,'
   workflow_id: data.workflow_id  ?? `workflow_${Date.now()}`,`
   status: 'registered',
@@ -209,94 +223,124 @@ createCoreEndpoints();
                 status: data.status  ?? 'updated',
                 progress_percentage: data.progress_percentage  ?? 100}
 // }
-} } ]
+} }
+            ]
 // }
 
 /** Create swarm service mock endpoints; */
 
-  createSwarmEndpoints() {}
-// {
-  // return [;
-    // { // LINT: unreachable code removed'
-        path: '/auth/service-token','
-        method: 'POST',
-        handler: async(_data) => ({
-          status,
-          data: {'
-            token: `mock_swarm_token_${Date.now()}`,
-            expires_in }
-}
-// }
+  createSwarmEndpoints()
+            {
+            }
+            // {
+            // return [;
+            // { // LINT: unreachable code removed'
+            path: '/auth/service-token','
+            method: 'POST', handler;
+            : async(_data) => (
+            {
+              status, data;
+              :
+              {
+                '
+            token: `mock_swarm_token_$Date.now()`,
+            expires_in
+              }
+            }
+            // }
 
-{}`
+            {
+            }
+            `
   path: '/api/swarms/initialize','
   method: 'POST',
-  handler: async(_data) => ({
+  handler: async(_data) => (
           status,'
-  swarm_id: data.swarm_id  ?? `swarm_${Date.now()}`,`
-  topology: data.topology  ?? 'hierarchical','
-  status: 'initialized' }) },
+  swarm_id: data.swarm_id  ?? `;
+            swarm_$;
+            {
+              Date.now();
+            }
+            `,`;
+            topology: data.topology  ?? 'hierarchical','
+            status: 'initialized';
+          });
+        }
+        ,
 // {'
   path: '/api/swarms/spawn-agents','
   method: 'POST',
-  handler: async(data, _url) => {
-//           return {
-            status,'
-                spawned_agents: (data.agent_types  ?? ['agent1', 'agent2']).map((type) => ({'
-                  id: `${type}_${Date.now()}`,
+  handler: async(data, _url) =>
+        {
+          //           return {
+          status,'
+          spawned_agents: (data.agent_types  ?? ['agent1', 'agent2']).map((type) => ({'
+                  id: `$type_$Date.now()`,
                   type,`
-                  status: 'active')) }
-// }
-
-} } ]
+                  status: 'active')) ]
 // }
 
 /** Create development service mock endpoints; */
 
-  createDevelopmentEndpoints() {}
+  createDevelopmentEndpoints() 
 // {
   // return [;
     // { // LINT: unreachable code removed'
         path: '/auth/service-token','
         method: 'POST',
-        handler: async(_data) => ({
+        handler: async(_data) => (
           status,
-          data: {'
-            token: `mock_development_token_${Date.now()}`,
+          data: '
+            token: `mock_development_token_$Date.now()`,
             expires_in }
-}
-// }
+        }
+        // }
 
-{}`
+        {
+        }
+        `
   path: '/api/vision-to-code/initialize','
   method: 'POST',
-  handler: async(_data) => ({
+  handler: async(_data) => (
           status,'
-  session_id: data.session_id  ?? `session_${Date.now()}`,`
-  status: 'initialized',
-  workspace: data.workspace }) },
+  session_id: data.session_id  ?? `;
+        session_$;
+        {
+          Date.now();
+        }
+        `,`;
+        status: 'initialized', workspace;
+        : data.workspace
+      }
+      )
+    }
+    ,
 // {'
   path: '/api/vision-to-code/analyze','
   method: 'POST',
-  handler: async(_data, _url) => {
-//           return {
-            status,'
-                  complexity: 'medium','
-                  estimated_time: '2 hours','
-                  components: ['header', 'main', 'footer']}
-// }
-} } ]
+  handler: async(_data, _url) =>
+    {
+      //           return {
+      status,'
+      complexity: 'medium','
+      estimated_time: '2 hours','
+      components: ['header', 'main', 'footer'];
+    }
+    // }
+  }
+}
+]
 // }
 
 /** Stop all mock services; */
 
 // async stopMockServices() {}
 '
-  logger.info(' Stopping mock services...');
-  for(const [name, server] of this.servers) {
+  logger.info(' Stopping mock services...')
+for(const [name, server] of this.servers) {
   // // await new Promise((resolve) => {
       server.close(() => {'
-        logger.info(` Mock ${name} service stopped`); resolve(); }) {;
+        logger.info(` Mock $nameservice stopped`); resolve(); }) {;
     });
   //   }
   this.servers.clear();
@@ -309,7 +353,7 @@ createCoreEndpoints();
 /** Tests all critical infrastructure components; */
 
 // export class InfrastructureTestSuite {
-  constructor() {'
+  constructor() '
     this.logger = new Logger('InfrastructureTests');
     this.mockServices = new MockServiceManager();
     this.testResults = {
@@ -375,7 +419,7 @@ catch(error)
     // Test querying
 // const _services = awaitkuzu.queryServices({ name);
   if(services.length > 0) {'
-      this.testResults.kuzu = { passed, mode: 'real' };'
+      this.testResults.kuzu = passed, mode: 'real' ;'
       this.logger.info(' Kuzu integration test passed(REAL MODE)');
     } else {'
       throw new Error('Query returned no results');
@@ -425,10 +469,10 @@ testNeuralIntegration();
     //   // LINT: unreachable code removed}
       } else'
         this.logger.warn(' Neural engine running with stub bindings');'
-        this.testResults.neural = { passed, bindingType: 'STUB' };
-    } catch(error) {'
+        this.testResults.neural = passed, bindingType: 'STUB' ;
+    } catch(error) '
       this.logger.error(' Neural integration test failed);'
-      this.testResults.neural = { passed, error: error.message };
+      this.testResults.neural = passed, error: error.message ;
     //     }
 // }
 
@@ -445,7 +489,7 @@ testServiceCommunication();
       const _authTests = [];
       for (const [serviceName, url] of Object.entries(serviceInfo.serviceUrls)) {
         authTests.push(this.testServiceAuth(serviceName.toLowerCase(), url)); //       }
- catch (error) { console.error(error); }// const _authResults = awaitPromise.allSettled(authTests); '
+ catch (error) console.error(error); 
       const _successfulAuths = authResults.filter((r) {=> r.status === 'fulfilled').length;
   if(successfulAuths >= 3) {
         // At least 3 out of 4 services
@@ -454,7 +498,7 @@ testServiceCommunication();
           successfulServices,
           totalServices: authResults.length };
         this.logger.info(;)'
-          ` Service communication test passed(${successfulAuths}/${authResults.length} services)`;
+          ` Service communication test passed($successfulAuths/${authResults.length} services)`;
         );
       //       }
 // else`
@@ -463,7 +507,7 @@ testServiceCommunication();
 catch(error)
 // {`
   this.logger.error(' Service communication test failed);'
-  this.testResults.services = { passed, error: error.message };
+  this.testResults.services = passed, error: error.message ;
 // }
 // finally
 // {
@@ -533,7 +577,7 @@ testEndToEndIntegration();
   Only;
   \$;
   passedSteps;`
-//  \$).3;S`aaadeeeeeeggghiiiilnnnnnooppprrsssssttttttt{{}};`
+//  \$).3;S`aaadeeeeeeggghiiiilnnnnnooppprrsssssttttttt;`
 // }
 catch(error)
 // {`
@@ -544,7 +588,7 @@ catch(error)
 
 /** Calculate overall infrastructure score; */
 
-  calculateScore() {}
+  calculateScore() 
 // {
   const _weights = {
     kuzu, // 30% - Database is critical
@@ -570,47 +614,41 @@ generateRecommendations();
 // {
   const _recommendations = [];
   if(!this.testResults.kuzu.passed) {'
-    recommendations.push({ priority: 'HIGH','
+    recommendations.push(priority: 'HIGH','
     component: 'Kuzu Database','
     issue: 'Database integration failed','
     action: 'Install Kuzu database and verify connection strings'
-  }
 // }
 // else'
   if(this.testResults.kuzu.mode === 'simulation') {'
-  recommendations.push({ priority: 'MEDIUM','
+  recommendations.push(priority: 'MEDIUM','
   component: 'Kuzu Database','
   issue: 'Running in simulation mode','
   action: 'Install real Kuzu database for production performance'
-  }
 // }
   if(!this.testResults.neural.passed) {'
-  recommendations.push({ priority: 'HIGH','
+  recommendations.push(priority: 'HIGH','
   component: 'Neural Networks','
   issue: 'Neural integration failed','
   action: 'Build ruv-FANN bindings and verify model loading'
-  }
 } else'
   if(this.testResults.neural.bindingType === 'STUB') {'
-  recommendations.push({ priority: 'MEDIUM','
+  recommendations.push(priority: 'MEDIUM','
   component: 'Neural Networks','
   issue: 'Using stub neural bindings','
   action: 'Compile native or WASM ruv-FANN bindings for real ML performance'
-  }
 // }
   if(!this.testResults.services.passed) {'
-  recommendations.push({ priority: 'HIGH','
+  recommendations.push(priority: 'HIGH','
   component: 'Service Communication','
   issue: 'Service communication failed','
   action: 'Fix network configuration and service authentication'
-  }
 // }
   if(!this.testResults.integration.passed) {'
-  recommendations.push({ priority: 'CRITICAL','
+  recommendations.push(priority: 'CRITICAL','
   component: 'System Integration','
   issue: 'End-to-end integration failed','
   action: 'Review system architecture and component dependencies'
-  }
 // }
 // return recommendations;
 //   // LINT: unreachable code removed}

@@ -19,14 +19,23 @@ Team;
 0.0;
 
 '
+
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import { describe, expect } from '@jest';
+
 '
+
 import packageJson from '../../package.json';
 
 assert;
@@ -51,9 +60,8 @@ describe('CLI Basic Tests', () =>
 
 /** Basic test to ensure test framework is working; */
 '
-  test('should pass basic test', () => {
-    expect(true).toBe(true);
-  });
+  test('should pass basic test', () => 
+    expect(true).toBe(true););
 
 /** Verifies that the CLI executable exists at expected location; */
 '

@@ -30,7 +30,7 @@ async function testWebInterface() {
     // Check for JavaScript errors and logs
     const _errors = [];
     const _logs = [];'
-    page.on('console', (msg) => {'
+    page.on('console', (msg) => '
       if(msg.type() === 'error') {'
         console.warn(' Console error:', msg.text());
         errors.push(msg.text());'
@@ -39,10 +39,9 @@ async function testWebInterface() {
         logs.push(msg.text());
       //       }
     });'
-    page.on('pageerror', (error) => {'
+    page.on('pageerror', (error) => '
       console.warn(' Page error);'
-      errors.push(error.message);
-    });
+      errors.push(error.message););
     // Check if sidebar buttons exist'
 // const _sidebarButtons = awaitpage.locator('.menu-item').count();'
     console.warn(' Sidebar buttons found);'

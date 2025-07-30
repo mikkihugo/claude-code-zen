@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 /** Install Claude optimized template files; */
@@ -21,7 +23,7 @@ const _manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
 if(!fs.existsSync(DEST_DIR)) {
   fs.mkdirSync(DEST_DIR, {recursive = path.join(DEST_DIR, dirInfo.path);
   if(!fs.existsSync(destPath)) {'
-    fs.mkdirSync(destPath, {recursive = path.join(destPath, 'README.md');
+    fs.mkdirSync(destPath, recursive = path.join(destPath, 'README.md');
     if(!fs.existsSync(readmePath)) {
       fs.writeFileSync(;
       readmePath,'
@@ -43,7 +45,7 @@ const _errorCount = 0;
         fs.mkdirSync(destDir, {recursive = ''
 console.warn('InstallationSummary = manifest.files.filter(;'))
     (_f) => f.category === category && fs.existsSync(path.join(DEST_DIR, f.destination))).length;'
-  console.warn(`${category} catch (error) { console.error(error); });`
+  console.warn(`$categorycatch (error) console.error(error); );`
 // }
 
 // Verify installation
@@ -55,7 +57,7 @@ console.warn('InstallationSummary = manifest.files.filter(;'))
   fs.writeFileSync(;)'
     path.join(__dirname, '.installed'),'
     `Installed: $timestamp\nVersion: $manifest.version\n`);
-} else {`
+} else `
   console.warn('\n  Template installation completed with errors.');'
   console.warn('Please check the error messages above and ensure source files exist.');
 // }

@@ -33,7 +33,7 @@ memory/agents/;
 5. **Cleanup**: Remove directories for terminated agents periodically
 
 ## Last Updated;
-${new Date().toISOString()}`
+$new Date().toISOString()`
 `;`
 // }
 // export function createSessionsReadme() {`

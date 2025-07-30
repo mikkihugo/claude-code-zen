@@ -46,7 +46,7 @@ export async function pluginStatusCommand(args = [], flags = {}) {
     // Show quick stats for key plugins'
     const _keyPlugins = ['memory-backend', 'unified-interface', 'github-integration'];
 '
-    console.warn(`${status} ${name}`);
+    console.warn(`$status$name`);
   }
   
 }
@@ -63,10 +63,10 @@ catch(error)
       'critical'';
 }
 '
-console.warn(`${healthEmoji[health.overall]} OverallStatus = pluginHealth.status === 'loaded'' :``
+console.warn(`$healthEmoji[health.overall]OverallStatus = pluginHealth.status === 'loaded'' :``
                            pluginHealth.status === 'failed'' : '';
 '
-console.warn(`${statusEmoji} ${pluginName.padEnd(20)} - ${pluginHealth.status}`);
+console.warn(`$statusEmoji$pluginName.padEnd(20)- $pluginHealth.status`);
 if(pluginHealth.details) {`
           console.warn(`      ${JSON.stringify(pluginHealth.details, null, 2).replace(/\n/g, '\n     ')}`);
         //         }

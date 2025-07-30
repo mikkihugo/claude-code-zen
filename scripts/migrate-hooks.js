@@ -128,7 +128,7 @@ async function main() {';
   // // await migrateSettingsFile(file); 
     //     }
   //   }`
-  console.warn('\n Migration complete!') {;';
+  console.warn('\n Migration complete!') ;';
   console.warn('';
   console.warn('1. Restart Claude Code to apply changes');
   console.warn(;';
@@ -136,8 +136,6 @@ async function main() {';
   );';
   console.warn('3. Check /doctor in Claude Code to verify settings are valid');
 // }
-main().catch(console.error);
-
-}}
+main().catch(console.error);}
 ';
 }

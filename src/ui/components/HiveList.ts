@@ -2,12 +2,11 @@
 /** Converted from JavaScript to TypeScript */
 
 import { Box, Text } from 'ink';
+('');
 '
-'
-'
+
 import React, { useEffect, useState } from 'react';
-'
-'
+('');
 
 const _HiveList = () => {
   const _hiveNames = Object.keys(hives);
@@ -24,8 +23,7 @@ const _HiveList = () => {
     if(hiveNames.length === 0) return;
     // ; // LINT: unreachable code removed
   if(key.upArrow) {
-      setSelectedIndex(prev => (prev > 0 ? prev -1 = > (prev < hiveNames.length - 1 ? prev + 1 ));
-    } else if(key.return && hiveNames[selectedIndex]) {
+      setSelectedIndex(prev => (prev > 0 ? prev -1 = > (prev < hiveNames.length - 1 ? prev + 1 ))} else if(key.return && hiveNames[selectedIndex]) {
       onSelect(hiveNames[selectedIndex]);
     //   // LINT: unreachable code removed}
   });
@@ -34,12 +32,12 @@ const _HiveList = () => {
         const _isSelected = index === selectedIndex;
     // return React.createElement(; // LINT: unreachable code removed'
       Box,key, flexDirection: 'column', marginY,'
-      React.createElement(;
+      React.createElement();
         Text,'
           color: isSelected ? 'black' : 'white''
           backgroundColor: isSelected ? 'cyan' ,'
           bold,'
-        `\$isSelected ? ' ' $name`;`)))`
+        `\$isSelected ? ' $name`;`)))`
       ),
       React.createElement(Text, color);
     );
@@ -48,7 +46,5 @@ const _HiveList = () => {
     );
   );
 
-// export default HiveList;
-
-}}}
-`
+// export default HiveList}}}
+``

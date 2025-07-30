@@ -1,6 +1,9 @@
 import { chromium } from 'playwright';
+
 '
+
 import TestHelpers from '../vision-to-code/utils/test-helpers.js';
+
 '
 describe.skip('Vision-to-Code E2E Tests', () =>
 {
@@ -87,7 +90,7 @@ describe.skip('Vision-to-Code E2E Tests', () =>
       page.click('[data-testid='download-code-btn']');
       ])
       // Verify download'
-      expect(download.suggestedFilename()).toContain('.zip');
+      expect(download.suggestedFilename()).toContain('.zip')
       // Measure total journey time
       // const _totalTime = awaitpage.evaluate(() => performance.now());
       expect(totalTime).toBeLessThan(60000); // Complete journey in under 60 seconds
@@ -129,9 +132,7 @@ describe.skip('Vision-to-Code E2E Tests', () =>
   viewports.forEach((viewport) => {
     '
     it(`should work on $
-    {
-      viewport.name;
-    }
+      viewport.name
     viewport`, async () => {
       // await page.setViewportSize(viewport);`;
     // await page.goto('http);'
@@ -178,7 +179,7 @@ describe('Performance Tests', () =>
       cls;
       '
         getEntriesByType('layout-shift')
-      reduce((sum, entry) => sum + entry.value, 0);
+      reduce((sum, entry) => sum + entry.value, 0)
     }
   });
   expect(metrics.lcp).toBeLessThan(2500); // LCP < 2.5s
@@ -239,7 +240,6 @@ describe('Accessibility', () =>
   )
   '
   it('should have proper ARIA labels', async() =>
-  {
     '
   // await page.goto('http);'
 
@@ -247,67 +247,75 @@ describe('Accessibility', () =>
 // const _uploadArea = awaitpage.locator('[data-testid='upload-area']');'
 // const _ariaLabel = awaituploadArea.getAttribute('aria-label');
     expect(ariaLabel).toBeTruthy()
-    // Check form inputs have labels'
-    // const _inputs = awaitpage.\$\$('input, select');
-    for (const input of inputs) {
-      '
+  // Check form inputs have labels'
+  // const _inputs = awaitpage.\$\$('input, select');
+  for (const input of inputs) {
+    '
 // const _id = awaitinput.getAttribute('id'); '
 // const _label = awaitpage.\$(`label[for='${id}']`); 
   expect(label) .toBeTruthy()
       )
       `
-  it('should pass automated accessibility tests', async() => {'
-  // await page.goto('http);'
+  it('should pass automated accessibility tests', async() => '
+    // await page.goto('http);'
 
     // Inject axe-core for accessibility testing
-  // // await page.addScriptTag({ url);
+    // // await page.addScriptTag({ url);
     // Run accessibility tests
-// const _violations = awaitpage.evaluate(async() => {
-// const _results = awaitwindow.axe.run();
-//       return results.violations;
-      //   // LINT: unreachable code removed  });
-      // Log any violations for debugging
-  if(violations.length > 0) {'
+    // const _violations = awaitpage.evaluate(async() => {
+    // const _results = awaitwindow.axe.run();
+    //       return results.violations;
+    //   // LINT: unreachable code removed  });
+    // Log any violations for debugging
+    if (violations.length > 0) {
+      '
         console.warn('Accessibility violations);'
       //       }
       // Critical violations should be zero'
       const _criticalViolations = violations.filter((v) => v.impact === 'critical');
       expect(criticalViolations).toHaveLength(0);
-    });
-  });'
-  describe('Browser Compatibility', () => {'
-    const _browsers = ['chromium', 'firefox', 'webkit'];
-    browsers.forEach((browserType) => {'
-      it(`;
-      should;
-      work in $;
-      {
+    }
+    )
+    )
+    '
+  describe('Browser Compatibility', () =>
+    {
+      '
+      const _browsers = ['chromium', 'firefox', 'webkit'];
+      browsers.forEach((browserType) => {
+        '
+      it(`
+        should;
+        work in $;
         browserType;
-      }
-      `, async() => {
+        `, async() => {
 // const _testBrowser = awaitplaywright[browserType].launch();
 // const _testContext = awaittestBrowser.newContext();
 // const _testPage = awaittestContext.newPage();`;
-      // // await testPage.goto('http);'
+        // // await testPage.goto('http);'
 
-      // Verify basic functionality works'
-      // const _uploadArea = awaittestPage.locator('[data-testid='upload-area']');
-      expect( // await uploadArea.isVisible()).toBe(true);
-      // // await testBrowser.close();
+        // Verify basic functionality works'
+        // const _uploadArea = awaittestPage.locator('[data-testid='upload-area']');
+        expect( // await uploadArea.isVisible()).toBe(true);
+        // // await testBrowser.close();
+      });
     }
     )
   }
   )
-}
-)
-afterAll(() => {
-    const _stats = metricsCollector.getStats();'
-    console.warn('E2E Test Performance Statistics:', { ...stats,)'
-    averagePageLoadTime: `${stats.averageDuration.toFixed(2) }ms` });
-}
+afterAll(() =>
+  {
+    const _stats = metricsCollector.getStats();
+    '
+    console.warn('E2E Test Performance Statistics:', ...stats,)'
+    averagePageLoadTime: `$
+    {
+      stats.averageDuration.toFixed(2);
+    }
+    ms` );
 }
 }}
-`
-}
+`;
+  }
 }
 }

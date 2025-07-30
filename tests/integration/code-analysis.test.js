@@ -2,9 +2,13 @@
 /** Tests the basic functionality of the code analysis integration; */
 
 import { mkdir, rm } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);

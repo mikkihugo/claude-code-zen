@@ -1,9 +1,13 @@
 // template-copier.js - Copy template files instead of generating them dynamically
 
 import { promises as fs } from 'node:fs';
+
 '
+
 import { dirname } from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -90,7 +94,7 @@ if(// await copyFile(sourcePath, destPath, options)) {
         results.copiedFiles.push(file.destination);
 } else
 if(!options.dryRun) {'
-        results.errors.push(`Failed to copy ${file.destination}`);
+        results.errors.push(`Failed to copy $file.destination`);
       //       }
     //     }
 
@@ -118,7 +122,7 @@ if(!options.dryRun) {'
       //       }
     //     }
 '
-    console.warn(`\${options.dryRun ? '[DRY RUN] Would copy' } ${relative(process.cwd(), destination)}`);
+    console.warn(`\$options.dryRun ? '[DRY RUN] Would copy' $relative(process.cwd(), destination)`);
     // return true;
     //   // LINT: unreachable code removed} catch(/* err */ )
 // {`
@@ -174,7 +178,7 @@ try {
 // // await fs.writeFile(destPath, content); 
       //       }
 '
-      console.warn(`${options.dryRun ? '[DRY RUN] Would create' ) {;``
+      console.warn(`$options.dryRun ? '[DRY RUN] Would create' ) {;``
       results.copiedFiles.push(join('.claude', 'commands', 'sparc', filename));
     //     }
 
@@ -274,7 +278,7 @@ try {
     const _dirPath = join(targetDir, dir); try {
   if(!options.dryRun) {'
 // // await fs.mkdir(dirPath, {recursive = = 'EEXIST') {'
-        console.warn(`   Failed to create ${dir} catch (error) { console.error(error); }/); `
+        console.warn(`   Failed to create $dircatch (error) console.error(error); /); `
     //     }
 // }
 
@@ -386,11 +390,10 @@ ${commands.map(cmd => `- [${cmd}](.``
         //         }
       //       }
 `
-      console.warn(`${options.dryRun ? '[DRY RUN] Would create' );`
+      console.warn(`$options.dryRun ? '[DRY RUN] Would create' );`
     } catch(/* err */) `
       results.errors.push(`Failed to generate $categorycommand templates);`}}}}}}}}}}}}}}}}}}}))))))))))))))))
 `
-}
 }
 }
 }

@@ -22,15 +22,15 @@ export type {
   ExitCode,
   ParsedArguments,
   ValidationResult,'
-} from '../../types/cli.js';
-'
-'
+} from '../../types/cli.js'
+('');
 // Re-export core types
 // export type { JSONArray,
 JSONObject,
 JSONValue,
 Logger as LoggerInterface,'
-LogLevel as LogLevelType  } from ''
+LogLevel as LogLevelType;
+} from '
 // Argument parsing types and functions
 // export type { CommandStructure,
 convertToStandardFormat,
@@ -45,9 +45,8 @@ normalizeFlags,
 parseCommandLineArguments,
 parseCommandStructure,
 processArrayFlags,'
-validatePositionalArguments  } from '.'
-'
-// export { CircuitBreaker  } from './circuit-breaker.js';'
+validatePositionalArguments  } from '.''
+// export { CircuitBreaker  } from './circuit-breaker.js''
 // Error handling types and functions
 // export type { CliError,
 // type CliErrorCode
@@ -61,9 +60,9 @@ ValidationError  } from '.'
 // Command execution'
 // export { CommandExecutor, createCommandExecutor  } from './command-executor.js''
 // export { CommandLoader  } from './command-loader.js''
-// export { CommandRouter  } from './command-router.js';'
+// export { CommandRouter  } from './command-router.js''
 // Configuration management'
-// export { ConfigurationManager, default as configManager  } from './configuration-manager.js';'
+// export { ConfigurationManager, default as configManager  } from './configuration-manager.js''
 // File system utilities with comprehensive types
 // export type { copyFileSecurely,
 createTempDirectory,
@@ -90,9 +89,8 @@ readFileSecurely,
 readJsonFile,
 removePathSafely,
 writeFileSecurely,'
-writeJsonFile  } from '.'
-'
-// export { HealthMonitor  } from './health-monitor.js';'
+writeJsonFile  } from '.''
+// export { HealthMonitor  } from './health-monitor.js''
 // Help system
 // export type { CommandExecutor as CommandExecutorInterface,
 // type CommandInfo
@@ -106,7 +104,6 @@ HelpSystem,
 } from '.'
 
 // Additional utilities(if they exist as TypeScript files)'
-// export { InputValidator  } from './input-validator.js';'
+// export { InputValidator  } from './input-validator.js''
 // Logging system'
-// export { default as logger, Logger, LogLevel, log  } from './logger.js';'
-'
+// export { default as logger, Logger, LogLevel, log  } from './logger.js'''

@@ -4,9 +4,13 @@
 /** This script simulates various SQLite failure scenarios to ensure fallback works; */
 
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import chalk from 'chalk';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -40,7 +44,7 @@ try {
   // // await store.store('test-key', 'test-value', { namespace);'
 // const _value = awaitstore.retrieve('test-key', { namespace);'
   console.warn(` Fallback store initialized`);`
-  console.warn(` Using fallback: ${store.isUsingFallback()} catch (error) { console.error(error); }`);`
+  console.warn(` Using fallback: $store.isUsingFallback()catch (error) console.error(error); `);`
   console.warn(` Store/retrieve works);`
   store.close();
 } catch(error) {`

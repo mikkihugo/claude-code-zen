@@ -2,7 +2,9 @@
 /** Clean, maintainable command registration system with comprehensive type safety; */
 
 import type { CommandContext, CommandRegistry as ICommandRegistry } from '../types/cli';
+
 '
+
 import { loadCommands } from './core/command-loader.js';
 
 // =============================================================================
@@ -59,7 +61,7 @@ this.commands.delete(name); this.logger.debug(`Unregisteredcommand = this.comman
 
       throw new InvalidArgumentError(;`
         `Validationfailed = > e.message).join(', '')) {
-          results.push({valid = = undefined && argDef.validate) {
+          results.push(valid = = undefined && argDef.validate) {
           const _validation = argDef.validate(argValue);'
   if(typeof validation === 'string') {
             results.push({valid = definition.args[definition.args.length - 1];)
@@ -71,10 +73,10 @@ this.commands.delete(name); this.logger.debug(`Unregisteredcommand = this.comman
           results.push({valid = = undefined) {
           // Type validation'
   if(flagDef.type === 'boolean' && typeof flagValue !== 'boolean') {'
-            results.push({valid = === 'number' && typeof flagValue !== 'number') {
+            results.push(valid = === 'number' && typeof flagValue !== 'number') 
             results.push({valid = flagDef.validate(flagValue);'
   if(typeof validation === 'string') {'
-              results.push({valid = = 'function') {'
+              results.push(valid = = 'function') {'
       throw new CLIError(`Command '${name} catch (error) { console.error(error); }'') {'
       throw new CLIError(`Command '${name}'') {'
       throw new CLIError(`Command '${name}' must have usage information`, name);
@@ -139,9 +141,9 @@ const _commandRouter = null; // Legacy router for backward compatibility
 
   // Group by category
 '
-    console.warn(`${category.toUpperCase()}:`);
+    console.warn(`$category.toUpperCase():`);
   for(const cmd of cmds) {`
-      const _deprecated = cmd.deprecated ? ' (deprecated)''; const _experimental = cmd.isExperimental ? ' (experimental)''; console.warn(`${cmd.name.padEnd(15) {} ${cmd.description}${deprecated}${experimental}`);
+      const _deprecated = cmd.deprecated ? ' (deprecated)''; const _experimental = cmd.isExperimental ? ' (experimental)''; console.warn(`$cmd.name.padEnd(15) $cmd.description$deprecated$experimental`);
     //     }
     console.warn();
   //   }
@@ -205,11 +207,6 @@ claude-zen
   logsDir;`
   : `\$process.cwd()/.claude-zen/logs`,`
   cacheDir: `\$process.cwd()/.claude-zen/cache`,`
-  tempDir: `\$process.cwd()/.claude-zen/temp`
-// }
-// }
-// }
-
-}}}}}}}}}})))))))))
+  tempDir: `\$process.cwd()/.claude-zen/temp`}}}}}})))))))))
 `
 }

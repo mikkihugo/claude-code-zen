@@ -14,7 +14,7 @@ export class AutoSaveMiddleware {
 
     /** Start auto-save monitoring */
 
-  start() {
+  start() 
   if(this.isActive) {
       return;
       //   // LINT: unreachable code removed}
@@ -29,16 +29,14 @@ export class AutoSaveMiddleware {
       process.on('beforeExit', () => {
         this.performAutoSave();
       });'
-      process.on('SIGINT', async() => {'
+      process.on('SIGINT', async() => '
         console.warn('\n\nReceived SIGINT, cleaning up...');
 // await this.cleanup();
-        process.exit(0);
-      });'
-      process.on('SIGTERM', async() => {'
+        process.exit(0););'
+      process.on('SIGTERM', async() => '
         console.warn('\n\nReceived SIGTERM, cleaning up...');
 // await this.cleanup();
-        process.exit(0);
-      });
+        process.exit(0););
     //     }
 
 /** Stop auto-save monitoring */
@@ -113,7 +111,7 @@ performAutoSave();
   if(!acc[change.type]) {
           acc[change.type] = [];
         //         }
-         catch (error) { console.error(error); }acc[change.type].push(change);
+         catch (error) console.error(error); acc[change.type].push(change);
 //         return acc;
     //   // LINT: unreachable code removed}, {});
 
@@ -146,7 +144,7 @@ performAutoSave();
 
 /** Clean up all resources and child processes */
 
-  async cleanup() { 
+  async cleanup() 
 // try
       // Stop the save timer
   if(this.saveTimer) {
@@ -197,5 +195,4 @@ performAutoSave();
 }
 })
 '
-}
 }

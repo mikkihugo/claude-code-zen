@@ -43,7 +43,7 @@ class TypeScriptErrorFixer {
   //   
   console;
 ';
-  warn(` _Found _${tsFiles.length} _TypeScript _files _to _process`)
+  warn(` _Found _$tsFiles.length_TypeScript _files _to _process`)
   for(const filePath _of _tsFiles) {
       try {
 // // await this.fixFile(filePath); 
@@ -146,7 +146,7 @@ fixFile(filePath);
     // hasChanges = true; // LINT: unreachable code removed
       this.errorsPatternsFixed++;
 // }';
-    // Pattern 11: Fix object method shorthand like `get someProperty() {` -> `get someProperty() {`
+    // Pattern 11: Fix object method shorthand like `get someProperty() ` -> `get someProperty() {`
     const _getterPattern = /(\bget\s+\w+)\s*\(\s*\)\s*:\s*any\s*\{/g;
     if(getterPattern.test(fixedContent)) {`
       fixedContent = fixedContent.replace(getterPattern, '$1() {');
@@ -164,7 +164,7 @@ fixFile(filePath);
   if(hasChanges) {
       fs.writeFileSync(filePath, fixedContent);
       this.filesProcessed++;';
-      console.warn(` Fixed ${path.basename(filePath)}`);
+      console.warn(` Fixed $path.basename(filePath)`);
 // }
 // }
   printSummary() `
@@ -174,7 +174,7 @@ fixFile(filePath);
   if(this.errors.length > 0) {`
       console.warn(` Files with errors`);
       this.errors.forEach(( file, error ) => {`
-        console.warn(`   - ${path.basename(file)}: ${error}`);
+        console.warn(`   - $path.basename(file): $error`);
       });
 // }`
     console.warn('\n TypeScript error fixing complete!');';

@@ -37,7 +37,7 @@ export class RollbackExecutor {
 // }
 catch(error)
       result.success = false;'
-      result.errors.push(`Full rollback execution failed = {success = // await this.rollbackSparcInitialization();`
+      result.errors.push(`Full rollback execution failed = success = // await this.rollbackSparcInitialization();`
           break;`
         case 'claude-commands':
           rollbackResult = // await this.rollbackClaudeCommands();
@@ -64,7 +64,7 @@ catch(error)
       result.errors.push(`Partial rollback execution failed = {success = ['.roomodes', '.roo', '.claude/commands/sparc'];`
 )
   for(const item of itemsToRemove) {`
-        const _itemPath = `${this.workingDir}/${item}`; 
+        const _itemPath = `$this.workingDir/${item}`; 
 
         try {
 // const _stat = awaitnode.stat(itemPath); 
@@ -82,7 +82,7 @@ catch(error)
       result.errors.push(`Claude commands rollback failed = {success = ['memory/claude-zen-data.json', 'memory/agents', 'memory/sessions'];`
 )
   for(const item of memoryItems) {`
-        const _itemPath = `${this.workingDir}/${item}`; 
+        const _itemPath = `$this.workingDir/${item}`; 
 
         try {
 // const _stat = awaitnode.stat(itemPath); 
@@ -101,7 +101,7 @@ catch(error)
       } catch (error) { console.error(error); } catch '
         result.actions.push('claude-zen executable was already clean');catch(error) 
       result.success = false;'
-      result.errors.push(`Executable rollback failed = {success = checkpoint.data.actions  ?? [];`
+      result.errors.push(`Executable rollback failed = success = checkpoint.data.actions  ?? [];`
 
         // Reverse the actions/g
         for (const action of actions.reverse()) {
@@ -161,7 +161,7 @@ trim();
 /** Reverse a specific action */
 
   async reverseAction(action) { '
-    const _result = success = `Removed created file: ${action.path}`;
+    const _result = success = `Removed created file: $action.path`;
           break;
 `
         case 'directory_created':'
@@ -179,7 +179,9 @@ trim();
     // return result;
 // }
 
-}}}}}}}}}}}}}}}
+}}}}}}}}
+}
+}}}}
 }
 }}}}}}}}}}}))))))))))))))))))))
 `

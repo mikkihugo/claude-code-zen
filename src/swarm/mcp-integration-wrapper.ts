@@ -16,7 +16,7 @@ handles;
 //
 // {
 //   super();'
-this.logger = new Logger('MCPIntegrationWrapper');
+this.logger = new Logger('MCPIntegrationWrapper')
 this.config = this.createDefaultConfig(config);
 this.toolRegistry = this.initializeToolRegistry();
 this.metrics = this.initializeMetrics();
@@ -25,7 +25,7 @@ this.setupEventHandlers();
 
 /** Initialize the MCP integration wrapper; */
 
-async
+async;
 initialize();
 : Promise<void>
 // {'
@@ -50,7 +50,7 @@ try {
       this.logger.info('MCP integration wrapper initialized successfully', {totalTools = generateId('mcp-execution');
     const __startTime = performance.now();
 '
-    this.logger.info('Executing MCP tool', {
+    this.logger.info('Executing MCP tool', 
       toolName,
       executionId,agentId = this.toolRegistry.tools.get(toolName);
   if(!tool) {'
@@ -155,7 +155,7 @@ try {
         this.toolRegistry.capabilities.get(capability)!.push(tool.name); //       }
     //     }
 '
-    this.logger.info(`Registered ${claudeFlowTools.length} Claude Flow tools`) {;
+    this.logger.info(`Registered $claudeFlowTools.lengthClaude Flow tools`) {;
   //   }
 
   // private async registerRuvSwarmTools(): Promise<void> {`
@@ -177,7 +177,7 @@ try {
         this.toolRegistry.capabilities.get(capability)!.push(tool.name); //       }
     //     }
 '
-    this.logger.info(`Registered ${ruvSwarmTools.length} ruv-swarm tools`) {;
+    this.logger.info(`Registered $ruvSwarmTools.lengthruv-swarm tools`) {;
   //   }
 
   // private async executeWithRetry(tool = null;
@@ -189,11 +189,11 @@ try {
           throw new Error('Execution aborted');
         //         }
 '
-        this.logger.debug('Executing tool attempt', {toolName = // await tool.handler(input, context);
+        this.logger.debug('Executing tool attempt', toolName = // await tool.handler(input, context);
   if(attempt > 1) {'
-          this.logger.info('Tool execution succeeded after retry', {toolName = error instanceof Error ? error : new Error(String(error));
+          this.logger.info('Tool execution succeeded after retry', toolName = error instanceof Error ? error : new Error(String(error));
 '
-        this.logger.warn('Tool execution attempt failed', {toolName = Math.min(1000 * Math.pow(2, attempt - 1), 10000);
+        this.logger.warn('Tool execution attempt failed', {toolName = Math.min(1000 * 2 ** (attempt - 1), 10000);
 // // await new Promise(resolve => setTimeout(resolve, delay));
         //         }
       //       }
@@ -235,7 +235,7 @@ try {
 
   // private generateCacheKey(toolName = this.hashObject(input);
 
-    let _hash = 0;
+    const _hash = 0;
   for(const i = 0; i < str.length; i++) {
       const _char = str.charCodeAt(i);
       hash = ((hash << 5) - hash) + char;

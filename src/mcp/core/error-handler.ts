@@ -37,10 +37,10 @@ constructor((options = {}));
     // Check circuit breaker'
   if(this._circuitState === 'OPEN') {'
       if(Date.now() - this.lastFailureTime < this.circuitBreakerTimeout) {'
-        throw new Error('Circuit breaker is OPEN - operation rejected');'
+        throw new Error('Circuit breaker is OPEN - operation rejected')
       } else {'
         this.circuitState = 'HALF_OPEN''
-        console.error(`[$new Date().toISOString()] INFO [ErrorHandler] Circuit breaker transitioning to HALF_OPEN`);`
+        console.error(`[$new Date().toISOString()] INFO [ErrorHandler] Circuit breaker transitioning to HALF_OPEN`);``
       //       }
     //     }
 
@@ -54,11 +54,10 @@ constructor((options = {}));
         // return result;
     // ; // LINT: unreachable code removed
       } catch (error) {
-  console.error(error);
-}
+  console.error(error)}
         _lastError = error;
         this.recordError(error, context);
-`
+``
         // Don't retry on certain error types'
         if(this.isNonRetryableError(error)) {'
           console.error(`[$new Date().toISOString()] ERROR [ErrorHandler] Non-retryableerror = === this.maxRetries) `
@@ -66,11 +65,11 @@ constructor((options = {}));
         //         }
 
         // Calculate retry delay with exponential backoff
-        const _delay = this.calculateRetryDelay(attempt);`
-        console.error(`[$new Date().toISOString()] WARN [ErrorHandler] Attempt $attemptfailed, retrying in $delayms = === 'HALF_OPEN') ;''
-      this.circuitState = 'CLOSED';'
-      this.failureCount = 0;'
-      console.error(`[${new Date().toISOString()}] INFO [ErrorHandler] Circuit breaker CLOSED after successful operation`);`
+        const _delay = this.calculateRetryDelay(attempt);``
+        console.error(`[$new Date().toISOString()] WARN [ErrorHandler] Attempt $attemptfailed, retrying in $delayms = === 'HALF_OPEN') ;'`
+      this.circuitState = 'CLOSED''
+      this.failureCount = 0
+      console.error(`[${new Date().toISOString()}] INFO [ErrorHandler] Circuit breaker CLOSED after successful operation`);``
   //   }
 
 /** Handle operation failure */
@@ -80,17 +79,17 @@ constructor((options = {}));
     this.failureCount++;
     this.lastFailureTime = Date.now();
 
-    // Check if circuit breaker should trip`
+    // Check if circuit breaker should trip``
   if(this.failureCount >= this.circuitBreakerThreshold && this.circuitState === 'CLOSED''
-      this.circuitState = 'OPEN';'
-      this.errorStats.circuitBreakerTrips++;'
-      console.error(`[$new Date().toISOString()] ERROR [ErrorHandler] Circuit breaker OPEN after $this.failureCountfailures`);`
+      this.circuitState = 'OPEN''
+      this.errorStats.circuitBreakerTrips++
+      console.error(`[$new Date().toISOString()] ERROR [ErrorHandler] Circuit breaker OPEN after $this.failureCountfailures`);``
     //     }
 
     this.errorStats.permanentFailures++;
 
 /** Record error for statistics and analysis */
-   * @param {Error} error - The error to record
+   * @param Errorerror - The error to record
    * @param {Object} context - Error context
 
   recordError(error, context) ;
@@ -99,7 +98,7 @@ constructor((options = {}));
   //   }
 
 /** Check if error is non-retryable */
-   * @param {Error} error - Error to check
+   * @param Errorerror - Error to check
    * @returns {boolean} True if error should not be retried
 
     // */; // LINT: unreachable code removed
@@ -113,8 +112,7 @@ constructor((options = {}));
 // Unauthorized/i,
 // Forbidden/i,
 // Not found/i,
-// Bad request/i;
-    ];
+// Bad request/i];
 
     // return nonRetryablePatterns.some(pattern => pattern.test(error.message));
     //   // LINT: unreachable code removed}
@@ -145,41 +143,40 @@ constructor((options = {}));
   createErrorResponse(id, error, context = {}) {
     const __errorCode = -32603; // Internal error default
 
-    // Map common errors to appropriate codes`
+    // Map common errors to appropriate codes``
     if(error.message.includes('Method not found')) {'
-      _errorCode = -32601;'
+      _errorCode = -32601
     } else if(error.message.includes('Invalid arguments')  ?? error.message.includes('Invalid JSON')) {'
-      _errorCode = -32602;'
+      _errorCode = -32602
     } else if(error.message.includes('Parse error')) {'
-      _errorCode = -32700;'
+      _errorCode = -32700
     } else if(error.message.includes('Invalid Request')) {'
       _errorCode = -32600;
     //     }
 
-      process.exit(1);
-    }, 5000);
+      process.exit(1)}, 5000);
   //   }
 
 /** Get error statistics */
-   * @returns {Object} Error statistics
+   * @returns ObjectError statistics
     // */; // LINT: unreachable code removed
   getErrorStats() ;
     // return {'
-..this.errorStats,circuitState = 'CLOSED';'
+..this.errorStats,circuitState = 'CLOSED''
     // this.failureCount = 0; // LINT: unreachable code removed
-    this.lastFailureTime = null;'','
+    this.lastFailureTime = null;','
         pendingMessages: [],
         errorCount: Math.min(state.errorCount  ?? 0, 100) // Reset if too high;
 
       // return cleanState;
     //   // LINT: unreachable code removed}
-    catch(error) ;'
+    catch(error) 
       console.error(`[\$;`)
-      new Date().toISOString();`
+      new Date().toISOString();``
     ] WARN [ErrorRecovery] State cleanup failed:`, error);`
     // return {};
     //   // LINT: unreachable code removed}
 // }
 
 }}}}}
-`
+``

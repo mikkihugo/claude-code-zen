@@ -2,11 +2,17 @@
 /** Tests the replaced non-portable shell commands and improved error handling; */
 
 import { platform } from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import { jest } from '@jest';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -27,75 +33,72 @@ describe('Cross-Platform Portability Tests', () =>
     });
     '
     test('should handle structured error messages with error codes', async () =>
-    {
-      // Skip test if MCPToolWrapper is not available(architectural change)
-      if (!MCPToolWrapper) {
-        '
+    // Skip test if MCPToolWrapper is not available(architectural change)
+    if (!MCPToolWrapper) {
+      '
         console.warn(' MCP Wrapper not available - test skipped due to architectural change')
-        return;
-        //   // LINT: unreachable code removed}
-        const __wrapper = new MCPToolWrapper({ silent });
-        '
-        const _consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
-        // Create a mock for readline.createInterface
-        const _mockHandlers = {};
-        const _mockRlErr = {
+      return;
+      //   // LINT: unreachable code removed}
+      const __wrapper = new MCPToolWrapper({ silent });
+      '
+      const _consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
+      // Create a mock for readline.createInterface
+      const _mockHandlers = {};
+      const _mockRlErr = {
         on: jest.fn((event, handler) => {
           mockHandlers[event] = handler;
 //           return mockRlErr;
     //   // LINT: unreachable code removed}) };
       // Mock the readline module'
       jest.doMock('readline', () => ({ createInterface) => mockRlErr)   }));
-        // Simulate the error handling by calling the line handler directly'
-        // This simulates what would happen when readline emits a 'line' event
-        const _structuredError = JSON.stringify({)
+      // Simulate the error handling by calling the line handler directly'
+      // This simulates what would happen when readline emits a 'line' event
+      const _structuredError = JSON.stringify({)
         error);
-        // Import readline after mocking'
-        // const _readline = awaitimport('node);'
+      // Import readline after mocking'
+      // const _readline = awaitimport('node);'
 
-        // Create the interface(this will use our mock)
-        const __rl = readline.createInterface({ input);
-        '
-        // Get the handler that w for 'line' events'
-        const _lineHandler = mockRlErr.on.mock.calls.find((call) => call[0] === 'line')?.[1];
-        if (lineHandler) {
-          // Call the handler with our test data
-          lineHandler(structuredError);
-          // Verify the error w correctly
-          expect(consoleErrorSpy).toHaveBeenCalledWith(;
-          )'
+      // Create the interface(this will use our mock)
+      const __rl = readline.createInterface({ input);
+      '
+      // Get the handler that w for 'line' events'
+      const _lineHandler = mockRlErr.on.mock.calls.find((call) => call[0] === 'line')?.[1];
+      if (lineHandler) {
+        // Call the handler with our test data
+        lineHandler(structuredError);
+        // Verify the error w correctly
+        expect(consoleErrorSpy).toHaveBeenCalledWith(;
+        )'
     expect.stringContaining('Known ruv-swarm logger issue')
           //     
           //   }
           consoleErrorSpy.mockRestore()'
           jest.dontMock('readline')
-        }
-        )'
-        test('should fall back to pattern matching for non-JSON errors', async () =>
-        {
-          const __wrapper = new MCPToolWrapper({ silent });
-          '
-          const _consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
-          // Create a mock readline // interface
-          //       const _mockReadline = {
-          //         on: jest.fn((event, handler) => {'
-          //           if(event === 'line') {
-          //             // Simulate non-JSON error line'
-          //             handler('TypeError);'
-          //           //           }
-        }
       }
-      // Mock createInterface to return our mock'
-      jest.doMock('readline', () => ({ createInterface) => mockReadline),
+      )'
+        test('should fall back to pattern matching for non-JSON errors', async () =>
+      {
+        const __wrapper = new MCPToolWrapper({ silent });
+        '
+        const _consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
+        // Create a mock readline // interface
+        //       const _mockReadline = {
+        //         on: jest.fn((event, handler) => {'
+        //           if(event === 'line') {
+        //             // Simulate non-JSON error line'
+        //             handler('TypeError);'
+        //           //           }
+      }
+    }
+    // Mock createInterface to return our mock'
+    jest.doMock('readline', () => ({ createInterface) => mockReadline),
 //   // LINT: unreachable code removed  }));
 // The pattern matching should catch this error
 expect(consoleErrorSpy).toHaveBeenCalledWith(;
-      )'
+    )'
 expect.stringContaining('Known ruv-swarm logger issue')
       // 
       consoleErrorSpy.mockRestore()
-    }
-
   }
 
   '
@@ -139,9 +142,7 @@ expect.stringContaining('Known ruv-swarm logger issue')
   mockProcesses.forEach((proc, index) => {
     '
     ui.activeProcesses.set(`swarm-$
-    {
-      index;
-    }
+      index
     `, proc);
   });
   // Mock stopOrphanedProcesses to avoid actual process operations
@@ -188,7 +189,7 @@ const _execMock = jest.fn((cmd, callback) => {
     // {
     value,
 // configurable
-  );
+  )
 });
 }
 })'
@@ -209,8 +210,7 @@ test('should use platform-appropriate command checking', async() =>
     if(platform() === 'win32') {'
       // On Windows, should use 'where'
       try {'
-          execSync('where node', { stdio);
-        } catch (error) { console.error(error); } catch(/* _e */) '
+          execSync('where node', stdio);catch (error) console.error(error); catch(/* _e */) '
           // Command might not exist, that's ok for the test'
         //         }
       expect(execSyncSpy).toHaveBeenCalledWith(;)'
@@ -218,8 +218,7 @@ test('should use platform-appropriate command checking', async() =>
       expect.any(Object);else '
       // On Unix-like systems, should use 'command -v'
       try {'
-          execSync('command -v node', { stdio);
-        } catch (error) { console.error(error); } catch(/* _e */) '
+          execSync('command -v node', stdio);catch (error) console.error(error); catch(/* _e */) '
           // Command might not exist, that's ok for the test'
         //         }
       expect(execSyncSpy).toHaveBeenCalledWith(;)'

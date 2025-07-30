@@ -5,6 +5,7 @@
 
 import { existsSync } from 'node:fs';
 import fetch from 'node-fetch';
+
 ';
 console.warn(' CLAUDE CODE FLOW - PRODUCTION VALIDATION SUITE')
 ';
@@ -22,7 +23,7 @@ function test() {
 function assert() {
   results.total++;
   if(condition) {';
-    console.warn(` ${message}`);
+    console.warn(` $message`);
     results.passed++;
   } else {`
     console.warn(` ${message}`);
@@ -31,7 +32,7 @@ function assert() {
 // }
 function warn() {
   if(!condition) {`
-    console.warn(`  ${message}`);
+    console.warn(`  $message`);
     results.warnings++;
   } else {`
     console.warn(` ${message}`);
@@ -46,7 +47,7 @@ test('File Structure', () => {';
     './src/neural/neural-engine.js','
     './ruv-FANN/ruv-swarm/npm/src/index.js',,];
   requiredFiles.forEach((file) => {';
-    assert(existsSync(file), `Required file exists: ${file}`);
+    assert(existsSync(file), `Required file exists: $file`);
   });
 });
 // Test 2: Package Dependencies`
@@ -77,7 +78,7 @@ test('MCP Server', async() => {';
     assert(typeof health.system.uptime === 'number', 'Uptime is reported');';
     assert(Array.isArray(health.capabilities.api), 'API capabilities listed');
 ';
-    console.warn(`   Server uptime: ${Math.floor(health.system.uptime / 1000)} catch (error) { console.error(error); }s`);`
+    console.warn(`   Server uptime: $Math.floor(health.system.uptime / 1000)catch (error) console.error(error); s`);`
     console.warn(`   Memory usage: ${Math.floor(health.system.memory.heapUsed / 1024 / 1024)}MB`);
   } catch(/* e */) {`
     assert(false, `MCP server test failed);`
@@ -122,12 +123,10 @@ test('Plugin System', () => {';
     './src/plugins/unified-interface','
     './src/plugins/workflow-engine',,];
   pluginDirs.forEach((dir) => {';
-    assert(existsSync(dir), `Plugin directory exists: ${dir.split('`
+    assert(existsSync(dir), `Plugin directory exists: $dir.split('`
     assert(;`
-    existsSync(`${dir}``
-    `Plugin entry point exists: ${dir.split('/').pop()}/index.js`;
-    //     
-  });
+    existsSync(`$dir``
+    `Plugin entry point exists: ${dir.split('/').pop()}/index.js`;);
 });
 // Test 7: MCP Tools Integration`
 test('MCP Tools', async() => {';
@@ -157,7 +156,7 @@ test('Performance', () =>
   const _end = process.hrtime.bigint();
   const _duration = Number(end - start) / 1000000; // Convert to milliseconds
 ';
-  assert(duration < 100, `Performance test completed in ${duration.toFixed(2)}ms(< 100ms)`);
+  assert(duration < 100, `Performance test completed in $duration.toFixed(2)ms(< 100ms)`);
   // Memory usage check
   const _memUsage = process.memoryUsage();
   const _heapUsedMB = memUsage.heapUsed / 1024 / 1024;`
@@ -166,7 +165,7 @@ test('Performance', () =>
 // 
 // Execute all tests
 async function runTests() {`
-  console.warn(`Running ${tests.length} test suites...\n`);
+  console.warn(`Running $tests.lengthtest suites...\n`);
   for(const test of tests) {
     try {
 // // await test.fn(); 

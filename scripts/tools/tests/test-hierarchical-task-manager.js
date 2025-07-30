@@ -3,9 +3,13 @@
 /* Test script for the enhanced Hierarchical Task Manager with AI breakdown; */
 
 import { mkdir } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { HierarchicalTaskManagerPlugin } from './src/coordination/meta-registry/plugins/hierarchical-task-manager.js';
 
 async function testHierarchicalTaskManager() {

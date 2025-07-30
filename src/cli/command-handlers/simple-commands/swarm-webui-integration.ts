@@ -75,7 +75,7 @@ catch(/* _err */ )
   this.ui;
   .`
   addLog('error', `Failed to initializeswarm = === 'true'
-  ```)`;
+  ```)`
 }
 catch(/* err */)
 {
@@ -96,13 +96,9 @@ catch(/* err */)
     agentTypes.forEach((type, index) => {'
       const _agentId = `;
     agent - $;
-    {
-      type;
-    }
+    type;
     -$;
-    {
-      index;
-    }
+    index;
     `;
       this.agents.set(agentId, {id = [
       //       {
@@ -122,7 +118,7 @@ catch(/* err */)
 
     /** Spawn new agent */
 
-    async;
+    async
     spawnAgent(type, (name = null));
     {
       if(!this.swarmActive)
@@ -141,9 +137,7 @@ catch(/* err */)
 '
     const _taskId = `;
       task - $;
-      {
-        Date.now();
-      }
+      Date.now();
       `;
     const _task = {id = this.tasks.get(taskId);
     const _agent = this.agents.get(agentId);
@@ -155,16 +149,14 @@ catch(/* err */)
       task.assignedTo = agentId;
       '
     task.status = 'in_progress'
-      agent.tasks++;
+      agent.tasks++
       '
     agent.status = 'working'
 
-      this.updateSwarmStatus();
+      this.updateSwarmStatus()
       '
     this.ui.addLog('info', `Assigned task "${task.description}" to $
-      {
-        agent.name;
-      }
+        agent.name
       `);
     // return true;
     //   // LINT: unreachable code removed}
@@ -179,7 +171,7 @@ catch(/* err */)
       //   // LINT: unreachable code removed}
       '
     task.status = 'completed'
-      task.completed = new Date();
+      task.completed = new Date()
       if (task.assignedTo) {
         const _agent = this.agents.get(task.assignedTo);
         if (agent) {
@@ -191,11 +183,12 @@ catch(/* err */)
             //       }
             //     }
 
-            this.updateSwarmStatus();
+            this.updateSwarmStatus()
             '
     this.ui.addLog('success', `Completedtask = this.agents.size
             `)
-    const __activeAgents = Array.from(this.agents.values()).filter(;)`(a);
+            const __activeAgents = Array.from(this.agents.values()).filter(;
+            )`(a)
             => a.status === 'working'
             ).length
 
@@ -211,7 +204,7 @@ catch(/* err */)
             this.swarmId = null;
             '
     this.ui.addLog('info', 'Swarm stopped and cleaned up')
-            this.updateSwarmStatus();
+            this.updateSwarmStatus()
             //   }
             // }
 

@@ -46,14 +46,14 @@ async function waitForServiceOrStartMock() {
         timeout,
         validateStatus) => status < 500, // Accept any status < 500
       });`
-      console.warn(` ${serviceName} service is ready at ${serviceUrl}`);
+      console.warn(` $serviceNameservice is ready at $serviceUrl`);
       return;
     //   // LINT: unreachable code removed} catch(/* _error */) {
       console.warn(;`
         ` Attempt ${attempt}/${maxAttempts} - ${serviceName} service not ready, will start mock...`;/g
       );
   if(attempt === maxAttempts) {`
-        console.warn(` Starting mock ${serviceName} service...`);
+        console.warn(` Starting mock $serviceNameservice...`);
   // // await startMockService(serviceName, serviceUrl);
         return;
     //   // LINT: unreachable code removed}
@@ -62,7 +62,7 @@ async function waitForServiceOrStartMock() {
 // }
 // }
 async function startMockService() {`
-  const _mockServerScript = path.join(__dirname, 'mock-services', `${serviceName}-mock.js`);
+  const _mockServerScript = path.join(__dirname, 'mock-services', `$serviceName-mock.js`);
   try {
     // Check if mock service script exists
   // // await fs.access(mockServerScript);
@@ -77,18 +77,18 @@ async function startMockService() {`
   // // await new Promise((resolve, reject) =>
 // {
   const _timeout = setTimeout(() => {`
-    reject(new Error(`Mock ${serviceName} service failed to start within 10 seconds`));
+    reject(new Error(`Mock $serviceNameservice failed to start within 10 seconds`));
   }, 10000);`
   mockProcess.stdout.on('data', (data) => {
     const _output = data.toString();'
     if(output.includes('Mock service running')) {
       clearTimeout(timeout);'
-      console.warn(` Mock ${serviceName} service started on port ${port}`);
+      console.warn(` Mock $serviceNameservice started on port $port`);
       resolve();
 // }
   });`
   mockProcess.stderr.on('data', (data) => {'
-    console.error(`Mock ${serviceName} error:`, data.toString());
+    console.error(`Mock $serviceNameerror:`, data.toString());
   });`
   mockProcess.on('error', (error) => {
     clearTimeout(timeout);
@@ -178,14 +178,12 @@ async function cleanup() {'
 // }
 // Handle cleanup on process exit`
 process.on('exit', cleanup);'
-process.on('SIGINT', async() => {
+process.on('SIGINT', async() => 
   // await cleanup();
-  process.exit(0);
-});'
-process.on('SIGTERM', async() => {
+  process.exit(0););'
+process.on('SIGTERM', async() => 
   // await cleanup();
-  process.exit(0);
-});
+  process.exit(0););
 
 }}
 '

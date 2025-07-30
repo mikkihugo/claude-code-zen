@@ -60,7 +60,7 @@ try {
     // MATCH path=shortestPath((start = this.buildRelationshipPattern('both', relationshipFilter); // LINT: unreachable code removed'';
 ''; // LINT: unreachable code removed
   if(relationshipFilter) {'
-      pattern += `:${relationshipFilter}`;
+      pattern += `:$relationshipFilter`;
     //     }
   switch(direction) {`
       case 'incoming': {;'
@@ -171,7 +171,7 @@ try {
 // // await this.storeCommunityResults(communities, algorithm, modularity);
       //       }
 
-       catch (error) { console.error(error); }// return {
+       catch (error) console.error(error); 
         algorithm,
     // communities, // LINT: unreachable code removed''``
   const __edgesQuery = `;`
@@ -196,8 +196,8 @@ try {
     });
 
     // Simplified community optimization(single pass)
-    let _improved = true;
-    let _iteration = 0;
+    const _improved = true;
+    const _iteration = 0;
   while(improved && iteration < 10) {
       improved = false;
   for(const node of nodes) {
@@ -210,8 +210,8 @@ try {
         });
 
         // Find best community(most connections)
-        let _bestCommunity = currentCommunity;
-        let _maxConnections = neighborCommunities.get(currentCommunity)  ?? 0;
+        const _bestCommunity = currentCommunity;
+        const _maxConnections = neighborCommunities.get(currentCommunity)  ?? 0;
 
         neighborCommunities.forEach((connections, community) => {
   if(connections > maxConnections) {
@@ -249,7 +249,7 @@ try {
 
     try {
       // Build pattern matching query
-      let _query = this.buildPatternQuery(pattern, filters, limit);
+      const _query = this.buildPatternQuery(pattern, filters, limit);
 // const _result = await(this as any).executeQuery(query);
   if(includeMetrics && result.success) {
         // Analyze pattern frequency and importance
@@ -491,7 +491,7 @@ console.warn(' Optimization completed');
   for(const community of communities) {
     const _communitySize = community.size; if(communitySize > 1) {
       // Simplified calculation based on community size
-      const _expectedEdges = (communitySize * (communitySize - 1)) / (2 * totalEdges); modularity += expectedEdges * (1 / communities.length) {;
+      const _expectedEdges = (communitySize * (communitySize - 1)) / (2 * totalEdges); modularity += expectedEdges * (1 / communities.length) ;
     //     }
   //   }
   // return Math.min(1, modularity);
@@ -592,5 +592,5 @@ analyzePatternMetrics(data, pattern)
 // }
 // export default KuzuAdvancedInterface;
 
-}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))
 '

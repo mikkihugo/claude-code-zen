@@ -2,8 +2,7 @@
 /** Auto-detects environment and renders components appropriately */
 
 import React from 'react';
-'
-'
+('');
 
 // Environment detection'
 export const isWeb = () => typeof window !== 'undefined'; // eslint-disable-line
@@ -16,20 +15,18 @@ if (isTUI()) {
   // Dynamic import for TUI environment
   try {
     '
-// const _ink = awaitimport('ink');'
+// const _ink = awaitimport('ink')
     inkComponents = ink
   } catch (error) {
-    console.error(error);
-  }
+    console.error(error)}
   catch(/* _error */) '
     console.warn('Ink not available, falling back to console output')
   ('else if(isWeb()) {');
   // Dynamic import for web environment
   try {'
-// const _reactDOM = awaitimport('react-dom');'
-    webComponents = { reactDOM } catch (error) console.error(error); ;
-  } catch(/* _error */) {'
-    console.warn('React DOM not available');'
+// const _reactDOM = awaitimport('react-dom')
+    webComponents = reactDOM catch (error) console.error(error); } catch(/* _error */) {'
+    console.warn('React DOM not available')
 //   }
 // }
 
@@ -61,24 +58,15 @@ if (isTUI()) {
 //     return inkComponents.render(component);
     //   // LINT: unreachable code removed} else if(isWeb() && webComponents.reactDOM) {
     // React DOM render for web'
-    const _container = document.getElementById('root')  ?? document.body;'
+    const _container = document.getElementById('root')  ?? document.body
     // return webComponents.reactDOM.render(component, container);
     //   // LINT: unreachable code removed} else {
     // Fallback - just log the component structure'
     console.warn('Renderingcomponent = () => {'
   const _colorMap = {'
-    'cyan': '#00ffff''
-    'green': '#00ff00''
-    'red': '#ff0000''
-    'yellow': '#ffff00''
-    'blue': '#0000ff''
-    'magenta': '#ff00ff''
-    'white': '#ffffff''
-    'gray': '#808080''
-    'grey': '#808080';'
-  };
-'
-  // return colorMap[tuiColor]  ?? tuiColor  ?? '#ffffff';'
+    'cyan': '#00ffff''green': '#00ff00''red': '#ff0000''yellow': '#ffff00''blue': '#0000ff''magenta': '#ff00ff''white': '#ffffff''gray': '#808080''grey': '#808080''
+  }
+  // return colorMap[tuiColor]  ?? tuiColor  ?? '#ffffff''
 };
 
 /** Universal input handling */
@@ -91,21 +79,18 @@ if (isTUI()) {
     // Use keyboard events for web
     React.useEffect(() => {
       const _handleKeyDown = () => {
-        const _input = event.key;'
-        const _key = {leftArrow = === 'ArrowLeft',rightArrow = === 'ArrowRight',upArrow = === 'ArrowUp',downArrow = === 'ArrowDown',ctrl = === 'Enter';'
+        const _input = event.key
+        const _key = {leftArrow = === 'ArrowLeft',rightArrow = === 'ArrowRight',upArrow = === 'ArrowUp',downArrow = === 'ArrowDown',ctrl = === 'Enter''
         };
 
-        handler(input.toLowerCase(), key);
-      };
-'
+        handler(input.toLowerCase(), key)}
       window.addEventListener('keydown''
-      // return() => window.removeEventListener('keydown', handleKeyDown);'
+      // return() => window.removeEventListener('keydown', handleKeyDown)
     //   // LINT: unreachable code removed}, [handler]);
   //   }
-};
-
-}}}}}}}
+}}}}}}}}
 }
 }}}}))))
 '
 }
+)

@@ -64,7 +64,7 @@ task;
 execution;
 result;
 
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // async
 execute((task =
 {
@@ -103,7 +103,7 @@ to;
 spawned;
 agent;
 
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // async
 spawnAgent(
 type = new Agent({ type, ...config });
@@ -147,7 +147,7 @@ resolving;
 to;
 true;
 
-    // */ // LINT: unreachable code removed
+// */ // LINT: unreachable code removed
 // async
 store(key = []
 for (const [key, value] of this.memory.entries()) {

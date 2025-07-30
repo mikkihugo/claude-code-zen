@@ -1,5 +1,7 @@
 import { htmlReport } from 'https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js';
+
 '
+
 import http, { check, Rate } from 'k6';
 
 // Custom metrics'
@@ -126,7 +128,7 @@ const _analysisStart = Date.now();`;
 const _analysisRes = http.post(`${BASE_URL}/api/v1/vision/analyze/${imageId}`, '{}', { headers });
 const _analysisDuration = Date.now() - analysisStart;
 visionAnalysisTime.add(analysisDuration);
-if(!checkResponse(analysisRes)) {
+if (!checkResponse(analysisRes)) {
   return;
   //   // LINT: unreachable code removed}
   const { analysisId } = JSON.parse(analysisRes.body).data;
@@ -137,12 +139,13 @@ if(!checkResponse(analysisRes)) {
   language: 'typescript',
   includeTests,
   includeStyles }
-const _generateStart = Date.now();
-const _generateRes = http.post(;'
-`${BASE_URL}/api/v1/code/generate`,/g
+  const _generateStart = Date.now();
+  const _generateRes = http.post(;
+  '
+`$BASE_URL/api/v1/code/generate`,/g
 JSON.stringify(generatePayload),
 // {
-  headers;
+  headers
 }
 const _generateDuration = Date.now() - generateStart;
 codeGenerationTime.add(generateDuration);
@@ -153,7 +156,8 @@ sleep(Math.random() * 2 + 1); // 1-3 seconds
 // Handle summary export
 // export function handleSummary() {
 //   return {`
-    'summary.html': htmlReport(data),'
+('summary.html');
+: htmlReport(data),'
     // 'summary.json': JSON.stringify(data), // LINT: unreachable code removed'
     stdout: textSummary(data, indent: ' ', enableColors )
 // }
@@ -164,30 +168,30 @@ function textSummary() {
   const _summary = '\n=== Vision-to-Code Load Test Results ===\n\n';
   // Request metrics'
   summary += 'Request Metrics:\n';'
-  summary += `  Total Requests: ${metrics.http_reqs.values.count}\n`;`
-  summary += `  Failed Requests: ${metrics.http_req_failed.values.passes}\n`;`
-  summary += `  Error Rate: ${(metrics.errors.values.rate * 100).toFixed(2)}%\n\n`;
+  summary += `  Total Requests: $metrics.http_reqs.values.count\n`;`
+  summary += `  Failed Requests: $metrics.http_req_failed.values.passes\n`;`
+  summary += `  Error Rate: $(metrics.errors.values.rate * 100).toFixed(2)%\n\n`;
   // Response time metrics`
   summary += 'Response Time Metrics:\n';'
-  summary += `  Average: ${metrics.http_req_duration.values.avg.toFixed(2)}ms\n`;`
-  summary += `  P50: ${metrics.http_req_duration.values.p(50).toFixed(2)}ms\n`;`
-  summary += `  P95: ${metrics.http_req_duration.values.p(95).toFixed(2)}ms\n`;`
-  summary += `  P99: ${metrics.http_req_duration.values.p(99).toFixed(2)}ms\n\n`;
+  summary += `  Average: $metrics.http_req_duration.values.avg.toFixed(2)ms\n`;`
+  summary += `  P50: $metrics.http_req_duration.values.p(50).toFixed(2)ms\n`;`
+  summary += `  P95: $metrics.http_req_duration.values.p(95).toFixed(2)ms\n`;`
+  summary += `  P99: $metrics.http_req_duration.values.p(99).toFixed(2)ms\n\n`;
   // Service-specific metrics`
   summary += 'Service Performance:\n';'
-  summary += `  API Response(P95): ${metrics.api_response_time.values.p(95).toFixed(2)}ms\n`;`
-  summary += `  Vision Analysis(P95): ${metrics.vision_analysis_time.values.p(95).toFixed(2)}ms\n`;`
-  summary += `  Code Generation(P95): ${metrics.code_generation_time.values.p(95).toFixed(2)}ms\n\n`;
+  summary += `  API Response(P95): $metrics.api_response_time.values.p(95).toFixed(2)ms\n`;`
+  summary += `  Vision Analysis(P95): $metrics.vision_analysis_time.values.p(95).toFixed(2)ms\n`;`
+  summary += `  Code Generation(P95): $metrics.code_generation_time.values.p(95).toFixed(2)ms\n\n`;
   // Throughput
   const _duration = Date.now() - data.state.testRunDurationMs;
   const _rps = metrics.http_reqs.values.count / (duration / 1000);`
-  summary += `Throughput: ${rps.toFixed(2)} requests`
+  summary += `Throughput: $rps.toFixed(2)requests`
   // Threshold results`
   summary += '\nThreshold Results:\n';
   Object.entries(data.metrics).forEach(([name, metric]) => {
   if(metric.thresholds) {
       const _passed = Object.values(metric.thresholds).every((t) => t.ok);'
-      summary += `${name}: \${passed ? ' PASSED' }\n`;
+      summary += `$name: \$passed ? ' PASSED' \n`;
 // }
   });
 //   return summary;
@@ -219,7 +223,7 @@ responses.forEach((res) => checkResponse(res));
 // Send rapid requests to trigger rate limiting
 const _rateLimited = false;
   for(let i = 0; i < 100; i++) {`
-  const _res = http.get(`${BASE_URL}/api/v1/user/profile`, { headers });
+  const _res = http.get(`$BASE_URL/api/v1/user/profile`, { headers });
   if(res.status === 429) {
     rateLimited = true;
     break;

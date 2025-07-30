@@ -2,7 +2,9 @@
 /** Advanced plugin lifecycle management with health monitoring, security, and metrics; */
 
 import { readFile } from 'node:fs';
+
 '
+
 import { join } from 'node:path';
 import { Plugin,
 // type PluginCacheAPI
@@ -19,6 +21,7 @@ type PluginQueueAPI
 
 type PluginSecretsAPI'
   } from '../types/plugin.js'
+
 '
 // import HealthMonitor from './health-monitor.js';'
 // import ResourceMonitor from './resource-monitor.js';'
@@ -363,7 +366,7 @@ filter(i => i.severity === 'critical').length;
         issues.push({plugin = []; const _criticalIssues = issues.filter(i => i.severity === 'critical') {;'
     const _highIssues = issues.filter(i => i.severity === 'high');
   if(criticalIssues.length > 0) {'
-      recommendations.push(`Immediately address ${criticalIssues.length} critical issue(s)`);
+      recommendations.push(`Immediately address $criticalIssues.lengthcritical issue(s)`);
     //     }
   if(highIssues.length > 0) {`
       recommendations.push(`Review and fix ${highIssues.length} high priority issue(s)`);
@@ -379,18 +382,16 @@ filter(i => i.severity === 'critical').length;
 
       // Take action based on severity
   if(violation.blocked) {'
-        this.emit('plugin-blocked', {
+        this.emit('plugin-blocked', 
           pluginName => {)'
       this.emit('plugin-sandboxed', data);
     });
 '
-    this.securityManager.on('plugin-quarantined', (data) => {'
-      this.emit('plugin-quarantined', data);
-    });
+    this.securityManager.on('plugin-quarantined', (data) => '
+      this.emit('plugin-quarantined', data););
 '
-    this.securityManager.on('permission-audit', (audit) => {'
-      this.emit('permission-audit', audit);
-    });
+    this.securityManager.on('permission-audit', (audit) => '
+      this.emit('permission-audit', audit););
   //   }
 
   // private setupResourceEventHandlers() {'
@@ -420,21 +421,19 @@ filter(i => i.severity === 'critical').length;
       //       }
     });
 '
-    this.resourceMonitor.on('plugin-quarantined', (data) => {'
-      this.emit('plugin-quarantined', data);
-    });
+    this.resourceMonitor.on('plugin-quarantined', (data) => '
+      this.emit('plugin-quarantined', data););
 '
-    this.resourceMonitor.on('monitoring-error', (_error) => {'
+    this.resourceMonitor.on('monitoring-error', (_error) => '
       console.error('Resource monitoring error => {')'
-      this.emit('health-check-completed', data);
-    });
+      this.emit('health-check-completed', data););
 '
-    this.healthMonitor.on('health-check-failed', (data) => {'
+    this.healthMonitor.on('health-check-failed', (data) => '
       this.emit('health-check-failed', data);
 
       // Consider auto-restart for critical health failures
   if(data.consecutiveFailures >= 3 && this.config.autoRestart) {'
-        this.emit('auto-restart-triggered', { pluginName => {)'
+        this.emit('auto-restart-triggered', pluginName => {)'
       this.emit('health-alert', alert);'
   if(alert.severity === 'critical') {'
         console.error(`Critical health alert for ${alert.pluginName});`
@@ -451,7 +450,7 @@ filter(i => i.severity === 'critical').length;
     this.healthMonitor.on('system-health-updated', (systemHealth) => {'
       this.emit('system-health-updated', systemHealth);'
   if(systemHealth.overall === 'critical') {'
-        console.error(`System health is critical => {`)`
+        console.error(`System health is critical => `)`
       this.emit('automatic-recovery-triggered', data);
   if(this.config.autoRestart) {
         try {
@@ -460,7 +459,7 @@ filter(i => i.severity === 'critical').length;
         } catch(error => `
       this.emit('plugin-metrics-collected', data););
 '
-    this.healthMonitor.on('metrics-error', (error) => {'
+    this.healthMonitor.on('metrics-error', (error) => '
       console.error('Health metrics collectionerror = this.plugins.get(pluginName);'
   if(!pluginData) {
 //       return {isValid = process.memoryUsage();
@@ -476,7 +475,7 @@ filter(i => i.severity === 'critical').length;
 
   async clear(namespace?): Promise<void> ;
   if(namespace) {`
-      const _prefix = `${namespace}:`;
+      const _prefix = `$namespace:`;
       for (const key of this.storage.keys()) {
         if(key.startsWith(prefix)) {
           this.storage.delete(key); //         }
@@ -566,5 +565,5 @@ class SecretsAPI implements PluginSecretsAPI {'
 
 // export default PluginManager;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))))))))))))))
 '

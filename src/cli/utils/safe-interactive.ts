@@ -2,7 +2,9 @@
 /** Provides safety checks and fallbacks for interactive CLI operations; */
 
 import chalk from 'chalk';
+
 '
+
 import { getEnvironmentType, isInteractive } from '.';
 
 // =============================================================================

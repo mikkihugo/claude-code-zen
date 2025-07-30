@@ -24,45 +24,50 @@ export async function projectCommand() {
       '
       printSuccess(`Creatingproject = 0 ? args[isolationFlag + 1] )
       `
-      if (resourceQuotaFlag >= 0) {`;
-      console.warn(`   ResourceQuota = 0 ? args[securityProfileFlag + 1] );`
-      if (templateFlag >= 0) {
+      if (resourceQuotaFlag >= 0) {
+        `;
+      console.warn(`;
+        ResourceQuota = 0 ? args[securityProfileFlag + 1]
+        )
         `
-          console.warn(`;
+      if (templateFlag >= 0) {
+        `;
+        console.warn(`;
         Template = args[1];
         `);
-          if (!switchProject) {`;
+        if (!switchProject) {
+          `;
         printError('Usage = args.includes('--active');'
 '
           printSuccess('Availableprojects = ['
             { name => {'
             if(showActive && project.status !== 'active') return;
         // ; // LINT: unreachable code removed'
-        console.warn(`\n ${project.name}`);
-        `
+        console.warn(`;
+          \n $project.name`)
+          `
             console.warn(`;
-        Status = args[1];
-        `
+          Status = args[1];
+          `
             const _configProject = args[2];
 `;
-        if (configAction === 'set' && configProject) {
-          const __configKey = args[3];
-          '
-          const _configValue = args.slice(4).join(' ');
-          '
+          if (configAction === 'set' && configProject) {
+            const __configKey = args[3];
+            '
+            const _configValue = args.slice(4).join(' ');
+            '
               printSuccess(`Updating projectconfiguration = $
-          {
-            configValue;
-          }
-          `);`;
-          console.warn(' Configuration updated');
-          '
-        } else if (configAction === 'get' && configProject) {
-          const __configKey = args[3];
-          '
+            configValue
+            `);`;
+            console.warn(' Configuration updated');
+            '
+          } else if (configAction === 'get' && configProject) {
+            const __configKey = args[3];
+            '
               console.warn(`Project = args[1]
-          `);
-              if (!monitorProject) {`;
+          `)
+            if (!monitorProject) {
+              `;
           printError('Usage = args[1];'
           if (!backupProject) {
             '
@@ -70,60 +75,64 @@ export async function projectCommand() {
 '
             const _outputFlag = args.indexOf('--output');
             '
-                  printSuccess(`Creating backup forproject = outputFlag >= 0
-            `
+                  printSuccess(`;
+              Creating;
+              backup;
+              forproject =
+                outputFlag >=
+                0`
               ? args[outputFlag + 1];`;
-            : `\$backupProject-backup-\$Date.now().tar.gz``
+              : `\$backupProject-backup-\$Date.now().tar.gz``
                   console.warn(`\n Backupcreated = args[1]`
                   `
-            const _shareTo = args[2];
+              const _shareTo = args[2];
 
-            if (!shareFrom ?? !shareTo) {
-              `
+              if (!shareFrom ?? !shareTo) {
+                `
                     printError('Usage = args.indexOf('--agents');'
 '
           printSuccess(`;
-              `
+                `
                   Sharing;
                   resources;
                   from;
                   $shareFromto;`;
-              $shareTo`);`;
-              if (agentsFlag >= 0) {
-                `
+                $shareTo`);`;
+                if (agentsFlag >= 0) {
+                  `
                       console.warn(`;
-                `
+                  `
                   Agents = 0;
                   )```;
-                console.warn(`;`
+                  console.warn(`;`
                   Permissions = 0;
-                `
+                  `
                   ) ``
             console.warn(`;
-                Duration = args[1]```
+                  Duration = args[1]```
 `;
-                if (fedCmd === 'create') {
-                  const _fedName = args[2];
-                  if (!fedName) {
-                    '
+                  if (fedCmd === 'create') {
+                    const _fedName = args[2];
+                    if (!fedName) {
+                      '
                           printError(''
               console.warn(`
-                    ``;
-                    Projects = === 'list'
-                    '
+                    ``
+                      Projects = === 'list'
+                      '
                   ) ``
             printSuccess(''
             console.warn('\n development-ecosystem')'
                   console.warn(''
             console.warn(''
             console.warn('   Status);'
-                  } else {
-                    '
+                    } else {
+                      '
                   console.warn('Federation commands, list, workflow')
-                    //           }
-                    break;
+                      //           }
+                      break;
 
-                    default: null'
+                      default: null'
           console.warn(''
           console.warn('  create    - Create new project with isolation')'
                           console.warn('  switch    - Switch active project context')'
@@ -145,9 +154,10 @@ export async function projectCommand() {
             '  project create "unified-app" --isolation strict --resource-quota "''
           console.warn('  project switch "')'
                           console.warn('  project monitor "microservices" --real-time')
-                    //       }
-                    // }
-                    //         }
+                      //       }
+                      // }
+                      //         }
+                    }
                   }
                 }
               }
@@ -157,7 +167,6 @@ export async function projectCommand() {
       }
     }
   }
-}
 }
 
 })))))))))))

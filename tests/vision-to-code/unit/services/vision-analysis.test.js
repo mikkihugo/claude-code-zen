@@ -22,7 +22,7 @@ describe('Vision Analysis Service', () =>
     metricsCollector = TestHelpers.createMetricsCollector();
     jest.clearAllMocks();
   });'
-  describe('Image Analysis', () => {'
+  describe('Image Analysis', () => '
     it('should analyze valid images successfully', async() => {
       // Arrange
 // const _mockImage = awaitTestHelpers.createMockImage({ format);
@@ -100,7 +100,7 @@ map(() => TestHelpers.createMockImage());
       console.warn('Parallel processing stats);'
     });
   });'
-  describe('Component Extraction', () => {'
+  describe('Component Extraction', () => '
     it('should extract UI components accurately', async() => {
       // Arrange
       const _mockResult = mockVisionResults.simpleLayout;
@@ -133,9 +133,8 @@ map(() => TestHelpers.createMockImage());
       // Assert
       expect(components).toEqual([]);
       expect(components).toHaveLength(0);
-    });
-  });'
-  describe('Layout Detection', () => {'
+    }););'
+  describe('Layout Detection', () => '
     it('should detect layout type correctly', async() => {
       // Arrange'
       const _layouts = ['single-column', 'grid', 'dashboard', 'magazine'];
@@ -157,7 +156,7 @@ map(() => TestHelpers.createMockImage());
       expect(layout.breakpoints).toEqual(['mobile', 'tablet', 'desktop']);
     });
   });'
-  describe('Color Extraction', () => {'
+  describe('Color Extraction', () => '
     it('should extract color palette', async() => {
       // Arrange
       const _mockResult = mockVisionResults.simpleLayout;
@@ -180,9 +179,8 @@ map(() => TestHelpers.createMockImage());
 // const _result = awaitvisionService.extractColors({});
       // Assert
       expect(result.contrastRatio).toBeGreaterThan(4.5); // WCAG AA standard
-    });
-  });'
-  describe('Performance', () => {'
+    }););'
+  describe('Performance', () => '
     it('should complete analysis within performance budget', async() => {
       const _performanceTests = ['
         { imageSize: 'small', expectedTime },'
@@ -232,15 +230,13 @@ map(async(_, _index) => {
   afterAll(() => {
     const _finalStats = metricsCollector.getStats();'
     console.warn('Vision Analysis Service Test Statistics:', { ...finalStats,'
-      successRate: `${(;`)
+      successRate: `$(;`)
         ((finalStats.totalRequests - finalStats.totalErrors) / finalStats.totalRequests) * 100;`
-      ).toFixed(2) }%` });`
+      ).toFixed(2) %` });`
   });
 });
 
 }}}
 `
-}
-}
 }
 }

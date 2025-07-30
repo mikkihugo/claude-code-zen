@@ -23,7 +23,7 @@ export async function launchUI(args = []) {
         console.warn(` Open your browserto = process.platform === 'darwin';``
               ? 'open';
               );'
-          exec(`${openCommand}http = async() => {``
+          exec(`$openCommandhttp = async() => {``
           console.warn('\n' + '  Shutting down Web UI...');
 // await webServer.stop();'
           printSuccess(' Shutdown complete');

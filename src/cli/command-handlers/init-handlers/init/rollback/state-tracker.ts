@@ -77,7 +77,7 @@ catch(error)
 
 /** Get checkpoints */
 
-  async getCheckpoints() { 
+  async getCheckpoints() 
 // try
 // const _state = awaitthis.loadState();
       // return state.checkpoints  ?? [];
@@ -88,7 +88,7 @@ catch(error)
 
 /** Get rollback history */
 
-  async getRollbackHistory() { 
+  async getRollbackHistory() 
 // try
 // const _state = awaitthis.loadState();
       // return state.rollbackHistory  ?? [];
@@ -110,7 +110,7 @@ catch(error)
         state.fileOperations = state.fileOperations.slice(-100);
       //       }
 // // await this.saveState(state);
-    } catch(error) {
+    } catch(error) 
       result.success = false;`
       result.errors.push(`Failed to track fileoperation = // await this.loadState();``
       // return state.currentPhase  ?? 'not-started';catch ;'
@@ -195,7 +195,7 @@ catch(error)
   generateId() ;'
     // return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     // ; // LINT: unreachable code removed
-  validateStateStructure(state) {`
+  validateStateStructure(state) `
     const _result = {valid = = 'object') {
       result.valid = false;'
       result.issues.push('State must be an object');
@@ -209,14 +209,7 @@ catch(error)
         result.issues.push(`Missing requiredfield = ['rollbackPoints', 'checkpoints', 'rollbackHistory', 'fileOperations']; `)
   for(const field of arrayFields) {
       if(field in state && !Array.isArray(state[field])) {`
-        result.issues.push(`Field ${field} must be an array`); //       }
-    //     }
-
-    // return result;
-    //   // LINT: unreachable code removed}
-// }
-
-}}}}}}}}}}}}}}
+        result.issues.push(`Field ${field} must be an array`); //       }}}}}}}}}}}
 }
 }}}}})
 {))))))))

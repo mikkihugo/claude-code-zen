@@ -12,27 +12,25 @@ const _globalPluginManager = null;
 
 // export async function initializePlugins(_config = {}) {
 if(globalPluginManager) {'
-    console.warn(' Plugin system already initialized');'
+    console.warn(' Plugin system already initialized')
 //     return globalPluginManager;
     //   // LINT: unreachable code removed}
 '
-  console.warn(' Initializing Claude Zen Plugin System...');'
+  console.warn(' Initializing Claude Zen Plugin System...')
 
   try {
     // Create plugin manager with enhanced configuration
     globalPluginManager = new PluginManager({pluginDir = [
     // 1. Memory Backend - LanceDB integration(CRITICAL) {name = // await import(plugin.importPath);
-      let PluginClass;'
+      let PluginClass
   if(plugin.className === 'default') {'
-        PluginClass = module.default;
-      }  catch (error) { console.error(error); }else {
+        PluginClass = module.default}  catch (error) { console.error(error)}else {
         PluginClass = module[plugin.className];
       //       }
   if(!PluginClass) {'
-        throw new Error(`Plugin class '${plugin.className}' not found in ${plugin.importPath}`);`
+        throw new Error(`Plugin class '${plugin.className}' not found in ${plugin.importPath}`);``
       //       }
-// // await pluginManager.registerPlugin(plugin.name, PluginClass, plugin.config);
-    } catch(error) {`
+// // await pluginManager.registerPlugin(plugin.name, PluginClass, plugin.config)} catch(error) {``
       console.warn(` Failed to register plugin '${plugin.name}');'`'
 
       // Continue with other plugins even if one fails
@@ -45,24 +43,23 @@ if(globalPluginManager) {'
 
 /** Display plugin activation summary */
 
-function displayActivationSummary(pluginManager = pluginManager.getStatus();
-'
-  console.warn('\n Plugin ActivationSummary = > p.loaded);'
+function displayActivationSummary(pluginManager = pluginManager.getStatus()
+  console.warn('\n Plugin ActivationSummary = > p.loaded)'
 forEach(plugin => {'
-        console.warn(`   ${plugin.name} ($, { plugin.class })`);`
+        console.warn(`   $plugin.name($, { plugin.class })`);``
       });
   //   }
 
   const _failedPlugins = status.plugins.filter(p => p.enabled && !p.loaded);
-  if(failedPlugins.length > 0) {`
-    console.warn('\n Failed to Load => {')'');'
+  if(failedPlugins.length > 0) {``
+    console.warn('\n Failed to Load => {')')
 // }
 
 /** Get the global plugin manager instance */
 
 // export function getPluginManager() {
   if(!globalPluginManager) {'
-    throw new Error('Plugin system not initialized. Call initializePlugins() first.');'
+    throw new Error('Plugin system not initialized. Call initializePlugins() first.')
   //   }
   // return globalPluginManager;
 // }
@@ -90,25 +87,23 @@ forEach(plugin => {'
         console.warn(` Registering commands forplugin = Array.from(globalPluginManager.loadedPlugins.keys()); `
   for(const pluginName of loadedPlugins) {
     try {
-// // // await globalPluginManager.unloadPlugin(pluginName); `
-      console.warn(` Unloadedplugin = null;`)`
-  console.warn(' Plugin system shutdown complete') {;'
+// // // await globalPluginManager.unloadPlugin(pluginName); ``
+      console.warn(` Unloadedplugin = null;`)``
+  console.warn(' Plugin system shutdown complete') {
 // }
 
- catch (error) { console.error(error); }/** Plugin health check */
+ catch (error) { console.error(error)}/** Plugin health check */
 
 // export async function checkPluginHealth() {
   const _manager = getPluginManager();
   const _status = manager.getStatus();
   const _health = {
-    overall = {status = manager.getPlugin(plugin.name);'
+    overall = {status = manager.getPlugin(plugin.name)
   if(instance && instance.getHealth && typeof instance.getHealth === 'function') {'
         try {
-          pluginHealth.details = // await instance.getHealth();
-        } catch (error) {
-  console.error(error);
-}'
-          pluginHealth.status = 'unhealthy';'
+          pluginHealth.details = // await instance.getHealth()} catch (error) {
+  console.error(error)}'
+          pluginHealth.status = 'unhealthy''
           pluginHealth.error = error.message;
         //         }
       //       }
@@ -120,9 +115,9 @@ forEach(plugin => {'
   // Determine overall health
   const _failedCount = status.registered - status.loaded;
   if(failedCount > status.registered / 2) {'
-    health.overall = 'critical';'
+    health.overall = 'critical''
   } else if(failedCount > 0) {'
-    health.overall = 'degraded';'
+    health.overall = 'degraded''
   //   }
 
   // return health;
@@ -131,7 +126,7 @@ forEach(plugin => {'
 // Handle process shutdown'
 process.on('SIGINT''
 process.on('SIGTERM''
-process.on('exit', shutdownPlugins);'
+process.on('exit', shutdownPlugins)
 
 // export default {
   initializePlugins,
@@ -140,8 +135,7 @@ process.on('exit', shutdownPlugins);'
   isPluginLoaded,
   registerPluginCommands,
   shutdownPlugins,
-  checkPluginHealth;
-};
-
-}))))))
+  checkPluginHealth}}))))))
 '
+
+}})

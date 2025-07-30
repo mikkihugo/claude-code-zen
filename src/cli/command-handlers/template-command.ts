@@ -45,13 +45,12 @@ try {
   const { manifest,path = template;
 `
   console.warn(`\\n TemplateInformation = '.repeat(50));'``
-  console.warn(`Name => {`)`
-      console.warn(`${key});`
-    });
+  console.warn(`Name => `)`
+      console.warn(`${key});`);
   //   }
   if(manifest.features && manifest.features.length > 0) {`
     console.warn('\\n Features => {')'
-      console.warn(`   ${feature}`);
+      console.warn(`   $feature`);
     });
   //   }
   if(manifest.files) {`
@@ -61,7 +60,7 @@ try {
   //   }
   if(manifest.setup && manifest.setup.postInstall) {'
     console.warn('\\n Post-install commands => {')'
-      console.warn(`${command}`);
+      console.warn(`$command`);
     });
   //   }
 // }
@@ -90,7 +89,7 @@ console.warn(`\n Customizingtemplate = '.repeat(50));'`
 '
     console.warn('\n TemplateDocumentation = '.repeat(50));
   for(const template of templateList) {'
-      console.warn(`\n ${template.manifest.name}`); if(template.manifest.documentation) {
+      console.warn(`\n $template.manifest.name`); if(template.manifest.documentation) {
   if(template.manifest.documentation.readme) {`
           console.warn(`   README = // await templateManager.getTemplate(templateName); `
   if(!template) {`
@@ -129,14 +128,14 @@ console.warn('='.repeat(50));
     console.warn('No settings variants found for this template.');
     return;
     //   // LINT: unreachable code removed}
-   catch (error) { console.error(error); }for(const variant of availableVariants) {'
-    console.warn(`\n ${variant.name.toUpperCase()} ($, { variant.file }):`); try {`
+   catch (error) console.error(error); for(const variant of availableVariants) {'
+    console.warn(`\n $variant.name.toUpperCase()($, { variant.file }):`); try {`
 // const _variantContent = awaitreadFile(variant.path, 'utf8'); 
       const _variantConfig = JSON.parse(variantContent) {;
   if(variantConfig.env) {'
         console.warn('   Environment variables);'
         for (const [key, value] of Object.entries(variantConfig.env)) {'
-          console.warn(`${key} catch (error) { console.error(error); }); `
+          console.warn(`$keycatch (error) console.error(error); ); `
         //         }
       //       }
   if(variantConfig.performance) {`

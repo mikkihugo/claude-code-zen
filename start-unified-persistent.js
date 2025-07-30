@@ -17,9 +17,7 @@ console.warn(' Starting Unified Interface in Web Mode...')
     console.warn(' WebSocket);'
 
     // Keep the process running indefinitely
-    setInterval(() => {
-      // Heartbeat to keep process alive
-    } catch (error) { console.error(error); }
+    setInterval(() => catch (error) console.error(error); 
   , 30000
 
   // Graceful shutdown handlers'
@@ -29,11 +27,10 @@ console.warn(' Starting Unified Interface in Web Mode...')
   process.exit(0);
   
 '
-  process.on('SIGTERM', async () => {'
+  process.on('SIGTERM', async () => '
     console.warn('\n Shutting down...');
     // await unifiedInterface.shutdown();
-    process.exit(0);
-  });
+    process.exit(0););
 }
 catch(error)
 {'

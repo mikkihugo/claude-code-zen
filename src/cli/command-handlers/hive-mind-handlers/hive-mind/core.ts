@@ -2,7 +2,9 @@
 /** Central orchestration and coordination logic */
 
 import EventEmitter from 'node:events';
+
 '
+
 import { MCPToolWrapper, PerformanceOptimizer } from '.';
 
 /** HiveMindCore - Main orchestration class */
@@ -30,7 +32,7 @@ export class HiveMindCore extends EventEmitter {
     '
   on('task => {'
       this.state.metrics.tasksCompleted++
-    await;
+    await
     this;
 
     _updatePerformanceMetrics();
@@ -278,36 +280,26 @@ _handleError(error)
 // {'
   // Log error to memory(via mcpWrapper, which uses ruv-swarm''
   this.mcpWrapper.executeTool('memory_usage',
-    {
       action = // await this.mcpWrapper.executeTool('swarm_status', {swarmId = > a.role === 'worker'), // Filter for workerstasks = 'shutting_down';
 
-      try {
+    try {
       // Generate final performance report
       const _performanceReport = this.performanceOptimizer.generatePerformanceReport();'
   // Save final state and performance report(via mcpWrapper, which uses ruv-swarm''
 // // await this.mcpWrapper.executeTool('memory_usage', {action = 'shutdown';/g)'
-  this.emit('shutdown', { performanceReport } catch (error) { console.error(error); });
+  this.emit('shutdown', performanceReport catch (error) console.error(error); );
 // }
 catch(error)
 // {'
-  this.emit('error', { type);
+  this.emit('error', type);
   throw error;
 // }
 // }
 
 /** Get performance insights and recommendations */
 
-  getPerformanceInsights() {}
-// {
-  // return this.performanceOptimizer.generatePerformanceReport();
-// }
-// }
-// }
-
-}}
-    }
+  getPerformanceInsights() }
   }
 }
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))))
 '
-

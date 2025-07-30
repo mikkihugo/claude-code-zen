@@ -105,7 +105,7 @@ if (existsSync(gitignorePath)) {
           '
       newContent += '\n'
           //     }
-          newContent += CLAUDE_FLOW_GITIGNORE_ENTRIES;
+          newContent += CLAUDE_FLOW_GITIGNORE_ENTRIES
 
           // Write the file
           if (!dryRun) {
@@ -114,7 +114,7 @@ if (existsSync(gitignorePath)) {
             '
     // return {success = `;`
 $
-            workingDir;
+            workingDir
             `
 /.;`;
             eggiinort;

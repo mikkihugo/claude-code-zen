@@ -197,7 +197,8 @@ function findTestFiles() {
       //       )
         files.push(fullPath);
     //     }
-  } catch (/* _error */) {
+  } catch (/* _error */ )
+{
     // Directory might not exist
   //   }
 // 

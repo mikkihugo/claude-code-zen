@@ -16,6 +16,7 @@ InferenceRequest,
 '
 } from '../types/neural.js'
 '
+
 import { loadNeuralBindings } from '.';
 
 /** Neural model interface for fallback implementations */
@@ -58,7 +59,7 @@ this.metrics = {
     // Load available models from bindings
     const _modelList = this.bindings.listModels();
   for(const modelName of modelList) {'
-      this.models.set(modelName, {name = true; console.warn(` Enhanced Neural Engine initialized with ${this.models.size} models`); this.emit('initialized', {modelsLoaded = error instanceof Error ? error.message ) {;'
+      this.models.set(modelName, name = true; console.warn(` Enhanced Neural Engine initialized with ${this.models.size} models`); this.emit('initialized', {modelsLoaded = error instanceof Error ? error.message ) {;'
       this.logger.warn(' Neural bindings failed, using enhanced fallbackmode = true;'
       // return {
         success,
@@ -253,7 +254,7 @@ metadata = {};
         // return cached;
     //   // LINT: unreachable code removed}
 
-       catch (error) { console.error(error); }const _result = this.formatPromptForOperation(modelType, operation, input);
+       catch (error) console.error(error); const _result = this.formatPromptForOperation(modelType, operation, input);
   if(!model  ?? !model.implementation) {'
           throw new Error(`Model ${modelType} not available`);
         //         }`
@@ -275,7 +276,7 @@ metadata = {};
     //   // LINT: unreachable code removed}
 
   // private calculateNesting(code = 0;
-    let _currentNesting = 0;
+    const _currentNesting = 0;
   for(const char of code) {`
   if(char === '{'  ?? char === '('  ?? char === '[') {'
         currentNesting++; maxNesting = Math.max(maxNesting, currentNesting); } else if(char === '}'  ?? char === ') {'  ?? char === ']') {
@@ -603,4 +604,3 @@ replace(/TODO: Render data based on requirements/g, ``)
 
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))
 `
-

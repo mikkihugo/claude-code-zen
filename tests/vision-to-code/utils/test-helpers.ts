@@ -12,12 +12,16 @@ Code;
 Flow;
 Team
  * @version 2.0
-0.0 * /;
+0.0 * /;;
 
 import crypto from 'node:crypto';
+
 '
+
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 // =============================================================================
@@ -75,17 +79,17 @@ export // interface MockImageOptions {
 //     // columns: number
 //     // spacing: number
 //   };
-colors: {
+{
   // primary: string
   // secondary: string
   // accent: string
   palette;
 }
-text: {
+{
   // detected: boolean
   blocks;
 }
-metadata: {
+{
   // processingTime: number
   // modelVersion: string
   // confidence: number
@@ -272,9 +276,7 @@ catch (error)
       size: buffer.length,'
       mimeType: `;
   image / $;
-  {
-    format;
-  }
+  format;
   ` };
   },
 
@@ -283,13 +285,15 @@ catch (error)
   createMockVisionResult(options) {
     const {`;
   components = ['header', 'navigation', 'content', 'footer'],'
-  layout = 'grid','
-  (colors = ['#000000', '#FFFFFF', '#FF0000']), (confidence = 0.95);
+  (layout = 'grid'),
+    '
+  (colors = ['#000000', '#FFFFFF', '#FF0000']),
+    (confidence = 0.95);
 }
 = options
 
 // return {'
-id: TestHelpers.generateTestId('vision'), timestamp;
+id: TestHelpers.generateTestId('vision'), timestamp
 : new Date().toISOString(),
       components: components.map((name) => (
 {
@@ -334,120 +338,161 @@ id: TestHelpers.generateTestId('vision'), timestamp;
 
   createMockCodeResult(options)
 {
-    const {'
+  const {'
       framework = 'react','
       language = 'javascript','
       components = ['App', 'Header', 'Content'] } = options;
 
-    const codeTemplates: Record<string, (name) => string> = {
+  const codeTemplates: Record<string, (name) => string> = {
       react: (name) =>'
         `import React from 'react';\n\nexport const ${name} = (): JSX.Element => {\n  return <div>${name} Component<`
       vue: (name) =>`
-        `<template>\n  <div>${name} Component</div>\n</template>\n\n<script>\nexport default {\n  name: '${name}'\n}\n</script>`,
+        `<template>\n  <div>${name}
+  Component</div>\n</template>\
+  n;
+  \n<script>\nexport default \n  name: '${name}'\n\n</script>`,
       angular: (name) =>`
-        `import { Component  } from '@angular/core';\n\n@Component({\n  selector: 'app-${name.toLowerCase()}',\n  template: '<div>${name} Component</div>'\n})\nexport class ${name}Component {}` };
+        `
+  import { Component  } from '@angular/core';
+  \n\n
+  @Component({\n  selector: 'app-${name.toLowerCase()}',\n  template: '<div>${name} Component</div>'\n})
+  \nexport
+  class $ {
+    name;
+  }
+  Component` };
 // 
-    return {`
-      id: TestHelpers.generateTestId('code'),
-      timestamp: new Date().toISOString(),
+    return {`;
+  id: TestHelpers.generateTestId('code'), timestamp;
+  : new Date().toISOString(),
       framework,
       language,
-      files: components.map((name) => ({'
-        name: `${name}.\${language === 'typescript' ? 'tsx' }`,`
-        path: `src/components/${name}.\${language === 'typescript' ? 'tsx' }`,
+      files: components.map((name) => ('
+        name: `$name.\$language === 'typescript' ? 'tsx' `,`
+        path: `src/components/$
+  {
+    name;
+  }
+  .\$
+  {
+    language === 'typescript' ? 'tsx'
+  }
+  `,
         content: codeTemplates[framework](name),
-        size: codeTemplates[framework](name).length })),
-      metadata: {
+        size: codeTemplates[framework](name).length )),
+      metadata: 
         generationTime: Math.random() * 200 + 100,
         linesOfCode: components.length * 10,
-        dependencies: {`
-          [framework]: '^latest' } } };
-  },
+        dependencies: `[framework];
+  : '^latest'
+}
+} }
+},
 
 /** Wait for a condition to be true */
 
   async waitForCondition(conditionFn) => boolean | Promise<boolean>,
-    options = {}
-  ): Promise<boolean> {
-    const {
+    options =
+{
+}
+): Promise<boolean>
+{
+  const {
       timeout = 5000,
       interval = 100,'
       errorMessage = 'Condition not met within timeout' } = options;
 
-    const startTime = Date.now();
-    while(Date.now() - startTime < timeout) {
-      if(// await conditionFn()) {
+  const startTime = Date.now();
+  while (Date.now() - startTime < timeout) {
+    if(// await conditionFn()) {
         // return true;
 // }
 // // await new Promise((resolve) => setTimeout(resolve, interval));
 // }
     throw new Error(errorMessage);
-  },
+  }
+  ,
 
 /** Measure async function execution time */
 
   async measureExecutionTime<T>(fn) => Promise<T>,'
     label = 'Operation'
-  ): Promise<ExecutionTimeResult<T>> {
+  ): Promise<ExecutionTimeResult<T>>
+  {
     const start = process.hrtime.bigint();
-// const result = awaitfn();
+    // const result = awaitfn();
     const end = process.hrtime.bigint();
     const duration = Number(end - start) / 1e6; // Convert to milliseconds
 
     // return {
-      result,
-      duration,
-      label,
-      pass: duration < 100, // Default threshold
-    };
-  },
+    result, duration, label, pass;
+    : duration < 100, // Default threshold
+  }
+}
+,
 
 /** Create a mock HTTP request */
 
-  createMockRequest(options) {
-    // return {'
-      method: options.method ?? 'GET','
-      url: options.url ?? '
-      headers: options.headers ?? {},
-      body: options.body ?? {},
-      query: options.query ?? {},
-      params: options.params ?? {},
+  createMockRequest(options)
+{
+  // return {'
+  method: options.method ?? 'GET','
+  url: options.url ?? '
+  headers: options.headers ?? {}, body;
+  : options.body ??
+  {
+  }
+  ,
+      query: options.query ??
+  {
+  }
+  ,
+      params: options.params ??
+  {
+  }
+  ,
       user: options.user ?? null,
       file: options.file ?? null,
-      files: options.files ?? [] };
-  },
+      files: options.files ?? []
+}
+},
 
 /** Create a mock HTTP response */
 
-  createMockResponse() {
-    const res = {
-      statusCode,
-      headers: {},
-      body,
-      status: function(code) {
-        this.statusCode = code;
-//         return this;
-      },
-      json: function(data) {'
+  createMockResponse()
+{
+  const res = {
+    statusCode,
+    headers: {},
+    body,
+    status: function (code) {
+      this.statusCode = code;
+      //         return this;
+    },
+    json: function (data) {
+      '
         this.headers['Content-Type'] = 'application'
-        this.body = data;
-//         return this;
-      },
-      send: function(data) {
-        this.body = data;
-//         return this;
-      },
-      setHeader: function(name, value) {
-        this.headers[name] = value;
-//         return this;
-      } };
-// 
-    return res;
-  },
+        this.body = data
+      //         return this;
+    },
+    send: function (data) {
+      this.body = data;
+      //         return this;
+    },
+    setHeader: function (name, value) {
+      this.headers[name] = value;
+      //         return this;
+    },
+  };
+  //
+  return res;
+}
+,
 
 /** Clean up test files */
 
-  async cleanupTestFiles(directory): Promise<void> {
+  async cleanupTestFiles(directory): Promise<void>
+{
     try {
 // const files = awaitfs.readdir(directory);
   for(const file of files) {'

@@ -2,7 +2,9 @@
 /** Advanced plugin lifecycle management with health monitoring and recovery; */
 
 import { performance } from 'node:perf_hooks';
+
 '
+
 import { Plugin } from '../types/plugin.js';
 
 // // interface LifecycleEvent {pluginName = > boolean
@@ -54,17 +56,17 @@ try {'
   if(!plugin) {'
         throw new Error(`Plugin notfound = performance.now() - startTime;``
     this.updateMetrics(pluginName, 'successfulStop', duration);'
-    this.recordEvent(pluginName, 'stopped', { duration } catch (error) { console.error(error); });
+    this.recordEvent(pluginName, 'stopped', duration catch (error) console.error(error); );
 
     // Unschedule health checks
     this.unscheduleHealthCheck(pluginName);
 '
-    this.emit('plugin-stopped', { pluginName, duration });
+    this.emit('plugin-stopped', pluginName, duration );
     // return true;
     //   // LINT: unreachable code removed}
   catch(error = performance.now() - startTime;'
   this.updateMetrics(pluginName, 'failedStop', duration);'
-  this.recordEvent(pluginName, 'error', { error,phase = // await this.stopPlugin(pluginName);
+  this.recordEvent(pluginName, 'error', error,phase = // await this.stopPlugin(pluginName);
   if(!stopSuccess) {
     // return false;
     //   // LINT: unreachable code removed}
@@ -73,7 +75,7 @@ try {'
 // // await new Promise((resolve) => setTimeout(resolve, 1000));
 // const _startSuccess = awaitthis.startPlugin(pluginName);
   if(startSuccess) {'
-    this.emit('plugin-restarted', { pluginName });'
+    this.emit('plugin-restarted', pluginName );'
     this.updateMetrics(pluginName, 'recovery');
   //   }
 
@@ -97,7 +99,7 @@ performHealthCheck(pluginName = await this.pluginManager.getPlugin(pluginName);
         schedule.nextCheck = new Date(Date.now() + schedule.interval);
       //       }
 '
-      this.recordEvent(pluginName, 'error', { error,phase = this.healthChecks.get(pluginName);
+      this.recordEvent(pluginName, 'error', error,phase = this.healthChecks.get(pluginName);
   if(!schedule) {
       // return false;
     //   // LINT: unreachable code removed}
@@ -132,9 +134,9 @@ filter(strategy => strategy.condition(plugin, health));
 sort((a, b) => b.priority - a.priority);
   for(const strategy of applicableStrategies) {
         try {'
-          this.emit('recovery-strategy-attempting', { pluginName,strategy = // await strategy.action(plugin, this.pluginManager); 
+          this.emit('recovery-strategy-attempting', pluginName,strategy = // await strategy.action(plugin, this.pluginManager); 
   if(success) {'
-            this.emit('recovery-successful', { pluginName,strategy = interval  ?? this.config.healthCheckInterval; this.healthChecks.set(pluginName, {))
+            this.emit('recovery-successful', pluginName,strategy = interval  ?? this.config.healthCheckInterval; this.healthChecks.set(pluginName, {))
       pluginName,interval = setInterval(async() {=> {
       const _now = new Date();
   for(const [pluginName, schedule] of this.healthChecks) {
@@ -213,9 +215,8 @@ sort((a, b) => b.priority - a.priority);
       this.recordEvent(pluginName, 'error', error );'
       this.updateMetrics(pluginName, 'crash'););
 '
-    this.pluginManager.on('plugin-restarted', (pluginName) => {'
-      this.updateMetrics(pluginName, 'recovery');
-    });
+    this.pluginManager.on('plugin-restarted', (pluginName) => '
+      this.updateMetrics(pluginName, 'recovery'););
 
   // Public API
   getLifecycleEvents(pluginName?, limit?): LifecycleEvent[] {
@@ -275,8 +276,6 @@ sort((a, b) => b.priority - a.priority);
 
 }}}}}}}}}}}}}})))))))))))
 '
-}
-}
 }
 }
 }

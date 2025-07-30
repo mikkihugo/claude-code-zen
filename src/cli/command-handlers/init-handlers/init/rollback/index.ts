@@ -1,7 +1,9 @@
 // rollback/index.js - Comprehensive rollback system for SPARC initialization
 
 import { printSuccess } from '../../../utils.js';
+
 '
+
 import { BackupManager, RecoveryManager, RollbackExecutor, StateTracker } from '.';
 
 /** Main rollback orchestrator */
@@ -46,7 +48,7 @@ export class RollbackSystem {
       //       }
     } catch(error) ;
       result.success = false;`
-      result.errors.push(`Checkpoint creationfailed = null) {`
+      result.errors.push(`Checkpoint creationfailed = null) `
     const _result = {success = backupId  ?? (// await this.findLatestPreInitBackup());
   if(!targetBackup) {
         result.success = false;`
@@ -68,9 +70,9 @@ export class RollbackSystem {
       } else {'
         printError('Full rollback failed');
       //       }
-    } catch(error) {
+    } catch(error) 
       result.success = false;'
-      result.errors.push(`Rollbackfailed = null) {`
+      result.errors.push(`Rollbackfailed = null) `
     const _result = {success = checkpointId  ?? (// await this.findLatestCheckpoint(phase));
   if(!checkpoint) {
         result.success = false;`
@@ -95,17 +97,15 @@ export class RollbackSystem {
       // Get checkpoints
 // const _checkpoints = awaitthis.stateTracker.getCheckpoints();
       result.checkpoints = checkpoints;
-    } catch(error) {
+    } catch(error) 
       result.success = false;`
-      result.errors.push(`Failed to list rollbackpoints = 5) {`
+      result.errors.push(`Failed to list rollbackpoints = 5) `
     const _result = {success = // await this.backupManager.cleanupOldBackups(keepCount);
       result.success = cleanupResult.success;
       result.cleaned = cleanupResult.cleaned;
       result.errors.push(...cleanupResult.errors);
   if(cleanupResult.success) {`
-        console.warn(`  Cleaned up ${cleanupResult.cleaned.length} old backups`);
-      //       }
-    } catch(error) {
+        console.warn(`  Cleaned up ${cleanupResult.cleaned.length} old backups`);catch(error) 
       result.success = false;`
       result.errors.push(`Cleanup failed = {success = // await this.backupManager.validateBackupSystem();`
       result.checks.backup = backupCheck;
@@ -147,7 +147,7 @@ export class RollbackSystem {
   if(phaseCheckpoints.length > 0) {
 //         return phaseCheckpoints.sort((a, b) => b.timestamp - a.timestamp)[0];
     //   // LINT: unreachable code removed}
- catch (error) { console.error(error); }// 
+ catch (error) console.error(error); 
       return null;
     //   // LINT: unreachable code removed} catch {
 //       return null;
@@ -165,7 +165,7 @@ export class RollbackSystem {
 
 /** Begin atomic operation */
 
-  async begin() { '
+  async begin() '
 // const _checkpoint = awaitthis.rollbackSystem.createCheckpoint(`atomic-$this.operationName}`, {operation = checkpoint.checkpointId;
     // return checkpoint.success;/g
     //   // LINT);
@@ -193,7 +193,7 @@ export class RollbackSystem {
 //   return new AtomicOperation(rollbackSystem, operationName);
 // }
 
-}}}}}}}}}}}}}}}
+}}}}}}}}}
 
 ))))))))
 `

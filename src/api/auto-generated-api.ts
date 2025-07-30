@@ -20,12 +20,19 @@ with OpenAPI docs;
 * -  Metrics & monitoring
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { createServer } from 'node:http';
+
 '
+
 import cors from 'cors';
+
 '
+
 import express, { type NextFunction, type Request, type Response } from 'express';
+
 '
 // import rateLimit from 'express-rate-limit';'
 // import helmet from 'helmet';'
@@ -71,8 +78,9 @@ import express, { type NextFunction, type Request, type Response } from 'express
 constructor(options)
 // {
 //   super();
-this.options = {
-      port,'
+this.options =
+{
+  port,'
   host: 'localhost',
   enableGraphQL,
   enableWebSocket,
@@ -80,10 +88,10 @@ this.options = {
   cors,
   rateLimit,
   authentication,
-..options
+  ..options
 }
-this.app = express()
-this.setupMiddleware()
+this.app = express();
+this.setupMiddleware();
 // }
 
 /** Start the API server; */
@@ -100,7 +108,8 @@ this.setupMiddleware()
   // return new Promise((resolve, reject) => {
       this.server = createServer(this.app)
 // ; // LINT: unreachable code removed
-this.server.listen(this.options.port, this.options.host, (err?) => {
+this.server.listen(this.options.port, this.options.host, (err?) =>
+{
   if(err) {
           reject(err);
           return;
@@ -198,9 +207,9 @@ initializeEndpoints();
 
       // Health check`
       this.app.get('/health', (_req, res) => {'
-        res.json({ status: 'healthy',)
+        res.json(status: 'healthy',)
           uptime: Date.now() - this.metrics.uptime,
-          metrics: this.metrics   } catch (error) { console.error(error); });
+          metrics: this.metrics   catch (error) console.error(error); );
       //       }
   //   
   // API documentation'
@@ -232,10 +241,10 @@ catch(error)
 // {
   // API info'
   this.app.get('/api', (_req, res) => {'
-    res.json({ name: 'Claude Code Flow API','
+    res.json(name: 'Claude Code Flow API','
     version: '1.0.0',
     endpoints: this.getEndpointList(),
-    metrics: this.metrics   });
+    metrics: this.metrics   );
 // }
 // 
 // Commands list'
@@ -313,24 +322,18 @@ this.app.get('/api/metrics', (_req, res) =>
   this.wss = new WebSocketServer({ server);'
   this.wss.on('connection', (ws) => {
     this.metrics.websocketConnections++;'
-    ws.on('message', (data) => {
+    ws.on('message', (data) => 
         try {
           const _message = JSON.parse(data.toString());
           this.handleWebSocketMessage(ws, message);
         } catch (error) { console.error(error); } catch(/* _error */ )
-{
   ws.send(;
   JSON.stringify({)
               error);
-  
-  //         }
-}
 )'
 ws.on('close', () =>
-{
   this.metrics.websocketConnections--;
   this.removeWebSocketSubscriptions(ws);
-}
 
 // Send welcome message
 ws.send(;
@@ -338,10 +341,6 @@ JSON.stringify({'
   type: 'welcome','
   message: 'Connected to Claude Code Flow API',
 });
-
-// 
-// 
-}
 // }
 
 /** Handle WebSocket messages; */
@@ -423,10 +422,10 @@ handleWebSocketExecute(ws, message)
 this.executionSessions.set(sessionId, session);
 // Send session info
 ws.send(;'
-JSON.stringify({ type: 'execution_started',
+JSON.stringify(type: 'execution_started',
 sessionId,
 command,)
-args   }
+args   
 // 
 // Execute command with real-time updates
 // // await this.executeCommand(session, ws)
@@ -446,11 +445,11 @@ executeCommand(session, ws?)
             type);
         );
       //       }
-   catch (error) { console.error(error); }// Simulate command execution
+   catch (error) console.error(error); 
   // In real implementation, this would call the actual CLI command
 // // await this.simulateCommandExecution(session, ws);'
   session.status = 'completed';'
-  session.result = { success, message: 'Command completed successfully' };
+  session.result = success, message: 'Command completed successfully' ;
   if(ws) {
     ws.send(;
     JSON.stringify({'

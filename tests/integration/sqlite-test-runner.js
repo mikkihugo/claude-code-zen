@@ -4,9 +4,13 @@
 /** Validates SQLite functionality and runs integration tests; */
 
 import { spawn } from 'node:child_process';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -44,45 +48,37 @@ try {
   const _child = spawn('npm', testCommand, {
         cwd,
         stdio);
-  '';
-  '';
+  ('');
+  ('');
   '
       child.stdout.on('data', (data) =>
-  {
-    stdout += data.toString();
-    process.stdout.write(data);
-  }
+    stdout += data.toString()
+  process.stdout.write(data);
   catch (error)
-  {
-    console.error(error);
-  }
+    console.error(error)
   )'
 child.stderr.on('data', (data) =>
-  {
-    stderr += data.toString();
-    process.stderr.write(data);
-  }
+    stderr += data.toString()
+  process.stderr.write(data);
   )
   '
 child.on('close', (code) =>
+    resolve(
   {
-    resolve({ code, stdout, stderr });
+    code, stdout, stderr;
   }
+  )
   )
   '
 child.on('error', (error) =>
-  {
-    reject(error);
-  }
+    reject(error)
   )
 }
 if (result.code === 0) {
   log('
     `;`
 $;
-  {
     testName;
-  }
   `
 -PASSED`,
     ``;
@@ -247,10 +243,9 @@ Status:`
     log('\n\n Test execution interrupted', 'yellow');
     process.exit(130);
   });'
-  process.on('SIGTERM', () => {'
+  process.on('SIGTERM', () => '
     log('\n\n Test execution terminated', 'yellow');
-    process.exit(143);
-  });
+    process.exit(143););
   // Run the test suite
   runIntegrationTests().catch((error) => {'
     log(` Unhandled error);`

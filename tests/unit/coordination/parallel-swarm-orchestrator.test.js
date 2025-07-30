@@ -1,5 +1,7 @@
 import { EventEmitter } from 'node:events';
+
 '
+
 import { beforeEach, describe, expect, it } from '@jest';
 
 // Mock dependencies'
@@ -42,7 +44,7 @@ describe('constructor', () =>
   expect(defaultOrchestrator.maxWorkers).toBeGreaterThan(1);
   '
   expect(defaultOrchestrator.loadBalancingStrategy).toBe('round-robin')
-  expect(defaultOrchestrator.activeTasks).toBeInstanceOf(Map);
+  expect(defaultOrchestrator.activeTasks).toBeInstanceOf(Map)
   expect(defaultOrchestrator.taskResults).toBeInstanceOf(Map);
 }
 )'
@@ -121,7 +123,7 @@ it('should execute tasks in parallel', async () =>
   expect(results[1].taskId).toBe('task2')
   '
   expect(results[2].taskId).toBe('task3')
-  expect(results.every((r) => r.success)).toBe(true);
+  expect(results.every((r) => r.success)).toBe(true)
 }
 )
 '
@@ -171,7 +173,7 @@ it('should handle task failures gracefully', async() =>
       expect(leastLoadedWorker.id).toBe('worker2'); // H of 1
     });
   });'
-  describe('swarm management', () => {
+  describe('swarm management', () => 
     beforeEach(async() => {
   // await orchestrator.initialize();
     });'
@@ -253,16 +255,15 @@ it('should handle task failures gracefully', async() =>
       expect(executionOrder.indexOf('swarm2')).toBeLessThan(executionOrder.indexOf('swarm3'));
     });
   });'
-  describe('metrics and monitoring', () => {
+  describe('metrics and monitoring', () => 
     beforeEach(async() => {
   // await orchestrator.initialize();
     });'
-    it('should track performance metrics', () => {
+    it('should track performance metrics', () => 
       expect(orchestrator.metrics).toBeDefined();
       expect(orchestrator.metrics.parallelTasks).toBe(0);
       expect(orchestrator.metrics.sequentialTasks).toBe(0);
-      expect(orchestrator.metrics.speedupFactor).toBe(1.0);
-    });'
+      expect(orchestrator.metrics.speedupFactor).toBe(1.0););'
     it('should calculate speedup factor', () => {
       const _metricsCalculator = {
         calculateSpeedup: (_sequentialTime, parallelTime) => {
@@ -300,14 +301,14 @@ it('should handle task failures gracefully', async() =>
       expect(avgUtilization).toBeCloseTo(0.766, 2);
     });
   });'
-  describe('error handling and recovery', () => {
+  describe('error handling and recovery', () => 
     beforeEach(async() => {
   // await orchestrator.initialize();
     });'
     it('should handle worker failures', async() => {
       const _failureHandler = {
         handleWorkerFailure: async(workerId, error) => {'
-          console.warn(`Worker ${workerId} failed);`
+          console.warn(`Worker $workerIdfailed);`
           // Restart worker
           const _newWorker = {`
             id: `${workerId}-restart`,`
@@ -334,7 +335,7 @@ it('should handle task failures gracefully', async() =>
             // return { success, result: 'Task completed', attempts };
     //   // LINT: unreachable code removed} catch(error) {
   if(attempt >= this.maxRetries) {'
-              throw new Error(`Task failed after ${this.maxRetries} attempts);`
+              throw new Error(`Task failed after $this.maxRetriesattempts);`
             //             }
             // Wait before retry
   // // await new Promise((resolve) => setTimeout(resolve, this.retryDelay * attempt));
@@ -353,7 +354,7 @@ it('should handle task failures gracefully', async() =>
       expect(retryResult.attempts).toBe(3);
     });
   });'
-  describe('cleanup and shutdown', () => {'
+  describe('cleanup and shutdown', () => '
     it('should cleanup resources properly', async() => {
   // await orchestrator.initialize();
       const _cleanup = async() => {

@@ -58,7 +58,7 @@ export class PerformanceMonitor {
     // ; // LINT: unreachable code removed
     this.metrics.operationCount++;'
   if(this.logLevel === 'debug') {'
-      console.warn(` Operation = {}) {`
+      console.warn(` Operation = ) {`
     if(!this.enabled) return;
     // ; // LINT: unreachable code removed`
     this.metrics.errors.push({ timestamp = === 'debug') {'
@@ -76,7 +76,7 @@ export class PerformanceMonitor {
     report += '====================\n';'';'
   if(typeof node !== 'undefined' && node.memoryUsage) {
         const _memUsage = node.memoryUsage();'
-        currentMemory = `${(memUsage.rss / 1024 / 1024).toFixed(1)}MB`;
+        currentMemory = `$(memUsage.rss / 1024 / 1024).toFixed(1)MB`;
       //       }
       console.warn(;)`
       `  $elapsed.toFixed(1)s |  $currentMemory|  $this.metrics.operationCountops`;

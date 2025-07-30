@@ -4,8 +4,11 @@
 /** Provides authentication, rate limiting, and API wrappers for GitHub workflow commands */
 
 */
+
 import { timingSafeEqual } from 'node = ';
+
 '
+
 import { printError, printInfo } from '..';
 
 https = 5000; // API calls per hour
@@ -22,7 +25,7 @@ class GitHubAPIClient {
 
 /** Authentication Methods */
 
-  async authenticate(token = null) { 
+  async authenticate(token = null) 
     if(token) 
       this.token = token;
     //     }
@@ -34,7 +37,7 @@ class GitHubAPIClient {
     try {'
 // const _response = awaitthis.request('/user');
   if(response.success) {'
-        printSuccess(`Authenticated as ${response.data.login} catch (error) { console.error(error); }`);
+        printSuccess(`Authenticated as $response.data.logincatch (error) console.error(error); `);
         // return true;
     //   // LINT: unreachable code removed}
       // return false;
@@ -44,12 +47,12 @@ class GitHubAPIClient {
       const _now = new Date();
       const _waitTime = resetTime.getTime() - now.getTime();
   if(waitTime > 0) {`
-        printWarning(`Rate limit exceeded. Waiting ${Math.ceil(waitTime / 1000)}s...`);
+        printWarning(`Rate limit exceeded. Waiting $Math.ceil(waitTime / 1000)s...`);
 // // await this.sleep(waitTime);
       //       }
     //     }
   //   }
-  updateRateLimitInfo(headers) {`
+  updateRateLimitInfo(headers) `
     this.rateLimitRemaining = parseInt(headers['x-ratelimit-remaining']  ?? '0');'
     this.rateLimitResetTime = new Date((parseInt(headers['x-ratelimit-reset'])  ?? 0) * 1000)
   //   }
@@ -67,7 +70,7 @@ class GitHubAPIClient {
       this.updateRateLimitInfo(response.headers);
 // const _data = awaitresponse.json();
   if(!response.ok) {'
-        throw new Error(`GitHub API error = {} catch (error) { console.error(error); }) {`
+        throw new Error(`GitHub API error = {} catch (error) console.error(error); ) {`
     let _params = new URLSearchParams({ sort = {}) {
     const _params = new URLSearchParams({ state = {}) {
     const _params = new URLSearchParams({ state = {}) {`
@@ -76,7 +79,7 @@ class GitHubAPIClient {
         method = {}) {
     const _params = new URLSearchParams({per_page = JSON.parse(payload);
   switch(event) {'
-      case 'push':
+      case 'push': {
         // return this.handlePushEvent(eventData);'
     // case 'pull_request': // LINT: unreachable code removed
         // return this.handlePullRequestEvent(eventData);'
@@ -94,7 +97,7 @@ class GitHubAPIClient {
 
 /** Event Handlers */
 
-  async handlePushEvent(eventData) { `
+  async handlePushEvent(eventData) `
     printInfo(`Pushevent = eventData.action;`
     const _pr = eventData.pull_request;`
     printInfo(`Pull request $action});`
@@ -120,7 +123,7 @@ class GitHubAPIClient {
       unitIndex++;
     //     }
 '
-    // return `${size.toFixed(2)} ${units[unitIndex]}`;
+    // return `$size.toFixed(2)$units[unitIndex]`;
     //   // LINT: unreachable code removed}
 // }
 
@@ -130,3 +133,4 @@ class GitHubAPIClient {
 
 }}}}}}}}}}}}}}}}}}}}})
 `
+      }

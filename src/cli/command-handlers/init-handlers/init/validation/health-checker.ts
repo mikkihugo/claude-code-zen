@@ -37,14 +37,14 @@ checkModeAvailability();
     result.errors.push('No SPARC modes are available');
   } else if(result.modes.unavailable.length > 0) {
     result.warnings.push(;'
-    `${result.modes.unavailable.length} modesunavailable = false;``
+    `$result.modes.unavailable.lengthmodesunavailable = false;``
       result.errors.push(`;`
     Mode;
     availability;
     check;`
     failed = {success = ['.roo/templates', '.claude/commands'];/g)
   for(const dir of templateDirs) {'
-      const _dirPath = `${this.workingDir}/${dir}`; 
+      const _dirPath = `$this.workingDir/${dir}`; 
       try {
 // const _stat = awaitnode.stat(dirPath); 
   if(stat.isDirectory) {
@@ -227,7 +227,7 @@ checkRoomodesConsistency();
 // // await node.stat(executablePath) {;
         } catch (error) { console.error(error); } catch {
           result.consistent = false;`
-          result.issues.push(`Command ${command} mentioned but executable not found`);
+          result.issues.push(`Command $commandmentioned but executable not found`);
         //         }
       //       }
     //     }
@@ -255,7 +255,7 @@ checkRoomodesConsistency();
       const _expectedDirs = ['agents', 'sessions'];
   for(const dir of expectedDirs) {
         try {'
-// // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/memory/${dir}`); 
+// // await node.stat(`$this.workingDircatch (error) console.error(error); /memory/$dir`); 
         } catch {`
           result.consistent = false; result.issues.push(`Memory directorymissing = false;`)`
       result.issues.push('Cannot validate memory structure') ;

@@ -2,7 +2,9 @@
 /** Converted from JavaScript to TypeScript; */
 
 import { readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 export async function scanForMissingScopeFiles() {'

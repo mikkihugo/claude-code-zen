@@ -78,7 +78,7 @@ if(!permissionCheck.success) {
 catch(error)
 // {
   results.success = false;'
-  results.errors.push(`Pre-initialization validation failed = {success = // await this.postInitValidator.checkFileIntegrity();`
+  results.errors.push(`Pre-initialization validation failed = success = // await this.postInitValidator.checkFileIntegrity();`
       results.checks.fileIntegrity = integrityCheck;
   if(!integrityCheck.success) {
         results.success = false;
@@ -187,20 +187,20 @@ catch(error)
     const _warnings = validationResults.warnings?.length  ?? 0;
 '
     report.push(`Summary = === 'object'' : '';``
-          report.push(`${status} ${check});`
+          report.push(`$status$check);`
 // }
 // }
 // Errors
   if(validationResults.errors?.length > 0) {`
   report.push('\n ERRORS => {')'
-        report.push(`  - ${error}`);
+        report.push(`  - $error`);
 // }
 // 
 // }
 // Warnings
   if(validationResults.warnings?.length > 0) {`
   report.push('\n  WARNINGS => {')'
-        report.push(`  - ${warning}`);
+        report.push(`  - $warning`);
 // }
 // 
 // }`

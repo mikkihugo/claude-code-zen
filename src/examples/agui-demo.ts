@@ -32,7 +32,6 @@ export class AGUIDemoIntegration {
 
       this.adapter.endTextMessage(messageId);
       {
-
         // return messageId;
         //   // LINT: unreachable code removed}
         '
@@ -96,14 +95,12 @@ export class AGUIDemoIntegration {
           const _globalAdapter = server.aguiMiddleware.getGlobalAdapter();
           '
   globalAdapter.emitCustomEvent('integration_test',
-          {
             '
     status: 'success',
   timestamp: Date.now()
-          }
           //
           // }'
-          console.warn(' AG-UI Integration Test completed');
+          console.warn(' AG-UI Integration Test completed')
           // return demo.adapter.getStats();
           // }
           // }

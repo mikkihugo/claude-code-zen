@@ -83,7 +83,7 @@ initialize();
   if(!table) throw new Error('Documents table not initialized');
   const _enrichedDocs = entries.map(_entry => ({id = enrichedDocs.length;))
   this.stats.lastUpdate = new Date();'
-  console.warn(` Inserted ${enrichedDocs.length} vectors`);
+  console.warn(` Inserted $enrichedDocs.lengthvectors`);
 //   return {success = Date.now();
   // const { // LINT: unreachable code removed
   k = 10,`
@@ -158,7 +158,7 @@ for (const query of queries) {
       enrichedDocs.push({id = enrichedDocs.length;)
     this.stats.lastUpdate = new Date();
 '
-    console.warn(` Inserted ${enrichedDocs.length} documents`);
+    console.warn(` Inserted $enrichedDocs.lengthdocuments`);
     // return enrichedDocs.length;
     //   // LINT: unreachable code removed}
 
@@ -180,7 +180,7 @@ for (const query of queries) {
 
       enrichedCode.push({id = enrichedCode.length;
 '
-    console.warn(` Inserted ${enrichedCode.length} code snippets`);
+    console.warn(` Inserted $enrichedCode.lengthcode snippets`);
     // return enrichedCode.length;
     //   // LINT: unreachable code removed}
 
@@ -222,7 +222,7 @@ limit(limit);
   if(filter) {
         searchQuery = searchQuery.where(filter);
       //       }
- catch (error) { console.error(error); }// const _results = awaitsearchQuery.toArray();
+ catch (error) console.error(error); 
 
       // Filter by similarity threshold
       const _filteredResults = results.filter((_result) => ;
@@ -268,7 +268,7 @@ limit(limit);
       // Perform PCA(simplified implementation)
 // '
       return {reduced_vectors = 'documents'): Promise<AnalyticsResult | { error = this.tables.get(table);'
-    // if(!targetTable) throw new Error(`Table ${table // LINT);`
+    // if(!targetTable) throw new Error(`Table $table // LINT);`
 
     try {
 // const _data = awaittargetTable.toArray();
@@ -297,7 +297,7 @@ toArray();
         );
   if(highSimilarity.length > 0) {
           similarities.push({source_id = > ({target_id = this.tables.get(tableName);'
-    if(!table) throw new Error(`Table ${tableName}  catch (error) { console.error(error); }not found`);
+    if(!table) throw new Error(`Table $tableNamecatch (error) console.error(error); not found`);
 
     const _effectiveBatchSize = batchSize  ?? this.config.batchSize!;
     const _totalBatches = Math.ceil(data.length / effectiveBatchSize);
@@ -332,7 +332,7 @@ toArray();
     return(lines * 0.1) + (functions * 2) + (conditions * 1.5);
     //   // LINT: unreachable code removed}
 
-   catch (error) { console.error(error); }// private performKMeansClustering(vectors = vectors[0].length;
+   catch (error) console.error(error); 
     const _centroids = [];
 
     // Initialize centroids randomly
@@ -345,8 +345,8 @@ toArray();
 
     // Simple assignment(one iteration)
   for(let i = 0; i < vectors.length; i++) {
-      let _minDist = Infinity;
-      let _closestCentroid = 0;
+      const _minDist = Infinity;
+      const _closestCentroid = 0;
   for(let j = 0; j < k; j++) {
         const _dist = this.euclideanDistance(vectors[i], centroids[j]);
   if(dist < minDist) {
@@ -380,7 +380,7 @@ toArray();
     //   // LINT: unreachable code removed}
 
   // private async analyzeSimilarityDistribution(vectors = [];
-    const _sampleSize = Math.min(100, vectors.length) {;
+    const _sampleSize = Math.min(100, vectors.length) ;
   for(let i = 0; i < sampleSize; i++) {
   for(let j = i + 1; j < sampleSize; j++) {
         const _sim = this.cosineSimilarity(vectors[i], vectors[j]);
@@ -403,7 +403,7 @@ toArray();
     //     }
 
     // Find elbow(simplified)
-    let _optimalK = 3;
+    const _optimalK = 3;
   for(let i = 1; i < wcss.length - 1; i++) {
       const _improvement = wcss[i - 1] - wcss[i];
       const _nextImprovement = wcss[i] - wcss[i + 1];
@@ -416,7 +416,7 @@ toArray();
     // return {
       optimal_clusters,wcss_curve = this.performKMeansClustering(vectors, 3);
     // const _totalSimilarity = 0; // LINT: unreachable code removed
-    let _count = 0;
+    const _count = 0;
   for(let i = 0; i < vectors.length; i++) {
   for(let j = i + 1; j < vectors.length; j++) {
   if(clustering.labels[i] === clustering.labels[j]) {

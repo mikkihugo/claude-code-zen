@@ -2,7 +2,7 @@ import { readFile } from 'node:fs';
 
 export async function scanForDocumentationLinks() {'
 // const __content = awaitreadFile(file, 'utf8');
-  documents.push({file = doc.content.toLowerCase().split(/\W+/).filter(word => word.length > 3).slice(0, 10);
+  documents.push(file = doc.content.toLowerCase().split(/\W+/).filter(word => word.length > 3).slice(0, 10);
 // }
 // Simple cross-linkinglogic = 0; i < documents.length; i++) {
   for(let j = i + 1; j < documents.length; j++) {

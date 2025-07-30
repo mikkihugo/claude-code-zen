@@ -2,11 +2,17 @@
 /** System health checks and monitoring for Claude Flow servers */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import fs from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import process from 'node:process';
 
 /** Health Monitor Configuration */
@@ -41,7 +47,7 @@ this.config = {checkInterval = = false,checks = true;
 
 /** Get current health status */
 
-  async getHealth(): Promise<ServerHealth> {
+  async getHealth(): Promise<ServerHealth> 
   if(!this.isRunning) {
 // await this.runHealthChecks();
     //     }
@@ -61,7 +67,7 @@ this.config = {checkInterval = = false,checks = true;
   if(!this.lastHealth  ?? this.lastHealth.status !== health.status) {'
       this.emit('health-changed', health);'
   if(health.status === 'degraded'  ?? health.status === 'error') {'
-        this.emit('status-degraded', `Health status changed to ${health.status}`);
+        this.emit('status-degraded', `Health status changed to $health.status`);
       } else if(this.lastHealth && ;`
                 (this.lastHealth.status === 'degraded'  ?? this.lastHealth.status === 'error') &&;'
                 health.status === 'healthy') {'
@@ -76,7 +82,7 @@ this.config = {checkInterval = = false,checks = true;
 
   // private async runSingleCheck(check): Promise<void> {
     const _startTime = Date.now();
-    let _result = null;
+    const _result = null;
 
     try {
 // const _checkResult = awaitthis.executeCheck(check);
@@ -86,7 +92,7 @@ this.config = {checkInterval = = false,checks = true;
   if(existing && checkResult.status === 'healthy') {
         result.lastSuccess = new Date();
         result.consecutiveFailures = 0;
-      }  catch (error) { console.error(error); }else if(existing) {
+      }  catch (error) console.error(error); else if(existing) {
         result.lastSuccess = existing.lastSuccess;
         result.consecutiveFailures = existing.consecutiveFailures + 1;
       //       }
@@ -125,7 +131,7 @@ this.config = {checkInterval = = false,checks = true;
         throw new Error('Service URL not configured');
       //       }
 
-       catch (error) { console.error(error); }const _controller = new AbortController();
+       catch (error) console.error(error); const _controller = new AbortController();
 // const _response = awaitfetch(url, {method = Date.now() - startTime;
   if(response.ok) {
         // return {name = Date.now();
@@ -135,7 +141,7 @@ this.config = {checkInterval = = false,checks = true;
   if(!filePath) {'
         throw new Error('File path not configured');
       //       }
- catch (error) { console.error(error); }// const _stats = awaitfs.stat(filePath);
+ catch (error) console.error(error); 
 
       // return {name = Date.now();
     // ; // LINT: unreachable code removed
@@ -214,7 +220,7 @@ buildHealthReport();
     const __status = hasErrors ? 'error' : hasDegraded ? 'degraded' : 'healthy';'
     const __failedChecks = componentChecks.filter((check) => check.status !== 'healthy');'
 //     return {name = === 'healthy' ? ;'
-    // `\${component // LINT} component healthy` :`
+    // `\$component // LINT} component healthy` :`
     `${component}issues = > c.name).join(', ')}`,timestamp = > c.name
     //     
   //   }
@@ -277,7 +283,7 @@ const _threshold = this.config.thresholds.responseTime;
 : void
 // {
   // Memory usage check
-  this.addCheck({name = new HealthMonitor();
+  this.addCheck(name = new HealthMonitor();
   // Export utility functions
   // export function _createHealthMonitor(config?) {
 //   return new HealthMonitor(config);
@@ -285,8 +291,5 @@ const _threshold = this.config.thresholds.responseTime;
   // export default {
   HealthMonitor,
   healthMonitor,
-  _createHealthMonitor;
-// }
-
-}}}}}}}}}}}}}}}}}}}}))))))
+  _createHealthMonitor;}}}}}}}}}}}}}}}}}))))))
 `

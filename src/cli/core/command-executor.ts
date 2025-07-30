@@ -2,9 +2,11 @@
 /** Implements Google's single responsibility and dependency injection principles;' */
 
 */'
+
 import type { CommandContext } from '../../types/cli.js';
 '
-import logger, { ValidationError } from '.';
+import logger, { ValidationError } from
+';
 
 // =============================================================================
 // TYPE DEFINITIONS
@@ -50,8 +52,7 @@ catch (error)
 // {
 this.commandRegistry = commandRegistry;
 this;
-'
-logger = options.logger ?? logger.createChild('executor')
+logger = options.logger ?? logger.createChild('executor');
 '
 '
 // this
@@ -87,7 +88,7 @@ context
 resolving;
 to;
 command;
-result * /;
+result * /;;
 // */ // LINT: unreachable code removed
 // public
 // async
@@ -107,20 +108,19 @@ if (!command) {
           this.timeout;
         );
 
-        const _duration = Date.now() - startTime;`
-        this.logger.debug(`Command '${commandName}' completed successfully`, {duration = Date.now() - startTime;`
+        const _duration = Date.now() - startTime;``
+        this.logger.debug(`Command '${commandName}' completed successfully`, {duration = Date.now() - startTime;``
   if(error instanceof ValidationError  ?? error instanceof CommandExecutionError) {
-          // Re-throw CLI errors as-is`
+          // Re-throw CLI errors as-is``
           this.logger.debug(`Command '${commandName}' failed`, {error = > Promise<T> | T, timeoutMs => {`)`
-      const _timeoutId = setTimeout(() => {`
-        reject(new CommandExecutionError(`Command timed out after ${timeoutMs}ms`));`
+      const _timeoutId = setTimeout(() => {``
+        reject(new CommandExecutionError(`Command timed out after ${timeoutMs}ms`));``
       }, timeoutMs);
 
       Promise.resolve(fn());
 then(resolve);
 catch(reject);
-finally(() => clearTimeout(timeoutId));
-    });
+finally(() => clearTimeout(timeoutId))});
   //   }
 
 /** List available commands */
@@ -141,21 +141,21 @@ finally(() => clearTimeout(timeoutId));
    * @returns Command information or null if not found
 
     // */; // LINT: unreachable code removed
-  // // public getCommandInfo(commandName = this.commandRegistry.get(commandName) {;
+  // // public getCommandInfo(commandName = this.commandRegistry.get(commandName) {
   if(!command) {
       // return null;
     //   // LINT: unreachable code removed}
 
     // return {name = this.commandRegistry.get(commandName);
-    // if(!command) { // LINT: unreachable code removed`
+    // if(!command) { // LINT: unreachable code removed``
       throw new ValidationError(`Unknowncommand = [];`
   for(const cmd of commands) {
-// const _result = awaitthis.executeCommand(; 
+// const _result = awaitthis.executeCommand();
         cmd.name,
         cmd.args  ?? [],
         cmd.flags  ?? {},
         cmd.context  ?? {}
-      ); results.push(result) {;
+      ); results.push(result) 
     //     }
 
     // return results;
@@ -169,7 +169,7 @@ finally(() => clearTimeout(timeoutId));
   public;
   async;
   executeParallel(commands = commands.map(_cmd =>;
-      this.executeCommand(;
+      this.executeCommand();
         cmd.name,
         cmd.args  ?? [],
         cmd.flags  ?? {},
@@ -199,13 +199,13 @@ getMetrics();
     // */; // LINT: unreachable code removed
 private;
 shouldRetry(error);
-`
+``
   // Don't retry validation errors'
   if(error instanceof ValidationError) {
     // return false;
     //   // LINT: unreachable code removed}
 '
-  // Don''
+  // Don'
   if(error.message.includes('timed out')) {'
     // return false;
     //   // LINT: unreachable code removed}
@@ -257,8 +257,8 @@ sleep(ms = > setTimeout(resolve, ms));
   // return new CommandExecutor(commandRegistry, enhancedOptions);
 // }
 
-}}}}}}}}}})
+}}}}}}}}})
   )))))
-`
+``
 }
 }

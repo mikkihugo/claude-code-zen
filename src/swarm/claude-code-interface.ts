@@ -15,7 +15,9 @@ config =
 ,memoryManager = new Logger('ClaudeCodeInterface')
 this.config = this.createDefaultConfig(config)
 this.memoryManager = memoryManager
-this.processPool = this.initializeProcessPool() {}
+this.processPool = this.initializeProcessPool()
+{
+}
 this.taskExecutor = new TaskExecutor(
 // {
   timeoutMs = true;
@@ -61,7 +63,7 @@ processId = {};
 // {'
 const _executionId = generateId('claude-execution');
 '
-this.logger.info('Executing task with Claude agent', {)
+this.logger.info('Executing task with Claude agent', )
       executionId,taskId = agentId ? this.agents.get(agentId) : // await this.selectOptimalAgent(taskDefinition);
   if(!agent) {'
   throw new Error(agentId ? `Agent notfound = = 'idle') {``
@@ -110,7 +112,7 @@ this.logger.info('Executing task with Claude agent', {)
     //   // LINT: unreachable code removed}
   //   }
 '
-  this.logger.error('Task execution failed', {)
+  this.logger.error('Task execution failed', )
         executionId,error = this.activeExecutions.get(executionId);
   if(!execution) {'
     throw new Error(`Execution notfound = 'cancelled';`
@@ -146,20 +148,19 @@ this.logger.info('Executing task with Claude agent', {)
     const _process = spawn(this.config.claudeExecutablePath, ['--version'], {
         stdio => {'';
 '
-    process.stdout?.on('data', (data) => {
-      output += data.toString();
-    });
+    process.stdout?.on('data', (data) => 
+      output += data.toString(););
 '
-    process.on('close', (code) => {
+    process.on('close', (code) => 
   if(code === 0) {'
-            this.logger.info('Claude executable verified', {path = [];
+            this.logger.info('Claude executable verified', path = [];
 
   for(let i = 0; i < this.config.agentPoolSize; i++) {
       promises.push(this.spawnAgent({type = // await Promise.allSettled(promises);'
     const _successful = results.filter(r => r.status === 'fulfilled').length;'
     const _failed = results.filter(r => r.status === 'rejected').length;
 '
-    this.logger.info('Agent pool pre-warming completed', {
+    this.logger.info('Agent pool pre-warming completed', 
       successful,
       failed,targetSize = [];
 
@@ -193,19 +194,19 @@ this.logger.info('Executing task with Claude agent', {)
     // return {executable = agent;
     // ; // LINT: unreachable code removed'
     process.on('exit', (_code, _signal) => {'
-      this.logger.info('Claude agent process exited', {agentId = = 'terminated') {'
+      this.logger.info('Claude agent process exited', agentId = = 'terminated') '
         agent.status = 'error';
         this.moveAgentToFailedPool(agent);
       //       }
 '
       this.emit(''
-      this.logger.error('Claude agent process error', {agentId = 'error';)
+      this.logger.error('Claude agent process error', agentId = 'error';)
       this.moveAgentToFailedPool(agent);
 '
       this.emit(''
-        this.logger.debug('Agent stdout', {
+        this.logger.debug('Agent stdout', 
           agentId => {))'
-        this.logger.debug('Agent stderr', {agentId = 30000): Promise<void> {
+        this.logger.debug('Agent stderr', agentId = 30000): Promise<void> {
 //     return new Promise((resolve, reject) => {
       const _startTime = Date.now();
     // const _checkInterval = 1000; // 1 second // LINT: unreachable code removed
@@ -213,7 +214,7 @@ this.logger.info('Executing task with Claude agent', {)
       const _checkReady = () => {
         const _elapsed = Date.now() - startTime;
   if(elapsed > timeout) {'
-          reject(new Error(`Agent ${agent.id} failed to become ready within ${timeout}ms`));
+          reject(new Error(`Agent $agent.idfailed to become ready within $timeoutms`));
           return;
     //   // LINT: unreachable code removed}
 
@@ -435,4 +436,3 @@ this.on('task => {')'
 
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))))))))))
 '
-

@@ -2,9 +2,13 @@
 /** Comprehensive configuration loading, validation, and management; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import type { CLIConfig, ConfigurationManager as IConfigurationManager } from '../../types/cli';
+
 '
+
 import { ConfigurationError } from '../core/cli-error';
 
 // =============================================================================
@@ -60,7 +64,7 @@ load(path?)
         } else {'
           throw new Error('Unsupported config file format. Use .json, .js, or .mjs');
         //         }
-      } catch(/* _parseError */) {
+      } catch(/* _parseError */) 
         throw new ConfigurationError(;'
           `Failed to parse configfile = this.mergeConfig(this.config, loadedConfig);`
 
@@ -69,7 +73,7 @@ load(path?)
       if(validationResults.some(r => !r.valid)) {
 
         throw new ConfigurationError(;`
-          `Configuration validationfailed = > `$e.key).join('\n')}'
+          `Configuration validationfailed = > `$e.key).join('\n')'
   `,`
           configPath;
 );
@@ -101,7 +105,7 @@ load(path?)
       //       }
      catch (error) console.error(error); else'
     if(configPath.endsWith('.js') ?? configPath.endsWith('.mjs')) {'
-      content = `module.exports = ${JSON.stringify(configToSave, null, 2)};``
+      content = `module.exports = $JSON.stringify(configToSave, null, 2);``
   `;`
     } else {
       // Default to JSON
@@ -370,7 +374,7 @@ startWatching();
   const _spaces = '  '.repeat(indent);'';
   if(Array.isArray(obj)) {
   for(const item of obj) {'
-      yaml += `${spaces}- ${this.toYaml(item, indent + 1).trim()}\n`; //     }`
+      yaml += `$spaces- $this.toYaml(item, indent + 1).trim()\n`; //     }`
   } else if(typeof obj === 'object' && obj !== null) {
     for(const [key, value] of Object.entries(obj)) {'
   if(typeof value === 'object' && value !== null) {''));
@@ -381,7 +385,7 @@ startWatching();
         const _envKey = currentPrefix ? `${currentPrefix}_${key.toUpperCase()}` : key.toUpperCase(); if(typeof value === 'object' && value !== null && !Array.isArray(value)) {
           processObject(value, envKey); } else {'
           const _envValue = Array.isArray(value) ? value.join(',') : String(value);'
-          envString += `${envKey}=${envValue}\n`;
+          envString += `$envKey=$envValue\n`;
     processObject(obj, prefix);
     // return envString;
   //   }

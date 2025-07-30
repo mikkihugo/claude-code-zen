@@ -6,9 +6,10 @@ Tools;
 Registry;
 
 /** Claude Zen CLI command tools for MCP protocol */
- *
+*
 @module
-MCPToolsRegistry * /;
+MCPToolsRegistry * /;;
+
 import type { JSONSchema, ToolResult } from '../../types/mcp.js';
 
 // =============================================================================
@@ -144,7 +145,7 @@ tool
 to;
 validate
  * @returns Validation
-result * /;
+result * /;;
 // */ // LINT: unreachable code removed
 // export function validateToolArgs(toolName = getToolSchema(toolName);
 if (!schema) {
@@ -159,7 +160,7 @@ if (!schema) {
         // return {valid = === 'string' && typeof value !== 'string') {'
         // return {
           valid,'
-        // error: `Invalid type for \${key // LINT}: expected string, got ${typeof value}`;`
+        // error: `Invalid type for \${key // LINT}: expected string, got ${typeof value}`;``
       //       }
     //     }
   //   }
@@ -171,8 +172,8 @@ if (!schema) {
  * @returns Array of tool categories
     // */ // LINT: unreachable code removed
 // export function _getToolCategories(): ToolCategory[] {
-//   return [;
-    // { // LINT: unreachable code removed`
+//   return [
+    // { // LINT: unreachable code removed``
       name: 'claude-zen''
       description: 'Core Claude Zen operations','
       count: Object.keys(initializeClaudeZenTools()).length ,
@@ -216,3 +217,4 @@ if (!schema) {
 }}}}}}}}}}}}}}}}}}}}}}}}}}
 '
 
+))

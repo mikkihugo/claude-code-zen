@@ -11,6 +11,7 @@ for Multi-Queen Architecture
 
 import chalk from 'chalk';
 '
+
 import { QueenCoordinator } from '../../queens/queen-coordinator.js';
 
 const _queenCoordinator = null;
@@ -46,7 +47,7 @@ try {
     if(utilization > 0.8) color = chalk.red;
     else if(utilization > 0.6) color = chalk.yellow;
 '
-    console.warn(`${queenName} catch (error) { console.error(error); }: ${color(`${utilizationPercent}%`)}`);
+    console.warn(`$queenNamecatch (error) console.error(error); : $color(`${utilizationPercent}%`)`);
   //   }
 // }
 
@@ -77,7 +78,7 @@ for (const [name, queen] of Object.entries(queens)) {
   if(result.decision) {
       // Consensus result'
       console.warn(chalk.cyan(' Queen Consensus Result => {'))'
-          console.warn(`${dissent.queenName} catch (error) { console.error(error); }: ${dissent.recommendation} (${(_dissent._confidence * 100).toFixed(1)}%)`)
+          console.warn(`$dissent.queenNamecatch (error) console.error(error); : $dissent.recommendation($(_dissent._confidence * 100).toFixed(1)%)`)
         });
       //       }
     } else 
@@ -112,7 +113,7 @@ for (const [name, queen] of Object.entries(queens)) {
 
     // Display consensus results'
     console.warn(chalk.cyan(' Queen Consensus => {'))'
-        console.warn(`    ${dissent.queenName});``
+        console.warn(`    $dissent.queenName);``
         console.warn(`Confidence = queenCoordinator.getMetrics();`
   const _queens = queenCoordinator.getQueens();
 
@@ -161,7 +162,7 @@ for (const [name, queen] of Object.entries(queens)) {
     if(metrics.averageProcessingTime > 5000) recommendations.push('Investigate performance issues');'
     if(metrics.averageConfidence < 0.5) recommendations.push('Review model performance');
   if(recommendations.length > 0) {'
-      console.warn(`${chalk.yellow('Recommendations = (healthyCount / totalCount * 100).toFixed(1);'``
+      console.warn(`$chalk.yellow('Recommendations = (healthyCount / totalCount * 100).toFixed(1);'``
   console.warn(chalk.bold(' Overall SystemHealth = chalk.green(' Excellent''
   if(healthPercentage < 100) systemStatus = chalk.yellow(' Good');'
   if(healthPercentage < 80) systemStatus = chalk.orange(' Fair');'
@@ -214,10 +215,7 @@ function _showQueenHelp() {`
   console.warn('   Automatic load balancing and health monitoring');'
   console.warn('   Specialized expertise routing');
   console.warn();'
-  console.warn(chalk.gray(' Powered by Multi-Queen Intelligence Architecture'));
-// }
-
-}}}}}}}
+  console.warn(chalk.gray(' Powered by Multi-Queen Intelligence Architecture'));}}}}}}
 }}}}})))))))))))))))))))))))))
 '
 }

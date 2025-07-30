@@ -2,7 +2,9 @@
 /** Model Context Protocol server management with full type safety */
 
 import { CLIError } from '../../types/cli.js';
+
 '
+
 import { FlagValidator } from '../core/argument-parser.js';
 
 // =============================================================================
@@ -156,7 +158,7 @@ async function showMcpStatus(options = {status = // await import('url');'
 
     neuralTools.forEach(tool => {)
       const [name, description] = tool.split(/\s{2 }/);'
-      console.warn(`   ${tool}`);`
+      console.warn(`   $tool`);`
       tools.push({name = === 'memory') {'
     console.warn('\n MEMORY & PERSISTENCE(12 tools):');
     const _memoryTools = ['
@@ -176,7 +178,7 @@ async function showMcpStatus(options = {status = // await import('url');'
 
     memoryTools.forEach(tool => {)
       const [name, description] = tool.split(/\s{2 }/);'
-      console.warn(`   ${tool}`);`
+      console.warn(`   $tool`);`
       tools.push({name = === 'analysis') {'
     console.warn('\n ANALYSIS & MONITORING(13 tools):');
     // ... (implement similar pattern for analysis tools)
@@ -203,9 +205,9 @@ async function showMcpStatus(options = {status = // await import('url');'
 '
   console.warn('\nStatus = <category> --verbose');
 '
-  logger.info('MCP tools listed', {toolCount = args[0] as McpAuthCommand;
+  logger.info('MCP tools listed', toolCount = args[0] as McpAuthCommand;
 '
-  logger.debug('Managing MCP authentication', { command = {server = neural   # List neural tools''
+  logger.debug('Managing MCP authentication', command = {server = neural   # List neural tools''
   console.warn('  claude-zen mcp tools --verbose           # Detailed tool list');'
   console.warn('  claude-zen mcp config                    # Show MCP configuration');'
   console.warn('  claude-zen mcp auth setup                # Setup MCP authentication');
@@ -214,9 +216,5 @@ async function showMcpStatus(options = {status = // await import('url');'
   console.warn();'
   console.warn(''
   console.warn(' Full ruv-swarm + DAA + Claude-Flow integration');
-'
-  // return 'MCP help displayed';
-// }
-
-}}}}}}}}}}}}}}}}}}}}}}))))))))))
+'}}}}}}}}}}}}}}}}}}}}))))))))))
 '

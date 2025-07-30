@@ -7,23 +7,26 @@
 const _filled = Math.floor((progress / 100) * width);
 const _empty = width - filled;
 
-return(;
+return();
 // <Box>; // LINT: unreachable code removed
 <Text color={color}>;
 {
   label && `${label}: `;
 }
-`
 ``
-        [{'''.repeat(empty)}] {progress.toFixed(1)}%;'
+``
+        [{''.repeat(empty)}]
+{
+  progress.toFixed(1);
+}
+%'
       <
     <
-  );
-};
+  )}
 
-  const [selectedSuggestion, setSelectedSuggestion] = useState(-1);
+const [selectedSuggestion, setSelectedSuggestion] = useState(-1);
 
-  useEffect(() => {
+useEffect(() => {
     // Auto-completion logic
   if(value.length > 0) {
       listCommands().then(commands => {
@@ -31,72 +34,95 @@ return(;
 filter(cmd => cmd.name.toLowerCase().startsWith(value.toLowerCase()));
 slice(0, 5);
         setSuggestions(matches);
-        setSelectedSuggestion(-1);
-      });
-    } else {
+        setSelectedSuggestion(-1)})} else {
       setSuggestions([]);
     //     }
   }, [value]);
 
-  // return(;'
-    // <Box flexDirection="column">; // LINT) => (;"
+  // return(
+    // <Box flexDirection="column">; // LINT) => (
             <Text ;
               key={cmd.name}"
-              color={index === selectedSuggestion ? 'cyan' ))}'
+              color=index === selectedSuggestion ? 'cyan' ))'
         <
       )}
     <
-  );
-};
+  )
+}
 
 const _SwarmTopology = () => {
-  // return(;'
-    // <Box flexDirection="column" borderStyle="single""
-      <Text bold color="cyan"> Swarm Topology<
+  // return(
+  // <Box flexDirection="column" borderStyle="single""
+  <Text bold
+  color = 'cyan' > Swarm;
+  Topology<
 
-      {swarms.length === 0 ? (;"
+      {swarms.length === 0 ? (
         <Text color="gray">No active swarms<
       ) : (;
-        swarms.map(swarm => (;
-          <Box key={swarm.id} marginLeft={2}>;"
-            <Text color="yellow">;"))"
-              {swarm.name} ({swarm.agents} agents) - {swarm.status}
+  swarms.map(swarm => (;
+  <Box key={swarm.id}
+  marginLeft={2}>
+            <Text color="yellow">;
+  ('))');
+  swarm.name({swarm.agents} agents) - swarm.status
             <
           <
-        ));
-      )}
+  ))
+  )
+};
 
-      {connections.length > 0 && (;"
-        <Box flexDirection="column""
+{
+  connections.length > 0 && (
+        <Box flexDirection="column"
+  "
           <Text color="gray""
-            <Text key={index} color="blue" marginLeft={2}>;"
-              {conn.from}  {conn.to}
+            <Text key=indexcolor="blue" marginLeft=
+  {
+    2;
+  }
+  >
+  {
+    conn.from;
+  }
+  conn.to
             <
-          ))}
-        <
-      )}
+  ))
+}
+<
+)}
     <
-  );
-};
+  )}
 
-  // return(;"
-    // <Box flexDirection="column" borderStyle="single" padding={1 // LINT) => (;"
-        <Text ;
-          key={index}"
-          color={log.type === 'error' ? 'red' : log.type === 'success' ? 'green' : 'white'}'
-        >;
-          {new Date(log.timestamp).toLocaleTimeString()} {log.message}
-        <
-      ))}
+// return(
+// <Box flexDirection="column" borderStyle="single" padding={1 // LINT) => (
+<Text ;
+key = { index };
+"
+          color=
+{
+  log.type === 'error' ? 'red' : log.type === 'success' ? 'green' : 'white';
+}
+'
+        >
+{
+  new Date(log.timestamp).toLocaleTimeString();
+}
+{
+  log.message;
+}
+<
+))}
 
-      {logs.length === 0 && (;'
-        <Text color="gray">No logs yet<
-      )}
-    <
-  );
-};
-
-};
+{
+  logs.length === 0 && (
+        <Text color="gray">No
+  logs;
+  yet<
+  )
+}
+<
+)}}
 
 const _HelpPane = () => {
   const [commandHelp, setCommandHelp] = useState(null);
@@ -106,44 +132,50 @@ const _HelpPane = () => {
       // Fetch command help
       listCommands().then(commands => {)
         const _cmd = commands.find(c => c.name === selectedCommand);
-        setCommandHelp(cmd);
-      });
+        setCommandHelp(cmd)});
     //     }
   }, [selectedCommand]);
 
-  // return(;"
+  // return(
     // <Box flexDirection="column" borderStyle="single""
                 <Text key={index} color="gray" marginLeft={2}>{example}<
               ))}
             <
-          )}
-        <
-      ) : (;"
-        <Box flexDirection="column""
-          <Text color="gray">Keyboard Shortcuts = {2 = {2}>Ctrl+C - Exit<
-          <Text marginLeft={2}>/ - Navigate suggestions</Text>;
-          <Text marginLeft={2}>F1 - API mode<
-          <Text marginLeft={2}>F2 - Monitoring mode<
-          <Text marginLeft={2}>F3 - Help mode<
-        <
-      )}
-    <
-  );
+          )
 };
+<
+) : (
+        <Box flexDirection="column""
+          <Text color="gray">Keyboard Shortcuts =
+{
+  2 = {2}>Ctrl+C - Exit<
+          <Text marginLeft={2}>/ - Navigate
+  suggestions < /;>Tetx < Text;
+  marginLeft={2}>F1 - API
+  mode<
+          <Text marginLeft={2}>F2 - Monitoring
+  mode<
+          <Text marginLeft={2}>F3 - Help
+  mode<
+        <
+  )
+}
+<
+)}
 
-const _CLIInterface = () => {"');'
+const _CLIInterface = () => {")
   const [output, setOutput] = useState([]);
   const [isExecuting, setIsExecuting] = useState(false);
-  const [apiServer, setApiServer] = useState(null);'
-  const [mode, setMode] = useState('cli'); // 'cli', 'api', 'monitoring', ''
+  const [apiServer, setApiServer] = useState(null)
+  const [mode, setMode] = useState('cli'); // 'cli', 'api', 'monitoring', '
   const [currentProgress, setCurrentProgress] = useState(0);
   const [longRunningTask, setLongRunningTask] = useState(null);
-  const [systemStatus, setSystemStatus] = useState({apiRunning = useState({apiCalls = useState([;
-    {id = useState([;
+  const [systemStatus, setSystemStatus] = useState({apiRunning = useState({apiCalls = useState([
+    {id = useState([
     {from = useState(null);
   const [suggestions, setSuggestions] = useState([]);
-  const [selectedSuggestion, setSelectedSuggestion] = useState(-1);'
-  const [viewLayout, setViewLayout] = useState('split'); // 'split', ''
+  const [selectedSuggestion, setSelectedSuggestion] = useState(-1)
+  const [viewLayout, setViewLayout] = useState('split'); // 'split', '
 
   const { exit } = useApp();
 
@@ -163,7 +195,7 @@ const _CLIInterface = () => {"');'
 ..prev,commandCount = apiServer.getStatus();
           setMetrics({apiCalls = setInterval(updateStatus, 5000);
     // return() => clearInterval(interval);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); }, [apiServer]);
+    //   // LINT: unreachable code removed} catch (error) { console.error(error)}, [apiServer]);
 
   // Command auto-completion
   useEffect(() => {
@@ -173,9 +205,7 @@ const _CLIInterface = () => {"');'
 filter(cmd => cmd.name.toLowerCase().startsWith(command.toLowerCase()));
 slice(0, 8);
         setSuggestions(matches);
-        setSelectedSuggestion(-1);
-      });
-    } else {
+        setSelectedSuggestion(-1)})} else {
       setSuggestions([]);
     //     }
   }, [command]);
@@ -194,7 +224,7 @@ slice(0, 8);
 
       console.log = () => {
         const _logEntry = {type = () => {
-        const _logEntry = { ;
+        const _logEntry = {
           //           type = {setCurrentProgress = > task ? { ...task, progress   });
         //         }
       };
@@ -211,7 +241,7 @@ slice(0, 8);
         {type = > ({ ...prev,executions = > [...prev,
         {type = useCallback(async() => {
   if(apiServer) {
-      setOutput(prev => [...prev, {type = new AutoGeneratedAPI({ ;
+      setOutput(prev => [...prev, {type = new AutoGeneratedAPI({
         port,enableWebSocket = await api.start();
       setApiServer(api);
       setSystemStatus(prev => ({ ...prev,apiRunning = > [...prev, {type = > [...prev, {type = useCallback(async() => {
@@ -228,11 +258,11 @@ slice(0, 8);
   if(key.f1) { setMode('api''
   if(key.f2) { setMode('monitoring''
   if(key.f3) { setMode('help''
-  if(key.f4) { setMode('cli'); return; }'
+  if(key.f4) { setMode('cli'); return}'
 
     // Layout switching'
   if(key.ctrl && input === 'l''
-      setViewLayout(prev => prev === 'split' ? 'full' );'
+      setViewLayout(prev => prev === 'split' ? 'full' )
       return;
     //   // LINT: unreachable code removed}
 
@@ -255,35 +285,32 @@ slice(0, 8);
 
     // Command execution
     if(key.return && command.trim()) {'
-      const _parts = command.trim().split(' ');'
+      const _parts = command.trim().split(')
     // const _cmd = parts[0]; // LINT: unreachable code removed
       const _args = parts.slice(1);
 
       // Use suggestion if one is selected
   if(selectedSuggestion >= 0) {
         executeCommandWithOutput(suggestions[selectedSuggestion].name, args, {});
-        setSelectedCommand(suggestions[selectedSuggestion].name);
-      } else {
+        setSelectedCommand(suggestions[selectedSuggestion].name)} else {
         executeCommandWithOutput(cmd, args, {});
         setSelectedCommand(cmd);
-      //       }'');'
+      //       }')
       return;
     //   // LINT: unreachable code removed}
 
     // Command input
   if(key.backspace  ?? key.delete) {
-      setCommand(prev => prev.slice(0, -1));
-    } else if(key.escape) {
-  if(command) {'');'
-        setSelectedCommand(null);
-      } else {
+      setCommand(prev => prev.slice(0, -1))} else if(key.escape) {
+  if(command) {')
+        setSelectedCommand(null)} else {
         exit();
       //       }'
     } else if(input === 'q' && !command) {'
-      exit();'
+      exit()
     } else if(input === 'r' && !command && mode === 'monitoring') {'
       // Refresh monitoring data
-  setOutput(prev => [...prev, {type = === 1) {
+  setOutput(prev => [...prev, type = === 1) 
       setCommand(prev => prev + input);
     //     }
 
@@ -292,14 +319,14 @@ slice(0, 8);
       if(input === 's''
       if(input === 'x''
   if(input === 'e') {'
-        generateAPIEndpoints().then(endpoints => {)
-          setOutput(prev => [...prev, {type = () => {
+        generateAPIEndpoints().then(endpoints => )
+          setOutput(prev => [...prev, type = () => {
   switch(type) {'
       case 'success': return 'green''
     // case 'error': return 'red''
       case 'command': return 'cyan''
     // case 'info': return 'yellow''
-//     return mode === targetMode ? 'cyan' : 'gray';'
+//     return mode === targetMode ? 'cyan' : 'gray''
     //   // LINT: unreachable code removed};
 
   // Main render component with enhanced split-pane layout'
@@ -308,44 +335,39 @@ slice(0, 8);
       React.createElement(Text, {color = === 'monitoring' }, '[F2] Monitor ''
       React.createElement(Text, {color = === 'help' }, '[F3] Help '),'
       React.createElement(Spacer, null),'
-      React.createElement(Text, {color = === 'split' ? ;'
+      React.createElement(Text, {color = === 'split' ? 
       // Split-pane layout'
-      React.createElement(Box, {flexGrow = === 'cli' && React.createElement(Box, { flexDirection => {''
-                const _parts = cmd.split(' ');'
+      React.createElement(Box, {flexGrow = === 'cli' && React.createElement(Box, { flexDirection => {'
+                const _parts = cmd.split(')
                 executeCommandWithOutput(parts[0], parts.slice(1), {});
               //               }
             }),
-            suggestions.length > 0 && React.createElement(Box, {flexDirection = > ;'
-                React.createElement(Text, {key = === selectedSuggestion ? 'cyan' : 'white',backgroundColor = === selectedSuggestion ? 'blue' ,marginLeft = === 'api' && React.createElement(Box, {flexDirection = === 'monitoring' && React.createElement(SwarmTopology, { ;'
+            suggestions.length > 0 && React.createElement(Box, {flexDirection = > 
+                React.createElement(Text, {key = === selectedSuggestion ? 'cyan' : 'white',backgroundColor = === selectedSuggestion ? 'blue' ,marginLeft = === 'api' && React.createElement(Box, {flexDirection = === 'monitoring' && React.createElement(SwarmTopology, { 
             swarms,
             connections ;)))
           }),'
-          mode === 'help' && React.createElement(HelpPane, { ;'
-            selectedCommand ;
-          }),
+          mode === 'help' && React.createElement(HelpPane, { 
+            selectedCommand }),
           // Command input area(always visible)'
-          React.createElement(Box, {borderStyle = === 'cli' && React.createElement(Box, {flexDirection = === 'monitoring' && React.createElement(Box, {flexDirection = > ;')))'
+          React.createElement(Box, {borderStyle = === 'cli' && React.createElement(Box, {flexDirection = === 'monitoring" && React.createElement(Box, {flexDirection = > ;")))'
             React.createElement(Text, {key = () => {
   render(React.createElement(CLIInterface, {initialCommand = () => {
   const _cli = createMeowCLI();
   const { input, flags } = cli;
   if(flags.ui  ?? flags.terminal) {
     // Launch TUI interface
-    launchMeowInkInterface(input[0], input.slice(1), flags);
-  } else {
+    launchMeowInkInterface(input[0], input.slice(1), flags)} else {
     // Return parsed command for normal CLI execution'
-    // return {command = === `;
+    // return {command = === `;`
 ``;
 (file) => {
   ``;
-  console.warn('\n Claude-Zen interface shutting down...');
-  '
+  console.warn('\n Claude-Zen interface shutting down...')
   // process.exit(0); // LINT: unreachable code removed
 };
 )
 // }
 
-// export default CLIInterface;
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))
+// export default CLIInterface}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))
 '

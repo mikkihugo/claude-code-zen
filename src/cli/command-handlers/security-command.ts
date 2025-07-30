@@ -27,15 +27,11 @@ export async function securityCommand() {
       if (user && role) {
         '
         printSuccess(`Assigning role $
-        {
-          role;
-        }
+          role
         to;
         user;
         $;
-        {
-          user;
-        }
+        user;
         `);`;
         console.warn(' Role assignment complete');
         '
@@ -61,7 +57,7 @@ export async function securityCommand() {
               '
               printSuccess(`Resetting circuitbreaker = args[1]
               `
-`;
+`
               if (auditAction === 'status') {
                 '
                 printSuccess('Audit LoggingStatus = === 'search') {'
@@ -75,7 +71,7 @@ export async function securityCommand() {
                 console.warn(''
             console.warn('\n Export complete,234 events')
                 // else'
-                console.warn('Audit commands, search, export, configure');
+                console.warn('Audit commands, search, export, configure')
                 break;
                 '
                 case 'compliance':'

@@ -1,24 +1,36 @@
 /** Performance tests for Claude-Flow; */
 
 import { jest } from '@jest';
+
 '
+
 import fs from 'fs-extra';
+
 '
+
 import { agentCommand } from '../../cli/simple-commands/agent.js';
+
 '
+
 import { memoryCommand } from '../../cli/simple-commands/memory.js';
+
 '
+
 import { parseFlags } from '../../cli/utils.js';
+
 '
+
 import { deepMerge } from '../../utils/helpers.js';
+
 '
+
 import { perfHelpers } from '../utils/test-helpers.js';
+
 '
 describe('Performance Tests', () =>
 {
   '
   describe('Utility Functions Performance', () =>
-  {
     '
     test('parseFlags should handle large argument lists efficiently', async() =>
     {
@@ -26,14 +38,10 @@ describe('Performance Tests', () =>
       for (let i = 0; i < 1000; i++) {
         '
         largeArgList.push(`--flag$
-        {
           i;
-        }
         `, `;
         value$;
-        {
           i;
-        }
         `);
       //       }
       const { result, duration } = // await perfHelpers.measureTime(() => {
@@ -68,9 +76,7 @@ describe('Performance Tests', () =>
             for (let i = 0; i < depth; i++) {
               '
           obj =
-              {
                 [`level${i}`];
-              }
               //         }
               //         return obj;
               //   // LINT: unreachable code removed};
@@ -89,13 +95,12 @@ describe('Performance Tests', () =>
           };
           )
           `
-  describe('Command Performance', () => {
+  describe('Command Performance', () => 
     beforeEach(() => {
       // Mock file system operations for performance testing'
       jest.spyOn(fs, 'pathExists').mockResolvedValue(true);'
-      jest.spyOn(fs, 'readJson').mockResolvedValue({ entries);'
-      jest.spyOn(fs, 'writeJson').mockResolvedValue(undefined);
-      });'
+      jest.spyOn(fs, 'readJson').mockResolvedValue(entries);'
+      jest.spyOn(fs, 'writeJson').mockResolvedValue(undefined););'
     test('agent list command should respond quickly', async() => {
       const { duration } = await perfHelpers.measureTime(async() => {'
   // await agentCommand(['list'], {});
@@ -114,9 +119,7 @@ describe('Performance Tests', () =>
           value: `value${i}`, timestamp;
           : new Date().toISOString(),`
           tags: [`tag$
-          {
             i % 10;
-          }
           `] })) };`;
           jest.spyOn(fs, 'readJson').mockResolvedValue(largeMemoryData);
           const { duration } = // await perfHelpers.measureTime(async() => {'
@@ -152,9 +155,7 @@ describe('Memory Usage Tests', () => {'
           data: 'x'.repeat(1000)   }));'
         parseFlags([`--;
         test$;
-        {
           i;
-        }
         `, 'value']);
         JSON.stringify(largeArray.slice(0, 10)); // Only format first 10 to keep it reasonable
 
@@ -181,14 +182,10 @@ describe('Concurrent Operations', () =>
   for(let i = 0; i < 20; i++) {'
         operations.push(memoryCommand(['store', `;
         key$;
-        {
           i;
-        }
         `, `;
         value$;
-        {
           i;
-        }
         `], {}));
       //       }
   // // await Promise.all(operations);
@@ -206,7 +203,7 @@ const { duration } = // await perfHelpers.measureTime(async() => {
   const _operations = [];
   // Simulate 10 concurrent agent status checks
   for(let i = 0; i < 10; i++) {'
-    operations.push(agentCommand(['status'], {}));
+    operations.push(agentCommand(['status'], ));
   //   }
   // // await Promise.all(operations);
 });
@@ -224,21 +221,15 @@ describe('Large Data Handling', () =>
         for (let i = 0; i < 1000; i++) {
           '
     largeConfig.features[`feature$
-          {
             i;
-          }
           `] = {
           enabled: i % 2 === 0,`;
           setting1: `value${i}`, setting2;
           : Math.random(),`
     setting3: Array.from(
-          {
             length;
-          }
           , (_, j) => `item$
-          {
             j;
-          }
           `) }
 // }
 const { duration } = // await performance.measureTime(() => {
@@ -307,7 +298,6 @@ describe('Benchmarks', () =>
         }
         )
       }
-    }
   }
 }
 }

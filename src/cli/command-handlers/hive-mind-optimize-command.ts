@@ -9,11 +9,9 @@ import chalk from 'chalk';
 function _showOptimizeHelp() {
   '
   console.warn(`
-  `)`;
+  `)`
   $;
-  {
-    chalk.yellow(' Hive Mind Database Optimization');
-  }
+  chalk.yellow(' Hive Mind Database Optimization');
   '
 $
   {
@@ -26,20 +24,19 @@ $
       if (report) {
         '
     console.warn(chalk.cyan('Current DatabaseStatus = 0;'
-        let __totalRows = 0;
+        const __totalRows = 0;
         )
     Object.entries(report.tables).forEach(([_name, stats]) =>
-        {
-          totalSize += stats.sizeBytes;
-          _totalRows += stats.rowCount;
-        }
+          totalSize += stats.sizeBytes
+        _totalRows += stats.rowCount;
         )
         '
     console.warn(`  TotalSize = report?.schemaVersion  ?? 1.0
         `
-  const _needsOptimization = schemaVersion < 1.5;
+        const _needsOptimization = schemaVersion < 1.5;
 
-  if(!needsOptimization) {`;
+        if (!needsOptimization) {
+          `;
         console.warn(chalk.green(' Database is already fully optimized!\n'));
 
         const { maintenance } = // await inquirer.prompt([;
@@ -65,35 +62,40 @@ $
   console.warn(chalk.cyan('Schema Version => {'))
             const _sizeMB = (stats.sizeBytes / 1024 / 1024).toFixed(2);
             '
-    console.warn(`$
-            {
-              name;
-            }
-            : $
-            {
-              stats.rowCount.toLocaleString();
-            }
-            rows(${sizeMB} MB)`);
+    console.warn(`;
+          $;
+          name;
+          : $
+              stats.rowCount.toLocaleString()
+          rows(${sizeMB} MB)`);
   });
   if(report.performance.avgTaskCompletionMinutes > 0) {`
-            console.warn(chalk.cyan(''
+          console.warn(chalk.cyan(''
     console.warn(chalk.green('   Database is fully optimized'));
-          } else {
-            '
+        } else {
+          '
     console.warn(chalk.yellow(`   Can be upgraded from v\$report.schemaVersionto v1.5`))
             `
     console.warn(chalk.gray('Run = report.tables.collective_memory?.rowCount > 10000;'
-  const _largeTaskTable = report.tables.tasks?.rowCount > 50000;
-)
-  if(largeMemoryTable  ?? largeTaskTable) {'
+          const _largeTaskTable = report.tables.tasks?.rowCount > 50000;
+          )
+          if (largeMemoryTable ?? largeTaskTable) {
+            '
     console.warn(chalk.cyan('\nMaintenanceRecommendations = // await import('child_process'
-    const __timestamp = new Date().toISOString().replace(/[]/g, '-');'
-    const _backupPath = dbPath.replace('.db', `-backup-\
-            $timestamp.db`);
-`;
-            execSync(`cp "${dbPath}" "${backupPath}"`);
-            `
-    console.warn(chalk.green(`;
+            const __timestamp = new Date().toISOString().replace(/[]/g, '-');
+            '
+            const _backupPath = dbPath.replace(
+              '.db',
+              `-backup-\
+            $timestamp.db`
+            );
+            `;
+            execSync(`;
+            cp;
+            ('${dbPath}');
+            '${backupPath}'`);
+            `;
+            console.warn(chalk.green(`;
             Backupcreated = // await inquirer.prompt([;`
               //       {/g))
               type;

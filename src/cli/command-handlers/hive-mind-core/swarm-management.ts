@@ -5,7 +5,7 @@ Hive;
 Mind;
 Swarm;
 
-Management
+Management;
 Module;
 
 /** Handles swarm spawning, status monitoring, and lifecycle management; */
@@ -14,11 +14,17 @@ Module;
 HiveMindSwarmManagement;
 
 import { existsSync } from 'node:fs';
+
 '
+
 import chalk from 'chalk';
+
 '
+
 import inquirer from 'inquirer';
+
 '
+
 import { isInteractive } from '../../utils/interactive-detector.js';
 
 /** Interactive swarm spawning wizard; */
@@ -37,14 +43,7 @@ if(!isInteractive()) {'
   console.warn(chalk.yellow('\n Hive Mind Swarm Wizard'));'
   console.warn(chalk.gray('Configure and launch a coordinated swarm for your objective\n'));
 
-  try {
-// const _answers = awaitinquirer.prompt([;/g)'
-      {type = > input.trim().length > 0  ?? 'Objective is required';
-      } catch (error) { console.error(error); },'
-      {type = > (input >= 1 && input <= 32)  ?? 'Must be between 1 and 32';
-      },
-      {type = > answers.claudeIntegration;
-      },
+  try {type = > input.trim().length > 0  ?? 'Objective is required';catch (error) console.error(error); ,'type = > (input >= 1 && input <= 32)  ?? 'Must be between 1 and 32';,type = > answers.claudeIntegration;,
       //       {'
         //         type = {queenType = === 'verbose'  ?? answers.verbosity === 'debug',debug = === 'debug',sessionDir = args[0];
 
@@ -100,11 +99,8 @@ if(!isInteractive()) {'
 // // await displayDetailedStatus(_db, _swarmId);
       //       }
 
-    } finally {
-      db.close();
-    //     }
-
-  } catch(error) {`
+    } finally 
+      db.close();catch(error) {`
     spinner.fail(`Failed to spawnswarm = flags.sessionDir  ?? './.claude/hive-mind';`/g)`
   const _dbPath = path.join(sessionDir, 'hive-mind.db');
 
@@ -119,7 +115,7 @@ if(!isInteractive()) {'
       return;
     //   // LINT: unreachable code removed}
 '
-     catch (error) { console.error(error); }console.warn(chalk.yellow(`\n Active Swarms($, { sessions.length })\n`));
+     catch (error) console.error(error); console.warn(chalk.yellow(`\n Active Swarms($, { sessions.length })\n`));
 
     for (const session of sessions); // // await displaySessionStatus(db, session, flags.verbose); 
   } finally {
@@ -128,9 +124,9 @@ if(!isInteractive()) {'
 // }
 
 /** Stop a running swarm session; */
- * @param {string[]} args - Session ID to stop;
- * @param {Object} flags - Command flags;
- * @returns {Promise<void>}
+ * @param string[]args - Session ID to stop;
+ * @param Objectflags - Command flags;
+ * @returns Promise<void>
 
 // export async function stopSession() {`
 throw new Error('Session ID is required');
@@ -167,8 +163,8 @@ try {
 // Helper functions
 
 /** Verify system is properly initialized; */
- * @param {string} sessionDir - Session directory path;
- * @returns {Promise<void>}
+ * @param stringsessionDir - Session directory path;
+ * @returns Promise<void>
 
 `
     // async function verifySystemInitialized(sessionDir = path.join(sessionDir, 'hive-mind.db'); // LINT: unreachable code removed'
@@ -177,7 +173,7 @@ try {
   if(!existsSync(dbPath)  ?? !existsSync(configPath)) {'
     throw new Error('Hive Mind not initialized.Run = Date.now();'
   const _random = Math.random().toString(36).substr(2, 9);'
-  // return `swarm-${timestamp}-${random}`;
+  // return `swarm-$timestamp-$random`;
 // }
 
 /** Create swarm session in database; */
@@ -205,11 +201,11 @@ try {
 // }
 
 /** Spawn worker agents; */
- * @param {Database} db - Database instance;
- * @param {string} swarmId - Swarm identifier;
- * @param {number} workerCount - Number of workers to spawn;
- * @param {string} objective - Primary objective;
- * @returns {Promise<Array>} Worker instances;
+ * @param Databasedb - Database instance;
+ * @param stringswarmId - Swarm identifier;
+ * @param numberworkerCount - Number of workers to spawn;
+ * @param stringobjective - Primary objective;
+ * @returns Promise<Array>Worker instances;
 
     // */; // LINT: unreachable code removed
 async function spawnWorkerAgents() {
@@ -230,10 +226,10 @@ async function spawnWorkerAgents() {
 // }
 
 /** Setup swarm communication layer; */
- * @param {string} swarmId - Swarm identifier;
- * @param {Object} queen - Queen coordinator;
- * @param {Array} workers - Worker agents;
- * @returns {Promise<Object>} Communication instance;
+ * @param stringswarmId - Swarm identifier;
+ * @param Objectqueen - Queen coordinator;
+ * @param Arrayworkers - Worker agents;
+ * @returns Promise<Object>Communication instance;
 
     // */; // LINT: unreachable code removed
 async function setupSwarmCommunication(swarmId = new SwarmCommunication({ swarmId, queen, workers;
@@ -243,24 +239,24 @@ async function setupSwarmCommunication(swarmId = new SwarmCommunication({ swarmI
 // }
 
 /** Start coordination loop; */
- * @param {Object} queen - Queen coordinator;
- * @param {Array} workers - Worker agents;
- * @param {Object} communication - Communication layer;
- * @param {string} objective - Primary objective;
- * @param {Object} flags - Configuration flags;
- * @returns {Promise<void>}
+ * @param Objectqueen - Queen coordinator;
+ * @param Arrayworkers - Worker agents;
+ * @param Objectcommunication - Communication layer;
+ * @param stringobjective - Primary objective;
+ * @param Objectflags - Configuration flags;
+ * @returns Promise<void>
 
     // async function startCoordinationLoop(queen => { // LINT);
   });
 // }
 
 /** Display swarm information; */
- * @param {string} swarmId - Swarm identifier;
- * @param {string} swarmName - Swarm name;
- * @param {string} objective - Primary objective;
- * @param {Object} queen - Queen coordinator;
- * @param {Array} workers - Worker agents;
- * @param {Object} flags - Configuration flags;
+ * @param stringswarmId - Swarm identifier;
+ * @param stringswarmName - Swarm name;
+ * @param stringobjective - Primary objective;
+ * @param Objectqueen - Queen coordinator;
+ * @param Arrayworkers - Worker agents;
+ * @param Objectflags - Configuration flags;
 
 function displaySwarmInfo(swarmId = false) {'
   const _agents = db.prepare(`;`)

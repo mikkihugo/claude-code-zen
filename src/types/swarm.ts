@@ -241,7 +241,7 @@ trends
 // summary: JSONObject
 // details: JSONObject
 // metrics: JSONObject
-recommendations;
+recommendations
 charts;
 appendices;
 // }

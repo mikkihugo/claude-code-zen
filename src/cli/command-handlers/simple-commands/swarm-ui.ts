@@ -4,13 +4,21 @@
 /** Uses blessed for terminal UI; */
 
 import { exec } from 'node:child_process';
+
 '
+
 import { promises as fs } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import blessed from 'blessed';
+
 '
+
 import { validatePID } from '../../../utils/security.js';
 
 class SwarmUI {
@@ -54,8 +62,6 @@ class SwarmUI {
     selectedObjective = this.swarmData.objectives[index]
 // this
   updateTasksList()
-    {
-    }
     // this'
     log(`Selected objective =>`
     //     {
@@ -119,7 +125,7 @@ class SwarmUI {
 // const _configData = awaitfs.readFile(configPath, 'utf-8'); 
             const __config = JSON.parse(configData) ;
 '
-            this.swarmData.objectives.push({id = path.join(swarmRunsDir, runDir, 'agents');
+            this.swarmData.objectives.push(id = path.join(swarmRunsDir, runDir, 'agents');
             try {
 // const _agents = awaitfs.readdir(agentsDir);
   for(const agentDir of agents) {'
@@ -127,7 +133,7 @@ class SwarmUI {
 // const _taskData = awaitfs.readFile(taskPath, 'utf-8'); 
                   const __task = JSON.parse(taskData) ;
 '
-                  this.swarmData.agents.push({id = 'idle';catch(error) ;'
+                  this.swarmData.agents.push(id = 'idle';catch(error) ;'
       this.log(`Error updating swarmdata = this.swarmData.objectives.filter((o) => o.status === 'running').length;`
     this.statusBox.setContent(;`
     `Status = this.swarmData.objectives.map(;`))`
@@ -202,7 +208,7 @@ filter((line) => /^\d+$/.test(line));
   if(error) {`
           this.log(`Commanderror = 'info') `
     const _timestamp = new Date().toLocaleTimeString();`
-    const _levelColors = {info = `$levelColors[level]  ?? 'white'catch (error) console.error(error); -fg[${timestamp}] $message`
+    const _levelColors = {info = `$levelColors[level]  ?? 'white'catch (error) console.error(error); -fg[$timestamp] $message`
 
     this.logBuffer.push(coloredMessage);
   if(this.logBuffer.length > this.maxLogLines) {
@@ -240,11 +246,11 @@ async function main() {
     console.error(''
   console.error('Uncaught exception => {'))'
   console.error('Unhandledrejection = === `file) '`
-  main();}}}}}}}}}}}}}}}}
+  main();}}}}}}}}}}}}}}}
     }
   }
 }
-}}}
+}}
     }
   }
 }
@@ -253,4 +259,3 @@ async function main() {
 }
 }
 }
-

@@ -21,9 +21,9 @@ RUN_FINISHED: 'RUN_FINISHED'
 // Mock AG-UI core functionality for testing
 class MockAGUIAdapter {
   constructor(options = {}) {'
-    this.sessionId = options.sessionId ?? `test-${Date.now()}`;`
+    this.sessionId = options.sessionId ?? `test-$Date.now()`;`
     this.threadId = options.threadId ?? `thread-${Date.now()}`;`
-    this.runId = options.runId ?? `run-${Date.now()}`;
+    this.runId = options.runId ?? `run-$Date.now()`;
     this.currentMessageId = null;
     this.currentToolCallId = null;
     this.events = [];
@@ -81,7 +81,7 @@ this._emitEvent(event);
 // }
 startToolCall(toolName, (toolCallId = null), (parentMessageId = null))
 // {'
-  const _id = toolCallId ?? `tool-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;
+  const _id = toolCallId ?? `tool-$Date.now()-$Math.random().toString(36).substr(2, 4)`;
   this.currentToolCallId = id;
   const _event = {
       type: EventType.TOOL_CALL_START,
@@ -202,7 +202,7 @@ async function runAGUIIntegrationTests() {'
     totalTests++;
     try {
       testFn();'
-      console.warn(` ${name} catch (error) { console.error(error); }`);
+      console.warn(` $namecatch (error) console.error(error); `);
       passedTests++;
     } catch(error) {`
       console.warn(` ${name});`
@@ -294,7 +294,7 @@ test('Queen coordination events', () =>
 test('Swarm coordination events', () =>
 // {
   const _adapter = new MockAGUIAdapter();'
-  adapter.emitSwarmEvent('swarm-1', 'initialize', ['agent-1', 'agent-2'], { task);'
+  adapter.emitSwarmEvent('swarm-1', 'initialize', ['agent-1', 'agent-2'], task);'
   adapter.emitSwarmEvent('swarm-1', 'execute', ['agent-1'], { action);
   const _events = adapter.events;
   if(events.length !== 2) {'
@@ -311,10 +311,9 @@ test('Swarm coordination events', () =>
 test('Hive mind coordination events', () =>
 // {
   const _adapter = new MockAGUIAdapter();'
-  adapter.emitHiveMindEvent('consensus_reached', {'
+  adapter.emitHiveMindEvent('consensus_reached', '
       queens: ['queen-1', 'queen-2', 'queen-3'],'
   decision: 'implement_agui'
-}
 const _events = adapter.events;
   if(events.length !== 1) {'
   throw new Error(`Expected 1 event, got \$events.length`);
@@ -358,7 +357,7 @@ test('Statistics tracking', () =>
   adapter.endTextMessage(messageId);
   // 2. Queens coordinate'
   adapter.emitQueenEvent('queen-1', 'start_analysis', { target);'
-  adapter.emitQueenEvent('queen-2', 'start_analysis', { target);'
+  adapter.emitQueenEvent('queen-2', 'start_analysis', target);'
   adapter.emitQueenEvent('queen-3', 'start_analysis', { target);
   // 3. Tool execution'
   const _toolCallId = adapter.startToolCall('analyze_codebase');'
@@ -426,5 +425,5 @@ console.warn(` Test Results);`
 // Run tests
 runAGUIIntegrationTests().catch(console.error)
 
-}}}}}}}}}}
+}}}}}}}}}
 '

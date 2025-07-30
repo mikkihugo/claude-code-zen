@@ -3,12 +3,13 @@
 /* Demo: Claude-powered Hive Mind in action; */
 
 import { printInfo, printSuccess } from './src/cli/utils.js';
+
 ';
 console.warn(' Claude-Powered Hive Mind Demo\n')
 ';
 printInfo('This demo shows Claude  primary AI for hive coordination.\n')
 // Step 1: Create a simple hive task';
-printInfo('';
+printInfo(''
 const _task = 'Create a simple TODO API with user authentication';
 // Step 2: Show how Claude would handle it';
 printInfo('\nStep 2);';

@@ -12,7 +12,7 @@ export class RuvSwarm {
   constructor(options = {}) {
     this.options = options;
     this.swarms = new Map();
-    console.warn('[Mock] Using mock RuvSwarm implementation');'
+    console.warn('[Mock] Using mock RuvSwarm implementation')
   //   }
 
   async createSwarm(config) { 
@@ -57,3 +57,4 @@ cleanup();
   this.agents = [];
 // }
 '
+)

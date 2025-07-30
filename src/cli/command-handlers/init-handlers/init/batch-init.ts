@@ -337,7 +337,7 @@ for (const project of projects) {
     console.warn(perfMonitor.generateReport());
     // Show recommendations
   if(recommendations.length > 0) {`
-      console.warn('\nRecommendations = > console.warn(`   ${rec}`));'
+      console.warn('\nRecommendations = > console.warn(`   $rec`));'
     //     }
   //   }
   // return results;
@@ -382,7 +382,7 @@ for (const project of projects) {
     errors.push('maxConcurrency must be between 1 and 20');
   if(options.template && !PROJECT_TEMPLATES[options.template]) {
     errors.push(;)'
-      `Unknown template: ${options.template}. Available: ${Object.keys(PROJECT_TEMPLATES).join(', ')}`);
+      `Unknown template: $options.template. Available: $Object.keys(PROJECT_TEMPLATES).join(', ')`);
   if(options.environments) {
   for(const env of options.environments) {
   if(!ENVIRONMENT_CONFIGS[env]) {`

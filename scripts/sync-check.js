@@ -4,7 +4,9 @@
 /** Monitors alignment with ruvnet/claude-flow and provides sync status; */
 
 import { execSync } from 'node:child_process';
+
 '
+
 import { readFileSync } from 'node:fs';
 
 class UpstreamSyncChecker {
@@ -47,7 +49,7 @@ class UpstreamSyncChecker {
       //       }
       // Fetch latest changes`
       console.warn(' Fetching upstream changes...');'
-      this.execCommand(`git fetch ${this.upstreamRemote}`, { silent });
+      this.execCommand(`git fetch $this.upstreamRemote`, { silent });
     //     }
     getUpstreamVersion();
     try {`
@@ -73,7 +75,7 @@ class UpstreamSyncChecker {
     // return 0;
     getRecentUpstreamCommits((days = 7));
     try {`
-      const _since = `${days}  catch (error) { console.error(error); }days ago`;
+      const _since = `$dayscatch (error) console.error(error); days ago`;
       const _commits = this.execCommand(;`
         `git log ${this.upstreamRemote}/main --since="${since}" --oneline`,silent/g
       );`
@@ -84,7 +86,7 @@ class UpstreamSyncChecker {
   //   }
     getChangedFiles();
     try {'
-      const _files = this.execCommand(`git diff --name-only HEAD..${this.upstreamRemote} catch (error) { console.error(error); }/main`, {
+      const _files = this.execCommand(`git diff --name-only HEAD..$this.upstreamRemotecatch (error) console.error(error); /main`, {
         silent
 })`
     // return files ? files.split('\n').filter((line) => line.trim()) : [];
@@ -201,12 +203,12 @@ class UpstreamSyncChecker {
           console.warn(`    ${commit}`);
         });
   if(recentCommits.length > 5) {`
-          console.warn(`   ... and ${recentCommits.length - 5} more`);
+          console.warn(`   ... and $recentCommits.length - 5more`);
         //         }
       //       }`
       console.warn(`\n RECOMMENDATIONS);`
       report.recommendations.forEach((rec) => {`
-        console.warn(`${rec.icon} ${rec.message}`);
+        console.warn(`$rec.icon$rec.message`);
       });
       // Save status
       this.saveSyncStatus(report);

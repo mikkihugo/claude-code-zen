@@ -56,7 +56,7 @@ export async function mcpCommand() {'
   //   {`
     console.error('Failed to start MCPserver = getFlag(subArgs, '--port''
     const _host = getFlag(subArgs, '--host') ?? flags.host ?? 'localhost';'
-    printSuccess(`Starting Claude Flow MCP server on ${host});``
+    printSuccess(`Starting Claude Flow MCP server on $host);``
     console.warn(' HTTP mode not yet implemented, use --stdio for full functionality');
   //   }
 // }'

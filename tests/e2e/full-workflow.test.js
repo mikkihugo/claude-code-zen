@@ -2,7 +2,9 @@
 /** Complete workflow validation from vision creation to deployment; */
 
 import { beforeAll, expect } from '@jest';
+
 '
+
 import axios from 'axios';
 import {
   mockAgentConfigurations,
@@ -10,8 +12,8 @@ import {
   performanceBenchmarks,
   SERVICE_URLS,
   WORKFLOW_STAGES,
-  ',
-} from '../vision-to-code/fixtures/vision-workflow-fixtures.js';
+',
+} from '../vision-to-code/fixtures/vision-workflow-fixtures.js'
 '
 describe.skip('End-to-End Vision-to-Code Workflow Tests', () =>
 // {
@@ -181,10 +183,9 @@ devSessionConfig;
 // 
 expect(devSessionResponse.status).toBe(201);
 expect(devSessionResponse.data.data.session_id).toBe(testSessionId);'
-workflowEvents.push({ stage: 'development_started',)
+workflowEvents.push(stage: 'development_started',)
 timestamp: Date.now(),
 data: devSessionResponse.data.data
-  }
 // Stage 5: Execute vision analysis'
 console.warn(' Stage 5);'
 // const _analysisResponse = awaitserviceClients.development.post(;'
@@ -427,16 +428,19 @@ expect(totalDuration).toBeLessThan(expectedMaxDuration);
 '
 console.warn(`
 `
-Medium;
+Medium
 complexity;
 workflow;
 completed in $;
 {
   totalDuration;
-}`;
-ms`);`;
+}
+`;
+ms`;
+)
+`;
 }, 1200000) // 20 minute timeout for complex workflow
-})`
+})`;
 describe('Service Communication and Event Flow', () =>
 // {'
   it('should maintain proper event flow across all services', async() =>
@@ -451,10 +455,7 @@ describe('Service Communication and Event Flow', () =>
 ..response.data.data.events.map((e) => (service, ...e ));
             );
           //           }
-         catch (error) { console.error(error); }} catch(/* _error */) {
-          // Continue monitoring despite errors
-        //         }
-    };
+         catch (error) console.error(error); } catch(/* _error */) ;
     // Create simple workflow for event testing'
 // const __visionResponse = awaitserviceClients.business.post('/api/visions', { ...mockVisions.simple,/g)
     id }
@@ -493,18 +494,18 @@ monitorEvents(`
 // api
 // events
 // swarm
-  $;
+  $
 // {
-  testSwarmId;
+testSwarmId;
 // }`
 `
-);`
+);`;
 ])`
 // Validate event propagation`
 expect(eventLog.some((e) => e.event_type === 'vision.created')).toBe(true)'
 expect(eventLog.some((e) => e.event_type === 'workflow.registered')).toBe(true)'
 expect(eventLog.some((e) => e.event_type === 'swarm.initialized')).toBe(true)
-console.warn(;
+console.warn(
 )'
 ' Events captured) => `;'`
 // $
@@ -519,7 +520,7 @@ e.service
 `
 `
 // 
-})`;
+})`
 it('should handle cross-service coordination requests', async() =>
 // {
   // Initialize basic workflow'
@@ -614,14 +615,14 @@ type: 'vision_to_code',
 // {
 testWorkflowId
 // }/g)`
-`;`;
-)`
 `
-`
+`;
+)``
+`;
 expect(statusResponse.status).toBe(200);
 expect(statusResponse.data.data.status).toMatch(/timeout|failed|cancelled/);
 }, 70000) // 70 second timeout for this test
-})`;
+})`
 describe('Performance and Scalability', () =>
 // {'
   it('should handle multiple concurrent workflows', async() =>
@@ -686,8 +687,7 @@ describe('Performance and Scalability', () =>
 // successfulWorkflows
       // }`
       //  \$\$5;TW`;
-accccccddeeeeeeffiikklllmmnnnnnooooooorrrrrrssssttttuuuwww;
-{}`
+accccccddeeeeeeffiikklllmmnnnnnooooooorrrrrrssssttttuuuwww;`
 `/g)`
       // 
       // Cleanup concurrent workflows

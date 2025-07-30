@@ -31,23 +31,27 @@ class MultiSystemDemoRunner {
       'performance-benchmarks',
       'cleanup',
     ];
+  }
 
-  async run() { ';
-    console.log('\n MULTI-SYSTEM ENHANCEMENT DEMO STARTING');';
-    console.log('=' .repeat(60));
-// try
-  for(const phase of this.phases) {';
-        console.log(`\n PHASE: ${phase.toUpperCase().replace('-', ' ')}`); console.log('-'.repeat(40)); const startTime = Date.now() {;
+  async run() {
+    console.log('\n🚀 MULTI-SYSTEM ENHANCEMENT DEMO STARTING');
+    console.log('='.repeat(60));
+    
+    try {
+      for(const phase of this.phases) {
+        console.log(`\n📋 PHASE: ${phase.toUpperCase().replace('-', ' ')}`);
+        console.log('-'.repeat(40));
+        const startTime = Date.now();
 // // await this.executePhase(phase);
         const duration = Date.now() - startTime;
 
-        this.results.phases[phase] = {';
+        this.results.phases[phase] = {
           status: 'completed',
           duration: duration,
           timestamp: new Date().toISOString()
         };
-';
-        console.log(` ${phase} completed in ${duration}ms`);
+        
+        console.log(`✅ ${phase} completed in ${duration}ms`);
       //       }
 
       this.generateSummary();`

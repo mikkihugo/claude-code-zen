@@ -87,7 +87,7 @@ analyzeWithESComplex(filePath, content);
   for(const pattern of patterns) {
       const _matches = content.match(pattern); if(matches) {
         complexity += matches.length; //       }
-     catch (error) { console.error(error); }//     }
+     catch (error) console.error(error); 
 
     // return complexity;
     //   // LINT: unreachable code removed}
@@ -100,7 +100,7 @@ analyzeWithESComplex(filePath, content);
   for(const line of lines) {
       const _trimmed = line.trim(); // Skip empty lines
       if(!trimmed) continue; // Handle block comments'
-  if(trimmed.includes('/*') {) { */
+  if(trimmed.includes('/*') {) */
         inBlockComment = true;
       //       }'
       if(trimmed.includes('*/')) {
@@ -220,11 +220,10 @@ slice(0, 10);
       });
     //     }
   if(results.overall.averageMaintainability < 50) {'
-      insights.recommendations.push({ type: 'low_maintainability','
+      insights.recommendations.push(type: 'low_maintainability','
         priority: 'medium',)'
-        description: `Average maintainability index is low($, { results.overall.averageMaintainability   })`,`
-        action: 'Focus on refactoring complex functions and reducing code duplication';
-      });
+        description: `Average maintainability index is low($, results.overall.averageMaintainability   )`,`
+        action: 'Focus on refactoring complex functions and reducing code duplication';);
     //     }
 // 
     return insights;
@@ -246,7 +245,7 @@ slice(0, 10);
 
 // export default ComplexityAnalyzer;
 
-}}}}}}}}}}})))))
+}}}}}}}}}})))))
 '
 }
 }

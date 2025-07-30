@@ -2,9 +2,13 @@
 /** Converted from JavaScript to TypeScript; */
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import chalk from 'chalk';
 
 // Interactive Wizard Implementation
@@ -19,7 +23,7 @@ async function _runInteractiveWizard() {'
     //     }
    catch (error) console.error(error); if(!config.initialized) {'
       console.warn(chalk.yellow(' Step1 = 'Build a modern web application'; // Placeholder for demo'/g))'
-    console.warn(chalk.cyan(` Using example objective = {topology = // await createSwarm(objective, swarmConfig);`
+    console.warn(chalk.cyan(` Using example objective = topology = // await createSwarm(objective, swarmConfig);`
   if(result.success) {`
       console.warn(chalk.green(' Swarm created successfully!\n'));
 '

@@ -1,16 +1,20 @@
 /** Jest-compatible tests for NPX isolated cache functionality; */
 
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { afterEach, beforeEach, describe, expect } from '@jest';
 import {
   cleanupAllCaches,
   createIsolatedCache,
   getIsolatedNpxEnv,
-  ',
-} from '../../../src/utils/npx-isolated-cache.js';
+',
+} from '../../../src/utils/npx-isolated-cache.js'
 '
 describe('NPX Isolated Cache', () =>
 // {
@@ -54,7 +58,7 @@ describe('NPX Isolated Cache', () =>
           expect(env.NPM_CONFIG_CACHE).toBe(env.npm_config_cache);
         });
       });'
-      describe('getIsolatedNpxEnv', () => {'
+      describe('getIsolatedNpxEnv', () => '
         it('should merge additional environment variables', () => {
           const _env = getIsolatedNpxEnv({ CUSTOM_VAR);'
         expect(env.CUSTOM_VAR).toBe('custom-value');'
@@ -65,9 +69,8 @@ describe('NPX Isolated Cache', () =>
         const _customCacheDir = '/custom/cache/dir';
         const _env = getIsolatedNpxEnv({ NPM_CONFIG_CACHE   });
       expect(env.NPM_CONFIG_CACHE).toBe(customCacheDir);
-    });
-  });'
-  describe('cache directory structure', () => {'
+    }););'
+  describe('cache directory structure', () => '
     it('should create unique directory names with pid, timestamp, and random', () => {
       const _env1 = createIsolatedCache();
       const _env2 = createIsolatedCache();
@@ -75,12 +78,11 @@ describe('NPX Isolated Cache', () =>
       const _cache2 = path.basename(env2.NPM_CONFIG_CACHE);
       // Both should start with claude-zen-{pid}'
       const _pidPrefix = `claude-zen-${process.pid}-`;`
-      expect(cache1).toMatch(new RegExp(`^${pidPrefix}\\d+-[a-z0-9]+$`));`
-      expect(cache2).toMatch(new RegExp(`^${pidPrefix}\\d+-[a-z0-9]+$`));
+      expect(cache1).toMatch(new RegExp(`^$pidPrefix\\d+-[a-z0-9]+$`));`
+      expect(cache2).toMatch(new RegExp(`^$pidPrefix\\d+-[a-z0-9]+$`));
       // They should be different
       expect(cache1).not.toBe(cache2);
-    });
-  });`
+    }););`
   describe('cleanup functionality', () => {'
     it('should track cache directories for cleanup', async() => {
       const _env = createIsolatedCache();

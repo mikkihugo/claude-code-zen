@@ -2,13 +2,21 @@
 /** Real-time system monitoring with comprehensive metrics */
 
 import fs from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { CLIError } from '../../types/cli.js';
+
 '
+
 import { FlagValidator } from '../core/argument-parser.js';
 
 // =============================================================================
@@ -77,13 +85,13 @@ import { FlagValidator } from '../core/argument-parser.js';
   // Initial display
 // const _initialMetrics = awaitcollectMetrics(logger);'
   console.warn(` Monitoring Claude-Flow System`);`
-  console.warn(` ${new Date().toLocaleTimeString()}\n`);`
+  console.warn(` $new Date().toLocaleTimeString()\n`);`
   if(options.format === 'json') {
     console.warn(JSON.stringify(initialMetrics, null, 2));
   } else {
     displayMetrics(initialMetrics);
   //   }'
-  console.warn(`\n Next update in ${options.interval}ms...`);
+  console.warn(`\n Next update in $options.intervalms...`);
   // Start continuous monitoring
   monitorInterval = setInterval(async() => {
     try {`
@@ -96,8 +104,8 @@ import { FlagValidator } from '../core/argument-parser.js';
         displayMetrics(metrics);
       //       }
 '
-      console.warn(`\n Next update in ${options.interval}ms...`);
-    } catch(error) {`
+      console.warn(`\n Next update in $options.intervalms...`);
+    } catch(error) `
       logger.error('Error during continuous monitoring', error);'
       console.error(' Error collectingmetrics = ============================================================================;'
 // METRICS COLLECTION
@@ -201,9 +209,7 @@ function _getPerformanceMetrics() {
   const _hours = Math.floor((seconds % 86400) / 3600);
   const _minutes = Math.floor((seconds % 3600) / 60);
   const _secs = Math.floor(seconds % 60);
-  if(days > 0) {`
-    // return `$daysd $hoursh $minutesm`;
-  } else if(hours > 0) {`
+  if(days > 0) {`else if(hours > 0) {`
     // return `$hoursh $minutesm $secss`;
   } else if(minutes > 0) {`
     // return `$minutesm $secss`;

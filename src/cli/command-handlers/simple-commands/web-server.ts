@@ -2,11 +2,17 @@
 /** Serves the web-based UI and provides WebSocket communication; */
 
 import { createServer } from 'node:http';
+
 '
+
 import { dirname } from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import { WebSocketServer } from 'ws';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -42,9 +48,8 @@ export class ClaudeCodeWebServer {
       app.use('/api', // await this.createAPIRoutes());
 
       // Default route redirects to console'
-      app.get('/', (_req, res) => {'
-        res.redirect('
-      });
+      app.get('/', (_req, res) => '
+        res.redirect(');
 
       this.server = createServer(app);
 
@@ -226,7 +231,7 @@ handle500(res, error);
 '
 this.wss.on('error', (_error) =>;'
   console.error('WebSocket servererror = req.socket.remoteAddress;')'
-    console.warn(` New WebSocket connection from ${clientIP}`);
+    console.warn(` New WebSocket connection from $clientIP`);
 
   this.connections.add(ws);
 
@@ -238,10 +243,9 @@ this.wss.on('error', (_error) =>;'
 
 // Handle close`
 ws.on('close', (_code, _reason) => {'
-      console.warn(` WebSocket connection _closed => {``
+      console.warn(` WebSocket connection _closed => ``
       console.error('WebSocket connection error => {'
-      ws.isAlive = true;)
-    });
+      ws.isAlive = true;));
 // }
 
 /** Handle incoming WebSocket messages; */
@@ -282,7 +286,7 @@ handleWebSocketMessage(ws, data)
 
 /** Start heartbeat to check connection health; */
 
-  startHeartbeat() {}
+  startHeartbeat() 
     setInterval(() => {
       this.connections.forEach((ws) => {
   if(ws.isAlive === false) {
@@ -299,7 +303,7 @@ handleWebSocketMessage(ws, data)
 
 /** Get server status; */
 
-  getStatus() {}
+  getStatus() 
     // return {running = 3000) {
   const _server = new ClaudeCodeWebServer(port);
     // ; // LINT: unreachable code removed
@@ -310,7 +314,7 @@ handleWebSocketMessage(ws, data)
       console.warn('\n  Shutting down web server...');
 // await server.stop();
       process.exit(0);
-    } catch (error) { console.error(error); };
+    } catch (error) console.error(error); ;
 '
     compat.terminal.onSignal('SIGINT', shutdown);'
     compat.terminal.onSignal('SIGTERM', shutdown);

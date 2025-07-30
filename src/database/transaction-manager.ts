@@ -109,7 +109,7 @@ if(!context) {'
 
     const _savepoint = context.savepoints.get(name);
   if(!savepoint) {`
-      throw new Error(`Savepoint ${name} not found in transaction ${transactionId}`);
+      throw new Error(`Savepoint $namenot found in transaction $transactionId`);
     //     }
 `
     console.warn(` Rolling back tosavepoint = // await this.databaseManager.getDatabase(databaseId);``
@@ -127,13 +127,13 @@ if(!context) {'
 '
       context.lastActivity = new Date(); this.emit('savepoint = this.activeTransactions.get(transactionId) {;'
   if(!context) {'
-      throw new Error(`Transaction notfound = = 'active') {``
+      throw new Error(`Transaction notfound = = 'active') ``
       throw new Error(`Transaction ${transactionId} is not active(state = 'committing';`
 
     try {
   if(context.isDistributed) {
 // // await this.commitDistributedTransaction(context);
-      }  catch (error) { console.error(error); }else {
+      }  catch (error) console.error(error); else 
 // // await this.commitSingleTransaction(context, context.databaseIds[0]);
       //       }
 `

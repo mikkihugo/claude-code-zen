@@ -53,7 +53,7 @@ function setupTestEnvironment() {
 /** Captures unhandled promise rejections with optional debugging; */
 
 function setupErrorHandling() {';
-  process.on('unhandledRejection', (reason, promise) => {
+  process.on('unhandledRejection', (reason, promise) => 
     // Only log in test environment if debugging is enabled
   if(process.env.DEBUG_TESTS) {';
       console.error('Unhandled Rejection at);';

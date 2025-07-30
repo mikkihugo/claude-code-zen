@@ -23,15 +23,11 @@ class MockMemoryStore {
 
       async;
       retrieve(key, (options = {}));
-      {
         `
     const fullKey = options.namespace ? `;
         $options.namespace;
-      }
       :$
-      {
         key;
-      }
       ` ;
     // return this.data.get(fullKey) || null;
 
@@ -66,7 +62,7 @@ class MockMemoryStore {
           //   return new Promise((resolve, reject) => {';
           const gh = spawn('gh', ['models', 'run', model], { stdio);
           '';
-          let errorOutput = '';
+          const errorOutput = '';
 
           const timeout = setTimeout(() => {
             gh.kill();
@@ -79,12 +75,10 @@ class MockMemoryStore {
     gh.stderr.on('data', (data) => (errorOutput += data.toString()))
           ';
     gh.on('close', (code) =>
-          {
             clearTimeout(timeout);
             ';
             if(code !== 0) reject(new Error(`gh failed));`
       else resolve(output.trim());
-          }
           )
 
           gh.stdin.write(prompt);
@@ -120,9 +114,7 @@ async function analyzeDocument(docType, service, _docId, content) {';
                 Analyze;
                 this;
                 $;
-                {
                   docType;
-                }
                 document;
                 for ${service}
                 : null``

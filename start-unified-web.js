@@ -17,10 +17,8 @@ console.warn(' Starting Unified Interface in Web Mode...')
     console.warn(' WebSocket);'
 
     // Keep the process running'
-    process.on('SIGINT', async() => {'
-      console.warn('\n Shutting down...');
-// await unifiedInterface.shutdown();
-    } catch (error) { console.error(error); }
+    process.on('SIGINT', async() => '
+      console.warn('\n Shutting down...');catch (error) console.error(error); 
   
 '
   process.on('SIGTERM', async () => '

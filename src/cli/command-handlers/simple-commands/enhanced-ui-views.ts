@@ -63,7 +63,7 @@ WASMSupport = [`
             : job.status === 'running'
 '')
 '')
-console.warn(;
+console.warn(
 )'
           `$
 {
@@ -78,11 +78,21 @@ $;
 const _data = this.viewData.get('analysis');
 '
   console.warn(colors.white(colors.bold(' Analysis & Monitoring')))
-console.warn();
+console.warn()
 // System metrics overview'
 console.warn(colors.cyan(' System Metrics'));
-'');'
-      console.warn(`${status} ${report.name} ($, { colors.gray(report.time) })`);
+('');
+)
+'
+      console.warn(`$
+{
+  status;
+}
+$;
+{
+  report.name;
+}
+($, { colors.gray(report.time) })`);
     }
 
   //   }
@@ -93,13 +103,14 @@ console.warn(colors.cyan(' System Metrics'));
   {
     const _colors = this.getColors();
     `
-    console.warn(colors.white(colors.bold(' Workflow & Automation')));
-    console.warn();
+console.warn(colors.white(colors.bold(' Workflow & Automation')));
+console.warn();
 
-    // Workflow status'
-    console.warn(colors.cyan(' Workflow Status'));'
-    console.warn(`;
-    ActiveWorkflows = [`
+// Workflow status'
+console.warn(colors.cyan(' Workflow Status'));
+'
+    console.warn(`
+ActiveWorkflows = [`
       { key => {)`
       const _prefix = colors.yellow(`${index + 1}.`);`
       console.warn(`${prefix} ${workflow.name}`);`
@@ -118,7 +129,16 @@ console.warn(colors.cyan(' System Metrics'));
   console.warn(colors.white(colors.bold(' GitHub Integration')));
   console.warn();
   // GitHub status'
-  console.warn(colors.cyan(' GitHub Status'));'')} ${activity.action} in ${colors.yellow(activity.repo)} ($, { colors.gray(activity.time) })`
+  console.warn(colors.cyan(' GitHub Status'));''
+)} $
+{
+  activity.action;
+}
+in $
+{
+  colors.yellow(activity.repo);
+}
+($, { colors.gray(activity.time) })`
 
   }
 
@@ -130,13 +150,14 @@ console.warn(colors.cyan(' System Metrics'));
   {
     const _colors = this.getColors();
     `
-    console.warn(colors.white(colors.bold(' Dynamic Agent Architecture')));
-    console.warn();
+console.warn(colors.white(colors.bold(' Dynamic Agent Architecture')));
+console.warn();
 
-    // DAA status'
-    console.warn(colors.cyan(' DAA Status'));'
-    console.warn(`;
-    DynamicAgents = [`
+// DAA status'
+console.warn(colors.cyan(' DAA Status'));
+'
+    console.warn(`
+DynamicAgents = [`
       {key = [
       { type => {)`
       const _status = agent.status === 'active'') : colors.gray('');'
@@ -161,7 +182,7 @@ console.warn(colors.cyan(' System Metrics'));
       { component => {
       const _status =;`
         item.status === 'excellent';
-    )'')
+)'')
     '
           : item.status === 'optimal'
     '')
@@ -171,18 +192,18 @@ console.warn(colors.cyan(' System Metrics'));
     '')
     '
       console.warn(`$
-    {
-      status;
-    }
-    $;
-    {
-      item.component;
-    }
-    : $
-    {
-      colors.yellow(item.value);
-    }
-    `);
+{
+  status;
+}
+$;
+{
+  item.component;
+}
+: $
+{
+  colors.yellow(item.value);
+}
+`);
 // }
 // 
 // }
@@ -193,112 +214,109 @@ console.warn(colors.cyan(' System Metrics'));
 // {
   const _colors = this.getColors();
   const _status = this.toolFramework.getStatus();`;
-    console.warn(colors.white(colors.bold(' Tool Execution Center')));
-    console.warn();
-    // Execution status'
-    console.warn(colors.cyan(' Execution Status'));
-    console.warn(;
-    )'
+console.warn(colors.white(colors.bold(' Tool Execution Center')));
+console.warn();
+// Execution status'
+console.warn(colors.cyan(' Execution Status'));
+console.warn(;
+)'
   `  ActiveExecutions = this.toolFramework.getCategories()
     `
-    categories.forEach((category, index) => {
-      const _tools = this.toolFramework.getToolsByCategory(category);`;
-    const _prefix = colors.yellow(`;`
-  \$index +)`
-    1`;
+    categories.forEach((category, index) =>
+{
+  const _tools = this.toolFramework.getToolsByCategory(category);
+  `;
+    const _prefix = colors.yellow(`;
+  `
+  \$index +)`;
+  1`;
 
     ``;
-    console.warn(`;`
+    console.warn(`;
+  `
   \$;
     prefix;
     \$
     category.toUpperCase();
-    : \$`
-    colors.gray(`$`
+    : \$`;
+  colors.gray(`$`
     tools.length)`
-  tools`)``
+  tools`
+  )``
   `
   //   
 // }
 // 
 // Quick actions
 console.warn()
-    {
-    }
     `
 console.warn(colors.cyan(' Quick Actions'))'
-console.warn(`;
-    \$)`
+console.warn(`
+  \$)`
 colors.yellow('r')
-    -Run;
-    custom;
-    '
+    -Run
+  custom;
+  '
 tool`)
-    ``;
-    console.warn(`;`
+    ``
+  console.warn(`;`
 \$;
-    )`
+  )`
 colors.yellow('w')
-    -Execute;
-    '
+    -Execute
+  '
 workflow`)
-    ``;
-    console.warn(`;`
+    ``
+  console.warn(`;`
 \$;
-    )`
+  )`
 colors.yellow('b')
-    -Batch;
-    '
+    -Batch
+  '
 execution`)
-    ``;
-    console.warn(`;`
+    ``
+  console.warn(`;`
 \$;
-    )`
+  )`
 colors.yellow('s')
-    -Show;
-    execution;
-    '';
-    for (const j = 0; j < columns && i + j < tools.length; j++) {
-      const _tool = tools[i + j];
-      '
-      const _keyLabel = colors.yellow(`[\$`
+    -Show
+  execution;
+  ('');
+  for (const j = 0; j < columns && i + j < tools.length; j++) {
+    const _tool = tools[i + j];
+    '
+    const _keyLabel = colors.yellow(`[\$`
 tool.key;
-      )`
+    )`
 ]`)`
-      const _toolName = colors.white(tool.tool);
-      const _desc = colors.gray(tool.desc);
-      `
+    const _toolName = colors.white(tool.tool);
+    const _desc = colors.gray(tool.desc);
+    `
 row += `;
-      $;
-      {
-        keyLabel;
-      }
-      $;
-      {
-        toolName;
-      }
-      -$;
-      {
-        desc;
-      }
-      `;`;
-      if (j < columns - 1) row += '    ';
-      // }
-      console.warn(row);
-      // }
-      // }
+    $;
+    keyLabel;
+    $;
+    toolName;
+    -$;
+    desc;
+    `;`;
+    if (j < columns - 1) row += '    ';
+    // }
+    console.warn(row);
+    // }
+    // }
 
-      /** Handle enhanced view input; */
+    /** Handle enhanced view input; */
 
-      // async
-      handleEnhancedInput(key, currentView);
-      : unknown
-      // {
-      try {
+    // async
+    handleEnhancedInput(key, currentView);
+    : unknown
+    // {
+    try {
   switch(currentView) {'
         case ENHANCED_VIEWS.NEURAL = {1 = > this.promptNeuralTrain(),2 = > this.promptNeuralPredict(),3 = > this.executeQuickTool('neural_status'),4 = > this.promptModelSave(),5 = > this.promptModelLoad(),6 = > this.executeQuickTool('pattern_recognize', {data = >;'
         this.executeQuickTool('cognitive_analyze', {behavior = >;))'
-        this.executeQuickTool('learning_adapt', {experience = > this.promptModelCompress(),a = > this.promptEnsembleCreate(),b = > this.promptTransferLearn(),c = > this.promptNeuralExplain(),d = > this.executeQuickTool('wasm_optimize', {operation = > this.promptInferenceRun() } catch (error) { console.error(error); };
+        this.executeQuickTool('learning_adapt', experience = > this.promptModelCompress(),a = > this.promptEnsembleCreate(),b = > this.promptTransferLearn(),c = > this.promptNeuralExplain(),d = > this.executeQuickTool('wasm_optimize', {operation = > this.promptInferenceRun() } catch (error) { console.error(error); ;
 
     const _action = neuralActions[key];
   if(action) {
@@ -312,16 +330,16 @@ row += `;
 
   async executeQuickTool(toolName, parameters = {}) ;
     try {'
-      this.ui.addLog('info', `Executing ${toolName} catch (error) { console.error(error); }...`);
+      this.ui.addLog('info', `Executing $toolNamecatch (error) console.error(error); ...`);
 // const _result = awaitthis.toolFramework.executeTool(toolName, parameters);`
       this.ui.addLog('success', `${toolName} completed successfully`);
       this.displayToolResult(result);
     } catch(error) {`
-      this.ui.addLog('error', `${toolName}failed = this.getColors();`
+      this.ui.addLog('error', `$toolNamefailed = this.getColors();`
   if(execution.result) {
       console.warn();`
       console.warn(colors.cyan(' Execution Result => {'))'
-          console.warn(colors.dim(`${detail}`));
+          console.warn(colors.dim(`$detail`));
         });
       //       }
     //     }
@@ -342,25 +360,24 @@ row += `;
 
 /** Refresh analysis data; */
 
-  async refreshAnalysisData() { 
+  async refreshAnalysisData() 
 // try'
 // const _report = awaitthis.toolFramework.executeTool('performance_report', {timeframe = this.viewData.get('analysis');
-      data.lastUpdate = new Date();
-    } catch(error) {
+      data.lastUpdate = new Date();catch(error) 
       // Silently handle refresh errors
     //     }
   //   }
 
 /** Get color utilities; */
 
-  getColors() {'
+  getColors() '
     // return {cyan = > `\x1b[36m${text}\x1b[0m`,gray = > `\x1b[90m${text}\x1b[0m`,white = > `\x1b[37m${text}\x1b[0m`,yellow = > `\x1b[33m${text}\x1b[0m`,green = > `\x1b[32m${text}\x1b[0m`,red = > `\x1b[31m${text}\x1b[0m`,blue = > `\x1b[34m${text}\x1b[0m`,magenta = > `\x1b[35m${text}\x1b[0m`,bold = > `\x1b[1m${text}\x1b[0m`,dim = > `\x1b[2m${text}\x1b[0m`,
     //   // LINT: unreachable code removed};
   //   }
 
 /** Cleanup resources; */
 
-  cleanup() {
+  cleanup() 
     // Clear all refresh intervals
     for (const interval of this.refreshIntervals.values()) {
       clearInterval(interval); //     }
@@ -370,8 +387,11 @@ row += `;
 // export { ENHANCED_VIEWS };
 // export default EnhancedUIViews;
 
-}}}}}}}}
+}}}}}
 
-}}}})
+}
+  }
+}
+})
 {)))))
 `

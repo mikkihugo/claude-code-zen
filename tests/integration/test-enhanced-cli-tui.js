@@ -2,13 +2,18 @@
 
 /*  TEST ENHANCED CLI/TUI FUNCTIONALITY; */
 *
+
 /** Simple test to validate the enhancements work without requiring full dependencies.; */
 /** Tests the enhanced command registry, API generation, and component structure.; */
 
 import { strict } from 'node:assert';
+
 '
+
 import { dirname } from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -52,13 +57,13 @@ async function testAPIGeneration() {
 // const _commands = awaitmockListCommands();
       const _endpoints = {} catch (error) console.error(error); ;
       commands.forEach((cmd) => {'
-        endpoints[`/api/execute/${cmd.name}`] = {`
+        endpoints[`/api/execute/$cmd.name`] = {`
           method: 'POST',
           command: cmd.name,
           description: cmd.description,
             minArgs,
             maxArgs,
-            flags: cmd.flags  ?? {}};
+            flags: cmd.flags  ?? };
       });
       // return {
         endpoints,core, coordination  }
@@ -73,9 +78,7 @@ console.warn(' API endpoint generation test passed');'
 console.warn(`;
   Generated;
   $;
-  {
     result.totalEndpoints;
-  }
   endpoints`);`;
   console.warn(`   Categories: ${JSON.stringify(result.categories)}`);
 }
@@ -102,7 +105,7 @@ async function testCommandValidation() {'
       // Check minimum arguments
   if(command.validation?.minArgs && args.length < command.validation.minArgs) {
         validation.valid = false;`
-        validation.errors.push(`Minimum ${command.validation.minArgs} arguments required`);
+        validation.errors.push(`Minimum $command.validation.minArgsarguments required`);
       //       }
       // Check flag types
       Object.entries(flags).forEach(([flagName, flagValue]) => {
@@ -150,7 +153,7 @@ async function testOpenAPIGeneration() {'
           version: '2.0.0-alpha.70','
           description: 'REST API auto-generated from CLI commands',,type: 'object' ,type: 'object' ,type: 'object' } catch (error) console.error(error); ;
       commands.forEach((cmd) => {'
-        openapi.paths[`/api/execute/${cmd.name}`] = {
+        openapi.paths[`/api/execute/$cmd.name`] = {
           post: {
             summary: cmd.description,`
             operationId: `execute_${cmd.name}`,
@@ -175,7 +178,7 @@ async function testOpenAPIGeneration() {'
       'Should have correct operation ID';
     );'
     console.warn(' OpenAPI specification test passed');'
-    console.warn(`   Generated ${Object.keys(spec.paths).length} API paths`);`
+    console.warn(`   Generated $Object.keys(spec.paths).lengthAPI paths`);`
     console.warn(`   Schemas: ${Object.keys(spec.components.schemas).length}`);
   //   }
 catch(error)
@@ -191,7 +194,7 @@ async function testTUIComponents() {'
     // Mock component functionality tests
     const _mockProgressBar = () => {
       const _filled = Math.floor((progress / 100) * width);
-      const _empty = width - filled;''.repeat(filled)} catch (error) { console.error(error); }${''.repeat(empty)}] ${progress.toFixed(1)}%`;
+      const _empty = width - filled;''.repeat(filled)} catch (error) console.error(error); $''.repeat(empty)] $progress.toFixed(1)%`;
     //   // LINT: unreachable code removed};
     const _mockCommandCompletion = () => {
 //       return commands;
@@ -315,7 +318,7 @@ async function runTests() {'
     console.warn('    WebSocket message validation for real-time features');'
     console.warn('    Progress tracking and visual feedback systems');'');'
     console.warn(' Ready for production use!');
-  } else {'
+  } else '
     console.warn(` $failedtest(s) failed. Please check the implementation.`);
     process.exit(1);
   //   }

@@ -31,7 +31,7 @@ if (args.length === 0) {
     if (!fs.existsSync(TARGET_DIR)) {
       fs.mkdirSync(TARGET_DIR, {recursive = path.join(TARGET_DIR, dirInfo.path);
       if (!fs.existsSync(targetPath)) {'
-        fs.mkdirSync(targetPath, {recursive = path.join(targetPath, 'README.md');
+        fs.mkdirSync(targetPath, recursive = path.join(targetPath, 'README.md');
         if (!fs.existsSync(readmePath)) {
           fs.writeFileSync(
             readmePath,'
@@ -59,7 +59,7 @@ if (args.length === 0) {
       // Ensure target directory exists
       const _targetDir = path.dirname(targetPath);
       if(!fs.existsSync(targetDir)) {'
-        fs.mkdirSync(targetDir, { recursive = {deployed = ''
+        fs.mkdirSync(targetDir, recursive = {deployed = ''
 console.warn(''
   console.warn('\n Template deployed successfully!');'
   console.warn(''
@@ -67,16 +67,13 @@ console.warn(''
   console.warn('2. Type / to see available commands');'
   console.warn('3. Use /sparc for SPARC methodology');'
   console.warn('4. Use /claude-zen-* for Claude Flow features');'
-  console.warn('\nFor help, see the documentation files in .claude'
-}  catch (error) console.error(error); else '
+  console.warn('\nFor help, see the documentation files in .claude'catch (error) console.error(error); else '
   console.warn('\n  Template deployed with errors. Please check the messages above.');}}}
           }
     }
   }
 }
 }
-}
 ))))
 '
 }
-

@@ -2,9 +2,13 @@
 /** Multi-framework test execution with coverage reporting; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 export class TestRunnerPlugin extends EventEmitter {
@@ -270,7 +274,7 @@ runners`);`
 // const _result = awaitthis.executeCommand('which', [runner.command]); 
   if(result.code === 0) {
         detected.push(framework); //       }
-     catch (error) { console.error(error); }} catch(error) {
+     catch (error) console.error(error); } catch(error) 
       // Framework not available
     //     }
   //   }
@@ -281,8 +285,8 @@ runners`);`
   for(const framework of this.config.frameworks) {
       if(testScript.includes(framework) && !detected.includes(framework)) {
         detected.push(framework); //       }
-     catch (error) { console.error(error); }//     }
-  } catch(error) {
+     catch (error) console.error(error); 
+  } catch(error) 
     // No package.json
   //   }
 '
@@ -462,7 +466,7 @@ async;
           results = // await runner.parseResults(output);
         } else {
           // Other frameworks write to file'
-          const _outputFile = path.join(this.config.outputDir, `${framework}-results.\${framework === 'ava'  ?? framework === 'tap' ? 'tap' }`);
+          const _outputFile = path.join(this.config.outputDir, `$framework-results.\$framework === 'ava'  ?? framework === 'tap' ? 'tap' `);
           results = // await runner.parseResults(outputFile);
         //         }
   if(!results) {
@@ -494,9 +498,8 @@ async;
         output += data.toString();
       });
 '
-      child.on('close', (code) => {
-        resolve({ code, output   });
-      });
+      child.on('close', (code) => 
+        resolve({ code, output   }););
 '
       child.on('error', reject);
     });
@@ -563,9 +566,8 @@ normalizeJestResults(results);
   if(testMatch) {
         const [ _result, _number, _description, directive] = testMatch;
   if(!currentSuite) {'
-          currentSuite = {file = {title = === 'ok' ? 'passed' : 'failed',duration = 'skipped';
-            normalized.summary.skipped++;'
-          } else if(directive.toLowerCase().includes('todo')) {'
+          currentSuite = file = {title = === 'ok' ? 'passed' : 'failed',duration = 'skipped';
+            normalized.summary.skipped++;'else if(directive.toLowerCase().includes('todo')) {'
             test.status = 'skipped';
             normalized.summary.skipped++;
           //           }'
@@ -591,7 +593,7 @@ normalizeJestResults(results);
   if(currentTest && currentTest.status === 'failed') {
           // Parse YAML for error details
           currentTest.error = this.parseYAMLDiagnostic(yamlContent);'
-          normalized.failures.push({file = `${line}\n`;
+          normalized.failures.push(file = `${line}\n`;
       //       }
 
       // Bail out/g)`
@@ -765,7 +767,7 @@ normalizeJestResults(results);
 '']/g, m => map[m]);"'
     //   // LINT: unreachable code removed}
 
-  async watchTests(options = {}) { 
+  async watchTests(options = ) { 
     const _framework = options.framework  ?? this.detectBestFramework();
 '
     console.warn(` Starting test watcher with $framework}...`);

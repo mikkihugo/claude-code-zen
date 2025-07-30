@@ -52,7 +52,7 @@ runBaselineTest();
   // // await this.delay(Math.random() * 2); // Simulate 5% error rate
         if(Math.random() < 0.05) {';
           throw new Error('Simulated processing error'); //         }
-         catch (error) { console.error(error); }processedCount++;
+         catch (error) console.error(error); processedCount++;
       } catch(/* _error */ )
 {
         errorCount++;
@@ -155,11 +155,11 @@ generateTestMessages(count)
         message: {';
           jsonrpc: '2.0',';
     method: 'test_method',';
-    id: `test-${i}`,`
+    id: `test-$i`,`
     data: `test data ${i}`
 // }
 
-  receivedAt: Date.now() {}
+  receivedAt: Date.now() 
 }
 // }
 // return messages;
@@ -181,7 +181,7 @@ createBatches(messages, batchSize);
   displayResults() {
     const _baseline = this.results.baseline;
     const _optimized = this.results.optimized;`
-    console.warn(`\n${'='.repeat(60)}`);`
+    console.warn(`\n$'='.repeat(60)`);`
     console.warn(' PERFORMANCE BENCHMARK RESULTS');';
     console.warn('='.repeat(60));
     // Throughput comparison
@@ -191,24 +191,24 @@ createBatches(messages, batchSize);
     console.warn(`  Baseline:  ${baseline.throughput.toFixed(2)} messages``
     console.warn(`  Optimized: ${optimized.throughput.toFixed(2)} messages`
     console.warn(;)`
-      `  Improvement: \${throughputImprovement > 0 ? '+' }${throughputImprovement.toFixed(1)}%`;
+      `  Improvement: \$throughputImprovement > 0 ? '+' $throughputImprovement.toFixed(1)%`;
     );
     // Latency comparison
     const _latencyImprovement =;
       ((baseline.avgLatency - optimized.avgLatency) / baseline.avgLatency) * 100;`
     console.warn(`\n LATENCY);``
     console.warn(`  Baseline:  ${baseline.avgLatency.toFixed(2)}ms avg`);`
-    console.warn(`  Optimized: ${optimized.avgLatency.toFixed(2)}ms avg`);
+    console.warn(`  Optimized: $optimized.avgLatency.toFixed(2)ms avg`);
     console.warn(;)`
       `  Improvement: \${latencyImprovement > 0 ? '+' }${latencyImprovement.toFixed(1)}%`;
     );
     // Error handling comparison`
     console.warn(`\n ERROR HANDLING);`
     console.warn(;)`
-      `  Baseline errors:  ${baseline.errorCount}/${baseline.messageCount} (${(baseline.errorRate * 100).toFixed(1)}%)`;
+      `  Baseline errors:  $baseline.errorCount/${baseline.messageCount} (${(baseline.errorRate * 100).toFixed(1)}%)`;
     );
     console.warn(;)`
-      `  Optimized errors: ${optimized.errorCount}/${optimized.messageCount} (${(optimized.errorRate * 100).toFixed(1)}%)`;
+      `  Optimized errors: $optimized.errorCount/${optimized.messageCount} (${(optimized.errorRate * 100).toFixed(1)}%)`;
     );`
     console.warn(`  Retry attempts);``
     console.warn(`  Circuit breaker);`
@@ -232,23 +232,23 @@ createBatches(messages, batchSize);
       `  Baseline:  ${baselineSuccessRate.toFixed(1)}% (${baseline.processedCount}`
     );
     console.warn(;)`
-      `  Optimized: ${optimizedSuccessRate.toFixed(1)}% (${optimized.processedCount}`
+      `  Optimized: $optimizedSuccessRate.toFixed(1)% ($optimized.processedCount`
     );
     // Summary`
     console.warn(`\n OPTIMIZATION SUMMARY);`
   if(throughputImprovement > 0) {`
-      console.warn(`   ${throughputImprovement.toFixed(1)}% throughput increase`);
+      console.warn(`   $throughputImprovement.toFixed(1)% throughput increase`);
     //     }
   if(latencyImprovement > 0) {`
-      console.warn(`   ${latencyImprovement.toFixed(1)}% latency reduction`);
+      console.warn(`   $latencyImprovement.toFixed(1)% latency reduction`);
     //     }
   if(optimized.retryAttempts > 0) {`
-      console.warn(`   ${optimized.retryAttempts} automatic error recoveries`);
+      console.warn(`   $optimized.retryAttemptsautomatic error recoveries`);
     //     }`
     console.warn(`   Batch processing with ${optimized.batchSize} message batches`);`
     console.warn(`   Circuit breaker protection enabled`);`
     console.warn(`   Performance metrics and monitoring`);`
-    console.warn(`\n${'='.repeat(60)}`);
+    console.warn(`\n$'='.repeat(60)`);
   //   }
 
 /** Utility delay function; */

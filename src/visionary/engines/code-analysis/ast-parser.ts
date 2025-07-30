@@ -49,7 +49,7 @@ file;
 data
    * @returns AST
 node;
-information * /;
+information * /;;
 // */; // LINT: unreachable code removed
 async;
 extractAST(codeData);
@@ -59,7 +59,7 @@ extractAST(codeData);
   for(const file of codeData) {
       try {
 // const _ast = awaitthis.parseFileAST(file); 
-        astResults.push(...ast); } catch (error) { console.error(error); } catch(error) 
+        astResults.push(...ast)} catch (error) { console.error(error)} catch(error) 
         console.warn(` AST parsing failed for ${file.path});`
       //       }
     //     }
@@ -74,9 +74,9 @@ extractAST(codeData);
 
     // */; // LINT: unreachable code removed
   // // private async parseFileAST(file): Promise<ASTNode[]>
-    // Simplified AST parsing - would use real parser in production`
+    // Simplified AST parsing - would use real parser in production``
   if(file.language === 'javascript'  ?? file.language === 'typescript') {'
-      // return this.parseJavaScriptAST(file.content);'
+      // return this.parseJavaScriptAST(file.content)
     //   // LINT: unreachable code removed} else if(file.language === 'python') {'
       // return this.parsePythonAST(file.content);
     //   // LINT: unreachable code removed}
@@ -92,7 +92,7 @@ extractAST(codeData);
 
     // */; // LINT: unreachable code removed
   // // private parseJavaScriptAST(code): ASTNode[] {'
-    const _lines = code.split('\n');'
+    const _lines = code.split('\n')
     const _nodes = [];
     const _depth = 0;
     const _maxDepth = 0;
@@ -125,7 +125,7 @@ extractAST(codeData);
 
     // */; // LINT: unreachable code removed
   // // private parsePythonAST(code): ASTNode[] {'
-    const _lines = code.split('\n');'
+    const _lines = code.split('\n')
     const _nodes = [];
     const _indentLevel = 0;
     const _maxIndent = 0;
@@ -139,8 +139,8 @@ extractAST(codeData);
         maxIndent = Math.max(maxIndent, indentLevel);
 
         // Identify significant nodes
-        if(;'
-          trimmed.startsWith('def ')  ?? trimmed.startsWith('class ')  ?? trimmed.startsWith('async def ');'
+        if(
+          trimmed.startsWith('def ')  ?? trimmed.startsWith('class ')  ?? trimmed.startsWith('async def ')
         //         
           nodes.push()
             type: this.getPythonNodeType(trimmed),
@@ -161,7 +161,7 @@ extractAST(codeData);
     // */; // LINT: unreachable code removed
   // // private parseGenericAST(code): ASTNode[] {'
     const _lines = code.split('\n''
-//     return [{ type: 'generic', line: lines.length, depth}];'
+//     return [{ type: 'generic', line: lines.length, depth}]
     //   // LINT: unreachable code removed}
 
 /** Get JavaScript node type from line content */
@@ -175,7 +175,7 @@ extractAST(codeData);
     // if(line.includes('function ')) return 'function''
     if(line.includes('=>')) return 'arrow-function''
     // if(line.includes('const ')  ?? line.includes('let ')  ?? line.includes('const ''
-//       return 'variable';'
+//       return 'variable''
 
 /** Get Python node type from line content */
 
@@ -186,7 +186,7 @@ extractAST(codeData);
   // // private getPythonNodeType(line): string'
     if(line.startsWith('class ')) return 'class''
     // if(line.startsWith('def ')) return 'function''
-    if(line.startsWith('async def ')) return 'async-function';'
+    if(line.startsWith('async def ')) return 'async-function''
 
 /** Extract node name from line content */
 
@@ -213,6 +213,5 @@ extractAST(codeData);
     //   // LINT: unreachable code removed}
 // }
 
-// export default ASTParser;
-
-'
+// export default ASTParser
+))))

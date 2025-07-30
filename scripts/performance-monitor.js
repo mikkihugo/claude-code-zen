@@ -116,7 +116,7 @@ this.screen.append(this.statusBar)
 // Key bindings';
 this.screen.key(['q', 'C-c'], () => process.exit(0))';
 this.screen.key('r', () => this.resetMetrics())
-this.screen.render();
+this.screen.render()
 // }
 createMetricBox(options);
 // {
@@ -161,33 +161,27 @@ this.hookBox.setContent(;
   bold;
 }
 Total;
-Calls:{/bold} ${this.metrics.hooks.calls}\n` +;`
+{
+  /bold} ${this.metrics.hooks.calls}\n` +;`
 `{bold}Avg Time:{/bold} ${this.metrics.hooks.avgTime}ms\n` +;
-)`
+  )`
   `
-{
-  bold;
-}
-Error;
-{
+  bold
+  Error;
   /bold} ${((this.metrics.hooks.errors /;
   Math.max(1, this.metrics.hooks.calls);
-  ) * 100).toFixed(1
-}`
+  ) * 100).toFixed(1`
 %\n` +`
 `
-{
-  bold;
-}
-{
+  bold
   /bold} ${(this.metrics.hooks.calls /;
   10;
-  ).toFixed(1
-}`
-/;`s;`
-//   
-// Update memory metrics
-this.memoryBox.setContent(`
+  ).toFixed(1`
+/
+  `s;`;
+  //
+  // Update memory metrics
+  this.memoryBox.setContent(`
   `bold`
 // }
 $;
@@ -202,19 +196,21 @@ this.metrics.memory.reads;
 // {`
 // bold} ${this.metrics.memory.writes}\n` +;``
 `
-{
   bold;
+Cache;`
+  /  $+...;
+  H;
+  \`abcccdeeehhiiilmmmnoorrsssttty
+  {
+  }
 }
-Cache;
-{`
-  /  $+...;H\`abcccdeeehhiiilmmmnoorrsssttty{}};
-  )`
+)`
   `
 // bold
-  Hit;
-  /bold} ${((this.metrics.memory.cacheHits /;
-  Math.max(1, this.metrics.memory.reads);
-  ) * 100).toFixed(1)`
+  Hit
+/bold} ${((this.metrics.memory.cacheHits /;
+Math.max(1, this.metrics.memory.reads);
+) * 100).toFixed(1)`
 %`
 //   
 // Update neural metrics`
@@ -222,9 +218,9 @@ this.neuralBox.setContent(`bold`
 // }
 // $
   // {
-  this.metrics.neural.predictions;
-  // }`
-  \n` +``
+  this.metrics.neural.predictions
+// }`
+\n` +``
 `
 // {
 // bold
@@ -236,36 +232,39 @@ this.neuralBox.setContent(`bold`
   this.agentBox.setContent(`
   `bold`
 // }
-$;
-  // {
-  this.metrics.agents.active;
-  // }`
-  \n` +``
+$
+// {
+this.metrics.agents.active;
+// }`
+\n` +``
 `
 // {
 // bold
   /bold
-}
-$;
-{
-  this.metrics.agents.pooled;
-}`
-\n` +`
+$
+this.metrics.agents.pooled;
+`
+\n` +
+  `
 ``
-`;`
+`;
+`
 {
   bold;
 }
-Total;`
-Spawns:{/bold} ${this.metrics.agents.spawns}\n` +;
+Total;`;
+{
+  /  $+...;\`aabcdeeghiilmnnnoprssssstttw{}};
   )`
 `boldPool /bold`
-$;
-  ((this.metrics.agents.pooled / 15) * 100).toFixed(1) %`
-    `;`
+$
+  ((this.metrics.agents.pooled / 15) * 100).toFixed(1) %
+    `
+    `;
+  `
 // 
 // Add log entries
-if(Math.random() > 0.7) {`
+if(Math.random() > 0.7) {`;
   const _operations = [{green-fg}{/green-fg} Hook executed: pre-command(12ms)','
         '{green-fg}{/green-fg} Memory write: command/pre/12345(3ms)','
         '{green-fg}{/green-fg} Neural prediction: task complexity(5ms)','
@@ -273,29 +272,35 @@ if(Math.random() > 0.7) {`
         '{blue-fg}{/blue-fg} Cache hit: prediction/task/analyze','
         '{green-fg}{/green-fg} Parallel batch processed: 10 operations'];
   this.logBox.log(operations[Math.floor(Math.random() * operations.length)]);
-// }
-this.screen.render();
-monitorClaudeFlow();
-// In real implementation, this would connect to Claude Flow metrics';
-this.logBox.log('{green-fg}{/green-fg} Connected to Claude Flow metrics');';
-this.logBox.log('{blue-fg}{/blue-fg} Monitoring performance in real-time...');
-resetMetrics();
-this.metrics = {
+  // }
+  this.screen.render();
+  monitorClaudeFlow();
+  // In real implementation, this would connect to Claude Flow metrics';
+  this.logBox.log('{green-fg}{/green-fg} Connected to Claude Flow metrics');
+  ';
+this.logBox.log('{blue-fg}{/blue-fg} Monitoring performance in real-time...')
+  resetMetrics();
+  this.metrics = {
       hooks: { calls, avgTime, errors },
 reads, writes;
-, cacheHits ,
+  , cacheHits ,
   predictions, trainings
   , accuracy ,
   active, pooled
   , spawns ,';
 this.logBox.log('{yellow-fg}{/yellow-fg} Metrics reset')
-// Check if blessed is available
-try {
-  new PerformanceMonitor();
-} catch (error) { console.error(error); } catch(/* _error */) ';
-  console.warn(' Performance Monitoring Dashboard(Text Mode)\n');';
-  console.warn('Real-time metrics would be displayed here.');';
-  console.warn('';
+  // Check if blessed is available
+  try {
+    new PerformanceMonitor();
+  } catch (error) {
+    console.error(error);
+  }
+  catch(/* _error */) ';
+  console.warn(' Performance Monitoring Dashboard(Text Mode)\n')
+  ';
+  console.warn('Real-time metrics would be displayed here.')
+  ';
+  console.warn(''
   console.warn('npm install blessed\n');
   // Fallback text-based monitoring
   setInterval(() => {';
@@ -320,7 +325,7 @@ try {
   console.warn('';
     console.warn(`  Accuracy: $(85 + Math.random() * 10).toFixed(1)%`);`
   console.warn('';
-    console.warn(`  Active/Pooled: ${Math.floor(Math.random() * 10) + 5}/10`);
+    console.warn(`  Active/Pooled: $Math.floor(Math.random() * 10) + 5/10`);
 , 1000
 // }
 `

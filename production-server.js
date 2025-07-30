@@ -31,11 +31,10 @@ async function startProductionServer() {';
       process.exit(0);
     );
 ';
-    process.on('SIGTERM', async() => {';
+    process.on('SIGTERM', async() => ';
       console.warn('\n Terminating production server...');
 // await server.shutdown();
-      process.exit(0);
-      } catch (error) { console.error(error); });
+      process.exit(0);catch (error) console.error(error); );
   //   }
 catch(error)
 // {';

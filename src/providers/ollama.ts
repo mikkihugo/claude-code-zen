@@ -9,6 +9,7 @@ import {
   ProviderConfig,
   ProviderError,
 } from '.';
+
 '
 // // interface OllamaRequest {model = ''
 // version = ''
@@ -24,7 +25,7 @@ import {
 // // await this.healthCheck();
 // }
 async
-generateText(request = Date.now();
+generateText(request = Date.now()
 this.validateRequest(request);
 this.emitRequest(request);
 try {'
@@ -40,7 +41,7 @@ try {'
     const { done, value } = // await reader.read();
     if(done) break;
 '
-    buffer += decoder.decode(value, {stream = buffer.split('\n');'';
+    buffer += decoder.decode(value, stream = buffer.split('\n');'';
   for(const line of lines) {
       if(line.trim()) {
         try {
@@ -94,9 +95,9 @@ getModels();
 // private convertMessages(messages = []
 // Add system message first if provided
   if(systemPrompt) {'
-  result.push({role = === 'system' && !systemPrompt) {'
-        result.push({role = === 'user'  ?? msg.role === 'assistant') {'
-        result.push({role = 'POST'): Promise<any> {'
+  result.push(role = === 'system' && !systemPrompt) '
+        result.push(role = === 'user'  ?? msg.role === 'assistant') '
+        result.push(role = 'POST'): Promise<any> {'
     const _options = {method = === 'POST') {
       options.body = JSON.stringify(data);
 // }'

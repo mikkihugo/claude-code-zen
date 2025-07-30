@@ -79,8 +79,7 @@ Once configured, ruv-swarm MCP tools are available directly in Claude Code: null
 ## MCP Tool Usage in Claude Code
 **Tool:** mcp__ruv-swarm__agent_spawn
 ## Parameters;`
-\`\`\`json;``
-{"type": 'researcher', "name": 'AI Research Specialist', "capabilities": ['analysis']}"
+\`\`\`json;``"type": 'researcher', "name": 'AI Research Specialist', "capabilities": ['analysis']"
 \`\`\`
 ## Agent Types;
 - **researcher** - Research and analysis tasks;

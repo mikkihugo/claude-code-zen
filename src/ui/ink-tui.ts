@@ -2,16 +2,15 @@
 /** Converted from JavaScript to TypeScript */
 
 import path from 'node:path';
+('');
 '
-'
-'
+
 import { Box, render, Text } from 'ink';
+('');
 '
-'
-'
+
 import React, { useEffect, useState } from 'react';
-'
-'
+('');
 
 // API client for auto-generated API
 class ApiClient {
@@ -24,20 +23,21 @@ class ApiClient {
   // {
   try;
   {'
-  // const _response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error); }/api/hives`);`
+  // const _response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/api/hives`);``
   // return // // await response.json();
   //   // LINT: unreachable code removed} catch(/* _error */) {
   console;
-  .`
+  .``
   error('Failed to fetchhives = // // await fetch(`${this.baseUrl}/hive-mind/${hiveName}`);`'`
   // return // // await response.json();
   //   // LINT: unreachable code removed}
   catch(error);
   console;
-  .`
+  .``
   error(`Failed to fetch hive details;
-  ``
   `
+  ``
+  ``
   // for
   $;
   {
@@ -49,18 +49,18 @@ class ApiClient {
 // async
 executeCommand(command, (args = []), (flags = {}));
 
-try {`
-// const __response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error); }/${command}`, {method = new ApiClient();`
+try {``
+// const __response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/${command}`, {method = new ApiClient();``
 
 const __SingularityAlpha = () => {
   const [_hives, setHives] = useState({});
-  const [_selectedHive, setSelectedHive] = useState(null);`
-  const [currentView, setCurrentView] = useState('hives'); // 'hives', 'details', 'command', 'create', ''
+  const [_selectedHive, setSelectedHive] = useState(null);``
+  const [currentView, setCurrentView] = useState('hives'); // 'hives', 'details', 'command', 'create', '
   const [_selectedHiveName, setSelectedHiveName] = useState(null);
-  const [_commandResult, setCommandResult] = useState(null);'');'
+  const [_commandResult, setCommandResult] = useState(null);')
   const [_isExecuting, setIsExecuting] = useState(false);
   const [_commandHistory, setCommandHistory] = useState([]);
-  const [_selectedDirectory, _setSelectedDirectory] = useState(process.cwd());'');'
+  const [_selectedDirectory, _setSelectedDirectory] = useState(process.cwd());')
   const [focusedButton, setFocusedButton] = useState(0); //0 = useApp();
 
   useEffect(() => {
@@ -80,10 +80,10 @@ const __SingularityAlpha = () => {
   if(currentView === 'create') {'
   if(key.escape) {'
         setCurrentView('hives''
-        setNewServiceName('');'
+        setNewServiceName(')
       } else if(key.return && newServiceName.trim()) {
         // Create the service'
-// const __result = awaitapiClient.executeCommand('create', [newServiceName], {path = > prev.slice(0, -1));'
+// const __result = awaitapiClient.executeCommand('create', [newServiceName], {path = > prev.slice(0, -1))
     //   // LINT: unreachable code removed} else if(!key.ctrl && !key.meta && input) {
         setNewServiceName(prev => prev + input);
       //       }
@@ -100,10 +100,10 @@ const __SingularityAlpha = () => {
   if(key.return && focusedButton > 0 && !command) {
   if(focusedButton === 1) {
         // Select directory'
-        setCurrentView('directory');'
+        setCurrentView('directory')
     //   // LINT: unreachable code removed} else if(focusedButton === 2) {
         // Create new service'
-        setCurrentView('create');'
+        setCurrentView('create')
       //       }
       return;
     //   // LINT: unreachable code removed}
@@ -112,78 +112,65 @@ const __SingularityAlpha = () => {
     if(key.return && command.trim()) {
       setIsExecuting(true);
     // ; // LINT: unreachable code removed'
-      const _parts = command.trim().split(' ');'
+      const _parts = command.trim().split(')
       const _cmd = parts[0];
       const _args = parts.slice(1);
 // const _result = awaitapiClient.executeCommand(cmd, args, {});
       setCommandResult(result);
       setCommandHistory(prev => [...prev, { command, result }]);
-      setIsExecuting(false);'');'
+      setIsExecuting(false);')
     } else if(key.backspace  ?? key.delete) {
-      setCommand(prev => prev.slice(0, -1));
-    } else if(key.escape) {'
+      setCommand(prev => prev.slice(0, -1))} else if(key.escape) {'
   if(currentView === 'details''
-        setCurrentView('hives');'
+        setCurrentView('hives')
         setSelectedHive(null);
-        setSelectedHiveName(null);
-      } else if(command) {'');'
-        setCommandResult(null);
-      } else {
+        setSelectedHiveName(null)} else if(command) {')
+        setCommandResult(null)} else {
         exit();
       //       }'
     } else if(input === 'q' && !command) {'
-      exit();'
+      exit()
     } else if(input === 'r' && !command) {'
       // Refresh data
-      loadHives();'
+      loadHives()
     } else if(!key.ctrl && !key.meta && input && currentView !== 'details') {'
       setCommand(prev => prev + input);
     //     }
-  });
-'
-    setCurrentView('details');'
+  })
+    setCurrentView('details')
 // const _hiveDetails = awaitapiClient.fetchHiveDetails(hiveName);
-    setSelectedHive(hiveDetails);
-  };
+    setSelectedHive(hiveDetails)};
 
-    setCommandResult(result);
-  };
+    setCommandResult(result)};
 
   const _loadHives = async() => {
 // const _hivesData = awaitapiClient.fetchHives();
-    setHives(hivesData);
-  };
+    setHives(hivesData)};
 // '
-  return React.createElement(Box, {borderStyle = === 'hives' && React.createElement(Box, {flexDirection = === 1 ? "double" );"
+  return React.createElement(Box, {borderStyle = === 'hives' && React.createElement(Box, {flexDirection = === 1 ? "double" )
         ),
         React.createElement(Box, ;)"
-          borderStyle = === 2 ? "double" );"
+          borderStyle = === 2 ? "double" )
         );
       ),
       // Always show command input at bottom"
-      React.createElement(Box, borderStyle = === 'string' ? commandResult.result );'
+      React.createElement(Box, borderStyle = === 'string' ? commandResult.result )
           : commandResult.error;
         );
       );
     ),'
     currentView === 'details' && selectedHive && React.createElement(HiveDetails, hive = === 'create' && React.createElement(Box, borderStyle = === 'directory' && React.createElement(DirectorySelector,'
       _currentPath => ;))
-        setSelectedDirectory(_dir);'
-        setCommandResult({ success = > setCurrentView('hives');''
+        setSelectedDirectory(_dir)
+        setCommandResult(success = > setCurrentView('hives');'
     React.createElement(Box, borderStyle: "single""
-      React.createElement(Text, color: "gray" ,""
-        `View: $currentView| Services: $Object.keys(hives).length| API: Connected`;`
+      React.createElement(Text, color: "gray" ,"
+        `View: $currentView| Services: $Object.keys(hives).length| API: Connected`;``
       );
     );
   );
 
-// export function _renderTui(cli) {`
-  console.warn(' Starting Singularity Alpha TUI with API integration...');'
-  render(React.createElement(SingularityAlpha, { cli}));
-// }
-
-// export { ApiClient };
-
-}}
-}}}
+// export function _renderTui(cli) {``
+  console.warn(' Starting Singularity Alpha TUI with API integration...')
+  render(React.createElement(SingularityAlpha, { cli}));}}
 '

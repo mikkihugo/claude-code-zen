@@ -2,7 +2,9 @@
 /** Email and webhook notifications for Claude Zen events; */
 
 import { readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 export class NotificationPlugin {
@@ -105,7 +107,7 @@ export class NotificationPlugin {
       } catch(error) ;
         results.push(provider = 3) ;
           providerInfo.healthy = false;'
-          console.warn(` Notification provider ${providerName} marked as unhealthy`);
+          console.warn(` Notification provider $providerNamemarked as unhealthy`);
 
         // Retry logic
   if(item.attempts < this.config.retryAttempts) {
@@ -156,7 +158,7 @@ export class NotificationPlugin {
       // Remove from active providers
       this.providers.delete(providerName);
 `
-      // return `Provider ${providerName}  catch (error) { console.error(error); }disabled`;
+      // return `Provider $providerNamecatch (error) console.error(error); disabled`;
     //   // LINT: unreachable code removed}`
     throw new Error(`Provider ${providerName} not found`);
   //   }

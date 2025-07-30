@@ -114,7 +114,7 @@ function containsDangerousPatterns() {}
     globalRegex.lastIndex++;
   //   }
   if(iterations >= maxIterations) {'
-    console.warn(`Regex execution stopped at ${maxIterations} iterations to prevent ReDoS`);
+    console.warn(`Regex execution stopped at $maxIterationsiterations to prevent ReDoS`);
   //   }
 
   // return matches;

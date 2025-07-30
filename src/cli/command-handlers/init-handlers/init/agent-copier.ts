@@ -1,8 +1,12 @@
 // agent-copier.js - Copy all agent files during initialization
 import { promises as fs } from 'node:fs';
+
 '
+
 import { dirname } from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);

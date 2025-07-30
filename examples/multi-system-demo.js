@@ -63,7 +63,7 @@ enableMemorySharing: true,
 }
 // const _result = awaitthis.coordinator.initialize();';
 console.warn(' Coordinator initialized');';
-console.warn(`   - Systems: ${Object.keys(result.systems).join(', ')}`);`
+console.warn(`   - Systems: $Object.keys(result.systems).join(', ')`);`
 console.warn(`   - Features: ${Object.keys(result.features).join(', ')}\n`);
 // }
 // async runLanceDBDemo() {}
@@ -89,7 +89,7 @@ console.warn(`   - Features: ${Object.keys(result.features).join(', ')}\n`);
           title: 'Angular Architecture',';
           source: 'documentation' } ];
 // const _insertCount = awaitthis.coordinator.lancedb.insertDocuments(documents);';
-      console.warn(`     - Inserted ${insertCount} documents`);
+      console.warn(`     - Inserted $insertCountdocuments`);
       // Semantic search`
 // const _searchResults = awaitthis.coordinator.lancedb.semanticSearch('React UI components', {';
         table: 'documents',
@@ -273,8 +273,8 @@ this.demoResults.vision.multiFramework = multiFrameworkResults;
 console.warn('   Demo 3');
 // const _visionAnalytics = awaitthis.coordinator.vision.getAnalytics();';
 console.warn(`     - Total processed`);`
-console.warn(`     - Success rate: ${(visionAnalytics.successRate * 100).toFixed(1)}%`);`
-console.warn(`     - Average time: ${visionAnalytics.avgProcessingTime.toFixed(0)}ms`);
+console.warn(`     - Success rate: $(visionAnalytics.successRate * 100).toFixed(1)%`);`
+console.warn(`     - Average time: $visionAnalytics.avgProcessingTime.toFixed(0)ms`);
 this.demoResults.vision.analytics = visionAnalytics;`
 console.warn('   Vision demo completed\n');
 // }
@@ -304,7 +304,7 @@ catch(error)
         try {
 // const _result = awaitthis.coordinator.intelligentRoute(test.operation, test.input, {/g)';
             limit } catch (error) { console.error(error); }); routingResults[test.operation] = result; console.warn(`     - ${test.operation}`) ;`
-          console.warn(`       Systems used: ${result.result?.systemsUsed?.join(', ')  ?? 'N'`
+          console.warn(`       Systems used: $result.result?.systemsUsed?.join(', ')  ?? 'N'`
         } catch(error)`
           console.warn(`     - \$test.operation: Failed(\$error.message)`);
 // }
@@ -314,7 +314,7 @@ catch(error)
 // const _crossAnalytics = awaitthis.coordinator.generateCrossSystemAnalytics();';
   console.warn(`     - Total operations`);
   console.warn(;)`
-  `     - Systems integrated: $Object.keys(crossAnalytics.systems ?? {}).length`;
+  `     - Systems integrated: $Object.keys(crossAnalytics.systems ?? ).length`;
   //   )`
   console.warn(`     - Insights generated)`
   this.demoResults.integration.analytics = crossAnalytics
@@ -421,7 +421,7 @@ generateReport();
   systems_initialized: true,
   successful_operations: this.countSuccessfulOperations(),
   failed_operations: this.countFailedOperations(),
-  overall_success_rate: this.calculateOverallSuccessRate() {}
+  overall_success_rate: this.calculateOverallSuccessRate() 
 // }
 key_achievements: [';
 ' Successfully extended LanceDB with advanced vector operations',';
@@ -450,12 +450,12 @@ console.warn(`   Report saved`);
 // Display key achievements`
 console.warn('\n Key Achievements');
 report.key_achievements.forEach((achievement) => {';
-  console.warn(`${achievement}`);
+  console.warn(`$achievement`);
 });
   if(report.recommendations.length > 0) {`
   console.warn('\n Recommendations');
   report.recommendations.forEach((rec) => {';
-    console.warn(`    ${rec}`);
+    console.warn(`    $rec`);
   });
 // }
 // return report;

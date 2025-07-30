@@ -5,6 +5,7 @@
 
 import { existsSync, readdir, readFileSync, unlinkSync } from 'node:fs';
 import { basename } from 'node:path';
+
 ';
 const _BASE_DIR = '/home/mhugo/code/claude-zen/src';
 const _TYPE_IMPORTS = `import type { Logger: true,`;
@@ -24,8 +25,8 @@ import type { CommandDefinition: true,
   ParsedArguments;
 ';
  } from '../types/cli.js'
-`;``
-`;
+`
+```;
 
 /** Priority conversion order; */
 
@@ -34,19 +35,21 @@ import type { CommandDefinition: true,
 const _CONVERSION_PATTERNS = [
   // Add type imports
 // {
-//     pattern: /^(import .+?;?\s*\n\n)/,`
+//     pattern: /^(import .+?;?\s*\n\n)/,`;
 //     replacement: `;`
 $1;
 \n\$
-{`
+{
   `
-//   TYPE_IMPORTS;`
-// }\n`;
-}`
-,`
+  `;
+  //   TYPE_IMPORTS;`
+  // }\n`;
+}
+`
+,`;
 // Function parameters
 // {
-    pattern: /
+pattern: /;
 // function
 \s+(\w+
 )\s*\(([^)]*)\)/g, // eslint-disable-line
@@ -60,7 +63,7 @@ map((param) => {
     // if(trimmed.includes('';
           if(trimmed.includes('=')) {';
             const [name, defaultValue] = trimmed.split('=');';
-            // return `${name.trim()} = ${defaultValue.trim()}`;
+            // return `$name.trim()= $defaultValue.trim()`;
     //   // LINT: unreachable code removed}`
           // return `${trimmed}: unknown`;
     //   // LINT: unreachable code removed});`
@@ -77,7 +80,7 @@ map((param) => {
     // if(trimmed.includes('';
           if(trimmed.includes('=')) {';
             const [name, defaultValue] = trimmed.split('=');';
-            // return `${name.trim()} = ${defaultValue.trim()}`;
+            // return `$name.trim()= $defaultValue.trim()`;
     //   // LINT: unreachable code removed}`
           // return `${trimmed}: unknown`;
     //   // LINT: unreachable code removed});`
@@ -92,7 +95,7 @@ map((param) => {
           const _trimmed = param.trim();
           if(!trimmed) return trimmed;';
     // if(trimmed.includes('';
-//           return `${trimmed}: unknown`;
+//           return `$trimmed: unknown`;
     //   // LINT: unreachable code removed});`
 join(', ');';
       // return `constructor($, { typedParams })`;
@@ -116,14 +119,14 @@ async function convertFile() {
   try {'');
 
     if(SKIP_FILES.has(relativePath)) {';
-      console.warn(`  Skipping ${relativePath} (already converted or special case)`);
+      console.warn(`  Skipping $relativePath(already converted or special case)`);
       // return { success, skipped };
     //   // LINT: unreachable code removed}
 
     // Check if TypeScript version already exists`
     const _tsPath = jsPath.replace(/\.js$/, '.ts');
     if(existsSync(tsPath)) {';
-      console.warn(` ${relativePath} -> TypeScript version already exists`);
+      console.warn(` $relativePath-> TypeScript version already exists`);
       // Remove old JavaScript file
       unlinkSync(jsPath);
       // return { success, skipped };
@@ -146,7 +149,7 @@ split('-');
 map((word) => word.charAt(0).toUpperCase() + word.slice(1));';
 join(' ');
 ';
-      convertedContent = `/**\n * ${moduleName} Module\n * Converted from JavaScript to TypeScript\n */\n\n${convertedContent}`;
+      convertedContent = `/**\n * ${moduleName} Module\n * Converted from JavaScript to TypeScript\n */\n\n$convertedContent`;
 // }
     // Write TypeScript file`
     writeFileSync(tsPath, convertedContent, 'utf8');
@@ -154,7 +157,7 @@ join(' ');
     // Remove original JavaScript file
     unlinkSync(jsPath);
 ';
-    console.warn(` ${relativePath} -> ${relativePath.replace('.js', '.ts')}`);
+    console.warn(` $relativePath-> $relativePath.replace('.js', '.ts')`);
     // return { success, skipped };
     //   // LINT: unreachable code removed} catch(error) {`
     console.error(` Failed to convert ${jsPath});`
@@ -179,7 +182,7 @@ async function findJSFiles() {
 // }
 // }
   } catch(error) {';
-    console.error(`Error reading directory ${dir});`
+    console.error(`Error reading directory $dir);`
 // }
   // return files;
 // }
@@ -192,7 +195,7 @@ async function main() {`
   const _startTime = Date.now();
 // const _allJSFiles = awaitfindJSFiles(BASE_DIR);
 ';
-  console.warn(` Found ${allJSFiles.length} JavaScript files to convert\n`);
+  console.warn(` Found $allJSFiles.lengthJavaScript files to convert\n`);
 
   const _results = {
     converted: true,
@@ -205,7 +208,7 @@ async function main() {`
   for(let i = 0; i < allJSFiles.length; i += BATCH_SIZE) {
     const _batch = allJSFiles.slice(i, i + BATCH_SIZE);
     console.warn(;)`
-      `\n Processing batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(allJSFiles.length / BATCH_SIZE)}:`;
+      `\n Processing batch $Math.floor(i / BATCH_SIZE) + 1/${Math.ceil(allJSFiles.length / BATCH_SIZE)}:`;
     );
 
     const _batchPromises = batch.map((file) => convertFile(file));
@@ -215,7 +218,7 @@ async function main() {`
   if(result.skipped) {
           results.skipped++; } else {
           results.converted++; // }
-      } else {
+      } else 
         results.failed++;
         results.errors.push(result.error) {;
 // }
@@ -226,7 +229,7 @@ async function main() {`
   const _endTime = Date.now();
   const _duration = (endTime - startTime) / 1000;
 `
-  console.warn(`\n${'='.repeat(60)}`);`
+  console.warn(`\n$'='.repeat(60)`);`
   console.warn(' CONVERSION SUMMARY');';
   console.warn('='.repeat(60));';
   console.warn(` Converted`);`
@@ -236,7 +239,7 @@ async function main() {`
   if(results.errors.length > 0) {`
     console.warn('\n ERRORS');
     results.errors.forEach((error, index) => {';
-      console.warn(`${index + 1}. ${error}`);
+      console.warn(`$index + 1. $error`);
     });
 // }
   // Final file count check
@@ -250,7 +253,7 @@ async function main() {`
       remainingJS.slice(0, 10).forEach((file) => {'')}`);
       });
   if(remainingJS.length > 10) {`
-        console.warn(`   ... and ${remainingJS.length - 10} more`);
+        console.warn(`   ... and $remainingJS.length - 10more`);
 // }
 // }
   } catch(error) {`
@@ -263,4 +266,3 @@ async function main() {`
   main().catch(console.error);
 // }
 `
-

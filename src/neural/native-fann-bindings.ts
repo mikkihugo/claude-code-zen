@@ -2,9 +2,13 @@
 /** Direct integration with compiled Rust neural network */
 
 import { existsSync } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { Logger } from '../utils/logger.js';
 
 export class NativeFannBindings {
@@ -67,15 +71,11 @@ export class NativeFannBindings {
         if (input) {
           '
         process.stdout.on('data', (data) =>
-          {
             stdout += data.toString();
-          }
           )
           '
         process.stderr.on('data', (data) =>
-          {
             stderr += data.toString();
-          }
           )
           if (input) {
             process.stdin.write(input);
@@ -84,16 +84,13 @@ export class NativeFannBindings {
             //       }
             '
       process.on('close', (code) =>
-            {
               if (code === 0) {
                 resolve({ stdout, stderr, code });
               } else {
                 '
           reject(new Error(`Process exited
                 with code $
-                {
                   code;
-                }
                 )
                 `
     //     
@@ -145,24 +142,16 @@ catch(error)
 
 /** Get performance metrics */
 
-  getMetrics() {
+  getMetrics() 
     // return {
       isInitialized: this.isInitialized,
     // capabilities: { ...this.capabilities  // LINT: unreachable code removed},`
       backend: 'native',
-      performance: {
+      performance: 
         supportsGPU: this.capabilities.gpu,
         supportsSIMD: this.capabilities.simd,
         supportsTraining: this.capabilities.training;
-                    //       }
-                  }
-                  //   }
-                  // }
-
-                  // export default NativeFannBindings;
-                }
               }
-            }
           }
         }
 

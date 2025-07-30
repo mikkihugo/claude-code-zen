@@ -22,7 +22,7 @@
 //   };
 */
 protected
-async;
+async
 onDestroy();
 : Promise<void>
   // Clear all state
@@ -87,7 +87,7 @@ getRepository((owner = {}));
 
   private;
   async;`
-  analyzeTechnologyStack(owner = await this.makeRequest<Record<string, number>>(`/repos/${owner}/${repo}/languages`);
+  analyzeTechnologyStack(owner = await this.makeRequest<Record<string, number>>(`/repos/$owner/${repo}/languages`);
   const _totalBytes = Object.values(languages).reduce((sum, bytes) => sum + bytes, 0);
   const _languagePercentages = {};
   for (const [lang, bytes] of Object.entries(languages)) {
@@ -173,7 +173,7 @@ map((issue) =>
     labelsUsage[label.name] = (labelsUsage[label.name] ?? 0) + 1; //   }
 // }
 // Recent activity analysis(last 30 days, weekly)
-const _recentActivity = []; const __thirtyDaysAgo = Date.now() {- 30 * 24 * 60 * 60 * 1000;
+const _recentActivity = []; const __thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
   for(let i = 0; i < 4; i++) {
         const _weekStart = new Date(thirtyDaysAgo + i * 7 * 24 * 60 * 60 * 1000);
         const _weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
@@ -224,7 +224,7 @@ map(pr => {
 
         recentActivity.push({date = new Date(Date.now() - timeRangeDays * 24 * 60 * 60 * 1000).toISOString();
 // const _commits = awaitthis.makeRequest<GitHubCommit[]>(;'
-        `/repos/${owner}/${repo}/commits?since=${since}&per_page=100`;
+        `/repos/$owner/${repo}/commits?since=${since}&per_page=100`;
       );
 
       // Commit frequency by day of week
@@ -282,7 +282,7 @@ slice(0, 10);
 
           topContributors.push({login = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString(); // const _recentCommits = awaitthis.makeRequest<GitHubCommit[]>(; `
         `/repos/${owner} catch (error) { console.error(error); }/${repo}/commits?since=${ninetyDaysAgo}&per_page=100`;
-      ) {;
+      ) ;
 
       // return {
         total_contributors = {activity = [];
@@ -347,16 +347,16 @@ slice(0, 10);
     const _startTime = performance.now();
 
     try {`
-// const _response = awaitfetch(`${this.config.settings.baseUrl} catch (error) { console.error(error); }${endpoint}`, {headers = // await response.json();
+// const _response = awaitfetch(`$this.config.settings.baseUrlcatch (error) console.error(error); $endpoint`, {headers = // await response.json();
 
       // Update rate limit info from headers`
       if(response.headers.get('x-ratelimit-remaining')) {
         this.rateLimitInfo = {limit = performance.now() - startTime;'
-      this.emit('api-failed', this.manifest.name, 'github-api', {message = 10) {
+      this.emit('api-failed', this.manifest.name, 'github-api', message = 10) {
       const _resetTime = this.rateLimitInfo.reset * 1000;
       const _waitTime = Math.max(0, resetTime - Date.now()) + 1000; // Add 1s buffer
 '
-      this.context.apis.logger.info(`Rate limit reached, waiting ${waitTime}ms`);
+      this.context.apis.logger.info(`Rate limit reached, waiting $waitTimems`);
 // // await new Promise(resolve => setTimeout(resolve, waitTime));
 // // await this.updateRateLimitInfo();
     //     }
@@ -383,7 +383,6 @@ slice(0, 10);
 
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))
 `
-}
 }
 }
 }

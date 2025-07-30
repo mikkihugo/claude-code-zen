@@ -1,247 +1,228 @@
 import { describe, expect } from '@jest';
+
 '
 describe('Integration and End-to-End Test Coverage', () =>
 {
   '
   describe('File System Operations', () =>
-  {
     '
     it('should handle basic file system patterns', async () =>
-    {
-      '
-      // const _fs = awaitimport(''
-      // const _path = awaitimport('
-      // const _os = awaitimport('node);'
+  {
+    '
+    // const _fs = awaitimport(''
+    // const _path = awaitimport('
+    // const _os = awaitimport('node);'
 
-      // Test creating and cleaning up temp directories'
-      // const _tempDir = awaitfs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-test-'));
-      // Create a test file'
-      const _testFile = path.join(tempDir, 'test.txt');
-      '
+    // Test creating and cleaning up temp directories'
+    // const _tempDir = awaitfs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-test-'));
+    // Create a test file'
+    const _testFile = path.join(tempDir, 'test.txt');
+    '
       // // await fs.writeFile(testFile, 'test content');
       // Read it back'
       // const _content = awaitfs.readFile(testFile, 'utf8');'
       expect(content).toBe('test content')
       // Check file exists
       // const _stats = awaitfs.stat(testFile);
-      expect(stats.isFile()).toBe(true);
-      // Clean up
-      // // await fs.rm(tempDir, { recursive, force });
-    }
-    )
+      expect(stats.isFile()).toBe(true)
+    // Clean up
+    // // await fs.rm(tempDir, { recursive, force });
+  }
+  )
     '
     it('should handle path operations', async () =>
-    {
-      '
+  {
+    '
       // const _path = awaitimport('node);'
 '
-      const _testPath = '/path/to/test/file.txt';
-      '
+    const _testPath = '/path/to/test/file.txt';
+    '
       expect(path.dirname(testPath)).toBe('/path/to/test')
       '
       expect(path.basename(testPath)).toBe('file.txt')
       '
       expect(path.extname(testPath)).toBe('.txt')
       '
-      const _joined = path.join('path', 'to', 'file.txt');
-      '
+    const _joined = path.join('path', 'to', 'file.txt');
+    '
       expect(joined).toContain('file.txt')
       '
-      const _normalized = path.normalize('/path//to///file.txt');
-      '
+    const _normalized = path.normalize('/path//to///file.txt');
+    '
       expect(normalized).not.toContain('//')
-    }
-    )
   }
+  )
   )
   '
   describe('Process and Environment Utilities', () =>
-  {
     '
     it('should handle process information', () =>
-    {
-      expect(process.pid).toBeGreaterThan(0);
-      '
+      expect(process.pid).toBeGreaterThan(0)
+  '
       expect(typeof process.platform).toBe('string')
       '
       expect(typeof process.arch).toBe('string')
       '
       expect(typeof process.cwd()).toBe('string')
-      expect(Array.isArray(process.argv)).toBe(true);
-    }
-    )
+      expect(Array.isArray(process.argv)).toBe(true)
+  )
     '
     it('should handle environment variables', () =>
-    {
       '
       // Set a test env const process.env.CLAUDE_ZEN_TEST = 'test-value';'
       expect(process.env.CLAUDE_ZEN_TEST).toBe('test-value')
       // Clean up
-      delete process.env.CLAUDE_ZEN_TEST;
-      expect(process.env.CLAUDE_ZEN_TEST).toBeUndefined();
-    }
-    )
+      delete process.env.CLAUDE_ZEN_TEST
+  expect(process.env.CLAUDE_ZEN_TEST).toBeUndefined();
+  )
     '
     it('should handle OS information', async () =>
-    {
       '
       // const _os = awaitimport('node);'
 '
       expect(typeof os.platform()).toBe('string')
       '
       expect(typeof os.arch()).toBe('string')
-      expect(os.cpus().length).toBeGreaterThan(0);
-      '
+      expect(os.cpus().length).toBeGreaterThan(0)
+  '
       expect(typeof os.totalmem()).toBe('number')
       '
       expect(typeof os.freemem()).toBe('number')
       '
       expect(typeof os.uptime()).toBe('number')
-    }
     )
-  }
   )
   '
   describe('Event System', () =>
-  {
     '
     it('should handle EventEmitter functionality', async () =>
-    {
-      '
-      const { EventEmitter } = await import('node);'
+  {
+    '
+    const { EventEmitter } = await import('node);'
 
-      const _emitter = new EventEmitter();
-      const _eventFired = false;
-      const _eventData = null;
-      '
+    const _emitter = new EventEmitter();
+    const _eventFired = false;
+    const _eventData = null;
+    '
       emitter.on('test-event', (data) =>
-      {
-        eventFired = true;
-        eventData = data;
-      }
-      )
+        eventFired = true
+    eventData = data;
+    )
       '
       emitter.emit('test-event', 'test-data')
-      expect(eventFired).toBe(true);
-      '
+      expect(eventFired).toBe(true)
+    '
       expect(eventData).toBe('test-data')
-    }
-    )
+  }
+  )
     '
     it('should handle once listeners', async () =>
-    {
-      '
-      const { EventEmitter } = await import('node);'
+  {
+    '
+    const { EventEmitter } = await import('node);'
 
-      const _emitter = new EventEmitter();
-      const _callCount = 0;
-      '
+    const _emitter = new EventEmitter();
+    const _callCount = 0;
+    '
       emitter.once('once-event', () =>
-      {
-        callCount++;
-      }
-      )
-      '
-      emitter.emit('once-event')
-      '
-      emitter.emit('once-event')
-      '
-      emitter.emit('once-event')
-      expect(callCount).toBe(1);
-    }
+        callCount++
     )
+      '
+      emitter.emit('once-event')
+      '
+      emitter.emit('once-event')
+      '
+      emitter.emit('once-event')
+      expect(callCount).toBe(1)
   }
+  )
   )
   '
   describe('URL and Crypto Utilities', () =>
-  {
     '
     it('should handle URL parsing and validation', () =>
-    {
-      '
-      const _validUrl = new URL('https);'
+  {
+    '
+    const _validUrl = new URL('https);'
 '
       expect(validUrl.protocol).toBe(''
       expect(validUrl.hostname).toBe('example.com');
-      '
+    '
       expect(validUrl.port).toBe('8080')
       ''
       expect(validUrl.search).toBe('?query=value')
       '
       expect(validUrl.hash).toBe('#fragment')
-    }
-    )
+  }
+  )
     '
     it('should handle crypto operations', async () =>
-    {
-      '
-      // const _crypto = awaitimport('node);'
+  {
+    '
+    // const _crypto = awaitimport('node);'
 
-      // Test random bytes
-      const _randomBytes = crypto.randomBytes(16);
-      expect(randomBytes.length).toBe(16);
-      // Test hashing'
-      const _hash = crypto.createHash('sha256');
-      '
+    // Test random bytes
+    const _randomBytes = crypto.randomBytes(16);
+    expect(randomBytes.length).toBe(16);
+    // Test hashing'
+    const _hash = crypto.createHash('sha256');
+    '
       hash.update('test data')
       '
-      const _digest = hash.digest('hex');
-      '
+    const _digest = hash.digest('hex');
+    '
       expect(typeof digest).toBe('string')
-      expect(digest.length).toBe(64); // SHA256 hex is 64 chars
-    }
-    )
+      expect(digest.length).toBe(64) // SHA256 hex is 64 chars
   }
+  )
   )
   '
   describe('Buffer and Stream Operations', () =>
-  {
     '
     it('should handle buffer operations', () =>
-    {
-      '
-      const _buffer = Buffer.from('hello world', 'utf8');
-      expect(buffer.length).toBe(11);
-      '
+  {
+    '
+    const _buffer = Buffer.from('hello world', 'utf8');
+    expect(buffer.length).toBe(11);
+    '
       expect(buffer.toString()).toBe('hello world')
       '
       expect(buffer.toString('base64')).toBeTruthy()
-      const _buffer2 = Buffer.alloc(10);
-      expect(buffer2.length).toBe(10);
-      const _concatenated = Buffer.concat([buffer, buffer2]);
-      expect(concatenated.length).toBe(21);
-    }
-    )
+    const _buffer2 = Buffer.alloc(10);
+    expect(buffer2.length).toBe(10);
+    const _concatenated = Buffer.concat([buffer, buffer2]);
+    expect(concatenated.length).toBe(21);
+  }
+  )
     '
     it('should handle stream patterns', async () =>
-    {
-      '
-      const { Readable, Writable } = await import('node);'
-      '';
-      const _readable = new Readable({
-        read() {
-          '
+  {
+    '
+    const { Readable, Writable } = await import('node);'
+    ('');
+    const _readable = new Readable({
+      read() {
+        '
           this.push('chunk1')
           '
           this.push('chunk2')
-          this.push(null); // End stream
-        },
-      });
-      const _writable = new Writable({
-        write(chunk, _encoding, callback) {
-          writtenData += chunk.toString();
-          callback();
-        },
-      });
-      // return new Promise((resolve) => {
-      readable.pipe(writable);
-      '
+          this.push(null) // End stream
+      },
+    });
+    const _writable = new Writable({
+      write(chunk, _encoding, callback) {
+        writtenData += chunk.toString();
+        callback();
+      },
+    });
+    // return new Promise((resolve) => {
+    readable.pipe(writable);
+    '
       // writable.on('finish', () => { // LINT: unreachable code removed'
       expect(writtenData).toBe('chunk1chunk2')
-      resolve();
-    }
-    )
+      resolve()
   }
+  )
   )
 }
 )
@@ -279,11 +260,11 @@ it('should handle data validation patterns', () =>
     //   // LINT: unreachable code removed};'
       expect(validateData({ name: 'John', age   })).toEqual([]);
       expect(validateData({ name)).toEqual([]);'
-      expect(validateData({})).toContain('Name is required');'
-      expect(validateData({ name: 'Bob', age: -5   })).toContain('Age must be a positive number');
+      expect(validateData()).toContain('Name is required');'
+      expect(validateData(name: 'Bob', age: -5   )).toContain('Age must be a positive number');
     });
   });'
-  describe('Error Handling Patterns', () => {'
+  describe('Error Handling Patterns', () => '
     it('should handle different error types', () => {
       const _errors = ['
         new Error('Generic error'),'
@@ -307,7 +288,7 @@ it('should handle data validation patterns', () =>
   // await expect(asyncErrorFunction(true)).rejects.toThrow('Async error');
     });
   });'
-  describe('Timer and Async Patterns', () => {'
+  describe('Timer and Async Patterns', () => '
     it('should handle setTimeout and setImmediate', (done) => {
       const _executed = false;
       setTimeout(() => {
@@ -328,7 +309,7 @@ it('should handle data validation patterns', () =>
       expect(results).toEqual(['a', 'b', 'c']);
     });
   });'
-  describe('RegExp and String Processing', () => {'
+  describe('RegExp and String Processing', () => '
     it('should handle regular expressions', () => {
       const _emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;'
       expect(emailRegex.test('user@example.com')).toBe(true);'
@@ -345,9 +326,8 @@ it('should handle data validation patterns', () =>
       const _words = text.trim().split(' ');
       expect(words).toHaveLength(2);'
       expect(words.join('-')).toBe('Hello-World!');
-    });
-  });'
-  describe('Array and Object Operations', () => {'
+    }););'
+  describe('Array and Object Operations', () => '
     it('should handle array operations', () => {
       const _numbers = [1, 2, 3, 4, 5];
       expect(numbers.length).toBe(5);
@@ -372,9 +352,8 @@ it('should handle data validation patterns', () =>
       expect(merged).toEqual({ a, b, c, d   });
       const _spread = { ...obj, e };
       expect(spread).toEqual({ a, b, c, e   });
-    });
-  });'
-  describe('Date and Time Operations', () => {'
+    }););'
+  describe('Date and Time Operations', () => '
     it('should handle date operations', () => {
       const _now = new Date();
       const _timestamp = now.getTime();'
@@ -397,7 +376,5 @@ it('should handle data validation patterns', () =>
       expect(duration).toBeGreaterThanOrEqual(0);'
       expect(typeof duration).toBe('number');
     });
-  });
-});
+  }););
 '
-}

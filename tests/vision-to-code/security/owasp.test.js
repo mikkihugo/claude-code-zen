@@ -1,6 +1,7 @@
 import request from 'supertest';
 // Mock the API Gateway for security testing'
 import app from '@/services/api-gateway/app.js';
+
 '
 describe('OWASP Top 10 Security Tests', () =>
 {
@@ -17,7 +18,6 @@ describe('OWASP Top 10 Security Tests', () =>
   '
   describe(''
     it('should prevent unauthorized access to user data', async() =>
-  {
     '
       // Try to access another user's data'
 // const _response = awaitrequest(server);'
@@ -25,18 +25,15 @@ get('/api/v1/users/999/profile')'
 set('Authorization', authToken)
 expect(403)'
       expect(response.body.error.code).toBe('FORBIDDEN')
-  }
   )
   '
     it('should enforce proper authorization on admin endpoints', async() =>
-  {
     // const _response = awaitrequest(server);'
     get('/api/v1/admin/users');
     '
 set('Authorization', authToken)
 expect(403)'
       expect(response.body.error.code).toBe('INSUFFICIENT_PERMISSIONS')
-  }
   )
   '
     it('should prevent path traversal attacks', async() =>
@@ -72,7 +69,6 @@ get(`/api/v1/projects/\
   '
   describe(''
     it('should use HTTPS in production', async() =>
-  {
     // const _response = awaitrequest(server);'
     get('/api/v1/config/security');
     '
@@ -81,28 +77,22 @@ expect(200)
       expect(response.body.httpsRequired).toBe(true)
     '
       expect(response.body.tlsVersion).toBe('1.2')
-  }
   )
   '
     it('should properly hash sensitive data', async() =>
-  {
     // const _response = awaitrequest(server);'
     post('/api/v1/auth/register');
     '
 send(
-    {
       email: 'test@example.com','
       password: 'SecurePassword123!';
       expect(201);
       // Password should never be returned'
       expect(response.body.data).not.toHaveProperty('password');
       '
-      // expect(response.body.data).not.toHaveProperty('passwordHash'); // LINT: unreachable code removed
-    }
     )
     '
     it('should encrypt sensitive data at rest', async() =>
-    {
       // const _response = awaitrequest(server);'
       get('/api/v1/config/encryption');
       '
@@ -111,9 +101,7 @@ expect(200)'
       expect(response.body.dataEncryption).toBe('AES-256-GCM')
       '
       expect(response.body.keyManagement).toBe('HSM')
-    }
     )
-  }
   )
   '
   describe(''
@@ -125,7 +113,7 @@ expect(200)'
         "admin'--"'
         "1; SELECT * FROM users WHERE 't' = 't'];
     '
-    for (const _payload of sqlInjectionPayloads) {
+    for (const _payload of sqlInjectionPayloads) 
       // const _response = awaitrequest(server); '
       get(`/api/v1/search?q=\$encodeURIComponent(payload)`)`
 set('Authorization', authToken)
@@ -288,9 +276,7 @@ send('
           password
 expect(400)`
       expect(response.body.error.code).toBe('WEAK_PASSWORD'); // }
-    }
     )
-    {
       '
     it('should implement account lockout after failed attempts', async() =>
       {
@@ -316,7 +302,6 @@ expect(400)`
           )
           '
   it('should implement secure session management', async() =>
-          {
             // Login to get session
             // const _loginResponse = awaitrequest(server);'
             post('/api/v1/auth/login');
@@ -340,7 +325,6 @@ expect(200)`
     expect(sessionResponse.body.data).toHaveProperty('ipAddress')
             }
             )
-          }
           )
           '
 describe(''
@@ -376,13 +360,11 @@ expect(400)'
         )'
 describe(''
   it('should log security events', async() =>
-        {
           // Trigger a security event(failed login)
           // await request(server);'
           post('/api/v1/auth/login');
           '
 send(
-          {
             email: 'nonexistent@example.com','
             password: 'wrong-password';
             expect(401);
@@ -400,7 +382,6 @@ expect(200)
     expect(logsResponse.body.data[0]).toHaveProperty('ip')
             '
     expect(logsResponse.body.data[0]).toHaveProperty('userAgent')
-          }
           )
           '
   it('should detect and log anomalous behavior', async() =>
@@ -434,7 +415,6 @@ expect(200)
           )
           '
 describe('A10: Server-Side Request Forgery(SSRF)', () =>
-          {
             '
   it('should prevent SSRF attacks on image URLs', async() =>
             {
@@ -481,7 +461,6 @@ set('Authorization', authToken)
               )
               '
 describe('Additional Security Tests', () =>
-              {
                 '
   it('should implement proper input validation', async() =>
                 {
@@ -539,13 +518,8 @@ it('should implement Content Security Policy', async() =>
                     )
                   }
                 }
-              }
             }
-          }
           "
-        }
       }
-    }
   }
 }
-

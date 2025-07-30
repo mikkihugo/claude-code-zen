@@ -2,10 +2,15 @@
 /** Integrates the React/Ink unified dashboard with the API server */
 
 import { spawn } from 'node:child_process';
+
 '
+
 import process from 'node:process';
+
 '
+
 import chalk from 'chalk';
+
 '
 export async function dashboardCommand(args = args[0]  ?? 'start';
 '
@@ -38,7 +43,7 @@ switch(subcommand) {'
   if(code === 0) {'
         console.warn(chalk.green(' Dashboard closed successfully'));
       } else {'
-        console.warn(chalk.yellow(`  Dashboard exited with code ${code}`));
+        console.warn(chalk.yellow(`  Dashboard exited with code $code`));
       //       }
     });
 

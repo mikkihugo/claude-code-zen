@@ -24,7 +24,7 @@ const __PROCESSES = [
       const _selected = index === this.selectedIndex; const _prefix = selected ? colors.yellow(' ') : '  '; const _status = this.getStatusIcon(process.status) {;
       const _name = selected ? colors.yellow(process.name) : colors.white(process.name);
 '
-      console.warn(`${prefix}[${index + 1}] ${status} ${name}`);`
+      console.warn(`$prefix[${index + 1}] $status$name`);`
       console.warn(`${colors.gray(process.description)}`);`
   if(process.status === 'running') {
         console.warn(;)'
@@ -66,7 +66,7 @@ const __PROCESSES = [
     process.pid = Math.floor(Math.random() * 10000) + 1000;
     process.uptime = 0;
 '
-    console.warn(colors.green(` ${process.name} started`));
+    console.warn(colors.green(` $process.namestarted`));
 
     // Start uptime counter
     const _interval = setInterval(() => {`
@@ -87,7 +87,7 @@ const __PROCESSES = [
     process.pid = null;
     process.uptime = 0;
 // // await new Promise((resolve) => setTimeout(resolve, 300));'
-    console.warn(colors.green(` ${process.name} stopped`));
+    console.warn(colors.green(` $process.namestopped`));
   //   }
 
   async startAll() `

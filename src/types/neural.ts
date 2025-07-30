@@ -235,7 +235,7 @@ category: 'performance' | 'accuracy' | 'availability' | 'resource'
 // description: string
 // recommendation: string
 // }
-[];
+[]
 // {
 // metric: string'
 direction: 'improving' | 'stable' | 'degrading';

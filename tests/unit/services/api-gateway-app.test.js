@@ -24,108 +24,90 @@ describe('API Gateway App', () =>
   });
   '
   describe('app initialization', () =>
-  {
     '
     it('should create express app', () =>
-    {
-      expect(mockExpress).toHaveBeenCalled();
-    }
-    )
+      expect(mockExpress).toHaveBeenCalled()
+  )
     '
     it('should configure JSON middleware', () =>
-    {
-      expect(mockExpress.json).toHaveBeenCalled();
-      '
+      expect(mockExpress.json).toHaveBeenCalled()
+  '
       expect(mockApp.use).toHaveBeenCalledWith('json-middleware')
-    }
     )
     '
     it('should register health check endpoint', () =>
-    {
       '
       expect(mockApp.get).toHaveBeenCalledWith('/health', expect.any(Function))
-    }
     )
-  }
   )
   '
   describe('health endpoint', () =>
-  {
     '
     it('should respond with healthy status', () =>
-    {
-      // Get the handler function that w'
-      const _healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
+  {
+    // Get the handler function that w'
+    const _healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
       expect(healthHandler).toBeDefined();
-      // Mock request and response objects
-      const _mockReq = {};
+    // Mock request and response objects
+    const _mockReq = {};
+    const _mockRes = {
+      status: jest.fn().mockReturnThis(),
+      send: jest.fn(),
+    };
+    // Call the handler
+    healthHandler(mockReq, mockRes);
+    // Verify response
+    expect(mockRes.status).toHaveBeenCalledWith(200);
+    expect(mockRes.send).toHaveBeenCalledWith({ status);
+  }
+  )
+    '
+    it('should handle multiple health check calls', () =>
+  {
+    '
+    const _healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
+    // Call multiple times
+    for (let i = 0; i < 3; i++) {
       const _mockRes = {
         status: jest.fn().mockReturnThis(),
         send: jest.fn(),
       };
-      // Call the handler
-      healthHandler(mockReq, mockRes);
-      // Verify response
+      healthHandler({}, mockRes);
       expect(mockRes.status).toHaveBeenCalledWith(200);
       expect(mockRes.send).toHaveBeenCalledWith({ status);
+      //       }
     }
-    )
-    '
-    it('should handle multiple health check calls', () =>
-    {
-      '
-      const _healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
-      // Call multiple times
-      for (let i = 0; i < 3; i++) {
-        const _mockRes = {
-          status: jest.fn().mockReturnThis(),
-          send: jest.fn(),
-        };
-        healthHandler({}, mockRes);
-        expect(mockRes.status).toHaveBeenCalledWith(200);
-        expect(mockRes.send).toHaveBeenCalledWith({ status);
-        //       }
-      }
-    }
-    )
+  }
+  )
     '
     describe('middleware configuration', () =>
 // {'
   it('should only use JSON middleware', () =>
-    {
       // Should only have one middleware call(for JSON)
-      expect(mockApp.use).toHaveBeenCalledTimes(1);
-      '
+      expect(mockApp.use).toHaveBeenCalledTimes(1)
+  '
     expect(mockApp.use).toHaveBeenCalledWith('json-middleware')
-    }
     )
     '
     it('should only register one route', () =>
-    {
       // Should only have one route registration(health check)
-      expect(mockApp.get).toHaveBeenCalledTimes(1);
-      '
+      expect(mockApp.get).toHaveBeenCalledTimes(1)
+  '
       expect(mockApp.get).toHaveBeenCalledWith('/health', expect.any(Function))
-    }
     )
-  }
   )
   '
   describe('app export', () =>
 // {'
   it('should export the express app instance', () =>
-  {
-    expect(app).toBe(mockApp);
-  }
+    expect(app).toBe(mockApp)
   )
   '
   it('should be the default export', async () =>
-  {
     '
     // const _appModule = awaitimport('../../../src/services/api-gateway/app.js');
     expect(appModule.default).toBeDefined()
-    expect(appModule.default).toBe(mockApp);
-  }
+    expect(appModule.default).toBe(mockApp)
   )
 }
 )

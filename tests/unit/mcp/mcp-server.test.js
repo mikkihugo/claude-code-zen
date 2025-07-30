@@ -1,9 +1,15 @@
 import { promises } from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { afterEach, beforeEach, describe, expect, it } from '@jest';
 
 // Mock all the dependencies'
@@ -21,8 +27,6 @@ jest.mock('../../../src/mcp/core/error-handler.js', () => (
 {
   handleError: jest.fn(), formatError;
   : jest.fn()
-  {
-  }
   // }
   ))
 }
@@ -59,7 +63,7 @@ let testDir;
 beforeEach(async () => {
   '
   testDir = await fs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-mcp-test-'))
-  process.chdir(testDir);
+  process.chdir(testDir)
 });
 afterEach(async() => {
     try {
@@ -68,7 +72,7 @@ afterEach(async() => {
       // Ignore cleanup errors
     //     }
   });'
-  describe('Module Loading', () => {'
+  describe('Module Loading', () => '
     it('should import the MCP server module without errors', async() => {
       // Since the MCP server uses dynamic imports with fallbacks,'
       // we'll test that the module can be imported'
@@ -82,7 +86,7 @@ afterEach(async() => {
       // The module should either import successfully or fail gracefully
       expect(true).toBe(true); // Placeholder assertion);
   });'
-  describe('Error Handling', () => {'
+  describe('Error Handling', () => '
     it('should handle missing dependencies gracefully', async() => {
       // Test that the server can start even with missing dependencies
       // This tests the fallback mechanisms
@@ -101,7 +105,7 @@ afterEach(async() => {
         expect(error).toBeDefined();finally 
         console.warn = originalConsoleWarn;);
   });'
-  describe('Configuration', () => {'
+  describe('Configuration', () => '
     it('should handle different configuration options', () => {
       // Test default configuration values
       const _defaultConfig = {
@@ -240,7 +244,7 @@ it('should handle error tracking', () =>
 // }
 
 // getErrorCount: null
-  function() {
+  () => {
 //           return this.errors.length;
     //   // LINT: unreachable code removed}
 // }'
@@ -287,7 +291,6 @@ describe('Memory Integration', () =>
     }
   });
 }
-}}}
 '
 }
 }

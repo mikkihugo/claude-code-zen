@@ -4,12 +4,11 @@
 // runtime-detector.js - Simple runtime detection for CLI compatibility
 
 import os from 'node:os';
+('');
 '
-'
-'
+
 import process from 'node:process';
-'
-'
+('');
 
 export const compat = {'
     runtime = === 'win32' ? 'windows' : os.platform(),'
@@ -22,10 +21,9 @@ onSignal = > process.on(signal, handler) },
 try {
     // return // // await fn();
     //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+  console.error(error)}
 '
-    console.error('Runtime error);'
+    console.error('Runtime error)'
 // return null;
 //   // LINT: unreachable code removed}
 // }

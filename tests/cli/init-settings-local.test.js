@@ -2,14 +2,23 @@
 /** Issue #162: init command does not create .claude */
 
 import { execSync } from 'node:child_process';
+
 '
+
 import fs from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { afterEach, beforeEach, describe, expect } from '@jest';
+
 '
 describe('Init Command - settings.local.json Creation', () =>
 {
@@ -98,7 +107,7 @@ expect(settings.permissions.allow).toContain('mcp__ruv-swarm');
 expect(settings.permissions.allow).toContain('mcp__claude-zen')
 '
 expect(settings.permissions.allow).not.toContain('custom-tool')
-expect(settings.permissions.deny).toEqual([]);
+expect(settings.permissions.deny).toEqual([])
 })'
 it('should create valid JSON format', async() =>
 // {
@@ -117,7 +126,9 @@ const _settingsLocalPath = path.join(testDir, '.claude', 'settings.local.json');
 // Should not throw when parsing
 expect(() => JSON.parse(content)).not.toThrow()
 // Check formatting(2-space indentation)'
-expect(content).toMatch(/^{\n {2}"permissions");
+expect(content).toMatch(/^
+{
+  \n 2"permissions")
 }
 }
 }}

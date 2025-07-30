@@ -2,9 +2,13 @@
 /** Template-based project creation and scaffolding; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { mkdir, readdir, readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 export class ProjectScaffoldPlugin extends EventEmitter {
@@ -38,7 +42,7 @@ export class ProjectScaffoldPlugin extends EventEmitter {
       app.use(cors());
       '
     app.use(morgan('dev'))
-      app.use(express.json());
+      app.use(express.json())
       app.use(express.urlencoded({ extended => {))
   console.error(err.stack);
       '
@@ -46,16 +50,14 @@ export class ProjectScaffoldPlugin extends EventEmitter {
       //   }
       //
       // Start server
-      app;
+      app
 
       listen(PORT, ();
       => 
   console
       '
   warn(\`Server is running on port \$
-      {
-        PORT;
-      }
+        PORT
       \`)
       // }
       //
@@ -70,7 +72,7 @@ const _router = express.Router();
       router.get('/health', (req, res) => {
   res.json({ status => {
   const { name } = req.params;'
-  res.json({message = router;`,`
+  res.json(message = router;`,`
 encoding = development;`
 (PORT = 3000`,encoding = "en">;`
   <head>;`
@@ -79,7 +81,7 @@ encoding = development;`
     <meta name="viewport" content="width=device-width, initial-scale=1" "
     <meta name="theme-color" content="#000000" "
     <meta name="description" content="{{description}}" 
-    <title>{{projectName}}<
+    <title>projectName<
   <
   <body>;
     <noscript>You need to enable JavaScript to run this app.<"
@@ -116,9 +118,7 @@ Edit < code > src / App.js < /
 // }
 // export default App;"
 `,`
-            encoding = {preset = {parser = (name) => {`
-//   return \`Hello, \${name}!\`;`
-};`,`
+            encoding = {preset = {parser = (name) => {`;`,`
 encoding = {};
 ): unknown
 this.config = config
@@ -205,7 +205,7 @@ encoding = require('express')
         '
   logger.info('SIGTERM signal received => {')'
     logger.info('HTTP server closed')
-        process.exit(0);
+        process.exit(0)
       });
     }
     )'
@@ -218,9 +218,8 @@ encoding = require('express')
     process.exit(1);
   //   }
 });'
-request.on('error', () => {
-  process.exit(1);
-});
+request.on('error', () => 
+  process.exit(1););
 request.end();'
 `,`
 encoding = development;
@@ -241,7 +240,7 @@ initialize();
     this.initialized = true;#if hasDatabase;
   async initializeDatabase() ;
     // Initialize database connection'
-    console.warn(' Database initialized');{/if}}#if hasAPI;
+    console.warn(' Database initialized');/if}}#if hasAPI;
   async initializeAPI() ;
     // Initialize API client'
     console.warn(' API client initialized');
@@ -258,10 +257,7 @@ initialize();
 '
 // export default {{className}Plugin;`,encoding = new {{className}Plugin({ `
   // Configuration options
-  });
-// // await plugin.initialize();
-// const _result = awaitplugin.execute({ // Execution options/g)
-  });`
+  }););`
 \`\`\`
 
 ## Configuration
@@ -284,25 +280,21 @@ initialize();
     expect(plugin.initialized).toBe(true);
   });
 '
-  test('should execute successfully', async() => {
+  test('should execute successfully', async() => 
 // await plugin.initialize();
 // const _result = awaitplugin.execute();
-    expect(result.success).toBe(true);
-  });
+    expect(result.success).toBe(true););
 '
-  test('should return status', async() => {
+  test('should return status', async() => 
 // await plugin.initialize();
     // const _status = await plugin.getStatus(); // LINT: unreachable code removed
     expect(status.initialized).toBe(true);
-    expect(status.enabled).toBe(true);
-  });
+    expect(status.enabled).toBe(true););
 '
-  test('should throw error if not initialized', async() => {'
-// await expect(plugin.execute()).rejects.toThrow('Plugin not initialized');
-  });'
+  test('should throw error if not initialized', async() => ');'
 });
     `,encoding = await readdir(this.config.customTemplatesDir, {withFileTypes = path.join(this.config.customTemplatesDir, entry.name);`;
-    let _template = // await this.loadTemplateFromDirectory(templatePath);
+    const _template = // await this.loadTemplateFromDirectory(templatePath);
     if (template) {
       `
             this.templates.set(entry.name, { ...template,id = path.join(templatePath, 'template.json');'
@@ -505,7 +497,7 @@ toLowerCase();
   if(code === 0) {
           resolve();
         } else {'
-          reject(new Error(`Command exited with code ${code}`));
+          reject(new Error(`Command exited with code $code`));
         //         }
       });
 `
@@ -565,7 +557,7 @@ toLowerCase();
 '
     const { glob } = // await import('glob');'
 // const _files = awaitglob('**/*', { */
-      cwd = {}) {'
+      cwd = {}) '
   if(_source._startsWith(''
     _console._warn(` _Importing _template _fromGitHub = path.join(this.config.templatesDir, '.temp', Date.now().toString());`
 // // await mkdir(tempDir, {recursive = // await this.loadTemplateFromDirectory(tempDir);
@@ -604,10 +596,11 @@ toLowerCase();
 
 // export default ProjectScaffoldPlugin;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+    }
     }
   }
 }
-}}}}}}}}}}}}))))))))))))))))
+}}}}}}}}}}}))))))))))))))))
 '
 }

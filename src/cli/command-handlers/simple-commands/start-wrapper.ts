@@ -117,7 +117,7 @@ return;
   if(!daemon) {
         const __heartbeat = setInterval(() => {
   if(verbose) {'
-            console.warn(`[${new Date().toISOString()}] Heartbeat - System healthy`);
+            console.warn(`[$new Date().toISOString()] Heartbeat - System healthy`);
           //           }
         }, 30000); // Every 30 seconds
 
@@ -140,11 +140,7 @@ async function cleanup() {
 // await compat.safeCall(async() => {`
   if(compat.runtime === 'node') {'
         await node.remove('.claude-zen.pid');
-      }  catch (error) { console.error(error); }else {'
-// const _fs = awaitimport('
-// // await fs.unlink('.claude-zen.pid');
-      //       }
-    });
+      }  catch (error) console.error(error); else ');
   } catch {
     // File might not exist
   //   }

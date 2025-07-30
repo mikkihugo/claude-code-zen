@@ -11,39 +11,44 @@ const _printSuccess = (msg) => log.success(msg);
 case 'ha-cluster': null'
 //   {'
 const __nodes = args.find((arg) => arg.includes('--nodes'));
-''
+'
 const __regions = args.find((arg) => arg.includes('--regions'));
-''
-    printSuccess('Deploying High Availability Cluster...')''
-    console.warn('  HAConfiguration = ')[1]''
-    : ''
+'
+    printSuccess('Deploying High Availability Cluster...')'
+    console.warn('  HAConfiguration = ')[1]'
+    : '
   //   }'
-  `)``
-`
-          console.warn(`
-`
-```;`;
-)`
-  Regions = ''
+  `)```
+``
+          console.warn(``
+``
+```
+`;
+)``
+  Regions = '
 '
   us - east - 1, us - west - 2, eu - west - 1'
-''
-)`'``
-  console.warn(`   ReplicationFactor = ')[1] : '2'}`);`'``
+'
+)`;
+"```
+  console.warn(`   ReplicationFactor = ")[1] : '2'}`);`'```
   console.warn('   LoadBalancer = args[1];')'
-if(scalingAction === 'configure''
+if(scalingAction === 'configure'
+'
     printSuccess('Configuring Auto-Scaling...''
-    console.warn(' ScalingConfiguration = === 'predictive''
+    console.warn(' ScalingConfiguration = === 'predictive'
             printSuccess('Enabling Predictive Scaling...''
     console.warn(' PredictiveConfiguration = args[1];')'
-  if(securityAction === 'harden''
+if(securityAction === 'harden'
+'
       printSuccess('Applying Security Hardening...''
-      console.warn(' SecurityConfiguration = === 'monitor''
+      console.warn(' SecurityConfiguration = === 'monitor'
             printSuccess('Security Monitoring Active''
-      console.warn(' Real-time SecurityStatus = 3 --regions="');''
+      console.warn(' Real-time SecurityStatus = 3 --regions=");'
       console.warn('  deploy scaling configure --min=2 --max=50''
-      console.warn('  deploy security harden --profile enterprise');'
+      console.warn('  deploy security harden --profile enterprise')
 //     }
 //   }
 // }
 '
+))))))

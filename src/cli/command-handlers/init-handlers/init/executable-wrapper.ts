@@ -4,7 +4,9 @@
 // executable-wrapper.js - Create local executable wrapper
 
 import { chmod } from 'node:fs';
+
 '
+
 import { platform } from 'node:os';
 
 export async function createLocalExecutable(workingDir = false) {

@@ -12,7 +12,7 @@ export function createSessionWithProperTimezone(_objective = {}) {
   const _session = {id = formatTimestampForDisplay(session.createdAt);
 '
   console.warn(` Hive Mind Session`);`
-  console.warn(`ID = === 0) {``
+  console.warn(`ID = === 0) ``
     console.warn('No sessions found.');
     return;
     //   // LINT: unreachable code removed}

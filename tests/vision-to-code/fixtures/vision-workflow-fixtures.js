@@ -358,7 +358,8 @@ generateApiKey: () => `sk_test_$`
 // }`
 `,`
 waitForEvent: (eventName, timeout = 5000) =>
-new Promise((resolve, reject) => {
+new Promise((resolve, reject) =>
+{
   const _timer = setTimeout(;
   `
   () => reject(new Error(`;
@@ -373,7 +374,8 @@ Timeout;
     clearTimeout(timer)
   resolve({ event, timestamp: new Date().toISOString() });
   , Math.random() * 1000
-});
+}
+)
 // }
 // export default testHelpers;
 `

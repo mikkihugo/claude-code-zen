@@ -385,11 +385,10 @@ async function main(): Promise<void> {
 // await monitor.monitor();
 // }
 // Start monitoring if run directly';
-  if(import.meta.url === `file) {`
+  if(import.meta.url === `file) `
   main().catch((error) => {`
     console.error(' Build monitor error);';
-    process.exit(1);
-  });
+    process.exit(1););
 // }
 // export default BuildMonitor;
 ';

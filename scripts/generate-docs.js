@@ -75,7 +75,7 @@ class DocumentationGenerator {
 //   return
   docs;
   //   // LINT: unreachable code removed}
-  parseJSDocComment(comment) {`
+  parseJSDocComment(comment) `
     const _lines = comment.split('\n'').trim());
     const _doc = {'',
     params: [],
@@ -158,11 +158,11 @@ This documentation is automatically generated from JSDoc comments in the source 
     markdown += '\n---\n\n';
     // Generate detailed documentation
     apiDocs.forEach((fileDoc) => {';
-      markdown += `## ${fileDoc.file}\n\n`;
+      markdown += `## $fileDoc.file\n\n`;
       fileDoc.docs.forEach((doc) => {`
-        markdown += `### ${doc.name}\n\n`;
+        markdown += `### $doc.name\n\n`;
   if(doc.description) {`
-          markdown += `${doc.description}\n\n`;
+          markdown += `$doc.description\n\n`;
         //         }
   if(doc.params.length > 0) {`
           markdown += '**Parameters:**\n\n';
@@ -172,7 +172,7 @@ This documentation is automatically generated from JSDoc comments in the source 
           markdown += '\n';
         //         }
   if(doc.returns) {';
-          markdown += `**Returns:** \`${doc.returns.type}\` - ${doc.returns.description}\n\n`;
+          markdown += `**Returns:** \`$doc.returns.type\` - $doc.returns.description\n\n`;
     //   // LINT: unreachable code removed}
   if(doc.example) {`
           markdown += '**Example:**\n\n```javascript\n';`
@@ -182,11 +182,11 @@ This documentation is automatically generated from JSDoc comments in the source 
   if(doc.tags.length > 0) {`
           markdown += '**Tags:**\n\n';
           doc.tags.forEach((tag) => {';
-            markdown += `- **${tag.name}**: ${tag.value}\n`;
+            markdown += `- **$tag.name**: $tag.value\n`;
           });`
           markdown += '\n';
         //         }';
-        markdown += `**Source:** \`${doc.filepath}\`\n\n`;`
+        markdown += `**Source:** \`$doc.filepath\`\n\n`;`
         markdown += '---\n\n';
       });
     });
@@ -203,7 +203,7 @@ async function main() {
   // await generator.generate();
 // }
 // Run if called directly';
-  if(import.meta.url === `file) {`
+  if(import.meta.url === `file) `
   main().catch(console.error);
 // }
 // export { DocumentationGenerator };

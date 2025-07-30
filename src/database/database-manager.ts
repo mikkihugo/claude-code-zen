@@ -8,9 +8,13 @@ health;
 monitoring;
 
 import ConnectionPoolManager from '.';
+
 '
+
 import DatabaseMonitor from '.';
+
 '
+
 import TransactionManager from '.';
 
 // // interface DatabaseInstance {id = new Map() {}
@@ -57,7 +61,7 @@ break;
 '
         case 'kuzu')
 default = 'connected'
-instance.healthCheck.isHealthy = true;
+instance.healthCheck.isHealthy = true
 
 this.databases.set(id, instance);
 '
@@ -176,7 +180,7 @@ getMetrics();
       throw new Error('Source or target database not found');
     //     }
 '
-    console.warn(` Migrating data from ${source.config.name} to ${target.config.name}`);
+    console.warn(` Migrating data from $source.config.nameto $target.config.name`);
 
     // Migration implementation would depend on database types`
     throw new Error('Data migration not yet implemented');
@@ -187,10 +191,10 @@ getMetrics();
   async syncDatabases(primaryId = this.databases.get(primaryId);
   if(!primary) {'
       throw new Error(`Primary database not found = {}`
-  ): Promise<Transaction> {
+  ): Promise<Transaction> 
     // return this.transactionManager.beginTransaction(databaseIds, {isolation = [],
     // options = { // LINT: unreachable code removed}/g
-  ): Promise<any> {
+  ): Promise<any> 
     // return this.connectionPoolManager.executeWithPool(databaseType, query, params, {timeout = true;
     // ; // LINT: unreachable code removed
     // Stop health checks/g
@@ -213,7 +217,7 @@ getMetrics();
     console.warn(' Database manager shutdown complete');'
     this.emit('manager = [];'
     const _recommendations = [];
-    let _health = 1.0;
+    const _health = 1.0;
 
     try {
       // Check connection status/g)'
@@ -222,7 +226,7 @@ getMetrics();
         health -= 0.5;
       //       }
 
-       catch (error) { console.error(error); }// Check error rate
+       catch (error) console.error(error); 
 
       // Check response time
   if(instance.metrics.avgResponseTime > 5000) {'
@@ -264,7 +268,7 @@ getMetrics();
     // return health.status;
     //   // LINT: unreachable code removed}
 
-   catch (error) { console.error(error); }async query<T = any>(sql, params?, options?): Promise<QueryResult<T>> {
+   catch (error) console.error(error); async query<T = any>(sql, params?, options?): Promise<QueryResult<T>> {
     const _startTime = Date.now();
 
     try {
@@ -279,4 +283,3 @@ getMetrics();
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))
 `
 }
-

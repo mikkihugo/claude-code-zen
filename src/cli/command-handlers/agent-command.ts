@@ -119,9 +119,7 @@ export async function agentCommand() {
     console.warn(`;
           Agent;
           $;
-          {
             i;
-          }
           )
           `
   //   }

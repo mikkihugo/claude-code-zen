@@ -14,29 +14,21 @@ function runCommand() {
   '';
   '
   child.stdout.on('data', (data) =>
-  {
     stdout += data.toString();
-  }
   )
   '
   child.stderr.on('data', (data) =>
-  {
     stderr += data.toString();
-  }
   )
   '
   child.on('close', (code) =>
-  {
     resolve({ code, stdout, stderr });
-  }
   )
   // Set a timeout to kill the process if it hangs
-  setTimeout(() => {
+  setTimeout(() => 
     '
     child.kill('SIGTERM')
-    resolve({ code);
-  }, 10000);
-}
+    resolve(code);, 10000);
 
 // }
 // async

@@ -119,7 +119,9 @@ flags.commit === 'phase';''
 // $
 // {'
   flags.commit === ''
-? `- **Feature Commits**: Commit after each feature or`
+? `- **Feature
+Commits**
+: Commit after each feature or`
 namespace is
 `
 complete`;
@@ -136,17 +138,17 @@ flags.commit === 'manual'
 // }
 #
 #
-Additional;
+Additional
 Guidelines;
 $;
 // {
 flags.noPermissions;
-''
+('');
 // }
 // $
 // {
-flags.verbose
-''
+flags.verbose;
+('');
 // }
 
 Now, please;
@@ -157,7 +159,8 @@ task;
 // }'
 `;
 ``
-`;`
+`;
+`
 // return enhancedTask;
 // }
-`
+`;

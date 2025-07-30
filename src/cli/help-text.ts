@@ -2,6 +2,7 @@
 /** Provides clear, actionable command documentation; */
 
 import { HelpFormatter } from '.';
+
 '
 export const VERSION = '2.0.0-alpha.73';
 '

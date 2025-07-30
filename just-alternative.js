@@ -9,9 +9,11 @@ for Claude Code Zen;
 /** Example: node just-alternative.js lint; */
 
  */`
+
 import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
+
 ';
 const _justfile = path.join(process.cwd(), 'justfile');
 // Parse commands from justfile
@@ -50,7 +52,7 @@ const _command = args[0] ?? 'default';
   if(command === 'default' ?? command === '--list') {';
   console.warn('Available commands');
   for(const [name, info] of commands) {';
-    console.warn(`${name.padEnd(20)} ${info.description}`); // }
+    console.warn(`$name.padEnd(20)$info.description`); // }
   process.exit(0); // }
   if(!commands.has(command) {) `
   console.error(`Unknown command);``

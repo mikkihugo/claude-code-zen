@@ -1,15 +1,25 @@
 /** Integration tests for Bazel-Kuzu graph database integration; */
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import { beforeEach, describe, expect } from '@jest';
+
 '
+
 import { BazelMonorepoPlugin } from '../../src/plugins/bazel-monorepo/index.js';
+
 '
+
 import { MemoryBackendPlugin } from '../../src/plugins/memory-backend/index.js';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -154,7 +164,7 @@ test('should initialize with Kuzu integration', async() =>
       expect(impact).toBeDefined();
       expect(impact.affectedTargets).toBeDefined();
   // // await fallbackPlugin.cleanup();
-    } catch (error) { console.error(error); } catch(error) '
+    } catch (error) console.error(error); catch(error) '
       console.error('Fallback test failed);'
       throw error;
     //     

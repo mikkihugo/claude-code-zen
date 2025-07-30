@@ -2,11 +2,17 @@
 /** Resolves task attribution issues between hive-mind and ruv-swarm systems */
 
 import { existsSync } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import Database from 'better-sqlite3';
+
 '
+
 import chalk from 'chalk';
 
 /** Get metrics from both swarm systems and provide unified view */
@@ -64,7 +70,7 @@ prepare('
     ) as pending_tasks'
     `
     //     
-  get() {}
+  get() 
     const __swarmBreakdown = db;
 prepare(`
     `
@@ -139,7 +145,7 @@ prepare('
     ) as pending_tasks'
     `
     //     
-  get() {}
+  get() 
     const __swarmBreakdown = db;
 prepare(`
       `
@@ -230,7 +236,7 @@ prepare(`
       });
     //     }
   if(zeroTaskSwarms.length > 0) {'
-      console.warn(chalk.yellow(`  Found ${zeroTaskSwarms.length} swarms with 0 tasks`)
+      console.warn(chalk.yellow(`  Found $zeroTaskSwarms.lengthswarms with 0 tasks`)
       //       )`
       fixes.push('CREATE_SAMPLE_TASKS')
     } else {'
@@ -259,7 +265,7 @@ prepare(`
 
 async function applyFix(fixType, metrics) {
   switch(fixType) {'
-    case 'CREATE_SAMPLE_TASKS': null'
+    case 'CREATE_SAMPLE_TASKS': { null'
       console.warn(chalk.blue(' Creating sample tasks for empty swarms...'));
 // // await createSampleTasks(metrics);
       break;'
@@ -286,6 +292,7 @@ async function createSampleTasks(_metrics) {
   console.warn(chalk.green(' Sample tasks already exist for hive-mind system'));
 // }
 
-}}}}}}}}}}}}}}
+}
+    }}}}}}}}}}}}}}
 '
 }

@@ -3,7 +3,9 @@
 /* Test script for Claude Code integration; */
 
 import { ClaudeCodeProvider } from './src/cli/claude-code-provider.js';
+
 '
+
 import { printError, printInfo, printSuccess } from './src/cli/utils.js';
 
 async function testClaudeIntegration() {'
@@ -40,7 +42,7 @@ async function testClaudeIntegration() {'
       'A simple todo list application with user authentication and real-time updates';
     );'
     printSuccess(' Task analysis completed');'
-    printInfo(`Response preview: ${taskResponse.substring(0, 200)}...`);
+    printInfo(`Response preview: $taskResponse.substring(0, 200)...`);
     // Test 4: JSON generation`
     printInfo('\nTest 4);'
     const _jsonPrompt =;'
@@ -55,7 +57,7 @@ async function testClaudeIntegration() {'
       //       }
       const _parsed = JSON.parse(jsonStr);'
       printSuccess(' Valid JSON generated');'
-      printInfo(`Parsed result: ${JSON.stringify(parsed, null, 2)}`);
+      printInfo(`Parsed result: $JSON.stringify(parsed, null, 2)`);
     } catch(/* e */) `
       printWarning(`  JSON test skipped);``
       printInfo('Claude may need specific configuration for JSON output');

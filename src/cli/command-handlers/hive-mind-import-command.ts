@@ -2,9 +2,13 @@
 /** Converted from JavaScript to TypeScript */
 
 import path from 'node:path';
+
 '
+
 import { glob } from 'glob';
+
 '
+
 import { createHive } from '.';
 
 async function generateScopeFromCode(servicePath = path.basename(servicePath);
@@ -20,22 +24,26 @@ if (existsSync(projectJsonPath)) {
   const _projectJson = JSON.parse(readFileSync(projectJsonPath, 'utf8'));
   '
   scopeMdContent = `
-  `;`;
-  ---name = > `- ${dep}`;
   `
+  `;
+  ---name = > ` -
+    $dep`;
+  `;
   ).join('\n'
-}'
-`;
+}
+'
+`
 
 // {
 else
   scopeMdContent = // await generateScopeFromCode(servicePath);
     // }`
-    console.warn(`;`
+    console.warn(`
+`
 \n[Suggestion;
-for ${serviceName}`
+for ${serviceName}`;
 ]`)``
-console.warn('------------------');
+console.warn('------------------')
 console.warn(scopeMdContent);
 '
 console.warn('------------------')

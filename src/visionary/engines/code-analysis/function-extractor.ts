@@ -12,42 +12,41 @@ and;
 analysis;
 system
  * @version 1.0
-0.0 *
-  / *
-  /** Code file data structure */
+0.0 * / *;
+/** Code file data structure */
 
-  // export // interface CodeFileData {
-  //   // content: string
-  //   // path: string
-  //   // language: string
-  //   // size: number
-  //   // lastModified: Date
-  // // }
+// export // interface CodeFileData {
+//   // content: string
+//   // path: string
+//   // language: string
+//   // size: number
+//   // lastModified: Date
+// // }
 
-  /** Function analysis data */
+/** Function analysis data */
 
-  // export // interface FunctionData {
-  //   // name: string
-  //   parameters;
-  //   // isAsync: boolean
-  //   // lineNumber: number
-  //   // complexity: number
-  //   // lineCount: number
-  //   // file: string
-  // // }
+// export // interface FunctionData {
+//   // name: string
+//   parameters;
+//   // isAsync: boolean
+//   // lineNumber: number
+//   // complexity: number
+//   // lineCount: number
+//   // file: string
+// // }
 
-  /** Function match result */
+/** Function match result */
 
-  // // interface FunctionMatch {
-  //   // name: string
-  //   parameters;
-  //   // isAsync: boolean
-  // // }
+// // interface FunctionMatch {
+//   // name: string
+//   parameters;
+//   // isAsync: boolean
+// // }
 
-  /** Function Extractor */
+/** Function Extractor */
 
-  /** Specialized system for extracting and analyzing function information */
-  from;
+/** Specialized system for extracting and analyzing function information */
+from;
 source;
 code;
 across;
@@ -64,7 +63,7 @@ file;
 data
    * @returns Function
 analysis;
-data * /;
+data * /;;
 // */; // LINT: unreachable code removed
 async;
 extractFunctions(codeData);
@@ -86,7 +85,7 @@ extractFunctions(codeData);
     // */; // LINT: unreachable code removed
   // // private async extractFileFunctions(file) {: Promise<FunctionData[]> {
     const _functions = [];
-    const _lines = file.content.split('\n');'
+    const _lines = file.content.split('\n')
   for(let i = 0; i < lines.length; i++) {
       const _line = lines[i];
       const _functionMatch = this.matchFunction(line, file.language);
@@ -115,7 +114,7 @@ extractFunctions(codeData);
     // */; // LINT: unreachable code removed
   // // private matchFunction(line, language): FunctionMatch | null {
     const _patterns: Record<string, RegExp[]> = {
-      javascript: [;
+      javascript: [
 // function\s+(\w+)\s*\(([^)]*)\)/,
 // (\w+)\s*[]\s*\(([^)]*)\)\s*=>/,
 // (async\s+)?(\w+)\s*\(([^)]*)\)\s*=>/ ],
@@ -125,11 +124,11 @@ extractFunctions(codeData);
   for(const pattern of langPatterns) {
       const _match = line.match(pattern); if(match) {
         // return {
-          name: match[2]  ?? match[1],''); // LINT: unreachable code removed''
-  split(',') ;'
+          name: match[2]  ?? match[1],'); // LINT: unreachable code removed'
+  split(",') 
 map((p) => p.trim());
 filter((p) => p),'
-          isAsync: line.includes('async') ;'
+          isAsync: line.includes('async') 
       //       }
     //     }
 
@@ -153,8 +152,8 @@ filter((p) => p),'
       const _line = lines[i];
 
       // Count decision points
-      if(;'
-        line.includes('if')  ?? line.includes('while')  ?? line.includes('for')  ?? line.includes('switch')  ?? line.includes('catch');'
+      if(
+        line.includes('if')  ?? line.includes('while')  ?? line.includes('for')  ?? line.includes('switch')  ?? line.includes('catch')
       //       
         complexity++;
 
@@ -205,14 +204,14 @@ filter((p) => p),'
    * @returns Long methods found
 
     // */; // LINT: unreachable code removed
-  findLongMethods(;
+  findLongMethods();
     content,
     threshold = 50;
   ): Array<name, lineCount, lineNumber: number > {
-    const _methods: Array<{ name, lineCount, lineNumber}> = [];'
-    const _lines = content.split('\n');'
+    const _methods: Array<{ name, lineCount, lineNumber}> = []
+    const _lines = content.split('\n')
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];'
+      const _line = lines[i]
       const _functionMatch = this.matchFunction(line, 'javascript'); // Simplified for example'
   if(functionMatch) {
         const _methodLines = this.countMethodLines(lines, i);
@@ -233,19 +232,19 @@ filter((p) => p),'
    * @returns Methods with long parameter lists
 
     // */; // LINT: unreachable code removed
-  findLongParameterMethods(;
+  findLongParameterMethods();
     content,
     threshold = 5;
   ): Array<name, paramCount, lineNumber: number > {
-    const _methods: Array<{ name, paramCount, lineNumber}> = [];'
-    const _lines = content.split('\n');'
+    const _methods: Array<{ name, paramCount, lineNumber}> = []
+    const _lines = content.split('\n')
   for(let i = 0; i < lines.length; i++) {
       const _line = lines[i];
       const _functionMatch = line.match(;)
 // function\s+(\w+)\s*\(([^)]*)\)|(\w+)\s*[]\s*function\s*\(([^)]*)\)|(\w+)\s*\(([^)]*)\)\s*=>/
       );
-  if(functionMatch) {'';''
-        const _paramCount = params.split(',').filter((p) => p.trim()).length;'
+  if(functionMatch) {''
+        const _paramCount = params.split(",').filter((p) => p.trim()).length
   if(paramCount > threshold) {
           methods.push({)
             name);
@@ -281,9 +280,7 @@ filter((p) => p),'
     //   // LINT: unreachable code removed}
 // }
 
-// export default FunctionExtractor;
-
-}}
+// export default FunctionExtractor}}
 '
 }
 }

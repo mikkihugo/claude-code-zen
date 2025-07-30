@@ -2,11 +2,12 @@
 /** Same component, automatically adapts rendering based on environment */
 
 import React, { useEffect, useState } from 'react';
+('');
 '
-'
-'
+
 import { UniversalBox as Box } from '../adapters/render-adapter.js';
 '
+
 import { visionAPI } from '../shared/vision-api.js';
 
 const _UniversalVisionDashboard = () => { // eslint-disable-line
@@ -19,18 +20,16 @@ const _UniversalVisionDashboard = () => { // eslint-disable-line
     const __loadVisions = async() => {
       try {
 // const _data = awaitvisionAPI.fetchVisions();
-        setVisions(data);
-      } catch (error) { console.error(error); } catch(/* _error */) '
-        console.error('Failed to loadvisions = setInterval(loadVisions, 30000);'
+        setVisions(data)} catch (error) { console.error(error)} catch(/* _error */) '
+        console.error('Failed to loadvisions = setInterval(loadVisions, 30000)'
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
 
   // Universal input handling(works in both TUI and Web)
   useUniversalInput((input, key) => 
   if(key.upArrow && selectedIndex > 0) {
-      setSelectedIndex(selectedIndex - 1);
-    } else if(key.downArrow && selectedIndex < visions.length - 1) {
-      setSelectedIndex(selectedIndex + 1);'
+      setSelectedIndex(selectedIndex - 1)} else if(key.downArrow && selectedIndex < visions.length - 1) {
+      setSelectedIndex(selectedIndex + 1)
     } else if(input === 'r') {'
       setLoading(true);
       visionAPI.fetchVisions().then(setVisions).finally(() => setLoading(false));
@@ -44,9 +43,9 @@ const _UniversalVisionDashboard = () => { // eslint-disable-line
     // case 'pending': return 'yellow''
       case 'rejected': return 'red';default = () => {'
   switch(priority) {'
-      case 'high'';''
-    // case 'medium''; // LINT: unreachable code removed''
-      case 'low'';default = () => {'
+      case 'high'''
+    // case 'medium'; // LINT: unreachable code removed''
+      case 'low';default = () => {'
     if(!phases?.length) return 0;
     // const _totalProgress = phases.reduce((sum, phase) => sum + (phase.progress  ?? 0), 0); // LINT: unreachable code removed
 //     return Math.round(totalProgress / phases.length);
@@ -57,27 +56,22 @@ const _UniversalVisionDashboard = () => { // eslint-disable-line
     // return React.createElement(Box, {key = > p.status === 'in_progress')?.name  ?? vision.phases.find(p => p.status === 'pending')?.name  ?? 'All phases complete'; // LINT: unreachable code removed'
           ),'
           isWeb() && React.createElement('div', {style = > React.createElement('div', {key = === 'completed' ? '#00ff00''
-                  phase.status === 'in_progress' ? '#ffff00' : '#333';'
+                  phase.status === 'in_progress' ? '#ffff00' : '#333''
               //               }/g)
             }));
           );
         ),'
-        isWeb() && React.createElement(Box, marginTop = > console.warn('Generate roadmap for:', vision.id), " Generate Roadmap""
-          React.createElement('button', style = > console.warn('Edit vision:', vision.id), " Edit");"
+        isWeb() && React.createElement(Box, marginTop = > console.warn('Generate roadmap for:', vision.id), " Generate Roadmap"
+          React.createElement('button', style = > console.warn('Edit vision:', vision.id), " Edit")
         );
-      );
-    }),"
-    React.createElement(Box, marginTop, borderStyle: 'single', borderColor: "gray""
-      React.createElement(Text, color: "gray" ,""
+      )}),"
+    React.createElement(Box, marginTop, borderStyle: 'single', borderColor: "gray"
+      React.createElement(Text, color: "gray" ,"
         isTUI() && ' TUI: [] Navigate  [R] Refresh  [Enter] Details''
-        isWeb() && ' Web: Click buttons  Keyboard shortcuts active';'
+        isWeb() && ' Web: Click buttons  Keyboard shortcuts active''
       );
     );
-  );
+  )};
 
-};
-
-// export default UniversalVisionDashboard;
-
-}}}}}}}}}}}
+// export default UniversalVisionDashboard}}}}}}}}}}}
 '

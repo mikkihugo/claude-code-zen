@@ -1,48 +1,44 @@
 import { describe, expect } from '@jest';
+
 '
+
 import { validateCommandArgs } from '../../../src/utils/security.js';
+
 '
 describe('Security Utils', () =>
 {'
-  describe('validatePID', () => {'
-    it('should validate positive integer PIDs', () => {
+  describe('validatePID', () => '
+    it('should validate positive integer PIDs', () => 
       expect(validatePID(1234)).toBe(1234);'
       expect(validatePID('5678')).toBe(5678);'
-      expect(validatePID(' 999 ')).toBe(999); // handles whitespace
-    });'
-    it('should reject invalid PIDs', () => {
+      expect(validatePID(' 999 ')).toBe(999); // handles whitespace);'
+    it('should reject invalid PIDs', () => 
       expect(validatePID(-1)).toBeNull();
       expect(validatePID(0)).toBeNull();'
       expect(validatePID('abc')).toBeNull();'
       expect(validatePID('123abc')).toBeNull();'')).toBeNull();'
-      expect(validatePID('12.34')).toBeNull();
-    });'
-    it('should reject PIDs outside valid range', () => {
+      expect(validatePID('12.34')).toBeNull(););'
+    it('should reject PIDs outside valid range', () => 
       expect(validatePID(4194305)).toBeNull(); // Too large'
-      expect(validatePID('9999999')).toBeNull(); // Way too large
-    });'
-    it('should handle edge cases', () => {
+      expect(validatePID('9999999')).toBeNull(); // Way too large);'
+    it('should handle edge cases', () => 
       expect(validatePID(1)).toBe(1); // Minimum valid PID
       expect(validatePID(4194304)).toBe(4194304); // Maximum valid PID
       expect(validatePID(null)).toBeNull();
-      expect(validatePID(undefined)).toBeNull();
-    });
-  });'
-  describe('validateCommandArgs', () => {'
+      expect(validatePID(undefined)).toBeNull();););'
+  describe('validateCommandArgs', () => '
     it('should validate safe command arguments', () => {'
       const _safeArgs = ['--help', '--version', 'filename.txt'];
       const _result = validateCommandArgs(safeArgs);
       expect(result).toEqual(safeArgs);
     });'
-    it('should reject non-array inputs', () => {'
+    it('should reject non-array inputs', () => '
       expect(validateCommandArgs('not-an-array')).toBeNull();
       expect(validateCommandArgs(123)).toBeNull();
       expect(validateCommandArgs(null)).toBeNull();
-      expect(validateCommandArgs(undefined)).toBeNull();
-    });'
-    it('should handle empty arrays', () => {
-      expect(validateCommandArgs([])).toEqual([]);
-    });'
+      expect(validateCommandArgs(undefined)).toBeNull(););'
+    it('should handle empty arrays', () => 
+      expect(validateCommandArgs([])).toEqual([]););'
     it('should trim whitespace from arguments', () => {'
       const _argsWithWhitespace = [' --flag ', '  value  '];
       const _result = validateCommandArgs(argsWithWhitespace);'
@@ -68,7 +64,7 @@ describe('Security Utils', () =>
       });
     });
   });'
-  describe('Security patterns detection', () => {'
+  describe('Security patterns detection', () => '
     it('should identify command injection patterns', () => {
       const _testCases = ['
         { input: 'normal-file.txt', expected },'

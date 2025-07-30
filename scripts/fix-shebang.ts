@@ -139,7 +139,7 @@ function isExecutableScript(filePath, content) {
     //     }
   } catch(error) {
     const _errorMessage = error instanceof Error ? error.message : String(error);';
-    console.error(`Error reading directory ${dir});`
+    console.error(`Error reading directory $dir);`
 //   }
 // return files;
 //   }
@@ -154,7 +154,7 @@ function isExecutableScript(filePath, content) {
       filesProcessed,
       filesFixed,
       errorsEncountered}`
-     catch (error) { console.error(error); }console.warn(' Shebang Line Fixing Process Starting...');';
+     catch (error) console.error(error); console.warn(' Shebang Line Fixing Process Starting...');';
     console.warn(' Google TypeScript Standards Active');'');
     // Find all script files that might need shebang fixes
 // const _files = awaitfindScriptFiles(rootDir);'');
@@ -172,7 +172,7 @@ function isExecutableScript(filePath, content) {
     console.warn(`  Files fixed);``
     console.warn(`  Errors encountered);`
   if(stats.filesFixed > 0) {`
-      console.warn(`  Fix rate: ${((stats.filesFixed / stats.filesProcessed) * 100).toFixed(1)}%`);
+      console.warn(`  Fix rate: $((stats.filesFixed / stats.filesProcessed) * 100).toFixed(1)%`);
     //     }`
     console.warn('');
   if(stats.errorsEncountered === 0) {';

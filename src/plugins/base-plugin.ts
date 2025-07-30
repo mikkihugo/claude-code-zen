@@ -2,11 +2,17 @@
 /** TypeScript foundation for all Claude Code Flow plugins; */
 
 import crypto from 'node:crypto';
+
 '
+
 import { EventEmitter } from 'node:events';
+
 '
+
 import { performance } from 'node:perf_hooks';
+
 '
+
 import type { Plugin, ResourceUsage } from '../types/plugin.js'; // eslint-disable-line
 
 export abstract class BasePlugin extends EventEmitter implements Plugin {'
@@ -176,7 +182,7 @@ catch(error)
       const _executionTime = performance.now() - startTime;
       this.updateAPIMetrics(name, executionTime, false);
 '
-      this.emit('api-failed', this.manifest.name, name, {message = this.context.resources.limits.find(l => l.type === type);
+      this.emit('api-failed', this.manifest.name, name, message = this.context.resources.limits.find(l => l.type === type);
   if(limits && this.resourceUsage[type as keyof ResourceUsage] + amount > limits.maximum) {'
       this.emit('resource-exceeded', this.manifest.name, type,)
         this.resourceUsage[type as keyof ResourceUsage] + amount, limits.maximum);
@@ -192,7 +198,7 @@ catch(error)
     // Check error rate
   if(this.metrics.performance.errorRate > 10) { '
       issues.push(severity = === 'error') 
-      issues.push({severity = 100;
+      issues.push(severity = 100;
     issues.forEach(issue => {)
   switch(issue.severity) {'
         case 'critical': score -= 30; break;'
@@ -268,12 +274,11 @@ catch(error)
       this.metrics.performance.averageExecutionTime = ;
         this.metrics.performance.totalExecutionTime / this.metrics.performance.callCount;);
 '
-    this.on('error', () => {
+    this.on('error', () => 
       this.metadata.errorCount++;
       this.metrics.performance.errorRate = ;
         (this.metadata.errorCount / Math.max(1, this.metrics.performance.callCount)) * 100;
-      this.metrics.performance.successRate = 100 - this.metrics.performance.errorRate;
-    });
+      this.metrics.performance.successRate = 100 - this.metrics.performance.errorRate;);
 
   // private async validateDependencies(): Promise<void> ;
     // Validate system dependencies

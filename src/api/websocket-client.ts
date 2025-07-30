@@ -63,16 +63,17 @@ try {
         } catch (error) { console.error(error); }
 , this.options.timeout)
 
-this.ws.onopen = () => {
+this.ws.onopen = () =>
+{
   clearTimeout(timeout);
   this.isConnected = true;
   this.reconnectAttempts = 0;
   '
           this.emit('connected')
-  this.startHeartbeat();
+  this.startHeartbeat()
   this.flushMessageQueue();
   resolve();
-};
+}
 
 this.ws.onmessage = () => {
   try {
@@ -83,13 +84,11 @@ this.ws.onmessage = () => {
     console.error(error);
   }
   catch(/* _error */ )
-  {
     '
   this.emit('message', event.data)
-    //           }
-  }
 
-  this.ws.onclose = () => {
+  this.ws.onclose = () =>
+  {
     clearTimeout(timeout);
     this.isConnected = false;
     this.stopHeartbeat();
@@ -101,13 +100,13 @@ this.ws.onmessage = () => {
     this.reconnectAttempts < this.options.maxReconnectAttempts;
     //
     this.scheduleReconnect();
-  };
+  }
 
   this.ws.onerror = () => {
     clearTimeout(timeout);
     '
   this.emit('error', error)
-    reject(error);
+    reject(error)
   };
 };
 catch(error)
@@ -216,7 +215,7 @@ send(data)
 // private startHeartbeat();
 : void
 // {
-  this.heartbeatTimer = setInterval(() => {
+  this.heartbeatTimer = setInterval(() => 
   if(this.isConnected && this.ws) {
       try {
           this.ws.ping();

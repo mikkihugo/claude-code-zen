@@ -1,7 +1,11 @@
 import fs from 'node:fs';
+
 '
+
 import { dirname } from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -23,9 +27,8 @@ async function checkWasmFiles() {'
   if(wasmFiles.length === 0) {'
         console.warn('    No .wasm files found!');
       } else {'
-        console.warn(`    WASM files: ${wasmFiles.join(', '');
-    } catch(error) {'
-      console.warn(` ${path});`
+        console.warn(`    WASM files: $wasmFiles.join(', '');catch(error) {'
+      console.warn(` $path);`
     //     }
   //   }
   // Check local installation`

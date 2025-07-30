@@ -4,17 +4,29 @@
 /** Provides high-level API for DSPy optimization with cross-session learning. */
 
 import { EventEmitter } from 'events';
+
 '
+
 import type { KuzuAdvancedInterface } from '../../database/kuzu-advanced-interface';
+
 '
+
 import type { LanceDBInterface } from '../../database/lancedb-interface';
+
 '
+
 import type { SqliteStore } from '../../memory/sqlite-store';
+
 '
+
 import type { NeuralEngine } from '../../neural/neural-engine';
+
 '
+
 import type { DSPySwarmCoordinator, DSPySwarmTaskConfig } from '../../swarm/dspy-swarm-coordinator';
+
 '
+
 import type { DSPyConfig, DSPyExample, DSPyOptimizationResult, DSPyProgram } from '.';
 
 /** DSPy Integration Configuration */

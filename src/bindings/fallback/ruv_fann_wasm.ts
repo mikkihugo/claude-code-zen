@@ -2,7 +2,9 @@
 /** Uses existing ruv-swarm WASM infrastructure when native bindings are not available; */
 
 import { dirname } from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -24,7 +26,7 @@ async function _initWasm() {
       initialized = true;
       return;
     //   // LINT: unreachable code removed}
-   catch (error) { console.error(error); }} catch(/* _error */ )'
+   catch (error) console.error(error); } catch(/* _error */ )'
     console.warn('Failed to load ruv-swarm WASM, creating a simple fallback.')
 wasmModule = createSimpleFallback()
 initialized = true;
@@ -76,10 +78,10 @@ function createSimpleFallback() {
       _sigmoid(x): unknown
         // return 1 / (1 + Math.exp(-x));
     //   // LINT: unreachable code removed}
-  run(input) {
+  run(input) 
   if(input.length !== this.layers[0]) {
           throw new Error(;'
-            `Input size ${input.length} doesn't match network input size ${this.layers[0]}`;'
+            `Input size $input.lengthdoesn't match network input size ${this.layers[0]}`;'
           );
         //         }
 
@@ -122,7 +124,7 @@ function createSimpleFallback() {
 
         // return error;
     //   // LINT: unreachable code removed}
-  getInfo() {}
+  getInfo() 
         // return JSON.stringify({ num_layers);,
     NetworkTrainer: class {
       // network: unknown
@@ -147,7 +149,7 @@ function createSimpleFallback() {
 
           totalError /= trainingInputs.length;
   if(totalError < desiredError) {'
-            console.warn(`Training completed at epoch ${epoch} with error ${totalError}`);
+            console.warn(`Training completed at epoch $epochwith error $totalError`);
             break;
           //           }
         //         }
@@ -158,9 +160,9 @@ function createSimpleFallback() {
   getVersion() {`
       // return '0.1.0-wasm-fallback';
     //   // LINT: unreachable code removed},
-  isGpuAvailable() {}'
+  isGpuAvailable() '
       // return false; // WASM fallback doesn't support GPU,'
-  getActivationFunctions() {}'
+  getActivationFunctions() '
       // return ['sigmoid']; // Simplified list for fallback };
 // }
 

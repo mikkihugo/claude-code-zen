@@ -2,9 +2,13 @@
 /** Default sequential workflow processing engine; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { mkdir, unlink } from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 export class WorkflowEnginePlugin extends EventEmitter {
@@ -69,7 +73,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
     console.warn(` Registered stephandler = this.stepHandlers.get(step.type);`
   if(!handler) {`
       throw new Error(`No handler registered for steptype = Object.keys(context).map(key => `const ${key} = context.${key};`).join('\n');``
-      const _func = new Function('context', `${contextVars}\n return ${expression};`);
+      const _func = new Function('context', `$contextVars\n return $expression;`);
 //       return func(context);
     //   // LINT: unreachable code removed} catch(error) ;`
       throw new Error(`Failed to evaluatecondition = path.split('.');`
@@ -115,13 +119,13 @@ export class WorkflowEnginePlugin extends EventEmitter {
     try {`
       const _filePath = path.join(this.config.persistencePath, `${workflowId} catch (error) { console.error(error); }.workflow.json`);
 // // await unlink(filePath);
-    } catch(/* _error */) {
+    } catch(/* _error */) 
       // File might not exist
     //     }
 
   async registerWorkflowDefinition(name, definition) ;
     this.workflowDefinitions.set(name, definition);`
-    console.warn(` Registered workflow definition = {}) {`
+    console.warn(` Registered workflow definition = {}) `
     let definition;`
   if(typeof workflowDefinitionOrName === 'string') {
       definition = this.workflowDefinitions.get(workflowDefinitionOrName);
@@ -192,9 +196,9 @@ filter(w => w.status === 'running').length;
       const _status = index < workflow.currentStep ? 'completed' :'
                      index === workflow.currentStep ? 'current' : 'pending';
 '
-      lines.push(`${nodeId}[${label}]`);`
+      lines.push(`$nodeId[${label}]`);`
   if(status === 'completed') {'
-        lines.push(`    style ${nodeId}fill = === 'current') {``
+        lines.push(`    style $nodeIdfill = === 'current') ``
         lines.push(`    style ${nodeId}fill = config;`
     this.plugin = plugin;
     this.workflows = new Map();
@@ -204,7 +208,7 @@ filter(w => w.status === 'running').length;
     console.warn(' Default workflow engine ready');
 
   async startWorkflow(definition, context) { '
-    const _workflowId = `workflow-$Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const _workflowId = `workflow-$Date.now()-$Math.random().toString(36).substr(2, 9)`;
     const _workflow = {
       id => {`
       console.error(`Workflow ${workflowId}failed = workflow.currentStep; i < workflow.steps.length; i++) ``
@@ -294,13 +298,7 @@ map(w => ({ id: w.id,
     // return active;
     //   // LINT: unreachable code removed}
 
-  async cleanup() {
+  async cleanup() 
     this.workflows.clear();
-    this.removeAllListeners();
-  //   }
-// }
-
-// export default WorkflowEnginePlugin;
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))
+    this.removeAllListeners();}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))
 '

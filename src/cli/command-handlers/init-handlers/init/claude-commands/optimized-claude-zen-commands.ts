@@ -40,7 +40,7 @@ Usage(Enhanced);
 ##  Swarm Strategies(Optimized)
 - **auto** - Automatic
 strategy
-selection;
+selection
 with parallel task
 // analysis
 - **development** - Code
@@ -159,7 +159,8 @@ Options(Batchtools Enhanced);
 
 ### Development Swarm with Parallel Review;`;
 \`\`\`bash
-`;`;
+`
+`;
 // claude-zen swarm "Build e-commerce REST API" \\;
 --strategy;
 development;
@@ -180,8 +181,8 @@ development;
 
 ### Long-Running Research Swarm
 with Concurrent Processing;
-`
-\`\`\`bash```;
+`;
+\`\`\`bash```
 // claude-zen swarm "Analyze AI market trends 2024-2025" \\;
 --strategy;
 research;
@@ -191,7 +192,7 @@ research;
 --distributed
 \\
 --max - agents
-12;
+12
 \\
 --parallel
 \\
@@ -227,16 +228,16 @@ optimization;
 with Full Parallelization;`;
 \`\`\`bash`
 `
-``;
+``
 // claude-zen swarm "Implement secure payment processing system" \\;
 --strategy;
 development;
 \\
 --mode
-distributed;
+distributed
 \\
 --max - agents
-20;
+20
 \\
 --parallel
 \\
@@ -251,7 +252,7 @@ distributed;
 --verbose
 \\
 --concurrent - agents
-15;
+15
 \\
 --batch - optimize
 \\
@@ -292,7 +293,7 @@ with parallel metrics: null`;
 `
 `
 #
-Monitor;
+Monitor
 swarm;
 activity;
 with performance data;
@@ -373,9 +374,10 @@ for collaboration
 `
 `
 #
-Store;
+Store
 swarm;
-objectives;`;
+objectives;
+`;
 // claude-zen memory store "swarm_objective" "Build scalable API" --namespace swarm
 
 #
@@ -392,12 +394,12 @@ memory;
 // claude-zen memory export swarm-results.json --namespace swarm"
 \`\`\`
 
-### Batchtools Memory Operations`
+### Batchtools Memory Operations`;
 \`\`\`bash`
 `
 `
 #
-Batch;
+Batch
 store;
 swarm;
 contexts;
@@ -408,7 +410,8 @@ Concurrent;
 query;
 across;
 swarm;
-namespaces;`;
+namespaces;
+`;
 // claude-zen memory parallel-query "swarm_coordination" --namespaces swarm,agents,tasks --concurrent
 
 #
@@ -540,9 +543,10 @@ Configuration(Batchtools Enhanced)
 #
 Dry;
 run;
-with parallel preview: null`
+with parallel preview: null`;
 \`\`\`bash`
-`;``
+`
+``;
 // claude-zen swarm "Test task" --dry-run --strategy development --parallel --performance;"
 \`\`\`
 

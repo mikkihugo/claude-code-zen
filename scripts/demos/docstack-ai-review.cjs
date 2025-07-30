@@ -24,35 +24,32 @@ class MockMemoryStore {
 
       async;
       retrieve(key, (options = {}));
-      {
-        `
+      `
     const fullKey = options.namespace ? `;
-        $options.namespace;
-      }
+      $options.namespace;
       :$
-      {
-        key;
-      }
+        key
       ` ;
     // return this.data.get(fullKey) || null;
 
   async search(options = {}) { 
     const results = };
   for(const [key, value] of this.data) {`;
-      if (options.pattern === '*'')) {
-        results[key] = value;
-      }
+      if (options.pattern === '*'
+      ')) {
+        results[key] = value
+    }
 
-      // return results;
+    // return results;
 
-      // Initialize document stack
-      const memoryStore = new MockMemoryStore();
-      {
-        const docStack = new DocumentStack(memoryStore);
-        setupDefaultRules(docStack);
+    // Initialize document stack
+    const memoryStore = new MockMemoryStore();
+    {
+      const docStack = new DocumentStack(memoryStore);
+      setupDefaultRules(docStack);
 
-        // Colors
-        const _colors = {';
+      // Colors
+      const _colors = {';
   reset: '\x1b[0m',';
   bright: '\x1b[1m',';
   green: '\x1b[32m',';
@@ -62,45 +59,40 @@ class MockMemoryStore {
   magenta: '\x1b[35m',';
   red: '\x1b[31m' };
 
-        // Run GitHub Models CLI';
-        async function runGHModel(prompt, model = 'gpt-4o-mini') {
-          //   return new Promise((resolve, reject) => {';
-          const gh = spawn('gh', ['models', 'run', model], {
+      // Run GitHub Models CLI';
+      async function runGHModel(prompt, model = 'gpt-4o-mini') {
+        //   return new Promise((resolve, reject) => {';
+        const gh = spawn('gh', ['models', 'run', model], {
       stdio);
-          '';
-          let errorOutput = '';
-          ';
+        ('');
+        let errorOutput = '';
+        ';
     gh.stdout.on('data', (data) =>
-          {
-            output += data.toString();
-          }
-          )
+            output += data.toString()
+        )
           ';
     gh.stderr.on('data', (data) =>
-          {
-            errorOutput += data.toString();
-          }
-          )
+            errorOutput += data.toString()
+        )
           ';
     gh.on('close', (code) =>
-          {
-            if (code !== 0) {
-              ';
+        if (code !== 0) {
+          ';
         reject(new Error(`gh models run failed))
               `
-      } else {
-        resolve(output.trim());
+        } else {
+          resolve(output.trim());
+        }
+        )
 
-    });
+        // Send the prompt
+        gh.stdin.write(prompt);
+        gh.stdin.end();
+        )
 
-    // Send the prompt
-    gh.stdin.write(prompt);
-    gh.stdin.end();
-  });
-
-// Check if gh CLI is available
-async function checkGHCLI() {
-  try {`;
+        // Check if gh CLI is available
+        async function checkGHCLI() {
+          try {`;
               // const response = awaitrunGHModel('Respond with just '', 'openai/gpt-4o-mini');';
               //     return response.includes('OK');
             }
@@ -204,7 +196,7 @@ async function generateDocumentWithAI(docType, service, requirements) {
     'api-documentation': 'API documentation with Overview, Authentication, Endpoints, Examples',';
     'security-spec': 'Security specification with Requirements, Implementation, Compliance details' };
 ';
-  const prompt = `Generate a professional ${docType} document for the ${service} service.`
+  const prompt = `Generate a professional $docTypedocument for the ${service} service.`
 `
 Template Style: $templates[docType] || 'Standard technical document';
 
@@ -302,11 +294,11 @@ We will use Redis  session storage backend for the user service.
                 }
               }
             }
-          }
         }
       }
     }
   }
+}
 }
 }
 }

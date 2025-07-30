@@ -1,9 +1,13 @@
 // workflow-command.js - Modern workflow command handler with SPARC methodology integration
 
 import { promises as fs } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { printError } from '..';
 
 // Workflow templates and predefined workflows
@@ -23,7 +27,7 @@ args - Command;
 arguments
  * @param {Object}
 flags - Command;
-flags * /;
+flags * /;;
 
 export async function workflowCommand() {
   showWorkflowHelp();
@@ -66,11 +70,10 @@ try {
 
     workflowData = {'
       id,name = args.slice(1).filter(arg => !arg.startsWith('--'));'
-    workflowData = {id = path.join('.claude-zen', 'workflows', `${workflowId}.json`);
+    workflowData = id = path.join('.claude-zen', 'workflows', `${workflowId}.json`);
 // // await fs.writeFile(workflowPath, JSON.stringify(workflowData, null, 2));`
   printSuccess(`Created workflow => {``
-      console.warn(`${index + 1}. ${phase.name} ($, { phase.mode }): ${phase.description}`);
-    });
+      console.warn(`${index + 1}. ${phase.name} ($, { phase.mode }): ${phase.description}`););
   //   }
 // }
 
@@ -127,7 +130,7 @@ ID = args[0];
   printSuccess(`${dryRun ? 'Simulating' )`
     //     {
       const _phase = workflow.phases[i];`
-      console.warn(`\n Phase ${i + 1}``
+      console.warn(`\n Phase $i + 1``
       console.warn(`Mode = > setTimeout(resolve, 1000));``
       printSuccess(` Phase ${phase.name} completed`);
     } else {`
@@ -188,7 +191,7 @@ ID = args[0];
   ('tutorial')  'Tutorial and guide creation'
 // }
 SPARC_MODES.forEach((mode) => {'
-  console.warn(` ${mode}`);`
+  console.warn(` $mode`);`
   console.warn(`${modeDescriptions[mode] ?? 'SPARC development mode'');
 });'
 console.warn(' Use modes in workflow phases or with "');
@@ -198,7 +201,7 @@ console.warn(' Use modes in workflow phases or with "');
 
 async function showWorkflowInfo() {'
   printError(''
-    printSuccess(`Template Info => {``
+    printSuccess(`Template Info => ``
       console.warn(`${index + 1}. ${phase.name}`);`
       console.warn(`Mode = // await findWorkflow(target);`
   if(workflow) {
@@ -238,7 +241,7 @@ async function updateWorkflowStatus(workflowId = // await findWorkflow(workflowI
       workflow.status = status;
       workflow.lastRun = new Date().toISOString();
 '
-      const _workflowPath = path.join('.claude-zen', 'workflows', `${workflowId}.json`);
+      const _workflowPath = path.join('.claude-zen', 'workflows', `$workflowId.json`);
 // // await fs.writeFile(workflowPath, JSON.stringify(workflow, null, 2));
     //     }
   } catch(error) {`

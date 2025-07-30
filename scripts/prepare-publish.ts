@@ -102,9 +102,6 @@ function getPackageVersion() {
     pattern: /const VERSION = '[^']+'';
     replacement: `const VERSION = '${version}';`;
   }
-
-  {
-  }
   `
   path: 'src/cli/index.ts',';
   pattern: /const VERSION = '[^']+'';
@@ -116,9 +113,6 @@ function getPackageVersion() {
   path: 'src/cli/index-remote.ts',';
   pattern: /const VERSION = '[^']+'';
   replacement: `const VERSION = '${version}';`;
-
-{
-}
 `
   path: 'bin/claude-zen', pattern;';
   : /VERSION='[^']+"/, replacement: `;
@@ -214,7 +208,7 @@ function verifyDistFiles(version) {';
       const _versionMatch = content.match(/VERSION = ['']+)['"'
   if(versionMatch) {
   if(versionMatch[1] === version) {',
-          console.warn(`    ${distFile});`
+          console.warn(`    $distFile);`
         } else {`
           console.warn(`    ${distFile}: ${versionMatch[1]} (expected ${version})`);
         //         }

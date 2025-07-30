@@ -5,16 +5,21 @@
 
 *
 @module
-AGUIMCPToolExecutor * /;
+AGUIMCPToolExecutor * /;;
+
 import { AGUIAdapter } from '../ai/agui-adapter.js';
 '
-import { MCPToolExecutor } from '.';
+import { MCPToolExecutor } from
+';
 
 /** AG-UI Enhanced Tool Executor */
 /** Wraps MCP tool execution with AG-UI event emission */
 
 // export class AGUIMCPToolExecutor extends MCPToolExecutor {
-constructor((server = {}));
+constructor((server =
+{
+}
+))
 {
 //     super(server);
 
@@ -33,12 +38,12 @@ constructor((server = {}));
           this.aguiAdapter.addToolCallArgs(JSON.stringify(args), toolCallId);
         //         }
 
-         catch (error) { console.error(error); }this.aguiStats.toolCallsWithEvents++;
+         catch (error) console.error(error)this.aguiStats.toolCallsWithEvents++;
       //       }
 
       // Emit progress event
   if(this.options.emitProgressEvents) {'
-        this.aguiAdapter.emitCustomEvent('tool_execution_started', {toolName = // // await super.executeTool(name, args);'
+        this.aguiAdapter.emitCustomEvent('tool_execution_started', toolName = // // await super.executeTool(name, args)
 
       // Emit AG-UI tool call completion events
   if(this.options.emitToolEvents && toolCallId) {
@@ -52,15 +57,15 @@ constructor((server = {}));
 
       // Emit progress completion event
   if(this.options.emitProgressEvents) {'
-        this.aguiAdapter.emitCustomEvent('tool_execution_completed', {')'
-          toolName = {name = {name = {}) {'
-    const _chainId = `chain-${Date.now()}`;`
-`
-    this.aguiAdapter.emitCustomEvent('tool_chain_started', {')'
+        this.aguiAdapter.emitCustomEvent('tool_execution_completed", {")'
+          toolName = name = {name = {}) {'
+    const _chainId = `chain-${Date.now()}`;``
+``
+    this.aguiAdapter.emitCustomEvent('tool_chain_started", {")'
       chainId,tools = > t.name),timestamp = // // await this.executeTool(name, args, {
 ..context,
           chainId,
-          stepIndex = {}) {
+          stepIndex = ) {
     const _toolCallId = this.aguiAdapter.startToolCall(name, null, context.parentMessageId);
       // Create a progress callback for streaming updates
 
@@ -105,7 +110,7 @@ constructor((server = {}));
         aguiAdapter.addToolCallArgs(JSON.stringify(args), toolCallId);
       //       }
 
-       catch (error) { console.error(error); }// Execute original tool
+       catch (error) console.error(error)
 // const _result = awaitoriginalExecuteTool(name, args, context);
 
       // Complete AG-UI tool call
@@ -117,9 +122,8 @@ constructor((server = {}));
       // return result;
     // ; // LINT: unreachable code removed
     } catch(/* _error */ )
-{
   if(toolCallId) {
-        aguiAdapter.endToolCall(toolCallId);'
+        aguiAdapter.endToolCall(toolCallId)
         aguiAdapter.emitToolCallResult(`Error = () => aguiAdapter;`
   existingExecutor.connectToAGUIBus = () => {
     aguiAdapter.connectGlobalEmitter(eventBus);
@@ -129,7 +133,5 @@ constructor((server = {}));
   return existingExecutor;
 // }
 
-// export default AGUIMCPToolExecutor;
-
-}}}}}}}}}}}}}}}}}}}}}}})
-`
+// export default AGUIMCPToolExecutor}}}}}}}}}}}}}}}}}}}}}}})
+``

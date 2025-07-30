@@ -1,9 +1,13 @@
 // copy-revised-templates.js - Copy the revised template files from repository
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -47,9 +51,7 @@ export async function copyRevisedTemplates(targetDir = {}) {
             console.warn(`;
             Copied;
             $;
-            {
-              relativePath;
-            }
+            relativePath;
             `);
             //             }
           } else {
@@ -67,20 +69,21 @@ export async function copyRevisedTemplates(targetDir = {}) {
             `catch(/* err */) ``
   results.errors.push(`
           `
-            Failed;
-            to;
-            read;
-            directory;
-            $;
-              sourceDir;
-            )``
-// }
-// }
+            Failed
+          to;
+          read;
+          directory;
+          $;
+          sourceDir;
+          )``
+          // }
+          // }
 
-/** Copy only specific categories */
+          /** Copy only specific categories */
 
-// export async function copyRevisedTemplatesByCategory(targetDir = {}) {
-  const _results = {success = path.join(REPO_TEMPLATES_DIR, category);`;
+          // export async function copyRevisedTemplatesByCategory(targetDir = {}) {
+          const _results = {success = path.join(REPO_TEMPLATES_DIR, category);
+          `;
           const _targetCategoryDir = path.join(targetDir, '.claude/commands', category);
 
           if (fs.existsSync(sourceCategoryDir)) {
@@ -103,23 +106,24 @@ export async function copyRevisedTemplates(targetDir = {}) {
                   if (missingCategories.length > 0) {
                     // return {
                     valid,'
-                    // error: `;`
+                    // error: `;
+          `
                     Missing;
                     required;
                     template;
                     categories:
-                    \$`
-              missingCategories.join(', ') // LINT}`;`
-                    //   }
+                    \$`;
+          missingCategories.join(', '); // LINT}`;`
+          //   }
 
-                    // return { valid};
-                    // }
-                  }
-                }
-              }
-            }
-          }
+          // return { valid};
+          // }
         }
+      }
+    }
+  }
+}
+}
       }
     }
   }

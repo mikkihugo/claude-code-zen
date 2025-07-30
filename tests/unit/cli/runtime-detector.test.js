@@ -1,6 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it } from '@jest';
+
 '
+
 import { compat } from '../../../src/cli/runtime-detector.js';
+
 '
 describe('Runtime Detector', () =>
 {
@@ -16,18 +19,16 @@ describe('Runtime Detector', () =>
     // Restore console.error
     console.error = originalConsoleError;
   });'
-  describe('compat object structure', () => {'
-    it('should have runtime property', () => {'
-      expect(compat.runtime).toBe('node');
-    });'
-    it('should have platform information', () => {
+  describe('compat object structure', () => '
+    it('should have runtime property', () => '
+      expect(compat.runtime).toBe('node'););'
+    it('should have platform information', () => 
       expect(compat.platform).toBeDefined();
       expect(compat.platform.os).toBeDefined();
       expect(compat.platform.arch).toBeDefined();'
       expect(typeof compat.platform.os).toBe('string');'
-      expect(typeof compat.platform.arch).toBe('string');
-    });'
-    it('should normalize Windows platform', () => {'
+      expect(typeof compat.platform.arch).toBe('string'););'
+    it('should normalize Windows platform', () => '
       // The platform should be 'windows' for Windows systems, not ''
   if(process.platform === 'win32') {'
         expect(compat.platform.os).toBe('windows');
@@ -35,14 +36,12 @@ describe('Runtime Detector', () =>
         expect(compat.platform.os).toBe(process.platform);
       //       }
     });'
-    it('should have terminal utilities', () => {
+    it('should have terminal utilities', () => 
       expect(compat.terminal).toBeDefined();'
       expect(typeof compat.terminal.getPid).toBe('function');'
       expect(typeof compat.terminal.exit).toBe('function');'
-      expect(typeof compat.terminal.onSignal).toBe('function');
-    });
-  });'
-  describe('terminal utilities', () => {'
+      expect(typeof compat.terminal.onSignal).toBe('function');););'
+  describe('terminal utilities', () => '
     it('should return current process PID', () => {
       const _pid = compat.terminal.getPid();'
       // expect(typeof pid).toBe('number'); // LINT: unreachable code removed
@@ -67,9 +66,8 @@ describe('Runtime Detector', () =>
       expect(process.exit).toHaveBeenCalledWith(0);
       // Restore original process.exit
       process.exit = originalProcessExit;
-    });
-  });'
-  describe('safeCall utility', () => {'
+    }););'
+  describe('safeCall utility', () => '
     it('should execute successful functions', async() => {'
       const _successFn = jest.fn(async() => 'success');
 // const _result = awaitcompat.safeCall(successFn);
@@ -115,28 +113,23 @@ describe('Runtime Detector', () =>
       expect(rejectFn).toHaveBeenCalled();
       expect(result).toBeNull();'
       expect(consoleErrors[0]).toContain('Runtime error);'
-    });
-  });'
-  describe('platform detection', () => {'
-    it('should detect architecture correctly', () => {'
-      expect(['x64', 'arm64', 'arm', 'ia32'].includes(compat.platform.arch)).toBe(true);
-    });'
+    }););'
+  describe('platform detection', () => '
+    it('should detect architecture correctly', () => '
+      expect(['x64', 'arm64', 'arm', 'ia32'].includes(compat.platform.arch)).toBe(true););'
     it('should detect OS correctly', () => {'
       const _validPlatforms = ['windows', 'linux', 'darwin', 'freebsd', 'openbsd'];
       expect(validPlatforms.includes(compat.platform.os)).toBe(true);
-    });
-  });'
-  describe('edge cases', () => {'
-    it('should handle null function gracefully', async() => {
+    }););'
+  describe('edge cases', () => '
+    it('should handle null function gracefully', async() => 
 // const _result = awaitcompat.safeCall(null);
       expect(result).toBeNull();
-      expect(consoleErrors.length).toBeGreaterThan(0);
-    });'
-    it('should handle undefined function gracefully', async() => {
+      expect(consoleErrors.length).toBeGreaterThan(0););'
+    it('should handle undefined function gracefully', async() => 
 // const _result = awaitcompat.safeCall(undefined);
       expect(result).toBeNull();
-      expect(consoleErrors.length).toBeGreaterThan(0);
-    });'
+      expect(consoleErrors.length).toBeGreaterThan(0););'
     it('should handle functions that throw non-Error objects', async() => {
       const _throwStringFn = jest.fn(() => {'
         throw 'String error';
@@ -144,7 +137,5 @@ describe('Runtime Detector', () =>
 // const _result = awaitcompat.safeCall(throwStringFn);
       expect(result).toBeNull();
       expect(consoleErrors.length).toBeGreaterThan(0);
-    });
-  });
-});
+    });););
 '

@@ -5,7 +5,7 @@ Refactored;
 Hive;
 Mind;
 
-Command
+Command;
 Handler;
 
 /** Simplified main entry point using focused modules for better maintainability; */
@@ -19,8 +19,8 @@ import {
   routeHiveMindCommand,
   showHiveMindHelp,
   showSubcommandUsage,
-  ',
-} from '../hive-mind-core/command-interface.js';
+',
+} from '../hive-mind-core/command-interface.js'
 
 /** Main hive mind command handler with clean architecture; */
 *

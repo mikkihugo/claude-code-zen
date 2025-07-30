@@ -3,7 +3,9 @@
 /** Provides unified WebSocket management for claude-zen; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { WebSocketConnectionManager } from '.';
 // =============================================================================
 // WEBSOCKET SERVICE TYPES
@@ -82,38 +84,30 @@ constructor(options);
   });
   '
   this.connectionManager.on('connectionDisconnected', (info) =>
-  {
-    this.stats.activeConnections--;
-    '
+    this.stats.activeConnections--
+  '
     this.emit('clientDisconnected', info)
-  }
   )
   '
   this.connectionManager.on('connectionMessage', (info) =>
-  {
-    this.stats.messagesReceived++;
-    this.handleMessage(info);
-  }
+    this.stats.messagesReceived++
+  this.handleMessage(info);
   )
   '
   this.connectionManager.on('connectionError', (info) =>
-  {
-    this.stats.errors++;
-    '
+    this.stats.errors++
+  '
     this.emit('error', info)
-  }
   )
-  this.isInitialized = true;
+  this.isInitialized = true
   '
   this.emit('initialized')
   '
   console.warn(' WebSocket service initialized')
   // }
-  async;
+  async
   '
 connectToServer((connectionName = 'main'), (customOptions =
-  {
-  }
   ))
   : Promise<any>
   // {'
@@ -150,9 +144,10 @@ external;
 WebSocket;
 )
 `
-      throw error;
-    //     }
-  sendMessage(connectionName, data) {
+throw error;
+//     }
+sendMessage(connectionName, data);
+{
     const _client = this.connectionManager.getConnection(connectionName);
   if(!client) {`;
 throw new Error(`Connection '${connectionName}' not found`);
@@ -259,7 +254,7 @@ if(success) {
     const _message = { type: 'event', event, data };
     // return this.sendMessage(connectionName, message);
     //   // LINT: unreachable code removed}
-  getServiceStatus() {}
+  getServiceStatus() 
     // return {
       isInitialized: this.isInitialized,
     // options: this.options, // LINT: unreachable code removed
@@ -276,7 +271,7 @@ if(success) {
 
   async disconnectConnection(connectionName)
 // await this.connectionManager.removeConnection(connectionName);
-  async shutdown() {}
+  async shutdown() 
 // await this.connectionManager.shutdown();'
     this.emit('shutdown');
 

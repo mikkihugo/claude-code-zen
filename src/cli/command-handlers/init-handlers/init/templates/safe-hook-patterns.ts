@@ -10,7 +10,7 @@ export const DANGEROUS_PATTERN_EXAMPLE = {'
   name = {name = {name = {name = {name = "~/.claude/update.lock";
 "
 LOG_FILE = '~/.claude/session_log.txt'
-#;
+#
 Check;
 if update is;
 already;
@@ -21,7 +21,7 @@ then;
 echo;
 "
 ('Update already in progress')
-exit;
+exit
 1;
 fi;
 #;
@@ -31,7 +31,7 @@ file;
 touch;
 '
 ('$LOCK_FILE')
-#;
+#
 Check;
 if there are;
 new sessions();
@@ -43,10 +43,10 @@ then;
 echo;
 "
 ('Processing accumulated changes...')
-claude - c - p;
+claude - c - p
 '
 "Update history.md with recent session data"--
-skip - hooks;
+skip - hooks
 #;
 Archive;
 the;
@@ -56,7 +56,7 @@ mv;
 ('$LOG_FILE')
 '
 ('~/.claude/session_log_$(date +%Y%m%d_%H%M%S).txt')
-fi;
+fi
 #;
 Remove;
 lock;
@@ -65,48 +65,49 @@ rm;
 '
 '$LOCK_FILE'` },`
 `
-benefits = {name = Path.home() / '.claude' / 'command_queue.jsonl';
-PROCESSING_INTERVAL = 300;
-#
-5;
-minutes;
+benefits =
+{
+  name = Path.home() / '.claude' / 'command_queue.jsonl';
+  PROCESSING_INTERVAL = 300;
+  #
+  5;
+  minutes;
 
-def;
-process_queue();
+  def;
+  process_queue();
 
-if not QUEUE_FILE.exists()
+  if not QUEUE_FILE.exists()
 
-//         return
+  //         return
 
-// # Read and clear queue atomically; // LINT: unreachable code removed'
-with open(QUEUE_FILE, 'r') as f = f.readlines() {}
+  // # Read and clear queue atomically; // LINT: unreachable code removed'
+  with open(QUEUE_FILE, 'r') as f = f.readlines() {}
 
-#
-Clear;
-the;
-queue;
-QUEUE_FILE.unlink();
-{}
+  #
+  Clear;
+  the;
+  queue;
+  QUEUE_FILE.unlink();
 
-#
-Process;
-commands;
-for line inlines = json.loads(line.strip());'
+  #
+  Process;
+  commands;
+  for line inlines = json.loads(line.strip());'
             if cmd_data['command'] === 'update-history'
-'
+  '
                 print(f"Processing history update for session {cmd_data['session']}")
 subprocess.run(["
-'claude', '-c', '-p', 'Update history.md', '--skip-hooks';
+'claude', '-c', '-p', 'Update history.md', '--skip-hooks'
 
-], check=True
+  ], check=True
 time.sleep(2)
 #
-Rate;
-limiting;
-except;
-Exception;
-ase ='
-= '__main__':
+Rate
+  limiting;
+  except;
+  Exception;
+  ase = ' = '__main__';
+  :
     whileTrue = [
   SAFE_FLAG_PATTERN,
   SAFE_POST_TOOL_PATTERN,
@@ -121,7 +122,7 @@ ase ='
 `
 // #; // LINT: unreachable code removed
  Safe Hook Patterns
-for Claude Code
+  for Claude Code
 ` ** CRITICAL;
 WARNING**
 : Stop hooks that call 'claude' commands create infinite loops that can cost thousands of dollars per day!
@@ -136,13 +137,15 @@ WARNING**
 // $
 // {
   JSON.stringify(DANGEROUS_PATTERN_EXAMPLE.pattern, null, 2)
-// }`
-\`\`\``
+  // }`
+  \`\`\``
 **Problems = > `- $`
 // {
   p
 // }`
-`).join('\n')}`;
+`).join('\n')
+}
+`;
 
 ---
 
@@ -152,8 +155,9 @@ SAFE;
 PATTERNS;
 
 $;
-{ALL_SAFE_PATTERNS.map(;)`
-  (pattern) => `;`
+{ALL_SAFE_PATTERNS.map(;)`(pattern);
+=> `
+`
 #
 #
 #
@@ -167,11 +171,12 @@ $;
 // }`
 **Configuration = > `- $`
 // {
-  b;
+b;
 // }`
-`).join('\n')}`
+`).join('\n')}`;
 
-${
+$;
+{
   pattern.usage;`
     ? `**Usage = > `${i + 1}. ${u}``
 ).join('\n''

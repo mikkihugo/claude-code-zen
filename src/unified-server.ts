@@ -12,17 +12,29 @@
 * - Multi-Queen hive-mind coordination
 
 import { createServer } from 'node:http';
+
 '
+
 import { dirname } from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import cors from 'cors';
+
 '
+
 import express, { type Request, type Response } from 'express';
+
 '
+
 import { WebSocketServer } from 'ws';
+
 '
+
 import config from '../config/default.js';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -136,7 +148,7 @@ timestamp: new Date().toISOString() }
 }
 // MCP endpoints
 if(this.options.enableMCP) {'
-  this.app.get('/mcp/tools', (_req, res) => {
+  this.app.get('/mcp/tools', (_req, res) => 
     res.json({)
           tools);
 // }
@@ -144,7 +156,7 @@ if(this.options.enableMCP) {'
 // }
 // Neural endpoints
   if(this.options.enableNeural) {'
-  this.app.get('/neural/status', (_req, res) => {
+  this.app.get('/neural/status', (_req, res) => 
     res.json({)
           status);
 // }
@@ -160,7 +172,7 @@ this.app.get('/health', (_req, res) =>
   memory: 'operational','
   neural: 'integrated','
   ('ruv-FANN');'
-  : 'active' }
+  : 'active' 
 // 
 }
 // }
@@ -173,8 +185,8 @@ this.app.get('/health', (_req, res) =>
   if(!this.options.enableWebSocket ?? !this.server) return;
   // ; // LINT: unreachable code removed
   this.wss = new WebSocketServer({ server);'
-  this.wss.on('connection', (ws, req) => {'
-    console.warn(` WebSocket connection from ${req.socket.remoteAddress}`);`
+  this.wss.on('connection', (ws, req) => '
+    console.warn(` WebSocket connection from $req.socket.remoteAddress`);`
     ws.on('message', (data) => {
         try {
           const _message = JSON.parse(data.toString());'
@@ -182,17 +194,16 @@ this.app.get('/health', (_req, res) =>
 
           // Echo back for now - integrate with swarm orchestration
           ws.send(;'
-            JSON.stringify({ type: 'response',
+            JSON.stringify(type: 'response',
               data,)
-              timestamp: new Date().toISOString()   } catch (error) { console.error(error); });
+              timestamp: new Date().toISOString()   catch (error) console.error(error); );
           );
         } catch(error) {'
           console.error(' WebSocket message error);'
         //         }
   });'
-  ws.on('close', () => {'
-    console.warn(' WebSocket connection closed');
-  });
+  ws.on('close', () => '
+    console.warn(' WebSocket connection closed'););
   // Send welcome message
   ws.send(;
   JSON.stringify({'
@@ -222,14 +233,14 @@ console.warn(' WebSocket server enabled')
         // Integration point for ruv-FANN
       //       }
 
-       catch (error) { console.error(error); }// Initialize MCP server
+       catch (error) console.error(error); 
   if(this.options.enableMCP) {'
         console.warn(' Initializing MCP server...');
         // MCP server integration
       //       }
 '
       console.warn(' All components initialized');
-    } catch(error) {'
+    } catch(error) '
       console.error(' Component initialization failed);'
       throw error;
     //     }
@@ -294,7 +305,7 @@ start();
         this.wss = null;
       //       }
 
-       catch (error) { console.error(error); }// Close HTTP server
+       catch (error) console.error(error); 
   if(this.server) {
 // // await new Promise<void>((resolve) => {
           this.server?.close(() => {
@@ -306,7 +317,7 @@ start();
 
       this.isRunning = false;'
       console.warn(' Claude-Zen Unified Server stopped');
-    } catch(error) {'
+    } catch(error) '
       console.error(' Error stopping server);'
       throw error;
     //     }
@@ -320,7 +331,7 @@ start();
   // port: this.options.port, // LINT: unreachable code removed
   host: this.options.host,
   components: this.options,
-  uptime: process.uptime() }
+  uptime: process.uptime() 
 // CLI handling
 async function main() {
   const _args = process.argv.slice(2);'
@@ -329,7 +340,7 @@ async function main() {
   const _server = new UnifiedServer({ port   });
   // Graceful shutdown
   const _shutdown = async(signal) => {'
-    console.warn(`\n Received ${signal}, shutting down gracefully...`);
+    console.warn(`\n Received $signal, shutting down gracefully...`);
     try {
 // await server.stop();
       process.exit(0);
@@ -356,11 +367,10 @@ async function main() {
 // export { UnifiedServer };
 
 // Run if called directly'
-  if(import.meta.url === `file) {`
+  if(import.meta.url === `file) `
   main().catch((error) => {`
     console.error(' Unhandled error);'
-    process.exit(1);
-  });
+    process.exit(1););
 // }
 
 }}}}

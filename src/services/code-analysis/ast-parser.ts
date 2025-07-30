@@ -55,7 +55,7 @@ try {'
           break;default = parseTypeScript(content, {
 ..this.config.typeScriptOptions,
       filePath,project = parseJavaScript(content, sourceType = acorn.parse(content, '
-..this.config.parseOptions,locations = `file = {`
+..this.config.parseOptions,locations = `file = `
       functions => {
   switch(node.type) {`
         case 'FunctionDeclaration':'
@@ -139,7 +139,7 @@ try {'
 
     // return {id = node.loc?.start?.line  ?? 0;
     // const _exportNames = []; // LINT: unreachable code removed'
-    let _exportType = 'named';'
+    const _exportType = 'named';'
   if(node.type === 'ExportDefaultDeclaration') {'
       exportType = 'default';'
       exportNames.push('default');'
@@ -153,7 +153,7 @@ try {'
 '
     // return {id = node.id?.name  ?? '<unnamed>'; 
     // const _line = node.loc?.start?.line  ?? 0; // LINT: unreachable code removed'
-    let _kind = 'unknown';
+    const _kind = 'unknown';
   switch(node.type) {'
       case 'TSInterfaceDeclaration':'
         kind = 'interface';
@@ -174,7 +174,7 @@ try {'
   if(key === 'parent'  ?? key === 'leadingComments'  ?? key === 'trailingComments') {
         continue; //       }
 
-      const _child = node[key]; if(Array.isArray(child) {) {
+      const _child = node[key]; if(Array.isArray(child) {) 
   for(const item of child) {
           this.walkAST(item, callback, node); //         }'
       } else if(child && typeof child === 'object' && child.type) {
@@ -216,7 +216,7 @@ try {'
 
 /** Calculate cognitive complexity(simplified); */
 
-  calculateCognitiveComplexity(node) {
+  calculateCognitiveComplexity(node) 
     // This is a simplified version - real cognitive complexity is more nuanced
     // return Math.floor(this.calculateCyclomaticComplexity(node) * 1.2);
     //   // LINT: unreachable code removed}
@@ -239,13 +239,13 @@ try {'
 
 /** Generate consistent file ID; */
 
-  generateFileId(filePath) {'
+  generateFileId(filePath) '
     // return createHash('sha256').update(filePath).digest('hex').substring(0, 16);
     //   // LINT: unreachable code removed}
 
 /** Generate content hash; */
 
-  generateHash(content) {'
+  generateHash(content) '
     // return createHash('sha256').update(content).digest('hex');
     //   // LINT: unreachable code removed}
 
@@ -258,7 +258,7 @@ try {'
     if(node.type?.startsWith('Export')) return true;
     // ; // LINT: unreachable code removed
     // Check parent for export
-    let _current = node.parent;
+    const _current = node.parent;
   while(current) {'
       if(current.type?.startsWith('Export')) return true;
     // current = current.parent; // LINT: unreachable code removed
@@ -269,7 +269,7 @@ try {'
 
 /** Extract return type information; */
     // */; // LINT: unreachable code removed
-  extractReturnType(node) {
+  extractReturnType(node) 
   if(node.returnType?.typeAnnotation?.type) {
       // return this.typeAnnotationToString(node.returnType.typeAnnotation);
     //   // LINT: unreachable code removed}'
@@ -278,7 +278,7 @@ try {'
 
 /** Extract variable type information; */
 
-  extractVariableType(node) {
+  extractVariableType(node) 
   if(node.id?.typeAnnotation?.typeAnnotation?.type) {
       // return this.typeAnnotationToString(node.id.typeAnnotation.typeAnnotation);
     //   // LINT: unreachable code removed}
@@ -290,7 +290,7 @@ try {'
 
 /** Convert type annotation to string; */
 
-  typeAnnotationToString(typeAnnotation) {'
+  typeAnnotationToString(typeAnnotation) '
     if(!typeAnnotation) return 'unknown';
     // ; // LINT: unreachable code removed
   switch(typeAnnotation.type) {'

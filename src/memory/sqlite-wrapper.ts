@@ -2,9 +2,13 @@
 /** Provides graceful fallback when better-sqlite3 fails to load */
 
 import { createRequire } from 'node:module';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -43,7 +47,8 @@ if(;
 '
       requireErr.message.includes('was compiled against a different Node.js version')  ?? requireErr.message.includes('Could not locate the bindings file')  ?? requireErr.message.includes('The specified module could not be found')  ?? requireErr.code === 'MODULE_NOT_FOUND'
 //     )'
-console.warn(`;`
+console.warn(`
+`
 
                      Windows SQLite Installation Issue                         ;
 
@@ -58,18 +63,47 @@ common;
 on;
 Windows;
 when;
-`
-  using 'npx' or when node-gyp build tools are not available.               ;
+`;
+using;
+('npx');
+or;
+when;
+node - gyp;
+build;
+tools;
+are;
+not;
+available.               ;
 
-  Claude Flow will continue with in-memory storage(non-persistent).         ;
+Claude;
+Flow;
+will;
+continue
+with in-memory storage(non-persistent).         ;
 
-  To enable persistent storage onWindows = false                 ;
+To;
+enable;
+persistent;
+storage;
+onWindows = false;
 
-  Option 3 - Use WSL(Windows Subsystem for Linux):                         ;
-  Install WSL and run Claude Flow inside a Linux environment                 ;
+Option;
+3 - Use;
+WSL(Windows Subsystem for Linux)
+:
+Install;
+WSL;
+and;
+run;
+Claude;
+Flow;
+inside;
+a;
+Linux;
+environment;
 
 '
-`;
+`
 )
 `
 
@@ -81,7 +115,7 @@ when;
 /** Check if SQLite is available */
 
 // export async function isSQLiteAvailable(): Promise<boolean> {
-  if(sqliteAvailable !== null) {
+if(sqliteAvailable !== null) {
 //     return sqliteAvailable;
     //   // LINT: unreachable code removed}
 // // await tryLoadSQLite();

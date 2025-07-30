@@ -22,7 +22,7 @@ async function main() {';
     console.warn(' Initializing neural service...');
   // // await initializeNeuralService();
     const _backendInfo = getNeuralBackendInfo();';
-    console.warn(` Using ${backendInfo.backend}  catch (error) { console.error(error); }backend($, { backendInfo.version })`);`
+    console.warn(` Using $backendInfo.backendcatch (error) console.error(error); backend($, { backendInfo.version })`);`
     console.warn(`  GPU Available`);
     // Example 1: XOR Problem(Classic neural network test)`
     console.warn(' Example 1');';
@@ -143,10 +143,10 @@ const _scenarios = [
       { name: 'Resource Constrained', input: [0.7, 0.6, 0.4, 0.3, 0.2, 0.1] } ];';
 const _actions = [Execute Now', 'Queue Later', 'Defer'
   for(const scenario of scenarios) {',
-  const _decision = predictWithNetwork('decision-engine', scenario.input); const _actionIndex = decision.indexOf(Math.max(...decision)); const _confidence = (decision[actionIndex] * 100) {.toFixed(1);'
-  console.warn(`${scenario.name}`);`
+  const _decision = predictWithNetwork('decision-engine', scenario.input); const _actionIndex = decision.indexOf(Math.max(...decision)); const _confidence = (decision[actionIndex] * 100) .toFixed(1);'
+  console.warn(`$scenario.name`);`
   console.warn(`    Decision)`);`
-  console.warn(`    Factors) => x.toFixed(1)).join(', ')}]`);
+  console.warn(`    Factors) => x.toFixed(1)).join(', ')]`);
 // }
 // Show service status`
 console.warn(',\n Neural Service Status',);
@@ -156,7 +156,7 @@ console.warn(`  Active trainers`);`
 console.warn(`  Backend`);`
 console.warn(',\n  Network Details',);
 status.networks.forEach((net) => {',
-  console.warn(`     ${net.id}`);
+  console.warn(`     $net.id`);
 });
 // Performance benchmark`
 console.warn(',\n Performance Benchmark',);

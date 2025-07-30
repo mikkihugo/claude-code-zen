@@ -5,17 +5,17 @@ SWARM_STARTED = 'swarm = ';
 (', // eslint-disable-line');
 '
 SWARM_FAILED = 'swarm = '
-agent: registered;
+agent: registered
 '
 (',')
 '
 TASK_SCHEDULED = 'task = '
-task: completed;
+task: completed
 '
 (',')
 '
 TASK_FAILED = 'task = '
-health: warning;
+health: warning
 '
 (',')
 '

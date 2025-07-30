@@ -3,13 +3,21 @@
 /** Provides access to all 87 Claude-Flow MCP tools through a comprehensive interface; */
 
 import { printSuccess } from '..';
+
 '
+
 import MCPIntegrationLayer from '.';
+
 '
+
 import RealtimeUpdateSystem from '.';
+
 '
+
 import SwarmWebUIIntegration from '.';
+
 '
+
 import ToolExecutionFramework, { ENHANCED_VIEWS } from '.';
 
 // Enhanced view modes with all tool categories
@@ -91,7 +99,7 @@ initializeEnhancedUI();
 
 /** Start system monitoring; */
 
-  startSystemMonitoring() {
+  startSystemMonitoring() 
     setInterval(() => {
       // Update system stats
       this.systemStats.cpuUsage = Math.max(;
@@ -111,7 +119,7 @@ initializeEnhancedUI();
 
       // Emit performance metrics for real-time updates
   if(this.realtimeUpdates) {'
-        this.realtimeUpdates.emit('system_stats_update', {cpuUsage = [
+        this.realtimeUpdates.emit('system_stats_update', cpuUsage = [
       { name => {
       console.warn(;))'';)
     mainTabs.forEach((tab) => {
@@ -165,7 +173,7 @@ initializeEnhancedUI();
             return;
     //   // LINT: unreachable code removed}
 
-           catch (error) { console.error(error); }// Handle enhanced view input
+           catch (error) console.error(error); 
           if(// await this.handleEnhancedViewInput(key)) {
             resolve();
             return;
@@ -260,11 +268,11 @@ initializeEnhancedUI();
   if(selected.status === 'running') {'
         selected.status = 'stopped';
         selected.pid = null;'
-        this.addLog('warning', `Stopped ${selected.name}`);
+        this.addLog('warning', `Stopped $selected.name`);
       } else {`
         selected.status = 'running';
         selected.pid = Math.floor(Math.random() * 50000) + 1000;'
-        this.addLog('success', `Started ${selected.name}`);
+        this.addLog('success', `Started $selected.name`);
       //       }
     //     }
   //   }
@@ -292,7 +300,7 @@ initializeEnhancedUI();
       const _selected = index === this.selectedIndex; const _prefix = selected ? this.colors.yellow(' ') : '  '; const _status = this.getStatusIcon(process.status) {;
       const _name = selected ? this.colors.yellow(process.name) : this.colors.white(process.name);
 '
-      console.warn(`${prefix}${status} ${name}`);`
+      console.warn(`$prefix$status$name`);`
       console.warn(`${this.colors.gray(process.description)}`);`
   if(process.status === 'running') {
         const _stats = this.colors.dim(;)'
@@ -325,11 +333,11 @@ initializeEnhancedUI();
         agent.status === 'working'') : this.colors.gray('');
       const _name = selected ? this.colors.yellow(agent.name) : this.colors.white(agent.name);
 '
-      console.warn(`${prefix}${statusIcon} ${name} ($, { agent.type })`);`
+      console.warn(`$prefix$statusIcon$name($, { agent.type })`);`
       console.warn(`     _ID => {`)
       const _usageBar = this.getUsageBar(ns.entries, 100);
       console.warn(;)`
-        `${this.colors.white(ns.name.padEnd(12))} ${usageBar} ${this.colors.yellow(ns.entries)} entries($, { this.colors.blue(ns.size) })`);
+        `$this.colors.white(ns.name.padEnd(12))$usageBar$this.colors.yellow(ns.entries)entries($, { this.colors.blue(ns.size) })`);
     });
 
     console.warn();`

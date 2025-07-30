@@ -51,7 +51,7 @@ option('--priority <value>', 'Set task priority(1-10)', '5');
     printError(''
   const __priority = opts.priority  ?? '5';
 '
-  printSuccess(`Creating ${taskType}task = args.join(' '"''"'
+  printSuccess(`Creating $taskTypetask = args.join(' '"''"'
     const _quoteChar = fullString[0];
     const _endIndex = fullString.lastIndexOf(quoteChar);
   if(endIndex > 0) {
@@ -139,4 +139,3 @@ function showTaskHelp() {'
 }
     }}}}}}}))))))))
 '
-

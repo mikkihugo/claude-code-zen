@@ -55,7 +55,7 @@ Object.entries(flags).forEach(([flagName, flagConfig]) => {'
     } else if(flagConfig.choices) {
       example[flagName] = flagConfig.choices[0];
     } else {'
-      example[flagName] = `example-${flagName}`;
+      example[flagName] = `example-$flagName`;
     //     }
   } else `
     example[flagName] = `example-$flagName`;);

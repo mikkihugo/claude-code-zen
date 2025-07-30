@@ -5,7 +5,7 @@ Hive;
 Mind;
 Command;
 
-Interface
+Interface;
 Module;
 
 /** Handles help display, command routing, and argument parsing; */
@@ -14,14 +14,16 @@ Module;
 HiveMindCommandInterface;
 
 import chalk from 'chalk';
+
 '
+
 import { HelpFormatter } from '../../help-formatter.js';
 
 /** Display comprehensive help for hive mind system; */
 
 export function showHiveMindHelp() {'
   console.warn(`;`)`
-${chalk.yellow(' Claude Flow Hive Mind System')}
+$chalk.yellow(' Claude Flow Hive Mind System')
 '
 ${chalk.bold('USAGE = parseFlags(rawFlags);'
 

@@ -4,25 +4,33 @@
 /** CLI error codes enum */
 
 export // // enum CliErrorCode {'
-(GENERIC_ERROR = 'GENERIC_ERROR'';
-(VALIDATION_ERROR = 'VALIDATION_ERROR'';
-(CONFIG_ERROR = 'CONFIG_ERROR'';
-(COMMAND_ERROR = 'COMMAND_ERROR'';
-(NETWORK_ERROR = 'NETWORK_ERROR'';
-(FILE_ERROR = 'FILE_ERROR'';
-(PERMISSION_ERROR = 'PERMISSION_ERROR'';
-(TIMEOUT_ERROR = 'TIMEOUT_ERROR'';
-(AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR'';
-NOT_FOUND_ERROR = 'NOT_FOUND_ERROR';
+(GENERIC_ERROR = 'GENERIC_ERROR';
 '
+(VALIDATION_ERROR = 'VALIDATION_ERROR'
+'
+(CONFIG_ERROR = 'CONFIG_ERROR'
+'
+(COMMAND_ERROR = 'COMMAND_ERROR'
+'
+(NETWORK_ERROR = 'NETWORK_ERROR'
+'
+(FILE_ERROR = 'FILE_ERROR'
+'
+(PERMISSION_ERROR = 'PERMISSION_ERROR'
+'
+(TIMEOUT_ERROR = 'TIMEOUT_ERROR'
+'
+(AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR'
+'
+NOT_FOUND_ERROR = 'NOT_FOUND_ERROR''
 }'
 
 /** Logger interface for error handling */
 
 // export // interface ErrorLogger {
 //   error(message, ...args = CliErrorCode.GENERIC_ERROR, exitCode = 1) {
-//     super(message);'
-//     this.name = ''
+//     super(message)
+//     this.name = '
 // this.code = code
 // this.exitCode = exitCode
 // this.timestamp = new Date() {}
@@ -48,7 +56,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 : Record<string, any>
 // {
   // return {name = null) {
-//     super(_message, _CliErrorCode._VALIDATION_ERROR, 1);'
+//     super(_message, _CliErrorCode._VALIDATION_ERROR, 1)
   // this.name = 'ValidationError'; // LINT: unreachable code removed'
   this.field = field
 // }
@@ -68,7 +76,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
   CONFIG_ERROR;
   , 1
 // this'
-  name = 'ConfigurationError';'
+  name = 'ConfigurationError''
   this;
 
   configPath = configPath;
@@ -81,7 +89,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
   // // public readonlycommand = null;
 
   originalError = null;
-  ) {
+  ) 
 //     super(
   message;
 
@@ -90,7 +98,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
   COMMAND_ERROR;
   , 1
 // this'
-  name = 'CommandExecutionError';'
+  name = 'CommandExecutionError''
   this;
 
   command = command;
@@ -109,8 +117,8 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
     // logger.error(formattedMessage); // LINT: unreachable code removed
 
   // Log stack trace in verbose mode or for unexpected errors
-  if(process.env.CLAUDE_FLOW_VERBOSE  ?? !(error instanceof CliError)) {`
-    logger.error('Stacktrace = error instanceof CliError ? error.exitCode ;'
+  if(process.env.CLAUDE_FLOW_VERBOSE  ?? !(error instanceof CliError)) {``
+    logger.error('Stacktrace = error instanceof CliError ? error.exitCode '
   // return exitCode;
 // }
 
@@ -123,8 +131,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
     try {
 //       return await fn(...args);
     //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+  console.error(error)}
       const _exitCode = handleError(error as Error, logger);
       process.exit(exitCode);
     //     }
@@ -135,12 +142,11 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 
 // export function createValidationError(message = > Promise<T>,
   errorMessage?,
-  errorCode?): Promise<T> {
+  errorCode?): Promise<T> 
   try {
 //     return // await operation();
     //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+  console.error(error)}
   if(error instanceof CliError) {
       throw error;
     //     }
@@ -150,5 +156,6 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
   //   }
 // }
 
-}}}}
+}}}
 '
+)))))))))))

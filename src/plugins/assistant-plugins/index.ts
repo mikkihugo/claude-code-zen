@@ -2,7 +2,9 @@
 /** AI-powered plugin development assistant; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { mkdir } from 'node:fs';
 
 export class AssistantPluginsPlugin extends EventEmitter {
@@ -130,7 +132,7 @@ generateProperties(config);
 '
     if(config.features?.includes('metrics')) {'
       properties.push(''
-map(([key, value]) => `${key}: ${JSON.stringify(value)}`);`
+map(([key, value]) => `$key: $JSON.stringify(value)`);`
 join(',\n');
 // '
     return `constructor(config = {}) {`
@@ -238,19 +240,17 @@ $configDefaults\$configDefaults ? ',\n' ...config;
 
 \${methods.map(method => {)'
   if(typeof method === 'object') {'
-//     return `${method.async ? 'async ' }${method.name}\${method.body.includes(method.name) ? method.body.substring(method.body.indexOf('(')) }'}`;'
+//     return `$method.async ? 'async ' $method.name\$method.body.includes(method.name) ? method.body.substring(method.body.indexOf('(')) '}`;'
     //   // LINT: unreachable code removed}'
 //   return `${method}`;`
 }).join('\n\n')}
 
   // Helper methods'
-  async \${structure.extends === 'EventEmitter' ? 'emitAsync' }(event, data) {
+  async \$structure.extends === 'EventEmitter' ? 'emitAsync' (event, data) 
     // return new Promise((resolve) => {
-      this.emit(event, data);
-    // setImmediate(resolve); // LINT: unreachable code removed
-    });
+      this.emit(event, data););
   //   }
-  getStatus() {
+  getStatus() 
     // return {
       initialized = {name = {};
     // ; // LINT: unreachable code removed
@@ -289,18 +289,17 @@ $configDefaults\$configDefaults ? ',\n' ...config;
   let plugin;
 
   beforeEach(() => {
-    plugin = new ${className}({
+    plugin = new $className({
       testMode => {
   if(plugin.initialized) {
 // // await plugin.cleanup();
     //     }
   });
 '
-  describe('initialization', () => {'
-    test('should initialize successfully', async() => {
+  describe('initialization', () => '
+    test('should initialize successfully', async() => 
 // await plugin.initialize();
-      expect(plugin.initialized).toBe(true);
-    });
+      expect(plugin.initialized).toBe(true););
 '
     test('should emit initialized event', async() => {
       const _handler = jest.fn();'
@@ -309,20 +308,17 @@ $configDefaults\$configDefaults ? ',\n' ...config;
       expect(handler).toHaveBeenCalled();
     });
 '
-    test('should not initialize twice', async() => {
+    test('should not initialize twice', async() => 
 // await plugin.initialize();
       await plugin.initialize(); // Should not throw
 
-      expect(plugin.initialized).toBe(true);
-    });
-  });
+      expect(plugin.initialized).toBe(true);););
 '
-  describe('cleanup', () => {'
-    test('should cleanup successfully', async() => {
+  describe('cleanup', () => '
+    test('should cleanup successfully', async() => 
 // await plugin.initialize();
 // await plugin.cleanup();
-      expect(plugin.initialized).toBe(false);
-    });
+      expect(plugin.initialized).toBe(false););
 '
     test('should emit cleanup event', async() => {
 // await plugin.initialize();
@@ -330,10 +326,9 @@ $configDefaults\$configDefaults ? ',\n' ...config;
       plugin.on('cleanup', handler);
 // // await plugin.cleanup();
       expect(handler).toHaveBeenCalled();
-    });
-  });
+    }););
 '
-${methods.filter(m => m.name !== 'initialize' && m.name !== 'cleanup').map(method => `  describe('${method.name}', () => {``
+$methods.filter(m => m.name !== 'initialize' && m.name !== 'cleanup').map(method => `  describe('${method.name}', () => {``
     test('should require initialization', async() => {'
 // await expect(plugin.${method.name}()).rejects.toThrow('not initialized');
     });
@@ -343,7 +338,7 @@ ${methods.filter(m => m.name !== 'initialize' && m.name !== 'cleanup').map(metho
       // Add specific test logic for ${method.name}
     });
   });'
-`).join('\n')}`
+`).join('\n')`
 `
   describe('error handling', () => {'
     test('should emit error events', async() => {
@@ -364,7 +359,7 @@ ${methods.filter(m => m.name !== 'initialize' && m.name !== 'cleanup').map(metho
   async generateDocumentation(structure) { 
     const  name, className, description, methods, events, config } = structure;
 `
-    // return `# ${name} Plugin`
+    // return `# $namePlugin`
 
     // \${description // LINT}
 
@@ -379,13 +374,13 @@ npm install @claude-zen`
 \`\`\`javascript;``
 // import { ${className} } from '@claude-zen/plugin-${this.toKebabCase(name)}';
 
-const _plugin = new ${className}({ // Configuration options
+const _plugin = new $className({ // Configuration options
   });
 
 // Initialize the plugin
 // // await plugin.initialize();
 // Use the plugin
-${this.generateUsageExample(structure)}
+$this.generateUsageExample(structure)
 
 // Clean up when done
 // // await plugin.cleanup();'
@@ -393,13 +388,13 @@ ${this.generateUsageExample(structure)}
 
 ## Configuration
 
-${this.generateConfigurationDocs(config)}
+$this.generateConfigurationDocs(config)
 
 ## API Reference
 
 ### Methods
 
-${methods.map(method => {)`
+$methods.map(method => {)`
   const _methodName = typeof method === 'object' ? method.name = > `#### \`${event}\`${this.getEventDescription(event)}`
 `
 \`\`\`javascript;``
@@ -446,9 +441,9 @@ MIT`;`
     console.warn('Plugin initialized');
 
     // Use the plugin
-    ${this.generateExampleUsage(structure)}
+    $this.generateExampleUsage(structure)
 
-   catch (error) { console.error(error); }} catch(error)'
+   catch (error) console.error(error); } catch(error)'
     console.error('Error = new ${structure.className}({'
     // Advanced configuration/g))'
     ${structure.config.features?.includes('caching') ? ''
@@ -521,9 +516,8 @@ MIT`;`
     // Check against known patterns
     for (const [_patternName, pattern] of this.pluginPatterns) 
       const _score = this.calculatePatternMatch(structure, pattern); if(score > 0.7) {
-        detectedPatterns.push({ name = > ; pattern.structure.required.includes(m) {?? pattern.structure.optional?.includes(m);
-          );
-          });
+        detectedPatterns.push({ name = > ; pattern.structure.required.includes(m) ?? pattern.structure.optional?.includes(m);
+          ););
       //       }
     //     }
 
@@ -634,11 +628,11 @@ MIT`;`
 - **Methods = > `- ${m}()`).join('\n')}
 
 ### Events;'
-\$structure.events.map(e => `- ${e}`).join('\n')  ?? 'No events emitted'
+\$structure.events.map(e => `- $e`).join('\n')  ?? 'No events emitted'
 
 ## Pattern Analysis
 '
-\$patterns?.length > 0 ? patterns.map(p => `### ${p.pattern}`)`
+\$patterns?.length > 0 ? patterns.map(p => `### $p.pattern`)`
 - **Score = > `- **${i.type}** ($, { i.severity }): $i.message`).join('\n')  ?? 'No issues found'}
 
 ### Metrics;'
@@ -646,13 +640,13 @@ MIT`;`
 
 ## Suggestions
 `
-\$suggestions?.map(s => `### ${s.suggestion} (${s.priority} priority);``
-${s.code ? `\`\`\`javascript\n${s.code}\n\`\`\`` : ''}'
-\${s.examples ? `Examples = // await this.analyzePlugin(pluginPath);`
+\$suggestions?.map(s => `### $s.suggestion($s.prioritypriority);``
+$s.code ? `\`\`\`javascript\n${s.code}\n\`\`\`` : '''
+\$s.examples ? `Examples = // await this.analyzePlugin(pluginPath);`
 //     return analysis.suggestions;
     //   // LINT}
 
-  async refactorPlugin(pluginPath, improvements = []) { `
+  async refactorPlugin(pluginPath, improvements = []) `
     console.warn(` Refactoringplugin = await readFile(pluginPath, 'utf8'') + 'Plugin'; // LINT: unreachable code removed
   //   }
   toKebabCase(name) {
@@ -661,7 +655,7 @@ ${s.code ? `\`\`\`javascript\n${s.code}\n\`\`\`` : ''}'
 replace(/[\s_]+/g, '-');
 toLowerCase();
   //   }
-  createCustomPattern(features) {
+  createCustomPattern(features) 
     // return {
       name = {};'
     // const _lines = configStr.split('\n'); // LINT: unreachable code removed
@@ -669,8 +663,7 @@ toLowerCase();
       const _match = line.match(/^\s*(\w+):\s*(.+?),?\s*$/); 
   if(match) {
         const [ key, value] = match; try {
-          config[key] = JSON.parse(value) {;
-        } catch (error) { console.error(error); } catch(/* e */) '']/g, '''
+          config[key] = JSON.parse(value) ;catch (error) console.error(error); catch(/* e */) '']/g, '''
         //         }
       //       }
     //     }
@@ -771,7 +764,7 @@ const _cached = plugin.getCached('key');
     console.warn(` Plugin saved to $pluginDir`);
   //   }
 
-  async getStats() {}
+  async getStats() 
     // return patterns = [];
     // this.analysisCache.clear(); // LINT: unreachable code removed
     this.removeAllListeners();

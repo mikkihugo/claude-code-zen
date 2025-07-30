@@ -2,9 +2,13 @@
 /** Centralized server creation and configuration management */
 
 import { ClaudeZenServer } from './api/claude-zen-server.js';
+
 '
+
 import { HTTPMCPServer } from './mcp/http-mcp-server.js';
+
 '
+
 import { JSONObject } from './types/core.js';
 
 // Import types
@@ -25,8 +29,8 @@ import {
   UnifiedServer,
   ValidationError,
   ValidationResult,
-  ',
-} from './types/server.js';
+',
+} from './types/server.js'
 '
 // import { UnifiedClaudeFlowServer  } from './unified-server.js';
 
@@ -45,8 +49,8 @@ const _serverOptions = {port = [];
 const _warnings = [];
 // Validate basic configuration'
   if(!config.name ?? typeof config.name !== 'string') {'
-  errors.push({field = = 'string') {'
-      errors.push({field = = 'number'  ?? config.port < 1  ?? config.port > 65535) {
+  errors.push(field = = 'string') '
+      errors.push(field = = 'number'  ?? config.port < 1  ?? config.port > 65535) 
       errors.push({field = === 0,
   errors,
   warnings;

@@ -6,11 +6,15 @@
 * and working in the current version of Claude Code Zen.
 
 import { QueenCoordinator } from './src/cli/command-handlers/hive-mind-handlers/hive-mind/queen.js';
+
 '
+
 import { SqliteMemoryStore } from './src/memory/sqlite-store.js';
+
 '
 console.warn(' Claude Code Zen - Working Features Demo\n')
-async function demoSqliteMemory() {
+async
+function demoSqliteMemory() {
   '
   console.warn(' 1. SQLite Memory System Demo')
   '
@@ -146,10 +150,9 @@ function showGapSummary() {'
       status: ' Unverified','
       details: '1M+ req/sec, 84.8% SWE-Bench unsubstantiated' } ];'
   console.warn('Current Implementation Status);'
-  features.forEach((feature) => {'
-    console.warn(`${feature.status} ${feature.name}`);`
-    console.warn(`${feature.details}`);
-  });`
+  features.forEach((feature) => '
+    console.warn(`$feature.status$feature.name`);`
+    console.warn(`${feature.details}`););`
   console.warn(''
   console.warn(''
   console.warn(' Estimated time to production readiness);'
@@ -167,7 +170,6 @@ async function main() {
     process.exit(1);
   //   }
 // }'
-  if(import.meta.url === `file) {`
+  if(import.meta.url === `file) `
   main();}}
 `
-}

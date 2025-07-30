@@ -3,11 +3,17 @@
 /* Comprehensive Test Runner for Claude Zen v2.0.0; */
 
 import { spawn } from 'node:child_process';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import chalk from 'chalk';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -117,13 +123,17 @@ class TestRunner {
 if(!this.verbose) {'
       child.stdout?.on('data', (data) => {
         stdout += data.toString();
-      });'
-      child.stderr?.on('data', (data) => {
-        stderr += data.toString();
-      });
-    //     }
-    // Set timeout
-    const _timeoutId = setTimeout(() => {'
+      }
+)
+'
+      child.stderr?.on('data', (data) =>
+{
+  stderr += data.toString();
+}
+)
+//     }
+// Set timeout
+const _timeoutId = setTimeout(() => {'
         child.kill('SIGTERM');
         const _result = {
           name: test.name,
@@ -143,7 +153,7 @@ if(!this.verbose) {'
   child;
 '
   on('close', (_code)
-  => {
+  => 
   clearTimeout(_timeoutId)
   const;
   _duration = Date.now() - startTime;
@@ -170,7 +180,7 @@ ms;`
 )`, 'success')`
 } else
 {`
-  this.log(`Failed: ${test.name} (exit code)`, 'error');
+  this.log(`Failed: $test.name(exit code)`, 'error');
   if(!this.verbose && stderr) {'
     console.warn(chalk.red('Error output));'
     console.warn(stderr);
@@ -220,15 +230,15 @@ runTestSuite(tests, suiteName)
     const _passed = results.filter((r) => r.success).length;
     const _failed = results.filter((r) => !r.success).length;
     const _total = results.length;`
-    console.warn(`\n${'='.repeat(80)}`);`
+    console.warn(`\n$'='.repeat(80)`);`
     console.warn(chalk.bold.blue(' CLAUDE FLOW v2.0.0 TEST REPORT'));'
     console.warn('='.repeat(80));'
     console.warn(`\n Summary);``
     console.warn(`   Total Tests);``
     console.warn(`   Passed: ${chalk.green(passed)}`);`
-    console.warn(`   Failed: ${chalk.red(failed)}`);`
+    console.warn(`   Failed: $chalk.red(failed)`);`
     console.warn(`   Success Rate: ${chalk.cyan(((passed / total) * 100).toFixed(1))}%`);`
-    console.warn(`   Total Time: ${chalk.yellow((totalTime / 1000).toFixed(2))}s`);
+    console.warn(`   Total Time: $chalk.yellow((totalTime / 1000).toFixed(2))s`);
   if(failed > 0) {`
       console.warn(`\n Failed Tests);`
       results;
@@ -262,7 +272,7 @@ forEach((result) =>`
         `    $result.name: $chalk.green('PASSED')($(result.duration / 1000).toFixed(2)s)`;
         //         
       } else {`
-        console.warn(`    ${result.name}: ${chalk.red('FAILED')}`);
+        console.warn(`    $result.name: $chalk.red('FAILED')`);
       }
     //     }`
     console.warn(`\n$'='.repeat(80)`);
@@ -315,8 +325,8 @@ function parseArgs() {
 // }
 function showHelp() {'
   console.warn(`;`)`
-${chalk.bold.blue('Claude Flow v2.0.0 Comprehensive Test Runner')}'
-${chalk.bold('Usage)}'
+$chalk.bold.blue('Claude Flow v2.0.0 Comprehensive Test Runner')'
+$chalk.bold('Usage)}'
   node scripts/test-comprehensive.js [options]'
 ${chalk.bold('Options)}'
   -v, --verbose     Show detailed test output;
@@ -325,12 +335,12 @@ ${chalk.bold('Options)}'
   -n, --npx         Include NPX tests;
   -p, --parallel    Run tests in parallel(faster but less stable);
   -h, --help        Show this help message'
-${chalk.bold('Examples)}'
+$chalk.bold('Examples)}'
   node scripts/test-comprehensive.js                    # Run core tests;
   node scripts/test-comprehensive.js --verbose          # Run with detailed output;
   node scripts/test-comprehensive.js --load --docker    # Include load and Docker tests;
   node scripts/test-comprehensive.js --parallel         # Run tests in parallel'
-${chalk.bold('Test Suites)}'
+$chalk.bold('Test Suites)}'
    Unit Tests - Individual component tests;
    Integration Tests - System integration tests;
    End-to-End Tests - Complete workflow tests;
@@ -356,10 +366,9 @@ process.on('uncaughtException', (error) => {'
   console.error(chalk.red('Uncaught Exception), error);'
   process.exit(1);
 });'
-process.on('unhandledRejection', (reason, promise) => {'
+process.on('unhandledRejection', (reason, promise) => '
   console.error(chalk.red('Unhandled Rejection at), promise, chalk.red('reason), reason);
-  process.exit(1);
-});
+  process.exit(1););
 // Run if called directly'
   if(import.meta.url === `file) `
   main();

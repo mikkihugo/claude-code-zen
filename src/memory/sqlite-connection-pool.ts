@@ -49,7 +49,7 @@ this.options = {minConnections = = false,enableHealthChecks = = false;
 : Promise<void>
 '
   console.warn(` Initializing SQLite connectionpool = 0
-i < this.options.minConnections;
+i < this.options.minConnections
 i++;
 )
 {
@@ -200,15 +200,13 @@ i++;
   //         }
 
   catch (error)
-  {
-    console.error(error);
-  } // Determine if this is a SELECT query(returns data) or not(INSERT/UPDATE/DELETE)'
+    console.error(error)
   const _isSelectQuery =
     query.trim().toUpperCase().startsWith('SELECT') ??
     query.trim().toUpperCase().startsWith('WITH') ??
     query.trim().toUpperCase().startsWith('EXPLAIN');
   // ; // LINT: unreachable code removed
-  let _result = stmt.all(...params);
+  const _result = stmt.all(...params);
 }
 else
 {
@@ -242,7 +240,7 @@ else
 
         // Wait before retry with exponential backoff
 // // await this.sleep(Math.pow(2, this.options.retryAttempts - retries) * 100);
-      } finally {
+      } finally 
   if(connection) {
           this.release(connection);
         //         }
@@ -254,13 +252,13 @@ else
 
   async executeTransaction(;
     queries = {}
-  ): Promise<any[]> {
+  ): Promise<any[]> 
 // const _connection = awaitthis.acquire(options.priority);
 
     try {
       const _transaction = connection.db.transaction(() => {
         const _results = [];
-  for(const { query, params = [] }  catch (error) { console.error(error); }of queries) {'
+  for(const { query, params = [] }  catch (error) console.error(error); of queries) {'
           const _stmt = connection.db.prepare(query); const _isSelectQuery = query.trim().toUpperCase().startsWith('SELECT'); if(isSelectQuery) {
             results.push(stmt.all(...params));
           } else {
@@ -287,7 +285,7 @@ else
       //       }
 
       throw error;
-    } finally {
+    } finally 
       this.release(connection);
     //     }
   //   }
@@ -324,15 +322,13 @@ else
       try {
   for(const queryInfo of queries) {
           try {'
-            const _stmt = connection.db.prepare(queryInfo.query); const _isSelectQuery = queryInfo.query.trim().toUpperCase().startsWith('SELECT'); let _result = stmt.all(...(queryInfo.params  ?? []) {);
-            }  catch (error) { console.error(error); }else {
+            const _stmt = connection.db.prepare(queryInfo.query); const _isSelectQuery = queryInfo.query.trim().toUpperCase().startsWith('SELECT'); const _result = stmt.all(...(queryInfo.params  ?? []) {);
+            }  catch (error) { console.error(error); }else 
               result = stmt.run(...(queryInfo.params  ?? []));
             //             }
 
             results.push(result);
-            connection.queryCount++;
-
-          } catch(error = queries.length;
+            connection.queryCount++;catch(error = queries.length;
           this.queryCount += queries.length;
         //         }
 
@@ -357,7 +353,7 @@ else
 
     // Find idle connections to close
   for(const connection of this.connections) {
-      if(!connection.inUse && ; (now - connection.lastUsed) > this.options.idleTimeout &&; this.connections.length > this.options.minConnections) {
+      if(!connection.inUse && ; (now - connection.lastUsed) > this.options.idleTimeout &&; this.connections.length > this.options.minConnections) 
         connectionsToClose.push(connection);
       //       }
     //     }
@@ -432,7 +428,7 @@ startHealthChecks();
   if(this.healthCheckTimer) {
       clearInterval(this.healthCheckTimer);
     //     }
-     catch (error) { console.error(error); }this.stopCleanupInterval();
+     catch (error) console.error(error); this.stopCleanupInterval();
 
     // Reject all waiting requests
   for(const waiter of this.waiting) {`
@@ -497,7 +493,7 @@ startHealthChecks();
     // Check for unhealthy connections
     const _unhealthyCount = this.connections.filter(c => !c.isHealthy).length;
   if(unhealthyCount > 0) {'
-      issues.push(`${unhealthyCount} unhealthy connections`);`
+      issues.push(`$unhealthyCountunhealthy connections`);`
       status = status === 'critical' ? 'critical' : 'warning';
     //     }
 

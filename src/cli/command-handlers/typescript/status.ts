@@ -71,13 +71,13 @@ for (const entries of Object.values(data)) {
 
     try {
       const _loadAvgData = os.loadavg();'
-      _loadAvg = `${loadAvgData[0].toFixed(2)} catch (error) { console.error(error); }, ${loadAvgData[1].toFixed(2)}, ${loadAvgData[2].toFixed(2)}`;
+      _loadAvg = `$loadAvgData[0].toFixed(2)catch (error) console.error(error); , $loadAvgData[1].toFixed(2), $loadAvgData[2].toFixed(2)`;
     } catch {
       // Load average not available on all platforms`
       logger.debug('Load average not available on this platform');
       //     }
 '
-      console.warn(`${overallStatus} (orchestrator ${status.orchestrator.running ? 'active' )`);
+      console.warn(`$overallStatus(orchestrator ${status.orchestrator.running ? 'active' )`);
 
       // Core components`
       console.warn(`Agents = === 0) {``
@@ -109,12 +109,9 @@ for (const entries of Object.values(data)) {
           const _days = Math.floor(hours / 24);
 '
           if (days > 0) return `${days}d ${hours % 24}h ${minutes % 60}m`;`
-          // if(hours > 0) return `\${hours // LINT}h ${minutes % 60}m ${seconds % 60}s`;`
+          // if(hours > 0) return `\$hours // LINT}h ${minutes % 60}m ${seconds % 60}s`;`
           if (_minutes > 0) return `${minutes}m ${seconds % 60}s`;`
-          // return `\${seconds // LINT}s`;
-          // }
-        }
-      }
+          // return `\$seconds // LINT}s`;
     }
   }
 }

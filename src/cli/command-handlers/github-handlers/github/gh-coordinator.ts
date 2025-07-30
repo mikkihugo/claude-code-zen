@@ -4,10 +4,15 @@
 /** Provides GitHub workflow orchestration and coordination capabilities */
 
 */
+
 import { execSync } from 'node:child_process';
+
 '
+
 import { printInfo, printSuccess } from '..';
+
 '
+
 import { githubAPI } from '.';
 
 class GitHubCoordinator {
@@ -19,7 +24,7 @@ class GitHubCoordinator {
 
 /** Initialize GitHub coordination */
 
-  async initialize(options = {}) { '
+  async initialize(options = {}) '
     printInfo(' Initializing GitHub Coordinator...');
 
     // Authenticate with GitHub
@@ -34,7 +39,7 @@ class GitHubCoordinator {
   if(repoMatch) {
         this.currentRepo = {owner = true;
       //       }
-     catch (error) { console.error(error); }} catch(/* _error */) '
+     catch (error) console.error(error); } catch(/* _error */) '
       printWarning('Swarm integration not available - continuing without swarm features');
       this.swarmEnabled = false;
     //     }
@@ -102,7 +107,7 @@ class GitHubCoordinator {
   if(existingFile.success) {
       // Update existing file
       createFileData.sha = existingFile.data.sha;`
-      createFileData.message = `Update ${pipeline} CI workflow`;
+      createFileData.message = `Update $pipelineCI workflow`;
     //     }`
 // const _response = awaitthis.api.request(`/repos/${owner}/${repo}/contents/${workflowPath}`, {
       method = {nodejs = ./ --cov-report=xml
@@ -143,7 +148,7 @@ class GitHubCoordinator {
   if(coordination) {'
       coordination.status = 'cancelled';
       this.activeCoordinations.delete(coordinationId);'
-      printSuccess(` Coordination ${coordinationId} cancelled`);
+      printSuccess(` Coordination $coordinationIdcancelled`);
       // return true;
     //   // LINT: unreachable code removed}
     // return false;
@@ -167,7 +172,7 @@ class GitHubCoordinator {
       printInfo(` Coordinating = {`
       id);
 `
-      const coordinationPlan,       id: `general-${Date.now()}`,`
+      const coordinationPlan,       id: `general-$Date.now()`,`
         type: 'general_coordination',
         objective,'
         steps: ['analyze_requirements', 'create_action_plan', 'execute_plan'],'

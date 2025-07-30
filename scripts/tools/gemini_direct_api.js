@@ -10,9 +10,13 @@
 * - Neural network analysis optimization
 
 import fs from 'node:fs';
+
 '
+
 import { GoogleGenerativeAI } from '@google';
+
 '
+
 import { glob } from 'glob';
 
 class GeminiDirectAPI {
@@ -55,17 +59,16 @@ Respond with this exact JSON structure: null
     //     {`
       const _prompt = `;`
 Optimize this swarm coordination scenario and respond in JSON format: null
-Swarm Data: ${JSON.stringify(swarmData)}
-Task Data: ${JSON.stringify(taskData)}
+Swarm Data: $JSON.stringify(swarmData)
+Task Data: $JSON.stringify(taskData)
 Respond with this exact JSON structure: null
 // {`
     "recommended_topology": 'mesh|hierarchical|star|ring|hybrid',"
-    "agent_allocation": {"
+    "agent_allocation": "
         'researchers',"
         'coders',"
         'analysts',"
-        "coordinators";
-    },"
+        "coordinators";,"
     "optimizations": ['specific', 'improvements', 'to', 'make'],"
     "expected_improvement": 'percentage or description',"
     "implementation_steps": ['step1', 'step2', 'step3'],"
@@ -83,7 +86,7 @@ Respond with this exact JSON structure: null
       //       {'
         const _prompt = `;`
 Analyze this ${language} code for performance issues and respond in JSON format: null`
-\`\`\`${language}`
+\`\`\`$language`
 ${code}`
 \`\`\`
 Respond with this exact JSON structure: null
@@ -110,9 +113,9 @@ Respond with this exact JSON structure: null
         //         {'
           const _prompt = `;`
 Debug this neural network training issue and respond in JSON format: null
-Issue: ${issue}
-Error Logs: ${errorLogs}
-Context: ${JSON.stringify(context)}
+Issue: $issue
+Error Logs: $errorLogs
+Context: $JSON.stringify(context)
 Respond with this exact JSON structure: null
 // {`
     "root_cause": 'most likely cause of the issue',"
@@ -250,7 +253,7 @@ join('\n')
               // response, // LINT: unreachable code removed
               model: this.model,
               generation_time_ms: endTime - startTime,
-              usage: result.response.usageMetadata  ?? {}
+              usage: result.response.usageMetadata  ?? 
 // }
           //           }
           // return responseText;
@@ -281,7 +284,7 @@ join('\n')
   if(options.onChunk) {
             options.onChunk(chunkText);
           //           }
-         catch (error) { console.error(error); }//         }
+         catch (error) console.error(error); 
       //       }'');'
   if(options.format === 'json') {
         try {

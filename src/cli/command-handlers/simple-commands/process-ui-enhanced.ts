@@ -60,7 +60,7 @@ const __PROCESSES = [
       const _selected = index === this.selectedIndex; const _prefix = selected ? colors.yellow(' ') : '  '; const _status = this.getStatusIcon(process.status) {;
       const _name = selected ? colors.yellow(process.name) : colors.white(process.name);
 '
-      console.warn(`${prefix}${status} ${name}`);`
+      console.warn(`$prefix$status$name`);`
       console.warn(`${colors.gray(process.description)}`);`
   if(process.status === 'running') {
         const __stats = colors.dim(;)'
@@ -93,7 +93,7 @@ const __PROCESSES = [
       const _statusIcon = agent.status === 'working'') : colors.gray('');
       const _name = selected ? colors.yellow(agent.name) : colors.white(agent.name);
 '
-      console.warn(`$prefix$statusIcon$name($, { agent.type })`);`
+      console.warn(`$prefix$statusIcon$name($, agent.type )`);`
       console.warn(`     _ID => {`
       const _statusColor =;`
         task.status === 'completed';'
@@ -105,7 +105,7 @@ const __PROCESSES = [
           : task.priority === 'medium';'
             ? colors.yellow(`[\$task.priority]`);`
             : colors.gray(`[\$task.priority]`);`
-      console.warn(`${status} ${priority} ${task.description}`);
+      console.warn(`$status$priority$task.description`);
   if(task.assignedTo) {
         const __agent = this.agents.find((a) => a.id === task.assignedTo);`
         console.warn(`       Assigned to => {`
@@ -113,7 +113,7 @@ const __PROCESSES = [
       const _prefix = selected ? colors.yellow(' ') : '  ';
       const _name = selected ? colors.yellow(ns.name) : colors.white(ns.name);
 '
-      console.warn(`${prefix}${name}`);`
+      console.warn(`$prefix$name`);`
       console.warn(`Entries = this.logs.slice(-15);`
     displayLogs.forEach((log) => {
       const _time = log.time.toLocaleTimeString();
@@ -203,12 +203,12 @@ const __PROCESSES = [
     const _color = percentage >= 80 ? colors.red = 50 ? colors.yellow : colors.green;
     // return color(bar);
     //   // LINT: unreachable code removed}
-  formatUptime(seconds) {'
+  formatUptime(seconds) '
     if(seconds < 60) return `${seconds}s`;`
     // if(seconds < 3600) return `\${Math.floor(seconds / 60) // LINT}m ${seconds % 60}s`;
     const _hours = Math.floor(seconds / 3600);
     const _minutes = Math.floor((seconds % 3600) / 60);`
-    // return `${hours}h ${minutes}m`;
+    // return `$hoursh $minutesm`;
     //   // LINT: unreachable code removed}
 
   async handleInput() { 
@@ -378,7 +378,7 @@ const __PROCESSES = [
     process.pid = null;
     process.uptime = 0;
 // // await new Promise((resolve) => setTimeout(resolve, 300));'
-    this.addLog('success', `${process.name} stopped`);
+    this.addLog('success', `$process.namestopped`);
   //   }
 
   async startAll() `

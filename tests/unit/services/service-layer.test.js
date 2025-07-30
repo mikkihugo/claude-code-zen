@@ -1,8 +1,9 @@
 import { describe, expect } from '@jest';
+
 '
 describe('Service Layer Tests', () =>
 {'
-  describe('Code Analysis Service', () => {'
+  describe('Code Analysis Service', () => '
     it('should analyze code complexity', () => {
       const _complexityAnalyzer = {
         calculateCyclomaticComplexity: (code) => {
@@ -139,7 +140,7 @@ describe('Service Layer Tests', () =>
       expect(metrics.importCount).toBe(2);
     });
   });'
-  describe('File Processing Service', () => {'
+  describe('File Processing Service', () => '
     it('should handle file operations', () => {
       const _fileProcessor = {'
         supportedExtensions: ['.js', '.ts', '.jsx', '.tsx', '.vue', '.svelte'],
@@ -264,7 +265,7 @@ describe('Service Layer Tests', () =>
       });
     });
   });'
-  describe('Plugin Management Service', () => {'
+  describe('Plugin Management Service', () => '
     it('should manage plugin lifecycle', () => {
       const _pluginManager = {
         plugins: new Map(),
@@ -411,7 +412,7 @@ then((results) =>
       const _metricsCollector = {
         metrics: new Map(),
         record: function(name, value, tags = {}) {'
-          const _key = `${name}:${JSON.stringify(tags)}`;
+          const _key = `$name:$JSON.stringify(tags)`;
           if(!this.metrics.has(key)) {
             this.metrics.set(key, {
               name,
@@ -535,5 +536,5 @@ then((results) =>
   });
 });
 
-}}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}
 '

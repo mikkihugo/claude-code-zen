@@ -35,7 +35,7 @@ const _limiter = rateLimit({
 '
 app.use('/api/', limiter)
 // Body parsing
-app.use(express.json());
+app.use(express.json())
 app.use(express.urlencoded(
 // {
   extended;
@@ -51,7 +51,7 @@ app.use((req, res, next) => {
   const _start = Date.now();'
   res.on('finish', () => {
     const _duration = Date.now() - start;'
-    logger.info(`${req.method} ${req.path} ${res.statusCode} ${duration}ms`);
+    logger.info(`$req.method$req.path$res.statusCode$durationms`);
   });
   next();
 });
@@ -71,7 +71,7 @@ async function start() {
   // await initializeDatabase();'
     logger.info('Database initialized successfully');
     const _server = app.listen(PORT, () => {'
-      logger.info(`Server running on port ${PORT} catch (error) { console.error(error); }`);`
+      logger.info(`Server running on port $PORTcatch (error) console.error(error); `);`
       logger.info(`Environment);``
       logger.info(`Metrics enabled);``
       logger.info(`ruv-swarm enabled);`

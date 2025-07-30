@@ -19,7 +19,7 @@ stack * -View;
 results;
 and;
 make;
-decisions * /;
+decisions * /;;
 
 // const readline = require(''
 // const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
@@ -48,7 +48,7 @@ class MockMemoryStore {
     this.data.set(fullKey, value)
     // return { id, size: value.length };
 
-    async;
+    async
     retrieve(key, (options = {}))`
     // const fullKey = options.namespace ? `;
     $options.namespace;
@@ -64,8 +64,9 @@ class MockMemoryStore {
   async search(options = {}) 
     // const results = };
   for(const [key, value] of this.data) {`;
-if (options.pattern === '*'')) {
-  results[key] = value;
+if (options.pattern === '*'
+')) {
+  results[key] = value
 }
 
 // return results;
@@ -73,7 +74,7 @@ if (options.pattern === '*'')) {
 // Initialize the document stack
 // const memoryStore = new MockMemoryStore() {;
 // const docStack = new DocumentStack(memoryStore);
-setupDefaultRules(docStack);
+setupDefaultRules(docStack)
 
 // Create readline // interface
 // const rl = readline.createInterface({/g)
@@ -139,7 +140,9 @@ change?
 `
 
 // Main command processor
-async function processCommand(line) {`;
+async
+function processCommand(line) {
+  `;
 // const args = line.trim().split(' ');
 // const command = args[0].toLowerCase();
 switch (command) {
@@ -222,26 +225,29 @@ switch (command) {
         // const template = templates[type];
         // const content = template
         ? template.template'
-    : `# $docType: $docId\n\nDocument content here...`
+    : `;
+  #
+  $docType: $docId;
+  \n\nDocument content here...`
 
-        // const metadata = {};
+  // const metadata = {};
 
-        // Dependencies`
-        // const deps = awaitquestion('Dependencies(comma-separated): ');'
-        if (deps) metadata.dependencies = deps.split(',').map((d) => d.trim());
+  // Dependencies`
+  // const deps = awaitquestion('Dependencies(comma-separated): ');'
+  if (deps) metadata.dependencies = deps.split(',').map((d) => d.trim());
 
-        // Tags'
-        // const tags = awaitquestion('Tags(comma-separated): ');'
-        if (tags) metadata.tags = tags.split(',').map((t) => t.trim());
+  // Tags'
+  // const tags = awaitquestion('Tags(comma-separated): ');'
+  if (tags) metadata.tags = tags.split(',').map((t) => t.trim());
 
-        // Priority(for certain doc types)'
-        if (docType === 'security-spec' || docType === 'service-adr') {
-          '
-          // const priority = awaitquestion('Priority(critical/high/medium/low): ');
-          if (priority) metadata.priority = priority;
+  // Priority(for certain doc types)'
+  if (docType === 'security-spec' || docType === 'service-adr') {
+    '
+    // const priority = awaitquestion('Priority(critical/high/medium/low): ');
+    if (priority) metadata.priority = priority;
 
-          // Create the document
-          try {
+    // Create the document
+    try {
 // const result = awaitdocStack.createDocument(docType, service, docId, content, metadata);
     if(metadata.dependencies)
       if(metadata.tags)
@@ -275,7 +281,7 @@ async function reviewDocument(args) {
     if(docData.content.split('\n').length > 10) {
 
 // const feedback = awaitquestion('
-      `\n${colors.cyan}Provide feedback(or press Enter to skip): ${colors.reset}`
+      `\n$colors.cyanProvide feedback(or press Enter to skip): $colors.reset`
     );
   if(feedback) {
       // In a real system, this would be stored and processed
@@ -290,8 +296,8 @@ async function listDocuments(args) {
   for (const [key, value] of Object.entries(allDocs)) {`
     if(key.includes('service-documents/')) {'
       // const docData = JSON.parse(value); if(!service || key.includes(`service-documents/${service}`)) {`
-        documents.push({ path: key.replace('service-documents/'').replace(':', '/'),
-..docData.metadata   }); }
+        documents.push(path: key.replace('service-documents/'').replace(':', '/'),
+..docData.metadata   ); }
 
   if(documents.length === 0) {
     return;
@@ -359,16 +365,15 @@ rl.on('line', async(line) => {
   rl.prompt();
 });
 '
-rl.on('close', () => {
-  process.exit(0);
-});
+rl.on('close', () => 
+  process.exit(0););
 
 // Show initial prompt
 rl.prompt();
 
 // Handle errors gracefully'
 process.on('unhandledRejection', (error) => {'
-  console.error(`${colors.red}Error);`
+  console.error(`$colors.redError);`
   rl.prompt();
 });}}
 `
@@ -391,8 +396,8 @@ process.on('unhandledRejection', (error) => {'
 }
 }
         }
-      }
-    }
+  }
+}
 }
 }
 }

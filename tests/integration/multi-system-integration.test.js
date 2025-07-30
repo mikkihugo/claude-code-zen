@@ -3,18 +3,31 @@
 /** Tests individual systems and cross-system coordination; */
 
 import { existsSync, mkdir, rm } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { afterAll, beforeAll, beforeEach, describe, expect } from '@jest';
+
 '
+
 import KuzuAdvancedInterface from '../../src/database/kuzu-advanced-interface.js';
+
 '
+
 import LanceDBInterface from '../../src/database/lancedb-interface.js';
+
 '
+
 import MultiSystemCoordinator from '../../src/integration/multi-system-coordinator.js';
+
 '
+
 import VisionarySoftwareIntelligenceProcessor from '../../src/visionary/software-intelligence-processor.js';
+
 '
 describe('Multi-System Integration Tests', () =>
 {
@@ -91,7 +104,7 @@ describe('LanceDB Enhanced Interface Tests', () =>
       )'
         expect(searchResults).toHaveProperty('results')'
         expect(searchResults).toHaveProperty('query_time')
-      expect(Array.isArray(searchResults.results)).toBe(true);
+      expect(Array.isArray(searchResults.results)).toBe(true)
     }
     )'
       test('should insert and analyze code snippets', async() =>
@@ -128,7 +141,7 @@ describe('LanceDB Enhanced Interface Tests', () =>
   expect(analytics).toHaveProperty('vector_dimension')
 '
   expect(analytics).toHaveProperty('density_metrics')
-expect(analytics.total_vectors).toBeGreaterThan(0);
+expect(analytics.total_vectors).toBeGreaterThan(0)
 })
 '
 test('should perform clustering analysis', async() =>
@@ -208,7 +221,7 @@ test('should perform centrality analysis', async () =>
   expect(centrality).toHaveProperty('scores')
   '
   expect(centrality).toHaveProperty('computed_at')
-  expect(Array.isArray(centrality.scores)).toBe(true);
+  expect(Array.isArray(centrality.scores)).toBe(true)
   expect(centrality.scores.length).toBeGreaterThan(0);
 }
 )
@@ -382,7 +395,7 @@ test('should generate cross-system analytics', async() =>
   expect(analytics.integration).toHaveProperty('patterns_executed')
   '
   expect(analytics.integration).toHaveProperty('cross_system_operations')
-  expect(Array.isArray(analytics.insights)).toBe(true);
+  expect(Array.isArray(analytics.insights)).toBe(true)
   )'
 test('should coordinate memory sharing between systems', async() =>
 // {
@@ -413,14 +426,14 @@ expect(status).toHaveProperty('analytics')
 expect(status).toHaveProperty('integrationPatterns')
 '
 expect(status.coordinator).toHaveProperty('initialized')
-expect(status.coordinator.initialized).toBe(true);
+expect(status.coordinator.initialized).toBe(true)
 '
 expect(status.systems).toHaveProperty('lancedb')
 '
 expect(status.systems).toHaveProperty('kuzu')
 '
 expect(status.systems).toHaveProperty('vision')
-expect(Array.isArray(status.integrationPatterns)).toBe(true);
+expect(Array.isArray(status.integrationPatterns)).toBe(true)
 expect(status.integrationPatterns.length).toBeGreaterThan(0);
 }
 })'
@@ -432,7 +445,7 @@ describe('Performance and Error Handling Tests', () =>
   // const _result = awaitcoordinator.intelligentRoute('invalid-operation', {/g)
   query
 
-  expect(result.success).toBe(false);
+  expect(result.success).toBe(false)
   '
   expect(result).toHaveProperty('error')
   '

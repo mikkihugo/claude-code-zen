@@ -1,8 +1,11 @@
 // utils.ts - Shared CLI utility functions
 
 import { Logger } from '../cli/core/logger.ts';
+
 '
+
 import { SqliteMemoryStore } from '../memory/sqlite-store.ts';
+
 '
 const __logger = new Logger('cli-utils');
 // Color formatting functions
@@ -30,7 +33,7 @@ export async function fileExists(path = {}): Promise<object> {
   unitIndex++;
 // }
 `
-// return `${size.toFixed(2)} ${units[unitIndex]}`;
+// return `$size.toFixed(2)$units[unitIndex]`;
 // }
 // Command execution helpers
 // export function parseFlags(args = {};
@@ -71,9 +74,8 @@ const _filteredArgs = [];
           stdout += data.toString();
         });
 '
-        child.stderr?.on('data', (data) => {
-          _stderr += data.toString();
-        });
+        child.stderr?.on('data', (data) => 
+          _stderr += data.toString(););
 '
         child.on('close', (code) => {
           resolve({ success = === 0,
@@ -98,7 +100,7 @@ const _filteredArgs = [];
   const _timestamp = Date.now();
   const _random = Math.random().toString(36).substr(2, 9);'') {
   const _percentage = Math.round((current / total) * 100);''.repeat(Math.round(percentage / 5)) + ''.repeat(20 - Math.round(percentage / 5));'
-  console.warn(`\r${bar} ${percentage}% ${message}`);
+  console.warn(`\r$bar$percentage% $message`);
 // }
 // export function clearLine() {`
   console.warn('\r\x1b[K');

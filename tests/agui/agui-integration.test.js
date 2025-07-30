@@ -1,14 +1,22 @@
 /**  AG-UI Integration Tests for Claude Code Zen; */
 *
+
 /** Basic tests to validate AG-UI protocol integration; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { EventType } from '@ag-ui';
+
 '
+
 import { AGUIAdapter } from '../../src/ai/agui-adapter.js';
+
 '
+
 import { AGUIWebSocketMiddleware } from '../../src/api/agui-websocket-middleware.js';
+
 '
 describe('AG-UI Integration Tests', () =>
 {
@@ -21,108 +29,100 @@ describe('AG-UI Integration Tests', () =>
   });
   '
   describe('AGUIAdapter', () =>
-  {
     '
     test('should create adapter with correct session info', () =>
-    {
       '
       expect(adapter.sessionId).toBe('test-session')
       '
       expect(adapter.threadId).toBe('test-thread')
-    }
     )
     '
     test('should emit text message events correctly', (done) =>
-    {
-      const _eventsReceived = 0;
-      '
-      const _expectedEvents = ['TEXT_MESSAGE_START', 'TEXT_MESSAGE_CONTENT', 'TEXT_MESSAGE_END'];
-      '
+  {
+    const _eventsReceived = 0;
+    '
+    const _expectedEvents = ['TEXT_MESSAGE_START', 'TEXT_MESSAGE_CONTENT', 'TEXT_MESSAGE_END'];
+    '
       adapter.on('agui) => {'
       expect(expectedEvents).toContain(event.
-      type;
-      )
-      eventsReceived++;
-      if (eventsReceived === 3) {
-        done();
-        //       }
-      }
-
-      const _messageId = adapter.startTextMessage();
-      '
-      adapter.addTextContent('Test message')
-      adapter.endTextMessage(messageId);
-    }
+    type;
     )
+      eventsReceived++
+    if (eventsReceived === 3) {
+      done();
+      //       }
+    }
+
+    const _messageId = adapter.startTextMessage();
+    '
+      adapter.addTextContent('Test message')
+      adapter.endTextMessage(messageId)
+  }
+  )
     '
     test('should emit tool call events correctly', (done) =>
-    {
-      const _eventsReceived = 0;
-      const _expectedEvents = ['
+  {
+    const _eventsReceived = 0;
+    const _expectedEvents = ['
         'TOOL_CALL_START','
         'TOOL_CALL_ARGS','
         'TOOL_CALL_END','
         'TOOL_CALL_RESULT',
         ,
       ];
-      '
+    '
       adapter.on('agui) => {'
       expect(expectedEvents).toContain(event.
-      type;
-      )
-      eventsReceived++;
-      if (eventsReceived === 4) {
-        done();
-        //       }
-      }
-      )'
-      const _toolCallId = adapter.startToolCall('test_tool');
-      '
+    type;
+    )
+      eventsReceived++
+    if (eventsReceived === 4) {
+      done();
+      //       }
+    }
+    )'
+    const _toolCallId = adapter.startToolCall('test_tool');
+    '
       adapter.addToolCallArgs('{"param");'
     adapter.endToolCall(toolCallId)
       '
       adapter.emitToolCallResult('Test result', toolCallId)
-    }
-    )
+  }
+  )
     '
     test('should emit custom events for Claude Zen functionality', (done) =>
-    {
       '
       adapter.on('agui) => {'
       expect(event.
-      type;
-      ).toBe(EventType.CUSTOM)
+  type;
+  ).toBe(EventType.CUSTOM)
       '
       expect(event.name).toBe('queen_action')
       '
       expect(event.value).toHaveProperty('queenId', 'test-queen')
-      done();
-    }
-    )
+      done()
+  )
     '
     adapter.emitQueenEvent('test-queen', 'test_action',
-    {
-      data;
-      )
-    }
+      data
+  )
     )
     '
   test('should track statistics correctly', () =>
-    {
-      adapter.startTextMessage();
-      '
+  {
+    adapter.startTextMessage();
+    '
     adapter.addTextContent('Test')
-      adapter.endTextMessage();
-      '
-      const _toolCallId = adapter.startToolCall('test_tool');
-      adapter.endToolCall(toolCallId);
-      const _stats = adapter.getStats();
-      expect(stats.messagesCreated).toBe(1);
-      expect(stats.toolCallsExecuted).toBe(1);
-      expect(stats.eventsEmitted).toBeGreaterThan(0);
-    }
-    )
+      adapter.endTextMessage()
+    '
+    const _toolCallId = adapter.startToolCall('test_tool');
+    adapter.endToolCall(toolCallId);
+    const _stats = adapter.getStats();
+    expect(stats.messagesCreated).toBe(1);
+    expect(stats.toolCallsExecuted).toBe(1);
+    expect(stats.eventsEmitted).toBeGreaterThan(0);
   }
+  )
 
   '
 describe('AGUIWebSocketMiddleware', () =>
@@ -189,7 +189,7 @@ describe('Integration with Claude Code Zen', () =>
   }
   )
   // Simulate multi-Queen coordination'
-  adapter.emitQueenEvent('queen-1', 'start_analysis', { target);
+  adapter.emitQueenEvent('queen-1', 'start_analysis', target)
   '
 adapter.emitQueenEvent('queen-2', 'join_analysis',
   {
@@ -197,17 +197,15 @@ adapter.emitQueenEvent('queen-2', 'join_analysis',
     )
     '
 adapter.emitHiveMindEvent('consensus_reached',
-    {
-      decision;
-      )
-      expect(events).toHaveLength(3);
-      '
+      decision
+    )
+      expect(events).toHaveLength(3)
+    '
 expect(events[0].value.queenId).toBe('queen-1')
       '
 expect(events[1].value.queenId).toBe('queen-2')
       '
 expect(events[2].value.action).toBe('consensus_reached')
-    }
     )'
 test('should handle swarm coordination events', () =>
     {
@@ -221,15 +219,13 @@ test('should handle swarm coordination events', () =>
     adapter.emitSwarmEvent('swarm-1', 'initialize', ['agent-1', 'agent-2'], { task);
     '
 adapter.emitSwarmEvent('swarm-1', 'execute', ['agent-1'],
-    {
-      action;
-      )
-      expect(events).toHaveLength(2);
-      '
+      action
+    )
+      expect(events).toHaveLength(2)
+    '
 expect(events[0].value.swarmId).toBe('swarm-1')
       '
 expect(events[0].value.agents).toEqual(['agent-1', 'agent-2'])
-    }
     )'
 test('should handle state synchronization', () =>
     {
@@ -250,13 +246,13 @@ test('should handle state synchronization', () =>
     expect(events[0].snapshot).toEqual(testState);
   }
 }
-}
 // Run tests if called directly'
 if (process.argv[1].endsWith('/agui-integration.test.js')) {
   '
   console.warn(' Running AG-UI Integration Tests...')
   // Simple test runner for when Jest is not available
-  async function runBasicTests() {
+  async
+  function runBasicTests() {
     const _adapter = new AGUIAdapter({ sessionId);
     // Test 1: Basic functionality'
     console.warn(' Testing basic adapter creation');
@@ -267,12 +263,10 @@ if (process.argv[1].endsWith('/agui-integration.test.js')) {
     const _messageId = adapter.startTextMessage();
     '
     adapter.addTextContent('Test')
-    adapter.endTextMessage(messageId);
+    adapter.endTextMessage(messageId)
     '
     console.warn(` Text message flow($
-    {
-      eventCount;
-    }
+      eventCount
     events;
     )`)
     // Test 3: Tool call flow
@@ -291,25 +285,19 @@ if (process.argv[1].endsWith('/agui-integration.test.js')) {
     adapter.emitQueenEvent('queen-1', 'test', {});
     '
     adapter.emitSwarmEvent('swarm-1', 'test', [],
-    {
-    }
     )
     '
     adapter.emitHiveMindEvent('test',
-    {
-    }
     )
     '
     console.warn(` Custom events($
-    {
-      eventCount - beforeCustom;
-    }
+      eventCount - beforeCustom
     events;
     )`)
     `
-    console.warn(`;
+    console.warn(`
     \n Basic tests completed! Total events)
-    ``;
+    ``
     console.warn(' Final stats:', adapter.getStats());
     //   }
     runBasicTests().catch(console.error);

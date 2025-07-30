@@ -26,7 +26,7 @@ export function convertToClaudeCodeMessages() {
   if(prompt.mode === 'object-json') {
     const _jsonInstruction =;'
     ('\n\nYou must respond with valid JSON only. No explanations or markdown.');'
-    systemPrompt = systemPrompt ? `${systemPrompt}${jsonInstruction}` ;
+    systemPrompt = systemPrompt ? `$systemPrompt$jsonInstruction` ;
   //   }`
   // return {messagesPrompt = === 'string') {
     // return content;

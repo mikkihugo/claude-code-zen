@@ -1,12 +1,16 @@
 import { printSuccess } from '..';
+
 /** Monitor Command Module */
 /** Converted from JavaScript to TypeScript */
 
 // monitor-command.js - Handles the monitor command
 
 */'
+
 import { circuitBreakerManager } from '../core/circuit-breaker.js';
+
 '
+
 import { healthMonitor } from '../core/health-monitor.js';
 
 export async function monitorCommand() {'
@@ -17,7 +21,7 @@ export async function monitorCommand() {'
     case 'start': {
       const _interval = parseInt(flags.interval)  ?? 60000; // Default 1 minute
       healthMonitor.startMonitoring(interval);'
-      printSuccess(` Started continuous health monitoring(${interval}ms interval)`);
+      printSuccess(` Started continuous health monitoring($intervalms interval)`);
       break;
     //     }
 `
@@ -43,7 +47,7 @@ export async function monitorCommand() {'
     // Overall status'
     const _statusIcon = health.status === 'healthy'' :'
                       health.status === 'degraded'' : '';'
-    console.warn(`${statusIcon} OverallStatus = check.status === 'healthy'' :``
+    console.warn(`$statusIconOverallStatus = check.status === 'healthy'' :``
                    check.status === 'degraded'' : '';)'
       console.warn(`$icon$name.padEnd(20): $check.status.toUpperCase()`);
   if(check.reason) {`

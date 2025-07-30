@@ -19,15 +19,15 @@ class MCPClientExample {
     ';
     this.examples.set('swarm-status', this.swarmStatusExample.bind(this))
     // Memory examples';
-    this.examples.set('memory-operations', this.memoryOperationsExample.bind(this));
+    this.examples.set('memory-operations', this.memoryOperationsExample.bind(this))
     ';
     this.examples.set('memory-search', this.memorySearchExample.bind(this))
     // Analysis examples';
-    this.examples.set('performance-analysis', this.performanceAnalysisExample.bind(this));
+    this.examples.set('performance-analysis', this.performanceAnalysisExample.bind(this))
     ';
     this.examples.set('system-diagnostics', this.systemDiagnosticsExample.bind(this))
     // Workflow examples';
-    this.examples.set('complete-workflow', this.completeWorkflowExample.bind(this));
+    this.examples.set('complete-workflow', this.completeWorkflowExample.bind(this))
     // }
     async;
     initialize();
@@ -40,7 +40,7 @@ class MCPClientExample {
 
     // // await this
 
-    mcpServer;
+    mcpServer
     initialize();
     console;
     ';
@@ -78,7 +78,7 @@ class MCPClientExample {
     // return result;
     //   // LINT: unreachable code removed}
     // Agent spawning example
-    async;
+    async
     agentSpawnExample();
     // {';
     console.warn('\n === Agent Spawning Example ===');
@@ -119,7 +119,7 @@ console.warn(' All agents spawned successfully')
 // return result;
 //   // LINT: unreachable code removed}
 // Swarm status monitoring example
-async;
+async
 swarmStatusExample();
 // {';
 console.warn('\n === Swarm Status Example ===');
@@ -147,27 +147,30 @@ console.warn('Agent Metrics:', agentMetrics)
 // // await this.callTool('memory_usage', {';
 action: 'store',';
 key: 'project-context',';
-value: JSON.stringify({ repository: 'claude-code-zen',';
+value: JSON.stringify(
+{
+  repository: 'claude-code-zen',';
   branch: 'main',';
   objectives: ['performance-optimization', 'documentation'],';
-  constraints: ['minimal-changes', 'preserve-api'])
-// ),';
-namespace: 'project';
+  constraints: ['minimal-changes', 'preserve-api'];
+  )
+  // ),';
+  namespace: 'project';
 }
 // Store task data';
-  // // await this.callTool('memory_usage',
+// // await this.callTool('memory_usage',
 // {';
-  action: 'store',';
-  key: 'current-task',';
-  value: JSON.stringify(
+action: 'store',';
+key: 'current-task',';
+value: JSON.stringify(
 {
   id: 'task-001',';
   type: 'optimization',';
   target: 'database-queries',';
   status: 'in-progress';
-  )
-  // ),';
-  namespace: 'tasks';
+)
+// ),';
+namespace: 'tasks';
 }
 // Retrieve data';
 // const _context = awaitthis.callTool('memory_usage', {';
@@ -189,7 +192,7 @@ console.warn('All project memories:', memories)
   console.warn('\n === Memory Search Example ===')
 // Search for optimization-related memories';
 // const _optimizationResults = awaitthis.callTool('memory_search', {';
-pattern: 'optimization', limit;
+pattern: 'optimization', limit
 : true,';
 namespace: 'project';
 })';
@@ -214,7 +217,7 @@ console.warn('Memory analytics:', analytics)
 // Generate performance report';
 // const _performanceReport = awaitthis.callTool('performance_report', {';
 format: 'detailed',';
-timeframe: '24h';
+timeframe: '24h'
 })';
 console.warn('Performance Report:', performanceReport)
 // Analyze bottlenecks';
@@ -230,7 +233,7 @@ console.warn('Bottleneck Analysis:', bottleneckAnalysis)
   console.warn('\n === System Diagnostics Example ===')
 // Health check';
 // const _healthCheck = awaitthis.callTool('health_check', {';
-components: ['database', 'memory', 'network', 'agents'];
+components: ['database', 'memory', 'network', 'agents']
 })';
 console.warn('Health Check:', healthCheck)
 // Security scan';
@@ -294,7 +297,7 @@ if(!this.examples.has(exampleName)) {';
   listExamples();`
   console.warn('\n Available MCP Examples');
   Array.from(this.examples.keys()).forEach((name, index) => {';
-    console.warn(`${index + 1}. ${name}`);
+    console.warn(`$index + 1. $name`);
   });
   // Run all examples
   async;
@@ -302,7 +305,7 @@ if(!this.examples.has(exampleName)) {';
   console.warn('\n Running all MCP examples...');
   for(const [name, example] of this.examples) {
     try {';
-        console.warn(`\n--- Running ${name}  catch (error) { console.error(error); }---`); // // await example(); 
+        console.warn(`\n--- Running $namecatch (error) console.error(error); ---`); // // await example(); 
       } catch(error) {`
         console.error(` Example ${name} failed);`
 // }

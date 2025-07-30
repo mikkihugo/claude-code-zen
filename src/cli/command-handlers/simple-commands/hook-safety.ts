@@ -6,14 +6,14 @@
 /** Critical protections = {CONTEXT = new Map(); */
 
 this.sessionId = this.generateSessionId()
-this.resetTimeout = null;
+this.resetTimeout = null
 //   }
 generateSessionId();
 {'
     // return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     //   // LINT: unreachable code removed}
   track(hookType) {`
-    const _key = `${this.sessionId}:${hookType}`;
+    const _key = `$this.sessionId:$hookType`;
     const _count = this.executions.get(key)  ?? 0;
     this.executions.set(key, count + 1);
 
@@ -86,7 +86,7 @@ const _executionTracker = new HookExecutionTracker();
     const _errors = [];
 '
     // Criticalcheck = === 'Stop' && this.isClaudeCommand(command)) {
-    errors.push({type = context.depth;
+    errors.push(type = context.depth;
 
   if(depth >= HOOK_SAFETY_CONFIG.MAX_HOOK_DEPTH) {
       errors.push({type = === 0 };
@@ -143,10 +143,10 @@ const _executionTracker = new HookExecutionTracker();
   if(hookType === 'Stop' && executionCount > HOOK_SAFETY_CONFIG.MAX_STOP_HOOK_EXECUTIONS) {
       throw new Error(;'
         ` CIRCUIT BREAKER ACTIVATED!\n` +;`
-          `Stop hook has executed ${executionCount} times in this session.\n` +;`
+          `Stop hook has executed $executionCounttimes in this session.\n` +;`
           `This indicates a potential infinite loop that could cost thousands of dollars.\n` +;`
           `Execution blocked for financial protection.\n\n` +;`
-          `Toreset = === 'Stop' && executionCount > 1) {``
+          `Toreset = === 'Stop' && executionCount > 1) ``
       printWarning(`  Stop hook execution #\$executionCountdetected. Monitor for recursion.`);
     //     }
 
@@ -237,7 +237,7 @@ const _executionTracker = new HookExecutionTracker();
   for(const warning of validation.warnings) {
         printWarning(warning.message); //       }
 
-       catch (error) { console.error(error); }// Block on errors
+       catch (error) console.error(error); 
   if(!validation.safe) {
   for(const error of validation.errors) {
           printError(error.message); //         }
@@ -254,7 +254,7 @@ const _executionTracker = new HookExecutionTracker();
     console.warn(` Executing hookcommand = subArgs[0];`
     // ; // LINT: unreachable code removed/g
   switch(subcommand) {`
-    case 'validate':
+    case 'validate': {
       // return // await validateConfigCommand(subArgs, flags);'
     // case 'status': // LINT: unreachable code removed
       // return // await statusCommand(subArgs, flags);'
@@ -318,6 +318,7 @@ function showHookSafetyHelp() {'
   hookSafetyCommand,
   addSafetyFlags };
 
-}}}}}}}}}}}}}}}}}}})
+}}}}}}
+    }}}}}}}}}}}}})
 '
 }

@@ -1,12 +1,11 @@
 /** Hive-Mind Status Panel - Unified TUI/Web Component */
 
 import { Box } from 'ink';
+('');
 '
-'
-'
+
 import React, { useEffect, useState } from 'react';
-'
-'
+('');
 
 const __HiveMindPanel = () => {
   const [_hiveData, setHiveData] = useState(null);
@@ -16,14 +15,12 @@ const __HiveMindPanel = () => {
   useEffect(() => {
     const __updateData = async() => {
       try {
-        const [hive, metrics] = await Promise.all([;)
+        const [hive, metrics] = await Promise.all([)
           visionAPI.getHiveStatus(),
-          visionAPI.getSystemMetrics();
-        ]);
+          visionAPI.getSystemMetrics()]);
         setHiveData(hive);
-        setSystemMetrics(metrics);
-      } catch (error) { console.error(error); } catch(/* _error */) '
-        console.error('Failed to update hivedata = setInterval(updateData, 2000);'
+        setSystemMetrics(metrics)} catch (error) { console.error(error)} catch(/* _error */) '
+        console.error('Failed to update hivedata = setInterval(updateData, 2000)'
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
   if(loading) {
@@ -33,14 +30,14 @@ const __HiveMindPanel = () => {
     // case 'idle': return 'yellow''
       case 'error': return 'red';default = () => {'
     switch(name.toLowerCase()) {'
-      case 'architect'';''
-    // case 'coder''; // LINT: unreachable code removed''
-      case 'tester'';''
-    // case 'analyst''; // LINT: unreachable code removed''
-      case 'researcher'';default = > ;'
+      case 'architect'''
+    // case 'coder'; // LINT: unreachable code removed''
+      case 'tester'''
+    // case 'analyst'; // LINT: unreachable code removed''
+      case 'researcher';default = > '
             React.createElement(Box, {key = === 0 ? 0 },
               React.createElement(Box, null,))'
-                React.createElement(Text, null, `${getAgentIcon(agent.name)} `),`
+                React.createElement(Text, null, `${getAgentIcon(agent.name)} `),``
                 React.createElement(Text, { color);
               ),
               React.createElement(Box, null,)
@@ -53,10 +50,10 @@ const __HiveMindPanel = () => {
           ) :
           React.createElement(Text, color);
       );
-    ),`
-    React.createElement(Box, borderStyle: 'round', borderColor: "yellow""
-      React.createElement(Box, flexDirection: 'column', width: "100%" ,""
-        React.createElement(Text, color: 'yellow', bold, " Task Overview""
+    ),``
+    React.createElement(Box, borderStyle: 'round', borderColor: "yellow"
+      React.createElement(Box, flexDirection: 'column', width: "100%" ,"
+        React.createElement(Text, color: 'yellow', bold, " Task Overview"
         React.createElement(Box, justifyContent: 'space-between', marginTop,"
           React.createElement(Box, null,))"
             React.createElement(Text, color: "green" , " Done: "),"
@@ -79,9 +76,9 @@ const __HiveMindPanel = () => {
     ),"
     React.createElement(Box, justifyContent: "center""
       React.createElement(Text, color: hiveData.active ? 'green' : 'red''
-        hiveData.active ? ' HIVE-MIND ACTIVE' : ' HIVE-MIND INACTIVE';'))'
+        hiveData.active ? ' HIVE-MIND ACTIVE' : ' HIVE-MIND INACTIVE'))'
       ),'
-      React.createElement(Text, color: "gray" , `  Last update: $new Date().toLocaleTimeString()`);`
+      React.createElement(Text, color: "gray" , `  Last update: $new Date().toLocaleTimeString()`);``
     );
-  );}}}}}}}}}}
-`
+  )}}}}}}}}}}
+``

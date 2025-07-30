@@ -2,7 +2,9 @@
 /** Scans for dependency conflicts across package.json files and generates ADRs for standardization; */
 
 import { readFile } from 'node:fs';
+
 '
+
 import { glob } from 'glob';
 
 export class DependencyScannerPlugin {
@@ -16,27 +18,24 @@ export class DependencyScannerPlugin {
     '
     console.warn(' Dependency Scanner Plugin initialized')
 
-    this.setupConflictStrategies();
+    this.setupConflictStrategies()
 
     if(!this.config.aiProvider && this.config.generateADRs)
     '
       console.warn(' No AI provider configured, ADR generation disabled')
-    this.config.generateADRs = false;
+    this.config.generateADRs = false
     //     }
     //   }
     setupConflictStrategies();
     '
     this.conflictStrategies.set('major_version',
-    {
       )
       severity =
-      {
-      }
 
-      {
-        '
-        const { includeTypes = ['dependencies', 'devDependencies', 'peerDependencies'] } = options;
-        '
+    {
+      '
+      const { includeTypes = ['dependencies', 'devDependencies', 'peerDependencies'] } = options;
+      '
     console.warn(' Scanning for package.json files...')
         '
 // const _packageJsonFiles = awaitglob('**/package.json', {ignore = // await this.analyzeDependencies(packageJsonFiles, includeTypes);
@@ -44,11 +43,9 @@ export class DependencyScannerPlugin {
 
     // return {
       totalPackages =
-        {
-        }
-        // ; // LINT: unreachable code removed
-        for (const file of packageFiles) {
-          try {'
+      // ; // LINT: unreachable code removed
+      for (const file of packageFiles) {
+        try {'
 // const _pkgContent = awaitreadFile(file, 'utf8'); 
         const _pkg = JSON.parse(pkgContent); for(const depType of includeTypes) {
           const _deps = pkg[depType]  ?? {} catch (error) console.error(error); ;
@@ -156,10 +153,9 @@ export class DependencyScannerPlugin {
 // export default DependencyScannerPlugin;
 
 }}}}}
-        }
       }
     }
   }
-
-}}}}
+}
+}}}
 '

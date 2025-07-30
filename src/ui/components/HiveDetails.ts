@@ -2,12 +2,11 @@
 /** Converted from JavaScript to TypeScript */
 
 import { Box } from 'ink';
+('');
 '
-'
-'
+
 import React from 'react';
-'
-'
+('');
 
 const _HiveDetails = () => {
   if (!hive) {
@@ -17,59 +16,47 @@ const _HiveDetails = () => {
     const _totalItems = (stats.totalVisions  ?? 0) + (stats.totalEpics  ?? 0) + ;
     (stats.totalFeatures  ?? 0) + (stats.totalPrds  ?? 0) + ;
     (stats.totalUserStories ?? 0) + (stats.totalTasks ?? 0);
-    '
-  // return React.createElement(Box, { borderStyle: 'round', padding, flexDirection: "column" },""
+    // return React.createElement(Box, { borderStyle: 'round', padding, flexDirection: "column" },"
     // React.createElement(Text, { bold, color: "cyan"  // LINT: unreachable code removed}, ` Service Details: ${hiveName  ?? 'Unknown'}`),``
     React.createElement(Text,
     {
-      color: 'gray';
-    }
-    , `Path: $
+      color: 'gray'}
+    , `Path: $`
     {
-      hive.path ?? 'Not specified';
-    }
+      hive.path ?? 'Not specified'}
     `),`;
     React.createElement(Box, { justifyContent);
     ),
     error && React.createElement(Box,
-    {
-      marginTop;
-    }
+      marginTop
     ,)
       React.createElement(Text,
-    {
-      color;
-      )
-      ),`
+      color
+    )
+      ),``
     React.createElement(Box,
-      {
-        flexDirection: 'column', marginTop;
-      }
-      ,""
+        flexDirection: 'column', marginTop
+      ,"
       React.createElement(Text,
-      {
-        bold, color;
-        : "yellow"
-      }
+        bold, color
+    : "yellow"
       , " Statistics:""
       React.createElement(Box,
-      {
-        flexDirection: 'row'"
+        flexDirection: 'row'
         React.createElement(Box,
-      {
-        flexDirection: 'column', width;
-      }
-      ,""
+    {
+      flexDirection: 'column', width;
+    }
+    ,"
           React.createElement(Text, null, ' Visions: ', React.createElement(Text,
+    {
+      color: 'green';
+      React.createElement(Text, null, ' Epics: ', React.createElement(Text,
       {
-        color: 'green'"
-          React.createElement(Text, null, ' Epics: ', React.createElement(Text,
-      {
-        color: 'blue'"
+        color: 'blue'
           React.createElement(Text, null, ' Features: ', React.createElement(Text,
       {
-        color: 'magenta';
-      }
+        color: 'magenta'}
       , stats.totalFeatures  ?? 0))
       "
         ),"
@@ -77,38 +64,32 @@ const _HiveDetails = () => {
       {
         flexDirection: 'column', width;
       }
-      ,""
+      ,"
           React.createElement(Text, null, ' PRDs: ', React.createElement(Text,
       {
-        color: 'cyan'"
-          React.createElement(Text, null, ' User Stories: ', React.createElement(Text,
+        color: 'cyan';
+        React.createElement(Text, null, ' User Stories: ', React.createElement(Text,
       {
-        color: 'yellow'"
+        color: 'yellow'
           React.createElement(Text, null, ' Tasks: ', React.createElement(Text,
       {
-        color: 'green';
-      }
+        color: 'green'}
       , stats.totalTasks  ?? 0))
-      "
+        "
         )
       ),
       React.createElement(Box,
-      {
-        marginTop;
-      }
+        marginTop
       ,)
         React.createElement(Text,
-      {
-        color;
+        color
         )
         )
         )
         )
       }
-
-      // export default HiveDetails;
     }
+    "
   }
 };
-}}
-"
+}}})))))))

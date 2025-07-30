@@ -2,15 +2,25 @@
 /** Coordinates AST parsing, dependency analysis, duplicate detection and Kuzu graph storage; */
 
 import { mkdir } from 'node:fs';
+
 '
+
 import ASTParser from '.';
+
 '
+
 import ComplexityAnalyzer from '.';
+
 '
+
 import DependencyAnalyzer from '.';
+
 '
+
 import DuplicateCodeDetector from '.';
+
 '
+
 import TreeSitterParser from '.';
 
 // Try to import optional Kuzu integration
@@ -23,84 +33,92 @@ try {
   console.error(error);
 }
 catch(/* _e */)
-{'
-  console.warn('Kuzu graph interface not available, graph storage disabled');
+{
+  '
+  console.warn('Kuzu graph interface not available, graph storage disabled')
   KuzuGraphInterface = null;
-// }
-// export class CodeAnalysisOrchestrator {
-  constructor(_config = {}) 
-    this.config = {projectPath = new ASTParser();
-    this.dependencyAnalyzer = new DependencyAnalyzer(this.config);
-    this.duplicateDetector = new DuplicateCodeDetector(this.config);
-    this.complexityAnalyzer = new ComplexityAnalyzer(this.config);
-    this.treeSitterParser = new TreeSitterParser(this.config);
-    // Initialize Kuzu graph interface if available
-    this.kuzuGraph = KuzuGraphInterface ? new KuzuGraphInterface(this.config.kuzu) ;
+  // }
+  // export class CodeAnalysisOrchestrator {
+  constructor((_config = {}));
+  this.config = {projectPath = new ASTParser();
+  this.dependencyAnalyzer = new DependencyAnalyzer(this.config);
+  this.duplicateDetector = new DuplicateCodeDetector(this.config);
+  this.complexityAnalyzer = new ComplexityAnalyzer(this.config);
+  this.treeSitterParser = new TreeSitterParser(this.config);
+  // Initialize Kuzu graph interface if available
+  this.kuzuGraph = KuzuGraphInterface ? new KuzuGraphInterface(this.config.kuzu) ;
 
-    this.isInitialized = false;
+  this.isInitialized = false;
   //   }
 
-/** Initialize the analysis system; */
+  /** Initialize the analysis system; */
 
-  async initialize() { '
-    console.warn(' Initializing Code Analysis Orchestrator...');
-// try
-      // Create output directory
-// // await mkdir(this.config.outputDir, {recursive = true;'
-      console.warn(' Code analysis system initialized');
+  async;
+  initialize();
+  '
+    console.warn(' Initializing Code Analysis Orchestrator...')
+  // try
+  // Create output directory
+  // // await mkdir(this.config.outputDir, {recursive = true;'
+  console.warn(' Code analysis system initialized');
 
-      // return {
-        status = {}) {
-  if(!this._isInitialized) {
-// // await this.initialize();
+  // return {
+  status = {};
+  )
+  if (!this._isInitialized) {
+    // // await this.initialize();
     //   // LINT: unreachable code removed}
-'
-    console.warn(` Starting comprehensive code analysis...`);
+    '
+    console.warn(` Starting comprehensive code analysis...`)
 
-      const _analysisOptions = {includeDependencies = {summary = // await this.discoverSourceFiles();`
+    const _analysisOptions = {includeDependencies = {summary = // await this.discoverSourceFiles();`
       console.warn(`Found ${sourceFiles.length} source files`);
 
-      // 2. AST Analysis`
-      console.warn(' Performing AST analysis...');
-      results.ast = // await this.performASTAnalysis(sourceFiles);
+    // 2. AST Analysis`
+    console.warn(' Performing AST analysis...');
+    results.ast = // await this.performASTAnalysis(sourceFiles);
 
-      // 3. Dependency Analysis
-  if(analysisOptions.includeDependencies) {'
-        console.warn(' Analyzing dependencies...');
-        results.dependencies = // await this.performDependencyAnalysis();
+    // 3. Dependency Analysis
+    if (analysisOptions.includeDependencies) {
+      '
+        console.warn(' Analyzing dependencies...')
+      results.dependencies = // await this.performDependencyAnalysis();
       //       }
 
       // 4. Duplicate Detection
-  if(analysisOptions.includeDuplicates) {'
-        console.warn(' Detecting duplicates...');
+      if (analysisOptions.includeDuplicates) {
+        '
+        console.warn(' Detecting duplicates...')
         results.duplicates = // await this.performDuplicateAnalysis();
-      //       }
+        //       }
 
-      // 5. Complexity Analysis
-  if(analysisOptions.includeComplexity) {'
-        console.warn(' Analyzing complexity...');
-        results.complexity = // await this.performComplexityAnalysis(sourceFiles);
-      //       }
+        // 5. Complexity Analysis
+        if (analysisOptions.includeComplexity) {
+          '
+        console.warn(' Analyzing complexity...')
+          results.complexity = // await this.performComplexityAnalysis(sourceFiles);
+          //       }
 
-      // 6. Store in Kuzu Graph
-  if(analysisOptions.storeInGraph) {'
-        console.warn(' Storing in graph database...');
-        results.graph = // await this.storeInGraph(results);
-      //       }
+          // 6. Store in Kuzu Graph
+          if (analysisOptions.storeInGraph) {
+            '
+        console.warn(' Storing in graph database...')
+            results.graph = // await this.storeInGraph(results);
+              //       }
 
-      // 7. Generate summary
-      results.summary = // await this.generateAnalysisSummary(results);
+              // 7. Generate summary
+              results.summary = // await this.generateAnalysisSummary(results);
+                // 7. Save results
+                // // await this.saveAnalysisResults(results);'
+                console.warn(' Code analysis complete!');
+            // return results;
+            //   // LINT: unreachable code removed} catch(/* _error */) {'
+            console.error(` Code analysisfailed = // await this.getAllFiles(this.config.projectPath);`
 
-      // 7. Save results
-// // await this.saveAnalysisResults(results);'
-      console.warn(' Code analysis complete!');
-      // return results;
-    //   // LINT: unreachable code removed} catch(/* _error */) {'
-      console.error(` Code analysisfailed = // await this.getAllFiles(this.config.projectPath);`
-
-    // return files.filter(file => {
-      // Additional filtering/g
-      const _relativePath = path.relative(this.config.projectPath, file);`
+            // return files.filter(file => {
+            // Additional filtering/g
+            const _relativePath = path.relative(this.config.projectPath, file);
+            `
     // return !relativePath.includes('node_modules') && ; // LINT: unreachable code removed'
 // ! relativePath.startsWith('.') &&;'
              ['.js', '.jsx', '.ts', '.tsx'].some(ext => file.endsWith(ext)) &&;
@@ -131,7 +149,12 @@ catch(/* _e */)
           //           }
         //         }
       } catch(error) {'
-        console.warn(`Skipping directory ${currentPath});`
+        console.warn(`;
+            Skipping;
+            directory;
+            $currentPath;
+            )
+            `
     //     }
   //   }
 
@@ -190,71 +213,84 @@ performASTAnalysis(sourceFiles);
 
     // return 
 ..dependencyResults,
-    // circular = {nodes_inserted = results.ast.files.length; // LINT: unreachable code removed`
-        graphResults.operations.push('source_files');
-      //       }
+    // circular = {nodes_inserted = results.ast.files.length; // LINT: unreachable code removed`;
+            graphResults.operations.push('source_files');
+            //       }
 
-      // 2. Insert functions
-  if(results.ast.functions.length > 0) {
-// // await this.insertFunctions(results.ast.functions);
-        graphResults.nodes_inserted += results.ast.functions.length;'
-        graphResults.operations.push('functions');
-      //       }
+            // 2. Insert functions
+            if (results.ast.functions.length > 0) {
+              // // await this.insertFunctions(results.ast.functions);
+              graphResults.nodes_inserted += results.ast.functions.length;
+              '
+        graphResults.operations.push('functions')
+              //       }
 
-      // 3. Insert classes
-  if(results.ast.classes.length > 0) {
-// // await this.insertClasses(results.ast.classes);
-        graphResults.nodes_inserted += results.ast.classes.length;'
-        graphResults.operations.push('classes');
-      //       }
+              // 3. Insert classes
+              if (results.ast.classes.length > 0) {
+                // // await this.insertClasses(results.ast.classes);
+                graphResults.nodes_inserted += results.ast.classes.length;
+                '
+        graphResults.operations.push('classes')
+                //       }
 
-      // 4. Insert variables
-  if(results.ast.variables.length > 0) {
-// // await this.insertVariables(results.ast.variables);
-        graphResults.nodes_inserted += results.ast.variables.length;'
-        graphResults.operations.push('variables');
-      //       }
+                // 4. Insert variables
+                if (results.ast.variables.length > 0) {
+                  // // await this.insertVariables(results.ast.variables);
+                  graphResults.nodes_inserted += results.ast.variables.length;
+                  '
+        graphResults.operations.push('variables')
+                  //       }
 
-      // 5. Insert imports
-  if(results.ast.imports.length > 0) {
-// // await this.insertImports(results.ast.imports);
-        graphResults.nodes_inserted += results.ast.imports.length;'
-        graphResults.operations.push('imports');
-      //       }
+                  // 5. Insert imports
+                  if (results.ast.imports.length > 0) {
+                    // // await this.insertImports(results.ast.imports);
+                    graphResults.nodes_inserted += results.ast.imports.length;
+                    '
+        graphResults.operations.push('imports')
+                    //       }
 
-      // 6. Insert types(TypeScript)
-  if(results.ast.types && results.ast.types.length > 0) {
-// // await this.insertTypes(results.ast.types);
-        graphResults.nodes_inserted += results.ast.types.length;'
-        graphResults.operations.push('types');
-      //       }
+                    // 6. Insert types(TypeScript)
+                    if (results.ast.types && results.ast.types.length > 0) {
+                      // // await this.insertTypes(results.ast.types);
+                      graphResults.nodes_inserted += results.ast.types.length;
+                      '
+        graphResults.operations.push('types')
+                      //       }
 
-      // 7. Insert duplicate code blocks
-  if(results.duplicates.duplicates && results.duplicates.duplicates.length > 0) {
-// // await this.insertDuplicates(results.duplicates.duplicates);
-        graphResults.nodes_inserted += results.duplicates.duplicates.length;'
-        graphResults.operations.push('duplicates');
-      //       }
+                      // 7. Insert duplicate code blocks
+                      if (
+                        results.duplicates.duplicates &&
+                        results.duplicates.duplicates.length > 0
+                      ) {
+                        // // await this.insertDuplicates(results.duplicates.duplicates);
+                        graphResults.nodes_inserted += results.duplicates.duplicates.length;
+                        '
+        graphResults.operations.push('duplicates')
+                        //       }
 
-      // 8. Insert relationships
-// const _relationships = awaitthis.generateAllRelationships(results);
-  if(relationships.length > 0) {
-      // Store graph relationships if Kuzu available
-  if(this.kuzuGraph && relationships.length > 0) {
-// // await this.kuzuGraph.insertRelationships(relationships);
-      //       }
-        graphResults.relationships_inserted = relationships.length;
-      //       }
-'
-      console.warn(` Stored ${graphResults.nodes_inserted} nodes and ${graphResults.relationships_inserted} relationships in graph`);
-
-    } catch(error) ;`
-      console.error(` Graph storagefailed = files.map(file => (;`
+                        // 8. Insert relationships
+                        // const _relationships = awaitthis.generateAllRelationships(results);
+                        if (relationships.length > 0) {
+                          // Store graph relationships if Kuzu available
+                          if (this.kuzuGraph && relationships.length > 0) {
+                            // // await this.kuzuGraph.insertRelationships(relationships);
+                            //       }
+                            graphResults.relationships_inserted = relationships.length;
+                            //       }
+                            '
+      console.warn(` Stored $graphResults.nodes_insertednodes and $graphResults.relationships_insertedrelationships in graph`)
+                          }
+                          catch(error)
+                          `
+      console.error(`;
+                          Graph;
+                          storagefailed = files.map(file => (;
+                          `
 ..file,complexity_score = [];
 
     // File -> Function relationships/g))
   for(const _func of results.ast.functions) {
-      relationships.push({id = this.dependencyAnalyzer.generateGraphRelationships(; results.dependencies.dependencies; ) {;
+      relationships.push({id = this.dependencyAnalyzer.generateGraphRelationships(; results.dependencies.dependencies; ) ;
       relationships.push(...depRelationships);
     //     }
 
@@ -271,7 +307,7 @@ performASTAnalysis(sourceFiles);
 
 /** Generate comprehensive analysis summary; */
 
-  async generateAnalysisSummary(results) { 
+  async generateAnalysisSummary(results) 
     const __summary = overview = > sum + f.line_count, 0),average_complexity = [];
 
     // High complexity functions
@@ -308,37 +344,51 @@ performASTAnalysis(sourceFiles);
 
 /** Save analysis results to files; */
 
-  async saveAnalysisResults(results) { `
-    const _timestamp = new Date().toISOString().replace(/[]/g, '-');
+  async saveAnalysisResults(results) `;
+                          const _timestamp = new Date().toISOString().replace(/[]/g, '-');
 
-    // Save comprehensive results'
-    const _resultsPath = path.join(this.config.outputDir, `analysis-results-$timestamp}.json`);
-// // await writeFile(resultsPath, JSON.stringify(results, null, 2));
-    // Save summary report`
-    const _summaryPath = path.join(this.config.outputDir, `analysis-summary-${timestamp}.json`);
-// // await writeFile(summaryPath, JSON.stringify(results.summary, null, 2));
-    // Export for Kuzu
-    // Export to Kuzu if available
-  if(this.kuzuGraph) {
-// // await this.kuzuGraph.exportForKuzu();
-    //     }
-`
-    console.warn(` Results saved to = {}) {`
+                          // Save comprehensive results'
+                          const _resultsPath = path.join(
+                            this.config.outputDir,
+                            `analysis-results-$timestamp.json`
+                          );
+                          // // await writeFile(resultsPath, JSON.stringify(results, null, 2));
+                          // Save summary report`
+                          const _summaryPath = path.join(
+                            this.config.outputDir,
+                            `analysis-summary-${timestamp}.json`
+                          );
+                          // // await writeFile(summaryPath, JSON.stringify(results.summary, null, 2));
+                          // Export for Kuzu
+                          // Export to Kuzu if available
+                          if (this.kuzuGraph) {
+                            // // await this.kuzuGraph.exportForKuzu();
+                            //     }
+                            `
+    console.warn(`;
+                            Results;
+                            saved;
+                            to = {};
+                            )
+                            {
+                              `
   if(!this.isInitialized) {
 // // await this.initialize();
     //     }
-`
-    const _results = {files = // await readFile(filePath, 'utf8');
+`;
+                              const _results = {files = // await readFile(filePath, 'utf8');
 // const _analysis = awaitthis.astParser.parseFile(filePath, content);
 
         results.files.push(analysis.file);
-        results.functions.push(...analysis.functions);
-        results.classes.push(...analysis.classes);
-        results.variables.push(...analysis.variables);
-        results.imports.push(...analysis.imports);
-
-      } catch(error) ;'
-        console.warn(` Failed to analyze ${filePath});`
+                              results.functions.push(...analysis.functions);
+                              results.classes.push(...analysis.classes);
+                              results.variables.push(...analysis.variables);
+                              results.imports.push(...analysis.imports);
+                            }
+                            catch(error)
+                            '
+        console.warn(` Failed to analyze $filePath)
+                            `
 
     // Update graph if requested
   if(options.updateGraph) {
@@ -351,8 +401,9 @@ performASTAnalysis(sourceFiles);
 /** Query the analysis graph; */
 
   async queryAnalysis(query) ;
-  if(!this.kuzuGraph) {`
-      console.warn('Graph storage disabled, query not available');'
+  if(!this.kuzuGraph) {`;
+                            console.warn('Graph storage disabled, query not available');
+                            '
       // return { error: 'Graph storage not available' };
     //   // LINT: unreachable code removed}
     // Delegate to Kuzu graph interface
@@ -361,9 +412,11 @@ performASTAnalysis(sourceFiles);
 
 /** Get analysis statistics; */
 
-  async getAnalysisStats() ;
-  if(!this.kuzuGraph) {'
-      console.warn('Graph storage disabled, stats not available');'
+  async getAnalysisStats()
+                            if (!this.kuzuGraph) {
+                              '
+      console.warn('Graph storage disabled, stats not available')
+                              '
       // return { error: 'Graph storage not available' };
     //   // LINT: unreachable code removed}
     // return // await this.kuzuGraph.getStats();
@@ -371,14 +424,29 @@ performASTAnalysis(sourceFiles);
 
 /** Clean up resources; */
 
-  async cleanup() ;
-  if(this.kuzuGraph) {
-// await this.kuzuGraph.close();
-    //     }'
-    console.warn(' Code analysis resources cleaned up');
-// }
+  async cleanup()
+                              if (this.kuzuGraph) {
+                                // await this.kuzuGraph.close();
+                                //     }'
+                                console.warn(' Code analysis resources cleaned up');
+                                // }
 
-// export default CodeAnalysisOrchestrator;
-
-}}}}}}}}}}}}}}}}}}}}}))))
+                                // export default CodeAnalysisOrchestrator;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}}}))))
 '

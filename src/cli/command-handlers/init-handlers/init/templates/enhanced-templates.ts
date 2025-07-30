@@ -1,6 +1,8 @@
 // enhanced-templates.js - Generate Claude Flow v2.0.0 enhanced templates
 import { readFileSync } from 'node:fs';
+
 '
+
 import { dirname } from 'node:path';
 
 const ___dirname = dirname(fileURLToPath(import.meta.url));
@@ -99,7 +101,7 @@ const __strategies = [
 //       return spawn('npx', ['claude-zen@2.0.0-alpha.25', ...process.argv.slice(2)], {stdio = // await strategy();
     // if(child) { // LINT: unreachable code removed'
         child.on('exit', (code) => process.exit(code  ?? 0));'
-        child.on('error', (err) => {'
+        child.on('error', (err) => '
   if(err.code !== 'ENOENT') {'
             console.error('Error = === 'windows''
 //     return `@echo off;`
@@ -212,7 +214,7 @@ function _createEnhancedSettingsJsonFallback() {
               //               {'
                 type: 'command',
                 command: null'
-                  'cat | jq -r \'"\' | xargs -I {} npx claude-zen@alpha hooks pre-edit --file "{}" --auto-assign-agents true --load-context true' } ] } ],
+                  'cat | jq -r \'"\' | xargs -I {} npx claude-zen@alpha hooks pre-edit --file "{}" --auto-assign-agents true --load-context true' ] } ],
         PostToolUse: [;
           //           {'
             matcher: 'Bash',

@@ -1,8 +1,10 @@
 /** Claude Flow MCP Server - Full 87-tool Suite */
 /** Based on Cloudflare's official MCP server pattern' */
 
-import configData from '..';
-import { executeTool } from '.';
+import configData from
+'.;
+import { executeTool } from
+';
 
 // Load configuration from config.json
 const _config = configData;
@@ -31,7 +33,7 @@ if (request.method === 'OPTIONS') {
 
     // Handle initialize request
     if (body.method === 'initialize') {
-//       return jsonResponse(;
+//       return jsonResponse();
     // { // LINT: unreachable code removed
           jsonrpc: '2.0',
           id: body.id,
@@ -45,7 +47,7 @@ if (request.method === 'OPTIONS') {
     // Handle tools/list request
     if (body.method === 'tools/list') {
       const _tools = generateTools(config.tools.enabled);
-//       return jsonResponse(;
+//       return jsonResponse();
     // { // LINT: unreachable code removed
           jsonrpc: '2.0',
           id: body.id,tools  },
@@ -57,17 +59,17 @@ if (request.method === 'OPTIONS') {
     const { name, arguments } = body.params;
     try {
         const _result = executeTool(name, args);
-//         return jsonResponse(;
+//         return jsonResponse();
     // { // LINT: unreachable code removed
             jsonrpc: '2.0',
             id: body.id,
             result }
 
-     catch (error) { console.error(error); }corsHeaders
+     catch (error) { console.error(error)}corsHeaders
     //     )
   //   }
   catch (error)
-//   return jsonResponse(;
+//   return jsonResponse();
   // { // LINT: unreachable code removed
   jsonrpc: '2.0',
   id: body.id,
@@ -80,7 +82,7 @@ if (request.method === 'OPTIONS') {
 // }
 // }
 // Handle unknown methods
-// return jsonResponse(;
+// return jsonResponse();
 // { // LINT: unreachable code removed
 jsonrpc: '2.0',
 id: body.id,
@@ -92,7 +94,7 @@ id: body.id,
 // )
 } catch (error)
 // {
-//   return jsonResponse(;
+//   return jsonResponse();
   // { // LINT: unreachable code removed
   jsonrpc: '2.0',
   id: body.id  ?? null,

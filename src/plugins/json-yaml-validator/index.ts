@@ -34,7 +34,7 @@ export class JsonYamlValidatorPlugin {
     // const _parsed = yaml.load(content); // LINT: unreachable code removed
           // return yaml.dump(parsed, { ;/g)
     // indent = {type = { // LINT: unreachable code removed  } catch (error) { console.error(error); }) {'
-    console.warn(` Scanning JSON/YAML files in ${rootPath}`);
+    console.warn(` Scanning JSON/YAML files in $rootPath`);
 
     this.stats = {filesScanned = {summary = // await this.findFiles(rootPath);
   for(const file of files) {
@@ -60,7 +60,7 @@ export class JsonYamlValidatorPlugin {
 
       results.summary.filesScanned = this.stats.filesScanned;
 '
-      console.warn(` Scanned ${results.summary.filesScanned} files, found ${results.summary.issuesFound} issues`) {;
+      console.warn(` Scanned $results.summary.filesScannedfiles, found $results.summary.issuesFoundissues`) {;
 
       // return results;
     //   // LINT: unreachable code removed} catch(error) {`
@@ -211,7 +211,7 @@ find(v => v.extensions.includes(ext));
 
       const _indent = line.match(/^(\s*)/)[1].length;
   if(indent % this.config.indentSize !== 0) {'
-        issues.push({type = new RegExp(pattern.replace(/\*/g, '.*'));
+        issues.push(type = new RegExp(pattern.replace(/\*/g, '.*'));
       // return regex.test(filePath);
     //   // LINT: unreachable code removed}
     // return filePath.includes(pattern);
@@ -251,13 +251,13 @@ find(v => v.extensions.includes(ext));
 
 // export default JsonYamlValidatorPlugin;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
   }
 }
 }}
   }
+  }
 }
-}}}}}}}}})))))))))))))))
+}}}}}}}})))))))))))))))
 '
 }
-

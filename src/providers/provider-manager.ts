@@ -9,7 +9,7 @@ AIResponse,
   ProviderMetrics,
   ProviderStatus,
   QuotaExceededError,
-  RateLimitError
+  RateLimitError;
 } from '.'
 // // interface ProviderInstance {provider = new Map() {}
 // private;
@@ -180,7 +180,7 @@ private;
         provider.circuitBreakerOpen = true;
         provider.circuitBreakerOpenTime = new Date();
 '
-        this.emit('circuit_breaker_opened', { ;
+        this.emit('circuit_breaker_opened', ;
           provider => {
           provider.circuitBreakerOpen = false;
           provider.circuitBreakerOpenTime = undefined;
@@ -197,10 +197,10 @@ private;
           provider.status = // await provider.provider.getStatus(); 
           provider.metrics = // await provider.provider.getMetrics() {;
   if(!isHealthy && provider.config.enabled) {'
-            this.emit('provider_unhealthy', { name, provider } catch (error) { console.error(error); });
+            this.emit('provider_unhealthy', name, provider catch (error) console.error(error); );
           //           }
-        } catch(error) {'
-          this.emit('health_check_error', { name, error => {)
+        } catch(error) '
+          this.emit('health_check_error', name, error => {)
       const _now = Date.now();
   for(const [hash, entry] of this.requestCache) {
         if(now - entry.timestamp.getTime() >= this.config.cacheTimeout) {

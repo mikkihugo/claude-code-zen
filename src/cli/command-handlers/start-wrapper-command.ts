@@ -3,6 +3,7 @@
 
 // start-wrapper.js - Wrapper to maintain backward compatibility with the new modular start command
 import { compat, printError, printInfo, printSuccess } from '..';
+
 '
 export async function startCommand(subArgs = subArgs.includes('--daemon')  ?? subArgs.includes('-d')  ?? flags.daemon;
 const _port =;
@@ -33,7 +34,7 @@ try {'
       claudeZenServer.port = apiPort;
 // // await claudeZenServer.start();'
       services.push('API Server');'
-      printSuccess(` API Server started on port ${apiPort}`);`
+      printSuccess(` API Server started on port $apiPort`);`
       printInfo(`Documentation = // await import('./dashboard-command.js');``
 // // await startDashboard({ api = // await import('./queen-council.js');'
 // // await queenCouncilCommand(['convene', '--auto', '--silent'], {});'
@@ -51,7 +52,7 @@ try {'
         const _webServer = new ClaudeCodeWebServer(port);
 // // await webServer.start();'
         printSuccess(' Claude Flow Web UI is running!');'
-        console.warn(` Open your browser to => {});`
+        console.warn(` Open your browser to => );`
         return;
     //   // LINT: unreachable code removed} catch(/* err */) {
         // If web UI fails, fall back to terminal UI`
@@ -96,7 +97,7 @@ try {'
   if(!daemon) {
         const __heartbeat = setInterval(() => {
   if(verbose) {'
-            console.warn(`[${new Date().toISOString()}] Heartbeat - System healthy`);
+            console.warn(`[$new Date().toISOString()] Heartbeat - System healthy`);
           //           }
         }, 30000); // Every 30 seconds
 

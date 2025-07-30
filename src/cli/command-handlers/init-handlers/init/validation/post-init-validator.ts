@@ -55,7 +55,7 @@ checkFileIntegrity();
 // // await node.stat(dirPath);
       } catch (error) { console.error(error); } catch `
         if(dir.includes('.roo')  ?? dir.includes('sparc')) {'
-          result.warnings.push(`Optional SPARC directory missing = {success = // await this.validateMemoryStructure();`
+          result.warnings.push(`Optional SPARC directory missing = success = // await this.validateMemoryStructure();`
       result.structure.memory = memoryStructure;
   if(!memoryStructure.valid) {`
         result.warnings.push('Memory directory structure is incomplete');
@@ -160,7 +160,7 @@ async;
   // Check if there are any command files
   try {
     const _entries = [];`
-    for // await(const entry of node.readDir(`\$this.workingDir/.claude/commands`) {) {`
+    for // await(const entry of node.readDir(`\$this.workingDir/.claude/commands`) ) {`
       if(entry.isFile && entry.name.endsWith('.js')) {
         entries.push(entry.name);
       //       }
@@ -192,13 +192,13 @@ catch;
 
 // Check .roo directory
 try {`
-// const _stat = awaitnode.stat(`${this.workingDir} catch (error) { console.error(error); }/.roo`);
+// const _stat = awaitnode.stat(`$this.workingDircatch (error) console.error(error); /.roo`);
   structure.hasRooDir = stat.isDirectory;
   if(structure.hasRooDir) {`
     const _expectedDirs = ['templates', 'workflows', 'modes', 'configs'];
   for(const dir of expectedDirs) {
       try {'
-// // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/.roo/${dir}`); 
+// // await node.stat(`$this.workingDircatch (error) console.error(error); /.roo/$dir`); 
         structure.dirs.push(dir); } catch {
         // Optional subdirectories
       //       }
@@ -206,7 +206,6 @@ try {`
   //   }
 } catch }}}}}}}}}}}}}}}}) ))))
 `
-}
 }
 }
 }

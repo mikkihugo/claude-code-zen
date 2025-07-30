@@ -2,11 +2,17 @@
 /** Validates markdown files using markdownlint and checks for standard headers; */
 
 import { readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import matter from 'gray-matter';
+
 '
+
 import { lint } from 'markdownlint';
 
 export class MarkdownScannerPlugin {
@@ -56,7 +62,7 @@ suggestions.push(...analysis.issues)
 this.updateStats(stats, analysis)
 } catch(error)
 // {'
-        console.warn(` Could not analyze ${file});`
+        console.warn(` Could not analyze $file);`
         suggestions.push({id = [];)
     const _parsed = matter(content);
 
@@ -102,7 +108,7 @@ this.updateStats(stats, analysis)
     // return issues;
     //   // LINT: unreachable code removed}
 
- catch (error) { console.error(error); }/** Extract headings from markdown content; */
+ catch (error) console.error(error); 
 
   extractHeadings(content) {
     const _headings = [];'

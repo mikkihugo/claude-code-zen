@@ -265,7 +265,7 @@ extensions?: Record<string, JSONValue>
 // uniqueUsers: number
 // activeUsers: number
 // Geographic distribution
-geographicDistribution: Record<string, number>;
+geographicDistribution: Record<string, number>
 // Time-based statistics
 // {
 // start: Date

@@ -13,7 +13,9 @@ Module
 HiveMindInitialization;
 
 import path from 'node:path';
+
 '
+
 import chalk from 'chalk';
 
 /** Initialize hive mind system with database and configuration; */
@@ -70,8 +72,8 @@ $chalk.green(' Hive Mind Initialization Complete')
 // }
 
 /** Create all required database tables; */
- * @param {Database} db - SQLite database instance;
- * @returns {Promise<void>}
+ * @param Databasedb - SQLite database instance;
+ * @returns Promise<void>
 
     // async function createDatabaseTables(db = [ // LINT)),'
       updated_at INTEGER DEFAULT(strftime('%s', 'now')),
@@ -145,7 +147,7 @@ $chalk.green(' Hive Mind Initialization Complete')
 // }
 
 /** Insert initial configuration data; * @param {Database} db - SQLite database instance; */
- * @returns {Promise<void>}
+ * @returns Promise<void>
 
 // async function insertInitialData(db = [ // LINT) {
     VALUES(?, ?, ?, ?, ?);'
@@ -155,8 +157,8 @@ $chalk.green(' Hive Mind Initialization Complete')
 // }
 
 /** Verify database schema is current; */
- * @param {Database} db - SQLite database instance;
- * @returns {Promise<void>}
+ * @param Databasedb - SQLite database instance;
+ * @returns Promise<void>
 
 // async function verifyDatabaseSchema() {
 const _result = db`

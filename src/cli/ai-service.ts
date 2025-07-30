@@ -2,14 +2,23 @@
 /** Converted from JavaScript to TypeScript; */
 
 import { readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { GoogleGenerativeAI } from '@google';
+
 '
+
 import inquirer from 'inquirer';
+
 '
+
 import { createClaudeCodeProvider } from '.';
+
 '
 const _LLM_PROVIDER_FILE = path.join(process.cwd(), '.hive-mind', 'llm-provider.json');
 async function _getProviderConfig() {

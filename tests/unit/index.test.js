@@ -36,7 +36,7 @@ describe('Main Application Entry Point', () => {
       delete process.env.PORT;
     //     }
   });'
-  it('should initialize express app with middleware', async() => {
+  it('should initialize express app with middleware', async() => 
     // Import the module to test it'
   // await import('../../../src/index.js');
 
@@ -46,15 +46,13 @@ describe('Main Application Entry Point', () => {
     expect(mockApp.use).toHaveBeenCalledTimes(2); // cors and express.json
 
     // Verify root route w up'
-    expect(mockApp.get).toHaveBeenCalledWith('/', expect.any(Function));
-  });'
-  it('should use default port when PORT env const is not set', async() => {
+    expect(mockApp.get).toHaveBeenCalledWith('/', expect.any(Function)););'
+  it('should use default port when PORT env const is not set', async() => 
     delete process.env.PORT;'
   // await import('../../../src/index.js');
 
     // Should listen on port 3000(default)
-    expect(mockApp.listen).toHaveBeenCalledWith(3000, expect.any(Function));
-  });'
+    expect(mockApp.listen).toHaveBeenCalledWith(3000, expect.any(Function)););'
   it('should use PORT env const when set', async() => {'
     process.env.PORT = '8080';
     // We need to clear the module cache to reimport with new env'
@@ -64,12 +62,11 @@ describe('Main Application Entry Point', () => {
 '
     expect(mockApp.listen).toHaveBeenCalledWith('8080', expect.any(Function));
   });'
-  it('should log server startup message', async() => {'
+  it('should log server startup message', async() => '
   // await import('../../../src/index.js');
 
     // The listen callback should have been called'
-    expect(consoleOutput.some((output) => output.includes('Server running on port'))).toBe(true);
-  });'
+    expect(consoleOutput.some((output) => output.includes('Server running on port'))).toBe(true););'
   it('should handle root route request', async() => {'
   // await import('../../../src/index.js');
 

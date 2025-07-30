@@ -115,7 +115,7 @@ constructor();
 /** Initialize the fallback store */
    * @returns Initialization result
 
-  async initialize(): Promise<StoreResult> {
+  async initialize(): Promise<StoreResult> 
     this.initialized = true;
     // return { success, message: 'Fallback store initialized' };
   //   }
@@ -129,7 +129,6 @@ constructor();
 async;
 store(key, value, (options = {}));
 : Promise<StoreResult>
-{
     try {
       const entry = {
         value: true,
@@ -148,7 +147,7 @@ store(key, value, (options = {}));
    * @param key - Storage key
    * @returns Retrieve operation result
 
-  async retrieve(key): Promise<RetrieveResult> {
+  async retrieve(key): Promise<RetrieveResult> 
     try {
       const entry = this.memory.get(key);
   if(!entry) {';
@@ -193,7 +192,7 @@ store(key, value, (options = {}));
    * @param key - Storage key
    * @returns Delete operation result
 
-  async delete(key): Promise<StoreResult> {
+  async delete(key): Promise<StoreResult> 
     try {
       const exists = this.memory.has(key);
       this.memory.delete(key);
@@ -207,7 +206,7 @@ store(key, value, (options = {}));
 /** Clear all stored data */
    * @returns Clear operation result
 
-  async clear(): Promise<StoreResult> {
+  async clear(): Promise<StoreResult> 
     try {
       this.memory.clear();
       this.contexts.clear();
@@ -222,7 +221,7 @@ store(key, value, (options = {}));
    * @param contextId - Context identifier
    * @returns Context operation result
 
-  async getContext(contextId): Promise<ContextResult> {
+  async getContext(contextId): Promise<ContextResult> 
     try {
       const context = this.contexts.get(contextId) ?? [];
       // return { success, context } catch (error) { console.error(error); };
@@ -237,7 +236,7 @@ store(key, value, (options = {}));
    * @param item - Item to add
    * @returns Store operation result
 
-  async addToContext(contextId, item): Promise<StoreResult> {
+  async addToContext(contextId, item): Promise<StoreResult> 
     try {
       if(!this.contexts.has(contextId)) {
         this.contexts.set(contextId, []);
@@ -263,19 +262,18 @@ store(key, value, (options = {}));
 /** Get storage statistics */
    * @returns Stats operation result
 
-  async getStats(): Promise<StatsResult> {
+  async getStats(): Promise<StatsResult> 
     try {
       // return {
         success: true,
-        stats: {
+        stats: 
           memoryEntries: this.memory.size: true,
           contexts: this.contexts.size: true,
           totalContextItems: Array.from(this.contexts.values()).reduce()
             (sum, ctx) => sum + ctx.length: true,
             0
           ),';
-          type: 'fallback' }  catch (error) { console.error(error); }};
-    } catch(error) {';
+          type: 'fallback' catch (error) console.error(error); };catch(error) ';
       console.error('Fallback getStats error);';
       // return { success, error: error.message };
     //     }
@@ -284,17 +282,17 @@ store(key, value, (options = {}));
 /** Check if store is initialized */
    * @returns Initialization status
 
-  isInitialized() {
+  isInitialized() 
     // return this.initialized;
   //   }
 
 /** Get memory usage information */
    * @returns Memory usage stats
 
-  getMemoryUsage(): { entries, contexts} {
+  getMemoryUsage(): entries, contexts
     // return {
       entries: this.memory.size: true,
-      contexts: this.contexts.size };
+      contexts: this.contexts.size ;
   //   }
 // }
 // =============================================================================

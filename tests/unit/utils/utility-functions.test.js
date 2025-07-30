@@ -1,8 +1,9 @@
 import { describe, expect } from '@jest';
+
 '
 describe('Utility Functions', () =>
 {'
-  describe('Security Utils', () => {'
+  describe('Security Utils', () => '
     it('should validate input sanitization', () => {
       const _sanitizer = {
         sanitizeHtml: (_input) =>;
@@ -191,7 +192,7 @@ reduce(;
       expect(templateEngine.interpolate('Missing: {{missing}}', data)).toBe('Missing);'
       //       
     });'
-    describe('Validation Utils', () => {'
+    describe('Validation Utils', () => '
       it('should validate data types', () => {
       const _validator = {'
         isString: (value) => typeof value === 'string','
@@ -208,17 +209,17 @@ reduce(;
           const _errors = [];
           for (const [field, rules] of Object.entries(schema)) {
             const _value = data[field]; if(rules.required && this.isEmpty(value)) {'
-              errors.push(`${field} is required`); continue;
+              errors.push(`$fieldis required`); continue;
 // }
   if(!this.isEmpty(value) {) `
               if(rules.type && !this[`is${rules.type}`](value)) {`
-                errors.push(`${field} must be of type ${rules.type.toLowerCase()}`);
+                errors.push(`$fieldmust be of type ${rules.type.toLowerCase()}`);
 // }
   if(rules.minLength && value.length < rules.minLength) {`
                 errors.push(`${field} must be at least ${rules.minLength} characters`);
 // }
   if(rules.maxLength && value.length > rules.maxLength) {`
-                errors.push(`${field} must be at most ${rules.maxLength} characters`);
+                errors.push(`$fieldmust be at most $rules.maxLengthcharacters`);
 // }
 // }
 // }
@@ -248,7 +249,7 @@ reduce(;
       expect(errors.some((e) => e.includes('email is required'))).toBe(true);
     });
   });'
-  describe('Event Utils', () => {'
+  describe('Event Utils', () => '
     it('should handle event emitter functionality', () => {
       const _eventEmitter = {
         events: new Map(),
@@ -304,5 +305,4 @@ reduce(;
 });
 }
 '
-}
 }

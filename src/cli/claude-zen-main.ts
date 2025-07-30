@@ -126,7 +126,7 @@ async function initializeUltimateArchitecture() {'
         const _stats = architecture.getUnifiedStats();
 '
         printInfo(' Claude Zen Status(Ultimate Unified Architecture):');'
-        console.warn(` _Architecture => {`)
+        console.warn(` _Architecture => `)
     registry.register(command, config);
   });
 `
@@ -150,7 +150,7 @@ process.on('SIGINT', async(): Promise<void> => {'
   //   }
   process.exit(0););
 '
-process.on('uncaughtException', async(error => {'
+process.on('uncaughtException', async(error => '
   printError(` Uncaughtexception = ============================================================================;`
 // RUN THE CLI
 // =============================================================================
@@ -163,7 +163,5 @@ main().catch(async(error => {))`
   //   }
 
   process.exit(1);
-});
-
-}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))
+});}}}}}}}}}}}}}}}}}}}}}}})))))))))))))
 `

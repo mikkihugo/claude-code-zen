@@ -8,7 +8,9 @@
 AGUIWebSocketMiddleware;
 
 import { WebSocket } from 'ws';
+
 '
+
 import { AGUIAdapter, type AGUIEvent } from '../ai/agui-adapter.js';
 
 export // interface AGUIWebSocketOptions {
@@ -36,7 +38,7 @@ export // interface ClientSession {
 
 // export class AGUIWebSocketMiddleware {
  *
-/;
+/;;
 constructor(webSocketService, (_options = {}));
 {
   this.wss = webSocketService;
@@ -77,10 +79,12 @@ this.setupGlobalEventForwarding();
 }
 )
 // Listen for errors'
-this.globalAdapter.on('error', (error) => {
+this.globalAdapter.on('error', (error) =>
+{
   '
     console.error('AG-UI Global Adapter Error);'
-});
+}
+)
 // }
 
 /** Setup client connection with AG-UI protocol; */
@@ -157,18 +161,14 @@ adapter.emitCustomEvent('clientConnected',
   if(session) {
           session.lastActivity = Date.now();
         //         }
-       catch (error) { console.error(error); }} catch(error) {'
+       catch (error) console.error(error); } catch(error) '
         console.error(''
-        this.sendError(ws, 'Invalid JSON message');
-      //       }
-  });'
-  ws.on('close', () => {
-    this.handleClientDisconnect(ws);
-  });'
-  ws.on('error', (error) => {'
+        this.sendError(ws, 'Invalid JSON message'););'
+  ws.on('close', () => 
+    this.handleClientDisconnect(ws););'
+  ws.on('error', (error) => '
     console.error('WebSocket client error);'
-    this.handleClientDisconnect(ws);
-  });
+    this.handleClientDisconnect(ws););
 // }
 
 /** Handle client message; */
@@ -177,7 +177,7 @@ adapter.emitCustomEvent('clientConnected',
 : void
 // {
   switch(message.type) {'
-    case 'startTextMessage': null
+    case 'startTextMessage': { null
       adapter.startTextMessage(message.messageId, message.role);
       break;'
     case 'addTextContent': null
@@ -202,11 +202,11 @@ adapter.emitCustomEvent('clientConnected',
       adapter.emitCustomEvent(message.eventType, message.data);
       break;'
     case 'getStats': null
-      this.sendToClient(ws, {'
+      this.sendToClient(ws, '
           type: 'statsResponse',
       //       {/g
         adapter: adapter.getStats(),
-        middleware: this.getMiddlewareStats() }
+        middleware: this.getMiddlewareStats() 
        //        }
   //   
       break;
@@ -346,3 +346,5 @@ adapter.emitCustomEvent('clientConnected',
 
 // export default AGUIWebSocketMiddleware;
 '
+
+    }

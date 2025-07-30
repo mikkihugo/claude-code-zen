@@ -1,6 +1,7 @@
 /** Jest-compatible tests for NPX isolation in init command; */
 
 import { describe, expect, it } from '@jest';
+
 '
 describe('Init Command NPX Isolation', () =>
 {
@@ -10,67 +11,59 @@ describe('Init Command NPX Isolation', () =>
   });
   '
   describe('import validation', () =>
-  {
     '
     it('should successfully import getIsolatedNpxEnv utility', async () =>
-    {
-      '
-      const { getIsolatedNpxEnv } = await import('../../../../../src/utils/npx-isolated-cache.js');
+  {
+    '
+    const { getIsolatedNpxEnv } = await import('../../../../../src/utils/npx-isolated-cache.js');
 
-      expect(getIsolatedNpxEnv).toBeDefined();
-      '
+    expect(getIsolatedNpxEnv).toBeDefined();
+    '
       expect(typeof getIsolatedNpxEnv).toBe('function')
-    }
-    )
+  }
+  )
     '
     it('should successfully import init command with npx isolation', async () =>
-    {
       '
       // This test verifies that our changes to the init command don'
       // const _initModule = awaitimport('../../../../../src/cli/simple-commands/init/index.js');
 
       expect(initModule).toBeDefined()
       // The initCommand function should still be exportable
-      expect(initModule.initCommand).toBeDefined();
-    }
-    )
+      expect(initModule.initCommand).toBeDefined()
+  )
     '
     it('should successfully import batch-init with npx isolation', async () =>
-    {
       '
       // This test verifies that our changes to batch-init don't break imports'
       // const _batchInitModule = awaitimport('
       '../../../../../src/cli/simple-commands/init/batch-init.js'
       //
-      expect(batchInitModule).toBeDefined();
-      // Key exports should still be available
-      expect(batchInitModule.batchInitCommand).toBeDefined();
-      expect(batchInitModule.validateBatchOptions).toBeDefined();
-    }
-    )
-  }
+      expect(batchInitModule).toBeDefined()
+  // Key exports should still be available
+  expect(batchInitModule.batchInitCommand).toBeDefined();
+  expect(batchInitModule.validateBatchOptions).toBeDefined();
+  )
   )
   '
   describe('integration with existing code', () =>
-  {
     '
     it('should not conflict with existing environment handling', () =>
-    {
-      '
-      // Mock Deno.env if it doesn't exist(we're in Node.js)
-      const _mockDeno = {
-        env: {
-          toObject: () => ({ ...process.env }),
-        },
-      };
-      // This would be used in the actual init command
-      const _env = mockDeno.env.toObject();
-      expect(env).toBeDefined();
-      '
+  {
+    '
+    // Mock Deno.env if it doesn't exist(we're in Node.js)
+    const _mockDeno = {
+      env: {
+        toObject: () => ({ ...process.env }),
+      },
+    };
+    // This would be used in the actual init command
+    const _env = mockDeno.env.toObject();
+    expect(env).toBeDefined();
+    '
       expect(typeof env).toBe('object')
-    }
-    )
   }
+  )
   )
 }
 )
@@ -92,7 +85,8 @@ describe('NPX Cache Isolation Integration', () =>
   expect(process.env.NPM_CONFIG_CACHE).toBe(originalCache);
 }
 ) // eslint-disable-line'
-it('should work with Deno.Command-style environment passing', async () => {
+it('should work with Deno.Command-style environment passing', async () =>
+{
   '
   const { getIsolatedNpxEnv } = await import('../../../../../src/utils/npx-isolated-cache.js');
 
@@ -106,9 +100,10 @@ it('should work with Deno.Command-style environment passing', async () => {
   expect(isolatedEnv.PWD).toBe('/some/working/dir')
   '
   expect(isolatedEnv.CUSTOM_VAR).toBe('test-value')
-  expect(isolatedEnv.NPM_CONFIG_CACHE).toBeDefined();
+  expect(isolatedEnv.NPM_CONFIG_CACHE).toBeDefined()
   '
   expect(isolatedEnv.NPM_CONFIG_CACHE).toContain('claude-zen-')
-});
+}
+)
 }
 '

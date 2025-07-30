@@ -2,11 +2,17 @@
 /** Handles template discovery, validation, and installation; */
 
 import { promises as fs } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import { printWarning } from '.';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -54,7 +60,7 @@ export class TemplateManager {
 
     templateList.forEach(template => {
       const { manifest } = template;)'
-      console.warn(`\\n ${manifest.name}`);`
+      console.warn(`\\n $manifest.name`);`
       console.warn(`Description = '.repeat(50));'`
 //     return templateList;
     //   // LINT: unreachable code removed}
@@ -98,7 +104,7 @@ export class TemplateManager {
           continue;
         //         }
 
-         catch (error) { console.error(error); }// Skip optional files in minimal mode
+         catch (error) console.error(error); 
   if(minimal && manifest.files && manifest.files[entry.name] && !manifest.files[entry.name].required) {
           continue;
         //         }
@@ -115,8 +121,8 @@ export class TemplateManager {
 
 /** Install settings variant; */
 
-  async installSettingsVariant(templatePath, targetPath, variant) { `
-    const _variantFile = variant === 'enhanced' ? 'settings.json' : `settings-$variant}.json`;
+  async installSettingsVariant(templatePath, targetPath, variant) `
+    const _variantFile = variant === 'enhanced' ? 'settings.json' : `settings-$variant.json`;
     const _sourcePath = path.join(templatePath, variantFile);`
     const _targetSettingsPath = path.join(targetPath, '.claude', 'settings.json');
 
@@ -124,7 +130,7 @@ export class TemplateManager {
       // Ensure .claude directory exists'
 // // await fs.mkdir(path.join(targetPath, '.claude'), {recursive = path.join(templatePath, 'settings.json');
 // // await fs.copyFile(defaultSettingsPath, targetSettingsPath);'
-        console.warn(` Installed default settings(${variant}  catch (error) { console.error(error); }variant not found)`);
+        console.warn(` Installed default settings($variantcatch (error) console.error(error); variant not found)`);
       } catch(/* fallbackError */ ) `
         console.warn(` Could not install settingsvariant = 'enhanced')``
     ``

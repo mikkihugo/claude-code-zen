@@ -45,7 +45,7 @@ export class ToolExecutionFramework {
     try {
       // Validate tool exists
       if(!this.
-  isToolAvailable(toolName)
+  isToolAvailable(toolName);
   ) {`
         throw new
   Error(`Tool "${toolName} catch (error) { console.error(error); }" is not available`);
@@ -74,67 +74,85 @@ else
 }
 )
 `
-  throw error;
+throw error;
 // }
 // }
 
 /** Execute tool directly; */
 
 // async
-executeToolDirect(execution)
+executeToolDirect(execution);
 : unknown
 // {
-    this.currentExecutions++;`;
+    this.currentExecutions++
+`;
 execution.status = 'running';
 execution.startTime = Date.now();
 
 try {'
-      this.ui.addLog('info', `Executing ${execution.toolName} catch (error) { console.error(error); }...`);
+      this.ui.addLog('info', `;
+Executing;
+$;
+{
+  execution.toolName;
+}
+catch (error)
+{
+  console.error(error);
+}
+...`);
 
-      // Execute via MCP layer
+// Execute via MCP layer
 // const _result = awaitthis.mcpLayer.executeTool(;
-        execution.toolName,
-        execution.parameters,
-        execution.options);
+execution.toolName, execution.parameters, execution.options;
+)
 
-      // Format result
-      const _formattedResult = this.formatResult(execution.toolName, result.result);
+// Format result
+const _formattedResult = this.formatResult(execution.toolName, result.result);
 
-      // Update execution`
-      execution.status = 'completed';
-      execution.endTime = Date.now();
-      execution.duration = execution.endTime - execution.startTime;
-      execution.result = formattedResult;
+// Update execution`
+execution.status = 'completed';
+execution.endTime = Date.now();
+execution.duration = execution.endTime - execution.startTime;
+execution.result = formattedResult;
 
-      // Log success'
-      this.ui.addLog('success', `${execution.toolName} completed in ${execution.duration}ms`);
+// Log success'
+this.ui.addLog('success', `${execution.toolName} completed in ${execution.duration}ms`);
 
-      // Process queue
-      this.processQueue();
+// Process queue
+this.processQueue();
 
-      // return execution;
-    //   // LINT: unreachable code removed} catch(error) {`
-      execution.status = 'failed';
-      execution.endTime = Date.now();
-      execution.error = error.message;
+// return execution;
+//   // LINT: unreachable code removed} catch(error) {`
+execution.status = 'failed';
+execution.endTime = Date.now();
+execution.error = error.message;
 '
-      this.ui.addLog('error', `${execution.toolName}failed = this.executionQueue.shift();`
+      this.ui.addLog('error', `$
+{
+  execution.toolName;
+}
+failed = this.executionQueue.shift();
+`
 // // await this.executeToolDirect(nextExecution);
     //     }
   //   }
 
 /** Execute multiple tools in batch; */
 
-  async executeToolsBatch(toolExecutions, options = {}) { `
-    const _batchId = `batch_$Date.now()}`;
-    const _results = [];
+  async executeToolsBatch(toolExecutions, options = {}) { `;
+const _batchId = `batch_$Date.now()}`;
+const _results = [];
 `
-    this.ui.addLog('info', `Starting batchexecution = toolExecutions.map(({ toolName, parameters, toolOptions   }) =>;`
+    this.ui.addLog('info', `;
+Starting;
+batchexecution = toolExecutions.map(({ toolName, parameters, toolOptions   }) =>;
+`
           this.executeTool(toolName, parameters, toolOptions));
 // const _settled = awaitPromise.allSettled(promises);
 
-        settled.forEach((result, _index) => {`
-  if(result.status === 'fulfilled') {
+        settled.forEach((result, _index) => {`;
+if(result.status === 'fulfilled') {
             results.push({success = 0; i < toolExecutions.length; i++) {
           const { toolName, parameters, toolOptions } = toolExecutions[i];
 
@@ -143,12 +161,12 @@ try {'
             results.push({success = results.filter((r) => r.success).length;
       this.ui.addLog(;'
         'success',)'
-        `Batch ${batchId}  catch (error) { console.error(error); }completed = {}) {``
+        `Batch $batchIdcatch (error) console.error(error); completed = {}) {``
     const _workflowId = `workflow_\$Date.now()`;
     const _context = {}; // Shared context between steps
     const _results = [];
 `
-    this.ui.addLog('info', `Startingworkflow = 0; i < workflow.steps.length; i++) {`
+    this.ui.addLog('info', `Startingworkflow = 0; i < workflow.steps.length; i++) `
         const _step = workflow.steps[i];
 
         // Resolve parameters using context
@@ -167,8 +185,8 @@ try {'
         // Check for step failure`
   if(execution.status === 'failed' && step.required !== false) {'
           throw new Error(`Required step ${step.toolName}failed = > r.status === 'completed').length,failedSteps = > r.status === 'failed').length } };`
-    } catch(error) {`
-      this.ui.addLog('error', `Workflow ${workflowId}failed = = 'object'  ?? parameters === null) ;`
+    } catch(error) `
+      this.ui.addLog('error', `Workflow $workflowIdfailed = = 'object'  ?? parameters === null) ;`
       // return parameters;
     // ; // LINT: unreachable code removed
     const _resolved = {};
@@ -218,7 +236,7 @@ try {'
     // return {currentExecutions = this.executionQueue.findIndex((e) => e.id === executionId);
     // if(queueIndex !== -1) { // LINT: unreachable code removed
       this.executionQueue.splice(queueIndex, 1);'
-      this.ui.addLog('info', `Cancelled queued execution ${executionId}`);
+      this.ui.addLog('info', `Cancelled queued execution $executionId`);
 //       return true;
     //   // LINT: unreachable code removed}
 
@@ -251,6 +269,6 @@ try {'
 
 // export default ToolExecutionFramework;
 
-}}}}}}}}}
+}}}}}}}
 }}}}}})))))
 `

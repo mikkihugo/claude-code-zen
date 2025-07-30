@@ -1,6 +1,7 @@
 // backup-manager.js - Backup creation and management
 
 import * as node from 'node:fs';
+
 '
 // Polyfill for node's ensureDirSync'
 
@@ -41,7 +42,7 @@ createBackup((type = 'manual''));
       // Check if backup exists
       try {)
 // // await node.stat(backupPath) {;
-      } catch (error) { console.error(error); } catch {
+      } catch (error) { console.error(error); } catch 
         result.success = false;`
         result.errors.push(`Backup notfound = `${backupPath}/manifest.json`;`/g)
 // const _manifestContent = awaitnode.readTextFile(manifestPath);
@@ -65,7 +66,7 @@ createBackup((type = 'manual''));
   for(const entry of entries) {
   if(entry.isDirectory) {
           try {`
-            const _metadataPath = `${this.backupDir} catch (error) { console.error(error); }/${entry.name}/metadata.json`; `
+            const _metadataPath = `$this.backupDircatch (error) console.error(error); /${entry.name}/metadata.json`; `
             const _manifestPath = `${this.backupDir}/${entry.name}/manifest.json`; 
 
             const _metadata = JSON.parse(// await node.readTextFile(metadataPath) {);
@@ -77,7 +78,7 @@ createBackup((type = 'manual''));
 /** Delete a backup */
 
   async deleteBackup(backupId) { `
-    const _result = success = `${this.backupDir}`
+    const _result = success = `$this.backupDir`
 // await node.remove(backupPath, {recursive = false;/g)`
       result.errors.push(`Failed to deletebackup = 5);`
 
@@ -89,7 +90,7 @@ createBackup((type = 'manual''));
 // const _deleteResult = awaitthis.deleteBackup(backup.id); 
   if(deleteResult.success) {
                   result.cleaned.push(backup.id); } else {
-                  result.errors.push(...deleteResult.errors) {;
+                  result.errors.push(...deleteResult.errors) ;
                 //                 }
               //               }
             //             }
@@ -135,7 +136,7 @@ createBackup((type = 'manual''));
 // const _stat = awaitnode.stat(`${this.workingDir} catch (error) { console.error(error); }/${file}`); 
   if(stat.isFile) {
                 files.push(file); //               }
-            } catch {`
+            } catch `
               // File doesn't exist'
             //             }
           //           }
@@ -155,7 +156,7 @@ createBackup((type = 'manual''));
             'coordination' ];
   for(const dir of potentialDirs) {
             try {'
-// const _stat = awaitnode.stat(`${this.workingDir} catch (error) { console.error(error); }/${dir}`); 
+// const _stat = awaitnode.stat(`$this.workingDircatch (error) console.error(error); /${dir}`); 
   if(stat.isDirectory) {
                 dirs.push(dir); //               }
             } catch {`
@@ -170,7 +171,7 @@ createBackup((type = 'manual''));
   backupFile(relativePath, backupPath) {;
 
         //         {'
-          const _result = {success = `${this.workingDir}``
+          const _result = {success = `$this.workingDir``
           const _destPath = `${backupPath}`
 
           // Ensure destination directory exists`
@@ -200,7 +201,7 @@ createBackup((type = 'manual''));
 
     for // await(const entry of node.readDir(source)) {`
       const _sourcePath = `${source}``
-      const _destPath = `${dest}`
+      const _destPath = `$dest`
   if(entry.isFile) {
 // // await node.copyFile(sourcePath, destPath);
       } else if(entry.isDirectory) {
@@ -234,7 +235,7 @@ createBackup((type = 'manual''));
       result.error = error.message;
     //     }
 
-     catch (error) { console.error(error); }// return result;/g
+     catch (error) console.error(error); 
     //   // LINT);
 
   //   {
@@ -250,7 +251,7 @@ createBackup((type = 'manual''));
           totalSize += // await this.calculateBackupSize(entryPath);
         //         }
       //       }
-    } catch {
+    } catch 
       // Error calculating size
     //     }
 

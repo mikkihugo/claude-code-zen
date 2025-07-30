@@ -238,7 +238,7 @@ parentPort.on('message', async(message) => {
 ..Object.keys(context),'
       `;``
         "use strict";
-  return(function() {
+  return(() => {
 // $pluginCode
          catch (error) console.error(error); })();"
     // `; // LINT: unreachable code removed`
@@ -253,7 +253,7 @@ parentPort.on('message', async(message) => {
 
     isInitialized = true;
 '
-    parentPort.postMessage({type = = 'function') {'
+    parentPort.postMessage(type = = 'function') {'
     throw new Error(`Method '${method}' not found in plugin`);
   //   }
 

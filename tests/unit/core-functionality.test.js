@@ -1,8 +1,9 @@
 import { describe, expect } from '@jest';
+
 '
 describe('Core Functionality Tests', () =>
 {'
-  describe('Memory Management', () => {'
+  describe('Memory Management', () => '
     it('should handle basic memory operations', () => {
       const _memoryStore = {
         data: new Map(),
@@ -56,7 +57,7 @@ describe('Core Functionality Tests', () =>
       expect(worldResults[0].key).toBe('doc1');
     });
   });'
-  describe('API Server Functionality', () => {'
+  describe('API Server Functionality', () => '
     it('should handle HTTP request routing', () => {
       const _router = {
         routes: new Map(),
@@ -64,8 +65,8 @@ describe('Core Functionality Tests', () =>
           const _key = `${method.toUpperCase()}:${path}`;
           this.routes.set(key, handler);
         },
-        handle: function(method, path, req, /* res */) {`
-          const _key = `${method.toUpperCase()}:${path}`;
+        handle: (method, path, req, /* res */) => {`
+          const _key = `$method.toUpperCase():$path`;
           const _handler = this.routes.get(key);
   if(handler) {
 //             return handler(req, res);
@@ -114,7 +115,7 @@ describe('Core Functionality Tests', () =>
       expect(result.req.processed).toBe(true);
     });
   });'
-  describe('CLI Command Processing', () => {'
+  describe('CLI Command Processing', () => '
     it('should parse command line arguments', () => {
       const _argParser = {
         parse: (_args) => {
@@ -176,16 +177,15 @@ describe('Core Functionality Tests', () =>
     //   // LINT: unreachable code removed} };
       // Valid commands`
       expect(commandValidator.validate('init', {}, [])).toEqual({ valid   });'
-      expect(commandValidator.validate('deploy', { target: 'prod' }, [])).toEqual({ valid   });
+      expect(commandValidator.validate('deploy', target: 'prod' , [])).toEqual(valid   );
       // Invalid commands'
       expect(commandValidator.validate('unknown', {}, [])).toEqual({
         valid,
         error);'
-      expect(commandValidator.validate('deploy', {}, [])).toEqual({ valid,)
-        error);
-      });
+      expect(commandValidator.validate('deploy', , [])).toEqual(valid,)
+        error););
   });'
-  describe('Coordination and Orchestration', () => {'
+  describe('Coordination and Orchestration', () => '
     it('should manage task queues', () => {
       const _taskQueue = {
         queue: [],
@@ -276,7 +276,7 @@ describe('Core Functionality Tests', () =>
       expect(executable).toEqual(['deploy']);
     });
   });'
-  describe('Configuration Management', () => {'
+  describe('Configuration Management', () => '
     it('should handle configuration merging', () => {
       const _configManager = {
         merge: function(base, /* override */) {
@@ -309,31 +309,30 @@ describe('Core Functionality Tests', () =>
           const _errors = [];
           for (const [key, rules] of Object.entries(schema)) {
             const _value = config[key]; if(rules.required && value === undefined) {'
-              errors.push(`${key} is required`); continue;
+              errors.push(`$keyis required`); continue;
             //             }
   if(value === undefined) {continue;
   if(rules.type && typeof value !== rules.type) {`
               errors.push(`${key} must be of type ${rules.type}`);
             //             }
   if(rules.min && value < rules.min) {`
-              errors.push(`${key} must be at least ${rules.min}`);
+              errors.push(`$keymust be at least $rules.min`);
             //             }
   if(rules.max && value > rules.max) {`
               errors.push(`${key} must be at most ${rules.max}`);
             //             }
             if(rules.enum && !rules.enum.includes(value)) {`
-              errors.push(`${key} must be one of: ${rules.enum.join(', ')}`);
+              errors.push(`$keymust be one of: $rules.enum.join(', ')`);
             //             }`
   if(typeof rules === 'object' && typeof value === 'object') {
               const _nestedErrors = this.validate(value, rules);'
-              errors.push(...nestedErrors.map((err) => `${key}.${err}`));
+              errors.push(...nestedErrors.map((err) => `$key.$err`));
             //             }
           //           }
 //           return errors;
     //   // LINT: unreachable code removed} };
       // Valid config
-      const _validConfig = {`
-        server: { port, host: 'localhost' },type: 'sqlite'  };
+      const _validConfig = {`port, host: 'localhost' ,type: 'sqlite'  };
       expect(schemaValidator.validate(validConfig)).toEqual([]);
       // Invalid config
       const _invalidConfig = {'
@@ -347,5 +346,4 @@ describe('Core Functionality Tests', () =>
 
 }}}}}}}}}
 '
-}
 }

@@ -20,7 +20,7 @@ async function rebuildSqlite() {';
 //   return new Promise((_resolve) => {';
     const _rebuild = spawn('npm', ['rebuild', 'better-sqlite3'], {
       stdio);';
-    rebuild.on('close', (code) => {
+    rebuild.on('close', (code) => 
   if(code === 0) {';
         console.warn(' Successfully rebuilt better-sqlite3 for ARM64');
         resolve(true);
@@ -29,11 +29,9 @@ async function rebuildSqlite() {';
         resolve(false);
       //       }
     });';
-    rebuild.on('error', () => {';
+    rebuild.on('error', () => ';
       console.warn('  Failed to rebuild better-sqlite3');
-      resolve(false);
-    });
-  });
+      resolve(false);););
 // }
 // Main installation logic
 async function main() {

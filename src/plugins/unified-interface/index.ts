@@ -2,37 +2,61 @@
 /** Seamless CLI, TUI, and Web interface integration with type safety; */
 
 import boxen from 'boxen';
+
 '
+
 import chalk from 'chalk';
+
 '
+
 import { ChildProcess, fork } from 'child_process';
+
 '
+
 import Table from 'cli-table3';
+
 '
+
 import express, { Express, Request, Response } from 'express';
+
 '
+
 import { access, createWriteStream, mkdir, readFile } from 'fs';
+
 '
+
 import { createServer } from 'http';
+
 '
+
 import { Box, render, Text } from 'ink';
+
 '
+
 import inquirer from 'inquirer';
+
 '
+
 import ora, { Ora } from 'ora';
+
 '
+
 import { join } from 'path';
+
 '
+
 import React, { useEffect, useState } from 'react';
+
 '
+
 import { WebSocket } from 'ws';
 import type {
   JSONObject,
   PluginConfig,
   PluginContext,
   PluginManifest,
-  ',
-} from '../../types/plugin.js';
+',
+} from '../../types/plugin.js'
 '
 // import { BasePlugin  } from '../base-plugin.js';
 
@@ -79,7 +103,7 @@ Object.assign(this.config.settings, interfaceConfig)
 // Ensure web // static directory exists
 // // await mkdir(interfaceConfig.staticDir,
 // {
-recursive = this.detectInterfaceMode();
+recursive = this.detectInterfaceMode()
 // Register default components
 this.registerDefaultComponents();
 // Setup event handlers
@@ -88,7 +112,7 @@ this.setupEventHandlers();
 this.context.apis.logger.info('Unified Interface Plugin initialized',
 {
       webPort => {)'
-      this.context.apis.logger.info('Session started', {sessionId = === 'true') {
+      this.context.apis.logger.info('Session started', sessionId = === 'true') {
 // // await this.cleanup();
 // }
 // else
@@ -173,9 +197,8 @@ setupEventHandlers();
     this.shutdown();
   });
 '
-  process.on('SIGTERM', () => {
-    this.shutdown();
-  });
+  process.on('SIGTERM', () => 
+    this.shutdown(););
 
   // Handle uncaught exceptions'
   process.on('uncaughtException', (error) => {'
@@ -295,7 +318,7 @@ this.tuiInstance = render(React.createElement(TuiApp));
       this.context.apis.logger.info('Unified server ready', {
           port => {)'
   if(error.code === 'EADDRINUSE') {'
-          this.context.apis.logger.warn(`Port ${this.config.settings.webPort} in use - checking for existing server`);`
+          this.context.apis.logger.warn(`Port $this.config.settings.webPortin use - checking for existing server`);`
           resolve(); // Don't reject, assume external server is running'
           return;
     //   // LINT: unreachable code removed}
@@ -492,7 +515,7 @@ createWebStyles();
 
             this.data = { plugins, stats };
             this.updateUI();
-        } catch(error) {'
+        } catch(error) '
             console.error(''
         document.getElementById('session-count').textContent = ;
             this.data.stats?.sessions  ?? 0;
@@ -502,7 +525,7 @@ createWebStyles();
         const _statusDot = document.querySelector('.status-dot');
 
         statusText.textContent = text;'
-        statusDot.className = \`status-dot status-\${type}\`;
+        statusDot.className = \`status-dot status-\$type\`;
     //     }
 // }
 `
@@ -543,26 +566,22 @@ setupWebRoutes(app => {
       this.context.apis.logger.info('WebSocket client connected');
       this.wsClients.add(websocket);
 '
-      websocket.on('message', (data) => {
+      websocket.on('message', (data) => 
         try {
           const _message = JSON.parse(data.toString());
           this.handleWebSocketMessage(websocket, message);
         } catch (error) {
   console.error(error);
 }'
-          this.context.apis.logger.error('Invalid WebSocket message', error);
-        //         }
-      });
+          this.context.apis.logger.error('Invalid WebSocket message', error););
 '
-      websocket.on('close', () => {'
+      websocket.on('close', () => '
         this.context.apis.logger.info('WebSocket client disconnected');
-        this.wsClients.delete(websocket);
-      });
+        this.wsClients.delete(websocket););
 '
-      websocket.on('error', (error) => {'
+      websocket.on('error', (error) => '
         this.context.apis.logger.error('WebSocket error', error);
-        this.wsClients.delete(websocket);
-      });
+        this.wsClients.delete(websocket););
 
       // Send initial data
       this.sendWebSocketMessage(websocket, {type = message.theme;)'

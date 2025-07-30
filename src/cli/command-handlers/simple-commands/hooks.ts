@@ -4,13 +4,16 @@
 // { Logger, JSONObject, JSONValue, JSONArray;
 //  } from;
 
-('../types/core.js')
+('../types/core.js');
 printSuccess, printError, printWarning, execRuvSwarmHook, checkRuvSwarmAvailable;
 '
 } from '..'
 '
+
 import { SqliteMemoryStore } from '../../memory/sqlite-store.js';
+
 '
+
 import TimeoutProtection from '../../utils/timeout-protection.js';
 
 // Initialize memory store
@@ -194,7 +197,7 @@ async function preTaskCommand(subArgs, flags = flags;'
       if(!fs.existsSync(workingDir)) {
         fs.mkdirSync(workingDir, {recursive = fs.statSync(workingDir);'
         console.warn(`   Working directory prepared`);
-      } catch (error) console.error(error); catch(/* err */) {`
+      } catch (error) console.error(error); catch(/* err */) `
         console.warn(`    Warning = {command = ==== POST-OPERATION HOOKS = ====`
 
 async function postTaskCommand(_subArgs, flags = flags;))`
@@ -203,7 +206,7 @@ async function postTaskCommand(_subArgs, flags = flags;))`
   console.warn(` Executing post-task hook...`);`
   console.warn(` TaskID = // await getMemoryStore();``
 // const _taskData = awaitstore.retrieve(`task = {`/g)
-..(taskData  ?? {}),
+..(taskData  ?? ),
       status = {taskId = flags;`
   const _file = options.file  ?? 'unknown-file';'
   const _memoryKey = options['memory-key']  ?? options.memoryKey;
@@ -372,7 +375,7 @@ async function postTaskCommand(_subArgs, flags = flags;))`
   console.warn(` Executing notify hook...`);`
   console.warn(`Message = // await getMemoryStore();`
 `
-    console.warn(`\n${icon} NOTIFICATION);``
+    console.warn(`\n$iconNOTIFICATION);``
     console.warn(`${message}`);`
     console.warn(`   Swarm);`
 `

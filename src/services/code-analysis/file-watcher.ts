@@ -2,9 +2,13 @@
 /** Monitors file changes and triggers incremental analysis; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { stat } from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 export class CodeAnalysisWatcher extends EventEmitter {
@@ -20,7 +24,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
 
     /** Start watching for file changes; */
 
-  async startWatching(orchestrator) { 
+  async startWatching(orchestrator) 
     if(this.isWatching) '
       console.warn(' File watcher already running');
       return;
@@ -40,7 +44,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
 // // await this.watchDirectory(dir); 
       //       }
 '
-       catch (error) { console.error(error); }this.isWatching = true; console.warn(` Watching ${watchDirs.length} directories for changes`) {;
+       catch (error) console.error(error); this.isWatching = true; console.warn(` Watching ${watchDirs.length} directories for changes`) ;
 
       // Emit start event`
       this.emit('watcher = false;'
@@ -55,7 +59,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
       //       }
     //     
 '
-    watcher.on('error', (error) => {'
+    watcher.on('error', (error) => '
         console.error(` Watcher error for ${dirPath});``
         this.emit('watcher = filePath;'
 
@@ -75,7 +79,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
 
   async processFileChange(eventType, filePath) ;
     try {'
-      console.warn(` File ${eventType} catch (error) { console.error(error); }: ${path.relative(process.cwd(), filePath)}`);
+      console.warn(` File $eventTypecatch (error) console.error(error); : $path.relative(process.cwd(), filePath)`);
 `
       // Check if file still exists(for 'change' events)
       const _fileExists = false;
@@ -200,12 +204,12 @@ export class CodeAnalysisWatcher extends EventEmitter {
 // const _entries = awaitreaddir(currentPath);
   for(const entry of entries) {
             const _fullPath = join(currentPath, entry); // const _stats = awaitstat(fullPath); 
-  if(stats.isDirectory() {) {
+  if(stats.isDirectory() {) 
               // Skip common ignored directories'
               if(!['node_modules', '.git', 'dist', 'build'].includes(entry)) {
 // // await walk(fullPath);
               //               }
-             catch (error) { console.error(error); }} else {
+             catch (error) console.error(error); } else {
               files.push(fullPath);
             //             }
           //           }

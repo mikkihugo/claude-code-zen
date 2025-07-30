@@ -1,9 +1,13 @@
 /** Swarm command - Advanced multi-agent coordination using ruv-swarm library */
 
 import process from 'node:process';
+
 '
+
 import { ParallelSwarmOrchestrator } from '../../coordination/parallel-swarm-orchestrator.js';
+
 '
+
 import { printError, printInfo } from '..';
 
 function _showSwarmHelp() {'
@@ -85,7 +89,7 @@ async function listActiveSwarms(orchestrator = // await orchestrator.getSwarmSta
       console.warn('No active swarms found');
     } else {
       Object.entries(status.swarms).forEach(([id, swarm]) => {'
-        console.warn(` ${id}`);`
+        console.warn(` $id`);`
         console.warn(`Objective = flags['swarm-id']  ?? flags.id;`
 
   if(swarmId) {
@@ -108,11 +112,10 @@ async function listActiveSwarms(orchestrator = // await orchestrator.getSwarmSta
       // Clear screen and show status'
       process.stdout.write('\\x1b[2J\\x1b[H');'
       console.warn(' Real-Time Swarm Monitor');''.repeat(50));'
-      console.warn(` _Swarm => {`)
+      console.warn(` _Swarm => `)
     clearInterval(interval);`
     printInfo('\\n Monitoring stopped');
-    process.exit(0);
-    } catch (error) { console.error(error); });
+    process.exit(0);catch (error) console.error(error); );
 // }
 
 }}}}}}}}}}}}}}}}})))))))))))))))

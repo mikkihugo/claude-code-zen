@@ -7,6 +7,7 @@
 import { ArchitectAdvisor } from '../src/queens/architect-advisor.js';
 import { createQueenCoordinator } from '../src/queens/index.js';
 import { Logger } from '../src/utils/logger.js';
+
 ';
 const __logger = new Logger('ArchitectureExample');
 async function demonstrateArchitectureAnalysis() {
@@ -63,9 +64,7 @@ async function demonstrateArchitectureAnalysis() {
   for (const scenario of scenarios) {
     ';
     console.warn(`\n$
-    {
-      '='.repeat(80);
-    }
+      '='.repeat(80)
     `); console.warn(`;
     Scenario`); console.warn(`;
     Question`) ;
@@ -78,17 +77,17 @@ async function demonstrateArchitectureAnalysis() {
     ).toFixed(1)
   }
   %`)
-  console.warn(;
+  console.warn(
   )`
       `   Neural Contribution).toFixed(1)
 }
 %`
 
 `
-    console.warn(`;
+    console.warn(`
 \n Architecture Pattern`)
 `
-    console.warn(`;
+    console.warn(`
 $;
 {
   result.recommendation.pattern.description;
@@ -100,54 +99,78 @@ console.warn(`    Pros)}`);
 Cons;
 )}`)
 `
-    console.warn(`;
+    console.warn(`
 \n Key Components`)
-result.recommendation.components.forEach((component) => {`
-      console.warn(`   - ${component}`);
-    });`
-    console.warn(`\n Recommended Technologies`);
-    const _tech = result.recommendation.technologies;`
-    if(tech.languages) console.warn(`   Languages)}`);`
+result.recommendation.components.forEach((component) =>
+{
+  `
+      console.warn(` -
+    $component`);
+    });`;
+  console.warn(`\n Recommended Technologies`);
+  const _tech = result.recommendation.technologies;
+  `
+    if(tech.languages) console.warn(`;
+  Languages;
+  )
+}
+`);`;
 if (tech.databases) console.warn(`   Databases)}`);
 `
     if(tech.deployment) console.warn(`;
 Deployment;
 )}`)
 `
-    if(tech.suggested) console.warn(`;
+if (tech.suggested)
+  console.warn(`;
 Neural;
 Suggested;
-)}`)
-`
+)}`)`
     console.warn(`;
 \n Implementation Plan`)
-result.recommendation.implementation.slice(0, 3).forEach((step, idx) => {`
-      console.warn(`${idx + 1}. ${step}`);
-    });`
-    console.warn(`   ... and ${result.recommendation.implementation.length - 3} more steps`);
-  if(result.recommendation.neuralInsights) {`
-      console.warn(`\n Neural Insights`);`
-      console.warn(`   "${result.recommendation.neuralInsights.substring(0, 150)}..."`);
-// }`
+result.recommendation.implementation.slice(0, 3).forEach((step, idx) =>
+{
+  `
+      console.warn(`;
+  $idx + 1;
+  $step`);
+    });`;
+  console.warn(`   ... and ${result.recommendation.implementation.length - 3} more steps`);
+  if (result.recommendation.neuralInsights) {
+    `
+      console.warn(`;
+    \n Neural Insights`)
+    `
+      console.warn(`;
+    '${result.recommendation.neuralInsights.substring(0, 150)}...'`);
+// }`;
     console.warn(`\n Reasoning`);
     console.warn(;
-      result.reasoning;)`
-split('\n');';
-map((line) => `   \$line`);`
+    result.reasoning;
+    )`
+split('\n')
+    ';
+map((line) => `   \$line`)
+    `
 join('\n');
     );
   if(result.alternatives && result.alternatives.length > 0) {';
-      console.warn(`\n Alternative Approaches`);
-      result.alternatives.forEach((alt) => {`
-        console.warn(`   - ${alt.architecture} (${(alt.suitability * 100).toFixed(0)}% suitable)`);`
-        console.warn(`${alt.whenToUse}`);
-      });
-// }`
+      console.warn(`;
+    \n Alternative Approaches`)
+    result.alternatives.forEach((alt) => {
+      `
+        console.warn(` - $alt.architecture($(alt.suitability * 100).toFixed(0) % suitable)`);`;
+      console.warn(`$alt.whenToUse`);
+    });
+    // }`
     console.warn(`\n  Processing Time)}ms`);
-// }
-// }
-async function demonstrateQueenCoordination() {`
-  console.warn(`\n\n${'='.repeat(80)}`);`
+    // }
+    // }
+    async function demonstrateQueenCoordination() {
+      `
+  console.warn(`;
+      \n\n$'='.repeat(80)`)
+      `
   console.warn(' Demonstrating Multi-Queen Coordination with Neural Networks\n');
   // Create a coordinator with multiple queens including our architect
 // const _coordinator = awaitcreateQueenCoordinator({
@@ -163,29 +186,52 @@ prompt: 'Build a complete real-time collaborative document editing system like G
   scalability: true,
   security }
 // }';
-console.warn(` Complex Task)`
+console.warn(`;
+      Complex;
+      Task;
+      )`
 // Let the coordinator handle it
 // const _coordinatedResult = awaitcoordinator.processTask(complexTask);`
-console.warn(' Coordinated Result');';
-console.warn(`   Primary Queen`);`
-console.warn(`   Overall Confidence).toFixed(1)}%`);`
-console.warn(`   Queens Involved)}`);`
-console.warn('\n Individual Queen Contributions');
-coordinatedResult.allResults.forEach((result) => {';
-  console.warn(`\n   ${result.queenName}`);`
+console.warn(' Coordinated Result')
+      ';
+console.warn(`   Primary Queen`)
+      `
+console.warn(`;
+      Overall;
+      Confidence;
+      ).toFixed(1)
+    }
+    %`)
+    `
+console.warn(`;
+    Queens;
+    Involved;
+    )
+  }
+  `);`;
+  console.warn('\n Individual Queen Contributions');
+  coordinatedResult.allResults.forEach((result) => {';
+  console.warn(`\n   $result.queenName`);`
   console.warn(`   - Confidence).toFixed(1)}%`);`
   console.warn(`   - Processing Time)}ms`);
-  if(result.metadata?.neuralContribution) {
-    console.warn(;)`
-    `   - Neural Contribution).toFixed(1)}%`;
-    //     
-// }
-});
+  if (result.metadata?.neuralContribution) {
+    console.warn(;
+    )`
+    `   - Neural Contribution).toFixed(1)
+  }
+  %`
+  //
+  // }
+}
+)
 // Shut down coordinator
-  // // await coordinator.stop();
+// // await coordinator.stop();
 // }
-async function demonstrateNeuralLearning() {`
-  console.warn(`\n\n${'='.repeat(80)}`);`
+async function demonstrateNeuralLearning() {
+  `
+  console.warn(`;
+  \n\n$'='.repeat(80)`)
+  `
   console.warn(' Demonstrating Neural Network Learning & Adaptation\n');
   const _architect = new ArchitectAdvisor();
   // Simulate multiple similar requests to show cache and learning effects
@@ -193,23 +239,35 @@ async function demonstrateNeuralLearning() {`
   const _basePrompt =;';
     'Design a microservices architecture for an e-commerce platform with high scalability needs';
   for(let i = 0; i < iterations; i++) {';
-    console.warn(`\n Iteration ${i + 1}`);
-    const _task = {`
+    console.warn(`;
+  \n Iteration $i + 1`)
+  const _task = {`
       id: `learning-${i}`,`
       type: 'architecture-analysis',''),
           scalability: true,
           performance: true};
-    const _startTime = Date.now();
-// const _result = awaitarchitect.process(task);
-    const _totalTime = Date.now() - startTime;';
-    console.warn(`   Processing Time`);`
-    console.warn(`   Neural Engine Time)}ms`);`
-    console.warn(`   Confidence).toFixed(1)}%`);
-    // Show if result w
-    const _neuralStats = architect.neuralEngine.getStats();`
-    console.warn(`   Cache Size`);`
-    console.warn(`   Total Inferences`);
-  if(neuralStats.totalInferences > 0) {
+  const _startTime = Date.now();
+  // const _result = awaitarchitect.process(task);
+  const _totalTime = Date.now() - startTime;
+  ';
+    console.warn(`   Processing Time`)
+  `
+    console.warn(`;
+  Neural;
+  Engine;
+  Time;
+  )
+}
+ms`);`;
+console.warn(`   Confidence).toFixed(1)}%`);
+// Show if result w
+const _neuralStats = architect.neuralEngine.getStats();
+`
+    console.warn(`;
+Cache;
+Size`);`;
+console.warn(`   Total Inferences`);
+if(neuralStats.totalInferences > 0) {
       const _hitRate = ((neuralStats.cacheHits / neuralStats.totalInferences) * 100).toFixed(1);`
       console.warn(`   Cache Hit Rate`);
 // }

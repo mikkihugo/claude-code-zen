@@ -2,11 +2,17 @@
 /** Provides persistent storage that works with both local and remote npx execution */
 
 import { promises as fs } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import { createDatabase } from '.';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -43,7 +49,7 @@ _getMemoryDirectory();
   // return path.join(process.cwd(), '.swarm');
 // }
 private
-async;
+async
 _directoryExists(dir = await fs.stat(dir);
 // return stats.isDirectory();
 } /* catch */
@@ -64,7 +70,7 @@ try {
       // Enable WAL mode for better concurrency'
       this.db.pragma('journal_mode = WAL');'
       this.db.pragma('synchronous = NORMAL');'
-      this.db.pragma(`cache_size = -${Math.floor(this.options.cacheSize! / 1024)} catch (error) { console.error(error); }`); // Negative for KB`
+      this.db.pragma(`cache_size = -$Math.floor(this.options.cacheSize! / 1024)catch (error) console.error(error); `); // Negative for KB`
       this.db.pragma(`mmap_size = ${this.options.mmapSize!}`);`
       this.db.pragma('temp_store = MEMORY');'
       this.db.pragma('optimize');
@@ -206,7 +212,7 @@ run(key, valueStr, namespace, metadata, ttl, expiresAt);
 
       // Invalidate related cache entries
   if(result.changes > 0) {'
-        this._invalidateCache(`retrieve = {} catch (error) console.error(error); ): Promise<any[]> {`
+        this._invalidateCache(`retrieve = catch (error) console.error(error); ): Promise<any[]> {`
 // // await this.initialize();`
     const _namespace = options.namespace  ?? 'default';
     const _limit = options.limit  ?? 50;'
@@ -288,12 +294,9 @@ all(namespace, searchPattern, searchPattern, limit);
       // return {entries = > idx.name);
     //   // LINT: unreachable code removed};catch(error = ;
 
-      const _commonQueries = [`
-        {name = ? AND namespace = ?''
-        {name = ? ORDER BY updated_at DESC LIMIT ?''
-        {name = ? AND(key LIKE ? OR value LIKE ?) LIMIT ?' },name = strftime(\'%s\', \'now\')' }
+      const _commonQueries = [`name = ? AND namespace = ?''name = ? ORDER BY updated_at DESC LIMIT ?''name = ? AND(key LIKE ? OR value LIKE ?) LIMIT ?' },name = strftime(\'%s\', \'now\')' 
       ];
   for(const query of commonQueries) {
         try {'
-          const _plan = this.db?.prepare(`EXPLAIN QUERY PLAN ${query.sql} catch (error) { console.error(error); }`).all(); plans[query.name] = plan; } catch(_error = error = new SqliteMemoryStore() ;}}}}}}}}}}))))
+          const _plan = this.db?.prepare(`EXPLAIN QUERY PLAN ${query.sql} catch (error) { console.error(error); }`).all(); plans[query.name] = plan; } catch(_error = error = new SqliteMemoryStore() ;}}}}}}}}))))
 `

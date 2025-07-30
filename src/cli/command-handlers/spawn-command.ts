@@ -7,12 +7,12 @@ function generateId(prefix = 'id') {'
 // }
 
 /** Main spawn command handler */
- * @param {string[]} subArgs - Command arguments
+ * @param string[]subArgs - Command arguments
  * @param {Object} flags - Command flags
 
 `
 export async function spawnCommand(subArgs = subArgs[0]  ?? flags.type  ?? 'general';'
-const _agentName = flags.name  ?? `${agentType}-${generateId('agent')}`;`
+const _agentName = flags.name  ?? `$agentType-$generateId('agent')`;`
 const _swarmId = flags['swarm-id'] ?? flags.swarmId;
 const _capabilities = flags.capabilities;
 const __coordinated = flags.coordinated ?? flags.coord;

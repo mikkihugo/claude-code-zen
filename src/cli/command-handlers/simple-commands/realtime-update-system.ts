@@ -187,10 +187,10 @@ applyUpdatesToView(viewName, groupedUpdates);
           break;'
         case 'memory':
           this.applyMemoryUpdates(groupedUpdates);
-          break;default = === viewName) {
+          break;default = === viewName) 
         this.requestUIRefresh();
       //       }
-     catch (error) { console.error(error); }} catch(error) ;'
+     catch (error) console.error(error); catch(error) ;'
       console.error(`Error applying updates to \$viewName);`
       this.updateMetrics.droppedUpdates++;
   //   }
@@ -209,7 +209,7 @@ applyUpdatesToView(viewName, groupedUpdates);
   if(existingJob) {
           Object.assign(existingJob, update.data);
         } else {'
-          neuralData.trainingJobs.push({id = groupedUpdates.get('model_update');
+          neuralData.trainingJobs.push(id = groupedUpdates.get('model_update');
   if(modelUpdates) {
       modelUpdates.forEach((update) => {
         const _existingModel = neuralData.models.find((model) => model.id === update.modelId);
@@ -276,7 +276,7 @@ applyUpdatesToView(viewName, groupedUpdates);
           //           }
         //         }
 '
-        this.ui.addLog('info', ` Memory ${update.operation} in ${update.namespace}`);
+        this.ui.addLog('info', ` Memory $update.operationin $update.namespace`);
       });
     //     }
   //   }
@@ -307,16 +307,16 @@ applyUpdatesToView(viewName, groupedUpdates);
 
 /** Start performance monitoring; */
 
-  startPerformanceMonitoring() {}
+  startPerformanceMonitoring() 
     setInterval(() => {
       this.reportPerformanceMetrics();
     }, 60000); // Report every minute
 
 /** Report performance metrics; */
 
-  reportPerformanceMetrics() {}
+  reportPerformanceMetrics() 
 '
-    this.emit('performance_metrics', {
+    this.emit('performance_metrics', 
       totalUpdates = {};
     this.updateQueues.forEach((queue, viewName) => {
       queueSizes[viewName] = queue.length;
@@ -337,10 +337,10 @@ applyUpdatesToView(viewName, groupedUpdates);
 
           this.broadcastUpdate(viewName, {type = > setTimeout(resolve, delay));
           //           }
-         catch (error) { console.error(error); }//         }
+         catch (error) console.error(error); 
 
         if(onComplete) onComplete(data);
-      } catch(error) {
+      } catch(error) 
         this.broadcastUpdate(viewName, {type = > clearTimeout(timer));
     this.updateTimers.clear();
 
@@ -361,5 +361,5 @@ applyUpdatesToView(viewName, groupedUpdates);
 
 // export default RealtimeUpdateSystem;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))))))))
 '

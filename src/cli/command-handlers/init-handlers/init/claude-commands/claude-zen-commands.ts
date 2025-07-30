@@ -45,7 +45,7 @@ Options;
 
 ### Development Swarm with Review;`;
 \`\`\`bash
-``;
+``
 // claude-zen swarm "Build e-commerce REST API" \\;
 --strategy;
 development;
@@ -67,14 +67,14 @@ development;
 --distributed
 \\
 --max - agents
-8;
+8
 "
 \`\`\`
 
 ### Performance Optimization Swarm`
 \`\`\`bash`
 `
-``;
+``
 // claude-zen swarm "Optimize database queries and API performance" \\;
 --strategy;
 optimization;
@@ -90,16 +90,16 @@ optimization;
 ### Enterprise Development Swarm`
 \`\`\`bash`
 `
-``;
+``
 // claude-zen swarm "Implement secure payment processing system" \\;
 --strategy;
 development;
 \\
 --mode
-distributed;
+distributed
 \\
 --max - agents
-10;
+10
 \\
 --parallel
 \\
@@ -118,7 +118,7 @@ distributed;
 ### Testing and QA Swarm`
 \`\`\`bash`
 `
-``;
+``
 // claude-zen swarm "Comprehensive security audit and testing" \\;
 --strategy;
 testing;
@@ -128,7 +128,7 @@ testing;
 --verbose
 \\
 --max - agents
-6;
+6
 "
 \`\`\`
 
@@ -139,7 +139,7 @@ testing;
 `
 `
 #
-Monitor;
+Monitor
 swarm;
 activity;
 // claude-zen monitor
@@ -156,7 +156,7 @@ component;
 `
 `
 #
-Overall;
+Overall
 system;
 status;
 // claude-zen status
@@ -173,7 +173,7 @@ status;
 `
 `
 #
-List;
+List
 all;
 agents;
 // claude-zen agent list
@@ -193,9 +193,10 @@ for collaboration
 `
 `
 #
-Store;
+Store
 swarm;
-objectives;`;
+objectives;
+`;
 // claude-zen memory store "swarm_objective" "Build scalable API" --namespace swarm
 
 #
@@ -296,28 +297,29 @@ Dry;
 run;
 to;
 preview: null;
-`
-\`\`\`bash``;``
+`;
+\`\`\`bash``
+``;
 // claude-zen swarm "Test task" --dry-run --strategy development;"
 \`\`\`
 
-### Custom quality thresholds: null`;
+### Custom quality thresholds: null`
 \`\`\`bash`
 `
-``;
+``
 // claude-zen swarm "High quality API" \\;
 --strategy;
 development;
 \\
 --quality - threshold
-0.95;
+0.95
 "
 \`\`\`
 
 ### Scheduling algorithms: null
 - FIFO(First In, First Out)
 -Priority - based
--Deadline - driven;
+-Deadline - driven
 -Shortest;
 Job;
 First;
@@ -344,7 +346,7 @@ $;
   swarm.md`,
   swarmCommand;
 )
-``;
+``
 // // await node.writeTextFile(`;`
 $;
 {
@@ -354,7 +356,7 @@ $;
 /.claude/commands/claude-zen-swarm.md`,
   swarmCommand;
 )
-``;
+``
 console.warn('   Created slash command);'
 // }
 '

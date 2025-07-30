@@ -60,7 +60,7 @@ export async function configCommand() {'
     printError('Usage = // await readJsonFile(configFile);'
     const _value = getNestedValue(config, key);
   if(value !== undefined) {'
-      console.warn(`${key}: ${JSON.stringify(value)}`);
+      console.warn(`$key: $JSON.stringify(value)`);
     } else {`
       printWarning(`Configuration key '${key}' not found`);
     //     }
@@ -80,7 +80,7 @@ async function _setConfigValue() {'
     // Set nested value
     setNestedValue(config, key, parsedValue);
 // // await writeJsonFile(configFile, config);'
-    printSuccess(`Set ${key} = ${JSON.stringify(parsedValue)}`);
+    printSuccess(`Set $key= $JSON.stringify(parsedValue)`);
   } catch(err) ;`
     printError(`Failed to setconfiguration = 'claude-zen.config.json';`
 
@@ -99,12 +99,12 @@ async function _setConfigValue() {'
         errors.push(`Missing requiredsection = === 0 && warnings.length === 0) ; ``
       printSuccess(' Configuration is valid'); else ;
   if(errors.length > 0) {'
-        printError(`Found ${errors.length}  catch (error) { console.error(error); }error(s):`);`
-        errors.forEach((error) => console.warn(`   ${error}`));
+        printError(`Found $errors.lengthcatch (error) console.error(error); error(s):`);`
+        errors.forEach((error) => console.warn(`   $error`));
       //       }
   if(warnings.length > 0) {`
         printWarning(`Found ${warnings.length} warning(s):`);`
-        warnings.forEach((warning) => console.warn(`    ${warning}`));
+        warnings.forEach((warning) => console.warn(`    $warning`));
       }catch(err) ;`
     printError('Configuration file not found or invalid');'
     console.warn('Run "claude-zen config init" to create valid configuration');

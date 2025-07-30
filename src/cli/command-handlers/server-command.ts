@@ -2,6 +2,7 @@
 /** Manages the Claude Zen API server lifecycle */
 
 import fs from 'node:fs';
+
 '
 const _SERVER_PID_FILE = '.';
 export async function serverCommand() {'
@@ -65,10 +66,9 @@ export async function serverCommand() {'
       try {'
         process.kill(pid, 'SIGTERM');
         fs.unlinkSync(SERVER_PID_FILE);'
-        console.warn(` Server stopped(PID = === 'ESRCH') {``
+        console.warn(` Server stopped(PID = === 'ESRCH') ``
           console.warn('  Server process not found, cleaning up PID file');
-          fs.unlinkSync(SERVER_PID_FILE);
-        }  catch (error) { console.error(error); }else 
+          fs.unlinkSync(SERVER_PID_FILE);catch (error) console.error(error); else 
     throw error;
   //   }
 // }

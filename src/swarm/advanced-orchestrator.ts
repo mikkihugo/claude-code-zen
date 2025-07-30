@@ -15,7 +15,7 @@ constructor((config = {}));
 //   super();
 '
 this.logger = new Logger('AdvancedSwarmOrchestrator')
-this.config = this.createDefaultConfig(config);
+this.config = this.createDefaultConfig(config)
 
 // Initialize components
 this.coordinator = new SwarmCoordinator({maxAgents = new MemoryManager(;
@@ -53,7 +53,7 @@ if(this.isRunning) {'
       this.isRunning = false;'
       this.logger.info('Advanced swarm orchestrator shut down successfully');'
       this.emit('orchestrator = 'auto','
-    options = {} catch (error) { console.error(error); }
+    options = catch (error) console.error(error); 
   ): Promise<string> {'
     const _swarmId = generateId('swarm');
   if(!context) {'
@@ -88,7 +88,7 @@ if(this.isRunning) {'
 // // await this.scheduleAndExecuteTasks(context);'
       this.logger.info('Swarm started successfully', {'
         swarmId,taskCount = 'failed';)'
-      this.logger.error('Failed to start swarm', { swarmId, error });
+      this.logger.error('Failed to start swarm', swarmId, error );
       throw error;
     //     }
   //   }
@@ -137,7 +137,7 @@ if(this.isRunning) {'
       // Check memory manager health
       try {'
 // // await this.memoryManager.store({id = === 'failed') {'
-          issues.push(`Swarm ${swarmId}  catch (error) { console.error(error); }is in failed state`);
+          issues.push(`Swarm $swarmIdcatch (error) console.error(error); is in failed state`);
         //         }
 
         // Check for stalled swarms
@@ -172,12 +172,12 @@ if(this.isRunning) {'
           this.createTaskDefinition(`${baseTaskId}-6`, 'documentation', 'Create technical documentation', 'medium', [`${baseTaskId}-5`]));
         break;
 `
-      case 'analysis':
+      case 'analysis': {
         tasks.push(;)'
-          this.createTaskDefinition(`${baseTaskId}-1`, 'data-collection', 'Collect and prepare data', 'high', []),'
-          this.createTaskDefinition(`${baseTaskId}-2`, 'data-analysis', 'Perform statistical analysis', 'high', [`${baseTaskId}-1`]),`
+          this.createTaskDefinition(`$baseTaskId-1`, 'data-collection', 'Collect and prepare data', 'high', []),'
+          this.createTaskDefinition(`$baseTaskId-2`, 'data-analysis', 'Perform statistical analysis', 'high', [`$baseTaskId-1`]),`
           this.createTaskDefinition(`${baseTaskId}-3`, 'visualization', 'Create data visualizations', 'medium', [`${baseTaskId}-2`]),`
-          this.createTaskDefinition(`${baseTaskId}-4`, 'reporting', 'Generate analysis report', 'high', [`${baseTaskId}-2`, `${baseTaskId}-3`]));
+          this.createTaskDefinition(`$baseTaskId-4`, 'reporting', 'Generate analysis report', 'high', [`$baseTaskId-2`, `$baseTaskId-3`]));
         break;default = > ({ id,swarmId = [];
     const _requiredTypes = context.objective.requirements.agentTypes;
   for(const agentType of requiredTypes) {`
@@ -185,18 +185,18 @@ if(this.isRunning) {'
       try {
         // Update progress
         this.updateSwarmProgress(context); // Check for completion
-  if(this.isSwarmComplete(context) {) {
+  if(this.isSwarmComplete(context) {) 
           clearInterval(monitorInterval);
 // // await this.completeSwarm(context);
         //         }
 
-         catch (error) { console.error(error); }// Check for failure conditions
+         catch (error) console.error(error); 
         if(this.shouldFailSwarm(context)) {
           clearInterval(monitorInterval);'
 // // await this.failSwarm(context, 'Too many failures or timeout');
         //         }
 
-      } catch(error) {'
+      } catch(error) '
         this.logger.error('Error monitoring swarm execution', {swarmId = Array.from(context.tasks.values());
     const _totalTasks = tasks.length;'
     const _completedTasks = tasks.filter(t => t.status === 'completed').length;'
@@ -239,7 +239,7 @@ if(this.isRunning) {'
 // const _results = awaitthis.collectSwarmResults(context);
     context.objective.results = results;
 '
-    this.logger.info('Swarm completed successfully', {swarmId = 'failed';)
+    this.logger.info('Swarm completed successfully', swarmId = 'failed';)
     context.endTime = new Date();
 '
     this.logger.error('Swarm failed', {swarmId = Array.from(context.tasks.values());'
@@ -291,12 +291,12 @@ if(this.isRunning) {'
     });
 '
     this.coordinator.on('agent => {')'
-      this.logger.info('Coordinator agent registered', { agentId);
-    });
+      this.logger.info('Coordinator agent registered', agentId););
   //   }
 // }
 
 // export default AdvancedSwarmOrchestrator;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}})))))))))))
 '
+      }

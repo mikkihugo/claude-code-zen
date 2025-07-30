@@ -3,9 +3,13 @@
 /** Based on upstream commit 00dd0094; */
 
 import { promises as fs } from 'node:fs';
+
 '
+
 import { dirname, extname } from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -86,7 +90,7 @@ capabilities: ['analysis', 'code-review', 'refactoring'], priority;
 
 /** Initialize the agent loader and discover available agents; */
 
-async;
+async
 initialize();
 : Promise<void>
 {
@@ -124,13 +128,13 @@ initialize();
   if(file === 'agent-loader.ts'  ?? file === 'agent-loader.js') {
           continue; //         }
 
-         catch (error) { console.error(error); }const _filePath = join(agentsDir, file); // const _stats = awaitfs.stat(filePath) {;
+         catch (error) console.error(error); const _filePath = join(agentsDir, file); // const _stats = awaitfs.stat(filePath) {;
 '
         if(stats.isFile() && (extname(file) === '.js'  ?? extname(file) === '.ts')) {
 // // await this.loadAgentFromFile(filePath);
         //         }
       //       }
-    } catch(error) {'
+    } catch(error) '
       console.warn(` Could not discover dynamic agents);`
     //     }
   //   }
@@ -148,14 +152,14 @@ initialize();
             displayName: agentConfig.displayName,'
             description: agentConfig.description  ?? 'Dynamic agent',
             capabilities: agentConfig.capabilities  ?? [],
-            priority: agentConfig.priority  ?? 3 } catch (error) { console.error(error); };
+            priority: agentConfig.priority  ?? 3 } catch (error) console.error(error); ;
 
           this.agentTypes.set(agentType.name, agentType);
         //         }
       //       }
   //   }
-  catch(error) {'
-    console.warn(` Could not load agent from ${filePath});`
+  catch(error) '
+    console.warn(` Could not load agent from $filePath);`
   //   }
 // }
 
@@ -240,6 +244,5 @@ getAgentType(name)
 const _agentLoader = AgentLoader.getInstance();
 // export default agentLoader;
 `
-}
 }
 }

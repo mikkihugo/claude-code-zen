@@ -1,5 +1,7 @@
 import { createRequire } from 'node:module';
+
 '
+
 import { Logger } from '../utils/logger.js';
 // Import the REAL neural integration'
 import { loadRealNeuralBindings } from '.';
@@ -100,7 +102,7 @@ if(this.loadAttempted) {
 // const _wasmModule = awaitimport(path);
                     // await wasmModule.default(); // Initialize WASM
   if(wasmModule.loadModel) {'
-                        this.logger.info(`WASM bindings loadedfrom = error instanceof Error ? error.message => {`
+                        this.logger.info(`WASM bindings loadedfrom = error instanceof Error ? error.message => `
                 try {
 //                     return binding.loadModel(path);
     //   // LINT: unreachable code removed} catch (error) {

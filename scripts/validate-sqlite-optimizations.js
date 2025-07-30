@@ -4,15 +4,25 @@
 /** Quick test to validate the performance improvements; */
 
 import fs from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { SQLiteConnectionPool } from '../src/memory/sqlite-connection-pool.js';
+
 '
+
 import { SqliteMemoryStore } from '../src/memory/sqlite-store.js';
+
 '
+
 import { getLoadError } from '../src/memory/sqlite-wrapper.js';
 
 const _colors = {'
@@ -57,9 +67,7 @@ const _testDir = path.join(
   os.tmpdir(),'
   `;`
 sqlite - validation - $;
-{
-  Date.now();
-}`
+  Date.now();`
 `
 );
 // // await fs.mkdir(testDir, { recursive });`
@@ -187,9 +195,7 @@ const _start = Date.now();
   // // await perfStore.store(;'
   `;`
 perf - key - $;
-{
-  i;
-}`
+  i;`
 `,`
   id,`
   data: `;`

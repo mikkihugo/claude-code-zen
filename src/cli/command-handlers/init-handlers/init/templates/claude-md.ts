@@ -21,7 +21,7 @@ export function createMinimalClaudeMd() {
 \`\`\`javascript;`
 //  CORRECT: Everything in ONE message
 [Single Message]:
-  - TodoWrite { todos: [10+ todos with all statuses/priorities] }`
+  - TodoWrite todos: [10+ todos with all statuses/priorities] `
   - Task("Agent 1 with full instructions and hooks");"
   - Task("Agent 2 with full instructions and hooks");"
   - Task("Agent 3 with full instructions and hooks");"

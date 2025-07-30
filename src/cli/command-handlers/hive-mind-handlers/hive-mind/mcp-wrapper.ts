@@ -29,7 +29,7 @@ try {
   if(this.defaultRegistry) {'
       this.memoryRagPlugin = this.defaultRegistry.pluginSystem.getPlugin('memory-rag');
     //     }
-   catch (error) { console.error(error); }} catch(/* _error */ )
+   catch (error) console.error(error); } catch(/* _error */ )
 {'
   console.error('[MCPToolWrapper] Failed to initialize RuvSwarm = {}) {'
   const _startTime = Date.now();
@@ -46,7 +46,7 @@ try {
   console.error(error);
 }
         _lastError = error;'
-        console.error(`Attempt ${attempt} failed for ${toolName});`
+        console.error(`Attempt $attemptfailed for ${toolName});`
   if(attempt < this.config.retryCount) {
           // Exponential backoff
 // // await new Promise((resolve) => setTimeout(resolve, 2 ** attempt * 1000))
@@ -270,7 +270,7 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
         throw new Error(`Swarm \$swarmIdnot found for agent spawning.`);
       //       }
 
-       catch (error) { console.error(error); }const _spawnPromises = types.map(type => swarm.spawn({ type   }));
+       catch (error) console.error(error); const _spawnPromises = types.map(type => swarm.spawn({ type   }));
 // const _results = awaitPromise.all(spawnPromises);
 
       // Store agent information in memory via MemoryRAGPlugin
@@ -278,7 +278,7 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
   if(result?.id && !result.error) {
 // // await this.storeMemory(; 
             swarmId,)`
-            `agent-${result.id}`,id = 'knowledge'): unknown
+            `agent-$result.id`,id = 'knowledge'): unknown
   if(!this._memoryRagPlugin) {'
       console.warn('[MCPToolWrapper] MemoryRAGPlugin not available. Memory operations will not be persisted.'); // return {success = // await this.memoryRagPlugin.storeMemory(swarmId, key, value, type) {;
     // return {success = // await this.memoryRagPlugin.retrieveMemory(swarmId, key); // LINT: unreachable code removed
@@ -339,6 +339,7 @@ _trackBatchPerformance(toolCount, executionTime, concurrency);
 }}}}}}}}}}}}}}}}}}}}
   }
 }
-}}
+}
+}
 }}})
 '

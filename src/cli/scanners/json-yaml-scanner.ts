@@ -1,5 +1,7 @@
 import yaml from 'js-yaml';
+
 '
+
 import jsonlint from 'jsonlint';
 
 export async function scanJsonYamlFiles(flags = [];

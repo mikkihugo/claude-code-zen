@@ -17,7 +17,7 @@ export function validateAIRequest() {`
       throw new Error('Each message must have role and content'); //     }
 '
     if(!['system', 'user', 'assistant', 'function'].includes(message.role)) {'
-      throw new Error(`Invalid messagerole = = undefined && (request.temperature < 0  ?? request.temperature > 2)) {``
+      throw new Error(`Invalid messagerole = = undefined && (request.temperature < 0  ?? request.temperature > 2)) ``
     throw new Error('Temperature must be between 0 and 2'); //   }
   if(request.maxTokens !== undefined && request.maxTokens < 1) {'
     throw new Error('Max tokens must be greater than 0');
@@ -71,7 +71,7 @@ export function validateAIRequest() {`
 /** Exponential backoff calculation; */
 
 // export function calculateBackoffDelay(attempt = 1000, maxDelay = 30000, backoffFactor = 2) {
-  const _delay = baseDelay * Math.pow(backoffFactor, attempt);
+  const _delay = baseDelay * backoffFactor ** attempt;
 //   return Math.min(delay + Math.random() * 1000, maxDelay); // Add jitter
 // }
 
@@ -124,9 +124,9 @@ export function validateAIRequest() {`
   constructor(;
     // private failureThreshold = 5,
     // private recoveryTimeout = 60000;
-  ) {}
+  ) 
 
-  async execute<T>(operation = > Promise<T>): Promise<T> {'
+  async execute<T>(operation = > Promise<T>): Promise<T> '
   if(this.state === 'open') {
       if(Date.now() - this.lastFailureTime > this.recoveryTimeout) {'
         this.state = 'half-open';
@@ -159,10 +159,10 @@ export function validateAIRequest() {`
       this.state = 'open';
     //     }
   //   }
-  getState() {
+  getState() 
     // return this.state;
     //   // LINT: unreachable code removed}
-  reset() {
+  reset() 
     this.failures = 0;
     this.lastFailureTime = 0;'
     this.state = 'closed';
@@ -175,7 +175,7 @@ export function validateAIRequest() {`
   maxRetries = 3,
   baseDelay = 1000,shouldRetry = > boolean = () => true;
 ): Promise<T> {
-  let _lastError = 0; attempt <= maxRetries; attempt++) {
+  const _lastError = 0; attempt <= maxRetries; attempt++) 
     try {
 //       return // await operation();
     //   // LINT: unreachable code removed} catch (error) {
@@ -211,7 +211,7 @@ export function validateAIRequest() {`
       case 'least_latency':
         // return this.selectLeastLatency(items, getMetrics);
     // ; // LINT: unreachable code removed'
-      case 'weighted':
+      case 'weighted': {
         // return this.selectWeighted(items, this.strategy.weights  ?? {});default = items[this.roundRobinIndex % items.length];
     this.roundRobinIndex++;
     // return item;
@@ -239,5 +239,6 @@ export function validateAIRequest() {`
     //   // LINT: unreachable code removed}
 // }
 
-) {)
+) )
 '
+      }

@@ -29,8 +29,9 @@ try {
 
   // Log available endpoints`
   http: console.warn('\n Available Endpoints:');
-  server.generatedRoutes.forEach((route) => {';
-    console.warn(`${route.method.toUpperCase()} ${route.path} - ${route.description}`);
+  server.generatedRoutes.forEach((route) => {
+    ';
+    console.warn(`$route.method.toUpperCase()$route.path- $route.description`)
   });
   // Example API calls`
   console.warn('\n Making example API calls...');
@@ -45,46 +46,47 @@ try {
   // Keep server running for demonstration';
   console.warn('\n Server running... Press Ctrl+C to stop');
   // Graceful shutdown handling';
-  process.on('SIGINT', async () => {';
-    console.warn('\n Shutting down server...');
+  process.on('SIGINT', async () => {
+    ';
+    console.warn('\n Shutting down server...')
     // await server.stop();';
     console.warn(' Server stopped');
     process.exit(0);
   });
 }
-  catch(error)
-  {
-    ';
+catch(error)
+{
+  ';
   console.error(' Server startup failed);'
-    process.exit(1);
-    //   }
-    // }
-    // Example with custom middleware
-    async function advancedServerExample() {
-      ';
+    process.exit(1)
+  //   }
+  // }
+  // Example with custom middleware
+  async function advancedServerExample() {
+    ';
     console.warn(' Starting Advanced Claude Zen Server Example')
-      const _server = new ClaudeZenServer({ port: 3000,';
+    const _server = new ClaudeZenServer({ port: 3000,';
     host: '0.0.0.0';
 
-      // Add custom middleware';
-      server.app.use('/api/custom', (req, _res, next) =>
+    // Add custom middleware';
+    server.app.use('/api/custom', (req, _res, next) =>
 // {';
   console.warn(`Custom middleware`);
-      next();
-    }
+    next();
+  }
 
-    // Add custom routes`
-    server.app.get('/api/custom/health', (_req, res) =>
+  // Add custom routes`
+  server.app.get('/api/custom/health', (_req, res) =>
 // {
   res.json(';
       status: 'healthy',
   timestamp: new Date().toISOString(),
   uptime: process.uptime(),
   memory: process.memoryUsage()
-  }
+}
 
-  // Monitor server events';
-  server.on('request', (data) =>
+// Monitor server events';
+server.on('request', (data) =>
 // {';
   console.warn(` Request`)
 }

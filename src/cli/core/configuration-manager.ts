@@ -2,17 +2,19 @@
 /** Implements Google's dependency injection and configuration principles;' */
 
 */'
+
 import os from 'node:os';
+('');
 '
-'
-'
+
 import path from 'node:path';
+('');
 '
-'
-'
+
 import { existsSync } from 'node = ============================================================================;';
 '
-import logger from '.';
+import logger from
+';
 
 // TYPE DEFINITIONS
 // =============================================================================
@@ -31,7 +33,7 @@ import logger from '.';
 
 // // export class ConfigurationManager {
 //   // // private config = { ...DEFAULT_CONFIG }
-this;
+this
 
 configPath = null;
 this;
@@ -47,7 +49,7 @@ resolution;
 options
  * @returns Configuration
 file;
-path * /;
+path * /;;
 // */ // LINT: unreachable code removed
 // // public getConfigPath(options =
 // {
@@ -62,12 +64,12 @@ if(options.customPath) {
   if(this.configPath) return this.configPath;
     // ; // LINT: unreachable code removed
   // Try various locations in order of preference
-  const _possiblePaths = options.searchPaths  ?? [;
+  const _possiblePaths = options.searchPaths  ?? [
     process.env.CLAUDE_FLOW_CONFIG,'
     path.join(process.cwd(), '.claude-zen.json''
     path.join(process.cwd(), 'claude-zen.config.json''
     path.join(os.homedir(), '.config', 'claude-zen', 'config.json''
-    path.join(os.homedir(), '.claude-zen.json') ];'
+    path.join(os.homedir(), '.claude-zen.json') ]
 
   const _validPaths = possiblePaths.filter(Boolean) as string[];
   for(const configPath of validPaths) {
@@ -77,7 +79,7 @@ if(options.customPath) {
   //   }
 
   // Default to user config directory'
-  const _defaultPath = path.join(os.homedir() {, '.config', 'claude-zen', 'config.json');'
+  const _defaultPath = path.join(os.homedir() {, '.config', 'claude-zen', 'config.json')
   this.configPath = defaultPath;
   // return defaultPath;
 // }
@@ -98,14 +100,14 @@ loadConfiguration((options = {}));
 
   try {
       if(existsSync(configPath)) {'
-// const _content = awaitreadFile(configPath, 'utf-8');'
+// const _content = awaitreadFile(configPath, 'utf-8')
         const _parsedConfig = JSON.parse(content) as Partial<Configuration>;
 
         // Merge with defaults(deep merge)
-        this.config = this.deepMerge(DEFAULT_CONFIG, parsedConfig);'
-        logger.debug(`Configuration loaded from ${configPath} catch (error) { console.error(error); }`);`
-      } else {`
-        logger.debug(`No configuration file found at $configPath, using defaults`);`
+        this.config = this.deepMerge(DEFAULT_CONFIG, parsedConfig)
+        logger.debug(`Configuration loaded from ${configPath} catch (error) { console.error(error)}`);``
+      } else {``
+        logger.debug(`No configuration file found at $configPath, using defaults`);``
   if(options.createDefault) {
 // // // await this.saveConfiguration();
         //         }
@@ -127,9 +129,9 @@ loadConfiguration((options = {}));
 
   try {
       // Ensure directory exists
-// // // await mkdir(configDir, {recursive = JSON.stringify(this.config, null, 2);`
+// // // await mkdir(configDir, {recursive = JSON.stringify(this.config, null, 2);``
 // // // await writeFile(configPath, content, 'utf-8''
-      logger.debug(`Configuration saved to ${configPath} catch (error) { console.error(error); }`);`
+      logger.debug(`Configuration saved to ${configPath} catch (error) { console.error(error)}`);``
     } catch(_error;
   = any>(keyPath,defaultValue = null): T | null;
   // return this.getNestedValue(this.config, keyPath, defaultValue);
@@ -156,69 +158,66 @@ validate();
 
     try {
       // Validate required fields
-  if(!this.config.version) {`
-        errors.push('Missing version field');'
+  if(!this.config.version) {``
+        errors.push('Missing version field')
       //       }
 
-       catch (error) { console.error(error); }// Validate logging configuration
+       catch (error) console.error(error)
   if(this.config.logging) {'
-        const _validLevels = ['error', 'warn', 'info', 'debug', 'trace'];'
+        const _validLevels = ['error', 'warn', 'info', 'debug', 'trace']
         if(!validLevels.includes(this.config.logging.level)) {'
-          errors.push(`Invalid logginglevel = 0) ``
-          errors.push('commands.timeout must be positive');'
+          errors.push(`Invalid logginglevel = 0) ```
+          errors.push('commands.timeout must be positive')
         //         }
   if(this.config.commands.maxRetries < 0) {'
-          errors.push('commands.maxRetries cannot be negative');'
+          errors.push('commands.maxRetries cannot be negative')
         //         }
   if(this.config.commands.maxRetries > 10) {'
-          warnings.push('commands.maxRetries > 10 may cause performance issues');'
+          warnings.push('commands.maxRetries > 10 may cause performance issues')
         //         }
       //       }
 
       // Validate swarm configuration
   if(this.config.swarm) {
   if(this.config.swarm.maxAgents < 1  ?? this.config.swarm.maxAgents > 50) {'
-          errors.push('swarm.maxAgents must be between 1 and 50');'
+          errors.push('swarm.maxAgents must be between 1 and 50')
         //         }
 '
-        const _validTopologies = ['hierarchical', 'mesh', 'ring', 'star'];'
+        const _validTopologies = ['hierarchical', 'mesh', 'ring', 'star']
         if(!validTopologies.includes(this.config.swarm.defaultTopology)) {'
           errors.push(`Invalidtopology = ['balanced', 'adaptive', 'performance', 'reliability'];'`)'
         if(!validStrategies.includes(this.config.swarm.defaultStrategy)) {'
-          errors.push(`Invalidstrategy = 0) {``
-          errors.push('memory.maxMemoryMb must be positive');'
+          errors.push(`Invalidstrategy = 0) ```
+          errors.push('memory.maxMemoryMb must be positive')
         //         }
   if(this.config.memory.maxMemoryMb > 1000) {'
-          warnings.push('memory.maxMemoryMb > 1000MB may cause performance issues');'
+          warnings.push('memory.maxMemoryMb > 1000MB may cause performance issues')
         //         }
   if(this.config.memory.cleanupIntervalMs < 1000) {'
-          warnings.push('memory.cleanupIntervalMs < 1000ms may impact performance');'
+          warnings.push('memory.cleanupIntervalMs < 1000ms may impact performance')
         //         }
       //       }
 
       // Validate hooks configuration
   if(this.config.hooks) {
   if(this.config.hooks.maxExecutionTimeMs <= 0) {'
-          errors.push('hooks.maxExecutionTimeMs must be positive');'
+          errors.push('hooks.maxExecutionTimeMs must be positive')
         //         }
   if(this.config.hooks.maxExecutionTimeMs > 30000) {'
-          warnings.push('hooks.maxExecutionTimeMs > 30s may cause timeouts');'
+          warnings.push('hooks.maxExecutionTimeMs > 30s may cause timeouts')
         //         }
       //       }
 
       // return {isValid = === 0,
     // errors, // LINT: unreachable code removed
-        warnings;
-      };
-
-    } catch(error = this.validate();
+        warnings}} catch(error = this.validate();
   if(!result.isValid) {'
-      throw new ConfigurationError(`Configuration validationfailed = > logger.warn(`Configuration warning = { ...target };`
+      throw new ConfigurationError(`Configuration validationfailed = > logger.warn(`Configuration warning = { ...target };``
 
   for(const key in source) {
-      if(source.hasOwnProperty(key)) {`
+      if(source.hasOwnProperty(key)) {``
         const _sourceValue = source[key]; if(sourceValue && typeof sourceValue === 'object' && !Array.isArray(sourceValue)) {'
-          result[key] = this.deepMerge(result[key]  ?? {}, sourceValue); } else {
+          result[key] = this.deepMerge(result[key]  ?? {}, sourceValue)} else {
           result[key] = sourceValue as T[Extract<keyof T, string>];
         //         }
       //       }
@@ -235,11 +234,11 @@ validate();
 
     // */; // LINT: unreachable code removed
   // // private getNestedValue<T = any>(obj,path = null) {: T | null {'
-    const _keys = path.split('.');'
+    const _keys = path.split('.')
     let _value = obj;
   for(const key of keys) {'
   if(value && typeof value === 'object' && key in value) {'
-        value = value[key]; } else {
+        value = value[key]} else {
         // return defaultValue; 
     //   // LINT: unreachable code removed}
     //     }
@@ -253,10 +252,10 @@ validate();
    * @param value - Value to set
 
 '
-  // // private setNestedValue(obj,path = path.split('.') {;'
+  // // private setNestedValue(obj,path = path.split('.') {
     let _current = obj;
   for(const i = 0; i < keys.length - 1; i++) {
-      const _key = keys[i];'
+      const _key = keys[i]
       if(!(key in current)  ?? typeof current[key] !== 'object') {'
         current[key] = {};
       //       }
@@ -318,7 +317,7 @@ const _configManager = new ConfigurationManager();
   const _manager = new ConfigurationManager();
   if(customDefaults) {'
     const _mergedDefaults = manager['deepMerge''
-    manager['config'] = mergedDefaults;'
+    manager['config'] = mergedDefaults
   //   }
 
   // return manager;
@@ -329,8 +328,8 @@ const _configManager = new ConfigurationManager();
  * @returns Validation result
 
     // */; // LINT: unreachable code removed
-// export function validateConfiguration(config = new ConfigurationManager();'
-  tempManager['config'] = tempManager['deepMerge'](DEFAULT_CONFIG, config);'
+// export function validateConfiguration(config = new ConfigurationManager()
+  tempManager['config'] = tempManager['deepMerge'](DEFAULT_CONFIG, config)
 //   return tempManager.validate();
 // }
 
@@ -338,3 +337,4 @@ const _configManager = new ConfigurationManager();
 '
 }
 }
+)))))

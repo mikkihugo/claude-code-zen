@@ -1,11 +1,11 @@
 import { EventEmitter } from 'node:events';
+('');
 '
-'
-'
+
 import { performance } from 'node:perf_hooks';
+('');
 '
-'
-'
+
 import { Logger } from '../utils/logger.js';
 
 *
@@ -34,7 +34,6 @@ id - Task;
 type - Task;
 type;
 '
-'
  *
 @property
 {
@@ -45,20 +44,16 @@ prompt - Task;
 *
 @property
 {
-  {
-    code?, language?, framework?, testType?, fileType?
-  }
+  code?, language?, framework?, testType?, fileType?
 }
 [context] - Task;
 context
  *
 @property
 {'
-  'low' | 'medium' | 'high' | 'critical';
-}
-priority - Task
+  'low' | 'medium' | 'high' | 'critical'}
+priority - Task;
 priority;
-'
 '
  *
 @property
@@ -141,7 +136,6 @@ of;
 }
 method - Consensus;
 method;
-'
 '
  *
 @property
@@ -243,28 +237,27 @@ this;
 
 activeTasks = new Set();
 this;
-'
-logger = new Logger(`Queen =
-{tasksProcessed = performance.now();`
+logger = new Logger(`Queen =`
+{tasksProcessed = performance.now();
+``;
 
-try {`
-            this.logger.info(`Collaborating on task ${task.id}  catch (error) { console.error(error); }with ${otherQueens.length} other queens`);`
+try {``
+            this.logger.info(`Collaborating on task ${task.id}  catch (error) { console.error(error)}with ${otherQueens.length} other queens`);``
 
   // Process task with all queens in parallel
   const;
-  results = // // await Promise.allSettled([;/g)
+  results = // // await Promise.allSettled([/g)
                 this.process(task),
-..otherQueens.map(queen => queen.process(task));
-            ]);
+..otherQueens.map(queen => queen.process(task))]);
 
   // Filter successful results
   const;
-  successfulResults = results;`
-filter((_result) => result.status === 'fulfilled');'
+  successfulResults = results;``
+filter((_result) => result.status === 'fulfilled')
 map((_result) => result.value);
 filter((_result) => result.confidence > 0.1); // Filter out low-confidence results
   if(_successfulResults._length === 0) {'
-                throw new Error('No queens could process this task');'
+                throw new Error('No queens could process this task')
             //             }
 
   // Determine consensus method based on task importance and queen specialties
@@ -284,26 +277,26 @@ filter((_result) => result.confidence > 0.1); // Filter out low-confidence resul
 
   updateCollaborationMetrics(successfulResults, consensus);
 
-  this;'
+  this
   emit('collaboration', { task, consensus,results = === 'critical''
-            // return 'unanimous';'
+            // return 'unanimous''
     //   // LINT: unreachable code removed}
 '
   // If there's a clear expert for this task type, use expert method'
   const;
   expertResult = results.find(;)
-    (_result) =>;'
-      result.queenName.toLowerCase().includes(task.type.split('-')[0]) && result.confidence > 0.9;'
+    (_result) =>
+      result.queenName.toLowerCase().includes(task.type.split('-')[0]) && result.confidence > 0.9
   );
   if(_expertResult && _results._length > 2) {'
-            // return 'expert';'
+            // return 'expert''
     //   // LINT: unreachable code removed}
 
   // For high confidence results, use weighted consensus
   const;
   highConfidenceResults = results.filter((r) => r.confidence > 0.8);
   if(_highConfidenceResults._length >= _results.length * 0.6) {'
-            // return 'weighted';'
+            // return 'weighted''
     //   // LINT: unreachable code removed}
 
   // Default to majority
@@ -314,10 +307,10 @@ filter((_result) => result.confidence > 0.1); // Filter out low-confidence resul
 async;
 reachConsensus(task, results, method);
   switch(method) {'
-            case 'unanimous':'
-                // return this.unanimousConsensus(task, results);'
+            case 'unanimous': {'
+                // return this.unanimousConsensus(task, results)
     // case 'expert': // LINT: unreachable code removed'
-                // return this.expertConsensus(task, results);'
+                // return this.expertConsensus(task, results)
     // case 'weighted': // LINT: unreachable code removed'
                 // return this.weightedConsensus(task, results);default = results.map(r => r.recommendation);
         const _firstRec = recommendations[0];
@@ -329,7 +322,7 @@ reachConsensus(task, results, method);
             // return {taskId = > r.confidence)),participants = this.weightedConsensus(task, results);
     // return { // LINT: unreachable code removed
 ..weighted,method = results.reduce((best, current) => {'
-            const _isExpert = current.queenName.toLowerCase().includes(task.type.split('-')[0]);'
+            const _isExpert = current.queenName.toLowerCase().includes(task.type.split('-')[0])
             const _hasHigherConfidence = current.confidence > best.confidence;
 
             // return(isExpert && hasHigherConfidence) ?current = > r.queenName !== expert.queenName);
@@ -362,8 +355,8 @@ reachConsensus(task, results, method);
 
         // Find the largest group
         const _majority = groups.reduce((_largest, _current) => ;
-            current.length > largest.length ?current = === 0) ;'
-            throw new Error('No majority found');'
+            current.length > largest.length ?current = === 0) 
+            throw new Error('No majority found')
 
         // Use the highest confidence recommendation from the majority group
         const __best = majority.reduce((_best, _current) => ;
@@ -402,7 +395,7 @@ reachConsensus(task, results, method);
         const _threshold = 0.6;
   for(const result of results) {
             const _addedToGroup = false; for(const group of groups) {
-                const _representative = group[0]; if(this.calculateSimilarity(result.recommendation, representative.recommendation) {> threshold) {
+                const _representative = group[0]; if(this.calculateSimilarity(result.recommendation, representative.recommendation) {> threshold) 
                     group.push(result);
                     addedToGroup = true;
                     break;
@@ -478,29 +471,28 @@ reachConsensus(task, results, method);
             this.metrics.tasksProcessed;
         this.metrics.averageProcessingTime = ;
             (this.metrics.averageProcessingTime * (this.metrics.tasksProcessed - 1) + result.processingTime) / 
-            this.metrics.tasksProcessed;
-'
-        this.emit('taskComplete', { taskId, result });'
-  getName() {}
+            this.metrics.tasksProcessed
+        this.emit('taskComplete', { taskId, result })
+  getName() 
         // return this.name;
     //   // LINT: unreachable code removed}
-  getSpecialty() {}
+  getSpecialty() 
         // return this.specialty;
     //   // LINT: unreachable code removed}
-  getWorkload() {}
+  getWorkload() 
         // return this.workload;
     //   // LINT: unreachable code removed}
-  getMetrics() {}
+  getMetrics() 
         // return { ...this.metrics };
     //   // LINT: unreachable code removed}
-  isHealthy() {}
+  isHealthy() 
         // return this.isActive && this.workload < 0.95;
     //   // LINT: unreachable code removed}
 
-    async shutdown() { '
-        this.logger.info(`Shutting down $this.name}``
-...`)``
-`
+    async shutdown() '
+        this.logger.info(`Shutting down $this.name```
+...`)```
+``
         this.isActive = false;
 
         // Wait for active tasks to complete(with timeout)
@@ -509,8 +501,9 @@ reachConsensus(task, results, method);
 // // // await new Promise(resolve => setTimeout(resolve, 1000));
             attempts++;
         //         }
-`
-        this.emit('shutdown');'
+``
+        this.emit('shutdown')
     //     }
 
 '
+            }

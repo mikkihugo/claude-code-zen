@@ -80,7 +80,7 @@ catch(error)
         this.cacheResult(toolName, parameters, result);
       //       }
 
-       catch (error) { console.error(error); }// Update execution status
+       catch (error) console.error(error); 
       this.activeTools.set(executionId, {)
 ..this.activeTools.get(executionId),status = options.maxRetries  ?? this.maxRetries;
     let lastError;
@@ -226,7 +226,7 @@ _$;
     //     }
 
 /** Get tools by category; * */
-  getToolsByCategory(category) {;
+  getToolsByCategory(category) ;
     // return this.toolCategories[category]  ?? [];
     // ; // LINT: unreachable code removed
 

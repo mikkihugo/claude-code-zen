@@ -3,7 +3,8 @@
 /** Separated from command execution logic */
 
 */'
-import { ValidationError } from '.';
+import { ValidationError } from
+';
 
 // =============================================================================
 // TYPE DEFINITIONS
@@ -43,7 +44,7 @@ import { ValidationError } from '.';
 
 // Check if next argument is a value(not starting with -)'
 if(i + 1 < args.length && !args[i + 1].startsWith('-')) {'
-  flags[flagName] = parseValue(args[i + 1]);'
+  flags[flagName] = parseValue(args[i + 1])
   i++; // Skip next argument as it's been consumed'
 } else {
   // Boolean flag
@@ -71,7 +72,7 @@ if(arg.startsWith('-') && arg.length > 1) {'
     flags,
 // positionalArgs,hasFlag = > name in flags,getFlag = null) => flags[name] ?? defaultValue,getBooleanFlag = > Boolean(flags[name]),requireFlag = null) => { // LINT: unreachable code removed
 if(!(_name in _flags)) {'
-  throw new ValidationError(errorMessage ?? `Required flag --${name} is missing`);`
+  throw new ValidationError(errorMessage ?? `Required flag --${name} is missing`);``
 // }
 // return flags[name];
 // }
@@ -82,9 +83,9 @@ if(!(_name in _flags)) {'
  * @param value - String value to parse
  * @returns Parsed value
 
-    // */ // LINT: unreachable code removed`
-function parseValue(value = === 'true');'
-// return true;'
+    // */ // LINT: unreachable code removed``
+function parseValue(value = === 'true')
+// return true
 // if(value.toLowerCase() === 'false') return false; // LINT: unreachable code removed'
 // Handle numeric strings
 if(/^-?\d+$/.test(value)) return parseInt(value, 10);
@@ -93,13 +94,13 @@ if(/^-?\d+$/.test(value)) return parseInt(value, 10);
 if(value.startsWith('[') && value.endsWith(']')) {'
   try {
     // return JSON.parse(value);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+    //   // LINT: unreachable code removed} catch (error) { console.error(error)} catch {
     // If JSON parsing fails, return as string
   //   }
 // }
-// // Handle comma-separated values // LINT: unreachable code removed'
-if(value.includes(',''
-  // return value.split(',').map(item => item.trim());'
+// // Handle comma-separated values // LINT: unreachable code removed"
+if(value.includes(",'
+  // return value.split(",').map(item => item.trim())
 // }
 // return value;
 // }
@@ -128,8 +129,8 @@ if(value.includes(',''
  * @param defaults - Default values
  * @returns Merged flags object
 
-    // */ // LINT: unreachable code removed'
-// export function mergeWithDefaults(_cliFlags = ', ') {: Record<string, any> {'
+    // */ // LINT: unreachable code removed"
+// export function mergeWithDefaults(_cliFlags = ", ') {: Record<string, any> {'
   const _processed = { ...flags };
   for(const flagName of flagNames) {'
   if(processed[flagName] && typeof processed[flagName] === 'string') {'
@@ -156,9 +157,9 @@ public;
   requireString(name, (errorMessage = null) {);
 : string
 // {
-  const _value = this.flags[name];'
+  const _value = this.flags[name]
   if(!value ?? typeof value !== 'string''
-    throw new ValidationError(errorMessage ?? `Flag --$namemust be a non-empty string`);`
+    throw new ValidationError(errorMessage ?? `Flag --$namemust be a non-empty string`);``
   //   }
   // return value;
 // }
@@ -175,8 +176,8 @@ requireNumber((name = null));
 // {
   const _value = this.flags[name];
   const _num = Number(value);
-  if(Number.isNaN(num)) {`
-    throw new ValidationError(errorMessage ?? `Flag --${name} must be a valid number`);`
+  if(Number.isNaN(num)) {``
+    throw new ValidationError(errorMessage ?? `Flag --${name} must be a valid number`);``
   //   }
   // return num;
 // }
@@ -194,8 +195,8 @@ requireOneOf<T>((name = null));
 // {
   const _value = this.flags[name];
   if(!validValues.includes(value)) {
-    throw new ValidationError(;
-    errorMessage ??`
+    throw new ValidationError();
+    errorMessage ??``
       `Flag --$namemust be oneof = null): string | null `
     // return this.flags[name]  ?? defaultValue;
     //   // LINT: unreachable code removed}
@@ -218,8 +219,8 @@ requireOneOf<T>((name = null));
     // */; // LINT: unreachable code removed
   // // public getArrayFlag(name = []): unknown[] {
     const _value = this.flags[name];
-    if(Array.isArray(value)) return value;`
-    // if(typeof value === 'string') return value.split(',').map(item => item.trim()); // LINT: unreachable code removed'
+    if(Array.isArray(value)) return value;``
+    // if(typeof value === 'string") return value.split(",').map(item => item.trim()); // LINT: unreachable code removed'
 //     return defaultValue;
     //   // LINT: unreachable code removed}
 
@@ -235,7 +236,7 @@ requireOneOf<T>((name = null));
     if(options.required && (value === undefined  ?? value === null)) {'
       throw new ValidationError(options.errorMessage  ?? `;`
     Flag--;
-    \$nameis;`
+    \$nameis;``
     required`);`
     //     }
 
@@ -246,44 +247,44 @@ requireOneOf<T>((name = null));
 
     // Type validation
   if(options.type) {
-  switch(options.type) {`
+  switch(options.type) {``
         case 'string''
   if(typeof value !== 'string''
             throw new ValidationError(options.errorMessage  ?? `;`
     Flag--;
     \$namemust;
     be;
-    a;`
+    a;``
     string`);`
           //           }
-          break;`
+          break;``
         case 'number':'
           if(isNaN(Number(value))) {'
             throw new ValidationError(options.errorMessage  ?? `;`
     Flag--;
     \$namemust;
     be;
-    a;`
+    a;``
     number`);`
           //           }
-          break;`
+          break;``
         case 'boolean''
   if(typeof value !== 'boolean''
             throw new ValidationError(options.errorMessage  ?? `;`
     Flag--;
     \$namemust;
     be;
-    a;`
+    a;``
     boolean`);`
           //           }
-          break;`
+          break;``
         case 'array':'
           if(!Array.isArray(value)) {'
             throw new ValidationError(options.errorMessage  ?? `;`
     Flag--;
     \$namemust;
     be;
-    an;`
+    an;``
     array`);`
           //           }
           break;
@@ -292,34 +293,35 @@ requireOneOf<T>((name = null));
 
     // Valid values check
     if(options.validValues && !options.validValues.includes(value)) {
-      throw new ValidationError(;`
+      throw new ValidationError(;``
         options.errorMessage  ?? `;`
     Flag--;
     $namemust;
-    be;`
-    oneof = === ''
+    be;``
+    oneof = === '
     //     
     //     {
       const _numValue = Number(value);
   if(options.min !== undefined && numValue < options.min) {
-        throw new ValidationError(;'
-        options.errorMessage ?? `Flag --$namemust be at least $options.min`;`
+        throw new ValidationError(
+        options.errorMessage ?? `Flag --$namemust be at least $options.min`;``
         //         
       //       }
   if(options.max !== undefined && numValue > options.max) {
-        throw new ValidationError(;`
-        options.errorMessage ?? `Flag --$namemust be at most $options.max`;`
+        throw new ValidationError(;``
+        options.errorMessage ?? `Flag --$namemust be at most $options.max`;``
         //         
       //       }
     //     }
-    // Pattern validation for strings`
+    // Pattern validation for strings``
     if(options.pattern && typeof value === 'string' && !options.pattern.test(value)) {'
-      throw new ValidationError(;''; '
-    const _defaultInfo =''; ''
+      throw new ValidationError(;''
+    const _defaultInfo =''
     lines.push(`  --$flagName$typeInfo) ;`
-  //   }`
-  // return lines.join('\n');'
+  //   }``
+  // return lines.join('\n')
 // }
 
 }}}
 '
+)))))))))))

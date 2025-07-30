@@ -4,8 +4,11 @@
 /** Handles known logger issue in v1.0.8; */
 
 import { spawn } from 'node:child_process';
+
 '
+
 import { createInterface } from 'node:readline';
+
 '
 console.warn(' Starting ruv-swarm MCP server with error handling...')
 '
@@ -41,7 +44,7 @@ rlErr.on('line', (line) =>
 // Handle process exit`
 ruvSwarmProcess.on('exit', (code, _signal) => {
   if(code !== null && code !== 0) {'
-    console.error(`\n ruv-swarm exited with code ${code}`);`
+    console.error(`\n ruv-swarm exited with code $code`);`
     console.error(' Try using);'
   //   }
   process.exit(code  ?? 0);
@@ -56,7 +59,6 @@ ruvSwarmProcess.on('error', (error) => {'
 process.on('SIGTERM', () => {'
   ruvSwarmProcess.kill('SIGTERM');
 });'
-process.on('SIGINT', () => {'
-  ruvSwarmProcess.kill('SIGINT');
-});
+process.on('SIGINT', () => '
+  ruvSwarmProcess.kill('SIGINT'););
 '

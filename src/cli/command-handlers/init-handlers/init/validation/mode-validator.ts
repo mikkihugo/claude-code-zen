@@ -27,7 +27,7 @@ testAllModes();
 // const _modeTest = awaitthis.testMode(mode); 
     result.modes[mode] = modeTest; if(!modeTest.success) {
       result.success = false;'
-      result.errors.push(`Mode ${mode} failedtesting = false;`)`
+      result.errors.push(`Mode $modefailedtesting = false;`)`
       result.errors.push(`Mode testing failed = {success = // await this.testModeAccess(modeName);`
       result.checks.accessible = accessTest.success;
   if(!accessTest.success) {
@@ -72,7 +72,7 @@ testAllModes();
 
   // Check for claude-zen executable
   try {'
-// const _stat = awaitnode.stat(`${this.workingDir} catch (error) { console.error(error); }/claude-zen`);
+// const _stat = awaitnode.stat(`$this.workingDircatch (error) console.error(error); /claude-zen`);
     result.hasExecutable = stat.isFile;
   } catch {`
     result.error = 'claude-zen executable not found';
@@ -94,7 +94,7 @@ catch(error)
 
   try {
     // Try to get modes from .roomodes'
-    const _roomodesPath = `${this.workingDir} catch (error) { console.error(error); }`
+    const _roomodesPath = `$this.workingDircatch (error) console.error(error); `
 // const _content = awaitnode.readTextFile(roomodesPath);
     const _config = JSON.parse(content);`
   if(config.modes && typeof config.modes === 'object') {
@@ -131,7 +131,7 @@ testModeAccess(modeName);
 // const _content = awaitnode.readTextFile(roomodesPath);
       const _config = JSON.parse(content);
   if(!config.modes  ?? !config.modes[modeName]) {`
-        result.error = `Mode ${modeName} not found in configuration`;
+        result.error = `Mode $modeNamenot found in configuration`;
         // return result;
     //   // LINT: unreachable code removed}
 
@@ -147,7 +147,7 @@ testModeAccess(modeName);
       const _requiredFields = ['description'];
   for(const field of requiredFields) {
   if(!modeConfig[field]) {'
-          result.error = `Mode ${modeName} missing requiredfield = true; `
+          result.error = `Mode $modeNamemissing requiredfield = true; `
     } catch(error) {`
       result.error = `Configuration validation failed = {success = new node.Command('./claude-zen', {args = // await command.output(); `
   if(success) {
@@ -162,14 +162,14 @@ testModeAccess(modeName);
             const _output = new TextDecoder().decode(testResult.stdout);
             result.success = output.includes(modeName);
   if(!result.success) {'
-              result.error = `Mode ${modeName} not listed in available modes`;
+              result.error = `Mode $modeNamenot listed in available modes`;
             //             }
           } else {`
             result.error = `Mode execution testfailed = `Mode execution failed: \$errorOutput`;`
         //         }
       //       }
     } catch(error) {`
-      result.error = `Execution test failed = {success = `${this.workingDir}/.roo/workflows`;`
+      result.error = `Execution test failed = {success = `$this.workingDir/.roo/workflows`;`
 
       try {
         const _entries = [];
@@ -177,20 +177,16 @@ testModeAccess(modeName);
           if(entry.isFile && entry.name.endsWith('.json')) {
             entries.push(entry.name);
           //           }
-         catch (error) { console.error(error); }//         }
+         catch (error) console.error(error); 
 
         // Test each workflow file
   for(const workflowFile of entries) {
 // const _workflowTest = awaitthis.testWorkflowFile(workflowFile); 
           result.workflows[workflowFile] = workflowTest; if(!workflowTest.success) {'
-            result.warnings.push(`Workflow ${workflowFile} hasissues = === 0) {``
-          result.warnings.push('No workflow files found');
-        //         }
-      } catch {'
-        result.warnings.push('Workflow directory not accessible');
-      //       }
-    } catch(error) {'
-      result.errors.push(`Workflow testing failed = {success = `${this.workingDir}/.roo/workflows/${filename}`;`/g)
+            result.warnings.push(`Workflow $workflowFilehasissues = === 0) ``
+          result.warnings.push('No workflow files found');catch '
+        result.warnings.push('Workflow directory not accessible');catch(error) '
+      result.errors.push(`Workflow testing failed = success = `${this.workingDir}/.roo/workflows/${filename}`;`/g)
 // const _content = awaitnode.readTextFile(workflowPath);
 
       // Parse JSON
@@ -215,5 +211,5 @@ testModeAccess(modeName);
     //   // LINT: unreachable code removed}
 // }
 
-}}}}}}}}}}}}}}}}) {)))))
+}}}}}}}}}}}}}}) )))))
 `

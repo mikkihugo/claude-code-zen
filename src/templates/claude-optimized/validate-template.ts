@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
 
 /** Validate Claude optimized template installation; */
@@ -28,10 +30,10 @@ try {
 catch(/* _error */)
 {'
   log(' Failed to loadmanifest = 0;'
-let _passedTests = 0;
+const _passedTests = 0;
 
   function test(description, condition = path.join(TEMPLATE_DIR, dirInfo.path);'
-  test(`Directory ${dirInfo.path} exists`, fs.existsSync(dirPath));
+  test(`Directory $dirInfo.pathexists`, fs.existsSync(dirPath));
 // }
 // Test3 = path.join(TEMPLATE_DIR, file.destination);`
 test(`File ${file.destination} exists`, fs.existsSync(filePath));
@@ -40,7 +42,7 @@ test(`File ${file.destination} exists`, fs.existsSync(filePath));
   for(const fileName of sampleFiles) {
   const _filePath = path.join(TEMPLATE_DIR, fileName); if(fs.existsSync(filePath)) {'
     const _content = fs.readFileSync(filePath, 'utf8'); test(`${fileName} has content`, content.length > 100) ;`
-    test(`${fileName} contains frontmatter`, content.startsWith('---'));
+    test(`$fileNamecontains frontmatter`, content.startsWith('---'));
   //   }
 // }'
 // Test5 = manifest.files.filter((f) => f.category === 'sparc-mode');
@@ -48,7 +50,7 @@ for (const cmd of sparcCommands.slice(0, 3)) {
   // Test first 3 commands
   const _filePath = path.join(TEMPLATE_DIR, cmd.destination); if(fs.existsSync(filePath)) {'
     const _content = fs.readFileSync(filePath, 'utf8'); test(;'
-    `${cmd.destination} has proper structure`,`
+    `$cmd.destinationhas proper structure`,`
     content.includes('## Instructions') ?? content.includes('You are');
     //     
   //   }
@@ -58,7 +60,7 @@ for (const testFile of testFiles.slice(0, 3)) {
   // Test first 3 test files
   const _filePath = path.join(TEMPLATE_DIR, testFile.destination); if(fs.existsSync(filePath)) {'
     const _content = fs.readFileSync(filePath, 'utf8'); test(;'
-    `${testFile.destination} has test structure`,`
+    `$testFile.destinationhas test structure`,`
     content.includes('describe') ?? content.includes('test') ?? content.includes('it');
     //     
   //   }
@@ -72,7 +74,7 @@ if(fs.existsSync(versionFile)) {'
 // Allow some flexibility in counts as they might have been updated
 const _countMatches = Math.abs(actualCount - info.count) <= 2;
 test(;'
-`${category} file count approximately correct(${actualCount} vs ${info.count})`,
+`$categoryfile count approximately correct(${actualCount} vs ${info.count})`,
 countMatches;
 // 
 // }`

@@ -11,15 +11,14 @@ analysis;
 engine;
 with focused components
  * @version 2.0
-0.0 * /;
+0.0 * /;;
 
 import { existsSync } from 'node:fs';
-''
-// import { readFile  } from 'node:fs/promises'
-// import path from 'node:path';'
 '
+// import { readFile  } from 'node:fs/promises'
+// import path from 'node:path'''
 // import type { ASTNode  } from './code-analysis/ast-parser'
-// import type { FunctionData  } from './code-analysis/function-extractor';'
+// import type { FunctionData  } from './code-analysis/function-extractor''
 // import type { CodeMetrics,
 // type ComplexityAnalysis
 '
@@ -100,7 +99,7 @@ MetricsCalculator  } from '
    *
 @param
 config - Configuration;
-options * /;
+options * /;;
 constructor(config);
 {
     this.config = config;
@@ -111,8 +110,8 @@ constructor(config);
 
 /** Initialize the analysis engine */
 
-  async initialize(): Promise<void> {'
-    console.warn(' Code Analysis Engine(Modular) initialized');'
+  async initialize(): Promise<void> '
+    console.warn(' Code Analysis Engine(Modular) initialized')
   //   }
 
 /** Analyze code files and return comprehensive analysis results */
@@ -139,11 +138,10 @@ constructor(config);
       let _aiInsights;
   if(this.config.neuralEngine) {
         try {'
-          _aiInsights = // // await this.performAIAnalysis(codeData, 'code-analysis');'
+          _aiInsights = // // await this.performAIAnalysis(codeData, 'code-analysis')
         } catch (error) {
-  console.error(error);
-}'
-          console.warn('AI analysis unavailable);'
+  console.error(error)}'
+          console.warn('AI analysis unavailable)'
         //         }
       //       }
 
@@ -163,7 +161,7 @@ constructor(config);
           language: codeData[0]?.language  ?? 'unknown'}'
   //   }
   catch(error) {'
-    console.error(' Code analysis failed);'
+    console.error(' Code analysis failed)'
     throw error;
   //   }
 // }
@@ -182,9 +180,9 @@ readCodeData(codeFiles)
   for(const filePath of codeFiles) {
     if(!existsSync(filePath)) {'
       throw new Error(`Code file not found); `
-    //     }`
-// const _content = awaitreadFile(filePath, 'utf8'); '
-// const _stats = awaitstat(filePath) {;
+    //     }``
+// const _content = awaitreadFile(filePath, 'utf8')
+// const _stats = awaitstat(filePath) {
     codeData.push({
         content,
     path,
@@ -210,12 +208,12 @@ validateCodeInputs(codeFiles, language)
     if(!existsSync(filePath)) {'
       throw new Error(`Code file not found); `
     //     }
-    const _extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) `
+    const _extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) ``
       throw new Error(`Unsupported code file format);`
     //     }
   //   }
   // Validate language is supported
-  if(!this.supportedLanguages.has(language)) {`
+  if(!this.supportedLanguages.has(language)) {``
     throw new Error(`Unsupported language);`
   //   }
 // }
@@ -246,8 +244,8 @@ extractClasses(codeData)
   // // private async;
   extractFileClasses(file) {: Promise<ClassData[]>
   //   {
-    const _classes = [];`
-    const _lines = file.content.split('\n');'
+    const _classes = [];``
+    const _lines = file.content.split('\n')
   for(let i = 0; i < lines.length; i++) {
       const _line = lines[i];
       const _classMatch = this.matchClass(line, file.language);
@@ -324,12 +322,12 @@ extractClasses(codeData)
   : 'php''
   ('.rb''
   : 'ruby''
-// return languageMap[extension]  ?? 'unknown';'
+// return languageMap[extension]  ?? 'unknown''
 //   // LINT: unreachable code removed}
 
 /** Match class patterns in code */
 
-// // private matchClass(;
+// // private matchClass();
 line,
 // language
 ): null
@@ -348,8 +346,8 @@ const _match = line.match(pattern);
   if(match) {
   // return {
         name: match[1],
-  // extends: match[2] ? [match[2]] , // LINT: unreachable code removed'
-  implements: match[3] ? match[3].split(',').map((i) => i.trim()) }'
+  // extends: match[2] ? [match[2]] , // LINT: unreachable code removed"
+  implements: match[3] ? match[3].split(",').map((i) => i.trim()) }'
 // }
 // return null;
 //   // LINT: unreachable code removed}
@@ -413,22 +411,20 @@ countClassMethods(lines, startLine)
       const _dependencies = {
       external: new Set<string>(),
       internal: new Set<string>() }'
-    const _lines = file.content.split('\n');'
+    const _lines = file.content.split('\n')
   for(const line of lines) {
-      // Extract import statements'']([^'']/); "'
+      // Extract import statements']([^']/); "
   if(importMatch) {'
-        const _dep = importMatch[1]; if(dep.startsWith('.') {?? dep.startsWith('/')) {'
-          dependencies.internal.add(dep);
-        } else {
+        const _dep = importMatch[1]; if(dep.startsWith('.') {?? dep.startsWith('/')) '
+          dependencies.internal.add(dep)else 
           dependencies.external.add(dep);
         //         }
       //       }
-      // Extract require statements'']([^''']\)/);"'
+      // Extract require statements']([^'']\)/);"
   if(requireMatch) {
-        const _dep = requireMatch[1];'
+        const _dep = requireMatch[1]
         if(dep.startsWith('.') ?? dep.startsWith('/')) {'
-          dependencies.internal.add(dep);
-        } else {
+          dependencies.internal.add(dep)} else {
           dependencies.external.add(dep);
         //         }
       //       }
@@ -443,12 +439,11 @@ countClassMethods(lines, startLine)
     : Promise<any>
     //     {
   if(!this.config.neuralEngine) {'
-        throw new Error('Neural engine not available');'
+        throw new Error('Neural engine not available')
       //       }'
-      const _codeContent = codeData.map((file) => file.content).join('\n\n');'
-// const _result = awaitthis.config.neuralEngine.infer(;'
-      'analysis''
-      'analyzeComplexity','
+      const _codeContent = codeData.map((file) => file.content).join('\n\n')
+// const _result = awaitthis.config.neuralEngine.infer(
+      'analysis''analyzeComplexity','
       codeContent;
       //       
       // return {
@@ -457,9 +452,9 @@ countClassMethods(lines, startLine)
       confidence: 0.85 }
   //   }
 // }
-// export default CodeAnalysisEngine;
-'
+// export default CodeAnalysisEngine
 }
 }
 }
-}
+
+})))))))))))

@@ -6,6 +6,7 @@
 /** The issue occurs when timestamps are shown in UTC instead of user's local timezone.;' */
 
 */';
+
 import { promises } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -32,10 +33,9 @@ async function applyTimezoneFixes() {';
       action: () => updateDatabaseSchema() } ];
   for(const fix of fixes) {
     try {';
-      console.warn(` ${fix.name} catch (error) { console.error(error); }...`); // // await fix.action(); `
-      console.warn(` ${fix.name} - Complete\n`) {;
-    } catch(error) {`
-      console.error(` ${fix.name} - Failed);`
+      console.warn(` $fix.namecatch (error) console.error(error); ...`); // // await fix.action(); `
+      console.warn(` ${fix.name} - Complete\n`) ;catch(error) {`
+      console.error(` $fix.name- Failed);`
     //     }
   //   }`
   console.warn(' Timezone fixes applied successfully!');';
@@ -119,7 +119,7 @@ async function testTimezoneFix() {`
       '../src/utils/timezone-utils.js';
     );
     const _tz = getTimezoneInfo();';
-    console.warn(` Current timezone: ${tz.name} ($, { tz.abbreviation })`);`
+    console.warn(` Current timezone: $tz.name($, { tz.abbreviation })`);`
     console.warn(` UTC offset);`
     const _now = new Date();
     const _formatted = formatTimestampForDisplay(now);`
@@ -160,9 +160,8 @@ async function main() {
   );
 // }
 // Run if called directly';
-  if(import.meta.url === `file) {`
+  if(import.meta.url === `file) `
   main().catch(console.error);
 // }
 // export { applyTimezoneFixes, testTimezoneFix, createMigrationScript };
 `
-}

@@ -38,15 +38,13 @@ function runGHModel(prompt, model = 'openai/gpt-4o-mini') {
       reject(new Error('Command timed out'));
     }, 15000);
 '
-    gh.stdout.on('data', (data) => {
-      output += data.toString();
-    });
+    gh.stdout.on('data', (data) => 
+      output += data.toString(););
 '
-    gh.stderr.on('data', (data) => {
-      errorOutput += data.toString();
-    });
+    gh.stderr.on('data', (data) => 
+      errorOutput += data.toString(););
 '
-    gh.on('close', (code) => {
+    gh.on('close', (code) => 
       clearTimeout(timeout);
   if(code !== 0) {'
         reject(new Error(`gh models run failed));`
@@ -62,7 +60,6 @@ function runGHModel(prompt, model = 'openai/gpt-4o-mini') {
 
 testGHModels();
 `
-}
 }
 }
 }

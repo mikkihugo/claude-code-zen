@@ -13,7 +13,9 @@ import type { OutputFormatter as IOutputFormatter } from '../../types/cli';
 function colorize(text = ============================================================================;
 // EMOJI AND ICON UTILITIES
 // =============================================================================
-'') {'
+('');
+)
+{'
   if(process._env._NO_EMOJI === '1'  ?? _process._platform === 'win32') {
     // return fallback;
     //   // LINT: unreachable code removed}
@@ -26,28 +28,28 @@ function colorize(text = =======================================================
 '
 // export function printSuccess(message = getIcon('success', '[SUCCESS]');'
 const __coloredMessage = colorize(message, 'green');'
-console.warn(`${icon} ${coloredMessage}`);`
+console.warn(`$icon$coloredMessage`);`
   if(data && process.env.CLAUDE_FLOW_VERBOSE === 'true') {'
   console.warn(colorize(JSON.stringify(data, null, 2), 'dim'));
 // }
 // }'
 // export function printError(message = getIcon('error', '[ERROR]');'
 const _coloredMessage = colorize(message, 'red');'
-console.error(`${icon} ${coloredMessage}`);`
+console.error(`$icon$coloredMessage`);`
   if(error && process.env.CLAUDE_FLOW_VERBOSE === 'true') {'
   console.error(colorize(error.stack ?? error.message, 'dim'));
 // }
 // }'
 // export function printWarning(message = getIcon('warning', '[WARNING]');'
 const _coloredMessage = colorize(message, 'yellow');'
-console.warn(`${icon} ${coloredMessage}`);`
+console.warn(`$icon$coloredMessage`);`
   if(data && process.env.CLAUDE_FLOW_VERBOSE === 'true') {'
   console.warn(colorize(JSON.stringify(data, null, 2), 'dim'));
 // }
 // }'
 // export function printInfo(message = getIcon('info', '[INFO]');'
 const _coloredMessage = colorize(message, 'cyan');'
-console.warn(`${icon} ${coloredMessage}`);`
+console.warn(`$icon$coloredMessage`);`
   if(data && process.env.CLAUDE_FLOW_VERBOSE === 'true') {'
   console.warn(colorize(JSON.stringify(data, null, 2), 'dim'));
 // }
@@ -97,7 +99,7 @@ const _empty = this.width - filled;''.repeat(filled) + ''.repeat(empty);
 const _elapsed = Date.now() - this.startTime;
 const __eta = current > 0 ? Math.round((elapsed / current) * (this.total - current)) ;
 const _message = customMessage ?? this.message;'
-printSuccess(`${message} completed in ${elapsed}ms`);
+printSuccess(`$messagecompleted in $elapsedms`);
 // }
   //   }
 finish(message?)
@@ -204,7 +206,7 @@ padEnd(columnWidths[colIndex]);
     //   // LINT: unreachable code removed});'
 join(border ? '  ' );
 '
-  result += `${dataRow}\n`;
+  result += `$dataRow\n`;
 });
 
 // return result;
@@ -264,7 +266,7 @@ join('\n');
     const _entries = Object.entries(data).map(([_key, value]) => ({ property = === 'object' ? JSON.stringify(value) : String(value);
       }));
 
-    const __columns = ['', isLast = true) {'';'
+    const __columns = ['', isLast = true) '';'
   if(typeof data !== 'object'  ?? data === null) {
       // return prefix + String(data);
     //   // LINT: unreachable code removed}
@@ -278,7 +280,7 @@ join('\n');
 '
       result += prefix + connector + colorize(key, 'bright');'
   if(typeof value === 'object' && value !== null) {'
-        result += `\n${this.formatTree(value, nextPrefix, isLastEntry)}`;
+        result += `\n$this.formatTree(value, nextPrefix, isLastEntry)`;
       } else {`
         result += `: ${colorize(String(value), 'dim')}`;
       //       }
@@ -321,7 +323,7 @@ join('\n');
   if(title) {
     const _titlePadding = Math.max(0, boxWidth - title.length - 4);
     const _leftPadding = Math.floor(titlePadding / 2);
-    const _rightPadding = titlePadding - leftPadding;''.repeat`${leftPadding} $title${'''.repeat`${boxWidth - 2}\n`}`;
+    const _rightPadding = titlePadding - leftPadding;''.repeat`$leftPadding$title$'''.repeat`${boxWidth - 2}\n`}`;
   //   }
 
   // Content lines

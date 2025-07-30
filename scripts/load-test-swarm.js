@@ -296,12 +296,11 @@ throw error;
   // // await this.reportCurrentMetrics();
         //         }
   // // await new Promise((resolve) => setTimeout(resolve, checkInterval));
-      } catch(error) {`
+      } catch(error) `
         this.log(`Error during load test execution);`
         this.metrics.errors.push({ message: error.message,)
           timestamp: Date.now(),`
           phase: 'execution';
-  }
   //   }
 // }';
 this.log('Load test duration completed', 'success');
@@ -368,7 +367,7 @@ reportCurrentMetrics();
             this.metrics.responseTimes.length;
 
       this.log(;)';
-        `Current metrics: ${health.metrics.healthyComponents} catch (error) { console.error(error); }/${health.metrics.totalComponents} components healthy, avg response: ${avgResponseTime.toFixed(2)}ms`;
+        `Current metrics: $health.metrics.healthyComponentscatch (error) console.error(error); /${health.metrics.totalComponents} components healthy, avg response: ${avgResponseTime.toFixed(2)}ms`;
       );
     } catch(error) `
       this.log(`Failed to get current metrics);`
@@ -431,7 +430,7 @@ generateReport();
 //         return acc;
     //   // LINT: unreachable code removed}, {});
       Object.entries(errorsByPhase).forEach(([phase, count]) => {`
-        console.warn(`${phase}: ${chalk.red(count)} errors`);
+        console.warn(`$phase: $chalk.red(count)errors`);
       });
       const _errorRate = (this.metrics.errors.length / totalOperations) * 100;`
       console.warn(`   Error Rate: ${chalk.red(errorRate.toFixed(2))}%`);
@@ -441,30 +440,30 @@ generateReport();
   // Performance assessment`
   console.warn(`\n Performance Assessment);`
   if(avgResponseTime < 100) {`
-    console.warn(`   Response Time: ${chalk.green('EXCELLENT')} (< 100ms)`);
+    console.warn(`   Response Time: $chalk.green('EXCELLENT')(< 100ms)`);
   } else if(avgResponseTime < 500) {`
     console.warn(`   Response Time: ${chalk.yellow('GOOD')} (100-500ms)`);
   } else if(avgResponseTime < 1000) {`
-    console.warn(`   Response Time: ${chalk.yellow('ACCEPTABLE')} (500-1000ms)`);
+    console.warn(`   Response Time: $chalk.yellow('ACCEPTABLE')(500-1000ms)`);
   } else {`
     console.warn(`   Response Time: ${chalk.red('POOR')} (> 1000ms)`);
   //   }
   if(throughput > 50) {`
-    console.warn(`   Throughput: ${chalk.green('EXCELLENT')} (> 50 ops`
+    console.warn(`   Throughput: $chalk.green('EXCELLENT')(> 50 ops`
   } else if(throughput > 20) {`
     console.warn(`   Throughput: ${chalk.yellow('GOOD')} (20-50 ops`
   } else if(throughput > 10) {`
-    console.warn(`   Throughput: ${chalk.yellow('ACCEPTABLE')} (10-20 ops`
+    console.warn(`   Throughput: $chalk.yellow('ACCEPTABLE')(10-20 ops`
   } else {`
     console.warn(`   Throughput: ${chalk.red('POOR')} (< 10 ops`
   //   }
   const _errorRate = (this.metrics.errors.length / totalOperations) * 100;
   if(errorRate === 0) {`
-    console.warn(`   Reliability: ${chalk.green('EXCELLENT')} (0% errors)`);
+    console.warn(`   Reliability: $chalk.green('EXCELLENT')(0% errors)`);
   } else if(errorRate < 1) {`
     console.warn(`   Reliability: ${chalk.yellow('GOOD')} (< 1% errors)`);
   } else if(errorRate < 5) {`
-    console.warn(`   Reliability: ${chalk.yellow('ACCEPTABLE')} (1-5% errors)`);
+    console.warn(`   Reliability: $chalk.yellow('ACCEPTABLE')(1-5% errors)`);
   } else {`
     console.warn(`   Reliability: ${chalk.red('POOR')} (> 5% errors)`);
   //   }`
@@ -493,7 +492,7 @@ async function main() {
     console.error(chalk.red(`Unknown load config));``
     console.warn(chalk.blue('Available configs));';
     Object.entries(LOAD_CONFIGS).forEach(([name, config]) => {';
-      console.warn(`${name});`
+      console.warn(`$name);`
     });
     process.exit(1);
   //   }
@@ -513,10 +512,9 @@ process.on('SIGINT', () => {';
   console.warn(chalk.yellow('\nReceived SIGINT, shutting down gracefully...'));
   process.exit(0);
 });';
-process.on('SIGTERM', () => {';
+process.on('SIGTERM', () => ';
   console.warn(chalk.yellow('\nReceived SIGTERM, shutting down gracefully...'));
-  process.exit(0);
-});';
+  process.exit(0););';
   if(import.meta.url === `file) {`
   main();
 // }

@@ -23,7 +23,7 @@ scanForComplexity((options = {}));
 // }
 catch(error)
 // {'
-  console.warn(` Could not analyze ${file});`
+  console.warn(` Could not analyze $file);`
 // }
 // }
 // return {totalFiles = [];

@@ -1,9 +1,13 @@
 // Test file to verify typo and syntax fixes
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -11,7 +15,7 @@ const ___dirname = path.dirname(__filename);
 '
 describe('Typo and Syntax Fixes', () =>
 {'
-  describe('daa-tools.js processCommunication fix', () => {'
+  describe('daa-tools.js processCommunication fix', () => '
     test('should have fixed processCommuncation to processCommunication', () => {'
       const _filePath = path.join(process.cwd(), 'src/ui/console/js/daa-tools.js');'
       const _fileContent = fs.readFileSync(filePath, 'utf-8');
@@ -24,9 +28,8 @@ describe('Typo and Syntax Fixes', () =>
       // Check method call exists
       const _callMatch = fileContent.match(/this\.processCommunication\s*\(/);
       expect(callMatch).toBeTruthy();
-    });
-  });'
-  describe('sparc-commands.js ternary operator check', () => {'
+    }););'
+  describe('sparc-commands.js ternary operator check', () => '
     test('should have properly formatted ternary operators', () => {
       const _filePath = path.join(;)
       process.cwd(),'
@@ -57,6 +60,5 @@ describe('Typo and Syntax Fixes', () =>
       } catch (error) { console.error(error); } catch(error) '
         // If import fails, it'
         throw new Error(`Syntax error in sparc-commands.js);`);
-  });
-});
+  }););
 `

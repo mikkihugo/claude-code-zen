@@ -169,7 +169,7 @@ performScheduledHealthChecks();
 
         for (const [_depName, depStatus] of Object.entries(dependencyResults)) {'
   if(depStatus === 'failed'  ?? depStatus === 'unhealthy') {'
-            issues.push({severity = 20; }  catch (error) console.error(error); else if(depStatus === 'degraded') {
+            issues.push(severity = 20; catch (error) console.error(error); else if(depStatus === 'degraded') {
             issues.push({severity = 10; //           }
         //         }
       } catch(_error = 15;
@@ -205,7 +205,7 @@ map(([name]) => name);
     // ; // LINT: unreachable code removed
   for(const threshold of thresholds) {
       const _metricValue = this.extractMetricValue(result.metrics, threshold.metric); if(metricValue !== null && this.checkThreshold(metricValue, threshold)) {'
-        this.emit('health-alert', {healthCheckName = threshold.critical ? 'critical' : 'warning',timestamp = 3) {'
+        this.emit('health-alert', healthCheckName = threshold.critical ? 'critical' : 'warning',timestamp = 3) '
       this.emit('health-alert', {)'
         pluginName,healthCheckName = metricPath.split('.'); const _value = metrics;
   for(const key of path) {'
@@ -230,7 +230,7 @@ map(([name]) => name);
       this.healthTrends.set(pluginName, trends);
   for(const trend of trends) {'
   if(trend.trend === 'critical'  ?? trend.trend === 'degrading') {'
-          this.emit('health-trend-alert', {
+          this.emit('health-trend-alert', 
             pluginName,
             trend,timestamp = // await this.generateSystemHealthSummary(); 
     this.systemHealthHistory.push({timestamp = this.systemHealthHistory.slice(-this.config.maxHistoryPoints); //     }
@@ -308,13 +308,13 @@ map(([name]) => name);
     // Check for plugins with poor health'
     const _unhealthyPlugins = plugins.filter(p => p.lastHealthResult?.status === 'unhealthy');
   if(unhealthyPlugins.length > 0) {'
-      recommendations.push(`Investigate ${unhealthyPlugins.length} unhealthy plugin(s)`);
+      recommendations.push(`Investigate $unhealthyPlugins.lengthunhealthy plugin(s)`);
     //     }
 
     // Check for degrading trends`
     const _degradingTrends = trends.filter(t => t.trend === 'degrading' && t.confidence > 0.7);
   if(degradingTrends.length > 0) {'
-      recommendations.push(`Monitor ${degradingTrends.length} plugin(s) with degrading performance trends`);
+      recommendations.push(`Monitor $degradingTrends.lengthplugin(s) with degrading performance trends`);
     //     }
 
     // Check for high error rates
@@ -380,7 +380,7 @@ map(([name]) => name);
 
     const _failingChecks = pluginData.healthChecks.filter((hc) => hc.consecutiveFailures > 0);
   if(failingChecks.length > 0) {'
-      recommendations.push(`${failingChecks.length} health check(s) are failing`);
+      recommendations.push(`$failingChecks.lengthhealth check(s) are failing`);
     //     }
 
     const _recentMetrics = pluginData.metrics.slice(-5);
@@ -443,5 +443,4 @@ map(([name]) => name);
 
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))
 '
-}
 }

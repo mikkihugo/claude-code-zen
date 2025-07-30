@@ -94,7 +94,7 @@ async function main() {
       const _action = context.args[0];
     // ; // LINT: unreachable code removed/g
   switch(action) {'
-        case 'create':'
+        case 'create': {'
 //           return hiveMind.coordinate({type = context.args.slice(1).join(' ');
     // if(!task) { // LINT: unreachable code removed'
             throw new Error('Task description required');
@@ -114,7 +114,7 @@ async function main() {
       const _operation = context.args[0];
     // ; // LINT: unreachable code removed/g
   switch(operation) {'
-        case 'search':'
+        case 'search': {'
           const _query = context.args.slice(1).join(' ');
   if(!query) {'
             throw new Error('Search query required');
@@ -143,8 +143,8 @@ async function main() {
             } else {'
               printWarning(' System test completed with warnings');
             //             }
-          } catch(error) {'
-            printWarning(` System test _failed => {``
+          } catch(error) '
+            printWarning(` System test _failed => ``
   printInfo('\\n Shutting down Hive-Mind Primary System...');
   if(globalHiveMind) {
     try {
@@ -153,7 +153,7 @@ async function main() {
     } catch (error) {
   console.error(error);
 }'
-  printError(` Cleanup failed => {`
+  printError(` Cleanup failed => `
   if(globalHiveMind) {
 // // await globalHiveMind.cleanup();
   //   }
@@ -161,14 +161,14 @@ async function main() {
 });
 `
 process.on('uncaughtException', async(error) => {'
-  printError(` Uncaught _exception => {``
+  printError(` Uncaught _exception => ``
   printError(` Fatal error);`
   if(globalHiveMind) {
 // // await globalHiveMind.cleanup();
   //   }
 
   process.exit(1);
-});
-
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))
+});}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))
 `
+        }
+        }

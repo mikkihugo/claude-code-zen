@@ -5,10 +5,11 @@ Command;
 Loader;
 
 /** Loads and registers all CLI commands with proper error handling */
- *
+*
 @module
-CommandLoader * /;
-import { CommandRouter } from '.';
+CommandLoader * /;;
+import { CommandRouter } from
+';
 
 /** Load and register all core commands */
 *
@@ -42,7 +43,6 @@ const _router = new CommandRouter();
 router - Command;
 router;
 instance;
-'
 async
 function registerCoreCommands(router = // // await import('../command-handlers/init-command.js''
 router.register('init', {handler = // await import('../command-handlers/start-command.js''
@@ -63,9 +63,9 @@ router.register('deploy', {handler = // // await import('../command-handlers/wor
 router.register('workflow', {handler = // // await import('../command-handlers/analytics-command.js''
 router.register('analytics', {handler = // // await import('../command-handlers/neural-command.js''
 router.register('neural', {handler = // // await import('../command-handlers/queen-command.js'
-router.register('queen', {handler = router.list();
-'
+router.register('queen', {handler = router.list()
 // }
 
 }}}}}}}}}}}}}}}}}})))))))))))))))))))
 '
+))))))))))))))))))))

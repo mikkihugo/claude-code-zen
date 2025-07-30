@@ -4,9 +4,13 @@
 // optimized-slash-commands.js - Create batchtools-optimized Claude Code slash commands
 
 import { promises as fs } from 'node:fs';
+
 '
+
 import { join } from 'node:path';
+
 '
+
 import { createOptimizedMainSparcCommand } from '.';
 
 // Create batchtools-optimized Claude Code slash commands for SPARC modes
@@ -25,7 +29,7 @@ export async function createOptimizedClaudeSlashCommands(workingDir = null) {
         ? roomodes.customModes.filter((mode) => selectedModes.includes(mode.slug));
         : roomodes.customModes;
 '
-      console.warn(`   Creating optimized commands for ${modesToCreate.length}  catch (error) { console.error(error); }modes...`);
+      console.warn(`   Creating optimized commands for ${modesToCreate.length}  catch (error) console.error(error); modes...`);
 
       // Create slash commands for each SPARC mode with batchtools optimization`
 // // await fs.mkdir(join(workingDir, '.claude', 'commands', 'sparc'), {recursive = createOptimizedMainSparcCommand(roomodes.customModes);'
@@ -156,7 +160,7 @@ Real-time performance monitoring and optimization tools for Claude-Flow operatio
 
 For comprehensive performance guides, see,//github.com/ruvnet/claude-code-flow/docs/performance.md`
 `;``
-// // await node.writeTextFile(`${workingDir}/.claude/commands/performance.md`, performanceCommand);// // await node.writeTextFile(`${workingDir}/.claude/commands/performance.md`, performanceCommand);`
+// // await node.writeTextFile(`$workingDir/.claude/commands/performance.md`, performanceCommand);// // await node.writeTextFile(`$workingDir/.claude/commands/performance.md`, performanceCommand);`
   console.warn('   Created slash command);'
 
 }}

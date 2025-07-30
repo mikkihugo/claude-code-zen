@@ -35,16 +35,16 @@ Team;
 /** Handles module resolution and bundling exclusions; */
 
 // export const buildConfig = {
-  // Module aliases for Node.js build compatibility
+// Module aliases for Node.js build compatibility
 
 {
   ('@cliffy/ansi/colors');
   ';
   : './src/adapters/cliffy-node.js',';
-('';
-: './src/adapters/cliffy-node.js',';
-('';
-: './src/adapters/cliffy-node.js'
+(''
+  : './src/adapters/cliffy-node.js',';
+(''
+  : './src/adapters/cliffy-node.js'
 }
 ,
 // Modules to exclude from Node.js build

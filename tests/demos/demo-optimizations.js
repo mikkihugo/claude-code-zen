@@ -5,7 +5,7 @@ Demo;
 script;
 showing;
 
-optimized
+optimized;
 MCP;
 server;
 capabilities;
@@ -50,7 +50,7 @@ const _testMessages = [
       receivedAt: Date.now() } ];
 // Process messages through optimized path
 const __processedCount = 0;'
-server.stdioOptimizer.on('batch', async(batch) => {'
+server.stdioOptimizer.on('batch', async(batch) => '
   console.warn(`;`
 Processing;
 batch;
@@ -68,7 +68,7 @@ _processedCount += batch.length
 // const _response = awaitserver.handleMessage(item.message); `
         console.warn(`    ${item.message.method}  catch (error) { console.error(error); }-> ${response.result ? 'Success' ); `
       } catch(error) {`
-        console.warn(`    ${item.message.method} -> Error);`
+        console.warn(`    $item.message.method-> Error);`
       //       }
 // }
 }

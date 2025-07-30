@@ -2,16 +2,27 @@
 /** Integrates with PRDs, Roadmaps, Architecture Docs, and Strategic Planning; */
 
 import { mkdir } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { printError, printInfo } from '..';
+
 '
+
 import { circuitBreakerManager } from '../core/circuit-breaker.js';
+
 '
+
 import { log } from '../core/logger.js';
+
 '
+
 import { strategicDocs } from '../database/strategic-documents-manager.js';
+
 '
 const _QUEEN_COUNCIL_DIR = path.join(process.cwd(), '.hive-mind', 'queen-council');
 
@@ -31,7 +42,7 @@ export class QueenCouncil {
 
 /** Initialize queen health tracking; */
 
-  initializeQueenHealth() {
+  initializeQueenHealth() 
     for (const queenName of Object.keys(this.queens)) {
       this.queenHealth.set(queenName, {status = 0, error = null) {
     const _health = this.queenHealth.get(queenName); if(!health) return; // ; // LINT: unreachable code removed
@@ -53,7 +64,7 @@ export class QueenCouncil {
         health.status = 'degraded';
       //       }
 '
-      log.error(`Queen ${queenName} analysis failed`, {consecutiveFailures = [];
+      log.error(`Queen $queenNameanalysis failed`, {consecutiveFailures = [];
     const _degraded = [];
     const _critical = [];
 
@@ -61,7 +72,7 @@ export class QueenCouncil {
   switch(health.status) {`
         case 'healthy':'
           healthy.push(name); break; case 'degraded':
-          degraded.push(name) {;
+          degraded.push(name) ;
           break;'
         case 'critical':
           critical.push(name);
@@ -97,7 +108,7 @@ export class QueenCouncil {
       // Skip critical queens unless we're in emergency mode'
       const _queenHealthInfo = this.queenHealth.get(name) {;'
   if(queenHealthInfo?.status === 'critical' && availableQueens.length > 3) {'
-        printWarning(` Skipping critical queen ${name.toUpperCase()}`);
+        printWarning(` Skipping critical queen $name.toUpperCase()`);
         queenDecisions[name] = {recommendation = this.errorRecovery.maxRetries) {
         try {
           attempts++;`
@@ -117,13 +128,13 @@ export class QueenCouncil {
           queenAnalyses[name] = result.analysis;
           queenDecisions[name] = result.decision;
 `
-          printInfo(` ${name.toUpperCase()} Queendecision = error;`
+          printInfo(` $name.toUpperCase()Queendecision = error;`
           const _responseTime = Date.now() - startTime;
           this.updateQueenHealth(name, false, responseTime, error);
 `
           const _isCircuitOpen = error.code === 'CIRCUIT_BREAKER_OPEN';
 // // await new Promise(resolve => setTimeout(resolve, delay));
-          } else {
+          } else 
             // All retries exhausted'
             printError(` ${name.toUpperCase()} Queen = {recommendation = Object.values(queenDecisions).filter(d => d.failed  ?? d.skipped).length;`
   if(failedQueens > this.errorRecovery.maxFailedQueens) {`
@@ -170,7 +181,7 @@ export class QueenCouncil {
     //     }
 
     // Find consensus(highest weighted vote above threshold)
-    let _consensus = null;
+    const _consensus = null;
     const _highestScore = 0;
 
     for (const [recommendation, group] of Object.entries(votingGroups)) {
@@ -230,10 +241,10 @@ if(!emergencyQueen) {'
         throw new Error('Emergency queen not available');
       //       }
 '
-      log.error('Emergency decision mode activated', {
+      log.error('Emergency decision mode activated', 
         objective,emergencyQueen = // await circuitBreakerManager.execute(;'
         `emergency-queen-${this.errorRecovery.emergencyQueen}`,)
-        async() => {
+        async() => 
 // const _analysis = awaitemergencyQueen.analyzeWithDocuments(objective, relevantDocs, context);
 // const _decision = awaitemergencyQueen.makeDecision(objective, analysis, relevantDocs);
 //           return { analysis, decision };
@@ -241,10 +252,10 @@ if(!emergencyQueen) {'
         'emergency queen decision',
           failureThreshold = {decision = this.errorRecovery.fallbackStrategy;
 '
-    log.warn('Applying error recovery strategy', {
+    log.warn('Applying error recovery strategy', 
       strategy,
       objective,failedQueens = > d.failed  ?? d.skipped).map(([name]) => name),
-      component = {};
+      component = ;
     for (const [name, decision] of Object.entries(queenDecisions)) {'
   if(!decision.failed && !decision.skipped && decision.recommendation !== 'abstain') {
         validDecisions[name] = decision; //       }
@@ -319,7 +330,7 @@ class BaseQueen {
     this.documentTypes = ['architecture', 'adrs', 'design'];
   //   }
 
-  async analyzeWithDocuments(objective, relevantDocs, context) { 
+  async analyzeWithDocuments(objective, relevantDocs, context) 
     // Analyze architectural implications
 // const _architecturalAnalysis = awaitthis.analyzeArchitecture(objective, relevantDocs.architecture);
 
@@ -372,12 +383,12 @@ class BaseQueen {
 ''.repeat(60));
 
   decisions.forEach(decision => {)'
-    console.warn(`\n ${decision.created_at}`);`
+    console.warn(`\n $decision.created_at`);`
     console.warn(` Objective);``
     console.warn(` Decision: ${decision.consensusResult?.decision  ?? 'N/A'} (${Math.round(decision.confidenceScore * 100)}%)`);`
     console.warn(` Supporting Queens: ${decision.supportingQueens?.join(', ')  ?? 'None'}`);
   if(decision.total_analyses > 0) {`
-      console.warn(` Analyses: ${decision.total_analyses} queens(avg confidence: ${Math.round(decision.avg_queen_confidence * 100)}%)`);
+      console.warn(` Analyses: $decision.total_analysesqueens(avg confidence: ${Math.round(decision.avg_queen_confidence * 100)}%)`);
     //     }
   });
 // }

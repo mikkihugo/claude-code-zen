@@ -2,7 +2,9 @@
 /** Integration with Google's Gemini models via Vertex AI;' */
 
 */'
+
 import { ProviderError } from '.';
+
 '
 // // interface GoogleRequest {contents = ''
 // version = ''
@@ -23,7 +25,7 @@ if(!this.projectId) {'
   //   }
   this.location = config.location ?? this.location;
   this.baseUrl =;'
-  `https = { ...this.config, ...config };`
+  `https = ...this.config, ...config ;`
 // // await this.healthCheck();
   //   }
 
@@ -48,7 +50,7 @@ if(!this.projectId) {'
   while(true) {
     const { done, value } = // await reader.read();
     if(done) break;'
-    buffer += decoder.decode(value, {stream = buffer.split('\n');'';
+    buffer += decoder.decode(value, stream = buffer.split('\n');'';
   for(const line of lines) {'
       if(line.startsWith('data = line.slice(6); '
 

@@ -4,11 +4,12 @@
 // { Logger, JSONObject, JSONValue, JSONArray;
 //  } from;
 
-('../types/core.js')
+('../types/core.js');
 printSuccess, printError, printWarning, callRuvSwarmLibrary, checkRuvSwarmAvailable;
 '
 } from '..'
 '
+
 import CodeAnalysisService from '../../services/code-analysis/index.js';
 
 export async function analysisAction() {
@@ -169,7 +170,7 @@ try {
   console.warn(` Generating performance report...`);`
   console.warn(`Timeframe = > setTimeout(resolve, 1500));``
   printSuccess(` Performance report generated`);`
-  console.warn(`\n PERFORMANCE SUMMARY($, { timeframe }):`);`
+  console.warn(`\n PERFORMANCE SUMMARY($, timeframe ):`);`
   console.warn(`   Total tasksexecuted = === 'detailed') {``
     console.warn(`\n DETAILEDMETRICS = flags;``
   const __agent = options.agent ?? 'all';
@@ -207,9 +208,9 @@ try {
     printSuccess(` Complexity analysis completed`);
 `
     console.warn(`\n COMPLEXITY ANALYSISRESULTS = results.overall.complexityDistribution;`)`
-  console.warn(`   Low(1-5): ${dist.low}`);`
+  console.warn(`   Low(1-5): $dist.low`);`
   console.warn(`   Medium(6-10): ${dist.medium}`);`
-  console.warn(`   High(11-20): ${dist.high}`);`
+  console.warn(`   High(11-20): $dist.high`);`
   console.warn(`   Critical(21+): ${dist.critical}`);
   // Generate insights
   const _insights = analyzer.generateComplexityInsights(results);

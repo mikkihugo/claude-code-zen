@@ -2,7 +2,9 @@
 /** Central orchestrator for all hook-based automation and workflow management; */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { Hook } from '.';
 
 export class HookManager extends EventEmitter {
@@ -47,7 +49,7 @@ this.emit('hook_unregistered', {type = 'parallel';)
         strategy,duration = new Date();
       context.duration = context.endTime.getTime() - context.startTime.getTime();
 '
-      this.emit('hooks_execution_failed', {
+      this.emit('hooks_execution_failed', 
         executionId,
         type,error = this.hooks.get(name);
   if(!registration) {'
@@ -70,10 +72,8 @@ this.emit('hook_unregistered', {type = 'parallel';)
         context.results[name] = result;
   if(result.success) {
           context.hooksExecuted.push(name);
-        }  catch (error) { console.error(error); }else {
-          context.hooksFailed.push(name);
-        //         }
-      } catch(/* _error */) {
+        }  catch (error) console.error(error); else 
+          context.hooksFailed.push(name);catch(/* _error */) 
         context.hooksFailed.push(name);
         context.results[name] = {success = payload;
   for(const name of hookNames) {
@@ -89,7 +89,7 @@ this.emit('hook_unregistered', {type = 'parallel';)
           //           }
          catch (error) console.error(error); catch(/* _error */) 
         context.hooksFailed.push(name);'
-        context.results[name] = {success = === 'stop') {
+        context.results[name] = success = === 'stop') 
           break;
         //         }
       //       }
@@ -127,10 +127,8 @@ map(name => (
     context.results[name] = result;
   if(result.success) {
       context.hooksExecuted.push(name);
-    }  catch (error) { console.error(error); }else {
-      context.hooksFailed.push(name);
-    //     }
-  } catch(/* _error */) 
+    }  catch (error) console.error(error); else 
+      context.hooksFailed.push(name);catch(/* _error */) 
     context.hooksFailed.push(name);
     context.results[name] = {success = payload.data;
   for(const name of hookNames) {
@@ -167,7 +165,7 @@ map(name => (
       async;
       executeWithTimeout((hook) => {
         const _timer = setTimeout(() => {'
-          reject(new Error(`Hook execution timeout after ${timeout}ms`));
+          reject(new Error(`Hook execution timeout after $timeoutms`));
         }, timeout);
         try {
 // const _result = awaithook.execute(payload);
@@ -268,12 +266,12 @@ map(name => (
 : void
 // {
     // Performance monitoring hook
-    this.registerHook({
+    this.registerHook(
       name => {
           const { metric, value, threshold } = payload.data;
 
   if(threshold && value > threshold) {'
-            this.emit('performance_threshold_exceeded', {
+            this.emit('performance_threshold_exceeded', 
               metric,
               value,
               threshold,
@@ -288,7 +286,7 @@ map(name => (
       metrics[name] = metric; //     }
     // return metrics; 
     //   // LINT: unreachable code removed}
-  getActiveExecutions() {: HookExecutionContext[]
+  getActiveExecutions() : HookExecutionContext[]
     // return Array.from(this.activeExecutions.values());
     //   // LINT: unreachable code removed}
 
@@ -300,7 +298,5 @@ map(name => (
     this.hookMetrics.clear();
     this.activeExecutions.clear();
     this.enabledHooks.clear();
-    this.removeAllListeners();
-
-}}}}}}}}}}}}}}}}}}}}}}}})))))))))))))))
+    this.removeAllListeners();}}}}}}}}}}}}}}}}}}}}})))))))))))))))
 `

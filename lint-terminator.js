@@ -23,8 +23,10 @@ try {
 console.warn(' Biome completed with some issues');
 // }
 // Step 2: Quick unused variable removal
-console.warn('\n Phase 2''][^'''];\s*$/gm,"'']([^'''];/);"'
-  if(importMatch) {
+console.warn('\n Phase 2''][^'''
+]
+\s*$/gm,"'']([^'''];/);"'
+if(importMatch) {
         const _imports = importMatch[1].split(','); 
           if(content.includes(cleanImp) && content.split(cleanImp).length > 2) {
             usedImports.push(imp); // }

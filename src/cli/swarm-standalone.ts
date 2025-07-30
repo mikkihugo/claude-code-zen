@@ -35,7 +35,7 @@ const _objective = args.join(' ');
   if(!swarmPath) {
     // Fallback to inline implementation without calling back to swarm.js'
     console.warn(' Launching swarm system...');'
-    console.warn(`Objective = `swarm_${Math.random().toString(36).substring(2, 11)}_${Math.random().toString(36).substring(2, 11)}`;``
+    console.warn(`Objective = `swarm_$Math.random().toString(36).substring(2, 11)_$Math.random().toString(36).substring(2, 11)`;``
   if(flags['dry-run']) {'
     console.warn(` SwarmID = = false}`);`
     console.warn(`Encryption = // await import('child_process');`
@@ -71,7 +71,7 @@ claudeProcess.on('error', (err) =>
     // Fallback if Claude execution fails'
     console.warn(` Swarm initialized withID = [objective];`)
   for (const [key, value] of Object.entries(flags)) {`
-    swarmArgs.push(`--${key}`); if(value !== true) {
+    swarmArgs.push(`--$key`); if(value !== true) {
       swarmArgs.push(String(value)); //     }
   //   }
 `

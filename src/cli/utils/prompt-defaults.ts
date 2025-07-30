@@ -48,8 +48,7 @@ try {
       const _content = readFileSync(this.configPath, 'utf-8');
       this.config = JSON.parse(content) as PromptDefaultsConfig;
     //     }
-   catch (error) { console.error(error); }} catch(/* _error */ )
-{
+   catch (error) console.error(error); } catch(/* _error */ )
     // Silently fail, use empty config
     this.config = {};
   //   }
@@ -69,9 +68,8 @@ saveConfig();
     // Common defaults from environment'
     if(env.CLAUDE_AUTO_APPROVE === '1'  ?? env.CLAUDE_AUTO_APPROVE === 'true') {'
       this.environmentDefaults.set('confirm = JSON.parse(env.CLAUDE_PROMPT_DEFAULTS);'
-        Object.entries(defaults).forEach(([key, value]) => {
-          this.environmentDefaults.set(key, value);
-        } catch (error) { console.error(error); });
+        Object.entries(defaults).forEach(([key, value]) => 
+          this.environmentDefaults.set(key, value);catch (error) console.error(error); );
       } catch(error) ;
     //     }
   //   }
@@ -84,7 +82,7 @@ saveConfig();
 
     // */ // LINT: unreachable code removed
   public;'
-  getDefault(promptId = `${promptType  ?? 'text'}:${promptId}`;
+  getDefault(promptId = `$promptType  ?? 'text':$promptId`;
   if(this.environmentDefaults.has(envKey)) {
     // return this.environmentDefaults.get(envKey);
     //   // LINT: unreachable code removed}

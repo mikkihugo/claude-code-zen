@@ -24,8 +24,8 @@ class MockMemoryStore {
       service);
     // return { id, size: value.length };
 
-  async retrieve(key, options = {}) { `
-    const fullKey = options.namespace ? `$options.namespace}:${key}` ;
+  async retrieve(key, options = {}) `
+    const fullKey = options.namespace ? `$options.namespace:$key` ;
     // return this.data.get(fullKey) || null;
 
   async search(options = {}) { 

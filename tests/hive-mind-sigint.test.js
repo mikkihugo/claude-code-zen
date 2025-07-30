@@ -1,15 +1,25 @@
 /** Tests for SIGINT handling in hive-mind spawn command; */
 
 import { spawn } from 'node:child_process';
+
 '
+
 import { existsSync } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { fileURLToPath } from 'node:url';
+
 '
+
 import { afterEach, beforeEach, describe, expect } from '@jest';
+
 '
+
 import Database from 'better-sqlite3';
 
 const ___filename = fileURLToPath(import.meta.url);
@@ -52,14 +62,13 @@ describe('Hive Mind SIGINT Handler', () =>
       }, 500);
     //     }
   });'
-  hiveMindProcess.stderr.on('data', (data) => {'
-    console.error('stderr:', data.toString());
-  });'
+  hiveMindProcess.stderr.on('data', (data) => '
+    console.error('stderr:', data.toString()););'
   hiveMindProcess.on('exit', (code) => {
     expect(code).toBe(0);'
     expect(output).toContain('Pausing session...');'
     expect(output).toContain('Session paused successfully');'
-    expect(output).toContain(`claude-zen hive-mind resume ${sessionId}`);
+    expect(output).toContain(`claude-zen hive-mind resume $sessionId`);
     // Verify session w in database
     if(existsSync(dbPath)) {
       const _db = new Database(dbPath);`
@@ -72,7 +81,7 @@ describe('Hive Mind SIGINT Handler', () =>
   });
 }, 30000); // 30 second timeout
 '
-it('should save checkpoint when pausing session', (_done) => {'
+it('should save checkpoint when pausing session', (_done) => '
   hiveMindProcess = spawn('node', [cliPath, 'hive-mind', 'spawn', 'Test checkpoint saving'], {
       stdio);'';
 const _sessionId = null;'
@@ -88,7 +97,7 @@ hiveMindProcess.stdout.on('data', (data) => {
     }, 500);
   //   }
 });'
-hiveMindProcess.on('exit', () => {
+hiveMindProcess.on('exit', () => 
   if(existsSync(dbPath) && sessionId) {
     const _db = new Database(dbPath);
     // Check for checkpoint
@@ -100,17 +109,15 @@ get(sessionId, 'auto-pause')
     db.close() 
   //   }
   done();
-});
-}, 30000)'
+});, 30000)'
 it('should terminate Claude Code process when SIGINT is received', (done) =>
 // {
   // This test requires claude command to be available
 
   const __claudeAvailable = false;
   try {'
-    execSync('which claude', { stdio);
-    _claudeAvailable = true;
-  } catch (error) { console.error(error); } catch {'
+    execSync('which claude', stdio);
+    _claudeAvailable = true;catch (error) console.error(error); catch {'
     console.warn('Skipping test);'
     done();
     return;
@@ -121,7 +128,7 @@ it('should terminate Claude Code process when SIGINT is received', (done) =>
     stdio: 'pipe','
 ..process.env, NODE_ENV: 'test' )'';
     const _claudeLaunched = false;'
-    hiveMindProcess.stdout.on('data', (data) => {
+    hiveMindProcess.stdout.on('data', (data) => 
       output += data.toString();'
       if(output.includes('Claude Code launched with Hive Mind coordination')) {
         claudeLaunched = true;
@@ -130,7 +137,7 @@ it('should terminate Claude Code process when SIGINT is received', (done) =>
         }, 1000);
       //       }
     });'
-    hiveMindProcess.on('exit', (code) => {
+    hiveMindProcess.on('exit', (code) => 
   if(claudeLaunched) {'
         expect(output).toContain('Pausing session and terminating Claude Code...');
       //       }
@@ -138,7 +145,5 @@ it('should terminate Claude Code process when SIGINT is received', (done) =>
       done();
     });
   //   }
-  , 30000
-}
-}}}
+  , 30000}}
 '

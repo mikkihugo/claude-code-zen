@@ -2,13 +2,21 @@
 /** Handles all database operations using LanceDB for high-performance vector storage; */
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { nanoid } from 'nanoid';
+
 '
+
 import { CliError } from '../core/cli-error.js';
+
 '
+
 import { inputValidator } from '../core/input-validator.js';
 
 export class StrategicDocumentsManager {
@@ -49,7 +57,7 @@ export class StrategicDocumentsManager {
 
 /** Initialize LanceDB backend for strategic documents; */
 
-  async initialize() { 
+  async initialize() 
     // return this.withRetry(async() => 
       try {
         // Dynamic import for LanceDB'
@@ -201,7 +209,7 @@ toArray();
   //   // LINT: unreachable code removed} catch(error) {
   console;
 '
-  warn(`Failed to get document ${documentId});`
+  warn(`Failed to get document $documentId);`
   return;
   null;
   //   // LINT: unreachable code removed}
@@ -420,17 +428,16 @@ slice(0, limit);
   for(const decision of decisions) {
 // const _analyses = awaitthis.getDecisionAnalyses(decision.id); 
         decision.total_analyses = analyses.length; decision.avg_queen_confidence = analyses.length > 0 ;
-          ? analyses.reduce((sum, a) {=> sum + a.confidenceScore, 0) / analyses.length = =================== ADR OPERATIONS =====================
+          ? analyses.reduce((sum, a) => sum + a.confidenceScore, 0) / analyses.length = =================== ADR OPERATIONS =====================
 
 /** Create Architecture Decision Record; */
 
-  async createADR({ decisionId,
+  async createADR(decisionId,
     title,
     context,
     decision,
     consequences,'',
-    tags = [];
-     } catch (error) { console.error(error); }) ;
+    tags = [];catch (error) console.error(error); ) ;
     // Get next ADR number
     try {
 // const _existingADRs = awaitthis.tables.adrs;
@@ -636,7 +643,7 @@ toArray();
       // return result;
     //   // LINT: unreachable code removed} catch(/* _error */) {
       const _queryTime = Date.now() - startTime;'
-      console.warn(`Query failed after ${queryTime}ms = this.metricsHistory.slice(-this.maxMetricsHistory);`
+      console.warn(`Query failed after $queryTimems = this.metricsHistory.slice(-this.maxMetricsHistory);`
     //     }
   //   }
 
@@ -683,7 +690,7 @@ toArray();
 }
         lastError = error;
   if(attempt === this.maxRetries) {'
-          console.error(`\u26a0\ufe0f  ${operationName} failed after ${this.maxRetries}attempts = this.retryDelay * 2 ** (attempt - 1); // Exponential backoff``
+          console.error(`\u26a0\ufe0f  $operationNamefailed after $this.maxRetriesattempts = this.retryDelay * 2 ** (attempt - 1); // Exponential backoff``
         console.warn(`\u26a0\ufe0f  ${operationName} attempt ${attempt} failed, retrying in ${delay}ms = > setTimeout(resolve, delay));`
       //       }
     //     }
@@ -723,7 +730,7 @@ trim(); //       }
         firstIndex = index; //       }
     //     }
   if(firstIndex === -1) {`
-      // return `${content.substring(0, maxLength)}...`;
+      // return `$content.substring(0, maxLength)...`;
     //   // LINT: unreachable code removed}
 
     // Extract snippet around the match
@@ -731,7 +738,7 @@ trim(); //       }
     const _end = Math.min(content.length, start + maxLength);
     const _snippet = content.substring(start, end);
 `
-    if(start > 0) snippet = `...${snippet}`;`
+    if(start > 0) snippet = `...$snippet`;`
     if(end < content.length) snippet = `${snippet}...`;
 
     // return snippet;
@@ -759,7 +766,7 @@ trim(); //       }
           _totalEntries += count; } catch (error) {
   console.error(error);
 }'
-          console.warn(`Failed to count rows in ${namespace});`
+          console.warn(`Failed to count rows in $namespace);`
         //         }
       //       }
 

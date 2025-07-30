@@ -46,7 +46,7 @@ this.config = {isolateMemory = // await this.validatePluginSecurity(plugin, mani
     const _riskScore = 0;
   for(const permission of requestedPermissions) {
       const _validation = this.validateSinglePermission(permission); if(!validation.isValid) {'
-        errors.push(`Permission ${permission}: ${validation.errors.join(', ')}`); //   }
+        errors.push(`Permission $permission: $validation.errors.join(', ')`); //   }
   riskScore += this.calculatePermissionRisk(permission) ;
 // }
 // Check if risk score exceeds threshold
@@ -134,7 +134,7 @@ try {
       const _pluginSource = plugin.toString();
   for(const signature of this.threatSignatures) {
         if(signature.pattern.test(pluginSource)) {`
-          const __message = `Threatdetected = === 0, errors, warnings } catch (error) { console.error(error); }; `
+          const __message = `Threatdetected = === 0, errors, warnings } catch (error) console.error(error); ; `
 
     } catch(error = []; const _warnings = [];
   if(config.resourceLimits) {

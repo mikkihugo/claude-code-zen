@@ -2,7 +2,9 @@
 /** Pluggable storage backends for the main system with comprehensive type safety; */
 
 import LanceDBInterface from '../../database/lancedb-interface';
+
 '
+
 import { JSONValue } from '../../types/core';
 
 // // interface MemoryBackendConfig {backend = null
@@ -222,9 +224,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
         //   }
 
         catch (error)
-        {
           console.error(error);
-        }
         async;
         listNamespaces();
         : Promise<string[]>
@@ -259,7 +259,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
 // // await sqliteBackend.initialize();
       // return sqliteBackend;
     //   // LINT: unreachable code removed}
-   catch (error) { console.error(error); }//   }
+   catch (error) console.error(error); 
 
   // private async initializeSchema(): Promise<void> {
     try {
@@ -314,23 +314,23 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
     try {`
 // const __result = awaitthis.conn.query(`;`/g)`
         MATCH(d = 'default'): Promise<Record<string, JSONValue>> {
-    const _results = {} catch (error) { console.error(error); };
+    const _results = {} catch (error) console.error(error); ;
 
     try {
 '
         const _metadata = row['d.metadata'];
         try {
           results[key] = JSON.parse(metadata);
-        } catch (error) { console.error(error); } catch(error = {}): Promise<any> {
+        } catch (error) { console.error(error); } catch(error = ): Promise<any> 
     try {
       // return // await this.conn.query(query, options.params  ?? {} catch (error) { console.error(error); });
     //   // LINT: unreachable code removed} catch(error = 1.0;
-  ): Promise<boolean> {
+  ): Promise<boolean> 
 
     try {'';
   if(relationshipTypes.length > 0) {'
         const _typeList = relationshipTypes.map(t => `'${t} catch (error) { console.error(error); }'`).join(', ');'
-        _relationFilter = `WHERE r.relationship_type IN [${typeList}]`;
+        _relationFilter = `WHERE r.relationship_type IN [$typeList]`;
       //       }
 `
       let _result = // await this.conn.query(`;`/g)`
@@ -361,7 +361,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
   //   }
 '
   async store(key = 'default'): Promise<StorageResult> {'
-    const _fullKey = `${namespace}:${key}`;
+    const _fullKey = `$namespace:$key`;
     const _timestamp = Date.now();
     const _serializedValue = JSON.stringify(value);`
 // // await this.connectionPool.execute(`;`/g)
@@ -387,7 +387,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
     `, [namespace, searchPattern]);`
   for(let row of rows) {
       try {`
-        results[row.key] = JSON.parse(row.value); } catch (error) { console.error(error); } catch(_error = 'default'): Promise<boolean> {'
+        results[row.key] = JSON.parse(row.value); } catch (error) { console.error(error); } catch(_error = 'default'): Promise<boolean> '
 // const _result = awaitthis.connectionPool.execute(`; `
       DELETE FROM storage ;
       WHERE namespace = ? AND key = ?;)`
@@ -432,7 +432,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
     //     }
 '
   async store(key = 'default'): Promise<StorageResult> {'
-    let _fullKey = `${namespace}:${key}`;
+    let _fullKey = `$namespace:$key`;
     const _timestamp = Date.now();
 
     this.data.set(fullKey, { value, timestamp });
@@ -445,7 +445,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
 `
   async search(pattern = 'default'): Promise<Record<string, JSONValue>> {
     const _results = {};'
-    const _prefix = `${namespace}:`;
+    const _prefix = `$namespace:`;
   for(const [key, entry] of this.data) {
       if(key.startsWith(prefix) && key.includes(pattern)) {
         results[key.substring(prefix.length)] = entry.value; //       }
@@ -455,7 +455,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
     //   // LINT: unreachable code removed}
 `
   async delete(key = 'default') {: Promise<boolean> {'
-    const _fullKey = `${namespace}:${key}`;
+    const _fullKey = `$namespace:$key`;
     const _deleted = this.data.delete(fullKey);
     if(deleted) await this.persist();
     // return deleted;
@@ -497,7 +497,7 @@ catch(error = 'default'): Promise<Record<string, JSONValue>>;
 
 // export default MemoryBackendPlugin;
 
-}}}}}}}}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}}}}}
       }
     }
   }

@@ -5,11 +5,14 @@
 
 this.config =
 {
-      swarmId = {status = {divide_and_conquer = 'active';'
+      swarmId = {status = {divide_and_conquer = 'active';
+'
 this.emit(''
-if (score <= 3) return 'low';'
+if (score <= 3) return 'low';
+'
 // if(score <= 6) return 'medium'; // LINT: unreachable code removed'
-if (score <= 9) return 'high';'
+if (score <= 9) return 'high';
+'
 // return 'very_high'; // LINT: unreachable code removed
 // }
 
@@ -18,7 +21,7 @@ if (score <= 9) return 'high';'
 _countComplexityKeywords(text)
 : unknown
 // {'
-  const _complexKeywords = ['complex','
+const _complexKeywords = ['complex','
     'advanced','
     'enterprise','
     'distributed','
@@ -31,8 +34,8 @@ _countComplexityKeywords(text)
     'performance','
     'concurrent','
     'real-time',,];
-  const _lowerText = text.toLowerCase();
-  // return complexKeywords.filter((keyword) => lowerText.includes(keyword)).length;
+const _lowerText = text.toLowerCase();
+// return complexKeywords.filter((keyword) => lowerText.includes(keyword)).length;
 // }
 
 /** Identify components in objective */
@@ -40,9 +43,9 @@ _countComplexityKeywords(text)
 _identifyComponents(objective);
 : unknown
 // {
-  const _components = [];
-  const _componentKeywords = {backend = objective.toLowerCase();
-  Object.entries(componentKeywords).forEach(([component, keywords]) => {
+const _components = [];
+const _componentKeywords = {backend = objective.toLowerCase();
+Object.entries(componentKeywords).forEach(([component, keywords]) => {
     if(keywords.some((keyword) => lowerObjective.includes(keyword))) {
       components.push(component);
     //     }
@@ -351,9 +354,8 @@ _calculateFinalDecision(decision); // {
   const _voteCounts = {};
 
   // Count worker votes
-  Object.values(decision.workerVotes) {.forEach((vote) => {
-    voteCounts[vote] = (voteCounts[vote]  ?? 0) + 1;
-  });
+  Object.values(decision.workerVotes) {.forEach((vote) => 
+    voteCounts[vote] = (voteCounts[vote]  ?? 0) + 1;);
 '
   // Add queen's weighted vote'
   voteCounts[decision.queenVote] =;
@@ -372,8 +374,8 @@ _learnFromDecision(decision);
   const _key = `decision-${this.state.decisionsCount}`;
   this.state.learningData.set(key, {
 ..decision,
-      success = {}) {`
-    const _key = `decision-${decisionId}`;
+      success = {}) `
+    const _key = `decision-$decisionId`;
   const _decision = this.state.learningData.get(key);
   if(decision) {
     decision.success = success;
@@ -392,10 +394,9 @@ getStatus();
       decisionsCount: this.state.decisionsCount,
       strategiesExecuted: this.state.strategiesExecuted,
       currentStrategy: this.state.currentStrategy,
-      learningDataSize: this.state.learningData.size }
+      learningDataSize: this.state.learningData.size 
 // }
 
 }}}}}}}}}}}}}}}}}}
 '
 }
-

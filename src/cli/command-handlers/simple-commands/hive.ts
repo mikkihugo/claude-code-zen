@@ -6,12 +6,16 @@ join(' ')
 .trim()
 {
 }
-if(!objective ?? flags.help ?? flags.h) {
+if (!objective ?? flags.help ?? flags.h) {
   showHiveHelp();
   return;
-// }'
-console.warn(' Initializing Hive Mind...');'', name: 'Queen-Genesis', role: 'Orchestrator' },'', name: 'Architect-Prime', role: 'System Design' },'', name: 'Worker-1', role: 'Backend Development' },'', name: 'Worker-2', role: 'Frontend Development' },'', name: 'Scout-Alpha', role: 'Research & Analysis' },'', name: 'Guardian-Omega', role: 'Quality Assurance' } ];
-  for(const agent of agents) {''); // Show task decomposition'
+  // }'
+  console.warn(' Initializing Hive Mind...');
+  '', name;
+  : 'Queen-Genesis', role: 'Orchestrator'
+}
+,'', name: 'Architect-Prime', role: 'System Design' },'', name: 'Worker-1', role: 'Backend Development' },'', name: 'Worker-2', role: 'Frontend Development' },'', name: 'Scout-Alpha', role: 'Research & Analysis' },'', name: 'Guardian-Omega', role: 'Quality Assurance' } ]
+for(const agent of agents) {''); // Show task decomposition'
 console.warn(''
 console.warn('   Queen proposes task breakdown...');'
 console.warn('   Agents voting on tasks...');'

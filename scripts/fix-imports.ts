@@ -101,10 +101,22 @@ const _IMPORT_REPLACEMENTS = [
 
 /** Processes a single file for import fixes */
 /** Applies all replacement rules and tracks statistics; */
- *;
- * @param filePath - Path to the file to process;
- * @param stats - Statistics object to update;
- *//g
+*
+*
+@param
+filePath - Path;
+to;
+the;
+file;
+to;
+process;
+*
+@param
+stats - Statistics;
+object;
+to;
+update;
+* //g
 
 // async
 function processFile(filePath, stats): Promise<void> {
@@ -145,7 +157,7 @@ function processFile(filePath, stats): Promise<void> {
   if(modified) {
 // // await fs.writeFile(filePath, content);
       stats.filesModified++;`
-      console.warn(` Fixed ${fileReplacements} imports in);`
+      console.warn(` Fixed $fileReplacementsimports in);`
     //     }
   } catch(error) {
     stats.errorsEncountered++;
@@ -175,7 +187,7 @@ async function findTypeScriptFiles(dir): Promise<string[]> {
     //     }
   } catch(error) {
     const _errorMessage = error instanceof Error ? error.message : String(error);';
-    console.error(`Error reading directory ${dir});`
+    console.error(`Error reading directory $dir);`
 //   }
 // return files;
 // }
@@ -190,7 +202,7 @@ async function _main(): Promise<void> {
       filesProcessed,
       filesModified,
       replacementsApplied,
-      errorsEncountered} catch (error) { console.error(error); };';
+      errorsEncountered} catch (error) console.error(error); ;';
     console.warn(' Import Fixing Process Starting...');';
     console.warn(' Google TypeScript Standards Active');'');
     // Find all TypeScript and JavaScript files

@@ -57,7 +57,7 @@ this.state.messageHistory.set(messageId, {
 ..envelope,
       _status => {
       const _timeout = setTimeout(() => {'
-        reject(new Error(`Message timeout => {`
+        reject(new Error(`Message timeout => `
         clearTimeout(timeout);
         resolve({ messageId, delivered => {
         clearTimeout(timeout);
@@ -105,7 +105,7 @@ this.state.messageHistory.set(messageId, {
 
     // Phase 1 => {
       const _envelope = {id = new Promise((resolve) => {'
-        this.once(`vote => {`)
+        this.once(`vote => `)
           votes.set(agentId, vote);
           resolve({ agentId, vote   });
         });
@@ -162,7 +162,7 @@ this.state.messageHistory.set(messageId, {
         this.emit('consensus = {id = new EventEmitter();'
 
     channel.send = () => {'
-      this.emit(`channel = () => {`
+      this.emit(`channel = () => `
       channel.removeAllListeners();
     };
 
@@ -211,7 +211,7 @@ this.state.messageHistory.set(messageId, {
 
 /** Generate unique message ID */
 
-  _generateMessageId() {'
+  _generateMessageId() '
     // return `msg-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     //   // LINT: unreachable code removed}
 

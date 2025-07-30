@@ -2,7 +2,9 @@
 /** Provides parsing support for 40+ programming languages using tree-sitter; */
 
 import { createHash } from 'node:crypto';
+
 '
+
 import path from 'node:path';
 
 // Try to import tree-sitter with fallbacks
@@ -34,7 +36,7 @@ try {'
   TypeScript = null;
 // }
 // export class TreeSitterParser {
-  constructor(_config = {}) {
+  constructor(_config = {}) 
     this.config = {supportedLanguages = new Map();
     this.grammars = new Map();
     this.initialized = false;
@@ -42,7 +44,7 @@ try {'
 
 /** Initialize tree-sitter parsers for supported languages; */
 
-  async initialize() { 
+  async initialize() 
     if(!Parser) '
       console.warn('Tree-sitter not available, using simplified parsing');
       // return {status = new Parser();
@@ -359,7 +361,7 @@ createFallbackAnalysis(filePath, content, language);
 
 /** Infer type from AST node; */
 
-  inferTypeFromNode(node, content) {
+  inferTypeFromNode(node, content) 
   switch(node.type) {'
       case 'string':'
       case 'template_string':'
@@ -398,7 +400,7 @@ createFallbackAnalysis(filePath, content, language);
 
   isConstant(node, content) {'
     // Look for 'const' keyword
-    let _current = node.parent;
+    const _current = node.parent;
   while(current) {'
   if(current.type === 'lexical_declaration') {
         const _declarationText = this.getNodeText(current, content);'
@@ -432,7 +434,7 @@ createFallbackAnalysis(filePath, content, language);
 
 /** Determine import type */
 
-  determineImportType(source) {'
+  determineImportType(source) '
     if(source.startsWith('.')) {'
       // return 'relative';'
     //   // LINT: unreachable code removed} else if(source.startsWith('/')) {'
@@ -444,7 +446,7 @@ createFallbackAnalysis(filePath, content, language);
 
 /** Get export names */
 
-  getExportNames(node, content) {
+  getExportNames(node, content) 
     // This would need sophisticated parsing
     // For now, return empty array
     // return [];
@@ -452,7 +454,7 @@ createFallbackAnalysis(filePath, content, language);
 
 /** Get export type */
 
-  getExportType(node, content) {'
+  getExportType(node, content) '
     if(node.type.includes('default')) {'
       // return 'default';
     //   // LINT: unreachable code removed}'
@@ -461,7 +463,7 @@ createFallbackAnalysis(filePath, content, language);
 
 /** Get TypeScript type kind; */
 
-  getTypeKind(node) {
+  getTypeKind(node) 
   switch(node.type) {'
       case 'interface_declaration':'
         // return 'interface';'
@@ -477,7 +479,7 @@ createFallbackAnalysis(filePath, content, language);
 
 /** Extract implemented interfaces; */
 
-  extractImplements(node, content) {
+  extractImplements(node, content) 
     // This would need sophisticated parsing
     // return [];
     //   // LINT: unreachable code removed}
@@ -499,7 +501,7 @@ createFallbackAnalysis(filePath, content, language);
 
 /** Get supported languages; */
 
-  getSupportedLanguages() {}
+  getSupportedLanguages() 
 // {
   // return Array.from(this.parsers.keys());
 // }
@@ -514,5 +516,5 @@ isLanguageSupported(language);
 // }
 // export default TreeSitterParser;
 
-}}}}}}}}}}}}}}}
+}}}}}}}}}}
 `

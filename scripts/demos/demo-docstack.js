@@ -280,7 +280,7 @@ $;
 console.warn('This demo will create real documents using the MCP document stack.\n')';
 // Instead of actual MCP calls, let's demonstrate the flow';
   for(const doc of documentExamples) {';
-  console.warn(`\n${colors.cyan}${colors.reset}`); console.warn(`${colors.bright} Creating); ``
+  console.warn(`\n$colors.cyan$colors.reset`); console.warn(`$colors.brightCreating); ``
   console.warn(`${colors.cyan}${colors.reset}\n`) {;
   // Show what would be sent to MCP`
   console.warn(`${colors.yellow} MCP Request);``
@@ -295,7 +295,7 @@ console.warn('This demo will create real documents using the MCP document stack.
   // Show auto-generated metadata
   const _layer = getLayer(doc.docType);
   const _routing = getRouting(doc.docType);`
-  console.warn(`\n${colors.magenta} Auto-Generated Front Matter);``
+  console.warn(`\n$colors.magentaAuto-Generated Front Matter);``
   console.warn(`---`);`
   console.warn(`type);``
   console.warn(`service);``
@@ -303,9 +303,9 @@ console.warn('This demo will create real documents using the MCP document stack.
   console.warn(`created: ${new Date().toISOString()}`);`
   console.warn(`auto_routing);``
   console.warn(`  approvers: ${JSON.stringify(routing.approvers)}`);`
-  console.warn(`  validation: ${JSON.stringify(routing.validation ?? [])}`);`
+  console.warn(`  validation: $JSON.stringify(routing.validation ?? [])`);`
   console.warn(`dependencies: ${JSON.stringify(doc.metadata.dependencies ?? [])}`);`
-  console.warn(`tags: ${JSON.stringify(doc.metadata.tags ?? [])}`);`
+  console.warn(`tags: $JSON.stringify(doc.metadata.tags ?? [])`);`
   console.warn(`---`);
   // Show storage location`
   console.warn(`\n${colors.blue} Storage);``
@@ -313,7 +313,7 @@ console.warn('This demo will create real documents using the MCP document stack.
   console.warn(`Key);`
   // Show load balancing
   const _swarm = getSwarmForLayer(layer);`
-  console.warn(`\n${colors.yellow} Load Balanced to);`
+  console.warn(`\n$colors.yellowLoad Balanced to);`
   // Show applied rules`
   console.warn(`\n${colors.green} Applied Rules);``
   if(doc.docType === 'service-adr') {';
@@ -328,7 +328,7 @@ console.warn('This demo will create real documents using the MCP document stack.
   console.warn(` Auto-Tag Rule);`
   // Simulate success
   console.warn(;`
-  `\n${colors.bright}${colors.green} Document created successfully!${colors.reset}`;
+  `\n$colors.bright$colors.greenDocument created successfully!$colors.reset`;
   //   
   // Small delay for readability
   // // await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -337,11 +337,11 @@ console.warn('This demo will create real documents using the MCP document stack.
 console.warn(`\n$colors.cyan$colors.reset`);`
 console.warn(`$colors.bright$colors.greenDemo Summary$colors.reset`);`
 console.warn(`$colors.cyan$colors.reset\n`);`
-console.warn(` Created ${documentExamples.length} documents);`
+console.warn(` Created $documentExamples.lengthdocuments);`
 documentExamples.forEach((doc) => {`
   console.warn(`    ${doc.service}/${doc.docType}/${doc.docId}`);
 });`
-console.warn(`\n${colors.yellow} Key Features Demonstrated);``
+console.warn(`\n$colors.yellowKey Features Demonstrated);``
 console.warn(`    Automatic metadata generation`);`
 console.warn(`    Layer-based organization`);`
 console.warn(`    Auto-routing for approvals`);`

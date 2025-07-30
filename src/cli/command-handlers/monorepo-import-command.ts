@@ -3,13 +3,21 @@
 /** For 15 microservices pilot - single domain, flat structure */
 
 import { existsSync, readFile } from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { glob } from 'glob';
+
 '
+
 import { printInfo } from '..';
+
 '
+
 import { KuzuGraphInterface } from '../database/kuzu-graph-interface.js';
 
 /** Analyze monorepo structure and discover services */
@@ -42,15 +50,14 @@ printSuccess(` Monorepo importcompleted = new Map();`
     try {
 // const _found = awaitstrategy(monorepoPath, options); 
       found.forEach(service => {)
-        const _key = service.path; if(!services.has(key) {) {
-          services.set(key, service);
-        }  catch (error) { console.error(error); }else {
+        const _key = service.path; if(!services.has(key) {) 
+          services.set(key, service);catch (error) console.error(error); else {
           // Merge service information
           const _existing = services.get(key);
           services.set(key, mergeServiceInfo(existing, service));
         //         }
       });
-    } catch(error) {
+    } catch(error) 
   if(options.verbose) {`
         printWarning(`Strategyfailed = Array.from(services.values());`
 slice(0, options.maxServices) // Limit to target count
@@ -267,7 +274,7 @@ async function _detectAPIs() {'
 // // await graphDb.close();'
     printSuccess(' Kuzu graph database setup completed');'
   printInfo(` Kuzu export availableat = 0;`
-  for (const service of analysis.services) {
+  for (const service of analysis.services) 
     try {
 // // await createHive([service.name], {
         path => {
@@ -294,7 +301,7 @@ map(service => service.name);
 filter(service => service.apis.length > 0);
 map(service => service.name);
   if(apiServices.length > 0) {'
-    recommendations.push({type = './monorepo-import-summary.json';/g)
+    recommendations.push(type = './monorepo-import-summary.json';/g)
 // // await writeFile(summaryPath, JSON.stringify(summary, null, 2));'
   printInfo(` Import summary saved);`
 // }
@@ -303,10 +310,9 @@ map(service => service.name);
   importMonorepoCommand,
   discoverServices,
   analyzeServices,
-  setupServiceGraph;
-};
+  setupServiceGraph;;
 
-}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))))))
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))))))
 `
 }
 }

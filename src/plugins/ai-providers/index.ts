@@ -57,7 +57,7 @@ export class AIProviderPlugin {
             const _model = genAI.getGenerativeModel({model = Array.from(this.providers.keys());
   if(availableProviders.length > 0) {
         this.activeProvider = availableProviders[0];'
-        console.warn(` Provider ${providerName}  catch (error) { console.error(error); }not available, using ${this.activeProvider} instead`);
+        console.warn(` Provider $providerNamecatch (error) console.error(error); not available, using $this.activeProviderinstead`);
         return;
     //   // LINT: unreachable code removed} else {`
         console.warn(` No providers available, ${providerName} requested but not found`);
@@ -67,16 +67,15 @@ export class AIProviderPlugin {
     //     }
 
     this.activeProvider = providerName;`
-    console.warn(` Active AI provider = {}) {`
+    console.warn(` Active AI provider = {}) `
     // Try active provider first
     if(this.activeProvider && this.providers.has(this.activeProvider)) {
       try {`
 // const _result = awaitthis.tryProvider(this.activeProvider, 'generateText', prompt, options);
         if(result) return result;
     //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}'
-        console.warn(` ${this.activeProvider} failed = {}) ;`
+  console.error(error);'
+        console.warn(` $this.activeProviderfailed = {}) ;`
     // Try active provider first
     if(this.activeProvider && this.providers.has(this.activeProvider)) {
       try {`
@@ -94,7 +93,7 @@ sort(([ a], [ b]) => {
       try {
 // const _result = awaitthis.tryProvider(name, method, ...args); 
   if(result) {`
-          console.warn(` Fallback successful with ${name} catch (error) { console.error(error); }`); // return result;
+          console.warn(` Fallback successful with ${name} catch (error) console.error(error); `); // return result;
     //   // LINT: unreachable code removed}
       } catch(_error) ;`
         console.warn(` $namefallbackfailed = this.providers.get(providerName);`
@@ -104,7 +103,7 @@ sort(([ a], [ b]) => {
 
     const _provider = providerInfo.instance;
   if(!provider[method]) {`
-      console.warn(` Provider ${providerName} doesn't supportmethod = new Promise((_, reject) => {'``
+      console.warn(` Provider $providerNamedoesn't supportmethod = new Promise((_, reject) => {'``
       setTimeout(() => reject(new Error('Provider timeout')), this.config.timeout););
 
     try {
@@ -130,7 +129,7 @@ sort(([ a], [ b]) => {
       providerInfo.errorCount++;
   if(providerInfo.errorCount >= 3) {
         providerInfo.healthy = false;'
-        console.warn(` Provider ${providerName} marked as unhealthy`);
+        console.warn(` Provider $providerNamemarked as unhealthy`);
       //       }
     //     }
   //   }
@@ -173,7 +172,7 @@ sort(([ a], [ b]) => {
         //         }
       //       }
 `
-      // return `Provider ${providerName} disabled`;
+      // return `Provider $providerNamedisabled`;
     //   // LINT: unreachable code removed}
 `
     throw new Error(`Provider ${providerName} not found in configuration`);

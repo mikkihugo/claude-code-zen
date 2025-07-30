@@ -3,19 +3,33 @@
 /** Replaces hard-coded endpoints with maintainable schema approach */
 
 import { EventEmitter } from 'node:events';
+
 '
+
 import { createServer } from 'node:http';
+
 '
+
 import cors from 'cors';
+
 '
+
 import express, { type NextFunction, type Request, type Response } from 'express';
+
 '
+
 import rateLimit from 'express-rate-limit';
+
 '
+
 import helmet from 'helmet';
+
 '
+
 import { v4 as uuidv4 } from 'uuid';
+
 '
+
 import { WebSocketServer } from 'ws';
 
 import {
@@ -24,8 +38,8 @@ import {
   getWebEnabledCommands,
   SCHEMA_METADATA,
   validateCommandArgs,
-  ',
-} from '.';
+',
+} from '.'
 
 /** Server configuration interface */
 
@@ -119,7 +133,7 @@ this.setupRoutes();
   // Request logging and metrics
   this.app.use((req, _res, next) => {
     this.metrics.requests++;'
-    console.warn(`${new Date().toISOString()} ${req.method} ${req.path}`);
+    console.warn(`$new Date().toISOString()$req.method$req.path`);
     next();
   });
 // }
@@ -132,10 +146,10 @@ this.setupRoutes();
   const _apiPrefix = this.config.apiPrefix!;
   // Health check`
   this.app.get('/health', (_req, res) => {'
-    res.json({ status: 'healthy',
+    res.json(status: 'healthy',
     version: SCHEMA_METADATA.version,
     uptime: Date.now() - this.metrics.startTime,
-    metrics: this.getMetrics()   });
+    metrics: this.getMetrics()   );
 // }
 // 
 // API documentation'
@@ -175,9 +189,9 @@ res.json(result);
 // {
   this.metrics.errors++;'
   console.error('Command execution error);'
-  res.status(500).json({'
+  res.status(500).json('
           error: 'Command execution failed','
-  message: error instanceof Error ? error.message : 'Unknown error' }
+  message: error instanceof Error ? error.message : 'Unknown error' 
 // 
 // }
     }
@@ -224,7 +238,7 @@ this.app.use('*', (req, res) =>
       // Create route handler
       const _handler = async(req, res) => {
         try {
-          const _args = { ...req.query, ...req.body } catch (error) { console.error(error); };
+          const _args = { ...req.query, ...req.body } catch (error) console.error(error); ;
 
           // Validate arguments
           const _validation = validateCommandArgs(commandName, args);
@@ -238,7 +252,7 @@ this.app.use('*', (req, res) =>
           res.json(result);
         } catch(error)
           this.metrics.errors++;`
-          console.error(`Error in ${commandName});`
+          console.error(`Error in $commandName);`
           res.status(500).json({)
             error);
         //         }
@@ -323,7 +337,7 @@ executeCommand(commandName, args)
       // command, // LINT: unreachable code removed
       args,
       timestamp: new Date().toISOString(),'
-      message: `Command ${commandName} executed successfully` }
+      message: `Command $commandNameexecuted successfully` }
   //   }
 
 /** Start the server */
@@ -360,12 +374,10 @@ executeCommand(commandName, args)
           resolve(result);
         });
 '
-        this.server.on('error', (error) => {
-          reject(error);
-        });
-      } catch(error) {
-        reject(error);
-      });
+        this.server.on('error', (error) => 
+          reject(error););
+      } catch(error) 
+        reject(error););
 // }
 
 /** Stop the server */
@@ -401,13 +413,12 @@ stop();
   this.wss = new WebSocketServer({ server);'
   this.wss.on('connection', (ws) => {
     this.metrics.websocketConnections++;'
-    ws.on('close', () => {
-      this.metrics.websocketConnections--;
-      });
+    ws.on('close', () => 
+      this.metrics.websocketConnections--;);
     ws.send(;'
-    JSON.stringify({ type: 'welcome','
+    JSON.stringify(type: 'welcome','
     message: 'Connected to Claude Zen Server',)
-    timestamp: new Date().toISOString()   });
+    timestamp: new Date().toISOString()   );
   //   
 // }
 // 
@@ -415,7 +426,7 @@ stop();
 
 /** Get server metrics */
 
-  getMetrics() {}
+  getMetrics() 
 : ServerMetrics
 // {
   // return {

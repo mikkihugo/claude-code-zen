@@ -1,12 +1,12 @@
 /** Basic hook functionality tests; */
 
 import { describe, expect } from '@jest';
+
 '
 describe('Hook Basic Tests', () =>
 {'
-  it('should pass basic test', () => {
-    expect(true).toBe(true);
-  });'
+  it('should pass basic test', () => 
+    expect(true).toBe(true););'
   it('should handle hook parameters', () => {
     const _options = {'
       'validate-safety','

@@ -17,9 +17,10 @@ tui?;
 }
 storage?
 permissions?
-validation?: {
-    required;
-optional?;
+validation?:
+{
+  required;
+  optional?;
 }
 // }
 // export // interface SchemaMetadata {
@@ -31,7 +32,7 @@ optional?;
 // export const CLAUDE_ZEN_SCHEMA: Record<string, SchemaCommand> = {
 // === STRATEGIC VISIONS ===
 // High-level strategic visions that drive product development
-('visions-create')
+('visions-create');
 
 {
   '
@@ -255,7 +256,7 @@ args): null
 // {
   // valid: boolean
   missing
-errors;
+errors
 // }
 // {
 const _command = CLAUDE_ZEN_SCHEMA[commandName];
@@ -284,7 +285,7 @@ if(!command) {'
 /** Generate OpenAPI specification */
 
   // export function _generateOpenAPISpec() {
-  const _paths = {}; Object.entries(CLAUDE_ZEN_SCHEMA) {.forEach(([_cmdName, cmdConfig]) => {
+  const _paths = {}; Object.entries(CLAUDE_ZEN_SCHEMA) .forEach(([_cmdName, cmdConfig]) => {
     if(!cmdConfig.interfaces.web?.enabled) return;
     // ; // LINT: unreachable code removed
     const { endpoint, method } = cmdConfig.interfaces.web;
@@ -305,7 +306,7 @@ if(!command) {'
               type: 'object',
               required: cmdConfig.validation.required,
               properties: cmdConfig.validation.required.reduce((props, field) => {'
-                props[field] = { type: 'string' };
+                props[field] = type: 'string' ;
 //                 return props;
     //   // LINT: unreachable code removed}, {}) }}
   //   }

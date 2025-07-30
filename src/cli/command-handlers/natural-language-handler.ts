@@ -8,13 +8,13 @@ this.intentPatterns =
 {
   // Development intents(Development Queen + ruv-swarm)development = new Map();
   this.successPatternsLoaded = false;
-  //   }
+//   }
 
-  /**  MAIN NATURAL LANGUAGE PROCESSING */
-  /** Qualitytarget = true */
-  //     }
+/**  MAIN NATURAL LANGUAGE PROCESSING */
+/** Qualitytarget = true */
+//     }
 
-  try {
+try {
       // 1. Detect intent with confidence scoring
 // const _intent = awaitthis.detectIntent(query);
       console.warn(` Detectedintent = this.checkSuccessPatterns(query, intent);`
@@ -47,7 +47,7 @@ this.intentPatterns =
       // Calculate confidence based on matches and base confidence
       const _confidence = matchedPatterns > 0 ;
         ? (score / config.patterns.length) * config.confidence = null
-    let _bestScore = 0;
+    const _bestScore = 0;
   for(const [intentType, data] of scores) {
   if(data.confidence > bestScore) {
         bestScore = data.confidence; bestIntent = {
@@ -112,7 +112,7 @@ join('-');
       confidence: 0.5,
       fallback,
       result: {'
-        message: `Fallback routing to ${intent} intent`,`
+        message: `Fallback routing to $intentintent`,`
         suggestion: 'Consider rephrasing your query for better intent detection';
       //       }
     };
@@ -121,8 +121,8 @@ join('-');
 
 // export default NaturalLanguageHandler;
 
-}}}}}}}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}}}}
+}}}
 }
 }}}}}})))))))))))
 '
-

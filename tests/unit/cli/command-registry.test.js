@@ -1,9 +1,15 @@
 import { promises } from 'node:fs';
+
 '
+
 import os from 'node:os';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { afterEach, beforeEach, describe, expect, it } from '@jest';
 
 // Mock meow and dependencies'
@@ -39,7 +45,7 @@ let testDir;
 beforeEach(async () => {
   '
   testDir = await fs.mkdtemp(path.join(os.tmpdir(), 'claude-zen-cli-test-'))
-  process.chdir(testDir);
+  process.chdir(testDir)
 });
 afterEach(async() => {
     try {
@@ -48,7 +54,7 @@ afterEach(async() => {
       // Ignore cleanup errors
     //     }
   });'
-  describe('command registry initialization', () => {'
+  describe('command registry initialization', () => '
     it('should initialize command registry', async() => {'
       const { initializeCommandRegistry } = await import('../../../src/cli/command-registry.js');
   // await expect(initializeCommandRegistry()).resolves.not.toThrow();
@@ -59,9 +65,8 @@ afterEach(async() => {
       expect(cli).toBeDefined();
       expect(cli.pkg).toBeDefined();
       expect(cli.showHelp).toBeDefined();
-    });
-  });'
-  describe('command execution', () => {'
+    }););'
+  describe('command execution', () => '
     it('should handle init command', async() => {
       const _initCommand = {'
         name: 'init','
@@ -239,7 +244,7 @@ it('should provide helpful error messages', () =>
   const _errorFormatter = {
         formatError: (error, command) => {'
   if(error.code === 'MISSING_ARGS') {'
-//             return `Missing required arguments for '${command}': ${error.missing.join(', ')}`;
+//             return `Missing required arguments for '${command}': $error.missing.join(', ')`;
     //   // LINT: unreachable code removed}`
   if(error.code === 'INVALID_FLAG') {'
 //             return `Invalid flag '${error.flag}' for command '${command}'`;
@@ -292,4 +297,3 @@ map((cmd) => cmd.name);
 }
 }}}
 '
-

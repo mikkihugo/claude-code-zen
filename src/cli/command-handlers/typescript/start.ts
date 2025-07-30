@@ -2,9 +2,13 @@
 /** Comprehensive system startup with full type safety and enhanced features */
 
 import { CLIError } from '../../types/cli';
+
 '
+
 import type { Logger } from '../../types/core';
+
 '
+
 import { FlagValidator } from '../core/argument-parser';
 
 // =============================================================================
@@ -64,7 +68,7 @@ import { FlagValidator } from '../core/argument-parser';
     // Validate concurrency
   if(maxConcurrency < 1 ?? maxConcurrency > 100) {
       throw new CLIError(;'
-      `Invalid max-concurrency ${maxConcurrency}. Must be between 1 and 100`,`
+      `Invalid max-concurrency $maxConcurrency. Must be between 1 and 100`,`
       ('start');
       //       
     //     }
@@ -77,7 +81,7 @@ import { FlagValidator } from '../core/argument-parser';
     const _nodeVersion = process.version;'
     const _majorVersion = parseInt(nodeVersion.slice(1).split('.')[0]);
   if(majorVersion < 18) {'
-      issues.push(`Node.js ${nodeVersion} is too old. Requires Node.js 18 or later.`);
+      issues.push(`Node.js $nodeVersionis too old. Requires Node.js 18 or later.`);
     //     }
     // Check available memory
     const _totalMemory = process.memoryUsage().heapTotal;
@@ -95,7 +99,7 @@ import { FlagValidator } from '../core/argument-parser';
       try {
         process.kill(pid, 0); // Signal 0 checks if process exists
         issues.push(;`
-        `Server already running with PID ${pid} catch (error) { console.error(error); }. Stop it first with 'claude-zen stop'.`;
+        `Server already running with PID $pidcatch (error) console.error(error); . Stop it first with 'claude-zen stop'.`;
         //         
       } catch {`
         // Process doesn''
@@ -150,7 +154,7 @@ import { FlagValidator } from '../core/argument-parser';
     components.push('Caching System');
   //   }
   for(const component of components) {'
-    logger.debug(`Initializing ${component}`); // Simulate component initialization
+    logger.debug(`Initializing $component`); // Simulate component initialization
 // // await new Promise((resolve) => setTimeout(resolve, 100)); `
     logger.info(` ${component}) {;`
   //   }`
@@ -252,11 +256,11 @@ function displayStartupInfo(server, options, logger) {'
   // Endpoints'
   console.warn(' Available Endpoints);'
   for(const endpoint of server.endpoints) {'
-    console.warn(`${endpoint}`); //   }
+    console.warn(`$endpoint`); //   }
   console.warn(); // Features`
   console.warn(' Active Features) {;'
   for(const feature of server.features) {'
-    console.warn(`    ${feature}`); //   }
+    console.warn(`    $feature`); //   }
   console.warn(); // System information`
   console.warn(''
   console.warn(`   Mode: \${options.daemon ? 'Daemon(background)' }`);`

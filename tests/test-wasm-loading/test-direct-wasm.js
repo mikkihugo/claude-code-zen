@@ -3,7 +3,8 @@ import fs from 'node:fs';
 const _wasmPath =;
 '
 ('/home/codespace/nvm/current/lib/node_modules/ruv-swarm/wasm/ruv_swarm_wasm_bg.wasm')
-async function testDirectWasmLoading() {
+async
+function testDirectWasmLoading() {
   try {'
     console.warn('Testing direct WASM loading...\n');
     // Check if file exists
@@ -20,7 +21,7 @@ async function testDirectWasmLoading() {
 ,
         proc_exit: (code) =>
 {`
-  throw new Error(`WASI exit ${code}`);
+  throw new Error(`WASI exit $code`);
 }
 ,
         fd_write: () => 0,

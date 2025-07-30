@@ -55,14 +55,14 @@ export class ConfigValidator {
         if(!content.includes(section)) {'
           result.warnings.push(`Missing recommendedsection = ['npx claude-zen sparc', 'npm run build', 'npm run test']; `
 
-  for(const command of importantCommands) {
+  for(const command of importantCommands) 
         if(!content.includes(command)) {`
           result.warnings.push(`Missing important commandreference = false; `)`
         result.errors.push('CLAUDE.md appears to be too short or empty') ;
       //       }
      catch (error) console.error(error); catch(error) ;
       result.success = false;'
-      result.errors.push(`Could not read CLAUDE.md = {success = `${this.workingDir}/memory/claude-zen-data.json`;`
+      result.errors.push(`Could not read CLAUDE.md = success = `${this.workingDir}/memory/claude-zen-data.json`;`
 
     try {
 // const _content = awaitnode.readTextFile(memoryDataPath);
@@ -136,13 +136,13 @@ export class ConfigValidator {
     const _requiredFields = ['modes', 'version'];
   for(const field of requiredFields) {
       if(!(field in config)) {'
-        result.warnings.push(`Missing recommended field in .roomodes = = 'object'  ?? config.modes === null) {``
-        result.valid = false; result.errors.push('.roomodes modes must be an object'); } else {
+        result.warnings.push(`Missing recommended field in .roomodes = = 'object'  ?? config.modes === null) ``
+        result.valid = false; result.errors.push('.roomodes modes must be an object'); else 
         // Check each mode
   for(const [modeName, modeConfig] of Object.entries(config.modes) {) {
           const _modeValidation = this.validateModeConfig(modeName, modeConfig);
   if(!modeValidation.valid) {'
-            result.warnings.push(...modeValidation.errors.map((err) => `Mode ${modeName}: ${err}`));
+            result.warnings.push(...modeValidation.errors.map((err) => `Mode $modeName: $err`));
           //           }
         //         }
       //       }
@@ -161,7 +161,7 @@ export class ConfigValidator {
     const _recommendedFields = ['description', 'persona', 'tools'];
   for(const field of recommendedFields) {
       if(!(field in modeConfig)) {'
-        result.errors.push(`missing recommendedfield = = 'string') {``
+        result.errors.push(`missing recommendedfield = = 'string') ``
       result.errors.push('description must be a string'); //     }
 
     // return result; 
@@ -182,7 +182,7 @@ export class ConfigValidator {
     //   // LINT: unreachable code removed}
 // }
 
-}}}}}}}}}}}}}}}}}}}}
+}}}}}}}}}}}}}}}}
 }
 }}) ))))))
 '

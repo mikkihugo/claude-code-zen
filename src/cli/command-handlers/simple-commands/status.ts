@@ -42,7 +42,7 @@ async function _getResourceUsage() {
 
     try {
       const _loadAvgData = os.loadavg();'
-      _loadAvg = `${loadAvgData[0].toFixed(2)} catch (error) { console.error(error); }, ${loadAvgData[1].toFixed(2)}, ${loadAvgData[2].toFixed(2)}`;
+      _loadAvg = `$loadAvgData[0].toFixed(2)catch (error) console.error(error); , $loadAvgData[1].toFixed(2), $loadAvgData[2].toFixed(2)`;
     } catch(/* _e */) {
       // Load average not available on all platforms
     //     }
@@ -76,9 +76,9 @@ function formatUptime(milliseconds = === 0) return '0s';
   const _days = Math.floor(hours / 24);
 '
   if(days > 0) return `${days}d ${hours % 24}h ${minutes % 60}m`;`
-    // if(hours > 0) return `\${hours // LINT}h ${minutes % 60}m ${seconds % 60}s`;`
+    // if(hours > 0) return `\$hours // LINT}h ${minutes % 60}m ${seconds % 60}s`;`
   if(_minutes > 0) return `${minutes}m ${seconds % 60}s`;`
-    // return `\${seconds // LINT}s`;
+    // return `\$seconds // LINT}s`;
 // }
 
 // Allow direct execution for testing
@@ -103,7 +103,6 @@ function formatUptime(milliseconds = === 0) return '0s';
       } else 
         args.push(arg);})
 '
-}
 }
 }
 }

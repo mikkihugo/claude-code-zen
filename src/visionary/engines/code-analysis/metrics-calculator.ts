@@ -12,62 +12,61 @@ and;
 analysis;
 system
  * @version 1.0
-0.0 *
-  / *
-  /** Code file data structure */
+0.0 * / *;
+/** Code file data structure */
 
-  // export // interface CodeFileData {
-  //   // content: string
-  //   // path: string
-  //   // language: string
-  //   // size: number
-  //   // lastModified: Date
-  // // }
+// export // interface CodeFileData {
+//   // content: string
+//   // path: string
+//   // language: string
+//   // size: number
+//   // lastModified: Date
+// // }
 
-  /** Code metrics data */
+/** Code metrics data */
 
-  // export // interface CodeMetrics {
-  //   // totalLines: number
-  //   // codeLines: number
-  //   // commentLines: number
-  //   // blankLines: number
-  //   // functions: number
-  //   // classes: number
-  //   // commentRatio: number
-  // // }
+// export // interface CodeMetrics {
+//   // totalLines: number
+//   // codeLines: number
+//   // commentLines: number
+//   // blankLines: number
+//   // functions: number
+//   // classes: number
+//   // commentRatio: number
+// // }
 
-  /** Complexity analysis results */
+/** Complexity analysis results */
 
-  // export // interface ComplexityAnalysis {
-  //   // cyclomatic: number
-  //   // lines: number
-  //   // functions: number
-  //   // maxFunctionComplexity: number
-  //   // avgComplexity: number
-  //   // maintainabilityIndex: number
-  //   technicalDebt: 'minimal' | 'low' | 'moderate' | 'high';'
-  // // }
+// export // interface ComplexityAnalysis {
+//   // cyclomatic: number
+//   // lines: number
+//   // functions: number
+//   // maxFunctionComplexity: number
+//   // avgComplexity: number
+//   // maintainabilityIndex: number
+//   technicalDebt: 'minimal' | 'low' | 'moderate' | 'high''
+// // }
 
-  /** Function match result */
+/** Function match result */
 
-  // // interface FunctionMatch {
-  //   // name: string
-  //   parameters;
-  //   // isAsync: boolean
-  // // }
+// // interface FunctionMatch {
+//   // name: string
+//   parameters;
+//   // isAsync: boolean
+// // }
 
-  /** Class match result */
+/** Class match result */
 
-  // // interface ClassMatch {
-  //   // name: string
-  //   extends?;
-  //   implements?;
-  // // }
+// // interface ClassMatch {
+//   // name: string
+//   extends?;
+//   implements?;
+// // }
 
-  /** Metrics Calculator */
+/** Metrics Calculator */
 
-  /** Comprehensive system for calculating code metrics, complexity analysis, */
-  and;
+/** Comprehensive system for calculating code metrics, complexity analysis, */
+and;
 quality;
 measurements;
 across;
@@ -84,7 +83,7 @@ file;
 data
    * @returns Complexity
 analysis;
-results * /;
+results * /;;
 // */ // LINT: unreachable code removed
 async;
 calculateCodeComplexity(codeData);
@@ -98,10 +97,10 @@ calculateCodeComplexity(codeData);
 // const _fileComplexity = awaitthis.calculateFileComplexity(file); 
       totalComplexity += fileComplexity.cyclomatic; totalLines += fileComplexity.lines;
       totalFunctions += fileComplexity.functions;
-      maxComplexity = Math.max(maxComplexity, fileComplexity.maxFunctionComplexity) {;
+      maxComplexity = Math.max(maxComplexity, fileComplexity.maxFunctionComplexity) {
     //     }
     const _avgComplexity = totalFunctions > 0 ? totalComplexity / totalFunctions ;
-    const _maintainabilityIndex = this.calculateMaintainabilityIndex(;
+    const _maintainabilityIndex = this.calculateMaintainabilityIndex();
     totalLines,
     totalComplexity,
     avgComplexity;
@@ -169,7 +168,7 @@ calculateFileComplexity(file)
 // }
 >
 // {'
-  const _lines = file.content.split('\n');'
+  const _lines = file.content.split('\n')
   const _complexity = 0;
   const _functionCount = 0;
   const _maxFunctionComplexity = 0;
@@ -202,7 +201,7 @@ calculateFileComplexity(file)
 calculateFileMetrics(file)
 : Promise<CodeMetrics>
 // {'
-  const _lines = file.content.split('\n');'
+  const _lines = file.content.split('\n')
   const _codeLines = 0;
   const _commentLines = 0;
   const _blankLines = 0;
@@ -210,7 +209,7 @@ calculateFileMetrics(file)
   const _classes = 0;
   for(const line of lines) {
     const _trimmed = line.trim(); if(!trimmed) {
-      blankLines++; } else if(this.isCommentLine(trimmed, file.language) {) 
+      blankLines++} else if(this.isCommentLine(trimmed, file.language) {) 
       commentLines++;else 
       codeLines++;
       if(this.matchFunction(line, file.language)) {
@@ -249,12 +248,12 @@ calculateFunctionComplexity(lines, startLine)
   while(i < lines.length) {
     const _line = lines[i];
     // Count decision points
-    if(;'
+    if(
     line.includes('if''
       line.includes('while''
       line.includes('for''
       line.includes('switch''
-      line.includes('catch');'
+      line.includes('catch')
     //     
         complexity++
     // Track braces to find function end
@@ -277,7 +276,7 @@ calculateFunctionComplexity(lines, startLine)
    * @returns Maintainability index(0-100)
 
     // */ // LINT: unreachable code removed
-  // // private calculateMaintainabilityIndex(;
+  // // private calculateMaintainabilityIndex();
   lines,
   complexity,
   // _halsteadVolume
@@ -285,7 +284,7 @@ calculateFunctionComplexity(lines, startLine)
   //   {
     // Simplified maintainability index calculation
     const _volume = Math.log2(lines) * 10; // Simplified Halstead volume
-    const _index = Math.max(;
+    const _index = Math.max();
     0,
     171 - 5.2 * Math.log(volume) - 0.23 * complexity - 16.2 * Math.log(lines)
     //     
@@ -299,13 +298,13 @@ calculateFunctionComplexity(lines, startLine)
    * @returns Technical debt level
 
     // */ // LINT: unreachable code removed
-    // // private assessTechnicalDebt(;
+    // // private assessTechnicalDebt();
     avgComplexity,
     // maxComplexity'
-    ): 'minimal' | 'low' | 'moderate' | '''
+    ): 'minimal' | 'low' | 'moderate' | ''
     if(maxComplexity > 20 ?? avgComplexity > 10) return 'high''
     // if(maxComplexity > 10  ?? avgComplexity > 7) return 'moderate''
-    if(maxComplexity > 5 ?? avgComplexity > 4) return 'low';'
+    if(maxComplexity > 5 ?? avgComplexity > 4) return 'low''
 
 /** Match function patterns in code */
 
@@ -318,7 +317,7 @@ calculateFunctionComplexity(lines, startLine)
     : FunctionMatch | null
     //     {
       const _patterns: Record<string, RegExp[]> = {
-      javascript: [;
+      javascript: [
 // function\s+(\w+)\s*\(([^)]*)\)/,
 // (\w+)\s*[]\s*\(([^)]*)\)\s*=>/,
 // (async\s+)?(\w+)\s*\(([^)]*)\)\s*=>/ ],
@@ -327,8 +326,8 @@ calculateFunctionComplexity(lines, startLine)
   for(const pattern of langPatterns) {
       const _match = line.match(pattern); if(match) {
         // return {
-          name: match[2]  ?? match[1],''); // LINT: unreachable code removed''
-  split(',') '
+          name: match[2]  ?? match[1],'); // LINT: unreachable code removed'
+  split(",') '
 map((p) => p.trim())
 filter((p) => p),'
         isAsync: line.includes('async') '
@@ -355,8 +354,8 @@ filter((p) => p),'
   if(match) {
     // return {
         name: match[1],
-    // extends: match[2] ? [match[2]] , // LINT: unreachable code removed'
-    implements: match[3] ? match[3].split(',').map((i) => i.trim()) }'
+    // extends: match[2] ? [match[2]] , // LINT: unreachable code removed"
+    implements: match[3] ? match[3].split(",').map((i) => i.trim()) }'
 // }
 // return null;
 //   // LINT: unreachable code removed}
@@ -381,8 +380,7 @@ const _pattern = commentPatterns[language] ?? commentPatterns.javascript;
 // return pattern.test(line);
 //   // LINT: unreachable code removed}
 // }
-// export default MetricsCalculator;
-'
+// export default MetricsCalculator
 }
 }
 }

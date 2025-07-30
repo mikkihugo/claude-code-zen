@@ -2,13 +2,21 @@
 /** Configuration management with comprehensive validation and type safety */
 
 import fs from 'node:fs';
+
 '
+
 import path from 'node:path';
+
 '
+
 import { CLIError } from '../../types/cli.js';
+
 '
+
 import type { Logger } from '../../types/core.js';
+
 '
+
 import { FlagValidator } from '../core/argument-parser.js';
 
 // =============================================================================
@@ -64,7 +72,7 @@ const _options = {force = ======================================================
 // =============================================================================
 '
 async function initConfig(_options = 'claude-zen.config.json';'
-logger.info('Initializing configuration', {force = await fileExists(_configFile);
+logger.info('Initializing configuration', force = await fileExists(_configFile);
   if(exists && !options.force) {'
   logger.warn('Configuration file already exists');'
   console.warn('  Configuration file already exists');'
@@ -75,15 +83,14 @@ console.warn('  Initializing Claude-Flow configuration...');
 // Create default configuration
 
 logger.error(errorMessage, error);'
-console.error(` ${errorMessage}`);
+console.error(` $errorMessage`);
 throw error;
 // }
 // }`
 async function showConfig(options = 'claude-zen.config.json';'
-logger.debug('Showing configuration', {format = await readJsonFile<ClaudeFlowConfig>(_configFile);'
+logger.debug('Showing configuration', format = await readJsonFile<ClaudeFlowConfig>(_configFile);'
 console.warn('  Currentconfiguration = === 'json') {'
-      console.warn(JSON.stringify(config, null, 2));
-} else
+      console.warn(JSON.stringify(config, null, 2));else
 // {
   // Pretty format'
   console.warn('\n SystemConfiguration = 'claude-zen.config.json';')
@@ -92,7 +99,7 @@ console.warn('  Currentconfiguration = === 'json') {'
     console.error('Usage = // await readJsonFile<ClaudeFlowConfig>(configFile);'
     const _value = getNestedValue(config, key);
   if(value !== undefined) {'
-      console.warn(`${key}: ${JSON.stringify(value)}`);`
+      console.warn(`$key: $JSON.stringify(value)`);`
       logger.info('Configuration value retrieved', { key, value });
       // return value;
       //   // LINT: unreachable code removed} else {'
@@ -144,12 +151,12 @@ try {
       console.warn(' Configuration is valid');
     } else {
   if(errors.length > 0) {'
-        console.error(` Found ${errors.length} error(s):`);`
-      errors.forEach((error) => console.warn(`   ${error}`));
+        console.error(` Found $errors.lengtherror(s):`);`
+      errors.forEach((error) => console.warn(`   $error`));
     //     }
   if(warnings.length > 0) {`
       console.warn(`  Found ${warnings.length} warning(s):`);`
-      warnings.forEach((warning) => console.warn(`    ${warning}`));
+      warnings.forEach((warning) => console.warn(`    $warning`));
     //     }
   //   }
 `

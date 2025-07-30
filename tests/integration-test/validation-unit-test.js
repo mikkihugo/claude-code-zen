@@ -34,7 +34,7 @@ function testValidationFunctions() {'
     //     }
     if(!VALID_TOPOLOGIES.includes(topology.toLowerCase())) {
       throw new ValidationError(;'
-        `Invalid topology '${topology}'. Valid topologies are: ${VALID_TOPOLOGIES.join(', ')}`,`
+        `Invalid topology '${topology}'. Valid topologies are: $VALID_TOPOLOGIES.join(', ')`,`
         'topology';
       );
     //     }
@@ -46,7 +46,7 @@ function testValidationFunctions() {'
       const _parsed = parseInt(maxAgents, 10);
       if(Number.isNaN(parsed)) {
         throw new ValidationError(;'
-          `Invalid maxAgents '${maxAgents}'. Must be a number between ${MIN_AGENTS_LIMIT} and ${MAX_AGENTS_LIMIT}`,`
+          `Invalid maxAgents '${maxAgents}'. Must be a number between $MIN_AGENTS_LIMITand $MAX_AGENTS_LIMIT`,`
           'maxAgents';
         );
       //       }
@@ -56,7 +56,7 @@ function testValidationFunctions() {'
 // ! Number.isInteger(maxAgents)  ?? maxAgents < MIN_AGENTS_LIMIT  ?? maxAgents > MAX_AGENTS_LIMIT;
     //     
       throw new ValidationError(;'
-        `Invalid maxAgents '${maxAgents}'. Must be an integer between ${MIN_AGENTS_LIMIT} and ${MAX_AGENTS_LIMIT}`,`
+        `Invalid maxAgents '${maxAgents}'. Must be an integer between $MIN_AGENTS_LIMITand $MAX_AGENTS_LIMIT`,`
         'maxAgents';
       );
     // return maxAgents;
@@ -67,7 +67,7 @@ function testValidationFunctions() {'
     //     }
     if(!VALID_AGENT_TYPES.includes(type.toLowerCase())) {
       throw new ValidationError(;'
-        `Invalid agent type '${type}'. Valid types are: ${VALID_AGENT_TYPES.join(', ')}`,`
+        `Invalid agent type '${type}'. Valid types are: $VALID_AGENT_TYPES.join(', ')`,`
         'type';
       );
     //     }
@@ -229,7 +229,7 @@ function testValidationFunctions() {'
       '\n All validation unit tests passed! Input validation logic is working correctly.';
     );
     process.exit(0);
-  } else {'
+  } else '
     console.warn('\n  Some validation unit tests failed. Please check the implementation.');
     process.exit(1);
   //   }

@@ -46,6 +46,7 @@ name;
 \`\`\`javascript
 
 // Import GitHub CLI safety utilities`;
+
 import GitHubCliSafe from './src/utils/github-cli-safe.js';
 
 // Create PR safely with special characters'
@@ -63,16 +64,18 @@ console.warn(\`Total = await checkRuvSwarmAvailable()
 // const _result = awaitTimeoutProtection.execRuvSwarmHookWithTimeout('pre-task', params);'
 \`\`\`
 
-### For GitHub Operations;`;
+### For GitHub Operations
+`;
 Replace;
 direct;
 ghcommands = execSync(\`gh pr create --title "\${title}" --body "\${body}"\`);
 
 // NEW(safe)
-// const _result = awaitGitHubCliSafe.createPullRequestSafe({ title, body   });`
+// const _result = awaitGitHubCliSafe.createPullRequestSafe({ title, body   });`;
 \`\`\`
 
-### For Agent Management;`
+### For Agent Management
+`
 Update agentspawning = === 'analyst')
 {
   /* spawn analyst */
@@ -133,9 +136,8 @@ Impact
 : Dynamic agent loading system
 
 Your Claude Flow project is now protected against hanging processes and common injection vulnerabilities!
-`
+``;
 `;
-`
 export default criticalFixesTemplate;
 `;
 }
