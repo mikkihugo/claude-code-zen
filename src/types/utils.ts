@@ -92,12 +92,7 @@ export type EnvironmentType = 'non-tty-stdin';
 //  * Retry configuration;
 
 // export interface RetryConfig {maxAttempts = > boolean
-// // }
-
- catch (error)
-{
-  console.error(error);
-} /** Retry result; */
+// // } /** Retry result; */
 
 // export // interface RetryResult<_T> {
 //   result?;attempts = ============================================================================
@@ -117,11 +112,7 @@ export type EnvironmentType = 'non-tty-stdin';
 
 // export // interface FileSystemEntry {path = > boolean
 // maxDepth?;
-// // }
-catch (error)
-{
-  console.error(error);
-} // =============================================================================
+// // } // =============================================================================
 // NETWORK UTILITIES
 // =============================================================================
 

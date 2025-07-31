@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 /* Enhanced Demo: Working Features in Claude Code Zen(Post-Plugin Fixes); */
-*
+
 /** This demo showcases the enhanced functionality after comprehensive fixes; */
 * including plugin system restoration and ruv-FANN neural integration.
-*
 
 /** Run with: node demo-enhanced-working-features.js; */
 
@@ -22,9 +21,9 @@ import { QueenCoordinator } from './src/cli/command-handlers/hive-mind-handlers/
 
 import { SqliteMemoryStore } from './src/memory/sqlite-store.js';
 
-const _execAsync = promisify(exec);
+const execAsync = promisify(exec);
 '
-console.warn(' Claude Code Zen - Enhanced Working Features Demo(Post-Plugin Fixes)\n')
+console.warn(' Claude Code Zen - Enhanced Working Features Demo(Post-Plugin Fixes)\n');
 async
 function demoPluginSystemRecovery() {'
   console.warn(' 1. Enhanced Plugin System with Error Recovery');'
@@ -32,14 +31,14 @@ function demoPluginSystemRecovery() {'
   try {
     // Test CLI plugin loading with new error recovery'
     console.warn(' Testing plugin system stability...');'
-    const { stdout, stderr }  catch (error) console.error(error); = // await execAsync('timeout 10 ./bin/claude-zen status --verbose', {
+    const { stdout, stderr } = // await execAsync('timeout 10 ./bin/claude-zen status --verbose', {
       cwd: process.cwd() });'
     console.warn(' CLI loads without critical errors');'
     console.warn(' Plugin system initializes with graceful error handling');
     // Parse output to show plugin status'
     if(stdout.includes(''
       console.warn(' Status command functional');
-      const _statusLines = stdout;'
+      const statusLines = stdout;'
 split('\n');'
 filter((line) => line.includes('Status)  ?? line.includes('Ready''
       statusLines.forEach((line) => console.warn(`$line.trim()`));
@@ -58,13 +57,13 @@ async function demoNeuralIntegration() {'
   try {'
     console.warn(' Testing neural network capabilities...');
     // Check if ruv-FANN submodule is properly initialized'
-    const { stdout }  catch (error) console.error(error); = // await execAsync('ls -la ruv-FANN/', { cwd: process.cwd() });'
+    const { stdout } = // await execAsync('ls -la ruv-FANN/', { cwd: process.cwd() });'
     if(lsOutput.includes('Cargo.toml')) {'
       console.warn(' ruv-FANN submodule properly initialized');'
       console.warn(' Rust neural network framework available');
       // Test Rust compilation
       try {
-        const { stdout }  catch (error) console.error(error); = // await execAsync(;'
+        const { stdout } = // await execAsync(;'
           'cd ruv-FANN && timeout 30 cargo check --quiet',
             cwd: process.cwd());'
         console.warn(' Rust neural code compiles successfully');
@@ -73,7 +72,7 @@ async function demoNeuralIntegration() {'
       //       }
       // Test neural CLI access
       try {'
-        const { stdout }  catch (error) console.error(error); = // await execAsync('timeout 10 ./bin/claude-zen neural help', {
+        const { stdout } = // await execAsync('timeout 10 ./bin/claude-zen neural help', {
           cwd: process.cwd() });'
         if(neuralHelp.includes('Neural AI Development Tools')) {'
           console.warn(' Neural CLI commands accessible');'
@@ -96,13 +95,13 @@ async function demoEnhancedSqliteMemory() {'
   console.warn(' 3. Enhanced SQLite Memory System');'
   console.warn('===================================\n');
   try {
-    const _memoryStore = new SqliteMemoryStore({
+    const memoryStore = new SqliteMemoryStore({
       directory);
   // // await memoryStore.initialize();'
     console.warn(' Enhanced SQLite memory store initialized');
     // Performance test with batch operations
-    const _startTime = Date.now();
-    const _testData = Array.from({ length } catch (error) { console.error(error); }, (_, _i) => [;'
+    const startTime = Date.now();
+    const testData = Array.from({ length }, (_, _i) => [;'
       `batch-key-$i`,
       //       {
         id,`
@@ -113,22 +112,22 @@ async function demoEnhancedSqliteMemory() {'
   for(const [key, value] of testData) {
   // // await memoryStore.store(key, value); 
     //     }`
-    const _batchTime = Date.now() - startTime; console.warn(` Batch operations) ;``
+    const batchTime = Date.now() - startTime; console.warn(` Batch operations) ;``
     console.warn(` Performance: ~$Math.round(100000 / batchTime)ops/sec`);
     // Test retrieval performance
-    const _retrievalStart = Date.now();
-    const _retrievedItems = [];
+    const retrievalStart = Date.now();
+    const retrievedItems = [];
   for(let i = 0; i < 10; i++) {`
-// const _item = awaitmemoryStore.retrieve(`batch-key-$i`);
+// const item = awaitmemoryStore.retrieve(`batch-key-$i`);
       retrievedItems.push(item);
     //     }
-    const _retrievalTime = Date.now() - retrievalStart;`
+    const retrievalTime = Date.now() - retrievalStart;`
     console.warn(` Retrieval performance);`
     console.warn(;)`
       ` All retrieved items valid) => item.value.enhanced)`;
     );
     // Get enhanced performance stats
-    const _stats = memoryStore.getPerformanceStats();`
+    const stats = memoryStore.getPerformanceStats();`
     console.warn(''
     console.warn(`  Total operations);``
     console.warn(`  Average response time);``
@@ -145,20 +144,20 @@ async function demoQueenCoordinatorEnhancements() {'
   console.warn(' 4. Enhanced Queen Coordinator System');'
   console.warn('=======================================\n');
   try {
-    const _queen = new QueenCoordinator({ hiveId);
+    const queen = new QueenCoordinator({ hiveId);
   // // await queen.initialize();'
     console.warn(' Enhanced Queen Coordinator initialized');
     // Test enhanced decision-making capabilities
-// const _decision = awaitqueen.makeDecision({'
+// const decision = awaitqueen.makeDecision({'
       scenario: 'plugin-failure-recovery',failedPlugins, criticalPlugins ,'
       options: ['graceful-degradation', 'full-restart', 'plugin-isolation']
-  } catch (error) { console.error(error); })'
+  })'
 console.warn(` Enhanced decision-making);``
 console.warn(`;`)
  Decision confidence)`
 console.warn(` Reasoning);`
 // Test coordination with plugin system`
-// const _coordinationResult = awaitqueen.coordinatePlugins({ action: 'health-check','
+// const coordinationResult = awaitqueen.coordinatePlugins({ action: 'health-check','
 scope: 'all-plugins',
 recovery
   })'
@@ -182,8 +181,8 @@ async function demoSystemHealthMonitoring() {'
   try {'
     console.warn(' Testing system health endpoints...');
     // Test various system components
-    const _healthChecks = ['
-      { component: 'CLI System', test: () => execAsync('timeout 5 ./bin/claude-zen --version') } catch (error) { console.error(error); },'
+    const healthChecks = ['
+      { component: 'CLI System', test: () => execAsync('timeout 5 ./bin/claude-zen --version') },'
       { component: 'Memory System', test: () => Promise.resolve('OK') },'
       { component: 'Plugin Architecture', test: () => Promise.resolve('Enhanced') },'
       { component: 'Neural Integration', test: () => Promise.resolve('Available') } ];
@@ -194,7 +193,7 @@ async function demoSystemHealthMonitoring() {'
 // $
 // {
   check.component;
-// } catch (error) { console.error(error); }/g
+// }/g
 ) catch(/* _error */
 // {`
   console.warn(`  $check.component: Degraded(expected in test environment)`);

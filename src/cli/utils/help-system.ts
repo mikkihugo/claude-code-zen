@@ -38,7 +38,7 @@ export class TypeScriptHelpSystem implements IHelpSystem {
   // Arguments section
   if(_definition._args && definition.args._length > 0) {'
       help += this.colorizeText('ARGUMENTS = arg.required ? this.colorizeText(' (required)', 'red'';''
-        const _variadic = arg.variadic ? this.colorizeText(' (variadic)', 'yellow'';'
+        const variadic = arg.variadic ? this.colorizeText(' (variadic)', 'yellow'';'
         help += `${this.colorizeText(arg.name, 'bright', opts.colorize)}${required}${variadic}\n`;`
         help += `$arg.description\n`;`
   if(arg.type !== 'string') {'
@@ -48,12 +48,12 @@ export class TypeScriptHelpSystem implements IHelpSystem {
     // Flags section
   if(opts.includeFlags && definition.flags && definition.flags.length > 0) {`
       help += this.colorizeText('';')'
-        const _required = flag.required ? this.colorizeText(' (required)', 'red'';
-        const _defaultValue = flag.default !== undefined ? ;'
+        const required = flag.required ? this.colorizeText(' (required)', 'red'';
+        const defaultValue = flag.default !== undefined ? ;'
           this.colorizeText(` (default = `  --$this.colorizeText(flag.name, 'bright', opts.colorize)$alias$required$defaultValue\n`;`
 
         // Wrap description
-        const _wrappedDesc = wrapText(flag.description, opts.width - 4);
+        const wrappedDesc = wrapText(flag.description, opts.width - 4);
         wrappedDesc.forEach(line => {`
           help += `${line}\n`;
         });
@@ -73,7 +73,7 @@ export class TypeScriptHelpSystem implements IHelpSystem {
       //       }
 // }
 // Status indicators
-const _statusIndicators = [];
+const statusIndicators = [];
   if(definition.isExperimental) {`
   statusIndicators.push(this.colorizeText('  EXPERIMENTAL', 'yellow', opts.colorize));
 // }
@@ -90,12 +90,12 @@ const _statusIndicators = [];
 // Version info
   if(definition.since) {'
   help += this.colorizeText(''
-    let _help = '';
+    let help = '';
   // Header/g)'
-  const _title = `$getIcon('rocket')Claude Zen CLI - Revolutionary Unified Architecture`;`
+  const title = `$getIcon('rocket')Claude Zen CLI - Revolutionary Unified Architecture`;`
   help += `${this.colorizeText(title, 'bright', opts.colorize)}\n\n`;
   // Description`
-  const _description = `;`
+  const description = `;`
 A powerful CLI for orchestrating AI workflows with swarm intelligence,
 neural networks, vector search, and graph databases.;`
     `.trim();``
@@ -112,15 +112,15 @@ neural networks, vector search, and graph databases.;`
 // )`
 help += '\n'
 // Commands by category
-const _commands = registry.list();
-const __categories = this.groupCommandsByCategory(commands);'
+const commands = registry.list();
+const _categories = this.groupCommandsByCategory(commands);'
 help += this.colorizeText('COMMANDS => {;')
 if(categoryCommands.length === 0) return;
 // ; // LINT: unreachable code removed'
 help += `${this.formatCategory(category as CommandCategory)}:\n`;
 categoryCommands.forEach((cmd) => {
-  const _nameWithStatus = this.formatCommandNameWithStatus(cmd, opts.colorize);
-  const _paddedName = nameWithStatus.padEnd(20);`
+  const nameWithStatus = this.formatCommandNameWithStatus(cmd, opts.colorize);
+  const paddedName = nameWithStatus.padEnd(20);`
   help += `$paddedName$cmd.description\n`;
 });`
 help += '\n';
@@ -147,18 +147,18 @@ help += this.colorizeText('QUICKSTART = ['
     for detailed command information"
     \n''
     help += 'Documentation = '  Issues = ...this.defaultOptions, ...options
-    const _commands = registry.listByCategory(category);
+    const commands = registry.listByCategory(category);
   if(commands.length === 0) {'';`
   // ; // LINT: unreachable code removed
   // Header`
-  const _title = `;`
+  const title = `;`
       \$this.formatCategory(category);`
       Commands`;``
   help += `;``
       \$this.colorizeText(title, 'bright', opts.colorize);'
       \n\n`
       // Commands table`
-      const _tableData = commands.map(_cmd => ({name = formatTable(tableData, {columns = '\n\nUse "claude-zen <command> --help" for detailed information about each command.\n';
+      const tableData = commands.map(_cmd => ({name = formatTable(tableData, {columns = '\n\nUse "claude-zen <command> --help" for detailed information about each command.\n';
 //       return help;
       //   // LINT: unreachable code removed}/g))
       showCommandHelp(command = registry.get(command)
@@ -180,7 +180,7 @@ help += this.colorizeText('QUICKSTART = ['
   //   }
 
   // private formatCategory(category = {core = true) {
-    const _name = cmd.name;
+    const name = cmd.name;
   if(!colorize) {`
       if(cmd.deprecated) name += ' (deprecated)';'
       if(cmd.isExperimental) name += ' (experimental)';
@@ -227,7 +227,7 @@ help += this.colorizeText('QUICKSTART = ['
 
   // Table of contents'
   markdown += '## Table of Contents\n\n';
-  const _categories = commands.reduce((acc, cmd) => {
+  const categories = commands.reduce((acc, cmd) => {
     if(!acc[cmd.category]) acc[cmd.category] = [];
     acc[cmd.category].push(cmd);
 //     return acc;
@@ -258,9 +258,9 @@ help += this.colorizeText('QUICKSTART = ['
       // Flags
   if(cmd.flags && cmd.flags.length > 0) {`
         markdown += ''
-        const _alias = flag.alias ? `, \`-${flag.alias}\`` : '';'
-        const _required = flag.required ? ' *(required)*'';'
-        const __defaultValue = flag.default !== undefined ? ` (default = `- \`--${flag.name}\`${alias}${required}${_defaultValue}\n`;``
+        const alias = flag.alias ? `, \`-${flag.alias}\`` : '';'
+        const required = flag.required ? ' *(required)*'';'
+        const _defaultValue = flag.default !== undefined ? ` (default = `- \`--${flag.name}\`${alias}${required}${_defaultValue}\n`;``
         markdown += `$flag.description\n`;
       //       }
       //       )`
@@ -280,7 +280,7 @@ markdown += '\n'
 // return markdown;
 // }
 // export function generateManPage(registry = registry.list();`
-const _manPage = '';
+const manPage = '';
 // Man page header'
 manPage += '.TH CLAUDE-ZEN 1 "$(date)" "Claude Zen CLI" "User Commands"\n';'
 manPage += '.SH NAME\n';'

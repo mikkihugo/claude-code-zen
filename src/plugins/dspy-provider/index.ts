@@ -133,10 +133,7 @@ constructor(manifest, config, context);
 // const neuralEngine = awaitthis.context.apis.getNeuralEngine?.();
   if(!sqliteStore || !lanceDB || !kuzuDB) {'
         throw new Error('Required database instances not available');
-      //       }
-
-       catch (error) console.error(error); 
-      const { DSPyIntegrationManager } = // await import('./dspy-integration');
+      //       } const { DSPyIntegrationManager } = // await import('./dspy-integration');
 
       const integrationConfig = {
 ..this.dspyConfig,
@@ -196,9 +193,7 @@ catch(error)
         name);
 '
       this.context.apis.logger.info(' DSPy Swarm Coordination Initialized');
-    } catch (error) {
-  console.error(error);
-}'
+    }'
       this.context.apis.logger.warn(' Swarm coordination unavailable, using single-threaded DSPy');
     //     }
   //   }
@@ -211,9 +206,7 @@ catch(error)
     try {
       this.neuralEngine = // await this.context.apis.getNeuralEngine?.();'
       this.context.apis.logger.info(' DSPy Neural Integration Activated');
-    } catch (error) {
-  console.error(error);
-}'
+    }'
       this.context.apis.logger.warn(' Neural engine unavailable, using standard DSPy');
     //     }
   //   }
@@ -507,8 +500,7 @@ catch(error)
         case 'evaluate': null
           result = // await this.evaluateProgram(task.program, task.dataset);
           break;
-      //       }
-     catch (error) console.error(error); } catch(error) {'
+      //       } } catch(error) {'
       this.context.apis.logger.error(` Swarm task failed);``
       result = { error: error instanceof Error ? error.message : 'Unknown error' };
     //     }

@@ -1,14 +1,12 @@
 /** */
-*
-@fileoverview
+
 MCP;
 Tools;
 Registry;
 
 /** Claude Zen CLI command tools for MCP protocol */
-*
-@module
-MCPToolsRegistry * /;;
+
+MCPToolsRegistry * /;
 
 import type { JSONSchema, ToolResult } from '../../types/mcp.js';
 
@@ -100,8 +98,7 @@ import type { JSONSchema, ToolResult } from '../../types/mcp.js';
 // =============================================================================
 
 /** Combine all tool definitions into a single registry */
-*
-@returns
+
 Complete;
 tools;
 registry
@@ -119,8 +116,7 @@ registry
 // }
 
 /** Get tool schema by name */
- *
-@param
+
 toolName - Name;
 of;
 the;
@@ -145,12 +141,12 @@ tool
 to;
 validate
  * @returns Validation
-result * /;;
+result * /;
 // */ // LINT: unreachable code removed
 // export function validateToolArgs(toolName = getToolSchema(toolName);
 if (!schema) {
   //   return {valid = schema.inputSchema.required  ?? [];
-  // const _properties = schema.inputSchema.properties  ?? { // LINT: unreachable code removed};
+  // const properties = schema.inputSchema.properties  ?? { // LINT: unreachable code removed};
   for (const field of required) {
     if (!(field in args)) {
       // return {valid = properties[key] as JSONSchema;

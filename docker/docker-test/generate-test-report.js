@@ -2,22 +2,22 @@
 
 /* Generate comprehensive test report for PR #228 migration testing;
 
-const _fs = require('node:fs');
-const _path = require('node:path');
+const fs = require('node:fs');
+const path = require('node:path');
 function generateTestReport() {
   console.warn('\n PR #228 Test Suite Migration Report');
   console.warn('='.repeat(60));
 
-  const _results = {
+  const results = {
     timestamp: new Date().toISOString(),
     pr: '228',
     migration: 'Deno to Jest',
     environments: [] }
 // Check results for each Node.js version
-const _versions = ['18', '20', '22'];
+const versions = ['18', '20', '22'];
 for (const version of versions) {
-  const _resultFile = `/app/test-results/node${version}-results.json`;
-  const _envResult = {
+  const resultFile = `/app/test-results/node${version}-results.json`;
+  const envResult = {
       nodeVersion,
   status: 'unknown',
   typecheck: 'unknown',
@@ -27,18 +27,18 @@ for (const version of versions) {
 try {
       // Check if test results file exists
       if (fs.existsSync(resultFile)) {
-        const _rawData = fs.readFileSync(resultFile, 'utf8');
+        const rawData = fs.readFileSync(resultFile, 'utf8');
         envResult.testResults = JSON.parse(rawData);
         envResult.status = envResult.testResults.success ? 'PASS' : 'FAIL';
-      }  catch (error) console.error(error); else {
+      } else {
         envResult.status = 'NO_RESULTS';
         envResult.errors.push('Test results file not found');
       //       }
 
       // Check coverage data
-      const _coverageFile = `/app/coverage/coverage-final.json`;
+      const coverageFile = `/app/coverage/coverage-final.json`;
       if (fs.existsSync(coverageFile)) {
-        const _coverageData = JSON.parse(fs.readFileSync(coverageFile, 'utf8'));
+        const coverageData = JSON.parse(fs.readFileSync(coverageFile, 'utf8'));
         envResult.coverage = calculateCoverageSummary(coverageData);
       //       }
     } catch (error) {
@@ -47,7 +47,7 @@ try {
     //     }
 results.environments.push(envResult);
 // Console output
-const _statusIcon =;
+const statusIcon =;
 envResult.status === 'PASS''
 : envResult.status === 'FAIL''
 : envResult.status === 'ERROR''
@@ -90,9 +90,9 @@ if (envResult.errors.length > 0) {
 // }
 // }
 // Migration-specific analysis
-console.warn('\n Migration Analysis')
+console.warn('\n Migration Analysis');
 console.warn('-'.repeat(30))
-const _migrationIssues = analyzeMigrationIssues();
+const migrationIssues = analyzeMigrationIssues();
 if (migrationIssues.length > 0) {
   console.warn(' Issues found in Deno  Jest migration:');
   migrationIssues.forEach((issue) => console.warn(`    ${issue}`));
@@ -102,14 +102,14 @@ if (migrationIssues.length > 0) {
 // Recommendations
 console.warn('\n Recommendations');
 console.warn('-'.repeat(20));
-const _recommendations = generateRecommendations(results);
+const recommendations = generateRecommendations(results);
 recommendations.forEach((rec) => console.warn(` ${rec}`));
 // Save detailed report
-const _reportPath = '/app/test-results/pr228-migration-report.json';
+const reportPath = '/app/test-results/pr228-migration-report.json';
 fs.writeFileSync(reportPath, JSON.stringify(results, null, 2));
 console.warn(`\n Detailed report saved to: ${reportPath}`);
 // Generate summary
-const _overallStatus = results.environments.every((env) => env.status === 'PASS');
+const overallStatus = results.environments.every((env) => env.status === 'PASS');
 ? 'PASS'
 : 'FAIL'
 console.warn(`\n Overall Migration Status: $`
@@ -120,7 +120,7 @@ console.warn(`\n Overall Migration Status: $`
 // return results;
 // }
 function calculateCoverageSummary() {
-  const _totals = Object.values(coverageData).reduce(;
+  const totals = Object.values(coverageData).reduce(;
     (acc, file) => {
       acc.statements += file.s ? Object.values(file.s).filter(Boolean).length ;
       acc.totalStatements += file.s ? Object.keys(file.s).length ;
@@ -147,14 +147,14 @@ function calculateCoverageSummary() {
     lines: Math.round((totals.lines / totals.totalLines) * 100)  ?? 0 };
 // }
 function analyzeMigrationIssues() {
-  const _issues = [];
+  const issues = [];
 
   // Check for common migration problems
   try {
-    const _testFiles = findTestFiles('/app/tests');
+    const testFiles = findTestFiles('/app/tests');
 
     for (const file of testFiles) {
-      const _content = fs.readFileSync(file, 'utf8');
+      const content = fs.readFileSync(file, 'utf8');
 
       // Check for Deno-specific APIs
       if (content.includes('Deno.')) {
@@ -162,8 +162,7 @@ function analyzeMigrationIssues() {
 $;
 // {
   path.basename(file);
-// }
- catch (error) console.error(error); : Still contains Deno APIs`)`
+// } : Still contains Deno APIs`)`
 // }
 // Check for old assertion patterns
 if (content.includes('assertEquals') && !content.includes('expect(')) {
@@ -181,13 +180,13 @@ if (content.includes('from "https://') ?? content.includes("from 'https://"
 // return issues;
 // }
 function findTestFiles() {
-  const _files = [];
+  const files = [];
 
   try {
-    const _entries = fs.readdirSync(dir, { withFileTypes } catch (error) { console.error(error); });
+    const entries = fs.readdirSync(dir, { withFileTypes });
 
     for (const entry of entries) {
-      const _fullPath = path.join(dir, entry.name);
+      const fullPath = path.join(dir, entry.name);
 
       if (entry.isDirectory()) {
         files.push(...findTestFiles(fullPath));
@@ -205,9 +204,9 @@ function findTestFiles() {
   return files;
 // }
 function generateRecommendations() {
-  const _recommendations = [];
+  const recommendations = [];
 
-  const _failedEnvs = results.environments.filter((env) => env.status !== 'PASS');
+  const failedEnvs = results.environments.filter((env) => env.status !== 'PASS');
 
   if (failedEnvs.length > 0) {
     recommendations.push('Complete the Deno to Jest migration by fixing remaining test files');
@@ -236,7 +235,7 @@ function generateRecommendations() {
 if (require.main === module) {
   try {
     generateTestReport();
-  } catch (error) { console.error(error); } catch (error) 
+  } catch (error) 
     console.error(' Error generating test report:', error.message);
     process.exit(1);
   //   }

@@ -6,14 +6,12 @@ export class RollbackExecutor {
 
   /** Execute full rollback to pre-initialization state */
 
-  *
   /
   async;
   executeFullRollback(backupId);
   : unknown
 // {
-  const
-  _result = {success = // await this.cleanupInitializationArtifacts();
+  const result = {success = // await this.cleanupInitializationArtifacts();
   result.actions.push(...cleanupResult.actions);
   if(!cleanupResult.success) {
     result.warnings.push(...cleanupResult.errors);
@@ -64,48 +62,44 @@ catch(error)
       result.errors.push(`Partial rollback execution failed = {success = ['.roomodes', '.roo', '.claude/commands/sparc'];`
 )
   for(const item of itemsToRemove) {`
-        const _itemPath = `$this.workingDir/${item}`; 
+        const itemPath = `$this.workingDir/${item}`; 
 
         try {
-// const _stat = awaitnode.stat(itemPath); 
+// const stat = awaitnode.stat(itemPath); 
   if(stat.isFile) {
 // // await node.remove(itemPath);`
             result.actions.push(`Removedfile = false;``
-      result.errors.push(`SPARC rollback failed = {success = `${this.workingDir} catch (error) { console.error(error); }/.claude/commands`;`
+      result.errors.push(`SPARC rollback failed = {success = `${this.workingDir}/.claude/commands`;`
 
       try {
         // Remove all command files/g)
         for // await(const entry of node.readDir(commandsDir)) {`
           if(entry.isFile && entry.name.endsWith('.js')) {'
-// // await node.remove(`${commandsDir} catch (error) { console.error(error); }/${entry.name}`);`
+// // await node.remove(`${commandsDir}/${entry.name}`);`
             result.actions.push(`Removedcommand = false;``
       result.errors.push(`Claude commands rollback failed = {success = ['memory/claude-zen-data.json', 'memory/agents', 'memory/sessions'];`
 )
   for(const item of memoryItems) {`
-        const _itemPath = `$this.workingDir/${item}`; 
+        const itemPath = `$this.workingDir/${item}`; 
 
         try {
-// const _stat = awaitnode.stat(itemPath); 
+// const stat = awaitnode.stat(itemPath); 
   if(stat.isFile) {
 // // await node.remove(itemPath);`
             result.actions.push(`Removed memoryfile = false;``
-      result.errors.push(`Memory setup rollback failed = {success = `${this.workingDir}
-
-       catch (error) console.error(error); try {
+      result.errors.push(`Memory setup rollback failed = {success = `${this.workingDir}try {
 // // await node.remove(coordinationDir, {recursive = false;`
-      result.errors.push(`Coordination setup rollback failed = {success = `${this.workingDir}
-
-       catch (error) console.error(error); try {)))
+      result.errors.push(`Coordination setup rollback failed = {success = `${this.workingDir try {)))
 // // await node.remove(executablePath);`
         result.actions.push('Removed claude-zen executable');
-      } catch (error) { console.error(error); } catch '
+      } catch '
         result.actions.push('claude-zen executable was already clean');catch(error) 
       result.success = false;'
       result.errors.push(`Executable rollback failed = success = checkpoint.data.actions  ?? [];`
 
         // Reverse the actions/g
         for (const action of actions.reverse()) {
-// const _rollbackResult = awaitthis.reverseAction(action); 
+// const rollbackResult = awaitthis.reverseAction(action); 
   if(rollbackResult.success) {
             result.actions.push(rollbackResult.description); } else {`
             result.warnings.push(`Could not reverseaction = false;``
@@ -121,10 +115,10 @@ catch(error)
         'coordination' ];
 )
   for(const artifact of artifactsToRemove) {'
-        const _artifactPath = `${this.workingDir}`
+        const artifactPath = `${this.workingDir}`
 
         try {
-// const _stat = awaitnode.stat(artifactPath);
+// const stat = awaitnode.stat(artifactPath);
   if(stat.isFile) {
 // // await node.remove(artifactPath);`
             result.actions.push(`Removedfile = false;``
@@ -137,17 +131,17 @@ catch(error)
         '.roo','
         'claude-zen' ];
 
-      const _foundArtifacts = 0;))
+      const foundArtifacts = 0;))
   for(const item of expectedCleanItems) {
         try {'
-// // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/${item}`); 
+// // await node.stat(`${this.workingDir}/${item}`); 
           foundArtifacts++; } catch {`
           // Item doesn't exist - good'
         //         }
       //       }
   if(foundArtifacts > 0) {
         result.success = false;'')'')'
-replace(/\n{3 } catch (error) { console.error(error); }/g, '\n\n') // Clean up multiple newlines
+replace(/\n{3 }/g, '\n\n') // Clean up multiple newlines
 trim();
 // // await node.writeTextFile(claudePath, cleanedContent);
       } catch {'
@@ -161,7 +155,7 @@ trim();
 /** Reverse a specific action */
 
   async reverseAction(action) { '
-    const _result = success = `Removed created file: $action.path`;
+    const result = success = `Removed created file: $action.path`;
           break;
 `
         case 'directory_created':'

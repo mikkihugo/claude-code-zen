@@ -1,6 +1,6 @@
 /** Transaction Manager - TypeScript Edition; */
 /** Provides unified transaction management across multiple database types; */
-*
+
 with advanced features
 like;
 distributed;
@@ -49,8 +49,8 @@ databaseIds =
 
 : Promise<Transaction>
 // {
-const _transactionId = this.generateTransactionId();
-const _dbIds = Array.isArray(databaseIds) ?databaseIds = dbIds.length > 1;
+const transactionId = this.generateTransactionId();
+const dbIds = Array.isArray(databaseIds) ?databaseIds = dbIds.length > 1;
 '
     console.warn(` Beginning \$
 {
@@ -67,14 +67,14 @@ transaction = {id = 'active';
         this.transactionStats.distributedTransactions++;
       //       }
 
-      const _transaction = {id = {}
+      const transaction = {id = {}
   ): Promise<QueryResult> {
-    const _context = this.activeTransactions.get(transactionId);
+    const context = this.activeTransactions.get(transactionId);
   if(!context) {`;
 throw new Error(`Transaction notfound = = 'active') {``
       throw new Error(`Transaction ${transactionId} is not active(state = Date.now() - context.startTime.getTime();
 `
-      const _timeout = context.options.timeout  ?? this.options.defaultTimeout;
+      const timeout = context.options.timeout  ?? this.options.defaultTimeout;
   if(elapsed > timeout) {
 // // await this.rollbackTransaction(transactionId);`;
 throw new Error(`Transaction timeoutexceeded = `${databaseId}:${query.sql  ?? query.type}`;
@@ -86,7 +86,7 @@ throw new Error(`Transaction timeoutexceeded = `${databaseId}:${query.sql  ?? qu
       // Execute the query
 
       // Record operation for rollback capability
-      const __operation = {id = new Date();
+      const _operation = {id = new Date();
 `;
 this.emit('transaction = this.activeTransactions.get(transactionId);'
 if(!context) {'
@@ -101,20 +101,20 @@ if(!context) {'
     console.warn(` Creating savepoint = {name = // await this.databaseManager.getDatabase(databaseId);``
   if(db && 'createSavepoint' in db) {
           // Create a dummy transaction object for the // interface
-//           const __dummyTransaction = {id = this.activeTransactions.get(transactionId);
+//           const _dummyTransaction = {id = this.activeTransactions.get(transactionId);
 //     if(!context) {'
 //       throw new Error(`Transaction notfound = = 'active') {``
 //       throw new Error(`Transaction ${transactionId} is not active`);
     //     }
 
-    const _savepoint = context.savepoints.get(name);
+    const savepoint = context.savepoints.get(name);
   if(!savepoint) {`
       throw new Error(`Savepoint $namenot found in transaction $transactionId`);
     //     }
 `
     console.warn(` Rolling back tosavepoint = // await this.databaseManager.getDatabase(databaseId);``
   if(db && 'rollbackToSavepoint' in db) {
-          const __dummyTransaction = {id = savepoint.createdAt.getTime();
+          const _dummyTransaction = {id = savepoint.createdAt.getTime();
       context.operations = context.operations.filter(_op => ;)
         op.timestamp.getTime() <= savepointTime;
       );
@@ -133,7 +133,7 @@ if(!context) {'
     try {
   if(context.isDistributed) {
 // // await this.commitDistributedTransaction(context);
-      }  catch (error) console.error(error); else 
+      } else 
 // // await this.commitSingleTransaction(context, context.databaseIds[0]);
       //       }
 `
@@ -156,7 +156,7 @@ if(!context) {'
     try {
   if(context.isDistributed) {
 // // await this.rollbackDistributedTransaction(context);
-      }  catch (error) { console.error(error); }else {
+      }else {
 // // await this.rollbackSingleTransaction(context, context.databaseIds[0]);
       //       }
 `
@@ -180,11 +180,11 @@ if(!context) {'
     // return {id = > ({id = Array.from(this.activeTransactions.keys()).map(async(transactionId) => {
       try {
 // await this.rollbackTransaction(transactionId);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(error = Date.now();
-    const _maxDuration = this.options.maxTransactionDuration;
-    const _expiredTransactions = [];
+    //   // LINT: unreachable code removed} catch(error = Date.now();
+    const maxDuration = this.options.maxTransactionDuration;
+    const expiredTransactions = [];
   for(const [transactionId, context] of this.activeTransactions) {
-      const _elapsed = now - context.startTime.getTime(); if(elapsed > maxDuration) {
+      const elapsed = now - context.startTime.getTime(); if(elapsed > maxDuration) {
         expiredTransactions.push(transactionId); //       }
     //     }
   for(const transactionId of expiredTransactions) {
@@ -195,16 +195,14 @@ if(!context) {'
   if(!db) {`
       throw new Error(`Database notfound = // await this.databaseManager.getDatabase(databaseId);``
   if(db && 'commitTransaction' in db) {
-      const _dummyTransaction = {id = context.databaseIds.map(async(databaseId) => {
+      const dummyTransaction = {id = context.databaseIds.map(async(databaseId) => {
       // In a real implementation, this would send PREPARE messages
 //       return this.prepareTransaction(context, databaseId);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); });
+    //   // LINT: unreachable code removed});
 
     try {
 // // await Promise.all(preparePromises);
-    } catch (error) {
-  console.error(error);
-}
+    }
       // If prepare fails, rollback all
 // // await this.rollbackDistributedTransaction(context);
       throw error;
@@ -218,14 +216,14 @@ if(!context) {'
 
   // private async rollbackSingleTransaction(context = // await this.databaseManager.getDatabase(databaseId);'
   if(db && 'rollbackTransaction' in db) {
-      const _dummyTransaction = {id = context.databaseIds.map(databaseId =>;)
+      const dummyTransaction = {id = context.databaseIds.map(databaseId =>;)
       this.rollbackSingleTransaction(context, databaseId);
     );
 // // await Promise.all(rollbackPromises);
   //   }
 
   // private async prepareTransaction(context = Date.now() - context.startTime.getTime();
-    const _total = this.transactionStats.committedTransactions + this.transactionStats.rolledBackTransactions;
+    const total = this.transactionStats.committedTransactions + this.transactionStats.rolledBackTransactions;
   if(total === 1) {
       this.transactionStats.averageDuration = duration;
     } else {
@@ -238,12 +236,12 @@ if(!context) {'
     this.deadlockCheckInterval = setInterval(async() => {
       try {
 // await this.detectDeadlocks();
-      } catch (error) { console.error(error); } catch(error = Array.from(this.activeTransactions.values());'
+      } catch(error = Array.from(this.activeTransactions.values());'
 filter(context => context.state === 'active' && context.locks.size > 0);
 
     // Check for circular wait conditions
   for(const transaction of waitingTransactions) {
-      const _age = Date.now() - transaction.startTime.getTime(); if(age > this.options.defaultTimeout * 2) {'
+      const age = Date.now() - transaction.startTime.getTime(); if(age > this.options.defaultTimeout * 2) {'
         console.warn(` Potential deadlock detected for transaction); `
         this.transactionStats.deadlockCount++;`
         this.emit('deadlock) {;'
@@ -251,9 +249,7 @@ filter(context => context.state === 'active' && context.locks.size > 0);
         // Rollback the youngest transaction
         try {
 // // await this.rollbackTransaction(transaction.id);
-        } catch (error) {
-  console.error(error);
-}'
+        }'
           console.error(`Failed to rollback deadlocked transaction);`
         //         }
       //       }

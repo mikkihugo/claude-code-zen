@@ -1,15 +1,12 @@
 /** */
-*
-@fileoverview
+
 Command;
 Router; /** Clean, simplified command routing with validation and error handling */
 
-*
-@module
 CommandRouter *
   /** Command router class for handling CLI command dispatch */
 
-  /;;
+  /;
 export class CommandRouter {
   constructor() {
     this.commands = new Map();
@@ -32,8 +29,8 @@ export class CommandRouter {
 
     this.commands.set(name, {)
       name,handler = [], flags = {}) {
-    const _commandName = this.resolveAlias(name);
-    const _command = this.commands.get(commandName);
+    const commandName = this.resolveAlias(name);
+    const command = this.commands.get(commandName);
   if(!command) {``
       throw new Error(`Unknowncommand = this.resolveAlias(name);`
     // return this.commands.has(commandName);
@@ -45,7 +42,7 @@ export class CommandRouter {
 
     // */; // LINT: unreachable code removed
   get(name) {
-    const _commandName = this.resolveAlias(name);
+    const commandName = this.resolveAlias(name);
     // return this.commands.get(commandName)  ?? null;
     //   // LINT: unreachable code removed}
 
@@ -75,7 +72,7 @@ sort((a, b) => a.name.localeCompare(b.name));
 
     // */; // LINT: unreachable code removed
   getHelp(name) {
-    const _command = this.get(name);
+    const command = this.get(name);
     if(!command) return null;
     // ; // LINT: unreachable code removed
     // return {

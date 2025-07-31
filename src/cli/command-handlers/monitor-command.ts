@@ -19,7 +19,7 @@ export async function monitorCommand() {'
       break;
 '
     case 'start': {
-      const _interval = parseInt(flags.interval)  ?? 60000; // Default 1 minute
+      const interval = parseInt(flags.interval)  ?? 60000; // Default 1 minute
       healthMonitor.startMonitoring(interval);'
       printSuccess(` Started continuous health monitoring($intervalms interval)`);
       break;
@@ -39,13 +39,13 @@ export async function monitorCommand() {'
       break;
 '
     case 'trend': {
-      const _minutes = parseInt(flags.minutes)  ?? 60;
+      const minutes = parseInt(flags.minutes)  ?? 60;
 // // await showHealthTrend(minutes);
       break;
     }default = // await healthMonitor.performHealthCheck();
 
     // Overall status'
-    const _statusIcon = health.status === 'healthy'' :'
+    const statusIcon = health.status === 'healthy'' :'
                       health.status === 'degraded'' : '';'
     console.warn(`$statusIconOverallStatus = check.status === 'healthy'' :``
                    check.status === 'degraded'' : '';)'
@@ -67,9 +67,9 @@ join(', ');'
     console.warn(' Service              State    Failures  Successes  Available   ');'');
 
     for (const [name, status] of Object.entries(allStatus)) {
-      const _statePadded = status.state.padEnd(7); const _namePadded = name.padEnd(19); const _failures = status.failureCount.toString() {.padEnd(8);
-      const _successes = status.successCount.toString().padEnd(9);'
-      const _available = status.isAvailable ? 'Yes' : 'No';
+      const statePadded = status.state.padEnd(7); const namePadded = name.padEnd(19); const failures = status.failureCount.toString() {.padEnd(8);
+      const successes = status.successCount.toString().padEnd(9);'
+      const available = status.isAvailable ? 'Yes' : 'No';
 '');
 
     // Summary
@@ -81,7 +81,7 @@ join(', ');'
       return;
     //   // LINT: unreachable code removed}
 '
-    const _trendIcon = trend.status === 'excellent'' :'
+    const trendIcon = trend.status === 'excellent'' :'
                      trend.status === 'good'' :'
                      trend.status === 'concerning'' : '';
 '

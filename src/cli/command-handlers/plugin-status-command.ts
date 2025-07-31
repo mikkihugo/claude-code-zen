@@ -1,7 +1,7 @@
 /** Plugin Status Command - Check plugin system health and status */
 
 export async function pluginStatusCommand(args = [], flags = {}) {
-  const _subcommand = args[0] ?? 'status';
+  const subcommand = args[0] ?? 'status';
   switch (subcommand) {'
     case 'status':'
     case 'list':
@@ -21,12 +21,12 @@ export async function pluginStatusCommand(args = [], flags = {}) {
     // ; // LINT: unreachable code removed'
     case 'restart': {
       // return // await restartPlugin(args[1], flags);default = getPluginManager();
-      const _status = manager.getStatus();
+      const status = manager.getStatus();
 '
       console.warn(' Plugin System Status\n');'
       console.warn(`Overview = status.plugins.filter(p => p.loaded);`
-      const _failedPlugins = status.plugins.filter((p) => p.enabled && !p.loaded);
-      const _disabledPlugins = status.plugins.filter((p) => !p.enabled);
+      const failedPlugins = status.plugins.filter((p) => p.enabled && !p.loaded);
+      const disabledPlugins = status.plugins.filter((p) => !p.enabled);
       if (loadedPlugins.length > 0) {`
         console.warn(' Loaded Plugins => {');'')
       //       }
@@ -44,7 +44,7 @@ export async function pluginStatusCommand(args = [], flags = {}) {
     //     }
 
     // Show quick stats for key plugins'
-    const _keyPlugins = ['memory-backend', 'unified-interface', 'github-integration'];
+    const keyPlugins = ['memory-backend', 'unified-interface', 'github-integration'];
 '
     console.warn(`$status$name`);
   }
@@ -57,7 +57,7 @@ catch(error)
     console.warn(' Plugin Health Check\n');
 
   // Overall health
-  const _healthEmoji = {'
+  const healthEmoji = {'
       'healthy'','
       'degraded'','
       'critical'';
@@ -72,7 +72,7 @@ if(pluginHealth.details) {`
         //         }
   if(pluginHealth.error) {`
           console.warn(`     Error = getPluginManager();`
-    const _plugin = manager.getPlugin(pluginName);
+    const plugin = manager.getPlugin(pluginName);
   if(!plugin) {`
       console.error(` Plugin '${pluginName}' not found or not loaded`);
       return;
@@ -80,10 +80,10 @@ if(pluginHealth.details) {`
 `
     console.warn(` PluginInformation = === 'function') ;`
       try {
-// const __capabilities = awaitplugin.getCapabilities();`
+// const _capabilities = awaitplugin.getCapabilities();`
         console.warn(`Capabilities = === 'function') {`
       try {
-// const _stats = awaitplugin.getStats();`
+// const stats = awaitplugin.getStats();`
         console.warn('\nStatistics = getPluginManager();'
 '
     console.warn(` Restarting plugin = {`)
@@ -99,7 +99,7 @@ if(pluginHealth.details) {`
 `
     console.warn(` Successfully restarted plugin);`
 
-  } catch (error) { console.error(error); } catch(error) `
+  } catch(error) `
     console.error(` Failed to restart plugin '${pluginName}');`
   //   }
 

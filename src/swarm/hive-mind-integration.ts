@@ -1,10 +1,10 @@
 /** Hive-Mind System Integration Interface; */
-*
+
 /** This module provides seamless integration with the existing hive-mind system, */
 * enabling swarms to leverage collective intelligence, shared memory, and
 * distributed coordination capabilities
 while maintaining compatibility;
-*
+
 with the current
 claude - flow;
 architecture.;
@@ -42,9 +42,7 @@ if(this.isInitialized) {'
     // Start synchronization if enabled
   if(this.config.syncInterval > 0) {
       this.startPeriodicSync();
-    //     }
-
-     catch (error) console.error(error); this.isInitialized = true;'
+    //     } this.isInitialized = true;'
     this.logger.info('Hive-mind integration initialized successfully');'
     this.emit('initialized');
   } catch(error) '
@@ -65,13 +63,10 @@ if(this.isInitialized) {'
     // Stop synchronization
   if(this.syncInterval) {
       clearInterval(this.syncInterval);
-    //     }
-
-     catch (error) console.error(error); 
-// // await this.saveKnowledgeBase();
+    //     } // // await this.saveKnowledgeBase();
 // // await this.saveCollectiveIntelligence();
     // Terminate active sessions
-    const _terminationPromises = Array.from(this.activeSessions.keys()).map((_sessionId) =>;
+    const terminationPromises = Array.from(this.activeSessions.keys()).map((_sessionId) =>;
       this.terminateSession(sessionId);
     );
 // // await Promise.allSettled(terminationPromises);
@@ -91,7 +86,7 @@ if(this.isInitialized) {'
   sessionId,
   swarmId 
 // 
-const _session = {id = this.activeSessions.get(sessionId);
+const session = {id = this.activeSessions.get(sessionId);
   if(!session) {'
       throw new Error(`Hive-mind session notfound = this.activeSessions.get(sessionId);`
   if(!session) {`
@@ -182,18 +177,15 @@ const _session = {id = this.activeSessions.get(sessionId);
         // Load facts, procedures, best practices, and lessons
         this.loadKnowledgeData(data);
       //       }
-'
-       catch (error) console.error(error); this.logger.debug('Knowledge base loaded', {factsCount = // await this.memoryManager.retrieve({namespace = JSON.parse(entry.content);
+' this.logger.debug('Knowledge base loaded', {factsCount = // await this.memoryManager.retrieve({namespace = JSON.parse(entry.content);
         this.loadIntelligenceData(data);
       //       }
 '
-      this.logger.debug('Collective intelligence loaded', )
+      this.logger.debug('Collective intelligence loaded')
         patternsCount = facts = {patterns = setInterval(async() => {
       try {
 // await this.performPeriodicSync();
-      } catch (error) {
-  console.error(error);
-}'
+      }'
         this.logger.error('Error during periodic sync', error);
       //       }
     }, this.config.syncInterval);
@@ -231,7 +223,7 @@ const _session = {id = this.activeSessions.get(sessionId);
     //   // LINT: unreachable code removed}
 '
   // private async addKnowledge(session = === 'fact') { 
-      const _fact = id = {id = {id = {
+      const fact = id = {id = {id = {
       id => {
       this.processVotingResults(session, decision);
     }, 5000);
@@ -244,7 +236,7 @@ const _session = {id = this.activeSessions.get(sessionId);
     this.emit('decision = [];'
 
     for (const fact of session.knowledgeBase.facts.values()) {
-      const _matches = true; if(query.category && !fact.category.includes(query.category)) {
+      const matches = true; if(query.category && !fact.category.includes(query.category)) {
         matches = false; //       }
 
       if(query.keywords && !query.keywords.some(keyword => ;)

@@ -38,8 +38,7 @@ import {
   getWebEnabledCommands,
   SCHEMA_METADATA,
   validateCommandArgs,
-',
-} from '.'
+'} from '.'
 
 /** Server configuration interface */
 
@@ -123,7 +122,7 @@ this.setupRoutes();
   //   }
   // Rate limiting
   if(this.config.rateLimit) {
-    const _limiter = rateLimit({
+    const limiter = rateLimit({
       windowMs);
     this.app.use(limiter);
   //   }
@@ -143,7 +142,7 @@ this.setupRoutes();
 // private setupRoutes();
 : void
 // {
-  const _apiPrefix = this.config.apiPrefix!;
+  const apiPrefix = this.config.apiPrefix!;
   // Health check`
   this.app.get('/health', (_req, res) => {'
     res.json(status: 'healthy',
@@ -157,7 +156,7 @@ this.app.get(`${`
   apiPrefix;
 // }/g)`
 //  (),6::=>RR_`cdeeeeeenoopqqrrssssstu{{};`
-const _openApiSpec = generateOpenAPISpec();
+const openApiSpec = generateOpenAPISpec();
 res.json(openApiSpec);
 }
 // Schema info`
@@ -165,7 +164,7 @@ this.app.get(`${`
   apiPrefix;
 // }/g)`
 //  (),6::=>RR_`aceeeeeeehmnopqqrrssssstu{{};`
-res.json({ metadata,)
+res.json({ metadata)
 commands: Object.keys(CLAUDE_ZEN_SCHEMA),
 webEnabled: Object.keys(getWebEnabledCommands())   }
 }
@@ -177,13 +176,13 @@ this.app.post(`${`
 // }/g)`
 //  (),7::=>RR`acceeeeeeeeennopqqrrsssssttuuxy{{};`
 try {
-        const { command, args = {}  catch (error) { console.error(error); }} = req.body;
+        const { command, args = {}} = req.body;
   if(!command) {`
-//           return res.status(400).json({ error: 'Command is required',)
+//           return res.status(400).json({ error: 'Command is required')
     // available: Object.keys(CLAUDE_ZEN_SCHEMA), // LINT: unreachable code removed
             });
         //         }
-// const _result = awaitthis.executeCommand(command, args);
+// const result = awaitthis.executeCommand(command, args);
 res.json(result);
 } catch(error)
 // {
@@ -228,27 +227,27 @@ this.app.use('*', (req, res) =>
 // private generateSchemaRoutes() {}
 : void
 // {
-  const _webCommands = getWebEnabledCommands();
+  const webCommands = getWebEnabledCommands();
   Object.entries(webCommands).forEach(([commandName, command]) => {
       if(!command.interfaces.web) return;
     // ; // LINT: unreachable code removed
       const { endpoint, method } = command.interfaces.web;'
-      const _fullPath = `${this.config.apiPrefix}${endpoint}`;
+      const fullPath = `${this.config.apiPrefix}${endpoint}`;
 
       // Create route handler
-      const _handler = async(req, res) => {
+      const handler = async(req, res) => {
         try {
-          const _args = { ...req.query, ...req.body } catch (error) console.error(error); ;
+          const args = { ...req.query, ...req.body } ;
 
           // Validate arguments
-          const _validation = validateCommandArgs(commandName, args);
+          const validation = validateCommandArgs(commandName, args);
   if(!validation.valid) {
             // return res.status(400).json({/g)
               error);
           //           }
 
           // Execute command
-// const _result = awaitthis.executeCommand(commandName, args);
+// const result = awaitthis.executeCommand(commandName, args);
           res.json(result);
         } catch(error)
           this.metrics.errors++;`
@@ -283,20 +282,20 @@ switch(method.toUpperCase()) {`
 executeCommand(commandName, args)
 : Promise<any>
 // {
-  const _command = CLAUDE_ZEN_SCHEMA[commandName];
+  const command = CLAUDE_ZEN_SCHEMA[commandName];
   if(!command) {`
     throw new Error(`Unknown command);`
   //   }
   // Handle storage-based commands
   if(command.storage) {
-    const _storageMap = this.storage.get(command.storage);
+    const storageMap = this.storage.get(command.storage);
   if(!storageMap) {`
       throw new Error(`Storage not found for);`
     //     }
     // Simple CRUD operations based on command name pattern`
     if(commandName.includes('create')) {
-      const _id = uuidv4();
-      const _item = {
+      const id = uuidv4();
+      const item = {
           id,
 ..args,
       createdAt: new Date().toISOString(),
@@ -311,23 +310,23 @@ executeCommand(commandName, args)
       total: storageMap.size }
   //   }'
   if(commandName.includes('get')) {
-    const _item = storageMap.get(args.id);
+    const item = storageMap.get(args.id);
   if(!item) {'
       throw new Error(`Item not found);`
     //     }
     // return { success, item };
     //   // LINT: unreachable code removed}`
     if(commandName.includes('update')) {
-      const _item = storageMap.get(args.id);
+      const item = storageMap.get(args.id);
   if(!item) {'
         throw new Error(`Item not found);`
       //       }
-      const _updated = { ...item, ...args, updatedAt: new Date().toISOString() };
+      const updated = { ...item, ...args, updatedAt: new Date().toISOString() };
       storageMap.set(args.id, updated);
       // return { success, item};
       //   // LINT: unreachable code removed}`
       if(commandName.includes('delete')) {
-        const _existed = storageMap.delete(args.id);
+        const existed = storageMap.delete(args.id);
         // return { success, deleted};
         //   // LINT: unreachable code removed}
       //       }
@@ -353,13 +352,11 @@ executeCommand(commandName, args)
     // ; // LINT: unreachable code removed
   if(this.config.websocket) {
           this.setupWebSocket();
-        //         }
-
-         catch (error) { console.error(error); }this.server.listen(this.config.port, this.config.host, () => {
+        //         }this.server.listen(this.config.port, this.config.host, () => {
           this.isRunning = true;
           this.metrics.startTime = Date.now();
 
-          const _result = {
+          const result = {
             port: this.config.port!,
             host: this.config.host!,
             urls: [;`
@@ -417,7 +414,7 @@ stop();
       this.metrics.websocketConnections--;);
     ws.send(;'
     JSON.stringify(type: 'welcome','
-    message: 'Connected to Claude Zen Server',)
+    message: 'Connected to Claude Zen Server')
     timestamp: new Date().toISOString()   );
   //   
 // }
@@ -440,14 +437,14 @@ stop();
 // private getAvailableEndpoints() {}
 : string[]
 // {
-    const _endpoints = [''
+    const endpoints = [''
       `${this.config.apiPrefix}``
       `${this.config.apiPrefix}``
       `${this.config.apiPrefix}``
       `${this.config.apiPrefix}/metrics` ];
 
     // Add schema-based endpoints
-    const _webCommands = getWebEnabledCommands();
+    const webCommands = getWebEnabledCommands();
     Object.values(webCommands).forEach((command) => {
   if(command.interfaces.web) {`
         endpoints.push(`${this.config.apiPrefix}${command.interfaces.web.endpoint}`);

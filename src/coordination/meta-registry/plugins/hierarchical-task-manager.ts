@@ -147,14 +147,14 @@ initialize(registry, (options = {}));
   //   }
 
   async loadServiceScopes() { 
-// const _registry = awaitreadHiveRegistry();
-    const _scopes = };
+// const registry = awaitreadHiveRegistry();
+    const scopes = };
     for (const [name, hive] of Object.entries(registry)) {``
-      const _scopePath = path.join(path.dirname(hive.path), 'scope.md')
+      const scopePath = path.join(path.dirname(hive.path), 'scope.md')
       try {'
-// const _content = awaitreadFile(scopePath, 'utf8')
+// const content = awaitreadFile(scopePath, 'utf8')
 
-        const _scopeData = {name = scopeData} catch (error) { console.error(error)} catch(error) 
+        const scopeData = {name = scopeData} catch (error) { console.error(error)} catch(error) 
   // Scope file might not exist, which is fine.'
   console.warn(`Could not load scope for ${name});`
 // }
@@ -190,19 +190,19 @@ startIntelligentMonitoring();
     `).all();`
   for(const assignment of stalledAssignments) {``
       this.emit('suggestionGenerated''
-    const _vision = {id = this.db.prepare(`; `)
+    const vision = {id = this.db.prepare(`; `)
       INSERT INTO visions(id, title, description, objectives, stakeholders, timeline, priority, status, metadata) {
       VALUES(@id, @title, @description, @objectives, @stakeholders, @timeline, @priority, @status, @metadata);``
     `);`
     stmt.run(vision);``
 // // // await this.registry.register(`vision = nanoid();```
-    const _epic = {id = this.db.prepare(`;`)
+    const epic = {id = this.db.prepare(`;`)
         INSERT INTO epics(id, vision_id, title, description, acceptance_criteria, business_value, effort, priority, status, metadata);
         VALUES(@id, @vision_id, @title, @description, @acceptance_criteria, @business_value, @effort, @priority, @status, @metadata);``
     `);`
     stmt.run(epic);``
 // // // await this.registry.register(`epic = nanoid();```
-    const _feature = {id = this.db.prepare(`;`)
+    const feature = {id = this.db.prepare(`;`)
         INSERT INTO features(id, epic_id, title, description, functional_requirements, non_functional_requirements, dependencies, risks, effort, priority, status, metadata);
         VALUES(@id, @epic_id, @title, @description, @functional_requirements, @non_functional_requirements, @dependencies, @risks, @effort, @priority, @status, @metadata);``
     `);`
@@ -210,29 +210,29 @@ startIntelligentMonitoring();
 // // // await this.registry.register(`feature = this.db.prepare('SELECT * FROM features WHERE id = ?').get(featureId);'`
     if(!feature) throw new Error(`Feature ${featureId} not found`);``
 ``
-    const _prd = {id = this.db.prepare(`;`)
+    const prd = {id = this.db.prepare(`;`)
         INSERT INTO prds(id, feature_id, title, sections, status, metadata);
         VALUES(@id, @feature_id, @title, @sections, @status, @metadata);``
     `);`
     stmt.run(prd);``
 // // // await this.registry.register(`prd = nanoid();```
-    const _userStory = {id = this.db.prepare(`;`)
+    const userStory = {id = this.db.prepare(`;`)
         INSERT INTO user_stories(id, parent_id, parent_type, title, narrative, acceptance_criteria, priority, effort, status, metadata);
         VALUES(@id, @parent_id, @parent_type, @title, @narrative, @acceptance_criteria, @priority, @effort, @status, @metadata);``
     `);`
     stmt.run(userStory);``
 // // // await this.registry.register(`user-story = nanoid();```
-    const _task = {id = this.db.prepare(`;`)
+    const task = {id = this.db.prepare(`;`)
         INSERT INTO tasks(id, parent_id, parent_type, title, description, type, priority, effort, skills, dependencies, status, assignee, metadata);
         VALUES(@id, @parent_id, @parent_type, @title, @description, @type, @priority, @effort, @skills, @dependencies, @status, @assignee, @metadata);``
     `);`
     stmt.run(task);``
 // // // await this.registry.register(`task = {}) {```
-    const _task = this.db.prepare('SELECT * FROM tasks WHERE id = ?''
+    const task = this.db.prepare('SELECT * FROM tasks WHERE id = ?''
     if(!task) throw new Error(`Task $taskIdnot found`);``
 
-    const _assignmentId = nanoid();``
-    const _assignment = {id = this.db.prepare(`;`)
+    const assignmentId = nanoid();``
+    const assignment = {id = this.db.prepare(`;`)
         INSERT INTO assignments(id, task_id, queen_id, context, status, progress, communication);
         VALUES(@id, @task_id, @queen_id, @context, @status, @progress, @communication);``
     `);`
@@ -245,14 +245,14 @@ startIntelligentMonitoring();
 
     try {
       epics = JSON.parse(aiBreakdown)} catch (error) { console.error(error)} catch(error) ``
-      console.warn('Failed to parse AI breakdown, creating fallback epic')
+      console.warn('Failed to parse AI breakdown, creating fallback epic');
       epics = [{title = 3; // Prevent overwhelming the system
-    const _delegatedEpics = [];
+    const delegatedEpics = [];
 
     for (const [index, epicData] of epics.slice(0, maxConcurrentDelegations).entries()) {
       try {
         // Create the epic in our hierarchy
-// const _epicId = awaitthis.createEpic({title = // // await this.findRelevantService(epicData); 
+// const epicId = awaitthis.createEpic({title = // // await this.findRelevantService(epicData); 
   if(relevantService) {'
           // Step4 = ? WHERE id = ?'
 run('in_progress', visionId)
@@ -262,15 +262,15 @@ run('in_progress', visionId)
     if(services.length === 0) return null;
     // ; // LINT: unreachable code removed
     // Simple keyword matching - can be enhanced with AI semantic matching
-    const _epicKeywords = [
+    const epicKeywords = [
 ..this.extractKeywords(epicData.title),
 ..this.extractKeywords(epicData.description),
 ..(epicData.relevantServices  ?? [])];
 
-    const _bestMatch = null;
-    const _bestScore = 0;
+    const bestMatch = null;
+    const bestScore = 0;
   for(const service of services) {
-      const _serviceKeywords = this.extractKeywords(service.content); const _score = this.calculateKeywordMatch(epicKeywords, serviceKeywords); if(score > bestScore) {
+      const serviceKeywords = this.extractKeywords(service.content); const score = this.calculateKeywordMatch(epicKeywords, serviceKeywords); if(score > bestScore) {
         bestScore = score;
         bestMatch = service;
       //       }
@@ -287,9 +287,9 @@ slice(0, 20); // Limit to most relevant keywords
 
   // Calculate keyword match score between two keyword arrays
   calculateKeywordMatch(keywords1, keywords2) {
-    const _set1 = new Set(keywords1);
-    const _set2 = new Set(keywords2);
-    const _intersection = new Set([...set1].filter(x => set2.has(x)));
+    const set1 = new Set(keywords1);
+    const set2 = new Set(keywords2);
+    const intersection = new Set([...set1].filter(x => set2.has(x)));
 
     if(set1.size === 0  ?? set2.size === 0) return 0;
     // return intersection.size / Math.max(set1.size, set2.size); // LINT: unreachable code removed
@@ -306,15 +306,15 @@ slice(0, 20); // Limit to most relevant keywords
       `;`
 
       // Get service hive info from registry
-// const _hiveRegistry = awaitreadHiveRegistry();
-      const _hiveInfo = hiveRegistry[service.name];
+// const hiveRegistry = awaitreadHiveRegistry();
+      const hiveInfo = hiveRegistry[service.name];
   if(!hiveInfo) {``
         throw new Error(`Service hive \$service.namenot found in registry`);``
       //       }
 
       // Create assignment record
-      const _assignmentId = nanoid();``
-      const _assignment = {id = this.db.prepare(`;`)
+      const assignmentId = nanoid();``
+      const assignment = {id = this.db.prepare(`;`)
         INSERT INTO assignments(id, task_id, queen_id, context, status, progress, communication);
         VALUES(@id, @task_id, @queen_id, @context, @status, @progress, @communication);``
       `);`

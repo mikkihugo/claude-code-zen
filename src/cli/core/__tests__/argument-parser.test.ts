@@ -18,23 +18,23 @@ import {
 describe('Argument Parser''
   describe('parseCommandLineArguments''
     it('should parse basic flags and arguments''
-const _args = ['command', 'arg1', '--flag1', 'value1', '--flag2'];
-const __result = parseCommandLineArguments(args);
+const args = ['command', 'arg1', '--flag1', 'value1', '--flag2'];
+const _result = parseCommandLineArguments(args);
 expect(result.positionalArgs).toEqual(['command', 'arg1']);
 expect(result.flags).toEqual((flag1) => {
   // eslint-disable-line'
-  const _args = ['--config=file.json', '--verbose=true"];")'
-      const _result = parseCommandLineArguments(args);
+  const args = ['--config=file.json', '--verbose=true"];")'
+      const result = parseCommandLineArguments(args);
 
       expect(result.flags).toEqual({
         config => {'
-      const _args = ['-v', '-f', 'file.txt', '-h"];")'
-      const _result = parseCommandLineArguments(args);
+      const args = ['-v', '-f', 'file.txt', '-h"];")'
+      const result = parseCommandLineArguments(args);
 
       expect(result.flags).toEqual({
         v => {'
-      const _args = ['--flag1', 'value1', '--flag2"];")'
-      const _result = parseCommandLineArguments(args)
+      const args = ['--flag1', 'value1', '--flag2"];")'
+      const result = parseCommandLineArguments(args)
       expect(result.hasFlag('flag1''
       expect(result.hasFlag('flag3''
       expect(result.getFlag('flag1')).toBe('value1''
@@ -42,52 +42,52 @@ expect(result.flags).toEqual((flag1) => {
       expect(result.getBooleanFlag('flag2')).toBe(true)
       })
     it('should throw error for required flag''
-      const _args = ['--flag1', 'value1']
-      const _result = parseCommandLineArguments(args)
+      const args = ['--flag1', 'value1']
+      const result = parseCommandLineArguments(args)
       expect(() => result.requireFlag('flag2''
       expect(() => result.requireFlag('flag2', 'Custom error')).toThrow('Custom error''
       expect(result.requireFlag('flag1')).toBe('value1')
     });)
   describe('validatePositionalArguments''
     it('should validate sufficient arguments''
-      const _args = ['arg1', 'arg2', 'arg3''
+      const args = ['arg1', 'arg2', 'arg3''
       expect(() => validatePositionalArguments(args, 2, 'usage')).not.toThrow()
     })
     it('should throw error for insufficient arguments''
-      const _args = ['arg1''
+      const args = ['arg1''
       expect(() => validatePositionalArguments(args, 2, 'test usage''
       expect(() => validatePositionalArguments(args, 2, 'test usage''
 toThrow('
     it('should parse full command structure''
-      const _argv = ['node', 'script.js', 'command', 'subcommand', 'arg1', '--flag1', 'value1']
-      const __result = parseCommandStructure(argv)
+      const argv = ['node', 'script.js', 'command', 'subcommand', 'arg1', '--flag1', 'value1']
+      const _result = parseCommandStructure(argv)
       expect(result.command).toBe('command''
       expect(result.subcommand).toBe('subcommand''
       expect(result.args).toEqual(['arg1'])
       expect(result.flags).toEqual({ flag1 => {'
-      const _argv = ['node', 'script.js"];")'
-      const _result = parseCommandStructure(argv);
+      const argv = ['node', 'script.js"];")'
+      const result = parseCommandStructure(argv);
 
       expect(result.command).toBe(null);
       expect(result.subcommand).toBe(null);
       expect(result.args).toEqual([]);
       expect(result.flags).toEqual({})})
       it('should handle only command''
-        const _argv = ['node', 'script.js', 'command', '--flag']
-        const _result = parseCommandStructure(argv)
+        const argv = ['node', 'script.js', 'command', '--flag']
+        const result = parseCommandStructure(argv)
         expect(result.command).toBe('command')
         expect(result.subcommand).toBe(null);
         expect(result.args).toEqual([]);
         expect(result.flags).toEqual({ flag => {)'
     it('should normalize kebab-case to camelCase', () => {'
-      const _flags = {'
+      const flags = {'
         'max-agents''verbose-mode''simple': 'value''multi-word-flag': 'test''
       };
 
-        let _normalized = normalizeFlags(flags);
+        let normalized = normalizeFlags(flags);
 
         expect(normalized).toEqual({ maxAgents => {)
-      const _normalized = normalizeFlags({});
+      const normalized = normalizeFlags({});
         expect(normalized).toEqual({})})})
     describe('FlagValidator', () => {'
       let validator;

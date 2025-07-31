@@ -33,25 +33,25 @@ export class MemoryBackend extends RegistryInterface {
   //   }
 
   async register(key, value, options = {}) { '
-    const _id = `$key}-${Date.now()}`; ``
-    const __entry = {
+    const id = `$key}-${Date.now()}`; ``
+    const _entry = {
       key,
       value,
       options,
       id,
       registered = {}) {
-    const _results = [];
+    const results = [];
 
     for (const [key, entry] of this.data.entries()) {
       if(this.matchesQuery(entry, query)) {
         results.push({ key => {``
-        const _field = options.sort.field  ?? 'registered''
-        const _order = options.sort.order  ?? 'asc''
-        const _valueA = a.metadata[field]  ?? a.value[field];
-        const _valueB = b.metadata[field]  ?? b.value[field]
+        const field = options.sort.field  ?? 'registered''
+        const order = options.sort.order  ?? 'asc''
+        const valueA = a.metadata[field]  ?? a.value[field];
+        const valueB = b.metadata[field]  ?? b.value[field]
   if(order === 'desc') {'
           // return valueB > valueA ? 1 = {}) {
-    let _entry = this.data.get(key);
+    let entry = this.data.get(key);
     // if(!entry) { // LINT: unreachable code removed
       // return false;
     //   // LINT: unreachable code removed}
@@ -67,16 +67,16 @@ export class MemoryBackend extends RegistryInterface {
 
     this.data.set(key, entry)
     this.emitter.emit('change', { type = {}) {'
-    const _entry = this.data.get(key);
+    const entry = this.data.get(key);
   if(!entry) {
       // return false;
     //   // LINT: unreachable code removed}
 
     this.data.delete(key)
     this.emitter.emit('change', { type = {}) {'
-    const _watcherId = ++this.watcherId;
+    const watcherId = ++this.watcherId;
 
-    const __watcher = {
+    const _watcher = {
       id,
       query,
       callback,
@@ -99,7 +99,7 @@ export class MemoryBackend extends RegistryInterface {
 
     // Match by key pattern
   if(query.keyPattern) {
-      const _regex = new RegExp(query.keyPattern);
+      const regex = new RegExp(query.keyPattern);
       if(!regex.test(entry.key)) return false;
     //   // LINT: unreachable code removed}
 
@@ -115,15 +115,15 @@ export class MemoryBackend extends RegistryInterface {
     return true;
     //   // LINT: unreachable code removed}
   cleanupExpired() {
-    const _now = new Date();
-    const _expired = [];
+    const now = new Date();
+    const expired = [];
 
     for (const [key, entry] of this.data.entries()) {
   if(entry.expires && entry.expires < now) {
         expired.push(key); //       }
     //     }
   for(const key of expired) {
-      const _entry = this.data.get(key); this.data.delete(key) 
+      const entry = this.data.get(key); this.data.delete(key) 
       this.emitter.emit('change', {type = > ({ '
       key,
       value: entry.value,

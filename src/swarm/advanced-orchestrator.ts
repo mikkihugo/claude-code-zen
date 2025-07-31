@@ -1,5 +1,5 @@
 /** Advanced Swarm Orchestration Engine; */
-*
+
 /** This is the core orchestration engine that manages swarm lifecycle, */
 * agent coordination, task distribution, and result aggregation.
 /** It integrates with existing MCP tools and provides production-ready; */
@@ -53,9 +53,8 @@ if(this.isRunning) {'
       this.isRunning = false;'
       this.logger.info('Advanced swarm orchestrator shut down successfully');'
       this.emit('orchestrator = 'auto','
-    options = catch (error) console.error(error); 
-  ): Promise<string> {'
-    const _swarmId = generateId('swarm');
+    options = ): Promise<string> {'
+    const swarmId = generateId('swarm');
   if(!context) {'
       throw new Error(`Swarm notfound = = 'planning') {``
       throw new Error(`Swarm ${swarmId} is not in planning state`);
@@ -69,16 +68,16 @@ if(this.isRunning) {'
       context.objective.startedAt = new Date();
 
       // Decompose objective into tasks
-// const _tasks = awaitthis.decomposeObjective(context.objective);
+// const tasks = awaitthis.decomposeObjective(context.objective);
       context.objective.tasks = tasks;
 
       // Store tasks in context
       tasks.forEach(task => {)
         context.tasks.set(task.id.id, task as SwarmTask);
-      } catch (error) { console.error(error); });
+      });
 
       // Spawn required agents
-// const _agents = awaitthis.spawnRequiredAgents(context);
+// const agents = awaitthis.spawnRequiredAgents(context);
       agents.forEach(agent => {)
         context.agents.set(agent.id, agent);
       });
@@ -96,7 +95,7 @@ if(this.isRunning) {'
 /** Stop a running swarm gracefully; */
 '
   async stopSwarm(swarmId = 'Manual stop'): Promise<void> {
-    const _context = this.activeSwarms.get(swarmId);
+    const context = this.activeSwarms.get(swarmId);
   if(!context) {'
       throw new Error(`Swarm notfound = 'cancelled';`
       context.endTime = new Date();
@@ -112,24 +111,20 @@ if(this.isRunning) {'
       for (const agent of context.agents.values()) {
         try {
 // // await this.terminateAgent(agent.id, reason); 
-        } catch (error) {
-  console.error(error);
-}`
+        }`
           this.logger.warn('Error terminating agent during swarm stop', {)
             agentId = {}; for(const [swarmId, context] of this.activeSwarms) {
       swarmMetrics[swarmId] = context.metrics;
     //     }
 
     // return {global = > sum + ctx.agents.size, 0),totalTasks = > sum + ctx.tasks.size, 0),uptime = [];
-    // const _startTime = performance.now(); // LINT: unreachable code removed
+    // const startTime = performance.now(); // LINT: unreachable code removed
 
     try {
       // Check orchestrator health
   if(!this.isRunning) {'
         issues.push('Orchestrator is not running');
-      //       }
-
-       catch (error) { console.error(error); }// Check coordinator health
+      //       }// Check coordinator health
   if(!this.coordinator) {'
         issues.push('Coordinator is not initialized');
       //       }
@@ -137,22 +132,22 @@ if(this.isRunning) {'
       // Check memory manager health
       try {'
 // // await this.memoryManager.store({id = === 'failed') {'
-          issues.push(`Swarm $swarmIdcatch (error) console.error(error); is in failed state`);
+          issues.push(`Swarm $swarmId is in failed state`);
         //         }
 
         // Check for stalled swarms
-        const _swarmAge = Date.now() - context.startTime.getTime();`
+        const swarmAge = Date.now() - context.startTime.getTime();`
   if(swarmAge > 3600000 && context.objective.status === 'executing') { // 1 hour'
           issues.push(`Swarm ${swarmId} appears to be stalled`);
         //         }
       //       }
 
-      const _healthy = issues.length === 0;
+      const healthy = issues.length === 0;
 
       // return {
         healthy,
     // issues,metrics = []; // LINT: unreachable code removed`
-    const _baseTaskId = generateId('task');
+    const baseTaskId = generateId('task');
   switch(objective.strategy) {'
       case 'research':
         tasks.push(;)'
@@ -179,29 +174,26 @@ if(this.isRunning) {'
           this.createTaskDefinition(`${baseTaskId}-3`, 'visualization', 'Create data visualizations', 'medium', [`${baseTaskId}-2`]),`
           this.createTaskDefinition(`$baseTaskId-4`, 'reporting', 'Generate analysis report', 'high', [`$baseTaskId-2`, `$baseTaskId-3`]));
         break;default = > ({ id,swarmId = [];
-    const _requiredTypes = context.objective.requirements.agentTypes;
+    const requiredTypes = context.objective.requirements.agentTypes;
   for(const agentType of requiredTypes) {`
-      const _agentId = generateId('agent'); const _agent = {id = setInterval(async() => {
+      const agentId = generateId('agent'); const agent = {id = setInterval(async() => {
       try {
         // Update progress
         this.updateSwarmProgress(context); // Check for completion
   if(this.isSwarmComplete(context) {) 
           clearInterval(monitorInterval);
 // // await this.completeSwarm(context);
-        //         }
-
-         catch (error) console.error(error); 
-        if(this.shouldFailSwarm(context)) {
+        //         } if(this.shouldFailSwarm(context)) {
           clearInterval(monitorInterval);'
 // // await this.failSwarm(context, 'Too many failures or timeout');
         //         }
 
       } catch(error) '
         this.logger.error('Error monitoring swarm execution', {swarmId = Array.from(context.tasks.values());
-    const _totalTasks = tasks.length;'
-    const _completedTasks = tasks.filter(t => t.status === 'completed').length;'
-    const _failedTasks = tasks.filter(t => t.status === 'failed').length;'
-    const _runningTasks = tasks.filter(t => t.status === 'running').length;
+    const totalTasks = tasks.length;'
+    const completedTasks = tasks.filter(t => t.status === 'completed').length;'
+    const failedTasks = tasks.filter(t => t.status === 'failed').length;'
+    const runningTasks = tasks.filter(t => t.status === 'running').length;
 
     context.objective.progress = {
       totalTasks,
@@ -215,8 +207,8 @@ if(this.isRunning) {'
     //   // LINT: unreachable code removed}
 
   // private shouldFailSwarm(context = Array.from(context.tasks.values());'
-    const _failedTasks = tasks.filter(t => t.status === 'failed').length;
-    const _totalTasks = tasks.length;
+    const failedTasks = tasks.filter(t => t.status === 'failed').length;
+    const totalTasks = tasks.length;
 
     // Fail if too many tasks failed
   if(failedTasks > context.objective.constraints.allowedFailures) {
@@ -236,46 +228,44 @@ if(this.isRunning) {'
     context.endTime = new Date();
 
     // Collect results
-// const _results = awaitthis.collectSwarmResults(context);
+// const results = awaitthis.collectSwarmResults(context);
     context.objective.results = results;
 '
     this.logger.info('Swarm completed successfully', swarmId = 'failed';)
     context.endTime = new Date();
 '
     this.logger.error('Swarm failed', {swarmId = Array.from(context.tasks.values());'
-    const _completedTasks = tasks.filter(t => t.status === 'completed');'
-    const _failedTasks = tasks.filter(t => t.status === 'failed');
+    const completedTasks = tasks.filter(t => t.status === 'completed');'
+    const failedTasks = tasks.filter(t => t.status === 'failed');
 // 
     return {outputs = > t.id),objectivesFailed = > t.id),
     // improvements = {coordinator = context.objective.progress.percentComplete; // LINT: unreachable code removed
-    const _elapsed = Date.now() - context.startTime.getTime();
+    const elapsed = Date.now() - context.startTime.getTime();
   if(!health.healthy) {'
           this.logger.warn('Health check failed', {issues = setInterval(() => {
       try {
         this.updateGlobalMetrics();
-      } catch (error) {
-  console.error(error);
-}'
+      }'
         this.logger.error('Metrics collection error', error);
       //       }
     }, 10000); // Every 10 seconds
   //   }
 
   // private updateGlobalMetrics() {
-    const _swarms = Array.from(this.activeSwarms.values());
+    const swarms = Array.from(this.activeSwarms.values());
 
     this.globalMetrics = {throughput = > sum + ctx.objective.progress.completedTasks, 0);
   //   }
 
   // private calculateGlobalLatency(swarms = swarms.reduce((sum, ctx) => sum + ctx.objective.progress.totalTasks, 0);
-    const _completedTasks = swarms.reduce((sum, ctx) => sum + ctx.objective.progress.completedTasks, 0);
+    const completedTasks = swarms.reduce((sum, ctx) => sum + ctx.objective.progress.completedTasks, 0);
 //     return totalTasks > 0 ? completedTasks /totalTasks = swarms.length;'
-    // const _successfulSwarms = swarms.filter(ctx => ctx.objective.status === 'completed').length; // LINT: unreachable code removed
+    // const successfulSwarms = swarms.filter(ctx => ctx.objective.status === 'completed').length; // LINT: unreachable code removed
 //     return totalSwarms > 0 ? successfulSwarms /totalSwarms = > sum + ctx.objective.progress.averageQuality, 0) / Math.max(swarms.length, 1);
     //   // LINT: unreachable code removed}
 
   // private calculateGlobalDefectRate(swarms = swarms.reduce((sum, ctx) => sum + ctx.agents.size, 0);
-    const _busyAgents = swarms.reduce((sum, ctx) => sum + ctx.objective.progress.busyAgents, 0);
+    const busyAgents = swarms.reduce((sum, ctx) => sum + ctx.objective.progress.busyAgents, 0);
 //     return totalAgents > 0 ? busyAgents / totalAgents => {'
       this.logger.info(''
       this.logger.info(''

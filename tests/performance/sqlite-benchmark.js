@@ -45,7 +45,7 @@ async;
 initialize();
 // {
   // Check SQLite availability
-// const _available = awaitisSQLiteAvailable();
+// const available = awaitisSQLiteAvailable();
   if(!available) {'
     throw new Error('SQLite not available for benchmarking');
   //   }
@@ -61,7 +61,7 @@ initialize();
 async;
 createStore(name, (options = {}));
 // {
-  const _store = new SqliteMemoryStore({
+  const store = new SqliteMemoryStore({
       directory: this.testDir,`
   dbName: `${name}.db`,
 ..options
@@ -72,7 +72,7 @@ this.stores.set(name, store)
 //   // LINT: unreachable code removed}
 generateTestData((size = this.options.testDataSize));
 // {
-  const _data = [];
+  const data = [];
   for(let i = 0; i < size; i++) {
     data.push({)`
         key: `test-key-${i.toString().padStart(6, '0')}`,
@@ -93,10 +93,10 @@ generateTestData((size = this.options.testDataSize));
 async;
 measureOperation(name, operation);
 // {
-  const _start = performance.now();
-// const _result = awaitoperation();
-  const _end = performance.now();
-  const _duration = end - start;
+  const start = performance.now();
+// const result = awaitoperation();
+  const end = performance.now();
+  const duration = end - start;
   if(!this.results[name]) {
     this.results[name] = [];
   //   }
@@ -108,14 +108,14 @@ measureOperation(name, operation);
   //   {`
     console.warn('\n Benchmarking Basic Operations...');
     // Test with and without cache'
-// const _storeWithCache = awaitthis.createStore('with-cache', { enableCache });'
-// const _storeWithoutCache = awaitthis.createStore('without-cache', { enableCache });
-    const _testData = this.generateTestData(100);
+// const storeWithCache = awaitthis.createStore('with-cache', { enableCache });'
+// const storeWithoutCache = awaitthis.createStore('without-cache', { enableCache });
+    const testData = this.generateTestData(100);
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {'
       console.warn(`  Iteration $iteration + 1`
       // Test store operations
   for(const store of [storeWithCache, storeWithoutCache]) {`
-        const _suffix = store === storeWithCache ? '-cached' : '-uncached'; // Store operations'
+        const suffix = store === storeWithCache ? '-cached' : '-uncached'; // Store operations'
   // // await this.measureOperation(`store${suffix}`, async() => {
   for(const item of testData) {
   // await store.store(item.key, item.value, { namespace); 
@@ -134,7 +134,7 @@ measureOperation(name, operation);
         });
         // Search operations`
   // // await this.measureOperation(`search${suffix}`, async() => {`
-          const _patterns = ['test-key-00', 'Test Item', 'tag-5', 'priority'];
+          const patterns = ['test-key-00', 'Test Item', 'tag-5', 'priority'];
   for(const pattern of patterns) {
   // await store.search(pattern, { namespace); 
           //           }
@@ -145,16 +145,16 @@ measureOperation(name, operation);
   benchmarkConcurrentOperations() ;
   //   {'
     console.warn('\n Benchmarking Concurrent Operations...');'
-// const _store = awaitthis.createStore('concurrent', {
+// const store = awaitthis.createStore('concurrent', {
       enableCache,
     maxConnections)
-  const _testData = this.generateTestData(this.options.testDataSize);
+  const testData = this.generateTestData(this.options.testDataSize);
   for(let iteration = 0; iteration < this.options.iterationsPerTest; iteration++) {'
     console.warn(`  Iteration $iteration + 1`
     // Concurrent writes`
   // // await this.measureOperation('concurrent-writes', async() => {
-      const _chunks = this.chunkArray(testData, this.options.concurrentOperations);
-      const _promises = chunks.map(async(chunk, chunkIndex) => {
+      const chunks = this.chunkArray(testData, this.options.concurrentOperations);
+      const promises = chunks.map(async(chunk, chunkIndex) => {
   for(const item of chunk) {'
   // await store.store(`${item.key}-${chunkIndex}`, item.value, {/g)
               namespace); //           }
@@ -163,11 +163,11 @@ measureOperation(name, operation);
   // Concurrent reads`
   // // await this.measureOperation('concurrent-reads', async() =>
   //   {
-    const _readPromises = [];
+    const readPromises = [];
   for(let i = 0; i < this.options.concurrentOperations; i++) {
       readPromises.push(async() => {
   for(let j = 0; j < 100; j++) {'
-          const _key = `test-key-${j.toString().padStart(6, '0')}-${i}`;
+          const key = `test-key-${j.toString().padStart(6, '0')}-${i}`;
   // await store.retrieve(key, { namespace);
         //         }
       });
@@ -177,7 +177,7 @@ measureOperation(name, operation);
   // Mixed operations`
   // // await this.measureOperation('mixed-operations', async() =>
   //   {
-    const _operations = [];
+    const operations = [];
   for(let i = 0; i < this.options.concurrentOperations; i++) {
       operations.push(async() => {
         // Mix of reads, writes, searches
@@ -199,9 +199,9 @@ measureOperation(name, operation);
 // async benchmarkIndexPerformance() {}
 `
   console.warn('\n Benchmarking Index Performance...');'
-// const _storeWithIndexes = awaitthis.createStore('with-indexes');
+// const storeWithIndexes = awaitthis.createStore('with-indexes');
   // Create a large dataset to test index effectiveness
-  const _largeDataset = this.generateTestData(5000);
+  const largeDataset = this.generateTestData(5000);
   // Populate the database'
   console.warn('  Populating database with test data...');
   for(const item of largeDataset) {
@@ -223,12 +223,12 @@ measureOperation(name, operation);
   });'
   // await this.measureOperation('key-lookups', async() => {
   for(let i = 0; i < 100; i++) {'
-      const _key = `test-key-${i.toString().padStart(6, '0')}`;
+      const key = `test-key-${i.toString().padStart(6, '0')}`;
   // await storeWithIndexes.retrieve(key, { namespace);
     //     }
   });`
   // // await this.measureOperation('pattern-searches', async() => {'
-    const _patterns = ['test-key-001', 'Test Item 1', 'tag-1', 'namespace-1'];
+    const patterns = ['test-key-001', 'Test Item 1', 'tag-1', 'namespace-1'];
   for(const pattern of patterns) {
   // await storeWithIndexes.search(pattern, { limit }); 
     //     }
@@ -237,11 +237,11 @@ measureOperation(name, operation);
 // async benchmarkCacheEffectiveness() {}
 '
   console.warn('\n Benchmarking Cache Effectiveness...');'
-// const _store = awaitthis.createStore('cache-test', {
+// const store = awaitthis.createStore('cache-test', {
       enableCache,
   cacheTimeout, // 5 minutes/g
 }
-const _testData = this.generateTestData(200);
+const testData = this.generateTestData(200);
 // Populate data
   for(const item of testData) {
   // // await store.store(item.key, item.value, { namespace); 
@@ -251,14 +251,14 @@ const _testData = this.generateTestData(200);
   // First read(cold cache)`
   // // await this.measureOperation('cold-cache-reads', async() => {
   for(let i = 0; i < 50; i++) {'
-      const _key = `test-key-${i.toString().padStart(6, '0')}`;
+      const key = `test-key-${i.toString().padStart(6, '0')}`;
   // await store.retrieve(key, { namespace);
     //     }
   });
   // Second read(warm cache)`
   // // await this.measureOperation('warm-cache-reads', async() => {
   for(let i = 0; i < 50; i++) {'
-      const _key = `test-key-${i.toString().padStart(6, '0')}`;
+      const key = `test-key-${i.toString().padStart(6, '0')}`;
   // await store.retrieve(key, { namespace);
     //     }
   });
@@ -273,7 +273,7 @@ const _testData = this.generateTestData(200);
 // }
 chunkArray(array, chunkSize)
 // {
-  const _chunks = [];
+  const chunks = [];
   for(let i = 0; i < array.length; i += chunkSize) {
     chunks.push(array.slice(i, i + chunkSize));
   //   }
@@ -283,8 +283,8 @@ chunkArray(array, chunkSize)
   //   {
     if(measurements.length === 0) return {};
     // ; // LINT: unreachable code removed
-    const _sorted = [...measurements].sort((a, b) => a - b);
-    const _sum = measurements.reduce((a, b) => a + b, 0);
+    const sorted = [...measurements].sort((a, b) => a - b);
+    const sum = measurements.reduce((a, b) => a + b, 0);
 //     return {
       count: measurements.length,
     // min: sorted[0], // LINT: unreachable code removed
@@ -299,7 +299,7 @@ async;
 generateReport();
 // {'
   console.warn('\n Generating Performance Report...');
-  const _report = {
+  const report = {
       timestamp: new Date().toISOString(),
   testConfiguration: this.options }
 // Calculate statistics for each operation
@@ -307,13 +307,13 @@ for (const [operation, measurements] of Object.entries(this.results)) {
   report.results[operation] = this.calculateStats(measurements); // }
 // Get database and cache statistics
   for(const [name, store] of this.stores) {
-// const _dbStats = awaitstore.getDatabaseStats(); 
-  const _perfStats = store.getPerformanceStats() {;'
+// const dbStats = awaitstore.getDatabaseStats(); 
+  const perfStats = store.getPerformanceStats() {;'
   report.results[`$name-database-stats`] = dbStats;`
   report.results[`${name}-performance-stats`] = perfStats;
 // }
 // Save report`
-const _reportPath = path.join(this.testDir, 'performance-report.json');
+const reportPath = path.join(this.testDir, 'performance-report.json');
   // // await fs.writeFile(reportPath, JSON.stringify(report, null, 2));
 // Print summary
 this.printSummary(report);
@@ -323,30 +323,30 @@ printSummary(report);
 // {'
   console.warn('\n Performance Summary');'
   console.warn('='.repeat(50));
-  const _operations = Object.keys(report.results).filter(;)'
+  const operations = Object.keys(report.results).filter(;)'
   (key) => !key.includes('-database-stats') && !key.includes('-performance-stats');
   //   
   for(const operation of operations) {
-    const _stats = report.results[operation]; if(stats.mean !== undefined) {'
+    const stats = report.results[operation]; if(stats.mean !== undefined) {'
       console.warn(; `${operation.padEnd(25) {} | Avg: ${stats.mean.toFixed(2)}ms | Med: ${stats.median.toFixed(2)}ms | P95: ${stats.p95.toFixed(2)}ms`;
       //       
     //     }
   //   }
   // Cache effectiveness`
-  const _cacheOperations = operations.filter((op) => op.includes('cache'));
+  const cacheOperations = operations.filter((op) => op.includes('cache'));
   if(cacheOperations.length >= 2) {'
-    const _cold = report.results['cold-cache-reads'];'
-    const _warm = report.results['warm-cache-reads'];
+    const cold = report.results['cold-cache-reads'];'
+    const warm = report.results['warm-cache-reads'];
   if(cold && warm) {
-      const _improvement = ((cold.mean - warm.mean) / cold.mean) * 100;
+      const improvement = ((cold.mean - warm.mean) / cold.mean) * 100;
       console.warn(;)'
       `\n Cache Improvement: $improvement.toFixed(1)% faster($warm.mean.toFixed(2)ms vs $cold.mean.toFixed(2)ms)`;
       //       
     //     }
   //   }
   // Concurrent vs sequential comparison`
-  const _concurrent = report.results['concurrent-reads'];'
-  const _sequential = report.results['retrieve-cached'];
+  const concurrent = report.results['concurrent-reads'];'
+  const sequential = report.results['retrieve-cached'];
   if(concurrent && sequential) {
     console.warn(;)'
     `\n Concurrency: $this.options.concurrentOperationsx operations in $concurrent.mean.toFixed(2)ms`;
@@ -373,7 +373,7 @@ run();
   // // await this.benchmarkConcurrentOperations();
   // // await this.benchmarkIndexPerformance();
   // // await this.benchmarkCacheEffectiveness();
-    const { report, reportPath }  catch (error) console.error(error); = // await this.generateReport();`
+    const { report, reportPath } = // await this.generateReport();`
     console.warn(`\n Benchmark completed successfully!`);`
     console.warn(` Report saved to);`
     // return report;
@@ -387,7 +387,7 @@ run();
 // }
 // CLI execution'
   if(import.meta.url === `file) {`
-  const _benchmark = new SQLitePerformanceBenchmark({ testDataSize: parseInt(process.argv[2])  ?? 1000,
+  const benchmark = new SQLitePerformanceBenchmark({ testDataSize: parseInt(process.argv[2])  ?? 1000,
   concurrentOperations: parseInt(process.argv[3])  ?? 10,
   iterationsPerTest: parseInt(process.argv[4])  ?? 3
   }

@@ -7,17 +7,17 @@ import { executeTool } from
 ';
 
 // Load configuration from config.json
-const _config = configData;
+const config = configData;
 export default {
   async fetch(_request, _env, _ctx) {
-    const _corsHeaders = {
+    const corsHeaders = {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization' };
 if (request.method === 'OPTIONS') {
 //   return new Response(null, { headers });
   //   // LINT: unreachable code removed}
-  const _url = new URL(request.url);
+  const url = new URL(request.url);
   // Handle MCP protocol requests
   if (url.pathname === '/sse' && request.method === 'POST') {
 //     return handleMCPRequest(request, corsHeaders);
@@ -29,7 +29,7 @@ if (request.method === 'OPTIONS') {
      //      }
   async function handleMCPRequest() {
   try {
-// const _body = awaitrequest.json();
+// const body = awaitrequest.json();
 
     // Handle initialize request
     if (body.method === 'initialize') {
@@ -37,16 +37,16 @@ if (request.method === 'OPTIONS') {
     // { // LINT: unreachable code removed
           jsonrpc: '2.0',
           id: body.id,
-            protocolVersion: '2025-06-18',,,,
+            protocolVersion: '2025-06-18',,
               name: 'claude-zen-mcp',
-              version: '1.0.0',, } catch (error) console.error(error); ,
+              version: '1.0.0'} ,
         corsHeaders;
       );
     //     }
 
     // Handle tools/list request
     if (body.method === 'tools/list') {
-      const _tools = generateTools(config.tools.enabled);
+      const tools = generateTools(config.tools.enabled);
 //       return jsonResponse();
     // { // LINT: unreachable code removed
           jsonrpc: '2.0',
@@ -58,7 +58,7 @@ if (request.method === 'OPTIONS') {
   if (body.method === 'tools/call') {
     const { name, arguments } = body.params;
     try {
-        const _result = executeTool(name, args);
+        const result = executeTool(name, args);
 //         return jsonResponse();
     // { // LINT: unreachable code removed
             jsonrpc: '2.0',

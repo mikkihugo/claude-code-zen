@@ -24,7 +24,7 @@ export function convertToClaudeCodeMessages() {
   //   }
   // Handle special modes`
   if(prompt.mode === 'object-json') {
-    const _jsonInstruction =;'
+    const jsonInstruction =;'
     ('\n\nYou must respond with valid JSON only. No explanations or markdown.');'
     systemPrompt = systemPrompt ? `$systemPrompt$jsonInstruction` ;
   //   }`
@@ -54,21 +54,21 @@ function _formatAssistantMessage() {'
 
 // Remove JavaScript variable declarations'');
 // Try to extract JSON object or array
-const _jsonMatch = text.match(/(\{[\s\S]*\}|\[[\s\S]*\])/);
+const jsonMatch = text.match(/(\{[\s\S]*\}|\[[\s\S]*\])/);
 if(!jsonMatch) return null;
 // ; // LINT: unreachable code removed
-const _jsonText = jsonMatch[1];
+const jsonText = jsonMatch[1];
 try {
   // return JSON.parse(jsonText);
-} catch (error) { console.error(error); } catch(/* _e */) {
+} catch(/* _e */) {
   // Try to fix common issues
-  const _fixed = jsonText;'
+  const fixed = jsonText;'
 replace(/([ ]\s*)(\w+):/g, '$1"$2":') // Quote unquoted keys'
 replace(/'"''
 
   try {
 // return JSON.parse(fixed);
-//   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _e2 */) {
+//   // LINT: unreachable code removed} catch(/* _e2 */) {
 // return null;
 //   // LINT: unreachable code removed}
 // }

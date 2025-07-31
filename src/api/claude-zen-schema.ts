@@ -259,16 +259,16 @@ args): null
 errors
 // }
 // {
-const _command = CLAUDE_ZEN_SCHEMA[commandName];
+const command = CLAUDE_ZEN_SCHEMA[commandName];
 if(!command) {'
     // return { valid, missing: [], errors: [`Unknown command] };`
     //   // LINT: unreachable code removed}
-    const _validation = command.validation;
+    const validation = command.validation;
   if(!validation) {
       // return { valid, missing: [], errors: [] };
       //   // LINT: unreachable code removed}
-      const _missing = [];
-      const _errors = [];
+      const missing = [];
+      const errors = [];
       // Check required fields
   if(validation.required) {
   for(const field of validation.required) {
@@ -285,7 +285,7 @@ if(!command) {'
 /** Generate OpenAPI specification */
 
   // export function _generateOpenAPISpec() {
-  const _paths = {}; Object.entries(CLAUDE_ZEN_SCHEMA) .forEach(([_cmdName, cmdConfig]) => {
+  const paths = {}; Object.entries(CLAUDE_ZEN_SCHEMA) .forEach(([_cmdName, cmdConfig]) => {
     if(!cmdConfig.interfaces.web?.enabled) return;
     // ; // LINT: unreachable code removed
     const { endpoint, method } = cmdConfig.interfaces.web;
@@ -298,7 +298,7 @@ if(!command) {'
       tags: [cmdConfig.category],`
         '200': null'
           description: 'Success','
-            'application/json': type: 'object' ,};
+            'application/json': type: 'object' };
   if(cmdConfig.validation?.required) {
       paths[endpoint][method.toLowerCase()].requestBody = {
         required,'
@@ -306,7 +306,7 @@ if(!command) {'
               type: 'object',
               required: cmdConfig.validation.required,
               properties: cmdConfig.validation.required.reduce((props, field) => {'
-                props[field] = type: 'string' ;
+                props[field] = type: 'string';
 //                 return props;
     //   // LINT: unreachable code removed}, {}) }}
   //   }

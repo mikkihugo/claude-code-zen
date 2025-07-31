@@ -46,7 +46,7 @@ class SwarmUI {
       parent,top = blessed.log({
       parent,top = blessed.box({
       parent,top = blessed.button({parent = blessed.button({parent = blessed.textbox({
-      parent,)))))))))))))))
+      parent)))))))))))))))
     (_bottom) => {
       this.cleanup();
     process.exit(0);
@@ -65,7 +65,7 @@ class SwarmUI {
     // this'
     log(`Selected objective =>`
     //     {
-    const _task = this.swarmData.tasks[index];
+    const task = this.swarmData.tasks[index];
     if (task) {
       this.updateTaskDetails(task);
       //       }
@@ -113,25 +113,25 @@ class SwarmUI {
       // {
       try {
       // Load swarm data from file system'
-      const _swarmRunsDir = '.'
+      const swarmRunsDir = '.'
 
       try {
-// const _runs = awaitfs.readdir(swarmRunsDir);
+// const runs = awaitfs.readdir(swarmRunsDir);
         this.swarmData.objectives = [];
         this.swarmData.agents = [];
         this.swarmData.tasks = [];
   for(const runDir of runs) {'
-          const _configPath = path.join(swarmRunsDir, runDir, 'config.json'); try {'
-// const _configData = awaitfs.readFile(configPath, 'utf-8'); 
-            const __config = JSON.parse(configData) ;
+          const configPath = path.join(swarmRunsDir, runDir, 'config.json'); try {'
+// const configData = awaitfs.readFile(configPath, 'utf-8'); 
+            const _config = JSON.parse(configData) ;
 '
             this.swarmData.objectives.push(id = path.join(swarmRunsDir, runDir, 'agents');
             try {
-// const _agents = awaitfs.readdir(agentsDir);
+// const agents = awaitfs.readdir(agentsDir);
   for(const agentDir of agents) {'
-                const _taskPath = path.join(agentsDir, agentDir, 'task.json'); try {'
-// const _taskData = awaitfs.readFile(taskPath, 'utf-8'); 
-                  const __task = JSON.parse(taskData) ;
+                const taskPath = path.join(agentsDir, agentDir, 'task.json'); try {'
+// const taskData = awaitfs.readFile(taskPath, 'utf-8'); 
+                  const _task = JSON.parse(taskData) ;
 '
                   this.swarmData.agents.push(id = 'idle';catch(error) ;'
       this.log(`Error updating swarmdata = this.swarmData.objectives.filter((o) => o.status === 'running').length;`
@@ -177,38 +177,38 @@ this.log(`Error creatingobjective = 0;`
         try {
           // Use process.kill() for cross-platform compatibility
   if(process.pid && !process.killed) {`
-            process.kill('SIGTERM'); stoppedCount++; this.log(`Stopped process $processIdcatch (error) console.error(error); (PID = 'stopped';`))
+            process.kill('SIGTERM'); stoppedCount++; this.log(`Stopped process $processId (PID = 'stopped';`))
 this.updateDisplay() {;
 catch(error)`
 this.log(`Error stoppingswarm = === 'win32') ;`
       // Windows => {
   if(!error && stdout) {
-            const _pids = stdout;`
+            const pids = stdout;`
 split('\n');
 map((line) => line.trim());
 filter((line) => /^\d+$/.test(line));
 
             pids.forEach((pid) => {
               // Validate PID before using in command
-              const _validatedPID = validatePID(pid);
+              const validatedPID = validatePID(pid);
   if(validatedPID) {'
                 exec(`taskkill /F /PID $validatedPID`, (killError) => {
   if(!killError) {`
                     this.log(`Stopped orphaned process PID => {`)
   if(!error && stdout) {`
-          const _lines = stdout.split('\n').filter((line) => line.trim());
+          const lines = stdout.split('\n').filter((line) => line.trim());
           lines.forEach((line) => {
-            const _parts = line.split(/\s+/);
-            const _pid = parts[1];
-            const _validatedPID = validatePID(pid);
+            const parts = line.split(/\s+/);
+            const pid = parts[1];
+            const validatedPID = validatePID(pid);
   if(validatedPID) {
               try {'
                 process.kill(validatedPID, 'SIGTERM');'
                 this.log(`Stopped orphaned process _PID => {`)
   if(error) {`
           this.log(`Commanderror = 'info') `
-    const _timestamp = new Date().toLocaleTimeString();`
-    const _levelColors = {info = `$levelColors[level]  ?? 'white'catch (error) console.error(error); -fg[$timestamp] $message`
+    const timestamp = new Date().toLocaleTimeString();`
+    const levelColors = {info = `$levelColors[level]  ?? 'white' -fg[$timestamp] $message`
 
     this.logBuffer.push(coloredMessage);
   if(this.logBuffer.length > this.maxLogLines) {
@@ -229,8 +229,7 @@ filter((line) => /^\d+$/.test(line));
   for(const [processId, process] of this.activeProcesses) {
       try {
   if(process.pid && !process.killed) {`
-          process.kill('SIGTERM'); //         }
-       catch (error) console.error(error); } catch(/* err */) {
+          process.kill('SIGTERM'); //         } } catch(/* err */) {
         // Ignore errors during cleanup
       //       }
     //     }
@@ -238,13 +237,13 @@ filter((line) => /^\d+$/.test(line));
 
 // Main execution
 async function main() {
-  const _ui = new SwarmUI();
+  const ui = new SwarmUI();
 
   try {
 // // await ui.init();
-  } catch (error) { console.error(error); } catch(error) '
+  } catch(error) '
     console.error(''
-  console.error('Uncaught exception => {'))'
+  console.error('Uncaught exception => {');)'
   console.error('Unhandledrejection = === `file) '`
   main();}}}}}}}}}}}}}}}
     }

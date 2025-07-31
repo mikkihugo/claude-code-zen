@@ -19,31 +19,31 @@ import { printSuccess, TemplateManager } from '..';
 
 export async function initCommand(input = Array.isArray(input) ? input = args[0]  ?? process.cwd();
 '
-const _templateName = flags.template ?? 'claude-zen';
+const templateName = flags.template ?? 'claude-zen';
 '
 '
 try {'
     printSuccess(' Initializing Claude Zen project...');'
 
     // Try to use template system first
-    const _templateManager = new TemplateManager();
+    const templateManager = new TemplateManager();
 
     try {
       // Check if template exists
-// const _template = awaittemplateManager.getTemplate(templateName);
+// const template = awaittemplateManager.getTemplate(templateName);
   if(template) {
         // Use template system
 // // // await templateManager.installTemplate(templateName, targetDir, {force = // await fs.access(targetDir).then(() => true).catch(() => false);
   if(!dirExists) {'
 // // // await fs.mkdir(targetDir, {recursive = path.join(targetDir, '.claude''
 // // // await fs.mkdir(claudeDir, {recursive = path.join(claudeDir, 'settings.json');'
-    const _basicSettings = {'
+    const basicSettings = {'
       "env""
         "CLAUDE_ZEN_AUTO_COMMIT": "false""
         "CLAUDE_ZEN_AUTO_PUSH": "false""
         "CLAUDE_ZEN_HOOKS_ENABLED": "true""
         "CLAUDE_ZEN_TELEMETRY_ENABLED": "true";"
-      } catch (error) console.error(error); ,"
+      } ,"
       "permissions""
         "allow""
           "Bash(npm run *)""
@@ -56,11 +56,11 @@ try {'
           "args": ['ruv-swarm', 'mcp', 'start'];"
     };
 
-    const _shouldOverwrite = flags.force  ?? !(// // await fs.access(settingsPath).then(() => true).catch(() => false));
+    const shouldOverwrite = flags.force  ?? !(// // await fs.access(settingsPath).then(() => true).catch(() => false));
   if(shouldOverwrite) {
 // // // await fs.writeFile(settingsPath, JSON.stringify(basicSettings, null, 2));"
       printSuccess(`  Createdsettings = path.join(targetDir, 'CLAUDE.md');''
-    const _basicClaudeMd = `# Claude Zen Project`
+    const basicClaudeMd = `# Claude Zen Project`
 
 This project is configured for Claude Code integration with ruv-swarm coordination.
 
@@ -77,7 +77,7 @@ Run \`claude-zen --help\` to see available commands.`
 See \`.claude/settings.json\` for configuration options.;``
 `;`
 
-    const _shouldOverwriteReadme = flags.force  ?? !(// // await fs.access(claudeMdPath).then(() => true).catch(() => false));
+    const shouldOverwriteReadme = flags.force  ?? !(// // await fs.access(claudeMdPath).then(() => true).catch(() => false));
   if(shouldOverwriteReadme) {
 // // // await fs.writeFile(claudeMdPath, basicClaudeMd);`
       printSuccess(` Created documentation);`

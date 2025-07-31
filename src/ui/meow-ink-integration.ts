@@ -4,8 +4,8 @@
 
 /** Modern CLI with advanced TUIfeaturing = () => { */
 
-const _filled = Math.floor((progress / 100) * width);
-const _empty = width - filled;
+const filled = Math.floor((progress / 100) * width);
+const empty = width - filled;
 
 return();
 // <Box>; // LINT: unreachable code removed
@@ -30,7 +30,7 @@ useEffect(() => {
     // Auto-completion logic
   if(value.length > 0) {
       listCommands().then(commands => {
-        const _matches = commands;
+        const matches = commands;
 filter(cmd => cmd.name.toLowerCase().startsWith(value.toLowerCase()));
 slice(0, 5);
         setSuggestions(matches);
@@ -50,7 +50,7 @@ slice(0, 5);
   )
 }
 
-const _SwarmTopology = () => {
+const SwarmTopology = () => {
   // return(
   // <Box flexDirection="column" borderStyle="single""
   <Text bold
@@ -124,14 +124,14 @@ key = { index };
 <
 )}}
 
-const _HelpPane = () => {
+const HelpPane = () => {
   const [commandHelp, setCommandHelp] = useState(null);
 
   useEffect(() => {
   if(selectedCommand) {
       // Fetch command help
       listCommands().then(commands => {)
-        const _cmd = commands.find(c => c.name === selectedCommand);
+        const cmd = commands.find(c => c.name === selectedCommand);
         setCommandHelp(cmd)});
     //     }
   }, [selectedCommand]);
@@ -163,7 +163,7 @@ const _HelpPane = () => {
 <
 )}
 
-const _CLIInterface = () => {")
+const CLIInterface = () => {")
   const [output, setOutput] = useState([]);
   const [isExecuting, setIsExecuting] = useState(false);
   const [apiServer, setApiServer] = useState(null)
@@ -188,9 +188,9 @@ const _CLIInterface = () => {")
 
   // Update system status periodically
   useEffect(() => {
-    const _updateStatus = async() => {
+    const updateStatus = async() => {
       try {
-// const _commands = awaitlistCommands();
+// const commands = awaitlistCommands();
         setSystemStatus(prev => ({
 ..prev,commandCount = apiServer.getStatus();
           setMetrics({apiCalls = setInterval(updateStatus, 5000);
@@ -201,7 +201,7 @@ const _CLIInterface = () => {")
   useEffect(() => {
   if(command.length > 0) {
       listCommands().then(commands => {
-        const _matches = commands;
+        const matches = commands;
 filter(cmd => cmd.name.toLowerCase().startsWith(command.toLowerCase()));
 slice(0, 8);
         setSuggestions(matches);
@@ -210,21 +210,21 @@ slice(0, 8);
     //     }
   }, [command]);
 
-  const _executeCommandWithOutput = useCallback(async(cmd, args = [], flags = {}) => {
+  const executeCommandWithOutput = useCallback(async(cmd, args = [], flags = {}) => {
     setIsExecuting(true);
     setCurrentProgress(0);
-    const _timestamp = new Date().toISOString();
+    const timestamp = new Date().toISOString();
 
     // Simulate long-running task with progress
     setLongRunningTask({ name = setInterval(() => {
         setCurrentProgress(prev => {
 
           setLongRunningTask(task => task ? { ...task,progress = console.log;
-      const _originalError = console.error;
+      const originalError = console.error;
 
       console.log = () => {
-        const _logEntry = {type = () => {
-        const _logEntry = {
+        const logEntry = {type = () => {
+        const logEntry = {
           //           type = {setCurrentProgress = > task ? { ...task, progress   });
         //         }
       };
@@ -285,9 +285,9 @@ slice(0, 8);
 
     // Command execution
     if(key.return && command.trim()) {'
-      const _parts = command.trim().split(')
-    // const _cmd = parts[0]; // LINT: unreachable code removed
-      const _args = parts.slice(1);
+      const parts = command.trim().split(')
+    // const cmd = parts[0]; // LINT: unreachable code removed
+      const args = parts.slice(1);
 
       // Use suggestion if one is selected
   if(selectedSuggestion >= 0) {
@@ -338,7 +338,7 @@ slice(0, 8);
       React.createElement(Text, {color = === 'split' ? 
       // Split-pane layout'
       React.createElement(Box, {flexGrow = === 'cli' && React.createElement(Box, { flexDirection => {'
-                const _parts = cmd.split(')
+                const parts = cmd.split(')
                 executeCommandWithOutput(parts[0], parts.slice(1), {});
               //               }
             }),
@@ -353,7 +353,7 @@ slice(0, 8);
           React.createElement(Box, {borderStyle = === 'cli' && React.createElement(Box, {flexDirection = === 'monitoring" && React.createElement(Box, {flexDirection = > ;")))'
             React.createElement(Text, {key = () => {
   render(React.createElement(CLIInterface, {initialCommand = () => {
-  const _cli = createMeowCLI();
+  const cli = createMeowCLI();
   const { input, flags } = cli;
   if(flags.ui  ?? flags.terminal) {
     // Launch TUI interface
@@ -363,7 +363,7 @@ slice(0, 8);
 ``;
 (file) => {
   ``;
-  console.warn('\n Claude-Zen interface shutting down...')
+  console.warn('\n Claude-Zen interface shutting down...');
   // process.exit(0); // LINT: unreachable code removed
 };
 )

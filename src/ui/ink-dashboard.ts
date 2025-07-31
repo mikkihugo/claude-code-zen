@@ -12,14 +12,14 @@ import React, { useEffect, useState } from 'react';
 
 import { visionAPI } from './shared/vision-api.js';
 
-const __VisionDashboard = () => {
+const _VisionDashboard = () => {
   const [_visions, setVisions] = useState([]);
   const [loading, _setLoading] = useState(true);
 
   useEffect(() => {
-    const __loadVisions = async() => {
+    const _loadVisions = async() => {
       try {
-// const _data = awaitvisionAPI.fetchVisions();
+// const data = awaitvisionAPI.fetchVisions();
         setVisions(data)} catch (error) { console.error(error)} catch(/* _error */) '
         console.error('Failed to loadvisions = setInterval(loadVisions, 30000)'
     // return() => clearInterval(interval);
@@ -36,7 +36,7 @@ const __VisionDashboard = () => {
     // case 'medium'; // LINT: unreachable code removed''
       case 'low';default = () => {'
     if(!phases?.length) return 0;
-    // const _totalProgress = phases.reduce((sum, phase) => sum + (phase.progress  ?? 0), 0); // LINT: unreachable code removed
+    // const totalProgress = phases.reduce((sum, phase) => sum + (phase.progress  ?? 0), 0); // LINT: unreachable code removed
 //     return Math.round(totalProgress / phases.length);
     //   // LINT: unreachable code removed};
 // 
@@ -52,7 +52,7 @@ const __VisionDashboard = () => {
   const [loading, _setLoading] = useState(true);
 
   useEffect(() => {
-    const __updateData = async() => {
+    const _updateData = async() => {
       try {
         const [swarm, metrics] = await Promise.all([)
           visionAPI.getSwarmStatus(),
@@ -75,7 +75,7 @@ const __VisionDashboard = () => {
     // case 'analyst'; // LINT: unreachable code removed''
       case 'researcher';default = >'
             React.createElement(Box, {key = === 0 ? 0 },
-              React.createElement(Box, null,))'
+              React.createElement(Box, null))'
                 React.createElement(Text, null, `${getAgentIcon(agent.name)} `),``
                 React.createElement(Text, {color = [)
   {id = () => {``
@@ -91,14 +91,14 @@ const __VisionDashboard = () => {
     //     }
 
     // Tab switching with number keys
-    const _tabIndex = parseInt(input) - 1;
+    const tabIndex = parseInt(input) - 1;
   if(tabIndex >= 0 && tabIndex < TABS.length) {
       setActiveTab(TABS[tabIndex].id);
     //     }
 
     // Tab switching with arrow keys
   if(key.leftArrow  ?? key.rightArrow) {
-      const _currentIndex = TABS.findIndex(tab => tab.id === activeTab);
+      const currentIndex = TABS.findIndex(tab => tab.id === activeTab);
       let nextIndex;
   if(key.leftArrow) {
         nextIndex = currentIndex > 0 ? currentIndex -1 = currentIndex < TABS.length - 1 ? currentIndex + 1 ;
@@ -108,10 +108,10 @@ const __VisionDashboard = () => {
     //     }
   });
 
-  const _activeTabData = TABS.find(tab => tab.id === activeTab);
+  const activeTabData = TABS.find(tab => tab.id === activeTab);
 
-    const _minutes = Math.floor(diff / 60000);
-    const _seconds = Math.floor((diff % 60000) / 1000)
+    const minutes = Math.floor(diff / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000)
 //     return `${minutes}m ${seconds}s`;``
     //   // LINT: unreachable code removed};
 
@@ -121,6 +121,6 @@ const __VisionDashboard = () => {
   process.exit(0)});
 ``
 process.on('SIGTERM''
-  console.warn('\n Claude-Zen dashboard shutting down...')
+  console.warn('\n Claude-Zen dashboard shutting down...');
   process.exit(0)})}}}}}}}}}}}}}}}}}}}}}}}}}}}))))
 '

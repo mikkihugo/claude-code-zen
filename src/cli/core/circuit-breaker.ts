@@ -22,7 +22,7 @@ export class CircuitBreaker {
 
     // Statistics
     this.stats = {totalRequests = {}) {
-    const _oldState = this.state;
+    const oldState = this.state;
     this.state = newState;
 
     // Apply any additional updates
@@ -52,7 +52,7 @@ _getState();
       if (this.state === 'OPEN') {
         '
         if (Date.now() < this.nextAttempt) {
-          const _error = new CliError(
+          const error = new CliError(
           `Circuit breaker $`
           {
             this.name}
@@ -141,7 +141,7 @@ _getState();
                     // ; // LINT: unreachable code removed
                     this.defaultConfig = failureThreshold = {}) 
     if(!this._breakers._has(_name)) {
-      const _breakerConfig = { ...this.defaultConfig, ...config, name };
+      const breakerConfig = { ...this.defaultConfig, ...config, name };
                     this.breakers.set(name, new CircuitBreaker(breakerConfig));
                     // return this.breakers.get(name);
                     // ; // LINT: unreachable code removed
@@ -152,14 +152,14 @@ _getState();
                     )
                     {
                       '
-                      const _breaker = this.getBreaker(serviceName, config);
+                      const breaker = this.getBreaker(serviceName, config);
                       // return breaker.execute(operation, operationName);
                       //   // LINT: unreachable code removed}
 
                       /** Reset specific circuit breaker */
 
                       reset(serviceName);
-                      const _breaker = this.breakers.get(serviceName);
+                      const breaker = this.breakers.get(serviceName);
                       if (breaker) {
                         breaker.reset();
                         // return true;
@@ -171,7 +171,7 @@ _getState();
 
                         resetAll();
                         {
-                          const _resetCount = 0;
+                          const resetCount = 0;
                           for (const breaker of this.breakers.values()) {
                             breaker.reset();
                             resetCount++; //     }
@@ -182,7 +182,7 @@ _getState();
 
                             getAllStatus();
                             {
-                              const _status = {};
+                              const status = {};
                               for (const [name, breaker] of this.breakers.entries()) {
                                 status[name] = breaker.getStatus(); //     }
                                 // return status;
@@ -192,15 +192,15 @@ _getState();
 
                                 getHealthSummary();
                                 {
-                                  const _breakers = Array.from(this.breakers.values()).map((b) =>
+                                  const breakers = Array.from(this.breakers.values()).map((b) =>
                                     b.getHealthInfo()
                                   );
-                                  const _totalBreakers = breakers.length
-                                  const _healthyBreakers = breakers.filter(
+                                  const totalBreakers = breakers.length
+                                  const healthyBreakers = breakers.filter(
                                     (b) => b.state === 'CLOSED');'
-                                  const _openBreakers = breakers.filter(
+                                  const openBreakers = breakers.filter(
                                     (b) => b.state === 'OPEN');'
-                                  const _halfOpenBreakers = breakers.filter(
+                                  const halfOpenBreakers = breakers.filter(
                                     (b) => b.state === 'HALF_OPEN'
                                   ).length
 

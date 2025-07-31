@@ -12,7 +12,7 @@ import { EventEmitter } from 'node:events';
 // // }
 
 /** Native WebSocket Client using Node.js 22 built-in WebSocket; */
-*
+
 /** Features: null */
 * - Auto-reconnection
 with exponential backoff;
@@ -58,9 +58,9 @@ try {
         // Use Node.js 22 built-in WebSocket
         this.ws = new WebSocket(this.url);
     // ; // LINT: unreachable code removed
-        const _timeout = setTimeout(() => {'
+        const timeout = setTimeout(() => {'
           reject(new Error('WebSocket connection timeout'));
-        } catch (error) { console.error(error); }
+        }
 , this.options.timeout)
 
 this.ws.onopen = () =>
@@ -77,11 +77,9 @@ this.ws.onopen = () =>
 
 this.ws.onmessage = () => {
   try {
-    const _data = JSON.parse(event.data);
+    const data = JSON.parse(event.data);
     '
             this.emit('message', data)
-  } catch (error) {
-    console.error(error);
   }
   catch(/* _error */ )
     '
@@ -138,13 +136,11 @@ if(this.reconnectTimer) {
 send(data)
 : void
 // {'
-  const _message = typeof data === 'string' ? data : JSON.stringify(data);
+  const message = typeof data === 'string' ? data : JSON.stringify(data);
   if(this.isConnected && this.ws) {
     try {
         this.ws.send(message);
-      } catch (error) {
-  console.error(error);
-}'
+      }'
         this.emit('error', error);
         this.queueMessage(message);
       //       }
@@ -171,13 +167,11 @@ send(data)
 : void
 // {
   while(this.messageQueue.length > 0 && this.isConnected) {
-    const _message = this.messageQueue.shift();
+    const message = this.messageQueue.shift();
   if(message) {
       try {
           this.ws.send(message);
-        } catch (error) {
-  console.error(error);
-}'
+        }'
           this.emit('error', error);
           this.messageQueue.unshift(message);
           break;
@@ -191,15 +185,13 @@ send(data)
 // private scheduleReconnect();
 : void
 // {
-  const _delay = this.options.reconnectInterval * 2 ** this.reconnectAttempts;
+  const delay = this.options.reconnectInterval * 2 ** this.reconnectAttempts;
   this.reconnectTimer = setTimeout(async() => {
     this.reconnectAttempts++;'
     this.emit('reconnecting', this.reconnectAttempts);
     try {
 // // await this.connect();
-      } catch (error) {
-  console.error(error);
-}'
+      }'
         this.emit('reconnectError', error);
   if(this.reconnectAttempts < this.options.maxReconnectAttempts) {
           this.scheduleReconnect();
@@ -219,9 +211,7 @@ send(data)
   if(this.isConnected && this.ws) {
       try {
           this.ws.ping();
-        } catch (error) {
-  console.error(error);
-}'
+        }'
           this.emit('error', error);
         //         }
     //     }

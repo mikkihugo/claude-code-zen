@@ -8,12 +8,12 @@ import { Box } from 'ink';
 import React from 'react';
 ('');
 
-const _HiveDetails = () => {
+const HiveDetails = () => {
   if (!hive) {
     //     return React.createElement(Box, {padding = hive.stats  ?? {};
-    // const _error = hive.error; // LINT: unreachable code removed
+    // const error = hive.error; // LINT: unreachable code removed
 
-    const _totalItems = (stats.totalVisions  ?? 0) + (stats.totalEpics  ?? 0) + ;
+    const totalItems = (stats.totalVisions  ?? 0) + (stats.totalEpics  ?? 0) + ;
     (stats.totalFeatures  ?? 0) + (stats.totalPrds  ?? 0) + ;
     (stats.totalUserStories ?? 0) + (stats.totalTasks ?? 0);
     // return React.createElement(Box, { borderStyle: 'round', padding, flexDirection: "column" },"
@@ -29,7 +29,7 @@ const _HiveDetails = () => {
     ),
     error && React.createElement(Box,
       marginTop
-    ,)
+    )
       React.createElement(Text,
       color
     )
@@ -80,7 +80,7 @@ const _HiveDetails = () => {
       ),
       React.createElement(Box,
         marginTop
-      ,)
+      )
         React.createElement(Text,
         color
         )

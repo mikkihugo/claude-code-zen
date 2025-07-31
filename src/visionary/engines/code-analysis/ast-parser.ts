@@ -3,8 +3,6 @@
 /** Handles Abstract Syntax Tree parsing and node extraction for multiple programming languages. */
 /** Provides simplified AST parsing functionality for code structure analysis. */
 
-*
-@fileoverview
 AST;
 parsing;
 and;
@@ -49,16 +47,16 @@ file;
 data
    * @returns AST
 node;
-information * /;;
+information * /;
 // */; // LINT: unreachable code removed
 async;
 extractAST(codeData);
 : Promise<ASTNode[]>
 {
-    const _astResults = [];
+    const astResults = [];
   for(const file of codeData) {
       try {
-// const _ast = awaitthis.parseFileAST(file); 
+// const ast = awaitthis.parseFileAST(file); 
         astResults.push(...ast)} catch (error) { console.error(error)} catch(error) 
         console.warn(` AST parsing failed for ${file.path});`
       //       }
@@ -92,16 +90,16 @@ extractAST(codeData);
 
     // */; // LINT: unreachable code removed
   // // private parseJavaScriptAST(code): ASTNode[] {'
-    const _lines = code.split('\n')
-    const _nodes = [];
-    const _depth = 0;
-    const _maxDepth = 0;
+    const lines = code.split('\n')
+    const nodes = [];
+    const depth = 0;
+    const maxDepth = 0;
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i].trim();
+      const line = lines[i].trim();
 
       // Track nesting depth
-      const _openBraces = (line.match(/\{/g)  ?? []).length;
-      const _closeBraces = (line.match(/\}/g)  ?? []).length;
+      const openBraces = (line.match(/\{/g)  ?? []).length;
+      const closeBraces = (line.match(/\}/g)  ?? []).length;
       depth += openBraces - closeBraces;
       maxDepth = Math.max(maxDepth, depth);
 
@@ -125,16 +123,16 @@ extractAST(codeData);
 
     // */; // LINT: unreachable code removed
   // // private parsePythonAST(code): ASTNode[] {'
-    const _lines = code.split('\n')
-    const _nodes = [];
-    const _indentLevel = 0;
-    const _maxIndent = 0;
+    const lines = code.split('\n')
+    const nodes = [];
+    const indentLevel = 0;
+    const maxIndent = 0;
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
-      const _trimmed = line.trim();
+      const line = lines[i];
+      const trimmed = line.trim();
   if(trimmed) {
         // Calculate indentation level
-        const _currentIndent = line.length - line.trimStart().length;
+        const currentIndent = line.length - line.trimStart().length;
         indentLevel = Math.floor(currentIndent / 4);
         maxIndent = Math.max(maxIndent, indentLevel);
 
@@ -160,7 +158,7 @@ extractAST(codeData);
 
     // */; // LINT: unreachable code removed
   // // private parseGenericAST(code): ASTNode[] {'
-    const _lines = code.split('\n''
+    const lines = code.split('\n''
 //     return [{ type: 'generic', line: lines.length, depth}]
     //   // LINT: unreachable code removed}
 
@@ -195,8 +193,8 @@ extractAST(codeData);
 
     // */; // LINT: unreachable code removed
   // // private extractNodeName(line): string | undefined {
-    const _functionMatch = line.match(/(?)?(\w+)(?:\s*\(|\s*=)/)
-    const _classMatch = line.match(/class\s+(\w+)/);
+    const functionMatch = line.match(/(?)?(\w+)(?:\s*\(|\s*=)/)
+    const classMatch = line.match(/class\s+(\w+)/);
 //     return functionMatch?.[1]  ?? classMatch?.[1];
     //   // LINT: unreachable code removed}
 
@@ -208,7 +206,7 @@ extractAST(codeData);
     // */; // LINT: unreachable code removed
   // // private calculateNodeComplexity(line) {
     // Simple complexity calculation based on decision points
-    const _decisionPoints = (line.match(/if|while|for|switch|case|catch|&&|\|\|/g)  ?? []).length;
+    const decisionPoints = (line.match(/if|while|for|switch|case|catch|&&|\|\|/g)  ?? []).length;
     // return Math.max(1, decisionPoints);
     //   // LINT: unreachable code removed}
 // }

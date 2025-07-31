@@ -1,12 +1,12 @@
 import { describe, expect, it } from '@jest';
 
 // Mock express to avoid server startup issues
-const _mockApp = {
+const mockApp = {
   use: jest.fn(),
 get: jest.fn(),
 listen: jest.fn() {}
 // }
-const _mockExpress = jest.fn(() => mockApp);
+const mockExpress = jest.fn(() => mockApp);
 '
 mockExpress.json = jest.fn(() => 'json-middleware')
 '
@@ -19,7 +19,7 @@ describe('API Gateway App', () =>
     // Clear all mocks
     jest.clearAllMocks();
     // Import the app module'
-    // const _appModule = awaitimport('../../../src/services/api-gateway/app.js');
+    // const appModule = awaitimport('../../../src/services/api-gateway/app.js');
     _app = appModule.default;
   });
   '
@@ -46,14 +46,13 @@ describe('API Gateway App', () =>
     it('should respond with healthy status', () =>
   {
     // Get the handler function that w'
-    const _healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
+    const healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
       expect(healthHandler).toBeDefined();
     // Mock request and response objects
-    const _mockReq = {};
-    const _mockRes = {
+    const mockReq = {};
+    const mockRes = {
       status: jest.fn().mockReturnThis(),
-      send: jest.fn(),
-    };
+      send: jest.fn()};
     // Call the handler
     healthHandler(mockReq, mockRes);
     // Verify response
@@ -65,13 +64,12 @@ describe('API Gateway App', () =>
     it('should handle multiple health check calls', () =>
   {
     '
-    const _healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
+    const healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
     // Call multiple times
     for (let i = 0; i < 3; i++) {
-      const _mockRes = {
+      const mockRes = {
         status: jest.fn().mockReturnThis(),
-        send: jest.fn(),
-      };
+        send: jest.fn()};
       healthHandler({}, mockRes);
       expect(mockRes.status).toHaveBeenCalledWith(200);
       expect(mockRes.send).toHaveBeenCalledWith({ status);
@@ -105,7 +103,7 @@ describe('API Gateway App', () =>
   '
   it('should be the default export', async () =>
     '
-    // const _appModule = awaitimport('../../../src/services/api-gateway/app.js');
+    // const appModule = awaitimport('../../../src/services/api-gateway/app.js');
     expect(appModule.default).toBeDefined()
     expect(appModule.default).toBe(mockApp)
   )
@@ -117,14 +115,13 @@ describe('health endpoint response format', () =>
   it('should return correct JSON structure', () =>
 {
   '
-  const _healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
+  const healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
   // ; // LINT: unreachable code removed
-  const _mockRes = {
+  const mockRes = {
     status: jest.fn().mockReturnThis(),
-    send: jest.fn(),
-  };
+    send: jest.fn()};
   healthHandler({}, mockRes);
-  const _responseData = mockRes.send.mock.calls[0][0];
+  const responseData = mockRes.send.mock.calls[0][0];
   expect(responseData).toEqual({ status);
   '
   expect(typeof responseData.status).toBe('string')
@@ -134,8 +131,8 @@ describe('health endpoint response format', () =>
 )'
 it('should use 200 status code', () =>
 // {'
-const _healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
-const _mockRes = {
+const healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
+const mockRes = {
         status: jest.fn().mockReturnThis(),
   send: jest.fn() {}
 // }
@@ -148,14 +145,13 @@ describe('error handling', () =>
   it('should handle errors in health endpoint gracefully', () =>
 {
   '
-  const _healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
-  const _mockRes = {
+  const healthHandler = mockApp.get.mock.calls.find((call) => call[0] === '
+  const mockRes = {
     status: jest.fn().mockReturnThis(),
     send: jest.fn().mockImplementation(() => {
       '
       throw new Error('Send error');
-    }),
-  };
+    })};
   // Should not throw an error
   expect(() => {
     healthHandler({}, mockRes);

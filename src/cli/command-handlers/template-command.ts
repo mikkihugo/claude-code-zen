@@ -1,10 +1,10 @@
 /** Enhanced Template Management Command for Claude Zen */
 /** Handles comprehensive templateoperations = fileURLToPath(import.meta.url) */
 
-const ___dirname = path.dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 export async function templateCommand(args = new TemplateManager();
-const _action = args[0];
+const action = args[0];
 
 try {
   switch(action) {
@@ -38,7 +38,7 @@ try {
   if(templates.length === 0) {'
     console.warn('\\n No templates found. Create onewith = // await templateManager.getTemplate(templateName);'
   if(!template) {'
-    printError(`Template '${templateName} catch (error) { console.error(error); }' not found`);
+    printError(`Template '${templateName}' not found`);
     return;
     //   // LINT: unreachable code removed}
 
@@ -46,20 +46,20 @@ try {
 `
   console.warn(`\\n TemplateInformation = '.repeat(50));'``
   console.warn(`Name => `)`
-      console.warn(`${key});`);
+      console.warn(`${key})`);
   //   }
   if(manifest.features && manifest.features.length > 0) {`
-    console.warn('\\n Features => {')'
+    console.warn('\\n Features => {');'
       console.warn(`   $feature`);
     });
   //   }
   if(manifest.files) {`
-    console.warn('\\n Files => {')'
-      const _required = info.required ? '[REQUIRED]' );
+    console.warn('\\n Files => {');'
+      const required = info.required ? '[REQUIRED]' );
     });
   //   }
   if(manifest.setup && manifest.setup.postInstall) {'
-    console.warn('\\n Post-install commands => {')'
+    console.warn('\\n Post-install commands => {');'
       console.warn(`$command`);
     });
   //   }
@@ -85,7 +85,7 @@ console.warn(`\n Customizingtemplate = '.repeat(50));'`
 // // await handleTemplateVariants(templateManager, templateName, flags);
   // Interactive customization would go here`
   console.warn('\n Customizationoptions = // await templateManager.discoverTemplates();'
-    const _templateList = Array.from(templates.values());
+    const templateList = Array.from(templates.values());
 '
     console.warn('\n TemplateDocumentation = '.repeat(50));
   for(const template of templateList) {'
@@ -102,7 +102,7 @@ console.warn('='.repeat(50));
     const { documentation } = template.manifest;
   if(documentation.readme) {
       try {
-        const __readmePath = path.resolve(template.path, documentation.readme);
+        const _readmePath = path.resolve(template.path, documentation.readme);
 '
         console.warn('\nREADME = path.join(template.path, 'commands');'
   try {'
@@ -110,7 +110,7 @@ console.warn('='.repeat(50));
 // // await fs.access(commandsPath);'
     console.warn('\n Available commandsdocumentation = // await templateManager.getTemplate(templateName);'
   if(!template) {'
-    printError(`Template '${templateName} catch (error) { console.error(error); }' not found`);
+    printError(`Template '${templateName}' not found`);
     return;
     //   // LINT: unreachable code removed}
 `
@@ -118,24 +118,23 @@ console.warn('='.repeat(50));
   console.warn('='.repeat(50));
 
   // Check for variant files'
-  const _variants = ['basic', 'enhanced', 'optimized'];
-  const _availableVariants = [];
+  const variants = ['basic', 'enhanced', 'optimized'];
+  const availableVariants = [];
   for(const variant of variants) {'
-    const _variantFile = variant === 'enhanced' ? 'settings.json' : `settings-${variant}.json`; const _variantPath = path.join(template.path, variantFile); try {`
+    const variantFile = variant === 'enhanced' ? 'settings.json' : `settings-${variant}.json`; const variantPath = path.join(template.path, variantFile); try {`
       const {promises = // await import('node) {;'
 // // await fs.access(variantPath);
       availableVariants.push({name = === 0) {'
     console.warn('No settings variants found for this template.');
     return;
-    //   // LINT: unreachable code removed}
-   catch (error) console.error(error); for(const variant of availableVariants) {'
+    //   // LINT: unreachable code removed} for(const variant of availableVariants) {'
     console.warn(`\n $variant.name.toUpperCase()($, { variant.file }):`); try {`
-// const _variantContent = awaitreadFile(variant.path, 'utf8'); 
-      const _variantConfig = JSON.parse(variantContent) {;
+// const variantContent = awaitreadFile(variant.path, 'utf8'); 
+      const variantConfig = JSON.parse(variantContent) {;
   if(variantConfig.env) {'
         console.warn('   Environment variables);'
         for (const [key, value] of Object.entries(variantConfig.env)) {'
-          console.warn(`$keycatch (error) console.error(error); ); `
+          console.warn(`$key ); `
         //         }
       //       }
   if(variantConfig.performance) {`

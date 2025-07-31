@@ -1,14 +1,14 @@
 import { afterEach, beforeEach, describe, expect, it } from '@jest';
 
 // Mock express to avoid starting actual server
-const _mockApp = {
+const mockApp = {
   use: jest.fn(),
 get: jest.fn(),
 listen: jest.fn((_port, callback) => {
     if(callback) callback();
 //     return { close: jest.fn() };
     //   // LINT: unreachable code removed}) };
-const _mockExpress = jest.fn(() => mockApp);
+const mockExpress = jest.fn(() => mockApp);
 mockExpress.json = jest.fn();'
 jest.mock('express', () => mockExpress);'
 jest.mock('cors', () => jest.fn(() => (_req, _res, next) => next()));'
@@ -56,7 +56,7 @@ describe('Main Application Entry Point', () => {
   it('should use PORT env const when set', async() => {'
     process.env.PORT = '8080';
     // We need to clear the module cache to reimport with new env'
-    const _modulePath = '../../../src/index.js';
+    const modulePath = '../../../src/index.js';
     delete require.cache[require.resolve(modulePath)];
   // // await import(modulePath);
 '
@@ -71,11 +71,11 @@ describe('Main Application Entry Point', () => {
   // await import('../../../src/index.js');
 
     // Get the route handler that w'
-    const _routeHandler = mockApp.get.mock.calls.find((call) => call[0] === '
+    const routeHandler = mockApp.get.mock.calls.find((call) => call[0] === '
     expect(routeHandler).toBeDefined();
     // Mock request and response objects
-    const _mockReq = {};
-    const _mockRes = {
+    const mockReq = {};
+    const mockRes = {
       json: jest.fn() };
   // Call the route handler
   routeHandler(mockReq, mockRes);

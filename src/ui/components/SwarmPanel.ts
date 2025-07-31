@@ -7,13 +7,13 @@ import { Box } from 'ink';
 import React, { useEffect, useState } from 'react';
 ('');
 
-const __HiveMindPanel = () => {
+const _HiveMindPanel = () => {
   const [_hiveData, setHiveData] = useState(null);
   const [_systemMetrics, setSystemMetrics] = useState(null);
   const [loading, _setLoading] = useState(true);
 
   useEffect(() => {
-    const __updateData = async() => {
+    const _updateData = async() => {
       try {
         const [hive, metrics] = await Promise.all([)
           visionAPI.getHiveStatus(),
@@ -36,11 +36,11 @@ const __HiveMindPanel = () => {
     // case 'analyst'; // LINT: unreachable code removed''
       case 'researcher';default = > '
             React.createElement(Box, {key = === 0 ? 0 },
-              React.createElement(Box, null,))'
+              React.createElement(Box, null))'
                 React.createElement(Text, null, `${getAgentIcon(agent.name)} `),``
                 React.createElement(Text, { color);
               ),
-              React.createElement(Box, null,)
+              React.createElement(Box, null)
                 React.createElement(Text, { color: getAgentStatusColor(agent.status), bold},
                   agent.status.toUpperCase();
                 ),
@@ -55,19 +55,19 @@ const __HiveMindPanel = () => {
       React.createElement(Box, flexDirection: 'column', width: "100%" ,"
         React.createElement(Text, color: 'yellow', bold, " Task Overview"
         React.createElement(Box, justifyContent: 'space-between', marginTop,"
-          React.createElement(Box, null,))"
+          React.createElement(Box, null))"
             React.createElement(Text, color: "green" , " Done: "),"
             React.createElement(Text, color);
           ),
-          React.createElement(Box, null,)"
+          React.createElement(Box, null)"
             React.createElement(Text, color: "yellow" , " Active: "),"
             React.createElement(Text, color);
           ),
-          React.createElement(Box, null,)"
+          React.createElement(Box, null)"
             React.createElement(Text, color: "gray" , " Queue: "),"
             React.createElement(Text, color);
           ),
-          React.createElement(Box, null,)"
+          React.createElement(Box, null)"
             React.createElement(Text, color: "blue" , " Total: "),"
             React.createElement(Text, color);
           );

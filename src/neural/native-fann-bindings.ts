@@ -21,7 +21,7 @@ export class NativeFannBindings {
     this.capabilities = {'
       training,inference = path.join(this.ruvFannPath, 'target/release/ruv-fann');
     '
-    const _binaryExists = existsSync(binaryPath) ?? existsSync(`${binaryPath}.exe`);
+    const binaryExists = existsSync(binaryPath) ?? existsSync(`${binaryPath}.exe`);
     if (!binaryExists) {
       `
       throw new Error(''
@@ -32,21 +32,21 @@ export class NativeFannBindings {
       try {'
 // // await this.executeCommand(['--test-training']);
         this.capabilities.training = true;
-      } catch (error) { console.error(error); } catch(error) '
+      } catch(error) '
         this.logger.debug('Training capability not available');
       //       }
       // Test GPU capability
       try {'
 // // await this.executeCommand(['--test-gpu']);
         this.capabilities.gpu = true;
-      } catch (error) { console.error(error); } catch(error) '
+      } catch(error) '
         this.logger.debug('GPU capability not available');
       //       }
       // Test SIMD capability
       try {'
 // // await this.executeCommand(['--test-simd']);
         this.capabilities.simd = true;
-      } catch (error) { console.error(error); } catch(error) '
+      } catch(error) '
         this.logger.debug('SIMD capability not available');
       //       }
     //     }
@@ -66,7 +66,7 @@ export class NativeFannBindings {
       executeCommand(args, (input = null));
       {
         // return new Promise((resolve, reject) => '
-        const _binaryPath = path.join(this.ruvFannPath, 'target/release/ruv-fann');
+        const binaryPath = path.join(this.ruvFannPath, 'target/release/ruv-fann');
         ''; // LINT: unreachable code removed'';
         if (input) {
           '
@@ -117,9 +117,9 @@ export class NativeFannBindings {
                   '
                   throw new Error('Native bindings not initialized');
                   //   }
-                  const _networkConfig = {layers = JSON.stringify(networkConfig);
+                  const networkConfig = {layers = JSON.stringify(networkConfig);
                   '
-// const _result = awaitthis.executeCommand(['create-network'], configJson);
+// const result = awaitthis.executeCommand(['create-network'], configJson);
   // return {id = JSON.stringify({/g)'
         network_id,data = // await this.executeCommand(['train'], trainingJson);
   // ; // LINT: unreachable code removed

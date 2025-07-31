@@ -13,7 +13,7 @@ import fs from 'node:fs';
 
 import path from 'node:path';
 
-const _colors = {'
+const colors = {'
   green: '\x1b[32m','
 red: '\x1b[31m','
 yellow: '\x1b[33m','
@@ -36,9 +36,9 @@ async function runTest() {
   `
   log(' MCP Persistence Verification', 'blue');'
   log(''
-  const _dbPath = path.join(process.cwd(), '.swarm', 'memory.db');
-  const _testsPassed = 0;
-  const _testsTotal = 0;
+  const dbPath = path.join(process.cwd(), '.swarm', 'memory.db');
+  const testsPassed = 0;
+  const testsTotal = 0;
   // Test 1: Check if database exists
   testsTotal++;'
   log('1 Checking if SQLite database exists...', 'yellow');
@@ -72,23 +72,21 @@ at;
   testsTotal++`;
   log('\n2 Testing memory_usage store operation...', 'yellow');
   try {'
-    const _testKey = `;`
+    const testKey = `;`
 verify_test_$;
-  Date.now();
-catch (error)
-  console.error(error);`
+  Date.now(); `
 `;`
-    const _testValue = {
+    const testValue = {
       test,
       timestamp: new Date().toISOString(),`
       message: 'Testing MCP persistence for issue #312' }
-  const _storeResult = execSync(;
+  const storeResult = execSync(;
   '
       `
   `
 npx;
 claude - zen;
-@alpha
+
 mcp;
 call;
 memory_usage;`;
@@ -118,28 +116,24 @@ testsTotal++
   `
 log('\n3 Testing memory_usage retrieve operation...', 'yellow');
 try {'
-    const _testKey = fs.existsSync('.test-key');'
+    const testKey = fs.existsSync('.test-key');'
       ? fs.readFileSync('.test-key', 'utf8');'
       : `;
   `
 verify_test_;`;
   \$Date.now()`
-  const _retrieveResult = execSync(;
+  const retrieveResult = execSync(;
   `
 `;
   npx;
   claude - zen;
-  @alpha
+
   mcp;
   call;
   memory_usage;
   '{"action");'"found"'
       log(' Retrieve operation succeeded - data w!', 'green');
   testsPassed++;
-}
-catch (error)
-{
-  console.error(error);
 }
 // else'
 log(' Retrieve operation failed - data not found', 'red');
@@ -154,11 +148,11 @@ testsTotal++;
 `
 log('\n4 Testing memory_usage list operation...', 'yellow');
 try {
-    const _listResult = execSync(;'
+    const listResult = execSync(;'
       `;
 npx;
 claude - zen;
-@alpha
+
 mcp;
 call;
 memory_usage;
@@ -167,11 +161,10 @@ memory_usage;
 testsPassed++;
 // Try to parse and show entry count
 try {
-        const _parsed = JSON.parse(listResult);
+        const parsed = JSON.parse(listResult);
         if(parsed.entries && Array.isArray(parsed.entries)) {'
           log(`   Found \$parsed.entries.lengthentries in namespace "verification"`, 'green');
-// }
-       catch (error) console.error(error); } catch(/* _e */) else '
+// } } catch(/* _e */) else '
       log(' List operation failed', 'red');catch(error) '
     log(` List operation error);`
 // }
@@ -179,9 +172,9 @@ try {
 testsTotal++;`
 log('\n5 Testing hooks notification persistence...', 'yellow');
 try {'
-    const _message = `Persistence test \$Date.now()`;
-    const _hookResult = execSync(;`
-      `npx claude-zen@alpha hooks notify --message "${message} catch (error) { console.error(error); }" --level "test"`,encoding);`
+    const message = `Persistence test \$Date.now()`;
+    const hookResult = execSync(;`
+      `npx claude-zen@alpha hooks notify --message "${message}" --level "test"`,encoding);`
     if(hookResult.includes('saved to .swarm/memory.db')) {'
       log(' Hook notification persisted to database', 'green');
       testsPassed++;
@@ -195,7 +188,7 @@ try {'
 testsTotal++;`
 log('\n6 Checking if database size increased...', 'yellow');
 if(fs.existsSync(dbPath)) {
-  const _newSize = fs.statSync(dbPath).size;'
+  const newSize = fs.statSync(dbPath).size;'
   log(` Database size);`
   if(newSize > 0) {
     testsPassed++;

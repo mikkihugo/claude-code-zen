@@ -3,8 +3,8 @@ module.exports = {
 testEnvironment: 'node','
 roots: ['<rootDir>'],
 testMatch: [; // eslint-disable-line'
-    '**/__tests__/**/*.js',' */
-    '**/__tests__/**/*.ts',' */
+    '**/__tests__/**/*. */js',' */
+    '**/__tests__/**/*. */ts',' */
     ''
     ''
     ''
@@ -19,11 +19,11 @@ testMatch: [; // eslint-disable-line'
 moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],'
 coverageDirectory: '<rootDir>'
 collectCoverageFrom: ['
-'src/**/*.{js,ts}',' */
-    '!src/**/*.d.ts',' */
-    '!src/**/*.test.{js,ts}',' */
-    '!src/**/__tests__/**',' */
-    '!src/**/node_modules/**' ], */
+'src/**/*. */{js,ts}',' */
+    '!src/**/*. */d.ts',' */
+    '!src/**/*. */test.{js,ts}',' */
+    '!src/**/__tests__/** */',' */
+    '!src/**/node_modules/** */' ], */
 // {
   branches,
   functions,
@@ -57,23 +57,23 @@ maxWorkers: '50%',
 projects: [
 // {'
   displayName: 'Unit Tests','
-  testMatch: ['<rootDir>/unit/**/*.test.{js,ts}'] */
+  testMatch: ['<rootDir>/unit/**/*. */test.{js,ts}'] */
 // }
 // {'
   displayName: 'Integration Tests','
-  testMatch: ['<rootDir>/integration/**/*.test.{js,ts}'] */
+  testMatch: ['<rootDir>/integration/**/*. */test.{js,ts}'] */
 // }
 // {'
   displayName: 'E2E Tests','
-  testMatch: ['<rootDir>/e2e/**/*.test.{js,ts}'] */
+  testMatch: ['<rootDir>/e2e/**/*. */test.{js,ts}'] */
 // }
 // {'
   displayName: 'Performance Tests','
-  testMatch: ['<rootDir>/performance/**/*.test.{js,ts}'] */
+  testMatch: ['<rootDir>/performance/**/*. */test.{js,ts}'] */
 // }
 // {'
   displayName: 'Security Tests','
-  testMatch: ['<rootDir>/security/**/*.test.{js,ts}'] */
+  testMatch: ['<rootDir>/security/**/*. */test.{js,ts}'] */
 // }
 // ]
 // }

@@ -3,9 +3,7 @@
 /** Standardizes agent-to-UI communication using the AG-UI protocol */
 /** Maps Claude Zen events to AG-UI standard event types */
 
-*
-@module
-AGUIAdapter * /;;
+AGUIAdapter * /;
 
 import { EventEmitter } from 'node:events';
 
@@ -56,9 +54,9 @@ constructor(options);
 startTextMessage(messageId?, role = 'assistant')'
 : string
 // {'
-  const _id = messageId ?? `msg-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;``
+  const id = messageId ?? `msg-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;``
   this.currentMessageId = id;
-  const _event = {``
+  const event = {``
       type: 'textMessageStart','
   id,
   timestamp: Date.now(),
@@ -80,11 +78,11 @@ this._emitEvent(event)
 addTextContent(content, messageId?)
 : void
 // {
-  const _id = messageId ?? this.currentMessageId;
+  const id = messageId ?? this.currentMessageId;
   if(!id) {'
     throw new Error('No active message. Call startTextMessage first.')
   //   }
-  const _event = {'
+  const event = {'
       type: 'textMessageContent','
   id,
   timestamp: Date.now(),
@@ -92,7 +90,7 @@ addTextContent(content, messageId?)
   sessionId: this.sessionId,
    //    }
 // Update active message
-const _activeMessage = this.activeMessages.get(id);
+const activeMessage = this.activeMessages.get(id);
   if(activeMessage) {
   activeMessage.content += content;
 // }
@@ -104,10 +102,10 @@ this._emitEvent(event);
 endTextMessage(messageId?)
 : void
 // {
-  const _id = messageId ?? this.currentMessageId;
+  const id = messageId ?? this.currentMessageId;
   if(!id) return;
   // ; // LINT: unreachable code removed
-  const _event = {'
+  const event = {'
       type: 'textMessageEnd','
   id,
   timestamp: Date.now(),
@@ -125,9 +123,9 @@ this._emitEvent(event);
 startToolCall(toolName, toolCallId?, parentMessageId?)
 : string
 // {'
-  const _id = toolCallId ?? `tool-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;``
+  const id = toolCallId ?? `tool-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;``
   this.currentToolCallId = id;
-  const _event = {``
+  const event = {``
       type: 'toolCallStart','
   id,
   timestamp: Date.now(),
@@ -151,11 +149,11 @@ this._emitEvent(event)
 addToolCallArgs(args, toolCallId?)
 : void
 // {
-  const _id = toolCallId ?? this.currentToolCallId;
+  const id = toolCallId ?? this.currentToolCallId;
   if(!id) {'
     throw new Error('No active tool call. Call startToolCall first.')
   //   }
-  const _event = {'
+  const event = {'
       type: 'toolCallArgs','
   id,
   timestamp: Date.now(),
@@ -163,7 +161,7 @@ addToolCallArgs(args, toolCallId?)
   sessionId: this.sessionId,
    //    }
 // Update active tool call
-const _activeToolCall = this.activeToolCalls.get(id);
+const activeToolCall = this.activeToolCalls.get(id);
   if(activeToolCall) {
   activeToolCall.args = args;
 // }
@@ -175,10 +173,10 @@ this._emitEvent(event);
 endToolCall(toolCallId?)
 : void
 // {
-  const _id = toolCallId ?? this.currentToolCallId;
+  const id = toolCallId ?? this.currentToolCallId;
   if(!id) return;
   // ; // LINT: unreachable code removed
-  const _event = {'
+  const event = {'
       type: 'toolCallEnd','
   id,
   timestamp: Date.now(),
@@ -196,10 +194,10 @@ this._emitEvent(event);
 addToolCallResult(result, toolCallId?)
 : void
 // {
-  const _id = toolCallId ?? this.currentToolCallId;
+  const id = toolCallId ?? this.currentToolCallId;
   if(!id) return;
   // ; // LINT: unreachable code removed
-  const _event = {'
+  const event = {'
       type: 'toolCallResult','
   id,
   timestamp: Date.now(),
@@ -207,7 +205,7 @@ addToolCallResult(result, toolCallId?)
   sessionId: this.sessionId,
    //    }
 // Update active tool call
-const _activeToolCall = this.activeToolCalls.get(id);
+const activeToolCall = this.activeToolCalls.get(id);
   if(activeToolCall) {
   activeToolCall.result = result;
 // }
@@ -219,8 +217,8 @@ this._emitEvent(event);
 startRun(runId?)
 : void
 // {
-  const _id = runId ?? this.runId;
-  const _event = {'
+  const id = runId ?? this.runId;
+  const event = {'
       type: 'runStarted','
   id,
   timestamp: Date.now(),
@@ -235,8 +233,8 @@ this._emitEvent(event);
 finishRun(runId?, status = 'completed')'
 : void
 // {
-  const _id = runId ?? this.runId;
-  const _event = {'
+  const id = runId ?? this.runId;
+  const event = {'
       type: 'runFinished','
   id,
   timestamp: Date.now(),
@@ -253,7 +251,7 @@ this._emitEvent(event);
 emitStateSnapshot(state)
 : void
 // {
-  const _event = {'
+  const event = {'
       type: 'stateSnapshot''
   id: `snapshot-${Date.now()}`,``
   timestamp: Date.now(),
@@ -270,7 +268,7 @@ this._emitEvent(event);
 emitCustomEvent(eventType, data)
 : void
 // {
-  const _event = {
+  const event = {
       type,``
   id: `custom-${Date.now()}`,``
   timestamp: Date.now(),

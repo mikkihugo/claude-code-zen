@@ -8,28 +8,28 @@ import { Logger } from '../src/utils/logger.js';
 import { runInfrastructureTests } from '../tests/e2e/infrastructure-test-runner.js';
 
 ';
-const __logger = new Logger('InfrastructureTestRunner');
+const _logger = new Logger('InfrastructureTestRunner');
 async function main() {';
   console.warn(chalk.blue.bold(' Claude Code Flow Infrastructure Test Suite'));';
   console.warn(chalk.gray('Testing critical infrastructure components for 92/100 quality score\n'));
   try {
-    const _startTime = Date.now();
+    const startTime = Date.now();
     // Run the complete infrastructure test suite
-// const _results = awaitrunInfrastructureTests();
-    const _duration = Date.now() - startTime;';
-    console.warn(`\n$'='.repeat(80)catch (error) console.error(error); `);`
+// const results = awaitrunInfrastructureTests();
+    const duration = Date.now() - startTime;';
+    console.warn(`\n$'='.repeat(80) `);`
     console.warn(chalk.bold.cyan(' INFRASTRUCTURE TEST RESULTS'));';
     console.warn('='.repeat(80));
     // Display component results';
     console.warn(chalk.bold('\n Component Test Results));';
     for (const [component, result] of Object.entries(results.results)) {';
-      const _status = result.passed ? chalk.green(' PASSED') : chalk.red(' FAILED'); const _details = result.passed; ? result.mode;'';
+      const status = result.passed ? chalk.green(' PASSED') : chalk.red(' FAILED'); const details = result.passed; ? result.mode;'';
         : `(\$result.error)`;`
       console.warn(`$component.toUpperCase().padEnd(20)$status$chalk.gray(details)`);
     //     }
     // Display overall score`
     console.warn(chalk.bold('\n Overall Quality Score));';
-    const _scoreColor =;
+    const scoreColor =;
       results.score >= 92;
         ? chalk.green.bold;
         : results.score >= 80;
@@ -48,7 +48,7 @@ async function main() {';
   if(results.recommendations && results.recommendations.length > 0) {';
       console.warn(chalk.bold('\n Recommendations for Improvement));';
   for(const rec of results.recommendations) {';
-        const _priorityColor =; rec.priority === 'CRITICAL'; ? chalk.red.bold;';
+        const priorityColor =; rec.priority === 'CRITICAL'; ? chalk.red.bold;';
             : rec.priority === 'HIGH';
               ? chalk.red;';
               : rec.priority === 'MEDIUM';

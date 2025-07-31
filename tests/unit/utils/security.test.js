@@ -28,8 +28,8 @@ describe('Security Utils', () =>
       expect(validatePID(undefined)).toBeNull();););'
   describe('validateCommandArgs', () => '
     it('should validate safe command arguments', () => {'
-      const _safeArgs = ['--help', '--version', 'filename.txt'];
-      const _result = validateCommandArgs(safeArgs);
+      const safeArgs = ['--help', '--version', 'filename.txt'];
+      const result = validateCommandArgs(safeArgs);
       expect(result).toEqual(safeArgs);
     });'
     it('should reject non-array inputs', () => '
@@ -40,19 +40,19 @@ describe('Security Utils', () =>
     it('should handle empty arrays', () => 
       expect(validateCommandArgs([])).toEqual([]););'
     it('should trim whitespace from arguments', () => {'
-      const _argsWithWhitespace = [' --flag ', '  value  '];
-      const _result = validateCommandArgs(argsWithWhitespace);'
+      const argsWithWhitespace = [' --flag ', '  value  '];
+      const result = validateCommandArgs(argsWithWhitespace);'
       expect(result).toEqual(['--flag', 'value']);
     });'
     it('should reject potentially dangerous arguments', () => {
       // Test various dangerous patterns that might be rejected
-      const _dangerousArgs = ['
+      const dangerousArgs = ['
         ['--flag', '$(rm -rf /)'], // Command injection'
         ['--config', '../../../etc/passwd'], // Path traversal'
         ['--output', '/dev/null; rm important.txt'], // Command chaining
       ];
       dangerousArgs.forEach((args) => {
-        const _result = validateCommandArgs(args);
+        const result = validateCommandArgs(args);
         // The function should either return null or filter out dangerous args
   if(result !== null) {
           // If not null, ensure no dangerous patterns made it through
@@ -66,7 +66,7 @@ describe('Security Utils', () =>
   });'
   describe('Security patterns detection', () => '
     it('should identify command injection patterns', () => {
-      const _testCases = ['
+      const testCases = ['
         { input: 'normal-file.txt', expected },'
         { input: '--flag=value', expected },'
         { input: '$(echo hello)', expected },'
@@ -77,8 +77,8 @@ describe('Security Utils', () =>
         { input: 'file | cat', expected } ];
       testCases.forEach(({ input, expected   }) => {
         // Create a simple function to test dangerous patterns
-        const _containsDangerousPatterns = () => {
-          const _dangerousPatterns = [
+        const containsDangerousPatterns = () => {
+          const dangerousPatterns = [
 // \\$\(/, // Command substitution \$(...)'
 // `[^`]*`/, // Backtick command substitution`
 // [;&|]/, // Command separators
@@ -89,17 +89,17 @@ describe('Security Utils', () =>
           ];
           // return dangerousPatterns.some((pattern) => pattern.test(str));
     //   // LINT: unreachable code removed};
-        const _result = containsDangerousPatterns(input);
+        const result = containsDangerousPatterns(input);
         expect(result).toBe(expected);
       });
     });`
     it('should validate file paths', () => {
-      const _validatePath = () => {
+      const validatePath = () => {
         // Simple path validation'
         if(typeof path !== 'string') return false;
     // ; // LINT: unreachable code removed
         // Reject paths with dangerous patterns
-        const _dangerousPatterns = [
+        const dangerousPatterns = [
 // \.\.\//, // Directory traversal
 // ^\/etc\//, // System directories
 // ^\/proc\//,
@@ -119,7 +119,7 @@ describe('Security Utils', () =>
   });'
   describe('Input sanitization', () => {'
     it('should sanitize HTML content', () => {
-      const _sanitizeHtml = () => {
+      const sanitizeHtml = () => {
 //         return input;'
     // .replace(/</g, '&lt;'); // LINT: unreachable code removed'
 replace(/>/g, '&gt;');'
@@ -134,8 +134,8 @@ replace(/\//g, '&#x2F;');
       expect(sanitizeHtml("It's a test")).toBe('It&#x27;s a test');'
     });'
     it('should validate email addresses', () => {
-      const _validateEmail = () => {
-        const _emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const validateEmail = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 //         return emailRegex.test(email);
     //   // LINT: unreachable code removed};'
       expect(validateEmail('user@example.com')).toBe(true);'
@@ -146,11 +146,11 @@ replace(/\//g, '&#x2F;');
       expect(validateEmail('user..double.dot@domain.com')).toBe(false);
     });'
     it('should validate URLs', () => {
-      const _validateUrl = () => {
+      const validateUrl = () => {
         try {
-          const _parsed = new URL(url);'
+          const parsed = new URL(url);'
 //           return ['http:', 'https:'].includes(parsed.protocol);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+    //   // LINT: unreachable code removed} catch {
 //           return false;
     //   // LINT: unreachable code removed}
       };'

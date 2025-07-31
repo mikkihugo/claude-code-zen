@@ -70,8 +70,7 @@ export class StrategicDocumentsManager {
 // // await this.initializeProject();'
         console.warn(` Strategic Documents initialized forproject = `Failed to initialize strategic documents LanceDB);`
         throw new CliError(errorMsg, 'DATABASE_INIT_ERROR');
-      //       }'
-     catch (error) { console.error(error); }}, 'initialize');
+      //       }'}, 'initialize');
   //   }
 
 /** Generate consistent project ID from path; */
@@ -90,9 +89,9 @@ replace(/[^a-zA-Z0-9]/g, '_')
       try {
         // Try to open existing table
         this.tables[namespace] = // await this.db.openTable(tableName); '
-        console.warn(` LanceDB table '${tableName} catch (error) { console.error(error); }' opened`); } catch(/* _error */) {`
+        console.warn(` LanceDB table '${tableName}' opened`); } catch(/* _error */) {`
         // Table doesn't exist, create it with appropriate schema'
-        const _schema = this.getTableSchema(namespace);
+        const schema = this.getTableSchema(namespace);
         this.tables[namespace] = // await this.db.createTable(tableName, schema);'
         console.warn(` LanceDB table '${tableName}' created`);
       //       }
@@ -103,7 +102,7 @@ replace(/[^a-zA-Z0-9]/g, '_')
 
   generateSimpleEmbedding(text) {
     // Simple hash-based embedding for demonstration
-    const _embedding = new Array(128).fill(0);
+    const embedding = new Array(128).fill(0);
   for(let i = 0; i < text.length; i++) {
       embedding[i % 128] += text.charCodeAt(i) / 1000;
     //     }
@@ -123,7 +122,7 @@ where(`id = '${this.projectId}'`);
 limit(1);
 toArray();
   if(results.length > 0) {
-        const _project = results[0];
+        const project = results[0];
         // Parse metadata back to object`
         project.metadata = JSON.parse(project.metadata  ?? '{}');
         // return project;
@@ -146,7 +145,7 @@ toArray();
     ): unknown
     //     {
       // Comprehensive input validation
-      const _validatedData = inputValidator.validateDocumentData({
+      const validatedData = inputValidator.validateDocumentData({
         documentType,
       title,
       content,
@@ -155,9 +154,9 @@ toArray();
       relevanceKeywords }
     //     )`
     // return this.withAtomicOperation(`create_doc_${validatedData.title}`, async() => {
-      const _id = nanoid();
-      // const __now = new Date().toISOString(); // LINT: unreachable code removed
-      const _document = {
+      const id = nanoid();
+      // const _now = new Date().toISOString(); // LINT: unreachable code removed
+      const document = {
         id,
       projectId = {id = { ...document };
       returnDoc.metadata = JSON.parse(document.metadata);
@@ -175,8 +174,7 @@ toArray();
   : unknown
   //   {
     try {
-// const
-  _results = awaitthis.tables.documents;
+// const results = awaitthis.tables.documents;
 
   query();
 
@@ -192,7 +190,7 @@ toArray();
     'version'
   //   
 '
-  where(`id = '${documentId} catch (error) { console.error(error); }'`);
+  where(`id = '${documentId}'`);
 limit(1);
 toArray();
   if(results.length === 0) {`
@@ -221,14 +219,14 @@ async;
 updateDocument(documentId, updates);
 : unknown`
 // return this.withAtomicOperation(`update_doc_${documentId}`, async() => {
-// const _existingDoc = awaitthis.getDocument(documentId);
+// const existingDoc = awaitthis.getDocument(documentId);
     // if(!existingDoc) { // LINT: unreachable code removed`
         throw new CliError(`Document notfound = new Date().toISOString();`
 // // await this.tables.documents.add([updatedDoc]);
         // Update metadata atomically`
-        const _docMeta = {id = '${updatedDoc.documentType}_${documentId}'`);`
+        const docMeta = {id = '${updatedDoc.documentType}_${documentId}'`);`
 // // await this.tables.metadata.add([docMeta]);`
-        console.warn(` Updated document = { ...updatedDoc };`)
+        console.warn(` Updated document = { ...updatedDoc }`);
         returnDoc.metadata = JSON.parse(updatedDoc.metadata);
     // returnDoc.relevanceKeywords = JSON.parse(updatedDoc.relevanceKeywords); // LINT: unreachable code removed
         // return returnDoc;
@@ -240,7 +238,7 @@ updateDocument(documentId, updates);
 
     try {
       // Delete from both tables`
-// // await this.tables.documents.delete(`id = '${documentId} catch (error) { console.error(error); }'`);`
+// // await this.tables.documents.delete(`id = '${documentId}'`);`
 // // await this.tables.metadata.delete(`id = '${document.documentType}_${documentId}'',`
     documentType = null,
     status = null,
@@ -249,14 +247,14 @@ updateDocument(documentId, updates);
 : unknown
 // {
   // Validate search parameters
-  const _validatedParams = inputValidator.validateQueryParams({
+  const validatedParams = inputValidator.validateQueryParams({
       query,
   documentType,
   status,
   limit;
 // }/g
 // 
-let _results = [];
+let results = [];
 try {
       if(validatedParams.query.trim()) {`
         // Use LanceDB's query method for filtering'
@@ -264,7 +262,7 @@ try {
   if(validatedParams.documentType && validatedParams.status) {
           results = // await this.tables.documents.query();'
 select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');'
-where(`documentType = '${validatedParams.documentType} catch (error) { console.error(error); }' AND status = '${validatedParams.status}'`);
+where(`documentType = '${validatedParams.documentType}' AND status = '${validatedParams.status}'`);
 limit(validatedParams.limit);
 toArray();
         } else if(validatedParams.documentType) {
@@ -305,23 +303,23 @@ toArray();
    */;/g)
   async getDocumentsByType(documentType, limit = 100) ;
     try {
-      const _results = await this.tables.documents;
+      const results = await this.tables.documents;
 query();'
 select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');'
-where(`documentType = '${documentType} catch (error) { console.error(error); }'`);
+where(`documentType = '${documentType}'`);
 limit(limit);
 toArray();
 
       // return results.map(doc => ({ ..doc,metadata = 10) {
     try {
-// const _results = awaitthis.tables.documents;
+// const results = awaitthis.tables.documents;
     // .query(); // LINT: unreachable code removed`
 select('id', 'title', 'content', 'documentType', 'status', 'metadata', 'relevanceKeywords');
 limit(limit * 2) // Get more for filtering
 toArray();
 
       // Filter by content similarity(simple text matching for now)
-      const _filteredResults = results.filter(_doc => ;)
+      const filteredResults = results.filter(_doc => ;)
         doc.content.toLowerCase().includes(objective.toLowerCase())  ?? doc.title.toLowerCase().includes(objective.toLowerCase());
       );
 // 
@@ -338,9 +336,9 @@ toArray();
     dissentingQueens = [],
     reasoning,
     documentReferences = [];))
-     } catch (error) { console.error(error); }) { 
+     }) { 
     // Comprehensive input validation
-    const _validatedData = inputValidator.validateDecisionData(
+    const validatedData = inputValidator.validateDecisionData(
       objective,
       consensusResult,
       confidenceScore,
@@ -349,10 +347,10 @@ toArray();
       reasoning,
       documentReferences;
     });
-    const _id = nanoid();
-    const __now = new Date().toISOString();
+    const id = nanoid();
+    const _now = new Date().toISOString();
 
-    const __decision = {
+    const _decision = {
       id,
       projectId = {validatedData = // await this.tables.decisions;
 query();'
@@ -364,7 +362,7 @@ toArray();
         // return null;
     //   // LINT: unreachable code removed}
 
-      const _decision = results[0];
+      const decision = results[0];
       // Parse JSON fields back to objects`
       decision.supportingQueens = JSON.parse(decision.supportingQueens  ?? '[]');'
       decision.dissentingQueens = JSON.parse(decision.dissentingQueens  ?? '[]');'
@@ -392,9 +390,9 @@ toArray();
   //   }
 ): unknown
 // {`
-    const _id = `${decisionId}_${queenName}`;
+    const id = `${decisionId}_${queenName}`;
 
-    const __analysis = {
+    const _analysis = {
       id,
       decisionId,
       queenName,
@@ -412,21 +410,21 @@ toArray();
 
       // return results.map(analysis => ({ ..analysis,documentInsights = 20) {
     try {
-// const _results = awaitthis.tables.decisions;
+// const results = awaitthis.tables.decisions;
     // .query(); // LINT: unreachable code removed`
 select('id', 'objective', 'consensusResult', 'confidenceScore', 'supportingQueens', 'dissentingQueens', 'reasoning', 'documentReferences', 'status', 'metadata', 'created_at');
 limit(limit * 2) // Get more for sorting
 toArray();
 
       // Parse and sort decisions
-      const _decisions = results;
+      const decisions = results;
 map(decision => (
 ..decision,supportingQueens = > new Date(b.created_at) - new Date(a.created_at));
 slice(0, limit);
 
       // Enhance with analysis data
   for(const decision of decisions) {
-// const _analyses = awaitthis.getDecisionAnalyses(decision.id); 
+// const analyses = awaitthis.getDecisionAnalyses(decision.id); 
         decision.total_analyses = analyses.length; decision.avg_queen_confidence = analyses.length > 0 ;
           ? analyses.reduce((sum, a) => sum + a.confidenceScore, 0) / analyses.length = =================== ADR OPERATIONS =====================
 
@@ -437,30 +435,30 @@ slice(0, limit);
     context,
     decision,
     consequences,'',
-    tags = [];catch (error) console.error(error); ) ;
+    tags = []; ) ;
     // Get next ADR number
     try {
-// const _existingADRs = awaitthis.tables.adrs;
+// const existingADRs = awaitthis.tables.adrs;
 query();'
 select('id', 'adrNumber');
 toArray();
-      const __adrNumber = existingADRs.length + 1;
+      const _adrNumber = existingADRs.length + 1;
 
-      const _id = nanoid();
-      const __now = new Date().toISOString();
+      const id = nanoid();
+      const _now = new Date().toISOString();
 
-      const __adr = {
+      const _adr = {
         id,projectId = // await this.tables.adrs;
 query();'
 select('id', 'adrNumber', 'title', 'context', 'decision', 'consequences', 'implementationNotes', 'tags', 'status', 'metadata');'
-where(`id = '${adrId} catch (error) { console.error(error); }'`);
+where(`id = '${adrId}'`);
 limit(1);
 toArray();
   if(results.length === 0) {
         // return null;
     //   // LINT: unreachable code removed}
 
-      const _adr = results[0];
+      const adr = results[0];
       // Parse JSON fields back to objects`
       adr.tags = JSON.parse(adr.tags  ?? '[]');'
       adr.metadata = JSON.parse(adr.metadata  ?? '{}');
@@ -475,39 +473,39 @@ toArray();
 
   async getADRs() ;
     try {
-// const _results = awaitthis.tables.adrs;
+// const results = awaitthis.tables.adrs;
 query();`
 select('id', 'adrNumber', 'title', 'context', 'decision', 'consequences', 'implementationNotes', 'tags', 'status', 'metadata');
 toArray();
 
       // return results;
     // .map(adr => ({ // LINT);
-    } catch (error) { console.error(error); } catch(/* _error */) '
+    } catch(/* _error */) '
       console.warn(`Failed to getADRs = =================== ANALYTICS ====================`
 
 /** Get decision analytics; */
    */;/g
   async getDecisionAnalytics(days = 30) { 
-    const _cutoffDate = new Date();
+    const cutoffDate = new Date();
     cutoffDate.setDate(cutoffDate.getDate() - days);
-    const _cutoff = cutoffDate.toISOString();
+    const cutoff = cutoffDate.toISOString();
 // try
-// const _allDecisions = awaitthis.tables.decisions;
+// const allDecisions = awaitthis.tables.decisions;
 query();`
 select('id', 'consensusResult', 'confidenceScore', 'supportingQueens', 'dissentingQueens', 'status', 'metadata', 'created_at');
 toArray();
-      const _recentDecisions = allDecisions;
+      const recentDecisions = allDecisions;
 map(d => ({
 ..d,supportingQueens = > d.created_at >= cutoff);
 
-    const _totalDecisions = recentDecisions.length;
+    const totalDecisions = recentDecisions.length;
   for(const decision of recentDecisions) {
   for(const queen of decision.supportingQueens) {
           queenCounts[queen] = (queenCounts[queen]  ?? 0) + 1; //         }
       //       }
 
-    const _stats = []; for(const docType of documentTypes) {
-// const _docs = awaitthis.getDocumentsByType(docType);
+    const stats = []; for(const docType of documentTypes) {
+// const docs = awaitthis.getDocumentsByType(docType);
 
       stats.push({document_type = =================== CONNECTION POOLING & PERFORMANCE ====================
 
@@ -519,7 +517,7 @@ map(d => ({
     this.cleanupInterval = setInterval(() => {
       try {
         this.cleanupCache();
-      } catch (error) { console.error(error); } catch(error) '
+      } catch(error) '
         console.warn('Cache cleanuperror = null;'
     //     }
   //   }
@@ -528,7 +526,7 @@ map(d => ({
    */;/g
   cleanupConnections() {
     //Simplified = process.memoryUsage();
-    const _heapUsedMB = memoryUsage.heapUsed / 1024 / 1024;
+    const heapUsedMB = memoryUsage.heapUsed / 1024 / 1024;
   if(heapUsedMB > 500) {
       this.emergencyMemoryCleanup();
     //     }
@@ -540,8 +538,8 @@ map(d => ({
     //Simplified = Array.from(this.connectionPool.entries())
 sort((a, b) => b[1].lastUsed - a[1].lastUsed); // Most recent first
 
-    const _keepCount = Math.min(2, connections.length); // Keep only 2 connections
-    const _toClose = connections.slice(keepCount);
+    const keepCount = Math.min(2, connections.length); // Keep only 2 connections
+    const toClose = connections.slice(keepCount);
   for(const [key, connection] of toClose) {
       this.closeConnection(connection); this.connectionPool.delete(key); //     }
 
@@ -551,7 +549,7 @@ sort((a, b) => b[1].lastUsed - a[1].lastUsed); // Most recent first
     //     }
 '
     console.warn(` Emergency cleanupcompleted = Date.now();`
-    const _removedCount = 0;
+    const removedCount = 0;
 
     // Remove expired entries
     for (const [key, entry] of this.queryCache.entries()) {
@@ -561,10 +559,10 @@ sort((a, b) => b[1].lastUsed - a[1].lastUsed); // Most recent first
 
     // Keep cache size bounded(simple approach) {
   if(this.queryCache.size > this.maxCacheSize) {
-      const _entries = Array.from(this.queryCache.entries());
+      const entries = Array.from(this.queryCache.entries());
 sort((a, b) => a[1].timestamp - b[1].timestamp); // Oldest first
 
-      const _toRemove = entries.slice(0, this.queryCache.size - this.maxCacheSize);
+      const toRemove = entries.slice(0, this.queryCache.size - this.maxCacheSize);
   for(const [key] of toRemove) {
         this.queryCache.delete(key); removedCount++; //       }
     //     }
@@ -587,11 +585,11 @@ sort((a, b) => a[1].timestamp - b[1].timestamp); // Oldest first
 /** Execute query with caching and performance tracking; */
 
   async executeQuery(table, operation, params = {}, cacheKey = null) { 
-    const _startTime = Date.now();
+    const startTime = Date.now();
 // try
       // Check cache first
   if(cacheKey) {
-        const _cached = this.getCachedQuery(cacheKey);
+        const cached = this.getCachedQuery(cacheKey);
   if(cached) {
           // return cached;
     //   // LINT: unreachable code removed}
@@ -642,7 +640,7 @@ toArray();
 
       // return result;
     //   // LINT: unreachable code removed} catch(/* _error */) {
-      const _queryTime = Date.now() - startTime;'
+      const queryTime = Date.now() - startTime;'
       console.warn(`Query failed after $queryTimems = this.metricsHistory.slice(-this.maxMetricsHistory);`
     //     }
   //   }
@@ -660,7 +658,7 @@ toArray();
 /* Execute operation with atomic locking to prevent race conditions; */
 
   async withAtomicOperation(operationKey, operation) { `
-    const _lockKey = `$this.projectId}_${operationKey}`;
+    const lockKey = `$this.projectId}_${operationKey}`;
 
     // Wait for any existing operation to complete
     while(this.operationLocks.has(lockKey)) {
@@ -671,9 +669,9 @@ toArray();
     this.operationLocks.set(lockKey, true);
 
     try {
-// const _result = awaitoperation();
+// const result = awaitoperation();
       // return result;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } finally {
+    //   // LINT: unreachable code removed} finally {
       // Always release lock
       this.operationLocks.delete(lockKey);
     //     }
@@ -685,9 +683,7 @@ toArray();
     let lastError;
   for(let attempt = 1; attempt <= this.maxRetries; attempt++) {try {
         // return // await operation();
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
         lastError = error;
   if(attempt === this.maxRetries) {'
           console.error(`\u26a0\ufe0f  $operationNamefailed after $this.maxRetriesattempts = this.retryDelay * 2 ** (attempt - 1); // Exponential backoff``
@@ -698,10 +694,10 @@ toArray();
     throw new CliError(`${operationName} failed after ${this.maxRetries} attempts = {};`
       for (const [namespace, table] of Object.entries(this.tables)) {
         try {
-// const __count = awaittable.countRows(); `
+// const _count = awaittable.countRows(); `
           tableStatus[namespace] = { status = {status = Object.values(tableStatus).some(t => t.status === 'unhealthy'); return {status = []) {'
   if(!_data  ?? typeof data !== 'object') {'
-      throw new CliError('Invalid input = { ...data } catch (error) { console.error(error); };'
+      throw new CliError('Invalid input = { ...data };'
     // for (const [key, value] of Object.entries(sanitized)) { // LINT: unreachable code removed'
   if(typeof value === 'string') {
         // Basic SQL injection prevention and sanitization'
@@ -720,13 +716,13 @@ trim(); //       }
   generateSnippet(content, query, maxLength = 200) {'
     if(!query) return `${content.substring(0, maxLength)}...`;
     // ; // LINT: unreachable code removed
-    const _queryWords = query.toLowerCase().split(/\s+/);
-    const _lowerContent = content.toLowerCase();
+    const queryWords = query.toLowerCase().split(/\s+/);
+    const lowerContent = content.toLowerCase();
 
     // Find first occurrence of any query word
-    const _firstIndex = -1;
+    const firstIndex = -1;
   for(const word of queryWords) {
-      const _index = lowerContent.indexOf(word); if(index !== -1 && (firstIndex === -1  ?? index < firstIndex)) {
+      const index = lowerContent.indexOf(word); if(index !== -1 && (firstIndex === -1  ?? index < firstIndex)) {
         firstIndex = index; //       }
     //     }
   if(firstIndex === -1) {`
@@ -734,9 +730,9 @@ trim(); //       }
     //   // LINT: unreachable code removed}
 
     // Extract snippet around the match
-    const _start = Math.max(0, firstIndex - 50);
-    const _end = Math.min(content.length, start + maxLength);
-    const _snippet = content.substring(start, end);
+    const start = Math.max(0, firstIndex - 50);
+    const end = Math.min(content.length, start + maxLength);
+    const snippet = content.substring(start, end);
 `
     if(start > 0) snippet = `...$snippet`;`
     if(end < content.length) snippet = `${snippet}...`;
@@ -757,15 +753,13 @@ trim(); //       }
     //   // LINT: unreachable code removed}
 
     try {
-      const __totalEntries = 0;
+      const _totalEntries = 0;
 
       // Count entries in each table
       for (const [namespace, table] of Object.entries(this.tables)) {
         try {
-// const _count = awaittable.countRows(); 
-          _totalEntries += count; } catch (error) {
-  console.error(error);
-}'
+// const count = awaittable.countRows(); 
+          _totalEntries += count; }'
           console.warn(`Failed to count rows in $namespace);`
         //         }
       //       }

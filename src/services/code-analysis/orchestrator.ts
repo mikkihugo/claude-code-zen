@@ -27,15 +27,13 @@ import TreeSitterParser from '.';
 let KuzuGraphInterface;
 try {
   '
-  // const _kuzuModule = awaitimport('../../cli/database/kuzu-graph-interface.js');
+  // const kuzuModule = awaitimport('../../cli/database/kuzu-graph-interface.js');
   KuzuGraphInterface = kuzuModule.default
-} catch (error) {
-  console.error(error);
 }
 catch(/* _e */)
 {
   '
-  console.warn('Kuzu graph interface not available, graph storage disabled')
+  console.warn('Kuzu graph interface not available, graph storage disabled');
   KuzuGraphInterface = null;
   // }
   // export class CodeAnalysisOrchestrator {
@@ -56,7 +54,7 @@ catch(/* _e */)
   async;
   initialize();
   '
-    console.warn(' Initializing Code Analysis Orchestrator...')
+    console.warn(' Initializing Code Analysis Orchestrator...');
   // try
   // Create output directory
   // // await mkdir(this.config.outputDir, {recursive = true;'
@@ -71,7 +69,7 @@ catch(/* _e */)
     '
     console.warn(` Starting comprehensive code analysis...`)
 
-    const _analysisOptions = {includeDependencies = {summary = // await this.discoverSourceFiles();`
+    const analysisOptions = {includeDependencies = {summary = // await this.discoverSourceFiles();`
       console.warn(`Found ${sourceFiles.length} source files`);
 
     // 2. AST Analysis`
@@ -81,28 +79,28 @@ catch(/* _e */)
     // 3. Dependency Analysis
     if (analysisOptions.includeDependencies) {
       '
-        console.warn(' Analyzing dependencies...')
+        console.warn(' Analyzing dependencies...');
       results.dependencies = // await this.performDependencyAnalysis();
       //       }
 
       // 4. Duplicate Detection
       if (analysisOptions.includeDuplicates) {
         '
-        console.warn(' Detecting duplicates...')
+        console.warn(' Detecting duplicates...');
         results.duplicates = // await this.performDuplicateAnalysis();
         //       }
 
         // 5. Complexity Analysis
         if (analysisOptions.includeComplexity) {
           '
-        console.warn(' Analyzing complexity...')
+        console.warn(' Analyzing complexity...');
           results.complexity = // await this.performComplexityAnalysis(sourceFiles);
           //       }
 
           // 6. Store in Kuzu Graph
           if (analysisOptions.storeInGraph) {
             '
-        console.warn(' Storing in graph database...')
+        console.warn(' Storing in graph database...');
             results.graph = // await this.storeInGraph(results);
               //       }
 
@@ -117,7 +115,7 @@ catch(/* _e */)
 
             // return files.filter(file => {
             // Additional filtering/g
-            const _relativePath = path.relative(this.config.projectPath, file);
+            const relativePath = path.relative(this.config.projectPath, file);
             `
     // return !relativePath.includes('node_modules') && ; // LINT: unreachable code removed'
 // ! relativePath.startsWith('.') &&;'
@@ -132,19 +130,18 @@ catch(/* _e */)
     const  readdir, stat } = await import('
     const { join } = await import('path');
 
-    const _files = [];
+    const files = [];
 
     async function walk(currentPath) {
       try {
-// const _entries = awaitreaddir(currentPath);
+// const entries = awaitreaddir(currentPath);
   for(const entry of entries) {
-          const _fullPath = join(currentPath, entry); // const _stats = awaitstat(fullPath); 
+          const fullPath = join(currentPath, entry); // const stats = awaitstat(fullPath); 
   if(stats.isDirectory() {) {
             // Skip common ignored directories'
             if(!['node_modules', '.git', 'dist', 'build'].includes(entry)) {
 // // await walk(fullPath);
-            //             }
-           catch (error) { console.error(error); }} else {
+            //             }} else {
             files.push(fullPath);
           //           }
         //         }
@@ -170,13 +167,13 @@ async;
 performASTAnalysis(sourceFiles);
 
 // {
-    const _results = {files = 0;
-    const __processedFiles = 0;
+    const results = {files = 0;
+    const _processedFiles = 0;
 
     // Process files in batches
   for(let i = 0; i < sourceFiles.length; i += this.config.batchSize) {
-      const __batch = sourceFiles.slice(i, i + this.config.batchSize);
-// const _analysis = awaitthis.astParser.parseFile(file, content);
+      const _batch = sourceFiles.slice(i, i + this.config.batchSize);
+// const analysis = awaitthis.astParser.parseFile(file, content);
 
           // Store file information
           results.files.push(analysis.file);
@@ -205,7 +202,7 @@ performASTAnalysis(sourceFiles);
 /** Perform dependency analysis; */
 
   async performDependencyAnalysis() { 
-// const _dependencyResults = awaitthis.dependencyAnalyzer.analyzeDependencies(this.config.projectPath);
+// const dependencyResults = awaitthis.dependencyAnalyzer.analyzeDependencies(this.config.projectPath);
 
     // Find circular dependencies
 
@@ -269,7 +266,7 @@ performASTAnalysis(sourceFiles);
                         //       }
 
                         // 8. Insert relationships
-                        // const _relationships = awaitthis.generateAllRelationships(results);
+                        // const relationships = awaitthis.generateAllRelationships(results);
                         if (relationships.length > 0) {
                           // Store graph relationships if Kuzu available
                           if (this.kuzuGraph && relationships.length > 0) {
@@ -296,7 +293,7 @@ performASTAnalysis(sourceFiles);
 
     // Duplicate relationships
   if(results.duplicates?.duplicates) {
-      const _dupRelationships = this.duplicateDetector.generateGraphRelationships(;
+      const dupRelationships = this.duplicateDetector.generateGraphRelationships(;
         results.duplicates.duplicates;
       );
       relationships.push(...dupRelationships);
@@ -308,7 +305,7 @@ performASTAnalysis(sourceFiles);
 /** Generate comprehensive analysis summary; */
 
   async generateAnalysisSummary(results) 
-    const __summary = overview = > sum + f.line_count, 0),average_complexity = [];
+    const _summary = overview = > sum + f.line_count, 0),average_complexity = [];
 
     // High complexity functions
   if(results.ast.metrics.highComplexityFunctions.length > 0) {
@@ -318,17 +315,17 @@ performASTAnalysis(sourceFiles);
     for (const _func of results.ast.metrics.highComplexityFunctions.slice(0, 5)) {
       issues.push({
         //         type => {/g
-      const _severityOrder = {critical = severityOrder[b.severity] - severityOrder[a.severity]; if(severityDiff !== 0) return severityDiff; // return(b.metric  ?? 0) {- (a.metric  ?? 0); // LINT: unreachable code removed
+      const severityOrder = {critical = severityOrder[b.severity] - severityOrder[a.severity]; if(severityDiff !== 0) return severityDiff; // return(b.metric  ?? 0) {- (a.metric  ?? 0); // LINT: unreachable code removed
       });
   //   }
 
 /** Calculate file complexity score; */
 
   calculateFileComplexity(file, functions) {
-    const _fileFunctions = functions.filter(f => f.file_id === file.id);
+    const fileFunctions = functions.filter(f => f.file_id === file.id);
     if(fileFunctions.length === 0) return 0;
     // ; // LINT: unreachable code removed
-    const _totalComplexity = fileFunctions.reduce((sum, f) => sum + f.cyclomatic_complexity, 0);
+    const totalComplexity = fileFunctions.reduce((sum, f) => sum + f.cyclomatic_complexity, 0);
 //     return Math.round((totalComplexity / fileFunctions.length) * 100) / 100;
     //   // LINT: unreachable code removed}
 
@@ -336,8 +333,8 @@ performASTAnalysis(sourceFiles);
 
   calculateMaintainabilityIndex(file) {
     // Simplified maintainability index based on file size and estimated complexity
-    const _lineScore = Math.max(0, 100 - (file.line_count / 10));
-    const _sizeScore = Math.max(0, 100 - (file.size_bytes / 1000));
+    const lineScore = Math.max(0, 100 - (file.line_count / 10));
+    const sizeScore = Math.max(0, 100 - (file.size_bytes / 1000));
 
     // return Math.round(((lineScore + sizeScore) / 2) * 100) / 100;
     //   // LINT: unreachable code removed}
@@ -345,16 +342,16 @@ performASTAnalysis(sourceFiles);
 /** Save analysis results to files; */
 
   async saveAnalysisResults(results) `;
-                          const _timestamp = new Date().toISOString().replace(/[]/g, '-');
+                          const timestamp = new Date().toISOString().replace(/[]/g, '-');
 
                           // Save comprehensive results'
-                          const _resultsPath = path.join(
+                          const resultsPath = path.join(
                             this.config.outputDir,
                             `analysis-results-$timestamp.json`
                           );
                           // // await writeFile(resultsPath, JSON.stringify(results, null, 2));
                           // Save summary report`
-                          const _summaryPath = path.join(
+                          const summaryPath = path.join(
                             this.config.outputDir,
                             `analysis-summary-${timestamp}.json`
                           );
@@ -376,8 +373,8 @@ performASTAnalysis(sourceFiles);
 // // await this.initialize();
     //     }
 `;
-                              const _results = {files = // await readFile(filePath, 'utf8');
-// const _analysis = awaitthis.astParser.parseFile(filePath, content);
+                              const results = {files = // await readFile(filePath, 'utf8');
+// const analysis = awaitthis.astParser.parseFile(filePath, content);
 
         results.files.push(analysis.file);
                               results.functions.push(...analysis.functions);
@@ -415,7 +412,7 @@ performASTAnalysis(sourceFiles);
   async getAnalysisStats()
                             if (!this.kuzuGraph) {
                               '
-      console.warn('Graph storage disabled, stats not available')
+      console.warn('Graph storage disabled, stats not available');
                               '
       // return { error: 'Graph storage not available' };
     //   // LINT: unreachable code removed}

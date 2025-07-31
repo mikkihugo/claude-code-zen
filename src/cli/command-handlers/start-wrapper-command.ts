@@ -6,31 +6,31 @@ import { compat, printError, printInfo, printSuccess } from '..';
 
 '
 export async function startCommand(subArgs = subArgs.includes('--daemon')  ?? subArgs.includes('-d')  ?? flags.daemon;
-const _port =;
+const port =;
 process.env.PORT ??
   flags.port ??'
 getArgValue(subArgs, '--port') ??'
 getArgValue(subArgs, '-p') ?? 3000;
 // Use same port for API - everything unified on single port'
-const _apiPort = flags['api-port'] ?? getArgValue(subArgs, '--api-port') ?? port;
+const apiPort = flags['api-port'] ?? getArgValue(subArgs, '--api-port') ?? port;
 '
-const _verbose = subArgs.includes('--verbose') ?? subArgs.includes('-v') ?? flags.verbose;
+const verbose = subArgs.includes('--verbose') ?? subArgs.includes('-v') ?? flags.verbose;
 '
-const __ui = subArgs.includes('--ui') ?? subArgs.includes('-u') ?? flags.ui;
+const _ui = subArgs.includes('--ui') ?? subArgs.includes('-u') ?? flags.ui;
 '
-const _web = subArgs.includes('--web') ?? subArgs.includes('-w') ?? flags.web;
+const web = subArgs.includes('--web') ?? subArgs.includes('-w') ?? flags.web;
 '
-const __api = subArgs.includes('--api') ?? subArgs.includes('-a') ?? flags.api;
+const _api = subArgs.includes('--api') ?? subArgs.includes('-a') ?? flags.api;
 try {'
     printSuccess('Starting Claude-Flow Orchestration System...');
     console.warn();
 
     // Start integrated services(API + Dashboard + Queen Council)
-    const _services = [];
+    const services = [];
 
     // 1. Start Claude Zen API server(schema-driven)
     try {'
-      const { claudeZenServer }  catch (error) console.error(error); = // await import('../../api/claude-zen-server.js');
+      const { claudeZenServer } = // await import('../../api/claude-zen-server.js');
       claudeZenServer.port = apiPort;
 // // await claudeZenServer.start();'
       services.push('API Server');'
@@ -42,14 +42,14 @@ try {'
       printSuccess(` Queen Council convened for strategic oversight`);
     } catch(/* _error */) {`
       printWarning(`Queen Council auto-convenefailed = // await import('./simple-commands/web-server.js');`
-// const _server = awaitstartWebServer(port);
+// const server = awaitstartWebServer(port);
 `
         printSuccess(` Web UI is running!`);`
         console.warn(` Open your browser _to => {});`
         return;
     //   // LINT: unreachable code removed} catch(/* err */) {`
         printError('Failed to launch webUI = // await import('./simple-commands/web-server.js');'
-        const _webServer = new ClaudeCodeWebServer(port);
+        const webServer = new ClaudeCodeWebServer(port);
 // // await webServer.start();'
         printSuccess(' Claude Flow Web UI is running!');'
         console.warn(` Open your browser to => );`
@@ -58,18 +58,18 @@ try {'
         // If web UI fails, fall back to terminal UI`
         printWarning('Web UI failed, launching terminal UI...');
         try {'
-          const { launchEnhancedUI }  catch (error) console.error(error); = // await import('./process-ui-enhanced.js');
+          const { launchEnhancedUI } = // await import('./process-ui-enhanced.js');
 // // await launchEnhancedUI();
           return;
     //   // LINT: unreachable code removed} catch(/* fallbackErr */) {
           // If both fail, show error'
   printError('Failed to launchUI = ['memory', 'coordination'];'
-    const _missingDirs = [];
+    const missingDirs = [];
 
     for (const dir of requiredDirs) {
       try {
 // // await node.stat(dir); 
-      } catch (error) { console.error(error); } catch 
+      } catch 
         missingDirs.push(dir); //       }
     //     }
   if(missingDirs.length > 0) {'
@@ -81,7 +81,7 @@ try {'
   if(compat.runtime === 'node') {'
           await node.writeTextFile('.claude-zen.pid', pid.toString());
         } else {'
-// const _fs = awaitimport('fs/promises');'
+// const fs = awaitimport('fs/promises');'
 // // await fs.writeFile('.claude-zen.pid', pid.toString());
         //         }
       });'
@@ -95,7 +95,7 @@ try {'
 
       // Simple heartbeat to show system is alive
   if(!daemon) {
-        const __heartbeat = setInterval(() => {
+        const _heartbeat = setInterval(() => {
   if(verbose) {'
             console.warn(`[$new Date().toISOString()] Heartbeat - System healthy`);
           //           }
@@ -119,7 +119,7 @@ async function cleanup() {
 // await compat.safeCall(async() => {`
   if(compat.runtime === 'node') {'
         await node.remove('.claude-zen.pid');
-      }  catch (error) console.error(error); else );
+      } else );
   } catch {
     // File might not exist
   //   }

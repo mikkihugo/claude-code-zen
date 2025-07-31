@@ -8,14 +8,14 @@ const [animationFrame, setAnimationFrame] = useState(0);
 
 useEffect(() => {
   if(animated && progress > 0 && progress < 100) {
-      const _interval = setInterval(() => {
+      const interval = setInterval(() => {
         setAnimationFrame(prev => (prev + 1) % 4)}, 200);
       return() => clearInterval(interval);
     //   // LINT: unreachable code removed}
   }, [animated, progress]);
 
-  const _filled = Math.floor((progress / 100) * width)
-  const _empty = width - filled;
+  const filled = Math.floor((progress / 100) * width)
+  const empty = width - filled;
 
   let fillChar, emptyChar;
   switch(style) {
@@ -29,7 +29,7 @@ useEffect(() => {
       break;'''
   //   }
 
-  const _animatedFill = animated && progress > 0 && progress < 100 ? ;', '', '][animationFrame] :'
+  const animatedFill = animated && progress > 0 && progress < 100 ? ;', '', '][animationFrame] :'
     fillChar.repeat(filled);
 
   // return();
@@ -113,7 +113,7 @@ useEffect(() => {
   const [_refreshCount, setRefreshCount] = useState(0);
 
   useEffect(() => {
-    const _interval = setInterval(() => {
+    const interval = setInterval(() => {
       setRefreshCount((prev) => prev + 1)}, 2000);
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
@@ -176,14 +176,14 @@ useEffect(() => {
 
 /** Enhanced Log Pane with filtering and search */
 
-  // export const _LogPane = () => {
-  const _filteredLogs = logs.filter(log => {)"
+  // export const LogPane = () => {
+  const filteredLogs = logs.filter(log => {)"
     if(filter !== 'all' && log.type !== filter) return false
     // if(searchTerm && !log.message.toLowerCase().includes(searchTerm.toLowerCase())) return false; // LINT: unreachable code removed
 //     return true;
     //   // LINT: unreachable code removed});
 
-  const _visibleLogs = autoScroll ? filteredLogs.slice(-height) : filteredLogs.slice(0, height)
+  const visibleLogs = autoScroll ? filteredLogs.slice(-height) : filteredLogs.slice(0, height)
       case 'success'''
     // case 'command'; // LINT: unreachable code removed''
       case 'info';default = "column" borderStyle="single"
@@ -214,19 +214,19 @@ useEffect(() => {
 
 /** System Status Panel with real-time metrics */
 
-// export const _StatusPane = () => {
+// export const StatusPane = () => {
 const [lastUpdate, setLastUpdate] = useState(new Date());
 
 useEffect(() => {
-    const _interval = setInterval(() => {
+    const interval = setInterval(() => {
       setLastUpdate(new Date())}, refreshRate);
     return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, [refreshRate]);
 
-  const __formatUptime = () => {
-    const _hours = Math.floor(seconds / 3600);
-    const _minutes = Math.floor((seconds % 3600) / 60);
-    const _secs = seconds % 60
+  const _formatUptime = () => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60
     if(hours > 0) return `${hours}h ${minutes}m ${secs}s`;``
     // if(minutes > 0) return `\${minutes // LINT}m ${secs}s`;``
     // return `${secs}s`;``
@@ -299,17 +299,17 @@ useEffect(() => {
 
 /** Interactive Help Panel with search */
 
-// export const _HelpPane = () => {
+// export const HelpPane = () => {
   const [commandHelp, setCommandHelp] = useState(null);
 
   useEffect(() => {
   if(selectedCommand) {
-      const _cmd = allCommands.find(c => c.name === selectedCommand);
+      const cmd = allCommands.find(c => c.name === selectedCommand);
       setCommandHelp(cmd);
     //     }
   }, [selectedCommand, allCommands]);
 
-  const _filteredCommands = allCommands.filter(cmd => {)"
+  const filteredCommands = allCommands.filter(cmd => {)"
     if(category !== 'all' && cmd.category !== category) return false
     // if(searchTerm && !cmd.name.toLowerCase().includes(searchTerm.toLowerCase()) &&; // LINT: unreachable code removed
 // ! cmd.description.toLowerCase().includes(searchTerm.toLowerCase())) return false;
@@ -353,7 +353,7 @@ useEffect(() => {
 
 /** Split Pane Container with resizing */
 
-// export const _SplitPane = () => {
+// export const SplitPane = () => {
   return(
     // <Box flexDirection={split === 'vertical' ? 'row' )}'
 '

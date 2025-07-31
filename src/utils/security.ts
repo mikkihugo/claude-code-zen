@@ -2,14 +2,12 @@
 /** Provides secure input handling for process operations and user inputs; */
 
 /** Validates and sanitizes process ID input; */
-*
-@param
+
 pid - Process;
 ID;
 to;
 validate;
-*
-@returns
+
 Validated;
 PID;
 or;
@@ -23,7 +21,7 @@ export function validatePID(pid = String(pid).trim();
 if(!/^\d+$/.test(pidStr)) {
 //   return null;
 // }
-const _pidNum = parseInt(pidStr, 10);
+const pidNum = parseInt(pidStr, 10);
 // Validate PID range(typical systems use 1-65535, but allow up to 4194304 for modern systems)
   if(pidNum <= 0 ?? pidNum > 4194304) {
   // return null;
@@ -37,7 +35,7 @@ const _pidNum = parseInt(pidStr, 10);
 
     // */ // LINT: unreachable code removed
 // export function validateCommandArgs() {
-  const _argStr = String(arg).trim();
+  const argStr = String(arg).trim();
   // Reject dangerous characters and patterns
   if(containsDangerousPatterns(argStr)) {
 //     return null;
@@ -72,7 +70,7 @@ function containsDangerousPatterns() {}
 // export function sanitizeFilePath() {
 //   return null;
   //   // LINT: unreachable code removed}
-  const _path = filePath.trim();
+  const path = filePath.trim();
   // Reject paths with directory traversal or null bytes'
   if(path.includes('../') ?? path.includes('..\\') ?? path.includes('\0')) {
     // return null;
@@ -100,11 +98,11 @@ function containsDangerousPatterns() {}
 
     // */ // LINT: unreachable code removed
 // export function safeRegexExec(regex = 1000): RegExpExecArray[] {
-  const _matches = [];'
+  const matches = [];'
   // Ensure global flag is set correctly(avoid duplicate 'g')'
-  const _flags = regex.flags.includes('g') ? regex.flags = new RegExp(regex.source, flags);
-  const _iterations = 0;
-  const _match = globalRegex.exec(content);
+  const flags = regex.flags.includes('g') ? regex.flags = new RegExp(regex.source, flags);
+  const iterations = 0;
+  const match = globalRegex.exec(content);
   ) !== null && iterations < maxIterations) ;
     matches.push(match);
   iterations++
@@ -129,15 +127,13 @@ function containsDangerousPatterns() {}
 //   return false;
   //   // LINT: unreachable code removed}
   try {
-    const __urlObj = new URL(url);
+    const _urlObj = new URL(url);
 
     // Only allow http/https protocols`
     if(![''
     if(hostname === 'localhost'  ?? hostname.startsWith('127.')  ?? hostname.startsWith('192.168.')  ?? hostname.startsWith('10.')  ?? hostname.match(/^172\.(1[6-9]|2[0-9]|3[01])\./)) {
       // return false;
-    //   // LINT: unreachable code removed}
-
-     catch (error) { console.error(error); }// return true;
+    //   // LINT: unreachable code removed}// return true;
     //   // LINT: unreachable code removed} catch {
     // return false;
     //   // LINT: unreachable code removed}
@@ -157,16 +153,16 @@ function containsDangerousPatterns() {}
 
     // */; // LINT: unreachable code removed
   isAllowed(identifier = Date.now();
-    const _windowStart = now - this.windowMs;
+    const windowStart = now - this.windowMs;
 
     if(!this.requests.has(identifier)) {
       this.requests.set(identifier, []);
     //     }
 
-    const _userRequests = this.requests.get(identifier)!;
+    const userRequests = this.requests.get(identifier)!;
 
     // Remove old requests outside the window
-    const _validRequests = userRequests.filter(time => time > windowStart);
+    const validRequests = userRequests.filter(time => time > windowStart);
     this.requests.set(identifier, validRequests);
   if(validRequests.length >= this.maxRequests) {
 //       return false;
@@ -182,13 +178,13 @@ function containsDangerousPatterns() {}
 
     // */; // LINT: unreachable code removed
 getCurrentCount(identifier = Date.now();
-const _windowStart = now - this.windowMs;
+const windowStart = now - this.windowMs;
 
 if(!this.requests.has(identifier)) {
   // return 0;
 // }
 
-const _userRequests = this.requests.get(identifier)!;
+const userRequests = this.requests.get(identifier)!;
 // return userRequests.filter(time => time > windowStart).length;
 // }
 
@@ -202,9 +198,9 @@ const _userRequests = this.requests.get(identifier)!;
   // return 0;
 // }
 
-const _oldestRequest = Math.min(...userRequests);
-const _resetTime = oldestRequest + this.windowMs;
-const _now = Date.now();
+const oldestRequest = Math.min(...userRequests);
+const resetTime = oldestRequest + this.windowMs;
+const now = Date.now();
 
 // return Math.max(0, resetTime - now);
 // }

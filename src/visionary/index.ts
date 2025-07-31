@@ -4,8 +4,6 @@
 /** This system provides advanced code analysis, pattern detection, quality assessment, */
 * and refactoring recommendations through a modular, maintainable architecture.
 
- *
-@fileoverview
 Main;
 entry;
 point;
@@ -13,14 +11,13 @@ for the Visionary Software Intelligence
 System
  * @version 2.0
 0.0 - Decomposed;
-Architecture * /;;
+Architecture * /;
 
 export type {
   CodeFileData,
   PipelineConfig,
   PipelineResult,
-  ProcessingOptions,
-} from './core/pipeline-orchestrator';
+  ProcessingOptions} from './core/pipeline-orchestrator';
 ('');
 
 // Core Components'
@@ -73,7 +70,7 @@ ReportingOptions  } from '
 
 /** Unified interface for the complete software intelligence system. */
 /** This class orchestrates all components and provides a simple API */
- *
+
 for comprehensive code analysis and
 improvement;
 recommendations.
@@ -160,7 +157,7 @@ for the system
     // */; // LINT: unreachable code removed
 // export async function quickAnalysis(
   codeFiles): Promise<AnalysisReport> {
-  const _processor = new VisionarySoftwareIntelligenceProcessor();
+  const processor = new VisionarySoftwareIntelligenceProcessor();
 
   try {
 // // // await processor.initialize();
@@ -178,7 +175,7 @@ for the system
     // */; // LINT: unreachable code removed
 // export async function comprehensiveAnalysis(
   codeFiles): Promise<AnalysisReport> {
-  const _processor = new VisionarySoftwareIntelligenceProcessor({ enableAnalytics  });
+  const processor = new VisionarySoftwareIntelligenceProcessor({ enableAnalytics  });
 
   try {
 // // await processor.initialize();

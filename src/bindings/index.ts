@@ -11,13 +11,13 @@ import { dirname } from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
-const _require = createRequire(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const require = createRequire(import.meta.url);
 
-const _nativeBinding = null;
-const _wasmModule = null;
-const _useWasm = false;
+const nativeBinding = null;
+const wasmModule = null;
+const useWasm = false;
 
 /** Try to load native N-API binding first, fall back to WASM; */
 
@@ -25,8 +25,8 @@ async
 function loadBinding() {
   // Try to load native binding first
   try {
-    const { platform, arch }  catch (error) console.error(error); = process;
-    const _bindingPath = join(;
+    const { platform, arch } = process;
+    const bindingPath = join(;
       __dirname,'
       '..','
       '..','
@@ -38,12 +38,12 @@ function loadBinding() {
   } catch(/* e */) {'
     console.warn(`Failed to load native bindings);`
     try {`
-      const _wasmPath = join(__dirname, 'fallback', 'ruv_fann_wasm.js');
-// const _wasmLoader = awaitimport(wasmPath);
+      const wasmPath = join(__dirname, 'fallback', 'ruv_fann_wasm.js');
+// const wasmLoader = awaitimport(wasmPath);
       wasmModule = // await wasmLoader.default(); // Initialize WASM
       useWasm = true;'
       console.warn(' ruv-FANN WASM fallback loaded');
-    } catch (error) { console.error(error); } catch(/* wasmError */) '
+    } catch(/* wasmError */) '
       console.error('FATAL);'
       throw wasmError;
 //     }
@@ -77,7 +77,7 @@ function loadBinding() {
     //   // LINT: unreachable code removed}
 
   // static load(filename) {
-    const _network = new NeuralNetwork([1]); // Temporary
+    const network = new NeuralNetwork([1]); // Temporary
   if(useWasm) {
       network._impl = wasmModule.NeuralNetwork.load(filename);
     } else {
@@ -132,7 +132,7 @@ function loadBinding() {
 
 /** WASM fallback interface; */
 
-// export const _wasmFallback = {
+// export const wasmFallback = {
   async init() ,
   createNetwork(layers): unknown
     if(!wasmModule) '

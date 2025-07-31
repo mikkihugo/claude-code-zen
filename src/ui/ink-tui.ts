@@ -23,7 +23,7 @@ class ApiClient {
   // {
   try;
   {'
-  // const _response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/api/hives`);``
+  // const response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/api/hives`);``
   // return // // await response.json();
   //   // LINT: unreachable code removed} catch(/* _error */) {
   console;
@@ -50,9 +50,9 @@ class ApiClient {
 executeCommand(command, (args = []), (flags = {}));
 
 try {``
-// const __response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/${command}`, {method = new ApiClient();``
+// const _response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/${command}`, {method = new ApiClient();``
 
-const __SingularityAlpha = () => {
+const _SingularityAlpha = () => {
   const [_hives, setHives] = useState({});
   const [_selectedHive, setSelectedHive] = useState(null);``
   const [currentView, setCurrentView] = useState('hives'); // 'hives', 'details', 'command', 'create', '
@@ -65,13 +65,13 @@ const __SingularityAlpha = () => {
 
   useEffect(() => {
     async function loadHives() {
-// const _hivesData = awaitapiClient.fetchHives();
+// const hivesData = awaitapiClient.fetchHives();
       setHives(hivesData);
     //     }
     loadHives();
 
     // Auto-refresh every 30 seconds
-    const _interval = setInterval(loadHives, 30000);
+    const interval = setInterval(loadHives, 30000);
     // return() => clearInterval(interval);
     //   // LINT: unreachable code removed}, []);
 
@@ -83,7 +83,7 @@ const __SingularityAlpha = () => {
         setNewServiceName(')
       } else if(key.return && newServiceName.trim()) {
         // Create the service'
-// const __result = awaitapiClient.executeCommand('create', [newServiceName], {path = > prev.slice(0, -1))
+// const _result = awaitapiClient.executeCommand('create', [newServiceName], {path = > prev.slice(0, -1))
     //   // LINT: unreachable code removed} else if(!key.ctrl && !key.meta && input) {
         setNewServiceName(prev => prev + input);
       //       }
@@ -112,10 +112,10 @@ const __SingularityAlpha = () => {
     if(key.return && command.trim()) {
       setIsExecuting(true);
     // ; // LINT: unreachable code removed'
-      const _parts = command.trim().split(')
-      const _cmd = parts[0];
-      const _args = parts.slice(1);
-// const _result = awaitapiClient.executeCommand(cmd, args, {});
+      const parts = command.trim().split(')
+      const cmd = parts[0];
+      const args = parts.slice(1);
+// const result = awaitapiClient.executeCommand(cmd, args, {});
       setCommandResult(result);
       setCommandHistory(prev => [...prev, { command, result }]);
       setIsExecuting(false);')
@@ -138,13 +138,13 @@ const __SingularityAlpha = () => {
     //     }
   })
     setCurrentView('details')
-// const _hiveDetails = awaitapiClient.fetchHiveDetails(hiveName);
+// const hiveDetails = awaitapiClient.fetchHiveDetails(hiveName);
     setSelectedHive(hiveDetails)};
 
     setCommandResult(result)};
 
-  const _loadHives = async() => {
-// const _hivesData = awaitapiClient.fetchHives();
+  const loadHives = async() => {
+// const hivesData = awaitapiClient.fetchHives();
     setHives(hivesData)};
 // '
   return React.createElement(Box, {borderStyle = === 'hives' && React.createElement(Box, {flexDirection = === 1 ? "double" )
@@ -171,6 +171,6 @@ const __SingularityAlpha = () => {
   );
 
 // export function _renderTui(cli) {``
-  console.warn(' Starting Singularity Alpha TUI with API integration...')
+  console.warn(' Starting Singularity Alpha TUI with API integration...');
   render(React.createElement(SingularityAlpha, { cli}));}}
 '

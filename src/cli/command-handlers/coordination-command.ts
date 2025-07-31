@@ -35,10 +35,10 @@ try {
       case 'task-orchestrate':'
 // // // await taskOrchestrateCommand(subArgs, flags);
         break;default = flags
-  const __swarmId = options['swarm-id']  ?? options.swarmId  ?? generateId('swarm''
-  const __topology = options.topology  ?? 'hierarchical''
-  const __maxAgents = parseInt(options['max-agents']  ?? options.maxAgents  ?? '5''
-  const __strategy = options.strategy  ?? 'balanced'''
+  const _swarmId = options['swarm-id']  ?? options.swarmId  ?? generateId('swarm''
+  const _topology = options.topology  ?? 'hierarchical''
+  const _maxAgents = parseInt(options['max-agents']  ?? options.maxAgents  ?? '5''
+  const _strategy = options.strategy  ?? 'balanced'''
   console.warn(` Initializing swarm coordination...`);``
   console.warn(` SwarmID = // // await checkRuvSwarmAvailable();`
   if(isAvailable) {
@@ -46,7 +46,7 @@ try {
       console.warn(`\n Initializing real swarm with ruv-swarm...`);``
 
       // Use real ruv-swarm initialization
-// const _swarmResult = awaitinitializeSwarm({
+// const swarmResult = awaitinitializeSwarm({
         swarmId,topology = false; // Trigger fallback
     //     }
    catch (error) console.error(error)
@@ -56,12 +56,12 @@ try {
     printSuccess(` Local swarm coordination initialized successfully`);``
 ``
     console.warn(`\n COORDINATION SETUPCOMPLETE = flags;```
-  const _agentType = options.type  ?? subArgs[1]  ?? 'general''
-  const _swarmId = options['swarm-id']  ?? options.swarmId
-  const _capabilities = options.capabilities  ?? null;
+  const agentType = options.type  ?? subArgs[1]  ?? 'general''
+  const swarmId = options['swarm-id']  ?? options.swarmId
+  const capabilities = options.capabilities  ?? null;
 
   // Validate agent type'
-  const _validTypes = ['coordinator', 'coder', 'developer', 'researcher', 'analyst', 'analyzer', 'tester', 'architect', 'reviewer', 'optimizer', 'general"];")'
+  const validTypes = ['coordinator', 'coder', 'developer', 'researcher', 'analyst', 'analyzer', 'tester', 'architect', 'reviewer', 'optimizer', 'general"];")'
   if(!validTypes.includes(agentType)) {'
     printWarning(`  Unknown agent type '${agentType}'. Using 'general' instead.`);``
     agentType = 'general'; // Actually change the type to general'
@@ -78,11 +78,11 @@ try {
 // // // await new Promise((resolve) => setTimeout(resolve, 400));``
   printSuccess(` Agent spawned and coordinated successfully`);``
 ``
-  console.warn(`\n AGENT COORDINATIONDETAILS = flags;`)``
-  const _task = options.task  ?? subArgs.slice(1).join(''
-  const _swarmId = options['swarm-id''
-  const _strategy = options.strategy  ?? 'adaptive''
-  const _shareResults = options['share-results']  ?? false
+  console.warn(`\n AGENT COORDINATIONDETAILS = flags`);``
+  const task = options.task  ?? subArgs.slice(1).join(''
+  const swarmId = options['swarm-id''
+  const strategy = options.strategy  ?? 'adaptive''
+  const shareResults = options['share-results']  ?? false
   if(!task) {'
     printError('Task description is required')
     // return;

@@ -7,26 +7,22 @@ import { readFile } from 'node:fs';
 let _madge, _cruise;
 try {
   '
-  // const _madgeModule = awaitimport('madge');
+  // const madgeModule = awaitimport('madge');
   _madge = madgeModule.default ?? madgeModule
-} catch (error) {
-  console.error(error);
 }
 catch(/* _e */)
 {
   '
-  console.warn('Madge dependency analyzer not available, using fallback')
+  console.warn('Madge dependency analyzer not available, using fallback');
   _madge = null
   // }
   try {
     '
-// const _cruiserModule = awaitimport('dependency-cruiser');
+// const cruiserModule = awaitimport('dependency-cruiser');
   _cruise = cruiserModule.cruise  ?? cruiserModule.default
-  } catch (error) {
-    console.error(error);
   }
   catch(/* _e */) '
-  console.warn('Dependency-cruiser not available, using fallback')
+  console.warn('Dependency-cruiser not available, using fallback');
   _cruise = null
   // }
   // export class DependencyAnalyzer {
@@ -38,7 +34,7 @@ catch(/* _e */)
     console.warn(` Analyzing dependencies in =
         dependencies = // await this.analyzeMadge(targetPath);`
           // Use dependency-cruiser for more detailed analysis
-          // const _cruiserResults = awaitthis.analyzeCruiser(targetPath);
+          // const cruiserResults = awaitthis.analyzeCruiser(targetPath);
 
           // Merge results
           results.dependencies = this.mergeDependencyResults(madgeResults, cruiserResults)
@@ -67,17 +63,17 @@ catch(/* _e */)
           for (const [file, deps] of Object.entries(madgeResults.tree ?? {})) {
             for (const dep of deps ?? []) {
               `;
-        const _key = `;
+        const key = `;
               $file->$dep`;
         dependencies.set(key, {id = `
               $dep.from->$dep.to`;
         )
         if(dependencies.has(key) {) {
-        const _existing = dependencies.get(key);
+        const existing = dependencies.get(key);
         dependencies.set(key, {)
 ..existing,type = = false,rules = = false,dynamic = new Set();
-    const __totalDeps = 0;
-    const _maxDepth = 0;
+    const _totalDeps = 0;
+    const maxDepth = 0;
 
     // Collect unique files and count dependencies
   for(const dep of results.dependencies) {
@@ -86,25 +82,25 @@ catch(/* _e */)
 
     // Calculate depth(simplified - just count levels in paths) {
   for(const file of files) {`
-              const _depth = file.split('/').length;
+              const depth = file.split('/').length;
               maxDepth = Math.max(maxDepth, depth); //     }
               '
               // return {totalFiles = '.') {
               if (!_madge) {
                 '
-      console.warn('Madge not available, circular dependency detection limited')
+      console.warn('Madge not available, circular dependency detection limited');
                 // return {cycles = // await madge(targetPath, {fileExtensions = tree.circular(); // LINT: unreachable code removed
-                const _circularPaths = [];
+                const circularPaths = [];
                 for (const cycle of circular) {
                   circularPaths.push({
           id = {nodes = graph.nodes.size;
-                  const _edgeCount = graph.edges.size; // Graph density
+                  const edgeCount = graph.edges.size; // Graph density
                   graph.metrics.density = nodeCount > 1 ? ;
                   2 * edgeCount;
                   {
                     /      (())*-1;CCddeennnnoooottuu;
                     // Find central files(high degree)
-                    const _sortedNodes = Array.from(graph.nodes.values());
+                    const sortedNodes = Array.from(graph.nodes.values());
                     sort((a, b) => b.inDegree + b.outDegree - (a.inDegree + a.outDegree));
 
                     graph.metrics.centralFiles = sortedNodes.slice(0, 5).map(_node => ({file = [];
@@ -124,7 +120,7 @@ catch(/* _e */)
   calculateCycleImpact(cycle)
                         {
                           // Simplified impact calculation based on cycle length and file types
-                          const _impact = cycle.length;
+                          const impact = cycle.length;
 
                           // Higher impact for certain file types
                           for (const file of cycle) {
@@ -142,29 +138,29 @@ catch(/* _e */)
                                 '
   exportForVisualization(dependencies, format = 'json')
                                 {
-                                  const _nodes = new Set();
-                                  const __edges = [];
+                                  const nodes = new Set();
+                                  const _edges = [];
                                   for (const _dep of dependencies) {
                                     nodes.add({ id = {nodes = [];
                                     for (const node of data.nodes) {
                                       elements.push({data = > ({
-..node,))'
+..node))'
         index;
                                     }
                                     ) ),links = > (
                                     {
                                       source = // await import('
                                       const { join } = // await import('node);'
-                                      // const _files = awaitthis.getAllJSFiles(targetPath);
+                                      // const files = awaitthis.getAllJSFiles(targetPath);
 
-                                      const __dependencies = [];
-                                      const _fileMap = new Map();
+                                      const _dependencies = [];
+                                      const fileMap = new Map();
                                       for (const filePath of files) {
                                         try {'
-// const _content = awaitreadFile(filePath, 'utf8'); 
-        const _imports = this.extractImportsRegex(content, filePath); fileMap.set(filePath, {
+// const content = awaitreadFile(filePath, 'utf8'); 
+        const imports = this.extractImportsRegex(content, filePath); fileMap.set(filePath, {
           imports,
-          exports = {} catch (error) { console.error(error); };
+          exports = {};
   for(const [filePath, fileInfo] of fileMap) {
       dependencyTree[filePath] = fileInfo.imports.map(imp => imp.source);
     //     }
@@ -172,12 +168,12 @@ catch(/* _e */)
     return {tree = // await import('
     // const { join  // LINT: unreachable code removed} = // await import('node);'
 
-    const _files = [];'
-    const _extensions = ['.js', '.jsx', '.ts', '.tsx'];
+    const files = [];'
+    const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
     async function walk(currentPath = // await readdir(currentPath);
   for(const entry of entries) {
-          const _fullPath = join(currentPath, entry); // const _stats = awaitstat(fullPath); 
+          const fullPath = join(currentPath, entry); // const stats = awaitstat(fullPath); 
   if(stats.isDirectory() {) 
             // Skip common ignored directories'
             if(!['node_modules', '.git', 'dist', 'build'].includes(entry)) {
@@ -193,7 +189,7 @@ catch(/* _e */)
     while((match = importPattern.exec(content)) !== null) {
       imports.push({source = requirePattern.exec(content)) !== null) {
       imports.push({source = [];)
-    const _exportPattern = /export\s+(?)?(?)\s+(\w+)/g;
+    const exportPattern = /export\s+(?)?(?)\s+(\w+)/g;
 
     let match;
     while((match = exportPattern.exec(content)) !== null) {
@@ -206,14 +202,14 @@ catch(/* _e */)
 /** Find orphan files(no imports) */
 
   findOrphanFiles(files, dependencies) {
-    const _referencedFiles = new Set(dependencies.map(d => d.to));
+    const referencedFiles = new Set(dependencies.map(d => d.to));
 //     return files.filter(file => !referencedFiles.has(file));
     //   // LINT: unreachable code removed}
 
 /** Find leaf files(no exports used) */
 
   findLeafFiles(files, dependencies) {
-    const _importingFiles = new Set(dependencies.map(d => d.from));
+    const importingFiles = new Set(dependencies.map(d => d.from));
 //     return files.filter(file => !importingFiles.has(file));
     //   // LINT: unreachable code removed}
 // }

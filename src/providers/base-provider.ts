@@ -39,8 +39,8 @@ export abstract class BaseProvider extends EventEmitter implements IBaseProvider
   healthCheck();
 // }
 // return {name = [...this.responseTimeHistory].sort((a, b) => a - b);
-// const _p95Index = Math.floor(sorted.length * 0.95); // LINT: unreachable code removed
-const _p99Index = Math.floor(sorted.length * 0.99);
+// const p95Index = Math.floor(sorted.length * 0.95); // LINT: unreachable code removed
+const p99Index = Math.floor(sorted.length * 0.99);
 this.metrics.latencyP95 = sorted[p95Index] ?? 0;
 this.metrics.latencyP99 = sorted[p99Index] ?? 0;
 // }
@@ -67,7 +67,7 @@ validateRequest(request)
 // }
 protected;
 calculateCost(usage = (usage.promptTokens / 1000) * this.pricing.inputTokenPrice;
-const _outputCost = (usage.completionTokens / 1000) * this.pricing.outputTokenPrice;
+const outputCost = (usage.completionTokens / 1000) * this.pricing.outputTokenPrice;
 // return inputCost + outputCost;
 // }
 // protected
@@ -122,15 +122,13 @@ delay = this.config.retryDelay ?? 1000;
 // 
 : Promise<T>
 // {
-  const _lastError = 0;
+  const lastError = 0;
   attempt <= maxRetries;
   attempt++;
   //   
   try {
     // return // await operation();
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
     lastError = error;
 '
     // Don't retry on certain error types'

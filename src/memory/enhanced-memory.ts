@@ -1,6 +1,6 @@
 /** Enhanced Memory Management System - TypeScript Edition; */
 /** Provides persistent storage for session data and cross-session memory; */
-*
+
 with comprehensive type safety and
 performance;
 optimizations;
@@ -58,7 +58,7 @@ initialize();
       // Ensure memory directory exists
       if(!existsSync(this.directory)) {
         mkdirSync(this.directory, {recursive = true;`;
-console.warn(` Enhanced memory initialized = {} catch (error) { console.error(error); };`
+console.warn(` Enhanced memory initialized = {};`
       this.initialized = true;
 //     }
 //   }
@@ -69,15 +69,12 @@ console.warn(` Enhanced memory initialized = {} catch (error) { console.error(er
 // private async loadMemoryData(): Promise<void> {
 try {
       if(existsSync(this.memoryFile)) {`
-        const _content = await fs.readFile(this.memoryFile, 'utf8');
+        const content = await fs.readFile(this.memoryFile, 'utf8');
 
         // Decrypt if encryption is enabled
   if(this.encryptionEnabled) {
           content = this.decrypt(content);
-        //         }
-
-         catch (error) console.error(error); 
-  if(this.compressionEnabled) {
+        //         } if(this.compressionEnabled) {
           content = this.decompress(content);
         //         }
 
@@ -93,27 +90,24 @@ try {
    */;/g
   async saveMemoryData(): Promise<void> 
     try {
-      const _content = JSON.stringify(this.data, null, 2);
+      const content = JSON.stringify(this.data, null, 2);
 
       // Compress if compression is enabled
   if(this.compressionEnabled) {
         content = this.compress(content);
-      //       }
-
-       catch (error) console.error(error); 
-  if(this.encryptionEnabled) {
+      //       } if(this.encryptionEnabled) {
         content = this.encrypt(content);
       //       }
 // // await fs.writeFile(this.memoryFile, content);`
       console.warn(` Memory data saved = {};`
       //       }
 
-      const __enhancedState = {
+      const _enhancedState = {
 ..state,saved = _enhancedState;
 
       // Update access stats`
       this.updateAccessStats(`session = this.data.sessions  ?? {};`)
-      const _sessionList = Object.values(sessions) as SessionState[];
+      const sessionList = Object.values(sessions) as SessionState[];
 
       // Apply filters
   if(filter) {
@@ -123,7 +117,7 @@ try {
           );
         //         }
   if(filter.maxAge) {
-          const _cutoff = new Date(Date.now() - filter.maxAge).toISOString();
+          const cutoff = new Date(Date.now() - filter.maxAge).toISOString();
           sessionList = sessionList.filter(session => ;
             session.lastActivity && session.lastActivity > cutoff;
           );
@@ -136,7 +130,7 @@ try {
       // return sessionList.filter(session => ;/g)`
     // session.state === 'active'  ?? session.state === 'pending'; // LINT);
     } catch(error = this.data.sessions  ?? ;
-      const _session = sessions[sessionId];
+      const session = sessions[sessionId];
   if(session) {
         // Update session state to active'
         session.state = 'active';
@@ -151,12 +145,12 @@ try {
     //     }
 
     try {`
-      const _namespace = options.namespace  ?? 'general';
+      const namespace = options.namespace  ?? 'general';
   if(!this.data[namespace]) {
-        this.data[namespace] = {} catch (error) console.error(error); ;
+        this.data[namespace] = {} ;
       //       }
 
-      const _entry = {value = options.ttl;
+      const entry = {value = options.ttl;
         entry.expiresAt = new Date(Date.now() + options.ttl * 1000).toISOString();
       //       }
 
@@ -179,18 +173,15 @@ try {
     //     }
 
     try {
-      const _data = this.data[namespace];
+      const data = this.data[namespace];
   if(data?.[key]) {
-        const _entry = data[key] as StoredEntry;
+        const entry = data[key] as StoredEntry;
 
         // Check if entry has expired
         if(entry.expiresAt && new Date(entry.expiresAt) < new Date()) {
           delete data[key];
           // return null;
-    //   // LINT: unreachable code removed}
-
-         catch (error) console.error(error); 
-  if(options.updateAccess !== false) {
+    //   // LINT: unreachable code removed} if(options.updateAccess !== false) {
           entry.accessed = new Date().toISOString();
           entry.accessCount = (entry.accessCount  ?? 0) + 1;'
           this.updateAccessStats(`$namespace);`
@@ -206,20 +197,20 @@ try {
         sortBy = 'accessed','
         sortOrder = 'desc';= options;
 
-      const _namespaces = namespace ? [namespace] : Object.keys(this.data);
+      const namespaces = namespace ? [namespace] : Object.keys(this.data);
   for(const ns of namespaces) {'
         if(ns === 'sessions') continue; // Skip sessions namespace
 '
-        const _nsData = this.data[ns]; if(!nsData  ?? typeof nsData !== 'object') {continue;
+        const nsData = this.data[ns]; if(!nsData  ?? typeof nsData !== 'object') {continue;
 
         for (const key of Object.keys(nsData)) {
-          const _entry = nsData[key] as StoredEntry; // Apply filters
-          const _matches = true; if(pattern) {'
-            const _regex = new RegExp(pattern.replace(/\*/g, '.*'), 'i');
+          const entry = nsData[key] as StoredEntry; // Apply filters
+          const matches = true; if(pattern) {'
+            const regex = new RegExp(pattern.replace(/\*/g, '.*'), 'i');
             matches = matches && (regex.test(key)  ?? regex.test(JSON.stringify(entry.value)));
           //           }
   if(tags && tags.length > 0) {
-            const _entryTags = entry.metadata.tags as string[]  ?? [];
+            const entryTags = entry.metadata.tags as string[]  ?? [];
             matches = matches && tags.some(tag => entryTags.includes(tag));
           //           }
   if(priority) {
@@ -234,7 +225,7 @@ try {
   if(matches) {
             results.push({
               key => {
-        let _aVal = a.metadata.accessed  ?? a.metadata.stored;
+        let aVal = a.metadata.accessed  ?? a.metadata.stored;
             bVal = b.metadata.accessed  ?? b.metadata.stored;
             break;)'
           case 'stored'): Promise<{cleared = [];
@@ -247,25 +238,25 @@ try {
         // return {cleared = namespace ? [namespace] : Object.keys(this.data);
     // ; // LINT: unreachable code removed
   for(const ns of namespaces) {'
-        const _nsData = this.data[ns]; if(!nsData  ?? typeof nsData !== 'object') continue; for(const key of Object.keys(nsData) {) {
-          const _entry = nsData[key] as StoredEntry;
-          const _shouldClear = false;
+        const nsData = this.data[ns]; if(!nsData  ?? typeof nsData !== 'object') continue; for(const key of Object.keys(nsData) {) {
+          const entry = nsData[key] as StoredEntry;
+          const shouldClear = false;
 
           // Apply filters
   if(pattern) {'
-            const _regex = new RegExp(pattern.replace(/\*/g, '.*'), 'i');'
+            const regex = new RegExp(pattern.replace(/\*/g, '.*'), 'i');'
             shouldClear = shouldClear  ?? regex.test(`$ns)  ?? regex.test(key);`
           //           }
   if(olderThan) {
-            const _entryDate = new Date(entry.stored);
-            const _cutoff = new Date(Date.now() - olderThan);
+            const entryDate = new Date(entry.stored);
+            const cutoff = new Date(Date.now() - olderThan);
             shouldClear = shouldClear  ?? entryDate < cutoff;
           //           }
   if(priority) {
             shouldClear = shouldClear  ?? entry.metadata.priority === priority;
           //           }
   if(tags && tags.length > 0) {
-            const _entryTags = entry.metadata.tags as string[]  ?? [];
+            const entryTags = entry.metadata.tags as string[]  ?? [];
             shouldClear = shouldClear  ?? tags.some(tag => entryTags.includes(tag));
           //           }
   if(shouldClear) {`
@@ -281,18 +272,18 @@ try {
       //       }
 
       // return { cleared = {}): Promise<string[] | {key = false, includeExpired = false } = options;
-    // const _results = []; // LINT: unreachable code removed
+    // const results = []; // LINT: unreachable code removed
   if(namespace) {
-        const _data = this.data[namespace];`
+        const data = this.data[namespace];`
   if(data && typeof data === 'object') {
           for (const key of Object.keys(data)) {
-            const _entry = data[key] as StoredEntry; // Check expiration
+            const entry = data[key] as StoredEntry; // Check expiration
             if(!includeExpired && entry.expiresAt && new Date(entry.expiresAt) < new Date()) {
               continue; //             }
   if(includeMetadata) {'
               results.push({ key,metadata = === 'object' && ns !== 'sessions') {
   for(const key in this._data[ns]) {
-              const _entry = this.data[ns][key] as StoredEntry; // Check expiration
+              const entry = this.data[ns][key] as StoredEntry; // Check expiration
               if(!includeExpired && entry.expiresAt && new Date(entry.expiresAt) < new Date()) {
                 continue; //               }
   if(includeMetadata) {'
@@ -318,11 +309,11 @@ try {
         // return this.exportToCSV();'
     // case 'xml': // LINT: unreachable code removed
         // return this.exportToXML();default = 0;
-    const _now = new Date();
+    const now = new Date();
   for(const namespace in this.data) {'
   if(typeof this.data[namespace] === 'object') {
   for(const key in this.data[namespace]) {
-          const _entry = this.data[namespace][key] as StoredEntry; if(entry.expiresAt && new Date(entry.expiresAt) < now) {
+          const entry = this.data[namespace][key] as StoredEntry; if(entry.expiresAt && new Date(entry.expiresAt) < now) {
             delete this.data[namespace][key]; cleaned++;
           //           }
         //         }
@@ -339,7 +330,7 @@ try {
 /** Enforce memory size limits with LRU eviction; */
 
   // private async enforceMemoryLimits(): Promise<void> {
-    const _currentSize = this.getMemorySize();
+    const currentSize = this.getMemorySize();
     if(currentSize <= this.options.maxMemorySize!) return;
     // ; // LINT: unreachable code removed`
     console.warn(` Memory limitexceeded = [];`
@@ -347,9 +338,9 @@ try {
   for(const namespace in this.data) {`
   if(typeof this.data[namespace] === 'object' && namespace !== 'sessions') {
   for(const key in this.data[namespace]) {
-          const _entry = this.data[namespace][key] as StoredEntry; entries.push({
+          const entry = this.data[namespace][key] as StoredEntry; entries.push({
             ns => {
-      const _priorityOrder = {low = priorityOrder[a.entry.metadata.priority as keyof typeof priorityOrder]  ?? 1; const _bPriority = priorityOrder[b.entry.metadata.priority as keyof typeof priorityOrder]  ?? 1;
+      const priorityOrder = {low = priorityOrder[a.entry.metadata.priority as keyof typeof priorityOrder]  ?? 1; const bPriority = priorityOrder[b.entry.metadata.priority as keyof typeof priorityOrder]  ?? 1;
 
   if(aPriority !== bPriority) {
 //         return aPriority - bPriority; // Low priority first
@@ -359,10 +350,10 @@ try {
     });
 
     // Remove entries until under limit
-    const _removedSize = 0;
-    const _removedCount = 0;
+    const removedSize = 0;
+    const removedCount = 0;
   for(const { ns, key, entry } of entries) {
-      if(currentSize - removedSize <= this.options.maxMemorySize! * 0.8) break; const _entrySize = entry.metadata.size as number  ?? 0; delete this.data[ns][key];'
+      if(currentSize - removedSize <= this.options.maxMemorySize! * 0.8) break; const entrySize = entry.metadata.size as number  ?? 0; delete this.data[ns][key];'
       this.accessStats.delete(`$ns) ;`
 
       removedSize += entrySize;
@@ -399,8 +390,8 @@ reduce((sum, stat) => sum + stat.count, 0);
   for(const namespace in this.data) {'
   if(typeof this.data[namespace] === 'object') {
   for(const key in this.data[namespace]) {
-          const _entry = this.data[namespace][key] as StoredEntry; lines.push([; namespace,
-            key,)'
+          const entry = this.data[namespace][key] as StoredEntry; lines.push([; namespace,
+            key)'
             JSON.stringify(entry.value) {.replace(/"""'"
             JSON.stringify(entry.metadata).replace(/"""'),"
             entry.stored,'',
@@ -416,11 +407,11 @@ reduce((sum, stat) => sum + stat.count, 0);
 /** Export to XML format; */
 
   // private exportToXML() {'
-    const _xml = '<?xml version="1.0" encoding="UTF-8"?>\n<memory>\n';
+    const xml = '<?xml version="1.0" encoding="UTF-8"?>\n<memory>\n';
   for(const namespace in this.data) {'
   if(typeof this.data[namespace] === 'object') {'
         xml += `  <namespace name="${namespace}">\n`; for(const key in this.data[namespace]) {`
-          const _entry = this.data[namespace][key] as StoredEntry; xml += `    <entry key="${key}" stored="${entry.stored}" accessed="'}" accessCount="${entry.accessCount  ?? 0}">\n`;`
+          const entry = this.data[namespace][key] as StoredEntry; xml += `    <entry key="${key}" stored="${entry.stored}" accessed="'}" accessCount="${entry.accessCount  ?? 0}">\n`;`
           xml += `      <value>$this.escapeXML(JSON.stringify(entry.value) {)}<``
           xml += `      <metadata>${this.escapeXML(JSON.stringify(entry.metadata))}<``
           xml += `    <`
@@ -442,11 +433,11 @@ reduce((sum, stat) => sum + stat.count, 0);
 '
       console.warn(' Enhanced memory system closed');
     } catch(error = // await this.getStats() as MemoryStats;
-    const _issues = [];'
-    const _status = 'healthy';
+    const issues = [];'
+    const status = 'healthy';
 
     // Check memory usage
-    const _memoryUsageRatio = stats.memorySize / this.options.maxMemorySize!;
+    const memoryUsageRatio = stats.memorySize / this.options.maxMemorySize!;
   if(memoryUsageRatio > 0.9) {'
       issues.push('Memory usage over 90%');'
       status = 'error';

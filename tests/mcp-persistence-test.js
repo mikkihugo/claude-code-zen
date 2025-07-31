@@ -23,16 +23,14 @@ let sqlite3;
 try {
   '
   sqlite3 = ( // await import('sqlite3')).default;
-} catch (error) {
-  console.error(error);
 }
 '
   console.warn('sqlite3 not available for MCP persistence tests);'
 // }
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // Colors for output
-const _colors = {'
+const colors = {'
   green: '\x1b[32m','
 red: '\x1b[31m','
 yellow: '\x1b[33m','
@@ -70,7 +68,7 @@ class MCPPersistenceTest {
       throw new Error('sqlite3 module not available - skipping database query');
     //     }
     // return new Promise((resolve, reject) => {
-      const _db = new sqlite3.Database(this.dbPath);
+      const db = new sqlite3.Database(this.dbPath);
       // db.all(query, (err, rows) => { // LINT: unreachable code removed
       db.close();
       if(err) reject(err);
@@ -83,31 +81,31 @@ testMemoryUsageTool();
   this.log('\n Testing memory_usage tool...', 'blue');
   // Store test data'
   // // await this.runTest('memory_usage store operation', async() => {'
-    const _key = `test_$Date.now()`;
-    const _value = { test, timestamp: new Date().toISOString() };
-    const _result = execSync(;`
+    const key = `test_$Date.now()`;
+    const value = { test, timestamp: new Date().toISOString() };
+    const result = execSync(;`
     `node src/cli/cli-main.js mcp call memory_usage '{"action": 'store', "key": '${key}', "value": ${JSON.stringify(JSON.stringify(value))}, "namespace": "test"}'`,`
     encoding: 'utf8';
     //     )'"success""stored")) {"
       throw new Error('Store operation failed');
     //     }
     // Verify in database
-// const _rows = awaitthis.queryDatabase(;'
+// const rows = awaitthis.queryDatabase(;'
     `SELECT * FROM memory_entries WHERE key = '${key}' AND namespace = 'test'`;
     //     
   if(rows.length === 0) {`
       throw new Error('Data not found in database'););
   // Retrieve test data'
   // // await this.runTest('memory_usage retrieve operation', async() => {'
-    const _key = `test_retrieve_${Date.now()}`;
-    const _value = { retrieve, time: Date.now() };
+    const key = `test_retrieve_${Date.now()}`;
+    const value = { retrieve, time: Date.now() };
     // First store
     execSync(;`
     `npx claude-zen@alpha mcp call memory_usage '{"action": 'store', "key": '$key', "value": ${JSON.stringify(JSON.stringify(value))}, "namespace": "test"}'`,`
     encoding: 'utf8';
     //     
     // Then retrieve
-    const _result = execSync(;'
+    const result = execSync(;'
     `node src/cli/cli-main.js mcp call memory_usage '{"action": 'retrieve', "key": '$key', "namespace": "test"}'`,`
     encoding: 'utf8';
     //     )'"found"'
@@ -116,7 +114,7 @@ testMemoryUsageTool();
   });
   // List operation'
   // // await this.runTest('memory_usage list operation', async() => {
-    const _result = execSync(;'
+    const result = execSync(;'
     `node src/cli/cli-main.js mcp call memory_usage '{"action": 'list', "namespace": "test"}'`,`
     encoding: 'utf8';
     //     )'"success"'
@@ -130,8 +128,8 @@ testAgentSpawnPersistence();
 this.log('\n Testing agent_spawn persistence...', 'blue');
 '
 // // await this.runTest('agent_spawn creates database records', async() => {'
-const _agentName = `test_agent_${Date.now()}`;
-const _result = execSync(;
+const agentName = `test_agent_${Date.now()}`;
+const result = execSync(;
 `
     `;
 node;
@@ -165,8 +163,8 @@ testSwarmInitPersistence();
 this.log('\n Testing swarm_init persistence...', 'blue');
 '
 // // await this.runTest('swarm_init persists configuration', async() => {'
-const _swarmId = `test_swarm_${Date.now()}`;
-const _result = execSync(;
+const swarmId = `test_swarm_${Date.now()}`;
+const result = execSync(;
 `
     `;
 node;
@@ -184,7 +182,7 @@ encoding: 'utf8';
 throw new Error('Swarm init failed');
 //     }
 // Verify some persistence happened
-// const _rows = awaitthis.queryDatabase(;/g)'
+// const rows = awaitthis.queryDatabase(;/g)'
 `SELECT COUNT(*)  FROM memory_entries WHERE created_at > datetime('now', '-1 minute')`;
 //
 if (rows[0].count === 0) {
@@ -198,11 +196,11 @@ testHooksPersistence();
 // {'
   this.log('\n Testing hooks persistence...', 'blue');'
   // // await this.runTest('Hooks persist to SQLite', async() => {'
-    const _message = `;
+    const message = `;
   Test;
   hook;
   $Date.now()`;
-    const _result = execSync(;``node src/cli/cli-main.js hooks notify --message "${message}" --level "test"`,
+    const result = execSync(;``node src/cli/cli-main.js hooks notify --message "${message}" --level "test"`,
     `
     encoding: 'utf8';
     //     )'
@@ -210,7 +208,7 @@ testHooksPersistence();
       throw new Error('Hook notification not saved');
     //     }
     // Verify in database
-// const _rows = awaitthis.queryDatabase(;'
+// const rows = awaitthis.queryDatabase(;'
     `;
   SELECT * FROM;
   messages;
@@ -237,7 +235,7 @@ testDatabaseStructure();
 this.log('\n Testing database structure...', 'blue');
 '
   // // await this.runTest('memory_entries table exists', async() => {
-// const _tables = awaitthis.queryDatabase(;'
+// const tables = awaitthis.queryDatabase(;'
     `SELECT name FROM sqlite_master WHERE
 type = 'table';
 AND;
@@ -249,7 +247,7 @@ throw new Error('memory_entries table not found');
 })
 '
   // // await this.runTest('messages table exists', async() => {
-// const _tables = awaitthis.queryDatabase(;'
+// const tables = awaitthis.queryDatabase(;'
     `SELECT name FROM sqlite_master WHERE
 type = 'table';
 AND;
@@ -261,7 +259,7 @@ throw new Error('messages table not found');
 })
 '
   // // await this.runTest('Database indexes exist', async() => {
-// const _indexes = awaitthis.queryDatabase(;'
+// const indexes = awaitthis.queryDatabase(;'
     `SELECT name FROM sqlite_master WHERE
 type = 'index';
 AND;
@@ -280,19 +278,19 @@ testConcurrentAccess();
 this.log('\n Testing concurrent database access...', 'blue');
 '
 // // await this.runTest('Concurrent writes succeed', async() => {
-const _promises = [];
+const promises = [];
 // Spawn 5 concurrent write operations
 for(let i = 0; i < 5; i++) {'
-      const _key = `concurrent_${Date.now()}_${i}`;
+      const key = `concurrent_${Date.now()}_${i}`;
       promises.push(;)
       new Promise((resolve, reject) => 
         try {
-              const _result = execSync(;`
+              const result = execSync(;`
                 `npx claude-zen@alpha mcp call memory_usage '{"action");'"success"'
         throw new Error('Concurrent write failed'); //       }
     //     }
     // Verify all entries in database
-// const _rows = awaitthis.queryDatabase(; /g)'
+// const rows = awaitthis.queryDatabase(; /g)'
     `SELECT COUNT(*) {FROM memory_entries WHERE namespace = 'concurrent'`;
     //     
   if(rows[0].count < 5) {`
@@ -314,7 +312,7 @@ generateReport();
   } else {'
     this.log('\n Some tests failed. Review the results above.', 'red');
     // Show failed tests
-    const _failed = this.testResults.filter((r) => !r.passed);
+    const failed = this.testResults.filter((r) => !r.passed);
   if(failed.length > 0) {'
       this.log('\nFailed Tests);'
       failed.forEach((test) => {'
@@ -328,8 +326,8 @@ generateReport();
 async;
 saveResults();
 // {
-  const _timestamp = new Date().toISOString();
-  const _results = {
+  const timestamp = new Date().toISOString();
+  const results = {
       timestamp,
   totalTests: this.testCount,
   passed: this.passedCount,
@@ -345,7 +343,7 @@ execSync(;`
   encoding: 'utf8';
 
 // Also save to file'
-const _resultsPath = path.join(__dirname, 'mcp-persistence-test-results.json');
+const resultsPath = path.join(__dirname, 'mcp-persistence-test-results.json');
 fs.writeFileSync(resultsPath, JSON.stringify(results, null, 2));'
 this.log(`\n Results saved to);`
 // }
@@ -358,15 +356,14 @@ this.log(`\n Results saved to);`
       // Ensure MCP server is available'
       this.log('\n Checking MCP server availability...', 'yellow');'
       execSync('node src/cli/cli-main.js mcp list', encoding);'
-      this.log(' MCP server is available', 'green');catch (error) 
-  console.error(error);'
+      this.log(' MCP server is available', 'green'); '
       this.log(`\n Fatal error);`
       process.exit(1);
     //     }
 // }
 // }
 // Run the tests
-const _tester = new MCPPersistenceTest();
+const tester = new MCPPersistenceTest();
 tester.run().catch(console.error);
 
 }}}

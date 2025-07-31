@@ -9,14 +9,14 @@ export class ModeValidator {
 async;
 testAllModes();
 // {
-  const _result = {success = await this.checkSparcInitialization();
+  const result = {success = await this.checkSparcInitialization();
   if(!sparcInitialized.initialized) {
     result.warnings.push('SPARC not initialized - mode testing skipped');
     // return result;
     //   // LINT: unreachable code removed}
 
   // Get available modes
-// const _availableModes = awaitthis.getAvailableModes();
+// const availableModes = awaitthis.getAvailableModes();
   if(availableModes.length === 0) {'
     result.warnings.push('No SPARC modes found for testing');
     // return result;
@@ -24,7 +24,7 @@ testAllModes();
 
   // Test each mode
   for(const mode of availableModes) {
-// const _modeTest = awaitthis.testMode(mode); 
+// const modeTest = awaitthis.testMode(mode); 
     result.modes[mode] = modeTest; if(!modeTest.success) {
       result.success = false;'
       result.errors.push(`Mode $modefailedtesting = false;`)`
@@ -64,7 +64,7 @@ testAllModes();
   async;
   checkSparcInitialization();
   //   {`
-    const _result = {initialized = await node.stat(`${this.workingDir}`
+    const result = {initialized = await node.stat(`${this.workingDir}`
     result.hasRoomodes = stat.isFile;
   //   }
   catch ;`
@@ -72,7 +72,7 @@ testAllModes();
 
   // Check for claude-zen executable
   try {'
-// const _stat = awaitnode.stat(`$this.workingDircatch (error) console.error(error); /claude-zen`);
+// const stat = awaitnode.stat(`$this.workingDir /claude-zen`);
     result.hasExecutable = stat.isFile;
   } catch {`
     result.error = 'claude-zen executable not found';
@@ -90,13 +90,13 @@ catch(error)
 
   async getAvailableModes();
 // {
-  const _modes = [];
+  const modes = [];
 
   try {
     // Try to get modes from .roomodes'
-    const _roomodesPath = `$this.workingDircatch (error) console.error(error); `
-// const _content = awaitnode.readTextFile(roomodesPath);
-    const _config = JSON.parse(content);`
+    const roomodesPath = `$this.workingDir `
+// const content = awaitnode.readTextFile(roomodesPath);
+    const config = JSON.parse(content);`
   if(config.modes && typeof config.modes === 'object') {
       modes.push(...Object.keys(config.modes));
     //     }
@@ -122,20 +122,20 @@ async;
 testModeAccess(modeName);
 
 // {'
-    const _result = {success = new node.Command('./claude-zen', {args = // await command.output();
+    const result = {success = new node.Command('./claude-zen', {args = // await command.output();
   if(success) {
         result.success = true;
       } else {
-        const __errorOutput = new TextDecoder().decode(stderr);'
+        const _errorOutput = new TextDecoder().decode(stderr);'
         result.error = `Mode notaccessible = `Failed to test mode access = {success = `${this.workingDir}`
-// const _content = awaitnode.readTextFile(roomodesPath);
-      const _config = JSON.parse(content);
+// const content = awaitnode.readTextFile(roomodesPath);
+      const config = JSON.parse(content);
   if(!config.modes  ?? !config.modes[modeName]) {`
         result.error = `Mode $modeNamenot found in configuration`;
         // return result;
     //   // LINT: unreachable code removed}
 
-      const _modeConfig = config.modes[modeName];
+      const modeConfig = config.modes[modeName];
 
       // Basic validation`
   if(typeof modeConfig !== 'object') {'
@@ -144,7 +144,7 @@ testModeAccess(modeName);
     //   // LINT: unreachable code removed}
 
       // Check for required fields`
-      const _requiredFields = ['description'];
+      const requiredFields = ['description'];
   for(const field of requiredFields) {
   if(!modeConfig[field]) {'
           result.error = `Mode $modeNamemissing requiredfield = true; `
@@ -154,12 +154,12 @@ testModeAccess(modeName);
         result.success = true;
       } else {`
         // Check if it's just because --dry-run isn't supported
-        const _errorOutput = new TextDecoder().decode(stderr);'
+        const errorOutput = new TextDecoder().decode(stderr);'
         if(errorOutput.includes('dry-run')  ?? errorOutput.includes('unknown flag')) {
           // Try without dry-run but with a safe test task'
-          const _testCommand = new node.Command('./claude-zen', {args = // await testCommand.output();
+          const testCommand = new node.Command('./claude-zen', {args = // await testCommand.output();
   if(testResult.success) {
-            const _output = new TextDecoder().decode(testResult.stdout);
+            const output = new TextDecoder().decode(testResult.stdout);
             result.success = output.includes(modeName);
   if(!result.success) {'
               result.error = `Mode $modeNamenot listed in available modes`;
@@ -172,25 +172,22 @@ testModeAccess(modeName);
       result.error = `Execution test failed = {success = `$this.workingDir/.roo/workflows`;`
 
       try {
-        const _entries = [];
+        const entries = [];
         for // await(const entry of node.readDir(workflowDir)) {`
           if(entry.isFile && entry.name.endsWith('.json')) {
             entries.push(entry.name);
-          //           }
-         catch (error) console.error(error); 
-
-        // Test each workflow file
+          //           } // Test each workflow file
   for(const workflowFile of entries) {
-// const _workflowTest = awaitthis.testWorkflowFile(workflowFile); 
+// const workflowTest = awaitthis.testWorkflowFile(workflowFile); 
           result.workflows[workflowFile] = workflowTest; if(!workflowTest.success) {'
             result.warnings.push(`Workflow $workflowFilehasissues = === 0) ``
           result.warnings.push('No workflow files found');catch '
         result.warnings.push('Workflow directory not accessible');catch(error) '
       result.errors.push(`Workflow testing failed = success = `${this.workingDir}/.roo/workflows/${filename}`;`/g)
-// const _content = awaitnode.readTextFile(workflowPath);
+// const content = awaitnode.readTextFile(workflowPath);
 
       // Parse JSON
-      const _workflow = JSON.parse(content);
+      const workflow = JSON.parse(content);
 
       // Basic validation`
   if(typeof workflow !== 'object'  ?? workflow === null) {
@@ -200,7 +197,7 @@ testModeAccess(modeName);
     //   // LINT: unreachable code removed}
 
       // Check for recommended fields'
-      const _recommendedFields = ['name', 'description', 'steps'];
+      const recommendedFields = ['name', 'description', 'steps'];
   for(const field of recommendedFields) {
         if(!(field in workflow)) {'
           result.success = false; result.error = `Missing recommendedfield = false; ``

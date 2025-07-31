@@ -25,9 +25,7 @@ async function demonstrateArchitectureAnalysis() {
       context: {
         budget: 'limited',
         team: 'small',
-        timeline: 'aggressive',
-      },
-    },
+        timeline: 'aggressive'}},
     {
       id: 'scenario-2',
       type: 'architecture-analysis',
@@ -35,11 +33,8 @@ async function demonstrateArchitectureAnalysis() {
       context: {
         scale: 'massive',
         requirements: {
-          realTime: true,
-          highAvailability: true,
-        },
-      },
-    },
+          realTime: 0,
+          highAvailability: true}}},
   ];
 
   // Process each scenario

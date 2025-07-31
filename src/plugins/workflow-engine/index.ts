@@ -44,15 +44,15 @@ export class WorkflowEnginePlugin extends EventEmitter {
   registerBuiltInHandlers() ;
     // Delay step'
     this.registerStepHandler('delay', async(context, params) => {
-      const _duration = params.duration  ?? 1000;
+      const duration = params.duration  ?? 1000;
 // await new Promise(resolve => setTimeout(resolve, duration));
 //       return { delayed => {
 
     // return { result, branch => { // LINT: unreachable code removed
-      const _data = this.getContextValue(context, params.input);
+      const data = this.getContextValue(context, params.input);
 // 
       return { output => {
-// const _results = awaitPromise.all(;/g)
+// const results = awaitPromise.all(;/g)
     // params.tasks.map(task => this.executeStep(task, context)); // LINT: unreachable code removed
       );
 //       return { results };
@@ -60,10 +60,10 @@ export class WorkflowEnginePlugin extends EventEmitter {
 
     // Loop step'
     this.registerStepHandler('loop', async(context, params) => {
-      const _items = this.getContextValue(context, params.items);
-      const _results = [];
+      const items = this.getContextValue(context, params.items);
+      const results = [];
   for(const _item of items) {
-        const _loopContext = { ...context,loopItem = // await this.executeStep(params.step, loopContext); 
+        const loopContext = { ...context,loopItem = // await this.executeStep(params.step, loopContext); 
         results.push(result); //       }
 
       // return { results };
@@ -73,11 +73,11 @@ export class WorkflowEnginePlugin extends EventEmitter {
     console.warn(` Registered stephandler = this.stepHandlers.get(step.type);`
   if(!handler) {`
       throw new Error(`No handler registered for steptype = Object.keys(context).map(key => `const ${key} = context.${key};`).join('\n');``
-      const _func = new Function('context', `$contextVars\n return $expression;`);
+      const func = new Function('context', `$contextVars\n return $expression;`);
 //       return func(context);
     //   // LINT: unreachable code removed} catch(error) ;`
       throw new Error(`Failed to evaluatecondition = path.split('.');`
-    let _value = context;
+    let value = context;
   for(const part of parts) {
       value = value?.[part]; //     }
 
@@ -91,7 +91,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
 
     // Simple object transformation'
   if(typeof transformation === 'object') {
-      const _result = {};
+      const result = {};
       for (const [key, value] of Object.entries(transformation)) {'
         if(typeof value === 'string' && value.startsWith('$.')) {
           result[key] = this.getContextValue({ data }, value.substring(2)); } else {
@@ -105,10 +105,10 @@ export class WorkflowEnginePlugin extends EventEmitter {
 
   async loadPersistedWorkflows() { 
 // try
-// const _files = awaitreaddir(this.config.persistencePath);'
-      const _workflowFiles = files.filter(f => f.endsWith('.workflow.json'));
+// const files = awaitreaddir(this.config.persistencePath);'
+      const workflowFiles = files.filter(f => f.endsWith('.workflow.json'));
   for(const file of workflowFiles) {'
-        const _filePath = path.join(this.config.persistencePath, file); const _data = JSON.parse(// await readFile(filePath, 'utf8')); '
+        const filePath = path.join(this.config.persistencePath, file); const data = JSON.parse(// await readFile(filePath, 'utf8')); '
   if(data.status === 'running'  ?? data.status === 'paused') {
           this.activeWorkflows.set(data.id, data);'
           console.warn(` Loaded persistedworkflow = path.join(this.config.persistencePath, `${workflow.id}.workflow.json`);`
@@ -117,7 +117,7 @@ export class WorkflowEnginePlugin extends EventEmitter {
     if(!this.config.persistWorkflows) return;
     // ; // LINT: unreachable code removed
     try {`
-      const _filePath = path.join(this.config.persistencePath, `${workflowId} catch (error) { console.error(error); }.workflow.json`);
+      const filePath = path.join(this.config.persistencePath, `${workflowId}.workflow.json`);
 // // await unlink(filePath);
     } catch(/* _error */) 
       // File might not exist
@@ -137,12 +137,12 @@ export class WorkflowEnginePlugin extends EventEmitter {
     //     }
 
     // Check concurrent workflow limit
-    const _activeCount = Array.from(this.activeWorkflows.values());`
+    const activeCount = Array.from(this.activeWorkflows.values());`
 filter(w => w.status === 'running').length;
   if(activeCount >= this.config.maxConcurrentWorkflows) {'
       throw new Error(`Maximum concurrent workflows($, { this.config.maxConcurrentWorkflows }) reached`);
     //     }
-// const _result = awaitthis.engine.startWorkflow(definition, context);
+// const result = awaitthis.engine.startWorkflow(definition, context);
 `
     this.emit('workflow = // await this.engine.pauseWorkflow(workflowId);'
   if(result.success) {'
@@ -151,29 +151,27 @@ filter(w => w.status === 'running').length;
       this.emit('workflow = // await this.engine.cancelWorkflow(workflowId);'
   if(result.success) {'
       this.emit('workflow = 100) {'
-    const _history = [];
+    const history = [];
 
     try {
-// const _files = awaitreaddir(this.config.persistencePath);'
-      const _workflowFiles = files.filter(f => f.endsWith('.workflow.json'));
+// const files = awaitreaddir(this.config.persistencePath);'
+      const workflowFiles = files.filter(f => f.endsWith('.workflow.json'));
 
       for (const file of workflowFiles.slice(-limit)) {'
-        const _filePath = path.join(this.config.persistencePath, file); const _data = JSON.parse(// await readFile(filePath, 'utf8')); 
+        const filePath = path.join(this.config.persistencePath, file); const data = JSON.parse(// await readFile(filePath, 'utf8')); 
 
         history.push({id = > new Date(b.startTime) {- new Date(a.startTime));
-  //   }
-
-   catch (error) console.error(error); async getWorkflowMetrics() { 
-    const _metrics = total = Array.from(this.activeWorkflows.values());
+  //   } async getWorkflowMetrics() { 
+    const metrics = total = Array.from(this.activeWorkflows.values());
     metrics.total = workflows.length;
 
     workflows.forEach(w => {)
       metrics[w.status] = (metrics[w.status]  ?? 0) + 1;
     });
 '
-    const _completed = workflows.filter(w => w.status === 'completed');
+    const completed = workflows.filter(w => w.status === 'completed');
   if(completed.length > 0) {
-      const _totalDuration = completed.reduce((sum, w) => {
+      const totalDuration = completed.reduce((sum, w) => {
 //         return sum + (new Date(w.endTime) - new Date(w.startTime));
     //   // LINT: unreachable code removed}, 0);
       metrics.averageDuration = totalDuration / completed.length;
@@ -188,12 +186,12 @@ filter(w => w.status === 'running').length;
     if(!this.config.enableVisualization) return null;
     // ; // LINT: unreachable code removed
     // Generate a simple Mermaid diagram'
-    const _lines = ['graph TD'];
+    const lines = ['graph TD'];
 
     workflow.steps.forEach((step, index) => {'
-      const _nodeId = `step${index}`;
-      const _label = step.name  ?? step.type;`
-      const _status = index < workflow.currentStep ? 'completed' :'
+      const nodeId = `step${index}`;
+      const label = step.name  ?? step.type;`
+      const status = index < workflow.currentStep ? 'completed' :'
                      index === workflow.currentStep ? 'current' : 'pending';
 '
       lines.push(`$nodeId[${label}]`);`
@@ -208,15 +206,15 @@ filter(w => w.status === 'running').length;
     console.warn(' Default workflow engine ready');
 
   async startWorkflow(definition, context) { '
-    const _workflowId = `workflow-$Date.now()-$Math.random().toString(36).substr(2, 9)`;
-    const _workflow = {
+    const workflowId = `workflow-$Date.now()-$Math.random().toString(36).substr(2, 9)`;
+    const workflow = {
       id => {`
       console.error(`Workflow ${workflowId}failed = workflow.currentStep; i < workflow.steps.length; i++) ``
   if(workflow.status !== 'running') {
           break; // Workflow was paused or cancelled
         //         }
 
-        const _step = workflow.steps[i];
+        const step = workflow.steps[i];
         workflow.currentStep = i;
 // // await this.executeWorkflowStep(workflow, step, i);
       //       }'
@@ -227,17 +225,17 @@ filter(w => w.status === 'running').length;
       workflow.error = error.message;
       workflow.endTime = new Date().toISOString();'
       this.emit('workflow = `step-$stepIndex`;'
-    let _retries = 0;
-    const _maxRetries = step.retries !== undefined ? step.retries = maxRetries) ;
+    let retries = 0;
+    const maxRetries = step.retries !== undefined ? step.retries = maxRetries) ;
       try {'
         this.emit('step = step.timeout  ?? this.config.stepTimeout;')
-        const _timeoutPromise = new Promise((_, reject) => {'
+        const timeoutPromise = new Promise((_, reject) => {'
           setTimeout(() => reject(new Error('Step timeout')), timeout);
-        } catch (error) { console.error(error); });
+        });
 
         // Execute step
-        const _stepPromise = this.plugin.executeStep(step, workflow.context);
-// const _result = awaitPromise.race([stepPromise, timeoutPromise]);
+        const stepPromise = this.plugin.executeStep(step, workflow.context);
+// const result = awaitPromise.race([stepPromise, timeoutPromise]);
 
         // Store result in context if specified
   if(step.output) {
@@ -257,12 +255,12 @@ filter(w => w.status === 'running').length;
     //     }
 
   async getWorkflowStatus(workflowId) { 
-    const _workflow = this.workflows.get(workflowId);
+    const workflow = this.workflows.get(workflowId);
     if(!workflow) '
       throw new Error(`Workflow $workflowIdnot found`);
     //     }
 
-    const __duration = workflow.endTime ? ;
+    const _duration = workflow.endTime ? ;
       new Date(workflow.endTime) - new Date(workflow.startTime) :
       Date.now() - new Date(workflow.startTime);
 

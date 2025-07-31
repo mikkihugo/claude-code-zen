@@ -8,7 +8,7 @@ this.hierarchyManager = null;
 async;
 initialize();
 {
-  console.warn(' Initializing Complete Ultra-Modular Meta Registry System...')
+  console.warn(' Initializing Complete Ultra-Modular Meta Registry System...');
   '
 
     // 1. Create Meta Registry Manager

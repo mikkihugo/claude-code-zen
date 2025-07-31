@@ -80,7 +80,7 @@ class BatchProgressTracker {
   ''.repeat(filled) + ''.repeat(empty);
     //   // LINT: unreachable code removed}
   getReport() {
-    const _elapsed = Math.floor((Date.now() - this.startTime) / 1000);
+    const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
     // return {total = 5, maxMemoryMB = 1024) {
     this.maxConcurrency = maxConcurrency;
     // this.maxMemoryMB = maxMemoryMB; // LINT: unreachable code removed
@@ -98,7 +98,7 @@ class BatchProgressTracker {
   release() 
     this.currentTasks--;
   if(this.queue.length > 0) {
-      const _resolve = this.queue.shift();
+      const resolve = this.queue.shift();
       resolve();
     //     }
   //   }
@@ -114,9 +114,9 @@ class BatchProgressTracker {
 // }
 
 // Project template definitions
-const _PROJECT_TEMPLATES = {'
+const PROJECT_TEMPLATES = {'
   'web-api': {name = express();
-const _PORT = process.env.PORT  ?? 3000;
+const PORT = process.env.PORT  ?? 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -175,8 +175,7 @@ app.get('/', (req, res) => {
  //  }
  //  }
 // Environment configurations
-const
-  _ENVIRONMENT_CONFIGS = {
+const ENVIRONMENT_CONFIGS = {
   dev = {}) {
   const {
     template = null,`
@@ -189,7 +188,7 @@ customConfig = {} } = options
 try {
     // Get absolute project path
 
-    const _absoluteProjectPath = path.isAbsolute(projectPath);
+    const absoluteProjectPath = path.isAbsolute(projectPath);
   ?
   projectPath = process.cwd();
   process;
@@ -212,29 +211,26 @@ try {
 
   // Add template-specific directories
   if(template && PROJECT_TEMPLATES[template]) {
-      const _templateConfig = PROJECT_TEMPLATES[template];
+      const templateConfig = PROJECT_TEMPLATES[template];
   if(templateConfig.extraDirs) {
         directories.push(...templateConfig.extraDirs);
-      //       }
-     catch (error) console.error(error); 
-
-    // Create all directories in parallel
+      //       } // Create all directories in parallel
 // // await Promise.all(;/g)
       directories.map((dir) => fs.mkdir(dir, { recursive => {})));
 
     // Create configuration files in parallel
-    const _fileCreationTasks = [];
+    const fileCreationTasks = [];
 
     // CLAUDE.md
-    const _claudeMd = minimal ? createMinimalClaudeMd() : createFullClaudeMd();'
+    const claudeMd = minimal ? createMinimalClaudeMd() : createFullClaudeMd();'
     fileCreationTasks.push(fs.writeFile('CLAUDE.md', claudeMd, 'utf8'));
 
     // memory-bank.md
-    const _memoryBankMd = minimal ? createMinimalMemoryBankMd() : createFullMemoryBankMd();'
+    const memoryBankMd = minimal ? createMinimalMemoryBankMd() : createFullMemoryBankMd();'
     fileCreationTasks.push(fs.writeFile('memory-bank.md', memoryBankMd, 'utf8'));
 
     // coordination.md
-    const _coordinationMd = minimal ? createMinimalCoordinationMd() : createFullCoordinationMd();'
+    const coordinationMd = minimal ? createMinimalCoordinationMd() : createFullCoordinationMd();'
     fileCreationTasks.push(fs.writeFile('coordination.md', coordinationMd, 'utf8'));
 
     // README files
@@ -245,7 +241,7 @@ try {
 
     // Persistence database
 
-      const _envContent = Object.entries(envConfig.config);'
+      const envContent = Object.entries(envConfig.config);'
 map(([key, value]) => `;``
 \$key = \$value`);``
 join('\n');'
@@ -253,10 +249,10 @@ join('\n');'
     //     }
 // Template-specific files
   if(template && PROJECT_TEMPLATES[template]) {
-  const _templateConfig = PROJECT_TEMPLATES[template];
+  const templateConfig = PROJECT_TEMPLATES[template];
   if(templateConfig.extraFiles) {
     for (const [_filePath, content] of Object.entries(templateConfig.extraFiles)) {'
-      const _fileContent = typeof content === 'object' ? JSON.stringify(content, null, 2) ; // Replace template variables
+      const fileContent = typeof content === 'object' ? JSON.stringify(content, null, 2) ; // Replace template variables
       fileContent = fileContent; replace(
 // PROJECT_NAME
 //  (() {),..;Paaaaabcceeeeeghhjlmnoppprrsttt / { {PROJECT_DESCRIPTION };
@@ -293,16 +289,16 @@ performanceMonitoring = true } = options
   printError('No projects specified for batch initialization');
   return;
 // }
-const _totalProjects = projects.length * environments.length
-const __tracker = progressTracking ? new BatchProgressTracker(totalProjects) ;
-const __resourceManager = new ResourceManager(parallel ? maxConcurrency );
+const totalProjects = projects.length * environments.length
+const _tracker = progressTracking ? new BatchProgressTracker(totalProjects) ;
+const _resourceManager = new ResourceManager(parallel ? maxConcurrency );
 // Initialize performance monitoring
-const _perfMonitor = new PerformanceMonitor({ enabled,logLevel = new ResourceThresholdMonitor({
+const perfMonitor = new PerformanceMonitor({ enabled,logLevel = new ResourceThresholdMonitor({
     maxMemoryMB,
 ..ResourceThresholdMonitor.createDefaultCallbacks()   }
 // Calculate optimal settings
-const _optimalConcurrency = BatchOptimizer.calculateOptimalConcurrency(totalProjects);
-const _recommendations = BatchOptimizer.generateRecommendations(totalProjects, options);
+const optimalConcurrency = BatchOptimizer.calculateOptimalConcurrency(totalProjects);
+const recommendations = BatchOptimizer.generateRecommendations(totalProjects, options);
   if(maxConcurrency > optimalConcurrency) {'
   printWarning(`;`
 Concurrency;
@@ -312,7 +308,7 @@ too;
 high.Optimal = [];
 for (const project of projects) {
   for(const env of environments) {`
-      const _projectPath = environments.length > 1 ? `${project}-${env}` ; const _initTask = async() => {`
+      const projectPath = environments.length > 1 ? `${project}-${env}` ; const initTask = async() => {`
         if(tracker) tracker.startProject(projectPath); perfMonitor.recordOperation('project-init-start', {
           projectPath,
           template,environment = // await resourceManager.withResource(async() {=> {
@@ -320,13 +316,13 @@ for (const project of projects) {
             template,environment = ===============================');'
     // ; // LINT: unreachable code removed
   if(tracker) {
-    const _report = tracker.getReport();'
+    const report = tracker.getReport();'
     console.warn(`TotalProjects = results.filter((r) => r.success);`
   if(successful.length > 0) {`
     console.warn('\n Successfullyinitialized = > console.warn(`  - ${r.projectPath}`));'
   //   }
   // List failed projects
-  const _failed = results.filter((r) => !r.success);
+  const failed = results.filter((r) => !r.success);
   if(failed.length > 0) {'
     console.warn('\n Failed toinitialize = > console.warn(`  - ${r.projectPath}));'`
   //   }
@@ -349,21 +345,21 @@ for (const project of projects) {
   printError(`Failed to read batch config file =`
 ): unknown
 // {
-// const _config = awaitparseBatchConfig(configFile);
+// const config = awaitparseBatchConfig(configFile);
   if(!config) return;
     // ; // LINT: unreachable code removed
   const { projects = [], baseOptions = {}, projectConfigs = {} } = config;
 
   // Merge options with config
-  const _mergedOptions = { ...baseOptions, ...options };
+  const mergedOptions = { ...baseOptions, ...options };
 
   // If projectConfigs are specified, use them for individual project customization
   if(Object.keys(projectConfigs).length > 0) {
-    const _results = [];
-    const _resourceManager = new ResourceManager(mergedOptions.maxConcurrency  ?? 5);
+    const results = [];
+    const resourceManager = new ResourceManager(mergedOptions.maxConcurrency  ?? 5);
 
     for (const [projectName, projectConfig] of Object.entries(projectConfigs)) {
-      const _projectOptions = { ...mergedOptions, ...projectConfig }; // const _result = awaitresourceManager.withResource(async() => {
+      const projectOptions = { ...mergedOptions, ...projectConfig }; // const result = awaitresourceManager.withResource(async() => {
 //         return await initializeProject(projectName, projectOptions); //   // LINT: unreachable code removed}) {;
       results.push(result);
     //     }

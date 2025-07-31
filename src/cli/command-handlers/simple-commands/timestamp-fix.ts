@@ -9,7 +9,7 @@ export function createSessionWithProperTimezone(_objective = {}) {
 
   // Store both UTC timestamp(for consistency) and timezone info
 
-  const _session = {id = formatTimestampForDisplay(session.createdAt);
+  const session = {id = formatTimestampForDisplay(session.createdAt);
 '
   console.warn(` Hive Mind Session`);`
   console.warn(`ID = === 0) ``
@@ -22,9 +22,9 @@ export function createSessionWithProperTimezone(_objective = {}) {
   console.warn('-'.repeat(100));
 
   sessions.forEach((session) => {
-    const _timeDisplay = formatTimestampForDisplay(session.createdAt);'
-    const _id = session.id.length > 22 ? session.id.substr(0, 22) + '...' : session.id;
-    const _objective =;'
+    const timeDisplay = formatTimestampForDisplay(session.createdAt);'
+    const id = session.id.length > 22 ? session.id.substr(0, 22) + '...' : session.id;
+    const objective =;'
       session.objective.length > 27 ? session.objective.substr(0, 27) + '...' : session.objective;
 
     console.warn(;)

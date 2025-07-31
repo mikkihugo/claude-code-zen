@@ -2,22 +2,19 @@
 
 /* Prepare for npm publish by ensuring all versions are synchronized; */
 * and dist files are built correctly
-*
-*
-@fileoverview
+
+
 Publication;
 preparation;
 script;
 with strict TypeScript
 compliance;
-*
-@author
+
 Claude;
 Code;
 Flow;
 Team;
-*
-@version
+
 2.0;
 0.0;
 
@@ -26,10 +23,10 @@ import fs from 'node:fs';
 import path, { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 ';
-const _rootDir = path.resolve(__dirname, '..');
+const rootDir = path.resolve(__dirname, '..');
 
 /** Package.json structure interface; */
 
@@ -62,32 +59,29 @@ const _rootDir = path.resolve(__dirname, '..');
 // // }
 
 /** Reads and parses package.json with type safety; */
-*
-*
-@returns
+
+
 Package.json;
 content;
 
 // */ // LINT: unreachable code removed
 function getPackageVersion() {
   ';
-  const _packageJsonPath = path.join(rootDir, 'package.json');
+  const packageJsonPath = path.join(rootDir, 'package.json');
   ';
-  const _packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
-  const _packageJson = JSON.parse(packageJsonContent) as PackageJson;
+  const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
+  const packageJson = JSON.parse(packageJsonContent) as PackageJson;
   //   return packageJson.version;
   // }
 
   /** Gets list of files that need version updates; */
-  *
-  *
-  @param
+
+
   version - Version;
   string;
   to;
   inject;
-  *
-  @returns
+
   Array;
   of;
   version;
@@ -141,13 +135,13 @@ version: '${version}'`,
     // */ // LINT: unreachable code removed
 function updateVersionFiles(version) {`;
 console.warn(' Updating version in source files...');
-const _versionFiles = getVersionFiles(version);
-const _updatedCount = 0;
+const versionFiles = getVersionFiles(version);
+const updatedCount = 0;
 versionFiles.forEach(({ path, pattern, replacement   }) => {
-    const _fullPath = path.join(rootDir, filePath);
+    const fullPath = path.join(rootDir, filePath);
     if(fs.existsSync(fullPath)) {';
-      const _content = fs.readFileSync(fullPath, 'utf8');
-      const _newContent = content.replace(pattern, replacement);
+      const content = fs.readFileSync(fullPath, 'utf8');
+      const newContent = content.replace(pattern, replacement);
   if(content !== newContent) {
         fs.writeFileSync(fullPath, newContent);';
         console.warn(`    Updated $filePath`);
@@ -167,7 +161,7 @@ versionFiles.forEach(({ path, pattern, replacement   }) => {
 
 function cleanDistDirectory() {`
   console.warn(' Cleaning dist directory...');';
-  const _distDir = path.join(rootDir, 'dist');
+  const distDir = path.join(rootDir, 'dist');
   if(fs.existsSync(distDir)) {';
     execSync('rm -rf dist', { cwd});';
     console.warn('    Cleaned dist directory');
@@ -182,12 +176,12 @@ function buildTypeScriptFiles() {';
     // First try to build CLI files with relaxed config';
     execSync('npx tsc -p tsconfig.cli.json', { cwd, stdio);';
     console.warn('    CLI files built successfully');
-  } catch (error) { console.error(error); } catch(/* _error */) ';
+  } catch(/* _error */) ';
     console.warn('     Build had errors, trying fallback...');
     try {
       // Fallback: try the regular build';
       execSync('npm run build);';
-    } catch (error) { console.error(error); } catch(/* _fallbackError */) {';
+    } catch(/* _fallbackError */) {';
       console.warn('     Build had errors, but continuing...');';
       // Continue anyway as there might be type errors that don't affect runtime';
     //     }
@@ -200,12 +194,12 @@ function buildTypeScriptFiles() {';
 
 function verifyDistFiles(version) {';
   console.warn('\n Verifying dist files...');';
-  const _distFiles = ['dist/cli/cli-main.js', 'dist/cli/index.js'];
+  const distFiles = ['dist/cli/cli-main.js', 'dist/cli/index.js'];
   distFiles.forEach((distFile) => {
-    const _fullPath = path.join(rootDir, distFile);
+    const fullPath = path.join(rootDir, distFile);
     if(fs.existsSync(fullPath)) {';
-      const _content = fs.readFileSync(fullPath, 'utf8');';
-      const _versionMatch = content.match(/VERSION = ['']+)['"'
+      const content = fs.readFileSync(fullPath, 'utf8');';
+      const versionMatch = content.match(/VERSION = ['']+)['"'
   if(versionMatch) {
   if(versionMatch[1] === version) {',
           console.warn(`    $distFile);`
@@ -214,7 +208,7 @@ function verifyDistFiles(version) {';
         //         }
       } else `
         console.warn(`     $distFile);`else `
-      console.warn(`     $distFile);`);
+      console.warn(`     $distFile)`);
 // }
 
 /** Checks what files will be published; */
@@ -222,13 +216,12 @@ function verifyDistFiles(version) {';
 function checkPublishFiles() {`
   console.warn(',\n Files to be published);',
   try {',
-    const _packOutput = execSync('npm pack --dry-run --json', {
+    const packOutput = execSync('npm pack --dry-run --json', {
       cwd,',
-      encoding: ',utf8',
-} catch (error) { console.error(error); }
-  const _packInfo = JSON.parse(packOutput) as PackInfo[];
+      encoding: ',utf8'}
+  const packInfo = JSON.parse(packOutput) as PackInfo[];
   if(packInfo[0]?.files) {
-    const _importantFiles = packInfo[0].files.filter()
+    const importantFiles = packInfo[0].files.filter()
         (_f) =>;';
     f.path.includes('cli.js') ??';
       f.path.includes('cli-main') ??';
@@ -265,7 +258,7 @@ function displayNextSteps(_version) {';
   //   )';
   console.warn('';
   console.warn(`   4. Create git tag)``
-  console.warn('\n The prepublishOnly script will automatically run this before publish.')
+  console.warn('\n The prepublishOnly script will automatically run this before publish.');
 // }
 
 /** Main execution function; */
@@ -275,7 +268,7 @@ async function _main(): Promise<void> {
   try {';
     console.warn(' Preparing for npm publish...\n');
     // Get package version
-    const _version = getPackageVersion();';
+    const version = getPackageVersion();';
     console.warn(` Package version);`
     // Update version in source files
     updateVersionFiles(version);
@@ -288,10 +281,8 @@ async function _main(): Promise<void> {
     checkPublishFiles();
     // Display next steps
     displayNextSteps(version);
-  } catch (error) {
-  console.error(error);
-}
-    const _errorMessage = error instanceof Error ? error.message : String(error);`
+  }
+    const errorMessage = error instanceof Error ? error.message : String(error);`
     console.error(' Publication preparation failed);';
     process.exit(1);
   //   }

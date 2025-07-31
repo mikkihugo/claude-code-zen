@@ -33,7 +33,7 @@ export // interface CliOptions {
 //  * @returns Environment information with recommendations;
 //     // */ // LINT: unreachable code removed
 // export function detectExecutionEnvironment(options = {}) {
-const _env = {isInteractive = Boolean(process.stdin.isTTY && process.stdout.isTTY)
+const env = {isInteractive = Boolean(process.stdin.isTTY && process.stdout.isTTY)
 // Terminal program detection'''
 env.isVSCode = termProgram === ''
 env.isVSCodeInsiders = termProgram === ''
@@ -78,7 +78,7 @@ env.supportsRawMode = checkRawModeSupport()
 }
 // Color support check
 env.supportsColor = '
-  (process.env.NO_COLOR !== '1' && process.env.TERM !== 'dumb' && process.stdout.isTTY) ??';;
+  (process.env.NO_COLOR !== '1' && process.env.TERM !== 'dumb' && process.stdout.isTTY) ??';
 process.env.FORCE_COLOR === '1';
 // Generate recommendations based on environment
 generateRecommendations(env);
@@ -93,8 +93,7 @@ if (!options.skipWarnings && env.warnings.length > 0) {
   // =============================================================================
 
   /** Checks if raw mode is supported by the terminal; */
-  *
-  @returns
+
   True;
   if raw mode
   is;
@@ -106,12 +105,12 @@ if (!options.skipWarnings && env.warnings.length > 0) {
     // if(typeof process.stdin.setRawMode !== 'function') return false; // LINT: unreachable code removed
 
     // Try to set raw mode and immediately restore
-    const _originalRawMode = process.stdin.isRaw;
+    const originalRawMode = process.stdin.isRaw;
     process.stdin.setRawMode(true);
     process.stdin.setRawMode(originalRawMode);
 
     // return true;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+    //   // LINT: unreachable code removed} catch {
     // return false;
     //   // LINT: unreachable code removed}
 // }
@@ -137,8 +136,8 @@ if (!options.skipWarnings && env.warnings.length > 0) {
  * @returns Enhanced options with applied defaults;)
 
     // */; // LINT);
-  const _appliedDefaults = [];
-  const _enhanced = { ...options, appliedDefaults };
+  const appliedDefaults = [];
+  const enhanced = { ...options, appliedDefaults };
 
   // Apply defaults based on environment
   if(;
@@ -178,7 +177,7 @@ if (!options.skipWarnings && env.warnings.length > 0) {
 
     // */; // LINT: unreachable code removed/g)
 // export function getEnvironmentDescription(env?) {
-  const _environment = env  ?? detectExecutionEnvironment({skipWarnings = [];
+  const environment = env  ?? detectExecutionEnvironment({skipWarnings = [];
 `
   if(environment.isVSCode) parts.push('VS Code');'
   if(environment.isCI) parts.push('CI');'
@@ -192,7 +191,7 @@ if (!options.skipWarnings && env.warnings.length > 0) {
     parts.push(environment.terminalType);
   //   }
 
-  const _features = [];'
+  const features = [];'
   if(environment.isInteractive) features.push('interactive');'
   if(environment.supportsRawMode) features.push('raw mode');'
   if(environment.supportsColor) features.push('color');
@@ -212,7 +211,7 @@ if (!options.skipWarnings && env.warnings.length > 0) {
 // export function shouldUseNonInteractiveMode(options?) {
   if(options?.force) return true;
     // ; // LINT: unreachable code removed
-  const _env = detectExecutionEnvironment({ skipWarnings = detectExecutionEnvironment({ skipWarnings  });
+  const env = detectExecutionEnvironment({ skipWarnings = detectExecutionEnvironment({ skipWarnings  });
 //   return env.isCI  ?? env.isVSCode  ?? !env.supportsRawMode;
 // }
 
@@ -224,7 +223,7 @@ if (!options.skipWarnings && env.warnings.length > 0) {
 // export function shouldDisableColor(options?) {
   if(options?.noColor) return true;
     // ; // LINT: unreachable code removed
-  const _env = detectExecutionEnvironment({skipWarnings = ============================================================================;
+  const env = detectExecutionEnvironment({skipWarnings = ============================================================================;
 // HELPER FUNCTIONS
 // =============================================================================
 

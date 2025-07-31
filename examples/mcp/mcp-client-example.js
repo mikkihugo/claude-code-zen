@@ -34,8 +34,7 @@ class MCPClientExample {
 
     this.mcpServer = new ClaudeFlowMCPServer({
       version: '2.0.0-alpha.70',
-      listChanged: () => {},
-    });
+      listChanged: () => {}});
 
     await this.mcpServer.initialize();
     console.warn('✅ MCP Server initialized');
@@ -48,8 +47,7 @@ class MCPClientExample {
       console.warn(`🔧 Calling tool: ${toolName}`);
       const result = await this.mcpServer.executeToolCall({
         name: toolName,
-        arguments: params,
-      });
+        arguments: params});
       console.warn(`✅ Tool result:`, result);
       return result;
     } catch (error) {
@@ -65,8 +63,7 @@ class MCPClientExample {
     const result = await this.callTool('swarm_init', {
       topology: 'hierarchical',
       maxAgents: 10,
-      strategy: 'adaptive',
-    });
+      strategy: 'adaptive'});
 
     return result;
   }
@@ -79,22 +76,19 @@ class MCPClientExample {
     await this.callTool('agent_spawn', {
       type: 'coordinator',
       name: 'TaskMaster',
-      capabilities: ['orchestration', 'monitoring', 'resource-management'],
-    });
+      capabilities: ['orchestration', 'monitoring', 'resource-management']});
 
     // Spawn coder agent
     await this.callTool('agent_spawn', {
       type: 'coder',
       name: 'CodeGen-Alpha',
-      capabilities: ['javascript', 'rust', 'testing', 'documentation'],
-    });
+      capabilities: ['javascript', 'rust', 'testing', 'documentation']});
 
     // Spawn analyst agent
     await this.callTool('agent_spawn', {
       type: 'analyst',
       name: 'SystemAnalyzer',
-      capabilities: ['performance-analysis', 'security-audit', 'optimization'],
-    });
+      capabilities: ['performance-analysis', 'security-audit', 'optimization']});
 
     console.warn('✅ All agents spawned successfully');
   }
@@ -106,8 +100,7 @@ class MCPClientExample {
     const result = await this.callTool('task_orchestrate', {
       task: 'Analyze repository structure and optimize performance bottlenecks',
       strategy: 'parallel',
-      priority: 'high',
-    });
+      priority: 'high'});
 
     return result;
   }
@@ -118,20 +111,17 @@ class MCPClientExample {
 
     // Basic status
     const basicStatus = await this.callTool('swarm_status', {
-      detailed: false,
-    });
+      detailed: false});
     console.warn('Basic Status:', basicStatus);
 
     // Detailed status
     const detailedStatus = await this.callTool('swarm_status', {
-      detailed: true,
-    });
+      detailed: true});
     console.warn('Detailed Status:', detailedStatus);
 
     // Agent metrics
     const agentMetrics = await this.callTool('agent_metrics', {
-      agentId: 'coder-alpha',
-    });
+      agentId: 'coder-alpha'});
     console.warn('Agent Metrics:', agentMetrics);
   }
 
@@ -147,10 +137,8 @@ class MCPClientExample {
         repository: 'claude-code-zen',
         branch: 'main',
         objectives: ['performance-optimization', 'documentation'],
-        constraints: ['minimal-changes', 'preserve-api'],
-      }),
-      namespace: 'project',
-    });
+        constraints: ['minimal-changes', 'preserve-api']}),
+      namespace: 'project'});
 
     // Store task data
     await this.callTool('memory_usage', {
@@ -160,24 +148,20 @@ class MCPClientExample {
         id: 'task-001',
         type: 'optimization',
         target: 'database-queries',
-        status: 'in-progress',
-      }),
-      namespace: 'tasks',
-    });
+        status: 'in-progress'}),
+      namespace: 'tasks'});
 
     // Retrieve data
     const context = await this.callTool('memory_usage', {
       action: 'retrieve',
       key: 'project-context',
-      namespace: 'project',
-    });
+      namespace: 'project'});
     console.warn('Retrieved context:', context);
 
     // List all memories
     const memories = await this.callTool('memory_usage', {
       action: 'list',
-      namespace: 'project',
-    });
+      namespace: 'project'});
     console.warn('All project memories:', memories);
   }
 
@@ -189,22 +173,19 @@ class MCPClientExample {
     const optimizationResults = await this.callTool('memory_search', {
       pattern: 'optimization',
       limit: 10,
-      namespace: 'project',
-    });
+      namespace: 'project'});
     console.warn('Optimization memories:', optimizationResults);
 
     // Search for task-related memories
     const taskResults = await this.callTool('memory_search', {
       pattern: 'task*',
       limit: 5,
-      namespace: 'tasks',
-    });
+      namespace: 'tasks'});
     console.warn('Task memories:', taskResults);
 
     // Memory analytics
     const analytics = await this.callTool('memory_analytics', {
-      timeframe: '24h',
-    });
+      timeframe: '24h'});
     console.warn('Memory analytics:', analytics);
   }
 
@@ -215,15 +196,13 @@ class MCPClientExample {
     // Generate performance report
     const performanceReport = await this.callTool('performance_report', {
       format: 'detailed',
-      timeframe: '24h',
-    });
+      timeframe: '24h'});
     console.warn('Performance Report:', performanceReport);
 
     // Analyze bottlenecks
     const bottleneckAnalysis = await this.callTool('bottleneck_analyze', {
       component: 'database',
-      metrics: ['response-time', 'throughput', 'error-rate'],
-    });
+      metrics: ['response-time', 'throughput', 'error-rate']});
     console.warn('Bottleneck Analysis:', bottleneckAnalysis);
   }
 
@@ -233,21 +212,18 @@ class MCPClientExample {
 
     // Health check
     const healthCheck = await this.callTool('health_check', {
-      components: ['database', 'memory', 'network', 'agents'],
-    });
+      components: ['database', 'memory', 'network', 'agents']});
     console.warn('Health Check:', healthCheck);
 
     // Security scan
     const securityScan = await this.callTool('security_scan', {
       scope: 'full',
-      includeRecommendations: true,
-    });
+      includeRecommendations: true});
     console.warn('Security Scan:', securityScan);
 
     // Feature detection
     const features = await this.callTool('features_detect', {
-      component: 'system',
-    });
+      component: 'system'});
     console.warn('Feature Detection:', features);
   }
 

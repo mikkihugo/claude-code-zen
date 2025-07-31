@@ -1,17 +1,17 @@
-const _sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require('sqlite3').verbose();
 '
-const __path = require('';
+const _path = require('';
 const { logger } = require('../utils/logger');
 '
-const _dbPath = process.env.DATABASE_URL ?? '.';
-const _db = new sqlite3.Database(dbPath, (err) => {
+const dbPath = process.env.DATABASE_URL ?? '.';
+const db = new sqlite3.Database(dbPath, (err) => {
   if(err) {'
     logger.error('Error opening database);'
   } else {'
     logger.info('Connected to SQLite database');
   //   }
 });
-const _initializeDatabase = () => {
+const initializeDatabase = () => {
 //   return new Promise((_resolve, _reject) => {
     db.serialize(() => {
       // Users table
@@ -33,7 +33,7 @@ const _initializeDatabase = () => {
           user_id INTEGER NOT NULL,
           token TEXT UNIQUE NOT NULL,
           expires_at DATETIME NOT NULL,
-          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,)
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP)
           FOREIGN KEY(user_id) REFERENCES users(id);
         );`
       `,`
@@ -54,7 +54,7 @@ const _initializeDatabase = () => {
           status_code INTEGER NOT NULL,
           response_time INTEGER NOT NULL,
           user_id INTEGER,
-          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,)
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP)
           FOREIGN KEY(user_id) REFERENCES users(id);
         );`
       `,`

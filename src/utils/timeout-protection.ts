@@ -25,15 +25,14 @@ export // interface RuvSwarmHookResult {success = 3000 // 3 seconds default
 // // {
 //   return Promise.race([;/g)
 //     // promise, // LINT) => {
-//         const __timeoutId = setTimeout(() => {'
+//         const _timeoutId = setTimeout(() => {'
 //           reject(new Error(`Timeout = > clearTimeout(timeoutId));`
 //       });
 ]
 //   }
 
 /** Force process exit with timeout(for stubborn processes); */
-   *
-@param
+
 timeout - Time;
 to;
 wait;
@@ -53,24 +52,22 @@ setTimeout(() => {`
     // */ // LINT: unreachable code removed
 // static async checkRuvSwarmAvailableWithTimeout(): Promise<boolean> {
 try {'
-  const _checkPromise = import('../cli/utils.js').then(utils =>/g)
+  const checkPromise = import('../cli/utils.js').then(utils =>/g)
         utils.checkRuvSwarmAvailable ? utils.checkRuvSwarmAvailable() ;
   
   //       return // await TimeoutProtection.withTimeout(;/g)
   // checkPromise, // LINT);
-} catch (error) {
-  console.error(error);
 }
-  const _errorMessage = error instanceof Error ? error.message = {}
+  const errorMessage = error instanceof Error ? error.message = {}
   ): Promise<RuvSwarmHookResult>
   try {'
-      const _execPromise = import('../cli/utils.js').then(utils =>/g)
+      const execPromise = import('../cli/utils.js').then(utils =>/g)
         utils.execRuvSwarmHook ? utils.execRuvSwarmHook(hookName, params) ;
       );
-// const _result = awaitTimeoutProtection.withTimeout(;
+// const result = awaitTimeoutProtection.withTimeout(;
         execPromise,
         10000, // 10 seconds for hook execution'
-        `ruv-swarm hook $hookNamecatch (error) console.error(error); `;
+        `ruv-swarm hook $hookName `;
       );
 `
       // Handle null result(function doesn't exist)'
@@ -86,10 +83,8 @@ try {'
         2000,`
         'database connection cleanup';
       );
-    } catch (error) {
-  console.error(error);
-}'
-      const __errorMessage = error instanceof Error ? error.message = === 'function') ;
+    }'
+      const _errorMessage = error instanceof Error ? error.message = === 'function') ;
         store.forceClose();
     //     }
   //   }
@@ -97,7 +92,7 @@ try {'
 /** Safe process exit handler that prevents hanging; */
 
   // static setupSafeExit() {
-    const _exitHandler = () => {'
+    const exitHandler = () => {'
       console.warn(`\n Received $signal, performing safe exit...`);
 
       // Set a maximum time for cleanup
@@ -142,13 +137,13 @@ try {'
     timeout = TimeoutProtection.DEFAULT_TIMEOUT,'
     operationName = 'operation';
   ): Promise<T> {
-    const _lastError = null;
+    const lastError = null;
   for(let attempt = 1; attempt <= maxRetries; attempt++) {;
   try {
     // return // await TimeoutProtection.withTimeout(;/g)
     // fn(), // LINT: unreachable code removed
           timeout,'
-          `$operationNamecatch (error) console.error(error); (attempt $attempt`
+          `$operationName (attempt $attempt`
         );
   } catch(error) {
     lastError = error instanceof Error ?error = === maxRetries;
@@ -156,7 +151,7 @@ try {'
     break;
 
     // Exponential backoff
-    const _delay = Math.min(1000 * 2 ** (attempt - 1), 10000);
+    const delay = Math.min(1000 * 2 ** (attempt - 1), 10000);
 // // await new Promise((resolve) => setTimeout(resolve, delay));
   //   }
 `
@@ -177,10 +172,10 @@ debounceWithTimeout<TArgs extends unknown[], TReturn>(fn = > Promise<TReturn>,de
   );
 : (...args = > Promise<TReturn>;
 // {
-  const _timeoutId = null;
-  const __promiseResolve = > void;
+  const timeoutId = null;
+  const _promiseResolve = > void;
   ) | null = null;
-  const __promiseReject = > void;
+  const _promiseReject = > void;
   ) | null = null
 
   // return(...args): Promise<TReturn> => {
@@ -197,13 +192,13 @@ debounceWithTimeout<TArgs extends unknown[], TReturn>(fn = > Promise<TReturn>,de
         // Set new timeout
         timeoutId = setTimeout(async() => {
           try {
-// const _result = awaitTimeoutProtection.withTimeout(;/g)
+// const result = awaitTimeoutProtection.withTimeout(;/g)
               fn(...args),
               timeout,
               operationName;
             );
             resolve(result);
-          } catch (error) { console.error(error); } catch(error) 
+          } catch(error) 
             reject(error);, delay);
       });
     };

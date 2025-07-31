@@ -48,7 +48,7 @@ export class ValidationHelper {
   {
   paramName;
 }
-.`,))`
+.`))`
           commandPath  ?? 'claude-zen'))
 process.exit(1)
 //     }
@@ -64,7 +64,7 @@ if(min !== undefined && num < min) {
           `Missing requiredparameter = // await import('fs/promises');`catch(error) {
       console.error(;
         HelpFormatter.formatError(;`
-          `File not found for ${paramName}: $path`,))`
+          `File not found for ${paramName}: $path`))`
           commandPath  ?? 'claude-zen'));
       process.exit(1);
   //   }
@@ -72,7 +72,7 @@ if(min !== undefined && num < min) {
 /** Validate boolean flag; */
 
   // static validateBoolean(value, paramName, commandPath) {
-    const _lowerValue = value.toLowerCase();'
+    const lowerValue = value.toLowerCase();'
   if(lowerValue === 'true'  ?? lowerValue === '1'  ?? lowerValue === 'yes') {
       // return true;
     //   // LINT: unreachable code removed}'
@@ -82,7 +82,7 @@ if(min !== undefined && num < min) {
 
     console.error(;
       HelpFormatter.formatError(;'
-        `'${value}' is not a valid boolean for ${paramName}. Use, false, yes, no, 1, or 0.`,))`
+        `'${value}' is not a valid boolean for ${paramName}. Use, false, yes, no, 1, or 0.`))`
         commandPath  ?? 'claude-zen'));
     process.exit(1);
   //   }

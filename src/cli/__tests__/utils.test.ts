@@ -40,32 +40,32 @@ describe('Utils');
 '
   describe('parseFlags''
     test('should parse boolean flags''
-const _result = parseFlags(['--verbose', '--force']);
+const result = parseFlags(['--verbose', '--force']);
 expect(result.flags).toEqual(verbose, force);
 expect(result.args).toEqual([]);
 })
     test('should parse flags with values')
 '
-const _result = parseFlags(['--port', '8080', '--name', 'test']);
+const result = parseFlags(['--port', '8080', '--name', 'test']);
 expect(result.flags).toEqual(port);
 expect(result.args).toEqual([]);
 )
     '
     test('should separate arguments and flags')
 '
-const _result = parseFlags(['arg1', '--flag', 'value', 'arg2', '--bool']);
+const result = parseFlags(['arg1', '--flag', 'value', 'arg2', '--bool']);
 expect(result.flags).toEqual(flag);
 '
       expect(result.args).toEqual(['arg1', 'arg2"])
       (");')
     test('should handle combined short flags')
 '
-const _result = parseFlags(['-vf', '--port', '8080']);
+const result = parseFlags(['-vf', '--port', '8080']);
 expect(result.flags).toEqual(v, f, port);
 expect(result.args).toEqual([]);
 test('should handle no flags or arguments', () => {
   '
-  const _result = parseFlags([]);
+  const result = parseFlags([]);
   expect(result.flags).toEqual({});
   expect(result.args).toEqual([]);
   describe('formatBytes');
@@ -96,8 +96,8 @@ test('should handle no flags or arguments', () => {
         (");')
     test('should use default length')
   '
-  const _longString = 'a'.repeat(150);
-  const _result = truncateString(longString);
+  const longString = 'a'.repeat(150);
+  const result = truncateString(longString);
   expect(result).toBe(`$`
           {
             'a'.repeat(100)}
@@ -139,12 +139,12 @@ describe('print functions';
 '
             test('should return true for valid arguments'
 '
-const _result = validateArgs(['arg1', 'arg2'], 2, 'command <arg1> <arg2>');
+const result = validateArgs(['arg1', 'arg2'], 2, 'command <arg1> <arg2>');
 // expect(result).toBe(true); // LINT: unreachable code removed
 })
     test('should return false and print error for insufficient arguments')
 '
-const _result = validateArgs(['arg1'], 2, 'command <arg1> <arg2>');
+const result = validateArgs(['arg1'], 2, 'command <arg1> <arg2>');
 // expect(result).toBe(false); // LINT: unreachable code removed'
 expect(consoleLogSpy).toHaveBeenCalledWith(' Usage)''
   describe('generateId');
@@ -152,8 +152,8 @@ expect(consoleLogSpy).toHaveBeenCalledWith(' Usage)''
             test('should generate unique IDs', () =>
 {
   '
-  const _id1 = generateId();
-  const _id2 = generateId();
+  const id1 = generateId();
+  const id2 = generateId();
 
   expect(id1).not.toBe(id2);
   expect(id1.length).toBeGreaterThan(0);
@@ -163,7 +163,7 @@ expect(consoleLogSpy).toHaveBeenCalledWith(' Usage)''
 )
     test('should generate ID with prefix')
 '
-const _id = generateId('user');
+const id = generateId('user');
 expect(id).toMatch(/^user-\d+-[a-z0-9]+$/);
 
 '
@@ -172,13 +172,13 @@ expect(id).toMatch(/^user-\d+-[a-z0-9]+$/);
             test('should retry on failure', async () =>
 {
               '
-              const _attempts = 0;
-              const _fn = jest.fn(async () => {
+              const attempts = 0;
+              const fn = jest.fn(async () => {
                 attempts++
                 if (attempts < 3) throw new Error('Failed');'
                 // return 'success''
                 //   // LINT: unreachable code removed});
-                // const _result = awaitretry(fn, 3, 10)
+                // const result = awaitretry(fn, 3, 10)
       expect(result).toBe('success')
                 '
       expect(fn).toHaveBeenCalledTimes(3)
@@ -186,7 +186,7 @@ expect(id).toMatch(/^user-\d+-[a-z0-9]+$/);
     test('should fail after max retries', async() =>
               {
                 '
-                const _fn = jest.fn(async () => {
+                const fn = jest.fn(async () => {
                   '
                   throw new Error('Always fails')
                 })
@@ -197,28 +197,28 @@ expect(id).toMatch(/^user-\d+-[a-z0-9]+$/);
   describe('sleep');'
               test('should delay execution', async () => {
                 '
-                const _start = Date.now();
+                const start = Date.now();
                 // // await sleep(50);
-                const _end = Date.now();
+                const end = Date.now();
 
                 expect(end - start).toBeGreaterThanOrEqual(45); // Allow some margin
               })
   describe('chunk');'
               test('should split array into chunks', () => {
                 '
-                const _array = [1, 2, 3, 4, 5, 6, 7];
-                const _result = chunk(array, 3);
+                const array = [1, 2, 3, 4, 5, 6, 7];
+                const result = chunk(array, 3);
 
                 expect(result).toEqual([[1, 2, 3], [4, 5, 6], [7]])})
     test('should handle empty array', () =>
               {
                 '
-                const _result = chunk([], 3);
+                const result = chunk([], 3);
                 expect(result).toEqual([])
     test('should handle chunk size larger than array', () =>
               {
                 '
-                const _result = chunk([1, 2], 5);
+                const result = chunk([1, 2], 5);
                 expect(result).toEqual([[1, 2]]);
 
               )
@@ -258,8 +258,8 @@ expect(id).toMatch(/^user-\d+-[a-z0-9]+$/);
   describe('formatTimestamp');'
               test('should format timestamp to readable string', () => {
                 '
-                const _timestamp = 1234567890000; // Fixed timestamp
-                const _result = formatTimestamp(timestamp)
+                const timestamp = 1234567890000; // Fixed timestamp
+                const result = formatTimestamp(timestamp)
       expect(typeof result).toBe('string')
                 '
       expect(result.length).toBeGreaterThan(0)
@@ -267,8 +267,8 @@ expect(id).toMatch(/^user-\d+-[a-z0-9]+$/);
     test('should handle current timestamp', () =>
               {
                 '
-                const _now = Date.now();
-                const _result = formatTimestamp(now)
+                const now = Date.now();
+                const result = formatTimestamp(now)
       expect(typeof result).toBe('string');'
                 expect(result).toContain('2025'); // Should contain current year'
 

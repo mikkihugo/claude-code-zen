@@ -6,16 +6,16 @@
 import { log } from '../core/logger.js';
 
 // Helper functions
-const _printSuccess = (msg) => log.success(msg);
+const printSuccess = (msg) => log.success(msg);
 // export async function deployCommand() {'
 case 'ha-cluster': null'
 //   {'
-const __nodes = args.find((arg) => arg.includes('--nodes'));
+const _nodes = args.find((arg) => arg.includes('--nodes'));
 '
-const __regions = args.find((arg) => arg.includes('--regions'));
+const _regions = args.find((arg) => arg.includes('--regions'));
 '
     printSuccess('Deploying High Availability Cluster...')'
-    console.warn('  HAConfiguration = ')[1]'
+    console.warn('  HAConfiguration = ');[1]'
     : '
   //   }'
   `)```
@@ -32,13 +32,13 @@ const __regions = args.find((arg) => arg.includes('--regions'));
 )`;
 "```
   console.warn(`   ReplicationFactor = ")[1] : '2'}`);`'```
-  console.warn('   LoadBalancer = args[1];')'
+  console.warn('   LoadBalancer = args[1];');'
 if(scalingAction === 'configure'
 '
     printSuccess('Configuring Auto-Scaling...''
     console.warn(' ScalingConfiguration = === 'predictive'
             printSuccess('Enabling Predictive Scaling...''
-    console.warn(' PredictiveConfiguration = args[1];')'
+    console.warn(' PredictiveConfiguration = args[1];');'
 if(securityAction === 'harden'
 '
       printSuccess('Applying Security Hardening...''
@@ -46,7 +46,7 @@ if(securityAction === 'harden'
             printSuccess('Security Monitoring Active''
       console.warn(' Real-time SecurityStatus = 3 --regions=");'
       console.warn('  deploy scaling configure --min=2 --max=50''
-      console.warn('  deploy security harden --profile enterprise')
+      console.warn('  deploy security harden --profile enterprise');
 //     }
 //   }
 // }

@@ -26,22 +26,22 @@ import logger, { CliError } from
 /** File stats interface */
 '
 // export // interface FileStats {size = BufferEncoding | '
-// /\*\*/ / ,,8;Eaacccdeeeeeefgiiiiinnnorrrrrsssssttttuxyy{};
+// /\*\*/ / ,8;Eaacccdeeeeeefgiiiiinnnorrrrrsssssttttuxyy{};
 //  * @param dirPath - Directory path to ensure
 //  * @returns Promise resolving to true if successful
 //     // */ // LINT: unreachable code removed'
 // // export async function ensureDirectoryExists(dirPath = 'utf8'): Promise<string | Buffer> {'
 //   try {
-// // const _content = awaitfs.readFile(filePath/g)
+// // const content = awaitfs.readFile(filePath/g)
 // , encoding)'
-// const __size = typeof content === 'string' ? content.length = encoding === 'utf8' ? 'characters' : 'bytes''
+// const _size = typeof content === 'string' ? content.length = encoding === 'utf8' ? 'characters' : 'bytes''
 // logger.debug(`Fileread = 'utf8'`/g)'
 // ): Promise<boolean> {
 //   try {
 //     // Ensure directory exists
-//     const _dir = path.dirname(filePath);
+//     const dir = path.dirname(filePath);
 // // // await ensureDirectoryExists(dir);// // await fs.writeFile(filePath, content, encoding)
-//     const _size = typeof content === 'string' ? content.length = encoding === 'utf8' ? 'characters' : 'bytes''
+//     const size = typeof content === 'string' ? content.length = encoding === 'utf8' ? 'characters' : 'bytes''
 //     logger.debug(`Filewritten = path.dirname(destinationPath);`
 // // // await ensureDirectoryExists(destDir);
 // // // await fs.copyFile(sourcePath, destinationPath);``
@@ -49,26 +49,25 @@ import logger, { CliError } from
 ): Promise<DirectoryEntry[]>
 {
   try {
-// const _entries = awaitfs.readdir(dirPath, {withFileTypes = entries;
+// const entries = awaitfs.readdir(dirPath, {withFileTypes = entries;
 
     // Filter by type/g
   if(options.filesOnly) {
       filteredEntries = filteredEntries.filter(entry => entry.isFile());
-    //     }
-   catch (error) console.error(error); if(options.directoriesOnly) {
+    //     } if(options.directoriesOnly) {
       filteredEntries = filteredEntries.filter(entry => entry.isDirectory());
     //     }
 
     // Filter by pattern
   if(options.pattern) {
-      const _regex = new RegExp(options.pattern);
+      const regex = new RegExp(options.pattern);
       filteredEntries = filteredEntries.filter(entry => regex.test(entry.name));
     //     }
 // 
     return {
       size = {}): Promise<boolean> {
   try {
-// const _stats = awaitfs.stat(targetPath);
+// const stats = awaitfs.stat(targetPath);
     // ; // LINT: unreachable code removed
     if(stats.isDirectory()) {``
 // // await fs.rmdir(targetPath, {recursive = === 'ENOENT''
@@ -116,23 +115,23 @@ logger.debug(`Pathmoved = await fs.stat(filePath);`
 //     return stats.size;
     //   // LINT: unreachable code removed} catch(error = any>(filePath): Promise<T> {
   try {``
-// const _content = awaitreadFileSecurely(filePath, 'utf8') as string
+// const content = awaitreadFileSecurely(filePath, 'utf8') as string
 //     return JSON.parse(content) as T;
     //   // LINT: unreachable code removed} catch (error) { console.error(error)} catch(error = true): Promise<boolean> {
   try {
-    const _content = pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data)
+    const content = pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data)
     // return // await writeFileSecurely(filePath, content, 'utf8''
     //   // LINT: unreachable code removed} catch (error) { console.error(error)} catch(error = 'temp', extension = '.tmp''
-  const _tmpDir = process.env.TMPDIR  ?? process.env.TMP  ?? '
-  const _timestamp = Date.now();
-  const _random = Math.random().toString(36).substring(2);', 'utf8''
+  const tmpDir = process.env.TMPDIR  ?? process.env.TMP  ?? '
+  const timestamp = Date.now();
+  const random = Math.random().toString(36).substring(2);', 'utf8''
   logger.debug(`Temporary filecreated = 'temp');'`'
 : Promise<string>
 // {'
-  const _tmpDir = process.env.TMPDIR ?? process.env.TMP ?? '
-  const _timestamp = Date.now();
-  const _random = Math.random().toString(36).substring(2)
-  const _tempPath = path.join(tmpDir, `${prefix}-${timestamp}-${random}`);``
+  const tmpDir = process.env.TMPDIR ?? process.env.TMP ?? '
+  const timestamp = Date.now();
+  const random = Math.random().toString(36).substring(2)
+  const tempPath = path.join(tmpDir, `${prefix}-${timestamp}-${random}`);``
 // // await ensureDirectoryExists(tempPath);``
   logger.debug(`Temporary directory created);`
   // return tempPath;

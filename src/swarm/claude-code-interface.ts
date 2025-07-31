@@ -1,5 +1,5 @@
 /** Claude Code Coordination Interface; */
-*
+
 /** This module provides the interface layer for coordinating with Claude Code; */
 * instances, managing agent spawning through the claude CLI, handling process
 * lifecycle, and enabling seamless communication between the swarm system
@@ -50,10 +50,10 @@ spawnAgent((options = this.config.maxConcurrentAgents));
 throw new Error('Maximum concurrent agents limit reached');
 // }
 // Build Claude command
-const _command = this.buildClaudeCommand(options);
+const command = this.buildClaudeCommand(options);
 // Spawn process'
-const _process = spawn(command.executable, command.args, {cwd = generateId('claude-agent');'
-const _agent = {id = 'idle';
+const process = spawn(command.executable, command.args, {cwd = generateId('claude-agent');'
+const agent = {id = 'idle';
 agent.lastActivity = new Date();'
 this.logger.info('Claude agent spawned successfully', {
         agentId,
@@ -61,9 +61,9 @@ processId = {};
 
 ): Promise<ClaudeTaskExecution>
 // {'
-const _executionId = generateId('claude-execution');
+const executionId = generateId('claude-execution');
 '
-this.logger.info('Executing task with Claude agent', )
+this.logger.info('Executing task with Claude agent')
       executionId,taskId = agentId ? this.agents.get(agentId) : // await this.selectOptimalAgent(taskDefinition);
   if(!agent) {'
   throw new Error(agentId ? `Agent notfound = = 'idle') {``
@@ -76,7 +76,7 @@ this.logger.info('Executing task with Claude agent', )
 
   // Execute task`
   execution.status = 'running';
-// const _result = awaitthis.executeTaskWithAgent(agent, taskDefinition, options);
+// const result = awaitthis.executeTaskWithAgent(agent, taskDefinition, options);
 
   // Update execution record
   execution.endTime = new Date();
@@ -106,13 +106,13 @@ this.logger.info('Executing task with Claude agent', )
     execution.duration = execution.endTime.getTime() - execution.startTime.getTime();
 
     // Return agent to pool if it was assigned
-    const _agent = this.agents.get(execution.agentId);
+    const agent = this.agents.get(execution.agentId);
   if(agent) {
       this.returnAgentToIdlePool(agent);
     //   // LINT: unreachable code removed}
   //   }
 '
-  this.logger.error('Task execution failed', )
+  this.logger.error('Task execution failed')
         executionId,error = this.activeExecutions.get(executionId);
   if(!execution) {'
     throw new Error(`Execution notfound = 'cancelled';`
@@ -121,14 +121,14 @@ this.logger.info('Executing task with Claude agent', )
       execution.duration = execution.endTime.getTime() - execution.startTime.getTime();
 
       // Cancel agent task if running
-      const _agent = this.agents.get(execution.agentId);
+      const agent = this.agents.get(execution.agentId);
   if(agent && agent.currentTask === executionId) {
 // // await this.cancelAgentTask(agent);
         this.returnAgentToIdlePool(agent);
     //   // LINT: unreachable code removed}
 `
       this.emit('task = 'Manual termination'): Promise<void> {'
-    const _agent = this.agents.get(agentId);
+    const agent = this.agents.get(agentId);
   if(!agent) {'
       throw new Error(`Agent notfound = 'terminated';`
 
@@ -143,9 +143,9 @@ this.logger.info('Executing task with Claude agent', )
         agentId,
         reason,totalTasks = Array.from(this.agents.values());
 
-    const __totalTokens = agents.reduce((sum, a) => sum + a.metrics.totalTokensUsed, 0);
+    const _totalTokens = agents.reduce((sum, a) => sum + a.metrics.totalTokensUsed, 0);
 '
-    const _process = spawn(this.config.claudeExecutablePath, ['--version'], {
+    const process = spawn(this.config.claudeExecutablePath, ['--version'], {
         stdio => {'';
 '
     process.stdout?.on('data', (data) => 
@@ -157,8 +157,8 @@ this.logger.info('Executing task with Claude agent', )
 
   for(let i = 0; i < this.config.agentPoolSize; i++) {
       promises.push(this.spawnAgent({type = // await Promise.allSettled(promises);'
-    const _successful = results.filter(r => r.status === 'fulfilled').length;'
-    const _failed = results.filter(r => r.status === 'rejected').length;
+    const successful = results.filter(r => r.status === 'fulfilled').length;'
+    const failed = results.filter(r => r.status === 'rejected').length;
 '
     this.logger.info('Agent pool pre-warming completed', 
       successful,
@@ -208,11 +208,11 @@ this.logger.info('Executing task with Claude agent', )
           agentId => {))'
         this.logger.debug('Agent stderr', agentId = 30000): Promise<void> {
 //     return new Promise((resolve, reject) => {
-      const _startTime = Date.now();
-    // const _checkInterval = 1000; // 1 second // LINT: unreachable code removed
+      const startTime = Date.now();
+    // const checkInterval = 1000; // 1 second // LINT: unreachable code removed
 
-      const _checkReady = () => {
-        const _elapsed = Date.now() - startTime;
+      const checkReady = () => {
+        const elapsed = Date.now() - startTime;
   if(elapsed > timeout) {'
           reject(new Error(`Agent $agent.idfailed to become ready within $timeoutms`));
           return;
@@ -241,7 +241,7 @@ this.logger.info('Executing task with Claude agent', )
   if(availableAgents.length === 0) {
       // Try to spawn a new agent if under limit
       if(this.getTotalActiveAgents() < this.config.maxConcurrentAgents) {
-// const __agentId = awaitthis.spawnAgent({type = availableAgents.map(agent => ({/g)))
+// const _agentId = awaitthis.spawnAgent({type = availableAgents.map(agent => ({/g)))
       agent,score = > b.score - a.score);
 //     return scoredAgents[0].agent;
     //   // LINT: unreachable code removed}
@@ -249,8 +249,8 @@ this.logger.info('Executing task with Claude agent', )
   // private calculateAgentScore(agent = 0;
 
     // Capability match
-    const _requiredCapabilities = taskDefinition.requirements.capabilities;
-    const _matchingCapabilities = agent.capabilities.filter(_cap => ;)
+    const requiredCapabilities = taskDefinition.requirements.capabilities;
+    const matchingCapabilities = agent.capabilities.filter(_cap => ;)
       requiredCapabilities.includes(cap);
     );
     score += (matchingCapabilities.length / requiredCapabilities.length) * 100;
@@ -259,7 +259,7 @@ this.logger.info('Executing task with Claude agent', )
     score += Math.max(0, 50 - agent.metrics.averageResponseTime / 1000) * 10; // Prefer faster agents
 
     // Load balancing - prefer agents with fewer completed tasks
-    const _maxTasks = Math.max(...this.processPool.idle.map(a => a.totalTasks), 1);
+    const maxTasks = Math.max(...this.processPool.idle.map(a => a.totalTasks), 1);
     score += (1 - agent.totalTasks / maxTasks) * 20;
 //     return score;
     //   // LINT: unreachable code removed}
@@ -268,7 +268,7 @@ this.logger.info('Executing task with Claude agent', )
 
     try {
       // Create execution context for the agent
-      const _context = {task = // await this.taskExecutor.executeClaudeTask(;
+      const context = {task = // await this.taskExecutor.executeClaudeTask(;
         taskDefinition,
         context.agent,model = performance.now() - startTime;
 
@@ -278,13 +278,11 @@ this.logger.info('Executing task with Claude agent', )
       agent.totalDuration += duration;
 
       // return result;catch(error) {
-      const _duration = performance.now() - startTime;
+      const duration = performance.now() - startTime;
       agent.totalDuration += duration;
 
       throw error;
-    //     }
-   catch (error) console.error(error); 
-'
+    //     } '
   // private convertToAgentState(agent = === 'busy' ? 1 ,health = === 'error' ? 0 ,config = > ['javascript', 'typescript', 'python', 'java'].includes(c)),frameworks = > ['react', 'node', 'express'].includes(c)),domains = > ['web', 'api', 'database'].includes(c)),tools = > ['bash', 'git', 'npm'].includes(c)),maxConcurrentTasks = > setTimeout(resolve, 1000));
 
       // Force kill if still running
@@ -319,7 +317,7 @@ async;
 terminateAllAgents();
 : Promise<void>;
 // {
-  const _terminationPromises = Array.from(this.agents.keys()).map((_agentId) =>;'
+  const terminationPromises = Array.from(this.agents.keys()).map((_agentId) =>;'
     this.terminateAgent(agentId, 'Interface shutdown');
   );
 // // await Promise.allSettled(terminationPromises);
@@ -337,7 +335,7 @@ moveAgentToBusyPool(agent = this.processPool.idle.indexOf(agent);
     // agent.currentTask = undefined; // LINT: unreachable code removed
 agent.lastActivity = new Date() 
 
-const _busyIndex = this.processPool.busy.indexOf(agent);
+const busyIndex = this.processPool.busy.indexOf(agent);
   if(busyIndex !== -1) {
   this.processPool.busy.splice(busyIndex, 1);
   this.processPool.idle.push(agent);
@@ -349,12 +347,12 @@ const _busyIndex = this.processPool.busy.indexOf(agent);
   this.processPool.idle.splice(idleIndex, 1);
 // }
 
-const _busyIndex = this.processPool.busy.indexOf(agent);
+const busyIndex = this.processPool.busy.indexOf(agent);
   if(busyIndex !== -1) {
   this.processPool.busy.splice(busyIndex, 1);
 // }
 
-const _failedIndex = this.processPool.failed.indexOf(agent);
+const failedIndex = this.processPool.failed.indexOf(agent);
   if(failedIndex !== -1) {
   this.processPool.failed.splice(failedIndex, 1);
 // }
@@ -363,7 +361,7 @@ const _failedIndex = this.processPool.failed.indexOf(agent);
   // private updateAgentMetrics(agent = agent.metrics
 
 // Update averages
-const _totalTasks = metrics.tasksCompleted + metrics.tasksFailed;
+const totalTasks = metrics.tasksCompleted + metrics.tasksFailed;
   if(execution.duration) {
   metrics.averageResponseTime = totalTasks > 0 ;
         ? ((metrics.averageResponseTime * (totalTasks - 1)) + execution.duration) /totalTasks = totalTasks > 0 ;
@@ -383,12 +381,12 @@ private;
 calculateThroughput();
 
 // {
-  const _agents = Array.from(this.agents.values());
-  const _totalTasks = agents.reduce((sum, a) => sum + a.totalTasks, 0);
-  const _totalTime = agents.reduce((sum, a) => sum + a.totalDuration, 0);
+  const agents = Array.from(this.agents.values());
+  const totalTasks = agents.reduce((sum, a) => sum + a.totalTasks, 0);
+  const totalTime = agents.reduce((sum, a) => sum + a.totalDuration, 0);
 // 
   return totalTime > 0 ? (totalTasks / totalTime) *60000 = this.getTotalActiveAgents();
-    // const _busy = this.processPool.busy.length; // LINT: unreachable code removed
+    // const busy = this.processPool.busy.length; // LINT: unreachable code removed
 // 
   return total > 0 ? busy /total = setInterval(() => {
       this.performHealthCheck();
@@ -399,11 +397,11 @@ private;
 performHealthCheck();
 
 // {
-  const _now = Date.now();
+  const now = Date.now();
 
   for (const agent of this.agents.values()) {
     // Check for stalled agents'
-    const _inactiveTime = now - agent.lastActivity.getTime(); if(agent.status === 'busy' && inactiveTime > this.config.timeout * 2) {'
+    const inactiveTime = now - agent.lastActivity.getTime(); if(agent.status === 'busy' && inactiveTime > this.config.timeout * 2) {'
       this.logger.warn('Agent appears stalled', {agentId = = null) {'
   if(agent._status !== 'terminated') {'
           this.logger.warn('Agent process died unexpectedly', {agentId = 'error'; this.moveAgentToFailedPool(agent) ;

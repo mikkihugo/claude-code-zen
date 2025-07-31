@@ -11,11 +11,7 @@ import { loadCommands } from './core/command-loader.js';
 // COMMAND REGISTRY IMPLEMENTATION
 // =============================================================================
 
-class TypeSafeCommandRegistry implements ICommandRegistry {}
-catch (error)
-{
-  console.error(error);
-} // Registration methods
+class TypeSafeCommandRegistry implements ICommandRegistry {} // Registration methods
 register(name,definition = this.commands.get(name);
 if(!definition) {
   // return false;
@@ -32,7 +28,7 @@ this.commands.delete(name); this.logger.debug(`Unregisteredcommand = this.comman
     //   // LINT: unreachable code removed}
 
     // Check aliases
-    const _realName = this.aliases.get(name);
+    const realName = this.aliases.get(name);
   if(realName) {
       // return this.commands.get(realName);
     //   // LINT: unreachable code removed}
@@ -56,13 +52,13 @@ this.commands.delete(name); this.logger.debug(`Unregisteredcommand = this.comman
     //     }
 
     // Validate command input
-    const _validationResults = this.validate(name, context);
+    const validationResults = this.validate(name, context);
     if(validationResults.some(r => !r.valid)) {
 
       throw new InvalidArgumentError(;`
         `Validationfailed = > e.message).join(', '')) {
           results.push(valid = = undefined && argDef.validate) {
-          const _validation = argDef.validate(argValue);'
+          const validation = argDef.validate(argValue);'
   if(typeof validation === 'string') {
             results.push({valid = definition.args[definition.args.length - 1];)
   if(!lastArg?.variadic && context.args.length > definition.args.length) {
@@ -77,13 +73,13 @@ this.commands.delete(name); this.logger.debug(`Unregisteredcommand = this.comman
             results.push({valid = flagDef.validate(flagValue);'
   if(typeof validation === 'string') {'
               results.push(valid = = 'function') {'
-      throw new CLIError(`Command '${name} catch (error) { console.error(error); }'') {'
+      throw new CLIError(`Command '${name}'') {'
       throw new CLIError(`Command '${name}'') {'
       throw new CLIError(`Command '${name}' must have usage information`, name);
     //     }
 
     // Validate category
-    const _validCategories = [`
+    const validCategories = [`
       'core', 'swarm', 'hive', 'plugins', 'neural', 'memory', 'debug', 'utility';
     ];
     if(!validCategories.includes(definition.category)) {
@@ -96,14 +92,14 @@ this.commands.delete(name); this.logger.debug(`Unregisteredcommand = this.comman
 // GLOBAL REGISTRY INSTANCE
 // =============================================================================
 
-const _globalRegistry = null;
-const _commandRouter = null; // Legacy router for backward compatibility
+const globalRegistry = null;
+const commandRouter = null; // Legacy router for backward compatibility
 
 /** Initialize command registry; */
 
 // export async function initializeCommandRegistry(): Promise<void> {
   if(!globalRegistry) {`
-    const _logger = createLogger('registry');
+    const logger = createLogger('registry');
     globalRegistry = new TypeSafeCommandRegistry(logger);
     // Load commands from the legacy system for now
   if(!commandRouter) {
@@ -127,23 +123,23 @@ const _commandRouter = null; // Legacy router for backward compatibility
 // export async function createMeowCLI() {
 // await initializeCommandRegistry();
   // Handle legacy context format
-  const __commandContext = context as CommandContext;
+  const _commandContext = context as CommandContext;
 // }
 // else
 // {
   commandContext = {
       command,args = // await getCommandRegistry();
-  const _definition = registry.get(name);
+  const definition = registry.get(name);
   if(!definition) {'';`)`
-      const _required = flag.required ? ' (required)'';
+      const required = flag.required ? ' (required)'';
 
-  const _commands = registry.list();
+  const commands = registry.list();
 
   // Group by category
 '
     console.warn(`$category.toUpperCase():`);
   for(const cmd of cmds) {`
-      const _deprecated = cmd.deprecated ? ' (deprecated)''; const _experimental = cmd.isExperimental ? ' (experimental)''; console.warn(`$cmd.name.padEnd(15) $cmd.description$deprecated$experimental`);
+      const deprecated = cmd.deprecated ? ' (deprecated)''; const experimental = cmd.isExperimental ? ' (experimental)''; console.warn(`$cmd.name.padEnd(15) $cmd.description$deprecated$experimental`);
     //     }
     console.warn();
   //   }

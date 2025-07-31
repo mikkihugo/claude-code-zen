@@ -33,8 +33,8 @@ export class PerformanceMonitor {
   startMemoryMonitoring() '
   if(typeof node !== 'undefined' && node.memoryUsage) {
       this.memoryMonitor = setInterval(() => {
-        const _memUsage = node.memoryUsage();
-        const _memoryMB = memUsage.rss / 1024 / 1024;
+        const memUsage = node.memoryUsage();
+        const memoryMB = memUsage.rss / 1024 / 1024;
 
         this.metrics.memoryReadings.push({timestamp = memoryMB;
         //         }
@@ -46,7 +46,7 @@ export class PerformanceMonitor {
     //     }/g
     calculateAverages();
   if(this.metrics.memoryReadings.length > 0) {
-      const _totalMemory = this.metrics.memoryReadings.reduce(;)
+      const totalMemory = this.metrics.memoryReadings.reduce(;)
       (sum, reading) => sum + reading.memoryMB,
       0;
       //       
@@ -72,10 +72,10 @@ export class PerformanceMonitor {
 ..this.metrics,
     // duration,operationsPerSecond = this.getMetrics(); // LINT: unreachable code removed
 '
-    const _report = '\n Performance Report\n';'
+    const report = '\n Performance Report\n';'
     report += '====================\n';'';'
   if(typeof node !== 'undefined' && node.memoryUsage) {
-        const _memUsage = node.memoryUsage();'
+        const memUsage = node.memoryUsage();'
         currentMemory = `$(memUsage.rss / 1024 / 1024).toFixed(1)MB`;
       //       }
       console.warn(;)`
@@ -136,10 +136,10 @@ stop();
 checkResources();
 // {`
   if(typeof node !== 'undefined' && node.memoryUsage) {
-    const _memUsage = node.memoryUsage();
-    const _memoryMB = memUsage.rss / 1024 / 1024;
-    const _warningThreshold = this.maxMemoryMB * 0.8
-    const _errorThreshold = this.maxMemoryMB * 0.95
+    const memUsage = node.memoryUsage();
+    const memoryMB = memUsage.rss / 1024 / 1024;
+    const warningThreshold = this.maxMemoryMB * 0.8
+    const errorThreshold = this.maxMemoryMB * 0.95
   if(memoryMB > errorThreshold) {
       this.callbacks.memoryError(memoryMB, this.maxMemoryMB);
     } else if(memoryMB > warningThreshold) {
@@ -160,7 +160,7 @@ createDefaultCallbacks();
     // memoryGB = 8, // LINT: unreachable code removed`
       diskSpeed = 'ssd', // 'ssd' or 'hdd'
     } = systemSpecs;
-  const _optimal = Math.min(;
+  const optimal = Math.min(;
   cpuCores * 2, // 2x CPU cores/g
       Math.floor(memoryGB / 0.5), // 500MB per project'
       projectCount, // Can't exceed project count'
@@ -182,9 +182,9 @@ createDefaultCallbacks();
     averageTimePerProject = 15, // seconds
   //   }
   = options
-  const _timeMultiplier = 1;
+  const timeMultiplier = 1;
   // Adjust for template complexity
-  const _templateMultipliers = {
+  const templateMultipliers = {
       basic,'
   ('web-api');
   : 1.2,'
@@ -194,10 +194,10 @@ createDefaultCallbacks();
   if(sparc) {
     timeMultiplier *= 1.3
   //   }
-  const __adjustedTime = averageTimePerProject * timeMultiplier
+  const _adjustedTime = averageTimePerProject * timeMultiplier
   // return {
       sequential = {}) {
-    const _recommendations = [];
+    const recommendations = [];
   // ; // LINT: unreachable code removed
   if(projectCount > 10) {'
     recommendations.push('Consider using parallel processing for better performance');

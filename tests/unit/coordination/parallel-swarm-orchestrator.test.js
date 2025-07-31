@@ -24,7 +24,7 @@ let _orchestrator;
 let ParallelSwarmOrchestrator;
 beforeEach(async () => {
   // Dynamic import to get the class after mocks are set up'
-  // const _module = awaitimport('../../../src/coordination/parallel-swarm-orchestrator.js');
+  // const module = awaitimport('../../../src/coordination/parallel-swarm-orchestrator.js');
   ParallelSwarmOrchestrator = module.ParallelSwarmOrchestrator;
   _orchestrator = new ParallelSwarmOrchestrator({ maxWorkers, parallelMode });
 });
@@ -39,7 +39,7 @@ describe('constructor', () =>
 // {'
   it('should initialize with default options', () =>
 {
-  const _defaultOrchestrator = new ParallelSwarmOrchestrator();
+  const defaultOrchestrator = new ParallelSwarmOrchestrator();
   expect(defaultOrchestrator.parallelMode).toBe(true);
   expect(defaultOrchestrator.maxWorkers).toBeGreaterThan(1);
   '
@@ -50,7 +50,7 @@ describe('constructor', () =>
 )'
 it('should initialize with custom options', () =>
 {
-  const _customOrchestrator = new ParallelSwarmOrchestrator({ maxWorkers,
+  const customOrchestrator = new ParallelSwarmOrchestrator({ maxWorkers,
     parallelMode,
     loadBalancingStrategy);
   expect(customOrchestrator.maxWorkers).toBe(8);
@@ -82,7 +82,7 @@ it('should initialize worker pool in parallel mode', async () =>
   )'
   it('should skip worker pool in sequential mode', async () =>
   {
-    const _sequentialOrchestrator = new ParallelSwarmOrchestrator({ parallelMode });
+    const sequentialOrchestrator = new ParallelSwarmOrchestrator({ parallelMode });
     // await sequentialOrchestrator.initialize();
     expect(sequentialOrchestrator.workerPool).toBeNull();
   }
@@ -98,13 +98,13 @@ describe('task execution', () =>
 '
 it('should execute tasks in parallel', async () =>
 {
-  const _tasks = ['
+  const tasks = ['
     { id: 'task1', type: 'analysis', payload: { file: 'test1.js' } },'
     { id: 'task2', type: 'analysis', payload: { file: 'test2.js' } },'
     { id: 'task3', type: 'analysis', payload: { file: 'test3.js' } },
   ];
-  const _executeTasksInParallel = async (tasks) => {
-    const _promises = tasks.map((task) => {
+  const executeTasksInParallel = async (tasks) => {
+    const promises = tasks.map((task) => {
       //           return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
@@ -115,7 +115,7 @@ it('should execute tasks in parallel', async () =>
 
   // return Promise.all(promises);
   //   // LINT: unreachable code removed};
-  // const _results = awaitexecuteTasksInParallel(tasks);
+  // const results = awaitexecuteTasksInParallel(tasks);
   expect(results).toHaveLength(3);
   '
   expect(results[0].taskId).toBe('task1')
@@ -129,7 +129,7 @@ it('should execute tasks in parallel', async () =>
 '
 it('should handle task failures gracefully', async() =>
 {
-      const _mockTaskWithFailure = async(taskId) => {'
+      const mockTaskWithFailure = async(taskId) => {'
   if(taskId === 'failing-task') {'
           throw new Error('Task failed');
         //         }'
@@ -138,13 +138,13 @@ it('should handle task failures gracefully', async() =>
       try {'
   // // await mockTaskWithFailure('failing-task');
         expect(true).toBe(false); // Should not reach here
-      } catch (error) { console.error(error); } catch(error) '
+      } catch(error) '
         expect(error.message).toBe('Task failed');
       //       }'
-// const _successResult = awaitmockTaskWithFailure('working-task');'
+// const successResult = awaitmockTaskWithFailure('working-task');'
       expect(successResult.result).toBe('success'););'
     it('should balance load across workers', () => {
-      const _loadBalancer = {'
+      const loadBalancer = {'
         strategy: 'round-robin',
         workers: [;'
           { id: 'worker1', load },'
@@ -153,7 +153,7 @@ it('should handle task failures gracefully', async() =>
         selectWorker: function() {'
   if(this.strategy === 'round-robin') {
             // Simple round-robin implementation
-            const _worker = this.workers[0];
+            const worker = this.workers[0];
             this.workers.push(this.workers.shift());
 //             return worker;
     //   // LINT: unreachable code removed}'
@@ -164,12 +164,12 @@ it('should handle task failures gracefully', async() =>
           //           }
 //           return this.workers[0];
     //   // LINT: unreachable code removed} };
-      const _selectedWorker = loadBalancer.selectWorker();
+      const selectedWorker = loadBalancer.selectWorker();
       expect(selectedWorker).toBeDefined();
       expect(selectedWorker.id).toBeDefined();
       // Test least-loaded strategy'
       loadBalancer.strategy = 'least-loaded';
-      const _leastLoadedWorker = loadBalancer.selectWorker();'
+      const leastLoadedWorker = loadBalancer.selectWorker();'
       expect(leastLoadedWorker.id).toBe('worker2'); // H of 1
     });
   });'
@@ -178,7 +178,7 @@ it('should handle task failures gracefully', async() =>
   // await orchestrator.initialize();
     });'
     it('should manage multiple swarms', () => {
-      const _swarmManager = {
+      const swarmManager = {
         swarms: new Map(),
         createSwarm: function(swarmId, /* config */) {
           this.swarms.set(swarmId, {
@@ -190,7 +190,7 @@ it('should handle task failures gracefully', async() =>
           // return this.swarms.get(swarmId);
     //   // LINT: unreachable code removed},
         addTaskToSwarm: function(swarmId, /* task */) {
-          const _swarm = this.swarms.get(swarmId);
+          const swarm = this.swarms.get(swarmId);
   if(swarm) {
             swarm.tasks.push(task);
 //             return true;
@@ -198,22 +198,22 @@ it('should handle task failures gracefully', async() =>
           // return false;
     //   // LINT: unreachable code removed},
         getSwarmStatus: function(swarmId) {
-          const _swarm = this.swarms.get(swarmId);
+          const swarm = this.swarms.get(swarmId);
 //           return swarm ? swarm.status ;
     //   // LINT: unreachable code removed} };'
-      const _swarm1 = swarmManager.createSwarm('swarm1', { maxTasks });'
-      const _swarm2 = swarmManager.createSwarm('swarm2', { maxTasks });'
+      const swarm1 = swarmManager.createSwarm('swarm1', { maxTasks });'
+      const swarm2 = swarmManager.createSwarm('swarm2', { maxTasks });'
       expect(swarm1.id).toBe('swarm1');'
       expect(swarm2.id).toBe('swarm2');
       expect(swarmManager.swarms.size).toBe(2);'
-      const _added = swarmManager.addTaskToSwarm('swarm1', { id);
+      const added = swarmManager.addTaskToSwarm('swarm1', { id);
       expect(added).toBe(true);
       expect(swarm1.tasks).toHaveLength(1);'
-      const _status = swarmManager.getSwarmStatus('swarm1');'
+      const status = swarmManager.getSwarmStatus('swarm1');'
       expect(status).toBe('active');
     });'
     it('should coordinate between swarms', async() => {
-      const _coordination = {
+      const coordination = {
         dependencies: new Map(),
         addDependency: function(fromSwarm, /* toSwarm */) {
           if(!this.dependencies.has(fromSwarm)) {
@@ -222,16 +222,16 @@ it('should handle task failures gracefully', async() =>
           this.dependencies.get(fromSwarm).push(toSwarm);
         },
         canExecute: function(swarmId, /* completedSwarms */) {
-          const _deps = this.dependencies.get(swarmId)  ?? [];
+          const deps = this.dependencies.get(swarmId)  ?? [];
 //           return deps.every((dep) => completedSwarms.includes(dep));
     //   // LINT: unreachable code removed},
         getExecutionOrder: function(swarms) {
-          const _order = [];
-          const _completed = [];
-          const _remaining = [...swarms];
+          const order = [];
+          const completed = [];
+          const remaining = [...swarms];
   while(remaining.length > 0) {
   for(let i = remaining.length - 1; i >= 0; i--) {
-              const _swarm = remaining[i];
+              const swarm = remaining[i];
               if(this.canExecute(swarm, completed)) {
                 order.push(swarm);
                 completed.push(swarm);
@@ -244,13 +244,13 @@ it('should handle task failures gracefully', async() =>
       coordination.addDependency('swarm2', 'swarm1');'
       coordination.addDependency('swarm3', 'swarm1');'
       coordination.addDependency('swarm3', 'swarm2');'
-      const _canExecuteSwarm1 = coordination.canExecute('swarm1', []);
+      const canExecuteSwarm1 = coordination.canExecute('swarm1', []);
       expect(canExecuteSwarm1).toBe(true);'
-      const _canExecuteSwarm2 = coordination.canExecute('swarm2', []);
+      const canExecuteSwarm2 = coordination.canExecute('swarm2', []);
       expect(canExecuteSwarm2).toBe(false);'
-      const _canExecuteSwarm2AfterSwarm1 = coordination.canExecute('swarm2', ['swarm1']);
+      const canExecuteSwarm2AfterSwarm1 = coordination.canExecute('swarm2', ['swarm1']);
       expect(canExecuteSwarm2AfterSwarm1).toBe(true);'
-      const _executionOrder = coordination.getExecutionOrder(['swarm1', 'swarm2', 'swarm3']);'
+      const executionOrder = coordination.getExecutionOrder(['swarm1', 'swarm2', 'swarm3']);'
       expect(executionOrder[0]).toBe('swarm1');'
       expect(executionOrder.indexOf('swarm2')).toBeLessThan(executionOrder.indexOf('swarm3'));
     });
@@ -265,7 +265,7 @@ it('should handle task failures gracefully', async() =>
       expect(orchestrator.metrics.sequentialTasks).toBe(0);
       expect(orchestrator.metrics.speedupFactor).toBe(1.0););'
     it('should calculate speedup factor', () => {
-      const _metricsCalculator = {
+      const metricsCalculator = {
         calculateSpeedup: (_sequentialTime, parallelTime) => {
           if(parallelTime === 0) return 1.0;
     // return sequentialTime / parallelTime; // LINT: unreachable code removed
@@ -273,31 +273,31 @@ it('should handle task failures gracefully', async() =>
         calculateEfficiency: (speedup, workers) => {
 //           return speedup / workers;
     //   // LINT: unreachable code removed} };
-      const _speedup = metricsCalculator.calculateSpeedup(1000, 250);
+      const speedup = metricsCalculator.calculateSpeedup(1000, 250);
       expect(speedup).toBe(4.0);
-      const _efficiency = metricsCalculator.calculateEfficiency(speedup, 4);
+      const efficiency = metricsCalculator.calculateEfficiency(speedup, 4);
       expect(efficiency).toBe(1.0); // Perfect efficiency
     });'
     it('should monitor worker utilization', () => {
-      const _utilizationMonitor = {
+      const utilizationMonitor = {
         workers: [;'
           { id: 'w1', busyTime, totalTime },'
           { id: 'w2', busyTime, totalTime },'
           { id: 'w3', busyTime, totalTime } ],
         getWorkerUtilization: function(workerId) {
-          const _worker = this.workers.find((w) => w.id === workerId);
+          const worker = this.workers.find((w) => w.id === workerId);
 //           return worker ? worker.busyTime / worker.totalTime ;
     //   // LINT: unreachable code removed},
         getAverageUtilization: function() {
-          const _total = this.workers.reduce(;)
+          const total = this.workers.reduce(;)
             (sum, worker) => sum + worker.busyTime / worker.totalTime,
             0;
           );
 //           return total / this.workers.length;
     //   // LINT: unreachable code removed} };'
-      const _w1Utilization = utilizationMonitor.getWorkerUtilization('w1');
+      const w1Utilization = utilizationMonitor.getWorkerUtilization('w1');
       expect(w1Utilization).toBe(0.8);
-      const _avgUtilization = utilizationMonitor.getAverageUtilization();
+      const avgUtilization = utilizationMonitor.getAverageUtilization();
       expect(avgUtilization).toBeCloseTo(0.766, 2);
     });
   });'
@@ -306,24 +306,24 @@ it('should handle task failures gracefully', async() =>
   // await orchestrator.initialize();
     });'
     it('should handle worker failures', async() => {
-      const _failureHandler = {
+      const failureHandler = {
         handleWorkerFailure: async(workerId, error) => {'
           console.warn(`Worker $workerIdfailed);`
           // Restart worker
-          const _newWorker = {`
+          const newWorker = {`
             id: `${workerId}-restart`,`
             status: 'active',
             restartedAt: Date.now() };
           // return newWorker;
     //   // LINT: unreachable code removed} };'
-      const _error = new Error('Worker crashed');'
-// const _newWorker = awaitfailureHandler.handleWorkerFailure('worker1', error);'
+      const error = new Error('Worker crashed');'
+// const newWorker = awaitfailureHandler.handleWorkerFailure('worker1', error);'
       expect(newWorker.id).toBe('worker1-restart');'
       expect(newWorker.status).toBe('active');
       expect(newWorker.restartedAt).toBeDefined();
     });'
     it('should implement retry logic', async() => {
-      const _retryHandler = {
+      const retryHandler = {
         maxRetries,
         retryDelay,
         executeWithRetry: async function(task, attempt = 1) { 
@@ -343,13 +343,13 @@ it('should handle task failures gracefully', async() =>
     //   // LINT: unreachable code removed}
         } };
       // Test successful task`
-      const _successTask = { id: 'success', shouldFail };
-// const _successResult = awaitretryHandler.executeWithRetry(successTask);
+      const successTask = { id: 'success', shouldFail };
+// const successResult = awaitretryHandler.executeWithRetry(successTask);
       expect(successResult.success).toBe(true);
       expect(successResult.attempts).toBe(1);
       // Test task that succeeds after retries'
-      const _retryTask = { id: 'retry', shouldFail };
-// const _retryResult = awaitretryHandler.executeWithRetry(retryTask);
+      const retryTask = { id: 'retry', shouldFail };
+// const retryResult = awaitretryHandler.executeWithRetry(retryTask);
       expect(retryResult.success).toBe(true);
       expect(retryResult.attempts).toBe(3);
     });
@@ -357,7 +357,7 @@ it('should handle task failures gracefully', async() =>
   describe('cleanup and shutdown', () => '
     it('should cleanup resources properly', async() => {
   // await orchestrator.initialize();
-      const _cleanup = async() => {
+      const cleanup = async() => {
         // Clear active tasks
         orchestrator.activeTasks.clear();
         orchestrator.taskResults.clear();
@@ -367,27 +367,27 @@ it('should handle task failures gracefully', async() =>
         //         }
         // return true;
     //   // LINT: unreachable code removed};
-// const _result = awaitcleanup();
+// const result = awaitcleanup();
       expect(result).toBe(true);
       expect(orchestrator.activeTasks.size).toBe(0);
       expect(orchestrator.taskResults.size).toBe(0);
     });'
     it('should handle shutdown gracefully', async() => {
   // await orchestrator.initialize();
-      const _shutdownHandler = {
+      const shutdownHandler = {
         gracefulShutdown: async(timeout = 5000) => {
-          const _startTime = Date.now();
+          const startTime = Date.now();
           // Wait for active tasks to complete or timeout
           while(orchestrator.activeTasks.size > 0 && Date.now() - startTime < timeout) {
   // // await new Promise((resolve) => setTimeout(resolve, 100));
           //           }
-          const _remainingTasks = orchestrator.activeTasks.size;
+          const remainingTasks = orchestrator.activeTasks.size;
   if(remainingTasks > 0) {'
             console.warn(`Shutdown with ${remainingTasks} tasks still active`);
           //           }
           // return { graceful === 0, remainingTasks };
     //   // LINT: unreachable code removed} };
-// const _result = awaitshutdownHandler.gracefulShutdown(1000);
+// const result = awaitshutdownHandler.gracefulShutdown(1000);
       expect(result.graceful).toBe(true);
       expect(result.remainingTasks).toBe(0);
     });

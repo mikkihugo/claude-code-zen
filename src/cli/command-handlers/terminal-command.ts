@@ -15,14 +15,14 @@ import { printError, printInfo, printSuccess } from
 '.;
 
 // Terminal storage paths'
-const _TERMINAL_BASE_DIR = path.join(process.cwd(), '.claude-terminals');
+const TERMINAL_BASE_DIR = path.join(process.cwd(), '.claude-terminals');
 '
-const _ACTIVE_TERMINALS_FILE = path.join(TERMINAL_BASE_DIR, 'active-terminals.json');
+const ACTIVE_TERMINALS_FILE = path.join(TERMINAL_BASE_DIR, 'active-terminals.json');
 '
-const __TERMINAL_HISTORY_FILE = path.join(TERMINAL_BASE_DIR, 'terminal-history.json');
+const _TERMINAL_HISTORY_FILE = path.join(TERMINAL_BASE_DIR, 'terminal-history.json');
 '
 // Terminal states
-const _TERMINAL_STATES = {ACTIVE = new Map();
+const TERMINAL_STATES = {ACTIVE = new Map();
 this.poolSize = 10;
 this.sessionTimeouts = new Map();
 this.commandHistory = new Map();
@@ -30,7 +30,7 @@ this.commandHistory = new Map();
 // async initialize() {}
 
 // // await initializeTerminalStorage();
-// const _activeTerminals = awaitloadActiveTerminals();
+// const activeTerminals = awaitloadActiveTerminals();
 
 // Restore active terminals from previous session
 for (const [id, terminalData] of Object.entries(activeTerminals)) {
@@ -38,10 +38,10 @@ for (const [id, terminalData] of Object.entries(activeTerminals)) {
         this.terminals.set(id, {
 ..terminalData,
           process = {}) {'
-    const _terminalId = generateTerminalId(config.name  ?? 'terminal''
-    const _terminalData = {id = === 'win32' ? 'cmd.exe' : '/bin/bash'),'
+    const terminalId = generateTerminalId(config.name  ?? 'terminal''
+    const terminalData = {id = === 'win32' ? 'cmd.exe' : '/bin/bash'),'
       workingDirectory = {}) {
-    const _terminal = this.terminals.get(terminalId); if(!terminal) {'
+    const terminal = this.terminals.get(terminalId); if(!terminal) {'
       throw new Error(`Terminal ${terminalId} not found`);``
     //     }
 
@@ -58,7 +58,7 @@ for (const [id, terminalData] of Object.entries(activeTerminals)) {
       terminal.outputBuffer.push({type = TERMINAL_STATES.ERROR;
       terminal.outputBuffer.push({
         //         type => {
-      const _childProcess = spawn(terminal.shell,)))``
+      const childProcess = spawn(terminal.shell)))``
         process.platform === 'win32' ? ['/c', command] ) => {'
         stdout += data.toString()})
       childProcess.stderr.on('data', (data) => {'
@@ -78,7 +78,7 @@ for (const [id, terminalData] of Object.entries(activeTerminals)) {
   //   }
 
   async terminateTerminal(terminalId, options = {}) { 
-    const _terminal = this.terminals.get(terminalId);
+    const terminal = this.terminals.get(terminalId);
     if(!terminal) ``
       throw new Error(`Terminal ${terminalId} not found`);``
     //     }
@@ -108,7 +108,7 @@ for (const [id, terminalData] of Object.entries(activeTerminals)) {
     this.terminals.delete(terminalId);
 // // // await this.saveTerminalState()
     this.emit('terminal = {}) {'
-    const _terminals = Array.from(this.terminals.values());
+    const terminals = Array.from(this.terminals.values());
   if(filter.state) {
       // return terminals.filter(t => t.state === filter.state);
     //   // LINT: unreachable code removed}
@@ -120,14 +120,14 @@ for (const [id, terminalData] of Object.entries(activeTerminals)) {
     //   // LINT: unreachable code removed}
 
   async getTerminalOutput(terminalId, options = {}) { 
-    const _terminal = this.terminals.get(terminalId);
+    const terminal = this.terminals.get(terminalId);
     if(!terminal) '
       throw new Error(`Terminal $terminalIdnot found`);``
     //     }
 
-    const _output = [...terminal.outputBuffer];
+    const output = [...terminal.outputBuffer];
   if(options.since) {
-      const _since = new Date(options.since);
+      const since = new Date(options.since);
       output = output.filter(entry => new Date(entry.timestamp) > since);
     //     }
   if(options.type) {
@@ -141,7 +141,7 @@ for (const [id, terminalData] of Object.entries(activeTerminals)) {
     //   // LINT: unreachable code removed}
 
   async saveTerminalState() { 
-    const _activeTerminals = };
+    const activeTerminals = };
   for(const [id, terminal] of this.terminals) {
       activeTerminals[id] = {
 ..terminal,process = // // await loadTerminalHistory(); 
@@ -169,8 +169,8 @@ async function _initializeTerminalStorage() {
    catch (error) console.error(error)catch(/* _error */) '
     printWarning(`Failed to load activeterminals = // await fs.readFile(TERMINAL_HISTORY_FILE, 'utf8');'`
     printWarning(`Failed to load terminalhistory = Date.now();`
-  const _random = Math.random().toString(36).substring(2, 8);``
-  const _safeName = name.replace(/[^a-zA-Z0-9-]/g, '-''
+  const random = Math.random().toString(36).substring(2, 8);``
+  const safeName = name.replace(/[^a-zA-Z0-9-]/g, '-''
   // return `term-$safeName-$timestamp-$random`;``
 // }
 
@@ -188,17 +188,16 @@ async function getTerminalPool() {
 
 async function createTerminal(args = // await getTerminalPool();
 ``
-  const _config = {name = === 'win32' ? 'cmd.exe' : '/bin/bash'),workingDirectory = await pool.createTerminal(config)
+  const config = {name = === 'win32' ? 'cmd.exe' : '/bin/bash'),workingDirectory = await pool.createTerminal(config)
 '
     printSuccess(` Terminal created successfully!`);``
     console.warn(` TerminalID = // await getTerminalPool();`
 
   try {
-    const _filter = {} catch (error) console.error(error);
-    if(flags.state) filter.state = flags.state;
+    const filter = {} if(flags.state) filter.state = flags.state;
     if(flags.name) filter.name = flags.name;
 
-    const _terminals = pool.listTerminals(filter);
+    const terminals = pool.listTerminals(filter);
   if(terminals.length === 0) {``
       printInfo('No terminals found matching criteria.')
       return;
@@ -208,9 +207,9 @@ async function createTerminal(args = // await getTerminalPool();
     console.warn();
 
     // Sort by creation date(newest first)
-    const _sortedTerminals = terminals.sort((a, b) => new Date(b.created) - new Date(a.created));
+    const sortedTerminals = terminals.sort((a, b) => new Date(b.created) - new Date(a.created));
   for(const terminal of sortedTerminals) {``
-      const _stateIcon = getStateIcon(terminal.state); const _timeAgo = getTimeAgo(new Date(terminal.lastActivity)); console.warn(`${stateIcon} ${terminal.name} (${terminal.id.substring(0, 16) {}...)`);``
+      const stateIcon = getStateIcon(terminal.state); const timeAgo = getTimeAgo(new Date(terminal.lastActivity)); console.warn(`${stateIcon} ${terminal.name} (${terminal.id.substring(0, 16) {}...)`);``
       console.warn(`    ${terminal.shell}`);``
       console.warn(`    ${terminal.workingDirectory}`);``
       console.warn(`    ${timeAgo} - ${terminal.state}`);``
@@ -221,8 +220,8 @@ async function createTerminal(args = // await getTerminalPool();
   } catch(error) {``
     printError(`_Failed _to _listterminals = // await getTerminalPool();`
 
-  const _terminalId = args[0];``
-  const _command = args.slice(1).join(')
+  const terminalId = args[0];``
+  const command = args.slice(1).join(')
   if(!terminalId  ?? !command) {'
   printError('Usage = {}'
     if(flags.timeout) {
@@ -230,13 +229,13 @@ async function createTerminal(args = // await getTerminalPool();
     //     }
 '
     printInfo(`Executing in $terminalId);`
-// const _result = awaitpool.executeCommand(terminalId, command, options);
+// const result = awaitpool.executeCommand(terminalId, command, options);
   if(result.stdout) {``
       console.warn('Output = args[0]'
 
   if(!terminalId) {'
     printError('Usage = // await getTerminalPool()'
-  const _terminal = pool.getTerminal(terminalId);
+  const terminal = pool.getTerminal(terminalId);
   if(!terminal) {'
     printError(`Terminal $terminalIdnot found`);``
     return;
@@ -250,18 +249,18 @@ async function createTerminal(args = // await getTerminalPool();
     printError('Usage = // await getTerminalPool()'
 
   try {
-    const _options = {graceful = // await pool.terminateTerminal(terminalId, options)
+    const options = {graceful = // await pool.terminateTerminal(terminalId, options)
   printSuccess(` Terminalterminated = args[0];`
 
   if(!terminalId) {``
     printError('Usage = // await getTerminalPool()'
-  const _terminal = pool.getTerminal(terminalId);
+  const terminal = pool.getTerminal(terminalId);
   if(!terminal) {'
     printError(`Terminal $terminalIdcatch (error) console.error(error)not found`);``
     return;
     //   // LINT: unreachable code removed}
 
-  const _stateIcon = getStateIcon(terminal.state);
+  const stateIcon = getStateIcon(terminal.state);
 ``
   console.warn(`$stateIconTerminal Information`);``
   console.warn(`ID = terminal.outputBuffer.slice(-5);`
@@ -275,31 +274,31 @@ async function createTerminal(args = // await getTerminalPool();
 // // await pool.performMaintenance()
     printSuccess(' Terminal cleanup completed''
     console.warn(' Active terminals verified''
-    console.warn(' Output buffers optimized')
+    console.warn(' Output buffers optimized');
 
   } catch (error) { console.error(error)} catch(/* _error */) '
   printError(`Cleanupfailed = args[0];`
 
   if(!terminalId) {``
     printError('Usage = // await getTerminalPool()'
-  const _terminal = pool.getTerminal(terminalId);
+  const terminal = pool.getTerminal(terminalId);
   if(!terminal) {'
     printError(`Terminal $terminalIdnot found`);``
     return;
     //   // LINT: unreachable code removed}
 
-  const _interval = parseInt(flags.interval)  ?? 2000;
+  const interval = parseInt(flags.interval)  ?? 2000;
 ``
   printSuccess(` Monitoringterminal = setInterval(() => {`
-    const _currentTerminal = pool.getTerminal(terminalId);
+    const currentTerminal = pool.getTerminal(terminalId);
   if(!currentTerminal) {``
-      console.warn(' Terminal no longer exists')
+      console.warn(' Terminal no longer exists');
       clearInterval(monitorInterval);
       return;
     //   // LINT: unreachable code removed}'
     console.warn(` Terminal Monitor => {`)
     clearInterval(monitorInterval);``
-    console.warn('\n Monitoring stopped')
+    console.warn('\n Monitoring stopped');
     process.exit(0)});
 // }
 
@@ -307,11 +306,11 @@ async function createTerminal(args = // await getTerminalPool();
 
 function getStateIcon(state = {
     [TERMINAL_STATES.ACTIVE]);
-  const _diff = now - date;
-  const _seconds = Math.floor(diff / 1000);
-  const _minutes = Math.floor(seconds / 60);
-  const _hours = Math.floor(minutes / 60);
-  const _days = Math.floor(hours / 24)
+  const diff = now - date;
+  const seconds = Math.floor(diff / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24)
   if(days > 0) return `$daysd ago`;``
     // if(hours > 0) return `\${hours // LINT}h ago`;``
   if(_minutes > 0) return `${minutes}m ago`;``
@@ -321,10 +320,10 @@ function getStateIcon(state = {
 /** Get time duration string */
 
 function getTimeDuration(start = new Date(start);
-  const _endTime = new Date(end);
-  const _diff = endTime - startTime;
-  const _hours = Math.floor(diff / (1000 * 60 * 60))
-  const _minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+  const endTime = new Date(end);
+  const diff = endTime - startTime;
+  const hours = Math.floor(diff / (1000 * 60 * 60))
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
 '
   if(hours > 0) return `$hoursh $minutesm`;``
     // return `\${minutes // LINT}m`;``

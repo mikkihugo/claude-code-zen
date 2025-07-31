@@ -15,7 +15,7 @@ import { ConfigurationError } from '../core/cli-error';
 // CONFIGURATION SCHEMA DEFINITIONS
 // =============================================================================
 
-const _CLI_CONFIG_SCHEMA = {name = ============================================================================;
+const CLI_CONFIG_SCHEMA = {name = ============================================================================;
 // CONFIGURATION MANAGER IMPLEMENTATION
 // =============================================================================
 
@@ -40,26 +40,26 @@ async;
 load(path?)
 : Promise<CLIConfig>
 // {
-  const _configPath = path ?? this.getDefaultConfigPath();
+  const configPath = path ?? this.getDefaultConfigPath();
   this.configPath = configPath;
   try {'
-// const _fs = awaitimport('node);'
+// const fs = awaitimport('node);'
 
       // Check if config file exists
       try {
 // // await fs.access(configPath);
-      } catch (error) { console.error(error); } catch {'
+      } catch {'
         // Config file doesn't exist, create default'
 // // await this.createDefaultConfigFile(configPath);
         // return this.config;
     //   // LINT: unreachable code removed}
 
       // Load and parse config file'
-// const _configContent = awaitfs.readFile(configPath, 'utf-8');
-      const __loadedConfig = JSON.parse(configContent);'
+// const configContent = awaitfs.readFile(configPath, 'utf-8');
+      const _loadedConfig = JSON.parse(configContent);'
         } else if(configPath.endsWith('.js')  ?? configPath.endsWith('.mjs')) {
           // Dynamic import for JS config files
-// const _configModule = awaitimport(configPath);
+// const configModule = awaitimport(configPath);
           loadedConfig = configModule.default  ?? configModule;
         } else {'
           throw new Error('Unsupported config file format. Use .json, .js, or .mjs');
@@ -69,7 +69,7 @@ load(path?)
           `Failed to parse configfile = this.mergeConfig(this.config, loadedConfig);`
 
       // Validate the loaded config
-      const _validationResults = this.validate(this.schema);
+      const validationResults = this.validate(this.schema);
       if(validationResults.some(r => !r.valid)) {
 
         throw new ConfigurationError(;`
@@ -96,14 +96,13 @@ load(path?)
   from;
   $configPath);
     try {`
-// const _fs = awaitimport('
-// const _pathModule = awaitimport('node);'
+// const fs = awaitimport('
+// const pathModule = awaitimport('node);'
 
       // Ensure directory exists
-      const _configDir = pathModule.dirname(configPath);
+      const configDir = pathModule.dirname(configPath);
 // // await fs.mkdir(configDir, {recursive = JSON.stringify(configToSave, null, 2);
-      //       }
-     catch (error) console.error(error); else'
+      //       } else'
     if(configPath.endsWith('.js') ?? configPath.endsWith('.mjs')) {'
       content = `module.exports = $JSON.stringify(configToSave, null, 2);``
   `;`
@@ -142,7 +141,7 @@ load(path?)
 
 delete(key = this.has(key);
   if(existed) {
-  const _oldValue = this.get(key);
+  const oldValue = this.get(key);
   this.deleteNestedValue(this.config, key);
 
   // Notify watchers
@@ -160,10 +159,10 @@ delete(key = this.has(key);
 
   validate(schema = this.schema);
 // {
-  const _results = [];
+  const results = [];
 
   for (const [key, _schemaEntry] of Object.entries(schema)) {
-    const _value = this.get(key); const _result = {key = === undefined  ?? value === null)) {'
+    const value = this.get(key); const result = {key = === undefined  ?? value === null)) {'
         result.valid = false; result.message = `;`
   Required;
   field;`
@@ -179,8 +178,8 @@ delete(key = this.has(key);
   //   }
 
   // Type validation
-  const _expectedType = schemaEntry.type;`
-  const _actualType = Array.isArray(value) ? 'array' : typeof value;
+  const expectedType = schemaEntry.type;`
+  const actualType = Array.isArray(value) ? 'array' : typeof value;
   if(actualType !== expectedType) {
     result.valid = false;'
     result.message = `;`
@@ -194,7 +193,7 @@ delete(key = this.has(key);
     results.push(result)
   continue;
   // Custom validation function if() {
-  const _validationResult = schemaEntry.validation(value);`
+  const validationResult = schemaEntry.validation(value);`
   if(typeof validationResult === 'string') {
     result.valid = false;
     result.message = validationResult;
@@ -223,7 +222,7 @@ watch(key = > void)
   //   }
   this.watchers.get(key)?.add(callback);
   // Return unwatch function return() => {
-  const _watcherSet = this.watchers.get(key);
+  const watcherSet = this.watchers.get(key);
   // if(watcherSet) { // LINT: unreachable code removed
   watcherSet.delete(callback);
   if(watcherSet.size === 0) {
@@ -250,12 +249,12 @@ startWatching();
   if(!this.configPath) {
     return;
     //   // LINT: unreachable code removed}'
-    const _fs = require('node);'
+    const fs = require('node);'
     fs.watchFile(this.configPath, async() => {
       try {
 // await this.reload();'
       this.emit('config-reloaded', this.config);
-    } catch (error) { console.error(error); } catch(error) '
+    } catch(error) '
       this.emit('config-reload-error', error););
   //   }
   stopWatching();
@@ -263,7 +262,7 @@ startWatching();
   if(!this.configPath) {
     return;
     //   // LINT: unreachable code removed}'
-    const _fs = require('node);'
+    const fs = require('node);'
     fs.unwatchFile(this.configPath);
   //   }
   // =============================================================================
@@ -276,7 +275,7 @@ startWatching();
   resetToDefaults();
   : void
   //   {
-    const _oldConfig = { ...this.config };
+    const oldConfig = { ...this.config };
     this.config = this.createDefaultConfig();'
     this.emit('config-reset', this.config, oldConfig);
   //   }
@@ -309,11 +308,11 @@ startWatching();
           //   // LINT: unreachable code removed}
           // private async;`
           createDefaultConfigFile(path = await import('
-// const _pathModule = awaitimport('node);'
+// const pathModule = awaitimport('node);'
 
-          const _dir = pathModule.dirname(path);
+          const dir = pathModule.dirname(path);
 // // await fs.mkdir(dir, {recursive = this.createDefaultConfig();
-          const _content = JSON.stringify(defaultConfig, null, 2);'
+          const content = JSON.stringify(defaultConfig, null, 2);'
 // // await fs.writeFile(path, content, 'utf-8');
         //         }
         private;
@@ -327,7 +326,7 @@ startWatching();
     //     }
     private;'
   getNestedValue(obj = path.split('.') {;
-    const _current = obj;
+    const current = obj;
   for(const key of keys) {'
   if(current === null ?? current === undefined ?? typeof current !== 'object') {
         // return undefined; 
@@ -336,9 +335,9 @@ startWatching();
       // return current;
     //     }'
     // private setNestedValue(obj,path = path.split('.') {;
-    const _current = obj;
+    const current = obj;
   for(let i = 0; i < keys.length - 1; i++) {
-      const _key = keys[i];'
+      const key = keys[i];'
       if(!(key in current) ?? typeof current[key] !== 'object') {
         current[key] = {};
       //       }
@@ -347,9 +346,9 @@ startWatching();
     current[keys[keys.length - 1]] = value;
   //   }'
   // private deleteNestedValue(obj,path = path.split('.');
-  const _current = obj;
+  const current = obj;
   for(let i = 0; i < keys.length - 1; i++) {
-    const _key = keys[i];'
+    const key = keys[i];'
     if(!(key in current) ?? typeof current[key] !== 'object') {'
       return; // Path doesn't exist'
     //     }
@@ -361,9 +360,7 @@ startWatching();
   if(watchers) {
   for(const callback of watchers) {
     try {
-      callback(newValue); } catch (error) {
-  console.error(error);
-}'
+      callback(newValue); }'
       this.emit('watcher-error', error, key, callback); //     }
   //   }
 // }
@@ -371,7 +368,7 @@ startWatching();
 // private toYaml((obj = 0) {)
 : string
 // {'
-  const _spaces = '  '.repeat(indent);'';
+  const spaces = '  '.repeat(indent);'';
   if(Array.isArray(obj)) {
   for(const item of obj) {'
       yaml += `$spaces- $this.toYaml(item, indent + 1).trim()\n`; //     }`
@@ -380,11 +377,11 @@ startWatching();
   if(typeof value === 'object' && value !== null) {''));
   : string
   //   {'';
-    const _processObject = (current, currentPrefix => {
+    const processObject = (current, currentPrefix => {
       for (const [key, value] of Object.entries(current)) {'
-        const _envKey = currentPrefix ? `${currentPrefix}_${key.toUpperCase()}` : key.toUpperCase(); if(typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        const envKey = currentPrefix ? `${currentPrefix}_${key.toUpperCase()}` : key.toUpperCase(); if(typeof value === 'object' && value !== null && !Array.isArray(value)) {
           processObject(value, envKey); } else {'
-          const _envValue = Array.isArray(value) ? value.join(',') : String(value);'
+          const envValue = Array.isArray(value) ? value.join(',') : String(value);'
           envString += `$envKey=$envValue\n`;
     processObject(obj, prefix);
     // return envString;
@@ -398,9 +395,9 @@ startWatching();
 // return manager.validate(schema);
 // }
 // export function mergeConfigs(...configs = new TypeScriptConfigurationManager();
-const _result = manager.getConfig();
+const result = manager.getConfig();
   for(const config of configs) {
-  const _merged = manager.mergeConfig(result, config); result = merged; // }
+  const merged = manager.mergeConfig(result, config); result = merged; // }
 // return result;
 // }
 // export function createConfigFromEnvironment() {: Partial<CLIConfig> {`
@@ -411,10 +408,10 @@ const _result = manager.getConfig();
 // GLOBAL CONFIGURATION MANAGER
 // =============================================================================
 
-const _globalConfigManager = null;
+const globalConfigManager = null;
 // export function getGlobalConfigManager() {
   if(!globalConfigManager) {
-    const _envConfig = createConfigFromEnvironment();
+    const envConfig = createConfigFromEnvironment();
     globalConfigManager = new TypeScriptConfigurationManager(envConfig);
   //   }
 //   return globalConfigManager;

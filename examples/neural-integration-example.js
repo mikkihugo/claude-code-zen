@@ -9,8 +9,7 @@ import {
   getNeuralServiceStatus,
   initializeNeuralService,
   predictWithNetwork,
-  trainNeuralNetwork,
-} from '../src/neural/integration.js';
+  trainNeuralNetwork} from '../src/neural/integration.js';
 
 async function main() {
   console.warn('🧠 Claude Zen + ruv-FANN Neural Network Example\n');
@@ -29,8 +28,7 @@ async function main() {
     console.warn('Creating neural network for XOR problem...');
 
     await createNeuralNetwork('xor-solver', [2, 4, 1], {
-      description: 'Simple XOR problem solver network',
-    });
+      description: 'Simple XOR problem solver network'});
 
     // Training data for XOR problem
     const xorData = {
@@ -40,15 +38,13 @@ async function main() {
         [1, 0],
         [1, 1],
       ],
-      outputs: [[0], [1], [1], [0]],
-    };
+      outputs: [[0], [1], [1], [0]]};
 
     console.warn('🎯 Training network on XOR data...');
     const xorError = await trainNeuralNetwork('xor-solver', xorData, {
       learning_rate: 0.7,
       max_epochs: 1000,
-      desired_error: 0.001,
-    });
+      desired_error: 0.001});
 
     console.warn(`✅ Training completed with final error: ${xorError.toFixed(6)}`);
 
@@ -68,8 +64,7 @@ async function main() {
     console.warn('Creating pattern recognition network...');
 
     await createNeuralNetwork('pattern-recognizer', [8, 10, 3], {
-      description: 'Simple 8x1 to 3-class pattern recognizer',
-    });
+      description: 'Simple 8x1 to 3-class pattern recognizer'});
 
     // Generate simple patterns (vertical, horizontal, diagonal)
     const patternData = {
@@ -91,15 +86,13 @@ async function main() {
         [0, 1, 0], // horizontal
         [0, 0, 1], // diagonal
         [0, 0, 1], // diagonal
-      ],
-    };
+      ]};
 
     console.warn('🎯 Training pattern recognition network...');
     const patternError = await trainNeuralNetwork('pattern-recognizer', patternData, {
       learning_rate: 0.5,
       max_epochs: 2000,
-      desired_error: 0.01,
-    });
+      desired_error: 0.01});
 
     console.warn(`✅ Pattern training completed with final error: ${patternError.toFixed(6)}`);
 

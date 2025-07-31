@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Logger;
 utility;
 for Neural and Queen components

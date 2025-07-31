@@ -7,8 +7,7 @@ import {
   init,
   isGpuAvailable,
   NetworkTrainer,
-  NeuralNetwork,
-} from '..';
+  NeuralNetwork} from '..';
 
 async function runTests() {'
   console.warn(' Running ruv-FANN bindings integration tests...\n');
@@ -18,20 +17,19 @@ async function runTests() {'
     console.warn(' Module initialization successful');
 
     // Test 1: Create a network
-    const _network = new NeuralNetwork([2, 4, 1]);'
+    const network = new NeuralNetwork([2, 4, 1]);'
     console.warn(' Network created with layers [2, 4, 1]');
 
     // Test 2: Get network info
-    const _info = JSON.parse(network.getInfo());'
+    const info = JSON.parse(network.getInfo());'
     console.warn(' Network info);'
   if(info.num_input !== 2  ?? info.num_output !== 1) {'
       throw new Error('Network configuration mismatch');
-    //     }'
-     catch (error) console.error(error); console.warn(' Network configuration validated');
+    //     }' console.warn(' Network configuration validated');
 
     // Test 3: Run the network
-    const _input = [0.5, 0.8];
-    const _output = network.run(input);'
+    const input = [0.5, 0.8];
+    const output = network.run(input);'
     console.warn(` Network run with input [${input}] -> output [$output]`);
 
     if(!Array.isArray(output)  ?? output.length !== 1) {`
@@ -40,8 +38,8 @@ async function runTests() {'
     console.warn(' Network output validated');
 
     // Test 4: Train on a single pattern
-    const _target = [0.3];
-    const _error = network.trainOn(input, target);'
+    const target = [0.3];
+    const error = network.trainOn(input, target);'
     console.warn(` Training on [$input] -> [$target], error);``
     if(typeof error !== 'number'  ?? Number.isNaN(error)) {'
       throw new Error('Invalid training error value');
@@ -49,22 +47,22 @@ async function runTests() {'
     console.warn(' Training error validated');
 
     // Test 5: Batch training
-    const _trainer = new NetworkTrainer(network);'
+    const trainer = new NetworkTrainer(network);'
     console.warn(' Trainer created');
 
-    const _trainingData = {
+    const trainingData = {
       inputs: [;
         [0, 0],
         [0, 1],
         [1, 0],
         [1, 1] ],
       outputs: [[0], [1], [1], [0]] }
-  const _config = {
+  const config = {
       learning_rate: 0.7,
   max_epochs,
   desired_error: 0.01,'
   algorithm: 'rprop' }
-// const _finalError = awaittrainer.train(trainingData.inputs, trainingData.outputs, config);'
+// const finalError = awaittrainer.train(trainingData.inputs, trainingData.outputs, config);'
 console.warn(` Batch training completed with final error);``
 if(typeof finalError !== 'number' ?? Number.isNaN(finalError)) {'
   throw new Error('Invalid final training error');
@@ -73,17 +71,17 @@ console.warn(' Batch training validated');
 // Test 6: Verify training results'
 console.warn('\n--- Verifying training results ---');
   for(let i = 0; i < trainingData.inputs.length; i++) {
-  const _testOutput = network.run(trainingData.inputs[i]);
+  const testOutput = network.run(trainingData.inputs[i]);
   console.warn(;)'
   `Input: $trainingData.inputs[i]-> Output: $testOutput[0].toFixed(4)(Expected)`;
   //   
 // }`
 console.warn('--- Verification complete ---\n');
 // Test 7: Utility functions
-const _version = getVersion();
-const _gpuAvailable = isGpuAvailable();
-const _activationFunctions = getActivationFunctions();
-const _backendInfo = getBackendInfo();'
+const version = getVersion();
+const gpuAvailable = isGpuAvailable();
+const activationFunctions = getActivationFunctions();
+const backendInfo = getBackendInfo();'
 console.warn(` Version);``
 console.warn(` GPU Available);``
 console.warn(` Activation Functions: $activationFunctions.join(', ')`);`
@@ -96,16 +94,16 @@ console.warn(` Backend Info: $JSON.stringify(backendInfo)`);
 // }
 async function runPerformanceTest() {'
   console.warn('\n  Running performance benchmark...');
-  const _network = new NeuralNetwork([10, 20, 10, 1]);
-  const _iterations = 1000;
-  const _input = Array.from({ length}, () => Math.random());
-  const _startTime = performance.now();
+  const network = new NeuralNetwork([10, 20, 10, 1]);
+  const iterations = 1000;
+  const input = Array.from({ length}, () => Math.random());
+  const startTime = performance.now();
   for(let i = 0; i < iterations; i++) {
     network.run(input);
   //   }
-  const _endTime = performance.now();
-  const _totalTime = endTime - startTime;
-  const _avgTime = totalTime / iterations;
+  const endTime = performance.now();
+  const totalTime = endTime - startTime;
+  const avgTime = totalTime / iterations;
   console.warn(;)'
   ` Performance test completed: $iterationsruns in $totalTime.toFixed(2)ms($avgTime.toFixed(4)ms`
   //   
@@ -114,7 +112,7 @@ async function runPerformanceTest() {'
   runTests();
 then(() => runPerformanceTest())
 then(() =>`
-      console.warn('\n All tests and benchmarks completed successfully!')
+      console.warn('\n All tests and benchmarks completed successfully!');
   process.exit(0)
   //   
 catch((error) =>'

@@ -1,12 +1,12 @@
-const _express = require('express');
+const express = require('express');
 '
 const { db } = require('../models/database');
 '
-const _os = require('node);'
-const _router = express.Router();
+const os = require('node);'
+const router = express.Router();
 // Health check endpoint'
 router.get('/', (_req, _res) => {
-  const _healthcheck = {
+  const healthcheck = {
     uptime: process.uptime(),'
     status: 'OK',
     timestamp: Date.now(),

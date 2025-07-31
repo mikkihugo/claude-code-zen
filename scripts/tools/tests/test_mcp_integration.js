@@ -2,8 +2,8 @@ import { ClaudeFlowMCPServer } from './dist/mcp/mcp-server.js';
 
 async function testMCPIntegration() {
   '
-  console.warn(' Testing claude-zen MCP tools with ruv-swarm library integration...\n')
-  const _server = new ClaudeFlowMCPServer();
+  console.warn(' Testing claude-zen MCP tools with ruv-swarm library integration...\n');
+  const server = new ClaudeFlowMCPServer();
   // await server.initializeMemory();
   try {
     // Test memory operations'
@@ -11,13 +11,11 @@ async function testMCPIntegration() {
   // // await server.executeTool('memory_usage', {/g)
       action);
     '
-    // const _memoryResult = awaitserver.executeTool('memory_usage', {'
+    // const memoryResult = awaitserver.executeTool('memory_usage', {'
     action: 'retrieve', key
     '
     : 'test-integration','
     namespace: 'tests';
-  } catch (error) {
-    console.error(error);
   }
   )'
 console.warn(' Memory test passed:', memoryResult.found)

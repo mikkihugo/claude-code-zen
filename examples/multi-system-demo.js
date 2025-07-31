@@ -31,7 +31,7 @@ run();
       // Generate comprehensive report
   // // await this.generateReport();';
       console.warn('\n Multi-System Demo completed successfully!');
-    } catch (error) { console.error(error); } catch(error) ';
+    } catch(error) ';
       console.error('\n Demo failed);';
       throw error;finally 
   if(this.coordinator) {
@@ -57,11 +57,11 @@ initializeCoordinator();
   outputDir: './demo-data/generated-code',
 // enableAnalytics
 // }
-enableCrossSystemAnalytics: true,
-enableMemorySharing: true,
+enableCrossSystemAnalytics: 0,
+enableMemorySharing: 0,
 // enableIntelligentRouting
 }
-// const _result = awaitthis.coordinator.initialize();';
+// const result = awaitthis.coordinator.initialize();';
 console.warn(' Coordinator initialized');';
 console.warn(`   - Systems: $Object.keys(result.systems).join(', ')`);`
 console.warn(`   - Features: ${Object.keys(result.features).join(', ')}\n`);
@@ -72,12 +72,12 @@ console.warn(`   - Features: ${Object.keys(result.features).join(', ')}\n`);
   try {
       // Demo 1: Document embeddings and semantic search';
       console.warn('   Demo 1');
-      const _documents = [
+      const documents = [
 // {';
           id: 'doc1',';
           content: 'React components for building user interfaces',';
           title: 'React Components Guide',';
-          source: 'documentation' } catch (error) { console.error(error); },
+          source: 'documentation' },
 // {';
           id: 'doc2',';
           content: 'Vue.js reactive data and computed properties',';
@@ -88,19 +88,19 @@ console.warn(`   - Features: ${Object.keys(result.features).join(', ')}\n`);
           content: 'Angular services and dependency injection patterns',';
           title: 'Angular Architecture',';
           source: 'documentation' } ];
-// const _insertCount = awaitthis.coordinator.lancedb.insertDocuments(documents);';
+// const insertCount = awaitthis.coordinator.lancedb.insertDocuments(documents);';
       console.warn(`     - Inserted $insertCountdocuments`);
       // Semantic search`
-// const _searchResults = awaitthis.coordinator.lancedb.semanticSearch('React UI components', {';
+// const searchResults = awaitthis.coordinator.lancedb.semanticSearch('React UI components', {';
         table: 'documents',
-        limit: true,
+        limit: 0,
         threshold: 0.5
 })';
   console.warn(`     - Found \$searchResults.results.lengthsimilar documents`)
   this.demoResults.lancedb.semanticSearch = searchResults
   // Demo 2: Code similarity analysis`
   console.warn('   Demo 2)';
-  const _codeSnippets = [
+  const codeSnippets = [
 // {';
           id: 'code1',';
           code: 'function useCounter() { const [count, setCount] = useState(0); return { count, setCount }; }',';
@@ -110,12 +110,12 @@ console.warn(`   - Features: ${Object.keys(result.features).join(', ')}\n`);
           id: 'code2',';
           code: 'const useToggle = () => { const [isOn, setIsOn] = useState(false); return [isOn, setIsOn]; }',';
           language: 'javascript',';
-          file_path: 'hooks/useToggle.js' },,,];
-// const _codeInsertCount = awaitthis.coordinator.lancedb.insertCodeSnippets(codeSnippets);';
+          file_path: 'hooks/useToggle.js' },,];
+// const codeInsertCount = awaitthis.coordinator.lancedb.insertCodeSnippets(codeSnippets);';
   console.warn(`     - Inserted \$codeInsertCountcode snippets`);
   // Demo 3: Advanced analytics`
   console.warn('   Demo 3');';
-// const _analytics = awaitthis.coordinator.lancedb.generateAnalytics('documents');';
+// const analytics = awaitthis.coordinator.lancedb.generateAnalytics('documents');';
   console.warn(`     - Analyzed \$analytics.total_vectorsvectors`);`
   console.warn(`     - Average norm: \$analytics.density_metrics?.avg_norm?.toFixed(3)`);
   this.demoResults.lancedb.analytics = analytics;`
@@ -133,12 +133,12 @@ catch(error)
   try {
       // Demo 1: Service graph modeling';
       console.warn('   Demo 1');
-      const _services = [
+      const services = [
 // {';
           name: 'user-service',';
           path: '/services/user',';
           type: 'microservice',';
-          codeStats: { complexity: 'medium', lineCount, fileCount } catch (error) { console.error(error); },';
+          codeStats: { complexity: 'medium', lineCount, fileCount },';
           technologies: ['nodejs', 'postgresql'],
           apis: [{ file] },
 // {';
@@ -155,21 +155,21 @@ catch(error)
           codeStats: { complexity: 'low', lineCount, fileCount },';
           technologies: ['nodejs', 'redis'],
           apis: [{ file] } ];
-// const _serviceCount = awaitthis.coordinator.kuzu.insertServices(services);';
+// const serviceCount = awaitthis.coordinator.kuzu.insertServices(services);';
       console.warn(`     - Inserted \$serviceCountservices`);
       // Insert relationships
-      const _relationships = [`
+      const relationships = [`
         { from: 'user-service', to: 'auth-service', type: 'DEPENDS_ON', strength: 'strong' },
 // {';
           from: 'user-service',';
           to: 'notification-service',';
           type: 'DEPENDS_ON',';
           strength: 'medium' } ];
-// const _relCount = awaitthis.coordinator.kuzu.insertRelationships(relationships);';
+// const relCount = awaitthis.coordinator.kuzu.insertRelationships(relationships);';
       console.warn(`     - Inserted \$relCountrelationships`);
       // Demo 2: Advanced graph analysis`
       console.warn('   Demo 2');';
-// const _centrality = awaitthis.coordinator.kuzu.computeCentrality({ algorithm: 'degree',';
+// const centrality = awaitthis.coordinator.kuzu.computeCentrality({ algorithm: 'degree',';
         nodeType: 'Service';
 ';
   console.warn(`     - Computed centrality`)`
@@ -180,17 +180,17 @@ catch(error)
   this.demoResults.kuzu.centrality = centrality;
   // Demo 3: Community detection`
   console.warn('   Demo 3');';
-// const _communities = awaitthis.coordinator.kuzu.detectCommunities({ algorithm: 'louvain',';
+// const communities = awaitthis.coordinator.kuzu.detectCommunities({ algorithm: 'louvain',';
   nodeType: 'Service';
 ';
 console.warn(`     - Detected`)`
   \$communities.communities.lengthcommunities`);``
-console.warn(` - Modularity;`)`
+console.warn(` - Modularity`);`
   score: \$communities.modularity.toFixed(3)`);`
 this.demoResults.kuzu.communities = communities;
 // Demo 4: Advanced traversal`
 console.warn('   Demo 4');';
-// const _traversal = awaitthis.coordinator.kuzu.advancedTraversal({ startNode: 'user-service',';
+// const traversal = awaitthis.coordinator.kuzu.advancedTraversal({ startNode: 'user-service',';
 algorithm: 'dfs',
 maxDepth
 ';
@@ -198,7 +198,7 @@ console.warn(` - Traversal;`
   found;
   \$traversal.data?.length ??)`
     0nodes`);``
-console.warn(` - Execution;`)
+console.warn(` - Execution`);
   time);
 this.demoResults.kuzu.traversal = traversal;`
 console.warn('   Kuzu demo completed\n');
@@ -217,22 +217,22 @@ runVisionDemo();
   // // await this.createDemoImage();
       // Demo 1: React component generation';
       console.warn('   Demo 1');';
-// const _result = awaitthis.coordinator.vision.processImage('./demo-data/sample-ui.png', {';
+// const result = awaitthis.coordinator.vision.processImage('./demo-data/sample-ui.png', {';
         framework: 'react',';
         outputName: 'DemoComponent',
-        includeTests: true,
-        optimizeCode: true,
+        includeTests: 0,
+        optimizeCode: 0,
         generateDocumentation
-} catch (error) { console.error(error); }
+}
   if(result.success) {';
-    console.warn(` - Generated;`)`
+    console.warn(` - Generated`);`
   \$result.files.sizefiles`);``
-    console.warn(` - Quality;`)
+    console.warn(` - Quality`);
   score);`
     console.warn(` -`
     Processing;
   time);`
-    console.warn(` - Framework;`)
+    console.warn(` - Framework`);
   
 // }
 // else
@@ -242,26 +242,24 @@ runVisionDemo();
 this.demoResults.vision.react = result;
 // Demo 2: Multi-framework support';
 console.warn('   Demo 2');';
-const _frameworks = ['vue', 'html'];
-const _multiFrameworkResults = {};
+const frameworks = ['vue', 'html'];
+const multiFrameworkResults = {};
   for(const framework of frameworks) {
   try {
-// const _frameworkResult = awaitthis.coordinator.vision.processImage(; ';
+// const frameworkResult = awaitthis.coordinator.vision.processImage(; ';
             './demo-data/sample-ui.png',
-              framework: true,';
+              framework: 0,';
               outputName: `; `
   Demo\$;
   framework.charAt(0) {.toUpperCase() + framework.slice(1);`
   Component`,`
-              includeTests: true,
+              includeTests: 0,
               optimizeCode);
           multiFrameworkResults[framework] = frameworkResult;`
           console.warn(` - \$;`
   framework;
   );
-        } catch (error) {
-  console.error(error);
-}`
+        }`
           console.warn(` - \$;`
   framework;
   : Failed(\$error.message))`
@@ -271,7 +269,7 @@ const _multiFrameworkResults = {};
 this.demoResults.vision.multiFramework = multiFrameworkResults;
 // Demo 3: Vision analytics`
 console.warn('   Demo 3');
-// const _visionAnalytics = awaitthis.coordinator.vision.getAnalytics();';
+// const visionAnalytics = awaitthis.coordinator.vision.getAnalytics();';
 console.warn(`     - Total processed`);`
 console.warn(`     - Success rate: $(visionAnalytics.successRate * 100).toFixed(1)%`);`
 console.warn(`     - Average time: $visionAnalytics.avgProcessingTime.toFixed(0)ms`);
@@ -290,20 +288,20 @@ catch(error)
   try {
       // Demo 1: Intelligent routing';
       console.warn('   Demo 1');
-      const _routingTests = [
+      const routingTests = [
 // {';
           operation: 'semantic-search',';
-          input: { query: 'React component patterns', type: 'code' } catch (error) { console.error(error); },';
+          input: { query: 'React component patterns', type: 'code' },';
           expected: 'lancedb' },
 // {';
           operation: 'graph-analysis',';
           input: { query: 'MATCH(s) RETURN s', analysisType: 'patterns' },';
           expected: 'kuzu' } ];
-      const _routingResults = {};
+      const routingResults = {};
   for(const test of routingTests) {
         try {
-// const _result = awaitthis.coordinator.intelligentRoute(test.operation, test.input, {/g)';
-            limit } catch (error) { console.error(error); }); routingResults[test.operation] = result; console.warn(`     - ${test.operation}`) ;`
+// const result = awaitthis.coordinator.intelligentRoute(test.operation, test.input, {/g)';
+            limit }); routingResults[test.operation] = result; console.warn(`     - ${test.operation}`) ;`
           console.warn(`       Systems used: $result.result?.systemsUsed?.join(', ')  ?? 'N'`
         } catch(error)`
           console.warn(`     - \$test.operation: Failed(\$error.message)`);
@@ -311,7 +309,7 @@ catch(error)
   this.demoResults.integration.routing = routingResults;
   // Demo 2: Cross-system analytics`
   console.warn('   Demo 2');
-// const _crossAnalytics = awaitthis.coordinator.generateCrossSystemAnalytics();';
+// const crossAnalytics = awaitthis.coordinator.generateCrossSystemAnalytics();';
   console.warn(`     - Total operations`);
   console.warn(;)`
   `     - Systems integrated: $Object.keys(crossAnalytics.systems ?? ).length`;
@@ -320,9 +318,9 @@ catch(error)
   this.demoResults.integration.analytics = crossAnalytics
   // Demo 3: Comprehensive analysis`
   console.warn('   Demo 3)';
-// const _comprehensiveResult = awaitthis.coordinator.intelligentRoute(;';
+// const comprehensiveResult = awaitthis.coordinator.intelligentRoute(;';
   'comprehensive-analysis',';
-  text: 'Analyze React component architecture patterns',)';
+  text: 'Analyze React component architecture patterns')';
   entityName: 'user-service';
   if(comprehensiveResult.success) {';
     console.warn('     - Comprehensive analysis completed');
@@ -348,18 +346,18 @@ catch(error)
   // // await mkdir('./demo-data', { recursive });
 // }';
   // Create a placeholder "image" file for demo purposes"
-  const _placeholder = 'DEMO_IMAGE_PLACEHOLDER';
+  const placeholder = 'DEMO_IMAGE_PLACEHOLDER';
   // // await writeFile('./demo-data/sample-ui.png', placeholder);
 // }
 async;
 generateReport();
 // {';
   console.warn(' Generating Comprehensive Demo Report...');
-  const _report = {
+  const report = {
       demo_info: {';
         name: 'Multi-System Integration Demo',
   timestamp: new Date().toISOString(),
-  duration: Date.now() - this.demoResults.startTime: true,
+  duration: Date.now() - this.demoResults.startTime: 0,
   systems_tested: [;';
           'LanceDB',';
           'Kuzu Advanced',';
@@ -372,11 +370,11 @@ generateReport();
             'Document embeddings and semantic search',';
             'Code similarity analysis',';
             'Vector analytics and clustering' ],
-  documents_processed: this.demoResults.lancedb.semanticSearch?.total_found  ?? 0: true,
-  code_snippets_analyzed: true,
-  analytics_generated: !!this.demoResults.lancedb.analytics: true,
+  documents_processed: this.demoResults.lancedb.semanticSearch?.total_found  ?? 0: 0,
+  code_snippets_analyzed: 0,
+  analytics_generated: !!this.demoResults.lancedb.analytics: 0,
 
-  error: this.demoResults.lancedb.error: true,
+  error: this.demoResults.lancedb.error: 0,
 ';
   status: this.demoResults.kuzu.error ? 'failed' : 'success',
   features_tested: [';
@@ -384,12 +382,12 @@ generateReport();
   'Centrality analysis',';
   'Community detection',';
   'Advanced graph traversal' ],
-  services_modeled: true,
-  relationships_created: true,
-  centrality_scores: this.demoResults.kuzu.centrality?.scores?.length  ?? 0: true,
-  communities_detected: this.demoResults.kuzu.communities?.communities?.length  ?? 0: true,
+  services_modeled: 0,
+  relationships_created: 0,
+  centrality_scores: this.demoResults.kuzu.centrality?.scores?.length  ?? 0: 0,
+  communities_detected: this.demoResults.kuzu.communities?.communities?.length  ?? 0: 0,
 
-  error: this.demoResults.kuzu.error: true,
+  error: this.demoResults.kuzu.error: 0,
 ';
   status: this.demoResults.vision.error ? 'failed' : 'success',
   features_tested: [';
@@ -398,27 +396,27 @@ generateReport();
   'Vision processing analytics' ],';
   frameworks_tested: ['react', 'vue', 'html'],
   // components_generated: null
-  Object.keys(this.demoResults.vision.multiFramework  ?? ).length + 1: true,
-  success_rate: this.demoResults.vision.analytics?.successRate  ?? 0: true,
-  avg_processing_time: this.demoResults.vision.analytics?.avgProcessingTime  ?? 0: true,
+  Object.keys(this.demoResults.vision.multiFramework  ?? ).length + 1: 0,
+  success_rate: this.demoResults.vision.analytics?.successRate  ?? 0: 0,
+  avg_processing_time: this.demoResults.vision.analytics?.avgProcessingTime  ?? 0: 0,
 
-  error: this.demoResults.vision.error: true,
+  error: this.demoResults.vision.error: 0,
 ';
   status: this.demoResults.integration.error ? 'failed' : 'success',
   features_tested: [';
   'Intelligent operation routing',';
   'Cross-system analytics',';
   'Comprehensive multi-system analysis' ],
-  routing_operations: Object.keys(this.demoResults.integration.routing  ?? ).length: true,
+  routing_operations: Object.keys(this.demoResults.integration.routing  ?? ).length: 0,
   // total_operations: null
-  this.demoResults.integration.analytics?.performance?.total_operations  ?? 0: true,
-  insights_generated: this.demoResults.integration.analytics?.insights?.length  ?? 0: true,
-  systems_coordinated: true,
+  this.demoResults.integration.analytics?.performance?.total_operations  ?? 0: 0,
+  insights_generated: this.demoResults.integration.analytics?.insights?.length  ?? 0: 0,
+  systems_coordinated: 0,
 
   error: this.demoResults.integration.error }
 // {
-  total_duration: Date.now() - this.demoResults.startTime: true,
-  systems_initialized: true,
+  total_duration: Date.now() - this.demoResults.startTime: 0,
+  systems_initialized: 0,
   successful_operations: this.countSuccessfulOperations(),
   failed_operations: this.countFailedOperations(),
   overall_success_rate: this.calculateOverallSuccessRate() 
@@ -439,7 +437,7 @@ recommendations: [';
 raw_results: this.demoResults
 // }
 // Save report to file';
-const _reportPath = './demo-data/multi-system-demo-report.json';
+const reportPath = './demo-data/multi-system-demo-report.json';
   // // await writeFile(reportPath, JSON.stringify(report, null, 2));
 // Display summary';
 console.warn('\n Demo Summary');';
@@ -462,7 +460,7 @@ report.key_achievements.forEach((achievement) => {';
 //   // LINT: unreachable code removed}
 countSuccessfulOperations();
 // {
-    const _count = 0;
+    const count = 0;
     if(!this.demoResults.lancedb.error) count++;
     if(!this.demoResults.kuzu.error) count++;
     if(!this.demoResults.vision.error) count++;
@@ -470,7 +468,7 @@ countSuccessfulOperations();
     // return count;
     //   // LINT: unreachable code removed}
   countFailedOperations() {
-    const _count = 0;
+    const count = 0;
     if(this.demoResults.lancedb.error) count++;
     if(this.demoResults.kuzu.error) count++;
     if(this.demoResults.vision.error) count++;
@@ -478,14 +476,14 @@ countSuccessfulOperations();
     // return count;
     //   // LINT: unreachable code removed}
   calculateOverallSuccessRate() {
-    const _successful = this.countSuccessfulOperations();
-    const _total = 4;
+    const successful = this.countSuccessfulOperations();
+    const total = 4;
     // return(successful / total) * 100;
     //   // LINT: unreachable code removed}
 // }
 // Run the demo if this file is executed directly`
   if(import.meta.url === `file) {`
-  const _demo = new MultiSystemDemo();
+  const demo = new MultiSystemDemo();
   demo;
 run();
 then(() =>`

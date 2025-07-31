@@ -1,16 +1,13 @@
 #!/usr/bin/env node;
 
-*
-@fileoverview
 Refactored;
 Claude - Flow;
 MCP;
 Server;
 
 /** Clean architecture implementation of the Model Context Protocol server */
-*
-@module
-MCPServerRefactored * /;;
+
+MCPServerRefactored * /;
 
 import { fileURLToPath } from 'node:url';
 ('');
@@ -30,48 +27,46 @@ import { PerformanceMetrics } from './core/performance-metrics.js';
 let SqliteMemoryStore, RuvSwarm, initializeAllTools, MCPMessageHandler, MCPToolExecutor;
 try {
   '
-  // const _memoryModule = awaitimport('../memory/sqlite-store.js')
+  // const memoryModule = awaitimport('../memory/sqlite-store.js')
   SqliteMemoryStore = memoryModule.SqliteMemoryStore
-} catch (error) {
-  console.error(error);
 }
 '
-  console.warn('[MCP-Server] SqliteMemoryStore not available, using mock implementation')
+  console.warn('[MCP-Server] SqliteMemoryStore not available, using mock implementation');
 '
-// const _mockModule = awaitimport('./core/mock-memory-store.js')
+// const mockModule = awaitimport('./core/mock-memory-store.js')
 SqliteMemoryStore = mockModule.SqliteMemoryStore
 // }
 try {
   '
-// const _ruvSwarmModule = awaitimport('../../ruv-FANN/ruv-swarm/npm/src/index.js')
+// const ruvSwarmModule = awaitimport('../../ruv-FANN/ruv-swarm/npm/src/index.js')
   RuvSwarm = ruvSwarmModule.RuvSwarm
 } catch (error) {
   console.error(error);
 
 catch(error) '
   console.warn('[MCP-Server] RuvSwarm not available, using mock implementation');'
-// const _mockModule = awaitimport('./core/mock-ruv-swarm.js')
+// const mockModule = awaitimport('./core/mock-ruv-swarm.js')
 RuvSwarm = mockModule.RuvSwarm;
 // }
 try {
   '
-// const _toolsModule = awaitimport('./core/tools-registry.js')
+// const toolsModule = awaitimport('./core/tools-registry.js')
   initializeAllTools = toolsModule.initializeAllTools
 } catch (error) {
   console.error(error);
 
 catch(error) '
   console.warn('[MCP-Server] Tools registry not available, using mock implementation');'
-// const _mockModule = awaitimport('./core/mock-tools-registry.js')
+// const mockModule = awaitimport('./core/mock-tools-registry.js')
 initializeAllTools = mockModule.initializeAllTools;
 // }
 try {
   '
-// const _handlerModule = awaitimport('./core/message-handler.js')
+// const handlerModule = awaitimport('./core/message-handler.js')
   MCPMessageHandler = handlerModule.MCPMessageHandler
 } catch (error) {
   console.error(error)
-  console.warn('[MCP-Server] Message handler not available, using simplified version')
+  console.warn('[MCP-Server] Message handler not available, using simplified version');
 '
   MCPMessageHandler =
 class {
@@ -79,7 +74,7 @@ class {
       // return jsonrpc = // await import('./core/tool-executor.js')
     // MCPToolExecutor = executorModule.MCPToolExecutor; // LINT: unreachable code removed
 } catch(error) {'
-  console.warn('[MCP-Server] Tool executor not available, using simplified version')
+  console.warn('[MCP-Server] Tool executor not available, using simplified version');
   MCPToolExecutor = class {
     async executeTool(_name, _args) { 
       // return tool = fileURLToPath(import.meta.url);
@@ -130,12 +125,12 @@ class {
    * @param Arraybatch - Array of message objects
 
   async processBatch(batch) { 
-    const _batchStartTime = Date.now();
+    const batchStartTime = Date.now();
     this.performanceMetrics.recordBatchMetrics(batch.length, 0); // Will update processing time later
 ``
     console.error(`[$new Date().toISOString()] DEBUG [MCP-Server] Processing batch of $batch.lengthmessages`);``
   for(const item of batch) {``
-      const { message, receivedAt } = item; const _requestId = message.id  ?? `req-$Date.now()-$Math.random().toString(36).substr(2, 4)`; ``
+      const { message, receivedAt } = item; const requestId = message.id  ?? `req-$Date.now()-$Math.random().toString(36).substr(2, 4)`; ``
 
       try {
         // Record request start for metrics
@@ -155,22 +150,22 @@ class {
   async handleMessageError(error, message): unknown
     this.performanceMetrics.recordError(error, messageId = this.errorHandler.createErrorResponse();
       message?.id  ?? null,
-      error,)
+      error)
       {operation = this.performanceMetrics.getMetrics();
-    const __stdioMetrics = this.stdioOptimizer.getMetrics();
-    const __errorStats = this.errorHandler.getErrorStats();
+    const _stdioMetrics = this.stdioOptimizer.getMetrics();
+    const _errorStats = this.errorHandler.getErrorStats();
 
     // return {performanceMetrics = Array.from(this.swarms.entries()).map(([id, _swarm]) => ({``
       id,status = // // await this.memoryStore.search('swarm:', {namespace = > ({ ...s,status = // await this.memoryStore.search('agent:', {namespace = > a.type))],lastUpdated = // await this.memoryStore.search('task:', {namespace = > t.status))],lastUpdated = this.toolExecutor.getExecutionStats()
     // ; // LINT: unreachable code removed
     // return {toolExecutionStats = this.performanceMetrics.generateReport()
     // console.error(`[\${new Date().toISOString() // LINT] INFO [MCP-Server] Final performancereport = this.performanceMetrics ? this.performanceMetrics.getMetrics() };`
-    const _stdioMetrics = this.stdioOptimizer ? this.stdioOptimizer.getMetrics() : {};
-    const _errorStats = this.errorHandler ? this.errorHandler.getErrorStats() : {};
+    const stdioMetrics = this.stdioOptimizer ? this.stdioOptimizer.getMetrics() : {};
+    const errorStats = this.errorHandler ? this.errorHandler.getErrorStats() : {};
 
     // return {version = = false;``
     //   // LINT: unreachable code removed},errors = === `file://${__filename}`) {``
-    const _server = new ClaudeFlowMCPServer();
+    const server = new ClaudeFlowMCPServer();
 
     // Setup graceful shutdown``
     process.on('SIGINT', async() => {'

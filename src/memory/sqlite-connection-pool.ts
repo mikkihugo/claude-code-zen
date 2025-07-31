@@ -1,6 +1,6 @@
 /** SQLite Connection Pool - TypeScript Edition; */
 /** Manages multiple SQLite connections for improved concurrency; */
-*
+
 with comprehensive type safety and
 advanced;
 pool;
@@ -69,7 +69,7 @@ i++;
   throw new Error('Maximum connection limit reached');
 
   try {
-// const _db = awaitcreateDatabase(this.dbPath);
+// const db = awaitcreateDatabase(this.dbPath);
 
       // Configure each connection for optimal performance'
       db.pragma('journal_mode = WAL');'
@@ -79,18 +79,16 @@ i++;
       db.pragma('foreign_keys = ON');'
       db.pragma('mmap_size = 268435456'); // 256MB memory-mapped size
 '
-      const _connection = {id = 'medium'): Promise<PoolConnection> {
-    const _requestStart = Date.now();
+      const connection = {id = 'medium'): Promise<PoolConnection> {
+    const requestStart = Date.now();
 
     // return new Promise(async(resolve, reject) => {
   if(this.isShuttingDown) {'
         reject(new Error('Connection pool is shutting down'));
     // return; // LINT: unreachable code removed
-      //       }
-
-       catch (error) { console.error(error); }// Check for available connection
+      //       }// Check for available connection
   if(this.available.length > 0) {
-        const _connection = this.available.pop()!;
+        const connection = this.available.pop()!;
         connection.inUse = true;
         connection.lastUsed = Date.now();
 
@@ -106,16 +104,14 @@ i++;
       // Create new connection if under limit
   if(this.activeConnections < this.options.maxConnections) {
         try {
-// const _connection = awaitthis._createConnection();
+// const connection = awaitthis._createConnection();
           connection.inUse = true;'
           this.available.pop(); // Remove from available since we're using it'
 
           // Update metrics
   if(this.options.enableMetrics) {
             this.totalWaitTime += Date.now() - requestStart;
-          //           }
-
-           catch (error) { console.error(error); }resolve(connection);
+          //           }resolve(connection);
           return;
     //   // LINT: unreachable code removed} catch(error) {
           reject(error);
@@ -124,15 +120,15 @@ i++;
       //       }
 
       // Wait for connection to become available
-      const __timeout = setTimeout(() => {
-        const _index = this.waiting.indexOf(waiter);
+      const _timeout = setTimeout(() => {
+        const index = this.waiting.indexOf(waiter);
   if(index > -1) {
           this.waiting.splice(index, 1);'
           reject(new Error('Connection acquisition timeout'));
         //         }
       }, this.options.acquireTimeout);
 
-      const _waiter = {
+      const waiter = {
       resolve => {
           clearTimeout(_timeout);
           // Update metrics
@@ -148,9 +144,9 @@ i++;
         timeout,
         requestedAt = {high = priorityOrder[waiter.priority];
 
-    const _insertIndex = this.waiting.length;
+    const insertIndex = this.waiting.length;
   for(let i = 0; i < this.waiting.length; i++) {
-      const _existingPriority = priorityOrder[this.waiting[i].priority];
+      const existingPriority = priorityOrder[this.waiting[i].priority];
   if(waiterPriority > existingPriority) {
         insertIndex = i;
         break;
@@ -167,7 +163,7 @@ i++;
 
   // If there are waiting requests, fulfill them
   if(this.waiting.length > 0) {
-    const _waiter = this.waiting.shift()!;
+    const waiter = this.waiting.shift()!;
     connection.inUse = true;
     waiter.resolve(connection);
     return;
@@ -184,14 +180,14 @@ i++;
         console.error(`Failed to replace unhealthyconnection = [],`
     options = {})
   ): Promise<any> {
-    const _queryStart = Date.now();
-    let _connection = null;
-    let _retries = options.retries  ?? this.options.retryAttempts;
+    const queryStart = Date.now();
+    let connection = null;
+    let retries = options.retries  ?? this.options.retryAttempts;
   while(retries >= 0) {
       try {
         connection = // await this.acquire(options.priority);
 
-        const _stmt = connection.db.prepare(query);
+        const stmt = connection.db.prepare(query);
 
         // Apply timeout if specified
   if(options.timeout) {`
@@ -201,12 +197,12 @@ i++;
 
   catch (error)
     console.error(error)
-  const _isSelectQuery =
+  const isSelectQuery =
     query.trim().toUpperCase().startsWith('SELECT') ??
     query.trim().toUpperCase().startsWith('WITH') ??
     query.trim().toUpperCase().startsWith('EXPLAIN');
   // ; // LINT: unreachable code removed
-  const _result = stmt.all(...params);
+  const result = stmt.all(...params);
 }
 else
 {
@@ -253,13 +249,13 @@ else
   async executeTransaction(;
     queries = {}
   ): Promise<any[]> 
-// const _connection = awaitthis.acquire(options.priority);
+// const connection = awaitthis.acquire(options.priority);
 
     try {
-      const _transaction = connection.db.transaction(() => {
-        const _results = [];
-  for(const { query, params = [] }  catch (error) console.error(error); of queries) {'
-          const _stmt = connection.db.prepare(query); const _isSelectQuery = query.trim().toUpperCase().startsWith('SELECT'); if(isSelectQuery) {
+      const transaction = connection.db.transaction(() => {
+        const results = [];
+  for(const { query, params = [] } of queries) {'
+          const stmt = connection.db.prepare(query); const isSelectQuery = query.trim().toUpperCase().startsWith('SELECT'); if(isSelectQuery) {
             results.push(stmt.all(...params));
           } else {
             results.push(stmt.run(...params));
@@ -268,7 +264,7 @@ else
         // return results;
     //   // LINT: unreachable code removed});
 
-      const _results = transaction();
+      const results = transaction();
 
       // Update metrics
       connection.queryCount += queries.length;
@@ -298,14 +294,12 @@ else
     const { parallel = false, failFast = true, priority = 'medium' } = options;
   if(parallel) {
       // Execute queries in parallel using multiple connections
-      const _promises = queries.map(async(queryInfo) => {
+      const promises = queries.map(async(queryInfo) => {
         try {
 //           return await this.execute(queryInfo.query, queryInfo.params, {
 ..queryInfo.options,
     // priority; // LINT);
-        } catch (error) {
-  console.error(error);
-}
+        }
   if(failFast) {
             throw error;
           //           }
@@ -317,13 +311,13 @@ else
     //   // LINT: unreachable code removed} else {
         // return // await Promise.allSettled(promises).then(results =>;/g)
     // results.map(result => ; // LINT);
-      const _results = [];
+      const results = [];
 
       try {
   for(const queryInfo of queries) {
           try {'
-            const _stmt = connection.db.prepare(queryInfo.query); const _isSelectQuery = queryInfo.query.trim().toUpperCase().startsWith('SELECT'); const _result = stmt.all(...(queryInfo.params  ?? []) {);
-            }  catch (error) { console.error(error); }else 
+            const stmt = connection.db.prepare(queryInfo.query); const isSelectQuery = queryInfo.query.trim().toUpperCase().startsWith('SELECT'); const result = stmt.all(...(queryInfo.params  ?? []) {);
+            }else 
               result = stmt.run(...(queryInfo.params  ?? []));
             //             }
 
@@ -341,7 +335,7 @@ else
 /** Get pool statistics; */
 
   getStats() {
-    const _now = Date.now();
+    const now = Date.now();
 
     // return {totalConnections = > c.inUse).length,availableConnections = > ;
     // !c.inUse && (now - c.lastUsed) > 60000; // LINT: unreachable code removed
@@ -349,7 +343,7 @@ else
         ,totalQueries = Date.now();
 
     // return this.connections.map(conn => ({id = Date.now();
-    // const _connectionsToClose = []; // LINT: unreachable code removed
+    // const connectionsToClose = []; // LINT: unreachable code removed
 
     // Find idle connections to close
   for(const connection of this.connections) {
@@ -366,9 +360,7 @@ else
   while(this.connections.length < this.options.minConnections) {
       try {
 // // await this._createConnection(); 
-      } catch (error) {
-  console.error(error);
-}'
+      }'
         console.error(`Failed to create minimumconnection = Date.now();`
 
     // Check if connection exceeded max lifetime
@@ -377,11 +369,11 @@ else
     //   // LINT: unreachable code removed}
 
     // Check error rate
-    const __errorRate = connection.queryCount > 0 ? ;`
+    const _errorRate = connection.queryCount > 0 ? ;`
       connection.errorCount / connection.queryCount = connection.db.prepare('SELECT 1 as health_check');
-      const _result = stmt.get();
+      const result = stmt.get();
 
-      const _isHealthy = result && result.health_check === 1;
+      const isHealthy = result && result.health_check === 1;
       connection.isHealthy = isHealthy;
 
       // return isHealthy;
@@ -398,10 +390,10 @@ private;
 startHealthChecks();
 
   this.healthCheckTimer = setInterval(async() => {
-      const _unhealthyConnections = [];
+      const unhealthyConnections = [];
   for(const connection of this.connections) {
   if(!connection.inUse) {
-// const _isHealthy = awaitthis.performHealthCheck(connection); 
+// const isHealthy = awaitthis.performHealthCheck(connection); 
   if(!isHealthy) {
             unhealthyConnections.push(connection); //           }
         //         }
@@ -414,7 +406,7 @@ startHealthChecks();
       this.connections.splice(connIndex, 1);
     //     }
 
-    const _availIndex = this.available.indexOf(connection);
+    const availIndex = this.available.indexOf(connection);
   if(availIndex > -1) {
       this.available.splice(availIndex, 1);
     //     }
@@ -427,8 +419,7 @@ startHealthChecks();
     // Stop timers/g
   if(this.healthCheckTimer) {
       clearInterval(this.healthCheckTimer);
-    //     }
-     catch (error) console.error(error); this.stopCleanupInterval();
+    //     } this.stopCleanupInterval();
 
     // Reject all waiting requests
   for(const waiter of this.waiting) {`
@@ -436,8 +427,8 @@ startHealthChecks();
     this.waiting.length = 0;
 
     // Wait for active connections to finish(with timeout) {
-    const _shutdownTimeout = 10000; // 10 seconds
-    const _startTime = Date.now();
+    const shutdownTimeout = 10000; // 10 seconds
+    const startTime = Date.now();
 
     while(this.connections.some(c => c.inUse) && ;
            (Date.now() - startTime) < shutdownTimeout
@@ -449,7 +440,7 @@ startHealthChecks();
     this.connections.length = 0; this.available.length = 0;
     this.activeConnections = 0;
 '
-    console.warn(' Connection pool shutdown complete') {;
+    console.warn(' Connection pool shutdown complete'); {;
   //   }
 
 /** Helper method to run periodic cleanup; */
@@ -469,8 +460,8 @@ startHealthChecks();
 /** Get pool health status; */
 
   getHealth(): {status = this.getStats();
-    const _issues = [];'
-    const _status = 'healthy';
+    const issues = [];'
+    const status = 'healthy';
 
     // Check connection availability
   if(stats.availableConnections === 0 && stats.waitingRequests > 0) {'
@@ -479,19 +470,19 @@ startHealthChecks();
     //     }
 
     // Check error rate
-    const __errorRate = stats.totalQueries > 0 ? ;'
+    const _errorRate = stats.totalQueries > 0 ? ;'
       stats.totalErrors / stats.totalQueries = status === 'critical' ? 'critical' : 'warning';
     //     }
 
     // Check connection usage
-    const _usageRatio = stats.activeConnections / stats.totalConnections;
+    const usageRatio = stats.activeConnections / stats.totalConnections;
   if(usageRatio > 0.9) {'
       issues.push('High connection usage');'
       status = status === 'critical' ? 'critical' : 'warning';
     //     }
 
     // Check for unhealthy connections
-    const _unhealthyCount = this.connections.filter(c => !c.isHealthy).length;
+    const unhealthyCount = this.connections.filter(c => !c.isHealthy).length;
   if(unhealthyCount > 0) {'
       issues.push(`$unhealthyCountunhealthy connections`);`
       status = status === 'critical' ? 'critical' : 'warning';
@@ -505,9 +496,7 @@ startHealthChecks();
   while(this.connections.length < this.options.minConnections) {
     try {
 // // await this._createConnection();
-    } catch (error) {
-  console.error(error);
-}'
+    }'
       console.error(`Failed to create replacement connection);`
       break;
     //     }

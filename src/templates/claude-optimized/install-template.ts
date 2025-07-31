@@ -12,13 +12,13 @@ import path from 'node:path';
 for packaging and distribution;
 
 */'
-const _SOURCE_DIR = path.join(__dirname, '../../../.claude');
+const SOURCE_DIR = path.join(__dirname, '../../../.claude');
 '
-const _DEST_DIR = path.join(__dirname, '.claude');
+const DEST_DIR = path.join(__dirname, '.claude');
 '
-const _MANIFEST_PATH = path.join(__dirname, 'manifest.json');
+const MANIFEST_PATH = path.join(__dirname, 'manifest.json');
 // Read manifest'
-const _manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
 // Create destination directory
 if(!fs.existsSync(DEST_DIR)) {
   fs.mkdirSync(DEST_DIR, {recursive = path.join(DEST_DIR, dirInfo.path);
@@ -34,18 +34,18 @@ if(!fs.existsSync(DEST_DIR)) {
 // }
 // Copy files`
 console.warn('\nCopying template files...');
-const __successCount = 0;
-const _errorCount = 0;
+const _successCount = 0;
+const errorCount = 0;
   for(const file of manifest.files) {
-  const _sourcePath = path.join(SOURCE_DIR, file.source); const _destPath = path.join(DEST_DIR, file.destination); try {
+  const sourcePath = path.join(SOURCE_DIR, file.source); const destPath = path.join(DEST_DIR, file.destination); try {
   if(fs.existsSync(sourcePath) {) {
       // Ensure destination directory exists
-      const _destDir = path.dirname(destPath);
+      const destDir = path.dirname(destPath);
       if(!fs.existsSync(destDir)) {'
         fs.mkdirSync(destDir, {recursive = ''
-console.warn('InstallationSummary = manifest.files.filter(;'))
+console.warn('InstallationSummary = manifest.files.filter(;');)
     (_f) => f.category === category && fs.existsSync(path.join(DEST_DIR, f.destination))).length;'
-  console.warn(`$categorycatch (error) console.error(error); );`
+  console.warn(`$category );`
 // }
 
 // Verify installation
@@ -53,7 +53,7 @@ console.warn('InstallationSummary = manifest.files.filter(;'))
   console.warn('\n Template installation completed successfully!');
 
   // Create a timestamp file
-  const _timestamp = new Date().toISOString();
+  const timestamp = new Date().toISOString();
   fs.writeFileSync(;)'
     path.join(__dirname, '.installed'),'
     `Installed: $timestamp\nVersion: $manifest.version\n`);

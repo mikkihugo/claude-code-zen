@@ -32,9 +32,7 @@ export default [
         Request: 'readonly',
         Express: 'readonly',
         NextFunction: 'readonly',
-        NodeJS: 'readonly',
-      },
-    },
+        NodeJS: 'readonly'}},
     rules: {
       // Focus on auto-fixable rules only
       'no-unused-vars': 'off', // Too many false positives with TypeScript
@@ -51,9 +49,7 @@ export default [
       'comma-dangle': ['error', 'always-multiline'],
       'no-trailing-spaces': 'error',
       'eol-last': 'error',
-      'no-multiple-empty-lines': ['error', { max: 2 }],
-    },
-  },
+      'no-multiple-empty-lines': ['error', { max: 2 }]}},
   // Test files
   {
     name: 'claude-zen-tests',
@@ -76,16 +72,12 @@ export default [
         afterEach: 'readonly',
         beforeAll: 'readonly',
         afterAll: 'readonly',
-        jest: 'readonly',
-      },
-    },
+        jest: 'readonly'}},
     rules: {
       'no-unused-expressions': 'off',
       'no-console': 'off',
       'no-unused-vars': 'off',
-      'no-undef': 'off',
-    },
-  },
+      'no-undef': 'off'}},
   // Ignore patterns
   {
     name: 'claude-zen-ignores',

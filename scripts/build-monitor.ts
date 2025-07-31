@@ -1,18 +1,11 @@
 #!/usr/bin/env node
 
-/* Build Monitor - Continuous build verification for alpha release; */
-*
-*
-@fileoverview
-Advanced;
-build;
-monitoring;
-with strict TypeScript
-standards;
-*
-@author
-Claude;
-Code;
+/**
+ * Build Monitor - Continuous build verification for alpha release
+ * @fileoverview
+ * Advanced build monitoring with strict TypeScript standards
+ * @author Claude Code Flow Team
+ */
 Flow;
 Team;
 *

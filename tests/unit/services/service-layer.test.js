@@ -5,7 +5,7 @@ describe('Service Layer Tests', () =>
 {'
   describe('Code Analysis Service', () => '
     it('should analyze code complexity', () => {
-      const _complexityAnalyzer = {
+      const complexityAnalyzer = {
         calculateCyclomaticComplexity: (code) => {
           // Count decision points, while, for, case, catch, &&,  ?? const patterns = [
 // \bif\b/g,
@@ -15,41 +15,41 @@ describe('Service Layer Tests', () =>
 // \bcatch\b/g,
 // &&/g,
 // \|\|/g ];
-          const _complexity = 1; // Base complexity
+          const complexity = 1; // Base complexity
           patterns.forEach((pattern) => {
-            const _matches = code.match(pattern);
+            const matches = code.match(pattern);
             complexity += matches ? matches.length ;
           });
 //           return complexity;
     //   // LINT: unreachable code removed},
         analyzeFunctionLength: (code) => {
-          const _functions = code.match(/function\s+\w+[^{]*\{[^}]*\}/g)  ?? [];
+          const functions = code.match(/function\s+\w+[^{]*\{[^}]*\}/g)  ?? [];
 //           return functions.map((fn) => {'
-            const _lines = fn.split('\n').length;'
-    // const _name = fn.match(/function\s+(\w+)/)?.[1]  ?? 'anonymous'; // LINT: unreachable code removed
+            const lines = fn.split('\n').length;'
+    // const name = fn.match(/function\s+(\w+)/)?.[1]  ?? 'anonymous'; // LINT: unreachable code removed
 //             return { name, lines };
     //   // LINT: unreachable code removed});
         },
         detectCodeSmells: (code) => {
-          const _smells = [];
+          const smells = [];
           // Long parameter lists
-          const _longParams = code.match(/\([^)]{50 }\)/g);
+          const longParams = code.match(/\([^)]{50 }\)/g);
   if(longParams) {
             smells.push({ type);
 // }
           // Deeply nested code
-          const _nestedBlocks = code.match(/\s{12 }/g); // 3+ levels of nesting
+          const nestedBlocks = code.match(/\s{12 }/g); // 3+ levels of nesting
   if(nestedBlocks && nestedBlocks.length > 5) {
             smells.push({ type);
 // }
           // Magic numbers
-          const _magicNumbers = code.match(/\b\d{3 }\b/g);
+          const magicNumbers = code.match(/\b\d{3 }\b/g);
   if(magicNumbers && magicNumbers.length > 2) {
             smells.push({ type);
 // }
           // return smells;
     //   // LINT: unreachable code removed} };'
-      const _sampleCode = `;`
+      const sampleCode = `;`
         fun/* c */tion complexFunction(a, b, c) 
   if(a > 0) {
   for(const i = 0; i < b; i++) {
@@ -63,34 +63,34 @@ describe('Service Layer Tests', () =>
           // return c;
     //   // LINT: unreachable code removed}`
       `;`
-      const _complexity = complexityAnalyzer.calculateCyclomaticComplexity(sampleCode);
+      const complexity = complexityAnalyzer.calculateCyclomaticComplexity(sampleCode);
       expect(complexity).toBeGreaterThan(1);
-      const _functions = complexityAnalyzer.analyzeFunctionLength(sampleCode);
+      const functions = complexityAnalyzer.analyzeFunctionLength(sampleCode);
       expect(functions.length).toBeGreaterThan(0);`
       expect(functions[0].name).toBe('complexFunction');
-      const _smells = complexityAnalyzer.detectCodeSmells(sampleCode);
+      const smells = complexityAnalyzer.detectCodeSmells(sampleCode);
       expect(Array.isArray(smells)).toBe(true);
     });'
     it('should parse and analyze AST', () => {
-      const _astAnalyzer = {
+      const astAnalyzer = {
         parseToAST: (_code) => {
           // Simplified AST representation
-          const _ast = {'
+          const ast = {'
             type: 'Program',
             body: [],
             functions: [],
             variables: [],
             imports: [] };
           // Extract functions
-          const _functionMatches = code.match(/function\s+(\w+)/g);
+          const functionMatches = code.match(/function\s+(\w+)/g);
   if(functionMatches) {
             ast.functions = functionMatches.map((match) => {'
-              const _name = match.replace('function '');'
+              const name = match.replace('function '');'
 //               return { type: 'FunctionDeclaration', name };
     //   // LINT: unreachable code removed});
 // }
           // Extract variables
-          const _varMatches = code.match(/(const|let|var)\s+(\w+)/g);
+          const varMatches = code.match(/(const|let|var)\s+(\w+)/g);
   if(varMatches) {
             ast.variables = varMatches.map((match) => {
               const [ type, name] = match.match(/(const|let|var)\s+(\w+)/);'
@@ -104,7 +104,7 @@ describe('Service Layer Tests', () =>
 //           return ast;
     //   // LINT: unreachable code removed},
         findDependencies: (ast) => {
-          const _dependencies = new Set();
+          const dependencies = new Set();
           ast.imports.forEach((imp) => {
             dependencies.add(imp.source);
           });
@@ -114,12 +114,12 @@ describe('Service Layer Tests', () =>
           variableCount: ast.variables.length,
           importCount: ast.imports.length,
           complexity: ast.functions.length + ast.variables.length   }) };'
-      const _sampleCode = `;``
+      const sampleCode = `;``
         // import express from 'express';'
         // import { helper  } from './utils';
 
-        const _app = express();
-        const _config = {};
+        const app = express();
+        const config = {};
         function startServer() {
           app.listen(3000);
 // }
@@ -127,28 +127,28 @@ describe('Service Layer Tests', () =>
           console.warn('Shutting down');
 // }'
       `;`
-      const _ast = astAnalyzer.parseToAST(sampleCode);
+      const ast = astAnalyzer.parseToAST(sampleCode);
       expect(ast.functions.length).toBe(2);
       expect(ast.variables.length).toBe(2);
       expect(ast.imports.length).toBe(2);
 
-      const _dependencies = astAnalyzer.findDependencies(ast);`
+      const dependencies = astAnalyzer.findDependencies(ast);`
       expect(dependencies).toContain('express');'
       expect(dependencies).toContain('.'
-      const _metrics = astAnalyzer.calculateMetrics(ast);
+      const metrics = astAnalyzer.calculateMetrics(ast);
       expect(metrics.functionCount).toBe(2);
       expect(metrics.importCount).toBe(2);
     });
   });'
   describe('File Processing Service', () => '
     it('should handle file operations', () => {
-      const _fileProcessor = {'
+      const fileProcessor = {'
         supportedExtensions: ['.js', '.ts', '.jsx', '.tsx', '.vue', '.svelte'],
         isSupported: function(filename) {
 //           return this.supportedExtensions.some((ext) => filename.endsWith(ext));
     //   // LINT: unreachable code removed},
         extractMetadata: (filename, content) => {
-          const _metadata = {
+          const metadata = {
             filename,
             size: content.length,'
             lines: content.split('\n').length,'
@@ -168,9 +168,9 @@ describe('Service Layer Tests', () =>
           if(!this.isSupported(filename)) {'
 //             return { error: 'Unsupported file type' };
     //   // LINT: unreachable code removed}
-          const _metadata = this.extractMetadata(filename, content);
+          const metadata = this.extractMetadata(filename, content);
           // Basic linting checks
-          const _issues = [];'
+          const issues = [];'
           if(content.includes('console.log')) {
             issues.push({ type);
 // }'
@@ -184,7 +184,7 @@ describe('Service Layer Tests', () =>
     //   // LINT: unreachable code removed} };'
       expect(fileProcessor.isSupported('app.js')).toBe(true);'
       expect(fileProcessor.isSupported('style.css')).toBe(false);'
-      const _content = `;``
+      const content = `;``
         // import React from 'react';
 
         // export default function App() {'
@@ -192,14 +192,14 @@ describe('Service Layer Tests', () =>
 //           return <div>Hello<
     //   // LINT: unreachable code removed}'
       `;``
-      const _result = fileProcessor.processFile('App.jsx', content);
+      const result = fileProcessor.processFile('App.jsx', content);
       expect(result.processed).toBe(true);
       expect(result.metadata.hasDefaultExport).toBe(true);
       expect(result.metadata.hasImports).toBe(true);'
       expect(result.issues.some((issue) => issue.message.includes('Console.log'))).toBe(true);
     });'
     it('should handle batch file processing', () => {
-      const _batchProcessor = {
+      const batchProcessor = {
         queue: [],
         processing,
         results: new Map(),
@@ -211,19 +211,19 @@ describe('Service Layer Tests', () =>
 //             return null;
     //   // LINT: unreachable code removed}
           this.processing = true;
-          const _file = this.queue.shift();
+          const file = this.queue.shift();
           try {
             // Simulate processing time
   // // await new Promise((resolve) => setTimeout(resolve, 10));
-            const _result = {
+            const result = {
               filename: file.filename,
               success,
               processedAt: Date.now(),
-              size: file.content.length } catch (error) console.error(error); ;
+              size: file.content.length } ;
             this.results.set(file.filename, result);
             // return result;
     //   // LINT: unreachable code removed} catch(error) {
-            const _result = {
+            const result = {
               filename: file.filename,
               success,
               error: error.message };
@@ -234,9 +234,9 @@ describe('Service Layer Tests', () =>
 // }
         },
         processAll: async function() { 
-          const _results = [];
+          const results = [];
           while(this.queue.length > 0) 
-// const _result = awaitthis.processNext();
+// const result = awaitthis.processNext();
   if(result) {
               results.push(result);
 // }
@@ -244,7 +244,7 @@ describe('Service Layer Tests', () =>
           // return results;
     //   // LINT: unreachable code removed},
         getStats: function() {
-          const _allResults = Array.from(this.results.values());
+          const allResults = Array.from(this.results.values());
 //           return {
             total: allResults.length,
     // successful: allResults.filter((r) => r.success).length, // LINT: unreachable code removed
@@ -267,7 +267,7 @@ describe('Service Layer Tests', () =>
   });'
   describe('Plugin Management Service', () => '
     it('should manage plugin lifecycle', () => {
-      const _pluginManager = {
+      const pluginManager = {
         plugins: new Map(),
         hooks: new Map(),
         register: function(name, /* plugin */) {
@@ -283,7 +283,7 @@ describe('Service Layer Tests', () =>
             registeredAt: Date.now() });
         },
         initialize: async function(name) { 
-          const _plugin = this.plugins.get(name);
+          const plugin = this.plugins.get(name);
           if(!plugin) '
             throw new Error(`Plugin ${name} not found`);
 // }`
@@ -297,9 +297,7 @@ describe('Service Layer Tests', () =>
             // Register hooks if plugin provides them
   if(plugin.hooks) {
               for (const [hookName, handler] of Object.entries(plugin.hooks)) {
-                this.addHook(hookName, handler); // }
- catch (error) console.error(error); 
-            // return true; 
+                this.addHook(hookName, handler); // } // return true; 
     //   // LINT: unreachable code removed} catch(error) {'
             plugin.status = 'error';
             plugin.error = error.message;
@@ -313,22 +311,22 @@ describe('Service Layer Tests', () =>
           this.hooks.get(name).push(handler);
         },
         executeHook: async function(_name, /* context */) { 
-          const _handlers = this.hooks.get(name)  ?? [];
-          const _results = [];
+          const handlers = this.hooks.get(name)  ?? [];
+          const results = [];
           for (const handler of handlers) 
             try {
-// const _result = awaithandler(context); 
-              results.push({ success, result   } catch (error) { console.error(error); }); } catch(error) 
+// const result = awaithandler(context); 
+              results.push({ success, result   }); } catch(error) 
               results.push(success, error);
 // }
 // }
           // return results;
     //   // LINT: unreachable code removed},
         getPluginStatus: function(name) {
-          const _plugin = this.plugins.get(name);'
+          const plugin = this.plugins.get(name);'
 //           return plugin ? plugin.status : 'not-found';
     //   // LINT: unreachable code removed} };
-      const _testPlugin = {'
+      const testPlugin = {'
         name: 'test-plugin','
         version: '1.0.0',
         init: async function() { 
@@ -349,16 +347,16 @@ then((results) =>
           expect(results[0].success).toBe(true);'
           expect(results[0].result.filename).toBe('test.js');););'
     it('should handle plugin dependencies', () => {
-      const _dependencyManager = {
+      const dependencyManager = {
         plugins: new Map(),
         register: function(name, plugin, dependencies = []) {
           this.plugins.set(name, { plugin, dependencies, initialized });
         },
         getInitializationOrder: function() {
-          const _order = [];
-          const _visited = new Set();
-          const _visiting = new Set();
-          const _visit = () => {
+          const order = [];
+          const visited = new Set();
+          const visiting = new Set();
+          const visit = () => {
             if(visiting.has(name)) {'
               throw new Error(`Circular dependency detected);`
 // }
@@ -366,7 +364,7 @@ then((results) =>
               return;
     //   // LINT: unreachable code removed}
             visiting.add(name);
-            const _pluginInfo = this.plugins.get(name);
+            const pluginInfo = this.plugins.get(name);
   if(pluginInfo) {
   for(const dep of pluginInfo.dependencies) {
                 visit(dep); // }
@@ -378,27 +376,27 @@ then((results) =>
           // return order; 
     //   // LINT: unreachable code removed},
         initializeAll: async function() { 
-          const _order = this.getInitializationOrder();
-          const _results = [];
+          const order = this.getInitializationOrder();
+          const results = [];
           for (const name of order) 
-            const _pluginInfo = this.plugins.get(name); if(pluginInfo && !pluginInfo.initialized) {
+            const pluginInfo = this.plugins.get(name); if(pluginInfo && !pluginInfo.initialized) {
               try {
   // // await pluginInfo.plugin.init(); 
                 pluginInfo.initialized = true;
-                results.push({ name, success   } catch (error) { console.error(error); }) ;catch(error) {
+                results.push({ name, success   }) ;catch(error) {
                 results.push({ name, success, error);
 // }
 // }
 // }
           // return results;
     //   // LINT: unreachable code removed} };
-      const _pluginA = { init: async() => {} };
-      const _pluginB = { init: async() => {} };
-      const _pluginC = { init: async() => {} };`
+      const pluginA = { init: async() => {} };
+      const pluginB = { init: async() => {} };
+      const pluginC = { init: async() => {} };`
       dependencyManager.register('plugin-a', pluginA, []);'
       dependencyManager.register('plugin-b', pluginB, ['plugin-a']);'
       dependencyManager.register('plugin-c', pluginC, ['plugin-a', 'plugin-b']);
-      const _order = dependencyManager.getInitializationOrder();'
+      const order = dependencyManager.getInitializationOrder();'
       expect(order.indexOf('plugin-a')).toBeLessThan(order.indexOf('plugin-b'));'
       expect(order.indexOf('plugin-b')).toBeLessThan(order.indexOf('plugin-c'));
       // return dependencyManager.initializeAll().then((results) => {
@@ -409,17 +407,17 @@ then((results) =>
   });'
   describe('Monitoring and Metrics Service', () => {'
     it('should collect and aggregate metrics', () => {
-      const _metricsCollector = {
+      const metricsCollector = {
         metrics: new Map(),
         record: function(name, value, tags = {}) {'
-          const _key = `$name:$JSON.stringify(tags)`;
+          const key = `$name:$JSON.stringify(tags)`;
           if(!this.metrics.has(key)) {
             this.metrics.set(key, {
               name,
               tags,
               values);
 // }
-          const _metric = this.metrics.get(key);
+          const metric = this.metrics.get(key);
           metric.values.push({ value, timestamp: Date.now()   });
           metric.count++;
           metric.sum += value;
@@ -427,8 +425,8 @@ then((results) =>
           metric.max = Math.max(metric.max, value);
         },
         getMetric: function(name, tags = {}) {`
-          const _key = `${name}:${JSON.stringify(tags)}`;
-          const _metric = this.metrics.get(key);
+          const key = `${name}:${JSON.stringify(tags)}`;
+          const metric = this.metrics.get(key);
           if(!metric) return null;
     // ; // LINT: unreachable code removed
 //           return { ...metric,
@@ -436,13 +434,13 @@ then((results) =>
             latest: metric.values[metric.values.length - 1]?.value };
         },
         getAggregatedMetrics: function(name) {
-          const _allMetrics = Array.from(this.metrics.values()).filter((m) => m.name === name);
+          const allMetrics = Array.from(this.metrics.values()).filter((m) => m.name === name);
           if(allMetrics.length === 0) return null;
     // ; // LINT: unreachable code removed
-          const _totalCount = allMetrics.reduce((sum, m) => sum + m.count, 0);
-          const _totalSum = allMetrics.reduce((sum, m) => sum + m.sum, 0);
-          const _overallMin = Math.min(...allMetrics.map((m) => m.min));
-          const _overallMax = Math.max(...allMetrics.map((m) => m.max));
+          const totalCount = allMetrics.reduce((sum, m) => sum + m.count, 0);
+          const totalSum = allMetrics.reduce((sum, m) => sum + m.sum, 0);
+          const overallMin = Math.min(...allMetrics.map((m) => m.min));
+          const overallMax = Math.max(...allMetrics.map((m) => m.max));
 //           return {
             name,
     // count, // LINT: unreachable code removed
@@ -455,18 +453,18 @@ then((results) =>
       metricsCollector.record('response_time', 150, { endpoint);'
       metricsCollector.record('response_time', 200, { endpoint);'
       metricsCollector.record('response_time', 120, { endpoint);'
-      const _usersMetric = metricsCollector.getMetric('response_time', { endpoint);
+      const usersMetric = metricsCollector.getMetric('response_time', { endpoint);
       expect(usersMetric.count).toBe(2);
       expect(usersMetric.average).toBe(175);
       expect(usersMetric.min).toBe(150);
       expect(usersMetric.max).toBe(200);'
-      const _aggregated = metricsCollector.getAggregatedMetrics('response_time');
+      const aggregated = metricsCollector.getAggregatedMetrics('response_time');
       expect(aggregated.count).toBe(3);
       expect(aggregated.min).toBe(120);
       expect(aggregated.max).toBe(200);
     });'
     it('should handle health checks', () => {
-      const _healthChecker = {
+      const healthChecker = {
         checks: new Map(),
         register: function(name, checkFn, options = {}) {
           this.checks.set(name, {
@@ -475,13 +473,13 @@ then((results) =>
             timeout);
         },
         runCheck: async function(name) { 
-          const _check = this.checks.get(name);
+          const check = this.checks.get(name);
           if(!check) '
 //             return { status: 'unknown', error: 'Check not found' };
     //   // LINT: unreachable code removed}
           try {
-            const _startTime = Date.now();
-// const _result = awaitPromise.race([;/g)
+            const startTime = Date.now();
+// const result = awaitPromise.race([;/g)
               check.check(),
               new Promise((_, _reject) =>;'
                 setTimeout(() => reject(new Error('Timeout')), check.timeout);
@@ -490,7 +488,7 @@ then((results) =>
               status: 'healthy',
     // responseTime: Date.now() - startTime, // LINT: unreachable code removed
               result,
-              timestamp: Date.now() } catch (error) { console.error(error); };
+              timestamp: Date.now() };
           } catch(error)
             // return {'
               status: 'unhealthy',
@@ -499,14 +497,14 @@ then((results) =>
 // }
         },
         runAllChecks: async function() { 
-          const _results = new Map();
+          const results = new Map();
           for (const [name] of this.checks) 
             results.set(name, await this.runCheck(name)); // }'
-          const _overallStatus = Array.from(results.values()).every((r) => r.status === 'healthy'); ? 'healthy';'
+          const overallStatus = Array.from(results.values()).every((r) => r.status === 'healthy'); ? 'healthy';'
             : 'unhealthy';
 //           return {
             status,
-    // checks: Object.fromEntries(results) {, // LINT: unreachable code removed
+    // checks: Object.fromEntries(results) { // LINT: unreachable code removed
             timestamp: Date.now() };
         } };
       // Register health checks'
@@ -519,7 +517,7 @@ then((results) =>
 //         return { status: 'ok', version: '1.0' };
     //   // LINT: unreachable code removed});'
       healthChecker.register('memory', async() => {
-        const _usage = process.memoryUsage();
+        const usage = process.memoryUsage();
 //         return {
           heapUsed: usage.heapUsed,
     // heapTotal: usage.heapTotal, // LINT: unreachable code removed

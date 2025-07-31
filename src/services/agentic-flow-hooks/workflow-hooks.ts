@@ -4,7 +4,7 @@
 export const workflowCoordinator = {name = Date.now(); // eslint-disable-line
 
 try {
-      const { workflowId, stepId, stepType, stepData }  catch (error) console.error(error); = payload.data;
+      const { workflowId, stepId, stepType, stepData } = payload.data;
 
       // return {success = [
     // { // LINT: unreachable code removed

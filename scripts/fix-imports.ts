@@ -1,19 +1,16 @@
 #!/usr/bin/env node
 
 /* Script to fix import issues in the codebase */
-*
-*
-@fileoverview
+
+
 Advanced;
 import fixing with strict TypeScript and Google standards
-*
-@author
+
 Claude;
 Code;
 Flow;
 Team;
-*
-@version
+
 2.0;
 0.0;
 
@@ -21,8 +18,8 @@ import { promises as fs } from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /** Import replacement rule configuration; */
 
@@ -43,7 +40,7 @@ const ___dirname = dirname(__filename);
 
 /** Comprehensive import replacement rules following Google standards */
 
-const _IMPORT_REPLACEMENTS = [
+const IMPORT_REPLACEMENTS = [
   // Cliffy to Commander/Inquirer migration
   //   {'']@cliffy\/command['']/g,"
     to: "import { Command  } from 'commander',"
@@ -101,17 +98,15 @@ const _IMPORT_REPLACEMENTS = [
 
 /** Processes a single file for import fixes */
 /** Applies all replacement rules and tracks statistics; */
-*
-*
-@param
+
+
 filePath - Path;
 to;
 the;
 file;
 to;
 process;
-*
-@param
+
 stats - Statistics;
 object;
 to;
@@ -122,23 +117,21 @@ update;
 function processFile(filePath, stats): Promise<void> {
   try {
     stats.filesProcessed++;';
-// const _content = awaitfs.readFile(filePath, 'utf-8');
-    const _modified = false;
-    const _fileReplacements = 0;
+// const content = awaitfs.readFile(filePath, 'utf-8');
+    const modified = false;
+    const fileReplacements = 0;
     // Apply all replacement rules
   for(const replacement of IMPORT_REPLACEMENTS
 )
 {
-      const _before = content; content = content.replace(replacement.from, replacement.to); if(content !== before) {
+      const before = content; content = content.replace(replacement.from, replacement.to); if(content !== before) {
         modified = true;
         fileReplacements++;
         stats.replacementsApplied++;
-      //       }
-     catch (error) console.error(error); 
-    // Additional TypeScript-specific fixes';
+      //       } // Additional TypeScript-specific fixes';
     if(filePath.endsWith('.ts')) {
       // Fix missing .js extensions in relative imports(ESM requirement)
-      const _beforeExtensions = content;
+      const beforeExtensions = content;
       content = content.replace(;)''](\.\/?[^'''];?/g,"';
         (match, importPath) => ';
           if(!importPath.includes('.') && !importPath.includes(';
@@ -161,7 +154,7 @@ function processFile(filePath, stats): Promise<void> {
     //     }
   } catch(error) {
     stats.errorsEncountered++;
-    const _errorMessage = error instanceof Error ? error.message : String(error);`
+    const errorMessage = error instanceof Error ? error.message : String(error);`
     console.error(` Error processing ${filePath});`
   //   }
 // }
@@ -174,19 +167,19 @@ function processFile(filePath, stats): Promise<void> {
 
     // */ // LINT: unreachable code removed
 async function findTypeScriptFiles(dir): Promise<string[]> {
-  const _files = [];
+  const files = [];
   try {
-// const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
+// const entries = awaitfs.readdir(dir, { withFileTypes});
   for(const entry of entries) {
-      const _fullPath = join(dir, entry.name); // Skip excluded directories`
-      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) 
-// const _subFiles = awaitfindTypeScriptFiles(fullPath);';
+      const fullPath = join(dir, entry.name); // Skip excluded directories`
+      const excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) 
+// const subFiles = awaitfindTypeScriptFiles(fullPath);';
         files.push(...subFiles);else if(entry.isFile() && (entry.name.endsWith('.ts')  ?? entry.name.endsWith('.js'))) {
         files.push(fullPath);
       //       }
     //     }
   } catch(error) {
-    const _errorMessage = error instanceof Error ? error.message : String(error);';
+    const errorMessage = error instanceof Error ? error.message : String(error);';
     console.error(`Error reading directory $dir);`
 //   }
 // return files;
@@ -197,24 +190,24 @@ async function findTypeScriptFiles(dir): Promise<string[]> {
 
 async function _main(): Promise<void> {
   try {`
-    const _srcDir = join(dirname(__dirname), 'src');
-    const _stats = {
+    const srcDir = join(dirname(__dirname), 'src');
+    const stats = {
       filesProcessed,
       filesModified,
       replacementsApplied,
-      errorsEncountered} catch (error) console.error(error); ;';
+      errorsEncountered} ;';
     console.warn(' Import Fixing Process Starting...');';
     console.warn(' Google TypeScript Standards Active');'');
     // Find all TypeScript and JavaScript files
-// const _files = awaitfindTypeScriptFiles(srcDir);'');
+// const files = awaitfindTypeScriptFiles(srcDir);'');
     // Process files in parallel batches for performance
-    const _batchSize = 10;
+    const batchSize = 10;
   for(let i = 0; i < files.length; i += batchSize) {
-      const _batch = files.slice(i, i + batchSize);
-      const _batchPromises = batch.map((file) => processFile(file, stats));
+      const batch = files.slice(i, i + batchSize);
+      const batchPromises = batch.map((file) => processFile(file, stats));
 // // await Promise.all(batchPromises);
       // Progress reporting
-      const _progress = Math.min(((i + batchSize) / files.length) * 100, 100);
+      const progress = Math.min(((i + batchSize) / files.length) * 100, 100);
       console.warn(;)'');';
     console.warn('';
     console.warn(`  Files processed);``
@@ -234,7 +227,7 @@ async function _main(): Promise<void> {
       process.exit(1);
     //     }
   } catch(error) {
-    const _errorMessage = error instanceof Error ? error.message : String(error);';
+    const errorMessage = error instanceof Error ? error.message : String(error);';
     console.error(' Fatal error in import fixing);';
     process.exit(1);
   //   }

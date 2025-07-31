@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 /*  TEST ENHANCED CLI/TUI FUNCTIONALITY; */
-*
 
 /** Simple test to validate the enhancements work without requiring full dependencies.; */
 /** Tests the enhanced command registry, API generation, and component structure.; */
@@ -16,10 +15,10 @@ import { dirname } from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 // Mock implementations for testing without dependencies
-const _mockListCommands = async() => [;
+const mockListCommands = async() => [;
   //   {'
     name: 'init','
     description: 'Initialize Claude Zen project','
@@ -50,12 +49,12 @@ const _mockListCommands = async() => [;
 // Test API endpoint generation
 async function testAPIGeneration() {
   '
-  console.warn(' Testing API endpoint generation...')
+  console.warn(' Testing API endpoint generation...');
   try {
     // Mock the command registry functions
-    const _mockGenerateAPIEndpoints = async() => {
-// const _commands = awaitmockListCommands();
-      const _endpoints = {} catch (error) console.error(error); ;
+    const mockGenerateAPIEndpoints = async() => {
+// const commands = awaitmockListCommands();
+      const endpoints = {} ;
       commands.forEach((cmd) => {'
         endpoints[`/api/execute/$cmd.name`] = {`
           method: 'POST',
@@ -68,7 +67,7 @@ async function testAPIGeneration() {
       // return {
         endpoints,core, coordination  }
   //     }
-  // const _result = awaitmockGenerateAPIEndpoints();'
+  // const result = awaitmockGenerateAPIEndpoints();'
   assert(result.totalEndpoints === 3, `Expected 3 endpoints, got ${result.totalEndpoints}`);
   `
 assert(result.endpoints['/api/execute/init'], 'Init endpoint should exist');'
@@ -93,15 +92,15 @@ async function testCommandValidation() {'
   console.warn(' Testing command validation...');
   try {
     // Mock validation function
-    const _mockValidateCommand = () => {
-      const _commands = {
+    const mockValidateCommand = () => {
+      const commands = {
         init: {'
-          flags: { auto: { type: 'boolean' } catch (error) { console.error(error); }, minimal: { type: 'boolean' } } },minArgs ,type: 'number' , name, 'string' };
-      const _command = commands[commandName];
+          flags: { auto: { type: 'boolean' }, minimal: { type: 'boolean' } } },minArgs ,type: 'number' , name, 'string' };
+      const command = commands[commandName];
   if(!command) {'
         // return { valid, errors: [`Command '${commandName}' not found`] };
     //   // LINT: unreachable code removed}
-      const _validation = { valid, errors: [], warnings: [] };
+      const validation = { valid, errors: [], warnings: [] };
       // Check minimum arguments
   if(command.validation?.minArgs && args.length < command.validation.minArgs) {
         validation.valid = false;`
@@ -109,7 +108,7 @@ async function testCommandValidation() {'
       //       }
       // Check flag types
       Object.entries(flags).forEach(([flagName, flagValue]) => {
-        const _flagConfig = command.flags?.[flagName];
+        const flagConfig = command.flags?.[flagName];
   if(!flagConfig) {`
           validation.warnings.push(`Unknown flag '${flagName}'`);
           return;
@@ -122,7 +121,7 @@ async function testCommandValidation() {'
       // return validation;
     //   // LINT: unreachable code removed};
     // Test valid command`
-    const _result = mockValidateCommand('init', [], { auto });'
+    const result = mockValidateCommand('init', [], { auto });'
     assert(result.valid === true, 'Valid init command should pass validation');
     // Test invalid arguments'
     result = mockValidateCommand('swarm', [], {});'
@@ -145,13 +144,13 @@ async function testOpenAPIGeneration() {'
   console.warn(' Testing OpenAPI specification generation...');
   try {
     // Mock OpenAPI generation
-    const _mockGenerateOpenAPI = async() => {
-// const _commands = awaitmockListCommands();
-      const _openapi = {'
+    const mockGenerateOpenAPI = async() => {
+// const commands = awaitmockListCommands();
+      const openapi = {'
         openapi: '3.0.0','
           title: 'Claude-Zen Auto-Generated API','
           version: '2.0.0-alpha.70','
-          description: 'REST API auto-generated from CLI commands',,type: 'object' ,type: 'object' ,type: 'object' } catch (error) console.error(error); ;
+          description: 'REST API auto-generated from CLI commands',type: 'object' ,type: 'object' ,type: 'object' } ;
       commands.forEach((cmd) => {'
         openapi.paths[`/api/execute/$cmd.name`] = {
           post: {
@@ -159,14 +158,14 @@ async function testOpenAPIGeneration() {'
             operationId: `execute_${cmd.name}`,
             tags: [cmd.category],
               required,`
-                'application/json': \$ref: '#/components/schemas/CommandRequest' ,,
+                'application/json': \$ref: '#/components/schemas/CommandRequest' ,
               // 200: null'
                 description: 'Command executed successfully','
-                  'application/json': \$ref: '#/components/schemas/CommandResponse' ,} };
+                  'application/json': \$ref: '#/components/schemas/CommandResponse' } };
       });
       // return openapi;
     //   // LINT: unreachable code removed};
-// const _spec = awaitmockGenerateOpenAPI();'
+// const spec = awaitmockGenerateOpenAPI();'
     assert(spec.openapi === '3.0.0', 'Should use OpenAPI 3.0.0');'
     assert(spec.info.title.includes('Claude-Zen'), 'Should have correct title');'
     assert(Object.keys(spec.paths).length === 3, 'Should have 3 paths');'
@@ -192,24 +191,24 @@ async function testTUIComponents() {'
   console.warn(' Testing TUI component structure...');
   try {
     // Mock component functionality tests
-    const _mockProgressBar = () => {
-      const _filled = Math.floor((progress / 100) * width);
-      const _empty = width - filled;''.repeat(filled)} catch (error) console.error(error); $''.repeat(empty)] $progress.toFixed(1)%`;
+    const mockProgressBar = () => {
+      const filled = Math.floor((progress / 100) * width);
+      const empty = width - filled;''.repeat(filled)} $''.repeat(empty)] $progress.toFixed(1)%`;
     //   // LINT: unreachable code removed};
-    const _mockCommandCompletion = () => {
+    const mockCommandCompletion = () => {
 //       return commands;
     // .filter((cmd) => cmd.name.toLowerCase().startsWith(input.toLowerCase())); // LINT: unreachable code removed
 slice(0, 5);
     };
-    const _mockLogFiltering = () => {`
+    const mockLogFiltering = () => {`
 //       return logs.filter((log) => filter === 'all'  ?? log.type === filter);
     //   // LINT: unreachable code removed};
     // Test progress bar rendering
-    const _progressBar = mockProgressBar(50, 20);'
+    const progressBar = mockProgressBar(50, 20);'
     assert(progressBar.includes('50.0%'), 'Progress bar should show percentage');''), 'Progress bar should have filled sections');''), 'Progress bar should have empty sections');
     // Test command completion
-// const _commands = awaitmockListCommands();'
-    const _completions = mockCommandCompletion('s', commands);'
+// const commands = awaitmockListCommands();'
+    const completions = mockCommandCompletion('s', commands);'
     assert(completions.length === 2, 'Should find 2 commands starting with "');
     assert(;'
       completions.some((cmd) => cmd.name === 'status'),'
@@ -220,11 +219,11 @@ slice(0, 5);
       'Should include swarm command';
     );
     // Test log filtering
-    const _logs = ['
+    const logs = ['
       { type: 'info', message: 'Info message' },'
       { type: 'error', message: 'Error message' },'
       { type: 'success', message: 'Success message' } ];'
-    const _filteredLogs = mockLogFiltering(logs, 'error');'
+    const filteredLogs = mockLogFiltering(logs, 'error');'
     assert(filteredLogs.length === 1, 'Should filter to 1 error log');'
     assert(filteredLogs[0].type === 'error', 'Filtered log should be error type');'
     filteredLogs = mockLogFiltering(logs, 'all');'
@@ -239,8 +238,8 @@ async function testWebSocketMessages() {'
   console.warn(' Testing WebSocket message structure...');
   try {
     // Mock WebSocket message validation
-    const _mockValidateWSMessage = () => {
-      const _validTypes = ['
+    const mockValidateWSMessage = () => {
+      const validTypes = ['
         'execute_command','
         'subscribe_monitoring','
         'get_completions','
@@ -254,7 +253,7 @@ async function testWebSocketMessages() {'
         'pong','
         'error' ];
       if(!message.type  ?? !validTypes.includes(message.type)) {'
-        // return { valid, error: 'Invalid message type' } catch (error) { console.error(error); };
+        // return { valid, error: 'Invalid message type' };
     //   // LINT: unreachable code removed}
       // Type-specific validation
   switch(message.type) {'
@@ -273,7 +272,7 @@ async function testWebSocketMessages() {'
       // return { valid };
     //   // LINT: unreachable code removed};
     // Test valid messages
-    const _result = mockValidateWSMessage({
+    const result = mockValidateWSMessage({
       type);'
     assert(result.valid === true, 'Valid execute_command should pass');
     result = mockValidateWSMessage({
@@ -294,18 +293,18 @@ async function testWebSocketMessages() {'
 // Main test runner
 async function runTests() {'
   console.warn(' Running Enhanced CLI/TUI Functionality Tests');''.repeat(60));
-  const _tests = [
+  const tests = [
     testAPIGeneration,
     testCommandValidation,
     testOpenAPIGeneration,
     testTUIComponents,
     testWebSocketMessages ];
-  const _passed = 0;
-  const _failed = 0;
+  const passed = 0;
+  const failed = 0;
   for(const test of tests) {
     try {
   // // await test(); 
-      passed++; } catch (error) { console.error(error); } catch(error) ''); // Empty line between tests
+      passed++; } catch(error) ''); // Empty line between tests
   //   }''.repeat(60));'
   console.warn(` Test Results);`
   if(failed === 0) {`

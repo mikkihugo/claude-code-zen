@@ -2,7 +2,7 @@
 
 /*  UNIFIED CLAUDE-ZEN SERVER; */
 /** Single server combining API + MCP + WebSocket on configurable port(default 3000); */
-*
+
 /** Features: null */
 * - REST API endpoints
 * - MCP(Model Context Protocol) server
@@ -37,8 +37,8 @@ import { WebSocketServer } from 'ws';
 
 import config from '../config/default.js';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /** Unified Claude-Zen Server Configuration */
 
@@ -189,14 +189,14 @@ this.app.get('/health', (_req, res) =>
     console.warn(` WebSocket connection from $req.socket.remoteAddress`);`
     ws.on('message', (data) => {
         try {
-          const _message = JSON.parse(data.toString());'
+          const message = JSON.parse(data.toString());'
           console.warn(' WebSocket message);'
 
           // Echo back for now - integrate with swarm orchestration
           ws.send(;'
             JSON.stringify(type: 'response',
-              data,)
-              timestamp: new Date().toISOString()   catch (error) console.error(error); );
+              data)
+              timestamp: new Date().toISOString() );
           );
         } catch(error) {'
           console.error(' WebSocket message error);'
@@ -215,7 +215,7 @@ this.app.get('/health', (_req, res) =>
 // 
 // 
 })'
-console.warn(' WebSocket server enabled')
+console.warn(' WebSocket server enabled');
 // }
 
 /** Initialize components */
@@ -231,10 +231,7 @@ console.warn(' WebSocket server enabled')
   if(this.options.enableNeural) {'
         console.warn(' Initializing ruv-FANN neural engine...');
         // Integration point for ruv-FANN
-      //       }
-
-       catch (error) console.error(error); 
-  if(this.options.enableMCP) {'
+      //       } if(this.options.enableMCP) {'
         console.warn(' Initializing MCP server...');
         // MCP server integration
       //       }
@@ -276,7 +273,7 @@ start();
           console.warn(` WebSocket);``
           console.warn(` Neural);`
           resolve();
-        } catch (error) { console.error(error); });
+        });
 `
         this.server?.on('error', (error) => {'
           console.error(' Server error);'
@@ -303,10 +300,7 @@ start();
   if(this.wss) {
         this.wss.close();
         this.wss = null;
-      //       }
-
-       catch (error) console.error(error); 
-  if(this.server) {
+      //       } if(this.server) {
 // // await new Promise<void>((resolve) => {
           this.server?.close(() => {
             this.server = null;
@@ -334,19 +328,17 @@ start();
   uptime: process.uptime() 
 // CLI handling
 async function main() {
-  const _args = process.argv.slice(2);'
-  const _portArg = args.find((arg) => arg.startsWith('--port='));'
-  const _port = portArg ? parseInt(portArg.split('=')[1], 10) ;
-  const _server = new UnifiedServer({ port   });
+  const args = process.argv.slice(2);'
+  const portArg = args.find((arg) => arg.startsWith('--port='));'
+  const port = portArg ? parseInt(portArg.split('=')[1], 10) ;
+  const server = new UnifiedServer({ port   });
   // Graceful shutdown
-  const _shutdown = async(signal) => {'
+  const shutdown = async(signal) => {'
     console.warn(`\n Received $signal, shutting down gracefully...`);
     try {
 // await server.stop();
       process.exit(0);
-    } catch (error) {
-  console.error(error);
-}`
+    }`
       console.error(' Error during shutdown);'
       process.exit(1);
     //     }
@@ -355,9 +347,7 @@ async function main() {
   process.on('SIGTERM', () => shutdown('SIGTERM'));
   try {
 // // await server.start();
-  } catch (error) {
-  console.error(error);
-}'
+  }'
     console.error(' Failed to start server);'
     process.exit(1);
   //   }

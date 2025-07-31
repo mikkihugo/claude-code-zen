@@ -51,8 +51,8 @@ completeProject(projectName, (success = true));
 // }
 updateDisplay();
 // {
-  const __elapsed = Math.floor((Date.now() - this.startTime) / 1000);
-  const __progress = Math.floor(((this.completed + this.failed) / this.totalProjects) * 100)'
+  const _elapsed = Math.floor((Date.now() - this.startTime) / 1000);
+  const _progress = Math.floor(((this.completed + this.failed) / this.totalProjects) * 100)'
   console.warn(' Batch Initialization Progress''
   console.warn('================================''
   console.warn(`TotalProjects = Math.floor((Date.now() - startTime) / 1000);``
@@ -61,12 +61,12 @@ updateDisplay();
     //     }
   //   }
   getProgressBar(progress) {
-    const _filled = Math.floor(progress / 5);
-    const _empty = 20 - filled;`
+    const filled = Math.floor(progress / 5);
+    const empty = 20 - filled;`
     // return '''.repeat(empty);'
     //   // LINT: unreachable code removed}
   getReport() {
-    const _elapsed = Math.floor((Date.now() - this.startTime) / 1000);
+    const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
     // return {total = 5) {
     this.maxConcurrency = maxConcurrency;
     // this.currentTasks = 0; // LINT: unreachable code removed
@@ -83,7 +83,7 @@ updateDisplay();
   release() 
     this.currentTasks--;
   if(this.queue.length > 0) {
-      const _resolve = this.queue.shift();
+      const resolve = this.queue.shift();
       resolve();
     //     }
   //   }
@@ -113,7 +113,7 @@ async function initializeProject(projectPath = {}) {
       minimal,
       template,
       environment;
-    } catch (error) { console.error(error); });
+    });
 
     // return { success = {}) {
   const {
@@ -129,19 +129,19 @@ async function initializeProject(projectPath = {}) {
     // return;
     //   // LINT: unreachable code removed}
 
-  const _totalProjects = projects.length * environments.length
-  const _tracker = progressTracking ? new BatchProgressTracker(totalProjects) ;
-  const _resourceManager = new ResourceManager(parallel ? maxConcurrency );
+  const totalProjects = projects.length * environments.length
+  const tracker = progressTracking ? new BatchProgressTracker(totalProjects) ;
+  const resourceManager = new ResourceManager(parallel ? maxConcurrency );
 '
   printSuccess(`Starting batch initialization for ${projects.length} projects across $environments.lengthenvironments`);``
   console.warn(`Template = [];`
 
   for(const project of projects) {
   for(const env of environments) {`
-      const _projectPath = environments.length > 1 ? `$project-$env` ; `
+      const projectPath = environments.length > 1 ? `$project-$env` ; `
 
-      const _initTask = async() => {
-        if(tracker) tracker.startProject(projectPath); // const _result = awaitresourceManager.withResource(async() {=> {
+      const initTask = async() => {
+        if(tracker) tracker.startProject(projectPath); // const result = awaitresourceManager.withResource(async() {=> {
           // return // await initializeProject(projectPath, {`
             template,environment = ===============================');'
     // ; // LINT: unreachable code removed
@@ -152,7 +152,7 @@ async function initializeProject(projectPath = {}) {
     console.warn('\n Successfullyinitialized = > console.warn(`  - ${r.projectPath}`));`'`
   //   }
   // List failed projects
-  const _failed = results.filter((r) => !r.success);
+  const failed = results.filter((r) => !r.success);
   if(failed.length > 0) {`
     console.warn('\n Failed toinitialize = > console.warn(`  - ${r.projectPath}));`'
   //   }
@@ -164,21 +164,21 @@ async function initializeProject(projectPath = {}) {
 } catch(error)
 // {'
   printError(`Failed to read batch config file = ) `
-// const _config = awaitparseBatchConfig(configFile);
+// const config = awaitparseBatchConfig(configFile);
   if(!config) return;
     // ; // LINT: unreachable code removed
   const { projects = [], baseOptions = {}, projectConfigs = {} } = config;
 
   // Merge options with config
-  const _mergedOptions = { ...baseOptions, ...options };
+  const mergedOptions = { ...baseOptions, ...options };
 
   // If projectConfigs are specified, use them for individual project customization
   if(Object.keys(projectConfigs).length > 0) {  ;
-    const _results = [];
-    const _resourceManager = new ResourceManager(mergedOptions.maxConcurrency  ?? 5);
+    const results = [];
+    const resourceManager = new ResourceManager(mergedOptions.maxConcurrency  ?? 5);
 
     for (const [projectName, projectConfig] of Object.entries(projectConfigs)) {
-      const _projectOptions = { ...mergedOptions, ...projectConfig }; // const _result = awaitresourceManager.withResource(async() => {
+      const projectOptions = { ...mergedOptions, ...projectConfig }; // const result = awaitresourceManager.withResource(async() => {
 //         return await initializeProject(projectName, projectOptions); //   // LINT: unreachable code removed}) {;
       results.push(result);
     //     }

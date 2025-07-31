@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-const _wasmPath =;
+const wasmPath =;
 '
 ('/home/codespace/nvm/current/lib/node_modules/ruv-swarm/wasm/ruv_swarm_wasm_bg.wasm')
 async
@@ -11,12 +11,12 @@ function testDirectWasmLoading() {
   // // await fs.access(wasmPath);'
     console.warn(' WASM file exists);'
     // Read the file
-// const _wasmBuffer = awaitfs.readFile(wasmPath);'
+// const wasmBuffer = awaitfs.readFile(wasmPath);'
     console.warn(` WASM file read successfully, size);`
     // Try to instantiate
-    const _imports = {
+    const imports = {
       env: {
-        memory: new WebAssembly.Memory({ initial, maximum   } catch (error) { console.error(error); }
+        memory: new WebAssembly.Memory({ initial, maximum   }
 }
 ,
         proc_exit: (code) =>

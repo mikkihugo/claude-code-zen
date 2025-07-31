@@ -10,7 +10,7 @@ if(!request.model) {'
 // }
 // protected
 calculateCost(usage = (usage.promptTokens / 1000) * pricing.inputTokenPrice
-const _outputCost = (usage.completionTokens / 1000) * pricing.outputTokenPrice;
+const outputCost = (usage.completionTokens / 1000) * pricing.outputTokenPrice;
 // return inputCost + outputCost;
 // }
 // }

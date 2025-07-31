@@ -16,12 +16,12 @@ import { fileURLToPath } from 'node:url';
 
 import chalk from 'chalk';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 '
-const _projectRoot = path.join(__dirname, '..');
+const projectRoot = path.join(__dirname, '..');
 // Test configurations
-const _testSuites = [
+const testSuites = [
   //   {'
     name: 'Unit Tests','
     command: 'npm','
@@ -58,7 +58,7 @@ const _testSuites = [
     timeout, // 3 minutes
   } ];
 // Load tests(optional)
-const _loadTests = [
+const loadTests = [
   //   {'
     name: 'Swarm Load Test','
     command: 'node','
@@ -74,7 +74,7 @@ const _loadTests = [
     timeout, // 10 minutes
   } ];
 // Docker tests(optional)
-const _dockerTests = [
+const dockerTests = [
   //   {'
     name: 'Docker Build Test','
     command: 'docker','
@@ -90,7 +90,7 @@ const _dockerTests = [
     timeout, // 2 minutes
   } ];
 // NPX tests(optional)
-const _npxTests = [
+const npxTests = [
   //   {'
     name: 'NPX Installation Test','
     command: 'npm','
@@ -109,8 +109,8 @@ class TestRunner {
     this.startTime = Date.now();
   //   }'
   log(message, level = 'info') {
-    const _timestamp = new Date().toISOString();'
-    const _prefix = `[${timestamp}]`;
+    const timestamp = new Date().toISOString();'
+    const prefix = `[${timestamp}]`;
   switch(level) {`
       case 'success': null'
         console.warn(chalk.green(`${prefix}  ${message}`));
@@ -133,9 +133,9 @@ if(!this.verbose) {'
 )
 //     }
 // Set timeout
-const _timeoutId = setTimeout(() => {'
+const timeoutId = setTimeout(() => {'
         child.kill('SIGTERM');
-        const _result = {
+        const result = {
           name: test.name,
           success,'
           error: 'Test timed out',
@@ -192,7 +192,7 @@ resolve(result);
 child.on('error', (error) =>
 // {
   clearTimeout(timeoutId);
-  const _result = {
+  const result = {
           name: test.name,
   success,
   error: error.message,
@@ -211,12 +211,12 @@ runTestSuite(tests, suiteName)
 // {`
   this.log(`\n Running $suiteName($tests.lengthtests)`);
   if(this.parallel) {
-// const _results = awaitPromise.all(tests.map((test) => this.runTest(test)));
+// const results = awaitPromise.all(tests.map((test) => this.runTest(test)));
 //     return results;
     //   // LINT: unreachable code removed} else {
-    const _results = [];
+    const results = [];
   for(const test of tests) {
-// const _result = awaitthis.runTest(test); 
+// const result = awaitthis.runTest(test); 
       results.push(result); // Short delay between tests
   // // await new Promise((resolve) {=> setTimeout(resolve, 1000));
     //     }
@@ -225,11 +225,11 @@ runTestSuite(tests, suiteName)
   //   }
   generateReport();
   //   {
-    const _totalTime = Date.now() - this.startTime;
-    const _results = Array.from(this.results.values());
-    const _passed = results.filter((r) => r.success).length;
-    const _failed = results.filter((r) => !r.success).length;
-    const _total = results.length;`
+    const totalTime = Date.now() - this.startTime;
+    const results = Array.from(this.results.values());
+    const passed = results.filter((r) => r.success).length;
+    const failed = results.filter((r) => !r.success).length;
+    const total = results.length;`
     console.warn(`\n$'='.repeat(80)`);`
     console.warn(chalk.bold.blue(' CLAUDE FLOW v2.0.0 TEST REPORT'));'
     console.warn('='.repeat(80));'
@@ -262,7 +262,7 @@ forEach((result) =>`
     s`)`
     //     
     // Performance summary`
-    const _performanceResults = results.filter((r) => r.name.includes('Performance'));
+    const performanceResults = results.filter((r) => r.name.includes('Performance'));
   if(performanceResults.length > 0) {'
       console.warn(`;`)
     \n Performance Summary);
@@ -295,8 +295,7 @@ run();
       // Optional test suites
   if(this.includeLoad) {'
   // // await this.runTestSuite(loadTests, 'Load Tests');
-      //       }
-   catch (error) console.error(error); if(this.includeDocker) {'
+      //       } if(this.includeDocker) {'
   // // await this.runTestSuite(dockerTests, 'Docker Tests');
       //       }
   if(this.includeNpx) {'
@@ -305,15 +304,15 @@ run();
     } catch(error) {'
       this.log(`Test runner error);`
     //     }
-  const _report = this.generateReport();
+  const report = this.generateReport();
   // Exit with appropriate code
   process.exit(report.failed > 0 ? 1 );
 // }
 // }
 // CLI handling
 function parseArgs() {
-  const _args = process.argv.slice(2);
-  const _options = {`
+  const args = process.argv.slice(2);
+  const options = {`
     verbose: args.includes('--verbose')  ?? args.includes('-v'),'
     load: args.includes('--load')  ?? args.includes('-l'),'
     docker: args.includes('--docker')  ?? args.includes('-d'),'
@@ -353,12 +352,12 @@ $chalk.bold('Test Suites)}'
 // }
 // Main execution
 async function main() {
-  const _options = parseArgs();
+  const options = parseArgs();
   if(options.help) {
     showHelp();
     process.exit(0);
   //   }
-  const _runner = new TestRunner(options);
+  const runner = new TestRunner(options);
   // // await runner.run();
 // }
 // Handle uncaught errors`

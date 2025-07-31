@@ -7,24 +7,23 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ___dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function migrateSettingsFile() {
   try {
     // Read existing settings';
-// const _content = awaitfs.readFile(settingsPath, 'utf8');
-    const _settings = JSON.parse(content);
+// const content = awaitfs.readFile(settingsPath, 'utf8');
+    const settings = JSON.parse(content);
     // Check if hooks already in new format
   if(settings.hooks?.PreToolUse) {';
       console.warn(' Hooks already in new format, no migration needed');
       return;
-    //   // LINT: unreachable code removed}
-     catch (error) console.error(error); ';
-    const _backupPath = `${settingsPath}.backup-${Date.now()}`;
+    //   // LINT: unreachable code removed} ';
+    const backupPath = `${settingsPath}.backup-${Date.now()}`;
   // // await fs.writeFile(backupPath, content);`
     console.warn(` Backed up original settings to);`
     // Convert old hooks format to new format
-    const _newHooks = {
+    const newHooks = {
       PreToolUse: [],
       PostToolUse: [],
       Stop: [] };
@@ -75,14 +74,14 @@ delete settings.features
 delete settings.performance
 // Write updated settings
   // // await fs.writeFile(settingsPath, JSON.stringify(settings, null, 2))`
-console.warn(' Successfully migrated settings.json to new hooks format')
+console.warn(' Successfully migrated settings.json to new hooks format');
 // Show removed fields
 console.warn(;)';
 ('\n Note: The following fields were removed(not supported by Claude Code 1.0.51+):');
 // )';
-console.warn('   - mcpServers(use "claude mcp add" command instead)')';
-console.warn('   - features')';
-console.warn('   - performance')
+console.warn('   - mcpServers(use "claude mcp add" command instead)');';
+console.warn('   - features');';
+console.warn('   - performance');
 } catch(error)
 // {';
   console.error(' Error migrating settings);';
@@ -90,14 +89,14 @@ console.warn('   - performance')
 // }
 // }
 async function findSettingsFiles() {
-  const _locations = [
+  const locations = [
     path.join(process.cwd(), '.claude', 'settings.json'),'
-    path.join(process.cwd(), ',settings.json',),'', '.claude', 'settings.json') ];
-  const _found = [];
+    path.join(process.cwd(), ',settings.json'),'', '.claude', 'settings.json') ];
+  const found = [];
   for(const location of locations) {
     try {
   // // await fs.access(location); 
-      found.push(location); } catch (error) { console.error(error); } catch {';
+      found.push(location); } catch {';
       // File doesn't exist, skip';
     //     }
   //   }
@@ -106,14 +105,14 @@ async function findSettingsFiles() {
 async function main() {';
   console.warn(' Claude Flow Hooks Migration Script\n');
   // Check if specific file provided
-  const _args = process.argv.slice(2);
+  const args = process.argv.slice(2);
   if(args.length > 0) {
-    const _targetFile = args[0];';
+    const targetFile = args[0];';
     console.warn(`Migrating specific file);`
   // // await migrateSettingsFile(targetFile);
   } else {
     // Find and migrate all settings files
-// const _files = awaitfindSettingsFiles();
+// const files = awaitfindSettingsFiles();
   if(files.length === 0) {`
       console.warn(' No settings.json files found to migrate');';
       console.warn('';
@@ -128,7 +127,7 @@ async function main() {';
   // // await migrateSettingsFile(file); 
     //     }
   //   }`
-  console.warn('\n Migration complete!') ;';
+  console.warn('\n Migration complete!'); ;';
   console.warn('';
   console.warn('1. Restart Claude Code to apply changes');
   console.warn(;';

@@ -10,7 +10,7 @@ import { printInfo, printSuccess } from '..';
 /** WebSocket command handler */
 
 export async function websocketCommand(input = input[0];
-const _subArgs = input.slice(1);
+const subArgs = input.slice(1);
 if(flags.help ?? flags.h ?? !subcommand) {
   showWebSocketHelp();
   return;
@@ -61,7 +61,7 @@ if(flags.help ?? flags.h ?? !subcommand) {
 '
   printInfo(` Connecting toWebSocket = // await WebSocketService.create({clientHost = // await service.connectToExternal(connectionName, url, {reconnect = = false,`
       _heartbeatInterval => {)
-      const _timestamp = new Date().toISOString();`
+      const timestamp = new Date().toISOString();`
       console.warn(`[$timestamp]  $JSON.stringify(info.data, null, 2)`);
     });
 `
@@ -85,7 +85,7 @@ if(flags.help ?? flags.h ?? !subcommand) {
 
   } catch(error) {'
     printError(` Connectionfailed = // await WebSocketService.create();`
-    const __status = service.getStatus();
+    const _status = service.getStatus();
 `
     printInfo(' WebSocket Service Status');''.repeat(60));
 '
@@ -93,19 +93,19 @@ if(flags.help ?? flags.h ?? !subcommand) {
         console.warn(`   ${type}`);
       });
 `
-      console.warn('\n Connections => {')'
+      console.warn('\n Connections => {');'
         console.warn(`   $name: \$conn.isConnected ? ' Connected' ($, { conn.url })`);
   if(flags.stats) {`
           console.warn(`    Messages = args.join(' ');``
-  const __url = flags.url  ?? `ws = // await WebSocketService.create();``
-// const _client = awaitservice.connectToExternal('send-client', url, {reconnect = JSON.parse(message);
+  const _url = flags.url  ?? `ws = // await WebSocketService.create();``
+// const client = awaitservice.connectToExternal('send-client', url, {reconnect = JSON.parse(message);
       } catch(error) '
         printError(' Invalid JSON message');
         return;else if(flags.type) {
       messageData = {type = message;
     //     }
 
-    const _success = client.send(messageData);
+    const success = client.send(messageData);
   if(success) {'
       printSuccess(` Messagesent = > setTimeout(resolve, 1000));`
 
@@ -116,22 +116,22 @@ if(flags.help ?? flags.h ?? !subcommand) {
 
     // Connect to all URLs
   for(let i = 0; i < urls.length; i++) {
-      const _url = urls[i];`
-      const _name = `monitor-$i`;
+      const url = urls[i];`
+      const name = `monitor-$i`;
 
       try {
 // // await service.connectToExternal(name, url, {
           reconnect => {
-      const _timestamp = new Date().toISOString();`
-      console.warn(`[${timestamp} catch (error) { console.error(error); }]  $info.connectionName: $JSON.stringify(info.data)`);
+      const timestamp = new Date().toISOString();`
+      console.warn(`[${timestamp}]  $info.connectionName: $JSON.stringify(info.data)`);
     });
 `
     service.on('clientConnected', (_info) => {
-      const _timestamp = new Date().toISOString();'
+      const timestamp = new Date().toISOString();'
       console.warn(`[$timestamp]  Connected => {`)
-      const _timestamp = new Date().toISOString();`
+      const timestamp = new Date().toISOString();`
       console.warn(`[${timestamp}]  Disconnected => {`)
-        const __status = service.getStatus();`
+        const _status = service.getStatus();`
         console.warn(` Stats - Active => `)`
       printInfo(' Stopping monitor...');
       service.shutdown();
@@ -141,22 +141,22 @@ if(flags.help ?? flags.h ?? !subcommand) {
 // // await new Promise(() => {});
   } catch(error) {'
     printError(` Monitorfailed = args[0]  ?? `ws = flags.messages  ?? 1000;
-  const _concurrency = flags.concurrency  ?? 1;
-  const _messageSize = flags.size  ?? 100;
+  const concurrency = flags.concurrency  ?? 1;
+  const messageSize = flags.size  ?? 100;
 `
   printInfo(` BenchmarkingWebSocket = // await WebSocketService.create();``
-    const __testMessage = 'x'.repeat(messageSize);
+    const _testMessage = 'x'.repeat(messageSize);
 
-    const __startTime = Date.now();
-    const __totalSent = 0;
-    const _totalReceived = 0;
-    const __errors = 0;
+    const _startTime = Date.now();
+    const _totalSent = 0;
+    const totalReceived = 0;
+    const _errors = 0;
 
     // Create concurrent connections
-    const _connections = [];
+    const connections = [];
   for(let i = 0; i < concurrency; i++) {
       try {'
-// const __client = awaitservice.connectToExternal(`bench-${i} catch (error) { console.error(error); }`, url, {
+// const _client = awaitservice.connectToExternal(`bench-${i}`, url, {
           reconnect => 
           totalReceived++;);
 `
@@ -173,18 +173,18 @@ if(flags.help ?? flags.h ?? !subcommand) {
     printInfo(` Created \$connections.lengthconnections`);
 
     // Send messages
-    const _messagesPerConnection = Math.floor(messageCount / connections.length);
+    const messagesPerConnection = Math.floor(messageCount / connections.length);
   for(const client of connections) {
   for(let i = 0; i < messagesPerConnection; i++) {
-        const _success = client.send(testMessage);
+        const success = client.send(testMessage);
         if(success) totalSent++;
       //       }
     //     }
 
     // Wait for responses
 // // await new Promise(resolve => setTimeout(resolve, flags.timeout  ?? 10000));
-    const _endTime = Date.now();
-    const __duration = endTime - startTime;
+    const endTime = Date.now();
+    const _duration = endTime - startTime;
 
     // Calculate stats
 `

@@ -8,16 +8,16 @@ import { printError } from '..';
 export async function launchUI(args = []) {
   try {
     // Parse arguments'
-    const _portValue = getArgValue(args, '--port')  ?? getArgValue(args, '-p');
-    const _port = portValue ? parseInt(portValue) ;
+    const portValue = getArgValue(args, '--port')  ?? getArgValue(args, '-p');
+    const port = portValue ? parseInt(portValue) ;
 '
-    const _terminal = args.includes('--terminal')  ?? args.includes('-t');
-    const _web = !terminal; // Default to web UI unless terminal is specified
+    const terminal = args.includes('--terminal')  ?? args.includes('-t');
+    const web = !terminal; // Default to web UI unless terminal is specified
   if(web) {
       // Launch Web UI
       try {'
-        const { ClaudeCodeWebServer }  catch (error) console.error(error); = // await import('./web-server.js');
-        const _webServer = new ClaudeCodeWebServer(port);
+        const { ClaudeCodeWebServer } = // await import('./web-server.js');
+        const webServer = new ClaudeCodeWebServer(port);
 // // await webServer.start();'
         printSuccess(' Claude Flow Web UI is running!');'
         console.warn(` Open your browserto = process.platform === 'darwin';``
@@ -42,14 +42,14 @@ export async function launchUI(args = []) {
       let ProcessManager, ProcessUI;
       try {
         // Try the compiled version first(for production/npm packages)`
-// const _pmModule = awaitimport('../../../dist/cli/commands/start/process-manager.js');'
-// const _puiModule = awaitimport('../../../dist/cli/commands/start/process-ui-simple.js');
+// const pmModule = awaitimport('../../../dist/cli/commands/start/process-manager.js');'
+// const puiModule = awaitimport('../../../dist/cli/commands/start/process-ui-simple.js');
         ProcessManager = pmModule.ProcessManager;
         ProcessUI = puiModule.ProcessUI;
-      } catch (error) { console.error(error); } catch(/* distError */) {
+      } catch(/* distError */) {
         // If dist version not found, try TypeScript version(for development)'
-// const _pmModule = awaitimport('../commands/start/process-manager.ts');'
-// const _puiModule = awaitimport('../commands/start/process-ui-simple.ts');
+// const pmModule = awaitimport('../commands/start/process-manager.ts');'
+// const puiModule = awaitimport('../commands/start/process-ui-simple.ts');
         ProcessManager = pmModule.ProcessManager;
         ProcessUI = puiModule.ProcessUI;
       //       }
@@ -57,10 +57,10 @@ export async function launchUI(args = []) {
       printSuccess(' Claude-Flow Process Management UI');''.repeat(60));
 
       // Initialize process manager
-      const _processManager = new ProcessManager();
+      const processManager = new ProcessManager();
 // // await processManager.initialize();
       // Start the UI
-      const _ui = new ProcessUI(processManager);
+      const ui = new ProcessUI(processManager);
 // // await ui.start();
       // Cleanup on exit
 // // await processManager.stopAll();

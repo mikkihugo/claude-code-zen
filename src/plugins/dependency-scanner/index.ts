@@ -16,45 +16,44 @@ export class DependencyScannerPlugin {
     async;
     initialize();
     '
-    console.warn(' Dependency Scanner Plugin initialized')
+    console.warn(' Dependency Scanner Plugin initialized');
 
     this.setupConflictStrategies()
 
     if(!this.config.aiProvider && this.config.generateADRs)
     '
-      console.warn(' No AI provider configured, ADR generation disabled')
+      console.warn(' No AI provider configured, ADR generation disabled');
     this.config.generateADRs = false
     //     }
     //   }
     setupConflictStrategies();
     '
-    this.conflictStrategies.set('major_version',
-      )
+    this.conflictStrategies.set('major_version')
       severity =
 
     {
       '
       const { includeTypes = ['dependencies', 'devDependencies', 'peerDependencies'] } = options;
       '
-    console.warn(' Scanning for package.json files...')
+    console.warn(' Scanning for package.json files...');
         '
-// const _packageJsonFiles = awaitglob('**/package.json', {ignore = // await this.analyzeDependencies(packageJsonFiles, includeTypes);
-// const _conflicts = awaitthis.detectConflicts(dependencyAnalysis);
+// const packageJsonFiles = awaitglob('**/package.json', {ignore = // await this.analyzeDependencies(packageJsonFiles, includeTypes);
+// const conflicts = awaitthis.detectConflicts(dependencyAnalysis);
 
     // return {
       totalPackages =
       // ; // LINT: unreachable code removed
       for (const file of packageFiles) {
         try {'
-// const _pkgContent = awaitreadFile(file, 'utf8'); 
-        const _pkg = JSON.parse(pkgContent); for(const depType of includeTypes) {
-          const _deps = pkg[depType]  ?? {} catch (error) console.error(error); ;
+// const pkgContent = awaitreadFile(file, 'utf8'); 
+        const pkg = JSON.parse(pkgContent); for(const depType of includeTypes) {
+          const deps = pkg[depType]  ?? {} ;
 
           for (const [depName, _version] of Object.entries(deps)) {
   if(!analysis[depName]) {
               analysis[depName] = {versions = []; for(const [depName, data] of Object.entries(analysis)) {
-      const _versions = Array.from(data.versions.keys()); if(versions.length > this.config.conflictThreshold) {
-// const _conflict = awaitthis.analyzeConflict(depName, data);
+      const versions = Array.from(data.versions.keys()); if(versions.length > this.config.conflictThreshold) {
+// const conflict = awaitthis.analyzeConflict(depName, data);
         conflicts.push(conflict);
 //       }
 //     }
@@ -65,11 +64,11 @@ export class DependencyScannerPlugin {
 /** Analyze individual dependency conflict; */
 
   async analyzeConflict(depName, data) { 
-    const _versions = Array.from(data.versions.keys());
-    const _conflictType = this.classifyConflict(versions);'
-    const _strategy = this.conflictStrategies.get(conflictType)  ?? this.conflictStrategies.get('minor_version');
+    const versions = Array.from(data.versions.keys());
+    const conflictType = this.classifyConflict(versions);'
+    const strategy = this.conflictStrategies.get(conflictType)  ?? this.conflictStrategies.get('minor_version');
 
-    const __conflict = id = // await this.generateConflictADR(depName, data, strategy);
+    const _conflict = id = // await this.generateConflictADR(depName, data, strategy);
       } catch(error) ;'
         console.warn(`Failed to generate ADR for ${depName});`
     //     }
@@ -80,12 +79,12 @@ export class DependencyScannerPlugin {
 /** Classify the type of version conflict; */
 
   classifyConflict(versions) {
-    const _parsed = versions.map(v => this.parseVersion(v)).filter(Boolean);
+    const parsed = versions.map(v => this.parseVersion(v)).filter(Boolean);
 `
     if(parsed.length < 2) return 'patch_version';
     // ; // LINT: unreachable code removed
-    const _majorVersions = new Set(parsed.map(v => v.major));'
-    const _minorVersions = new Set(parsed.map(_v => `\$v.major.\$v.minor`));
+    const majorVersions = new Set(parsed.map(v => v.major));'
+    const minorVersions = new Set(parsed.map(_v => `\$v.major.\$v.minor`));
 `
     if(majorVersions.size > 1) return 'major_version';'
     // if(minorVersions.size > 1) return 'minor_version'; // LINT: unreachable code removed'
@@ -95,7 +94,7 @@ export class DependencyScannerPlugin {
 /** Parse semantic version string; */
 
   parseVersion(version) {'');
-    const _match = cleanVersion.match(/^(\d+)\.(\d+)\.(\d+)/);
+    const match = cleanVersion.match(/^(\d+)\.(\d+)\.(\d+)/);
 
     if(!match) return null;
     // ; // LINT: unreachable code removed
@@ -105,10 +104,10 @@ export class DependencyScannerPlugin {
       formatted.push({)
         version,projects = > u.project),files = > u.file),count = > b.count - a.count); //   }
 
-/** Generate ADR for dependency conflict resolution; * */
+/** Generate ADR for dependency conflict resolution; *  */*/
   async generateConflictADR(depName, data, strategy) { 
-    const _versions = Array.from(data.versions.keys());
-    const __prompt = this.buildADRPrompt(depName, versions, data, strategy);
+    const versions = Array.from(data.versions.keys());
+    const _prompt = this.buildADRPrompt(depName, versions, data, strategy);
 '
     // return `Generate an Architecture Decision Record(ADR) for standardizing the dependency '$depName}'.`
 
@@ -117,7 +116,7 @@ export class DependencyScannerPlugin {
 //       return acc;
     //   // LINT: unreachable code removed}, {});
 
-    const _conflictTypes = conflicts.reduce((acc, c) => {
+    const conflictTypes = conflicts.reduce((acc, c) => {
       acc[c.conflictType] = (acc[c.conflictType]  ?? 0) + 1;
 //       return acc;
     //   // LINT: unreachable code removed}, {});

@@ -63,15 +63,15 @@ file;
 data
    * @returns Function
 analysis;
-data * /;;
+data * /;
 // */; // LINT: unreachable code removed
 async;
 extractFunctions(codeData);
 : Promise<FunctionData[]>
 {
-    const _functions = [];
+    const functions = [];
   for(const file of codeData) {
-// const _fileFunctions = awaitthis.extractFileFunctions(file); 
+// const fileFunctions = awaitthis.extractFileFunctions(file); 
       functions.push(...fileFunctions); //     }
 
     // return functions;
@@ -84,13 +84,13 @@ extractFunctions(codeData);
 
     // */; // LINT: unreachable code removed
   // // private async extractFileFunctions(file) {: Promise<FunctionData[]> {
-    const _functions = [];
-    const _lines = file.content.split('\n')
+    const functions = [];
+    const lines = file.content.split('\n')
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
-      const _functionMatch = this.matchFunction(line, file.language);
+      const line = lines[i];
+      const functionMatch = this.matchFunction(line, file.language);
   if(functionMatch) {
-        const _func = {
+        const func = {
           name: functionMatch.name,
           parameters: functionMatch.parameters,
           isAsync: functionMatch.isAsync,
@@ -120,9 +120,9 @@ extractFunctions(codeData);
 // (async\s+)?(\w+)\s*\(([^)]*)\)\s*=>/ ],
       python: [/(async\s+)?def\s+(\w+)\s*\(([^)]*)\)/] }
 
-    const _langPatterns = patterns[language]  ?? patterns.javascript;
+    const langPatterns = patterns[language]  ?? patterns.javascript;
   for(const pattern of langPatterns) {
-      const _match = line.match(pattern); if(match) {
+      const match = line.match(pattern); if(match) {
         // return {
           name: match[2]  ?? match[1],'); // LINT: unreachable code removed'
   split(",') 
@@ -143,13 +143,13 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async calculateFunctionComplexity(lines, startLine): Promise<number> {
-    const _complexity = 1; // Base complexity
-    const _braceCount = 0;
-    const _i = startLine;
+    const complexity = 1; // Base complexity
+    const braceCount = 0;
+    const i = startLine;
 
     // Find function body and count decision points
   while(i < lines.length) {
-      const _line = lines[i];
+      const line = lines[i];
 
       // Count decision points
       if(
@@ -178,12 +178,12 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async countFunctionLines(lines, startLine): Promise<number> {
-    const _braceCount = 0;
-    const _i = startLine;
-    const _lineCount = 0;
+    const braceCount = 0;
+    const i = startLine;
+    const lineCount = 0;
   while(i < lines.length) {
       lineCount++;
-      const _line = lines[i];
+      const line = lines[i];
 
       braceCount += (line.match(/\{/g)  ?? []).length;
       braceCount -= (line.match(/\}/g)  ?? []).length;
@@ -209,12 +209,12 @@ filter((p) => p),'
     threshold = 50;
   ): Array<name, lineCount, lineNumber: number > {
     const _methods: Array<{ name, lineCount, lineNumber}> = []
-    const _lines = content.split('\n')
+    const lines = content.split('\n')
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i]
-      const _functionMatch = this.matchFunction(line, 'javascript'); // Simplified for example'
+      const line = lines[i]
+      const functionMatch = this.matchFunction(line, 'javascript'); // Simplified for example'
   if(functionMatch) {
-        const _methodLines = this.countMethodLines(lines, i);
+        const methodLines = this.countMethodLines(lines, i);
   if(methodLines > threshold) {
           methods.push({)
             name);
@@ -237,14 +237,14 @@ filter((p) => p),'
     threshold = 5;
   ): Array<name, paramCount, lineNumber: number > {
     const _methods: Array<{ name, paramCount, lineNumber}> = []
-    const _lines = content.split('\n')
+    const lines = content.split('\n')
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
-      const _functionMatch = line.match(;)
+      const line = lines[i];
+      const functionMatch = line.match(;)
 // function\s+(\w+)\s*\(([^)]*)\)|(\w+)\s*[]\s*function\s*\(([^)]*)\)|(\w+)\s*\(([^)]*)\)\s*=>/
       );
   if(functionMatch) {''
-        const _paramCount = params.split(",').filter((p) => p.trim()).length
+        const paramCount = params.split(",').filter((p) => p.trim()).length
   if(paramCount > threshold) {
           methods.push({)
             name);
@@ -263,10 +263,10 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private countMethodLines(lines, startIndex) {
-    const _braceCount = 0;
-    const _lineCount = 0;
+    const braceCount = 0;
+    const lineCount = 0;
   for(let i = startIndex; i < lines.length; i++) {
-      const _line = lines[i];
+      const line = lines[i];
       lineCount++;
 
       braceCount += (line.match(/\{/g)  ?? []).length;

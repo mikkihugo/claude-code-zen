@@ -20,7 +20,7 @@ export class PerformanceTest {
   async runTestSuite() { '
     console.warn(' Starting Hive Mind Performance Test Suite...\n');
 
-    const _tests = [
+    const tests = [
       this.testBatchAgentSpawning,
       this.testAsyncOperationQueue,
       this.testMemoryOperations,
@@ -30,27 +30,27 @@ export class PerformanceTest {
     for (const test of tests) 
       try {
 // // await test.call(this); 
-      } catch (error) { console.error(error); } catch(/* _error */ )'
+      } catch(/* _error */ )'
         console.error(`Testfailed = new HiveMindCore({name = ['coder', 'tester', 'analyst', 'researcher', 'architect', 'optimizer']; `
 
     // Batch spawning test/g)
-    const _batchStart = performance.now() {;
+    const batchStart = performance.now() {;
 
-    const _batchTime = performance.now() - batchStart;
+    const batchTime = performance.now() - batchStart;
 
     // Simulate sequential spawning for comparison
-    const _sequentialStart = performance.now();
+    const sequentialStart = performance.now();
   for(let i = 0; i < agentTypes.length; i++) {
       // Simulate individual spawning time
 // // await new Promise((resolve) => setTimeout(resolve, 200));
     //     }
-    const _sequentialTime = performance.now() - sequentialStart;
+    const sequentialTime = performance.now() - sequentialStart;
 
-    const _improvement = (((sequentialTime - batchTime) / sequentialTime) * 100).toFixed(2)
+    const improvement = (((sequentialTime - batchTime) / sequentialTime) * 100).toFixed(2)
     this.results.push({ test = new PerformanceOptimizer({))
       asyncQueueConcurrency   });
 
-    const _operations = [];
+    const operations = [];
   for(let i = 0; i < 20; i++) {
       operations.push(async() => {
 // await new Promise((resolve) => setTimeout(resolve, Math.random() * 100 + 50))`
@@ -59,34 +59,34 @@ export class PerformanceTest {
     //     }
 
     // Test parallel execution
-    const _parallelStart = performance.now();
+    const parallelStart = performance.now();
 
-    const _parallelTime = performance.now() - parallelStart;
+    const parallelTime = performance.now() - parallelStart;
 
     // Test sequential execution for comparison
-    const _sequentialStart = performance.now();
-    const _sequentialResults = [];
+    const sequentialStart = performance.now();
+    const sequentialResults = [];
   for(const op of operations) {
       sequentialResults.push(// await op()); 
     //     }
-    const _sequentialTime = performance.now() - sequentialStart; const _improvement = (((sequentialTime - parallelTime) {/ sequentialTime) * 100).toFixed(2)
+    const sequentialTime = performance.now() - sequentialStart; const improvement = (((sequentialTime - parallelTime) {/ sequentialTime) * 100).toFixed(2)
     this.results.push({test = performance.now();
 
     // Simulate 100 memory operations with connection pooling
-    const _operations = Array(100);
+    const operations = Array(100);
 fill(null);
 map(async(_, i) => {
 // await new Promise((resolve) => setTimeout(resolve, Math.random() * 10))
 //         return {key = performance.now() - pooledStart;
     // ; // LINT: unreachable code removed
     // Simulate without pooling
-    const _serialStart = performance.now();
+    const serialStart = performance.now();
   for(let i = 0; i < 100; i++) {
 // // await new Promise((resolve) => setTimeout(resolve, Math.random() * 15 + 5))
     //     }
-    const _serialTime = performance.now() - serialStart;
+    const serialTime = performance.now() - serialStart;
 
-    const _improvement = (((serialTime - pooledTime) / serialTime) * 100).toFixed(2)
+    const improvement = (((serialTime - pooledTime) / serialTime) * 100).toFixed(2)
     this.results.push({ test = new HiveMindCore({name = [`
       'Implement user authentication','
       'Write unit tests','
@@ -96,25 +96,25 @@ map(async(_, i) => {
       'Document API endpoints' ];
 
     // Test concurrent task creation and execution/g)
-    const _concurrentStart = performance.now();
-    const _taskPromises = tasks.map((description) =>;
+    const concurrentStart = performance.now();
+    const taskPromises = tasks.map((description) =>;
       hiveMind.createTask(description, Math.floor(Math.random() * 10) + 1)
 // // await Promise.all(taskPromises);
     // Wait for tasks to complete(simulated)
 // // await new Promise((resolve) => setTimeout(resolve, 2000));
     // Get final status
-    const _status = hiveMind.getStatus();
+    const status = hiveMind.getStatus();
 '
     this.results.push({test = === tasks.length ? 'PASS' );
 
     console.warn(;'
       `  Tasks = new PerformanceOptimizer({``
       enableAsyncQueue,enableBatchProcessing = 'test-cache-key';
-    const __cacheHits = 0;
-    const __cacheMisses = 0;
+    const _cacheHits = 0;
+    const _cacheMisses = 0;
 
     // First call should be a miss/g)
-    const __cacheStart = performance.now();
+    const _cacheStart = performance.now();
 // // await optimizer.optimizeWithCache(cacheKey, async() => {
       _cacheMisses++;
 // await new Promise((resolve) => setTimeout(resolve, 100));'
@@ -132,8 +132,8 @@ map(async(_, i) => {
     //     }
 
     // Test batch processing
-    const _batchStart = performance.now();
-    const _batchPromises = [];
+    const batchStart = performance.now();
+    const batchPromises = [];
   for(let i = 0; i < 10; i++) {
       batchPromises.push(;
         optimizer.optimizeBatchOperation(;'
@@ -143,8 +143,8 @@ map(async(_, i) => {
     // ; // LINT: unreachable code removed'
     this.results.push({test = '.repeat(80));'
 
-    const _totalPassed = 0;
-    const _totalTests = this.results.length;
+    const totalPassed = 0;
+    const totalTests = this.results.length;
 
     this.results.forEach((result, index) => {'
       console.warn(`\n$index + 1. $result.test`);`
@@ -165,13 +165,13 @@ map(async(_, i) => {
       console.warn('  Some optimizations may need attention.');
 
     // Performance summary
-    const _improvements = this.results;
+    const improvements = this.results;
 filter((r) => r.improvement);
 map((r) => parseFloat(r.improvement));
   if(improvements.length > 0) {
 '
       console.warn(` Average PerformanceImprovement = === `file) {
-  const _testRunner = new PerformanceTest();
+  const testRunner = new PerformanceTest();
   testRunner.runTestSuite().catch(console.error);
 // }
 

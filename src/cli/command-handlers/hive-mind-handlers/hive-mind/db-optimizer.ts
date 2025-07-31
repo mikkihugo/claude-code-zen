@@ -16,24 +16,22 @@ import ora from 'ora';
 /** Optimize existing hive mind database with backward compatibility */
 
 export async function optimizeHiveMindDatabase(dbPath = {}) {'
-  const _spinner = ora('Optimizing Hive Mind database...').start();
+  const spinner = ora('Optimizing Hive Mind database...').start();
 
   try {
     // Open database with write-ahead logging for better performance'
-    const _db = new Database(dbPath, {verbose = WAL''
+    const db = new Database(dbPath, {verbose = WAL''
     db.pragma('synchronous = NORMAL');
 
     // Get current schema version
-    const __schemaVersion = getSchemaVersion(db);'
+    const _schemaVersion = getSchemaVersion(db);'
     spinner.text = `Current schemaversion = [];`
 `
     // Version 1.0 -> 1.1 = 'Applying performance indexes...';
       applyBasicIndexes(db);'
       optimizationsApplied.push('Basic performance indexes');
     //     }
-'
-     catch (error) console.error(error); 
-      applyAdvancedIndexes(db);'
+' applyAdvancedIndexes(db);'
       optimizationsApplied.push('Advanced query optimization');
     //     }
 '
@@ -113,9 +111,9 @@ prepare(;`
 all();
 map((row) => row.name);
 
-  const _tableSet = new Set(tables);
+  const tableSet = new Set(tables);
 
-  const _indexes = [];
+  const indexes = [];
 
   // Only create indexes for tables that exist`
   if(tableSet.has('swarms')) {
@@ -155,9 +153,7 @@ map((row) => row.name);
   indexes.forEach((sql) => {
     try {
       db.exec(sql);
-    } catch (error) {
-  console.error(error);
-}'
+    }'
       console.warn(`Warning = db;`
 prepare(;`
       `;`
@@ -167,12 +163,12 @@ prepare(;`
 all();
 map((row) => row.name);
 
-  const _tableSet = new Set(tables);
+  const tableSet = new Set(tables);
 
   // Only check columns for tables that exist`
   if(tableSet.has('tasks')) {
     // Check and add priority column to tasks table
-    const _hasPriority = db;
+    const hasPriority = db;
 prepare(;'
         `;``
       SELECT COUNT(*) as count FROM pragma_table_info('tasks') '
@@ -183,9 +179,7 @@ get();
       try {`
         db.exec('ALTER TABLE tasks ADD COLUMN priority INTEGER DEFAULT 5');'
         console.warn('Added missing priority column to tasks table');
-      } catch (error) 
-  console.error(error);
-        if(;'
+      } if(;'
 // ! error.message.includes('duplicate column') &&;'
 // ! error.message.includes('no such table');
         //         
@@ -194,7 +188,7 @@ get();
     //     }
 
     // Check and add completed_at column to tasks table
-    const _hasCompletedAt = db;
+    const hasCompletedAt = db;
 prepare(;'
         `;``
       SELECT COUNT(*) as count FROM pragma_table_info('tasks') '
@@ -205,9 +199,7 @@ get();
       try {`
         db.exec('ALTER TABLE tasks ADD COLUMN completed_at DATETIME');'
         console.warn('Added missing completed_at column to tasks table');
-      } catch (error) {
-  console.error(error);
-}
+      }
         if(;'
 // ! error.message.includes('duplicate column') &&;'
 // ! error.message.includes('no such table');
@@ -217,7 +209,7 @@ get();
     //     }
 
     // Check and add result column to tasks table
-    const _hasResult = db;
+    const hasResult = db;
 prepare(;'
         `;``
       SELECT COUNT(*) as count FROM pragma_table_info('tasks') '
@@ -228,9 +220,7 @@ get();
       try {`
         db.exec('ALTER TABLE tasks ADD COLUMN result TEXT');'
         console.warn('Added missing result column to tasks table');
-      } catch (error) 
-  console.error(error);
-        if(;'
+      } if(;'
 // ! error.message.includes('duplicate column') &&;'
 // ! error.message.includes('no such table');
         //         
@@ -241,7 +231,7 @@ get();
 '
   if(tableSet.has('swarms')) {
     // Check and add updated_at column to swarms table
-    const _hasUpdatedAt = db;
+    const hasUpdatedAt = db;
 prepare(;'
         `;``
       SELECT COUNT(*) as count FROM pragma_table_info('swarms') '
@@ -252,10 +242,7 @@ get();
       try {`
         db.exec('ALTER TABLE swarms ADD COLUMN updated_at DATETIME');'
         console.warn('Added missing updated_at column to swarms table');
-      } catch (error) 
-  console.error(error);
-
-        if(;'
+      } if(;'
 // ! error.message.includes('duplicate column') &&;'
 // ! error.message.includes('no such table');
         //         
@@ -276,8 +263,8 @@ prepare(;'
 all();
 map((_row) => row.name);
 
-  const _tableSet = new Set(tables);
-  const _indexes = [];
+  const tableSet = new Set(tables);
+  const indexes = [];
 
   // Composite indexes for common queries`
   if(tableSet.has('tasks')) {
@@ -306,7 +293,7 @@ map((_row) => row.name);
   indexes.forEach((sql) => {
     try {
       db.exec(sql);
-    } catch (error) { console.error(error); } catch(/* _error */ )
+    } catch(/* _error */ )
 {"
   console.warn(`Warning = 'completed' OR NEW.status = 'failed';`
     BEGIN;
@@ -354,7 +341,7 @@ all();
     //   // LINT: unreachable code removed}
 
   // Check and add access_count column
-  const _hasAccessCount = db;
+  const hasAccessCount = db;
 prepare(;'
       `;``
     SELECT COUNT(*) as count FROM pragma_table_info('collective_memory') '
@@ -368,8 +355,7 @@ get();
         ADD COLUMN access_count INTEGER DEFAULT 0;)`
       `);``
       console.warn('Added access_count column to collective_memory table');
-    } catch (error) 
-  console.error(error);'
+    } '
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -377,7 +363,7 @@ get();
   //   }
 
   // Check and add accessed_at column(not last_accessed)
-  const _hasAccessedAt = db;
+  const hasAccessedAt = db;
 prepare(;'
       `;``
     SELECT COUNT(*) as count FROM pragma_table_info('collective_memory') '
@@ -391,8 +377,7 @@ get();
         ADD COLUMN accessed_at DATETIME;)`
       `);``
       console.warn('Added accessed_at column to collective_memory table');
-    } catch (error) 
-  console.error(error);'
+    } '
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -400,7 +385,7 @@ get();
   //   }
 
   // Add compressed and size columns if missing
-  const _hasCompressed = db;
+  const hasCompressed = db;
 prepare(;'
       `;``
     SELECT COUNT(*) as count FROM pragma_table_info('collective_memory') '
@@ -413,16 +398,14 @@ get();
         ALTER TABLE collective_memory ;
         ADD COLUMN compressed INTEGER DEFAULT 0;)`
       `);`
-    } catch (error) {
-  console.error(error);
-}`
+    }`
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
     //     }
   //   }
 
-  const _hasSize = db;
+  const hasSize = db;
 prepare(;'
       `;``
     SELECT COUNT(*) as count FROM pragma_table_info('collective_memory') '
@@ -435,9 +418,7 @@ get();
         ALTER TABLE collective_memory ;
         ADD COLUMN size INTEGER DEFAULT 0;)`
       `);`
-    } catch (error) {
-  console.error(error);
-}`
+    }`
       if(!error.message.includes('duplicate column') && !error.message.includes('no such table')) {
         throw error;
       //       }
@@ -473,15 +454,15 @@ get();
 /** Add behavioral tracking features */
 
 function _addBehavioralTracking(_db = {}) {`
-  const _spinner = ora('Performing database maintenance...').start();
+  const spinner = ora('Performing database maintenance...').start();
 
   try {
-    const _db = new Database(dbPath);
+    const db = new Database(dbPath);
 
     // Clean up old memory entries
   if(options.cleanMemory) {
       // Check if collective_memory table exists
-      const _hasMemoryTable = db;
+      const hasMemoryTable = db;
 prepare(;'
           `;`
         SELECT name FROM sqlite_master ;`
@@ -490,11 +471,11 @@ prepare(;'
 get();
   if(hasMemoryTable) {`
         spinner.text = 'Cleaning old memory entries...';
-        const _cutoffDate = new Date();
+        const cutoffDate = new Date();
         cutoffDate.setDate(cutoffDate.getDate() - (options.memoryRetentionDays  ?? 30));
 
         try {
-          const _result = db;
+          const result = db;
 prepare(;'
               `;`
             DELETE FROM collective_memory ;
@@ -502,7 +483,7 @@ prepare(;'
           `);`
 run(cutoffDate.toISOString());
 `
-          console.warn(chalk.green(` Removed $result.changescatch (error) console.error(error); old memory entries`));
+          console.warn(chalk.green(` Removed $result.changes old memory entries`));
         } catch(/* _error */ ) `
           console.warn(chalk.yellow(` Could not clean memoryentries = 'Archiving completed tasks...'``
   `
@@ -517,7 +498,7 @@ run(cutoffDate.toISOString());
   `
 
   // Check if completed_at column exists
-  const _hasCompletedAt = db;
+  const hasCompletedAt = db;
   prepare(;`
   `;``
   `;`
@@ -532,7 +513,7 @@ run(cutoffDate.toISOString());
   `;`
   get();
 
-  const _archived = {changes = new Date();
+  const archived = {changes = new Date();
   archiveCutoff.setDate(archiveCutoff.getDate() - (options.taskRetentionDays ?? 7));
 `
   db.exec(`;``
@@ -565,7 +546,7 @@ run(cutoffDate.toISOString());
 // else
 {
         // Use created_at as fallback
-        const _archiveCutoff = new Date();
+        const archiveCutoff = new Date();
         archiveCutoff.setDate(archiveCutoff.getDate() - (options.taskRetentionDays  ?? 7));
 `
         db.exec(`;``
@@ -601,7 +582,7 @@ run(archiveCutoff.toISOString());
   // Check integrity
   if (options.checkIntegrity) {'
     spinner.text = 'Checking database integrity...';'
-    const _integrityCheck = db.prepare('PRAGMA integrity_check').get();'
+    const integrityCheck = db.prepare('PRAGMA integrity_check').get();'
     if (integrityCheck.integrity_check === 'ok') {'
       console.warn(chalk.green(' Database integrity check passed'));
     } else {'
@@ -628,12 +609,12 @@ prepare(;'
     `
 all();
   for(const table of tables) {`
-      const _count = db.prepare(`;`
+      const count = db.prepare(`;`
     SELECT;
     COUNT(*) as count
     FROM;`
     \$table.name`).get(
-    const _size = db;
+    const size = db;
     prepare(;`
     `;`;
     SELECT;
@@ -661,7 +642,7 @@ all();
       all();
 
       // Get performance metrics(check if completed_at column exists)
-      const _avgTaskTime = {avg_minutes = db;
+      const avgTaskTime = {avg_minutes = db;
       prepare(;`
       `;`;
       SELECT;

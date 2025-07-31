@@ -31,23 +31,23 @@ export class RealFannEngine {
 
     this.stats = {totalInferences = true;
     '
-    const _bindingType = this.nativeBinding ? 'NATIVE' : this.wasmBinding ? 'WASM' : 'STUB';
+    const bindingType = this.nativeBinding ? 'NATIVE' : this.wasmBinding ? 'WASM' : 'STUB';
     '
             this.logger.info(` Real ruv-FANN engine initialized
     with ${bindingType}
     bindings`);
 
             // return {success = prompt.toLowerCase().split(/\s+/).slice(0, 100); // Max 100 tokens
-        const _vector = new Array(100).fill(0);
+        const vector = new Array(100).fill(0);
 
         // Simple hash-based encoding
   for(let i = 0; i < tokens.length; i++) {
-            const _hash = this.hashString(tokens[i]) % 100;
+            const hash = this.hashString(tokens[i]) % 100;
             vector[hash] = Math.min(vector[hash] + 1, 10); // Cap at 10
         //         }
 
         // Normalize vector
-        const _magnitude = Math.sqrt(vector.reduce((sum, val) => sum + val * val, 0));
+        const magnitude = Math.sqrt(vector.reduce((sum, val) => sum + val * val, 0));
   if(magnitude > 0) {
   for(let i = 0; i < vector.length; i++) {
                 vector[i] /= magnitude;
@@ -60,9 +60,9 @@ export class RealFannEngine {
 /** Simple string hash function */
 
   hashString(str) {
-        const _hash = 0;
+        const hash = 0;
   for(let i = 0; i < str.length; i++) {
-            const _char = str.charCodeAt(i);
+            const char = str.charCodeAt(i);
             hash = ((hash << 5) - hash) + char;
             hash = hash & hash; // Convert to 32-bit integer
         //         }
@@ -84,8 +84,8 @@ export class RealFannEngine {
     // return this.generateOptimizationSuggestions(output, prompt, confidence);'
     // case 'architecture': // LINT: unreachable code removed
     // return this.generateArchitecturalGuidance(output, prompt, confidence);default = output[0] * 10; // Scale to 0-10
-    const _maintainability = output[1] * 100; // Scale to 0-100
-    const _bugRisk = output[2] * 10; // Scale to 0-10
+    const maintainability = output[1] * 100; // Scale to 0-100
+    const bugRisk = output[2] * 10; // Scale to 0-10
 
     // return {type = ['
     // 'Singleton Pattern', 'Factory Pattern', 'Observer Pattern', // LINT: unreachable code removed'
@@ -105,7 +105,7 @@ export class RealFannEngine {
     if (output[4] > 0.6) suggestions.push('Consider code splitting for better performance');
     '
     // return {type = ['Microservices', 'Monolith', 'Serverless', 'Event-Driven', 'Layered'];
-    // const _bestMatch = architectures[output.indexOf(Math.max(...output.slice(0, 5)))]; // LINT: unreachable code removed
+    // const bestMatch = architectures[output.indexOf(Math.max(...output.slice(0, 5)))]; // LINT: unreachable code removed
 
     // return {type = > arch !== bestMatch).slice(0, 2),confidence = > Math.round(v * 100) / 100),processedBy = [];
     // ; // LINT: unreachable code removed'
@@ -132,8 +132,6 @@ export class RealFannEngine {
       this.logger.info(' Native ruv-FANN bindings loaded successfully');
       // return true;
       // ; // LINT: unreachable code removed
-    } catch (error) {
-      console.error(error);
     }
     '
             this.logger.debug(''
@@ -144,7 +142,7 @@ export class RealFannEngine {
     for (const wasmPath of wasmPaths) {
       try {
                     if(existsSync(wasmPath)) {
-// const _wasmModule = awaitimport(wasmPath); 
+// const wasmModule = awaitimport(wasmPath); 
                         // await wasmModule.default(); // Initialize WASM
   if(wasmModule.create_network && ;
                             wasmModule.train_network && ;
@@ -154,7 +152,7 @@ export class RealFannEngine {
                     config.architecture,`
                     config.activation  ?? 'relu';)
                 );
-            }  catch (error) { console.error(error); }else if(this.wasmBinding) {
+            }else if(this.wasmBinding) {
                 // Use WASM bindings
                 networkHandle = this.wasmBinding.create_network(;)
                     new Uint32Array(config.architecture),'
@@ -163,18 +161,18 @@ export class RealFannEngine {
             } else {
                 // Create stub model for fallback'
                 networkHandle = {id = 'code-completion', options = {}) {
-        const _startTime = Date.now();
+        const startTime = Date.now();
         this.stats.totalInferences++;
 
         try {
             // Check cache first'
-            const _cacheKey = `$modelNamecatch (error) console.error(error); :$this.hashPrompt(prompt)`;
+            const cacheKey = `$modelName :$this.hashPrompt(prompt)`;
             if(this.inferenceCache.has(cacheKey) && options.useCache !== false) {
                 this.stats.cacheHits++;
                 // return this.inferenceCache.get(cacheKey);
     //   // LINT: unreachable code removed}
 
-            const _model = this.models.get(modelName);
+            const model = this.models.get(modelName);
   if(!model) {`
                 throw new Error(`Model notfound = Date.now();`
             model.inferenceCount++;
@@ -182,20 +180,20 @@ export class RealFannEngine {
             let result;
   if(this.nativeBinding && !model.handle.isStub) {
                 // REAL native inference
-                const _inputVector = this.preprocessPrompt(prompt, modelName);
-                const _outputVector = this.nativeBinding.runNetwork(model.handle, inputVector);
+                const inputVector = this.preprocessPrompt(prompt, modelName);
+                const outputVector = this.nativeBinding.runNetwork(model.handle, inputVector);
                 result = this.postprocessOutput(outputVector, prompt, modelName);
 
             } else if(this.wasmBinding && !model.handle.isStub) {
                 // REAL WASM inference
-                const _inputVector = this.preprocessPrompt(prompt, modelName);
-                const _outputVector = this.wasmBinding.run_network(model.handle, new Float32Array(inputVector));
+                const inputVector = this.preprocessPrompt(prompt, modelName);
+                const outputVector = this.wasmBinding.run_network(model.handle, new Float32Array(inputVector));
                 result = this.postprocessOutput(Array.from(outputVector), prompt, modelName);
 
             } else if(this.nativeBinding) {
                 // Use native ruv-FANN bindings for real inference
-                const _inputVector = this.preprocessPrompt(prompt);
-// const _inferenceResult = awaitthis.nativeBinding.runInference(model.id, inputVector);
+                const inputVector = this.preprocessPrompt(prompt);
+// const inferenceResult = awaitthis.nativeBinding.runInference(model.id, inputVector);
                 result = this.postprocessInference(inferenceResult, prompt, modelName);
             } else {
                 // Advanced stub with ML-like behavior(fallback only)
@@ -204,18 +202,18 @@ export class RealFannEngine {
 
             // Cache result
   if(this.inferenceCache.size >= this.config.cacheSize) {
-                const _oldestKey = this.inferenceCache.keys().next().value;
+                const oldestKey = this.inferenceCache.keys().next().value;
                 this.inferenceCache.delete(oldestKey);
             //             }
             this.inferenceCache.set(cacheKey, result);
 
             // Update performance stats
-            const _inferenceTime = Date.now() - startTime;
+            const inferenceTime = Date.now() - startTime;
             this.stats.averageInferenceTime = ;
                 (this.stats.averageInferenceTime + inferenceTime) / 2;
 `
             this.logger.debug(` Inferencecompleted = prompt.length + (prompt.match(/[{}[\]()]/g)  ?? []).length;`
-        const _processingTime = Math.min(50 + complexity * 2, 500);
+        const processingTime = Math.min(50 + complexity * 2, 500);
 // // await new Promise(resolve => setTimeout(resolve, processingTime));
         // Generate context-aware responses based on model task
   switch(config.task) {`
@@ -250,23 +248,23 @@ export class RealFannEngine {
 // for\s*\(\s*var/gi;
         ];
 
-        const __bugScore = 0;
-        const _detectedIssues = [];
+        const _bugScore = 0;
+        const detectedIssues = [];
   for(const pattern of bugPatterns) {
-            const _matches = prompt.match(pattern);
+            const matches = prompt.match(pattern);
   if(matches) {
                 _bugScore += matches.length * 0.2;
                 detectedIssues.push({pattern = [];
 
         // Analyze complexity/g
-        const _cyclomaticComplexity = (prompt.match(/if|else|while|for|switch|case/g)  ?? []).length;
+        const cyclomaticComplexity = (prompt.match(/if|else|while|for|switch|case/g)  ?? []).length;
   if(cyclomaticComplexity > 10) {
             suggestions.push({type = (prompt.match(/function\s*\w*\s*\([^)]+\)/g)  ?? []);
 map(match => (match.match(/,/g)  ?? []).length + 1);
 reduce((max, count) => Math.max(max, count), 0);
   if(parameterCount > 5) {`
             suggestions.push({type = prompt.split('\n');
-        const _duplicateLines = lines.filter((_line, _index) => ;
+        const duplicateLines = lines.filter((_line, _index) => ;
             lines.indexOf(line) !== index && line.trim().length > 10;
         );
   if(duplicateLines.length > 0) {'
@@ -277,8 +275,8 @@ reduce((max, count) => Math.max(max, count), 0);
 /** Generate test cases */
 
   generateTests(prompt) {'
-        const __functionName = this.extractFunctionName(prompt)  ?? 'testFunction';
-        const _testCases = [];
+        const _functionName = this.extractFunctionName(prompt)  ?? 'testFunction';
+        const testCases = [];
 
         // Generate basic test cases
         testCases.push({)'
@@ -297,7 +295,7 @@ reduce((max, count) => Math.max(max, count), 0);
                 this.stats.gpuEnabled = gpuResult.success;
   if(gpuResult.success) {`
                     this.logger.info(` GPU accelerationenabled = prompt.toLowerCase().split(/\s+/);`
-        const _vector = new Array(256).fill(0);
+        const vector = new Array(256).fill(0);
 
         words.forEach((word, index) => {
   if(index < 256) {
@@ -310,17 +308,17 @@ reduce((max, count) => Math.max(max, count), 0);
   postprocessOutput(outputVector, prompt, modelName) {
         // Convert numerical output back to meaningful result
 
-        const _confidence = Math.max(...outputVector);
+        const confidence = Math.max(...outputVector);
 
         // return {result = prompt.match(/function\s+(\w+)|(\w+)\s*\(/);`
     // return match ? (match[1]  ?? match[2]) : `generatedFunction\${Date.now().toString(36) // LINT}`;
     //     }
   extractClassName(prompt) {
-        const _match = prompt.match(/class\s+(\w+)/);`
+        const match = prompt.match(/class\s+(\w+)/);`
         // return match ? match[1] : `GeneratedClass$Date.now().toString(36)`;
     //   // LINT: unreachable code removed}
   extractParameters(prompt) {
-        const _match = prompt.match(/\(([^)]*)\)/);`
+        const match = prompt.match(/\(([^)]*)\)/);`
         // return match ? match[1] : 'params';
     //   // LINT: unreachable code removed}
 
@@ -356,9 +354,7 @@ reduce((max, count) => Math.max(max, count), 0);
             this.logger.info(' Enhanced neural bindings with REAL ruv-FANN integration loaded');
             // return this.realEngine;
     // ; // LINT: unreachable code removed
-        } catch (error) {
-  console.error(error);
-}'
+        }'
             this.logger.error(' Failed to load enhanced neuralbindings = new EnhancedNeuralBindingsLoader();'
 
 /** Load real neural bindings - REPLACES STUB IMPLEMENTATION */

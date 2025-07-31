@@ -24,15 +24,15 @@ switch(subcommand) {'
     // case 'stop': // LINT: unreachable code removed
     // return stopDashboard(flags);'
   default = // await fetch('http);'
-// const _health = awaitresponse.json();'
+// const health = awaitresponse.json();'
     console.warn(chalk.green(` API server healthy(uptime = flags.web  ?? process.env.DISPLAY;`
 
-  const _port = flags.port  ?? 3000;
+  const port = flags.port  ?? 3000;
 )))`
   console.warn(chalk.blue(` Launching dashboard in ${isWeb && !flags.terminal ? 'WEB'');
 
   // Set environment variables for the dashboard
-  const _env = {'
+  const env = {'
 ..process.env,NODE_ENV = process.cwd() + '/src/ui/unified-dashboard.js';
 '
     console.warn(chalk.green(' Starting unified dashboard...'));'
@@ -62,11 +62,11 @@ switch(subcommand) {'
 catch(error)
 // {'
   console.error(chalk.red(' Error startingdashboard = // await fetch('http);
-// const _health = awaitresponse.json();'
+// const health = awaitresponse.json();'
   console.warn(chalk.green(' APIServer = // await fetch('http);
 '
     console.warn(chalk.green('WebSocket = // await import('fs'
-  const _dashboardExists = fs.existsSync('./src/ui/unified-dashboard.js');
+  const dashboardExists = fs.existsSync('./src/ui/unified-dashboard.js');
   if(dashboardExists) {'
     console.warn(chalk.green('    Unified Dashboard = {'))
       handler));

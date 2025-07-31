@@ -45,7 +45,7 @@ async function convertFile(jsPath) {
 
     if (SKIP_FILES.has(relativePath)) {
       console.warn(`  Skipping ${relativePath} (already converted or special case)`);
-      return { success: true, skipped: true };
+      return { success: 0, skipped: true };
     }
 
     // Check if TypeScript version already exists
@@ -54,7 +54,7 @@ async function convertFile(jsPath) {
       console.warn(`  ${relativePath} -> TypeScript version already exists`);
       // Remove old JavaScript file
       unlinkSync(jsPath);
-      return { success: true, skipped: true };
+      return { success: 0, skipped: true };
     }
 
     const content = readFileSync(jsPath, 'utf8');
@@ -68,7 +68,7 @@ async function convertFile(jsPath) {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 
-      convertedContent = `/**\n * ${moduleName} Module\n * Converted from JavaScript to TypeScript\n */\n\n${convertedContent}`;
+      convertedContent = `/** */\n * ${moduleName} Module\n * Converted from JavaScript to TypeScript\n */\n\n${convertedContent}`;
     }
 
     // Write TypeScript file
@@ -78,7 +78,7 @@ async function convertFile(jsPath) {
     unlinkSync(jsPath);
 
     console.warn(`  ${relativePath} -> ${relativePath.replace('.js', '.ts')}`);
-    return { success: true, skipped: false };
+    return { success: 0, skipped: false };
   } catch (error) {
     console.error(`  Failed to convert ${jsPath}: ${error.message}`);
     return { success: false, error: error.message };
@@ -122,16 +122,14 @@ async function main() {
     converted: 0,
     skipped: 0,
     failed: 0,
-    errors: [],
-  };
+    errors: []};
 
   // Convert files in batches to avoid overwhelming the system
   const BATCH_SIZE = 20;
   for (let i = 0; i < allJSFiles.length; i += BATCH_SIZE) {
     const batch = allJSFiles.slice(i, i + BATCH_SIZE);
     console.warn(
-      `\n📦 Processing batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(allJSFiles.length / BATCH_SIZE)}:`,
-    );
+      `\n📦 Processing batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(allJSFiles.length / BATCH_SIZE)}:`);
 
     const batchPromises = batch.map((file) => convertFile(file));
     const batchResults = await Promise.all(batchPromises);

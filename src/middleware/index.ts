@@ -32,20 +32,19 @@ import {
 
   ValidationError,
   ValidationResult,
-',
-} from '../types/server.js'
+'} from '../types/server.js'
 
 /** Enhanced request logging middleware */
 
 // export function requestLogger() {
 return(req) => {
-    const _start = Date.now();'
-    // const _correlationId =; // LINT: unreachable code removed(req.headers['x-correlation-id'] as string) ??'
+    const start = Date.now();'
+    // const correlationId =; // LINT: unreachable code removed(req.headers['x-correlation-id'] as string) ??'
       `req-$Date.now()-$Math.random().toString(36).substr(2, 9)`;
     // Add correlation tracking
     req.correlation = {
       id => {
-      const _duration = Date.now() - start;
+      const duration = Date.now() - start;
     console.warn(;)`
     `[${new Date().toISOString()}] ${correlationId} ${req.method} ${req.path} - ${res.statusCode} (${duration}ms)`;
     //     
@@ -57,7 +56,7 @@ next();
 /** Request validation middleware */
 
 // export function validateRequest(schema => {`
-const _validation = {params = validateObject(req.params, schema.params, 'params');
+const validation = {params = validateObject(req.params, schema.params, 'params');
 // }
 // Validate query
 if(schema.query) {'
@@ -73,21 +72,21 @@ if(schema.query) {'
 // }
 req.validation = validation;
 // Check if any validation failed
-const _hasErrors = Object.values(validation).some((v) => !v.valid);
+const hasErrors = Object.values(validation).some((v) => !v.valid);
   if(hasErrors) {
 //   return res.status(400).json({ success = > Promise<UserContext | null>;)
 //   }): MiddlewareFunction
 // {
   // return async(req => {
     try {
-      const _authHeader = req.headers.authorization;
-    // let _user = null; // LINT: unreachable code removed
+      const authHeader = req.headers.authorization;
+    // let user = null; // LINT: unreachable code removed
 '
       if(authHeader && authHeader.startsWith('Bearer ')) {
-        const _token = authHeader.substring(7);
+        const token = authHeader.substring(7);
   if(options.extractUser) {
           user = // await options.extractUser(token);
-        }  catch (error) console.error(error); else 
+        } else 
           // Default user extraction logic
           user = {id = user;
       next();catch(error) ;'
@@ -117,7 +116,7 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
     // Add success response helper/g
     res.success = function<T>(data, message?) {
 //       return this.json({success = function(message, code?, details?) {
-      const _statusCode = code  ?? 500;
+      const statusCode = code  ?? 500;
     // return this.status(statusCode).json({success = function<T>(data,pagination = function(data, ttl?) { // LINT: unreachable code removed
   if(ttl) {'
         this.set('Cache-Control', `public, max-age=$ttl`);
@@ -126,8 +125,7 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
         try {)
           for // await(const chunk of data) {`
             this.write(JSON.stringify(chunk) + '\n');
-    //   // LINT: unreachable code removed}
-           catch (error) console.error(error); this.end();
+    //   // LINT: unreachable code removed} this.end();
         } catch(error) 
           this.write(JSON.stringify({error = <T>() => {
 //       return this.params as T;
@@ -158,7 +156,7 @@ const _hasErrors = Object.values(validation).some((v) => !v.valid);
 //   return cors({ origin = === 'production' ? false => {
       res.status(429).json({success = 30000) {
   return(req => {
-    const _timer = setTimeout(() => {
+    const timer = setTimeout(() => {
   if(!res.headersSent) {
         res.status(408).json({
           success => {
@@ -180,7 +178,7 @@ function validateObject() {
     errors.push({
       field => {)'
   if(typeof schemaValue === 'object' && schemaValue !== null) {
-      const _fieldSchema = schemaValue as any;
+      const fieldSchema = schemaValue as any;
 
       if(fieldSchema.required && !(key in obj)) {
         errors.push({field = typeof obj[key];)

@@ -7,16 +7,15 @@ import express, { type Express, type Request, type Response } from 'express';
 /** Main API server entry point for Claude-Zen; */
 /** Provides REST API endpoints for the system; */
 
-const _app = express();
+const app = express();
 '
-const _PORT = parseInt(process.env.PORT ?? '3000', 10);
+const PORT = parseInt(process.env.PORT ?? '3000', 10);
 // Middleware setup
 app.use(cors());
 app.use(express.json());
 
 /** Health check endpoint; */
-*
-@route
+
 GET;
 '
 app.get('/', (_req, res) =>
@@ -31,8 +30,7 @@ app.get('/', (_req, res) =>
 }
 
 /** System status endpoint; */
-*
-@route
+
 GET;
 '
 app.get('/status', (_req, res) =>

@@ -16,7 +16,7 @@ import { printError, printInfo } from '..';
 
 export async function megaswarmCommand(subArgs = subArgs[0];
 '
-const _objective = subArgs.slice(1).join(' ');
+const objective = subArgs.slice(1).join(' ');
 if(flags.help ?? flags.h ?? !subcommand) {
   showMegaswarmHelp();
   return;
@@ -47,8 +47,8 @@ try {
 // // await cleanupMegaswarms(flags);'') {'
     printError('Objective is required for megaswarm launch');'
     printInfo('Usage = // await executeUnifiedCommand('megaswarm''
-  } catch (error) { console.error(error); }, {interface = flags['swarm-id']  ?? flags.id;
-// const __status = awaitmegaswarmOrchestrator.getStatus(swarmId);
+  }, {interface = flags['swarm-id']  ?? flags.id;
+// const _status = awaitmegaswarmOrchestrator.getStatus(swarmId);
   if(swarmId) {
     // Specific swarm status'
     printInfo(` Megaswarm Status => {``
@@ -98,7 +98,7 @@ async function _manageAPI() {'
 
 function startMegaswarmMonitoring(megaswarmId = setInterval(async() => {
     try {
-// const _status = awaitmegaswarmOrchestrator.getStatus(megaswarmId);
+// const status = awaitmegaswarmOrchestrator.getStatus(megaswarmId);
 
       // Clear screen and show status'
       process.stdout.write('\x1b[2J\x1b[H');'
@@ -106,7 +106,7 @@ function startMegaswarmMonitoring(megaswarmId = setInterval(async() => {
       console.warn(` _Swarm => `)
     clearInterval(interval);`
     printInfo('\n Monitoring stopped');
-    process.exit(0);catch (error) console.error(error); );
+    process.exit(0); );
 // }
 
 /** Show comprehensive help for megaswarm commands */

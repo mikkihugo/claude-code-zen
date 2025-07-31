@@ -1,18 +1,16 @@
 /** */
-*
-@fileoverview
+
 MCP;
 Tool;
 Executor;
 
 /** Handles execution of MCP tools with proper error handling and logging */
-*
-@module
+
 MCPToolExecutor *
   /** Tool execution handler class */
   /** Provides centralized tool execution with logging, error handling, and metrics */
 
-  /;;
+  /;
 export class MCPToolExecutor {
 
  * @param {Object}
@@ -29,8 +27,7 @@ executionStats = new Map();
 // }
 
 /** Execute a tool by name with arguments */
-*
-@param
+
 {
   string;
 }
@@ -42,13 +39,13 @@ arguments
  * @returns {Promise<any>}
 Tool;
 execution;
-result * /;;
+result * /;
 // */ // LINT: unreachable code removed
 async;
 executeTool(name, args);
 : unknown
 // {
-const _startTime = Date.now();
+const startTime = Date.now();
 
 try {
   // Log execution start
@@ -58,10 +55,10 @@ try {
   ``;
 
   // Route to specific tool handler
-  // const _result = awaitthis.routeToolExecution(name, args);
+  // const result = awaitthis.routeToolExecution(name, args);
 
   // Update statistics
-  const _executionTime = Date.now() - startTime;
+  const executionTime = Date.now() - startTime;
   this.updateExecutionStats(name, executionTime, true);
   ``;
   console.error(
@@ -72,7 +69,7 @@ try {
   // return result;
   // ; // LINT: unreachable code removed
 } catch (error) {
-  const _executionTime = Date.now() - startTime;
+  const executionTime = Date.now() - startTime;
   this.updateExecutionStats(name, executionTime, false);
   ``;
   console.error(`[$new Date().toISOString()] ERROR [Tool-Executor] $namefailed after $executionTimems = === 'memory_usage'  ?? name === 'benchmark_run') '`'
@@ -129,7 +126,7 @@ try {
 
     try {
       // Build command line arguments
-      const _cmdArgs = [];
+      const cmdArgs = [];
 
       // Handle different argument patterns for each command
   switch(command) {'
@@ -182,11 +179,11 @@ try {
       //       }
 
        catch (error) console.error(error)
-      const _execArgs = ['claude-zen''
+      const execArgs = ['claude-zen''
       console.error(`[$new Date().toISOString()] INFO [Tool-Executor]Executing = > JSON.stringify(a)).join(')}`);``
 ``
-      const __output = execFileSync('npx', execArgs, {encoding = > JSON.stringify(a)).join(')}`,output = new Date().toISOString();```
-    const _id = `$name_$Date.now()_$Math.random().toString(36).substr(2, 6)`;``
+      const _output = execFileSync('npx', execArgs, {encoding = > JSON.stringify(a)).join(')}`,output = new Date().toISOString();```
+    const id = `$name_$Date.now()_$Math.random().toString(36).substr(2, 6)`;``
 
     try {
       let result;
@@ -199,10 +196,10 @@ try {
   switch(analysisType) {``
       case 'power-interest''
         recommendations.push('High power, highinterest = 8, strategy = 'auto' }  catch (error) { console.error(error)}= args''
-    const _swarmId = `swarm-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;``
+    const swarmId = `swarm-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;``
 
     // Create swarm instance using ruv-swarm
-// const _swarm = awaitthis.server.ruvSwarm.createSwarm({ id,
+// const swarm = awaitthis.server.ruvSwarm.createSwarm({ id,
       topology,
       maxAgents,
       strategy});
@@ -212,12 +209,12 @@ try {
     // Store in memory``
 // // // await this.server.memoryStore.store(`swarm = args;`/g)
   if(swarmId) {
-      const _swarm = this.server.swarms.get(swarmId);
+      const swarm = this.server.swarms.get(swarmId);
 ``
-    const _agentId = `agent-$type-$Date.now()-$Math.random().toString(36).substr(2, 6)`;``
+    const agentId = `agent-$type-$Date.now()-$Math.random().toString(36).substr(2, 6)`;``
 
     // Find target swarm
-    const _targetSwarm = swarmId ? this.server.swarms.get(swarmId) ;
+    const targetSwarm = swarmId ? this.server.swarms.get(swarmId) ;
   if(swarmId && !targetSwarm) {``
       throw new Error(`Target swarm not found = {id = 'default', ttl } = args;'`'
   switch(action) {'
@@ -231,7 +228,7 @@ try {
         // return {success = // // await this.server.memoryStore.search(key, { namespace   })
     // return {success = 'all'  // LINT: unreachable code removed} = args
 '
-    const __features = {neural = === 'all''
+    const _features = {neural = === 'all''
       // return {success = // // await this.server.memoryStore.search('agent:', {namespace = `task-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`;``
     // return { taskId,task = this.executionStats.get(toolName); // LINT: unreachable code removed
     stats.totalExecutions++;
@@ -248,7 +245,7 @@ try {
    * @returns ObjectExecution statistics
     // */; // LINT: unreachable code removed
   getExecutionStats() {
-    const _stats = {};
+    const stats = {};
     for (const [toolName, toolStats] of this.executionStats.entries()) {
       stats[toolName] = { ...toolStats }; //     }
     // return stats; 

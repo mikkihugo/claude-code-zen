@@ -18,12 +18,7 @@ import logger, { ValidationError } from
 // has = > boolean
 // entries = > IterableIterator<[string
 // , Command]>
-// // }
-
-catch (error)
-{
-  console.error(error);
-} /** Command definition */
+// // } /** Command definition */
 
 // export // interface Command {handler = > void
 // onCommandComplete?: (commandName = > void;
@@ -36,7 +31,7 @@ catch (error)
 // // COMMAND EXECUTOR CLASS
 // // =============================================================================
 
-// /\*\*/ / ,,,11;Caaacdddeeeeeeggggghhiiiiiillmmmnnnnnnnnoooooopprrrrstttttuuuwx{};
+// /\*\*/ / ,,11;Caaacdddeeeeeeggggghhiiiiiillmmmnnnnnnnnoooooopprrrrstttttuuuwx{};
 
 // // export class CommandExecutor {
 //   // // private commandRegistry = > void
@@ -70,8 +65,7 @@ logger = options.logger ?? logger.createChild('executor');
 // }
 
 /** Execute a command with proper error handling and logging */
- *
-@param
+
 commandName - Name;
 of;
 command;
@@ -88,15 +82,15 @@ context
 resolving;
 to;
 command;
-result * /;;
+result * /;
 // */ // LINT: unreachable code removed
 // public
 // async
 executeCommand(commandName, (subArgs = []), (flags = {}), (context = {}));
 : Promise<any>
 // {
-const __startTime = Date.now();
-const __retryCount = 0;
+const _startTime = Date.now();
+const _retryCount = 0;
 if (!command) {
   '
   throw new ValidationError(`Unknown command = {`
@@ -108,12 +102,12 @@ if (!command) {
           this.timeout;
         );
 
-        const _duration = Date.now() - startTime;``
+        const duration = Date.now() - startTime;``
         this.logger.debug(`Command '${commandName}' completed successfully`, {duration = Date.now() - startTime;``
   if(error instanceof ValidationError  ?? error instanceof CommandExecutionError) {
           // Re-throw CLI errors as-is``
           this.logger.debug(`Command '${commandName}' failed`, {error = > Promise<T> | T, timeoutMs => {`)`
-      const _timeoutId = setTimeout(() => {``
+      const timeoutId = setTimeout(() => {``
         reject(new CommandExecutionError(`Command timed out after ${timeoutMs}ms`));``
       }, timeoutMs);
 
@@ -129,7 +123,7 @@ finally(() => clearTimeout(timeoutId))});
 
     // */; // LINT: unreachable code removed
   // // public listCommands(includeHidden = false): CommandListItem[] {
-    const _commands = [];
+    const commands = [];
 
     for (const [name, command] of this.commandRegistry.entries()) {
   if(includeHidden  ?? !command.hidden) {
@@ -150,7 +144,7 @@ finally(() => clearTimeout(timeoutId))});
     // if(!command) { // LINT: unreachable code removed``
       throw new ValidationError(`Unknowncommand = [];`
   for(const cmd of commands) {
-// const _result = awaitthis.executeCommand();
+// const result = awaitthis.executeCommand();
         cmd.name,
         cmd.args  ?? [],
         cmd.flags  ?? {},
@@ -244,7 +238,7 @@ sleep(ms = > setTimeout(resolve, ms));
 
     // */; // LINT: unreachable code removed
 // export function _createRobustCommandExecutor(_commandRegistry = {}) {
-  const __enhancedOptions = {
+  const _enhancedOptions = {
       timeout => {'
       logger.error(`Command '${commandName}' failed after $durationms`, {`)`
         error);

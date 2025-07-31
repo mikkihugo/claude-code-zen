@@ -6,7 +6,7 @@ import { ClaudeZenServer } from '../../../src/api/claude-zen-server.js';
 
 // Mock dependencies'
 jest.mock('express', () => {
-  const _mockExpress = jest.fn(() => ({
+  const mockExpress = jest.fn(() => ({
     use: jest.fn(),
   get: jest.fn(),
   post: jest.fn(),
@@ -44,7 +44,7 @@ jest.mock('../../../src/api/claude-zen-schema.js', () => (
   endpoints: [
     ;'
       { path: '/api/health', method: 'GET', handler: 'healthCheck' },'
-      { path: '/api/status', method: 'GET', handler: 'statusCheck' },,
+      { path: '/api/status', method: 'GET', handler: 'statusCheck' },
   ];
   ,
 generateWorkflowRoutes: jest.fn(),
@@ -90,12 +90,11 @@ afterEach(async () => {
   )'
   it('should create server with custom options', () =>
   {
-    const _customOptions = {
+    const customOptions = {
       port,'
       host: '127.0.0.1',
       enableWebSocket,
-      enableMetrics,
-    };
+      enableMetrics};
     server = new ClaudeZenServer(customOptions);
     expect(server.options.port).toBe(4000);
     '
@@ -117,13 +116,11 @@ afterEach(async () => {
   '
   it('should start server successfully', async () =>
   {
-    const _startPromise = server.start();
+    const startPromise = server.start();
     expect(startPromise).toBeInstanceOf(Promise);
     try {
       // // await startPromise;
       expect(server.isRunning).toBe(true);
-    } catch (error) {
-      console.error(error);
     }
     catch(error) 
         // Server might fail to start in test environment, which is acceptable
@@ -135,8 +132,6 @@ afterEach(async () => {
         // await server.start();
         // await server.stop();
         expect(server.isRunning).toBe(false);
-      } catch (error) {
-        console.error(error);
       }
       catch(error) 
         // Server operations might fail in test environment
@@ -145,11 +140,9 @@ afterEach(async () => {
       it('should handle start errors gracefully', async () =>
       {
         // Mock server start failure
-        const _invalidServer = new ClaudeZenServer({ port);
+        const invalidServer = new ClaudeZenServer({ port);
         try {
           // // await invalidServer.start();
-        } catch (error) {
-          console.error(error);
         }
         catch(error) 
         expect(error).toBeDefined()
@@ -164,11 +157,10 @@ afterEach(async () => {
       it('should configure security middleware', () =>
       {
         // Test that security middleware would be configured
-        const _middlewareConfig = {
+        const middlewareConfig = {
           cors,
           helmet,
-          rateLimit,
-        };
+          rateLimit};
         expect(middlewareConfig.cors).toBe(true);
         expect(middlewareConfig.helmet).toBe(true);
         expect(middlewareConfig.rateLimit).toBe(true);
@@ -177,7 +169,7 @@ afterEach(async () => {
       '
       it('should configure body parsing middleware', () =>
       // {
-      const _bodyParsingConfig = {'
+      const bodyParsingConfig = {'
         json: { limit: '10mb' },
   extended, limit;
       '
@@ -197,15 +189,14 @@ expect(bodyParsingConfig.json.limit).toBe('10mb')
   '
   it('should generate routes from schema', () =>
   {
-    const _mockSchema = {
+    const mockSchema = {
       endpoints: [
 '
           { path: '/api/test', method: 'GET', handler: 'testHandler' },'
-          { path: '/api/users', method: 'POST', handler: 'createUser' },,
-      ],
-    };
+          { path: '/api/users', method: 'POST', handler: 'createUser' },
+      ]};
     // Test schema-based route generation logic
-    const _routes = mockSchema.endpoints.map((endpoint) => ({ path: endpoint.path,
+    const routes = mockSchema.endpoints.map((endpoint) => ({ path: endpoint.path,
   method: endpoint.method.toLowerCase(),
   handler: endpoint.handler
   }
@@ -220,13 +211,12 @@ expect(routes[1].method).toBe('post');
   '
   it('should handle different HTTP methods', () =>
   // {'
-  const _methods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'];
+  const methods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'];
   methods.forEach((method) => {
-    const _endpoint = {'
+    const endpoint = {'
       path: `/api/${method.toLowerCase()}`,
       method,`
-      handler: `${method.toLowerCase()}Handler`,
-    };
+      handler: `${method.toLowerCase()}Handler`};
     expect(endpoint.method).toBe(method);
     expect(endpoint.path).toContain(method.toLowerCase());
   });
@@ -242,11 +232,10 @@ describe('WebSocket integration', () =>
 it('should setup WebSocket server when enabled', () =>
 {
   // Mock WebSocket functionality
-  const _wsConfig = {
+  const wsConfig = {
     enabled: server.options.enableWebSocket,
     port: server.options.port,'
-    path: '/ws',
-  };
+    path: '/ws'};
   expect(wsConfig.enabled).toBe(true);
   expect(wsConfig.port).toBe(3000);
   '
@@ -255,14 +244,14 @@ it('should setup WebSocket server when enabled', () =>
 )'
 it('should handle WebSocket connections', () =>
 // {
-const _mockConnection = {'
+const mockConnection = {'
         id: 'test-connection',
   readyState, // OPEN
     send;
   : jest.fn(),
   close: jest.fn() {}
 // }
-const _connectionHandler = {
+const connectionHandler = {
         onConnection: jest.fn((ws) => {'
           ws.id = 'test-connection';
           ws.send = jest.fn();
@@ -284,12 +273,11 @@ describe('health and status endpoints', () =>
 )'
 it('should provide health check endpoint', async () =>
 {
-  const _healthResponse = {'
+  const healthResponse = {'
     status: 'healthy',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),'
-    version: '2.0.0-alpha.70',
-  };
+    version: '2.0.0-alpha.70'};
   '
   expect(healthResponse.status).toBe('healthy')
   expect(healthResponse.timestamp).toBeDefined()
@@ -300,7 +288,7 @@ it('should provide health check endpoint', async () =>
 )'
 it('should provide status check endpoint', async() =>
 // {
-const _statusResponse = {'
+const statusResponse = {'
         server: 'running',
   connections,
   memory: process.memoryUsage(),
@@ -322,7 +310,7 @@ describe('error handling', () =>
 )'
 it('should handle server errors gracefully', () =>
 {
-  const _errorHandler = {
+  const errorHandler = {
         handleError: jest.fn((error, _req, res, next) => {
   if(res.headersSent) {
 //             return next(error);
@@ -332,8 +320,8 @@ it('should handle server errors gracefully', () =>
             timestamp: new Date().toISOString()   });
         }) };
   '
-  const _testError = new Error('Test error');
-  const _mockRes = {
+  const testError = new Error('Test error');
+  const mockRes = {
         headersSent,
   status: jest.fn(() => mockRes),
   json: jest.fn() {}
@@ -351,15 +339,15 @@ it('should handle server errors gracefully', () =>
 )'
 it('should handle 404 errors', () =>
 // {
-const _notFoundHandler = () => {
+const notFoundHandler = () => {
   res.status(404).json({'
           error: 'Not Found','
           message: `Route ${req.method} ${req.path} not found`,
           timestamp: new Date().toISOString() };
   //
   // }`
-  const _mockReq = { method: 'GET', path: '/api/nonexistent' };
-  const _mockRes = {
+  const mockReq = { method: 'GET', path: '/api/nonexistent' };
+  const mockRes = {
         status: jest.fn(() => mockRes),
 json: jest.fn() {}
   // }
@@ -384,9 +372,9 @@ describe('metrics collection', () =>
 )'
 it('should collect request metrics when enabled', () =>
 {
-  const _metrics = {
+  const metrics = {
         requests: {
-          total,,
+          total,
           averageResponseTime },
   recordRequest: function(method, status, /* responseTime */) {
           this.requests.total++;
@@ -406,7 +394,7 @@ expect(metrics.requests.byStatus[201]).toBe(1);
 })'
 it('should provide metrics endpoint', () =>
 // {
-  const _metricsEndpoint = {'
+  const metricsEndpoint = {'
         path: '/api/metrics',
   handler: () => ({
           requests: {
@@ -423,7 +411,7 @@ it('should provide metrics endpoint', () =>
 }
 
 // }
-const _response = metricsEndpoint.handler();
+const response = metricsEndpoint.handler();
 expect(response.requests.total).toBe(100);
 expect(response.requests.byMethod.GET).toBe(60);
 expect(response.server.uptime).toBeDefined();

@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
 /*  HIVE-MIND CLAUDE ZEN CLI; */
-*
+
 /** HIVE-MIND PRIMARYSYSTEM = null; */
 
-const _naturalLanguageHandler = null;
+const naturalLanguageHandler = null;
 
 async function main() {
   // Use the comprehensive meow configuration from command-registry
-// const _cli = awaitcreateMeowCLI();
+// const cli = awaitcreateMeowCLI();
   const { input, flags } = cli;
-  const _command = input[0];
+  const command = input[0];
 
   // Handle version flag first(no hive-mind needed)
   if(flags.version  ?? flags.v) {
@@ -31,7 +31,7 @@ async function main() {
 // // await registerHiveMindCommands(commandRegistry, globalHiveMind);'
       printSuccess(' Hive-Mind Primary System ready!');
 
-    } catch (error) { console.error(error); } catch(error)
+    } catch(error)
 // {'
   printError(` Failed to initialize Hive-Mind PrimarySystem = // await executeCommand(command, input.slice(1), {``
 ..flags,hiveMind = === 'object'
@@ -47,24 +47,24 @@ async function main() {
         enableHybridMemory,enableSimpleSwarm = new NaturalLanguageHandler(globalHiveMind);
     //     }
 
-    const _status = globalHiveMind.getHiveMindStatus();
+    const status = globalHiveMind.getHiveMindStatus();
 
     //  System Status'
     console.warn('\\n HIVE-MINDSYSTEM = ['roadmap', 'prd', 'architecture', 'development', 'research', 'integration', 'performance'];'
     availableQueens.forEach(queen => {))'
       console.warn(`    $queen.charAt(0).toUpperCase() + queen.slice(1)_Queen => {``
-      const _query = context.args.join(' ');
+      const query = context.args.join(' ');
   if(!query) {'
         throw new Error('Please provide a question or request.Example = // await naturalLanguageHandler.processNaturalLanguage(query);'
   if(result.success) {'
           printSuccess(` Query processed successfully!`);`
   printInfo(` Detected intent => {`
-      const _action = context.args[0];
+      const action = context.args[0];
 
       switch(action) {`
         case 'store':
-          const _key = context.args[1];'
-          const _value = context.args.slice(2).join(' ');
+          const key = context.args[1];'
+          const value = context.args.slice(2).join(' ');
   if(!key  ?? !value) {'
             throw new Error('Key and value required');
           //           }
@@ -91,7 +91,7 @@ async function main() {
 
           // return hiveMind.coordinate({
             //             type => {
-      const _action = context.args[0];
+      const action = context.args[0];
     // ; // LINT: unreachable code removed/g
   switch(action) {'
         case 'create': {'
@@ -102,8 +102,8 @@ async function main() {
 
           // return hiveMind.coordinate({
             //             type => {
-      const _plugin = context.args[0];
-    // const _operation = context.args[1]; // LINT: unreachable code removed
+      const plugin = context.args[0];
+    // const operation = context.args[1]; // LINT: unreachable code removed
 
   if(!plugin  ?? !operation) {'
         throw new Error('Plugin name and operation required');
@@ -111,18 +111,18 @@ async function main() {
 
       // return hiveMind.coordinate({
         //         type => {
-      const _operation = context.args[0];
+      const operation = context.args[0];
     // ; // LINT: unreachable code removed/g
   switch(operation) {'
         case 'search': {'
-          const _query = context.args.slice(1).join(' ');
+          const query = context.args.slice(1).join(' ');
   if(!query) {'
             throw new Error('Search query required');
           //           }
 
           // return hiveMind.coordinate({
             //             type => {/g
-      const _status = hiveMind.getHiveMindStatus();
+      const status = hiveMind.getHiveMindStatus();
     // ; // LINT: unreachable code removed
   if(context.flags.json) {
         console.warn(JSON.stringify(status, null, 2));
@@ -150,9 +150,7 @@ async function main() {
     try {
 // // await globalHiveMind.cleanup();'
       printSuccess(' Hive-Mind shutdown complete');
-    } catch (error) {
-  console.error(error);
-}'
+    }'
   printError(` Cleanup failed => `
   if(globalHiveMind) {
 // // await globalHiveMind.cleanup();

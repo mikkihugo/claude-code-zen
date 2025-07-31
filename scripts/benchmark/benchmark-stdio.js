@@ -1,11 +1,9 @@
-/** */
-*
-@fileoverview
-Performance;
-benchmark;
-for MCP stdio optimizations;
+/**
+ *  */@fileoverview
+ * Performance benchmark for MCP stdio optimizations
+ */
 
-/** Compares performance before and after optimizations; */
+/** Compares performance before and after optimizations */
 
 import { MCPErrorHandler } from './src/mcp/core/error-handler.js';
 import { PerformanceMetrics } from './src/mcp/core/performance-metrics.js';
@@ -40,27 +38,31 @@ runBenchmark();
 async;
 runBaselineTest();
 // {
-  const _messageCount = 1000;
-  const _messages = this.generateTestMessages(messageCount);
-  const _startTime = Date.now();
-  const _processedCount = 0;
-  const _errorCount = 0;
-  // Simulate individual message processing(no batching)
-  for(const _message of messages) {
+  const messageCount = 1000;
+  const messages = this.generateTestMessages(messageCount);
+  const startTime = Date.now();
+  const processedCount = 0;
+  const errorCount = 0;
+  // Simulate individual message processing (no batching)
+  for (const message of messages) {
     try {
-        // Simulate processing time
-  // // await this.delay(Math.random() * 2); // Simulate 5% error rate
-        if(Math.random() < 0.05) {';
-          throw new Error('Simulated processing error'); //         }
-         catch (error) console.error(error); processedCount++;
-      } catch(/* _error */ )
-{
+      // Simulate processing time
+      // await this.delay(Math.random() * 2); 
+      // Simulate 5% error rate
+      if (Math.random() < 0.05) {
+        throw new Error('Simulated processing error');
+      }
+      processedCount++;
+    } catch (error) {
+      console.error('Processing error:', error);
+    }
+  }
         errorCount++;
         // No retry logic in baseline
       //       }
   //   }
-  const _endTime = Date.now();
-  const _totalTime = endTime - startTime;
+  const endTime = Date.now();
+  const totalTime = endTime - startTime;
   // return {
       messageCount,
   // processedCount, // LINT: unreachable code removed
@@ -78,27 +80,27 @@ runBaselineTest();
 
 // async runOptimizedTest() {}
 
-  const _messageCount = 1000;
-  const _messages = this.generateTestMessages(messageCount);
+  const messageCount = 1000;
+  const messages = this.generateTestMessages(messageCount);
   // Initialize optimized components
-  const _stdioOptimizer = new StdioOptimizer({ batchSize,
+  const stdioOptimizer = new StdioOptimizer({ batchSize,
   batchTimeout,
 // retryAttempts
   }
-const _errorHandler = new MCPErrorHandler({ maxRetries,
+const errorHandler = new MCPErrorHandler({ maxRetries,
 // retryDelay
   }
-const _performanceMetrics = new PerformanceMetrics({ enableLogging
+const performanceMetrics = new PerformanceMetrics({ enableLogging
   }
-const _startTime = Date.now();
-const _processedCount = 0;
-const _errorCount = 0;
-const _batchCount = 0;
+const startTime = Date.now();
+const processedCount = 0;
+const errorCount = 0;
+const batchCount = 0;
 // Setup batch processing';
 stdioOptimizer.on('batch', async(batch) => {
       batchCount++;
   for(const item of batch) {';
-        const _requestId = `req-${item.message.id}`; performanceMetrics.recordRequestStart(requestId); try {
+        const requestId = `req-${item.message.id}`; performanceMetrics.recordRequestStart(requestId); try {
           // Use error handler with retry logic
   // // await errorHandler.executeWithRetry(async() {=> {
             // Simulate processing time
@@ -106,8 +108,7 @@ stdioOptimizer.on('batch', async(batch) => {
             // Simulate 5% error rate(same )
             if(Math.random() < 0.05) {`
               throw new Error('Simulated processing error');
-            //             }
-             catch (error) { console.error(error); }// return { success };
+            //             }// return { success };
     //   // LINT: unreachable code removed});
           processedCount++;
           performanceMetrics.recordRequestEnd(requestId, true);
@@ -118,18 +119,18 @@ stdioOptimizer.on('batch', async(batch) => {
       //       }
     });
     // Process messages in batches
-    const _batches = this.createBatches(messages, 20);
+    const batches = this.createBatches(messages, 20);
   for(const batch of batches) {
       stdioOptimizer.queueMessages(batch); // Small delay to allow batch processing
   // // await this.delay(5); 
     //     }
     // Wait for any remaining processing
   // // await this.delay(100) {;
-    const _endTime = Date.now();
-    const _totalTime = endTime - startTime;
+    const endTime = Date.now();
+    const totalTime = endTime - startTime;
     // Get detailed metrics
-    const _metrics = performanceMetrics.getMetrics();
-    const _errorStats = errorHandler.getErrorStats();
+    const metrics = performanceMetrics.getMetrics();
+    const errorStats = errorHandler.getErrorStats();
     // return {
       messageCount,
     // processedCount, // LINT: unreachable code removed
@@ -149,7 +150,7 @@ stdioOptimizer.on('batch', async(batch) => {
 
 generateTestMessages(count)
 // {
-  const _messages = [];
+  const messages = [];
   for(let i = 0; i < count; i++) {
     messages.push({
         message: {';
@@ -169,7 +170,7 @@ generateTestMessages(count)
 
 createBatches(messages, batchSize);
 // {
-    const _batches = [];
+    const batches = [];
   for(let i = 0; i < messages.length; i += batchSize) {
       batches.push(messages.slice(i, i + batchSize));
     //     }
@@ -179,13 +180,13 @@ createBatches(messages, batchSize);
 /** Display benchmark results; */
 
   displayResults() {
-    const _baseline = this.results.baseline;
-    const _optimized = this.results.optimized;`
+    const baseline = this.results.baseline;
+    const optimized = this.results.optimized;`
     console.warn(`\n$'='.repeat(60)`);`
     console.warn(' PERFORMANCE BENCHMARK RESULTS');';
     console.warn('='.repeat(60));
     // Throughput comparison
-    const _throughputImprovement =;
+    const throughputImprovement =;
       ((optimized.throughput - baseline.throughput) / baseline.throughput) * 100;';
     console.warn(`\n THROUGHPUT);``
     console.warn(`  Baseline:  ${baseline.throughput.toFixed(2)} messages``
@@ -194,7 +195,7 @@ createBatches(messages, batchSize);
       `  Improvement: \$throughputImprovement > 0 ? '+' $throughputImprovement.toFixed(1)%`;
     );
     // Latency comparison
-    const _latencyImprovement =;
+    const latencyImprovement =;
       ((baseline.avgLatency - optimized.avgLatency) / baseline.avgLatency) * 100;`
     console.warn(`\n LATENCY);``
     console.warn(`  Baseline:  ${baseline.avgLatency.toFixed(2)}ms avg`);`
@@ -219,14 +220,14 @@ createBatches(messages, batchSize);
       `  Optimized: ${optimized.batchCount} batches(avg ${(optimized.messageCount / optimized.batchCount).toFixed(1)} msgs/batch)`;
     );
     // Time comparison
-    const _timeImprovement = ((baseline.totalTime - optimized.totalTime) / baseline.totalTime) * 100;`
+    const timeImprovement = ((baseline.totalTime - optimized.totalTime) / baseline.totalTime) * 100;`
     console.warn(`\n TOTAL PROCESSING TIME);``
     console.warn(`  Baseline);``
     console.warn(`  Optimized);``
     console.warn(`  Improvement: \${timeImprovement > 0 ? '+' }${timeImprovement.toFixed(1)}%`);
     // Success rates
-    const _baselineSuccessRate = (baseline.processedCount / baseline.messageCount) * 100;
-    const _optimizedSuccessRate = (optimized.processedCount / optimized.messageCount) * 100;`
+    const baselineSuccessRate = (baseline.processedCount / baseline.messageCount) * 100;
+    const optimizedSuccessRate = (optimized.processedCount / optimized.messageCount) * 100;`
     console.warn(`\n SUCCESS RATES);`
     console.warn(;)`
       `  Baseline:  ${baselineSuccessRate.toFixed(1)}% (${baseline.processedCount}`
@@ -257,7 +258,7 @@ createBatches(messages, batchSize);
 //     return new Promise((resolve) => setTimeout(resolve, ms));
 // Run benchmark if this file is executed directly`
   if(import.meta.url === `file) {`
-  const _benchmark = new StdioBenchmark();
+  const benchmark = new StdioBenchmark();
   benchmark.runBenchmark().catch(console.error);
 // }
 // export { StdioBenchmark };

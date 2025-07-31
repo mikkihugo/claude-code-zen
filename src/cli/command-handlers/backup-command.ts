@@ -21,7 +21,7 @@ export async function backupCommand() {'
     printSuccess('Configuring Disaster Recovery...');'
     console.warn(' DRConfiguration = === 'test''
     printSuccess('Running DR Test...');'
-    console.warn(' DR TestProgress = args[0];')
+    console.warn(' DR TestProgress = args[0];');
   if(!restorePoint) {'
     printError('Usage);'
     return;

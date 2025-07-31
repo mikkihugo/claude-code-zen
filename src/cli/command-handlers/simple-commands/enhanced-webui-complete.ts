@@ -21,7 +21,7 @@ import SwarmWebUIIntegration from '.';
 import ToolExecutionFramework, { ENHANCED_VIEWS } from '.';
 
 // Enhanced view modes with all tool categories
-const _ALL_VIEWS = {
+const ALL_VIEWS = {
 ..ENHANCED_VIEWS,
 // Add any additional views if needed
 // }
@@ -80,7 +80,7 @@ initializeEnhancedUI();
       this.startSystemMonitoring();
 `
       this.addLog('success', ' Enhanced Web UI fully initialized with all 87 MCP tools');
-    } catch (error) { console.error(error); } catch(/* _error */) '
+    } catch(/* _error */) '
       this.addLog('error', `Failed to initialize enhancedUI = [`id => {
       this.processes.set(p.id, {
 ..p,
@@ -123,14 +123,14 @@ initializeEnhancedUI();
       { name => {
       console.warn(;))'';)
     mainTabs.forEach((tab) => {
-      const _isActive = this.currentView === tab.view;
-      const _label = isActive;'';
+      const isActive = this.currentView === tab.view;
+      const label = isActive;'';
     toolTabs.forEach((tab) => {
-      const _isActive = this.currentView === tab.view;
-      const __label = isActive;'';
+      const isActive = this.currentView === tab.view;
+      const _label = isActive;'';
     additionalTabs.forEach((tab) => {
-      const _isActive = this.currentView === tab.view;
-      const __label = isActive;''.repeat(80)));
+      const isActive = this.currentView === tab.view;
+      const _label = isActive;''.repeat(80)));
     console.warn();
   //   }
 
@@ -141,9 +141,9 @@ initializeEnhancedUI();
     console.warn();
 '
     console.warn(this.colors.cyan(' NavigationKeys = this.mcpIntegration ? this.mcpIntegration.getStatus() ;'
-    const __toolStatus = this.toolFramework ? this.toolFramework.getStatus() ;
+    const _toolStatus = this.toolFramework ? this.toolFramework.getStatus() ;
 '
-    const __statusLine = ` Claude-Flow Enhanced UI | `;`
+    const _statusLine = ` Claude-Flow Enhanced UI | `;`
     _statusLine += `MCP = `Tools: \$this.colors.yellow(mcpStatus?.totalTools  ?? 87)| `;``
     statusLine += `Active = `Queued: \$this.colors.cyan(toolStatus?.queuedExecutions  ?? 0)| `;``
     _statusLine += `Uptime = `\$this.colors.gray('Controls)`;'``
@@ -160,8 +160,8 @@ initializeEnhancedUI();
 
   async handleInput() { 
     // return new Promise((resolve) => 
-      const __onData = async(chunk) => {
-        const _key = chunk.toString();
+      const _onData = async(chunk) => {
+        const key = chunk.toString();
     // ; // LINT: unreachable code removed
         // Remove listener`
         process.stdin.removeListener('data', _onData);
@@ -171,10 +171,7 @@ initializeEnhancedUI();
           if(// await this.handleNavigationInput(key)) {
             resolve();
             return;
-    //   // LINT: unreachable code removed}
-
-           catch (error) console.error(error); 
-          if(// await this.handleEnhancedViewInput(key)) {
+    //   // LINT: unreachable code removed} if(// await this.handleEnhancedViewInput(key)) {
             resolve();
             return;
     //   // LINT: unreachable code removed}
@@ -236,7 +233,7 @@ initializeEnhancedUI();
     // For now, execute a sample tool'
     this.addLog('info', 'Tool execution prompt(demo)');
 // try'
-// const _result = awaitthis.toolFramework.executeTool('features_detect');'
+// const result = awaitthis.toolFramework.executeTool('features_detect');'
       this.addLog('success', 'Tool executed successfully');
       this.enhancedViews.displayToolResult(result);
     } catch(error) {'
@@ -261,8 +258,8 @@ initializeEnhancedUI();
 /** Toggle selected process status; */
 
   async toggleSelectedProcess() { 
-    const _processes = Array.from(this.processes.values());
-    const _selected = processes[this.selectedIndex];
+    const processes = Array.from(this.processes.values());
+    const selected = processes[this.selectedIndex];
 
     if(selected) '
   if(selected.status === 'running') {'
@@ -280,7 +277,7 @@ initializeEnhancedUI();
 /** Add log entry with enhanced formatting; */
 
   addLog(level, message) {
-    const _logEntry = {time = this.logs.slice(0, 100);
+    const logEntry = {time = this.logs.slice(0, 100);
     //     }
 
     // Emit log event for real-time updates
@@ -295,15 +292,15 @@ initializeEnhancedUI();
     console.warn(this.colors.white(this.colors.bold('Process Management')));
     console.warn();
 
-    const _index = 0;
+    const index = 0;
   for(const [_id, process] of this.processes) {'
-      const _selected = index === this.selectedIndex; const _prefix = selected ? this.colors.yellow(' ') : '  '; const _status = this.getStatusIcon(process.status) {;
-      const _name = selected ? this.colors.yellow(process.name) : this.colors.white(process.name);
+      const selected = index === this.selectedIndex; const prefix = selected ? this.colors.yellow(' ') : '  '; const status = this.getStatusIcon(process.status) {;
+      const name = selected ? this.colors.yellow(process.name) : this.colors.white(process.name);
 '
       console.warn(`$prefix$status$name`);`
       console.warn(`${this.colors.gray(process.description)}`);`
   if(process.status === 'running') {
-        const _stats = this.colors.dim(;)'
+        const stats = this.colors.dim(;)'
           `PID = Array.from(this.processes.values()).filter(;`)`
       (p) => p.status === 'running').length;''.repeat(80)));
     console.warn(;
@@ -314,12 +311,12 @@ initializeEnhancedUI();
       console.warn(this.colors.cyan(' Tool System Status'));
       console.warn(;'
         `  MCP _Connection => {`
-      const __time = log.time.toLocaleTimeString();
-      const __icon =;`
+      const _time = log.time.toLocaleTimeString();
+      const _icon =;`
         log.level === 'success';'';'
           : log.level === 'warning';'';'
             : log.level === 'error';'';'';
-      const __color =;'
+      const _color =;'
         log.level === 'success';'
           ? this.colors.green = === 'warning';'
             ? this.colors.yellow = === 'error';
@@ -327,23 +324,23 @@ initializeEnhancedUI();
   if(metrics) {'
       console.warn(this.colors.cyan(' Swarm Status'));'
       console.warn(`  Swarm ID => {`
-      const _selected = this.currentView === ALL_VIEWS.ORCHESTRATION && index === this.selectedIndex;)`
-      const _prefix = selected ? this.colors.yellow(' ') : '  ';
-      const _statusIcon =;'
+      const selected = this.currentView === ALL_VIEWS.ORCHESTRATION && index === this.selectedIndex;)`
+      const prefix = selected ? this.colors.yellow(' ') : '  ';
+      const statusIcon =;'
         agent.status === 'working'') : this.colors.gray('');
-      const _name = selected ? this.colors.yellow(agent.name) : this.colors.white(agent.name);
+      const name = selected ? this.colors.yellow(agent.name) : this.colors.white(agent.name);
 '
       console.warn(`$prefix$statusIcon$name($, { agent.type })`);`
       console.warn(`     _ID => {`)
-      const _usageBar = this.getUsageBar(ns.entries, 100);
+      const usageBar = this.getUsageBar(ns.entries, 100);
       console.warn(;)`
         `$this.colors.white(ns.name.padEnd(12))$usageBar$this.colors.yellow(ns.entries)entries($, { this.colors.blue(ns.size) })`);
     });
 
     console.warn();`
     console.warn(this.colors.cyan(' Memory Tools Available => {'))
-      const _time = log.time.toLocaleTimeString();
-      const _icon =;'
+      const time = log.time.toLocaleTimeString();
+      const icon =;'
         log.level === 'success';'');'
           : log.level === 'warning';'');'
             : log.level === 'error';'');'');
@@ -353,22 +350,22 @@ initializeEnhancedUI();
         ' Log Analysis ToolsAvailable = === 'running'') : this.colors.gray('');'
   //   }
   formatUptime(seconds) {
-    const _hours = Math.floor(seconds / 3600);
-    const _minutes = Math.floor((seconds % 3600) / 60);
-    const _secs = seconds % 60;'
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;'
     // return `${hours}h ${minutes}m ${secs}s`;
     //   // LINT: unreachable code removed}
   getHealthBar() {
-    const _running = Array.from(this.processes.values()).filter(;)`
+    const running = Array.from(this.processes.values()).filter(;)`
       (p) => p.status === 'running').length;
-    const _total = this.processes.size;
-    const _percentage = (running / total) * 100;
+    const total = this.processes.size;
+    const percentage = (running / total) * 100;
 //     return this.getUsageBar(percentage, 100);
     //   // LINT: unreachable code removed}
   getUsageBar(value, max, width = 20) {
-    const _percentage = Math.min((value / max) * 100, 100);
-    const __filled = Math.round((percentage / 100) * width);
-    const __color =;
+    const percentage = Math.min((value / max) * 100, 100);
+    const _filled = Math.round((percentage / 100) * width);
+    const _color =;
       percentage > 80 ? this.colors.red = false;
 
     console.warn();'

@@ -24,8 +24,7 @@ import type {
   DSPyMetrics,
   DSPyOptimizationResult,
   DSPyProgram,
-',
-} from '../plugins/dspy-provider'
+'} from '../plugins/dspy-provider'
 '
 
 import type { SwarmAgent, SwarmCoordinator, SwarmTask } from '.';
@@ -163,7 +162,7 @@ constructor(
     this.isInitialized = true;'
     console.log(' DSPy Persistent Swarm Coordinator initialized');
 '
-    this.emit('initialized', )
+    this.emit('initialized')
       swarmId);
   //   }
 
@@ -177,10 +176,7 @@ constructor(
         const memory = JSON.parse(sqliteMemory as string);
         this.persistentMemory.globalMetrics = memory.globalMetrics ?? this.persistentMemory.globalMetrics;
         this.persistentMemory.optimizationHistory = memory.optimizationHistory ?? [];
-      //       }
-
-       catch (error) console.error(error); 
-// const patternVectors = awaitthis.lanceDB.search({/g)
+      //       } // const patternVectors = awaitthis.lanceDB.search({/g)
         query);
   for(const vector of patternVectors) {
         const pattern = vector.metadata as DSPyPattern; this.persistentMemory.patterns.set(pattern.id, pattern); //       }
@@ -237,7 +233,7 @@ constructor(
 
   // private async restoreAgentKnowledge(agent): Promise<void> {
     try {`
-// const agentMemory = awaitthis.sqliteStore.get(`dspy_agent_${agent.specialization} catch (error) { console.error(error); }`);
+// const agentMemory = awaitthis.sqliteStore.get(`dspy_agent_${agent.specialization}`);
   if(agentMemory) {
         const memory = JSON.parse(agentMemory as string);
         agent.performanceMetrics = memory.performanceMetrics ?? agent.performanceMetrics;
@@ -304,7 +300,7 @@ constructor(
         original_metrics TEXT NOT NULL,
         optimized_metrics TEXT NOT NULL,
         improvement REAL NOT NULL,
-        timestamp TEXT NOT NULL,)
+        timestamp TEXT NOT NULL)
         FOREIGN KEY(program_id) REFERENCES dspy_programs(id)
       //       )`
     `);`
@@ -476,9 +472,7 @@ constructor(
           break;
         // default: null'
           throw new Error(`Unknown task type);`
-      //       }
-
-       catch (error) { console.error(error); }// Update agent metrics
+      //       }// Update agent metrics
       const duration = Date.now() - startTime;
       agent.metrics.tasksCompleted++;
       agent.metrics.averageExecutionTime =
@@ -619,8 +613,8 @@ constructor(
     // Save persistent memory
 // // await this.sqliteStore.set('
       'dspy_persistent_memory',
-      JSON.stringify({ globalMetrics: this.persistentMemory.globalMetrics,)
-        optimizationHistory: this.persistentMemory.optimizationHistory.slice(-100) {, // Keep last 100
+      JSON.stringify({ globalMetrics: this.persistentMemory.globalMetrics)
+        optimizationHistory: this.persistentMemory.optimizationHistory.slice(-100) { // Keep last 100
         }
     );
   //   }
@@ -751,7 +745,7 @@ filter(p => p.type === 'prompt-template' && p.contexts.includes(signature));
         name: agent.name,
         specialization: agent.specialization,
         status: agent.status,
-        metrics: agent.metrics,)
+        metrics: agent.metrics)
         performanceMetrics: agent.performanceMetrics   )),
       persistentMemory: 
         programCount: this.persistentMemory.programs.size,
@@ -771,7 +765,7 @@ filter(p => p.type === 'prompt-template' && p.contexts.includes(signature));
 // // await this.sqliteStore.set('
         `dspy_agent_${agent.specialization}`,
         JSON.stringify({ performanceMetrics: agent.performanceMetrics,
-          optimizationHistory: agent.optimizationHistory,)
+          optimizationHistory: agent.optimizationHistory)
           learnedPatterns: agent.learnedPatterns   }
       ); //     }
 

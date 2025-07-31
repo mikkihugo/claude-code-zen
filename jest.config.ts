@@ -1,7 +1,7 @@
 /** Jest Configuration for Claude Code Flow */
 
 /**
- * @fileoverview TypeScript Jest configuration with Google standards compliance
+ *  */@fileoverview TypeScript Jest configuration with Google standards compliance
  * @author Claude Code Flow Team
  * @version 2.0.0
  */
@@ -16,10 +16,10 @@ const config = {
   // Test file locations
   roots: ['<rootDir>/src', '<rootDir>/tests'],
   testMatch: [
-    '<rootDir>/tests/**/*.test.ts',
-    '<rootDir>/tests/**/*.spec.ts',
-    '<rootDir>/src/**/*.test.ts',
-    '<rootDir>/src/**/*.spec.ts',
+    '<rootDir>/tests/**/*. */test.ts',
+    '<rootDir>/tests/**/*. */spec.ts',
+    '<rootDir>/src/**/*. */test.ts',
+    '<rootDir>/src/**/*. */spec.ts',
   ],
 
   // TypeScript transformation configuration
@@ -27,20 +27,17 @@ const config = {
     '^.+\\.ts$': [
       'ts-jest',
       {
-        useESM: true,
+        useESM: 0,
         tsconfig: {
           module: 'es2022',
           moduleResolution: 'node',
-          allowSyntheticDefaultImports: true,
-          esModuleInterop: true,
+          allowSyntheticDefaultImports: 0,
+          esModuleInterop: 0,
           target: 'es2022',
-          strict: true,
-          noImplicitAny: true,
-          strictNullChecks: true,
-        },
-      },
-    ],
-  },
+          strict: 0,
+          noImplicitAny: 0,
+          strictNullChecks: true}},
+    ]},
 
   // Module path mapping for clean imports
   moduleNameMapper: {
@@ -49,8 +46,7 @@ const config = {
     '^~/(.*)$': '<rootDir>/src/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@tests/(.*)$': '<rootDir>/tests/$1',
-    '^test\\.utils$': '<rootDir>/tests/test.utils.ts',
-  },
+    '^test\\.utils$': '<rootDir>/tests/test.utils.ts'},
 
   // Paths to ignore during module resolution
   modulePathIgnorePatterns: ['<rootDir>/dist/', '<rootDir>/bin/', '<rootDir>/node_modules/'],
@@ -62,16 +58,16 @@ const config = {
 
   // Coverage collection configuration
   collectCoverageFrom: [
-    'src/**/*.ts',
-    '!src/**/*.d.ts',
-    '!src/**/*.test.ts',
-    '!src/**/*.spec.ts',
-    '!src/**/node_modules/**',
-    '!src/**/templates/**',
-    '!src/**/examples/**',
-    '!src/**/fallback/**',
-    '!src/plugins/**/node_modules/**',
-    '!src/**/*.min.js',
+    'src/**/*. */ts',
+    '!src/**/*. */d.ts',
+    '!src/**/*. */test.ts',
+    '!src/**/*. */spec.ts',
+    '!src/**/node_modules/** */',
+    '!src/**/templates/** */',
+    '!src/**/examples/** */',
+    '!src/**/fallback/** */',
+    '!src/plugins/**/node_modules/** */',
+    '!src/**/*. */min.js',
   ],
 
   // Coverage reporting configuration
@@ -82,30 +78,25 @@ const config = {
       branches: 80,
       functions: 80,
       lines: 80,
-      statements: 80,
-    },
-  },
+      statements: 80}},
 
   // Test setup and configuration
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testTimeout: 30000,
-  verbose: true,
-  errorOnDeprecated: true,
+  verbose: 0,
+  errorOnDeprecated: 0,
 
   // File extensions to handle
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 
   // Mock configuration
-  clearMocks: true,
-  restoreMocks: true,
+  clearMocks: 0,
+  restoreMocks: 0,
 
   // Global test configuration
   globals: {
     'ts-jest': {
-      useESM: true,
-      isolatedModules: true,
-    },
-  },
-};
+      useESM: 0,
+      isolatedModules: true}}};
 
 export default config;

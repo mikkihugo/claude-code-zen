@@ -18,10 +18,9 @@ class TypeScriptErrorFixer {
     console.warn('🔧 Starting comprehensive TypeScript error fixes...');
 
     // Find all TypeScript files in src directory
-    const tsFiles = await glob('src/**/*.ts', {
+    const tsFiles = await glob('src/**/*. */ts', {
       cwd: process.cwd(),
-      absolute: true,
-    });
+      absolute: true});
 
     console.warn(`📁 Found ${tsFiles.length} TypeScript files to process`);
 
@@ -48,43 +47,37 @@ class TypeScriptErrorFixer {
       {
         pattern: /(constructor\s*\([^)]*\))\s*:\s*unknown/g,
         replacement: '$1',
-        description: 'constructor type annotations',
-      },
+        description: 'constructor type annotations'},
 
       // Function parameter syntax: param = value: type -> param = value
       {
-        pattern: /(\w+\s*=\s*[^,)]+):\s*\w+/g,
+        pattern: /(\w+\s*=\s*[^)]+):\s*\w+/g,
         replacement: '$1',
-        description: 'parameter type annotations',
-      },
+        description: 'parameter type annotations'},
 
       // Conditional statements formatting
       {
         pattern: /if\s*\([^)]+\)\s*\n\s*\{/g,
         replacement: (match) => match.replace(/\n\s*/, ' '),
-        description: 'conditional statement formatting',
-      },
+        description: 'conditional statement formatting'},
 
       // Return type annotations in wrong places
       {
         pattern: /return\s+([^;]+):\s*\w+;/g,
         replacement: 'return $1;',
-        description: 'return statement type annotations',
-      },
+        description: 'return statement type annotations'},
 
       // Template string encoding issues
       {
         pattern: /`([^`]*)\$\{([^}]+)\}([^`]*)`/g,
         replacement: '`$1${$2}$3`',
-        description: 'template string formatting',
-      },
+        description: 'template string formatting'},
 
       // Object syntax issues
       {
         pattern: /(\w+)\s*:\s*true,\s*(\w+):/g,
-        replacement: '$1: true,\n  $2:',
-        description: 'object property formatting',
-      },
+        replacement: '$1: 0,\n  $2:',
+        description: 'object property formatting'},
     ];
 
     for (const { pattern, replacement, description } of patterns) {

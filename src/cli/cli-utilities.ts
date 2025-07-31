@@ -40,8 +40,7 @@ import type { JSONObject } from '../types/core.js';
 // }
 
 /** Check if file exists */
-*
-@param
+
 path - File;
 path
  * @returns Promise
@@ -58,8 +57,7 @@ if file exists
 /** Read JSON file with default fallback */
  * @param path - File
 path
- *
-@param
+
 defaultValue - Default;
 value;
 if file doesn
@@ -74,7 +72,7 @@ default value
 
 // */; // LINT): Promise<T> {
 try {
-// const _content = await(process as any).readTextFile(path);
+// const content = await(process as any).readTextFile(path);
     // return JSON.parse(content) as T;
     //   // LINT: unreachable code removed} catch (error) { console.error(error)} catch {
     // return defaultValue;
@@ -119,13 +117,13 @@ try {
 
     // */ // LINT: unreachable code removed
 // export function parseFlags(args = {};
-const _providedFlags = new Set<string>(); // Track explicitly provided flags
-const _filteredArgs = [];
+const providedFlags = new Set<string>(); // Track explicitly provided flags
+const filteredArgs = [];
   for(let i = 0; i < args.length; i++) {
-  const _arg = args[i];``
+  const arg = args[i];``
   if(arg.startsWith('--')) {'
-    const _flagName = arg.substring(2);
-    const _nextArg = args[i + 1]
+    const flagName = arg.substring(2);
+    const nextArg = args[i + 1]
     if(nextArg && !nextArg.startsWith('--')) {'
       flags[flagName] = nextArg;
       providedFlags.add(flagName);
@@ -136,7 +134,7 @@ const _filteredArgs = [];
     //     }'
   } else if(arg.startsWith('-') && arg.length > 1) {'
     // Short flags
-    const _shortFlags = arg.substring(1);
+    const shortFlags = arg.substring(1);
   for(const flag of shortFlags) {
       flags[flag] = true; providedFlags.add(flag); //     }
   } else 
@@ -171,7 +169,7 @@ const _filteredArgs = [];
 
 for (const [key, defaultValue] of Object.entries(defaults)) {
   // Check both camelCase and kebab-case variants
-  const _kebabKey = camelToKebab(key); if(!providedFlags.has(key) && !providedFlags.has(kebabKey)) {
+  const kebabKey = camelToKebab(key); if(!providedFlags.has(key) && !providedFlags.has(kebabKey)) {
     result[key] = defaultValue; //   }
 // }
 // return result;
@@ -188,12 +186,12 @@ function camelToKebab(str = ====================================================
 
 /** Flag validator configuration map */
 
-const _FLAG_VALIDATORS = {
+const FLAG_VALIDATORS = {
       queenType => {
-      const _num = parseInt(value) {
+      const num = parseInt(value) {
 // return num > 0 && num <= 50},errorMessage = []
 for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
-    const _value = flags[flagName]; if(value !== undefined) {
+    const value = flags[flagName]; if(value !== undefined) {
       if(config.validValues && !config.validValues.includes(value)) {'
         errors.push(`Invalid $flagName: "${value}". Must be oneof = ============================================================================; "`"
 // PROCESS EXECUTION HELPERS
@@ -211,7 +209,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     // Check if we'
     if(typeof process !== 'undefined' && (process as any).versions && (process as any).versions.node) {'
       // Node.js environment'
-      const { spawn }  catch (error) console.error(error); = // await import('child_process')
+      const { spawn } = // await import('child_process')
 
       // return new Promise((resolve) => {'''; // LINT) => {'
           stdout += data.toString()})
@@ -223,7 +221,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
           resolve({success = new(process as any).Command(command, {
         args,
 ..options   });
-// const _result = awaitcmd.output();
+// const result = awaitcmd.output();
 
       // return {success = === 0,code = ============================================================================;
     // // CONFIGURATION HELPERS // LINT: unreachable code removed
@@ -235,7 +233,7 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
 
     // */; // LINT: unreachable code removed'
 // export async function loadConfig(path = 'claude-zen.config.json'): Promise<CliConfiguration> {'
-  const _defaultConfig = {terminal = await(process as any).readTextFile(path);
+  const defaultConfig = {terminal = await(process as any).readTextFile(path);
 //     return { ...defaultConfig, ...JSON.parse(content) };
     //   // LINT: unreachable code removed} catch {
 //     return defaultConfig;
@@ -260,15 +258,15 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
  * @returns Generated unique ID
 
     // */; // LINT: unreachable code removed') {'
-  const _timestamp = Date.now();
-  const _random = Math.random().toString(36).substr(2, 9);'.repeat(Math.round(percentage / 5)) + ''
+  const timestamp = Date.now();
+  const random = Math.random().toString(36).substr(2, 9);'.repeat(Math.round(percentage / 5)) + ''
   console.warn(`\r$bar$percentage% $message`);``
 // }
 
 /** Clear current console line */
 
 // export function clearLine() {``
-  console.warn('\r\x1b[K')
+  console.warn('\r\x1b[K');
 // }
 
 // =============================================================================
@@ -330,17 +328,17 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
     // */; // LINT: unreachable code removed
 // export async function callRuvSwarmDirectNeural(params = {}): Promise<NeuralTrainingResult> {
   try {'
-    const _modelName = params.model  ?? 'general''
-    const _epochs = params.epochs  ?? 50
-    const _dataSource = params.data  ?? 'recent'''
+    const modelName = params.model  ?? 'general''
+    const epochs = params.epochs  ?? 50
+    const dataSource = params.data  ?? 'recent'''
     console.warn(` Using REAL ruv-swarm WASM neural training...`);``
     console.warn(;)``
       `Executing = = 'undefined' && (process as any).versions?.node) {'`'
       // Node.js environment - use spawn with stdio inherit'
-      const { spawn }  catch (error) console.error(error); = // await import('node)'
+      const { spawn } = // await import('node)'
 
       result = // await new Promise((_resolve) => {
-        const __child = spawn(
+        const _child = spawn(
           'npx','
           [
             'ruv-swarm''neural''train''--model','
@@ -356,14 +354,14 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
             _code => '
           resolve(success = // await runCommand('npx''ruv-swarm''neural''train''--model''--iterations''--data-source''--output-format', 'json''
       ], {stdout = '.ruv-swarm'
-// const _files = await(process as any).readDir(neuralDir);
-      const _latestFile = null;
-      const _latestTime = 0;
+// const files = await(process as any).readDir(neuralDir);
+      const latestFile = null;
+      const latestTime = 0;
 
       for // await(const file of files) {'
         if(file.name.startsWith(`training-${modelName}-`) && file.name.endsWith('.json'
-          const _filePath = `${neuralDir}`
-// const _stat = await(process as any).stat(filePath);
+          const filePath = `${neuralDir}`
+// const stat = await(process as any).stat(filePath);
   if(stat.mtime > latestTime) {
             latestTime = stat.mtime;
             latestFile = filePath;
@@ -371,22 +369,22 @@ for (const [flagName, config] of Object.entries(FLAG_VALIDATORS)) {
         //         }
       //       }
   if(latestFile) {
-// const __content = await(process as any).readTextFile(latestFile);
+// const _content = await(process as any).readTextFile(latestFile);
 
         // return {success = === 0,modelId = === 0,
     // modelId = { // LINT: unreachable code removed}): Promise<CommandExecutionResult> {
   try {``
-    const _command = 'npx''
-    const _args = ['ruv-swarm', 'hook', hookName]
+    const command = 'npx''
+    const args = ['ruv-swarm', 'hook', hookName]
 
     // Add parameters as CLI arguments
     Object.entries(params).forEach(([key, value]) => '
-      args.push(`--$keycatch (error) console.error(error); `);``
+      args.push(`--$key `);``
   if(value !== true && value !== false) {
         args.push(String(value));
       //       }
     });``
-// const __result = awaitrunCommand(command, args, {stdout = // await runCommand('npx', ['ruv-swarm', '--version'], {stdout = ============================================================================
+// const _result = awaitrunCommand(command, args, {stdout = // await runCommand('npx', ['ruv-swarm', '--version'], {stdout = ============================================================================
 // NEURAL TRAINING SPECIFIC HELPERS
 // =============================================================================
 

@@ -57,7 +57,7 @@ this.metrics = {
   avgInferenceTime = {info = // await loadNeuralBindings();
   if(this.bindings) {
     // Load available models from bindings
-    const _modelList = this.bindings.listModels();
+    const modelList = this.bindings.listModels();
   for(const modelName of modelList) {'
       this.models.set(modelName, name = true; console.warn(` Enhanced Neural Engine initialized with ${this.models.size} models`); this.emit('initialized', {modelsLoaded = error instanceof Error ? error.message ) {;'
       this.logger.warn(' Neural bindings failed, using enhanced fallbackmode = true;'
@@ -85,18 +85,18 @@ this.metrics = {
         //         }
 
         // Deterministic embedding generation for consistency
-        const _embedding = this.generateDeterministicEmbedding(text);
+        const embedding = this.generateDeterministicEmbedding(text);
         // Normalize the embedding
-        const _norm = Math.sqrt(embedding.reduce((sum, val) => sum + val * val, 0));
+        const norm = Math.sqrt(embedding.reduce((sum, val) => sum + val * val, 0));
 //         return embedding.map(val => val / (norm  ?? 1));
         //   // LINT: unreachable code removed}
 
         // Batch embed multiple texts
         batchEmbed =>
         //         {
-          const _embeddings = [];
+          const embeddings = [];
   for(const text of texts) {
-// const _embedding = awaitthis.embed(text); 
+// const embedding = awaitthis.embed(text); 
             embeddings.push(embedding); //           }
           // return embeddings;
           //   // LINT: unreachable code removed}
@@ -112,22 +112,22 @@ this.metrics = {
       //       {
         // return {
       //       type => {'
-        const _lines = code.split('\n').filter(line => line.trim());
-        // const _functions = (code.match(/function|=>|def |class |func /g)  ?? []).length; // LINT: unreachable code removed
-        const _conditions = (code.match(/if|else|switch|case|while|for|try|catch/g) ?? []).length;
-        const _nesting = this.calculateNesting(code);
-        const _cyclomaticComplexity = conditions + 1;
-        const _cognitiveComplexity = nesting * 2 + conditions;
+        const lines = code.split('\n').filter(line => line.trim());
+        // const functions = (code.match(/function|=>|def |class |func /g)  ?? []).length; // LINT: unreachable code removed
+        const conditions = (code.match(/if|else|switch|case|while|for|try|catch/g) ?? []).length;
+        const nesting = this.calculateNesting(code);
+        const cyclomaticComplexity = conditions + 1;
+        const cognitiveComplexity = nesting * 2 + conditions;
 //         return {
           cyclomaticComplexity,'
         // cognitiveComplexity,linesOfCode = 'javascript'): Promise<CodeQualityResult> => { // LINT: unreachable code removed
-// const _complexity = awaitthis.analyzeComplexity(code);
-// const _patterns = awaitthis.detectPatterns(code, language);
-        const _maintainability = this.calculateMaintainability(complexity, patterns);
-        const _readability = this.calculateReadability(code);
-        const _testability = this.calculateTestability(code, complexity);
-        const _documentation = this.calculateDocumentation(code);
-        const _overallScore = (maintainability + readability + testability + documentation) / 4;
+// const complexity = awaitthis.analyzeComplexity(code);
+// const patterns = awaitthis.detectPatterns(code, language);
+        const maintainability = this.calculateMaintainability(complexity, patterns);
+        const readability = this.calculateReadability(code);
+        const testability = this.calculateTestability(code, complexity);
+        const documentation = this.calculateDocumentation(code);
+        const overallScore = (maintainability + readability + testability + documentation) / 4;
         // return {
           maintainability,
         // readability, // LINT: unreachable code removed
@@ -142,12 +142,12 @@ this.metrics = {
     // Detect code patterns
     detectPatterns =>
     //     {
-      const _patterns = {designPatterns = this.detectLongMethods(code);
+      const patterns = {designPatterns = this.detectLongMethods(code);
       patterns.codeSmells.push(...longMethods);
-      const _duplicateCode = this.detectDuplicateCode(code);
+      const duplicateCode = this.detectDuplicateCode(code);
       patterns.codeSmells.push(...duplicateCode);
       // Security analysis
-      const _securityIssues = this.detectSecurityIssues(code);
+      const securityIssues = this.detectSecurityIssues(code);
       patterns.securityIssues.push(...securityIssues);
       // return patterns;
       //   // LINT: unreachable code removed}
@@ -163,8 +163,8 @@ this.metrics = {
   //   {
     // return {
       //       type => {
-        const _features = this.extractContentFeatures(content);
-    // const _scores = new Map<string, number>(); // LINT: unreachable code removed
+        const features = this.extractContentFeatures(content);
+    // const scores = new Map<string, number>(); // LINT: unreachable code removed
     // Calculate scores based on features'
     if(features.hasCodeKeywords) scores.set('code', 0.8 + features.codeComplexity * 0.2);'
     if(features.hasTestKeywords) scores.set('test', 0.9 + features.testDensity * 0.1);
@@ -174,8 +174,8 @@ this.metrics = {
     if(features.hasDataKeywords) scores.set('data', 0.5 + features.dataStructure * 0.4);'
     if(features.hasMarkupKeywords) scores.set('markup', 0.7 + features.markupComplexity * 0.2);
     // Find highest scoring category'
-    const _bestCategory = 'unknown';
-    const _maxScore = 0;
+    const bestCategory = 'unknown';
+    const maxScore = 0;
     scores.forEach((score, category) => {
   if(score > maxScore) {
         maxScore = score;
@@ -184,7 +184,7 @@ this.metrics = {
     });
     // return {
           category => {
-        const _results = [];
+        const results = [];
     // for (const item of items) { // LINT: unreachable code removed
     results.push(// await this.classify(item)); 
   //   }
@@ -207,8 +207,8 @@ this.metrics = {
   includeTests = false;
 // }
 = options
-const _template = this.getCodeTemplate(language, framework);
-const _code = this.populateTemplate(template, requirements, options);
+const template = this.getCodeTemplate(language, framework);
+const code = this.populateTemplate(template, requirements, options);
 // Add tests if requested'';
   if(includeTests) {
   tests = // await this.generateTestCode(code, language, framework);
@@ -222,20 +222,20 @@ style,
 metadata = {};
 ): Promise<DocumentationResult> =>
 // {'
-// const _analysis = awaitthis.models.get('analysis')?.implementation?.analyzeComplexity?.(code);'
-// const _patterns = awaitthis.models.get('analysis')?.implementation?.detectPatterns?.(code);
-  const _overview = this.generateCodeOverview(code, analysis);
-  const _apiDocs = this.generateApiDocs(code);
-  const _examples = this.generateUsageExamples(code);
+// const analysis = awaitthis.models.get('analysis')?.implementation?.analyzeComplexity?.(code);'
+// const patterns = awaitthis.models.get('analysis')?.implementation?.detectPatterns?.(code);
+  const overview = this.generateCodeOverview(code, analysis);
+  const apiDocs = this.generateApiDocs(code);
+  const examples = this.generateUsageExamples(code);
   // return {
           overview,
   // apiDocs, // LINT: unreachable code removed
   examples, (readme = []);
   ): Promise<RefactoringResult> =>
   //   {
-    const _suggestions = [];'
-// const _analysis = awaitthis.models.get('analysis')?.implementation?.analyzeComplexity?.(code);'
-// const _patterns = awaitthis.models.get('analysis')?.implementation?.detectPatterns?.(code);
+    const suggestions = [];'
+// const analysis = awaitthis.models.get('analysis')?.implementation?.analyzeComplexity?.(code);'
+// const patterns = awaitthis.models.get('analysis')?.implementation?.detectPatterns?.(code);
     // Complexity-based suggestions
   if(analysis?.cyclomaticComplexity > 10) {
       suggestions.push({ //             type => {/g)'
@@ -243,30 +243,28 @@ metadata = {};
         suggestions.push({)
               //               type = {}): Promise<NeuralInferenceResult> {
 // // await this.initialize();
-        const _startTime = performance.now();
+        const startTime = performance.now();
         try {
       // Check cache first
-      const _cacheKey = this.generateCacheKey(modelType, operation, input);
+      const cacheKey = this.generateCacheKey(modelType, operation, input);
       if(this.config.enableCaching && this.cache.has(cacheKey)) {
         this.metrics.cacheHitRate++;
-        const _cached = this.cache.get(cacheKey);
+        const cached = this.cache.get(cacheKey);
         cached.fromCache = true;
         // return cached;
-    //   // LINT: unreachable code removed}
-
-       catch (error) console.error(error); const _result = this.formatPromptForOperation(modelType, operation, input);
+    //   // LINT: unreachable code removed} const result = this.formatPromptForOperation(modelType, operation, input);
   if(!model  ?? !model.implementation) {'
           throw new Error(`Model ${modelType} not available`);
         //         }`
   if(typeof model.implementation[operation] === 'function') {
-// const _data = awaitmodel.implementation[operation](input, options);
+// const data = awaitmodel.implementation[operation](input, options);
           result = {
             data,model = performance.now() - startTime;
       this.updateMetrics(modelType, processingTime, false);
 '
       // return result.data?.code  ?? result.data  ?? `// Generated code basedon = 1536): number[] {`
-    const _embedding = new Array(dimension);
-    // let _hash = this.simpleHash(text); // LINT: unreachable code removed
+    const embedding = new Array(dimension);
+    // let hash = this.simpleHash(text); // LINT: unreachable code removed
   for(let i = 0; i < dimension; i++) {
       hash = (hash * 9301 + 49297) % 233280;
       embedding[i] = (hash / 233280) * 2 - 1;
@@ -276,7 +274,7 @@ metadata = {};
     //   // LINT: unreachable code removed}
 
   // private calculateNesting(code = 0;
-    const _currentNesting = 0;
+    const currentNesting = 0;
   for(const char of code) {`
   if(char === '{'  ?? char === '('  ?? char === '[') {'
         currentNesting++; maxNesting = Math.max(maxNesting, currentNesting); } else if(char === '}'  ?? char === ') {'  ?? char === ']') {
@@ -307,10 +305,10 @@ metadata = {};
     //   // LINT: unreachable code removed}
 '
   // private calculateReadability(code = code.split('\n');
-    const _avgLineLength = lines.reduce((sum, line) => sum + line.length, 0) / lines.length;'
-    const _commentRatio = lines.filter(line => line.trim().startsWith('//')  ?? line.trim().startsWith('/*')).length / lines.length; */'').length / lines.length;
+    const avgLineLength = lines.reduce((sum, line) => sum + line.length, 0) / lines.length;'
+    const commentRatio = lines.filter(line => line.trim().startsWith('//')  ?? line.trim().startsWith('/*')).length / lines.length; */'').length / lines.length;
 
-const _score = 100;
+const score = 100;
 
 // Penalize very long lines
 if (avgLineLength > 80) score -= 15;
@@ -323,9 +321,9 @@ score += commentRatio * 25;
 if (blankLineRatio > 0.1 && blankLineRatio < 0.3) score += 10;
 
 // Check for meaningful variable names
-const _meaningfulNames = (code.match(/\b[a-zA-Z_][a-zA-Z0-9_]{2 }\b/g) ?? []).length;
-const _totalIdentifiers = (code.match(/\b[a-zA-Z_][a-zA-Z0-9_]*\b/g) ?? []).length;
-const _meaningfulRatio = meaningfulNames / (totalIdentifiers ?? 1);
+const meaningfulNames = (code.match(/\b[a-zA-Z_][a-zA-Z0-9_]{2 }\b/g) ?? []).length;
+const totalIdentifiers = (code.match(/\b[a-zA-Z_][a-zA-Z0-9_]*\b/g) ?? []).length;
+const meaningfulRatio = meaningfulNames / (totalIdentifiers ?? 1);
 score += meaningfulRatio * 15;
 
 // return Math.max(0, Math.min(100, score));
@@ -348,26 +346,26 @@ if(complexity) {
     //     }
 
     // Reward pure functions
-    const _pureFunctionScore = this.estimatePureFunctions(code);
+    const pureFunctionScore = this.estimatePureFunctions(code);
     score += pureFunctionScore * 10;
 // 
     return Math.max(0, Math.min(100, score));
     //   // LINT: unreachable code removed}
 '
   // private calculateDocumentation(code = code.split('\n');
-    const _commentLines = lines.filter(line => {)
-      const _trimmed = line.trim();'
+    const commentLines = lines.filter(line => {)
+      const trimmed = line.trim();'
 //       return trimmed.startsWith('//')  ?? trimmed.startsWith('/*')  ?? trimmed.startsWith('*')  ?? trimmed.startsWith('/**'); */
     //   // LINT: unreachable code removed}).length;
 
-    const _docRatio = commentLines / lines.length;
+    const docRatio = commentLines / lines.length;
 
     // Check for JSDoc-style comments
-    const _jsdocCount = (code.match(/\/\*\*[\s\S]*?\*\//g)  ?? []).length;
-    const _functionCount = (code.match(/function|=>/g)  ?? []).length;
-    const _jsdocRatio = jsdocCount / (functionCount  ?? 1);
+    const jsdocCount = (code.match(/\/\*\*[\s\S]*?\*\//g)  ?? []).length;
+    const functionCount = (code.match(/function|=>/g)  ?? []).length;
+    const jsdocRatio = jsdocCount / (functionCount  ?? 1);
 
-    const _score = Math.min(100, docRatio * 150);
+    const score = Math.min(100, docRatio * 150);
     score += jsdocRatio * 25;
 // 
     return Math.max(0, Math.min(100, score));
@@ -377,8 +375,8 @@ if(complexity) {
     // return methods;
     // .filter(method => method.lines > 30); // LINT: unreachable code removed'
 map(method => ({ smell = code.split('\n').map(line => line.trim()).filter(line => line.length > 5);
-    const _duplicates = [];
-    const _lineOccurrences = new Map<string, number>();
+    const duplicates = [];
+    const lineOccurrences = new Map<string, number>();
 
     // Count line occurrences
     lines.forEach(line => {)
@@ -397,14 +395,14 @@ map(method => ({ smell = code.split('\n').map(line => line.trim()).filter(line =
         issue = {hasCodeKeywords = 
 
       // Calculate additional complexity featurescodeComplexity = [];'
-    const _lines = code.split('\n');
-    const _currentMethod = null;
-    const _braceCount = 0;
+    const lines = code.split('\n');
+    const currentMethod = null;
+    const braceCount = 0;
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
+      const line = lines[i];
 
       // Detect method start
-      const _methodMatch = line.match(/(?)?(\w+)\s*\([^)]*\)\s*{|(\w+)\s*[]\s*(?)?(?:function|\([^)]*\)\s*=>)/);
+      const methodMatch = line.match(/(?)?(\w+)\s*\([^)]*\)\s*{|(\w+)\s*[]\s*(?)?(?:function|\([^)]*\)\s*=>)/);
   if(methodMatch && !currentMethod) {
         currentMethod = {name = 0;
       //       }
@@ -427,13 +425,13 @@ map(method => ({ smell = code.split('\n').map(line => line.trim()).filter(line =
     //   // LINT: unreachable code removed}
 
   // private estimatePureFunctions(code) {
-    const _totalFunctions = (code.match(/function|=>/g)  ?? []).length;
+    const totalFunctions = (code.match(/function|=>/g)  ?? []).length;
     if(totalFunctions === 0) return 0;
     // ; // LINT: unreachable code removed
     // Simpleheuristic = (code.match(/global\.|window\.|document\.|console\./g)  ?? []).length;
-    const _sideEffects = (code.match(/localStorage|sessionStorage|fetch|XMLHttpRequest/g)  ?? []).length;
+    const sideEffects = (code.match(/localStorage|sessionStorage|fetch|XMLHttpRequest/g)  ?? []).length;
 
-    const _pureFunctionRatio = Math.max(0, 1 - (globalRefs + sideEffects) / totalFunctions);
+    const pureFunctionRatio = Math.max(0, 1 - (globalRefs + sideEffects) / totalFunctions);
     // return pureFunctionRatio;
     //   // LINT: unreachable code removed}
 
@@ -480,7 +478,7 @@ map(method => ({ smell = code.split('\n').map(line => line.trim()).filter(line =
 
 GeneratedComponent.propTypes = {initialData = 0;
   for(let i = 0; i < str.length; i++) {
-      const _char = str.charCodeAt(i);
+      const char = str.charCodeAt(i);
       hash = ((hash << 5) - hash) + char;
       hash = hash & hash;
     //     }
@@ -525,7 +523,7 @@ GeneratedComponent.propTypes = {initialData = 0;
       capabilities.push({ type,source = memoryStore;)'
     console.warn(' Enhanced NeuralEngine = > m.loaded).length,'
       metrics = ): Promise<string> => {
-        const _context = code.substring(Math.max(0, code.length - 200));'
+        const context = code.substring(Math.max(0, code.length - 200));'
 //         return `\$code\n// Suggested completion based on context`;
     //   // LINT: unreachable code removed}
     //     }
@@ -537,7 +535,7 @@ GeneratedComponent.propTypes = {initialData = 0;
   : Promise<any>;
   // return {
       //       type => {
-        const _bugs = [];`
+        const bugs = [];`
     // if(code.includes('const ')) { // LINT: unreachable code removed
     bugs.push({ type => {'
 //         return ['Extract method', 'Rename variables', 'Remove duplicates'];
@@ -553,7 +551,7 @@ GeneratedComponent.propTypes = {initialData = 0;
     : Promise<any>
     // return {
       //       type => {`
-//         return `/**\n * Generated documentation\n * @description Auto-generated docs for provided code\n */`;
+//         return `/**\n *  */Generated documentation\n * @description Auto-generated docs for provided code\n */`;
   //   }
 // }
 // Additional methods for generation model
@@ -566,7 +564,7 @@ GeneratedComponent.propTypes = {initialData = 0;
 `
 // }`
 // private estimateCodeQuality(code = code.split('\n').length
-const _complexity = Math.min(lines / 50, 1);
+const complexity = Math.min(lines / 50, 1);
 // return Math.max(0.3, 1 - complexity);
 // }
 // private generateCodeOverview(code = this.extractMethods(code)'

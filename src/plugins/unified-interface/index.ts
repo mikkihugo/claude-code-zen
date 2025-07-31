@@ -55,8 +55,7 @@ import type {
   PluginConfig,
   PluginContext,
   PluginManifest,
-',
-} from '../../types/plugin.js'
+'} from '../../types/plugin.js'
 '
 // import { BasePlugin  } from '../base-plugin.js';
 
@@ -96,7 +95,7 @@ import type {
 // private;
 // eventHandlers = new Map();
 // constructor(manifest = process.env.PORT ? parseInt(process.env.PORT) ;
-// const _interfaceConfig = {defaultMode = = false,refreshInterval = = false;
+// const interfaceConfig = {defaultMode = = false,refreshInterval = = false;
 // // }
 // Store config back to plugin settings
 Object.assign(this.config.settings, interfaceConfig)
@@ -131,13 +130,13 @@ private;
 detectInterfaceMode();
 : InterfaceMode
 // {'
-const _defaultMode = this.config.settings.defaultMode ?? 'auto';'
+const defaultMode = this.config.settings.defaultMode ?? 'auto';'
 if(defaultMode !== 'auto') {
     // return defaultMode;
     //   // LINT: unreachable code removed}
 
   // Check command line arguments
-  const _args = process.argv.slice(2);
+  const args = process.argv.slice(2);
 
   // Check for daemon mode'
   if(args.includes('--daemon')) {
@@ -217,13 +216,13 @@ startCliMode();
 private;''));
 
 // {'
-  const _theme = this.themes[this.config.settings.theme as 'dark' | 'light'];
+  const theme = this.themes[this.config.settings.theme as 'dark' | 'light'];
 
   // return boxen(;'
     // chalk.hex(theme.primary).bold(title) + ; // LINT: unreachable code removed(subtitle ? '\n''),'
       {padding = this.themes[this.config.settings.theme as 'dark' | 'light'];
 
-  const _table = new Table({head = > chalk.hex(theme.primary).bold(h)),
+  const table = new Table({head = > chalk.hex(theme.primary).bold(h)),
       style => {
       table.push(row.map(cell => ;))'
         typeof cell === 'string' ?cell = === 'dark' ? 'cyan' ).start();
@@ -234,7 +233,7 @@ async;'
 showCliPrompt((questions = 'info'));
 
 // {'
-  const _theme = this.themes[this.config.settings.theme as 'dark' | 'light'];
+  const theme = this.themes[this.config.settings.theme as 'dark' | 'light'];
 
   console.warn(boxen(content, {padding = () => {'
       const [activeTab, setActiveTab] = useState('dashboard');
@@ -248,16 +247,16 @@ showCliPrompt((questions = 'info'));
         //         }
 
         // Tab switching'
-        const _tabs = ['dashboard', 'hives', 'plugins', 'logs'];
-        const _tabIndex = parseInt(input) - 1;
+        const tabs = ['dashboard', 'hives', 'plugins', 'logs'];
+        const tabIndex = parseInt(input) - 1;
   if(tabIndex >= 0 && tabIndex < tabs.length) {
           setActiveTab(tabs[tabIndex]);
         //         }
 
         // Navigation
   if(key.leftArrow  ?? key.rightArrow) {
-          const _currentIndex = tabs.indexOf(activeTab);
-          const _nextIndex = currentIndex > 0 ? currentIndex -1 = currentIndex < tabs.length - 1 ? currentIndex + 1 ;
+          const currentIndex = tabs.indexOf(activeTab);
+          const nextIndex = currentIndex > 0 ? currentIndex -1 = currentIndex < tabs.length - 1 ? currentIndex + 1 ;
           //           }
 
           setActiveTab(tabs[nextIndex]);
@@ -276,7 +275,7 @@ showCliPrompt((questions = 'info'));
   // Auto-refresh data
   useEffect(() => {
   if(this.config.settings.autoRefresh) {
-      const _interval = setInterval(() => {
+      const interval = setInterval(() => {
         this.refreshData().then(setData);
       }, this.config.settings.refreshInterval);
 
@@ -332,10 +331,10 @@ this.tuiInstance = render(React.createElement(TuiApp));
     // // await writeFile(join(this.config.settings.staticDir, 'index.html'), htmlContent); // LINT: unreachable code removed
 
   // Generate CSS
-  const _cssContent = this.createWebStyles();'
+  const cssContent = this.createWebStyles();'
 // // await writeFile(join(this.config.settings.staticDir, 'styles.css'), cssContent);
   // Generate JavaScript
-  const _jsContent = this.createWebScript();'
+  const jsContent = this.createWebScript();'
 // // await writeFile(join(this.config.settings.staticDir, 'app.js'), jsContent);
 // }
 
@@ -343,7 +342,7 @@ private;
 createWebDashboard();
 
 // {'
-  const _theme = this.themes[this.config.settings.theme as 'dark' | 'light'];
+  const theme = this.themes[this.config.settings.theme as 'dark' | 'light'];
 '
   // return `<!DOCTYPE html>;``
     // <html lang="en">; // LINT: unreachable code removed
@@ -469,7 +468,7 @@ private;
 createWebStyles();
 
 // {"
-  const _theme = this.themes[this.config.settings.theme as 'dark' | 'light'];
+  const theme = this.themes[this.config.settings.theme as 'dark' | 'light'];
 '
   // return `;`
     // /* CSS styles implementation - truncated for brevity */ // LINT: unreachable code removed
@@ -486,7 +485,7 @@ createWebStyles();
         this.loadData();
     //     }
   connectWebSocket() {'
-        const _protocol = window.location.protocol === ''
+        const protocol = window.location.protocol === ''
         this.ws = new WebSocket(\`\${protocol}//\${host}/ws\`);
 
         this.ws.onopen = () => {`
@@ -495,7 +494,7 @@ createWebStyles();
         };
 
         this.ws.onmessage = () => {
-            const _message = JSON.parse(event.data);
+            const message = JSON.parse(event.data);
             this.handleWebSocketMessage(message);
         };
 
@@ -521,8 +520,8 @@ createWebStyles();
             this.data.stats?.sessions  ?? 0;
     //     }
   updateStatus(text, type) {'
-        const _statusText = document.querySelector('.status-text');'
-        const _statusDot = document.querySelector('.status-dot');
+        const statusText = document.querySelector('.status-text');'
+        const statusDot = document.querySelector('.status-dot');
 
         statusText.textContent = text;'
         statusDot.className = \`status-dot status-\$type\`;
@@ -548,18 +547,18 @@ setupWebRoutes(app => {
       res.json({
         status => {
       try {
-// const _plugins = awaitthis.getPluginsData();
+// const plugins = awaitthis.getPluginsData();
         res.json(plugins);
-      } catch (error) { console.error(error); } catch(error => {
+      } catch(error => {
       try {
-        const _stats = {
+        const stats = {
           sessions => {
       try {
-        const { command }  catch (error) { console.error(error); }= req.body;
+        const { command }= req.body;
 
         res.json({ success => {
       try {
-        const _settings = req.body;
+        const settings = req.body;
         Object.assign(this.config.settings, settings);
         res.json({success = new WebSocketServer({ ;
       server => {))`
@@ -568,11 +567,9 @@ setupWebRoutes(app => {
 '
       websocket.on('message', (data) => 
         try {
-          const _message = JSON.parse(data.toString());
+          const message = JSON.parse(data.toString());
           this.handleWebSocketMessage(websocket, message);
-        } catch (error) {
-  console.error(error);
-}'
+        }'
           this.context.apis.logger.error('Invalid WebSocket message', error););
 '
       websocket.on('close', () => '
@@ -593,7 +590,7 @@ setupWebRoutes(app => {
 
   // private async setupDaemonLogging(): Promise<void> {
     // Redirect stdout and stderr to log file
-    const _logStream = createWriteStream(this.config.settings.logFile, {flags = logStream.write.bind(logStream) as any;
+    const logStream = createWriteStream(this.config.settings.logFile, {flags = logStream.write.bind(logStream) as any;
     process.stderr.write = logStream.write.bind(logStream) as any;
   //   }
 
@@ -604,15 +601,13 @@ setupWebRoutes(app => {
   // private async isDaemonRunning(): Promise<boolean> {
     try {
 // await access(this.config.settings.pidFile);
-// const _pid = awaitthis.getDaemonPid();
+// const pid = awaitthis.getDaemonPid();
   if(pid) {
         // Check if process is actually running
         try {
           process.kill(pid, 0); // Signal 0 just checks if process exists
           // return true;
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
           // Process not running, remove stale PID file
 // // await this.removePidFile();
           // return false;
@@ -626,25 +621,23 @@ setupWebRoutes(app => {
 
   // private async getDaemonPid(): Promise<number | null> {
     try {`
-// const _pidContent = awaitreadFile(this.config.settings.pidFile, 'utf8');
+// const pidContent = awaitreadFile(this.config.settings.pidFile, 'utf8');
       // return parseInt(pidContent.trim());
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
       // return null;
     //   // LINT: unreachable code removed}
   //   }
 
   // private async removePidFile(): Promise<void> {
     try {''); // Clear the file instead of deleting
-    } catch (error) { console.error(error); } catch(error) 
+    } catch(error) 
       // Ignore errors when removing PID file
     //     }
   //   }
 
   // Public API methods
   async start(mode?): Promise<any> {
-    const _targetMode = mode  ?? this.currentMode!;
+    const targetMode = mode  ?? this.currentMode!;
   switch(targetMode) {'
       case 'daemon':
         // return // await this.startDaemonMode();'
@@ -667,7 +660,7 @@ setupWebRoutes(app => {
   broadcast(message => {
         try {
           this.sendWebSocketMessage(client, message);
-        } catch (error) { console.error(error); } catch(error) '
+        } catch(error) '
           this.context.apis.logger.error('Failed to send WebSocket message', error);
           this.wsClients.delete(client););
     //     }
@@ -675,7 +668,7 @@ setupWebRoutes(app => {
 
   async getStats(): Promise<JSONObject> 
     // return {currentMode = await this.isDaemonRunning();
-    // const _pid = await this.getDaemonPid(); // LINT: unreachable code removed
+    // const pid = await this.getDaemonPid(); // LINT: unreachable code removed
   if(isRunning) {'
       // return {status = === 'true') {'
       this.context.apis.logger.info('Unified server staying alive in daemon mode');
@@ -690,7 +683,7 @@ setupWebRoutes(app => {
           this.wsClients.forEach(client => {
             try {
               client.close();
-            } catch (error) { console.error(error); } catch(error) );
+            } catch(error) );
           this.wsClients.clear();
         //         }
 

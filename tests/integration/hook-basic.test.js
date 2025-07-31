@@ -8,18 +8,18 @@ describe('Hook Basic Tests', () =>
   it('should pass basic test', () => 
     expect(true).toBe(true););'
   it('should handle hook parameters', () => {
-    const _options = {'
+    const options = {'
       'validate-safety','
       'prepare-resources' };'
-  const _validateSafety = options['validate-safety'] ?? options.validate ?? false;'
-  const _prepareResources = options['prepare-resources'] ?? false;
+  const validateSafety = options['validate-safety'] ?? options.validate ?? false;'
+  const prepareResources = options['prepare-resources'] ?? false;
   expect(validateSafety).toBe(true);
   expect(prepareResources).toBe(false);
 });'
 it('should map file extensions to agents', () => {
-  const _getAgentTypeFromFile = () => {'
-      const _ext = filePath.split('.').pop().toLowerCase();
-      const _agentMap = {'
+  const getAgentTypeFromFile = () => {'
+      const ext = filePath.split('.').pop().toLowerCase();
+      const agentMap = {'
         js: 'javascript-developer','
         ts: 'typescript-developer','
         py: 'python-developer','
@@ -34,8 +34,8 @@ it('should map file extensions to agents', () => {
   expect(getAgentTypeFromFile('test.unknown')).toBe('general-developer');
 });'
 it('should detect dangerous commands', () => {'
-  const _dangerousCommands = ['rm -rf', 'format', 'del /f', 'rmdir /s', 'dd if='];
-  const _isDangerous = () => {
+  const dangerousCommands = ['rm -rf', 'format', 'del /f', 'rmdir /s', 'dd if='];
+  const isDangerous = () => {
 //       return dangerousCommands.some((cmd) => command.includes(cmd));
     //   // LINT: unreachable code removed};'
     expect(isDangerous(''

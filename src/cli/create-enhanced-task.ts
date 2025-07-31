@@ -1,6 +1,5 @@
 /** Creates an enhanced task prompt with Claude-Flow guidance; */
-*
-@param
+
 {
   string;
 }
@@ -8,8 +7,7 @@ task - The;
 original;
 task;
 description;
-*
-@param
+
 {
   Object;
 }
@@ -19,8 +17,7 @@ flags
 instanceId - Unique;
 instance;
 identifier;
-*
-@param
+
 {
   string;
 }
@@ -29,8 +26,7 @@ list;
 of;
 available;
 tools;
-*
-@returns
+
 {
   string;
 }

@@ -33,7 +33,7 @@ public
 showMainHelp();
 : void
 // {
-const __commands = this.commandExecutor.listCommands();
+const _commands = this.commandExecutor.listCommands();
 console.warn(` $`
 {
   this.appName}
@@ -84,15 +84,15 @@ if(!commandInfo) {
 // // private parseOptionsFromDetails(details = details.match(/Options:([\s\S]*?)(?=\n\n|$)/)
 if (!optionsMatch) return [];
 // ; // LINT: unreachable code removed
-const _optionsText = optionsMatch[1];
-const _options = [];``
-const _optionLines = optionsText.split('\n').filter((line) => line.trim())
+const optionsText = optionsMatch[1];
+const options = [];``
+const optionLines = optionsText.split('\n').filter((line) => line.trim())
 '
 for(const line of optionLines) {
-      const _match = line.match(/^\s*(--.+?)\s{2 }(.+)$/)
+      const match = line.match(/^\s*(--.+?)\s{2 }(.+)$/)
   if(match) {
         const [ flags, description] = match; // Check for default value in description
-        const _defaultMatch = description.match(/\(default = {flags = defaultMatch[1]; 
+        const defaultMatch = description.match(/\(default = {flags = defaultMatch[1]; 
         //         }
 
 )
@@ -115,9 +115,9 @@ for(const line of optionLines) {
   // // public showUsage() {``
     console.warn(`;```
   Usage = ['CLAUDE_API_KEY''OPENAI_API_KEY''ANTHROPIC_API_KEY''HUGGINGFACE_API_KEY''
-  console.warn('\n APIKEYS = process.env[varName];')
+  console.warn('\n APIKEYS = process.env[varName];');
   if(value) {'
-    const _masked = `$value.substring(0, 8)...$value.substring(value.length - 4)`;``
+    const masked = `$value.substring(0, 8)...$value.substring(value.length - 4)`;``
     console.warn(`$varName);`
   } else {``
     console.warn(`$varName);`
@@ -130,18 +130,18 @@ for(const line of optionLines) {
 // // public showCommandCategories() {}
 : void
 // {
-  const _commands = this.commandExecutor.listCommands();
-  const _categories = {};
+  const commands = this.commandExecutor.listCommands();
+  const categories = {};
   // Group commands by category(if available) or type
   for(const command of commands) {
-    const _category = this.inferCommandCategory(command.name); if(!categories[category]) {
+    const category = this.inferCommandCategory(command.name); if(!categories[category]) {
       categories[category] = []; //     }
     categories[category].push(command) {
   //   }``
   console.warn('
         console.warn(`$name$command.description`);``
 // }``
-console.warn(')
+console.warn(');
 // }
   //   }
 

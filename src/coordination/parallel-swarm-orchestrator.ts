@@ -53,15 +53,15 @@ this.workerPool.on('task-progress', (data) =>'
 this.workerPool.on('worker-error', (_data) =>'
 // {'
   console.warn(`Worker error = ) {`
-    const _startTime = Date.now();
+    const startTime = Date.now();
 
     try {``
       console.warn(` Launchingswarm = this.shouldUseParallelExecution(objective, options);`
   if(useParallel && this.workerPool) {``
-    console.warn(' Using parallel execution with worker threads')
+    console.warn(' Using parallel execution with worker threads');
     // return // // await this.launchParallelSwarm(objective, options);
     //   // LINT: unreachable code removed}  catch (error) { console.error(error)}else {'
-    console.warn(' Using sequential execution')
+    console.warn(' Using sequential execution');
     // return // // await this.launchSequentialSwarm(objective, options);
     //   // LINT: unreachable code removed}
 // }
@@ -79,10 +79,10 @@ this.updateMetrics(useParallel, executionTime);
 );
 // {
     // Create swarm configuration using base orchestrator
-    const __swarmConfig = this.baseOrchestrator.buildSwarmConfig(objective, options);
+    const _swarmConfig = this.baseOrchestrator.buildSwarmConfig(objective, options);
 
     // Analyze objective to determine task decomposition
-    const _taskPlan = this.createParallelTaskPlan(objective, options);
+    const taskPlan = this.createParallelTaskPlan(objective, options);
 ``
     console.warn(` Parallel taskplan = // // await this.executeParallelTaskPlan(taskPlan, swarmConfig);`
 
@@ -90,40 +90,40 @@ this.updateMetrics(useParallel, executionTime);
 ``
   // Store in base orchestrator's tracking'
   this.baseOrchestrator.activeSwarms.set(swarmConfig.id, {_id = > ({ id = {}) {
-// const _result = awaitthis.baseOrchestrator.launchSwarm(objective, options);
+// const result = awaitthis.baseOrchestrator.launchSwarm(objective, options);
   this.metrics.sequentialTasks++;
   // return {
 ..result,mode = this.baseOrchestrator.analyzeComplexity(objective);
-    // const _domain = this.baseOrchestrator.detectDomain(objective); // LINT: unreachable code removed
+    // const domain = this.baseOrchestrator.detectDomain(objective); // LINT: unreachable code removed
 
   // Define task decomposition strategy
-  const _tasks = this.decomposeObjectiveIntoTasks(objective, domain, complexity, options);
+  const tasks = this.decomposeObjectiveIntoTasks(objective, domain, complexity, options);
 
   // Group tasks that can run in parallel
-  const _parallelGroups = this.createParallelGroups(tasks);
+  const parallelGroups = this.createParallelGroups(tasks);
 
   // return {
       objective,
     // domain, // LINT: unreachable code removed
       complexity,
       tasks,parallelGroups = [];
-  const __taskCounter = 0;
+  const _taskCounter = 0;
 
   // Add agent spawning tasks(can run in parallel)
-  const _agentPlan = this.baseOrchestrator.analyzeObjectiveForAgents(objective, options);
+  const agentPlan = this.baseOrchestrator.analyzeObjectiveForAgents(objective, options);
   agentPlan.forEach(_agentSpec => {)
       tasks.push(id = new Map();
 
     // Group tasks by parallelGroup and dependencies
     tasks.forEach(task => {'
-      const _groupKey = task.parallelGroup  ?? 'default')'
+      const groupKey = task.parallelGroup  ?? 'default')'
       if(!groups.has(groupKey)) {
         groups.set(groupKey, []);
       //       }
       groups.get(groupKey).push(task)});
 
     // Convert to array and sort by dependencies
-    const _groupArray = Array.from(groups.entries()).map(([_groupName, _groupTasks]) => ({ name = > t.dependencies.length === 0)}));
+    const groupArray = Array.from(groups.entries()).map(([_groupName, _groupTasks]) => ({ name = > t.dependencies.length === 0)}));
 
 // Sort groups by dependency order
 // return this.sortGroupsByDependencies(groupArray);
@@ -132,7 +132,7 @@ this.updateMetrics(useParallel, executionTime);
 /** Get dependencies for a group of tasks */
 
   getGroupDependencies(tasks) {
-  const _allDependencies = tasks.flatMap((task) => task.dependencies);
+  const allDependencies = tasks.flatMap((task) => task.dependencies);
   // return [...new Set(allDependencies)];
 // }
 
@@ -141,11 +141,11 @@ this.updateMetrics(useParallel, executionTime);
 sortGroupsByDependencies(groups);
 
 // {
-  const _sorted = [];
-  const _remaining = [...groups];
-  const _completed = new Set();
+  const sorted = [];
+  const remaining = [...groups];
+  const completed = new Set();
   while(remaining.length > 0) {
-    const _canRun = remaining.filter((_group) =>;
+    const canRun = remaining.filter((_group) =>;
       group.dependencies.every((dep) => completed.has(dep));
     );
   if(canRun.length === 0) {
@@ -170,7 +170,7 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
 // {'
     console.warn(` Executing parallel task plan with ${taskPlan.groups.length} groups`);``
 
-    const __results = new Map();
+    const _results = new Map();
 
     // Execute groups in dependency order
   for(const group of taskPlan.groups) {``
@@ -180,7 +180,7 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
       } else {
         // Execute tasks sequentially
   for(const task of group.tasks) {
-// const _result = awaitthis.executeTaskWithWorker(task); 
+// const result = awaitthis.executeTaskWithWorker(task); 
           results.set(task.id, result); //         }
       //       }
 ``
@@ -195,40 +195,40 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
   async executeTaskGroupInParallel(tasks) { ``
     console.warn(` Executing $tasks.length} tasks in parallel`);``
 
-    const _promises = tasks.map(task => this.executeTaskWithWorker(task));
-// const _results = awaitPromise.allSettled(promises);
+    const promises = tasks.map(task => this.executeTaskWithWorker(task));
+// const results = awaitPromise.allSettled(promises);
 
-    const _resultMap = new Map();
+    const resultMap = new Map();
     tasks.forEach((task, index) => {
-      const _result = results[index];``
+      const result = results[index];``
   if(result.status === 'fulfilled') {'
         resultMap.set(task.id, result.value)} else {'
         console.error(`Task $task.idfailed = Date.now();`
 
     try {``
       console.warn(` Submitting task $task.idcatch (error) console.error(error)to worker pool`);``
-// const _result = awaitthis.workerPool.executeTask({type = Date.now() - startTime;``
+// const result = awaitthis.workerPool.executeTask({type = Date.now() - startTime;``
       console.warn(` Task $task.idcompleted in $executionTimems`);``
 
       // return {
 ..result,taskId = Date.now() - startTime;``
     // console.error(` Task \${task.id // LINT} failed after ${executionTime}ms = Array.from(taskResults.values()).filter(r => r.success);`
-    const _failed = Array.from(taskResults.values()).filter(r => !r.success);
+    const failed = Array.from(taskResults.values()).filter(r => !r.success);
 
-    const _totalExecutionTime = Math.max(...Array.from(taskResults.values()).map(r => r.executionTime));
+    const totalExecutionTime = Math.max(...Array.from(taskResults.values()).map(r => r.executionTime));
 
     // return {swarmId = > r.agent).map(r => r.agent),summary = === false  ?? !this.parallelMode) {
       // return false;
     //   // LINT: unreachable code removed}
 
     // Use parallel for complex objectives
-    const _complexity = this.baseOrchestrator.analyzeComplexity(objective);``
+    const complexity = this.baseOrchestrator.analyzeComplexity(objective);``
   if(complexity === 'high') {'
       // return true;
     //   // LINT: unreachable code removed}
 
     // Use parallel for development and research tasks
-    const _domain = this.baseOrchestrator.detectDomain(objective)
+    const domain = this.baseOrchestrator.detectDomain(objective)
     if(['development', 'research', 'testing', 'analysis'].includes(domain)) {'
       // return true;
     //   // LINT: unreachable code removed}
@@ -259,8 +259,8 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
 
     // Calculate speedup factor
   if(this.metrics.parallelTasks > 0 && this.metrics.sequentialTasks > 0) {
-      const _avgSequential = this.metrics.totalExecutionTime / this.metrics.sequentialTasks;
-      const _avgParallel = this.metrics.parallelExecutionTime / this.metrics.parallelTasks;
+      const avgSequential = this.metrics.totalExecutionTime / this.metrics.sequentialTasks;
+      const avgParallel = this.metrics.parallelExecutionTime / this.metrics.parallelTasks;
       this.metrics.speedupFactor = avgSequential / avgParallel;
     //     }
   //   }
@@ -268,9 +268,9 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
 /** Get orchestrator status including parallel metrics */
 
   async getSwarmStatus(swarmId = null) { 
-// const _baseStatus = awaitthis.baseOrchestrator.getSwarmStatus(swarmId);
+// const baseStatus = awaitthis.baseOrchestrator.getSwarmStatus(swarmId);
 
-    const _parallelStatus = 
+    const parallelStatus = 
       parallelMode: this.parallelMode,
       workerPool: this.workerPool ? this.workerPool.getStatus() ,
       metrics: this.metrics};
@@ -290,13 +290,13 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
 /** Shutdown orchestrator and worker pool */
 
   async shutdown() '
-    console.warn(' Shutting down Parallel Swarm Orchestrator...')
+    console.warn(' Shutting down Parallel Swarm Orchestrator...');
 
     if(this.workerPool) 
 // // // await this.workerPool.shutdown();
     //     }
 // // // await this.baseOrchestrator.shutdown()
-    console.warn(' Parallel Swarm Orchestrator shutdown complete')
+    console.warn(' Parallel Swarm Orchestrator shutdown complete');
 
   // Delegate other methods to base orchestrator
   buildSwarmConfig(...args): unknown

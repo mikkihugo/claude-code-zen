@@ -33,7 +33,7 @@ this.plugins.set(pluginName, {
     }, this.config.interval));
 // Set up performance monitoring
 this.performanceObserver = new PerformanceObserver((list) => {
-    const _entries = list.getEntries();
+    const entries = list.getEntries();
   for(const entry of entries) {
       this.processPerformanceEntry(entry); //     }
   }); this.performanceObserver.observe({ entryTypes => {
@@ -46,24 +46,24 @@ this.performanceObserver = new PerformanceObserver((list) => {
 
   for(const [pluginName, pluginData] of this.plugins) {
     try {
-// const _metrics = awaitthis.gatherPluginMetrics(pluginName, pluginData); 
+// const metrics = awaitthis.gatherPluginMetrics(pluginName, pluginData); 
 
         // Store metrics
         pluginData.metrics.push(metrics); // Check for alerts
 // // await this.checkResourceAlerts(pluginName, metrics, pluginData.limits) {;'
-        this.emit('metrics-collected', { pluginName, metrics } catch (error) { console.error(error); });
+        this.emit('metrics-collected', { pluginName, metrics });
       } catch(_error
     = new Date() 
     // Get memory usage
-    const _memUsage = memoryUsage();
+    const memUsage = memoryUsage();
     // Get CPU usage
-    const __cpuData = cpuUsage();
+    const _cpuData = cpuUsage();
     // Get disk I/O(estimated)
 
     // return {
       pluginName,
     // timestamp,memory = config.resourceLimits?.memory  ?? 512; // LINT: unreachable code removed
-    const _limitBytes = limitMB * 1024 * 1024;
+    const limitBytes = limitMB * 1024 * 1024;
     // return(memUsage.heapUsed / limitBytes) * 100;
     //   // LINT: unreachable code removed}
     private;
@@ -133,7 +133,7 @@ if(memory.percentage >= critical) {
     //     }
 
     // Determine enforcement action'
-    const _action = 'throttle';
+    const action = 'throttle';
   if(alert.percentage > 150) {'
       action = 'terminate';
     } else if(alert.percentage > 120) {'
@@ -142,7 +142,7 @@ if(memory.percentage >= critical) {
       action = 'quarantine';
     //     }
 
-    const _enforcement = {action = // await this.executeEnforcement(alert.pluginName, enforcement);
+    const enforcement = {action = // await this.executeEnforcement(alert.pluginName, enforcement);
     enforcement.successful = success;
     pluginData.lastEnforcement = enforcement;
 '
@@ -186,17 +186,17 @@ if(memory.percentage >= critical) {
     // return {allocated = this.plugins.get(pluginName);
     // if(!pluginData) return []; // LINT: unreachable code removed
 
-    const _metrics = pluginData.metrics;
+    const metrics = pluginData.metrics;
     // return limit ? metrics.slice(-limit) ;
     //   // LINT: unreachable code removed}
 
   getActiveAlerts(pluginName?);
   if(pluginName) {
-      const _pluginData = this.plugins.get(pluginName);
+      const pluginData = this.plugins.get(pluginName);
       // return pluginData ? pluginData.alerts.filter(alert => !alert.acknowledged) : [];
     //   // LINT: unreachable code removed}
 
-    const _allAlerts = [];
+    const allAlerts = [];
   for(const [ pluginData] of this.plugins) {
       allAlerts.push(...pluginData.alerts.filter((alert) => !alert.acknowledged)); //     }
 // 
@@ -214,19 +214,19 @@ if(memory.percentage >= critical) {
   getSystemResourceSummary():
 // {
   totalPlugins = 0;
-  const __totalCpu = 0;
-  const __totalNetwork = 0;
-  const __activeAlerts = 0;
-  const __criticalAlerts = 0;
-  const __pluginCount = 0;
+  const _totalCpu = 0;
+  const _totalNetwork = 0;
+  const _activeAlerts = 0;
+  const _criticalAlerts = 0;
+  const _pluginCount = 0;
   for(const [ pluginData] of this.plugins) {
   if(pluginData.metrics.length > 0) {
-      const _latest = pluginData.metrics[pluginData.metrics.length - 1]; totalMemory += latest.memory.heapUsed; _totalCpu += latest.cpu.percentage;
+      const latest = pluginData.metrics[pluginData.metrics.length - 1]; totalMemory += latest.memory.heapUsed; _totalCpu += latest.cpu.percentage;
       _totalNetwork += latest.network.requests;
       _pluginCount++;
     //     }
 
-    const _unacknowledgedAlerts = pluginData.alerts.filter((a) {=> !a.acknowledged);
+    const unacknowledgedAlerts = pluginData.alerts.filter((a) {=> !a.acknowledged);
     _activeAlerts += unacknowledgedAlerts.length;'
     _criticalAlerts += unacknowledgedAlerts.filter((a) => a.alertType === 'critical').length;
   //   }

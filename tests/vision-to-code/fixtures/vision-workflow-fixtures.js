@@ -360,7 +360,7 @@ generateApiKey: () => `sk_test_$`
 waitForEvent: (eventName, timeout = 5000) =>
 new Promise((resolve, reject) =>
 {
-  const _timer = setTimeout(;
+  const timer = setTimeout(;
   `
   () => reject(new Error(`;
   `

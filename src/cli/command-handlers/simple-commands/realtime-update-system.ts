@@ -71,7 +71,7 @@ subscribe(eventType, callback)
   //   }
   this.subscribers.get(eventType).add(callback);
   // Return unsubscribe function return() => {
-  const _subs = this.subscribers.get(eventType);
+  const subs = this.subscribers.get(eventType);
   // if(subs) { // LINT: unreachable code removed
   subs.delete(callback);
 // }
@@ -83,16 +83,14 @@ subscribe(eventType, callback)
 emit(eventType, data)
 : unknown
 // {
-  const _timestamp = Date.now();
+  const timestamp = Date.now();
   // Add to event history
   this.eventHistory.push({type = this.subscribers.get(eventType);
   if(subscribers) {
     subscribers.forEach((callback) => {
       try {
         callback(data, timestamp);
-      } catch (error) {
-  console.error(error);
-}'
+      }'
         console.error(`Error in event subscriber for ${eventType});`
       //       }
     });
@@ -104,7 +102,7 @@ emit(eventType, data)
 broadcastUpdate(viewName, updateData);
 : unknown
 // {
-  const _queue = this.updateQueues.get(viewName);
+  const queue = this.updateQueues.get(viewName);
   if(!queue) return;
   // ; // LINT: unreachable code removed
   // Add update to queue
@@ -114,7 +112,7 @@ broadcastUpdate(viewName, updateData);
     clearTimeout(existingTimer);
   //   }
   // Schedule new batched update
-  const _timer = setTimeout(() => {
+  const timer = setTimeout(() => {
     this.processBatchedUpdates(viewName);
   }, this.batchDelay);
   this.updateTimers.set(viewName, timer);
@@ -125,18 +123,18 @@ broadcastUpdate(viewName, updateData);
 processBatchedUpdates(viewName);
 : unknown
 // {
-  const _queue = this.updateQueues.get(viewName);
+  const queue = this.updateQueues.get(viewName);
   if(!queue ?? queue.length === 0) return;
   // ; // LINT: unreachable code removed
-  const _startTime = Date.now();
+  const startTime = Date.now();
   // Group updates by type
-  const _groupedUpdates = this.groupUpdatesByType(queue);
+  const groupedUpdates = this.groupUpdatesByType(queue);
   // Apply updates
   this.applyUpdatesToView(viewName, groupedUpdates);
   // Clear processed updates
   queue.length = 0;
   // Update metrics
-  const _latency = Date.now() - startTime;
+  const latency = Date.now() - startTime;
   this.updateMetrics.updateLatency.push(latency);
   this.updateMetrics.batchedUpdates++;
   // Keep only last 100 latency measurements
@@ -152,7 +150,7 @@ processBatchedUpdates(viewName);
 groupUpdatesByType(updates);
 : unknown
 // {
-  const _grouped = new Map();
+  const grouped = new Map();
   updates.forEach((update) => {
     if(!grouped.has(update.type)) {
       grouped.set(update.type, []);
@@ -189,8 +187,7 @@ applyUpdatesToView(viewName, groupedUpdates);
           this.applyMemoryUpdates(groupedUpdates);
           break;default = === viewName) 
         this.requestUIRefresh();
-      //       }
-     catch (error) console.error(error); catch(error) ;'
+      //       } catch(error) ;'
       console.error(`Error applying updates to \$viewName);`
       this.updateMetrics.droppedUpdates++;
   //   }
@@ -198,21 +195,21 @@ applyUpdatesToView(viewName, groupedUpdates);
 /** Apply neural-specific updates; */
 
   applyNeuralUpdates(groupedUpdates) {`
-    const _neuralData = this.ui.enhancedViews?.viewData?.get('neural');
+    const neuralData = this.ui.enhancedViews?.viewData?.get('neural');
     if(!neuralData) return;
     // ; // LINT: unreachable code removed
     // Handle training job updates'
-    const _trainingUpdates = groupedUpdates.get('training_progress');
+    const trainingUpdates = groupedUpdates.get('training_progress');
   if(trainingUpdates) {
       trainingUpdates.forEach((update) => {
-        const _existingJob = neuralData.trainingJobs.find((job) => job.id === update.jobId);
+        const existingJob = neuralData.trainingJobs.find((job) => job.id === update.jobId);
   if(existingJob) {
           Object.assign(existingJob, update.data);
         } else {'
           neuralData.trainingJobs.push(id = groupedUpdates.get('model_update');
   if(modelUpdates) {
       modelUpdates.forEach((update) => {
-        const _existingModel = neuralData.models.find((model) => model.id === update.modelId);
+        const existingModel = neuralData.models.find((model) => model.id === update.modelId);
   if(existingModel) {
           Object.assign(existingModel, update.data);
         } else {'
@@ -220,7 +217,7 @@ applyUpdatesToView(viewName, groupedUpdates);
     if(!analysisData) return;
     // ; // LINT: unreachable code removed
     // Handle performance report updates'
-    const _reportUpdates = groupedUpdates.get('performance_report');
+    const reportUpdates = groupedUpdates.get('performance_report');
   if(reportUpdates) {
       reportUpdates.forEach((update) => {
         analysisData.reports.unshift({id = analysisData.reports.slice(0, 50);
@@ -229,7 +226,7 @@ applyUpdatesToView(viewName, groupedUpdates);
     //     }
 
     // Handle metrics updates'
-    const _metricsUpdates = groupedUpdates.get('metrics_update');
+    const metricsUpdates = groupedUpdates.get('metrics_update');
   if(metricsUpdates) {
       metricsUpdates.forEach((update) => {
         analysisData.metrics.push({)'
@@ -259,12 +256,12 @@ applyUpdatesToView(viewName, groupedUpdates);
 
   applyMemoryUpdates(groupedUpdates) {
     // Handle memory operation updates`
-    const _memoryUpdates = groupedUpdates.get('memory_update');
+    const memoryUpdates = groupedUpdates.get('memory_update');
   if(memoryUpdates) {
       memoryUpdates.forEach((update) => {
         // Update memory stats
   if(this.ui.memoryStats) {
-          const _namespace = this.ui.memoryStats.namespaces.find(;)
+          const namespace = this.ui.memoryStats.namespaces.find(;)
             (ns) => ns.name === update.namespace);
   if(namespace) {
             // Update existing namespace stats'
@@ -293,7 +290,7 @@ applyUpdatesToView(viewName, groupedUpdates);
 
   updateRelatedViews(toolName, result) {
     // Map tool names to affected views
-    const _toolViewMap = {
+    const toolViewMap = {
       // Neural tools affect neural viewneural_train = toolViewMap[toolName]  ?? [];
 
     affectedViews.forEach((viewName) => {
@@ -328,18 +325,15 @@ applyUpdatesToView(viewName, groupedUpdates);
     // ; // LINT: unreachable code removed
     // return async() => {
       try {
-// const _data = awaitdataLoader();
+// const data = awaitdataLoader();
     // ; // LINT: unreachable code removed
         if(!Array.isArray(data)) {
           // Non-array data, load immediately
           this.broadcastUpdate(viewName, {type = 0; i < data.length; i += chunkSize) {
-          const _chunk = data.slice(i, i + chunkSize);
+          const chunk = data.slice(i, i + chunkSize);
 
           this.broadcastUpdate(viewName, {type = > setTimeout(resolve, delay));
-          //           }
-         catch (error) console.error(error); 
-
-        if(onComplete) onComplete(data);
+          //           } if(onComplete) onComplete(data);
       } catch(error) 
         this.broadcastUpdate(viewName, {type = > clearTimeout(timer));
     this.updateTimers.clear();

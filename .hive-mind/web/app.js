@@ -86,7 +86,7 @@ class ClaudeZenDashboard {
         fetch('/api/queens/status').then((r) => r.json()),
       ]);
 
-      this.data = { hives, plugins, stats, queens } catch (error) console.error(error); ;
+      this.data = { hives, plugins, stats, queens } ;
       this.updateUI();
     } catch (error) {
       console.error('Failed to load data:', error);
@@ -164,7 +164,7 @@ class ClaudeZenDashboard {
       document.getElementById('active-queens').textContent = queensData.summary?.activeQueens || 0;
       document.getElementById('queen-tasks').textContent = queensData.summary?.totalTasks || 0;
       document.getElementById('queen-success-rate').textContent =
-        `${(queensData.summary?.averageSuccessRate || 0).toFixed(1)} catch (error) { console.error(error); }%`;
+        `${(queensData.summary?.averageSuccessRate || 0).toFixed(1)}%`;
 
       // Update queens list
       this.updateQueensList(queensData.queens || []);
@@ -226,8 +226,7 @@ class ClaudeZenDashboard {
       this.ws.send(
         JSON.stringify({
           type: 'theme_change',
-          theme: newTheme,
-        })
+          theme: newTheme})
       );
 
   async executeCommand() {
@@ -243,9 +242,8 @@ class ClaudeZenDashboard {
     try {
       const response = await fetch('/api/execute', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' } catch (error) { console.error(error); },
-        body: JSON.stringify({ command }),
-      });
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ command })});
 
       const result = await response.json();
 
@@ -287,7 +285,6 @@ function _saveSettings() {
   fetch('/api/settings', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ theme, refreshInterval }),
-  });
+    body: JSON.stringify({ theme, refreshInterval })});
 
   alert('Settings saved successfully!');

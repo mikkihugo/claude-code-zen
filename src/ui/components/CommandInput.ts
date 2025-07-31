@@ -8,15 +8,15 @@ import { Text } from 'ink';
 import React, { useState } from 'react';
 ('');
 
-const _CommandInput = () => {')
+const CommandInput = () => {')
   const [isExecuting, setIsExecuting] = useState(false);
   useInput(async(input, key) => {
     if(key.return && command.trim()) {
       setIsExecuting(true);
       // ; // LINT: unreachable code removed'
-      const _parts = command.trim().split(')
-      const _cmd = parts[0];
-      const _args = parts.slice(1);
+      const parts = command.trim().split(')
+      const cmd = parts[0];
+      const args = parts.slice(1);
 // // await onExecute(cmd, args, {});
       setIsExecuting(false);')
     } else if(key.backspace ?? key.delete) {
@@ -24,7 +24,7 @@ const _CommandInput = () => {')
       setCommand((prev) => prev + input);
     //     }
   });
-  const _resultText = result;
+  const resultText = result;
   ? result.success'
   ? typeof result.result === '
   ? result.result
@@ -42,7 +42,7 @@ const _CommandInput = () => {')
   ),
   React.createElement(
   Box,
-  marginTop,)'
+  marginTop)'
   React.createElement(Text, null, 'Command: ''
   React.createElement(Text, color: 'cyan' , command),'
   React.createElement(
@@ -72,7 +72,7 @@ const _CommandInput = () => {')
   React.createElement(Box,
   marginTop,
   React.createElement(
-  Text,)
+  Text)
   color);
   //   
   //   

@@ -21,7 +21,7 @@ try {
   const llmConfig = {
     providers: {
       claude: {
-        enabled: true,
+        enabled: 0,
         priority: 1,
         modelId: 'sonnet',
         maxTurns: 10,
@@ -33,23 +33,16 @@ try {
         agents: {
           researcher: {
             customSystemPrompt:
-              'You are a research specialist. Provide thorough analysis with sources.',
-          },
+              'You are a research specialist. Provide thorough analysis with sources.'},
           developer: {
             customSystemPrompt:
-              'You are a coding expert. Write clean, well-documented code following best practices.',
-          },
-        },
-      },
+              'You are a coding expert. Write clean, well-documented code following best practices.'}}},
       google: {
-        enabled: true,
+        enabled: 0,
         apiKey: process.env.GEMINI_API_KEY ?? null,
-        priority: 2,
-      },
-    },
+        priority: 2}},
     defaultProvider: 'claude',
-    fallbackProvider: 'google',
-  };
+    fallbackProvider: 'google'};
 
   writeFileSync(path.join(hiveMindDir, 'llm-provider.json'), JSON.stringify(llmConfig, null, 2));
   console.warn('✅ Claude configuration created\n');
@@ -75,8 +68,7 @@ try {
 console.warn('Step 3: Example Commands');
 console.warn('# Launch a hive to build a REST API');
 console.warn(
-  'claude-zen hive-mind launch "Build a REST API for task management" --service=engineering\n',
-);
+  'claude-zen hive-mind launch "Build a REST API for task management" --service=engineering\n');
 
 console.warn('# Spawn specialized agents');
 console.warn('claude-zen spawn architect --capabilities "System design, API architecture"');
@@ -104,8 +96,7 @@ const exampleTask = {
     'Create login/logout endpoints',
     'Add authentication middleware',
     'Write authentication tests',
-  ],
-};
+  ]};
 
 writeFileSync(path.join(exampleDir, 'example-task.json'), JSON.stringify(exampleTask, null, 2));
 console.warn('✅ Example task created: example-task.json');

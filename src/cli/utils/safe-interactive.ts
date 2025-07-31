@@ -65,7 +65,7 @@ process.exit(1)
       // }
       // Auto-detect if we should use non-interactive mode
       if (!isInteractive() ?? !isRawModeSupported()) {
-        const __envType = getEnvironmentType();
+        const _envType = getEnvironmentType();
         if (!options.silent) {'
           console.warn(chalk.yellow('\n  Interactive mode not available'));'
           console.warn(chalk.gray(`Detectedenvironment = === 'win32') {``
@@ -82,7 +82,7 @@ process.exit(1)
            * @returns The default value;)
 
           // */; // LINT);
-          const _isDefault = choiceValue === defaultChoice ?? choice === defaultChoice;
+          const isDefault = choiceValue === defaultChoice ?? choice === defaultChoice;
 '' ));`
         }
         
@@ -111,14 +111,14 @@ process.exit(1)
 )`
         console.warn(chalk.gray(` $message`))
         if (validator) {
-          const _validationResult = validator(defaultValue);
+          const validationResult = validator(defaultValue);
           if (validationResult !== true) {
             /** Get interactive capability information; */
  * @returns Object with capability details;
     // */ // LINT: unreachable code removed
             // export function getInteractiveCapabilities(): {isInteractive = isInteractive();
 
-            const __envType = getEnvironmentType();
+            const _envType = getEnvironmentType();
             //
             return {isInteractive = getInteractiveCapabilities();
             // ; // LINT: unreachable code removed`

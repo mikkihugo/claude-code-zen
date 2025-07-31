@@ -11,8 +11,7 @@ async function basicServerExample() {
   const server = new ClaudeZenServer({
     port: 3000,
     host: '0.0.0.0',
-    schema: CLAUDE_ZEN_SCHEMA,
-  });
+    schema: CLAUDE_ZEN_SCHEMA});
 
   try {
     // Start the server
@@ -63,8 +62,7 @@ async function advancedServerExample() {
   const server = new ClaudeZenServer({
     port: 3000,
     host: '0.0.0.0',
-    schema: CLAUDE_ZEN_SCHEMA,
-  });
+    schema: CLAUDE_ZEN_SCHEMA});
 
   // Add custom middleware
   server.app.use('/api/custom', (req, res, next) => {
@@ -78,8 +76,7 @@ async function advancedServerExample() {
       status: 'healthy',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
-      memory: process.memoryUsage(),
-    });
+      memory: process.memoryUsage()});
   });
 
   // Monitor server events

@@ -8,7 +8,7 @@ this.queue = [];
 this.results = new Map();
 this.metrics = {processed = 5) {
     // return new Promise((resolve, reject) => {
-      const _queueItem = {
+      const queueItem = {
         operation,
     // priority, // LINT: unreachable code removed
         resolve,
@@ -29,27 +29,27 @@ _processQueue();
   if (this.running >= this.maxConcurrency ?? this.queue.length === 0) return;
   //   // LINT: unreachable code removed}
 
-  const _item = this.queue.shift();
+  const item = this.queue.shift();
   this.running++;
 
-  const _startTime = performance.now();
+  const startTime = performance.now();
 
   try {
       // Add timeout wrapper
-      const _timeoutPromise = new Promise((_, reject) => {
+      const timeoutPromise = new Promise((_, reject) => {
         setTimeout(() => reject(new Error('Operation timeout')), this.timeout);
-      } catch (error) { console.error(error); }
+      }
 
-  // const _result = awaitPromise.race([item.operation(), timeoutPromise]);
+  // const result = awaitPromise.race([item.operation(), timeoutPromise]);
 
-  const _processingTime = performance.now() - startTime;
+  const processingTime = performance.now() - startTime;
   this._updateMetrics(processingTime, true);
 
   item.resolve(result);
 }
 catch(error)
 // {
-const _processingTime = performance.now() - startTime;
+const processingTime = performance.now() - startTime;
 this._updateMetrics(processingTime, false);
 item.reject(error);
 // }
@@ -82,7 +82,7 @@ getMetrics();
       }, this.config.maxWaitTime);
   this.timers.set(batchKey, timer);
 // }
-const _batch = this.batches.get(batchKey);
+const batch = this.batches.get(batchKey);
 batch.items.push(item);
 // Process if batch is full
   if(batch.items.length >= this.config.maxBatchSize) {
@@ -97,18 +97,18 @@ async;
 _processBatch(batchKey);
 : unknown
 // {
-  const _batch = this.batches.get(batchKey);
+  const batch = this.batches.get(batchKey);
   if(!batch ?? batch.items.length === 0) return;
   // ; // LINT: unreachable code removed
   // Clear timer and remove from maps
-  const _timer = this.timers.get(batchKey);
+  const timer = this.timers.get(batchKey);
   if(timer) clearTimeout(timer);
   this.timers.delete(batchKey);
   this.batches.delete(batchKey);
-  const _startTime = performance.now();
+  const startTime = performance.now();
   try {
-// const _results = awaitbatch.processor(batch.items);
-      const _processingTime = performance.now() - startTime;
+// const results = awaitbatch.processor(batch.items);
+      const processingTime = performance.now() - startTime;
 
       // Update metrics
       this.metrics.batchesProcessed++;
@@ -122,8 +122,7 @@ _processBatch(batchKey);
       batch.items.forEach((item, index) => {
   if(item._resolve) {
           item._resolve(results[index]  ?? results);
-        //         }
-       catch (error) console.error(error); });
+        //         } });
 '
       this.emit('batch => {')
   if(item._reject) {
@@ -132,7 +131,7 @@ _processBatch(batchKey);
       //       }
   //   )'
   this.emit('batch => {')
-  const _now = Date.now();
+  const now = Date.now();
   for (const [batchKey, batch] of this.batches.entries()) {
     // Flush batches that have been waiting too long
   if(now - batch.createdAt > this.config.flushInterval) {
@@ -151,7 +150,7 @@ _processBatch(batchKey);
   close() 
 // {
   // Process all remaining batches
-  const _batchKeys = Array.from(this.batches.keys()); // return Promise.all(batchKeys.map((key) {=> this._processBatch(key)));
+  const batchKeys = Array.from(this.batches.keys()); // return Promise.all(batchKeys.map((key) {=> this._processBatch(key)));
   //   // LINT: unreachable code removed}
 // }
 
@@ -187,22 +186,19 @@ _processBatch(batchKey);
       // return // await operation();
     //   // LINT: unreachable code removed}
 
-    const _startTime = performance.now();
+    const startTime = performance.now();
 
     try {
-// const _result = awaitthis.asyncQueue.add(operation, options.priority  ?? 5);
+// const result = awaitthis.asyncQueue.add(operation, options.priority  ?? 5);
 
-      const _executionTime = performance.now() - startTime;
+      const executionTime = performance.now() - startTime;
       this.metrics.optimizations.asyncOperations++;
 
       // Track performance gain vs baseline
   if(this.performanceBaseline) {
-        const _gain = Math.max(0, this.performanceBaseline.avgAsyncTime - executionTime);
+        const gain = Math.max(0, this.performanceBaseline.avgAsyncTime - executionTime);
         this.metrics.optimizations.performanceGains.push(gain);
-      //       }
-
-       catch (error) console.error(error); 
-    //   // LINT: unreachable code removed} catch(/* _error */) '
+      //       } //   // LINT: unreachable code removed} catch(/* _error */) '
       this.emit('error', type = {}) 
   if(!this._config._enableBatchProcessing) {
       // return // await processor([item]);
@@ -217,28 +213,28 @@ _processBatch(batchKey);
 
   async optimizeWithCache(key, operation, ttl = 300000) { 
     // 5 minutes default
-    const _cached = this.cache.get(key);
+    const cached = this.cache.get(key);
 
     if(cached && Date.now() - cached.timestamp < ttl) 
       this.metrics.optimizations.cacheHits++;
       // return cached.value;
     //   // LINT: unreachable code removed}
-// const __result = awaitoperation();
+// const _result = awaitoperation();
 
     this.cache.set(key, {value = performance.now();
 
-    const _connection = null;
+    const connection = null;
     try {
       connection = // await connectionPool.acquire();
-// const _result = awaitoperation(connection);
+// const result = awaitoperation(connection);
 
-      const _executionTime = performance.now() - startTime;
+      const executionTime = performance.now() - startTime;
 
       // Track connection efficiency
       this.metrics.system.throughput =;
         this.metrics.system.throughput * 0.9 + (1000 / executionTime) * 0.1
       // return result;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } finally {
+    //   // LINT: unreachable code removed} finally {
   if(connection) {
         connectionPool.release(connection);
       //       }
@@ -249,13 +245,13 @@ _processBatch(batchKey);
 
   async optimizeAgentSpawning(agentTypes, spawnFunction) { 
     // Group agents by complexity for optimal batching
-    const _groups = this._groupAgentsByComplexity(agentTypes);
-    const _results = [];
+    const groups = this._groupAgentsByComplexity(agentTypes);
+    const results = [];
 
     for (const group of groups) '
-// const _batchResult = awaitthis.optimizeBatchOperation('agent_spawn', group, spawnFunction); 
+// const batchResult = awaitthis.optimizeBatchOperation('agent_spawn', group, spawnFunction); 
       results.push(...(Array.isArray(batchResult) ? batchResult = low = []; Object.entries(complexity) .forEach(([_level, types]) => {
-      const _groupAgents = agentTypes.filter((type) => types.includes(type));
+      const groupAgents = agentTypes.filter((type) => types.includes(type));
   if(groupAgents.length > 0) {
         groups.push(groupAgents);
       //       }
@@ -267,21 +263,21 @@ _processBatch(batchKey);
 /** Auto-tune performance parameters based on metrics */
 
   _autoTune() {
-    const _queueMetrics = this.asyncQueue.getMetrics();
+    const queueMetrics = this.asyncQueue.getMetrics();
 
     // Adjust async queue concurrency based on utilization
   if(queueMetrics.utilization > 90 && this.asyncQueue.maxConcurrency < 20) {
       this.asyncQueue.maxConcurrency += 2;'
       this.emit('auto_tune', type = Math.max(5, this.asyncQueue.maxConcurrency - 1);'
       this.emit('auto_tune', type = Math.max(;
-        20,)
+        20)
         this.batchProcessor.config.maxBatchSize - 5);'
       this.emit('auto_tune', {type = Date.now();
-    const _entries = Array.from(this.cache.entries());
+    const entries = Array.from(this.cache.entries());
 
     // Remove oldest 20% of entries
     entries.sort((a, b) => a[1].timestamp - b[1].timestamp);
-    const _toRemove = Math.floor(entries.length * 0.2)
+    const toRemove = Math.floor(entries.length * 0.2)
   for(let i = 0; i < toRemove; i++) {
       this.cache.delete(entries[i][0]);
     //     }
@@ -291,11 +287,11 @@ _processBatch(batchKey);
 
   _collectSystemMetrics() {
     // Simple CPU and memory usage estimation
-    const _used = process.memoryUsage();
+    const used = process.memoryUsage();
     this.metrics.system.memoryUsage = (used.heapUsed / 1024 / 1024).toFixed(2); // MB
 
     // Estimate throughput based on recent operations
-    const _queueMetrics = this.asyncQueue.getMetrics();
+    const queueMetrics = this.asyncQueue.getMetrics();
     this.metrics.system.throughput =;
       queueMetrics.processed > 0;
         ? (queueMetrics.processed / (queueMetrics.avgProcessingTime / 1000)).toFixed(2);
@@ -306,7 +302,7 @@ _processBatch(batchKey);
 
   getPerformanceStats() 
     // return {optimizer = this.getPerformanceStats();
-    // const _recommendations = []; // LINT: unreachable code removed
+    // const recommendations = []; // LINT: unreachable code removed
 
     // Analyze and provide recommendations
   if(stats.asyncQueue.utilization > 80) {
@@ -315,7 +311,7 @@ _processBatch(batchKey);
       Math.min(100, 100 - parseFloat(stats.asyncQueue.utilization)), // Lower utilization is better
       Math.min(100, parseFloat(stats.cache.hitRate)),
       Math.min(100, (stats.batchProcessor.avgBatchSize / this.config.batchMaxSize) * 100) ]
-    const _avgScore = factors.reduce((sum, score) => sum + score, 0) / factors.length;
+    const avgScore = factors.reduce((sum, score) => sum + score, 0) / factors.length;
 '
     if(avgScore >= 80) return 'excellent';'
     // if(avgScore >= 60) return 'good'; // LINT: unreachable code removed'

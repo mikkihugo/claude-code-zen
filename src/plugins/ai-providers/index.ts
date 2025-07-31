@@ -23,9 +23,9 @@ export class AIProviderPlugin {
 
   async loadProviderConfig() 
     try {'
-// const _content = awaitreadFile(this.config.configFile, 'utf8');
+// const content = awaitreadFile(this.config.configFile, 'utf8');
       this.providerConfig = JSON.parse(content);
-    } catch (error) { console.error(error); } catch(error) '
+    } catch(error) '
   if(error.code === 'ENOENT') {
         // Create default configuration
         this.providerConfig = {providers = // await this.createProvider(name, config);
@@ -35,29 +35,29 @@ export class AIProviderPlugin {
     //   // LINT: unreachable code removed} catch(error) {'
       console.warn('Claude Code provider notavailable = // await import('openai');'
 
-      const _openrouter = new OpenAI({ baseURL = {}) {'
-// const _response = awaitopenrouter.chat.completions.create({model = // await openrouter.embeddings.create({model = // await fetch(''
+      const openrouter = new OpenAI({ baseURL = {}) {'
+// const response = awaitopenrouter.chat.completions.create({model = // await openrouter.embeddings.create({model = // await fetch(''
             // return data.data.filter(model => model.pricing.prompt === '0'  ?? model.id.includes('free'));
     //   // LINT: unreachable code removed} catch(error) {'
             console.warn('Failed to fetch OpenRoutermodels = // await import('@google/generative-ai');'
 
-      const _genAI = new GoogleGenerativeAI(;
+      const genAI = new GoogleGenerativeAI(;
         process.env.GEMINI_API_KEY  ?? config.apiKey;
       );
 
       // return {
         //         type = {}) {
 
-    // const _model = genAI.getGenerativeModel({model = // await model.generateContent(prompt); // LINT: unreachable code removed
-          const _response = // await result.response;
+    // const model = genAI.getGenerativeModel({model = // await model.generateContent(prompt); // LINT: unreachable code removed
+          const response = // await result.response;
           // return response.text();
     //   // LINT: unreachable code removed},
         async healthCheck() ;
           try {
-            const _model = genAI.getGenerativeModel({model = Array.from(this.providers.keys());
+            const model = genAI.getGenerativeModel({model = Array.from(this.providers.keys());
   if(availableProviders.length > 0) {
         this.activeProvider = availableProviders[0];'
-        console.warn(` Provider $providerNamecatch (error) console.error(error); not available, using $this.activeProviderinstead`);
+        console.warn(` Provider $providerName not available, using $this.activeProviderinstead`);
         return;
     //   // LINT: unreachable code removed} else {`
         console.warn(` No providers available, ${providerName} requested but not found`);
@@ -71,7 +71,7 @@ export class AIProviderPlugin {
     // Try active provider first
     if(this.activeProvider && this.providers.has(this.activeProvider)) {
       try {`
-// const _result = awaitthis.tryProvider(this.activeProvider, 'generateText', prompt, options);
+// const result = awaitthis.tryProvider(this.activeProvider, 'generateText', prompt, options);
         if(result) return result;
     //   // LINT: unreachable code removed} catch (error) {
   console.error(error);'
@@ -79,35 +79,35 @@ export class AIProviderPlugin {
     // Try active provider first
     if(this.activeProvider && this.providers.has(this.activeProvider)) {
       try {`
-// const _result = awaitthis.tryProvider(this.activeProvider, 'generateEmbedding', text, options);
+// const result = awaitthis.tryProvider(this.activeProvider, 'generateEmbedding', text, options);
         if(result) return result;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {'
+    //   // LINT: unreachable code removed} catch(/* _error */) {'
         console.warn(` ${this.activeProvider} embeddingfailed = Array.from(this.providers.entries());`
 filter(([_, info]) => info.healthy);
 sort(([ a], [ b]) => {
-        const _priorityA = this.providerConfig.providers[a.config]?.priority  ?? 999;
-        const _priorityB = this.providerConfig.providers[b.config]?.priority  ?? 999;
+        const priorityA = this.providerConfig.providers[a.config]?.priority  ?? 999;
+        const priorityB = this.providerConfig.providers[b.config]?.priority  ?? 999;
 //         return priorityA - priorityB;
     //   // LINT: unreachable code removed});
   for(const [name, info] of sortedProviders) {
       try {
-// const _result = awaitthis.tryProvider(name, method, ...args); 
+// const result = awaitthis.tryProvider(name, method, ...args); 
   if(result) {`
-          console.warn(` Fallback successful with ${name} catch (error) console.error(error); `); // return result;
-    //   // LINT: unreachable code removed}
+          console.warn(` Fallback successful with ${name}`); // return result;
+    //   // LINT: unreachable code removed
       } catch(_error) ;`
         console.warn(` $namefallbackfailed = this.providers.get(providerName);`
   if(!providerInfo  ?? !providerInfo.healthy) {
       // return null;
     //   // LINT: unreachable code removed}
 
-    const _provider = providerInfo.instance;
+    const provider = providerInfo.instance;
   if(!provider[method]) {`
       console.warn(` Provider $providerNamedoesn't supportmethod = new Promise((_, reject) => {'``
       setTimeout(() => reject(new Error('Provider timeout')), this.config.timeout););
 
     try {
-// const _result = awaitPromise.race([;/g)
+// const result = awaitPromise.race([;/g)
         provider[method](...args),
         timeoutPromise;
       ]);
@@ -117,14 +117,12 @@ sort(([ a], [ b]) => {
       providerInfo.errorCount = Math.max(0, providerInfo.errorCount - 1);
 
       // return result;
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
       providerInfo.errorCount++;
       throw error;
     //     }
   markProviderUnhealthy(providerName) {
-    const _providerInfo = this.providers.get(providerName);
+    const providerInfo = this.providers.get(providerName);
   if(providerInfo) {
       providerInfo.errorCount++;
   if(providerInfo.errorCount >= 3) {
@@ -135,13 +133,13 @@ sort(([ a], [ b]) => {
   //   }
 
   async runHealthChecks() { 
-    const _healthResults = };
+    const healthResults = };
   for(const [name, info] of this.providers) {
       try {
   if(info.instance.healthCheck) {
-// const _isHealthy = awaitinfo.instance.healthCheck(); 
+// const isHealthy = awaitinfo.instance.healthCheck(); 
           info.healthy = isHealthy; healthResults[name] = { healthy, errorCount = {healthy = false;
-        healthResults[name] = { healthy, error = {} catch (error) { console.error(error); };
+        healthResults[name] = { healthy, error = {};
   for(const [name, _info] of this.providers) {
       stats[name] = {type = providerName;
 // // await this.saveProviderConfig();`
@@ -153,9 +151,9 @@ sort(([ a], [ b]) => {
       this.providerConfig.providers[providerName].enabled = true;
 // await this.saveProviderConfig();
       // Try to initialize the provider
-      const _config = this.providerConfig.providers[providerName];
+      const config = this.providerConfig.providers[providerName];
       try {
-// const _provider = awaitthis.createProvider(providerName, config);
+// const provider = awaitthis.createProvider(providerName, config);
   if(provider) {
           this.providers.set(providerName, {instance = false;)
 // // await this.saveProviderConfig();
@@ -164,10 +162,10 @@ sort(([ a], [ b]) => {
 
       // Switch to another provider if this was active
   if(this.activeProvider === providerName) {
-        const _availableProviders = Array.from(this.providers.keys());
+        const availableProviders = Array.from(this.providers.keys());
   if(availableProviders.length > 0) {
 // // await this.setActiveProvider(availableProviders[0]);
-        }  catch (error) console.error(error); else 
+        } else 
           this.activeProvider = null;
         //         }
       //       }
@@ -184,7 +182,7 @@ sort(([ a], [ b]) => {
   if(info.instance.cleanup) {
         try {
 // // await info.instance.cleanup(); 
-        } catch (error) { console.error(error); } catch(error) `
+        } catch(error) `
           console.warn(`Warning); `
         //         }
       //       }

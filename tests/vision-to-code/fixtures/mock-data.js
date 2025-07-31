@@ -47,7 +47,7 @@ error: 'Unsupported file format'
 }
 // }
 // Mock vision analysis results
-const _mockVisionResults = {
+const mockVisionResults = {
   simpleLayout: {
     components: [;
 // {'
@@ -106,7 +106,7 @@ type: 'dashboard',
 }
 // }
 // Mock code generation templates
-const _mockCodeTemplates = {
+const mockCodeTemplates = {
   react: {'
     component: (name) => `import React from 'react';``
 // import styles from './${name}.module.css';
@@ -189,7 +189,7 @@ apiKey: 'sk_test_1234567890',
   maxImageSize, // 2MB
 // }// }
 // Mock API responses
-const _mockApiResponses = {
+const mockApiResponses = {
   success: {
     upload: {'
       status: 'success',
@@ -230,7 +230,7 @@ const _mockApiResponses = {
   message: 'An unexpected error occurred',
 // }// }
 // Performance test data
-const _performanceTestData = {
+const performanceTestData = {
   loadTestScenarios: [;
 // {'
       name: 'Normal Load',

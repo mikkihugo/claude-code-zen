@@ -73,7 +73,7 @@ describe('CLI Utils', () =>
     it('should handle multi-line messages', () =>
   {
     '
-    const _multiLineMessage = 'Line 1\nLine 2\nLine 3';
+    const multiLineMessage = 'Line 1\nLine 2\nLine 3';
     utils.printSuccess(multiLineMessage);
     expect(consoleOutput).toHaveLength(1);
     '
@@ -84,7 +84,7 @@ describe('CLI Utils', () =>
     it('should handle special characters in messages', () =>
   {
     '
-    const _specialMessage = 'Test with "quotes" and symbols: @#$%^&*()';
+    const specialMessage = 'Test with "quotes" and symbols: @#$%^&*()';
     utils.printError(specialMessage);
     expect(consoleOutput).toHaveLength(1);
     '
@@ -98,9 +98,9 @@ describe('CLI Utils', () =>
     it('should validate minimum argument length', () =>
   {
     '
-    const _args = ['arg1', 'arg2', 'arg3'];
+    const args = ['arg1', 'arg2', 'arg3'];
     '
-    const _result = utils.validateArgs(args, 2, 'command <arg1> <arg2>');
+    const result = utils.validateArgs(args, 2, 'command <arg1> <arg2>');
     expect(result).toBe(true);
     expect(consoleOutput).toHaveLength(0); // No error message
   }
@@ -109,9 +109,9 @@ describe('CLI Utils', () =>
     it('should reject insufficient arguments', () =>
   {
     '
-    const _args = ['arg1'];
+    const args = ['arg1'];
     '
-    const _result = utils.validateArgs(args, 3, 'command <arg1> <arg2> <arg3>');
+    const result = utils.validateArgs(args, 3, 'command <arg1> <arg2> <arg3>');
     expect(result).toBe(false);
     expect(consoleOutput).toHaveLength(1);
     '
@@ -121,9 +121,9 @@ describe('CLI Utils', () =>
     '
     it('should handle empty arguments array', () =>
   {
-    const _args = [];
+    const args = [];
     '
-    const _result = utils.validateArgs(args, 1, 'command <required>');
+    const result = utils.validateArgs(args, 1, 'command <required>');
     expect(result).toBe(false);
     '
       expect(consoleOutput[0]).toBe(' Usage);'
@@ -132,9 +132,9 @@ describe('CLI Utils', () =>
     '
     it('should handle zero minimum length', () =>
   {
-    const _args = [];
+    const args = [];
     '
-    const _result = utils.validateArgs(args, 0, 'command');
+    const result = utils.validateArgs(args, 0, 'command');
     expect(result).toBe(true);
     expect(consoleOutput).toHaveLength(0);
   }
@@ -143,9 +143,9 @@ describe('CLI Utils', () =>
     it('should accept exact minimum number of arguments', () =>
   {
     '
-    const _args = ['arg1', 'arg2'];
+    const args = ['arg1', 'arg2'];
     '
-    const _result = utils.validateArgs(args, 2, 'command <arg1> <arg2>');
+    const result = utils.validateArgs(args, 2, 'command <arg1> <arg2>');
     expect(result).toBe(true);
     expect(consoleOutput).toHaveLength(0);
   }
@@ -154,9 +154,9 @@ describe('CLI Utils', () =>
     it('should accept more than minimum arguments', () =>
   {
     '
-    const _args = ['arg1', 'arg2', 'arg3', 'arg4'];
+    const args = ['arg1', 'arg2', 'arg3', 'arg4'];
     '
-    const _result = utils.validateArgs(args, 2, 'command <arg1> <arg2> [optional...]');
+    const result = utils.validateArgs(args, 2, 'command <arg1> <arg2> [optional...]');
     expect(result).toBe(true);
     expect(consoleOutput).toHaveLength(0);
   }
@@ -171,8 +171,7 @@ describe('CLI Utils', () =>
     beforeEach(() => {
       // Mock process.mkdir
       mockProcess = {
-        mkdir: jest.fn(),
-      };
+        mkdir: jest.fn()};
       // Replace process global for testing
       global.process = { ...global.process, mkdir: mockProcess.mkdir };
     });
@@ -180,7 +179,7 @@ describe('CLI Utils', () =>
       it('should create directory successfully', async () =>
         mockProcess.mkdir.mockResolvedValue(undefined)
     '
-        // const _result = awaitutils.ensureDirectory('/test/path');
+        // const result = awaitutils.ensureDirectory('/test/path');
         expect(result).toBe(true)
         '
         expect(mockProcess.mkdir).toHaveBeenCalledWith('/test/path',
@@ -191,12 +190,12 @@ describe('CLI Utils', () =>
       it('should handle existing directory', async () =>
     {
       '
-      const _existsError = new Error('Directory exists');
+      const existsError = new Error('Directory exists');
       '
         existsError.code = 'EEXIST'
         mockProcess.mkdir.mockRejectedValue(existsError)
       '
-        // const _result = awaitutils.ensureDirectory('/existing/path');
+        // const result = awaitutils.ensureDirectory('/existing/path');
         expect(result).toBe(true)
     }
     )
@@ -204,7 +203,7 @@ describe('CLI Utils', () =>
       it('should rethrow non-EEXIST errors', async () =>
     {
       '
-      const _permissionError = new Error('Permission denied');
+      const permissionError = new Error('Permission denied');
       '
         permissionError.code = 'EACCES'
         mockProcess.mkdir.mockRejectedValue(permissionError)
@@ -221,8 +220,7 @@ describe('CLI Utils', () =>
     beforeEach(() => {
       // Mock process.stat
       mockProcess = {
-        stat: jest.fn(),
-      };
+        stat: jest.fn()};
       global.process = { ...global.process, stat: mockProcess.stat };
     });
     '
@@ -234,7 +232,7 @@ describe('CLI Utils', () =>
     }
     )
     // ; // LINT: unreachable code removed'
-    // const _result = awaitutils.fileExists('/existing/file.txt');
+    // const result = awaitutils.fileExists('/existing/file.txt');
     expect(result).toBe(true);
     '
         expect(mockProcess.stat).toHaveBeenCalledWith('/existing/file.txt')
@@ -243,12 +241,12 @@ describe('CLI Utils', () =>
       it('should return false for non-existing files', async () =>
     {
       '
-      const _notFoundError = new Error('File not found');
+      const notFoundError = new Error('File not found');
       '
         // notFoundError.code = 'ENOENT'; // LINT: unreachable code removed
         mockProcess.stat.mockRejectedValue(notFoundError)
         '
-        // const _result = awaitutils.fileExists('/nonexistent/file.txt');
+        // const result = awaitutils.fileExists('/nonexistent/file.txt');
         expect(result).toBe(false)
     }
     )
@@ -256,9 +254,9 @@ describe('CLI Utils', () =>
       it('should return false for any stat error', async () =>
     {
       '
-      const _permissionError = new Error('Permission denied');
+      const permissionError = new Error('Permission denied');
       // mockProcess.stat.mockRejectedValue(permissionError); // LINT: unreachable code removed'
-      // const _result = awaitutils.fileExists('/forbidden/file.txt');
+      // const result = awaitutils.fileExists('/forbidden/file.txt');
       expect(result).toBe(false);
     }
     )
@@ -270,9 +268,9 @@ describe('CLI Utils', () =>
 // {'
   it('should combine validation and error printing', () =>
   {
-    const _invalidArgs = [];
+    const invalidArgs = [];
     '
-    const _result = utils.validateArgs(invalidArgs, 2, 'deploy <target> <env>');
+    const result = utils.validateArgs(invalidArgs, 2, 'deploy <target> <env>');
     expect(result).toBe(false);
     expect(consoleOutput).toHaveLength(1);
     ('');
@@ -329,7 +327,7 @@ it('should handle numeric messages', () =>
 it('should handle object messages', () =>
 {
   '
-  const _obj = { key: 'value' };
+  const obj = { key: 'value' };
   utils.printWarning(obj);
   expect(consoleOutput).toHaveLength(1);
   '

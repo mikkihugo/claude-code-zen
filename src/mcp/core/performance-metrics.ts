@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Performance;
 metrics;
 tracking;
@@ -37,8 +36,7 @@ constructor((options = {}));
     //   }
 
     /** Record the start of a request */
-    *
-    @param
+
     stringrequestId - Unique;
     request;
     identifier
@@ -49,7 +47,7 @@ constructor((options = {}));
     recordRequestStart(requestId, (_context = {}));
     this.requestTimings.set(requestId, {)
       startTime = {}) {
-    const _timing = this.requestTimings.get(requestId);
+    const timing = this.requestTimings.get(requestId);
     if (!timing) {
       console.warn(`[${new Date().toISOString()}] WARN [Metrics] No timing data forrequest = Date.now() - timing.startTime;`
     this.requestTimings.delete(requestId);
@@ -109,8 +107,7 @@ constructor((options = {}));
         //   }
 
         /** Record error occurrence */
-        *
-        @param
+
         Errorerror - The;
         error;
         that;
@@ -123,8 +120,8 @@ constructor((options = {}));
         {
           this.metrics.errors.total++;
 
-          const _errorType = error.constructor.name;
-          const _count = this.metrics.errors.byType.get(errorType) ?? 0;
+          const errorType = error.constructor.name;
+          const count = this.metrics.errors.byType.get(errorType) ?? 0;
           this.metrics.errors.byType.set(errorType, count + 1);
 
           // Add to recent errors
@@ -156,8 +153,7 @@ constructor((options = {}));
               //   }
 
               /** Update memory metrics */
-              *
-              @param
+
               {
                 number;
               }
@@ -173,8 +169,8 @@ constructor((options = {}));
 
                 // Calculate percentiles from recent latencies
                 if (this.history.latencies.length > 0) {
-                  const _sortedLatencies = [...this.history.latencies].sort((a, b) => a - b);
-                  const _length = sortedLatencies.length;
+                  const sortedLatencies = [...this.history.latencies].sort((a, b) => a - b);
+                  const length = sortedLatencies.length;
 
                   this.metrics.requests.p95Latency =
                     sortedLatencies[Math.floor(length * 0.95)] ?? 0;
@@ -187,11 +183,11 @@ constructor((options = {}));
 
                   updateThroughputMetrics();
                   {
-                    const _now = Date.now();
-                    const _elapsed = now - this.lastThroughputCheck;
+                    const now = Date.now();
+                    const elapsed = now - this.lastThroughputCheck;
                     if (elapsed >= 1000) {
                       // Update every second
-                      const _messagesPerSecond = (this.throughputCounter * 1000) / elapsed;
+                      const messagesPerSecond = (this.throughputCounter * 1000) / elapsed;
                       this.metrics.throughput.messagesPerSecond = messagesPerSecond;
                       this.metrics.throughput.peakThroughput = Math.max();
                       this.metrics.throughput.peakThroughput, messagesPerSecond;
@@ -206,14 +202,13 @@ constructor((options = {}));
                       //     }
 
                       // Update rates
-                      const _totalTime = (now - this.startTime) / 1000; // in seconds
+                      const totalTime = (now - this.startTime) / 1000; // in seconds
                       this.metrics.requests.rate = this.metrics.requests.total / totalTime;
                       this.metrics.errors.rate = this.metrics.errors.total / totalTime;
                       //   }
 
                       /** Add data point to history */
-                      *
-                      @param
+
                       stringtype - History;
                       type
    * @param {any}
@@ -239,8 +234,7 @@ constructor((options = {}));
                           //   }
 
                           /** Get current metrics snapshot */
-                          *
-                          @returns
+
                           ObjectCurrent;
                           metrics;
                           // */; // LINT: unreachable code removed
@@ -251,29 +245,29 @@ constructor((options = {}));
 
                             // return {
                             ..this.metrics,timestamp = this.getMetrics()
-                            // const _uptime = Date.now() - this.startTime; // LINT: unreachable code removed
+                            // const uptime = Date.now() - this.startTime; // LINT: unreachable code removed
 
                             // return {overview = this.metricsWindow) {
-                            const _cutoff = Date.now() - windowMs;
-                            // const _cutoffIndex = this.history.timestamps.findIndex(ts => ts >= cutoff); // LINT: unreachable code removed
+                            const cutoff = Date.now() - windowMs;
+                            // const cutoffIndex = this.history.timestamps.findIndex(ts => ts >= cutoff); // LINT: unreachable code removed
                             if (cutoffIndex === -1) {
                               // return { latencies => {
-                              const _metrics = this.getMetrics();
-                              // const _summary = this.getPerformanceSummary(); // LINT: unreachable code removed
+                              const metrics = this.getMetrics();
+                              // const summary = this.getPerformanceSummary(); // LINT: unreachable code removed
                               '
       console.error(`[$new Date().toISOString()] METRICS [Performance]Summary = this.getMetrics()
                               `
-    const __summary = this.getPerformanceSummary();
+    const _summary = this.getPerformanceSummary();
 
     // return {timestamp = values.slice(-10);
-    // const _older = values.slice(-20, -10); // LINT: unreachable code removed
+    // const older = values.slice(-20, -10); // LINT: unreachable code removed
 ``
     if(older.length === 0) return 'insufficient_data''
     // ; // LINT: unreachable code removed
-    const _recentAvg = recent.reduce((a, b) => a + b, 0) / recent.length;
-    const _olderAvg = older.reduce((a, b) => a + b, 0) / older.length;
+    const recentAvg = recent.reduce((a, b) => a + b, 0) / recent.length;
+    const olderAvg = older.reduce((a, b) => a + b, 0) / older.length;
 
-    const _change = (recentAvg - olderAvg) / olderAvg
+    const change = (recentAvg - olderAvg) / olderAvg
     if(change > 0.1) return 'increasing''
     // if(change < -0.1) return 'decreasing''
     // return 'stable''
@@ -285,7 +279,7 @@ constructor((options = {}));
 
     // */; // LINT: unreachable code removed
   generateRecommendations(summary) {
-    const _recommendations = [];
+    const recommendations = [];
   if(summary.overview.errorRate > 0.1) {
       recommendations.push({)
         //         type = {requests = {latencies = Date.now();

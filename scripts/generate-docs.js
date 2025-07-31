@@ -19,12 +19,12 @@ class DocumentationGenerator {
       // Ensure docs directory exists
   // // await fs.mkdir(this.docsDir, { recursive });
       // Find all JavaScript files with JSDoc comments';
-// const _jsFiles = awaitglob('src/\*\*/*.js');' */
+// const jsFiles = awaitglob('src/\*\*/*.js');' */
       console.warn(` Found ${jsFiles.length} JavaScript files`);
       // Extract JSDoc comments
-// const _apiDocs = awaitthis.extractJSDocFromFiles(jsFiles);
+// const apiDocs = awaitthis.extractJSDocFromFiles(jsFiles);
       // Generate markdown documentation
-// const _markdown = awaitthis.generateMarkdown(apiDocs);
+// const markdown = awaitthis.generateMarkdown(apiDocs);
       // Write to file
   // // await fs.writeFile(this.outputFile, markdown);`
       console.warn(` Documentation generated);`
@@ -35,13 +35,13 @@ class DocumentationGenerator {
     //     }
   //   }
   async extractJSDocFromFiles(files) { 
-    const _apiDocs = [];
+    const apiDocs = [];
     for (const file of files) 
       try {';
-// const _content = awaitfs.readFile(file, 'utf-8'); 
-        const _docs = this.extractJSDocFromContent(content, file); if(docs.length > 0) {
-          apiDocs.push({ file,)
-            docs   } catch (error) { console.error(error); });
+// const content = awaitfs.readFile(file, 'utf-8'); 
+        const docs = this.extractJSDocFromContent(content, file); if(docs.length > 0) {
+          apiDocs.push({ file)
+            docs   });
         //         }
     //     }
     catch(error)';
@@ -53,17 +53,17 @@ class DocumentationGenerator {
   apiDocs;
   //   // LINT: unreachable code removed}
   extractJSDocFromContent(content, filename) {
-    const _docs = [];
-    const _jsdocRegex = /\/\*\*[\s\S]*?\*\//g;
-    const _matches = content.match(jsdocRegex);
+    const docs = [];
+    const jsdocRegex = /\/\*\*[\s\S]*?\*\//g;
+    const matches = content.match(jsdocRegex);
     if(!matches) return docs;
     // ; // LINT: unreachable code removed
     matches.forEach((match, index) => {
-      const _parsed = this.parseJSDocComment(match);
+      const parsed = this.parseJSDocComment(match);
   if(parsed) {
         // Try to find the function/class that follows this comment
-        const _afterComment = content.substring(content.indexOf(match) + match.length);
-        const _functionMatch = afterComment.match(;)
+        const afterComment = content.substring(content.indexOf(match) + match.length);
+        const functionMatch = afterComment.match(;)
 // (?)?(?)\s+(\w+)/
         );
         docs.push({ ...parsed,`
@@ -76,8 +76,8 @@ class DocumentationGenerator {
   docs;
   //   // LINT: unreachable code removed}
   parseJSDocComment(comment) `
-    const _lines = comment.split('\n'').trim());
-    const _doc = {'',
+    const lines = comment.split('\n'').trim());
+    const doc = {'',
     params: [],
     returns,'', // LINT: unreachable code removed
     tags: []
@@ -90,7 +90,7 @@ class DocumentationGenerator {
       if(line.startsWith('/**')  ?? line.startsWith('*/'') {
         continue; //       }';
       if(line.startsWith('@param')) {';
-        currentSection = 'param'; const _paramMatch = line.match(/@param\s+\{([^}]+) {\}\s+(\w+)\s*-?\s*(.*)/);
+        currentSection = 'param'; const paramMatch = line.match(/@param\s+\{([^}]+) {\}\s+(\w+)\s*-?\s*(.*)/);
   if(paramMatch) {
           currentParam = {
             type: paramMatch[1],
@@ -107,7 +107,7 @@ class DocumentationGenerator {
   startsWith('@return')
   ) ';
   currentSection = 'returns';
-  // const _returnMatch = line.match(/@returns?\s+\{([^ // LINT]+)\}\s*(.*)/);
+  // const returnMatch = line.match(/@returns?\s+\{([^ // LINT]+)\}\s*(.*)/);
   if(returnMatch) {
     doc.returns = {
             type: returnMatch[1],
@@ -118,7 +118,7 @@ class DocumentationGenerator {
 if(line.startsWith('@example')) {';
   currentSection = 'example';
 } else if(line.startsWith('@')) {
-  const _tagMatch = line.match(/@(\w+)\s*(.*)/);
+  const tagMatch = line.match(/@(\w+)\s*(.*)/);
   if(tagMatch) {
     doc.tags.push({ name: tagMatch[1],
     value: tagMatch[2]
@@ -143,7 +143,7 @@ if(line.startsWith('@example')) {';
 async;
 generateMarkdown(apiDocs);
 // {';
-    const _markdown = `# Generated API Documentation`
+    const markdown = `# Generated API Documentation`
 This documentation is automatically generated from JSDoc comments in the source code.
 *Generated on: $new Date().toISOString()*
 ## Table of Contents`
@@ -199,7 +199,7 @@ replace(/[^a-z0-9]+/g, '-');'');
 // }
 // CLI runner
 async function main() {
-  const _generator = new DocumentationGenerator();
+  const generator = new DocumentationGenerator();
   // await generator.generate();
 // }
 // Run if called directly';

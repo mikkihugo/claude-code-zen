@@ -11,14 +11,11 @@ import { Logger } from '../utils/logger.js';
 import { CodeQueen, DebugQueen } from
 ';
 
-*
-@typedef
 {
   Object;
 }
 // QueenCoordinatorConfig
-*
-@property
+
 {
   number;
 }
@@ -27,8 +24,7 @@ number;
 of;
 concurrent;
 // tasks
-*
-@property
+
 {
   boolean;
 }
@@ -37,8 +33,7 @@ to;
 enable;
 load;
 // balancing
-*
-@property
+
 {
   number;
 }
@@ -51,38 +46,32 @@ enable;
 auto;
 // scaling
 
-*
-@typedef
 {
   Object;
 }
 // TaskQueue
-*
-@property
+
 {
   Task[]
 }
 pending - Pending;
 tasks;
 // array
-*
-@property
+
 {
   Map<string, Task>;
 }
 active - Active;
 tasks;
 // map
-*
-@property
+
 {
   Map<string, Result | Consensus>;
 }
 completed - Completed;
 tasks;
 // map
-*
-@property
+
 {
   Map<string, Error>;
 }
@@ -90,14 +79,11 @@ failed - Failed;
 tasks;
 // map
 
-*
-@typedef
 {
   Object;
 }
 // CoordinatorMetrics
-*
-@property
+
 {
   number;
 }
@@ -105,8 +91,7 @@ totalTasks - Total;
 number;
 of;
 // tasks
-*
-@property
+
 {
   number;
 }
@@ -114,8 +99,7 @@ completedTasks - Number;
 of;
 completed;
 // tasks
-*
-@property
+
 {
   number;
 }
@@ -123,32 +107,28 @@ failedTasks - Number;
 of;
 failed;
 // tasks
-*
-@property
+
 {
   number;
 }
 averageProcessingTime - Average;
 processing;
 // time
-*
-@property
+
 {
   number;
 }
 consensusRate - Consensus;
 success;
 // rate
-*
-@property
+
 {
   Object.<string, number>
 }
 queenUtilization - Queen;
 utilization;
 // stats
-*
-@property
+
 {
   number;
 }
@@ -160,7 +140,7 @@ minute * /;
 
 /** Creates a new QueenCoordinator instance */
    * @param {QueenCoordinatorConfig} [config={}] - Configuration
-options * /;;
+options * /;
 constructor((_config = {}));
 {
   //         super()
@@ -168,7 +148,7 @@ constructor((_config = {}));
         this.queens = new Map();
   this.taskQueue = {
             pending = {totalTasks = new CodeQueen();
-  const _debugQueen = new DebugQueen();
+  const debugQueen = new DebugQueen();
   this.queens.set('CodeQueen''
             this.queens.set('DebugQueen', debugQueen)
 
@@ -221,7 +201,7 @@ if(this.healthCheckTimer) {
         //         }
 
         // Shutdown all queens
-        const _shutdownPromises = Array.from(this.queens.values()).map(queen => queen.shutdown());
+        const shutdownPromises = Array.from(this.queens.values()).map(queen => queen.shutdown());
 // // // await Promise.all(shutdownPromises)
         this.emit('stopped''
         this.logger.info('QueenCoordinator stopped')
@@ -234,13 +214,13 @@ if(this.healthCheckTimer) {
 
     // */; // LINT: unreachable code removed
     async submitTask(prompt, options = ) { 
-        const _taskId = this.generateTaskId();
+        const taskId = this.generateTaskId();
 
-        const _task = id = false] - Whether to require consensus;
+        const task = id = false] - Whether to require consensus;
      * @returns Promise<Result | Consensus>Task result
     // */; // LINT: unreachable code removed
     async executeTask(task, requireConsensus = false) { 
-        const _startTime = performance.now();
+        const startTime = performance.now();
 // try'
             this.logger.info(`Executing task $task.id,requireConsensus = performance.now() - startTime;`
             this.updateProcessingTimeMetrics(processingTime);
@@ -257,7 +237,7 @@ async;
 executeWithBestQueen(task);
 : unknown
 // {
-// const _bestQueen = awaitthis.selectBestQueen(task);
+// const bestQueen = awaitthis.selectBestQueen(task);
   if(!bestQueen) {``
     throw new Error(`No suitable queen found for tasktype = // // await bestQueen.process(task);`
 
@@ -274,18 +254,18 @@ executeWithBestQueen(task);
 
     // */; // LINT: unreachable code removed
     async executeWithConsensus(task) 
-// const _suitableQueens = awaitthis.getSuitableQueens(task);
+// const suitableQueens = awaitthis.getSuitableQueens(task);
 
         if(suitableQueens.length < 2) ``
             this.logger.warn(`Insufficient queens for consensus on task ${task.id}, falling back to single queen`);``
     // return // // await this.executeWithBestQueen(task);
     //   // LINT: unreachable code removed}
 
-  const _primaryQueen = suitableQueens[0];
-  const _otherQueens = suitableQueens.slice(1);
+  const primaryQueen = suitableQueens[0];
+  const otherQueens = suitableQueens.slice(1);
 ``
   this.logger.info(`Executing consensus for task ${task.id} with ${suitableQueens.length} queens`);``
-// const _consensus = awaitprimaryQueen.collaborate(task, otherQueens);
+// const consensus = awaitprimaryQueen.collaborate(task, otherQueens);
   if(consensus.confidence >= this.config.consensusThreshold) {
     this.taskQueue.completed.set(task.id, consensus);
     this.metrics.completedTasks++;
@@ -310,7 +290,7 @@ async;
 selectBestQueen(task);
 
 // {
-// const _suitableQueens = awaitthis.getSuitableQueens(task);
+// const suitableQueens = awaitthis.getSuitableQueens(task);
   if(suitableQueens.length === 0) {
     // return null;
     //   // LINT: unreachable code removed}
@@ -328,8 +308,8 @@ selectBestQueen(task);
 
   // Sort by suitability(queens with matching specialty first)
   suitableQueens.sort((a, b) => {``
-    const _aMatches = a.getSpecialty().includes(task.type.split('-''
-    const _bMatches = b.getSpecialty() .includes(task.type.split('-')[0])
+    const aMatches = a.getSpecialty().includes(task.type.split('-''
+    const bMatches = b.getSpecialty() .includes(task.type.split('-')[0])
 
     if(aMatches && !bMatches) return -1;
     // if(!aMatches && bMatches) return 1; // LINT: unreachable code removed
@@ -354,15 +334,15 @@ processTaskQueue();
                     this.taskQueue.pending.length > 0 && ;
                     this.taskQueue.active.size < this.config.maxConcurrentTasks;
                 ) {
-                    const _task = this.taskQueue.pending.shift();
+                    const task = this.taskQueue.pending.shift();
 
                     // Process task asynchronously
                     this.executeTask(task).catch(_error => {)'
-                        this.logger.error(`Task $task.idcatch (error) console.error(error); failed = > setTimeout(resolve, 100));`
+                        this.logger.error(`Task $task.id failed = > setTimeout(resolve, 100));`
             } catch(error) {``
                 this.logger.error('Error in task queueprocessing = 0;')
         for (const [name, queen] of this.queens.entries()) {
-            const _isHealthy = queen.isHealthy(); if(!isHealthy) {'
+            const isHealthy = queen.isHealthy(); if(!isHealthy) {'
                 this.logger.warn(`Queen $nameis unhealthy`); ``
                 this.emit('queenUnhealthy', { name, queen }) ;'else {'
                 healthyQueens++;
@@ -373,9 +353,9 @@ processTaskQueue();
         //         }
 
         // Update throughput(tasks per minute)
-        const _now = Date.now();
-        const _timeWindow = 60000; // 1 minute
-        const _recentTasks = this.metrics.completedTasks; // Simplified calculation
+        const now = Date.now();
+        const timeWindow = 60000; // 1 minute
+        const recentTasks = this.metrics.completedTasks; // Simplified calculation
         this.metrics.throughput = (recentTasks / timeWindow) * 60000
 '
         this.emit('healthCheck", {")'
@@ -468,16 +448,16 @@ processTaskQueue();
      * @returns {Promise<Result | Consensus>} Task result when completed
     // */; // LINT: unreachable code removed/g
     async waitForTask(taskId, timeout = 30000) { 
-        const _startTime = Date.now();
+        const startTime = Date.now();
 
         while(Date.now() - startTime < timeout) 
-            const _status = this.getTaskStatus(taskId);``
+            const status = this.getTaskStatus(taskId);``
   if(status === 'completed') {'
-                const _result = this.getTaskResult(taskId);
+                const result = this.getTaskResult(taskId);
                 if(result) return result;
     //   // LINT: unreachable code removed}'
   if(status === 'failed') {'
-                const _error = this.getTaskError(taskId)
+                const error = this.getTaskError(taskId)
                 throw error  ?? new Error(`Task $taskIdfailed`);``
             //             }``
   if(status === 'not-found''

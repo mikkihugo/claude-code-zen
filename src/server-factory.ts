@@ -29,24 +29,23 @@ import {
   UnifiedServer,
   ValidationError,
   ValidationResult,
-',
-} from './types/server.js'
+'} from './types/server.js'
 '
 // import { UnifiedClaudeFlowServer  } from './unified-server.js';
 
 /** Default server configurations for different server types */
 
-const _DEFAULT_CONFIGS = {unified = this.validateConfig(config);
+const DEFAULT_CONFIGS = {unified = this.validateConfig(config);
 if(!validationResult.valid) {'
   throw new Error(`Invalid serverconfiguration = > e.message).join(', ')}`);
 // }
 // Create unified server with enhanced configuration`
-const _serverOptions = {port = this.getDefaultConfig('api');
-const _mergedConfig = this.mergeConfig(defaultConfig, config);'
-const _serverOptions = {port = this.getDefaultConfig('mcp');
-const _mergedConfig = this.mergeConfig(defaultConfig, config);
-const _serverOptions = {port = [];
-const _warnings = [];
+const serverOptions = {port = this.getDefaultConfig('api');
+const mergedConfig = this.mergeConfig(defaultConfig, config);'
+const serverOptions = {port = this.getDefaultConfig('mcp');
+const mergedConfig = this.mergeConfig(defaultConfig, config);
+const serverOptions = {port = [];
+const warnings = [];
 // Validate basic configuration'
   if(!config.name ?? typeof config.name !== 'string') {'
   errors.push(field = = 'string') '
@@ -65,8 +64,8 @@ getDefaultConfig(
       throw new Error(`Unknown servertype = new Date();`
 
     Object.keys(customConfig).forEach(key => {)
-      const _customValue = (customConfig as any)[key];
-      const _defaultValue = (merged as any)[key];
+      const customValue = (customConfig as any)[key];
+      const defaultValue = (merged as any)[key];
   if(customValue !== undefined) {`
         if(typeof customValue === 'object' && customValue !== null && ;'
             typeof defaultValue === 'object' && defaultValue !== null &&;
@@ -169,9 +168,9 @@ getDefaultConfig(
 
   async build(): Promise<UnifiedServer> {
     // Determine server type based on configuration'
-    let _serverType = 'unified';
+    let serverType = 'unified';
   if(this.config.features) {
-      const _enabledFeatures = Object.entries(this.config.features).filter(([ enabled]) => enabled);
+      const enabledFeatures = Object.entries(this.config.features).filter(([ enabled]) => enabled);
   if(enabledFeatures.length === 1) {'
         if(this.config.features.enableMCP) serverType = 'mcp';'
         else if(this.config.features.enableWebSocket) serverType = 'websocket';'
@@ -181,8 +180,8 @@ getDefaultConfig(
     //     }
 
     // Get default configuration and merge with custom config
-    const _defaultConfig = this.factory.getDefaultConfig(serverType);'
-    const _finalConfig = this.factory['mergeConfig'](defaultConfig, this.config);
+    const defaultConfig = this.factory.getDefaultConfig(serverType);'
+    const finalConfig = this.factory['mergeConfig'](defaultConfig, this.config);
 
     // Create server based on type
   switch(serverType) {'
@@ -198,7 +197,7 @@ getDefaultConfig(
 
 // Export convenience functions
 // export async function createUnifiedServer(config?): Promise<UnifiedServer> {
-  const _builder = createServerBuilder();
+  const builder = createServerBuilder();
   if(config) {
     builder.withConfig(config);
   //   }

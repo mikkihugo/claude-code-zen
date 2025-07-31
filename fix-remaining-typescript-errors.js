@@ -18,10 +18,9 @@ class RemainingTypeScriptErrorFixer {
     console.warn('🔧 Starting remaining TypeScript error fixes...');
 
     // Find all TypeScript files in src directory
-    const tsFiles = await glob('src/**/*.ts', {
+    const tsFiles = await glob('src/**/*. */ts', {
       cwd: process.cwd(),
-      absolute: true,
-    });
+      absolute: true});
 
     console.warn(`📁 Found ${tsFiles.length} TypeScript files to process`);
 
@@ -48,36 +47,31 @@ class RemainingTypeScriptErrorFixer {
       {
         pattern: /(\w+)\s*=\s*\{\s*(\w+);\s*\}/g,
         replacement: '$1 = { $2 }',
-        description: 'object property syntax',
-      },
+        description: 'object property syntax'},
 
       // Type annotation issues: property = default -> property = value
       {
         pattern: /(\w+)\s*=\s*default\b/g,
         replacement: '$1 = undefined',
-        description: 'default value assignments',
-      },
+        description: 'default value assignments'},
 
       // Object key assignments: key = {} -> key = { value }
       {
         pattern: /(\w+)\s*=\s*\{\s*\}/g,
         replacement: '$1 = {}',
-        description: 'empty object assignments',
-      },
+        description: 'empty object assignments'},
 
       // Arrow function syntax issues
       {
         pattern: /=>\s*\{\s*;\s*\}/g,
         replacement: '=> {}',
-        description: 'empty arrow functions',
-      },
+        description: 'empty arrow functions'},
 
       // Variable declarations with semicolons
       {
         pattern: /const\s+(\w+)\s*;\s*=/g,
         replacement: 'const $1 =',
-        description: 'variable declarations',
-      },
+        description: 'variable declarations'},
     ];
 
     for (const { pattern, replacement, description } of patterns) {

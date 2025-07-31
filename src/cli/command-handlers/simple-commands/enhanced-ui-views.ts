@@ -5,7 +5,7 @@
 import ToolExecutionFramework from '.';
 
 // Enhanced view modes with all missing tool categories
-const _ENHANCED_VIEWS = {PROCESSES = ui; // eslint-disable-line
+const ENHANCED_VIEWS = {PROCESSES = ui; // eslint-disable-line
 this.toolFramework = new ToolExecutionFramework(ui);
 this.selectedIndices = new Map(); // Track selection for each view
 this.viewData = new Map(); // Store view-specific data
@@ -45,8 +45,8 @@ this.viewData.set('neural', {
 
 renderNeuralView();
 // {
-  const _colors = this.ui.colors ?? this.getColors();'
-  const _data = this.viewData.get('neural');'
+  const colors = this.ui.colors ?? this.getColors();'
+  const data = this.viewData.get('neural');'
   console.warn(colors.white(colors.bold(' Neural Network Management')));
   console.warn();
   // Neural status overview'
@@ -56,7 +56,7 @@ renderNeuralView();
   console.warn(`;
 WASMSupport = [`
       { key => {
-        const _status =;`
+        const status =;`
           job.status === 'completed';
 )'')
 '
@@ -75,7 +75,7 @@ $;
 }
 -Accuracy = this.getColors();
 ``;
-const _data = this.viewData.get('analysis');
+const data = this.viewData.get('analysis');
 '
   console.warn(colors.white(colors.bold(' Analysis & Monitoring')))
 console.warn()
@@ -101,7 +101,7 @@ $;
 
   renderWorkflowView();
   {
-    const _colors = this.getColors();
+    const colors = this.getColors();
     `
 console.warn(colors.white(colors.bold(' Workflow & Automation')));
 console.warn();
@@ -112,7 +112,7 @@ console.warn(colors.cyan(' Workflow Status'));
     console.warn(`
 ActiveWorkflows = [`
       { key => {)`
-      const _prefix = colors.yellow(`${index + 1}.`);`
+      const prefix = colors.yellow(`${index + 1}.`);`
       console.warn(`${prefix} ${workflow.name}`);`
       console.warn(`${colors.gray(workflow.description)}`);`
       console.warn(`${colors.dim(`${workflow.steps.length} steps`)}`);
@@ -124,7 +124,7 @@ ActiveWorkflows = [`
 
     renderGitHubView();
     // {
-    const _colors = this.getColors();
+    const colors = this.getColors();
     `
   console.warn(colors.white(colors.bold(' GitHub Integration')));
   console.warn();
@@ -148,7 +148,7 @@ in $
 
   renderDAAView();
   {
-    const _colors = this.getColors();
+    const colors = this.getColors();
     `
 console.warn(colors.white(colors.bold(' Dynamic Agent Architecture')));
 console.warn();
@@ -160,7 +160,7 @@ console.warn(colors.cyan(' DAA Status'));
 DynamicAgents = [`
       {key = [
       { type => {)`
-      const _status = agent.status === 'active'') : colors.gray('');'
+      const status = agent.status === 'active'') : colors.gray('');'
       console.warn(`${status} ${agent.type}: ${colors.yellow(agent.count)} agents`);
     }
 
@@ -170,7 +170,7 @@ DynamicAgents = [`
 
     renderSystemView();
     // {
-    const _colors = this.getColors();
+    const colors = this.getColors();
     `
   console.warn(colors.white(colors.bold(' System & Utilities')));
   console.warn();
@@ -180,7 +180,7 @@ DynamicAgents = [`
     SecurityStatus = [`
       {key = [
       { component => {
-      const _status =;`
+      const status =;`
         item.status === 'excellent';
 )'')
     '
@@ -212,8 +212,8 @@ $;
 
   renderToolsView() {}
 // {
-  const _colors = this.getColors();
-  const _status = this.toolFramework.getStatus();`;
+  const colors = this.getColors();
+  const status = this.toolFramework.getStatus();`;
 console.warn(colors.white(colors.bold(' Tool Execution Center')));
 console.warn();
 // Execution status'
@@ -224,9 +224,9 @@ console.warn(;
     `
     categories.forEach((category, index) =>
 {
-  const _tools = this.toolFramework.getToolsByCategory(category);
+  const tools = this.toolFramework.getToolsByCategory(category);
   `;
-    const _prefix = colors.yellow(`;
+    const prefix = colors.yellow(`;
   `
   \$index +)`;
   1`;
@@ -283,14 +283,14 @@ colors.yellow('s')
   execution;
   ('');
   for (const j = 0; j < columns && i + j < tools.length; j++) {
-    const _tool = tools[i + j];
+    const tool = tools[i + j];
     '
-    const _keyLabel = colors.yellow(`[\$`
+    const keyLabel = colors.yellow(`[\$`
 tool.key;
     )`
 ]`)`
-    const _toolName = colors.white(tool.tool);
-    const _desc = colors.gray(tool.desc);
+    const toolName = colors.white(tool.tool);
+    const desc = colors.gray(tool.desc);
     `
 row += `;
     $;
@@ -318,7 +318,7 @@ row += `;
         this.executeQuickTool('cognitive_analyze', {behavior = >;))'
         this.executeQuickTool('learning_adapt', experience = > this.promptModelCompress(),a = > this.promptEnsembleCreate(),b = > this.promptTransferLearn(),c = > this.promptNeuralExplain(),d = > this.executeQuickTool('wasm_optimize', {operation = > this.promptInferenceRun() } catch (error) { console.error(error); ;
 
-    const _action = neuralActions[key];
+    const action = neuralActions[key];
   if(action) {
 // // await action();
       // return true;
@@ -330,8 +330,8 @@ row += `;
 
   async executeQuickTool(toolName, parameters = {}) ;
     try {'
-      this.ui.addLog('info', `Executing $toolNamecatch (error) console.error(error); ...`);
-// const _result = awaitthis.toolFramework.executeTool(toolName, parameters);`
+      this.ui.addLog('info', `Executing $toolName ...`);
+// const result = awaitthis.toolFramework.executeTool(toolName, parameters);`
       this.ui.addLog('success', `${toolName} completed successfully`);
       this.displayToolResult(result);
     } catch(error) {`
@@ -351,7 +351,7 @@ row += `;
     // In a real implementation, this would show an interactive form
 
       // Update view data with fresh neural status`
-      const _data = this.viewData.get('neural');
+      const data = this.viewData.get('neural');
       data.lastUpdate = new Date();
     } catch(error) 
       // Silently handle refresh errors
@@ -362,7 +362,7 @@ row += `;
 
   async refreshAnalysisData() 
 // try'
-// const _report = awaitthis.toolFramework.executeTool('performance_report', {timeframe = this.viewData.get('analysis');
+// const report = awaitthis.toolFramework.executeTool('performance_report', {timeframe = this.viewData.get('analysis');
       data.lastUpdate = new Date();catch(error) 
       // Silently handle refresh errors
     //     }

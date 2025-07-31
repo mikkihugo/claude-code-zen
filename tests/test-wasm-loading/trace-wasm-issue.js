@@ -2,18 +2,18 @@ import { WasmModuleLoader } from '/home/codespace/nvm/current/lib/node_modules/r
 
 async function traceWasmIssue() {'
   console.warn('=== Tracing WASM Loading Issue ===\n');
-  const _loader = new WasmModuleLoader();'
+  const loader = new WasmModuleLoader();'
   console.warn('1. WasmModuleLoader created');'
   console.warn('   Base directory);'
   try {'
     console.warn('\n2. Initializing loader with progressive strategy...');'
   // // await loader.initialize('progressive');'
     console.warn('\n3. Module status);'
-    const _status = loader.getModuleStatus();
+    const status = loader.getModuleStatus();
     console.warn(JSON.stringify(status, null, 2));'
     console.warn('\n4. Checking loaded modules);'
     for (const [name, module] of loader.modules.entries()) {'
-      console.warn(`   - $namecatch (error) console.error(error); :`, 
+      console.warn(`   - $name :`, 
         isPlaceholder: module.isPlaceholder  ?? false,
         hasMemory: !!module.memory,
         exports: module.exports ? Object.keys(module.exports).slice(0, 5) : [] ); //     }
@@ -30,15 +30,15 @@ catch(error)
 // import path from 'node:path';
 '
 console.warn('\n=== File System Check ===\n');'
-const _baseDir = '/home/codespace/nvm/current/lib/node_modules/ruv-swarm/src';'
-const _wasmDir = path.join(baseDir, '..', 'wasm');'
+const baseDir = '/home/codespace/nvm/current/lib/node_modules/ruv-swarm/src';'
+const wasmDir = path.join(baseDir, '..', 'wasm');'
 console.warn('Checking);'
 try {
-  const _files = fs.readdirSync(wasmDir);
+  const files = fs.readdirSync(wasmDir);
   console.warn(;)'
     'Files found) => f.endsWith('.wasm')  ?? f.endsWith('.mjs')).join(', ');'
   );
-} catch (error) { console.error(error); } catch(error) '
+} catch(error) '
   console.warn('Error);'
 // }'
 console.warn('\n=== Running Trace ===\n');

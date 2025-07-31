@@ -22,8 +22,8 @@ export async function securityCommand() {
     if (rbacAction === 'roles') {
       '
       printSuccess('RBACRoles = === 'assign') {'
-      const _user = args[2];
-      const _role = args[3];
+      const user = args[2];
+      const role = args[3];
       if (user && role) {
         '
         printSuccess(`Assigning role $
@@ -35,9 +35,9 @@ export async function securityCommand() {
         `);`;
         console.warn(' Role assignment complete');
         '
-        console.warn('   Effective immediately')
+        console.warn('   Effective immediately');
         '
-        console.warn('   Audit log entry created')
+        console.warn('   Audit log entry created');
       } else {
         '
         printError('Usage = args[1];'
@@ -52,7 +52,7 @@ export async function securityCommand() {
           if (cbAction === 'status') {
             '
             printSuccess('Circuit BreakerStatus = === 'reset') {'
-            const _service = args[2];
+            const service = args[2];
             if (service) {
               '
               printSuccess(`Resetting circuitbreaker = args[1]
@@ -66,24 +66,24 @@ export async function securityCommand() {
             printSuccess('Exporting audit logs...')
                 '
                 console.warn(''
-            console.warn('   Format: JSON(encrypted)')
+            console.warn('   Format: JSON(encrypted)');
                 '
                 console.warn(''
-            console.warn('\n Export complete,234 events')
+            console.warn('\n Export complete,234 events');
                 // else'
-                console.warn('Audit commands, search, export, configure')
+                console.warn('Audit commands, search, export, configure');
                 break;
                 '
                 case 'compliance':'
           printSuccess(''
           console.warn(''
-          console.warn('\n SOC2 Type II')'
+          console.warn('\n SOC2 Type II');'
                 console.warn(''
           console.warn(''
           console.warn(''
           console.warn('   Controls);'
 '
-          console.warn('\n GDPR(General Data Protection Regulation)')'
+          console.warn('\n GDPR(General Data Protection Regulation)');'
                 console.warn(''
           console.warn(''
           console.warn(''

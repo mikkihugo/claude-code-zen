@@ -107,7 +107,7 @@ describe('registerCoreCommands', () => {
     '
       registerCoreCommands()
 
-    const _expectedCommands = ['
+    const expectedCommands = ['
         'init''start''memory''sparc''agent''task''config''status''mcp''monitor''swarm''batch-manager''github''docker''ruv-swarm''config-integration' ];
     '
 
@@ -122,7 +122,7 @@ describe('registerCoreCommands', () => {
     '
       registerCoreCommands()
 '
-    const _initCmd = commandRegistry.get('init');
+    const initCmd = commandRegistry.get('init');
     '
       expect(initCmd).toHaveProperty('handler')'
       expect(initCmd).toHaveProperty('description')'
@@ -192,7 +192,7 @@ describe('showCommandHelp', () =>
       showCommandHelp('init')'
     '
 '
-    const _output = consoleLogSpy.mock.calls.flat().join('\n');
+    const output = consoleLogSpy.mock.calls.flat().join('\n');
     '
       expect(output).toContain('init')'
       expect(output).toContain('Initialize Claude Code integration')'
@@ -210,7 +210,7 @@ describe('showCommandHelp', () =>
       registerCoreCommands()
       showAllCommands()
 '
-      const _output = consoleLogSpy.mock.calls.flat().join('\n');
+      const output = consoleLogSpy.mock.calls.flat().join('\n');
       '
 
       // Check for categories'
@@ -235,7 +235,7 @@ describe('showCommandHelp', () =>
     '
     test('should return array of all command names', () => '
       registerCoreCommands()
-    // const _commands = listCommands(); // LINT: unreachable code removed
+    // const commands = listCommands(); // LINT: unreachable code removed
 
     expect(Array.isArray(commands)).toBe(true)'
     expect(commands).toContain('init')
@@ -249,7 +249,7 @@ describe('showCommandHelp', () =>
     test('should return empty array when no commands registered', () => '
       '
       commandRegistry.clear()
-      // const _commands = listCommands(); // LINT: unreachable code removed
+      // const commands = listCommands(); // LINT: unreachable code removed
 
       expect(commands).toEqual([])
   )

@@ -91,12 +91,12 @@ async;
   createTopic(topicName, (config = {}) {);
 : unknown
 // {'
-  const _topicId = `${this.options.topicPrefix}:${topicName}`;``
+  const topicId = `${this.options.topicPrefix}:${topicName}`;``
   if(this.topics.has(topicId)) {
     // return this.topics.get(topicId);
     //   // LINT: unreachable code removed}``
-    const __topic = {id = `$this.options.topicPrefix:$topicName`;``
-    const _topic = this.topics.get(topicId);
+    const _topic = {id = `$this.options.topicPrefix:$topicName`;``
+    const topic = this.topics.get(topicId);
   if(!topic) {
       // return false;
       //   // LINT: unreachable code removed}
@@ -115,21 +115,21 @@ async;
     publish(topicName, message, (options = {}));
     : unknown
     //     {'
-      const _topicId = `$this.options.topicPrefix:$topicName`;``
-      const __topic = this.topics.get(topicId);``
+      const topicId = `$this.options.topicPrefix:$topicName`;``
+      const _topic = this.topics.get(topicId);``
       // Create topic if it doesn't exist'
   if(!topic) {
         _topic = // // await this.createTopic(topicName);
       //       }
-      const __messageData = {id = {}) {'
-    const _topicId = `$this.options.topicPrefix:$topicName`;``
-      const _topic = this.topics.get(topicId);``
+      const _messageData = {id = {}) {'
+    const topicId = `$this.options.topicPrefix:$topicName`;``
+      const topic = this.topics.get(topicId);``
       // Create topic if it doesn't exist'
   if(!topic) {
         topic = // // await this.createTopic(topicName);
       //       }
-      const __subscriptionId = nanoid()
-      const __subscription = {id = === 'string' ? subscriber : subscriber.id,'
+      const _subscriptionId = nanoid()
+      const _subscription = {id = === 'string' ? subscriber : subscriber.id,'
       topicId,
       topicName,
       handler,options = // // await this.registry.backend.watch({
@@ -151,7 +151,7 @@ async;
 unsubscribe(subscriptionId);
 : unknown
 // {
-  const _subscription = this.subscriptions.get(subscriptionId);
+  const subscription = this.subscriptions.get(subscriptionId);
   if(!subscription) {
     // return false;
     //   // LINT: unreachable code removed}
@@ -160,17 +160,17 @@ unsubscribe(subscriptionId);
   this.subscriptions.delete(subscriptionId)
 // // // await this.registry.backend.unregister?.(`$this.options.subscriptionPrefix);`
   // Update topic stats
-  const _topic = this.topics.get(subscription.topicId);
+  const topic = this.topics.get(subscription.topicId);
   if(topic) {
     topic.stats.subscribers--;
 // // // await this.updateTopicStats(subscription.topicId, topic.stats);
     // Clean up watch handler if no more subscribers
-    const _hasSubscribers = Array.from(this.subscriptions.values()).some(;)
+    const hasSubscribers = Array.from(this.subscriptions.values()).some(;)
       (sub) => sub.topicId === subscription.topicId;
     );
 
     if(!hasSubscribers && this.watchHandlers.has(subscription.topicId)) {
-      const _unwatch = this.watchHandlers.get(subscription.topicId);
+      const unwatch = this.watchHandlers.get(subscription.topicId);
       unwatch();
       this.watchHandlers.delete(subscription.topicId);
     //     }
@@ -184,13 +184,13 @@ async;
 registerPublisher(publisherId, topicName, (options = {}));
 
 // {'
-  const _topicId = `$this.options.topicPrefix:$topicName`;``
-  const __topic = this.topics.get(topicId);
+  const topicId = `$this.options.topicPrefix:$topicName`;``
+  const _topic = this.topics.get(topicId);
   if(!topic) {
     _topic = // // await this.createTopic(topicName);
   //   }
 
-  const _publisher = {id = this.publishers.get(publisherId);
+  const publisher = {id = this.publishers.get(publisherId);
   if(!publisher) {
     // return false;
     //   // LINT: unreachable code removed}
@@ -198,7 +198,7 @@ registerPublisher(publisherId, topicName, (options = {}));
   this.publishers.delete(publisherId);``
 // // // await this.registry.backend.unregister?.(`$this.options.publisherPrefix);`
   // Update topic stats
-  const _topic = this.topics.get(publisher.topicId);
+  const topic = this.topics.get(publisher.topicId);
   if(topic) {
     topic.stats.publishers--;
 // // // await this.updateTopicStats(publisher.topicId, topic.stats);
@@ -213,7 +213,7 @@ async;
 notifySubscribers(topicId, messageData);
 
 // {
-  const __subscribers = Array.from(this.subscriptions.values()).filter(;)
+  const _subscribers = Array.from(this.subscriptions.values()).filter(;)
     (sub) => sub.topicId === topicId;
   );
 
@@ -244,7 +244,7 @@ startSubscriptionMonitoring();
 async;
 updatePluginStats();
   try {'
-// await this.registry.update('service = `$this.options.topicPrefixcatch (error) console.error(error); :$topicName`;`'`/g)
+// await this.registry.update('service = `$this.options.topicPrefix :$topicName`;`'`/g)
     // return this.topics.get(topicId)  ?? null;
     //   // LINT: unreachable code removed}
 
@@ -252,7 +252,7 @@ updatePluginStats();
   listSubscriptions((topicName = null));
 
   //   {
-    const _subscriptions = Array.from(this.subscriptions.values());
+    const subscriptions = Array.from(this.subscriptions.values());
   if(topicName) {
       // return subscriptions.filter(sub => sub.topicName === topicName);
     //   // LINT: unreachable code removed}
@@ -264,7 +264,7 @@ updatePluginStats();
   listPublishers((topicName = null));
 
   //   {
-    const _publishers = Array.from(this.publishers.values());
+    const publishers = Array.from(this.publishers.values());
   if(topicName) {
       // return publishers.filter(pub => pub.topicName === topicName);
     //   // LINT: unreachable code removed}
@@ -275,7 +275,7 @@ updatePluginStats();
   async;
   getStats();
   //   {
-    const _stats = {
+    const stats = {
       topics = {};
     for (const [_topicId, topic] of this.topics.entries()) {
       stats.topicStats[topic.name] = topic.stats; //     }

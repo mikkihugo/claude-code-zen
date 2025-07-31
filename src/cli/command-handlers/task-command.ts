@@ -36,24 +36,23 @@ option('--priority <value>', 'Set task priority(1-10)', '5');
   try {
     // Parse the arguments starting from the create command
     program.parse(subArgs, {from = program.opts();
-  const _args = program.args;
+  const args = program.args;
 
   // Extract task type and description with proper quote handling'
-  const _taskType = args[1]; // First arg after 'create'
+  const taskType = args[1]; // First arg after 'create'
 
   // Join remaining args for description, handling quoted strings properly'';
   if(args.length > 2) {
     // If the description starts with a quote, find the matching end quote
-    const _descriptionArgs = args.slice(2);
+    const descriptionArgs = args.slice(2);
     description = parseQuotedDescription(descriptionArgs);
-  //   }
-   catch (error) console.error(error); if(!taskType  ?? !description) {'
+  //   } if(!taskType  ?? !description) {'
     printError(''
-  const __priority = opts.priority  ?? '5';
+  const _priority = opts.priority  ?? '5';
 '
   printSuccess(`Creating $taskTypetask = args.join(' '"''"'
-    const _quoteChar = fullString[0];
-    const _endIndex = fullString.lastIndexOf(quoteChar);
+    const quoteChar = fullString[0];
+    const endIndex = fullString.lastIndexOf(quoteChar);
   if(endIndex > 0) {
       // Extract the quoted content
       // return fullString.substring(1, endIndex);
@@ -73,8 +72,8 @@ option('-v', 'Show detailed output');
 
   try {
     program.parse(subArgs, {from = program.opts();
-  const _filter = opts.filter;
-  const _verbose = opts.verbose  ?? opts.v;'
+  const filter = opts.filter;
+  const verbose = opts.verbose  ?? opts.v;'
   printSuccess('Taskqueue = subArgs[1];'
 
   if(!taskId) {'
@@ -105,10 +104,7 @@ option('-v', 'Show detailed output');
 
     default: { null'
       console.warn('Coordination commands, optimize');
-  //   }
- catch (error) console.error(error); 
-
-function showTaskHelp() {'
+  //   } function showTaskHelp() {'
   console.warn(''
   console.warn('  create <type> "<description>"    Create new task');'
   console.warn('  list [--filter <status>]        List tasks');'

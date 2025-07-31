@@ -43,11 +43,11 @@ export class HealthMonitor {
 /** Perform comprehensive health check */
 
   async performHealthCheck() { 
-    const _timestamp = new Date().toISOString();
-    const _results = 
+    const timestamp = new Date().toISOString();
+    const results = 
       timestamp,status = Date.now();
-// const _checkResult = awaitcheckFn();
-    const _duration = Date.now() - startTime;
+// const checkResult = awaitcheckFn();
+    const duration = Date.now() - startTime;
     results.checks[name] = {
 ..checkResult,
     duration,
@@ -92,7 +92,7 @@ addToHistory(results)
 '
      catch (error) console.error(error)
     // ; // LINT: unreachable code removed'
-    const __status = 'healthy''
+    const _status = 'healthy''
   if(breakerSummary.openBreakers > 0) {'
       _status = 'degraded''
     //     }
@@ -102,13 +102,13 @@ addToHistory(results)
 
     // return {
         status,details = process.cpuUsage();
-    // const __memoryUsage = process.memoryUsage(); // LINT: unreachable code removed
-    const __uptime = process.uptime();
+    // const _memoryUsage = process.memoryUsage(); // LINT: unreachable code removed
+    const _uptime = process.uptime();
 
     // Calculate CPU percentage(simplified)
 
     // Memory usage in MB'
-    const _memoryMB = {rss = 'healthy''
+    const memoryMB = {rss = 'healthy''
   if(memoryMB.heapUsed > 512) {
       // More than 512MB heap'
       _status = 'degraded''
@@ -120,10 +120,10 @@ addToHistory(results)
 
     // return {
         status,details = // // await fs.stat(process.cwd());
-    // const _totalSpace = os.totalmem(); // LINT: unreachable code removed
-    const _freeSpace = os.freemem();
-    const _usedPercent = ((totalSpace - freeSpace) / totalSpace) * 100'
-    const _status = 'healthy''
+    // const totalSpace = os.totalmem(); // LINT: unreachable code removed
+    const freeSpace = os.freemem();
+    const usedPercent = ((totalSpace - freeSpace) / totalSpace) * 100'
+    const status = 'healthy''
   if(usedPercent > 80) {'
       status = 'degraded''
     //     }
@@ -133,9 +133,9 @@ addToHistory(results)
 
     // return {
         status,details = process.memoryUsage();
-    // const _heapUsedPercent = (usage.heapUsed / usage.heapTotal) * 100; // LINT: unreachable code removed
+    // const heapUsedPercent = (usage.heapUsed / usage.heapTotal) * 100; // LINT: unreachable code removed
 '
-    const _status = 'healthy''
+    const status = 'healthy''
   if(heapUsedPercent > 80) {'
       status = 'degraded''
     //     }
@@ -146,14 +146,14 @@ addToHistory(results)
     // return {
         status,details = 60000) 
   if(this._monitoringEnabled) {'
-      console.warn('Health monitoring already running')
+      console.warn('Health monitoring already running');
     // return; // LINT: unreachable code removed
     //     }
 
     this.monitoringEnabled = true;
     this.monitoringInterval = setInterval(async() => {
       try {
-// const _health = awaitthis.performHealthCheck();
+// const health = awaitthis.performHealthCheck();
 
         // Simplified logging - only log degraded/unhealthy status'
   if(health.status === 'unhealthy''
@@ -168,7 +168,7 @@ addToHistory(results)
 console.warn(` Health monitoring started(interval = null`
 // }
     this.monitoringEnabled = false))``
-console.warn(' Health monitoring stopped')'
+console.warn(' Health monitoring stopped');'
 // }
 
 /** Start memory cleanup routine */
@@ -196,13 +196,13 @@ stopMemoryCleanup();
 performMemoryCleanup();
 // {
     try {
-      const _memoryUsage = process.memoryUsage();
-      const _heapUsedMB = memoryUsage.heapUsed / 1024 / 1024;
+      const memoryUsage = process.memoryUsage();
+      const heapUsedMB = memoryUsage.heapUsed / 1024 / 1024;
   if(heapUsedMB > this.maxMemoryUsageMB) {'
         console.warn(` Health monitor memory usagehigh = this.healthHistory.slice(-this.maxHistorySize);`
 // }
  catch (error) { console.error(error)}// Additional cleanup for very old entries
-const _cutoff = Date.now() - 24 * 60 * 60 * 1000; // 24 hours
+const cutoff = Date.now() - 24 * 60 * 60 * 1000; // 24 hours
 this.healthHistory = this.healthHistory.filter((h) => new Date(h.timestamp).getTime() > cutoff)} catch(error)
 // {``
   console.warn('Health history cleanupfailed = []'
@@ -226,13 +226,13 @@ getHealthHistory((maxItems = null));
 getHealthTrend((minutes = 60));
 
 // {
-  const _cutoff = Date.now() - minutes * 60 * 1000
-  const _recentChecks = this.healthHistory.filter((h) => new Date(h.timestamp).getTime() > cutoff);
+  const cutoff = Date.now() - minutes * 60 * 1000
+  const recentChecks = this.healthHistory.filter((h) => new Date(h.timestamp).getTime() > cutoff);
   if(recentChecks.length === 0) {'
     // return {status = recentChecks.filter(h => h.status === 'healthy').length
     // ; // LINT: unreachable code removed
-    const _healthPercentage = (healthyCount / recentChecks.length) * 100'
-    const _trendStatus = 'stable''
+    const healthPercentage = (healthyCount / recentChecks.length) * 100'
+    const trendStatus = 'stable''
   if(healthPercentage > 90) {'
       trendStatus = 'excellent''
     } else if(healthPercentage > 75) {'
@@ -245,9 +245,9 @@ getHealthTrend((minutes = 60));
 
     // return {
       status,timeWindow = // // await this.performHealthCheck();
-    // const _trend = this.getHealthTrend(); // LINT: unreachable code removed
+    // const trend = this.getHealthTrend(); // LINT: unreachable code removed
 
-    const _report = ['
+    const report = ['
       ' SYSTEM HEALTH REPORT''''
       `OverallStatus = > ;```
         `\$check.status === 'healthy' $name: $check.status` +;``
@@ -265,6 +265,6 @@ getHealthTrend((minutes = 60));
 // }
 
 // Export singleton instance
-// export const _healthMonitor = new HealthMonitor()}}}}}}}}}
+// export const healthMonitor = new HealthMonitor()}}}}}}}}}
 '
 ))))

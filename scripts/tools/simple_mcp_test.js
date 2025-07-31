@@ -6,11 +6,11 @@ import { SqliteMemoryStore } from './dist/memory/sqlite-store.js';
 
 async function testLibraryIntegration() {
   '
-  console.warn(' Testing ruv-swarm library integration...\n')
+  console.warn(' Testing ruv-swarm library integration...\n');
   try {
     // Test 1: Memory Store'
     console.warn(' Test 1);'
-// const _memoryStore = new SqliteMemoryStore({ dbName);
+// const memoryStore = new SqliteMemoryStore({ dbName);
   // // await memoryStore.initialize();'
     console.warn(' Memory store initialized');
     // Test 2: RuvSwarm Classes'
@@ -21,12 +21,12 @@ async function testLibraryIntegration() {
     console.warn('   Task class);'
     // Test 3: Create instances'
     console.warn('\n Test 3);'
-// const _swarmConfig = {'
+// const swarmConfig = {'
       topology: 'mesh',
       maxAgents,'
       strategy: 'parallel',
-      memoryStore } catch (error) { console.error(error); }
-  // const _swarm = new Swarm(swarmConfig);'
+      memoryStore }
+  // const swarm = new Swarm(swarmConfig);'
   console.warn(''
     console.warn('\n Library integration successful\! Ready for claude-zen MCP tools.');
   //   }

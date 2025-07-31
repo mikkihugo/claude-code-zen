@@ -13,12 +13,12 @@ import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 '
-const _rootDir = path.resolve(__dirname, '../../');
+const rootDir = path.resolve(__dirname, '../../');
 // Colors for output
-const _colors = {'
+const colors = {'
   green: '\x1b[32m','
 red: '\x1b[31m','
 yellow: '\x1b[33m','
@@ -44,8 +44,8 @@ async function runTest() {
   `
 \n Running)``
 try {
-// const _result = awaitnew Promise((_resolve, _reject) => {`;
-  const _child = spawn('npm', testCommand, {
+// const result = awaitnew Promise((_resolve, _reject) => {`;
+  const child = spawn('npm', testCommand, {
         cwd,
         stdio);
   ('');
@@ -111,13 +111,13 @@ function checkSQLiteAvailability() {
   log('\n Checking SQLite availability...', 'cyan');
   try {
     // Try to import better-sqlite3'
-    const { isSQLiteAvailable, getLoadError }  catch (error) console.error(error); = // await import('../../src/memory/sqlite-wrapper.js');
-// const _available = awaitisSQLiteAvailable();
+    const { isSQLiteAvailable, getLoadError } = // await import('../../src/memory/sqlite-wrapper.js');
+// const available = awaitisSQLiteAvailable();
   if(available) {'
       log(' SQLite(better-sqlite3) is available', 'green');
       // return true;
     //   // LINT: unreachable code removed} else {
-      const _error = getLoadError();'
+      const error = getLoadError();'
       log(`;
   `
 SQLite;
@@ -140,17 +140,17 @@ async function runIntegrationTests() {`;
 log(' SQLite Integration Test Runner', 'blue');
 '
   log('='.repeat(50), 'blue')
-const _results = [];
-const _sqliteAvailable = false;
+const results = [];
+const sqliteAvailable = false;
 try {
     // Check SQLite availability first
     sqliteAvailable = // await checkSQLiteAvailability();
     // Run specific SQLite integration tests
-// const _testResults = awaitPromise.all([;'
+// const testResults = awaitPromise.all([;'
       runTest('SQLite Memory Store Tests', [;'
         'run','
         'test','
-        '--',))'
+        '--'))'
         'tests/integration/sqlite-memory-store.test.js' ]),'
       runTest('CLI Integration Tests', [;'
         'run','
@@ -166,11 +166,11 @@ try {
     // Run additional tests if SQLite is available
   if(sqliteAvailable) {'
       log('\n Running SQLite-specific tests...', 'cyan');
-// const _sqliteSpecificResults = awaitPromise.all([;'
+// const sqliteSpecificResults = awaitPromise.all([;'
         runTest('Cross-platform Portability Tests', [;'
           'run','
           'test','
-          '--',))'
+          '--'))'
           'tests/integration/cross-platform-portability.test.js' ]),'
         runTest('Real Metrics Tests', [;'
           'run','
@@ -178,7 +178,7 @@ try {
           '--','
           'tests/integration/real-metrics.test.js' ]) ]);
       results.push(...sqliteSpecificResults);
-    }  catch (error) console.error(error); else '
+    } else '
       log('\n  Skipping SQLite-specific tests(SQLite not available)', 'yellow');catch(error) {'
     log(`;`
 Fatal;
@@ -193,9 +193,9 @@ execution;
   // Generate summary`
   log('\n Test Summary', 'blue');'
   log('='.repeat(30), 'blue');
-  const _passed = results.filter((r) => r === true).length;
-  const _failed = results.filter((r) => r === false).length;
-  const _total = results.length;'
+  const passed = results.filter((r) => r === true).length;
+  const failed = results.filter((r) => r === false).length;
+  const total = results.length;'
   log(`;`
 Total;
 Tests;
@@ -223,16 +223,15 @@ Status:`
   log(`\n  \$failedtest(s) failed. Review the output above.`, 'red');
   //   }
   // Save test results
-  const _timestamp = new Date().toISOString();
-  const _testReport = {
+  const timestamp = new Date().toISOString();
+  const testReport = {
     timestamp,
     sqliteAvailable,
     totalTests,
     passed,
     failed,
-    results: results.map((_result, index) => ({ test, passed })),
-  };'
-  const _reportPath = path.join(__dirname, 'sqlite-test-results.json');
+    results: results.map((_result, index) => ({ test, passed }))};'
+  const reportPath = path.join(__dirname, 'sqlite-test-results.json');
   // // await fs.writeFile(reportPath, JSON.stringify(testReport, null, 2));'
   log(`\n Test report saved);`
   // Exit with appropriate code

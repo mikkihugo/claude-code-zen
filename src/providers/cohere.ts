@@ -34,12 +34,10 @@ generateText(request = Date.now();
 this.validateRequest(request);
 this.emitRequest(request);
 try {'
-      const _cohereRequest = {model = // await this.makeRequest('/chat', cohereRequest);
+      const cohereRequest = {model = // await this.makeRequest('/chat', cohereRequest);
   if(!reader) {'
         throw new ProviderError('No response body', this.name);
-      //       }
-
-       catch (error) console.error(error); const _decoder = new TextDecoder();'';
+      //       } const decoder = new TextDecoder();'';
   while(true) {
         const { done, value } = // await reader.read();
         if(done) break;
@@ -48,11 +46,10 @@ try {'
   for(const line of lines) {'
           if(line.startsWith(''
             if(data === '[DONE]') continue; try {
-              const _parsed = JSON.parse(data) ;
+              const parsed = JSON.parse(data) ;
   if(parsed.text) {
                 yield parsed.text;
-              //               }
-             catch (error) console.error(error); } catch(/* _e */) catch(error)
+              //               } } catch(/* _e */) catch(error)
 // {
   this.emitError(error, request);
   throw this.handleError(error);
@@ -62,11 +59,11 @@ try {'
 : Promise<string[]>
 
   try {'
-// const _response = awaitthis.makeRequest('/models', null, 'GET');
+// const response = awaitthis.makeRequest('/models', null, 'GET');
     // return response.models;
     // .filter((model = > model.name && this.availableModels.includes(model.name)); // LINT: unreachable code removed
 map((model = > model.name);
-  } catch (error) { console.error(error); } catch(/* _error */) 
+  } catch(/* _error */) 
     // return [...this.availableModels];
     //   // LINT: unreachable code removed}
 // }
@@ -84,14 +81,14 @@ map((model = > model.name);
   // private convertToChatHistory(messages = []
 '
   // Skip the last user message(it's sent as the main message)'
-  const _messagesToProcess = messages.slice(0, -1);
+  const messagesToProcess = messages.slice(0, -1);
   for(const msg of messagesToProcess) {'
   if(msg.role === 'user') {'
       history.push(role = === 'assistant') '
         history.push(role = 'POST'): Promise<any> {'
-    const _options = {method = === 'POST') {
+    const options = {method = === 'POST') {
       options.body = JSON.stringify(data); //     }'
-// const _response = awaitfetch(`${this.baseUrl}${endpoint}`, options); 
+// const response = awaitfetch(`${this.baseUrl}${endpoint}`, options); 
   if(!response.ok) {
       throw // await this.createErrorFromResponse(response);
     //     }
@@ -100,12 +97,12 @@ map((model = > model.name);
   private;
   async;
   createErrorFromResponse(response = await response.text();
-  const _errorData = {};
+  const errorData = {};
   try {
   errorData = JSON.parse(text);
-} catch (error) { console.error(error); } catch(/* _e */) 
+} catch(/* _e */) 
   errorData = message = === 429) `
-      const _retryAfter = response.headers.get('retry-after');
+      const retryAfter = response.headers.get('retry-after');
   // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );
 // }
   // return new ProviderError(;'

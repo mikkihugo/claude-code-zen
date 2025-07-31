@@ -140,18 +140,15 @@ catch(error)
     this.context.apis.logger.info(`Hookunregistered = this.hooks.get(type);`
   if(!handlers  ?? handlers.size === 0) {
       // return {success = performance.now();
-    // const _results = []; // LINT: unreachable code removed
+    // const results = []; // LINT: unreachable code removed
 
     try {
   for(const handler of handlers) {
-        const _hookContext = {
+        const hookContext = {
           type,data = // await handler(hookContext); 
         results.push(result); if(result.stop) {
           break;
-        //         }
-       catch (error) console.error(error); 
-
-      const _executionTime = performance.now() - startTime;
+        //         } const executionTime = performance.now() - startTime;
       this.updateHookMetrics(type, executionTime, true);
 `
       this.emit('hook-executed', this.manifest.name, type, executionTime);
@@ -170,21 +167,21 @@ catch(error)
     try {
       // Here you would implement the actual API method call`
       // This is a simplified version - in reality you'd need to handle the method invocation'
-// const _result = awaitPromise.resolve(undefined); // Placeholder
+// const result = awaitPromise.resolve(undefined); // Placeholder
 
-      const _executionTime = performance.now() - startTime;
+      const executionTime = performance.now() - startTime;
       this.updateAPIMetrics(name, executionTime, true);
 '
       this.emit('api-called', this.manifest.name, name, executionTime);
 
       // return result;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
-      const _executionTime = performance.now() - startTime;
+    //   // LINT: unreachable code removed} catch(/* _error */) {
+      const executionTime = performance.now() - startTime;
       this.updateAPIMetrics(name, executionTime, false);
 '
       this.emit('api-failed', this.manifest.name, name, message = this.context.resources.limits.find(l => l.type === type);
   if(limits && this.resourceUsage[type as keyof ResourceUsage] + amount > limits.maximum) {'
-      this.emit('resource-exceeded', this.manifest.name, type,)
+      this.emit('resource-exceeded', this.manifest.name, type)
         this.resourceUsage[type as keyof ResourceUsage] + amount, limits.maximum);
 //       return false;
     //   // LINT: unreachable code removed}
@@ -210,7 +207,7 @@ catch(error)
 
     score = Math.max(0, score);
 '
-    const _status = score >= 80 ? 'healthy' : score >= 50 ? 'degraded' : 'unhealthy';
+    const status = score >= 80 ? 'healthy' : score >= 50 ? 'degraded' : 'unhealthy';
 
     this.healthScore = score;
     this.lastHealthCheck = new Date();
@@ -220,7 +217,7 @@ catch(error)
       status,
       score,issues = > i.message),lastCheck = [];
 
-    const _startTime = performance.now();
+    const startTime = performance.now();
 
     // Test1 = performance.now();
 // // await this.healthCheck();
@@ -299,9 +296,9 @@ catch(error)
         this.updateResourceUsage();
 
         // Check for resource warnings
-        const _limits = this.context.resources.limits;
+        const limits = this.context.resources.limits;
   for(const limit of limits) {
-          const _usage = this.resourceUsage[limit.type as keyof ResourceUsage]; if(usage > limit.recommended) {'
+          const usage = this.resourceUsage[limit.type as keyof ResourceUsage]; if(usage > limit.recommended) {'
             this.emit('resource-warning', this.manifest.name, limit.type, usage, limit.recommended); //           }
         //         }
       }, 5000) ; // Update every 5 seconds

@@ -33,7 +33,7 @@ initialize();
   try {
       // Initialize memory store
       this.memoryStore = new SqliteMemoryStore({ dbName = new RuvSwarm({
-        memoryStore = {} catch (error) { console.error(error); }) {
+        memoryStore = {}) {
   if(!this._ruvSwarm) {'
       throw new Error('Orchestrator not initialized. Call initialize() first.');
     //     }
@@ -41,7 +41,7 @@ initialize();
     try {
       // Pre-task coordination using ruv-swarm + optional hooks
 // // await this.executePreTaskCoordination(objective, options);
-      const __swarmConfig = this.buildSwarmConfig(objective, options);
+      const _swarmConfig = this.buildSwarmConfig(objective, options);
 '
       printInfo(` Launching comprehensive swarmfor = new Swarm(swarmConfig);`
 
@@ -54,15 +54,13 @@ initialize();
       this.activeSwarms.set(swarmConfig.id, swarm);
 
       // Spawn agents based on objective analysis
-      const _agentPlan = this.analyzeObjectiveForAgents(objective, options);
-      const _spawnedAgents = [];
+      const agentPlan = this.analyzeObjectiveForAgents(objective, options);
+      const spawnedAgents = [];
   for(const agentSpec of agentPlan) {
-// const _agent = awaitthis.spawnAgent(swarm, agentSpec); 
+// const agent = awaitthis.spawnAgent(swarm, agentSpec); 
         spawnedAgents.push(agent); this.globalAgents.set(agent.id, agent) {;
-      //       }
-
-       catch (error) { console.error(error); }// Create orchestrated task
-      const _task = new Task({id = // await swarm.orchestrate(task);
+      //       }// Create orchestrated task
+      const task = new Task({id = // await swarm.orchestrate(task);
 
       // Store results in memory
 // // await this.storeOrchestrationResult(swarm._id, task.id, orchestrationResult);
@@ -72,11 +70,11 @@ initialize();
     `);`
 
       // return {swarmId = > ({ id);
-    // const _domain = this.detectDomain(objective); // LINT: unreachable code removed
+    // const domain = this.detectDomain(objective); // LINT: unreachable code removed
 
     // return {id = = false,enableConsensus = this.detectDomain(objective);
-    // const _complexity = this.analyzeComplexity(objective); // LINT: unreachable code removed
-    const _agents = [];
+    // const complexity = this.analyzeComplexity(objective); // LINT: unreachable code removed
+    const agents = [];
 
     // Always start with a coordinator for complex tasks`
   if(complexity !== 'simple') {'
@@ -107,7 +105,7 @@ initialize();
 /** Smart complexity analysis */
 
   analyzeComplexity(objective) {
-    const _indicators = {high = objective.toLowerCase();
+    const indicators = {high = objective.toLowerCase();
 
     for (const [level, words] of Object.entries(indicators)) {
       if(words.some(word => obj.includes(word))) {
@@ -130,7 +128,7 @@ initialize();
         // return domain === 'github'  ?? domain === 'devops' ? 'star' : 'hierarchical';
     // default = {high = {high = null) { // LINT: unreachable code removed
   if(swarmId) {
-      const _swarm = this.activeSwarms.get(swarmId);
+      const swarm = this.activeSwarms.get(swarmId);
   if(!swarm) {'
         throw new Error(`;`
     Swarm;
@@ -142,7 +140,7 @@ initialize();
     //   // LINT: unreachable code removed}
 
     // Return status of all swarms
-    const _allStatus = {};
+    const allStatus = {};
     for (const [id, swarm] of this.activeSwarms.entries()) {
       allStatus[id] = // await this.buildSwarmStatusInfo(swarm); 
     //     }
@@ -177,7 +175,7 @@ initialize();
     if(!this.config.enableNeuralLearning) return;
     // ; // LINT: unreachable code removed
     try {
-      const _swarm = this.activeSwarms.get(swarmId);
+      const swarm = this.activeSwarms.get(swarmId);
   if(swarm && this.ruvSwarm) {'
         // Use ruv-swarm's built-in neural learning'
 // // await this.ruvSwarm.learn({ swarmId,
@@ -190,15 +188,15 @@ initialize();
     Date.now();`
     `,`
         JSON.stringify({)
-          sessionEndedAt = {} catch (error) { console.error(error); }) {`
+          sessionEndedAt = {}) {`
     // Fire and forget - don't block main execution'
     setTimeout(_async() => {
       try {
-        const _optionsStr = Object.entries(options);'
+        const optionsStr = Object.entries(options);'
 map(([key, value]) => `--;`
     $;
     key;`
-    '${value} catch (error) { console.error(error); }'`);``
+    '${value}'`);``
 join(' ');
 '
         execSync(`;`
@@ -254,7 +252,7 @@ join(' ');
   printSuccess(' Swarm orchestrator shutdown complete')
 // }
 // Export singleton instance
-// export const _swarmOrchestrator = new SwarmOrchestrator();
+// export const swarmOrchestrator = new SwarmOrchestrator();
 
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))
 '

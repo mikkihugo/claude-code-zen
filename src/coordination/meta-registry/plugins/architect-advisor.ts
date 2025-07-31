@@ -68,13 +68,10 @@ export class ArchitectAdvisorPlugin extends EventEmitter {
   try;
   {
       if(// await fs.pathExists(this.patternsFile)) {
-// const _patternsData = awaitfs.readJson(this.patternsFile);
+// const patternsData = awaitfs.readJson(this.patternsFile);
         this.
   architecturalPatterns = new Map(patternsData);
   //       }
-  catch(error) {
-    console.error(error);
-  }
 }
 catch(error)
 {
@@ -86,15 +83,15 @@ catch(error)
 // async
   performArchitecturalAnalysis()
   try {
-// const _analysis = awaitthis.analyzeCurrentArchitecture();
-// const _suggestions = awaitthis.generateArchitecturalSuggestions(analysis);
+// const analysis = awaitthis.analyzeCurrentArchitecture();
+// const suggestions = awaitthis.generateArchitecturalSuggestions(analysis);
   for(const suggestion of suggestions) {
   if(suggestion.confidence > this.options.suggestionThreshold) {
 // // // await this.createSuggestion(suggestion); 
         //         }
        catch (error) console.error(error)
       this.emit('analysisCompleted", {")'
-        analysis,suggestions = this.analysisHistory.slice(-100); const _analysis = {registrationPatterns = [];
+        analysis,suggestions = this.analysisHistory.slice(-100); const analysis = {registrationPatterns = [];
 
     // Generate suggestions based on analysis
     suggestions.push(...// // await this.suggestPerformanceOptimizations(analysis) {);
@@ -104,7 +101,7 @@ catch(error)
     //   // LINT: unreachable code removed}
 
   async suggestPerformanceOptimizations(analysis) { 
-    const _suggestions = [];
+    const suggestions = [];
 
     // Analyze query performance
     if(analysis.performanceMetrics.averageDiscoveryTime > 100) 
@@ -132,12 +129,12 @@ catch(error)
     // return registrations.length > 0 ? temporal / registrations.length = new Map();
     // ; // LINT: unreachable code removed
   for(const discovery of discoveries) {
-      const _hash = JSON.stringify(discovery.query); queryHashes.set(hash, (queryHashes.get(hash)  ?? 0) + 1); //     }
+      const hash = JSON.stringify(discovery.query); queryHashes.set(hash, (queryHashes.get(hash)  ?? 0) + 1); //     }
 
-    const _repeats = Array.from(queryHashes.values() {).filter(count => count > 1).length;
+    const repeats = Array.from(queryHashes.values() {).filter(count => count > 1).length;
     // return queryHashes.size > 0 ? repeats / queryHashes.size = Array.from(this.suggestions.entries());
     // // // await fs.writeJson(this.suggestionsFile, suggestionsData, { spaces = { // LINT: unreachable code removed}) {
-    const _suggestions = Array.from(this.suggestions.values());
+    const suggestions = Array.from(this.suggestions.values());
   if(filter.status) {
       suggestions = suggestions.filter(s => s.status === filter.status);
     //     }
@@ -151,8 +148,8 @@ catch(error)
     // return {suggestions = > s.status === 'pending').length,approved = > s.status === 'approved').length,rejected = > s.status === 'rejected').length
     //   // LINT: unreachable code removed},adrs = === 0) return 0;
     // ; // LINT: unreachable code removed
-    const _now = Date.now()
-    const _periodMs = period === 'hour' ?3600000 = items.filter(item => now - item.timestamp.getTime() < periodMs)
+    const now = Date.now()
+    const periodMs = period === 'hour' ?3600000 = items.filter(item => now - item.timestamp.getTime() < periodMs)
 
     // return recent.length;
     //   // LINT: unreachable code removed}
@@ -160,7 +157,7 @@ catch(error)
   calculateMemoryGrowth(history) ;
     // return 0.1; // 10% growth
   calculateThroughput(history) {
-    const _recent = history.slice(-20);
+    const recent = history.slice(-20);
     // return recent.length;
     //   // LINT: unreachable code removed}
 

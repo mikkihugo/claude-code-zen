@@ -1,32 +1,21 @@
-/** Build Configuration for Claude Zen; */
-*
-*
-@fileoverview
-TypeScript;
-build;
-configuration;
-with Google standards;
-*
-@author
-Claude;
-Code;
-Flow;
-Team;
-*
-@version
-2.0;
-0.0;
+/**
+ * Build Configuration for Claude Zen
+ * @fileoverview
+ * TypeScript build configuration with Google standards
+ * @author Claude Code Flow Team
+ * @version 2.0.0
+ */
 
-/** Module alias configuration for build system; */
+/** Module alias configuration for build system */
 
-// // interface ModuleAliases {
-//   [pattern];
-// // }
+// interface ModuleAliases {
+//   [pattern: string]: string;
+// }
 
-/** Build configuration interface; */
+/** Build configuration interface */
 
-// // interface BuildConfiguration {
-//   // moduleAliases: ModuleAliases
+// interface BuildConfiguration {
+//   moduleAliases: ModuleAliases;
 //   excludeModules;
 //   externals;
 // // }

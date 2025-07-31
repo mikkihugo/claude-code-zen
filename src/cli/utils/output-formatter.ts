@@ -27,28 +27,28 @@ function colorize(text = =======================================================
 // =============================================================================
 '
 // export function printSuccess(message = getIcon('success', '[SUCCESS]');'
-const __coloredMessage = colorize(message, 'green');'
+const _coloredMessage = colorize(message, 'green');'
 console.warn(`$icon$coloredMessage`);`
   if(data && process.env.CLAUDE_FLOW_VERBOSE === 'true') {'
   console.warn(colorize(JSON.stringify(data, null, 2), 'dim'));
 // }
 // }'
 // export function printError(message = getIcon('error', '[ERROR]');'
-const _coloredMessage = colorize(message, 'red');'
+const coloredMessage = colorize(message, 'red');'
 console.error(`$icon$coloredMessage`);`
   if(error && process.env.CLAUDE_FLOW_VERBOSE === 'true') {'
   console.error(colorize(error.stack ?? error.message, 'dim'));
 // }
 // }'
 // export function printWarning(message = getIcon('warning', '[WARNING]');'
-const _coloredMessage = colorize(message, 'yellow');'
+const coloredMessage = colorize(message, 'yellow');'
 console.warn(`$icon$coloredMessage`);`
   if(data && process.env.CLAUDE_FLOW_VERBOSE === 'true') {'
   console.warn(colorize(JSON.stringify(data, null, 2), 'dim'));
 // }
 // }'
 // export function printInfo(message = getIcon('info', '[INFO]');'
-const _coloredMessage = colorize(message, 'cyan');'
+const coloredMessage = colorize(message, 'cyan');'
 console.warn(`$icon$coloredMessage`);`
   if(data && process.env.CLAUDE_FLOW_VERBOSE === 'true') {'
   console.warn(colorize(JSON.stringify(data, null, 2), 'dim'));
@@ -57,7 +57,7 @@ console.warn(`$icon$coloredMessage`);`
 // export function printDebug() {
   return;
   //   // LINT: unreachable code removed}'
-  const _coloredMessage = colorize(`[DEBUG] ${message}`, 'dim');
+  const coloredMessage = colorize(`[DEBUG] ${message}`, 'dim');
   console.warn(coloredMessage);
   if(data) {'
     console.warn(colorize(JSON.stringify(data, null, 2), 'dim'));
@@ -66,7 +66,7 @@ console.warn(`$icon$coloredMessage`);`
 // export function printVerbose() {
   return;
   //   // LINT: unreachable code removed}'
-  const _coloredMessage = colorize(`[VERBOSE] ${message}`, 'dim');
+  const coloredMessage = colorize(`[VERBOSE] ${message}`, 'dim');
   console.warn(coloredMessage);
   if(data) {'
     console.warn(colorize(JSON.stringify(data, null, 2), 'dim'));
@@ -93,12 +93,12 @@ console.warn(`$icon$coloredMessage`);`
   startTime = Date.now();
 // }
 update(current = current;
-const __percentage = Math.round((current / this.total) * 100);
-const _filled = Math.round((current / this.total) * this.width);
-const _empty = this.width - filled;''.repeat(filled) + ''.repeat(empty);
-const _elapsed = Date.now() - this.startTime;
-const __eta = current > 0 ? Math.round((elapsed / current) * (this.total - current)) ;
-const _message = customMessage ?? this.message;'
+const _percentage = Math.round((current / this.total) * 100);
+const filled = Math.round((current / this.total) * this.width);
+const empty = this.width - filled;''.repeat(filled) + ''.repeat(empty);
+const elapsed = Date.now() - this.startTime;
+const _eta = current > 0 ? Math.round((elapsed / current) * (this.total - current)) ;
+const message = customMessage ?? this.message;'
 printSuccess(`$messagecompleted in $elapsedms`);
 // }
   //   }
@@ -120,7 +120,7 @@ start();
     return;
     //   // LINT: unreachable code removed}
     this.interval = setInterval(() => {
-      const _frame = this.frames[this.currentFrame];`
+      const frame = this.frames[this.currentFrame];`
       process.stdout.write(`\r${colorize(frame, 'cyan')} ${this.message}`);
       this.currentFrame = (this.currentFrame + 1) % this.frames.length;
     }, 100);
@@ -159,26 +159,26 @@ fail(errorMessage?);
 const { columns, title, border = true, striped = false, compact = false } = options;
 
 // Calculate column widths
-const _columnWidths = columns.map((col) => {
-  const _headerWidth = col.title.length;
-  const _dataWidth = Math.max(;)
+const columnWidths = columns.map((col) => {
+  const headerWidth = col.title.length;
+  const dataWidth = Math.max(;)
 ..data.map((row) => {
-      const _value = row[col.key];'');
+      const value = row[col.key];'');
 //       return formatted.length;
     //   // LINT: unreachable code removed});
   );
   // return Math.max(headerWidth, dataWidth, col.width  ?? 0);
 });
 '';
-const _padding = compact ?1 = columnWidths.reduce((sum, width) => sum + width + padding * 2, 0) + columns.length - 1;'
+const padding = compact ?1 = columnWidths.reduce((sum, width) => sum + width + padding * 2, 0) + columns.length - 1;'
 result += `${colorize(title.padStart((titleWidth + title.length) / 2).padEnd(titleWidth), 'bright''.repeat(titleWidth)}\n`;
 // }
 // }
 
 // Header
-const _headerRow = columns;
+const headerRow = columns;
 map((col, i) => {
-    const _content = col.title.padEnd(columnWidths[i]);`
+    const content = col.title.padEnd(columnWidths[i]);`
 //     return colorize(content, 'bright');
     //   // LINT: unreachable code removed});'
 join(border ? '  ' );
@@ -222,14 +222,14 @@ join(border ? '  ' );
       message += `\nCommand = `\n  Code: \$error.details.code`;`
     //     }
   if(error._details._context) {
-      const _contextEntries = Object.entries(error.details.context);
+      const contextEntries = Object.entries(error.details.context);
 filter(([_, value]) => value !== undefined);`
 map(([_key, _value]) => `    \$key: \$JSON.stringify(value)`);`
 join('\n');
   if(contextEntries) {'
         message += `\nContext = === 'true' && error.stack) ;``
       message += `\n\nStackTrace = 0) {``
-    const __spaces = '  '.repeat(indent);
+    const _spaces = '  '.repeat(indent);
 
     if(Array.isArray(data)) {'
       // return data.map(_item => `\$spaces- \$this.formatYaml(item, indent + 1).trim()`).join('\n');
@@ -252,31 +252,31 @@ join('\n');
       // return colorize('No data to display', 'dim');
     // ; // LINT: unreachable code removed
     // Auto-detect columns from first object
-    const _firstItem = data[0];'
+    const firstItem = data[0];'
   if(typeof firstItem !== 'object'  ?? firstItem === null) {
       // Simple array'
       // return data.map((_item, _index) => `\$index: \$item`).join('\n');
     //   // LINT: unreachable code removed}
 
-    const __columns = Object.keys(firstItem).map(key => ({))'
+    const _columns = Object.keys(firstItem).map(key => ({))'
       key,title = = 'object'  ?? data === null) {
 //       return String(data);
     //   // LINT: unreachable code removed}
 '
-    const _entries = Object.entries(data).map(([_key, value]) => ({ property = === 'object' ? JSON.stringify(value) : String(value);
+    const entries = Object.entries(data).map(([_key, value]) => ({ property = === 'object' ? JSON.stringify(value) : String(value);
       }));
 
-    const __columns = ['', isLast = true) '';'
+    const _columns = ['', isLast = true) '';'
   if(typeof data !== 'object'  ?? data === null) {
       // return prefix + String(data);
     //   // LINT: unreachable code removed}
 
-    const _entries = Object.entries(data);
+    const entries = Object.entries(data);
 
     entries.forEach(([key, value], index) => {
-      const _isLastEntry = index === entries.length - 1;'
-      const _connector = isLastEntry ? ' ' : ' ';'
-      const _nextPrefix = prefix + (isLastEntry ? '    ' );
+      const isLastEntry = index === entries.length - 1;'
+      const connector = isLastEntry ? ' ' : ' ';'
+      const nextPrefix = prefix + (isLastEntry ? '    ' );
 '
       result += prefix + connector + colorize(key, 'bright');'
   if(typeof value === 'object' && value !== null) {'
@@ -307,28 +307,28 @@ join('\n');
 // GLOBAL FORMATTER INSTANCE
 // =============================================================================
 
-// export const _outputFormatter = new TypeScriptOutputFormatter();
+// export const outputFormatter = new TypeScriptOutputFormatter();
 
 // =============================================================================
 // UTILITY FUNCTIONS
 // =============================================================================
 '
 // export function createBox(content = content.split('\n');
-  const _maxLength = Math.max(;)
+  const maxLength = Math.max(;)
 .._lines._map(_line => line._length),
     title ? title.length +2 = maxLength + 4; // 2 chars padding on each side
 '';
 
   // Top border
   if(title) {
-    const _titlePadding = Math.max(0, boxWidth - title.length - 4);
-    const _leftPadding = Math.floor(titlePadding / 2);
-    const _rightPadding = titlePadding - leftPadding;''.repeat`$leftPadding$title$'''.repeat`${boxWidth - 2}\n`}`;
+    const titlePadding = Math.max(0, boxWidth - title.length - 4);
+    const leftPadding = Math.floor(titlePadding / 2);
+    const rightPadding = titlePadding - leftPadding;''.repeat`$leftPadding$title$'''.repeat`${boxWidth - 2}\n`}`;
   //   }
 
   // Content lines
   lines.forEach(line => {
-    const __padding = boxWidth - line.length - 4;)`
+    const _padding = boxWidth - line.length - 4;)`
     result += `  \$line\$' ''.repeat(boxWidth - 2)}`;
 
   // return result;
@@ -347,11 +347,11 @@ join('\n');
 //     return str;
     //   // LINT: unreachable code removed}
 
-  const _padding = length - str.length;
+  const padding = length - str.length;
   switch(align) {'
     case 'center': {
-      const _leftPad = Math.floor(padding / 2);
-      const _rightPad = padding - leftPad;'
+      const leftPad = Math.floor(padding / 2);
+      const rightPad = padding - leftPad;'
       // return ' '.repeat(leftPad) + str + ' '.repeat(rightPad);
     //   // LINT: unreachable code removed}
 '
@@ -359,7 +359,7 @@ join('\n');
       // return ' '.repeat(padding) + str;
     // ; // LINT: unreachable code removed'
     case 'left' = text.split(' ');
-  const _lines = [];'';
+  const lines = [];'';
 
   for (const _word of words) ; if((currentLine + word).length > width) {
   if(currentLine) {'

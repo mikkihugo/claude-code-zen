@@ -48,7 +48,7 @@ export class ToolExecutionFramework {
   isToolAvailable(toolName);
   ) {`
         throw new
-  Error(`Tool "${toolName} catch (error) { console.error(error); }" is not available`);
+  Error(`Tool "${toolName}" is not available`);
   // }
   // Create execution context
   const;
@@ -96,19 +96,15 @@ $;
 {
   execution.toolName;
 }
-catch (error)
-{
-  console.error(error);
-}
 ...`);
 
 // Execute via MCP layer
-// const _result = awaitthis.mcpLayer.executeTool(;
+// const result = awaitthis.mcpLayer.executeTool(;
 execution.toolName, execution.parameters, execution.options;
 )
 
 // Format result
-const _formattedResult = this.formatResult(execution.toolName, result.result);
+const formattedResult = this.formatResult(execution.toolName, result.result);
 
 // Update execution`
 execution.status = 'completed';
@@ -141,15 +137,15 @@ failed = this.executionQueue.shift();
 /** Execute multiple tools in batch; */
 
   async executeToolsBatch(toolExecutions, options = {}) { `;
-const _batchId = `batch_$Date.now()}`;
-const _results = [];
+const batchId = `batch_$Date.now()}`;
+const results = [];
 `
     this.ui.addLog('info', `;
 Starting;
 batchexecution = toolExecutions.map(({ toolName, parameters, toolOptions   }) =>;
 `
           this.executeTool(toolName, parameters, toolOptions));
-// const _settled = awaitPromise.allSettled(promises);
+// const settled = awaitPromise.allSettled(promises);
 
         settled.forEach((result, _index) => {`;
 if(result.status === 'fulfilled') {
@@ -157,23 +153,23 @@ if(result.status === 'fulfilled') {
           const { toolName, parameters, toolOptions } = toolExecutions[i];
 
           try {
-// const __execution = awaitthis.executeTool(toolName, parameters, toolOptions);
+// const _execution = awaitthis.executeTool(toolName, parameters, toolOptions);
             results.push({success = results.filter((r) => r.success).length;
       this.ui.addLog(;'
-        'success',)'
-        `Batch $batchIdcatch (error) console.error(error); completed = {}) {``
-    const _workflowId = `workflow_\$Date.now()`;
-    const _context = {}; // Shared context between steps
-    const _results = [];
+        'success')'
+        `Batch $batchId completed = {}) {``
+    const workflowId = `workflow_\$Date.now()`;
+    const context = {}; // Shared context between steps
+    const results = [];
 `
     this.ui.addLog('info', `Startingworkflow = 0; i < workflow.steps.length; i++) `
-        const _step = workflow.steps[i];
+        const step = workflow.steps[i];
 
         // Resolve parameters using context
-        const _resolvedParameters = this.resolveParameters(step.parameters, context);
+        const resolvedParameters = this.resolveParameters(step.parameters, context);
 
         // Execute step
-// const _execution = awaitthis.executeTool(step.toolName, resolvedParameters, step.options);
+// const execution = awaitthis.executeTool(step.toolName, resolvedParameters, step.options);
 
         // Update context with results
   if(step.outputVariable && execution.result) {
@@ -189,12 +185,12 @@ if(result.status === 'fulfilled') {
       this.ui.addLog('error', `Workflow $workflowIdfailed = = 'object'  ?? parameters === null) ;`
       // return parameters;
     // ; // LINT: unreachable code removed
-    const _resolved = {};
+    const resolved = {};
 
     for (const [key, value] of Object.entries(parameters)) {`
       if(typeof value === 'string' && value.startsWith('$')) {
         // Context variable reference'
-        const _varName = value.substring(1); resolved[key] = context[varName]  ?? value; } else if(typeof value === 'object') {
+        const varName = value.substring(1); resolved[key] = context[varName]  ?? value; } else if(typeof value === 'object') {
         resolved[key] = this.resolveParameters(value, context);
       } else {
         resolved[key] = value;
@@ -207,14 +203,14 @@ if(result.status === 'fulfilled') {
 /** Format tool result for display; */
 
   formatResult(toolName, result) {'
-    const _formatter = this.resultFormatters.get(toolName)  ?? this.resultFormatters.get('default');
+    const formatter = this.resultFormatters.get(toolName)  ?? this.resultFormatters.get('default');
     // return formatter(result);
     //   // LINT: unreachable code removed}
 
 /** Check if tool is available; */
 
   isToolAvailable(toolName) {
-    const _allTools = Object.values(this.mcpLayer.toolCategories).flat();
+    const allTools = Object.values(this.mcpLayer.toolCategories).flat();
     // return allTools.includes(toolName);
     //   // LINT: unreachable code removed}
 
@@ -249,8 +245,8 @@ if(result.status === 'fulfilled') {
   getPredefinedWorkflows() {}
     // return {
       neural_training_pipeline = {}) {
-    const _workflows = this.getPredefinedWorkflows();
-    // const _workflow = workflows[workflowName]; // LINT: unreachable code removed
+    const workflows = this.getPredefinedWorkflows();
+    // const workflow = workflows[workflowName]; // LINT: unreachable code removed
   if(!workflow) {`
       throw new Error(`Unknown workflow);`
     //     }

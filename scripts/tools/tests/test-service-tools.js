@@ -6,12 +6,12 @@ import { ClaudeFlowMCPServer } from './src/mcp/mcp-server.js';
 
 async function testServiceDocumentTools() {
   '
-  console.warn(' Testing Service Document MCP Tools...\n')
-  const _server = new ClaudeFlowMCPServer();
+  console.warn(' Testing Service Document MCP Tools...\n');
+  const server = new ClaudeFlowMCPServer();
   // await server.initializeMemory();
   // Test 1: Create a service document'
   console.warn(''
-// const _createResult = awaitserver.handleServiceDocumentManager({ action: 'create','
+// const createResult = awaitserver.handleServiceDocumentManager({ action: 'create','
     serviceName: 'claude-zen-core','
     documentType: 'service-description','
       name: 'Claude-Flow Core Service','
@@ -23,26 +23,26 @@ async function testServiceDocumentTools() {
 console.warn('Create result:', JSON.stringify(createResult, null, 2))
 // Test 2: List service documents'
 console.warn(''
-// const _listResult = awaitserver.handleServiceDocumentManager({ action: 'list','
+// const listResult = awaitserver.handleServiceDocumentManager({ action: 'list','
 serviceName: 'claude-zen-core','
 documentType: 'service-description'
   })'
 console.warn('List result:', JSON.stringify(listResult, null, 2))
 // Test 3: Test service approval workflow'
 console.warn(''
-// const _approvalResult = awaitserver.handleServiceApprovalWorkflow({ action: 'queue','
+// const approvalResult = awaitserver.handleServiceApprovalWorkflow({ action: 'queue','
 documentId: createResult.documentId  ?? 'test-doc','
 approver: 'system-admin'
   })'
 console.warn('Approval result:', JSON.stringify(approvalResult, null, 2))
 // Test 4: Test service document validator'
 console.warn(''
-// const _validationResult = awaitserver.handleServiceDocumentValidator({ validateType: 'single-document','
+// const validationResult = awaitserver.handleServiceDocumentValidator({ validateType: 'single-document','
 serviceName: 'claude-zen-core','
 documentType: 'service-description'
   })'
 console.warn('Validation result:', JSON.stringify(validationResult, null, 2))'
-console.warn('\n Service Document Tools Test Complete!')
+console.warn('\n Service Document Tools Test Complete!');
 // return {
     create,
 // list, // LINT: unreachable code removed

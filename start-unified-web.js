@@ -3,12 +3,12 @@
 import { UnifiedInterfacePlugin } from './dist/plugins/unified-interface/index.js';
 
 async function startUnifiedWeb() {
-  const _unifiedInterface = new UnifiedInterfacePlugin({
+  const unifiedInterface = new UnifiedInterfacePlugin({
     webPort,'
     defaultMode: 'web',
     enableMCP }
 // )'
-console.warn(' Starting Unified Interface in Web Mode...')
+console.warn(' Starting Unified Interface in Web Mode...');
   try {'
 // // await unifiedInterface.start('web');'
     console.warn(' Unified Interface started successfully!');'
@@ -18,11 +18,9 @@ console.warn(' Starting Unified Interface in Web Mode...')
 
     // Keep the process running'
     process.on('SIGINT', async() => '
-      console.warn('\n Shutting down...');catch (error) console.error(error); 
-  
-'
+      console.warn('\n Shutting down...'); '
   process.on('SIGTERM', async () => '
-    console.warn('\n Shutting down...')
+    console.warn('\n Shutting down...');
   
 }
 catch(error)

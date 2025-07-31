@@ -25,22 +25,22 @@ export async function mcpCommand() {'
 // // await showMcpConfig(subArgs, flags)
   break;'
   default = subArgs.includes('--auto-orchestrator')  ?? flags.autoOrchestrator'
-  const __daemon = subArgs.includes('--daemon') ?? flags.daemon;'
-  const _stdio = subArgs.includes('--stdio') ?? flags.stdio ?? true; // Default to stdio mode
+  const _daemon = subArgs.includes('--daemon') ?? flags.daemon;'
+  const stdio = subArgs.includes('--stdio') ?? flags.stdio ?? true; // Default to stdio mode
   if(stdio) {
     // Start MCP server in stdio mode(like ruv-swarm)'
     printSuccess('Starting Claude Flow MCP server in stdio mode...');
   if(autoOrchestrator) {'
       console.warn(' Auto-starting orchestrator...');'
       console.warn(' Neural networkcapabilities = // await import('url''
-// const _path = awaitimport('
+// const path = awaitimport('
       const { spawn } = // await import('node);'
 
-      const ___filename = fileURLToPath(import.meta.url);
-      const ___dirname = path.dirname(__filename);'
-      const _mcpServerPath = path.join(__dirname, '../../src/mcp/mcp-server.js');
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = path.dirname(__filename);'
+      const mcpServerPath = path.join(__dirname, '../../src/mcp/mcp-server.js');
       // Check if the file exists, and log the path for debugging'
-// const _fs = awaitimport('node);'
+// const fs = awaitimport('node);'
       if(!fs.existsSync(mcpServerPath)) {'
         console.error(`MCP server file not foundat = spawn('node', [mcpServerPath], {`
         stdio => {)
@@ -55,13 +55,13 @@ export async function mcpCommand() {'
   catch(error)
   //   {`
     console.error('Failed to start MCPserver = getFlag(subArgs, '--port''
-    const _host = getFlag(subArgs, '--host') ?? flags.host ?? 'localhost';'
+    const host = getFlag(subArgs, '--host') ?? flags.host ?? 'localhost';'
     printSuccess(`Starting Claude Flow MCP server on $host);``
     console.warn(' HTTP mode not yet implemented, use --stdio for full functionality');
   //   }
 // }'
 async function stopMcpServer(subArgs = subArgs.includes('--verbose')  ?? subArgs.includes('-v')  ?? flags.verbose;'
-const _category = getFlag(subArgs, '--category') ?? flags.category;'
+const category = getFlag(subArgs, '--category') ?? flags.category;'
 printSuccess('Claude-Flow MCP Tools & Resources(87 total):');'
   if(!category ?? category === 'swarm') {'
   console.warn('\n SWARM COORDINATION(12 tools):');'

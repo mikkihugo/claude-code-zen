@@ -38,18 +38,18 @@ export class PerformanceMonitorPlugin extends EventEmitter {
     // Create persistence directory
     if(this.config.persistence.enabled) 
 // // await mkdir(this.config.persistence.path, { recursive => {
-      const _cpus = os.cpus();
+      const cpus = os.cpus();
       // Calculate CPU usage
-      const __cpuUsage = this.calculateCPUUsage(cpus);
+      const _cpuUsage = this.calculateCPUUsage(cpus);
 //       return {
         timestamp => {
-      const _memoryUsage = process.memoryUsage();
-      // const _cpuUsage = process.cpuUsage(); // LINT: unreachable code removed
-      const __resourceUsage = process.resourceUsage ? process.resourceUsage() : {};
+      const memoryUsage = process.memoryUsage();
+      // const cpuUsage = process.cpuUsage(); // LINT: unreachable code removed
+      const _resourceUsage = process.resourceUsage ? process.resourceUsage() : {};
       // V8 heap statistics
 
       // return {timestamp = > ({ name => {
-// const _delay = awaitthis.measureEventLoopDelay();
+// const delay = awaitthis.measureEventLoopDelay();
       // return { // LINT: unreachable code removed(timestamp) => {
         // This requires --expose-gc flag
   if(global._gc) {
@@ -58,13 +58,13 @@ export class PerformanceMonitorPlugin extends EventEmitter {
           //   // LINT: unreachable code removed  }));
 //           return 0;
           //   // LINT: unreachable code removed}
-          const _totalUsage = 0;
+          const totalUsage = 0;
           cpus.forEach((cpu, i) => {
-            const _total = Object.values(cpu.times).reduce((acc, time) => acc + time, 0);
-            const _idle = cpu.times.idle;
-            const _totalDiff = total - this.lastCPUInfo[i].total;
-            const _idleDiff = idle - this.lastCPUInfo[i].idle;
-            const _usage = totalDiff > 0 ? 100 - (100 * idleDiff) / totalDiff ;
+            const total = Object.values(cpu.times).reduce((acc, time) => acc + time, 0);
+            const idle = cpu.times.idle;
+            const totalDiff = total - this.lastCPUInfo[i].total;
+            const idleDiff = idle - this.lastCPUInfo[i].idle;
+            const usage = totalDiff > 0 ? 100 - (100 * idleDiff) / totalDiff ;
             totalUsage += usage;
             this.lastCPUInfo[i] = { idle, total };
           });
@@ -73,17 +73,17 @@ export class PerformanceMonitorPlugin extends EventEmitter {
           async;
           measureEventLoopDelay();
           //           {
-            const _start = process.hrtime.bigint();
+            const start = process.hrtime.bigint();
 // // await new Promise(setImmediate);
-            const _end = process.hrtime.bigint();
+            const end = process.hrtime.bigint();
             // return Number(end - start) / 1e6; // Convert to milliseconds
           //           }
           setupPerformanceObserver();
           try {'
-      const { PerformanceObserver }  catch (error) console.error(error); = require('node);'
+      const { PerformanceObserver } = require('node);'
 
       this.performanceObserver = new PerformanceObserver((list) => {
-        const _entries = list.getEntries();
+        const entries = list.getEntries();
         entries.forEach(entry => {
           // Track performance marks and measures/g)'
   if(entry.entryType === 'measure') {
@@ -117,21 +117,20 @@ export class PerformanceMonitorPlugin extends EventEmitter {
           collectMetrics();
           try {
       // Collect system metrics'
-// const _systemMetrics = awaitthis.collectors.get('system')();
+// const systemMetrics = awaitthis.collectors.get('system')();
       this.metrics.system.push(systemMetrics);
 
       // Collect process metrics'
-// const _processMetrics = awaitthis.collectors.get('process')();
+// const processMetrics = awaitthis.collectors.get('process')();
       this.metrics.process.push(processMetrics);
 
       // Collect custom metrics
   for(const [name, collector] of this.collectors) {'
   if(name !== 'system' && name !== 'process') {
-// const _metrics = awaitcollector(); 
+// const metrics = awaitcollector(); 
   if(metrics) {
             if(!this.metrics.custom.has(name)) {
-              this.metrics.custom.set(name, []); //             }
-             catch (error) console.error(error); this.metrics.custom.get(name) .push(metrics);
+              this.metrics.custom.set(name, []); //             } this.metrics.custom.get(name) .push(metrics);
           //           }
         //         }
       //       }
@@ -154,7 +153,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
           async; checkAlerts(systemMetrics, processMetrics) {;
           : unknown
           //           {
-            const _newAlerts = [];
+            const newAlerts = [];
             // CPU usage alert
   if(systemMetrics.cpu.usage > this.config.alertThresholds.cpuUsage) {
               newAlerts.push({type = (processMetrics.heap.usedHeapSize / processMetrics.heap.heapSizeLimit) * 100;
@@ -165,7 +164,7 @@ export class PerformanceMonitorPlugin extends EventEmitter {
             startAggregation();
             // Aggregate metrics at different intervals
             this.config.aggregation.intervals.forEach((interval) => {
-              const _ms = this.parseInterval(interval);
+              const ms = this.parseInterval(interval);
               setInterval(() => {
                 this.aggregateMetrics(interval);
               }, ms);
@@ -173,15 +172,15 @@ export class PerformanceMonitorPlugin extends EventEmitter {
             parseInterval(interval);
             : unknown
             //             {
-              const _units = {'
+              const units = {'
       's','
               ('m');
 '
               ('h')}
-            const _match = interval.match(/^(\d+)([smh])$/);
+            const match = interval.match(/^(\d+)([smh])$/);
   if(match) {
-              const _value = parseInt(match[1]);
-              const _unit = match[2];
+              const value = parseInt(match[1]);
+              const unit = match[2];
               // return value * units[unit];
               //   // LINT: unreachable code removed}
               // return 60000; // Default to 1 minute
@@ -189,15 +188,15 @@ export class PerformanceMonitorPlugin extends EventEmitter {
             aggregateMetrics(interval);
             : unknown
             //             {
-              const _now = Date.now();
-              const _windowSize = this.parseInterval(interval);
-              const _cutoff = now - windowSize;
+              const now = Date.now();
+              const windowSize = this.parseInterval(interval);
+              const cutoff = now - windowSize;
               // Aggregate system metrics
-              const _systemMetrics = this.metrics.system.filter((m) => m.timestamp >= cutoff);
-              const _processMetrics = this.metrics.process.filter((m) => m.timestamp >= cutoff);
+              const systemMetrics = this.metrics.system.filter((m) => m.timestamp >= cutoff);
+              const processMetrics = this.metrics.process.filter((m) => m.timestamp >= cutoff);
               if(systemMetrics.length === 0 ?? processMetrics.length === 0) return;
               // ; // LINT: unreachable code removed
-              const __aggregated = {
+              const _aggregated = {
       interval,timestamp = > m.cpu.usage)),min = > m.cpu.usage)),max = > m.cpu.usage)),p95 = > m.cpu.usage), 0.95);
             //             }
             ,_memory = > m.memory.percentage
@@ -230,22 +229,22 @@ average(values)
 percentile(values, p);
 : unknown
 // {
-  const _sorted = values.slice().sort((a, b) => a - b);
-  const _index = Math.ceil(sorted.length * p) - 1;
+  const sorted = values.slice().sort((a, b) => a - b);
+  const index = Math.ceil(sorted.length * p) - 1;
 //   return sorted[index];
 // }
 // Custom metric methods
 startTimer(name, (labels = {}));
 : unknown
 // {
-  const _key = this.getMetricKey(name, labels);
+  const key = this.getMetricKey(name, labels);
   this.timers.set(key, {
       name,
   labels, (start = this.timers.get(key));
   if(!timer) return null;
   // ; // LINT: unreachable code removed
-  const _end = process.hrtime.bigint();
-  const _duration = Number(end - timer.start) / 1e6; // Convert to milliseconds
+  const end = process.hrtime.bigint();
+  const duration = Number(end - timer.start) / 1e6; // Convert to milliseconds
 
   this.recordMeasure(timer.name, duration, timer.labels);
   this.timers.delete(key);
@@ -254,13 +253,13 @@ startTimer(name, (labels = {}));
 incrementCounter(name, (value = 1), (labels = {}));
 : unknown
 // {
-  const _key = this.getMetricKey(name, labels);
-  const _current = this.counters.get(key)  ?? { name, labels,value = value;
+  const key = this.getMetricKey(name, labels);
+  const current = this.counters.get(key)  ?? { name, labels,value = value;
   this.counters.set(key, current);'
   this.emit('counter', name, value = {}) {
-    const _key = this.getMetricKey(name, labels);
+    const key = this.getMetricKey(name, labels);
   this.gauges.set(key, { name, labels, value, timestamp = {}) {
-    const _key = this.getMetricKey(name, labels);
+    const key = this.getMetricKey(name, labels);
   if(!this.histograms.has(key)) {
     this.histograms.set(key, {
         name,
@@ -286,7 +285,7 @@ incrementCounter(name, (value = 1), (labels = {}));
   getMetricKey(name, labels)
   : unknown
   //   {
-    const __labelStr = Object.entries(labels);
+    const _labelStr = Object.entries(labels);
 sort(([a], [b]) => a.localeCompare(b))
 map(`
     ([_k, _v]) => `
@@ -307,17 +306,17 @@ join(',')'
   // Get current metrics
   getCurrentMetrics();
   //   {
-    const __latest = {system = metrics[metrics.length - 1]  ?? null;
+    const _latest = {system = metrics[metrics.length - 1]  ?? null;
   //   }
   // return latest;
 // }`
 getMetricsSummary((duration = '5m'));
 : unknown
 // {
-  const _windowSize = this.parseInterval(duration);
-  const _cutoff = Date.now() - windowSize;
-  const _systemMetrics = this.metrics.system.filter((m) => m.timestamp >= cutoff);
-  const _processMetrics = this.metrics.process.filter((m) => m.timestamp >= cutoff);
+  const windowSize = this.parseInterval(duration);
+  const cutoff = Date.now() - windowSize;
+  const systemMetrics = this.metrics.system.filter((m) => m.timestamp >= cutoff);
+  const processMetrics = this.metrics.process.filter((m) => m.timestamp >= cutoff);
   if(systemMetrics.length === 0 ?? processMetrics.length === 0) {
 //     return null;
     //   // LINT: unreachable code removed}
@@ -335,15 +334,15 @@ getMetricsSummary((duration = '5m'));
 // }
   getCustomMetrics() 
 // {
-  const __metrics = {counters = counter.value;
+  const _metrics = {counters = counter.value;
 // }
 // Export gauges
   for(const [key, gauge] of this.gauges) {
   metrics.gauges[key] = gauge.value; // }
 // Export histogram summaries
   for(const [key, histogram] of this.histograms) {
-  const __sorted = histogram.values.slice().sort((a, b) => a - b); metrics.histograms[key] = {count = new Date() {.toISOString();
-  const __data = {
+  const _sorted = histogram.values.slice().sort((a, b) => a - b); metrics.histograms[key] = {count = new Date() {.toISOString();
+  const _data = {
         timestamp,metrics = > [key, values.slice(-100)]);
   //   
 // }'
@@ -351,15 +350,15 @@ getMetricsSummary((duration = '5m'));
 metrics - \$`
 timestamp.split('T')[0]'
 json`
-const _filepath = path.join(this.config.persistence.path, filename);
+const filepath = path.join(this.config.persistence.path, filename);
 // // await writeFile(filepath, JSON.stringify(data, null, 2));
 // }
 catch(error)
 // {`
   console.error('Error persistingmetrics = new Date().toISOString().split('T''
-  const _filename = `metrics-${today}.json`;
-  const _filepath = path.join(this.config.persistence.path, filename);`
-  const _data = JSON.parse(// await readFile(filepath, 'utf8'));
+  const filename = `metrics-${today}.json`;
+  const filepath = path.join(this.config.persistence.path, filename);`
+  const data = JSON.parse(// await readFile(filepath, 'utf8'));
   // Load recent metrics
   if(data.metrics) {
     this.metrics.system = data.metrics.system ?? [];
@@ -387,10 +386,10 @@ catch(error)
 // Export metrics in Prometheus format
   exportPrometheus() 
 // {
-  const _lines = [];
-  const _timestamp = Date.now();
+  const lines = [];
+  const timestamp = Date.now();
   // System metrics
-  const _systemMetric = this.metrics.system[this.metrics.system.length - 1];
+  const systemMetric = this.metrics.system[this.metrics.system.length - 1];
   if(systemMetric) {'
     lines.push(`# HELP system_cpu_usage CPU usage percentage`);`
     lines.push(`# TYPE system_cpu_usage gauge`);`
@@ -400,7 +399,7 @@ catch(error)
     lines.push(`system_memory_usage ${systemMetric.memory.percentage} ${timestamp}`);
   //   }
   // Process metrics
-  const _processMetric = this.metrics.process[this.metrics.process.length - 1];
+  const processMetric = this.metrics.process[this.metrics.process.length - 1];
   if(processMetric) {`
     lines.push(`# HELP process_heap_used Process heap memory used`);`
     lines.push(`# TYPE process_heap_used gauge`);`
@@ -411,28 +410,28 @@ catch(error)
   //   }
   // Custom counters
   for(const [_key, counter] of this.counters) {`
-    const _safeName = counter.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
+    const safeName = counter.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
     lines.push(`# HELP $safeNameCounter $counter.name`); lines.push(`# TYPE $safeNamecounter`) ;`
     lines.push(`${safeName}${this.formatLabels(counter.labels)} ${counter.value} ${timestamp}`);
   //   }
   // Custom gauges
   for(const [_key, gauge] of this.gauges) {`
-    const _safeName = gauge.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
+    const safeName = gauge.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
     lines.push(`# HELP $safeNameGauge $gauge.name`); lines.push(`# TYPE $safeNamegauge`) ;`
     lines.push(`${safeName}${this.formatLabels(gauge.labels)} ${gauge.value} ${timestamp}`);
   //   }
   // Custom histograms
   for(const [_key, histogram] of this.histograms) {`
-    const _safeName = histogram.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
-    const _sorted = histogram.values.slice().sort((a, b) => a - b); lines.push(`# HELP $safeNameHistogram $histogram.name`) {;`
+    const safeName = histogram.name.replace(/[^a-zA-Z0-9_]/g, '_'); '
+    const sorted = histogram.values.slice().sort((a, b) => a - b); lines.push(`# HELP $safeNameHistogram $histogram.name`) {;`
     lines.push(`# TYPE ${safeName} histogram`);
-    const _labels = this.formatLabels(histogram.labels);`
+    const labels = this.formatLabels(histogram.labels);`
     lines.push(`$safeName_count$labels$histogram.count$timestamp`);`
     lines.push(`${safeName}_sum${labels} ${histogram.sum} ${timestamp}`);
     // Buckets
-    const _buckets = [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10];
+    const buckets = [0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10];
   for(const bucket of buckets) {`
-      const _count = sorted.filter((v) => v <= bucket * 1000).length; lines.push(; `$safeName_bucket{le="${bucket}"'}} ${count} ${timestamp}`;
+      const count = sorted.filter((v) => v <= bucket * 1000).length; lines.push(; `$safeName_bucket{le="${bucket}"'}} ${count} ${timestamp}`;
       //       
     //     }
     lines.push(;)`
@@ -444,16 +443,16 @@ catch(error)
 formatLabels(labels);
 : unknown
 // {
-  const _pairs = Object.entries(labels);'';
+  const pairs = Object.entries(labels);'';
   // ; // LINT: unreachable code removed'
-  const _formatted = pairs.map(([k, v]) => `$k="${v}'`).join(',');'
+  const formatted = pairs.map(([k, v]) => `$k="${v}'`).join(',');'
 //   return `{${formatted}}`;
 // }
 async;
 getHealthReport();
 // {
-  const __current = this.getCurrentMetrics();`
-  const _health = {status = 'fail';'
+  const _current = this.getCurrentMetrics();`
+  const health = {status = 'fail';'
   health.status = 'degraded';
 // }
   if(health.checks.memory.value > health.checks.memory.threshold) {'
@@ -464,7 +463,7 @@ getHealthReport();
   health.checks.eventLoop.status = 'fail';'
   health.status = 'unhealthy';
 // }
-const _heapPercent = (health.checks.heap.value / health.checks.heap.limit) * 100;
+const heapPercent = (health.checks.heap.value / health.checks.heap.limit) * 100;
   if(heapPercent > 90) {'
   health.checks.heap.status = 'fail';'
   health.status = 'unhealthy';

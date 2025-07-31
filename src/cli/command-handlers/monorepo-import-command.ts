@@ -23,10 +23,10 @@ import { KuzuGraphInterface } from '../database/kuzu-graph-interface.js';
 /** Analyze monorepo structure and discover services */
 
 export async function importMonorepoCommand(args = args[0]  ?? process.cwd();
-const _options = {maxServices = = false, // default truesetupGraph = = false,   // default trueverbose = await discoverServices(monorepoPath, options);
+const options = {maxServices = = false, // default truesetupGraph = = false,   // default trueverbose = await discoverServices(monorepoPath, options);
 
     // 2. Analyze service code and dependencies
-// const _analysis = awaitanalyzeServices(services, options);
+// const analysis = awaitanalyzeServices(services, options);
 // 3. Set up graph database with Kuzu
   if(options.setupGraph) {
 // // await setupServiceGraph(analysis, options);
@@ -36,10 +36,10 @@ const _options = {maxServices = = false, // default truesetupGraph = = false,   
 // // await createServiceHives(analysis, options);
 // }
 // 5. Generate import summary
-const _summary = generateImportSummary(analysis, options);
+const summary = generateImportSummary(analysis, options);
 // // await saveImportSummary(summary);'
 printSuccess(` Monorepo importcompleted = new Map();`
-  const _discoveryStrategies = [
+  const discoveryStrategies = [
     discoverByDirectoryStructure,
     discoverByPackageJson,
     discoverByDockerfile,
@@ -48,12 +48,12 @@ printSuccess(` Monorepo importcompleted = new Map();`
   ];
   for(const strategy of discoveryStrategies) {
     try {
-// const _found = awaitstrategy(monorepoPath, options); 
+// const found = awaitstrategy(monorepoPath, options); 
       found.forEach(service => {)
-        const _key = service.path; if(!services.has(key) {) 
-          services.set(key, service);catch (error) console.error(error); else {
+        const key = service.path; if(!services.has(key) {) 
+          services.set(key, service); else {
           // Merge service information
-          const _existing = services.get(key);
+          const existing = services.get(key);
           services.set(key, mergeServiceInfo(existing, service));
         //         }
       });
@@ -71,7 +71,7 @@ services`);`
 // }
 
 /** Strategy1 = [] */
-  const _patterns = [`
+  const patterns = [`
     'services/*', */'
 'apps/*', */'
 'packages/*', */'
@@ -81,11 +81,11 @@ services`);`
 for(const pattern of patterns) {
     try {
 
-        const _serviceName = path.basename(match); services.push({name = []; try {
+        const serviceName = path.basename(match); services.push({name = []; try {
 '
-        const _packageContent = JSON.parse(// await readFile(fullPath, 'utf8') {);
-        const _servicePath = path.dirname(fullPath);
-        const _serviceName = packageContent.name  ?? path.basename(servicePath);
+        const packageContent = JSON.parse(// await readFile(fullPath, 'utf8') {);
+        const servicePath = path.dirname(fullPath);
+        const serviceName = packageContent.name  ?? path.basename(servicePath);
 
         // Skip root package.json
         if(servicePath === monorepoPath) continue;
@@ -94,30 +94,29 @@ for(const pattern of patterns) {
 
   try {
 
-      const _serviceName = path.basename(servicePath);
+      const serviceName = path.basename(servicePath);
 
       services.push({name = [];
 
   try {
 
-      const _serviceName = path.basename(servicePath);
+      const serviceName = path.basename(servicePath);
 
       services.push({name = [];
 
   try {
     // Check for nx.json/g)'
-    const _nxConfigPath = path.join(monorepoPath, 'nx.json');
+    const nxConfigPath = path.join(monorepoPath, 'nx.json');
     if(!existsSync(nxConfigPath)) {
       // return services;
     //   // LINT: unreachable code removed}
-'
-     catch (error) console.error(error); const _nxConfig = JSON.parse(// await readFile(nxConfigPath, 'utf8'));
+' const nxConfig = JSON.parse(// await readFile(nxConfigPath, 'utf8'));
 
     // Look for project.json files
 '
-        const _projectConfig = JSON.parse(// await readFile(fullPath, 'utf8'));
-        const _servicePath = path.dirname(fullPath);
-        const _serviceName = projectConfig.name  ?? path.basename(servicePath);
+        const projectConfig = JSON.parse(// await readFile(fullPath, 'utf8'));
+        const servicePath = path.dirname(fullPath);
+        const serviceName = projectConfig.name  ?? path.basename(servicePath);
 
         services.push({name = === newInfo.type ? existing.type = {services = // await analyzeService(service, options);
       analysis.services.push(serviceAnalysis);
@@ -166,10 +165,10 @@ analysis.relationships = buildServiceRelationships(service, analysis);
 async function analyzeServiceCode(servicePath = {fileCount = // await glob('**/*', {cwd = files.length */
 for (const file of files.slice(0, 100)) {
   // Limit for performance
-  const _ext = path.extname(file).toLowerCase(); stats.languages[ext] = (stats.languages[ext]  ?? 0) + 1; try {'
-// const _content = awaitreadFile(path.join(servicePath, file) {, 'utf8');'
+  const ext = path.extname(file).toLowerCase(); stats.languages[ext] = (stats.languages[ext]  ?? 0) + 1; try {'
+// const content = awaitreadFile(path.join(servicePath, file) { 'utf8');'
     stats.lineCount += content.split('\n').length;
-  } catch (error) { console.error(error); } catch(/* _error */) {'
+  } catch(/* _error */) {'
     // Skip files that can't be read'
   //   }
 // }
@@ -187,13 +186,13 @@ else stats.complexity = 'low';
 /** Detect APIs in service */
 
 async function _detectAPIs() {'
-// const __files = awaitglob(pattern, {cwd = await glob('**/swagger.{json,yaml,yml}', {cwd = await glob('**/openapi.{json,yaml,yml}', { cwd => {
+// const _files = awaitglob(pattern, {cwd = await glob('**/swagger.{json,yaml,yml}', {cwd = await glob('**/openapi.{json,yaml,yml}', { cwd => {
       apis.push({
         file,type = [];
 
   try {
     // Look for database configuration files
-    const _configPatterns = ['
+    const configPatterns = ['
       ''
       ''
       ''
@@ -202,13 +201,13 @@ async function _detectAPIs() {'
     ];
 
   for(const pattern of configPatterns) {'
-// const __files = awaitglob(pattern, {cwd = // await glob('**/docker-compose*.{yml,yaml} catch (error) { console.error(error); }', {cwd = // await readFile(path.join(servicePath, file), 'utf8')'
+// const _files = awaitglob(pattern, {cwd = // await glob('**/docker-compose*.{yml,yaml}', {cwd = // await readFile(path.join(servicePath, file), 'utf8')'
         if(content.includes('postgres')  ?? content.includes('mysql')  ?? content.includes('mongodb')) {
           databases.push({file = new Set(); try {
     // Check package.json for technology indicators'
-    const _packagePath = path.join(servicePath, 'package.json'); if(existsSync(packagePath) {) {'
-      const _packageContent = JSON.parse(// await readFile(packagePath, 'utf8'));
-      const _deps = { ...packageContent.dependencies, ...packageContent.devDependencies } catch (error) { console.error(error); };
+    const packagePath = path.join(servicePath, 'package.json'); if(existsSync(packagePath) {) {'
+      const packageContent = JSON.parse(// await readFile(packagePath, 'utf8'));
+      const deps = { ...packageContent.dependencies, ...packageContent.devDependencies };
 
       // Detect frameworks and libraries'
       if(deps.express) technologies.add('express');'
@@ -238,7 +237,7 @@ async function _detectAPIs() {'
     relationships.push({from = [];
 
   // Technology usage patterns
-  const _techUsage = {};
+  const techUsage = {};
   services.forEach(service => {
     service.technologies.forEach(tech => {)))
       techUsage[tech] = (techUsage[tech]  ?? 0) + 1;
@@ -278,18 +277,18 @@ async function _detectAPIs() {'
     try {
 // // await createHive([service.name], {
         path => {
-        service.technologies.forEach(tech => acc.add(tech)); return acc; //   // LINT: unreachable code removed} catch (error) { console.error(error); }, new Set() {).size;
+        service.technologies.forEach(tech => acc.add(tech)); return acc; //   // LINT: unreachable code removed}, new Set() {).size;
     },services = > ({name = [];
 
   // Technology standardization recommendations
-  const _techUsage = {};
+  const techUsage = {};
   analysis.services.forEach(service => {
     service.technologies.forEach(tech => {)
       techUsage[tech] = (techUsage[tech]  ?? 0) + 1;
     });
   });
 
-  const _dominantTech = Object.entries(techUsage);
+  const dominantTech = Object.entries(techUsage);
 filter(([tech, count]) => count >= Math.ceil(analysis.services.length * 0.5))
 map(([tech]) => tech);
   if(dominantTech.length > 0) {
@@ -310,7 +309,7 @@ map(service => service.name);
   importMonorepoCommand,
   discoverServices,
   analyzeServices,
-  setupServiceGraph;;
+  setupServiceGraph;
 
 }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))))))))))))))))))
 `

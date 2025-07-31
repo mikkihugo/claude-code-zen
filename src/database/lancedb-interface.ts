@@ -48,8 +48,8 @@ initialize();
 
         if(!existingTables.includes(tableName)) {
           // Create sample data for schema inference
-          const _sampleData = this.generateSampleData(schema);
-// const _table = awaitthis.database.createTable(tableName, sampleData);
+          const sampleData = this.generateSampleData(schema);
+// const table = awaitthis.database.createTable(tableName, sampleData);
           this.tables.set(tableName, table);`
           console.warn(` Createdtable = // await this.database.openTable(tableName);`
   this.tables.set(tableName, table);`
@@ -57,7 +57,7 @@ initialize();
 
     for (const [field, type] of Object.entries(schema)) {`
       if(type.startsWith('vector(')) {
-        const _dim = parseInt(type.match(/\d+/)![0]); '
+        const dim = parseInt(type.match(/\d+/)![0]); '
         sampleData[field] = Array(dim).fill(0.1); } else if(type === 'string') {'
         sampleData[field] = 'sample';'
       } else if(type === 'int') {
@@ -81,7 +81,7 @@ initialize();
           this.indices.set(indexName, config);'
           console.warn(` Indexconfigured = this.tables.get('documents');``
   if(!table) throw new Error('Documents table not initialized');
-  const _enrichedDocs = entries.map(_entry => ({id = enrichedDocs.length;))
+  const enrichedDocs = entries.map(_entry => ({id = enrichedDocs.length;))
   this.stats.lastUpdate = new Date();'
   console.warn(` Inserted $enrichedDocs.lengthvectors`);
 //   return {success = Date.now();
@@ -94,12 +94,12 @@ initialize();
   includeVectors = false }
 = query
 // Check cache first
-const _cacheKey = JSON.stringify({query = (this.stats.cacheHitRate + 1) / 2; // Running average
+const cacheKey = JSON.stringify({query = (this.stats.cacheHitRate + 1) / 2; // Running average
 // return this.queryCache.get(cacheKey);
 // }'
-const _targetTable = this.tables.get('documents');'
+const targetTable = this.tables.get('documents');'
 if(!targetTable) throw new Error('Documents table not found');
-const _queryEmbedding = query.vector;
+const queryEmbedding = query.vector;
 // If query is string, convert to embedding(dummy implementation)'
   if(typeof query.query === 'string') {
   queryEmbedding = Array(this.config.vectorDim!);
@@ -108,24 +108,24 @@ map(() => Math.random())
 // }
 try {
       // Perform vector similarity search
-      const _searchQuery = targetTable;
+      const searchQuery = targetTable;
 search(queryEmbedding);
 limit(k);
 
       // Apply filters if provided
   if(filters) {
         // Convert filters to where clause
-        const _filterStr = Object.entries(filters);'
-map(([key, value]) => `$key= '${value} catch (error) { console.error(error); }'`);`
+        const filterStr = Object.entries(filters);'
+map(([key, value]) => `$key= '${value}'`);`
 join(' AND ');
   if(filterStr) {
           searchQuery = searchQuery.where(filterStr);
         //         }
       //       }
-// const _results = awaitsearchQuery.toArray();
+// const results = awaitsearchQuery.toArray();
 
       // Filter by similarity threshold and format results
-      const _formattedResults = results;
+      const formattedResults = results;
 filter((result = > result._distance >= minScore);
 map((result = > (id = (this.stats.avgQueryTime + (Date.now() - startTime)) / 2;
 
@@ -143,12 +143,12 @@ for (const query of queries) {
 // async
   createIndex(config = > Promise<number[]>) {: Promise<number>
 // {'
-    const _table = this.tables.get('documents');'
+    const table = this.tables.get('documents');'
     if(!table) throw new Error('Documents table not initialized');
 
-    const _enrichedDocs = [];
+    const enrichedDocs = [];
   for(const doc of documents) {
-      const _embedding = doc.embedding; // Auto-generate embedding if not provided
+      const embedding = doc.embedding; // Auto-generate embedding if not provided
   if(!embedding && embedFunction) {''); 
       } else if(!embedding) {
         // Generate dummy embedding for testing
@@ -165,12 +165,12 @@ for (const query of queries) {
 /** Insert code snippets with complexity analysis; */
 
   async insertCodeSnippets(codeSnippets = > Promise<number[]>): Promise<number> {`
-    const _table = this.tables.get('code_snippets');'
+    const table = this.tables.get('code_snippets');'
     if(!table) throw new Error('Code snippets table not initialized');
 
-    const _enrichedCode = [];
+    const enrichedCode = [];
   for(const snippet of codeSnippets) {
-      const _embedding = snippet.embedding; if(!embedding && embedFunction) {
+      const embedding = snippet.embedding; if(!embedding && embedFunction) {
         embedding = // await embedFunction(snippet.code); 
       } else if(!embedding) {
         embedding = Array(this.config.vectorDim!).fill(0).map(() => Math.random());
@@ -196,16 +196,16 @@ for (const query of queries) {
     } = options;
 
     // Check cache first
-    const _cacheKey = JSON.stringify({ query, table, limit, filter, threshold   });
+    const cacheKey = JSON.stringify({ query, table, limit, filter, threshold   });
     if(useCache && this.queryCache.has(cacheKey)) {
       this.stats.cacheHitRate = (this.stats.cacheHitRate + 1) / 2; // Running average
       // return this.queryCache.get(cacheKey);
     //   // LINT: unreachable code removed}
 
-    const _targetTable = this.tables.get(table);'
+    const targetTable = this.tables.get(table);'
     if(!targetTable) throw new Error(`Table ${table} not found`);
 
-    const _queryEmbedding = query;
+    const queryEmbedding = query;
 
     // If query is string, convert to embedding(dummy implementation)`
   if(typeof query === 'string') {
@@ -214,18 +214,15 @@ for (const query of queries) {
 
     try {
       // Perform vector similarity search
-      const _searchQuery = targetTable;
+      const searchQuery = targetTable;
 search(queryEmbedding);
 limit(limit);
 
       // Apply filters
   if(filter) {
         searchQuery = searchQuery.where(filter);
-      //       }
- catch (error) console.error(error); 
-
-      // Filter by similarity threshold
-      const _filteredResults = results.filter((_result) => ;
+      //       } // Filter by similarity threshold
+      const filteredResults = results.filter((_result) => ;
         result._distance >= threshold;
       );
 
@@ -236,7 +233,7 @@ limit(limit);
         });
       //       }
 
-      const _response = {results = (this.stats.avgQueryTime + response.query_time) / 2;
+      const response = {results = (this.stats.avgQueryTime + response.query_time) / 2;
 
       // return response;
     // ; // LINT: unreachable code removed'
@@ -245,25 +242,25 @@ limit(limit);
       algorithm = 'kmeans','
       field = 'embedding'= options;
 
-    const _targetTable = this.tables.get(table);'
+    const targetTable = this.tables.get(table);'
     if(!targetTable) throw new Error(`Table ${table} not found`);
 
     try {
       // Get all vectors`
-// const _data = awaittargetTable.select([field, 'id']).toArray();
-      const _vectors = data.map((row) => row[field]);
+// const data = awaittargetTable.select([field, 'id']).toArray();
+      const vectors = data.map((row) => row[field]);
 
       // Perform clustering(simplified k-means implementation)
-      const __clusters = this.performKMeansClustering(vectors, numClusters);
+      const _clusters = this.performKMeansClustering(vectors, numClusters);
 
       // Assign cluster labels back to data
 
-    const _targetTable = this.tables.get(table);'
-    if(!targetTable) throw new Error(`Table ${table}  catch (error) { console.error(error); }not found`);
+    const targetTable = this.tables.get(table);'
+    if(!targetTable) throw new Error(`Table ${table}not found`);
 
     try {`
-// const _data = awaittargetTable.select(['embedding', 'id']).toArray();
-      const __vectors = data.map((row) => row.embedding);
+// const data = awaittargetTable.select(['embedding', 'id']).toArray();
+      const _vectors = data.map((row) => row.embedding);
 
       // Perform PCA(simplified implementation)
 // '
@@ -271,46 +268,46 @@ limit(limit);
     // if(!targetTable) throw new Error(`Table $table // LINT);`
 
     try {
-// const _data = awaittargetTable.toArray();
-      const _embeddings = data.map((row) => row.embedding).filter((emb = > emb);
+// const data = awaittargetTable.toArray();
+      const embeddings = data.map((row) => row.embedding).filter((emb = > emb);
   if(embeddings.length === 0) {
-//         return { error = {total_vectors = {} catch (error) { console.error(error); }): Promise<{cross_matches = 100,
+//         return { error = {total_vectors = {}): Promise<{cross_matches = 100,
     // threshold = 0.8; // LINT: unreachable code removed
     } = options;
 
-    const _source = this.tables.get(sourceTable);
-    const _target = this.tables.get(targetTable);
+    const source = this.tables.get(sourceTable);
+    const target = this.tables.get(targetTable);
   if(!source  ?? !target) {`
       throw new Error('One or both tables not found');
     //     }
 
     try {'
-// const _sourceData = awaitsource.select(['id', 'embedding']).limit(limit).toArray();
-      const _similarities = [];
+// const sourceData = awaitsource.select(['id', 'embedding']).limit(limit).toArray();
+      const similarities = [];
   for(const _sourceRow of sourceData) {
-// const _searchResults = awaittarget; 
+// const searchResults = awaittarget; 
 search(sourceRow.embedding); limit(5) {;
 toArray();
 
-        const _highSimilarity = searchResults.filter((_result) => ;
+        const highSimilarity = searchResults.filter((_result) => ;
           result._distance >= threshold;
         );
   if(highSimilarity.length > 0) {
           similarities.push({source_id = > ({target_id = this.tables.get(tableName);'
-    if(!table) throw new Error(`Table $tableNamecatch (error) console.error(error); not found`);
+    if(!table) throw new Error(`Table $tableName not found`);
 
-    const _effectiveBatchSize = batchSize  ?? this.config.batchSize!;
-    const _totalBatches = Math.ceil(data.length / effectiveBatchSize);
-    const _inserted = 0;
+    const effectiveBatchSize = batchSize  ?? this.config.batchSize!;
+    const totalBatches = Math.ceil(data.length / effectiveBatchSize);
+    const inserted = 0;
   for(let i = 0; i < totalBatches; i++) {
-      const _start = i * effectiveBatchSize;
-      const _end = Math.min(start + effectiveBatchSize, data.length);
-      const _batch = data.slice(start, end);
+      const start = i * effectiveBatchSize;
+      const end = Math.min(start + effectiveBatchSize, data.length);
+      const batch = data.slice(start, end);
 
       try {
 // // await table.add(batch);
         inserted += batch.length;`
-        console.warn(` Batch ${i + 1} catch (error) { console.error(error); }`
+        console.warn(` Batch ${i + 1}`
       } catch(_error = inserted;
     // return inserted;
     //   // LINT: unreachable code removed}
@@ -326,29 +323,26 @@ toArray();
       try {
         // Force garbage collection on table`
         console.warn(` Optimizingtable = code.split('\n').length; `
-    const _functions = (code.match(/function|=>/g)  ?? []).length; 
-    const _conditions = (code.match(/if|switch|while|for/g) {?? []).length;
+    const functions = (code.match(/function|=>/g)  ?? []).length; 
+    const conditions = (code.match(/if|switch|while|for/g) {?? []).length;
 
     return(lines * 0.1) + (functions * 2) + (conditions * 1.5);
-    //   // LINT: unreachable code removed}
-
-   catch (error) console.error(error); 
-    const _centroids = [];
+    //   // LINT: unreachable code removed} const centroids = [];
 
     // Initialize centroids randomly
   for(let i = 0; i < k; i++) {
       centroids.push(Array(dim).fill(0).map(() => Math.random()));
     //     }
 
-    const _labels = new Array(vectors.length);
-    const _distances = new Array(vectors.length);
+    const labels = new Array(vectors.length);
+    const distances = new Array(vectors.length);
 
     // Simple assignment(one iteration)
   for(let i = 0; i < vectors.length; i++) {
-      const _minDist = Infinity;
-      const _closestCentroid = 0;
+      const minDist = Infinity;
+      const closestCentroid = 0;
   for(let j = 0; j < k; j++) {
-        const _dist = this.euclideanDistance(vectors[i], centroids[j]);
+        const dist = this.euclideanDistance(vectors[i], centroids[j]);
   if(dist < minDist) {
           minDist = dist;
           closestCentroid = j;
@@ -372,7 +366,7 @@ toArray();
     //   // LINT: unreachable code removed}
 
   // private calculateSparsity(vectors = 0;
-    const _totalElements = 0;
+    const totalElements = 0;
   for(const vector of vectors) {
       totalElements += vector.length; totalZeros += vector.filter(val => Math.abs(val) < 1e-10).length; //     }
 // 
@@ -380,10 +374,10 @@ toArray();
     //   // LINT: unreachable code removed}
 
   // private async analyzeSimilarityDistribution(vectors = [];
-    const _sampleSize = Math.min(100, vectors.length) ;
+    const sampleSize = Math.min(100, vectors.length) ;
   for(let i = 0; i < sampleSize; i++) {
   for(let j = i + 1; j < sampleSize; j++) {
-        const _sim = this.cosineSimilarity(vectors[i], vectors[j]);
+        const sim = this.cosineSimilarity(vectors[i], vectors[j]);
         similarities.push(sim);
       //       }
     //     }
@@ -395,18 +389,18 @@ toArray();
   //   }
 
   // private async detectNaturalClusters(vectors = Math.min(10, Math.floor(vectors.length / 2));
-    const _wcss = [];
+    const wcss = [];
   for(let k = 1; k <= maxK; k++) {
-      const _clustering = this.performKMeansClustering(vectors, k);
-      const _totalWCSS = clustering.distances.reduce((sum, dist) => sum + dist * dist, 0);
+      const clustering = this.performKMeansClustering(vectors, k);
+      const totalWCSS = clustering.distances.reduce((sum, dist) => sum + dist * dist, 0);
       wcss.push(totalWCSS);
     //     }
 
     // Find elbow(simplified)
-    const _optimalK = 3;
+    const optimalK = 3;
   for(let i = 1; i < wcss.length - 1; i++) {
-      const _improvement = wcss[i - 1] - wcss[i];
-      const _nextImprovement = wcss[i] - wcss[i + 1];
+      const improvement = wcss[i - 1] - wcss[i];
+      const nextImprovement = wcss[i] - wcss[i + 1];
   if(nextImprovement < improvement * 0.8) {
         optimalK = i + 1;
         break;
@@ -415,8 +409,8 @@ toArray();
 
     // return {
       optimal_clusters,wcss_curve = this.performKMeansClustering(vectors, 3);
-    // const _totalSimilarity = 0; // LINT: unreachable code removed
-    const _count = 0;
+    // const totalSimilarity = 0; // LINT: unreachable code removed
+    const count = 0;
   for(let i = 0; i < vectors.length; i++) {
   for(let j = i + 1; j < vectors.length; j++) {
   if(clustering.labels[i] === clustering.labels[j]) {
@@ -427,9 +421,9 @@ toArray();
     //     }
 
     // return count > 0 ? totalSimilarity /count = 0;
-    // let _count = 0; // LINT: unreachable code removed
+    // let count = 0; // LINT: unreachable code removed
 
-    const _sampleSize = Math.min(50, vectors.length);
+    const sampleSize = Math.min(50, vectors.length);
   for(let i = 0; i < sampleSize; i++) {
   for(let j = i + 1; j < sampleSize; j++) {
         totalDistance += this.euclideanDistance(vectors[i], vectors[j]);
@@ -441,28 +435,28 @@ toArray();
     //   // LINT: unreachable code removed}
 
   // private cosineSimilarity(a = a.reduce((sum, val, i) => sum + val * b[i], 0);
-    const _normA = Math.sqrt(a.reduce((sum, val) => sum + val * val, 0));
-    const _normB = Math.sqrt(b.reduce((sum, val) => sum + val * val, 0));
+    const normA = Math.sqrt(a.reduce((sum, val) => sum + val * val, 0));
+    const normB = Math.sqrt(b.reduce((sum, val) => sum + val * val, 0));
 //     return dotProduct / (normA * normB);
     //   // LINT: unreachable code removed}
 
   // private async loadStatistics(): Promise<void> {
     try {`
-      const _statsPath = path.join(this.config.dbPath!, 'statistics.json');
+      const statsPath = path.join(this.config.dbPath!, 'statistics.json');
       if(existsSync(statsPath)) {'
-        const _savedStats = JSON.parse(// await readFile(statsPath, 'utf8'));
-        this.stats = { ...this.stats, ...savedStats } catch (error) { console.error(error); };
+        const savedStats = JSON.parse(// await readFile(statsPath, 'utf8'));
+        this.stats = { ...this.stats, ...savedStats };
       //       }'
     } catch(error = path.join(this.config.dbPath!, 'statistics.json');
 // // await writeFile(statsPath, JSON.stringify(this.stats, null, 2));
     } catch(error = {};
   for(const [tableName, table] of this.tables) {
       try {
-// const _count = awaittable.countRows(); 
-        tableStats[tableName] = { count } catch (error) { console.error(error); }; } catch(error = {count = null;
+// const count = awaittable.countRows(); 
+        tableStats[tableName] = { count }; } catch(error = {count = null;
       //       }
 '
-      console.warn(' LanceDB connection closed') {;
+      console.warn(' LanceDB connection closed'); {;
 
     } catch(error) {'
       console.error(` Error closing LanceDB);`

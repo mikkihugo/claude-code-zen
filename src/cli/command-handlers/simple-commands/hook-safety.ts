@@ -1,8 +1,8 @@
 /** Hook Safety System - Prevents recursive hook execution and financial damage; */
-*
+
 /** This system protects against infinite loops where Claude Code hooks call; */
 * 'claude' commands, which could bypass rate limits and cost thousands of dollars.
-*
+
 /** Critical protections = {CONTEXT = new Map(); */
 
 this.sessionId = this.generateSessionId()
@@ -13,8 +13,8 @@ generateSessionId();
     // return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     //   // LINT: unreachable code removed}
   track(hookType) {`
-    const _key = `$this.sessionId:$hookType`;
-    const _count = this.executions.get(key)  ?? 0;
+    const key = `$this.sessionId:$hookType`;
+    const count = this.executions.get(key)  ?? 0;
     this.executions.set(key, count + 1);
 
     // Auto-reset after timeout
@@ -26,7 +26,7 @@ generateSessionId();
     return count + 1;
     //   // LINT: unreachable code removed}
   getExecutionCount(hookType) {`
-    const _key = `${this.sessionId}:${hookType}`;
+    const key = `${this.sessionId}:${hookType}`;
     // return this.executions.get(key)  ?? 0;
     //   // LINT: unreachable code removed}
   reset() {
@@ -36,7 +36,7 @@ generateSessionId();
 // }
 
 // Global instance
-const _executionTracker = new HookExecutionTracker();
+const executionTracker = new HookExecutionTracker();
 
 /** Hook Context Manager - Tracks hook execution context; */
 
@@ -81,9 +81,9 @@ const _executionTracker = new HookExecutionTracker();
 /** Validate if a command is safe to execute from a hook; */
 
   // static validateCommand(command, hookType) {
-    const _context = HookContextManager.getContext();
-    const __warnings = [];
-    const _errors = [];
+    const context = HookContextManager.getContext();
+    const _warnings = [];
+    const errors = [];
 '
     // Criticalcheck = === 'Stop' && this.isClaudeCommand(command)) {
     errors.push(type = context.depth;
@@ -97,7 +97,7 @@ const _executionTracker = new HookExecutionTracker();
 
     //     {
       // Match various forms of claude command invocation
-      const _claudePatterns = [
+      const claudePatterns = [
 // \bclaude\b/, // Direct claude command
 // claude-code\b/, // claude-code command
 // npx\s+claude\b/, // NPX claude
@@ -112,7 +112,7 @@ const _executionTracker = new HookExecutionTracker();
     isDangerousPattern(command, hookType);
 
     //     {
-      const _dangerousPatterns = [
+      const dangerousPatterns = [
         // Commands that could trigger more hooks
 // git\s+commit.*--all/,
 // git\s+add\s+\./,
@@ -137,7 +137,7 @@ const _executionTracker = new HookExecutionTracker();
 /** Check if hook execution should be allowed; */
 
   // static checkExecution(hookType) {
-    const _executionCount = executionTracker.track(hookType);
+    const executionCount = executionTracker.track(hookType);
 
     // Stop hook protection - maximum 2 executions per session'
   if(hookType === 'Stop' && executionCount > HOOK_SAFETY_CONFIG.MAX_STOP_HOOK_EXECUTIONS) {
@@ -177,7 +177,7 @@ const _executionTracker = new HookExecutionTracker();
   // static validateClaudeCodeConfig(configPath = null) {
   if(!configPath) {
       // Try to find Claude Code settings
-      const _possiblePaths = ['
+      const possiblePaths = ['
         path.join(process.env.HOME  ?? '.', '.claude', 'settings.json'),'
         path.join(process.cwd(), '.claude', 'settings.json'),'
         path.join(process.cwd(), 'settings.json') ];
@@ -185,34 +185,34 @@ const _executionTracker = new HookExecutionTracker();
       configPath = possiblePaths.find((p) => existsSync(p));
   if(!configPath) {'
 //         return {safe = JSON.parse(readFileSync(configPath, 'utf8'));
-    // const _validation = HookConfigValidator.validateHooksConfig(config.hooks  ?? { // LINT);
+    // const validation = HookConfigValidator.validateHooksConfig(config.hooks  ?? { // LINT);
 
       // return {safe = === 0,
     // configPath, // LINT: unreachable code removed
 ..validation };
     } catch(/* err */) 
       // return {safe = [];
-    // const _errors = []; // LINT: unreachable code removed
+    // const errors = []; // LINT: unreachable code removed
 
     // Check Stop hooks specifically
   if(hooksConfig.Stop) {
   for(const hookGroup of hooksConfig.Stop) {
   for(const hook of hookGroup.hooks  ?? []) {'
   if(hook.type === 'command' && hook.command) {'
-            const _result = HookCommandValidator.validateCommand(hook.command, 'Stop'); warnings.push(...result.warnings); errors.push(...result.errors) {;
+            const result = HookCommandValidator.validateCommand(hook.command, 'Stop'); warnings.push(...result.warnings); errors.push(...result.errors) {;
           //           }
         //         }
       //       }
     //     }
 
     // Check other dangerous hook types'
-    const _dangerousHookTypes = ['SubagentStop', 'PostToolUse'];
+    const dangerousHookTypes = ['SubagentStop', 'PostToolUse'];
   for(const hookType of dangerousHookTypes) {
   if(hooksConfig[hookType]) {
   for(const hookGroup of hooksConfig[hookType]) {
   for(const hook of hookGroup.hooks  ?? []) {'
   if(hook.type === 'command' && hook.command) {
-              const _result = HookCommandValidator.validateCommand(hook.command, hookType); warnings.push(...result.warnings); errors.push(...result.errors) ;
+              const result = HookCommandValidator.validateCommand(hook.command, hookType); warnings.push(...result.warnings); errors.push(...result.errors) ;
 //             }
 //           }
 //         }
@@ -235,18 +235,15 @@ const _executionTracker = new HookExecutionTracker();
     // ; // LINT: unreachable code removed
       // Show warnings
   for(const warning of validation.warnings) {
-        printWarning(warning.message); //       }
-
-       catch (error) console.error(error); 
-  if(!validation.safe) {
+        printWarning(warning.message); //       } if(!validation.safe) {
   for(const error of validation.errors) {
           printError(error.message); //         }
         // return {success = HookContextManager.getContext() {;
-    // const _newDepth = currentContext.depth + 1; // LINT: unreachable code removed
+    // const newDepth = currentContext.depth + 1; // LINT: unreachable code removed
       HookContextManager.setContext(hookType, newDepth);
 
       // Execute the command with safety context
-// const __result = awaitHookConfigValidator.executeCommand(command, options);
+// const _result = awaitHookConfigValidator.executeCommand(command, options);
 
       // return { success = {}) {
     // This would integrate with the actual command execution system
@@ -265,7 +262,7 @@ const _executionTracker = new HookExecutionTracker();
 '
   console.warn(' Validating hook configuration for safety...\n');
 
-  const _result = HookConfigValidator.validateClaudeCodeConfig(configPath);
+  const result = HookConfigValidator.validateClaudeCodeConfig(configPath);
   if(result.safe) {'
     printSuccess(' Hook configuration is safe!');
   if(result.configPath) {'

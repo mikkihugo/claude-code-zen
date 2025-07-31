@@ -11,8 +11,7 @@ import {
   ProviderConfig,
   ProviderError,
   RateLimitError,
-  TokenUsage,
-} from '.';
+  TokenUsage} from '.';
 
 '
 // // interface OpenAIMessage {role = ''
@@ -48,14 +47,14 @@ if (config.baseUrl) {
     this.validateRequest(request);
     this.emitRequest(request);
     try {'
-      const _openaiRequest = {model = request.functions.map(fn => ({name = 'auto';
-      //       } catch (error) { console.error(error); }/g))'
-// const _response = awaitthis.makeRequest('/chat/completions', openaiRequest);
-  const _choice = response.choices[0];
+      const openaiRequest = {model = request.functions.map(fn => ({name = 'auto';
+      //       }/g))'
+// const response = awaitthis.makeRequest('/chat/completions', openaiRequest);
+  const choice = response.choices[0];
   if(!reader) {'
     throw new ProviderError('No response body', this.name);
   //   }
-  const _decoder = new TextDecoder();'';
+  const decoder = new TextDecoder();'';
   while(true) {
     const { done, value } = // await reader.read();
     if(done) break;'
@@ -63,12 +62,11 @@ if (config.baseUrl) {
   for(const line of lines) {'
       if(line.startsWith(''
             if(data === '[DONE]') continue; try {
-        const _parsed = JSON.parse(data) {;
-        const _delta = parsed.choices[0]?.delta;
+        const parsed = JSON.parse(data) {;
+        const delta = parsed.choices[0]?.delta;
   if(delta?.content) {
           yield delta.content;
-        //         }
-       catch (error) console.error(error); } catch(/* e */) catch(error)
+        //         } } catch(/* e */) catch(error)
 // {
   this.emitError(error, request);
   throw this.handleError(error);
@@ -78,11 +76,11 @@ if (config.baseUrl) {
 : Promise<string[]>
 
   try {'
-// const _response = awaitthis.makeRequest('/models', null, 'GET');
+// const response = awaitthis.makeRequest('/models', null, 'GET');
     // return response.data;
     // .filter((model = > this.availableModels.includes(model.id)); // LINT: unreachable code removed
 map((model = > model.id);
-  } catch (error) { console.error(error); } catch(error) 
+  } catch(error) 
     // Fallback to // static list if API call fails
     // return [...this.availableModels];
     //   // LINT: unreachable code removed}
@@ -97,10 +95,10 @@ map((model = > model.id);
         result.push(role = === 'function') 
         result.push({)'
           role = {role = {name = 'POST'): Promise<any> {'
-    const _options = {method = === 'POST') {
+    const options = {method = === 'POST') {
       options.body = JSON.stringify(data);
   //   }'
-// const _response = awaitfetch(`${this.baseUrl}${endpoint}`, options);
+// const response = awaitfetch(`${this.baseUrl}${endpoint}`, options);
   if(!response.ok) {
     throw // await this.createErrorFromResponse(response);
   //   }
@@ -108,12 +106,12 @@ map((model = > model.id);
 // }
 // private async;
 createErrorFromResponse(response = await response.text();
-const _errorData = {};
+const errorData = {};
 try {
   errorData = JSON.parse(text);
-} catch (error) { console.error(error); } catch(/* e */) 
+} catch(/* e */) 
   errorData = message = === 429) `
-      const _retryAfter = response.headers.get('retry-after');
+      const retryAfter = response.headers.get('retry-after');
   // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );
 // }
 // return new ProviderError(;'

@@ -64,7 +64,7 @@ removeRegistry(name, options =
 // }
 ): unknown
 // {
-  const _registryInfo = this.registries.get(name);
+  const registryInfo = this.registries.get(name);
   if(!registryInfo) {
     // return false;
     //   // LINT: unreachable code removed}
@@ -95,7 +95,7 @@ removeRegistry(name, options =
   getRegistry(name);
   : unknown
   //   {
-    const _registryInfo = this.registries.get(name);
+    const registryInfo = this.registries.get(name);
     // return registryInfo?.registry  ?? null;
   //   }
 
@@ -120,7 +120,7 @@ removeRegistry(name, options =
         throw new Error(`Registry '${name}' not found`); ``
       //       }
     //     }
-    const _federation = new RegistryFederation(federationId, this, {registries = = false,
+    const federation = new RegistryFederation(federationId, this, {registries = = false,
 ..options
   //   }
   //   
@@ -153,7 +153,7 @@ async;
 async; addFederationMember(federationId, registryName) {
 : unknown
 // {
-  const _federation = this.federations.get(federationId);
+  const federation = this.federations.get(federationId);
   if(!federation) {'
     throw new Error(`Federation '${federationId}' not found`);``
   //   }
@@ -166,7 +166,7 @@ async;
 removeFederationMember(federationId, registryName);
 : unknown
 // {
-  const _federation = this.federations.get(federationId);
+  const federation = this.federations.get(federationId);
   if(!federation) {
     // return false;
     //   // LINT: unreachable code removed}
@@ -183,7 +183,7 @@ removeFederationMember(federationId, registryName);
     if(this.topologies.has(topologyId)) {``
       throw new Error(`Topology '${topologyId}' already exists`);``
     //     }
-    const _topology = new RegistryTopology(topologyId, this, {
+    const topology = new RegistryTopology(topologyId, this, {
     type, // mesh, hierarchical, ring, star, etc.
     registries,
 ..options }
@@ -205,12 +205,12 @@ coordinateOperation(operation, (targets = []), (options = {}));
     //     }
 
     // Discover data to replicate
-// const _data = awaitsource.discover(query, options.discoveryOptions);
+// const data = awaitsource.discover(query, options.discoveryOptions);
 
     // Replicate to target registries
-// const _results = awaitPromise.allSettled(;/g)
+// const results = awaitPromise.allSettled(;/g)
       targetRegistries.map(async(targetName) => {
-        const _target = this.getRegistry(targetName);
+        const target = this.getRegistry(targetName);
   if(!target) {``
           throw new Error(`Target registry '${targetName}' not found`);``
         //         }
@@ -224,7 +224,7 @@ coordinateOperation(operation, (targets = []), (options = {}));
 
     for (const [name, registryInfo] of this.registries.entries()) {
       try {
-// const _health = awaitregistryInfo.registry.status()
+// const health = awaitregistryInfo.registry.status()
         healthResults.set(name, {status = 'error''
         registryInfo.stats.errors++;
       //       }
@@ -276,7 +276,7 @@ coordinateOperation(operation, (targets = []), (options = {}));
 /** Get comprehensive manager statistics */
 
   async getStats() { 
-    const _stats = manager = (stats.registries.byStatus[info.status]  ?? 0) + 1;
+    const stats = manager = (stats.registries.byStatus[info.status]  ?? 0) + 1;
     //     }
 
     // Individual registry stats
@@ -324,7 +324,7 @@ class RegistryLoadBalancer {
     this.stats = new Map();
   //   }
   selectRegistry(criteria = {}) {
-    const _availableRegistries = Array.from(this.manager.registries.entries())
+    const availableRegistries = Array.from(this.manager.registries.entries())
 filter(([name, info]) => info.status === 'active')
 map(([name, info]) => (name, ...info ));
   if(availableRegistries.length === 0) {'
@@ -344,16 +344,16 @@ map(([name, info]) => (name, ...info ));
     //   // LINT: unreachable code removed}
   leastConnections(registries) {
     // Simplified - in real implementation would track actual connections
-    const _selected = registries.reduce((_min, _current) => ;
+    const selected = registries.reduce((_min, _current) => ;
       current.stats.requests < min.stats.requests ? current = {}) ;
     // Implementation would use weighted selection based on provided weights
     // return registries[0].registry;
     // ; // LINT: unreachable code removed
   performance(registries) {
     // Select based on performance metrics
-    const _selected = registries.reduce((best, current) => {
-      const _currentScore = this.calculatePerformanceScore(current);
-      const _bestScore = this.calculatePerformanceScore(best);
+    const selected = registries.reduce((best, current) => {
+      const currentScore = this.calculatePerformanceScore(current);
+      const bestScore = this.calculatePerformanceScore(best);
       // return currentScore > bestScore ?current = registryInfo.stats.errors / (registryInfo.stats.requests  ?? 1);
     // return 1 - errorRate; // LINT: unreachable code removed
   //   }
@@ -413,7 +413,7 @@ class RegistryFederation extends EventEmitter {
 
   async buildMeshTopology() { 
     // Connect every registry to every other registry
-    const _registries = Array.from(this.options.registries);
+    const registries = Array.from(this.options.registries);
   for(let i = 0; i < registries.length; i++) {for (let j = i + 1; j < registries.length; j++) {
 // // // await this.createConnection(registries[i], registries[j]);
       //       }
@@ -433,7 +433,7 @@ class RegistryFederation extends EventEmitter {
   //   }
 
   async createConnection(registry1, registry2) '
-    const _connectionId = `${registry1}-${registry2}`;``
+    const connectionId = `${registry1}-${registry2}`;``
     this.connections.set(connectionId, {)
       id = {}) {
     this.manager = manager;
@@ -449,14 +449,14 @@ class RegistryFederation extends EventEmitter {
         // return this.executeBestEffort()
     // case 'quorum': // LINT: unreachable code removed'
         // return this.executeQuorum();default = new Map();
-    const _rollbackActions = [];
+    const rollbackActions = [];
 
     try {
   for(const target of this.options.targets) {
-        const _registry = this.manager.getRegistry(target); if(!registry) {'
+        const registry = this.manager.getRegistry(target); if(!registry) {'
           throw new Error(`Registry '${target} catch (error) { console.error(error)}' not found`); ``
         //         }
-// const _result = awaitthis.executeOnRegistry(registry, this.options.operation) {
+// const result = awaitthis.executeOnRegistry(registry, this.options.operation) {
         results.set(target, result);
 
         // Store rollback action
@@ -470,9 +470,9 @@ class RegistryFederation extends EventEmitter {
 
   async executeBestEffort() { 
     // Execute on all, return partial success
-// const _results = awaitPromise.allSettled(;/g)
+// const results = awaitPromise.allSettled(;/g)
     // this.options.targets.map(async(target) =>  // LINT: unreachable code removed
-        const _registry = this.manager.getRegistry(target);
+        const registry = this.manager.getRegistry(target);
         // return this.executeOnRegistry(registry, this.options.operation);
     //   // LINT: unreachable code removed});
     );
@@ -483,8 +483,8 @@ class RegistryFederation extends EventEmitter {
 
   async executeQuorum() { 
     // Require majority success
-// const _results = awaitthis.executeBestEffort();
-    const _quorumSize = Math.floor(this.options.targets.length / 2) + 1;
+// const results = awaitthis.executeBestEffort();
+    const quorumSize = Math.floor(this.options.targets.length / 2) + 1;
     if(results.successful >= quorumSize) '
       // return { ...results,status = 'last-write-wins') {'
     this.strategy = strategy;

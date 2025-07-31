@@ -5,7 +5,7 @@ describe('Utility Functions', () =>
 {'
   describe('Security Utils', () => '
     it('should validate input sanitization', () => {
-      const _sanitizer = {
+      const sanitizer = {
         sanitizeHtml: (_input) =>;
       input;'
 replace(/</g, '&lt;')'
@@ -19,7 +19,7 @@ replace(/\//g, '&#x2F;'),
       // Remove directory traversal attempts'').replace(/\/+/g, '/'');
       //   // LINT: unreachable code removed},
       validateEmail: (email) => {
-        const _emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 //         return emailRegex.test(email);
         //   // LINT: unreachable code removed} };
       // HTML sanitization'
@@ -36,15 +36,15 @@ replace(/\//g, '&#x2F;'),
       //       )'
       it('should handle rate limiting', () =>
 // {
-        const _rateLimiter = {
+        const rateLimiter = {
         requests: new Map(),
         windowMs, // 1 minute
           maxRequests;
 
         // isAllowed: null
   function(clientId) {
-          const _now = Date.now();
-          const _clientData = this.requests.get(clientId)  ?? {
+          const now = Date.now();
+          const clientData = this.requests.get(clientId)  ?? {
             count,
             resetTime: now + this.windowMs
 // }
@@ -60,7 +60,7 @@ replace(/\//g, '&#x2F;'),
           // return true;
           //   // LINT: unreachable code removed},
           getRemainingRequests: function(clientId) {
-          const _clientData = this.requests.get(clientId)  ?? { count };
+          const clientData = this.requests.get(clientId)  ?? { count };
 //           return Math.max(0, this.maxRequests - clientData.count);
     //   // LINT: unreachable code removed}
 // }
@@ -68,7 +68,7 @@ replace(/\//g, '&#x2F;'),
           expect(rateLimiter.isAllowed('client1')).toBe(true);'
           expect(rateLimiter.getRemainingRequests('client1')).toBe(99);
           // Simulate hitting the limit
-          const _clientData = { count, resetTime: Date.now() + 60000 };'
+          const clientData = { count, resetTime: Date.now() + 60000 };'
           rateLimiter.requests.set('client2', clientData);'
           expect(rateLimiter.isAllowed('client2')).toBe(false);'
           expect(rateLimiter.getRemainingRequests('client2')).toBe(0);
@@ -77,7 +77,7 @@ replace(/\//g, '&#x2F;'),
       describe('File System Utils', () =>'
         it('should handle path operations', () =>
 // {
-        const _pathUtils = {
+        const pathUtils = {
         join: (..._segments) =>;
         segments;'
 filter((segment) => segment && typeof segment === 'string')''
@@ -86,12 +86,12 @@ replace(/\/+/g, '/'),
 // {''
 //           return lastSlash > 0 ? path.substring(0, lastSlash) : '.';
           //   // LINT: unreachable code removed},'') => {'
-            const _lastSlash = path.lastIndexOf('
-            const _name = lastSlash >= 0 ? path.substring(lastSlash + 1);
+            const lastSlash = path.lastIndexOf('
+            const name = lastSlash >= 0 ? path.substring(lastSlash + 1);
 //             return ext && name.endsWith(ext) ? name.slice(0, -ext.length);
             //   // LINT: unreachable code removed},
             extname: (path) => {'
-              const _lastDot = path.lastIndexOf('.');''
+              const lastDot = path.lastIndexOf('.');''
 //               return lastDot > lastSlash ? path.substring(lastDot) : '';
               //   // LINT: unreachable code removed} };'
             expect(pathUtils.join('path', 'to', 'file.txt')).toBe('path/to/file.txt');'
@@ -106,7 +106,7 @@ replace(/\/+/g, '/'),
           //           )'
             it('should handle file filtering', () =>
 // {
-            const _fileFilter = {
+            const fileFilter = {
         filters: {
           javascript: /\.(js|jsx|ts|tsx)$/,
             images: /\.(jpg|jpeg|png|gif|svg)$/,
@@ -114,23 +114,23 @@ replace(/\/+/g, '/'),
 // }
             // filterByType: null
   function(files, /* type */) {
-          const _pattern = this.filters[type];
+          const pattern = this.filters[type];
 //           return pattern ? files.filter((file) => pattern.test(file));
     //   // LINT: unreachable code removed},
         filterBySize: (_files, _maxSize) =>;
           files.filter((file) => !file.size  ?? file.size <= maxSize),
         filterByDate: (files, since) => files.filter((file) => !file.mtime  ?? file.mtime >= since)
 // }'
-          const _testFiles = [{ name: 'app.js', size },'
+          const testFiles = [{ name: 'app.js', size },'
         { name: 'style.css', size },'
         { name: 'image.png', size },'
-        { name: 'readme.md', size },,];
-          const _jsFiles = fileFilter.filterByType(;)
+        { name: 'readme.md', size },];
+          const jsFiles = fileFilter.filterByType(;)
           testFiles.map((f) => f.name),'
           ('javascript');
           //           )'
             expect(jsFiles).toEqual(['app.js'])
-          const _smallFiles = fileFilter.filterBySize(testFiles, 2000);
+          const smallFiles = fileFilter.filterBySize(testFiles, 2000);
           expect(smallFiles).toHaveLength(3);'
           expect(smallFiles.some((f) => f.name === 'image.png')).toBe(false);
         }
@@ -138,7 +138,7 @@ replace(/\/+/g, '/'),
       describe('String Utils', () =>'
         it('should handle string formatting', () =>
 // {
-        const _stringUtils = {
+        const stringUtils = {
         capitalize: (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(),
         camelCase: (_str) =>;
         str;''))
@@ -164,14 +164,14 @@ replace(/-+/g, '-')'')
       //       )'
       it('should handle template interpolation', () =>
 // {
-        const _templateEngine = {
+        const templateEngine = {
         interpolate: (_template, _data) =>;
         template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
 //             return Object.hasOwn(data, key) ? data[key] ;
     //   // LINT: unreachable code removed}),
         interpolateAdvanced: function(template, /* data */) {
 //           return template.replace(/\{\{([\w.]+)\}\}/g, (_match, path) => {
-            const _value = this.getNestedValue(data, path);
+            const value = this.getNestedValue(data, path);
     // return value !== undefined ? value ; // LINT: unreachable code removed
           });
         },
@@ -182,7 +182,7 @@ reduce(;
               (current, key) => (current && Object.hasOwn(current, key) ? current[key] ),
               obj;
             ) };
-        const _data = {'
+        const data = {'
         name: 'Claude','
         version: '2.0.0',
         port, debug;
@@ -194,7 +194,7 @@ reduce(;
     });'
     describe('Validation Utils', () => '
       it('should validate data types', () => {
-      const _validator = {'
+      const validator = {'
         isString: (value) => typeof value === 'string','
         isNumber: (value) => typeof value === 'number' && !Number.isNaN(value),
         isArray: (value) => Array.isArray(value),'
@@ -206,9 +206,9 @@ reduce(;
     // return false; // LINT: unreachable code removed
         },
         validateSchema: function(data, /* schema */) {
-          const _errors = [];
+          const errors = [];
           for (const [field, rules] of Object.entries(schema)) {
-            const _value = data[field]; if(rules.required && this.isEmpty(value)) {'
+            const value = data[field]; if(rules.required && this.isEmpty(value)) {'
               errors.push(`$fieldis required`); continue;
 // }
   if(!this.isEmpty(value) {) `
@@ -238,12 +238,12 @@ reduce(;
       expect(validator.isEmpty(null)).toBe(true);'
       expect(validator.isEmpty('hello')).toBe(false);
       // Schema validation
-      const _schema = {'
+      const schema = {'
         name: { required, type: 'String', minLength, maxLength },required, type: 'Number' ,required, type: 'String'  };'
-      const _validData = { name: 'John', age, email: 'john@example.com' };
+      const validData = { name: 'John', age, email: 'john@example.com' };
       expect(validator.validateSchema(validData, schema)).toEqual([]);'
-      const _invalidData = { name: 'A', age: 'thirty' };
-      const _errors = validator.validateSchema(invalidData, schema);
+      const invalidData = { name: 'A', age: 'thirty' };
+      const errors = validator.validateSchema(invalidData, schema);
       expect(errors.length).toBeGreaterThan(0);'
       expect(errors.some((e) => e.includes('name must be at least 2 characters'))).toBe(true);'
       expect(errors.some((e) => e.includes('email is required'))).toBe(true);
@@ -251,7 +251,7 @@ reduce(;
   });'
   describe('Event Utils', () => '
     it('should handle event emitter functionality', () => {
-      const _eventEmitter = {
+      const eventEmitter = {
         events: new Map(),
         on: function(event, /* listener */) {
           if(!this.events.has(event)) {
@@ -261,8 +261,8 @@ reduce(;
         },
         off: function(event, /* listener */) {
           if(this.events.has(event)) {
-            const _listeners = this.events.get(event);
-            const _index = listeners.indexOf(listener);
+            const listeners = this.events.get(event);
+            const index = listeners.indexOf(listener);
   if(index >= 0) {
               listeners.splice(index, 1);
 // }
@@ -273,19 +273,19 @@ reduce(;
             this.events.get(event).forEach((listener) => {
               try {
                 listener(...args);
-              } catch (error) { console.error(error); } catch(error) '
+              } catch(error) '
                 console.error('Event listener error);');
 // }
         },
         once: function(event, /* listener */) {
-          const _onceListener = () => {
+          const onceListener = () => {
             this.off(event, onceListener);
             listener(...args);
           };
           this.on(event, onceListener);
         } };
-    const _callCount = 0;
-    const _listener = () => callCount++;'
+    const callCount = 0;
+    const listener = () => callCount++;'
     eventEmitter.on('test', listener);'
     eventEmitter.emit('test');
     expect(callCount).toBe(1);'
@@ -296,7 +296,7 @@ reduce(;
     expect(callCount).toBe(2); // Should not increment
 
     // Test once
-    const _onceCallCount = 0;'
+    const onceCallCount = 0;'
     eventEmitter.once('once-test', () => onceCallCount++);'
     eventEmitter.emit('once-test');'
     eventEmitter.emit('once-test');

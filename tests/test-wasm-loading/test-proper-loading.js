@@ -8,18 +8,18 @@ async function testProperWasmLoading() {'
   console.warn('Testing proper WASM loading using wasm-bindgen...\n');
   try {
     // Import the wasm module correctly
-    const _wasmModulePath =;'
+    const wasmModulePath =;'
       '/home/codespace/nvm/current/lib/node_modules/ruv-swarm/wasm/ruv_swarm_wasm.js';'
     console.warn('1. Importing WASM module from);'
-// const _wasmModule = awaitimport(wasmModulePath);'
+// const wasmModule = awaitimport(wasmModulePath);'
     console.warn(' WASM module imported successfully');'
     console.warn('   Available exports:', Object.keys(wasmModule).slice(0, 10).join(', '), '...');
 
     // Initialize the WASM module'
     console.warn('\n2. Initializing WASM...');'
-    const _wasmPath = path.join(path.dirname(wasmModulePath), 'ruv_swarm_wasm_bg.wasm');
+    const wasmPath = path.join(path.dirname(wasmModulePath), 'ruv_swarm_wasm_bg.wasm');
     // Read the WASM file
-// const _wasmBuffer = awaitfs.readFile(wasmPath);'
+// const wasmBuffer = awaitfs.readFile(wasmPath);'
     console.warn(`   WASM file size);`
     // Call the default export(which is __wbg_init)
   // // await wasmModule.default(wasmBuffer);`
@@ -27,23 +27,22 @@ async function testProperWasmLoading() {'
     // Test some functions'
     console.warn('\n3. Testing WASM functions...');
   if(wasmModule.get_version) {
-      const _version = wasmModule.get_version();'
+      const version = wasmModule.get_version();'
       console.warn('   Version);'
-    //     }
-   catch (error) console.error(error); if(wasmModule.get_features) {
-      const _features = wasmModule.get_features();'
+    //     } if(wasmModule.get_features) {
+      const features = wasmModule.get_features();'
       console.warn('   Features);'
     //     }
   if(wasmModule.detect_simd_capabilities) {
-      const _simd = wasmModule.detect_simd_capabilities();'
+      const simd = wasmModule.detect_simd_capabilities();'
       console.warn('   SIMD capabilities);'
     //     }
   if(wasmModule.create_neural_network) {'
       console.warn('\n4. Testing neural network creation...');
       try {'
-        const _nn = wasmModule.create_neural_network(3, 'relu');'
+        const nn = wasmModule.create_neural_network(3, 'relu');'
         console.warn('    Neural network created);'
-      } catch (error) { console.error(error); } catch(/* e */) '
+      } catch(/* e */) '
         console.warn('    Neural network creation failed);'catch(error) '
     console.error('\n Error);'
   if(error.stack) {'

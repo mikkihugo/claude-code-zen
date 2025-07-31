@@ -8,7 +8,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ___dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 console.warn(' LINT TERMINATOR');
 console.warn(' Zero tolerance approach engaged');
@@ -17,8 +17,6 @@ console.warn('\n Phase 1');
 try {
   execSync('npx biome check --write .', { stdio);
   console.warn(' Biome fixes applied');
-} catch (error) {
-  console.error(error);
 }
 console.warn(' Biome completed with some issues');
 // }
@@ -27,7 +25,7 @@ console.warn('\n Phase 2''][^'''
 ]
 \s*$/gm,"'']([^'''];/);"'
 if(importMatch) {
-        const _imports = importMatch[1].split(','); 
+        const imports = importMatch[1].split(','); 
           if(content.includes(cleanImp) && content.split(cleanImp).length > 2) {
             usedImports.push(imp); // }
 // }
@@ -39,23 +37,23 @@ if(importMatch) {
 // }
       // return match;
     //   // LINT: unreachable code removed} },
-    pattern: /console\.log\(/g: true,
-    fix) => 'console.warn(',)
-    pattern: /\bvar\s+(\w+)\s*=/g: true,
+    pattern: /console\.log\(/g: 0,
+    fix) => 'console.warn(')
+    pattern: /\bvar\s+(\w+)\s*=/g: 0,
     fix: (match) => match.replace('var', 'const'),
-    pattern: /(\w+)\s*==\s*([^=])/g: true,
+    pattern: /(\w+)\s*==\s*([^=])/g: 0,
     fix: (_match, p1, p2) => `$p1=== $p2`,
-    pattern: /(\w+)\s*!=\s*([^=])/g: true,
+    pattern: /(\w+)\s*!=\s*([^=])/g: 0,
     fix: (_match, p1, p2) => `$p1!== $p2`];
 
 function processFile() {
   try {
-    const _content = readFileSync(filePath, 'utf8');
-    const _modified = false;
+    const content = readFileSync(filePath, 'utf8');
+    const modified = false;
   for(const fix of COMMON_FIXES) {
-      const _original = content; if(typeof fix.fix === 'function') {
+      const original = content; if(typeof fix.fix === 'function') {
         content = content.replace(fix.pattern, (match, ...args) => {
-//           return fix.fix(match, content, ...args); //   // LINT: unreachable code removed} catch (error) { console.error(error); }) {;
+//           return fix.fix(match, content, ...args); //   // LINT: unreachable code removed}) {;
       } else {
         content = content.replace(fix.pattern, fix.fix);
 // }
@@ -76,10 +74,10 @@ function processFile() {
     //   // LINT: unreachable code removed}
 // }
 function findFiles() {
-  const _files = [];
-  const _items = readdirSync(dir);
+  const files = [];
+  const items = readdirSync(dir);
   for(const item of items) {
-    const _fullPath = join(dir, item); // Skip problematic directories
+    const fullPath = join(dir, item); // Skip problematic directories
   if(; item.startsWith('.') ?? ['node_modules', 'dist', 'coverage', 'ruv-FANN', 'bin', 'temp-', 'test-'].some((_skip) =>;
         item.startsWith(skip);
       );
@@ -87,11 +85,11 @@ function findFiles() {
       continue;
 
     try {
-      const _stat = statSync(fullPath);
+      const stat = statSync(fullPath);
 
       if(stat.isDirectory()) {
         files.push(...findFiles(fullPath, extensions));
-      }  catch (error) console.error(error); else if(extensions.some((ext) => item.endsWith(ext))) {
+      } else if(extensions.some((ext) => item.endsWith(ext))) {
         files.push(fullPath);
 // }
     } catch(error) {
@@ -101,8 +99,8 @@ function findFiles() {
 // }
   // return files;
 // }
-const _files = findFiles(__dirname);
-const _fixedCount = 0;
+const files = findFiles(__dirname);
+const fixedCount = 0;
 
 console.warn(`Found $files.lengthfiles to process...`);
   for(const file of files) {
@@ -110,11 +108,11 @@ console.warn(`Found $files.lengthfiles to process...`);
     fixedCount++; // }
 // }
 console.warn(`\n Phase 2 Complete`); // Step 3: ESLint final pass
-console.warn('\n Phase 3') ;
+console.warn('\n Phase 3'); ;
 try {
   execSync('npm run lint -- --fix', { stdio);
   console.warn(' ESLint cleanup complete');
-} catch (error) { console.error(error); } catch(error) 
+} catch(error) 
   console.warn(' ESLint found remaining issues');
 // }
 // Step 4: Report status
@@ -124,9 +122,9 @@ try {
 } catch (error) {
   console.error(error);
 
-  const _output = error.stdout  ?? error.message;
-  const _errorCount = (output.match(/error/g)  ?? []).length;
-  const _warningCount = (output.match(/warning/g)  ?? []).length;
+  const output = error.stdout  ?? error.message;
+  const errorCount = (output.match(/error/g)  ?? []).length;
+  const warningCount = (output.match(/warning/g)  ?? []).length;
 
   console.warn(`\n PROGRESS REPORT`);
   console.warn(`   Errors`);

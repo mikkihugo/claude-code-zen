@@ -5,8 +5,7 @@ import {
   HealthChecker,
   ModeValidator,
   PostInitValidator,
-  PreInitValidator,
-} from '.';
+  PreInitValidator} from '.';
 
 /** Main validation orchestrator */
 
@@ -40,21 +39,21 @@ async;
 validatePreInit((options = {}));
 : unknown
 // {
-const _results = {success = // await this.preInitValidator.checkPermissions();
+const results = {success = // await this.preInitValidator.checkPermissions();
   results.checks.permissions = permissionCheck;
 if(!permissionCheck.success) {
     results.success = false;
     results.errors.push(...permissionCheck.errors);
   //   }
   // Check disk space
-// const _spaceCheck = awaitthis.preInitValidator.checkDiskSpace();
+// const spaceCheck = awaitthis.preInitValidator.checkDiskSpace();
   results.checks.diskSpace = spaceCheck;
   if(!spaceCheck.success) {
     results.success = false;
     results.errors.push(...spaceCheck.errors);
   //   }
   // Check for conflicts
-// const _conflictCheck = awaitthis.preInitValidator.checkConflicts(options.force);
+// const conflictCheck = awaitthis.preInitValidator.checkConflicts(options.force);
   results.checks.conflicts = conflictCheck;
   if(!conflictCheck.success && !options.force) {
     results.success = false;
@@ -63,13 +62,13 @@ if(!permissionCheck.success) {
     results.warnings.push(...conflictCheck.warnings);
   //   }
   // Check dependencies
-// const _depCheck = awaitthis.preInitValidator.checkDependencies();
+// const depCheck = awaitthis.preInitValidator.checkDependencies();
   results.checks.dependencies = depCheck;
   if(!depCheck.success) {
     results.warnings.push(...depCheck.errors);
   //   }
   // Check environment
-// const _envCheck = awaitthis.preInitValidator.checkEnvironment();
+// const envCheck = awaitthis.preInitValidator.checkEnvironment();
   results.checks.environment = envCheck;
   if(!envCheck.success) {
     results.warnings.push(...envCheck.errors);
@@ -86,7 +85,7 @@ catch(error)
       //       }
 
       // Check completeness
-// const _completenessCheck = awaitthis.postInitValidator.checkCompleteness();
+// const completenessCheck = awaitthis.postInitValidator.checkCompleteness();
       results.checks.completeness = completenessCheck;
   if(!completenessCheck.success) {
         results.success = false;
@@ -94,7 +93,7 @@ catch(error)
       //       }
 
       // Validate structure
-// const _structureCheck = awaitthis.postInitValidator.validateStructure();
+// const structureCheck = awaitthis.postInitValidator.validateStructure();
       results.checks.structure = structureCheck;
   if(!structureCheck.success) {
         results.success = false;
@@ -102,7 +101,7 @@ catch(error)
       //       }
 
       // Check permissions on created files
-// const _permissionCheck = awaitthis.postInitValidator.checkPermissions();
+// const permissionCheck = awaitthis.postInitValidator.checkPermissions();
       results.checks.permissions = permissionCheck;
   if(!permissionCheck.success) {
         results.warnings.push(...permissionCheck.errors);
@@ -116,19 +115,19 @@ catch(error)
     results.errors.push(...roomodesCheck.errors);
   //   }
   // Validate CLAUDE.md
-// const _claudeMdCheck = awaitthis.configValidator.validateClaudeMd();
+// const claudeMdCheck = awaitthis.configValidator.validateClaudeMd();
   results.checks.claudeMd = claudeMdCheck;
   if(!claudeMdCheck.success) {
     results.warnings.push(...claudeMdCheck.errors);
   //   }
   // Validate memory configuration
-// const _memoryCheck = awaitthis.configValidator.validateMemoryConfig();
+// const memoryCheck = awaitthis.configValidator.validateMemoryConfig();
   results.checks.memory = memoryCheck;
   if(!memoryCheck.success) {
     results.warnings.push(...memoryCheck.errors);
   //   }
   // Validate coordination configuration
-// const _coordinationCheck = awaitthis.configValidator.validateCoordinationConfig();
+// const coordinationCheck = awaitthis.configValidator.validateCoordinationConfig();
   results.checks.coordination = coordinationCheck;
   if(!coordinationCheck.success) {
     results.warnings.push(...coordinationCheck.errors);
@@ -154,20 +153,20 @@ catch(error)
     results.warnings.push(...modeHealth.errors);
   //   }
   // Check template integrity
-// const _templateHealth = awaitthis.healthChecker.checkTemplateIntegrity();
+// const templateHealth = awaitthis.healthChecker.checkTemplateIntegrity();
   results.health.templates = templateHealth;
   if(!templateHealth.success) {
     results.success = false;
     results.errors.push(...templateHealth.errors);
   //   }
   // Check configuration consistency
-// const _configHealth = awaitthis.healthChecker.checkConfigConsistency();
+// const configHealth = awaitthis.healthChecker.checkConfigConsistency();
   results.health.configuration = configHealth;
   if(!configHealth.success) {
     results.warnings.push(...configHealth.errors);
   //   }
   // Check system resources
-// const _resourceHealth = awaitthis.healthChecker.checkSystemResources();
+// const resourceHealth = awaitthis.healthChecker.checkSystemResources();
   results.health.resources = resourceHealth;
   if(!resourceHealth.success) {
     results.warnings.push(...resourceHealth.errors);
@@ -184,7 +183,7 @@ catch(error)
       // return acc;
     //   // LINT: unreachable code removed}, 0);
 
-    const _warnings = validationResults.warnings?.length  ?? 0;
+    const warnings = validationResults.warnings?.length  ?? 0;
 '
     report.push(`Summary = === 'object'' : '';``
           report.push(`$status$check);`
@@ -212,8 +211,8 @@ report.push('\n=== End of Report ===')'
 /** Run full validation suite */
 
 // export async function runFullValidation(workingDir = {}) {
-  const _validator = new ValidationSystem(workingDir);
-  const _results = {success = await validator.validatePreInit(options);
+  const validator = new ValidationSystem(workingDir);
+  const results = {success = await validator.validatePreInit(options);
   results.preInit = preInitResults;
   if(!preInitResults.success) {
     results.success = false;
@@ -224,7 +223,7 @@ report.push('\n=== End of Report ===')'
 // }
 // Post-init validation(if applicable)
   if(options.postInit) {
-// const _postInitResults = awaitvalidator.validatePostInit();
+// const postInitResults = awaitvalidator.validatePostInit();
   results.postInit = postInitResults;
   if(!postInitResults.success) {
     results.success = false;
@@ -234,7 +233,7 @@ report.push('\n=== End of Report ===')'
 // }
 // Configuration validation
   if(!options.skipConfig) {
-// const _configResults = awaitvalidator.validateConfiguration();
+// const configResults = awaitvalidator.validateConfiguration();
   results.configuration = configResults;
   if(!configResults.success) {
     results.success = false;
@@ -244,7 +243,7 @@ report.push('\n=== End of Report ===')'
 // }
 // Mode functionality testing
   if(!options.skipModeTest) {
-// const _modeResults = awaitvalidator.testModeFunctionality();
+// const modeResults = awaitvalidator.testModeFunctionality();
   results.modeFunctionality = modeResults;
   if(!modeResults.success) {
     results.success = false;
@@ -253,7 +252,7 @@ report.push('\n=== End of Report ===')'
   results.warnings.push(...modeResults.warnings);
 // }
 // Health checks
-// const _healthResults = awaitvalidator.runHealthChecks();
+// const healthResults = awaitvalidator.runHealthChecks();
 results.health = healthResults;
   if(!healthResults.success) {
   results.success = false;

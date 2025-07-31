@@ -13,7 +13,7 @@ export async function createLocalExecutable(workingDir = false) {
   try {'
     if(platform() === 'win32') {
       // Create Windows batch file'
-      const __wrapperScript = `@echo off;`
+      const _wrapperScript = `@echo off;`
 REM Claude-Flow local wrapper;
 REM This script ensures claude-zen runs from your project directory
 
@@ -53,14 +53,14 @@ npx claude-zen@latest %*"
 
       // Write the Windows batch file
   if(!dryRun) {`
-// // await writeFile(`$workingDircatch (error) console.error(error); /claude-zen.cmd`, wrapperScript, 'utf8');'
+// // await writeFile(`$workingDir /claude-zen.cmd`, wrapperScript, 'utf8');'
         console.warn('   Created local claude-zen.cmd executable wrapper');'
         console.warn('    You can nowuse = workingDir.includes('claude-zen');'
-      const _devBinPath = isDevelopment;'
+      const devBinPath = isDevelopment;'
         ? `\$workingDir.split('claude-zen'';
 
       // Create Unix/Linux/Mac shell script'
-      const _wrapperScript = `#!/usr/bin/env bash;`
+      const wrapperScript = `#!/usr/bin/env bash;`
 # Claude-Flow local wrapper;
 # This script ensures claude-zen runs from your project directory
 

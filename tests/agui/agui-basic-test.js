@@ -1,11 +1,11 @@
 /**  AG-UI Integration Test(No External Dependencies); */
-*
+
 /** Basic integration test that works without installing @ag-ui */
 /** Validates the core concepts and integration points; */
 
 // Mock AG-UI EventType enum
 
-const _EventType = {
+const EventType = {
   TEXT_MESSAGE_START: 'TEXT_MESSAGE_START','
 TEXT_MESSAGE_CONTENT: 'TEXT_MESSAGE_CONTENT','
 TEXT_MESSAGE_END: 'TEXT_MESSAGE_END','
@@ -35,9 +35,9 @@ class MockAGUIAdapter {
 // }`
 startTextMessage((messageId = null), (role = 'assistant'));
 // {'
-  const _id = messageId ?? `msg-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;
+  const id = messageId ?? `msg-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;
   this.currentMessageId = id;
-  const _event = {
+  const event = {
       type: EventType.TEXT_MESSAGE_START,
   messageId,
   role,
@@ -50,11 +50,11 @@ this._emitEvent(event);
 //   // LINT: unreachable code removed}
 addTextContent(content, (messageId = null));
 // {
-  const _id = messageId ?? this.currentMessageId;
+  const id = messageId ?? this.currentMessageId;
   if(!id) {`
     throw new Error('No active message. Call startTextMessage first.');
   //   }
-  const _event = {
+  const event = {
       type: EventType.TEXT_MESSAGE_CONTENT,
   messageId,
   delta,
@@ -65,10 +65,10 @@ this._emitEvent(event);
 // }
 endTextMessage((messageId = null))
 // {
-  const _id = messageId ?? this.currentMessageId;
+  const id = messageId ?? this.currentMessageId;
   if(!id) return;
   // ; // LINT: unreachable code removed
-  const _event = {
+  const event = {
       type: EventType.TEXT_MESSAGE_END,
   messageId,
   timestamp: Date.now(),
@@ -81,9 +81,9 @@ this._emitEvent(event);
 // }
 startToolCall(toolName, (toolCallId = null), (parentMessageId = null))
 // {'
-  const _id = toolCallId ?? `tool-$Date.now()-$Math.random().toString(36).substr(2, 4)`;
+  const id = toolCallId ?? `tool-$Date.now()-$Math.random().toString(36).substr(2, 4)`;
   this.currentToolCallId = id;
-  const _event = {
+  const event = {
       type: EventType.TOOL_CALL_START,
   toolCallId,
   toolCallName,
@@ -97,11 +97,11 @@ this._emitEvent(event);
 //   // LINT: unreachable code removed}
 addToolCallArgs(args, (toolCallId = null));
 // {
-  const _id = toolCallId ?? this.currentToolCallId;
+  const id = toolCallId ?? this.currentToolCallId;
   if(!id) {`
     throw new Error('No active tool call. Call startToolCall first.');
   //   }
-  const _event = {
+  const event = {
       type: EventType.TOOL_CALL_ARGS,
   toolCallId,
   delta,
@@ -112,10 +112,10 @@ this._emitEvent(event);
 // }
 endToolCall((toolCallId = null))
 // {
-  const _id = toolCallId ?? this.currentToolCallId;
+  const id = toolCallId ?? this.currentToolCallId;
   if(!id) return;
   // ; // LINT: unreachable code removed
-  const _event = {
+  const event = {
       type: EventType.TOOL_CALL_END,
   toolCallId,
   timestamp: Date.now(),
@@ -128,8 +128,8 @@ this._emitEvent(event);
 // }
 emitToolCallResult(result, toolCallId, (messageId = null))
 // {'
-  const _resultMessageId = messageId ?? `result-${toolCallId}`;
-  const _event = {
+  const resultMessageId = messageId ?? `result-${toolCallId}`;
+  const event = {
       type: EventType.TOOL_CALL_RESULT,
   messageId,
   toolCallId,`
@@ -142,7 +142,7 @@ this._emitEvent(event);
 // }
 emitCustomEvent(name, value)
 // {
-  const _event = {
+  const event = {
       type: EventType.CUSTOM,
   name,
   value,
@@ -196,13 +196,13 @@ _emitEvent(event)
 async function runAGUIIntegrationTests() {'
   console.warn(' Running AG-UI Integration Tests for Claude Code Zen');'
   console.warn('='.repeat(60));
-  const _passedTests = 0;
-  const _totalTests = 0;
+  const passedTests = 0;
+  const totalTests = 0;
   function test() {
     totalTests++;
     try {
       testFn();'
-      console.warn(` $namecatch (error) console.error(error); `);
+      console.warn(` $name `);
       passedTests++;
     } catch(error) {`
       console.warn(` ${name});`
@@ -220,7 +220,7 @@ catch((error) =>`
   //   }
 // Test 1: Basic adapter creation`
 test('Adapter creation with session info', () => {
-  const _adapter = new MockAGUIAdapter({
+  const adapter = new MockAGUIAdapter({
       sessionId);'
   if(adapter.sessionId !== 'test-session') {'
   throw new Error('Session ID not set correctly');
@@ -232,12 +232,12 @@ test('Adapter creation with session info', () => {
 // Test 2: Text message flow'
 test('Text message flow generates correct events', () =>
 // {
-  const _adapter = new MockAGUIAdapter();
-  const _messageId = adapter.startTextMessage();'
+  const adapter = new MockAGUIAdapter();
+  const messageId = adapter.startTextMessage();'
   adapter.addTextContent('Hello');'
   adapter.addTextContent(' World');
   adapter.endTextMessage(messageId);
-  const _events = adapter.events;
+  const events = adapter.events;
   if(events.length !== 4) {'
     throw new Error(`Expected 4 events, got \$events.length`);
   //   }
@@ -257,12 +257,12 @@ test('Text message flow generates correct events', () =>
 // Test 3: Tool call flow'
 test('Tool call flow generates correct events', () =>
 // {
-  const _adapter = new MockAGUIAdapter();'
-  const _toolCallId = adapter.startToolCall('test_tool');'
+  const adapter = new MockAGUIAdapter();'
+  const toolCallId = adapter.startToolCall('test_tool');'
   adapter.addToolCallArgs('{"param");'
   adapter.endToolCall(toolCallId);'
   adapter.emitToolCallResult('Test result', toolCallId);
-  const _events = adapter.events;
+  const events = adapter.events;
   if(events.length !== 4) {'
     throw new Error(`Expected 4 events, got \$events.length`);
   //   }
@@ -276,10 +276,10 @@ test('Tool call flow generates correct events', () =>
 // Test 4: Queen coordination events'
 test('Queen coordination events', () =>
 // {
-  const _adapter = new MockAGUIAdapter();'
+  const adapter = new MockAGUIAdapter();'
   adapter.emitQueenEvent('queen-1', 'start_analysis', { target);'
   adapter.emitQueenEvent('queen-2', 'join_analysis', { specialization);
-  const _events = adapter.events;
+  const events = adapter.events;
   if(events.length !== 2) {'
     throw new Error(`Expected 2 events, got \$events.length`);
   //   }`
@@ -293,10 +293,10 @@ test('Queen coordination events', () =>
 // Test 5: Swarm coordination events'
 test('Swarm coordination events', () =>
 // {
-  const _adapter = new MockAGUIAdapter();'
+  const adapter = new MockAGUIAdapter();'
   adapter.emitSwarmEvent('swarm-1', 'initialize', ['agent-1', 'agent-2'], task);'
   adapter.emitSwarmEvent('swarm-1', 'execute', ['agent-1'], { action);
-  const _events = adapter.events;
+  const events = adapter.events;
   if(events.length !== 2) {'
     throw new Error(`Expected 2 events, got \$events.length`);
   //   }`
@@ -310,11 +310,11 @@ test('Swarm coordination events', () =>
 // Test 6: Hive mind events'
 test('Hive mind coordination events', () =>
 // {
-  const _adapter = new MockAGUIAdapter();'
+  const adapter = new MockAGUIAdapter();'
   adapter.emitHiveMindEvent('consensus_reached', '
       queens: ['queen-1', 'queen-2', 'queen-3'],'
   decision: 'implement_agui'
-const _events = adapter.events;
+const events = adapter.events;
   if(events.length !== 1) {'
   throw new Error(`Expected 1 event, got \$events.length`);
 // }`
@@ -328,13 +328,13 @@ const _events = adapter.events;
 // Test 7: Statistics tracking'
 test('Statistics tracking', () =>
 // {
-  const _adapter = new MockAGUIAdapter();
+  const adapter = new MockAGUIAdapter();
   adapter.startTextMessage();'
   adapter.addTextContent('Test');
   adapter.endTextMessage();'
-  const _toolCallId = adapter.startToolCall('test_tool');
+  const toolCallId = adapter.startToolCall('test_tool');
   adapter.endToolCall(toolCallId);
-  const _stats = adapter.getStats();
+  const stats = adapter.getStats();
   if(stats.messagesCreated !== 1) {'
     throw new Error(`Expected 1 message created, got \$stats.messagesCreated`);
   //   }
@@ -348,11 +348,11 @@ test('Statistics tracking', () =>
 // Test 8: Claude Code Zen integration simulation`
   // // await asyncTest('Claude Code Zen multi-agent simulation', async() =>
 // {
-  const _adapter = new MockAGUIAdapter();
+  const adapter = new MockAGUIAdapter();
   // Simulate a complex multi-agent interaction
 
   // 1. Start analysis run'
-  const _messageId = adapter.startTextMessage(null, 'assistant');'
+  const messageId = adapter.startTextMessage(null, 'assistant');'
   adapter.addTextContent('Starting Claude Code Zen analysis with AG-UI protocol...');
   adapter.endTextMessage(messageId);
   // 2. Queens coordinate'
@@ -360,7 +360,7 @@ test('Statistics tracking', () =>
   adapter.emitQueenEvent('queen-2', 'start_analysis', target);'
   adapter.emitQueenEvent('queen-3', 'start_analysis', { target);
   // 3. Tool execution'
-  const _toolCallId = adapter.startToolCall('analyze_codebase');'
+  const toolCallId = adapter.startToolCall('analyze_codebase');'
   adapter.addToolCallArgs('{"depth");'
   adapter.endToolCall(toolCallId);
   // Simulate async tool execution
@@ -387,13 +387,13 @@ test('Statistics tracking', () =>
   queens_consensus,
   swarm_efficiency: 0.92
   // Validate the simulation
-  const _stats = adapter.getStats();
+  const stats = adapter.getStats();
   if(stats.eventsEmitted < 10) {'
     throw new Error('Complex simulation should generate multiple events');
   //   }
   // Check for specific event types
 
-  const _customEvents = adapter.events.filter((e) => e.type === EventType.CUSTOM);
+  const customEvents = adapter.events.filter((e) => e.type === EventType.CUSTOM);
   if(customEvents.length < 5) {'
     throw new Error('Should have multiple custom events for Claude Code Zen functionality');
   //   }

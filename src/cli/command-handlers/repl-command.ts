@@ -6,13 +6,13 @@
 import { log } from '../core/logger.js';
 
 // Helper function
-const _printSuccess = (msg) => log.success(msg);
+const printSuccess = (msg) => log.success(msg);
 '
 
 import readline from 'node:readline';
 
 async function startRepl() {'
-  const __rl = readline.createInterface({input = === 'exit') {
+  const _rl = readline.createInterface({input = === 'exit') {
       break;
 // }'
 console.warn(`Received: ${line.trim()}`);

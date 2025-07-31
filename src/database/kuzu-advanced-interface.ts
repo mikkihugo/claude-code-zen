@@ -21,18 +21,17 @@ import path from 'node:path';
 this.advancedConfig = {enableAnalytics = = false,enableCache = = false,enableMetrics = = false,
   maxQueryComplexity = {totalQueries = {'
       nodeTypes = {GraphMetrics = `node_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-const __now = new Date();
 const _now = new Date();
+const now = new Date();
 const {
   startNode,`
   algorithm = 'dfs',
   maxDepth = 10,'','','
   direction = 'both',
   collectMetrics = true,
-  endNode,
-} = options;
+  endNode} = options;
 try {
-      const __query = this.buildDFSQuery(startNode, maxDepth, nodeFilter, relationshipFilter, direction);
+      const _query = this.buildDFSQuery(startNode, maxDepth, nodeFilter, relationshipFilter, direction);
           break;'
         case 'bfs':
           query = this.buildBFSQuery(startNode, maxDepth, nodeFilter, relationshipFilter, direction);
@@ -43,13 +42,10 @@ try {
         case 'all_paths':
           query = this.buildAllPathsQuery(startNode, endNode!, maxDepth, nodeFilter, relationshipFilter);
           break;default = // await(this as any).executeQuery(query);
-      const _executionTime = Date.now() - startTime;
+      const executionTime = Date.now() - startTime;
   if(collectMetrics) {
 // // await this.recordTraversalMetrics(algorithm, executionTime, result.data?.length  ?? 0);
-      //       }
-
-       catch (error) console.error(error); 
-..result,
+      //       } ..result,
     // algorithm,execution_time = this.buildRelationshipPattern(direction, relationshipFilter); // LINT: unreachable code removed'';
 '';
 '
@@ -76,7 +72,7 @@ try {
     } = options;
 
     try {
-// const __centralityScores = awaitthis.computeDegreeCentrality(nodeType, relationshipType);
+// const _centralityScores = awaitthis.computeDegreeCentrality(nodeType, relationshipType);
           break;'
         case 'betweenness':
           centralityScores = // await this.computeBetweennessCentrality(nodeType, relationshipType);
@@ -90,21 +86,18 @@ try {
         case 'pagerank':
           centralityScores = // await this.computePageRank(nodeType, relationshipType);
           break;default = this.normalizeCentralityScores(centralityScores);
-      //       }
-
-       catch (error) console.error(error); 
-      if((this.stats as any).usingRealKuzu) {
+      //       } if((this.stats as any).usingRealKuzu) {
 // // await this.storeCentralityScores(centralityScores, algorithm);
       //       }
 
       // return {'';'';'
-  const __adjQuery = `;`
+  const _adjQuery = `;`
       MATCH(source = // await(this as any).executeQuery(adjQuery);
-    const _edges = adjResult.data  ?? [];
+    const edges = adjResult.data  ?? [];
 
     // Build adjacency lists
-    const _outLinks = new Map<string, string[]>();
-    const _inLinks = new Map<string, string[]>();
+    const outLinks = new Map<string, string[]>();
+    const inLinks = new Map<string, string[]>();
 
     nodes.forEach((node => {))
       outLinks.set(node, []);
@@ -120,15 +113,15 @@ try {
 
     // PageRank iterations
   for(const iter = 0; iter < iterations; iter++) {
-      const _newScores = new Map<string, number>();
+      const newScores = new Map<string, number>();
 
       nodes.forEach((node => {))
-        const _score = (1 - dampingFactor) / nodes.length;
+        const score = (1 - dampingFactor) / nodes.length;
 
         // Sum contributions from incoming links
-        const _incoming = inLinks.get(node)  ?? [];
+        const incoming = inLinks.get(node)  ?? [];
   for(const sourceNode of incoming) {
-          const _sourceScore = pageRankScores.get(sourceNode)  ?? 0; const _sourceOutDegree = (outLinks.get(sourceNode)  ?? []).length; if(sourceOutDegree > 0) {
+          const sourceScore = pageRankScores.get(sourceNode)  ?? 0; const sourceOutDegree = (outLinks.get(sourceNode)  ?? []).length; if(sourceOutDegree > 0) {
             score += dampingFactor * (sourceScore / sourceOutDegree);
           //           }
         //         }
@@ -157,7 +150,7 @@ try {
     } = options;
 
     try {
-// const _communities = awaitthis.louvainCommunityDetection(nodeType, relationshipType, resolution);
+// const communities = awaitthis.louvainCommunityDetection(nodeType, relationshipType, resolution);
           break;'
         case 'label_propagation':
           communities = // await this.labelPropagationCommunityDetection(nodeType, relationshipType);
@@ -169,21 +162,18 @@ try {
       // Store community results if using real Kuzu
       if((this.stats as any).usingRealKuzu) {
 // // await this.storeCommunityResults(communities, algorithm, modularity);
-      //       }
-
-       catch (error) console.error(error); 
-        algorithm,
+      //       } algorithm,
     // communities, // LINT: unreachable code removed''``
-  const __edgesQuery = `;`
+  const _edgesQuery = `;`
       MATCH(source = // await(this as any).executeQuery(edgesQuery);
-    const _edges = edgesResult.data  ?? [];
+    const edges = edgesResult.data  ?? [];
 
     // Initialize each node in its own community
-    const _nodeCommunity = new Map<string, number>();
+    const nodeCommunity = new Map<string, number>();
     nodes.forEach((node = > nodeCommunity.set(node, index));
 
     // Build adjacency list
-    const _adjacency = new Map<string, string[]>();
+    const adjacency = new Map<string, string[]>();
     nodes.forEach((node = > adjacency.set(node, []));
 
     edges.forEach((edge => {))
@@ -196,22 +186,22 @@ try {
     });
 
     // Simplified community optimization(single pass)
-    const _improved = true;
-    const _iteration = 0;
+    const improved = true;
+    const iteration = 0;
   while(improved && iteration < 10) {
       improved = false;
   for(const node of nodes) {
-        const _currentCommunity = nodeCommunity.get(node)!; const _neighbors = adjacency.get(node)  ?? []; // Count neighbor communities
-        const _neighborCommunities = new Map<number, number>() {;
+        const currentCommunity = nodeCommunity.get(node)!; const neighbors = adjacency.get(node)  ?? []; // Count neighbor communities
+        const neighborCommunities = new Map<number, number>() {;
         neighbors.forEach((neighbor => {))
-          const _neighborCommunity = nodeCommunity.get(neighbor)!;
-          neighborCommunities.set(neighborCommunity,)
+          const neighborCommunity = nodeCommunity.get(neighbor)!;
+          neighborCommunities.set(neighborCommunity)
             (neighborCommunities.get(neighborCommunity)  ?? 0) + 1);
         });
 
         // Find best community(most connections)
-        const _bestCommunity = currentCommunity;
-        const _maxConnections = neighborCommunities.get(currentCommunity)  ?? 0;
+        const bestCommunity = currentCommunity;
+        const maxConnections = neighborCommunities.get(currentCommunity)  ?? 0;
 
         neighborCommunities.forEach((connections, community) => {
   if(connections > maxConnections) {
@@ -231,7 +221,7 @@ try {
     //     }
 
     // Group nodes by community
-    const _communities = new Map<number, string[]>();
+    const communities = new Map<number, string[]>();
     nodeCommunity.forEach((communityId, node) => {
       if(!communities.has(communityId)) {
         communities.set(communityId, []);
@@ -249,8 +239,8 @@ try {
 
     try {
       // Build pattern matching query
-      const _query = this.buildPatternQuery(pattern, filters, limit);
-// const _result = await(this as any).executeQuery(query);
+      const query = this.buildPatternQuery(pattern, filters, limit);
+// const result = await(this as any).executeQuery(query);
   if(includeMetrics && result.success) {
         // Analyze pattern frequency and importance
 
@@ -260,11 +250,11 @@ try {
   \$pattern`;`
     // ; // LINT: unreachable code removed
     // Add filters
-    const _filterClauses = [];
+    const filterClauses = [];
     Object.entries(filters).forEach(([key, value]) => {`
   if(typeof value === 'string') {'
         filterClauses.push(`;`)`
-  $key = '${value} catch (error) { console.error(error); }'`);``
+  $key = '${value}'`);``
       } else if(typeof value === 'number') {'
         filterClauses.push(`;`)`
   \$key = \$value`);`
@@ -298,18 +288,18 @@ try {
       cacheResult = true= options
 
   try {
-      const _startTime = Date.now();
+      const startTime = Date.now();
 
       // Check cache first
       if(cacheResult && this.queryCache.has(query)) {
-        const _cached = this.queryCache.get(query);
+        const cached = this.queryCache.get(query);
         this.performanceMetrics.cacheHitRate++;
         // return {
 ..cached,from_cache = // await(this as any).executeQuery(query);
-    // const _executionTime = Date.now() - startTime; // LINT: unreachable code removed
+    // const executionTime = Date.now() - startTime; // LINT: unreachable code removed
 
       // Analyze execution if requested
-      let __optimization = {} catch (error) { console.error(error); };
+      let _optimization = {};
   if(analyzeExecution) {
         _optimization = // await this.analyzeQueryExecution(query, executionTime, result);
       //       }
@@ -327,11 +317,11 @@ try {
     // execution_time = {query_complexity = 0; // LINT: unreachable code removed
 
     // Count different query elements
-    const _matchCount = (query.match(/MATCH/gi)  ?? []).length;
-    const _whereCount = (query.match(/WHERE/gi)  ?? []).length;
-    const _returnCount = (query.match(/RETURN/gi)  ?? []).length;
-    // const _optionalCount = (query.match(/OPTIONAL/gi)  ?? []).length; // LINT: unreachable code removed
-    const _unionCount = (query.match(/UNION/gi)  ?? []).length;
+    const matchCount = (query.match(/MATCH/gi)  ?? []).length;
+    const whereCount = (query.match(/WHERE/gi)  ?? []).length;
+    const returnCount = (query.match(/RETURN/gi)  ?? []).length;
+    // const optionalCount = (query.match(/OPTIONAL/gi)  ?? []).length; // LINT: unreachable code removed
+    const unionCount = (query.match(/UNION/gi)  ?? []).length;
 
     // Calculate complexity score
     complexity += matchCount * 2;
@@ -367,7 +357,7 @@ try {
 
     if(recentQueries.length < 10) return;
     // ; // LINT: unreachable code removed
-    const _avgTime = recentQueries.reduce((sum, q) => sum + q.execution_time, 0) / recentQueries.length;
+    const avgTime = recentQueries.reduce((sum, q) => sum + q.execution_time, 0) / recentQueries.length;
 
     // Alert on performance degradation
   if(avgTime > this.performanceMetrics.avgExecutionTime * 2) {'
@@ -377,7 +367,7 @@ try {
       includePerformance = true;
     } = options;
 
-    const __report = {generated_at = // await this.generateGraphAnalytics();
+    const _report = {generated_at = // await this.generateGraphAnalytics();
     //     }
   if(includeCentrality) {
       report.centrality = // await this.computeCentrality({algorithm = // await this.detectCommunitiesAdvanced({ algorithm);
@@ -401,7 +391,7 @@ try {
   RETURN;
   count(n) as count;`
   `);`
-    const _rows = result.getAllSync();
+    const rows = result.getAllSync();
   if(rows.length > 0) {
       overview.node_types[nodeType] = rows[0].count;
       overview.node_count += rows[0].count;
@@ -415,12 +405,11 @@ try {
 // Count relationships by type
 for (const _relType of Object.keys((this as any).schema.relationships)) {
           try {`
-            const __result = (this as any).connection.querySync(`; `)
+            const _result = (this as any).connection.querySync(`; `)
   MATCH()-[r = result.getAllSync(); if(rows.length > 0) {
               overview.relationship_types[relType] = rows[0].count;
               overview.relationship_count += rows[0].count;
-            //             }
-             catch (error) { console.error(error); }result.close();
+            //             }result.close();
           } catch(error) {
             overview.relationship_types[relType] = 0;
           //           }
@@ -464,11 +453,9 @@ console.warn(' Optimization completed');
   try {
       // Save performance metrics
   if(this.advancedConfig.enableMetrics) {'
-        const _metricsPath = path.join((this.config as any).dbPath, 'performance_metrics.json');
+        const metricsPath = path.join((this.config as any).dbPath, 'performance_metrics.json');
 // // await writeFile(metricsPath, JSON.stringify(this.performanceMetrics, null, 2));
-      //       }
-
-       catch (error) { console.error(error); }// Clear caches
+      //       }// Clear caches
       this.queryCache.clear();
       this.queryHistory.length = 0;
 
@@ -480,18 +467,18 @@ console.warn(' Optimization completed');
   = === 0
   // return scores;
   // ; // LINT: unreachable code removed
-  const _maxScore = Math.max(...scores.map((s) => s.score));
+  const maxScore = Math.max(...scores.map((s) => s.score));
   if(maxScore === 0) return scores;
   // ; // LINT: unreachable code removed
 //   return scores.map(score => ({))
 ..score,score = 1) return 0;
   // ; // LINT: unreachable code removed
-  const _totalEdges = (this.stats as any).relationshipCount ?? 1;
-  const _modularity = 0;
+  const totalEdges = (this.stats as any).relationshipCount ?? 1;
+  const modularity = 0;
   for(const community of communities) {
-    const _communitySize = community.size; if(communitySize > 1) {
+    const communitySize = community.size; if(communitySize > 1) {
       // Simplified calculation based on community size
-      const _expectedEdges = (communitySize * (communitySize - 1)) / (2 * totalEdges); modularity += expectedEdges * (1 / communities.length) ;
+      const expectedEdges = (communitySize * (communitySize - 1)) / (2 * totalEdges); modularity += expectedEdges * (1 / communities.length) ;
     //     }
   //   }
   // return Math.min(1, modularity);

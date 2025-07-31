@@ -22,7 +22,7 @@ export class HookManager extends EventEmitter {
 async;
 registerHook(registration = registration;
 // Validate hook
-// const _validation = awaitthis.validateHook(hook);
+// const validation = awaitthis.validateHook(hook);
   if(!validation.valid) {'
   throw new Error(`Hook validationfailed = this.hooks.get(name);`
   if(!registration) {`
@@ -35,9 +35,9 @@ this.emit('hook_unregistered', {type = 'parallel';)
     this.log('debug', 'Hook execution disabled globally');
     // return this.createEmptyExecutionContext(type, strategy);
     //   // LINT: unreachable code removed}
-    const _executionId = this.generateExecutionId();
-    const _startTime = new Date();
-    const _context = {executionId = this.getEnabledHooksForType(type);
+    const executionId = this.generateExecutionId();
+    const startTime = new Date();
+    const context = {executionId = this.getEnabledHooksForType(type);
     context.totalHooks = hookNames.length;
   if(hookNames.length === 0) {'
       this.log('debug', `No hooks registered fortype = new Date();`
@@ -56,29 +56,29 @@ this.emit('hook_unregistered', {type = 'parallel';)
       throw new Error(`Hook notfound = Date.now();`
       try {
       // Execute with timeout
-// const _result = awaitthis.executeWithTimeout(;
+// const result = awaitthis.executeWithTimeout(;
         registration.hook,
         payload,
         registration.hook.timeout  ?? this.config.globalTimeout;
       );
 
-      const _duration = Date.now() - startTime;
-      const __hookResult = {
+      const duration = Date.now() - startTime;
+      const _hookResult = {
 ..result,
         duration,hookName = Date.now() - startTime;
-      const _hookResult = {success = hookNames.map(async(name) => {
+      const hookResult = {success = hookNames.map(async(name) => {
       try {
-// const _result = awaitthis.executeHook(name, payload);
+// const result = awaitthis.executeHook(name, payload);
         context.results[name] = result;
   if(result.success) {
           context.hooksExecuted.push(name);
-        }  catch (error) console.error(error); else 
+        } else 
           context.hooksFailed.push(name);catch(/* _error */) 
         context.hooksFailed.push(name);
         context.results[name] = {success = payload;
   for(const name of hookNames) {
       try {
-// const _result = awaitthis.executeHook(name, currentPayload); 
+// const result = awaitthis.executeHook(name, currentPayload); 
         context.results[name] = result; if(result.success) {
           context.hooksExecuted.push(name);
           // Pass result to next hook if pipeline behavior is desired
@@ -86,8 +86,7 @@ this.emit('hook_unregistered', {type = 'parallel';)
             currentPayload = {`
 ..currentPayload,previousResult = === 'stop'
             break;
-          //           }
-         catch (error) console.error(error); catch(/* _error */) 
+          //           } catch(/* _error */) 
         context.hooksFailed.push(name);'
         context.results[name] = success = === 'stop') 
           break;
@@ -115,7 +114,7 @@ map(name => (
 
   // Check conditions
   if(registration.hook.conditions) {
-    const _shouldExecute = this.evaluateConditions(registration.hook.conditions, payload);
+    const shouldExecute = this.evaluateConditions(registration.hook.conditions, payload);
   if(!shouldExecute) {
       context.hooksSkipped.push(name);
       continue;
@@ -123,16 +122,16 @@ map(name => (
   //   }
 
   try {
-// const _result = awaitthis.executeHook(name, payload);
+// const result = awaitthis.executeHook(name, payload);
     context.results[name] = result;
   if(result.success) {
       context.hooksExecuted.push(name);
-    }  catch (error) console.error(error); else 
+    } else 
       context.hooksFailed.push(name);catch(/* _error */) 
     context.hooksFailed.push(name);
     context.results[name] = {success = payload.data;
   for(const name of hookNames) {
-      const _pipelinePayload = {
+      const pipelinePayload = {
 ..payload,data = // await this.executeHook(name, pipelinePayload); 
       context.results[name] = result; if(result.success) {
         context.hooksExecuted.push(name);
@@ -164,16 +163,14 @@ map(name => (
       private;
       async;
       executeWithTimeout((hook) => {
-        const _timer = setTimeout(() => {'
+        const timer = setTimeout(() => {'
           reject(new Error(`Hook execution timeout after $timeoutms`));
         }, timeout);
         try {
-// const _result = awaithook.execute(payload);
+// const result = awaithook.execute(payload);
     clearTimeout(timer);
     resolve(result);
-  } catch (error) {
-  console.error(error);
-}
+  }
     clearTimeout(timer);
     reject(error);
   //   }
@@ -195,13 +192,13 @@ map(name => (
     metrics.executionHistory.push({timestamp = metrics.executionHistory.slice(-1000);
   //   }
   // Recalculate averages
-  const _durations = metrics.executionHistory.map((h) => h.duration);
+  const durations = metrics.executionHistory.map((h) => h.duration);
   metrics.averageExecutionTime = durations.reduce((sum, d) => sum + d, 0) / durations.length;
   // Calculate percentiles
   if(durations.length > 0) {
-    const _sorted = durations.sort((a, b) => a - b);
-    const _p95Index = Math.floor(sorted.length * 0.95);
-    const _p99Index = Math.floor(sorted.length * 0.99);
+    const sorted = durations.sort((a, b) => a - b);
+    const p95Index = Math.floor(sorted.length * 0.95);
+    const p99Index = Math.floor(sorted.length * 0.99);
     metrics.p95ExecutionTime = sorted[p95Index] ?? 0;
     metrics.p99ExecutionTime = sorted[p99Index] ?? 0;
   //   }
@@ -214,7 +211,7 @@ map(name => (
 // private evaluateConditions(_conditions =>;
 // {
   const { type, field, value,function = condition;
-  const _fieldValue = this.getNestedValue(payload, field);
+  const fieldValue = this.getNestedValue(payload, field);
   switch(type) {`
     case 'equals': null
 //       return fieldValue === value;'
@@ -238,8 +235,8 @@ map(name => (
   private;
   async;
   validateHook(hook = [];
-  const _warnings = [];
-  const _suggestions = [];'
+  const warnings = [];
+  const suggestions = [];'
   if(!hook.name ?? typeof hook.name !== 'string') {'
     errors.push('Hook name is required and must be a string');
   //   }'
@@ -279,9 +276,9 @@ map(name => (
       this.log('error', `Failed to register system performancemonitor = new Date();`
 //     return {
       executionId = {debug = levels[this.config.logLevel]  ?? 1;
-    // const _messageLevel = levels[level]  ?? 1; // LINT: unreachable code removed
+    // const messageLevel = levels[level]  ?? 1; // LINT: unreachable code removed
   if(messageLevel >= currentLevel) {`
-      console.warn(`[HookManager = {};`)
+      console.warn(`[HookManager = {}`);
   for(const [name, metric] of this.hookMetrics) {
       metrics[name] = metric; //     }
     // return metrics; 

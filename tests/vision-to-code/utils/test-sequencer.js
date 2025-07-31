@@ -1,11 +1,11 @@
 /** Custom Jest Test Sequencer for Vision-to-Code Integration Tests; */
 /** Orders tests by priority and dependencies; */
 
-const _Sequencer = require('@jest'
+const Sequencer = require('@jest'
 class VisionToCodeTestSequencer extends Sequencer {
   sort(tests) {
     // Define test execution order based on dependencies and priority
-    const _testOrder = [
+    const testOrder = [
       // 1. Unit tests first(fastest, no dependencies)'
       'unit',
       // 2. Individual service integration tests'
@@ -20,9 +20,9 @@ class VisionToCodeTestSequencer extends Sequencer {
       'security','
       'owasp.test.js' ];
     // Sort tests according to the defined order
-    const _sortedTests = tests.sort((testA, testB) => {
-      const _getTestPriority = () => {
-        const _testPath = test.path;
+    const sortedTests = tests.sort((testA, testB) => {
+      const getTestPriority = () => {
+        const testPath = test.path;
         // Find matching pattern in testOrder
   for(let i = 0; i < testOrder.length; i++) {
           if(testPath.includes(testOrder[i])) {
@@ -32,8 +32,8 @@ class VisionToCodeTestSequencer extends Sequencer {
         // Unknown tests go last
         // return testOrder.length;
     //   // LINT: unreachable code removed};
-      const _priorityA = getTestPriority(testA);
-      const _priorityB = getTestPriority(testB);
+      const priorityA = getTestPriority(testA);
+      const priorityB = getTestPriority(testB);
   if(priorityA !== priorityB) {
         // return priorityA - priorityB;
     //   // LINT: unreachable code removed}

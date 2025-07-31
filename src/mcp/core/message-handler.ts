@@ -1,14 +1,12 @@
 /** */
-*
-@fileoverview
+
 MCP;
 Message;
 Handler;
 
 /** Handles MCP protocol message routing and processing */
-*
-@module
-MCPMessageHandler * /;;
+
+MCPMessageHandler * /;
 import { validateToolArgs } from
 ';
 
@@ -17,8 +15,6 @@ import { validateToolArgs } from
 
 // export class MCPMessageHandler {
 
-*
-@param
 {
   Object;
 }
@@ -34,7 +30,7 @@ handler
    * @param {Object}
 resourceManager - Resource;
 management;
-handler * /;;
+handler * /;
 
 constructor(server = server;
 this;
@@ -46,8 +42,7 @@ resourceManager = resourceManager;
 // }
 
 /** Main message handling entry point */
-*
-@param
+
 {
   Object;
 }
@@ -56,7 +51,7 @@ protocol;
 message
  * @returns {Promise<Object>}
 Response;
-message * /;;
+message * /;
 // */ // LINT
 : unknown
 // {
@@ -106,7 +101,7 @@ catch(error)
   console.error(`[$;`)
   new Date().toISOString()] INFO [MCP-Handler] Readingresource = // // await this.resourceManager.readResource(uri)
   // return {jsonrpc = null) {
-    const _response = {jsonrpc = data;
+    const response = {jsonrpc = data;
   //   // LINT: unreachable code removed}
   // return response;
 // }

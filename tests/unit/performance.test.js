@@ -34,7 +34,7 @@ describe('Performance Tests', () =>
     '
     test('parseFlags should handle large argument lists efficiently', async() =>
     {
-      const _largeArgList = [];
+      const largeArgList = [];
       for (let i = 0; i < 1000; i++) {
         '
         largeArgList.push(`--flag$
@@ -51,15 +51,14 @@ describe('Performance Tests', () =>
       expect(Object.keys(result.flags)).toHaveLength(1000);
     });`;
         test('JSON stringify should handle large datasets efficiently', async () => {
-          const _largeDataset = Array.from({ length }, (_, i) => ({
+          const largeDataset = Array.from({ length }, (_, i) => ({
         id,'
         name: `Item ${i}`,
         value: Math.random() * 1000,`
         description: `Description for item ${i}`.repeat(5) }));
           const {
             result,
-            duration,
-          } = // await perfHelpers.measureTime(() => {
+            duration} = // await perfHelpers.measureTime(() => {
             //         return JSON.stringify(largeDataset);
             //   // LINT: unreachable code removed});
             expect(duration).toBeLessThan(500); // Should complete in less than 500ms`
@@ -70,9 +69,9 @@ describe('Performance Tests', () =>
         '
     test('deepMerge should handle deeply nested objects efficiently', async() =>
         {
-          const _createDeepObject = () => {
+          const createDeepObject = () => {
             '
-            const _obj = { value: 'leaf' };
+            const obj = { value: 'leaf' };
             for (let i = 0; i < depth; i++) {
               '
           obj =
@@ -80,12 +79,11 @@ describe('Performance Tests', () =>
               //         }
               //         return obj;
               //   // LINT: unreachable code removed};
-              const _obj1 = createDeepObject(50);
-              const _obj2 = createDeepObject(50);
+              const obj1 = createDeepObject(50);
+              const obj2 = createDeepObject(50);
               const {
                 result,
-                duration,
-              } = // await perfHelpers.measureTime(() => {
+                duration} = // await perfHelpers.measureTime(() => {
                 //         return deepMerge(obj1, obj2);
                 //   // LINT: unreachable code removed});
                 expect(duration).toBeLessThan(100); // Should complete in less than 100ms
@@ -108,7 +106,7 @@ describe('Performance Tests', () =>
       expect(duration).toBeLessThan(200); // Should complete in less than 200ms
     });'
     test('memory list with large dataset should be performant', async() => {
-      const _largeMemoryData = {
+      const largeMemoryData = {
         entries: Array.from({ length }, (_, i) => ({'
           key: `;
           key$;
@@ -132,7 +130,7 @@ describe('Performance Tests', () =>
       '
     test('memory search with pattern should be efficient', async() =>
       {
-        const _searchableData = {
+        const searchableData = {
         entries: Array.from({ length }, (_, i) => ({'
           key: i % 2 === 0 ? `api/endpoint${i}` : `config/setting${i}`,`
           value: `value${i}`,
@@ -147,11 +145,11 @@ describe('Performance Tests', () =>
 });'
 describe('Memory Usage Tests', () => {'
   test('should not leak memory during repeated operations', async() => {
-      const _getMemoryUsage = () => process.memoryUsage().heapUsed;
-      const _initialMemory = getMemoryUsage();
+      const getMemoryUsage = () => process.memoryUsage().heapUsed;
+      const initialMemory = getMemoryUsage();
       // Perform 100 operations
   for(let i = 0; i < 100; i++) {
-        const _largeArray = Array.from({ length }, (_, j) => ({ id,'
+        const largeArray = Array.from({ length }, (_, j) => ({ id,'
           data: 'x'.repeat(1000)   }));'
         parseFlags([`--;
         test$;
@@ -164,8 +162,8 @@ describe('Memory Usage Tests', () => {'
           global.gc();
         //         }
       //       }
-  const _finalMemory = getMemoryUsage();
-  const _memoryIncrease = finalMemory - initialMemory;
+  const finalMemory = getMemoryUsage();
+  const memoryIncrease = finalMemory - initialMemory;
   // Memory increase should be reasonable(less than 50MB)
   expect(memoryIncrease).toBeLessThan(50 * 1024 * 1024);
 });
@@ -173,11 +171,11 @@ describe('Memory Usage Tests', () => {'
 describe('Concurrent Operations', () =>
 // {'
   test('should handle concurrent memory operations efficiently', async() => {
-    const _mockData = { entries: [] };'
+    const mockData = { entries: [] };'
     jest.spyOn(fs, 'readJson').mockResolvedValue(mockData);'
     jest.spyOn(fs, 'writeJson').mockResolvedValue(undefined);
     const { duration } = // await perfHelpers.measureTime(async() => {
-      const _operations = [];
+      const operations = [];
       // Simulate 20 concurrent memory operations
   for(let i = 0; i < 20; i++) {'
         operations.push(memoryCommand(['store', `;
@@ -193,17 +191,17 @@ describe('Concurrent Operations', () =>
     expect(duration).toBeLessThan(2000); // Should complete in less than 2 seconds
   });`;
         test('should handle concurrent agent operations efficiently', async() => {
-    const _mockSwarmData = {
+    const mockSwarmData = {
         agents: Array.from({ length }, (_, i) => ({
           id);
   //   
 // }'
 jest.spyOn(fs, 'readJson').mockResolvedValue(mockSwarmData);
 const { duration } = // await perfHelpers.measureTime(async() => {
-  const _operations = [];
+  const operations = [];
   // Simulate 10 concurrent agent status checks
   for(let i = 0; i < 10; i++) {'
-    operations.push(agentCommand(['status'], ));
+    operations.push(agentCommand(['status']));
   //   }
   // // await Promise.all(operations);
 });
@@ -215,8 +213,8 @@ describe('Large Data Handling', () =>
 // {'
   test('should handle large configuration files efficiently', async() =>
       {
-        const _largeConfig = {'
-        version: '2.0.0',};
+        const largeConfig = {'
+        version: '2.0.0'};
         // Create large configuration with many properties
         for (let i = 0; i < 1000; i++) {
           '
@@ -238,7 +236,7 @@ const { duration } = // await performance.measureTime(() => {
   expect(duration).toBeLessThan(100); // Should serialize in less than 100ms
 });`;
           test('should handle large log files efficiently', async () => {
-            const _largeLogs = Array.from({ length }, (_, i) => ({
+            const largeLogs = Array.from({ length }, (_, i) => ({
         timestamp: new Date(Date.now() - i * 1000).toISOString(),'
   level: ['info', 'warn', 'error', 'debug'][i % 4],'
   message: `Log message ${i}`,`
@@ -249,8 +247,8 @@ const { duration } = // await performance.measureTime(() => {
             //
             const { duration } = // await performance.measureTime(() => {
             // Simulate log processing`
-            const _errors = largeLogs.filter((log) => log.level === 'error');
-            const _recent = largeLogs.slice(0, 100);
+            const errors = largeLogs.filter((log) => log.level === 'error');
+            const recent = largeLogs.slice(0, 100);
             //   return { errors: errors.length, recent: recent.length };
             //   // LINT: unreachable code removed});
             expect(duration).toBeLessThan(200); // Should process in less than 200ms
@@ -262,7 +260,7 @@ describe('Benchmarks', () =>
   test('should meet performance benchmarks for CLI startup', async() =>
         {
           // This would test actual CLI startup time in a real environment
-          const _mockStartupOperations = async () => {
+          const mockStartupOperations = async () => {
             // Simulate CLI startup operations'
             parseFlags(['--help']);
             // await new Promise((resolve) => setTimeout(resolve, 10)); // Simulate I/O'
@@ -270,8 +268,7 @@ describe('Benchmarks', () =>
             //   // LINT: unreachable code removed};
             const {
               result,
-              duration,
-            } = expect(result).toBe('CLI ready'); // await performance.measureTime(mockStartupOperations);'
+              duration} = expect(result).toBe('CLI ready'); // await performance.measureTime(mockStartupOperations);'
             expect(duration).toBeLessThan(100); // CLI should start in less than 100ms
           };
           //     )'
@@ -280,9 +277,9 @@ describe('Benchmarks', () =>
       jest.spyOn(fs, 'ensureDir').mockResolvedValue(undefined);
           '
       jest.spyOn(fs, 'writeJson').mockResolvedValue(undefined)
-          const _mockSwarmInit = async () => {
+          const mockSwarmInit = async () => {
             // Simulate swarm initialization
-            const _swarmData = {'
+            const swarmData = {'
           id: 'test-swarm',
         agents: Array.from({ length }, (_, i) => ({ id)) };
             // // await new Promise((resolve) => setTimeout(resolve, 50)); // Simulate setup
@@ -290,8 +287,7 @@ describe('Benchmarks', () =>
             //   // LINT: unreachable code removed};
             const {
               result,
-              duration,
-            } = // await performance.measureTime(mockSwarmInit);
+              duration} = // await performance.measureTime(mockSwarmInit);
               expect(result.agents).toHaveLength(8);
             expect(duration).toBeLessThan(200); // Swarm init should complete in less than 200ms
           };

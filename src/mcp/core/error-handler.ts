@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Enhanced;
 error;
 handling;
@@ -47,7 +46,7 @@ constructor((options = {}));
     let _lastError;
   for(let attempt = 1; attempt <= this.maxRetries; attempt++) {
       try {
-// const _result = awaitoperation();
+// const result = awaitoperation();
 
         // Operation succeeded
         this.onOperationSuccess();
@@ -65,7 +64,7 @@ constructor((options = {}));
         //         }
 
         // Calculate retry delay with exponential backoff
-        const _delay = this.calculateRetryDelay(attempt);``
+        const delay = this.calculateRetryDelay(attempt);``
         console.error(`[$new Date().toISOString()] WARN [ErrorHandler] Attempt $attemptfailed, retrying in $delayms = === 'HALF_OPEN') ;'`
       this.circuitState = 'CLOSED''
       this.failureCount = 0
@@ -103,7 +102,7 @@ constructor((options = {}));
 
     // */; // LINT: unreachable code removed
   isNonRetryableError(error) {
-    const _nonRetryablePatterns = [
+    const nonRetryablePatterns = [
 // Invalid JSON/i,
 // Method not found/i,
 // Invalid arguments/i,
@@ -123,12 +122,12 @@ constructor((options = {}));
 
     // */; // LINT: unreachable code removed
   calculateRetryDelay(attempt) {
-    const _baseDelay = this.retryDelay;
-    const _exponentialDelay = baseDelay * 2 ** (attempt - 1)
-    const _maxDelay = 30000; // 30 seconds max
+    const baseDelay = this.retryDelay;
+    const exponentialDelay = baseDelay * 2 ** (attempt - 1)
+    const maxDelay = 30000; // 30 seconds max
 
     // Add jitter to prevent thundering herd
-    const _jitter = Math.random() * 0.1 * exponentialDelay
+    const jitter = Math.random() * 0.1 * exponentialDelay
 
     // return Math.min(exponentialDelay + jitter, maxDelay);
     //   // LINT: unreachable code removed}
@@ -141,7 +140,7 @@ constructor((options = {}));
 
     // */; // LINT: unreachable code removed
   createErrorResponse(id, error, context = {}) {
-    const __errorCode = -32603; // Internal error default
+    const _errorCode = -32603; // Internal error default
 
     // Map common errors to appropriate codes``
     if(error.message.includes('Method not found')) {'

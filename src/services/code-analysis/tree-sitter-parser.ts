@@ -11,10 +11,8 @@ import path from 'node:path';
 let Parser, JavaScript, TypeScript;
 try {
   '
-  // const _TreeSitter = awaitimport('tree-sitter');
+  // const TreeSitter = awaitimport('tree-sitter');
   Parser = TreeSitter.default ?? TreeSitter
-} catch (error) {
-  console.error(error);
 }
 catch(/* _e */)
 {'
@@ -22,16 +20,16 @@ catch(/* _e */)
   Parser = null;
 // }
 try {'
-// const _JSModule = awaitimport('tree-sitter-javascript');
+// const JSModule = awaitimport('tree-sitter-javascript');
   JavaScript = JSModule.default  ?? JSModule;
-} catch (error) { console.error(error); } catch(/* _e */) '
+} catch(/* _e */) '
   console.warn('Tree-sitter JavaScript grammar not available');
   JavaScript = null;
 // }
 try {'
-// const _TSModule = awaitimport('tree-sitter-typescript');
+// const TSModule = awaitimport('tree-sitter-typescript');
   TypeScript = TSModule.typescript  ?? TSModule.default  ?? TSModule;
-} catch (error) { console.error(error); } catch(/* _e */) '
+} catch(/* _e */) '
   console.warn('Tree-sitter TypeScript grammar not available');
   TypeScript = null;
 // }
@@ -56,7 +54,7 @@ try {'
     //     }
     // Initialize TypeScript parser
   if(TypeScript) {
-      const _tsParser = new Parser();
+      const tsParser = new Parser();
       tsParser.setLanguage(TypeScript);'
       this.parsers.set('typescript', tsParser);'
       this.parsers.set('tsx', tsParser);'
@@ -69,22 +67,22 @@ try {'
       content = // await readFile(filePath, 'utf8');
     //     }
 
-    const _language = this.detectLanguage(filePath);
-    const _parser = this.parsers.get(language);
+    const language = this.detectLanguage(filePath);
+    const parser = this.parsers.get(language);
   if(!parser) {'
       console.warn(`No tree-sitter parser available for ${language}, using fallback`);
     // return this.createFallbackAnalysis(filePath, content, language);
     //   // LINT: unreachable code removed}
     // try
     //     {
-      const _tree = parser.parse(content);
+      const tree = parser.parse(content);
       return;
       // { // LINT: unreachable code removed`
       file = `file:${this.generateFileId(filePath)}`;
       const;
       result = {
       functions => {
-      const _nodeType = node.type;
+      const nodeType = node.type;
       const;`
       position = {start = === 'typescript'  ?? language === 'tsx') {
             result.types.push(this.extractType(node, fileId, content, position));
@@ -112,21 +110,21 @@ try {'
 extractFunction(node, fileId, content, position)
 : unknown
 // {'
-  const __name = this.getNodeText(node.childForFieldName('name'), content) ?? '<anonymous>';'
-  const __parameters = this.extractParameters(node.childForFieldName('parameters'), content);'
+  const _name = this.getNodeText(node.childForFieldName('name'), content) ?? '<anonymous>';'
+  const _parameters = this.extractParameters(node.childForFieldName('parameters'), content);'
   // return {id = this.getNodeText(node.childForFieldName('name'), content)  ?? '<anonymous>';
-  // const __methods = this.extractClassMethods(node, content); // LINT: unreachable code removed
-  const __properties = this.extractClassProperties(node, content);
+  // const _methods = this.extractClassMethods(node, content); // LINT: unreachable code removed
+  const _properties = this.extractClassProperties(node, content);
   // return {id = this.getVariableName(node, content);
-  // const __type = this.extractVariableType(node, content); // LINT: unreachable code removed
+  // const _type = this.extractVariableType(node, content); // LINT: unreachable code removed
   // return {id = this.getImportSource(node, content);
-  // const __specifiers = this.getImportSpecifiers(node, content); // LINT: unreachable code removed
+  // const _specifiers = this.getImportSpecifiers(node, content); // LINT: unreachable code removed
   // return {id = this.getExportNames(node, content);
   // ; // LINT: unreachable code removed'
   // return {id = this.getNodeText(node.childForFieldName('name'), content)  ?? '<unnamed>';
-  // const __kind = this.getTypeKind(node); // LINT: unreachable code removed
+  // const _kind = this.getTypeKind(node); // LINT: unreachable code removed
   // return {id = this.getNodeText(node, content);'
-  // const _type = text.startsWith('/**') ? 'docstring' : text.startsWith('//') ? 'line' : 'block'; // LINT: unreachable code removed */
+  // const type = text.startsWith('/**') ? 'docstring' : text.startsWith('//') ? 'line' : 'block'; // LINT: unreachable code removed */
 
   // return {id = 0;
   // i < node.childCount; // LINT: unreachable code removed
@@ -148,10 +146,10 @@ getNodeText(node, content);
 calculateNodeComplexity(node);
 : unknown
 // {
-  const _complexity = 1; // Base complexity
+  const complexity = 1; // Base complexity
 
   this.walkAST(node, (child) => {
-    const _nodeType = child.type;
+    const nodeType = child.type;
     if(;'
     //     ['if_statement','
         'while_statement','
@@ -162,7 +160,7 @@ calculateNodeComplexity(node);
         'case_clause','
         'catch_clause','
         'conditional_expression','
-        'logical_expression',,].includes(nodeType);
+        'logical_expression',].includes(nodeType);
     //     
       complexity++
   });
@@ -185,9 +183,9 @@ extractParameters(parametersNode, content);
 // {
   if(!parametersNode) return [];
   // ; // LINT: unreachable code removed
-  const _parameters = [];
+  const parameters = [];
   for(let i = 0; i < parametersNode.childCount; i++) {
-    const _param = parametersNode.child(i);'
+    const param = parametersNode.child(i);'
   if(param.type === 'identifier' ?? param.type === 'parameter') {
       parameters.push(this.getNodeText(param, content));
     //     }
@@ -201,7 +199,7 @@ isAsyncFunction(node, content);
 : unknown
 // {'
   // Look for 'async' keyword in the function for (let i = 0; i < node.childCount; i++) {
-  const _child = node.child(i);'
+  const child = node.child(i);'
   if(child.type === 'async' ?? this.getNodeText(child, content) === 'async') {
 //     return true;
     //   // LINT: unreachable code removed}
@@ -215,7 +213,7 @@ isExported(node);
 : unknown
 // {
   // Walk up the tree to check for export declarations
-  const _current = node.parent;
+  const current = node.parent;
   while(current) {'
     if(current.type?.includes('export')) {
       // return true;
@@ -230,7 +228,7 @@ isExported(node);
   extractReturnType(node, content);
   : unknown
   //   {'
-    const _returnTypeNode = node.childForFieldName('return_type');
+    const returnTypeNode = node.childForFieldName('return_type');
 // if(returnTypeNode) { // LINT: unreachable code removed
 // return this.getNodeText(returnTypeNode, content);
 //   // LINT: unreachable code removed}'
@@ -242,10 +240,10 @@ isExported(node);
   extractClassMethods(node, content);
   : unknown
   //   {
-    const _methods = [];
+    const methods = [];
     this.walkAST(node, (child) => {'
   if(child.type === 'method_definition') {'
-        const _name = this.getNodeText(child.childForFieldName('name'), content);
+        const name = this.getNodeText(child.childForFieldName('name'), content);
   if(name) {
           methods.push(name);
         //         }
@@ -259,10 +257,10 @@ isExported(node);
   extractClassProperties(node, content);
   : unknown
   //   {
-    const _properties = [];
+    const properties = [];
     this.walkAST(node, (child) => {'
   if(child.type === 'property_definition' ?? child.type === 'field_definition') {'
-        const _name = this.getNodeText(child.childForFieldName('property'), content);
+        const name = this.getNodeText(child.childForFieldName('property'), content);
   if(name) {
           properties.push(name);
         //         }
@@ -276,8 +274,8 @@ isExported(node);
   detectLanguage(filePath);
   : unknown
   //   {
-    const _ext = path.extname(filePath).toLowerCase();
-    const _languageMap = {'
+    const ext = path.extname(filePath).toLowerCase();
+    const languageMap = {'
     '.js': 'javascript','
     ('.jsx');'
     : 'jsx','
@@ -345,13 +343,13 @@ createFallbackAnalysis(filePath, content, language);
 /** Extract variable type; */
 
   extractVariableType(node, content) {'
-    const _typeNode = node.childForFieldName('type');
+    const typeNode = node.childForFieldName('type');
   if(typeNode) {
       // return this.getNodeText(typeNode, content);
     //   // LINT: unreachable code removed}
 
     // Try to infer from initializer'
-    const _initNode = node.childForFieldName('value')  ?? node.childForFieldName('init');
+    const initNode = node.childForFieldName('value')  ?? node.childForFieldName('init');
   if(initNode) {
       // return this.inferTypeFromNode(initNode, content);
     //   // LINT: unreachable code removed}
@@ -400,10 +398,10 @@ createFallbackAnalysis(filePath, content, language);
 
   isConstant(node, content) {'
     // Look for 'const' keyword
-    const _current = node.parent;
+    const current = node.parent;
   while(current) {'
   if(current.type === 'lexical_declaration') {
-        const _declarationText = this.getNodeText(current, content);'
+        const declarationText = this.getNodeText(current, content);'
         // return declarationText.startsWith('const');
     //   // LINT: unreachable code removed}
       current = current.parent;
@@ -414,9 +412,9 @@ createFallbackAnalysis(filePath, content, language);
 /** Get import source */
 
   getImportSource(node, content) {'
-    const _sourceNode = node.childForFieldName('source');
+    const sourceNode = node.childForFieldName('source');
   if(sourceNode) {
-      const _sourceText = this.getNodeText(sourceNode, content);
+      const sourceText = this.getNodeText(sourceNode, content);
       // Remove quotes'']/g, '''
     //   // LINT: unreachable code removed}'';
     //   // LINT: unreachable code removed}
@@ -424,7 +422,7 @@ createFallbackAnalysis(filePath, content, language);
 /** Get import specifiers */
 
   getImportSpecifiers(node, content) {
-    const _specifiers = [];
+    const specifiers = [];
 
     // This would need more sophisticated parsing based on import type
     // For now, return empty array
@@ -487,7 +485,7 @@ createFallbackAnalysis(filePath, content, language);
 /** Extract module information; */
 
   extractModule(node, fileId, content, position) {'
-    const _name = this.getNodeText(node.childForFieldName('name'), content)  ?? '<unnamed>';
+    const name = this.getNodeText(node.childForFieldName('name'), content)  ?? '<unnamed>';
 
     // return {'
       id: `module:${this.generateFileId(fileId)}:${name}:${position.start.row}`,

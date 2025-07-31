@@ -6,15 +6,13 @@ export class RecoveryManager {
 
   /** Perform automated recovery based on failure type */
 
-  *
   /
   async;
   performRecovery(failureType, (context = {})
   
   : unknown
   // {
-  // const
-  __result = {success = // await this.recoverFromPermissionDenied(context);
+  // const _result = {success = // await this.recoverFromPermissionDenied(context);
   break;
   case;
   'disk-space': null;
@@ -80,10 +78,10 @@ result.errors.push(`Recovery failed =`
   success =`
   = 'windows') `
   try {`
-    const _command = new node.Command('chmod', {args = // await command.output();
+    const command = new node.Command('chmod', {args = // await command.output();
   if(success) {'
             result.actions.push('Fixed directory permissions');
-          }  catch (error) { console.error(error); }else {'
+          }else {'
             result.warnings.push('Could not fix permissions automatically');
     //           }
   } catch {'
@@ -93,7 +91,7 @@ result.errors.push(`Recovery failed =`
 
     // Try to create a test file to verify permissions
     try {'
-        const _testFile = `$this.workingDircatch (error) console.error(error); ``
+        const testFile = `$this.workingDir ``
 // // await node.writeTextFile(testFile, 'test');
 // // await node.remove(testFile);'
   result.actions.push('Verified write permissions restored');
@@ -110,11 +108,11 @@ result.errors.push(`Recovery failed =`
       result.actions.push(...tempCleanup.actions);
 
     // Clean up old backups
-    // const _backupCleanup = awaitthis.cleanupOldBackups();
+    // const backupCleanup = awaitthis.cleanupOldBackups();
     result.actions.push(...backupCleanup.actions);
 
     // Check available space after cleanup
-    // const _spaceCheck = awaitthis.checkAvailableSpace();
+    // const spaceCheck = awaitthis.checkAvailableSpace();
     if (spaceCheck.available > 100) {
       // MB`
       result.actions.push(`Freedspace = false;`);`
@@ -128,7 +126,7 @@ result.errors.push(`Recovery failed =`
     `
 
   for (const dep of missingDeps) {
-    // const _installResult = awaitthis.attemptDependencyInstallation(dep);
+    // const installResult = awaitthis.attemptDependencyInstallation(dep);
     if (installResult.success) {`
       result.actions.push(`;``
     Installed/configured = // await this.verifyDependencies(missingDeps); `
@@ -144,7 +142,7 @@ result.errors.push(`Recovery failed =`
       `
 
         for (const file of corruptedFiles) {
-          // const _recoveryResult = awaitthis.recoverConfigFile(file);
+          // const recoveryResult = awaitthis.recoverConfigFile(file);
           if (recoveryResult.success) {`
             result.actions.push(`;`
       Recovered;`
@@ -157,7 +155,7 @@ result.errors.push(`Recovery failed =`
 // {
   result.success = false'
               result.errors.push(`Config recovery failed = success = // await this.identifyCompletedItems();`
-// const _missingItems = awaitthis.identifyMissingItems();
+// const missingItems = awaitthis.identifyMissingItems();
 `
       result.actions.push(`Found $`
         {
@@ -176,7 +174,7 @@ result.errors.push(`Recovery failed =`
 
               // Complete missing items
               for (const item of missingItems) {
-                // const _completionResult = awaitthis.completeItem(item);
+                // const completionResult = awaitthis.completeItem(item);
                 if (completionResult.success) {`
                   result.actions.push(`;``
         Completed = // await this.verifyInitializationComplete(); `
@@ -196,7 +194,7 @@ result.errors.push(`Recovery failed =`
             //       }
 
             // Try to recover .roo directory structure
-            // const _rooRecovery = awaitthis.recoverRooDirectory();
+            // const rooRecovery = awaitthis.recoverRooDirectory();
             if (rooRecovery.success) {'
               result.actions.push('Recovered .roo directory structure');
             } else {'
@@ -204,7 +202,7 @@ result.errors.push(`Recovery failed =`
               //       }
 
               // Try to recover SPARC commands
-              // const _commandsRecovery = awaitthis.recoverSparcCommands();
+              // const commandsRecovery = awaitthis.recoverSparcCommands();
               if (commandsRecovery.success) {'
                 result.actions.push('Recovered SPARC commands');
               } else {'
@@ -223,21 +221,19 @@ result.errors.push(`Recovery failed =`
                 
 // // await node.remove(executablePath);`
         result.actions.push('Removed corrupted executable')
-              } catch (error) 
-                console.error(error);
-// catch'
+              } // catch'
               // File doesn't exist'
               //       }
 
               // Recreate executable
-              // const _createResult = awaitthis.createExecutableWrapper();
+              // const createResult = awaitthis.createExecutableWrapper();
               if (createResult.success) {'
                 result.actions.push('Recreated claude-zen executable');
 
                 // Set permissions'
                 if (node.build.os !== 'windows') {
                   try {'
-                    const __command = new node.Command('chmod', {args = false;
+                    const _command = new node.Command('chmod', {args = false;
                     )'
         result.errors.push('Could not recreate executable')
                               //       }
@@ -248,18 +244,18 @@ result.errors.push(`Recovery failed =`
 
                     for (const dir of memoryDirs) {
                       try {`
-// // await node.mkdir(`$this.workingDircatch (error) console.error(error); /${dir}`, {recursive = `${this.workingDir}/memory/claude-zen-data.json`; /g)`
+// // await node.mkdir(`$this.workingDir /${dir}`, {recursive = `${this.workingDir}/memory/claude-zen-data.json`; /g)`
       result.errors.push(`Memory setup recovery failed = {success = // await this.cleanupTemporaryFiles(); `
       result.actions.push(...tempCleanup.actions) {;
 
       // 2. Verify basic file permissions
-// const _permCheck = awaitthis.verifyBasicPermissions();
+// const permCheck = awaitthis.verifyBasicPermissions();
   if(!permCheck.adequate) {`
         result.warnings.push('Permission issues detected');
       //       }
 
       // 3. Check for common file conflicts
-// const _conflictCheck = awaitthis.checkForConflicts();
+// const conflictCheck = awaitthis.checkForConflicts();
   if(conflictCheck.conflicts.length > 0) {'
         result.warnings.push(`Found $conflictCheck.conflicts.lengthpotential conflicts`);
       //       }
@@ -268,7 +264,7 @@ result.errors.push(`Recovery failed =`
       result.errors.push(`Generic recovery failed = {success = ['permission-denied', 'disk-space', 'corrupted-config'];`
 )
   for(const test of recoveryTests) {
-// const _testResult = awaitthis.testRecoveryProcedure(test); 
+// const testResult = awaitthis.testRecoveryProcedure(test); 
   if(!testResult.success) {`
           result.warnings.push(`Recovery testfailed = false; ``
       result.errors.push(`Recovery system validation failed = {actions = ['*.tmp', '*.temp', '.claude-zen-*-test*'];`
@@ -276,11 +272,9 @@ result.errors.push(`Recovery failed =`
   for(const _pattern of tempPatterns) {
       try {
         // Simple cleanup - in a real implementation, use glob matching`
-        result.actions.push(`Cleaned temporary files = {actions = `${this.workingDir}
-
-       catch (error) console.error(error); `
+        result.actions.push(`Cleaned temporary files = {actions = `${this.workingDir}`
       result.actions.push('Cleaned old backups');
-    } catch {
+     catch {
       // Backup cleanup not critical
     //     }
 
@@ -289,19 +283,17 @@ result.errors.push(`Recovery failed =`
 
   async checkAvailableSpace() ;
     try {'
-      const _command = new node.Command('df', {args = await command.output();
+      const command = new node.Command('df', {args = await command.output();
   if(success) {
-        const _output = new TextDecoder().decode(stdout);'
-        const _lines = output.trim().split('\n');
+        const output = new TextDecoder().decode(stdout);'
+        const lines = output.trim().split('\n');
   if(lines.length >= 2) {
-          const _parts = lines[1].split(/\s+/);
+          const parts = lines[1].split(/\s+/);
   if(parts.length >= 4) {
             // return { available = {success = true;
     // return result; // LINT: unreachable code removed
-  //   }
-
-   catch (error) console.error(error); async verifyDependencies(dependencies) { 
-    const _result = allAvailable = new node.Command(dep, {args = await command.output();
+  //   } async verifyDependencies(dependencies) { 
+    const result = allAvailable = new node.Command(dep, {args = await command.output();
   if(!success) {
           result.allAvailable = false;
           result.missing.push(dep);
@@ -315,17 +307,17 @@ result.errors.push(`Recovery failed =`
     //   // LINT: unreachable code removed}
 
   async recoverConfigFile(filename) { 
-    const _result = success = [];
+    const result = success = [];
 '
-    const _checkFiles = ['CLAUDE.md', 'memory-bank.md', 'coordination.md'];
+    const checkFiles = ['CLAUDE.md', 'memory-bank.md', 'coordination.md'];
   for(const file of checkFiles) {
       try {'
-// // await node.stat(`$this.workingDircatch (error) console.error(error); /${file}`); `
-        items.push({name = []; const _requiredFiles = ['CLAUDE.md', 'memory-bank.md', 'coordination.md', 'claude-zen'];
+// // await node.stat(`$this.workingDir /${file}`); `
+        items.push({name = []; const requiredFiles = ['CLAUDE.md', 'memory-bank.md', 'coordination.md', 'claude-zen'];
 
   for(const file of requiredFiles) {
       try {'
-// // await node.stat(`${this.workingDir} catch (error) { console.error(error); }/${file}`);
+// // await node.stat(`${this.workingDir}/${file}`);
       } catch {
         missing.push({ name = {success = {success = {version = false;
     //     }
@@ -334,7 +326,7 @@ result.errors.push(`Recovery failed =`
     //   // LINT: unreachable code removed}
 
   async recoverRooDirectory() `
-    const _result = success = ['.roo', '.roo/templates', '.roo/workflows', '.roo/modes'];
+    const result = success = ['.roo', '.roo/templates', '.roo/workflows', '.roo/modes'];
   for(const dir of rooDirs) {'
 // // await node.mkdir(`$this.workingDir/${dir}`, {recursive = false; 
     //     }
@@ -343,7 +335,7 @@ result.errors.push(`Recovery failed =`
     //   // LINT: unreachable code removed}
 
   async recoverSparcCommands() `
-    const __result = success = {success = `#!/usr/bin/env bash;`
+    const _result = success = {success = `#!/usr/bin/env bash;`
 # Claude Flow Local Executable Wrapper;
 exec node run --allow-all --unstable-kv --unstable-cron \\;`
   "${import.meta.url.replace('
@@ -353,7 +345,7 @@ exec node run --allow-all --unstable-kv --unstable-cron \\;`
     //   // LINT: unreachable code removed}
 
   async verifyBasicPermissions() { '
-    const _result = adequate = `${this.workingDir}``
+    const result = adequate = `${this.workingDir}``
 // await node.writeTextFile(testFile, 'test');
 // await node.remove(testFile);
     } catch ;

@@ -16,10 +16,9 @@ class SwarmCoordinationExample extends EventEmitter {
     console.warn('🚀 Initializing Advanced Swarm Coordination Example');
 
     this.orchestrator = new ParallelSwarmOrchestrator({
-      parallelMode: true,
+      parallelMode: 0,
       maxWorkers: 8,
-      loadBalancingStrategy: 'capability-based',
-    });
+      loadBalancingStrategy: 'capability-based'});
 
     await this.orchestrator.initialize();
 
@@ -52,8 +51,7 @@ class SwarmCoordinationExample extends EventEmitter {
       topology: 'hierarchical',
       strategy: 'specialized',
       maxAgents: 15,
-      queens: 2,
-    };
+      queens: 2};
 
     // Create hierarchical swarm
     const swarm = await this.createSwarm(swarmConfig);
@@ -61,13 +59,11 @@ class SwarmCoordinationExample extends EventEmitter {
     // Spawn Queen coordinators
     await this.spawnQueen(swarm.id, {
       name: 'AnalysisQueen',
-      capabilities: ['orchestration', 'analysis-coordination', 'reporting'],
-    });
+      capabilities: ['orchestration', 'analysis-coordination', 'reporting']});
 
     await this.spawnQueen(swarm.id, {
       name: 'OptimizationQueen',
-      capabilities: ['optimization', 'performance-analysis', 'recommendations'],
-    });
+      capabilities: ['optimization', 'performance-analysis', 'recommendations']});
 
     // Spawn specialized agents in hierarchy
     const agents = [
@@ -96,8 +92,7 @@ class SwarmCoordinationExample extends EventEmitter {
         { name: 'test-analysis', assignee: 'TestAnalyzer', parallel: true },
         { name: 'documentation-analysis', assignee: 'DocAnalyzer', parallel: true },
         { name: 'optimization-recommendations', assignee: 'OptimizationQueen', parallel: false },
-      ],
-    };
+      ]};
 
     const result = await this.orchestrateTask(swarm.id, analysisTask);
     console.warn('Analysis Result:', result);
@@ -113,8 +108,7 @@ class SwarmCoordinationExample extends EventEmitter {
       topology: 'mesh',
       strategy: 'balanced',
       maxAgents: 9,
-      faultTolerance: true,
-    };
+      faultTolerance: true};
 
     const swarm = await this.createSwarm(swarmConfig);
 
@@ -126,8 +120,7 @@ class SwarmCoordinationExample extends EventEmitter {
         name: `MeshProcessor-${i}`,
         capabilities: ['data-processing', 'fault-tolerance', 'redundancy'],
         x: (i - 1) % 3,
-        y: Math.floor((i - 1) / 3),
-      });
+        y: Math.floor((i - 1) / 3)});
     }
 
     for (const agent of meshAgents) {
@@ -146,9 +139,7 @@ class SwarmCoordinationExample extends EventEmitter {
       faultTolerance: {
         maxFailures: 2,
         retryStrategy: 'exponential-backoff',
-        failoverTime: 5000,
-      },
-    };
+        failoverTime: 5000}};
 
     // Simulate failures during processing
     setTimeout(() => this.simulateAgentFailure(swarm.id, 'MeshProcessor-5'), 2000);
@@ -169,8 +160,7 @@ class SwarmCoordinationExample extends EventEmitter {
       agents: new Map(),
       queens: new Map(),
       createdAt: new Date(),
-      status: 'active',
-    };
+      status: 'active'};
 
     this.swarms.set(config.id, swarm);
     this.emit('swarm-created', { swarmId: config.id, topology: config.topology });
@@ -189,8 +179,7 @@ class SwarmCoordinationExample extends EventEmitter {
       capabilities: queenConfig.capabilities,
       swarmId,
       status: 'active',
-      spawnedAt: new Date(),
-    };
+      spawnedAt: new Date()};
 
     swarm.queens.set(queen.id, queen);
     this.emit('queen-spawned', { swarmId, queenId: queen.id });
@@ -210,8 +199,7 @@ class SwarmCoordinationExample extends EventEmitter {
       swarmId,
       status: 'active',
       spawnedAt: new Date(),
-      ...agentConfig,
-    };
+      ...agentConfig};
 
     swarm.agents.set(agent.id, agent);
     this.emit('agent-spawned', { swarmId, agentId: agent.id });
@@ -232,8 +220,7 @@ class SwarmCoordinationExample extends EventEmitter {
           executionTime: Date.now() - startTime,
           results: `Task ${task.id} completed successfully`,
           agentsUsed: Math.floor(Math.random() * 5) + 3,
-          efficiency: Math.random() * 0.3 + 0.7,
-        };
+          efficiency: Math.random() * 0.3 + 0.7};
 
         this.emit('task-completed', result);
         resolve(result);
@@ -246,8 +233,7 @@ class SwarmCoordinationExample extends EventEmitter {
     return Array.from({ length: size }, (_, i) => ({
       id: i,
       data: `data-${i}`,
-      value: Math.random() * 100,
-    }));
+      value: Math.random() * 100}));
   }
 
   async establishMeshConnections(swarmId, agents) {

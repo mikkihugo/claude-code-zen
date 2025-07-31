@@ -10,7 +10,7 @@ import { strategicDocs } from '../database/strategic-documents-manager.js';
 /** Strategic documents command handler */
 
 export async function strategicDocsCommand(input = input[0];
-const _subArgs = input.slice(1);
+const subArgs = input.slice(1);
 if(flags.help ?? flags.h ?? !subcommand) {
   showStrategicDocsHelp();
   return;
@@ -55,11 +55,11 @@ if(flags.help ?? flags.h ?? !subcommand) {
       documentType = flags.type  ?? args[0];
       title = flags.title  ?? args[1];'
       content = flags.content  ?? `# $title\n\n## Overview\n\nTODO = extractKeywords(title + ` ' + content);'
-// const __doc = awaitstrategicDocs.createDocument({
+// const _doc = awaitstrategicDocs.createDocument({
       documentType,
       title,
       content,metadata = args[0]  ?? flags.type;
-    const _status = flags.status;
+    const status = flags.status;
 
     let documents;
 
@@ -78,8 +78,8 @@ if(flags.help ?? flags.h ?? !subcommand) {
 ''.repeat(80));
 
     documents.forEach(doc => {)
-      const _typeIcon = getDocumentTypeIcon(doc.document_type_id);
-      const _statusBadge = getStatusBadge(doc.status);
+      const typeIcon = getDocumentTypeIcon(doc.document_type_id);
+      const statusBadge = getStatusBadge(doc.status);
 '
       console.warn(`\n$typeIcon$doc.title`);`
       console.warn(`   ID = doc.content.substring(0, 100).replace(/\n/g, ' ') + '...';``
@@ -107,7 +107,7 @@ if(flags.help ?? flags.h ?? !subcommand) {
       updates.status = flags.status;
     //     }
   if(flags.interactive && !flags.title && !flags.content) {
-// const _answers = awaitinquirer.prompt([;
+// const answers = awaitinquirer.prompt([;
         //         {/g
           //           type = {title = === 0) {`
       printWarning('No updates provided');
@@ -116,7 +116,7 @@ if(flags.help ?? flags.h ?? !subcommand) {
 
     // Update keywords if content changed
   if(updates.content  ?? updates.title) {'
-      const _newText = (updates.title  ?? doc.title) + ' ' + (updates.content  ?? doc.content);
+      const newText = (updates.title  ?? doc.title) + ' ' + (updates.content  ?? doc.content);
       updates.relevance_keywords = extractKeywords(newText);
     //     }'
   printSuccess(` Updateddocument = args[0];`
@@ -134,21 +134,21 @@ if(flags.help ?? flags.h ?? !subcommand) {
       printInfo('Usage = // await strategicDocs.searchDocuments({'/g)
       query,documentType = === 0) {'
       printInfo(` No documents found for query => {`
-      const _typeIcon = getDocumentTypeIcon(doc.document_type_id);
-      const _statusBadge = getStatusBadge(doc.status);
+      const typeIcon = getDocumentTypeIcon(doc.document_type_id);
+      const statusBadge = getStatusBadge(doc.status);
 `
       console.warn(`\n${typeIcon} ${doc.title} ${statusBadge}`);`
       console.warn(`   ID = // await strategicDocs.getDocumentStats();`
 `
     printInfo(' Strategic Documents Statistics');''.repeat(60));
 '
-    console.warn('\n Documents by Type => {')
-      const _icon = getDocumentTypeIcon(stat.document_type);
-      const _approvalRate = stat.count > 0 ? Math.round((stat.approved_count / stat.count) * 100) '
+    console.warn('\n Documents by Type => {');
+      const icon = getDocumentTypeIcon(stat.document_type);
+      const approvalRate = stat.count > 0 ? Math.round((stat.approved_count / stat.count) * 100) '
       console.warn(`$icon$stat.document_type: $stat.counttotal(${stat.approved_count} approved - ${approvalRate}%)`);
     });
 `
-    console.warn('\n Queen Council Activity => {')'
+    console.warn('\n Queen Council Activity => {');'
       console.warn(`    $queen);`
     });
 
@@ -158,17 +158,17 @@ if(flags.help ?? flags.h ?? !subcommand) {
     if(!filePath) {`
       printError('File path is required');'
       printInfo('Usage = // await import('fs/promises'
-// const _content = awaitreadFile(filePath, 'utf8');
+// const content = awaitreadFile(filePath, 'utf8');
 
     // Extract title from first heading or filename
-    const _titleMatch = content.match(/^#\s+(.+)$/m);
-    const _title = titleMatch ? titleMatch[1] : path.basename(filePath, path.extname(filePath));
+    const titleMatch = content.match(/^#\s+(.+)$/m);
+    const title = titleMatch ? titleMatch[1] : path.basename(filePath, path.extname(filePath));
 
-    const _documentType = flags.type;
+    const documentType = flags.type;
   if(!documentType) {'
       printError('Document type is required for import');'
       printInfo('Use --typeflag = extractKeywords(title + ' ' + content);'
-// const _doc = awaitstrategicDocs.createDocument({
+// const doc = awaitstrategicDocs.createDocument({
       documentType,
       title,
       content,metadata = args[0];

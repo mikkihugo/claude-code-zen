@@ -13,7 +13,7 @@ try {
   if(file.endsWith('.json')) {
     parsedContent = jsonlint.parse(content);
     _formattedContent = JSON.stringify(parsedContent, null, 2);
-  }  catch (error) console.error(error); else 
+  } else 
     parsedContent = yaml.load(content);
     _formattedContent = yaml.dump(parsedContent, {indent = = formattedContent.trim()) {
         suggestions.push({)

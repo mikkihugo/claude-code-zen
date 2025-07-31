@@ -56,7 +56,7 @@ console.warn(` Adding ${config.type} database = {id = new SQLiteConnectionPool(;
           break;
 `
 case 'lancedb':
-const _lanceDB = new LanceDBInterface({dbPath = lanceDB;
+const lanceDB = new LanceDBInterface({dbPath = lanceDB;
 break;
 '
         case 'kuzu')
@@ -93,11 +93,11 @@ console.warn(` Removingdatabase = === 'function') {`
 /** Get all database connections; */
 
   async getAllDatabases(): Promise<DatabaseConnection[]> {
-    const _connections = [];
+    const connections = [];
   for(const [id, instance] of this.databases) {
-      connections.push({ id,)
+      connections.push({ id)
         //         type = {}): Promise<QueryResult> {
-    const _startTime = Date.now(); const _instance = this.databases.get(databaseId); if(!instance) {'
+    const startTime = Date.now(); const instance = this.databases.get(databaseId); if(!instance) {'
       throw new Error(`;
 Database;
 notfound =
@@ -113,24 +113,24 @@ if(!query.vectorQuery) {`
   if(!query.graphQuery) {'
           throw new Error('Graph query parameters required');
         //         }
-// const _graphResult = awaitinstance.connection.executeGraphQuery(query.graphQuery);
+// const graphResult = awaitinstance.connection.executeGraphQuery(query.graphQuery);
         result = graphResult;
 
       } else if(instance.pool && query.sql) {
         // SQL query via connection pool
   for(const query of queries) {
       try {
-// const _result = awaitthis.executeQuery(databaseId, query, options); '
+// const result = awaitthis.executeQuery(databaseId, query, options); '
         results.push({success = 'read_committed'; ) {: Promise<OperationResult[]> {
-    const _instance = this.databases.get(databaseId);
+    const instance = this.databases.get(databaseId);
   if(!instance) {'
       throw new Error(`Database notfound = queries.map(query => ({query = // await instance.pool.executeTransaction(batchQueries);`
 //   return results.map((_result, _index) => ({`
         success = {overall = > db.status === 'connected').length;
-  //   // LINT: unreachable code removed} catch (error) { console.error(error); },errors = 0;
-  const _totalCount = 0;
+  //   // LINT: unreachable code removed},errors = 0;
+  const totalCount = 0;
   for(const [id, instance] of this.databases) {
-    totalCount++; // const _dbHealth = awaitthis.checkDatabaseHealth(instance); 
+    totalCount++; // const dbHealth = awaitthis.checkDatabaseHealth(instance); 
     report.databases[id] = dbHealth;
   if(dbHealth.health > 0.7) {
       healthyCount++;
@@ -141,7 +141,7 @@ if(!query.vectorQuery) {`
     report.overall = 'critical';'
     report.systemHealth.errors.push('No databases configured');
   } else {
-    const _healthRatio = healthyCount / totalCount;
+    const healthRatio = healthyCount / totalCount;
   if(healthRatio < 0.5) {'
       report.overall = 'critical';
     } else if(healthRatio < 0.8) {'
@@ -157,14 +157,14 @@ async;
 getMetrics();
 : Promise<DatabaseMetrics[]>
 // {
-    const __metrics = [];
+    const _metrics = [];
   for(const [_id, _instance] of this.databases) {
   for(const [_id, instance] of this.databases) {
       try {
         // Perform optimization based on database type'
   if('optimize' in instance.connection && typeof instance.connection.optimize === 'function') {
 // // await instance.connection.optimize(); '
-          optimized.push(`${instance.config.name}  catch (error) { console.error(error); }($, { instance.type })`); //         }
+          optimized.push(`${instance.config.name}($, { instance.type })`); //         }
   if(instance.pool) {
 // // await instance.pool.cleanup();`
           optimized.push(`${instance.config.name} connection pool`);
@@ -175,7 +175,7 @@ getMetrics();
       throw new Error(`Database notfound = this.databases.get(databaseId);`
   if(!instance) {`
       throw new Error(`Database notfound = this.databases.get(sourceId);`
-    const _target = this.databases.get(targetId);
+    const target = this.databases.get(targetId);
   if(!source  ?? !target) {`
       throw new Error('Source or target database not found');
     //     }
@@ -210,25 +210,21 @@ getMetrics();
     // Shutdown connection pool manager
 // // await this.connectionPoolManager.shutdown();
     // Close all databases
-    const _shutdownPromises = Array.from(this.databases.keys()).map(id => ;)
+    const shutdownPromises = Array.from(this.databases.keys()).map(id => ;)
       this.removeDatabase(id);
     );
 // // await Promise.all(shutdownPromises);`
     console.warn(' Database manager shutdown complete');'
     this.emit('manager = [];'
-    const _recommendations = [];
-    const _health = 1.0;
+    const recommendations = [];
+    const health = 1.0;
 
     try {
       // Check connection status/g)'
   if(instance.status !== 'connected') {'
         issues.push('Database not connected');
         health -= 0.5;
-      //       }
-
-       catch (error) console.error(error); 
-
-      // Check response time
+      //       } // Check response time
   if(instance.metrics.avgResponseTime > 5000) {'
         issues.push('High average response time');'
         recommendations.push('Consider query optimization');
@@ -237,7 +233,7 @@ getMetrics();
 
       // Database-specific health checks
   if(instance.pool) {
-        const _poolHealth = instance.pool.getHealth();'
+        const poolHealth = instance.pool.getHealth();'
   if(poolHealth.status !== 'healthy') {
           issues.push(...poolHealth.issues);
           health -= 0.3;
@@ -266,14 +262,12 @@ getMetrics();
         this.emit('health = === 'critical''
           this.emit('health = this.pool.getHealth();'
     // return health.status;
-    //   // LINT: unreachable code removed}
-
-   catch (error) console.error(error); async query<T = any>(sql, params?, options?): Promise<QueryResult<T>> {
-    const _startTime = Date.now();
+    //   // LINT: unreachable code removed} async query<T = any>(sql, params?, options?): Promise<QueryResult<T>> {
+    const startTime = Date.now();
 
     try {
-// const _result = awaitthis.pool.execute(sql, params, {timeout = // await this.pool.execute(sql, params);'
-      // return {success = queries.map(q => ({query = // await this.pool.executeBatch(batchQueries, {parallel = > ({success = // await this.pool.execute(`EXPLAIN QUERY PLAN ${sql} catch (error) { console.error(error); }`, params);
+// const result = awaitthis.pool.execute(sql, params, {timeout = // await this.pool.execute(sql, params);'
+      // return {success = queries.map(q => ({query = // await this.pool.executeBatch(batchQueries, {parallel = > ({success = // await this.pool.execute(`EXPLAIN QUERY PLAN ${sql}`, params);
     // return { nodes, totalCost, estimatedRows: 0  // LINT: unreachable code removed};
   //   }
 // }

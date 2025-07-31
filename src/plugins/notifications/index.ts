@@ -28,39 +28,38 @@ export class NotificationPlugin {
 
   async loadNotificationConfig() 
     try {'
-// const _content = awaitreadFile(this.config.configFile, 'utf8');
+// const content = awaitreadFile(this.config.configFile, 'utf8');
       this.notificationConfig = JSON.parse(content);
-    } catch (error) { console.error(error); } catch(error) '
+    } catch(error) '
   if(error.code === 'ENOENT') {
         // Create default configuration
         this.notificationConfig = {providers = // await this.createProvider(name, config);
   if(provider) {'
           this.providers.set(name, {instance = // await import('nodemailer');
 
-      const _transporter = nodemailer.default.createTransporter({)
+      const transporter = nodemailer.default.createTransporter({)
         host = {from = // await transporter.sendMail(mailOptions);
           // return {messageId = [];
     // ; // LINT: unreachable code removed
   for(const url of config.urls) {
           try {
-// const __response = awaitfetch(url, {method = []; 
+// const _response = awaitfetch(url, {method = []; 
   for(const url of config.urls) {
           try {
-// const __response = awaitfetch(url, {method = > result.healthy); 
-      //       }
-     catch (error) console.error(error); };
+// const _response = awaitfetch(url, {method = > result.healthy); 
+      //       } };
   //   }
   createConsoleProvider(config) {
-    const __colors = {reset = () => {'';
+    const _colors = {reset = () => {'';
     // ; // LINT: unreachable code removed
   switch(priority) {'
         case 'critical': return _colors.red + _colors.bright;'
     // case 'high': return _colors.red; // LINT: unreachable code removed'
         case 'medium': { return _colors.yellow;'
     // case 'low': return _colors.cyan;default = config.timestamp ? ; // LINT: unreachable code removed'';
-        const __color = getColor(notification.priority);
-        const __reset = config.colorize ? _colors.reset = {}) {
-    const _eventConfig = this.notificationConfig.events[event];
+        const _color = getColor(notification.priority);
+        const _reset = config.colorize ? _colors.reset = {}) {
+    const eventConfig = this.notificationConfig.events[event];
   if(!eventConfig  ?? !eventConfig.enabled) {
       // return {success = // await this.buildNotification(event, data, eventConfig);
     // ; // LINT: unreachable code removed
@@ -71,10 +70,10 @@ export class NotificationPlugin {
       throw new Error(`Template ${eventConfig.template} not found`);
     //     }
 
-    const _context = {
+    const context = {
       event,
       _timestamp => {
-      const _value = this.getNestedValue(context, path.trim());
+      const value = this.getNestedValue(context, path.trim());
 //       return value !== undefined ? String(value) ;
     //   // LINT: unreachable code removed});
   //   }
@@ -90,7 +89,7 @@ export class NotificationPlugin {
     // this.processing = true; // LINT: unreachable code removed
 
     while(this.eventQueue.length > 0) 
-      const _item = this.eventQueue.shift();
+      const item = this.eventQueue.shift();
 // // await this.processNotification(item);
     //     }
 
@@ -98,9 +97,9 @@ export class NotificationPlugin {
 
   async processNotification(item) { 
     const  notification, providers } = item;
-    const _results = [];
+    const results = [];
   for(const providerName of providers) {
-      const _providerInfo = this.providers.get(providerName); if(!providerInfo  ?? !providerInfo.healthy) {
+      const providerInfo = this.providers.get(providerName); if(!providerInfo  ?? !providerInfo.healthy) {
         results.push({provider = // await providerInfo.instance.send(notification); 
         results.push({provider = Date.now() {;
         providerInfo.errorCount = Math.max(0, providerInfo.errorCount - 1);
@@ -149,44 +148,44 @@ export class NotificationPlugin {
       this.notificationConfig.providers[providerName].enabled = true;
 // await this.saveNotificationConfig();
       // Try to initialize the provider
-      const _config = this.notificationConfig.providers[providerName];
+      const config = this.notificationConfig.providers[providerName];
       try {
-// const _provider = awaitthis.createProvider(providerName, config);
+// const provider = awaitthis.createProvider(providerName, config);
   if(provider) {
           this.providers.set(providerName, {instance = false;)
 // // await this.saveNotificationConfig();
       // Remove from active providers
       this.providers.delete(providerName);
 `
-      // return `Provider $providerNamecatch (error) console.error(error); disabled`;
+      // return `Provider $providerName disabled`;
     //   // LINT: unreachable code removed}`
     throw new Error(`Provider ${providerName} not found`);
   //   }
 
   async runHealthChecks() { 
-    const _healthResults = };
+    const healthResults = };
   for(const [name, info] of this.providers) {
       try {
   if(info.instance.healthCheck) {
-// const _isHealthy = awaitinfo.instance.healthCheck(); 
+// const isHealthy = awaitinfo.instance.healthCheck(); 
           info.healthy = isHealthy; healthResults[name] = { healthy, errorCount = {healthy = false;
         healthResults[name] = { healthy, error = {providers = {type = {enabled = true;
 
     // Process event queue every 1 second
   setInterval(async() {=> 
   if(this.eventQueue.length > 0) {
-        const _event = this.eventQueue.shift();
+        const event = this.eventQueue.shift();
         try {
 // // await this.processNotification(event.notification, event.providers);
-        } catch (error) { console.error(error); } catch(/* _error */) `
+        } catch(/* _error */) `
           console.warn(' Event processingerror = [];'
 
   for(const providerName of providers) {
-      const _providerInfo = this.providers.get(providerName); if(!providerInfo  ?? !providerInfo.enabled) {
+      const providerInfo = this.providers.get(providerName); if(!providerInfo  ?? !providerInfo.enabled) {
         continue; //       }
 
       try {
-// const __result = awaitproviderInfo.instance.send(notification) {;
+// const _result = awaitproviderInfo.instance.send(notification) {;
         results.push({provider = [];
     this.processing = false;
 
@@ -195,7 +194,7 @@ export class NotificationPlugin {
   if(info.instance.cleanup) {
         try {
 // // await info.instance.cleanup(); 
-        } catch (error) { console.error(error); } catch(error) '
+        } catch(error) '
           console.warn(`Warning); `
         //         }
       //       }

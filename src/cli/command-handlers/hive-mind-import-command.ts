@@ -15,13 +15,13 @@ async function generateScopeFromCode(servicePath = path.basename(servicePath);
 '
 // return `;`
 // ---name = path.basename(servicePath); // LINT: unreachable code removed`
-const _projectJsonPath = path.join(servicePath, 'project.json');
+const projectJsonPath = path.join(servicePath, 'project.json');
 
 let scopeMdContent;
 
 if (existsSync(projectJsonPath)) {
   '
-  const _projectJson = JSON.parse(readFileSync(projectJsonPath, 'utf8'));
+  const projectJson = JSON.parse(readFileSync(projectJsonPath, 'utf8'));
   '
   scopeMdContent = `
   `
@@ -43,14 +43,14 @@ else
 \n[Suggestion;
 for ${serviceName}`;
 ]`)``
-console.warn('------------------')
+console.warn('------------------');
 console.warn(scopeMdContent);
 '
-console.warn('------------------')
+console.warn('------------------');
 // This is a placeholder for the interactive prompt
-// const _answer = awaitnew Promise((resolve) => {'
-const __readline = import('node).then((rl) => {'
-const _rlInterface = rl.createInterface({ input => {)
+// const answer = awaitnew Promise((resolve) => {'
+const _readline = import('node).then((rl) => {'
+const rlInterface = rl.createInterface({ input => {)
         rlInterface.close();
 resolve(answer);
 }

@@ -10,11 +10,11 @@ async function testWebSocket() {'
   console.warn(' Testing WebSocket connection to ws);'
 
   try {'
-    const _ws = new WebSocket('ws);'
+    const ws = new WebSocket('ws);'
 '
     ws.on('open', () => {'
       console.warn(' WebSocket connected successfully!');'
-      ws.send(JSON.stringify(type: 'test', message: 'Hello server'   catch (error) console.error(error); ));
+      ws.send(JSON.stringify(type: 'test', message: 'Hello server' ));
     }
   )'
   ws.on('message', (data) => '

@@ -20,12 +20,12 @@ describe.skip('Vision-to-Code E2E Tests', () =>
   });
   beforeEach(async () => {
     context = await browser.newContext({
-      viewport: { width, height },)'
+      viewport: { width, height })'
   userAgent: 'Mozilla/5.0(Vision2Code E2E Tests)' });
     page = // await context.newPage();
       // Set up request interception for performance monitoring'
       page.on('request', (request) => {
-        const _url = request.url();
+        const url = request.url();
         '
         if (url.includes('/api/')) {
           request.timing = { start: Date.now() };
@@ -34,9 +34,9 @@ describe.skip('Vision-to-Code E2E Tests', () =>
         )'
         page.on('response', (response) =>
         {
-          const _request = response.request();
+          const request = response.request();
           if (request.timing) {
-            const _duration = Date.now() - request.timing.start;
+            const duration = Date.now() - request.timing.start;
             metricsCollector.recordRequest(request.url(), duration, response.status());
             //   }
           }
@@ -57,19 +57,19 @@ describe.skip('Vision-to-Code E2E Tests', () =>
       // Wait for page to load'
       // // await page.waitForSelector('[data-testid='upload-area']');
       // Step 1: Upload an image'
-      // const _uploadArea = awaitpage.locator('[data-testid='upload-area']');
+      // const uploadArea = awaitpage.locator('[data-testid='upload-area']');
       const [fileChooser] = page.waitForEvent('filechooser'), // await Promise.all([;/g)'
         uploadArea;
       .click() ])
       // Create a test image file'
-      const _testImagePath = './test-fixtures/dashboard-ui.png';
+      const testImagePath = './test-fixtures/dashboard-ui.png';
       // // await fileChooser.setFiles(testImagePath);
       // Wait for upload to complete'
       // // await page.waitForSelector('[data-testid='upload-success']', { timeout });
       // Step 2: Wait for vision analysis'
       // // await page.waitForSelector('[data-testid='analysis-complete']', { timeout });
       // Verify analysis results are displayed'
-      // const _componentsDetected = awaitpage.locator('[data-testid='components-list'] > li').count();
+      // const componentsDetected = awaitpage.locator('[data-testid='components-list'] > li').count();
       expect(componentsDetected).toBeGreaterThan(0);
       // Step 3: Configure code generation options'
       // // await page.selectOption('[data-testid='framework-select']', 'react');'
@@ -82,7 +82,7 @@ describe.skip('Vision-to-Code E2E Tests', () =>
       // Wait for code generation to complete'
       // // await page.waitForSelector('[data-testid='code-preview']', { timeout });
       // Verify code preview is displayed'
-      // const _codeFiles = awaitpage.locator('[data-testid='file-tab']').count();
+      // const codeFiles = awaitpage.locator('[data-testid='file-tab']').count();
       expect(codeFiles).toBeGreaterThan(0);
       // Step 5: Download generated code
       const [download] = // await Promise.all([;/g)'
@@ -92,7 +92,7 @@ describe.skip('Vision-to-Code E2E Tests', () =>
       // Verify download'
       expect(download.suggestedFilename()).toContain('.zip')
       // Measure total journey time
-      // const _totalTime = awaitpage.evaluate(() => performance.now());
+      // const totalTime = awaitpage.evaluate(() => performance.now());
       expect(totalTime).toBeLessThan(60000); // Complete journey in under 60 seconds
     }
     )
@@ -105,17 +105,17 @@ describe.skip('Vision-to-Code E2E Tests', () =>
       // Simulate network error'
       // // await context.route('**/api/v1/images/upload', (route) => route.abort());
       // Try to upload an image'
-      // const _uploadArea = awaitpage.locator('[data-testid='upload-area']');'
+      // const uploadArea = awaitpage.locator('[data-testid='upload-area']');'
       const [fileChooser] = page.waitForEvent('filechooser'), // await Promise.all([;/g)
         uploadArea;
       .click() ])'
       // // await fileChooser.setFiles('./test-fixtures/test-image.png');
       // Should show error message'
       // // await page.waitForSelector('[data-testid='error-message']');'
-      // const _errorText = awaitpage.textContent('[data-testid='error-message']');'
+      // const errorText = awaitpage.textContent('[data-testid='error-message']');'
       expect(errorText).toContain('Failed to upload')
       // Should allow retry'
-      // const _retryButton = awaitpage.locator('[data-testid='retry-button']');
+      // const retryButton = awaitpage.locator('[data-testid='retry-button']');
       expect( // await retryButton.isVisible()).toBe(true);
     }
     )
@@ -123,11 +123,10 @@ describe.skip('Vision-to-Code E2E Tests', () =>
   '
   describe('Responsive Design', () =>
   // {
-  const _viewports = ['
+  const viewports = ['
     { name: 'Mobile', width, height },'
     { name: 'Tablet', width, height },'
     { name: 'Desktop', width, height },
-    ,
   ];
   viewports.forEach((viewport) => {
     '
@@ -138,24 +137,23 @@ describe.skip('Vision-to-Code E2E Tests', () =>
     // await page.goto('http);'
 
     // Verify layout adapts to viewport'
-    // const _uploadArea = awaitpage.locator('[data-testid='upload-area']');
+    // const uploadArea = awaitpage.locator('[data-testid='upload-area']');
     expect( // await uploadArea.isVisible()).toBe(true);
     // Check if mobile menu is visible on small screens
     if (viewport.width < 768) {
       '
-        // const _mobileMenu = awaitpage.locator('[data-testid='mobile-menu-button']');
+        // const mobileMenu = awaitpage.locator('[data-testid='mobile-menu-button']');
         expect( // await mobileMenu.isVisible()).toBe(true);
       //       }
       // Verify all critical elements are accessible
-      const _criticalElements = ['
+      const criticalElements = ['
           '[data-testid='upload-area']','
           '[data-testid='framework-select']','
           '[data-testid='generate-code-btn']',
           ,
-          ,
         ];
       for (const selector of criticalElements) {
-        // const _element = awaitpage.locator(selector);
+        // const element = awaitpage.locator(selector);
         expect( // await element.isVisible()).toBe(true);
         //       }
       }
@@ -165,14 +163,14 @@ describe('Performance Tests', () =>
 // {'
   it('should load the application quickly', async() =>
     {
-      const _startTime = Date.now();
+      const startTime = Date.now();
       '
       // await page.goto('http);'
-      const _loadTime = Date.now() - startTime;
+      const loadTime = Date.now() - startTime;
       expect(loadTime).toBeLessThan(3000); // Page should load in under 3 seconds
 
       // Check Core Web Vitals
-      // const _metrics = awaitpage.evaluate(() => {
+      // const metrics = awaitpage.evaluate(() => {
       //         return {'
       lcp: performance.getEntriesByType('largest-contentful-paint')[0]?.startTime,'
       // fid: performance.getEntriesByType('first-input')[0]?.processingStart, // LINT: unreachable code removed
@@ -191,17 +189,17 @@ describe('Performance Tests', () =>
 // {'
 // await page.goto('http);'
 
-const _uploadCount = 5;
-const _uploadPromises = [];
+const uploadCount = 5;
+const uploadPromises = [];
 for (let i = 0; i < uploadCount; i++) {
-  // const _newPage = awaitcontext.newPage();'
+  // const newPage = awaitcontext.newPage();'
   // // await newPage.goto('http);'
 
   uploadPromises.push(;
 
   newPage.evaluate(async() => 
       // Simulate file upload via API'
-// const _response = awaitfetch('/api/v1/images/upload', {'
+// const response = awaitfetch('/api/v1/images/upload', {'
               method: 'POST','
       Authorization: 'Bearer test-token',
 
@@ -210,8 +208,8 @@ for (let i = 0; i < uploadCount; i++) {
   //   // LINT: unreachable code removed});
   //
   //   }
-  // const _results = awaitPromise.all(uploadPromises);
-  const _successCount = results.filter((r) => r).length;
+  // const results = awaitPromise.all(uploadPromises);
+  const successCount = results.filter((r) => r).length;
   expect(successCount).toBe(uploadCount); // All uploads should succeed
 }
 
@@ -226,14 +224,14 @@ describe('Accessibility', () =>
 
     // Tab through interactive elements'
   // // await page.keyboard.press('Tab');
-// const _focusedElement = awaitpage.evaluate(() => document.activeElement.tagName);
+// const focusedElement = awaitpage.evaluate(() => document.activeElement.tagName);
     expect(focusedElement).toBeTruthy()
   // Continue tabbing through all interactive elements'
-  // const _interactiveElements = awaitpage.\$\$('[tabindex], button, input, select, a');
+  // const interactiveElements = awaitpage.\$\$('[tabindex], button, input, select, a');
   for (let i = 0; i < interactiveElements.length; i++) {
     '
   // // await page.keyboard.press('Tab');
-// const _element = awaitpage.evaluate(() => document.activeElement);
+// const element = awaitpage.evaluate(() => document.activeElement);
       expect(element).toBeTruthy()
     //     }
   }
@@ -244,15 +242,15 @@ describe('Accessibility', () =>
   // await page.goto('http);'
 
     // Check for ARIA labels on key elements'
-// const _uploadArea = awaitpage.locator('[data-testid='upload-area']');'
-// const _ariaLabel = awaituploadArea.getAttribute('aria-label');
+// const uploadArea = awaitpage.locator('[data-testid='upload-area']');'
+// const ariaLabel = awaituploadArea.getAttribute('aria-label');
     expect(ariaLabel).toBeTruthy()
   // Check form inputs have labels'
-  // const _inputs = awaitpage.\$\$('input, select');
+  // const inputs = awaitpage.\$\$('input, select');
   for (const input of inputs) {
     '
-// const _id = awaitinput.getAttribute('id'); '
-// const _label = awaitpage.\$(`label[for='${id}']`); 
+// const id = awaitinput.getAttribute('id'); '
+// const label = awaitpage.\$(`label[for='${id}']`); 
   expect(label) .toBeTruthy()
       )
       `
@@ -262,8 +260,8 @@ describe('Accessibility', () =>
     // Inject axe-core for accessibility testing
     // // await page.addScriptTag({ url);
     // Run accessibility tests
-    // const _violations = awaitpage.evaluate(async() => {
-    // const _results = awaitwindow.axe.run();
+    // const violations = awaitpage.evaluate(async() => {
+    // const results = awaitwindow.axe.run();
     //       return results.violations;
     //   // LINT: unreachable code removed  });
     // Log any violations for debugging
@@ -272,7 +270,7 @@ describe('Accessibility', () =>
         console.warn('Accessibility violations);'
       //       }
       // Critical violations should be zero'
-      const _criticalViolations = violations.filter((v) => v.impact === 'critical');
+      const criticalViolations = violations.filter((v) => v.impact === 'critical');
       expect(criticalViolations).toHaveLength(0);
     }
     )
@@ -281,7 +279,7 @@ describe('Accessibility', () =>
   describe('Browser Compatibility', () =>
     {
       '
-      const _browsers = ['chromium', 'firefox', 'webkit'];
+      const browsers = ['chromium', 'firefox', 'webkit'];
       browsers.forEach((browserType) => {
         '
       it(`
@@ -289,13 +287,13 @@ describe('Accessibility', () =>
         work in $;
         browserType;
         `, async() => {
-// const _testBrowser = awaitplaywright[browserType].launch();
-// const _testContext = awaittestBrowser.newContext();
-// const _testPage = awaittestContext.newPage();`;
+// const testBrowser = awaitplaywright[browserType].launch();
+// const testContext = awaittestBrowser.newContext();
+// const testPage = awaittestContext.newPage();`;
         // // await testPage.goto('http);'
 
         // Verify basic functionality works'
-        // const _uploadArea = awaittestPage.locator('[data-testid='upload-area']');
+        // const uploadArea = awaittestPage.locator('[data-testid='upload-area']');
         expect( // await uploadArea.isVisible()).toBe(true);
         // // await testBrowser.close();
       });
@@ -305,9 +303,9 @@ describe('Accessibility', () =>
   )
 afterAll(() =>
   {
-    const _stats = metricsCollector.getStats();
+    const stats = metricsCollector.getStats();
     '
-    console.warn('E2E Test Performance Statistics:', ...stats,)'
+    console.warn('E2E Test Performance Statistics:', ...stats)'
     averagePageLoadTime: `$
     {
       stats.averageDuration.toFixed(2);

@@ -60,7 +60,7 @@ export class HiveMindCore extends EventEmitter {
     // }/g))))`
     `);``
 this.emit(''
-      console.error('Performance optimizer error => {;'))'
+      console.error('Performance optimizer error => {;');)'
 this.emit('performance = (this.state.metrics.tasksFailed  ?? 0) + 1;'
 // Ruv-swarm handles task retry and recovery internally'
 console.warn('[HiveMindCore] Task failure handling is deprecated. RuvSwarm handles recovery.');
@@ -80,7 +80,7 @@ this.hierarchicalTaskManagerPlugin = this.defaultRegistry.pluginSystem.getPlugin
 // Initialize ruv-swarm via mcpWrapper
 // // await this.mcpWrapper.initialize();
 // Initialize swarm with MCP tools(now directly using ruv-swarm via mcpWrapper)'
-// const _swarmInitResult = awaitthis.mcpWrapper.executeTool('swarm_init', {topology = swarmInitResult.swarmId;/g)'
+// const swarmInitResult = awaitthis.mcpWrapper.executeTool('swarm_init', {topology = swarmInitResult.swarmId;/g)'
 // Store initial configuration in memory(via mcpWrapper, which uses ruv-swarm''
 // // await this.mcpWrapper.executeTool('memory_usage', {action = 'ready';'
 this.emit('initialized', {swarmId = 'error';))'
@@ -98,7 +98,7 @@ _determineTopology();
     // return this.config.topology;
     //   // LINT: unreachable code removed}
 
-  const _objective = this.config.objective.toLowerCase();
+  const objective = this.config.objective.toLowerCase();
 
   // Heuristic topology selection'
   if(objective.includes('research')  ?? objective.includes('analysis')) {'
@@ -121,19 +121,19 @@ spawnQueen(queenData);
 
     try {
       // Batch spawn agents in parallel with optimized chunking
-      const _groupedTypes = this._groupAgentTypes(workerTypes);
-      const _allResults = [];
+      const groupedTypes = this._groupAgentTypes(workerTypes);
+      const allResults = [];
   for(const group of groupedTypes) {
-        const _batch = group.map((_type) => ({ tool = // await this.mcpWrapper.executeParallel(batch); 
+        const batch = group.map((_type) => ({ tool = // await this.mcpWrapper.executeParallel(batch); 
         allResults.push(...groupResults); // Store agent information in memory(via mcpWrapper) {
   for(const result of groupResults) {
   if(result?.agentId && !result.error) {'
 // // await this.mcpWrapper.executeTool('memory_usage', {action = Date.now() - startTime; 
       this._trackSpawnPerformance(workerTypes.length, spawnTime); // Store worker info in memory(via mcpWrapper) {'
-// // await this.mcpWrapper.executeTool('memory_usage', {action = > ({ id: r.agentId,type = 5, metadata = {} catch (error) { console.error(error); }) {
-    const _timestamp = Date.now();
-    const _randomPart = Math.random().toString(36).substring(2, 11); // Use substring instead of substr'
-    const __taskId = `;
+// // await this.mcpWrapper.executeTool('memory_usage', {action = > ({ id: r.agentId,type = 5, metadata = {}) {
+    const timestamp = Date.now();
+    const randomPart = Math.random().toString(36).substring(2, 11); // Use substring instead of substr'
+    const _taskId = `;
     `
 task - $;
 // {
@@ -144,11 +144,11 @@ task - $;
   randomPart;
 // }``;`;
 
-    const __task = {id = // await this.mcpWrapper.executeParallel([;
+    const _task = {id = // await this.mcpWrapper.executeParallel([;
       {tool = orchestrateResult.taskId;
     `
     this.emit('task = description.toLowerCase().split(/\s+/);'
-    const _complexityKeywords = {simple = 1;
+    const complexityKeywords = {simple = 1;
   for(const word of words) {
       if(_complexityKeywords._complex._includes(_word)) score += 3; else if(complexityKeywords.medium.includes(word)) score += 2; else if(complexityKeywords.simple.includes(word) {) score += 1;
     //     }
@@ -159,7 +159,7 @@ task - $;
 /** Analyze task complexity */
 
   _analyzeTaskComplexity(description) {
-    const __words = description.toLowerCase().split(/\s+/);
+    const _words = description.toLowerCase().split(/\s+/);
 
     //     }
 '
@@ -203,30 +203,30 @@ task - $;
 /** Build consensus for decision */
 
   async buildConsensus(topic, options) { 
-    const _decision = id = Array.from(this.state.workers.values());
-    const _votes = {};
+    const decision = id = Array.from(this.state.workers.values());
+    const votes = {};
 
     // Each worker votes
     workers.forEach((worker) => {
-      const _vote = options[Math.floor(Math.random() * options.length)]
+      const vote = options[Math.floor(Math.random() * options.length)]
       votes[worker.id] = vote;
       decision.votes.set(worker.id, vote);
     });
 
     // Queen gets weighted vote
-    const _queenVote = options[Math.floor(Math.random() * options.length)]
+    const queenVote = options[Math.floor(Math.random() * options.length)]
     votes.queen = queenVote;'
     decision.votes.set('queen', queenVote);
 
     // Calculate consensus
-    const _result = this._calculateConsensus(decision);
+    const result = this._calculateConsensus(decision);
     decision.result = result.decision;
     decision.confidence = result.confidence;'
     decision.status = 'completed';
 
     // Convert Map to plain object for proper JSON serialization
 
-    const _voteCount = {};
+    const voteCount = {};
 
     // Count votes
     votes.forEach((vote) => {
@@ -235,16 +235,16 @@ task - $;
   switch(decision.algorithm) {'
       case 'majority': {
         // Simple majority
-        const __sorted = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
+        const _sorted = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
 // '
         return {decision = decision.votes.get('queen');
     // voteCount[queenVote] = (voteCount[queenVote]  ?? 0) + 2; // Queen counts as 3 votes // LINT: unreachable code removed
 
-        const __weightedSorted = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
+        const _weightedSorted = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
 // 
         return {decision = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
-    // const _byzantineWinner = byzantineSorted[0]; // LINT: unreachable code removed
-        const _byzantineConfidence = byzantineWinner[1] / votes.length;
+    // const byzantineWinner = byzantineSorted[0]; // LINT: unreachable code removed
+        const byzantineConfidence = byzantineWinner[1] / votes.length;
   if(byzantineConfidence >= 0.67) {'
 //           return {decision = (// await this.mcpWrapper.executeTool('swarm_status', {swarmId = (// await this.mcpWrapper.executeTool('swarm_status', {swarmId = // await this._determineWorkerType();
     // // await this.spawnWorkers([newWorkerType]); // LINT: unreachable code removed'
@@ -256,7 +256,7 @@ task - $;
 typeScores.coder = 1; // Default to coder for now
 
     // Return type with highest score
-    const _sorted = Object.entries(typeScores).sort((a, b) => b[1] - a[1]);
+    const sorted = Object.entries(typeScores).sort((a, b) => b[1] - a[1]);
     '
 // return sorted.length > 0 ? sorted[0][0] : 'coder'; // Default to coder
 // }
@@ -284,10 +284,10 @@ _handleError(error)
 
     try {
       // Generate final performance report
-      const _performanceReport = this.performanceOptimizer.generatePerformanceReport();'
+      const performanceReport = this.performanceOptimizer.generatePerformanceReport();'
   // Save final state and performance report(via mcpWrapper, which uses ruv-swarm''
 // // await this.mcpWrapper.executeTool('memory_usage', {action = 'shutdown';/g)'
-  this.emit('shutdown', performanceReport catch (error) console.error(error); );
+  this.emit('shutdown', performanceReport );
 // }
 catch(error)
 // {'

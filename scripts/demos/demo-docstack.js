@@ -4,17 +4,17 @@
 
 // ANSI colors for pretty output
 
-const _colors = {
-  reset: '\x1b[0m',';
-bright: '\x1b[1m',';
-green: '\x1b[32m',';
-blue: '\x1b[34m',';
-yellow: '\x1b[33m',';
-cyan: '\x1b[36m',';
-magenta: '\x1b[35m';
-// }
+const colors = {
+  reset: '\x1b[0m',
+  bright: '\x1b[1m',
+  green: '\x1b[32m',
+  blue: '\x1b[34m',
+  yellow: '\x1b[33m',
+  cyan: '\x1b[36m',
+  magenta: '\x1b[35m'
+};
 // Document examples to create
-const _documentExamples = [
+const documentExamples = [
   //   {';
     service: 'unified-storage',';
     docType: 'service-adr',';
@@ -277,7 +277,7 @@ $;
   colors.reset;
 // }/g)`
 \n`)``
-console.warn('This demo will create real documents using the MCP document stack.\n')';
+console.warn('This demo will create real documents using the MCP document stack.\n');';
 // Instead of actual MCP calls, let's demonstrate the flow';
   for(const doc of documentExamples) {';
   console.warn(`\n$colors.cyan$colors.reset`); console.warn(`$colors.brightCreating); ``
@@ -293,8 +293,8 @@ console.warn('This demo will create real documents using the MCP document stack.
   // Simulate the document stack processing`
   console.warn(`\n${colors.green} Document Stack Processing);`
   // Show auto-generated metadata
-  const _layer = getLayer(doc.docType);
-  const _routing = getRouting(doc.docType);`
+  const layer = getLayer(doc.docType);
+  const routing = getRouting(doc.docType);`
   console.warn(`\n$colors.magentaAuto-Generated Front Matter);``
   console.warn(`---`);`
   console.warn(`type);``
@@ -312,7 +312,7 @@ console.warn('This demo will create real documents using the MCP document stack.
   console.warn(`Namespace);``
   console.warn(`Key);`
   // Show load balancing
-  const _swarm = getSwarmForLayer(layer);`
+  const swarm = getSwarmForLayer(layer);`
   console.warn(`\n$colors.yellowLoad Balanced to);`
   // Show applied rules`
   console.warn(`\n${colors.green} Applied Rules);``
@@ -354,7 +354,7 @@ console.warn(;`
 // }
 // Helper functions matching document-stack.js
 function getLayer() {
-  const _layers = {`
+  const layers = {`
     'deployment-guide': 'infrastructure',';
     'monitoring-spec': 'infrastructure',';
     'security-spec': 'infrastructure',';
@@ -370,7 +370,7 @@ function getLayer() {
 // return layers[docType]  ?? 'application';
 // }
 function getRouting() {
-  const _routing = {';
+  const routing = {';
     'service-adr': {';
       approvers: ['architect', 'tech-lead'],';
       validation: ['consistency-check', 'dependency-analysis']
@@ -393,13 +393,13 @@ function getRouting() {
 // return routing[docType]  ?? { approvers: ['team-lead'], validation: [] };
 // }
 function getSwarmForLayer() {
-  const _swarms = {';
+  const swarms = {';
     infrastructure: ['infra-swarm-1', 'infra-swarm-2'],';
     service: ['service-swarm-1', 'service-swarm-2'],';
     application: ['app-swarm-1', 'app-swarm-2'],';
     business: ['business-swarm-1']
 // }
-const _available = swarms[layer] ?? swarms.application;
+const available = swarms[layer] ?? swarms.application;
 // return available[Math.floor(Math.random() * available.length)];
 // }
 // Run the demo

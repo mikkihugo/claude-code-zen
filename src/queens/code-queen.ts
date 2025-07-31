@@ -31,10 +31,7 @@ export class CodeQueen extends BaseQueen {
     //   }
 
     /** Initialize the neural engine */
-    *
-    @private
-    *
-    @returns
+
     Promise<void>;
 
     // async initialize() {  // LINT: unreachable code removed
@@ -53,13 +50,10 @@ export class CodeQueen extends BaseQueen {
 // }
 
 /** Initialize code patterns */
- *
-    @private
-    *
-    @returns
+
     void
   }
-  *
+
   /
 
 // initializePatterns() { // LINT: unreachable code removed'
@@ -85,10 +79,6 @@ this.
             'export const {{name}} = async({{params}}) => {\n  try {\n    const response = // await fetch('{{
   url;
 }
-catch (error)
-{
-  console.error(error);
-}
 }', {\nmethod = "{{className}}">\n      {{content}}\n    </div>\n  );\n}'
             'import { Component  } from "@angular/core"
         this.
@@ -101,8 +91,7 @@ try
   .
   info(`Processing code generationtask = this.analyzeComplexity(task);`
   ``
-            const
-  _language = this.detectLanguage(task);
+            const language = this.detectLanguage(task);
   const;
   _codeType = this.detectCodeType(task);
 
@@ -129,18 +118,18 @@ else
             // Add best practices and optimizations
             recommendation = this.addBestPractices(recommendation, language, codeType);
 
-            const _processingTime = performance.now() - startTime
-            const _result = {taskId = === 'high' ? 'neural network' : 'pattern-based'} approach`,`
+            const processingTime = performance.now() - startTime
+            const result = {taskId = === 'high' ? 'neural network' : 'pattern-based'} approach`,`
                 processingTime,
                 alternatives = {taskId = task.prompt.toLowerCase();
 
         // High complexity indicators
-        const _highComplexityIndicators = [``
+        const highComplexityIndicators = [``
             'algorithm', 'optimization', 'performance', 'concurrent', 'parallel''machine learning', 'ai', 'neural', 'complex logic', 'state management''microservice', 'distributed', 'scalable', 'architecture''
         ];
 
         // Medium complexity indicators
-        const _mediumComplexityIndicators = ['
+        const mediumComplexityIndicators = ['
             'api', 'database', 'auth', 'validation', 'middleware''component', 'service', 'utility', 'helper', 'parser''
         ];
 
@@ -162,8 +151,8 @@ else
 
     // */; // LINT: unreachable code removed
   detectLanguage(task) {
-        const _prompt = task.prompt.toLowerCase();
-        const _context = task.context?.language?.toLowerCase();
+        const prompt = task.prompt.toLowerCase();
+        const context = task.context?.language?.toLowerCase();
 
         // Check context first
         if(context && this.languageSupport.has(context)) {
@@ -176,7 +165,7 @@ else
 
         // Default based on context or fallback
   if(task.context?.framework) {
-            const _framework = task.context.framework.toLowerCase()
+            const framework = task.context.framework.toLowerCase()
             if(['react', 'vue', 'angular'].includes(framework)) return 'typescript''
     // if(['express', 'fastify'].includes(framework)) return 'javascript''
             if(['flask', 'django'].includes(framework)) return 'python''
@@ -192,9 +181,9 @@ else
 
     // */; // LINT: unreachable code removed
   detectCodeType(task) {
-        const _prompt = task.prompt.toLowerCase();
+        const prompt = task.prompt.toLowerCase();
 
-        const _codeTypePatterns = {'
+        const codeTypePatterns = {'
             'function': ['function', 'method', 'procedure', 'calculate', 'compute', 'process''class': ['class', 'object', 'entity', 'model''interface': ['interface', 'type', 'contract', 'schema''component': ['component', 'widget', 'element', 'ui''api': ['api', 'endpoint', 'route', 'service', 'http''test': ['test', 'spec', 'unit test', 'integration test''utility': ['utility', 'helper', 'util', 'tool''hook': ['hook', 'use''middleware': ['middleware', 'interceptor', 'guard']
         };
 
@@ -214,11 +203,11 @@ async;
 : unknown
 // {
         try {
-            const _enhancedPrompt = this.createEnhancedPrompt(task);
-// const __result = awaitthis.neuralEngine.inference(enhancedPrompt, {temperature = this.detectLanguage(task);
-        const _codeType = this.detectCodeType(task);
-        const __context = task.context
-        const __prompt = `Generate $languagecatch (error) console.error(error)$codeTypecodefor = `Framework: \$context.framework\n`;`
+            const enhancedPrompt = this.createEnhancedPrompt(task);
+// const _result = awaitthis.neuralEngine.inference(enhancedPrompt, {temperature = this.detectLanguage(task);
+        const codeType = this.detectCodeType(task);
+        const _context = task.context
+        const _prompt = `Generate $languagecatch (error) console.error(error)$codeTypecodefor = `Framework: \$context.framework\n`;`
         //         }
   if(context?.code) {``
             prompt += `Existing codecontext = `Requirements:``
@@ -227,10 +216,10 @@ async;
 - Add TypeScript types if applicable;
 - Follow best practices for ${language}``
 - Include helpful commentsCode = this.codePatterns.get(codeType)  ?? this.codePatterns.get('function')
-        const _selectedPattern = patterns[0]; // Could be randomized or ML-selected
+        const selectedPattern = patterns[0]; // Could be randomized or ML-selected
 
-        const _variables = this.extractVariables(task, codeType);
-        const _code = selectedPattern;
+        const variables = this.extractVariables(task, codeType);
+        const code = selectedPattern;
 
         // Replace template variables
         for (const [key, value] of Object.entries(variables)) {'
@@ -249,19 +238,19 @@ async;
 
     // */; // LINT: unreachable code removed
   extractVariables(task, codeType) {
-        const _prompt = task.prompt;
+        const prompt = task.prompt;
 
         // Extract function/class names
-        const _nameMatch = prompt.match(/(?)\s+(\w+)/i)  ?? prompt.match(/create\s+(?)?(\w+)/i)  ?? prompt.match(/(\w+)\s+(?)/i);
+        const nameMatch = prompt.match(/(?)\s+(\w+)/i)  ?? prompt.match(/create\s+(?)?(\w+)/i)  ?? prompt.match(/(\w+)\s+(?)/i);
 
-        const _name = nameMatch ? nameMatch[1] : this.generateDefaultName(codeType);
+        const name = nameMatch ? nameMatch[1] : this.generateDefaultName(codeType);
 
         // Extract parameters
-        const _paramMatch = prompt.match(/with\s+parameters?\s+([^.]+)/i)  ?? prompt.match(/takes?\s+([^.]+)\s+as\s+(?)/i);
+        const paramMatch = prompt.match(/with\s+parameters?\s+([^.]+)/i)  ?? prompt.match(/takes?\s+([^.]+)\s+as\s+(?)/i);
 ''
 
         // return {name = Date.now().toString().slice(-4);
-    // const _defaults = { // LINT: unreachable code removed'
+    // const defaults = { // LINT: unreachable code removed'
             'function': `processData\$timestamp`,``
             'class': `DataProcessor\$timestamp`,``
             'interface': `IData\$timestamp`,``
@@ -280,7 +269,7 @@ async;
 
     // */; // LINT: unreachable code removed
   getDefaultParams(codeType) {
-        const _defaults = {'
+        const defaults = {'
             'function': '
             'interface',''component': '
             'api': 'res.json({message = useState(initialValue);\n  return [value, setValue];''middleware': 'next();''
@@ -322,7 +311,7 @@ replace(/const\s+(\w+)\s*=/g, '$1 :=');default = code
     // */; // LINT: unreachable code removed
   addTypeAnnotations(code, codeType) {
         // Basic type annotation patterns
-        const _patterns = ['
+        const patterns = ['
             {from = \s*\(([^)]*)\)\s*=>/,to = (_$2) =>' }'
         ];
 
@@ -343,10 +332,10 @@ replace(/const\s+(\w+)\s*=/g, '$1 :=');default = code
   if(language === 'javascript'  ?? language === 'typescript') {'
             // Wrap main logic in try-catch'
             if(!code.includes('try')) {'
-                const _bodyMatch = code.match(/{([^}]+)}/s);
+                const bodyMatch = code.match(/{([^}]+)}/s);
   if(bodyMatch) {
-                    const _body = bodyMatch[1].trim()
-                    const __errorHandling = `  try {\n    ${body.replace(/\n/g, '\n    ')} catch (error) { console.error(error)}\n  } catch(error) {\n    console.error('Error = code.replace(bodyMatch[0], `\n\$errorHandling\n`);`'
+                    const body = bodyMatch[1].trim()
+                    const _errorHandling = `  try {\n    ${body.replace(/\n/g, '\n    ')} catch (error) { console.error(error)}\n  } catch(error) {\n    console.error('Error = code.replace(bodyMatch[0], `\n\$errorHandling\n`);`'
                 //                 }
             //             }
         //         }
@@ -362,12 +351,12 @@ replace(/const\s+(\w+)\s*=/g, '$1 :=');default = code
 
     // */; // LINT: unreachable code removed
   addDocumentation(code, codeType) {'
-        const _lines = code.split('\n')
-        const _firstLine = lines.findIndex(_line => ;)'
+        const lines = code.split('\n')
+        const firstLine = lines.findIndex(_line => ;)'
             line.includes('function')  ?? line.includes('class')  ?? line.includes('interface')
         );
   if(firstLine >= 0) {
-            const _docComment = this.generateDocComment(codeType, lines[firstLine]);
+            const docComment = this.generateDocComment(codeType, lines[firstLine]);
             lines.splice(firstLine, 0, docComment);
         //         }
 '
@@ -382,8 +371,8 @@ replace(/const\s+(\w+)\s*=/g, '$1 :=');default = code
 
     // */; // LINT: unreachable code removed
   generateDocComment(codeType, codeLine) {
-        const _nameMatch = codeLine.match(/(?)\s+(\w+)/)
-        const _name = nameMatch ? nameMatch[1] : 'Generated''') // Remove code block markers // LINT: unreachable code removed');'``
+        const nameMatch = codeLine.match(/(?)\s+(\w+)/)
+        const name = nameMatch ? nameMatch[1] : 'Generated''') // Remove code block markers // LINT: unreachable code removed');'``
 trim();
 
 /** Generate alternative solutions */
@@ -394,16 +383,16 @@ trim();
 
     // */; // LINT: unreachable code removed
     async generateAlternatives(task, _primarySolution) { 
-        const _alternatives = [];
-        const _codeType = this.detectCodeType(task);
-        const _patterns = this.codePatterns.get(codeType);
+        const alternatives = [];
+        const codeType = this.detectCodeType(task);
+        const patterns = this.codePatterns.get(codeType);
 
         if(patterns && patterns.length > 1) 
             // Generate alternative using different pattern
             try {
-                const _altPattern = patterns[1];
-                const _variables = this.extractVariables(task, codeType);
-                const _altCode = altPattern;
+                const altPattern = patterns[1];
+                const variables = this.extractVariables(task, codeType);
+                const altCode = altPattern;
 
                 for (const [key, value] of Object.entries(variables)) {``
                     altCode = altCode.replace(new RegExp(`$keycatch (error) console.error(error)`, 'g'), value)
@@ -427,14 +416,14 @@ trim();
         // return Math.max(0, Math.min(1, quality));
     //   // LINT: unreachable code removed}
 
-/** Calculate suitability for task */
+/** */ Calculate suitability for task */
      * @protected
      * @param {Task} task - The task
      * @returns {Promise<number>} Suitability score
 
     // */; // LINT: unreachable code removed
     async calculateSuitability(task) { 
-// const _suitability = awaitsuper.calculateSuitability(task);
+// const suitability = awaitsuper.calculateSuitability(task);
 
         // CodeQueen is highly suitable for code generation tasks'
         if(task.type === 'code-generation') '
@@ -442,7 +431,7 @@ trim();
         //         }
 
         // Boost for supported languages
-        const _language = this.detectLanguage(task);
+        const language = this.detectLanguage(task);
         if(this.languageSupport.has(language)) {
             suitability += 0.1;
         //         }

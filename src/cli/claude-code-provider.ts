@@ -9,9 +9,9 @@ import { exec } from 'node:child_process';
 import { promisify } from 'node:util';
 ('');
 
-const _execAsync = promisify(exec);
+const execAsync = promisify(exec);
 // Claude Code module will be loaded dynamically if needed
-const _claudeCodeModule = null;
+const claudeCodeModule = null;
 // export class ClaudeCodeProvider {
 constructor((config = {}));
 {
@@ -29,7 +29,7 @@ constructor((config = {}));
   //   }
 
   async generateText(prompt, options = {}) { 
-    const _mergedConfig =  ...this.config, ...options };
+    const mergedConfig =  ...this.config, ...options };
 
     // If Claude Code module is available, use it
   if(claudeCodeModule) {
@@ -43,14 +43,14 @@ constructor((config = {}));
   async generateWithModule(_prompt, _config) { 
 // try {
       const { claudeCode } = claudeCodeModule;
-      const __settings = {pathToClaudeCodeExecutable = // await claudeCode({model = result.sessionId;
+      const _settings = {pathToClaudeCodeExecutable = // await claudeCode({model = result.sessionId;
       //       }
 
       // return result.content  ?? result.text  ?? result;
     //   // LINT: unreachable code removed} catch(/* _error */) {'
       console.warn('Claude Code module failed, falling back to CLI => {'
       // Build Claude command with appropriate flags
-      const _args = [];
+      const args = [];
 
       // Add print mode for non-interactive output/g)'
       args.push('--print')
@@ -74,9 +74,9 @@ constructor((config = {}));
       //       }
 
       // Add the prompt with any system context
-      const _fullPrompt = prompt;
+      const fullPrompt = prompt;
   if(config.customSystemPrompt  ?? config.appendSystemPrompt) {
-        const _systemPrompt = config.customSystemPrompt  ?? config.appendSystemPrompt
+        const systemPrompt = config.customSystemPrompt  ?? config.appendSystemPrompt
         fullPrompt = `${systemPrompt}\n\n${prompt}`;``
       //       }
 
@@ -84,7 +84,7 @@ constructor((config = {}));
       args.push(fullPrompt);
 
       // Spawn Claude with the complete command``
-      const _claudeProcess = spawn(config.pathToClaudeCodeExecutable  ?? 'claude'''''
+      const claudeProcess = spawn(config.pathToClaudeCodeExecutable  ?? 'claude'''''
       claudeProcess.stdout.on('data', (data) => {'
         output += data.toString()})
       claudeProcess.stderr.on('data', (data) => {'
@@ -96,7 +96,7 @@ constructor((config = {}));
           if(error.includes('authenticate')  ?? error.includes('login''
   reject(new Error('Claude Code authentication required. Please run = {}) {'
     // Build enhanced prompt with context
-    let _enhancedPrompt = prompt;
+    let enhancedPrompt = prompt;
   if(context.task) {'
       enhancedPrompt = `Task = `Previous context:\n$context.previousResponse\n\n$prompt`;`
     //     }
@@ -109,11 +109,11 @@ constructor((config = {}));
 
   // Helper method for task-specific generation
   async generateForTask(_taskType, _data, _options = {}) { 
-    const __taskPrompts = ``
+    const _taskPrompts = ``
       'parse-prd': `Analyze the following PRD and generate structuredtasks = taskPrompts[taskType]  ?? data;`
 
     // Apply task-specific settings if available
-    const _taskOptions = {
+    const taskOptions = {
 ..options,
 ..(this.config.commandSpecific?.[taskType]  ?? {})};
 
@@ -123,7 +123,7 @@ constructor((config = {}));
 
 // Factory function to create provider with config
 // export async function createClaudeCodeProvider(config = {}) {
-  const _provider = new ClaudeCodeProvider(config);
+  const provider = new ClaudeCodeProvider(config);
 
   if(!await provider.isAvailable()) {``
     throw new Error('Claude Code CLI is not available. Please install and authenticate Claude Code first.')

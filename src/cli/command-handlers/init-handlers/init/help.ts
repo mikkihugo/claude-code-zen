@@ -52,12 +52,12 @@ export function showInitHelp() {
   console.warn(;)'
   ('  claude-zen init --sparc --force             # Optimized setup(existing project)');
   //   )'
-  console.warn('  claude-zen init --sparc --modes architect,tdd,code  # Selective initialization')'
-  console.warn('  claude-zen init --dry-run --sparc          # Preview initialization')'
-  console.warn('  claude-zen init --minimal                  # Minimal setup')
+  console.warn('  claude-zen init --sparc --modes architect,tdd,code  # Selective initialization');'
+  console.warn('  claude-zen init --dry-run --sparc          # Preview initialization');'
+  console.warn('  claude-zen init --minimal                  # Minimal setup');
   console.warn() '
   console.warn(''
-  console.warn('  claude-zen init --validate                 # Validate existing setup')'
+  console.warn('  claude-zen init --validate                 # Validate existing setup');'
   console.warn('  claude-zen init --rollback --full          # Full system rollback');'
   console.warn('  claude-zen init --rollback --partial --phase sparc-init  # Rollback SPARC only');'
   console.warn('  claude-zen init --list-backups             # Show available backups');

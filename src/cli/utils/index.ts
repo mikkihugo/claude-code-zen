@@ -19,5 +19,4 @@ export {
   printInfo,
   printSuccess,
   printWarning,
-  supportsColor,
-} from '.';
+  supportsColor} from '.';

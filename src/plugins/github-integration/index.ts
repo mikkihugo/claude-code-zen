@@ -39,7 +39,7 @@ this.rateLimitInfo = null;
 analyzeRepository(owner, (repo = ))
 : Promise<RepositoryAnalysis>
 //   {
-const __analysisOptions = {includeIssues = {repository = analysis.repository;
+const _analysisOptions = {includeIssues = {repository = analysis.repository;
 analysis.metrics.basic = {stars = // await this.analyzeTechnologyStack(owner, repo);
   //   }
   // Issue analysis
@@ -76,7 +76,7 @@ getRepository((owner = {}));
   sort = {};
   ): Promise<GitHubIssue[]>
   //   {
-    const _issueOptions = {state = new URLSearchParams(;
+    const issueOptions = {state = new URLSearchParams(;
     Object.entries(issueOptions).map(([key, value]) => [key, value.toString()]);
     //     )'
 //     return // await this.makeRequest<GitHubIssue[]>(`/repos/${owner}/${repo}/issues?${params}`);
@@ -88,17 +88,17 @@ getRepository((owner = {}));
   private;
   async;`
   analyzeTechnologyStack(owner = await this.makeRequest<Record<string, number>>(`/repos/$owner/${repo}/languages`);
-  const _totalBytes = Object.values(languages).reduce((sum, bytes) => sum + bytes, 0);
-  const _languagePercentages = {};
+  const totalBytes = Object.values(languages).reduce((sum, bytes) => sum + bytes, 0);
+  const languagePercentages = {};
   for (const [lang, bytes] of Object.entries(languages)) {
     languagePercentages[lang] = ((bytes / totalBytes) * 100).toFixed(2); //   }
   // Get repository contents to analyze tech stack`
-// const _contents = awaitthis.getContents(owner, repo, ''); 
+// const contents = awaitthis.getContents(owner, repo, ''); 
   // return {languages = [];
-  // const _buildTools = []; // LINT: unreachable code removed
-  const _packageManagers = [];
-  const _configFiles = [];
-  const _detectionRules = (> void> = {'
+  // const buildTools = []; // LINT: unreachable code removed
+  const packageManagers = [];
+  const configFiles = [];
+  const detectionRules = (> void> = {'
   'package.json') {=> packageManagers.push('npm'),'
   ('yarn.lock');'
   : () => packageManagers.push('yarn'),'
@@ -145,7 +145,7 @@ getRepository((owner = {}));
   : () => configFiles.push('CI/CD') }
 // 
   for(const file of contents) {
-  const _fileName = file.name.toLowerCase(); const _rule = detectionRules[fileName] ?? detectionRules[file.name]; if(rule) {
+  const fileName = file.name.toLowerCase(); const rule = detectionRules[fileName] ?? detectionRules[file.name]; if(rule) {
     rule();
   //   }
 // }
@@ -156,15 +156,15 @@ getRepository((owner = {}));
 
 // private // async
 analyzeIssues(owner = new Date(Date.now() - timeRangeDays * 24 * 60 * 60 * 1000).toISOString() {}'
-// const _allIssues = awaitthis.getIssues(owner, repo, {state = allIssues.filter(issue => issue.state === 'open');'
-const _closedIssues = allIssues.filter((issue) => issue.state === 'closed');
+// const allIssues = awaitthis.getIssues(owner, repo, {state = allIssues.filter(issue => issue.state === 'open');'
+const closedIssues = allIssues.filter((issue) => issue.state === 'closed');
 // Calculate average close time
-const __closeTimes = closedIssues;
+const _closeTimes = closedIssues;
 filter((issue) => issue.closed_at)
 map((issue) =>
 // {
-  const _created = new Date(issue.created_at).getTime();
-  const _closed = new Date(issue.closed_at!).getTime();
+  const created = new Date(issue.created_at).getTime();
+  const closed = new Date(issue.closed_at!).getTime();
   return(closed - created) / (1000 * 60 * 60 * 24); // days
 // }
 // 
@@ -173,100 +173,100 @@ map((issue) =>
     labelsUsage[label.name] = (labelsUsage[label.name] ?? 0) + 1; //   }
 // }
 // Recent activity analysis(last 30 days, weekly)
-const _recentActivity = []; const __thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+const recentActivity = []; const _thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
   for(let i = 0; i < 4; i++) {
-        const _weekStart = new Date(thirtyDaysAgo + i * 7 * 24 * 60 * 60 * 1000);
-        const _weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+        const weekStart = new Date(thirtyDaysAgo + i * 7 * 24 * 60 * 60 * 1000);
+        const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
 
-        const __weekOpened = allIssues.filter(issue => {)
-          const _created = new Date(issue.created_at).getTime();
+        const _weekOpened = allIssues.filter(issue => {)
+          const created = new Date(issue.created_at).getTime();
 //           return created >= weekStart.getTime() && created < weekEnd.getTime();
     //   // LINT: unreachable code removed}).length;
 
-        const __weekClosed = closedIssues.filter(issue => {)
-          const _closed = issue.closed_at ? new Date(issue.closed_at).getTime() ;
+        const _weekClosed = closedIssues.filter(issue => {)
+          const closed = issue.closed_at ? new Date(issue.closed_at).getTime() ;
 //           return closed >= weekStart.getTime() && closed < weekEnd.getTime();
     //   // LINT: unreachable code removed}).length;
 
         recentActivity.push({date = new Date(Date.now() - timeRangeDays * 24 * 60 * 60 * 1000).toISOString();
-// const _allPRs = awaitthis.makeRequest<GitHubPullRequest[]>(;'
+// const allPRs = awaitthis.makeRequest<GitHubPullRequest[]>(;'
         `/repos/${owner}/${repo}/pulls?state=all&since=${since}&per_page=100`;
       );
 `
-      const _closedPRs = allPRs.filter(pr => pr.state === 'closed');
-      const _mergedPRs = closedPRs.filter(pr => pr.merged_at);
+      const closedPRs = allPRs.filter(pr => pr.state === 'closed');
+      const mergedPRs = closedPRs.filter(pr => pr.merged_at);
 
       // Calculate average merge time
-      const __mergeTimes = mergedPRs;
+      const _mergeTimes = mergedPRs;
 map(pr => {
-          const _created = new Date(pr.created_at).getTime();
-          const _merged = new Date(pr.merged_at!).getTime();
+          const created = new Date(pr.created_at).getTime();
+          const merged = new Date(pr.merged_at!).getTime();
           return(merged - created) / (1000 * 60 * 60 * 24); // days
         });
 
-      const _thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+      const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
   for(let i = 0; i < 4; i++) {
-        const _weekStart = new Date(thirtyDaysAgo + i * 7 * 24 * 60 * 60 * 1000);
-        const _weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+        const weekStart = new Date(thirtyDaysAgo + i * 7 * 24 * 60 * 60 * 1000);
+        const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
 
-        const __weekOpened = allPRs.filter(pr => {)
-          const _created = new Date(pr.created_at).getTime();
+        const _weekOpened = allPRs.filter(pr => {)
+          const created = new Date(pr.created_at).getTime();
 //           return created >= weekStart.getTime() && created < weekEnd.getTime();
     //   // LINT: unreachable code removed}).length;
 // 
           return merged >= weekStart.getTime() && merged < weekEnd.getTime();
     //   // LINT: unreachable code removed}).length;
 
-        const _weekClosed = closedPRs.filter(pr => {)
-          const _closed = pr.closed_at ? new Date(pr.closed_at).getTime() ;
+        const weekClosed = closedPRs.filter(pr => {)
+          const closed = pr.closed_at ? new Date(pr.closed_at).getTime() ;
 //           return closed >= weekStart.getTime() && closed < weekEnd.getTime() && !pr.merged_at;
     //   // LINT: unreachable code removed}).length;
 
         recentActivity.push({date = new Date(Date.now() - timeRangeDays * 24 * 60 * 60 * 1000).toISOString();
-// const _commits = awaitthis.makeRequest<GitHubCommit[]>(;'
+// const commits = awaitthis.makeRequest<GitHubCommit[]>(;'
         `/repos/$owner/${repo}/commits?since=${since}&per_page=100`;
       );
 
       // Commit frequency by day of week
 
       // Top contributors
-      const _contributorStats = {};
+      const contributorStats = {};
 
       // Activity timeline(weekly)
-      const _activityTimeline = [];
+      const activityTimeline = [];
   for(const commit of commits) {
-        const __date = new Date(commit.commit.author.date); if(!contributorStats[author]) {
+        const _date = new Date(commit.commit.author.date); if(!contributorStats[author]) {
           contributorStats[author] = {commits = commit.stats.additions; contributorStats[author].deletions += commit.stats.deletions;
         //         }
       //       }
 
       // Sort contributors by commits
-      const __topContributors = Object.entries(contributorStats) {;
+      const _topContributors = Object.entries(contributorStats) {;
 map(([author, stats]) => (author, ...stats ));
 sort((a, b) => b.commits - a.commits);
 slice(0, 10);
 
       // Generate weekly timeline for the last 4 weeks
-      const _fourWeeksAgo = Date.now() - 28 * 24 * 60 * 60 * 1000;
+      const fourWeeksAgo = Date.now() - 28 * 24 * 60 * 60 * 1000;
   for(let i = 0; i < 4; i++) {
-        const _weekStart = new Date(fourWeeksAgo + i * 7 * 24 * 60 * 60 * 1000);
-        const _weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+        const weekStart = new Date(fourWeeksAgo + i * 7 * 24 * 60 * 60 * 1000);
+        const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
 
-        const __weekCommits = commits.filter(commit => {)
-          const _commitDate = new Date(commit.commit.author.date).getTime();
+        const _weekCommits = commits.filter(commit => {)
+          const commitDate = new Date(commit.commit.author.date).getTime();
 //           return commitDate >= weekStart.getTime() && commitDate < weekEnd.getTime();
     //   // LINT: unreachable code removed});
 `
         activityTimeline.push({date = // await this.makeRequest<Array<{login = 100`);`
 
-      const _totalContributions = contributors.reduce((sum, c) => sum + c.contributions, 0);
+      const totalContributions = contributors.reduce((sum, c) => sum + c.contributions, 0);
 
       // Classify contributors
-      const _coreContributors = 0;
-      const _regularContributors = 0;
-      const _occasionalContributors = 0;
+      const coreContributors = 0;
+      const regularContributors = 0;
+      const occasionalContributors = 0;
   for(const contributor of contributors) {
-        const _percentage = (contributor.contributions / totalContributions) * 100; if(percentage > 20) {
+        const percentage = (contributor.contributions / totalContributions) * 100; if(percentage > 20) {
           coreContributors++; } else if(percentage >= 5) {
           regularContributors++;
         } else {
@@ -275,13 +275,13 @@ slice(0, 10);
       //       }
 
       // Get detailed info for top contributors
-      const _topContributors = [];
+      const topContributors = [];
 
       for (const contributor of contributors.slice(0, 10)) {
         try {
 
-          topContributors.push({login = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString(); // const _recentCommits = awaitthis.makeRequest<GitHubCommit[]>(; `
-        `/repos/${owner} catch (error) { console.error(error); }/${repo}/commits?since=${ninetyDaysAgo}&per_page=100`;
+          topContributors.push({login = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString(); // const recentCommits = awaitthis.makeRequest<GitHubCommit[]>(; `
+        `/repos/${owner}/${repo}/commits?since=${ninetyDaysAgo}&per_page=100`;
       ) ;
 
       // return {
@@ -289,7 +289,7 @@ slice(0, 10);
     // ; // LINT: unreachable code removed
     // Activity score(based on recent commits and issues)
   if(analysis.commits) {
-      const _recentActivity = analysis.commits.recent_commits;
+      const recentActivity = analysis.commits.recent_commits;
       factors.activity = Math.min(100, (recentActivity / 30) * 100); // 30 commits = 100%
   if(factors.activity < 50) {`
         recommendations.push('Increase commit frequency to show active development');
@@ -297,11 +297,11 @@ slice(0, 10);
     //     }
 
     // Community score(based on stars, forks, contributors)
-    const _stars = analysis.metrics.basic.stars;
-    const _forks = analysis.metrics.basic.forks;
-    const _contributors = analysis.contributors?.total_contributors  ?? 0;
+    const stars = analysis.metrics.basic.stars;
+    const forks = analysis.metrics.basic.forks;
+    const contributors = analysis.contributors?.total_contributors  ?? 0;
 
-    factors.community = Math.min(100,)
+    factors.community = Math.min(100)
       (Math.log10(stars + 1) * 20) + ;
       (Math.log10(forks + 1) * 15) + ;
       (contributors * 2);
@@ -312,8 +312,8 @@ slice(0, 10);
 
     // Maintenance score(based on issue resolution and PR merge rate)
   if(analysis.issues && analysis.pullRequests) {
-      const _issueRatio = analysis.issues.closed / (analysis.issues.total  ?? 1);
-      const _prMergeRatio = analysis.pullRequests.merged / (analysis.pullRequests.total  ?? 1);
+      const issueRatio = analysis.issues.closed / (analysis.issues.total  ?? 1);
+      const prMergeRatio = analysis.pullRequests.merged / (analysis.pullRequests.total  ?? 1);
       factors.maintenance = (issueRatio * 50) + (prMergeRatio * 50);
   if(factors.maintenance < 60) {'
         recommendations.push('Improve issue resolution and PR merge rates');
@@ -344,17 +344,17 @@ slice(0, 10);
 
     // Rate limiting
 // // await this.checkRateLimit();
-    const _startTime = performance.now();
+    const startTime = performance.now();
 
     try {`
-// const _response = awaitfetch(`$this.config.settings.baseUrlcatch (error) console.error(error); $endpoint`, {headers = // await response.json();
+// const response = awaitfetch(`$this.config.settings.baseUrl $endpoint`, {headers = // await response.json();
 
       // Update rate limit info from headers`
       if(response.headers.get('x-ratelimit-remaining')) {
         this.rateLimitInfo = {limit = performance.now() - startTime;'
       this.emit('api-failed', this.manifest.name, 'github-api', message = 10) {
-      const _resetTime = this.rateLimitInfo.reset * 1000;
-      const _waitTime = Math.max(0, resetTime - Date.now()) + 1000; // Add 1s buffer
+      const resetTime = this.rateLimitInfo.reset * 1000;
+      const waitTime = Math.max(0, resetTime - Date.now()) + 1000; // Add 1s buffer
 '
       this.context.apis.logger.info(`Rate limit reached, waiting $waitTimems`);
 // // await new Promise(resolve => setTimeout(resolve, waitTime));
@@ -374,7 +374,7 @@ slice(0, 10);
   // private releaseRequest() ;
     this.activeRequests--;
   if(this.requestQueue.length > 0) {
-      const _resolve = this.requestQueue.shift();
+      const resolve = this.requestQueue.shift();
       resolve?.();
     //     }
 // }

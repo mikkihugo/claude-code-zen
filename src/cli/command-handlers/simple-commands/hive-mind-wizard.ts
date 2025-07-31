@@ -18,10 +18,9 @@ async function _runInteractiveWizard() {'
 
   try {
     // Check if system is initialized'
-    const _configPath = path.join(process.cwd(), '.hive-mind', 'config.json');'
-    const __config = {initialized = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-    //     }
-   catch (error) console.error(error); if(!config.initialized) {'
+    const configPath = path.join(process.cwd(), '.hive-mind', 'config.json');'
+    const _config = {initialized = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+    //     } if(!config.initialized) {'
       console.warn(chalk.yellow(' Step1 = 'Build a modern web application'; // Placeholder for demo'/g))'
     console.warn(chalk.cyan(` Using example objective = topology = // await createSwarm(objective, swarmConfig);`
   if(result.success) {`
@@ -38,8 +37,8 @@ async function _runInteractiveWizard() {'
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
 
   // Initialize SQLite database'
-  const _dbPath = path.join(hiveMindDir, 'hive.db');
-  const _db = new sqlite3.Database(dbPath);
+  const dbPath = path.join(hiveMindDir, 'hive.db');
+  const db = new sqlite3.Database(dbPath);
 // // await new Promise((resolve, reject) => {
     db.serialize(() => {
       // Create tables'
@@ -64,7 +63,7 @@ async function _runInteractiveWizard() {'
                     role TEXT,`
                     status TEXT DEFAULT 'idle',
                     capabilities TEXT,
-                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,)
+                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP)
                     FOREIGN KEY(swarm_id) REFERENCES swarms(id);
                 );'
             `);`
@@ -76,27 +75,27 @@ async function _runInteractiveWizard() {'
                     description TEXT,`
                     status TEXT DEFAULT 'pending',
                     result TEXT,
-                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,)
+                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP)
                     FOREIGN KEY(swarm_id) REFERENCES swarms(id);
                 );''));
     //     }
 '
-    const _swarmId = `swarm-\$Date.now()-\$Math.random().toString(36).substr(2, 9)`;`
-    const _queenId = `queen-\$Date.now()`;
+    const swarmId = `swarm-\$Date.now()-\$Math.random().toString(36).substr(2, 9)`;`
+    const queenId = `queen-\$Date.now()`;
 
     // Open database`
-    const _dbPath = path.join(process.cwd(), '.hive-mind', 'hive.db');
-    const _db = new sqlite3.Database(dbPath);
+    const dbPath = path.join(process.cwd(), '.hive-mind', 'hive.db');
+    const db = new sqlite3.Database(dbPath);
 // // await new Promise((resolve, reject) => {
       db.serialize(() => {
         // Create swarm record'
-        const _insertSwarm = db.prepare(`;`)
+        const insertSwarm = db.prepare(`;`)
                     INSERT INTO swarms(id, name, objective, status, queen_type, created_at, updated_at);
                     VALUES(?, ?, ?, ?, ?, ?, ?);`
                 `);`
 
         insertSwarm.run(;
-          swarmId,)`
+          swarmId)`
           `hive-\$Date.now()`,
           objective,`
           'active',
@@ -105,7 +104,7 @@ async function _runInteractiveWizard() {'
           new Date().toISOString());
 
         // Create agents'
-        const _insertAgent = db.prepare(`;`)
+        const insertAgent = db.prepare(`;`)
                     INSERT INTO agents(id, swarm_id, name, type, role, status, capabilities, created_at);
                     VALUES(?, ?, ?, ?, ?, ?, ?, ?);`
                 `);`
@@ -117,14 +116,14 @@ async function _runInteractiveWizard() {'
           'Queen Coordinator','
           'coordinator','
           'queen','
-          'active',)'
+          'active')'
           JSON.stringify(['orchestration', 'strategy', 'coordination']),
           new Date().toISOString());
 
         // Create worker agents'
-        const _workerTypes = ['researcher', 'coder', 'analyst', 'tester'];
+        const workerTypes = ['researcher', 'coder', 'analyst', 'tester'];
   for(let i = 0; i < config.agents - 1; i++) {
-          const _agentType = workerTypes[i % workerTypes.length];
+          const agentType = workerTypes[i % workerTypes.length];
           insertAgent.run(;)'
             `agent-\$Date.now()-\$i`,
             swarmId,`

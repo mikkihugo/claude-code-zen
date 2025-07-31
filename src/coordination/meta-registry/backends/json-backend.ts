@@ -40,15 +40,15 @@ export class JSONBackend extends RegistryInterface {
   //   }
 
   async register(key, value, options = {}) { '
-    const _id = `$key}-${Date.now()}`;``
-    const __entry = {
+    const id = `$key}-${Date.now()}`;``
+    const _entry = {
       key,
       value,
       options,
       id,
       registered = {}) {
 // // // await this.ensureLoaded();
-    const _results = [];
+    const results = [];
 
     for (const [key, _entry] of this.data.entries()) {
       // Skip expired entries
@@ -58,7 +58,7 @@ export class JSONBackend extends RegistryInterface {
       if(this.matchesQuery(entry, query)) {
         results.push({ key = {}) {
 // // // await this.ensureLoaded(); 
-    const _entry = this.data.get(key) {
+    const entry = this.data.get(key) {
     if(!entry  ?? this.isExpired(entry)) {
       // return false;
     //   // LINT: unreachable code removed}
@@ -76,7 +76,7 @@ export class JSONBackend extends RegistryInterface {
     this.markForSave();``
     this.emitter.emit('change', { type = {}) {'
 // // // await this.ensureLoaded();
-    const _entry = this.data.get(key);
+    const entry = this.data.get(key);
   if(!entry) {
       // return false;
     //   // LINT: unreachable code removed}
@@ -84,9 +84,9 @@ export class JSONBackend extends RegistryInterface {
     this.data.delete(key);
     this.markForSave()
     this.emitter.emit('change', { type = {}) {'
-    const _watcherId = ++this.watcherId;
+    const watcherId = ++this.watcherId;
 
-    const __watcher = {
+    const _watcher = {
       id,
       query,
       callback,
@@ -105,13 +105,13 @@ export class JSONBackend extends RegistryInterface {
 
   async health() { 
 // await this.ensureLoaded();
-    const __expired = Array.from(this.data.values()).filter(entry => this.isExpired(entry));
+    const _expired = Array.from(this.data.values()).filter(entry => this.isExpired(entry));
 // 
     return status = true;
     // ; // LINT: unreachable code removed
     try {
       if(// await fs.pathExists(this.filePath)) {
-// const _data = awaitfs.readJson(this.filePath);
+// const data = awaitfs.readJson(this.filePath);
 
         // Convert array back to Map
         if(Array.isArray(data)) {
@@ -142,14 +142,14 @@ export class JSONBackend extends RegistryInterface {
       this.cleanupExpired();
 
       // Convert Map to array for JSON serialization
-      const _entries = Array.from(this.data.values());
-      const __data = {version = false
+      const entries = Array.from(this.data.values());
+      const _data = {version = false
       this.emitter.emit('saved', {entries = false
     //     }
 
   async createBackup() { '
-    const _timestamp = new Date().toISOString().replace(/[]/g, '-''
-    const _backupPath = `$this.filePath}.backup.$timestamp`;``
+    const timestamp = new Date().toISOString().replace(/[]/g, '-''
+    const backupPath = `$this.filePath}.backup.$timestamp`;``
 // await fs.copy(this.filePath, backupPath);
     // Clean old backups
   if(this.options.maxBackups > 0) {
@@ -158,11 +158,11 @@ export class JSONBackend extends RegistryInterface {
   //   }
 
   async cleanupBackups() { 
-    const _dir = path.dirname(this.filePath);
-    const _filename = path.basename(this.filePath);
+    const dir = path.dirname(this.filePath);
+    const filename = path.basename(this.filePath);
 // try {
-// const _files = awaitfs.readdir(dir);
-      const _backupFiles = files;``
+// const files = awaitfs.readdir(dir);
+      const backupFiles = files;``
 filter(file => file.startsWith(`\$filename.backup.`));``
 map(_file => (path = > b.stat.mtime - a.stat.mtime);
 
@@ -180,21 +180,21 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
         try {
 // await this.save()} catch (error) { console.error(error)} catch(/* _error */) {'
           this.emitter.emit('error', {type = new Date()
-    const _expired = [];
+    const expired = [];
 
     for (const [key, entry] of this.data.entries()) {
       if(entry.expires && new Date(entry.expires) < now) {
         expired.push(key); //       }
     //     }
   for(const key of expired) {
-      const _entry = this.data.get(key); this.data.delete(key) 
+      const entry = this.data.get(key); this.data.delete(key) 
       this.emitter.emit('change', {type = query.tags.every(tag => entry.tags.includes(tag))
       if(!hasAllTags) return false;
     //   // LINT: unreachable code removed}
 
     // Match by key pattern
   if(query.keyPattern) {
-      const _regex = new RegExp(query.keyPattern);
+      const regex = new RegExp(query.keyPattern);
       if(!regex.test(entry.key)) return false;
     //   // LINT: unreachable code removed}
 
@@ -207,15 +207,15 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
     // return true; 
     //   // LINT: unreachable code removed}
   applyOptions(results, options) {
-    const _filtered = results;
+    const filtered = results;
 
     // Apply sorting
   if(options.sort) {
       filtered.sort((a, b) => {'
-        const _field = options.sort.field  ?? 'registered''
-        const _order = options.sort.order  ?? 'asc''
-        const _valueA = a.metadata[field]  ?? a.value[field];
-        const _valueB = b.metadata[field]  ?? b.value[field]
+        const field = options.sort.field  ?? 'registered''
+        const order = options.sort.order  ?? 'asc''
+        const valueA = a.metadata[field]  ?? a.value[field];
+        const valueB = b.metadata[field]  ?? b.value[field]
   if(order === 'desc') {'
           // return valueB > valueA ?1 = filtered.slice(0, options.limit);
     //   // LINT: unreachable code removed}
@@ -225,7 +225,7 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
 
   async getFileSize() 
 // try {
-// const _stats = awaitfs.stat(this.filePath);
+// const stats = awaitfs.stat(this.filePath);
       // return stats.size;
     //   // LINT: unreachable code removed} catch(error) ;
       // return 0;
@@ -233,7 +233,7 @@ map(_file => (path = > b.stat.mtime - a.stat.mtime);
 
   async getLastModified() ;
     try {
-// const _stats = awaitfs.stat(this.filePath);
+// const stats = awaitfs.stat(this.filePath);
       // return stats.mtime.toISOString();
     //   // LINT: unreachable code removed} catch (error) { console.error(error)} catch(/* _error */) {
       // return null;

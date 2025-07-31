@@ -10,7 +10,7 @@ import { exec } from 'node:child_process';
 import { promisify } from 'node:util';
 ('');
 
-const __execAsync = promisify(exec);
+const _execAsync = promisify(exec);
 // =============================================================================
 // GIT TYPES
 // =============================================================================
@@ -32,10 +32,6 @@ const __execAsync = promisify(exec);
 //   try {
 //     const { stdout
 // , stderr }
-catch (error)
-{
-  console.error(error);
-}
 '
 = // await execAsync(`git \$`
 // command``
@@ -47,7 +43,7 @@ catch (error)
 
 /** Git tools configuration */
 ``
-// export const _gitTools = {git_status = 'status''
+// export const gitTools = {git_status = 'status''
 if (args.short) cmd += ' -s';
 (');
 if (args.branch) cmd += ' -b';

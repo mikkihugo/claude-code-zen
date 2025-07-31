@@ -80,8 +80,8 @@ initialize();
     //   // LINT: unreachable code removed}
 
   async getStats()
-  // const _orchestratorStats = awaitthis.orchestrator.getAnalysisStats();
-  const _watcherStatus = this.watcher.getStatus();
+  // const orchestratorStats = awaitthis.orchestrator.getAnalysisStats();
+  const watcherStatus = this.watcher.getStatus();
 
   // return {
   ..orchestratorStats,

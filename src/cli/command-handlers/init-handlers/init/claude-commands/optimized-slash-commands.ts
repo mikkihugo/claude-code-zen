@@ -19,17 +19,17 @@ export async function createOptimizedClaudeSlashCommands(workingDir = null) {
     console.warn('\n Creating batchtools-optimized Claude Code slash commands...');
 
     // Use template copier with optimized flag'
-    const __optimizedOptions = {sparc = `${workingDir} catch (error) { console.error(error); }`
+    const _optimizedOptions = {sparc = `${workingDir}`
     try {`
-// const _roomodesContent = awaitfs.readFile(roomodesPath, 'utf8');
-      const _roomodes = JSON.parse(roomodesContent);
+// const roomodesContent = awaitfs.readFile(roomodesPath, 'utf8');
+      const roomodes = JSON.parse(roomodesContent);
 
       // Filter modes if selective initialization is requested
-      const _modesToCreate = selectedModes;
+      const modesToCreate = selectedModes;
         ? roomodes.customModes.filter((mode) => selectedModes.includes(mode.slug));
         : roomodes.customModes;
 '
-      console.warn(`   Creating optimized commands for ${modesToCreate.length}  catch (error) console.error(error); modes...`);
+      console.warn(`   Creating optimized commands for ${modesToCreate.length}modes...`);
 
       // Create slash commands for each SPARC mode with batchtools optimization`
 // // await fs.mkdir(join(workingDir, '.claude', 'commands', 'sparc'), {recursive = createOptimizedMainSparcCommand(roomodes.customModes);'
@@ -163,7 +163,7 @@ For comprehensive performance guides, see,//github.com/ruvnet/claude-code-flow/d
 // // await node.writeTextFile(`$workingDir/.claude/commands/performance.md`, performanceCommand);// // await node.writeTextFile(`$workingDir/.claude/commands/performance.md`, performanceCommand);`
   console.warn('   Created slash command);'
 
-}}
+}
 }
 }}})))
 '

@@ -18,18 +18,18 @@ import chalk from 'chalk';
 /** Get metrics from both swarm systems and provide unified view */
 
 export async function getUnifiedSwarmMetrics() {
-  const _results = {hiveMind = await integrateMetrics(results.hiveMind, results.ruvSwarm);
+  const results = {hiveMind = await integrateMetrics(results.hiveMind, results.ruvSwarm);
 //   return results;
 // }
 
 /** Get hive-mind metrics */
 
 async function _getHiveMindMetrics() {'
-  const _dbPath = path.join(cwd(), '.hive-mind', 'hive.db');
+  const dbPath = path.join(cwd(), '.hive-mind', 'hive.db');
   if(!existsSync(dbPath)) {
 //     return {available = new Database(dbPath);
     // ; // LINT: unreachable code removed
-    const __stats = db;
+    const _stats = db;
 prepare('
     `
     SELECT(SELECT
@@ -71,7 +71,7 @@ prepare('
     `
     //     
   get() 
-    const __swarmBreakdown = db;
+    const _swarmBreakdown = db;
 prepare(`
     `
 // SELECT
@@ -103,7 +103,7 @@ prepare(`
     if(!existsSync(dbPath)) {
       // return {available = new Database(dbPath);
       // ; // LINT: unreachable code removed
-      const __stats = db;
+      const _stats = db;
 prepare('
       `;`
     SELECT;
@@ -146,7 +146,7 @@ prepare('
     `
     //     
   get() 
-    const __swarmBreakdown = db;
+    const _swarmBreakdown = db;
 prepare(`
       `
 // SELECT
@@ -197,20 +197,20 @@ prepare(`
 
 // export async function showUnifiedMetrics() {'
   console.warn(chalk.bold('\n Unified Swarm Metrics Analysis\n'));
-// const _metrics = awaitgetUnifiedSwarmMetrics();
+// const metrics = awaitgetUnifiedSwarmMetrics();
 
   // Show combined overview
   if(metrics.integrated.available) {'
     console.warn(chalk.cyan(''
     console.warn(`;``
     TotalSwarms = system.type === 'hive-mind' ? ' Hive-Mind System' : ' ruv-swarm System';)))''.repeat(40)));
-    const __stats = system.overall;
+    const _stats = system.overall;
     console.warn(;'
     `  Swarms => {`)`
-        const _name = swarm.name  ?? swarm.id.substring(0, 20) + '...';
-        const _total = swarm.task_count  ?? 0;
-        const _completed = swarm.completed_count  ?? 0;'
-        const _rate = total > 0 ? ((completed / total) * 100).toFixed(1) : ''
+        const name = swarm.name  ?? swarm.id.substring(0, 20) + '...';
+        const total = swarm.task_count  ?? 0;
+        const completed = swarm.completed_count  ?? 0;'
+        const rate = total > 0 ? ((completed / total) * 100).toFixed(1) : ''
         console.warn(`;`)
     \$chalk.cyan(name);
     : \$completed
@@ -218,14 +218,14 @@ prepare(`
     %)`)`
   if(swarm.objective) {`
       console.warn(`Objective = // await getUnifiedSwarmMetrics();`
-  const _fixes = [];
+  const fixes = [];
 
   // Check for issues
   if(metrics.hiveMind.available && metrics.ruvSwarm.available) {`
     console.warn(chalk.green(' Both swarm systems detected'));
 
     // Check for swarms with 0 tasks
-    const _zeroTaskSwarms = [];
+    const zeroTaskSwarms = [];
   if(metrics.ruvSwarm.swarms) {
       metrics.ruvSwarm.swarms.forEach((swarm) => {
   if(swarm.task_count === 0) {

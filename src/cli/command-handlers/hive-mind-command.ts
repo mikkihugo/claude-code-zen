@@ -29,18 +29,16 @@ import { scanForMissingScopeFiles } from '../scanners/scope-scanner.js';
 import { scanForUnmappedServices } from '../scanners/service-scanner.js';
 
 '
-const _HIVE_MIND_DIR = path.join(process.cwd(), '.hive-mind');
+const HIVE_MIND_DIR = path.join(process.cwd(), '.hive-mind');
 ('');
-const _HIVE_REGISTRY_FILE = path.join(HIVE_MIND_DIR, 'registry.json');
+const HIVE_REGISTRY_FILE = path.join(HIVE_MIND_DIR, 'registry.json');
 '
 '
 export async function readHiveRegistry() {
   try {'
-// const _content = awaitreadFile(HIVE_REGISTRY_FILE, 'utf8');'
+// const content = awaitreadFile(HIVE_REGISTRY_FILE, 'utf8');'
 //     return JSON.parse(content);
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
   '
   if (error.code === 'ENOENT') {
     '
@@ -53,7 +51,7 @@ export async function readHiveRegistry() {
     async function _writeHiveRegistry() {
       '
     console.error('Error = flags.path  ?? path.join(process.cwd(), 'services''
-      const _hiveDbPath = path.join(servicePath, '.hive', `${hiveName}.db`);
+      const hiveDbPath = path.join(servicePath, '.hive', `${hiveName}.db`);
       `
 // await mkdir(path.dirname(hiveDbPath), {recursive = await readHiveRegistry();
   if(registry[hiveName]) {`;
@@ -61,7 +59,7 @@ export async function readHiveRegistry() {
       if (!hiveName) {
         `
     console.error('Error = // await readHiveRegistry();'
-  const _hiveInfo = registry[hiveName];
+  const hiveInfo = registry[hiveName];
   if(!hiveInfo) {'
     console.error(`;
         Error = args.join(' ').trim();
@@ -71,15 +69,15 @@ export async function readHiveRegistry() {
     console.error('Error = new PluginManager();'
           // // await pluginManager.initialize();
           // Use new plugin system for scanning
-          // const __serviceSuggestions = awaitscanForUnmappedServices(flags);
-          // const __scopeSuggestions = awaitscanForMissingScopeFiles(flags);
-          // const __documentationLinkSuggestions = awaitscanForDocumentationLinks(flags);
+          // const _serviceSuggestions = awaitscanForUnmappedServices(flags);
+          // const _scopeSuggestions = awaitscanForMissingScopeFiles(flags);
+          // const _documentationLinkSuggestions = awaitscanForDocumentationLinks(flags);
 
           // Plugin-based scanning
-          const _pluginSuggestions = [];
+          const pluginSuggestions = [];
 
           // Run scanner plugins'
-          const _scannerPlugins = [
+          const scannerPlugins = [
             'code-complexity-scanner',
             'dependency-scanner',
             'markdown-scanner',
@@ -87,13 +85,11 @@ export async function readHiveRegistry() {
           '
           for (const pluginName of scannerPlugins) {
             try {
-      const _plugin = pluginManager.getPlugin(pluginName); if(plugin) {
-// const _results = awaitplugin.scan(process.cwd(), flags); 
+      const plugin = pluginManager.getPlugin(pluginName); if(plugin) {
+// const results = awaitplugin.scan(process.cwd(), flags); 
   if(results?.suggestions) {
           pluginSuggestions.push(...results.suggestions);
-        //         }
-       catch (error) console.error(error); 
-    } catch(/* _error */) '
+        //         } } catch(/* _error */) '
       console.warn(` Plugin $pluginNamefailed = [...serviceSuggestions, ...scopeSuggestions, ...documentationLinkSuggestions, ...pluginSuggestions];`
 
   for(const suggestion of suggestions) {`
@@ -107,7 +103,7 @@ export async function readHiveRegistry() {
           console.warn(`Created $scopeFilePath`);`
           break;`
         case 'add_md_header''
-// const _fileContent = awaitreadFile(suggestion.file, 'utf8');'
+// const fileContent = awaitreadFile(suggestion.file, 'utf8');'
 // // await writeFile(suggestion.file, suggestion.suggestedHeader + fileContent);'
           console.warn(`Added header to $suggestion.file`);`
           break;
@@ -116,9 +112,9 @@ export async function readHiveRegistry() {
           console.warn(`Please manually fix linting issue in $suggestion.fileat line $suggestion.lineNumber);`
           break;`
         case 'suggest_adr''
-          const _adrDir = path.join(process.cwd(), '.hive-mind', 'adrs''
+          const adrDir = path.join(process.cwd(), '.hive-mind', 'adrs''
 // // await mkdir(adrDir, {recursive = `$suggestion.adrTitle.toLowerCase().replace(/\s/g, '-')-$Date.now().md`;`
-          const _adrFilePath = path.join(adrDir, adrFileName);
+          const adrFilePath = path.join(adrDir, adrFileName);
 // // await writeFile(adrFilePath, suggestion.adrContent);`
           console.warn(`CreatedADR = === 'quit') ''
       console.warn('Quitting scanner.''
@@ -136,7 +132,7 @@ export async function readHiveRegistry() {
 /** Launch persistent service-level hive swarm */
 
 async function _launchServiceHive(objective = {}) {`
-  const _serviceName = flags.hiveName  ?? flags.service  ?? 'default';'
+  const serviceName = flags.hiveName  ?? flags.service  ?? 'default';'
 '
   printInfo(` Launching persistent hive for service = {serviceName = await restorePersistentHive(serviceName);`
   if(!hive) {
@@ -147,7 +143,7 @@ async function _launchServiceHive(objective = {}) {`
       } else {
         // Fallback to local orchestrator for basic functionality'
         printInfo(' Using local orchestrator(ruv-swarm library unavailable)');'
-        const _orchestrator = new SwarmOrchestrator();
+        const orchestrator = new SwarmOrchestrator();
 // // await orchestrator.initialize();
 //         return // await orchestrator.launchSwarm(objective, hiveConfig);
     //   // LINT: unreachable code removed}
@@ -155,11 +151,11 @@ async function _launchServiceHive(objective = {}) {`
 
     // Execute objective with persistent hive'
     printInfo(' Executing objective with persistent hive coordination');'
-// const _result = awaithive.executeObjective(objective, {priority = = false;/g)
+// const result = awaithive.executeObjective(objective, {priority = = false;/g)
     });
 '
     printSuccess(` Hive execution completed forservice = input[0];`
-  const _subArgs = input.slice(1);
+  const subArgs = input.slice(1);
 
   // Handle help`
   if(flags.help  ?? flags.h  ?? subcommand === 'help'  ?? (!subcommand)) {'
@@ -175,7 +171,7 @@ async function _launchServiceHive(objective = {}) {`
       break;'
     case 'spawn': {;'
       // Launch persistent service-level hive'
-      const _objective = subArgs.join(' ').trim();'
+      const objective = subArgs.join(' ').trim();'
   if(!objective) {'
         printError('Objective required for hive spawn''
         printInfo('Usage = // await readHiveRegistry();'

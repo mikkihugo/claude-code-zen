@@ -9,8 +9,7 @@ import {
   printSuccess,
   printWarning,
   readJsonFile,
-  writeJsonFile,
-} from '..';
+  writeJsonFile} from '..';
 export async function configCommand() {'
   case 'init': null
 // await initConfig(subArgs, flags)
@@ -31,34 +30,33 @@ export async function configCommand() {'
 // // await resetConfig(subArgs, flags)
   break;'
   default = subArgs.includes('--force')  ?? subArgs.includes('-f')'
-  const _configFile = 'claude-zen.config.json';
+  const configFile = 'claude-zen.config.json';
   try {
     // Check if config already exists
-// const _exists = awaitfileExists(configFile);
+// const exists = awaitfileExists(configFile);
   if(exists && !force) {'
       printWarning('Configuration file already exists');'
       console.warn('Use --force to overwrite existing configuration');
       return;
     //   // LINT: unreachable code removed}
-'
-     catch (error) console.error(error); printSuccess('Initializing Claude-Flow configuration...');
+' printSuccess('Initializing Claude-Flow configuration...');
 
     // Create default configuration
 '
-  const __format = getFlag(subArgs, '--format')  ?? 'pretty';
+  const _format = getFlag(subArgs, '--format')  ?? 'pretty';
 
   try {
-// const _config = awaitreadJsonFile(configFile);'
+// const config = awaitreadJsonFile(configFile);'
   printSuccess('Currentconfiguration = === 'json') {'
       console.warn(JSON.stringify(config, null, 2));
-    }  catch (error) { console.error(error); }else {
+    }else {
       // Pretty format'
       console.warn(''
-  const __configFile = 'claude-zen.config.json';
+  const _configFile = 'claude-zen.config.json';
 
   if(!key) {'
     printError('Usage = // await readJsonFile(configFile);'
-    const _value = getNestedValue(config, key);
+    const value = getNestedValue(config, key);
   if(value !== undefined) {'
       console.warn(`$key: $JSON.stringify(value)`);
     } else {`
@@ -73,7 +71,7 @@ async function _setConfigValue() {'
     printError('Usage = await readJsonFile(configFile, {});'
 
     // Parse value appropriately
-    const _parsedValue = value;'
+    const parsedValue = value;'
     if(value === 'true') parsedValue = true;'
     else if(value === 'false') parsedValue = false;'') parsedValue = Number(value);
 
@@ -85,21 +83,21 @@ async function _setConfigValue() {'
     printError(`Failed to setconfiguration = 'claude-zen.config.json';`
 
   try {
-// const _config = awaitreadJsonFile(configFile);
+// const config = awaitreadJsonFile(configFile);
 `
     printSuccess('Validating configuration...');
 
-    const _errors = [];
-    const _warnings = [];
+    const errors = [];
+    const warnings = [];
 
     // Validate required sections'
-    const _requiredSections = ['terminal', 'orchestrator', 'memory'];
+    const requiredSections = ['terminal', 'orchestrator', 'memory'];
   for(const section of requiredSections) {
   if(!config[section]) {'
         errors.push(`Missing requiredsection = === 0 && warnings.length === 0) ; ``
       printSuccess(' Configuration is valid'); else ;
   if(errors.length > 0) {'
-        printError(`Found $errors.lengthcatch (error) console.error(error); error(s):`);`
+        printError(`Found $errors.length error(s):`);`
         errors.forEach((error) => console.warn(`   $error`));
       //       }
   if(warnings.length > 0) {`
@@ -124,8 +122,8 @@ async function resetConfig(subArgs = subArgs.includes('--force')  ?? subArgs.inc
 function getNestedValue(obj = > current?.[key], obj);
 // }'
   function setNestedValue(obj = path.split('.');
-  const _last = keys.pop();
-  const _target = keys.reduce((current, key) => {
+  const last = keys.pop();
+  const target = keys.reduce((current, key) => {
     if(!current[key]) current[key] = {};
 //     return current[key];
     //   // LINT: unreachable code removed}, obj);

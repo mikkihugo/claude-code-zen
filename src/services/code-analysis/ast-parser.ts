@@ -7,10 +7,8 @@ import { readFile } from 'node:fs';
 let _parseTypeScript, _parseJavaScript, acorn;
 try {
   '
-  // const _tsModule = awaitimport('@typescript-eslint/parser');
+  // const tsModule = awaitimport('@typescript-eslint/parser');
   _parseTypeScript = tsModule.parse
-} catch (error) {
-  console.error(error);
 }
 catch(/* _e */)
 {'
@@ -18,15 +16,15 @@ catch(/* _e */)
   _parseTypeScript = null;
 // }
 try {'
-// const _jsModule = awaitimport('esprima');
+// const jsModule = awaitimport('esprima');
   _parseJavaScript = jsModule.parse;
-} catch (error) { console.error(error); } catch(/* _e */) '
+} catch(/* _e */) '
   console.warn('Esprima parser not available, using fallback');
   _parseJavaScript = null;
 // }
 try {'
   acorn = // await import('acorn');
-} catch (error) { console.error(error); } catch(/* _e */) '
+} catch(/* _e */) '
   console.warn('Acorn parser not available, using fallback');
   acorn = null;
 // }
@@ -37,8 +35,8 @@ try {'
       content = // await readFile(filePath, 'utf8');
     //     }
 
-    const _language = this.detectLanguage(filePath);
-    const __hash = this.generateHash(content);
+    const language = this.detectLanguage(filePath);
+    const _hash = this.generateHash(content);
 
     let _ast;
     let _parseResult;
@@ -89,8 +87,7 @@ try {'
         case 'TSEnumDeclaration':'
   if(language === 'typescript') {
             result.types.push(this.extractTypeInfo(node, fileId, filePath));
-          //           }
-           catch (error) console.error(error); break;
+          //           } break;
       //       }
     });
 
@@ -100,17 +97,17 @@ try {'
 /** Extract function information; */
 
   extractFunctionInfo(node, fileId, filePath) {'
-    const _name = node.id?.name  ?? node.key?.name  ?? (node.type === 'ArrowFunctionExpression' ? '<anonymous>' );
+    const name = node.id?.name  ?? node.key?.name  ?? (node.type === 'ArrowFunctionExpression' ? '<anonymous>' );
 
-    const _start = node.loc?.start?.line  ?? 0;
-    const _end = node.loc?.end?.line  ?? 0;
-    const _params = node.params  ?? [];
+    const start = node.loc?.start?.line  ?? 0;
+    const end = node.loc?.end?.line  ?? 0;
+    const params = node.params  ?? [];
 '
     // return {id = node.id?.name  ?? '<anonymous>';
-    // const _start = node.loc?.start?.line  ?? 0; // LINT: unreachable code removed
-    const _end = node.loc?.end?.line  ?? 0;
+    // const start = node.loc?.start?.line  ?? 0; // LINT: unreachable code removed
+    const end = node.loc?.end?.line  ?? 0;
 
-    const _methods = (node.body?.body  ?? []).filter(n => ;'
+    const methods = (node.body?.body  ?? []).filter(n => ;'
       n.type === 'MethodDefinition'  ?? n.type === 'PropertyDefinition';
     );
 // '
@@ -121,12 +118,12 @@ try {'
 /** Extract variable information; */
 
   extractVariableInfo(node, parent, fileId, filePath) {'
-    const _name = node.id?.name  ?? '<unnamed>';
-    const _line = node.loc?.start?.line  ?? 0;
+    const name = node.id?.name  ?? '<unnamed>';
+    const line = node.loc?.start?.line  ?? 0;
 '
     // return {id = node.source?.value  ?? '<unknown>';
-    // const _line = node.loc?.start?.line  ?? 0; // LINT: unreachable code removed
-    const _importedNames = [];
+    // const line = node.loc?.start?.line  ?? 0; // LINT: unreachable code removed
+    const importedNames = [];
   if(node.specifiers) {
   for(const spec of node.specifiers) {'
   if(spec.type === 'ImportDefaultSpecifier') {'
@@ -138,8 +135,8 @@ try {'
     //     }
 
     // return {id = node.loc?.start?.line  ?? 0;
-    // const _exportNames = []; // LINT: unreachable code removed'
-    const _exportType = 'named';'
+    // const exportNames = []; // LINT: unreachable code removed'
+    const exportType = 'named';'
   if(node.type === 'ExportDefaultDeclaration') {'
       exportType = 'default';'
       exportNames.push('default');'
@@ -152,8 +149,8 @@ try {'
     //     }
 '
     // return {id = node.id?.name  ?? '<unnamed>'; 
-    // const _line = node.loc?.start?.line  ?? 0; // LINT: unreachable code removed'
-    const _kind = 'unknown';
+    // const line = node.loc?.start?.line  ?? 0; // LINT: unreachable code removed'
+    const kind = 'unknown';
   switch(node.type) {'
       case 'TSInterfaceDeclaration':'
         kind = 'interface';
@@ -174,7 +171,7 @@ try {'
   if(key === 'parent'  ?? key === 'leadingComments'  ?? key === 'trailingComments') {
         continue; //       }
 
-      const _child = node[key]; if(Array.isArray(child) {) 
+      const child = node[key]; if(Array.isArray(child) {) 
   for(const item of child) {
           this.walkAST(item, callback, node); //         }'
       } else if(child && typeof child === 'object' && child.type) {
@@ -185,7 +182,7 @@ try {'
 /** Calculate cyclomatic complexity; */
 
   calculateCyclomaticComplexity(node) {
-    const _complexity = 1; // Base complexity
+    const complexity = 1; // Base complexity
 
     this.walkAST(node, (child) => {
   switch(child.type) {'
@@ -224,8 +221,8 @@ try {'
 /** Detect programming language from file extension; */
 
   detectLanguage(filePath) {'
-    const _ext = filePath.split('.').pop().toLowerCase();
-    const _languageMap = {'
+    const ext = filePath.split('.').pop().toLowerCase();
+    const languageMap = {'
       'ts': 'typescript','
       'tsx': 'tsx','
       'js': 'javascript','
@@ -258,7 +255,7 @@ try {'
     if(node.type?.startsWith('Export')) return true;
     // ; // LINT: unreachable code removed
     // Check parent for export
-    const _current = node.parent;
+    const current = node.parent;
   while(current) {'
       if(current.type?.startsWith('Export')) return true;
     // current = current.parent; // LINT: unreachable code removed
@@ -319,7 +316,7 @@ try {'
 /** Extract type methods; */
 
   extractTypeMethods(node) {
-    const _methods = [];
+    const methods = [];
   if(node.body?.body) {
   for(const member of node.body.body) {'
   if(member.type === 'TSMethodSignature') {'
@@ -333,24 +330,24 @@ try {'
 /** Create fallback analysis when parsers are not available; */
 
   createFallbackAnalysis(content, filePath, language) {
-    const _fileId = this.generateFileId(filePath);
+    const fileId = this.generateFileId(filePath);
 
     // Basic regex-based analysis
-    const _functionPattern = /(?:function\s+\w+|const\s+\w+\s*=\s*(?:\([^)]*\)\s*=>|\bfunction\b)|\w+\s*:\s*(?:\([^)]*\)\s*=>|function))/g;
-    const _classPattern = /class\s+(\w+)/g;'"`]([^'""`]/g;"'`
-    const _exportPattern = /export\s+(?)?(?)\s+(\w+)/g;
+    const functionPattern = /(?:function\s+\w+|const\s+\w+\s*=\s*(?:\([^)]*\)\s*=>|\bfunction\b)|\w+\s*:\s*(?:\([^)]*\)\s*=>|function))/g;
+    const classPattern = /class\s+(\w+)/g;'"`]([^'""`]/g;"'`
+    const exportPattern = /export\s+(?)?(?)\s+(\w+)/g;
 
-    const _functions = [];
-    const _classes = [];
-    const _imports = [];
-    const _exports = [];
+    const functions = [];
+    const classes = [];
+    const imports = [];
+    const exports = [];
 
     // Extract functions
     let match;
     while((match = functionPattern.exec(content)) !== null) {`
-      let _lineNumber = content.substring(0, match.index).split('\n').length;
+      let lineNumber = content.substring(0, match.index).split('\n').length;
       functions.push({id = classPattern.exec(content)) !== null) {'
-      const _lineNumber = content.substring(0, match.index).split('\n').length;
+      const lineNumber = content.substring(0, match.index).split('\n').length;
       classes.push({id = importPattern.exec(content)) !== null) {
       imports.push({id = exportPattern.exec(content)) !== null) {
       exports.push({id = match.match(/(?:function\s+(\w+)|const\s+(\w+)|(\w+)\s*:)/);
@@ -360,7 +357,7 @@ try {'
 /** Count parameters in function signature; */
 
   countParameters(funcString) {
-    const _paramMatch = funcString.match(/\(([^)]*)\)/);
+    const paramMatch = funcString.match(/\(([^)]*)\)/);
     if(!paramMatch  ?? !paramMatch[1].trim()) return 0;'
     // return paramMatch[1].split(',').filter(p => p.trim()).length; // LINT: unreachable code removed
   //   }

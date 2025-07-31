@@ -11,7 +11,7 @@ analysis;
 engine;
 with focused components
  * @version 2.0
-0.0 * /;;
+0.0 * /;
 
 import { existsSync } from 'node:fs';
 '
@@ -96,10 +96,8 @@ MetricsCalculator  } from '
 
 /** Initialize the Code Analysis Engine */
 
-   *
-@param
 config - Configuration;
-options * /;;
+options * /;
 constructor(config);
 {
     this.config = config;
@@ -111,7 +109,7 @@ constructor(config);
 /** Initialize the analysis engine */
 
   async initialize(): Promise<void> '
-    console.warn(' Code Analysis Engine(Modular) initialized')
+    console.warn(' Code Analysis Engine(Modular) initialized');
   //   }
 
 /** Analyze code files and return comprehensive analysis results */
@@ -121,16 +119,16 @@ constructor(config);
 
     // */ // LINT: unreachable code removed
   async analyzeCode(codeData): Promise<CodeAnalysisResult> {
-    const _startTime = Date.now();
-    const _totalLines = 0;
+    const startTime = Date.now();
+    const totalLines = 0;
     try {
       // Use specialized components for analysis
-// const _ast = awaitthis.astParser.extractAST(codeData);
-// const _functions = awaitthis.functionExtractor.extractFunctions(codeData);
-// const _classes = awaitthis.extractClasses(codeData);
-// const _complexity = awaitthis.metricsCalculator.calculateCodeComplexity(codeData);
-// const _dependencies = awaitthis.analyzeDependencies(codeData);
-// const _metrics = awaitthis.metricsCalculator.calculateMetrics(codeData);
+// const ast = awaitthis.astParser.extractAST(codeData);
+// const functions = awaitthis.functionExtractor.extractFunctions(codeData);
+// const classes = awaitthis.extractClasses(codeData);
+// const complexity = awaitthis.metricsCalculator.calculateCodeComplexity(codeData);
+// const dependencies = awaitthis.analyzeDependencies(codeData);
+// const metrics = awaitthis.metricsCalculator.calculateMetrics(codeData);
 
       totalLines = metrics.totalLines;
 
@@ -145,7 +143,7 @@ constructor(config);
         //         }
       //       }
 
-      const _analysisTime = Date.now() - startTime;
+      const analysisTime = Date.now() - startTime;
 
       // return {
         ast,
@@ -176,13 +174,13 @@ async;
 readCodeData(codeFiles)
 : Promise<CodeFileData[]>
 // {
-  const _codeData = [];
+  const codeData = [];
   for(const filePath of codeFiles) {
     if(!existsSync(filePath)) {'
       throw new Error(`Code file not found); `
     //     }``
-// const _content = awaitreadFile(filePath, 'utf8')
-// const _stats = awaitstat(filePath) {
+// const content = awaitreadFile(filePath, 'utf8')
+// const stats = awaitstat(filePath) {
     codeData.push({
         content,
     path,
@@ -208,7 +206,7 @@ validateCodeInputs(codeFiles, language)
     if(!existsSync(filePath)) {'
       throw new Error(`Code file not found); `
     //     }
-    const _extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) ``
+    const extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) ``
       throw new Error(`Unsupported code file format);`
     //     }
   //   }
@@ -228,9 +226,9 @@ validateCodeInputs(codeFiles, language)
 extractClasses(codeData)
 : Promise<ClassData[]>
 // {
-  const _classes = [];
+  const classes = [];
   for(const file of codeData) {
-// const _fileClasses = awaitthis.extractFileClasses(file); 
+// const fileClasses = awaitthis.extractFileClasses(file); 
     classes.push(...fileClasses); //   }
   // return classes;
   //   // LINT: unreachable code removed}
@@ -244,13 +242,13 @@ extractClasses(codeData)
   // // private async;
   extractFileClasses(file) {: Promise<ClassData[]>
   //   {
-    const _classes = [];``
-    const _lines = file.content.split('\n')
+    const classes = [];``
+    const lines = file.content.split('\n')
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
-      const _classMatch = this.matchClass(line, file.language);
+      const line = lines[i];
+      const classMatch = this.matchClass(line, file.language);
   if(classMatch) {
-        const _cls = {
+        const cls = {
           name: classMatch.name,
         extends: classMatch.extends,
         implements: classMatch.implements,
@@ -274,15 +272,15 @@ extractClasses(codeData)
   analyzeDependencies(codeData)
   : Promise<DependencyAnalysis>
   //   {
-    const _dependencies = {
+    const dependencies = {
       external: new Set<string>(),
     internal: new Set<string>() }
   for(const file of codeData) {
-// const _fileDeps = awaitthis.extractFileDependencies(file); 
+// const fileDeps = awaitthis.extractFileDependencies(file); 
     fileDeps.external.forEach((dep) => dependencies.external.add(dep)); fileDeps.internal.forEach((dep) {=> dependencies.internal.add(dep));
   //   }
-  const _external = Array.from(dependencies.external);
-  const _internal = Array.from(dependencies.internal);
+  const external = Array.from(dependencies.external);
+  const internal = Array.from(dependencies.internal);
   // return {
       external,
   // internal, // LINT: unreachable code removed
@@ -297,7 +295,7 @@ extractClasses(codeData)
 // // private detectLanguage(filePath)
 : string
 // {
-  const _extension = path.extname(filePath).toLowerCase();
+  const extension = path.extname(filePath).toLowerCase();
   const _languageMap: Record<string, string> = {'
       '.js': 'javascript''
   ('.ts''
@@ -341,8 +339,8 @@ line,
   const _patterns: Record<string, RegExp> = {
       javascript: /class\s+(\w+)(?:\s+extends\s+(\w+))?(?:\s+implements\s+([^{]+))?/,
   python: /class\s+(\w+)(?:\(([^)]+)\))?/ }
-const _pattern = patterns[language] ?? patterns.javascript;
-const _match = line.match(pattern);
+const pattern = patterns[language] ?? patterns.javascript;
+const match = line.match(pattern);
   if(match) {
   // return {
         name: match[1],
@@ -358,11 +356,11 @@ const _match = line.match(pattern);
 countClassMethods(lines, startLine)
 : Promise<number>
 // {
-  const _methodCount = 0;
-  const _braceCount = 0;
-  const _i = startLine;
+  const methodCount = 0;
+  const braceCount = 0;
+  const i = startLine;
   while(i < lines.length) {
-    const _line = lines[i];
+    const line = lines[i];
     // Simplified method detection'
     if(line.trim().includes('function') ?? line.trim().match(/\w+\s*\(/)) {'
       methodCount++;
@@ -383,12 +381,12 @@ countClassMethods(lines, startLine)
   countClassLines(lines, startLine)
   : Promise<number>
   //   {
-    const _braceCount = 0;
-    const _i = startLine;
-    const _lineCount = 0;
+    const braceCount = 0;
+    const i = startLine;
+    const lineCount = 0;
   while(i < lines.length) {
       lineCount++;
-      const _line = lines[i];
+      const line = lines[i];
       braceCount += (line.match(/\{/g) ?? []).length;
       braceCount -= (line.match(/\}/g) ?? []).length;
   if(braceCount === 0 && i > startLine) {
@@ -408,21 +406,21 @@ countClassMethods(lines, startLine)
     internal: Set<string>
     >
     //     {
-      const _dependencies = {
+      const dependencies = {
       external: new Set<string>(),
       internal: new Set<string>() }'
-    const _lines = file.content.split('\n')
+    const lines = file.content.split('\n')
   for(const line of lines) {
       // Extract import statements']([^']/); "
   if(importMatch) {'
-        const _dep = importMatch[1]; if(dep.startsWith('.') {?? dep.startsWith('/')) '
+        const dep = importMatch[1]; if(dep.startsWith('.') {?? dep.startsWith('/')) '
           dependencies.internal.add(dep)else 
           dependencies.external.add(dep);
         //         }
       //       }
       // Extract require statements']([^'']\)/);"
   if(requireMatch) {
-        const _dep = requireMatch[1]
+        const dep = requireMatch[1]
         if(dep.startsWith('.') ?? dep.startsWith('/')) {'
           dependencies.internal.add(dep)} else {
           dependencies.external.add(dep);
@@ -441,8 +439,8 @@ countClassMethods(lines, startLine)
   if(!this.config.neuralEngine) {'
         throw new Error('Neural engine not available')
       //       }'
-      const _codeContent = codeData.map((file) => file.content).join('\n\n')
-// const _result = awaitthis.config.neuralEngine.infer(
+      const codeContent = codeData.map((file) => file.content).join('\n\n')
+// const result = awaitthis.config.neuralEngine.infer(
       'analysis''analyzeComplexity','
       codeContent;
       //       

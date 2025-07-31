@@ -48,24 +48,22 @@ try {
       case 'token-usage':
 // // await tokenUsageCommand(subArgs, flags);
         break;default = flags;
-  const __projectPath = options.path  ?? process.cwd();'
-  const __outputDir = options.output  ?? '.'
+  const _projectPath = options.path  ?? process.cwd();'
+  const _outputDir = options.output  ?? '.'
 '
   console.warn(` Analyzingcodebase = new CodeAnalysisService({`
       projectPath,
-      outputDir,)
+      outputDir)
       filePatterns = {includeDependencies = // await analysisService.analyzeCodebase(analysisOptions);
 `
     printSuccess(` Codebase analysis completed`);
 `
     console.warn(`\n ANALYSISSUMMARY = issue.severity === 'critical'' );`
-      //       }
-     catch (error) console.error(error); 
-// // await analysisService.cleanup();
+      //       } // // await analysisService.cleanup();
 } catch(error)
 // {`
   printError(`Codebase analysisfailed = flags;`
-  const _targetFiles = subArgs.slice(1);
+  const targetFiles = subArgs.slice(1);
   if(targetFiles.length === 0) {`
     printError('Please specify files to analyze');
     return;
@@ -74,29 +72,29 @@ try {
   console.warn(` Performing AST analysis on ${targetFiles.length} files...`);
 
   try {
-    const _analysisService = new CodeAnalysisService();
+    const analysisService = new CodeAnalysisService();
 // // await analysisService.initialize();
-// const _results = awaitanalysisService.analyzeFiles(targetFiles, {updateGraph = results.functions.filter(f => f.cyclomatic_complexity > 10);
+// const results = awaitanalysisService.analyzeFiles(targetFiles, {updateGraph = results.functions.filter(f => f.cyclomatic_complexity > 10);
   if(highComplexityFunctions.length > 0) {`
-      console.warn(`\n  HIGH COMPLEXITYFUNCTIONS = flags;`)
-  const __projectPath = options.path ?? process.cwd();`
+      console.warn(`\n  HIGH COMPLEXITYFUNCTIONS = flags`);
+  const _projectPath = options.path ?? process.cwd();`
   console.warn(` Analyzing dependenciesin = // await import('../../services/code-analysis/index.js');`
-    const _analyzer = new DependencyAnalyzer({detectCircular = // await analyzer.analyzeDependencies(projectPath);
+    const analyzer = new DependencyAnalyzer({detectCircular = // await analyzer.analyzeDependencies(projectPath);
 `
     printSuccess(` Dependency analysis completed`);
 `
-    console.warn(`\n DEPENDENCY ANALYSISRESULTS = flags;`)
-  const _projectPath = options.path ?? process.cwd();
-  const __threshold = options.threshold ?? 70;`
+    console.warn(`\n DEPENDENCY ANALYSISRESULTS = flags`);
+  const projectPath = options.path ?? process.cwd();
+  const _threshold = options.threshold ?? 70;`
   console.warn(` Detecting duplicate codein = // await import('../../services/code-analysis/index.js');`
-    const _detector = new DuplicateCodeDetector({
+    const detector = new DuplicateCodeDetector({
       threshold,minTokens = // await detector.detectDuplicates(projectPath);
 `
     printSuccess(` Duplicate detection completed`);
 `
     console.warn(`\n DUPLICATE CODEANALYSIS = results.metrics.severity_breakdown;``
   console.warn(`  Critical = flags;`
-  const _queryType = subArgs[1];
+  const queryType = subArgs[1];
 )
   if(!queryType) {`
     console.warn(`\n AVAILABLEQUERIES = new CodeAnalysisService();`
@@ -138,8 +136,8 @@ try {
     // {description = options.api  ?? 'deprecated'; // LINT: unreachable code removed
   // return [;
     // {description = flags; // LINT: unreachable code removed'
-  const _scope = options.scope  ?? 'system';'
-  const _target = options.target  ?? 'all';
+  const scope = options.scope  ?? 'system';'
+  const target = options.target  ?? 'all';
 '
   console.warn(` Detecting performance bottlenecks...`);`
   console.warn(`Scope = // await checkRuvSwarmAvailable();`
@@ -147,11 +145,11 @@ try {
     printError('ruv-swarm is not available. Please install itwith = // await callRuvSwarmMCP('benchmark_run', {type = analysisResult.bottlenecks  ?? [;'
         //         {
           severity => {
-        const _icon =;'
+        const icon =;'
           bottleneck.severity === 'critical';'';'
             : bottleneck.severity === 'warning';'';'';
         console.warn(;)'
-          `$iconcatch (error) console.error(error); $bottleneck.severity: $bottleneck.component($, bottleneck.metric )`);
+          `$icon $bottleneck.severity: $bottleneck.component($, bottleneck.metric )`);
   //   }
   //   )`
   console.warn(`\nRECOMMENDATIONS = analysisResult.recommendations  ?? [``
@@ -165,23 +163,23 @@ try {
   //   )`
   console.warn(`
   \n PERFORMANCEMETRICS = flags`
-  const _timeframe = options.timeframe ?? '24h';'
-  const _format = options.format ?? 'summary';)'
+  const timeframe = options.timeframe ?? '24h';'
+  const format = options.format ?? 'summary';)'
   console.warn(` Generating performance report...`);`
   console.warn(`Timeframe = > setTimeout(resolve, 1500));``
   printSuccess(` Performance report generated`);`
   console.warn(`\n PERFORMANCE SUMMARY($, timeframe ):`);`
   console.warn(`   Total tasksexecuted = === 'detailed') {``
     console.warn(`\n DETAILEDMETRICS = flags;``
-  const __agent = options.agent ?? 'all';
-  const __breakdown = options.breakdown ?? false;)'
+  const _agent = options.agent ?? 'all';
+  const _breakdown = options.breakdown ?? false;)'
   console.warn(` Analyzing token usage...`);`
   console.warn(` Agentfilter = > setTimeout(resolve, 1000));`
 `
   printSuccess(` Token usage analysis completed`);
 `
-  console.warn(`\n TOKEN USAGESUMMARY = flags;`)
-  const _projectPath = options.path ?? process.cwd();`
+  console.warn(`\n TOKEN USAGESUMMARY = flags`);
+  const projectPath = options.path ?? process.cwd();`
   console.warn(` Starting real-time code analysisfor = new CodeAnalysisService({ `
       projectPath,
       enableRealTimeAnalysis => {))`
@@ -195,25 +193,25 @@ try {
 // // await new Promise(() => {});
   } catch(error) {'
     printError(`Real-time analysisfailed = flags;`
-  const _projectPath = options.path ?? process.cwd();
-  const _threshold = options.threshold ?? 10;`
+  const projectPath = options.path ?? process.cwd();
+  const threshold = options.threshold ?? 10;`
   console.warn(` Analyzing code complexityin = // await import('../../services/code-analysis/index.js');`
-    const _analyzer = new ComplexityAnalyzer({ threshold;
+    const analyzer = new ComplexityAnalyzer({ threshold;
       });
 
     // Get source files
-    const _files = []; // Would need to implement file discovery
-// const _results = awaitanalyzer.analyzeComplexity(files);
+    const files = []; // Would need to implement file discovery
+// const results = awaitanalyzer.analyzeComplexity(files);
 `
     printSuccess(` Complexity analysis completed`);
 `
-    console.warn(`\n COMPLEXITY ANALYSISRESULTS = results.overall.complexityDistribution;`)`
+    console.warn(`\n COMPLEXITY ANALYSISRESULTS = results.overall.complexityDistribution`);`
   console.warn(`   Low(1-5): $dist.low`);`
   console.warn(`   Medium(6-10): ${dist.medium}`);`
   console.warn(`   High(11-20): $dist.high`);`
   console.warn(`   Critical(21+): ${dist.critical}`);
   // Generate insights
-  const _insights = analyzer.generateComplexityInsights(results);
+  const insights = analyzer.generateComplexityInsights(results);
   if(insights.hotspots.length > 0) {`
     console.warn(`\n COMPLEXITY HOTSPOTS);`
     for (const hotspot of insights.hotspots.slice(0, 5)) {`

@@ -6,17 +6,17 @@ import { PluginManager } from '../plugins/plugin-manager.js';
 // All plugins are imported dynamically to handle missing ones gracefully
 
 // Global plugin manager instance
-const _globalPluginManager = null;
+const globalPluginManager = null;
 
 /** Initialize and activate all enterprise plugins */
 
 // export async function initializePlugins(_config = {}) {
 if(globalPluginManager) {'
-    console.warn(' Plugin system already initialized')
+    console.warn(' Plugin system already initialized');
 //     return globalPluginManager;
     //   // LINT: unreachable code removed}
 '
-  console.warn(' Initializing Claude Zen Plugin System...')
+  console.warn(' Initializing Claude Zen Plugin System...');
 
   try {
     // Create plugin manager with enhanced configuration
@@ -50,9 +50,9 @@ forEach(plugin => {'
       });
   //   }
 
-  const _failedPlugins = status.plugins.filter(p => p.enabled && !p.loaded);
+  const failedPlugins = status.plugins.filter(p => p.enabled && !p.loaded);
   if(failedPlugins.length > 0) {``
-    console.warn('\n Failed to Load => {')')
+    console.warn('\n Failed to Load => {');')
 // }
 
 /** Get the global plugin manager instance */
@@ -88,16 +88,16 @@ forEach(plugin => {'
   for(const pluginName of loadedPlugins) {
     try {
 // // // await globalPluginManager.unloadPlugin(pluginName); ``
-      console.warn(` Unloadedplugin = null;`)``
-  console.warn(' Plugin system shutdown complete') {
+      console.warn(` Unloadedplugin = null`);``
+  console.warn(' Plugin system shutdown complete'); {
 // }
 
  catch (error) { console.error(error)}/** Plugin health check */
 
 // export async function checkPluginHealth() {
-  const _manager = getPluginManager();
-  const _status = manager.getStatus();
-  const _health = {
+  const manager = getPluginManager();
+  const status = manager.getStatus();
+  const health = {
     overall = {status = manager.getPlugin(plugin.name)
   if(instance && instance.getHealth && typeof instance.getHealth === 'function') {'
         try {
@@ -113,7 +113,7 @@ forEach(plugin => {'
   //   }
 
   // Determine overall health
-  const _failedCount = status.registered - status.loaded;
+  const failedCount = status.registered - status.loaded;
   if(failedCount > status.registered / 2) {'
     health.overall = 'critical''
   } else if(failedCount > 0) {'

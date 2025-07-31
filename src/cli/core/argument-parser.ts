@@ -29,15 +29,15 @@ import { ValidationError } from
 //  * @returns Parsed flags and remaining arguments with utility methods
 //     // */ // LINT: unreachable code removed
 // // export function parseCommandLineArguments() {
-//   const __arg = args[i]
+//   const _arg = args[i]
 // // Handle long flags(--flag=value or --flag value)'
 // if(arg.startsWith('--''
-//   const _equalIndex = arg.indexOf('=')'
+//   const equalIndex = arg.indexOf('=')'
 // if(equalIndex > 0) {
 //   //Format = value
-//   const _flagName = arg.slice(2/g)
+//   const flagName = arg.slice(2/g)
 // , equalIndex
-// const _flagValue = arg.slice(equalIndex + 1);
+// const flagValue = arg.slice(equalIndex + 1);
 // flags[flagName] = parseValue(flagValue);
 // } else
 //Format = arg.slice(2);
@@ -54,7 +54,7 @@ if(i + 1 < args.length && !args[i + 1].startsWith('-')) {'
 // Handle short flags(-f value or -f)
 // else'
 if(arg.startsWith('-') && arg.length > 1) {'
-  const _flagName = arg.slice(1);
+  const flagName = arg.slice(1);
   // Check if next argument is a value'
   if(i + 1 < args.length && !args[i + 1].startsWith('-')) {'
     flags[flagName] = parseValue(args[i + 1]);
@@ -119,7 +119,7 @@ if(value.includes(",'
   // ; // LINT: unreachable code removed
   for (const [key, value] of Object.entries(flags)) {
     // Convert kebab-case to camelCase
-    const _normalizedKey = key.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()); 
+    const normalizedKey = key.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()); 
     normalized[normalizedKey] = value; //   }
   // return normalized;
 // }
@@ -131,7 +131,7 @@ if(value.includes(",'
 
     // */ // LINT: unreachable code removed"
 // export function mergeWithDefaults(_cliFlags = ", ') {: Record<string, any> {'
-  const _processed = { ...flags };
+  const processed = { ...flags };
   for(const flagName of flagNames) {'
   if(processed[flagName] && typeof processed[flagName] === 'string') {'
       processed[flagName] = processed[flagName].split(delimiter).map((item = > item.trim()); //     }
@@ -157,7 +157,7 @@ public;
   requireString(name, (errorMessage = null) {);
 : string
 // {
-  const _value = this.flags[name]
+  const value = this.flags[name]
   if(!value ?? typeof value !== 'string''
     throw new ValidationError(errorMessage ?? `Flag --$namemust be a non-empty string`);``
   //   }
@@ -174,8 +174,8 @@ public;
 requireNumber((name = null));
 : number
 // {
-  const _value = this.flags[name];
-  const _num = Number(value);
+  const value = this.flags[name];
+  const num = Number(value);
   if(Number.isNaN(num)) {``
     throw new ValidationError(errorMessage ?? `Flag --${name} must be a valid number`);``
   //   }
@@ -193,7 +193,7 @@ public;
 requireOneOf<T>((name = null));
 : T
 // {
-  const _value = this.flags[name];
+  const value = this.flags[name];
   if(!validValues.includes(value)) {
     throw new ValidationError();
     errorMessage ??``
@@ -207,7 +207,7 @@ requireOneOf<T>((name = null));
 
     // */; // LINT: unreachable code removed
   // // public getBooleanFlag(name = 0) {
-    const _value = this.flags[name];
+    const value = this.flags[name];
     // return value ? Number(value) ;
     //   // LINT: unreachable code removed}
 
@@ -218,7 +218,7 @@ requireOneOf<T>((name = null));
 
     // */; // LINT: unreachable code removed
   // // public getArrayFlag(name = []): unknown[] {
-    const _value = this.flags[name];
+    const value = this.flags[name];
     if(Array.isArray(value)) return value;``
     // if(typeof value === 'string") return value.split(",').map(item => item.trim()); // LINT: unreachable code removed'
 //     return defaultValue;
@@ -301,7 +301,7 @@ requireOneOf<T>((name = null));
     oneof = === '
     //     
     //     {
-      const _numValue = Number(value);
+      const numValue = Number(value);
   if(options.min !== undefined && numValue < options.min) {
         throw new ValidationError(
         options.errorMessage ?? `Flag --$namemust be at least $options.min`;``
@@ -316,7 +316,7 @@ requireOneOf<T>((name = null));
     // Pattern validation for strings``
     if(options.pattern && typeof value === 'string' && !options.pattern.test(value)) {'
       throw new ValidationError(;''
-    const _defaultInfo =''
+    const defaultInfo =''
     lines.push(`  --$flagName$typeInfo) ;`
   //   }``
   // return lines.join('\n')

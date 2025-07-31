@@ -10,16 +10,16 @@ import { UniversalBox as Box } from '../adapters/render-adapter.js';
 
 import { visionAPI } from '../shared/vision-api.js';
 
-const _UniversalVisionDashboard = () => { // eslint-disable-line
+const UniversalVisionDashboard = () => { // eslint-disable-line
   const [visions, setVisions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   // Same logic for both TUI and Web
   useEffect(() => {
-    const __loadVisions = async() => {
+    const _loadVisions = async() => {
       try {
-// const _data = awaitvisionAPI.fetchVisions();
+// const data = awaitvisionAPI.fetchVisions();
         setVisions(data)} catch (error) { console.error(error)} catch(/* _error */) '
         console.error('Failed to loadvisions = setInterval(loadVisions, 30000)'
     // return() => clearInterval(interval);
@@ -47,7 +47,7 @@ const _UniversalVisionDashboard = () => { // eslint-disable-line
     // case 'medium'; // LINT: unreachable code removed''
       case 'low';default = () => {'
     if(!phases?.length) return 0;
-    // const _totalProgress = phases.reduce((sum, phase) => sum + (phase.progress  ?? 0), 0); // LINT: unreachable code removed
+    // const totalProgress = phases.reduce((sum, phase) => sum + (phase.progress  ?? 0), 0); // LINT: unreachable code removed
 //     return Math.round(totalProgress / phases.length);
     //   // LINT: unreachable code removed};
 // 

@@ -36,13 +36,13 @@ import { FlagValidator } from '../core/argument-parser.js';
 {name = neural','
       description => {
 '
-    const _logger = context.logger.child({command = (context.arguments[0] as McpSubCommand)  ?? 'help';
+    const logger = context.logger.child({command = (context.arguments[0] as McpSubCommand)  ?? 'help';
 
       // Parse and validate options
-      const _options = parseMcpOptions(context, logger);
+      const options = parseMcpOptions(context, logger);
 
       // Execute subcommand
-// const __result = awaitshowMcpStatus(options, logger);
+// const _result = awaitshowMcpStatus(options, logger);
           break;'
         case 'start':
           result = // await startMcpServer(options, logger);
@@ -70,12 +70,12 @@ import { FlagValidator } from '../core/argument-parser.js';
 function parseMcpOptions(context = new FlagValidator(context.flags as any);
 '
   logger.debug('Parsing MCP options', {flags = validator.getNumberFlag('port', 3000);'
-  const __host = validator.getStringFlag('host', 'localhost');'
-  const _category = validator.getStringFlag('category') as McpCategory | undefined;'
-  const __verbose = validator.getBooleanFlag('verbose', false);
+  const _host = validator.getStringFlag('host', 'localhost');'
+  const category = validator.getStringFlag('category') as McpCategory | undefined;'
+  const _verbose = validator.getBooleanFlag('verbose', false);
 '
-  const __daemon = validator.getBooleanFlag('daemon', false);'
-  const __stdio = validator.getBooleanFlag('stdio', true);
+  const _daemon = validator.getBooleanFlag('daemon', false);'
+  const _stdio = validator.getBooleanFlag('stdio', true);
 
   // Validate port range
   if(port < 1  ?? port > 65535) {'
@@ -83,22 +83,22 @@ function parseMcpOptions(context = new FlagValidator(context.flags as any);
   //   }
 
   // Validate category if provided'
-  const _validCategories = ['swarm', 'neural', 'memory', 'analysis', 'workflow', 'github', 'daa', 'system'];
+  const validCategories = ['swarm', 'neural', 'memory', 'analysis', 'workflow', 'github', 'daa', 'system'];
   if(category && !validCategories.includes(category)) {'
     throw new CLIError(`Invalid category. Must be one of = {port = ============================================================================;`
 // MCP SUBCOMMAND IMPLEMENTATIONS
 // =============================================================================
 `
 async function showMcpStatus(options = {status = // await import('url');'
-// const _path = awaitimport('path');'
+// const path = awaitimport('path');'
       const { spawn } = await import('child_process');
 
-      const ___filename = fileURLToPath(import.meta.url);
-      const ___dirname = path.dirname(__filename);'
-      const _mcpServerPath = path.join(__dirname, '../../mcp/mcp-server.js');
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = path.dirname(__filename);'
+      const mcpServerPath = path.join(__dirname, '../../mcp/mcp-server.js');
 
       // Check if the file exists'
-// const _fs = awaitimport('fs');
+// const fs = awaitimport('fs');
       if(!fs.existsSync(mcpServerPath)) {'
         logger.error('MCP server file not found', {path = spawn('node', [mcpServerPath], {
         stdio => {)
@@ -118,7 +118,7 @@ async function showMcpStatus(options = {status = // await import('url');'
 '
   if(!options.category  ?? options.category === 'swarm') {'
     console.warn('\n SWARM COORDINATION(12 tools):');
-    const _swarmTools = ['
+    const swarmTools = ['
       'swarm_init            Initialize swarm with topology','
       'agent_spawn           Create specialized AI agents','
       'task_orchestrate      Orchestrate complex workflows','
@@ -138,7 +138,7 @@ async function showMcpStatus(options = {status = // await import('url');'
       console.warn(`   ${tool}`);`
       tools.push({name = === 'neural') {'
     console.warn('\n NEURAL NETWORKS & AI(15 tools):');
-    const _neuralTools = ['
+    const neuralTools = ['
       'neural_status         Check neural network status','
       'neural_train          Train neural patterns','
       'neural_patterns       Analyze cognitive patterns','
@@ -161,7 +161,7 @@ async function showMcpStatus(options = {status = // await import('url');'
       console.warn(`   $tool`);`
       tools.push({name = === 'memory') {'
     console.warn('\n MEMORY & PERSISTENCE(12 tools):');
-    const _memoryTools = ['
+    const memoryTools = ['
       'memory_usage          Store/retrieve persistent data','
       'memory_search         Search memory with patterns','
       'memory_persist        Cross-session persistence','

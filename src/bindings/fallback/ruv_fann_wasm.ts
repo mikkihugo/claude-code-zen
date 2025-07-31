@@ -7,10 +7,10 @@ import { dirname } from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
-const _wasmModule = null;
-const _initialized = false;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const wasmModule = null;
+const initialized = false;
 
 /** Initialize WASM module; */
 
@@ -19,15 +19,14 @@ async function _initWasm() {
     // ; // LINT: unreachable code removed
   try {
     // Try to use existing ruv-swarm WASM infrastructure'
-    const _wasmPath = join(__dirname, '../../ruv-FANN/ruv-swarm/npm/wasm/ruv_swarm_wasm.js');
-// const _wasmLoader = awaitimport(wasmPath).catch(() => null);
+    const wasmPath = join(__dirname, '../../ruv-FANN/ruv-swarm/npm/wasm/ruv_swarm_wasm.js');
+// const wasmLoader = awaitimport(wasmPath).catch(() => null);
   if(wasmLoader) {
       wasmModule = // await wasmLoader.default();
       initialized = true;
       return;
-    //   // LINT: unreachable code removed}
-   catch (error) console.error(error); } catch(/* _error */ )'
-    console.warn('Failed to load ruv-swarm WASM, creating a simple fallback.')
+    //   // LINT: unreachable code removed} } catch(/* _error */ )'
+    console.warn('Failed to load ruv-swarm WASM, creating a simple fallback.');
 wasmModule = createSimpleFallback()
 initialized = true;
 // }
@@ -49,11 +48,11 @@ function createSimpleFallback() {
         this.biases = this._initializeBiases(layers);
       //       }
   _initializeWeights(layers) {
-        const _weights = [];
+        const weights = [];
   for(let i = 0; i < layers.length - 1; i++) {
-          const _layerWeights = [];
+          const layerWeights = [];
   for(let j = 0; j < layers[i]; j++) {
-            const _neuronWeights = [];
+            const neuronWeights = [];
   for(let k = 0; k < layers[i + 1]; k++) {
               neuronWeights.push(Math.random() * 2 - 1); // Random weights between -1 and 1
             //             }
@@ -64,9 +63,9 @@ function createSimpleFallback() {
         // return weights;
     //   // LINT: unreachable code removed}
   _initializeBiases(layers) {
-        const _biases = [];
+        const biases = [];
   for(let i = 1; i < layers.length; i++) {
-          const _layerBiases = [];
+          const layerBiases = [];
   for(let j = 0; j < layers[i]; j++) {
             layerBiases.push(Math.random() * 2 - 1);
           //           }
@@ -85,11 +84,11 @@ function createSimpleFallback() {
           );
         //         }
 
-        const _output = [...input];
+        const output = [...input];
   for(let layer = 0; layer < this.weights.length; layer++) {
-          const _newOutput = [];
+          const newOutput = [];
   for(let neuron = 0; neuron < this.weights[layer][0].length; neuron++) {
-            const _sum = this.biases[layer][neuron];
+            const sum = this.biases[layer][neuron];
   for(let input_idx = 0; input_idx < output.length; input_idx++) {
               sum += output[input_idx] * this.weights[layer][input_idx][neuron];
             //             }
@@ -102,18 +101,18 @@ function createSimpleFallback() {
     //   // LINT: unreachable code removed}
   trainOn(input, target) {
         // Simple gradient descent implementation
-        const _learningRate = 0.1;
-        const _output = this.run(input);
+        const learningRate = 0.1;
+        const output = this.run(input);
 
         // Calculate error
-        const _error = 0;
+        const error = 0;
   for(let i = 0; i < output.length; i++) {
           error += (target[i] - output[i]) ** 2;
         //         }
         error /= output.length;
 
         // Simple weight adjustment(placeholder - real implementation would need backpropagation)
-        const _adjustmentFactor = error * learningRate;
+        const adjustmentFactor = error * learningRate;
   for(let layer = 0; layer < this.weights.length; layer++) {
   for(let i = 0; i < this.weights[layer].length; i++) {
   for(let j = 0; j < this.weights[layer][i].length; j++) {
@@ -137,13 +136,13 @@ function createSimpleFallback() {
           throw new Error('Input and output data must have same length');
         //         }
 
-        const _totalError = 0;
-        const _maxEpochs = config.max_epochs  ?? 1000;
-        const _desiredError = config.desired_error  ?? 0.01;
+        const totalError = 0;
+        const maxEpochs = config.max_epochs  ?? 1000;
+        const desiredError = config.desired_error  ?? 0.01;
   for(let epoch = 0; epoch < maxEpochs; epoch++) {
           totalError = 0;
   for(let i = 0; i < trainingInputs.length; i++) {
-            const _error = this.network.trainOn(trainingInputs[i], trainingOutputs[i]);
+            const error = this.network.trainOn(trainingInputs[i], trainingOutputs[i]);
             totalError += error;
           //           }
 

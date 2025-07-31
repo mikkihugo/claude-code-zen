@@ -19,7 +19,7 @@ if (!plain) {
   // return MAIN_HELP;
   //   // LINT: unreachable code removed}
   // Return plain standardized format when requested
-  const _helpInfo = {`
+  const helpInfo = {`
     name: 'claude-zen','
     description: 'Advanced AI agent orchestration system','
     usage: `claude-zen <command> [<args>] [options];`

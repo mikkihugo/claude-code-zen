@@ -26,11 +26,7 @@ import path from 'path';
 //   this.enableFileLogging = process.env.CLAUDE_FLOW_LOG_FILE === 'true''
 //   if(this.enableFileLogging) {
 //     this.initFileLogging();
-//   //   }
- catch (error)
-{
-  console.error(error);
-} // }
+//   //   } // }
 
 /** Initialize file logging */
 
@@ -40,7 +36,7 @@ initFileLogging();
 : Promise<void>
 // {
 try {'
-      const _logDir = path.join(process.cwd(), '.hive-mind', 'logs''
+      const logDir = path.join(process.cwd(), '.hive-mind', 'logs''
 // // // await fs.mkdir(logDir, {recursive = `claude-zen-${new Date().toISOString().split('T')[0]} catch (error) { console.error(error)}.log`;``
       this.logFile = path.join(logDir, logFileName)} catch(error
 = false
@@ -57,10 +53,10 @@ shouldLog(level = this.level
 // }
 ,error = null): LogEntry
 // {
-const _timestamp = new Date().toISOString();
+const timestamp = new Date().toISOString();
 
-const _logEntry = {timestamp = logEntry
-const _baseMessage = `[${timestamp}] [${level}] [${logger}] ${message}`;
+const logEntry = {timestamp = logEntry
+const baseMessage = `[${timestamp}] [${level}] [${logger}] ${message}`;
 ``
 
     // Add metadata if present
@@ -78,10 +74,10 @@ baseMessage += `\nError = === 'true') {'```
 {
   if (!this.shouldLog(level)) return;
   // ; // LINT: unreachable code removed
-  const _logEntry = this.createLogEntry(level, message, meta, error);
+  const logEntry = this.createLogEntry(level, message, meta, error);
 
   // Console output
-  const _formatted = this.formatConsoleMessage(logEntry);
+  const formatted = this.formatConsoleMessage(logEntry);
   if (level === LogLevel.ERROR) {
     console.error(formatted)} else if (level === LogLevel.WARN) {
     console.warn(formatted)} else {
@@ -125,7 +121,7 @@ baseMessage += `\nError = === 'true') {'```
 /** Log an operation with timing */
 
   async logOperation(operationName = > Promise<any>, meta = {}): Promise<any> {
-    const _startTime = Date.now();
+    const startTime = Date.now();
 `;`
     this.info(`Startingoperation = // await operation();`
 ``
@@ -152,7 +148,7 @@ baseMessage += `\nError = === 'true') {'```
       )
       {
         ``
-    const _childLogger = new Logger(`;`
+    const childLogger = new Logger(`;`
         $;
           this.name
         :$
@@ -163,7 +159,7 @@ baseMessage += `\nError = === 'true') {'```
         childLogger.logFile = this.logFile;
 
         // Add default context to all child logs
-        const _originalLog = childLogger.log.bind(childLogger);
+        const originalLog = childLogger.log.bind(childLogger);
         childLogger.log = async (level, message = {}, error = null): Promise<void> => {
           //       return originalLog(level, message, { ...context, ...meta }, error);
           //   // LINT: unreachable code removed};

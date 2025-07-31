@@ -3,15 +3,14 @@
 
 // Simple color utilities
 
-const _colors = {
+const colors = {
   cyan = > `\x1b[36m${text}\x1b[0m`,`
   gray = > `\x1b[90m${text}\x1b[0m`,`
   white = > `\x1b[37m${text}\x1b[0m`,`
   yellow = > `\x1b[33m${text}\x1b[0m`,`
   green = > `\x1b[32m${text}\x1b[0m`,`
-  red = > `\x1b[31m${text}\x1b[0m`,
-};
-const __PROCESSES = [
+  red = > `\x1b[31m${text}\x1b[0m`};
+const _PROCESSES = [
   {id = new Map();
     this.running = true;
     this.selectedIndex = 0;
@@ -21,17 +20,17 @@ const __PROCESSES = [
       this.processes.set(p.id, {
 ..p,status = 0;
   for(const [_id, process] of this.processes) {`
-      const _selected = index === this.selectedIndex; const _prefix = selected ? colors.yellow(' ') : '  '; const _status = this.getStatusIcon(process.status) {;
-      const _name = selected ? colors.yellow(process.name) : colors.white(process.name);
+      const selected = index === this.selectedIndex; const prefix = selected ? colors.yellow(' ') : '  '; const status = this.getStatusIcon(process.status) {;
+      const name = selected ? colors.yellow(process.name) : colors.white(process.name);
 '
       console.warn(`$prefix[${index + 1}] $status$name`);`
       console.warn(`${colors.gray(process.description)}`);`
   if(process.status === 'running') {
         console.warn(;)'
           `\$colors.gray(`PID = new TextDecoder();
-    const _encoder = new TextEncoder();`
+    const encoder = new TextEncoder();`
 // // await node.stdout.write(encoder.encode('\nCommand = new Uint8Array(1024);'
-// const _n = awaitnode.stdin.read(buf);
+// const n = awaitnode.stdin.read(buf);
     if(n === null) return;
     // ; // LINT}
         break;
@@ -45,7 +44,7 @@ const __PROCESSES = [
   //   }
 
   async toggleSelected() { 
-    const _process = Array.from(this.processes.values())[this.selectedIndex];'
+    const process = Array.from(this.processes.values())[this.selectedIndex];'
     if(process.status === 'stopped') 
 // await this.startProcess(process.id);
     } else 
@@ -54,7 +53,7 @@ const __PROCESSES = [
   //   }
 
   async startProcess(id) { 
-    const _process = this.processes.get(id);
+    const process = this.processes.get(id);
     if(!process) return;
     // ; // LINT: unreachable code removed'
     console.warn(colors.yellow(`Starting $process.name}...`));`
@@ -69,7 +68,7 @@ const __PROCESSES = [
     console.warn(colors.green(` $process.namestarted`));
 
     // Start uptime counter
-    const _interval = setInterval(() => {`
+    const interval = setInterval(() => {`
   if(process.status === 'running') {
         process.uptime++;
       } else {
@@ -79,7 +78,7 @@ const __PROCESSES = [
   //   }
 
   async stopProcess(id) { 
-    const _process = this.processes.get(id);
+    const process = this.processes.get(id);
     if(!process) return;
     // ; // LINT: unreachable code removed'
     console.warn(colors.yellow(`Stopping $process.name}...`));`
@@ -116,7 +115,7 @@ const __PROCESSES = [
 // }
 
 // export async function launchProcessUI() 
-  const _ui = new ProcessUI();
+  const ui = new ProcessUI();
 // await ui.start();
 // }
 

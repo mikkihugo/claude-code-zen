@@ -15,8 +15,8 @@ import { fileURLToPath } from 'node:url';
 
 import { createDatabase } from '.';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // // interface SqliteMemoryStoreOptions {
 //   dbName?;
 //   directory?;
@@ -70,7 +70,7 @@ try {
       // Enable WAL mode for better concurrency'
       this.db.pragma('journal_mode = WAL');'
       this.db.pragma('synchronous = NORMAL');'
-      this.db.pragma(`cache_size = -$Math.floor(this.options.cacheSize! / 1024)catch (error) console.error(error); `); // Negative for KB`
+      this.db.pragma(`cache_size = -$Math.floor(this.options.cacheSize! / 1024) `); // Negative for KB`
       this.db.pragma(`mmap_size = ${this.options.mmapSize!}`);`
       this.db.pragma('temp_store = MEMORY');'
       this.db.pragma('optimize');
@@ -146,41 +146,39 @@ try {
   //   }
 `
   async store(key = {}): Promise<{success = options.namespace  ?? 'default';
-    const _metadata = options.metadata ? JSON.stringify(options.metadata) ;
-    const _ttl = options.ttl  ?? null;'
-    const _expiresAt = ttl ? Math.floor(Date.now() / 1000) +ttl = typeof value === 'string' ? value : JSON.stringify(value);
+    const metadata = options.metadata ? JSON.stringify(options.metadata) ;
+    const ttl = options.ttl  ?? null;'
+    const expiresAt = ttl ? Math.floor(Date.now() / 1000) +ttl = typeof value === 'string' ? value : JSON.stringify(value);
     try {
-      const __result = this.statements;'
+      const _result = this.statements;'
 get('upsert');
 run(key, valueStr, namespace, metadata, ttl, expiresAt);
 
       // Invalidate related cache entries'
-      this._invalidateCache(`retrieve = {} catch (error) console.error(error); ): Promise<any> `
+      this._invalidateCache(`retrieve = {} ): Promise<any> `
 // // await this.initialize();`
-    const _namespace = options.namespace  ?? 'default';'
-    const _cacheKey = this._getCacheKey('retrieve', key, namespace);
+    const namespace = options.namespace  ?? 'default';'
+    const cacheKey = this._getCacheKey('retrieve', key, namespace);
 
     // Check cache first
-    const _cached = this._getFromCache(cacheKey);
+    const cached = this._getFromCache(cacheKey);
   if(cached !== null) {
       // return cached;
     //   // LINT: unreachable code removed}
 
     try {'
-      const _row = this.statements.get('get').get(key, namespace);
+      const row = this.statements.get('get').get(key, namespace);
   if(!row) {
         this._setCache(cacheKey, null, 60000); // Cache null results for 1 minute
         // return null;
-    //   // LINT: unreachable code removed}
-
-       catch (error) console.error(error); '
+    //   // LINT: unreachable code removed} '
       this.statements.get('updateAccess').run(key, namespace);
 
       // Try to parse as JSON, fall back to raw string
       let result;
       try {
         result = JSON.parse(row.value);
-      } catch (error) { console.error(error); } catch {
+      } catch {
         result = row.value;
       //       }
 
@@ -190,49 +188,49 @@ run(key, valueStr, namespace, metadata, ttl, expiresAt);
       // return result;
     //   // LINT: unreachable code removed} catch(error = {}): Promise<any[]> {
 // // await this.initialize();'
-    const _namespace = options.namespace  ?? 'default';
-    const _limit = options.limit  ?? 100;'
-    const _cacheKey = this._getCacheKey('list', namespace, limit);
+    const namespace = options.namespace  ?? 'default';
+    const limit = options.limit  ?? 100;'
+    const cacheKey = this._getCacheKey('list', namespace, limit);
 
     // Check cache first
-    const _cached = this._getFromCache(cacheKey);
+    const cached = this._getFromCache(cacheKey);
   if(cached !== null) {
       // return cached;
     //   // LINT: unreachable code removed}
 
     try {'
-      const _rows = this.statements.get('list').all(namespace, limit);
+      const rows = this.statements.get('list').all(namespace, limit);
 
-      const _result = rows.map((row) => ({ key = {} catch (error) { console.error(error); }): Promise<boolean> {
+      const result = rows.map((row) => ({ key = {}): Promise<boolean> {
 // // await this.initialize();'
-    const _namespace = options.namespace  ?? 'default';
+    const namespace = options.namespace  ?? 'default';
 
     try {'
-      const _result = this.statements.get('delete').run(key, namespace);
+      const result = this.statements.get('delete').run(key, namespace);
 
       // Invalidate related cache entries
   if(result.changes > 0) {'
-        this._invalidateCache(`retrieve = catch (error) console.error(error); ): Promise<any[]> {`
+        this._invalidateCache(`retrieve = ): Promise<any[]> {`
 // // await this.initialize();`
-    const _namespace = options.namespace  ?? 'default';
-    const _limit = options.limit  ?? 50;'
-    const _searchPattern = `%$pattern%`;`
-    const _cacheKey = this._getCacheKey('search', pattern, namespace, limit);
+    const namespace = options.namespace  ?? 'default';
+    const limit = options.limit  ?? 50;'
+    const searchPattern = `%$pattern%`;`
+    const cacheKey = this._getCacheKey('search', pattern, namespace, limit);
 
     // Check cache first
-    const _cached = this._getFromCache(cacheKey);
+    const cached = this._getFromCache(cacheKey);
   if(cached !== null) {
       // return cached;
     //   // LINT: unreachable code removed}
 
     try {
-      const _rows = this.statements;'
+      const rows = this.statements;'
 get('search');
 all(namespace, searchPattern, searchPattern, limit);
 '
-      const _result = rows.map((_row) => ({key = this.statements.get('cleanup').run();
+      const result = rows.map((_row) => ({key = this.statements.get('cleanup').run();
 //       return result.changes;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(_error = this.queryCache.get(cacheKey);
+    //   // LINT: unreachable code removed} catch(_error = this.queryCache.get(cacheKey);
   if(!cached) {
       this.cacheStats.misses++;
 //       return null;
@@ -251,8 +249,8 @@ all(namespace, searchPattern, searchPattern, limit);
   // private _setCache(cacheKey = null) {
     if(!this.options.enableCache) return;
     // ; // LINT: unreachable code removed
-    const _ttl = customTTL  ?? this.options.cacheTimeout!;
-    const _expires = Date.now() + ttl;
+    const ttl = customTTL  ?? this.options.cacheTimeout!;
+    const expires = Date.now() + ttl;
 
     this.queryCache.set(cacheKey, { data, expires });
     this.cacheStats.size = this.queryCache.size;
@@ -294,9 +292,9 @@ all(namespace, searchPattern, searchPattern, limit);
       // return {entries = > idx.name);
     //   // LINT: unreachable code removed};catch(error = ;
 
-      const _commonQueries = [`name = ? AND namespace = ?''name = ? ORDER BY updated_at DESC LIMIT ?''name = ? AND(key LIKE ? OR value LIKE ?) LIMIT ?' },name = strftime(\'%s\', \'now\')' 
+      const commonQueries = [`name = ? AND namespace = ?''name = ? ORDER BY updated_at DESC LIMIT ?''name = ? AND(key LIKE ? OR value LIKE ?) LIMIT ?' },name = strftime(\'%s\', \'now\')' 
       ];
   for(const query of commonQueries) {
         try {'
-          const _plan = this.db?.prepare(`EXPLAIN QUERY PLAN ${query.sql} catch (error) { console.error(error); }`).all(); plans[query.name] = plan; } catch(_error = error = new SqliteMemoryStore() ;}}}}}}}}))))
+          const plan = this.db?.prepare(`EXPLAIN QUERY PLAN ${query.sql}`).all(); plans[query.name] = plan; } catch(_error = error = new SqliteMemoryStore() ;}}}}}}}}))))
 `

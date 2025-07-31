@@ -6,21 +6,21 @@
 import { log } from '../core/logger.js';
 
 // Helper functions
-const _printSuccess = (msg) => log.success(msg);
-const _printError = (msg) => log.error(msg);
+const printSuccess = (msg) => log.success(msg);
+const printError = (msg) => log.error(msg);
 export async function projectCommand() {
   '
   case 'create':
   {
-    const _projectName = args[1];
+    const projectName = args[1];
     if (!projectName) {
       '
       printError('Usage = args.indexOf('--isolation''
-      const _resourceQuotaFlag = args.indexOf('--resource-quota');
+      const resourceQuotaFlag = args.indexOf('--resource-quota');
       '
-      const __securityProfileFlag = args.indexOf('--security-profile');
+      const _securityProfileFlag = args.indexOf('--security-profile');
       '
-      const _templateFlag = args.indexOf('--template');
+      const templateFlag = args.indexOf('--template');
       '
       printSuccess(`Creatingproject = 0 ? args[isolationFlag + 1] )
       `
@@ -49,12 +49,12 @@ export async function projectCommand() {
             console.warn(`;
           Status = args[1];
           `
-            const _configProject = args[2];
+            const configProject = args[2];
 `;
           if (configAction === 'set' && configProject) {
-            const __configKey = args[3];
+            const _configKey = args[3];
             '
-            const _configValue = args.slice(4).join(' ');
+            const configValue = args.slice(4).join(' ');
             '
               printSuccess(`Updating projectconfiguration = $
             configValue
@@ -62,7 +62,7 @@ export async function projectCommand() {
             console.warn(' Configuration updated');
             '
           } else if (configAction === 'get' && configProject) {
-            const __configKey = args[3];
+            const _configKey = args[3];
             '
               console.warn(`Project = args[1]
           `)
@@ -73,7 +73,7 @@ export async function projectCommand() {
             '
                   printError('Usage = args.includes('--include-data');'
 '
-            const _outputFlag = args.indexOf('--output');
+            const outputFlag = args.indexOf('--output');
             '
                   printSuccess(`;
               Creating;
@@ -85,7 +85,7 @@ export async function projectCommand() {
               : `\$backupProject-backup-\$Date.now().tar.gz``
                   console.warn(`\n Backupcreated = args[1]`
                   `
-              const _shareTo = args[2];
+              const shareTo = args[2];
 
               if (!shareFrom ?? !shareTo) {
                 `
@@ -112,7 +112,7 @@ export async function projectCommand() {
                   Duration = args[1]```
 `;
                   if (fedCmd === 'create') {
-                    const _fedName = args[2];
+                    const fedName = args[2];
                     if (!fedName) {
                       '
                           printError(''
@@ -122,38 +122,38 @@ export async function projectCommand() {
                       '
                   ) ``
             printSuccess(''
-            console.warn('\n development-ecosystem')'
+            console.warn('\n development-ecosystem');'
                   console.warn(''
             console.warn(''
             console.warn('   Status);'
                     } else {
                       '
-                  console.warn('Federation commands, list, workflow')
+                  console.warn('Federation commands, list, workflow');
                       //           }
                       break;
 
                       default: null'
           console.warn(''
-          console.warn('  create    - Create new project with isolation')'
-                          console.warn('  switch    - Switch active project context')'
-                  console.warn('  list      - List all projects')
+          console.warn('  create    - Create new project with isolation');'
+                          console.warn('  switch    - Switch active project context');'
+                  console.warn('  list      - List all projects');
                     '
-                  console.warn('  config    - Get/set project configuration')
+                  console.warn('  config    - Get/set project configuration');
                     '
-                  console.warn('  monitor   - Monitor project resources and performance')
+                  console.warn('  monitor   - Monitor project resources and performance');
                     '
-                  console.warn('  backup    - Create project backup')
+                  console.warn('  backup    - Create project backup');
                     '
-                  console.warn('  share     - Share resources between projects')
+                  console.warn('  share     - Share resources between projects');
                     '
-                  console.warn('  federation - Manage project federations')
+                  console.warn('  federation - Manage project federations');
                     '
                   console.warn('\nExamples);'
           console.warn(
                     )'
             '  project create "unified-app" --isolation strict --resource-quota "''
-          console.warn('  project switch "')'
-                          console.warn('  project monitor "microservices" --real-time')
+          console.warn('  project switch "');'
+                          console.warn('  project monitor "microservices" --real-time');
                       //       }
                       // }
                       //         }

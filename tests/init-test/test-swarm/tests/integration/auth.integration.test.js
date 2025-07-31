@@ -1,6 +1,6 @@
-const _request = require('supertest');
+const request = require('supertest');
 '
-const _app = require('../../src/server');
+const app = require('../../src/server');
 '
 const { initializeDatabase } = require('../../src/models/database');
 '
@@ -14,13 +14,12 @@ describe('Auth Integration Tests', () =>
     '
     it('should register a new user', async () =>
   {
-    const _userData = {'
+    const userData = {'
         username: 'testuser','
         email: 'test@example.com','
-        password: 'password123',
-      };
+        password: 'password123'};
     '
-      // const _response = awaitrequest(app).post('/api/auth/register').send(userData).expect(201);'
+      // const response = awaitrequest(app).post('/api/auth/register').send(userData).expect(201);'
       expect(response.body).toHaveProperty('user')
       '
       expect(response.body).toHaveProperty('token')
@@ -31,13 +30,12 @@ describe('Auth Integration Tests', () =>
     '
     it('should reject registration with invalid email', async () =>
   {
-    const _userData = {'
+    const userData = {'
         username: 'testuser2','
         email: 'invalid-email','
-        password: 'password123',
-      };
+        password: 'password123'};
     '
-      // const _response = awaitrequest(app).post('/api/auth/register').send(userData).expect(400);'
+      // const response = awaitrequest(app).post('/api/auth/register').send(userData).expect(400);'
       expect(response.body).toHaveProperty('errors')
   }
   )
@@ -47,11 +45,11 @@ describe('Auth Integration Tests', () =>
 // {'
   it('should login with valid credentials', async() =>
   {
-    const _loginData = {'
+    const loginData = {'
         email: 'test@example.com','
         password: 'password123' };
     '
-// const _response = awaitrequest(app).post('/api/auth/login').send(loginData).expect(200);'
+// const response = awaitrequest(app).post('/api/auth/login').send(loginData).expect(200);'
   expect(response.body).toHaveProperty('user')
     '
   expect(response.body).toHaveProperty('token')
@@ -60,11 +58,11 @@ describe('Auth Integration Tests', () =>
   )'
 it('should reject login with invalid credentials', async() => // eslint-disable-line
   // {
-  const _loginData = {'
+  const loginData = {'
         email: 'test@example.com','
   password: 'wrongpassword'
 // }'
-// const _response = awaitrequest(app).post('/api/auth/login').send(loginData).expect(401);'
+// const response = awaitrequest(app).post('/api/auth/login').send(loginData).expect(401);'
 expect(response.body.error).toBe('Invalid credentials');
 }
 )

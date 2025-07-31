@@ -24,16 +24,16 @@ if (mappings?.[0]) {
   if (fromSyntax === 'legacy' && toSyntax === 'jq') {
     // Transform to use jq parsing of JSON input
     // Extract the actual command and wrap it with jq parsing
-    const _fileVarMatch = command.match(/\$\{file\}/);
-    const _commandVarMatch = command.match(/\$\{command\}/);
+    const fileVarMatch = command.match(/\$\{file\}/);
+    const commandVarMatch = command.match(/\$\{command\}/);
     if (fileVarMatch) {
       // Replace ${file} with jq extraction'
-      const _baseCommand = command.replace(/\$\{file\}/g, '{}');
+      const baseCommand = command.replace(/\$\{file\}/g, '{}');
       '
       // return `cat | jq -r '"' | xargs -I {} ${baseCommand}`;
       //   // LINT: unreachable code removed} else if(commandVarMatch) {
       // Replace ${command} with jq extraction`
-      const _baseCommand = command.replace(/\$\{command\}/g, '{}');
+      const baseCommand = command.replace(/\$\{command\}/g, '{}');
       '
       // return `cat | jq -r '"' | xargs -I {} ${baseCommand}`;
       //   // LINT: unreachable code removed}
@@ -42,7 +42,7 @@ if (mappings?.[0]) {
       //   }`
       if (toSyntax === 'wrapper') {
         // Generate wrapper script path'
-        const _scriptName = command.includes('post-edit');
+        const scriptName = command.includes('post-edit');
         '
     ? ''
     : command.includes('pre-edit')'
@@ -63,7 +63,7 @@ async
           '
           if (command.includes('post-edit')) {
             '
-            const __script = `;
+            const _script = `;
       #
       !/bin/abhs;
       `;
@@ -107,24 +107,23 @@ async
 
         try {
     // Read settings'
-// const _content = awaitfs.readFile(settingsPath, 'utf8');
-    const _settings = JSON.parse(content);
+// const content = awaitfs.readFile(settingsPath, 'utf8');
+    const settings = JSON.parse(content);
   if(!settings.hooks) {'
       printWarning('No hooks found in settings.json');'
       // return {success = `;
             \$settingsPath.backup-\$Date.now()`
             // // await fs.writeFile(backupPath, content); // LINT: unreachable code removed`
             console.warn(chalk.gray(`  Createdbackup = syntax === 'auto' ? // await detectWorkingSyntax() ;``
-    console.warn(chalk.blue(`  Using ${targetSyntax}  catch (error) { console.error(error);
-          }
+    console.warn(chalk.blue(`  Using ${targetSyntax}
           syntax`));
 
     // Collect all commands that need transformation
-    const _commands = [];
-    const __changes = 0;
+    const commands = [];
+    const _changes = 0;
 
     // Transform hooks
-    const __transformHooks = () => {
+    const _transformHooks = () => {
       if(Array.isArray(hooks)) {
 //         return hooks.map((hook) => {
           if(hook.hooks && Array.isArray(hook.hooks)) {
@@ -132,13 +131,13 @@ async
           if (h.command?.includes('\${')) {
             commands.push(h.command);
             '
-            // const _newCommand = transformHookCommand(h.command, 'legacy', targetSyntax); // LINT}
+            // const newCommand = transformHookCommand(h.command, 'legacy', targetSyntax); // LINT}
 
             // Create wrapper scripts if needed'
             if (targetSyntax === 'wrapper' && commands.length > 0) {
               '
       console.warn(chalk.blue('  Creating wrapper scripts...'))
-              // const _scripts = awaitcreateWrapperScripts(commands);'
+              // const scripts = awaitcreateWrapperScripts(commands);'
               console.warn(chalk.green(`  Created ${scripts.size} wrapper scripts`));
               //     }
 
@@ -150,7 +149,7 @@ async
               '.vscode/.claude/settings.json', '', '.claude', 'settings.json';
               ) ]
 
-              const _found = [];
+              const found = [];
               for (const loc of locations) {
                 if (existsSync(loc)) {
                   found.push(loc); //     }
@@ -164,13 +163,13 @@ async
                   // export async function _fixHookVariablesCommand(args = [], _flags = {}) {'
                   console.warn(chalk.bold('\n Fixing Claude Code Hook Variables\n'));
 
-                  const __options = {backup = args.length > 0 ? args : await findSettingsFiles();
+                  const _options = {backup = args.length > 0 ? args : await findSettingsFiles();
                   if (files.length === 0) {
                     '
     printError('No settings.json files found')
                     '
     console.warn('\nSearchedlocations = 0;'
-                    const __successCount = 0;
+                    const _successCount = 0;
 
                     for (const _file of files) {
                       '

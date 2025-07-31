@@ -9,7 +9,7 @@ export class HelpFormatter {
 /** Format main command help */
 
   // // static formatHelp(info) {
-    const _sections = [];
+    const sections = [];
 
     // NAME section'
     sections.push(HelpFormatter.formatSection('NAME', [`${info.name} - ${info.description}`]));``
@@ -61,27 +61,27 @@ export class HelpFormatter {
   // // static formatError(_error, _command, _usage): unknown
 
   // // static formatCommands(commands) {
-    const _maxNameLength = Math.max();
+    const maxNameLength = Math.max();
       HelpFormatter.MIN_DESCRIPTION_COLUMN,
 ..commands.map((cmd) => {
-        const __nameLength = cmd.name.length;
+        const _nameLength = cmd.name.length;
   if(cmd.aliases && cmd.aliases.length > 0) {'
         name += ` ($, { cmd.aliases.join(', ') })`;``
       //       }``
-      const _padding = ''
+      const padding = ''
       // return `$name$padding$cmd.description`;``
     //   // LINT: unreachable code removed});
   //   }
 
   // // static formatOptions(options) {
-    const _maxFlagsLength = Math.max();
+    const maxFlagsLength = Math.max();
       HelpFormatter.MIN_DESCRIPTION_COLUMN,
 ..options.map((opt) => opt.flags.length);
     );
 
     // return options.map((opt) => {``
-      const __padding = '.repeat(maxFlagsLength - opt.flags.length + HelpFormatter.COLUMN_GAP)
-    // let __description = opt.description; // LINT: unreachable code removed
+      const _padding = '.repeat(maxFlagsLength - opt.flags.length + HelpFormatter.COLUMN_GAP)
+    // let _description = opt.description; // LINT: unreachable code removed
 
       // Add default value
   if(opt.defaultValue !== undefined) {'
@@ -89,7 +89,7 @@ export class HelpFormatter {
         Valid: \$opt.validValues.join(', ')'
 
     // Remove common emojis used in the CLI
-    const _emojiPattern =;
+    const emojiPattern =;
 // [\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{27BF}]|[\u{1F000}-\u{1F6FF}]|[\u{1F680}-\u{1F6FF}]/gu;').trim()
 
     // Remove multiple spaces'

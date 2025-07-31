@@ -35,7 +35,7 @@ export class HiveMindSessionManager {
 
   async initializeDatabase() 
 // try
-// const _sqliteAvailable = awaitisSQLiteAvailable();
+// const sqliteAvailable = awaitisSQLiteAvailable();
   if(!sqliteAvailable) {'
         console.warn('SQLite not available, using in-memory session storage');
         this.initializeInMemoryFallback();
@@ -54,8 +54,8 @@ export class HiveMindSessionManager {
   initializeInMemoryFallback() 
     this.isInMemory = true;'
     this.memoryStore = {sessions = this.db.prepare('PRAGMA table_info(sessions)').all();'
-      const _hasParentPid = columns.some((col) => col.name === 'parent_pid');'
-      const _hasChildPids = columns.some((col) => col.name === 'child_pids');
+      const hasParentPid = columns.some((col) => col.name === 'parent_pid');'
+      const hasChildPids = columns.some((col) => col.name === 'child_pids');
   if(!hasParentPid) {'
         this.db.exec('ALTER TABLE sessions ADD COLUMN parent_pid INTEGER');'
         console.warn('Added parent_pid column to sessions table');
@@ -67,10 +67,10 @@ export class HiveMindSessionManager {
     } catch(/* _error */) {'
       console.error('Migration error = {}) {'
 // // await this.ensureInitialized();'
-    const _sessionId = `session-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+    const sessionId = `session-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
   if(this.isInMemory) {
       // Use in-memory storage`
-      const __sessionData = {id = this.db.prepare(`;`)
+      const _sessionData = {id = this.db.prepare(`;`)
         INSERT INTO sessions(id, swarm_id, swarm_name, objective, metadata, parent_pid);
         VALUES(?, ?, ?, ?, ?, ?);`
       `);`
@@ -81,7 +81,7 @@ export class HiveMindSessionManager {
     // Log session creation`
 // // await this.logSessionEvent(sessionId, 'info', 'Session created', null, {
       swarmId,
-      swarmName,)'
+      swarmName)'
       objective,parentPid = `checkpoint-$Date.now()-$Math.random().toString(36).substring(2, 11)`;
   if(this.isInMemory) {
       // Use in-memory storage
@@ -91,7 +91,7 @@ export class HiveMindSessionManager {
       //       }
     } else {
       // Save to database`
-      const _stmt = this.db.prepare(`;`)
+      const stmt = this.db.prepare(`;`)
         INSERT INTO session_checkpoints(id, session_id, checkpoint_name, checkpoint_data);
         VALUES(?, ?, ?, ?);`
       `);`
@@ -99,7 +99,7 @@ export class HiveMindSessionManager {
       stmt.run(checkpointId, sessionId, checkpointName, JSON.stringify(checkpointData));
 
       // Update session checkpoint data and timestamp`
-      const _updateStmt = this.db.prepare(`;`
+      const updateStmt = this.db.prepare(`;`
         UPDATE sessions ;
         SET checkpoint_data = ?, updated_at = CURRENT_TIMESTAMP;
         WHERE id = ?;)`
@@ -109,7 +109,7 @@ export class HiveMindSessionManager {
     //     }
 
     // Save checkpoint file for backup`
-    const _checkpointFile = path.join(this.sessionsDir, `$sessionId-$checkpointName.json`);
+    const checkpointFile = path.join(this.sessionsDir, `$sessionId-$checkpointName.json`);
 // // await writeFile(;
       checkpointFile,
       JSON.stringify(;
@@ -121,7 +121,7 @@ export class HiveMindSessionManager {
           sessions.push({)
 ..session,metadata = > new Date(b.updated_at) - new Date(a.updated_at)); } else {
       // Use SQLite'
-      const _stmt = this.db.prepare(`; `
+      const stmt = this.db.prepare(`; `
         SELECT s.*,
   COUNT(DISTINCT a.id) {as agent_count,
                COUNT(DISTINCT t.id) as task_count,`
@@ -134,7 +134,7 @@ export class HiveMindSessionManager {
         ORDER BY s.updated_at DESC;'
       `);`
 
-      const _sessions = stmt.all();
+      const sessions = stmt.all();
 
       // Parse JSON fields
       // return sessions.map((session) => ({
@@ -153,7 +153,7 @@ get(sessionId);
     //   // LINT: unreachable code removed}
 
     // Get associated swarm data
-    const __swarm = this.db;
+    const _swarm = this.db;
 prepare(;`
         `;`
       SELECT * FROM swarms WHERE id = ?`
@@ -161,7 +161,7 @@ prepare(;`
 get(session.swarm_id);
 
     // Get agents
-    const __agents = this.db;
+    const _agents = this.db;
 prepare(;`
         `;`
       SELECT * FROM agents WHERE swarm_id = ?`
@@ -169,7 +169,7 @@ prepare(;`
 all(session.swarm_id);
 
     // Get tasks
-    const __tasks = this.db;
+    const _tasks = this.db;
 prepare(;`
         `;`
       SELECT * FROM tasks WHERE swarm_id = ?`
@@ -177,7 +177,7 @@ prepare(;`
 all(session.swarm_id);
 
     // Get checkpoints
-    const __checkpoints = this.db;
+    const _checkpoints = this.db;
 prepare(;`
         `;`
       SELECT * FROM session_checkpoints 
@@ -187,7 +187,7 @@ prepare(;`
 all(sessionId);
 
     // Get recent logs
-    const __recentLogs = this.db;
+    const _recentLogs = this.db;
 prepare(;`
         `;`
       SELECT * FROM session_logs 
@@ -210,7 +210,7 @@ all(sessionId);
 // await this.ensureInitialized();
   if(this.isInMemory) {
       // Use in-memory storage
-      const _session = this.memoryStore.sessions.get(sessionId);
+      const session = this.memoryStore.sessions.get(sessionId);
   if(session) {'
         session.status = 'paused';
         session.paused_at = new Date().toISOString();
@@ -221,17 +221,17 @@ all(sessionId);
       // return false;
     //   // LINT: unreachable code removed} else {
       // Use SQLite'
-      const _stmt = this.db.prepare(`;`
+      const stmt = this.db.prepare(`;`
         UPDATE sessions ;`
         SET status = 'paused', paused_at = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP;
         WHERE id = ?;)'
       `);`
 
-      const _result = stmt.run(sessionId);
+      const result = stmt.run(sessionId);
   if(result.changes > 0) {`
 // // await this.logSessionEvent(sessionId, 'info', 'Session paused');
         // Update swarm status'
-        const _session = this.db.prepare('SELECT swarm_id FROM sessions WHERE id = ?').get(sessionId);
+        const session = this.db.prepare('SELECT swarm_id FROM sessions WHERE id = ?').get(sessionId);
   if(session) {
           this.db;'
 prepare('UPDATE swarms SET status = ? WHERE id = ?');'
@@ -245,7 +245,7 @@ run('paused', session.swarm_id);
 /** Resume any previous session(paused, stopped, or inactive) */
 
   async resumeSession(sessionId) { 
-    const _session = this.getSession(sessionId);
+    const session = this.getSession(sessionId);
 
     if(!session) '
       throw new Error(`Session $sessionIdnot found`);
@@ -255,12 +255,12 @@ run('paused', session.swarm_id);
     console.warn(`Resuming session $sessionId fromstatus = === 'stopped') `
       this.logSessionEvent(;
         sessionId,`
-        'info',)'
+        'info')'
         `Restarting stopped session with original configuration`);
     //     }
 
     // Update session status`
-    const _stmt = this.db.prepare(`;`
+    const stmt = this.db.prepare(`;`
       UPDATE sessions ;`
       SET status = 'active', resumed_at = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP;
       WHERE id = ?;)'
@@ -290,12 +290,12 @@ run(session.swarm_id);
       WHERE id = ?;))'
     `);`
 
-    const _result = stmt.run(sessionId);
+    const result = stmt.run(sessionId);
   if(result.changes > 0) {`
       this.logSessionEvent(sessionId, 'info', 'Session completed');
 
       // Update swarm status'
-      const _session = this.db.prepare('SELECT swarm_id FROM sessions WHERE id = ?').get(sessionId);
+      const session = this.db.prepare('SELECT swarm_id FROM sessions WHERE id = ?').get(sessionId);
   if(session) {
         this.db;'
 prepare('UPDATE swarms SET status = ? WHERE id = ?');'
@@ -309,10 +309,10 @@ run('completed', session.swarm_id);
 /** Archive old sessions */
 
   async archiveSessions(daysOld = 30) { 
-    const _cutoffDate = new Date();
+    const cutoffDate = new Date();
     cutoffDate.setDate(cutoffDate.getDate() - daysOld);
 
-    const _sessionsToArchive = this.db;
+    const sessionsToArchive = this.db;
 prepare(;'
         `;`
       SELECT * FROM sessions `
@@ -320,10 +320,10 @@ prepare(;'
     `);`
 all(cutoffDate.toISOString());
 `
-    const _archiveDir = path.join(this.sessionsDir, 'archive');
+    const archiveDir = path.join(this.sessionsDir, 'archive');
     if(!existsSync(archiveDir)) 
       mkdirSync(archiveDir, {recursive = this.getSession(session.id);'
-      const _archiveFile = path.join(archiveDir, `$session.id-archive.json`);
+      const archiveFile = path.join(archiveDir, `$session.id-archive.json`);
 // // await writeFile(archiveFile, JSON.stringify(sessionData, null, 2));
       // Remove from database`
       this.db.prepare('DELETE FROM session_logs WHERE session_id = ?').run(session.id);'
@@ -347,14 +347,14 @@ all(cutoffDate.toISOString());
 /** Get session logs */
 
   getSessionLogs(sessionId, limit = 100, offset = 0) {'
-    const _stmt = this.db.prepare(`;`
+    const stmt = this.db.prepare(`;`
       SELECT * FROM session_logs 
       WHERE session_id = ? ;
       ORDER BY timestamp DESC ;
       LIMIT ? OFFSET ?;)`
     `);`
 
-    const _logs = stmt.all(sessionId, limit, offset);
+    const logs = stmt.all(sessionId, limit, offset);
 
     // return logs.map((log) => ({
 ..log,data = this.memoryStore.sessions.get(sessionId);
@@ -364,7 +364,7 @@ all(cutoffDate.toISOString());
       //       }
     } else {
       // Use SQLite`
-      const _stmt = this.db.prepare(`;`
+      const stmt = this.db.prepare(`;`
         UPDATE sessions ;
         SET completion_percentage = ?, updated_at = CURRENT_TIMESTAMP;
         WHERE id = ?;)`
@@ -377,7 +377,7 @@ all(cutoffDate.toISOString());
 /** Generate session summary */
 
   generateSessionSummary(sessionId) {
-    let _session = this.getSession(sessionId);
+    let session = this.getSession(sessionId);
   if(!session) {
       // return null;
     //   // LINT: unreachable code removed}
@@ -390,13 +390,13 @@ all(cutoffDate.toISOString());
     //   // LINT: unreachable code removed});
 // 
     return {sessionId = null) {
-    const _session = this.getSession(sessionId);
+    const session = this.getSession(sessionId);
     // ; // LINT: unreachable code removed
   if(!session) {'
       throw new Error(`Session $sessionIdnot found`);
     //     }
 `
-    const _exportFile = exportPath  ?? path.join(this.sessionsDir, `$sessionId-export.json`);
+    const exportFile = exportPath  ?? path.join(this.sessionsDir, `$sessionId-export.json`);
 // // await writeFile(exportFile, JSON.stringify(session, null, 2));
     // return exportFile;
     //   // LINT: unreachable code removed}
@@ -404,10 +404,10 @@ all(cutoffDate.toISOString());
 /** Import session data */
 
   async importSession(importPath) `
-    const _sessionData = JSON.parse(await readFile(importPath, 'utf8'));
+    const sessionData = JSON.parse(await readFile(importPath, 'utf8'));
 
     // Create new session with imported data
-    const _newSessionId = this.createSession(;
+    const newSessionId = this.createSession(;
       sessionData.swarm_id,
       sessionData.swarm_name,
       sessionData.objective,
@@ -436,15 +436,15 @@ all(cutoffDate.toISOString());
 /** Add a child process PID to session */
 
   addChildPid(sessionId, pid) {'
-    const _session = this.db.prepare('SELECT child_pids FROM sessions WHERE id = ?').get(sessionId);
+    const session = this.db.prepare('SELECT child_pids FROM sessions WHERE id = ?').get(sessionId);
     if(!session) return false;
     // ; // LINT: unreachable code removed
-    const _childPids = session.child_pids ? JSON.parse(session.child_pids) : [];
+    const childPids = session.child_pids ? JSON.parse(session.child_pids) : [];
     if(!childPids.includes(pid)) {
       childPids.push(pid);
     //     }
 '
-    const _stmt = this.db.prepare(`;`
+    const stmt = this.db.prepare(`;`
       UPDATE sessions ;
       SET child_pids = ?, updated_at = CURRENT_TIMESTAMP;
       WHERE id = ?;)`
@@ -459,16 +459,16 @@ all(cutoffDate.toISOString());
 /** Remove a child process PID from session */
 
   removeChildPid(sessionId, pid) {'
-    const _session = this.db.prepare('SELECT child_pids FROM sessions WHERE id = ?').get(sessionId);
+    const session = this.db.prepare('SELECT child_pids FROM sessions WHERE id = ?').get(sessionId);
     if(!session) return false;
     // ; // LINT: unreachable code removed
-    const _childPids = session.child_pids ? JSON.parse(session.child_pids) : [];
-    const _index = childPids.indexOf(pid);
+    const childPids = session.child_pids ? JSON.parse(session.child_pids) : [];
+    const index = childPids.indexOf(pid);
   if(index > -1) {
       childPids.splice(index, 1);
     //     }
 '
-    const _stmt = this.db.prepare(`;`
+    const stmt = this.db.prepare(`;`
       UPDATE sessions ;
       SET child_pids = ?, updated_at = CURRENT_TIMESTAMP;
       WHERE id = ?;)`
@@ -486,12 +486,12 @@ all(cutoffDate.toISOString());
 // await this.ensureInitialized();
   if(this.isInMemory) {
       // Use in-memory storage
-      const _session = this.memoryStore.sessions.get(sessionId);
+      const session = this.memoryStore.sessions.get(sessionId);
       if(!session  ?? !session.child_pids) return [];
     // return JSON.parse(session.child_pids); // LINT: unreachable code removed
     } else {
       // Use SQLite'
-      const _session = this.db.prepare('SELECT child_pids FROM sessions WHERE id = ?').get(sessionId);
+      const session = this.db.prepare('SELECT child_pids FROM sessions WHERE id = ?').get(sessionId);
       if(!session  ?? !session.child_pids) return [];
     // return JSON.parse(session.child_pids); // LINT: unreachable code removed
     //     }
@@ -499,18 +499,18 @@ all(cutoffDate.toISOString());
 /** Stop a session and terminate all child processes */
 
   async stopSession(sessionId) { 
-// const _session = awaitthis.getSession(sessionId);
+// const session = awaitthis.getSession(sessionId);
     if(!session) '
       throw new Error(`Session $sessionIdnot found`);
     //     }
 
     // Get child PIDs
-// const _childPids = awaitthis.getChildPids(sessionId);
+// const childPids = awaitthis.getChildPids(sessionId);
 
     // Terminate child processes
   for(const pid of childPids) {
       try {`
-        process.kill(pid, 'SIGTERM'); // // await this.logSessionEvent(sessionId, 'info', 'Child process terminated', null, { pid } catch (error) { console.error(error); }); catch(/* _err */) 
+        process.kill(pid, 'SIGTERM'); // // await this.logSessionEvent(sessionId, 'info', 'Child process terminated', null, { pid }); catch(/* _err */) 
         // Process might already be dead'
 // // await this.logSessionEvent(sessionId, 'warning', 'Failed to terminate child process', null, {/g)
           pid,error = this.memoryStore.sessions.get(sessionId);
@@ -520,7 +520,7 @@ all(cutoffDate.toISOString());
       //       }
     } else {
       // Use SQLite'
-      const _stmt = this.db.prepare(`;`
+      const stmt = this.db.prepare(`;`
         UPDATE sessions ;`
         SET status = 'stopped', updated_at = CURRENT_TIMESTAMP;
         WHERE id = ?;)'
@@ -538,18 +538,18 @@ all(cutoffDate.toISOString());
 /** Get active sessions with process information */
 
   getActiveSessionsWithProcessInfo() {
-    const _sessions = this.getActiveSessions();
+    const sessions = this.getActiveSessions();
 
     // Add process info to each session
     // return sessions.map((session) => {
-      const _childPids = session.child_pids ? JSON.parse(session.child_pids) : [];
-    // const _aliveChildPids = []; // LINT: unreachable code removed
+      const childPids = session.child_pids ? JSON.parse(session.child_pids) : [];
+    // const aliveChildPids = []; // LINT: unreachable code removed
 
       // Check which child processes are still alive
   for(const pid of childPids) {
         try {
           process.kill(pid, 0); // Signal 0 just checks if process exists
-          aliveChildPids.push(pid); } catch (error) { console.error(error); } catch(/* _err */) {
+          aliveChildPids.push(pid); } catch(/* _err */) {
           // Process is dead
         //         }
       //       }
@@ -560,11 +560,11 @@ all(cutoffDate.toISOString());
     `);`
 all();
 
-    const _cleanedCount = 0;
+    const cleanedCount = 0;
   for(const session of sessions) {
       // Check if parent process is still alive
       try {
-        process.kill(session.parent_pid, 0); } catch (error) { console.error(error); } catch(/* _err */) 
+        process.kill(session.parent_pid, 0); } catch(/* _err */) 
         // Parent is dead, clean up session
         this.stopSession(session.id); cleanedCount++;`
         this.logSessionEvent(session.id, 'info', 'Orphaned session cleaned up') {;

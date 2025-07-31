@@ -33,12 +33,11 @@ this.config = {
 
     try {'
       this.recordEvent(pluginName, 'starting');
-// const _plugin = awaitthis.pluginManager.getPlugin(pluginName);
+// const plugin = awaitthis.pluginManager.getPlugin(pluginName);
 if (!plugin) {'
   throw new Error(`Plugin notfound = performance.now() - startTime;``
       this.updateMetrics(pluginName, 'successfulStart', duration);'
-  this.recordEvent(pluginName, 'started', { duration } catch (error) { console.error(error);
-}
+  this.recordEvent(pluginName, 'started', { duration }
 
 // Schedule health checks
 this.scheduleHealthCheck(pluginName)
@@ -52,11 +51,11 @@ this.recordEvent(pluginName, 'error', { error,phase = performance.now();
 
 try {'
       this.recordEvent(pluginName, 'stopping');
-// const _plugin = awaitthis.pluginManager.getPlugin(pluginName);
+// const plugin = awaitthis.pluginManager.getPlugin(pluginName);
   if(!plugin) {'
         throw new Error(`Plugin notfound = performance.now() - startTime;``
     this.updateMetrics(pluginName, 'successfulStop', duration);'
-    this.recordEvent(pluginName, 'stopped', duration catch (error) console.error(error); );
+    this.recordEvent(pluginName, 'stopped', duration );
 
     // Unschedule health checks
     this.unscheduleHealthCheck(pluginName);
@@ -73,7 +72,7 @@ try {'
 
   // Wait a moment before restarting
 // // await new Promise((resolve) => setTimeout(resolve, 1000));
-// const _startSuccess = awaitthis.startPlugin(pluginName);
+// const startSuccess = awaitthis.startPlugin(pluginName);
   if(startSuccess) {'
     this.emit('plugin-restarted', pluginName );'
     this.updateMetrics(pluginName, 'recovery');
@@ -89,7 +88,7 @@ performHealthCheck(pluginName = await this.pluginManager.getPlugin(pluginName);
       // return {status = await plugin.healthCheck();
     // ; // LINT: unreachable code removed
       // Update health check schedule
-      const _schedule = this.healthChecks.get(pluginName);
+      const schedule = this.healthChecks.get(pluginName);
   if(schedule) {
         schedule.nextCheck = new Date(Date.now() + schedule.interval);'
         schedule.consecutiveFailures = health.status === 'unhealthy' ? ;
@@ -115,7 +114,7 @@ performHealthCheck(pluginName = await this.pluginManager.getPlugin(pluginName);
     //   // LINT: unreachable code removed}
 
     // Check for critical issues'
-    const _criticalIssues = health.issues.filter(issue => issue.severity === 'critical');
+    const criticalIssues = health.issues.filter(issue => issue.severity === 'critical');
   if(criticalIssues.length > 0) {
 //       return true;
     //   // LINT: unreachable code removed}
@@ -129,7 +128,7 @@ performHealthCheck(pluginName = await this.pluginManager.getPlugin(pluginName);
     //   // LINT: unreachable code removed}
 
       // Find applicable recovery strategies
-      const _applicableStrategies = this.recoveryStrategies;
+      const applicableStrategies = this.recoveryStrategies;
 filter(strategy => strategy.condition(plugin, health));
 sort((a, b) => b.priority - a.priority);
   for(const strategy of applicableStrategies) {
@@ -138,12 +137,12 @@ sort((a, b) => b.priority - a.priority);
   if(success) {'
             this.emit('recovery-successful', pluginName,strategy = interval  ?? this.config.healthCheckInterval; this.healthChecks.set(pluginName, {))
       pluginName,interval = setInterval(async() {=> {
-      const _now = new Date();
+      const now = new Date();
   for(const [pluginName, schedule] of this.healthChecks) {
   if(schedule.enabled && now >= schedule.nextCheck) {
           try {
 // // await this.performHealthCheck(pluginName); 
-          } catch (error) { console.error(error); } catch(/* _error */) , 5000); // Check every 5 seconds for due health checks
+          } catch(/* _error */) , 5000); // Check every 5 seconds for due health checks
   //   }
 
   // Recovery strategies
@@ -220,7 +219,7 @@ sort((a, b) => b.priority - a.priority);
 
   // Public API
   getLifecycleEvents(pluginName?, limit?): LifecycleEvent[] {
-    const _events = pluginName ? ;
+    const events = pluginName ? ;
       this.lifecycleEvents.filter(e => e.pluginName === pluginName) :
       this.lifecycleEvents;
   if(limit) {
@@ -232,7 +231,7 @@ sort((a, b) => b.priority - a.priority);
 
   getMetrics(pluginName?): Record<string, LifecycleMetrics> ;
   if(pluginName) {
-      const _metrics = this.metrics.get(pluginName);
+      const metrics = this.metrics.get(pluginName);
       // return metrics ? { [pluginName]} : {};
     //   // LINT: unreachable code removed}
 
@@ -241,7 +240,7 @@ sort((a, b) => b.priority - a.priority);
   getHealthStatus(): {totalPlugins = > s.enabled).length,
       activeRecoveries = ;
 
-    const __plugins = Array.from(this.healthChecks.keys());
+    const _plugins = Array.from(this.healthChecks.keys());
 
         results[pluginName] = health;
       } catch(error = status = this.healthChecks.get(pluginName);

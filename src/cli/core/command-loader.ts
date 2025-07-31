@@ -1,19 +1,16 @@
 /** */
-*
-@fileoverview
+
 Command;
 Loader;
 
 /** Loads and registers all CLI commands with proper error handling */
-*
-@module
-CommandLoader * /;;
+
+CommandLoader * /;
 import { CommandRouter } from
 ';
 
 /** Load and register all core commands */
-*
-@returns
+
 {
   Promise<CommandRouter>;
 }
@@ -22,7 +19,7 @@ command;
 router;
 // */ // LINT: unreachable code removed
 // export async function loadCommands() {
-const _router = new CommandRouter();
+const router = new CommandRouter();
 // Core system commands
 // await registerCoreCommands(router);
 // Coordination commands
@@ -35,8 +32,7 @@ const _router = new CommandRouter();
 // }
 
 /** Register core system commands */
-*
-@param
+
 {
   CommandRouter;
 }

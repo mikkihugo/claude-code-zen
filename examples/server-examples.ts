@@ -6,15 +6,13 @@ import {
   authorize,
   corsMiddleware,
   rateLimiter,
-  requestLogger,
-} from '../src/middleware/index.js';
+  requestLogger} from '../src/middleware/index.js';
 import {
   createAPIServer,
   createMCPServer,
   createServerBuilder,
   createUnifiedServer,
-  serverFactory,
-} from '../src/server-factory.js';
+  serverFactory} from '../src/server-factory.js';
 
 async function basicServerExample() {
   console.warn('🚀 Basic Server Example');
@@ -22,8 +20,7 @@ async function basicServerExample() {
   const config = {
     port: 3000,
     host: 'localhost',
-    middleware: [],
-  };
+    middleware: []};
 
   const server = await createAPIServer(config);
   console.warn('✅ Server created successfully');
@@ -36,8 +33,7 @@ async function mcpServerExample() {
 
   const mcpServer = await createMCPServer({
     name: 'example-mcp-server',
-    version: '1.0.0',
-  });
+    version: '1.0.0'});
 
   console.warn('✅ MCP Server created successfully');
   return mcpServer;
@@ -48,8 +44,7 @@ async function unifiedServerExample() {
 
   const unifiedServer = await createUnifiedServer({
     api: { port: 3000 },
-    mcp: { name: 'unified-mcp' },
-  });
+    mcp: { name: 'unified-mcp' }});
 
   console.warn('✅ Unified Server created successfully');
   return unifiedServer;
@@ -71,5 +66,4 @@ export {
   basicServerExample,
   mcpServerExample,
   unifiedServerExample,
-  runExamples,
-};
+  runExamples};

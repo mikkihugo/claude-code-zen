@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Refactored;
 Hive;
 Mind;
@@ -9,8 +8,7 @@ Command;
 Handler;
 
 /** Simplified main entry point using focused modules for better maintainability; */
-*
-@module
+
 HiveMindRefactored;
 
 import chalk from 'chalk';
@@ -19,26 +17,22 @@ import {
   routeHiveMindCommand,
   showHiveMindHelp,
   showSubcommandUsage,
-',
-} from '../hive-mind-core/command-interface.js'
+'} from '../hive-mind-core/command-interface.js'
 
 /** Main hive mind command handler with clean architecture; */
-*
-@param
+
 {
   string[]
 }
 args - Command;
 arguments;
-*
-@param
+
 {
   Object;
 }
 flags - Command;
 flags;
-*
-@returns
+
 {
   Promise<void>;
 }
@@ -55,7 +49,7 @@ if (subcommand === 'help' ?? parsedFlags.help) {
     return;
     // }
     // Route to appropriate handler
-    // const _handler = awaitrouteHiveMindCommand(subcommand, parsedArgs, parsedFlags);
+    // const handler = awaitrouteHiveMindCommand(subcommand, parsedArgs, parsedFlags);
     // // await handler();
 
   catch(error)

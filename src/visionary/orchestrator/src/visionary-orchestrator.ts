@@ -21,7 +21,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
 
     async;
     initialize()
-    console.warn(' Initializing Visionary Software Intelligence Orchestrator...')
+    console.warn(' Initializing Visionary Software Intelligence Orchestrator...');
     '
 // try {
     // Initialize core services
@@ -29,7 +29,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
     // // // await this._initializePatternService();
     // // // await this._initializeRefactoringService();
     this.isInitialized = true
-    console.warn(' Visionary Software Intelligence Orchestrator initialized successfully')
+    console.warn(' Visionary Software Intelligence Orchestrator initialized successfully');
     '
 '
       this.emit('initialized')'
@@ -42,7 +42,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
       '
       //     }
 '
-      const __jobId = `vsi-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;``
+      const _jobId = `vsi-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;``
       ``
 
     try {``
@@ -53,7 +53,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
       Analysisjob = // // await this._analyzeCodeStructure(codeInput, options);``
 
       // Generate refactoring recommendations
-// const _refactoringResult = awaitthis._generateRefactoringRecommendations(codeAnalysis, options);
+// const refactoringResult = awaitthis._generateRefactoringRecommendations(codeAnalysis, options);
 
       // Apply intelligent optimizations
 
@@ -69,7 +69,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
    * @param numbermaxAge - Maximum age in milliseconds
 
   cleanupJobs(maxAge = 3600000) { // 1 hour default
-    const _now = Date.now();
+    const now = Date.now();
 
     for (const [jobId, job] of this.activeJobs.entries()) {
       if(job.endTime && (now - job.endTime) > maxAge) {
@@ -81,7 +81,7 @@ export class VisionarySoftwareOrchestrator extends EventEmitter {
    * @param ObjectneuralEngine - Neural engine instance
 
   setNeuralEngine(neuralEngine) ``
-    this.neuralEngine = neuralEngine; console.warn(' Visionary SoftwareIntelligence = memoryStore;')'
+    this.neuralEngine = neuralEngine; console.warn(' Visionary SoftwareIntelligence = memoryStore;');'
     console.warn(' Visionary Software Intelligence) {'
   //   }
 

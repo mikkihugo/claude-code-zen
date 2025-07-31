@@ -21,7 +21,7 @@ describe('CLI Error System', () =>'
 '
   it('should create a basic CLI error'
 '
-const _error = new CliError('Test error message');
+const error = new CliError('Test error message');
 '
       expect(error.name).toBe('CliError')
 '
@@ -32,7 +32,7 @@ const _error = new CliError('Test error message');
   })
     it('should create a CLI error with custom code and exit code')
 '
-const _error = new CliError('Custom error', 'CUSTOM_CODE', 2);
+const error = new CliError('Custom error', 'CUSTOM_CODE', 2);
 '
       expect(error.code).toBe('CUSTOM_CODE')
     '
@@ -42,7 +42,7 @@ const _error = new CliError('Custom error', 'CUSTOM_CODE', 2);
   '
     it('should have proper stack trace')
 '
-const _error = new CliError('Stack trace test');
+const error = new CliError('Stack trace test');
 
 expect(error.stack).toBeDefined();
 '
@@ -57,7 +57,7 @@ describe('ValidationError', () =>
     it('should create a validation error', () =>
   {
     '
-    const _error = new ValidationError('Invalid input');
+    const error = new ValidationError('Invalid input');
     '
 '
       expect(error.name).toBe('ValidationError')'
@@ -71,7 +71,7 @@ describe('ValidationError', () =>
   it('should create a validation error with field', () =>
   {
     '
-    const _error = new ValidationError('Invalid input', 'username');
+    const error = new ValidationError('Invalid input', 'username');
     '
 '
       expect(error.field).toBe('username')'
@@ -86,7 +86,7 @@ describe('ConfigurationError', () =>
     it('should create a configuration error', () =>
   {
     '
-    const _error = new ConfigurationError('Config failed');
+    const error = new ConfigurationError('Config failed');
     '
 '
       expect(error.name).toBe('ConfigurationError')'
@@ -99,7 +99,7 @@ describe('ConfigurationError', () =>
   it('should create a configuration error with path', () =>
   {
     '
-    const _error = new ConfigurationError('Config failed', '/path/to/config');
+    const error = new ConfigurationError('Config failed', '/path/to/config');
     '
 '
       expect(error.configPath).toBe('/path/to/config')'
@@ -114,7 +114,7 @@ describe('CommandExecutionError', () =>
     it('should create a command execution error', () =>
   {
     '
-    const _error = new CommandExecutionError('Command failed');
+    const error = new CommandExecutionError('Command failed');
     '
 '
       expect(error.name).toBe('CommandExecutionError')'
@@ -128,9 +128,9 @@ describe('CommandExecutionError', () =>
   it('should create a command execution error with details', () =>
   {
     '
-    const _originalError = new Error('Original error');
+    const originalError = new Error('Original error');
     '
-    const _error = new CommandExecutionError('Command failed', 'test-command', originalError);
+    const error = new CommandExecutionError('Command failed', 'test-command', originalError);
     '
 '
       expect(error.command).toBe('test-command')'
@@ -146,24 +146,24 @@ describe('formatErrorMessage', () =>
     it('should format validation error', () =>
   {
     '
-    const __error = new ValidationError('Invalid input', 'username');
+    const _error = new ValidationError('Invalid input', 'username');
     '
-    const __formatted = formatErrorMessage(error);
+    const _formatted = formatErrorMessage(error);
     expect(formatted).toBe(' Validation Error => {');
     '
-    const _error = new ConfigurationError('Config failed', '/config/path');
+    const error = new ConfigurationError('Config failed', '/config/path');
     '
-    const _formatted = formatErrorMessage(error);
+    const formatted = formatErrorMessage(error);
     expect(formatted).toBe(' Configuration Error => {');
     '
-    const _error = new CommandExecutionError('Command failed', 'test-cmd');
+    const error = new CommandExecutionError('Command failed', 'test-cmd');
     '
-    const _formatted = formatErrorMessage(error);
+    const formatted = formatErrorMessage(error);
     expect(formatted).toBe(' Command Failed => {');
     '
-    const _error = new CliError('Generic error');
+    const error = new CliError('Generic error');
     '
-    const _formatted = formatErrorMessage(error);
+    const formatted = formatErrorMessage(error);
     expect(formatted).toBe(' Generic error');
     '
     '
@@ -173,18 +173,18 @@ describe('formatErrorMessage', () =>
   it('should format unexpected error', () =>
   {
     '
-    let _error = new Error('Unexpected error');
+    let error = new Error('Unexpected error');
     '
-    const _formatted = formatErrorMessage(error);
+    const formatted = formatErrorMessage(error);
     expect(formatted).toBe(' Unexpected Error => {'
     let mockLogger;
 
     beforeEach(() => {
       mockLogger = {
         error => {'
-      const _error = new CliError('Test error', 'TEST_CODE', 42)
+      const error = new CliError('Test error', 'TEST_CODE', 42)
       '
-      const _exitCode = handleError(error, mockLogger);
+      const exitCode = handleError(error, mockLogger);
 
       expect(exitCode).toBe(42);
       expect(mockLogger.error).toHaveBeenCalledWith(' Test error');
@@ -193,18 +193,18 @@ describe('formatErrorMessage', () =>
     });
     it('should handle unexpected error and return exit code 1', () => {
       '
-      const _error = new Error('Unexpected error');
+      const error = new Error('Unexpected error');
       '
-    // const __exitCode = handleError(error, mockLogger); // LINT: unreachable code removed
+    // const _exitCode = handleError(error, mockLogger); // LINT: unreachable code removed
 
       expect(exitCode).toBe(1)'
       expect(mockLogger.error).toHaveBeenCalledWith(' Unexpected Error => {'
-      const _originalError = console.error;
+      const originalError = console.error;
 
       console.error = jest.fn();
-      const _error = new CliError('Test error');
+      const error = new CliError('Test error');
       '
-      const _exitCode = handleError(error);
+      const exitCode = handleError(error);
 
       expect(exitCode).toBe(1);
       expect(console.error).toHaveBeenCalledWith(' Test error');

@@ -25,7 +25,7 @@ import { RealFannEngine } from '../../src/neural/real-fann-integration.js';
 import { Logger } from '../../src/utils/logger.js';
 
 '
-const _logger = new Logger('InfrastructureTestRunner');
+const logger = new Logger('InfrastructureTestRunner');
 
 /** Mock Service Manager for E2E Tests; */
 /** Provides realistic service responses without requiring actual service deployment; */
@@ -45,7 +45,7 @@ export class MockServiceManager {
     {
       '
     logger.info(' Starting mock services for E2E testing...')
-      const _serviceConfigs = ['
+      const serviceConfigs = ['
        name: 'business', port: this.basePort, endpoints: this.createBusinessEndpoints() },'
       { name: 'core', port: this.basePort + 1, endpoints: this.createCoreEndpoints() },'
       { name: 'swarm', port: this.basePort + 2, endpoints: this.createSwarmEndpoints() },
@@ -73,7 +73,7 @@ async
           startMockService(config);
           // {
           // return new Promise((resolve, reject) => {
-          const _server = http.createServer((req, res) => {
+          const server = http.createServer((req, res) => {
             this.handleRequest(req, res, config);
             //   // LINT: unreachable code removed});
             server.listen(config.port, () => {
@@ -105,8 +105,8 @@ async
     res.end();
     return;
     //   // LINT: unreachable code removed}'
-    const _url = new URL(req.url, `http);`
-    const _endpoint = config.endpoints.find(;)
+    const url = new URL(req.url, `http);`
+    const endpoint = config.endpoints.find(;)
     (e) => e.path === url.pathname && e.method === req.method;
     //     
   if(endpoint) {
@@ -117,12 +117,12 @@ async
         res.writeHead(200, 'Content-Type');
         res.end(;'
         JSON.stringify(status: 'healthy',
-        service: config.name,)
+        service: config.name)
         timestamp: new Date().toISOString()
       //       
     //     }
 // else
-        res.writeHead(404,)'
+        res.writeHead(404)'
       ('Content-Type')'
     : 'application'
     //     
@@ -135,11 +135,11 @@ async
   handleEndpoint(req, res, endpoint);
   try {'';'
       req.on('data', (chunk) => 
-        body += chunk.toString();catch (error) console.error(error); );'
+        body += chunk.toString(); );'
       req.on('end', async() => 
         try {
-          const _requestData = body ? JSON.parse(body) : {} catch (error) console.error(error); ;
-// const _response = awaitendpoint.handler(requestData, req.url);'
+          const requestData = body ? JSON.parse(body) : {} ;
+// const response = awaitendpoint.handler(requestData, req.url);'
           res.writeHead(response.status  ?? 200, { 'Content-Type');
           res.end(JSON.stringify(response));
         } catch(error) {'
@@ -181,7 +181,7 @@ async
   method: 'DELETE',
   handler: async(_data, url) =>
   //   {'
-    const _visionId = url.split('
+    const visionId = url.split('
 //     return {
             status,'
     // data: { message: `Vision \$visionId // LINT: unreachable code removed} deleted` } }
@@ -216,7 +216,7 @@ createCoreEndpoints();
   path: '/api/workflows','
   method: 'PATCH',
   handler: async(data, url) => {'
-          const _workflowId = url.split('
+          const workflowId = url.split('
 //           return {
             status,
                 workflow_id,'
@@ -381,14 +381,13 @@ runFullSuite();
   // // await this.testServiceCommunication();
       // Test 4: End-to-End Integration
   // // await this.testEndToEndIntegration();
-      const _overallScore = this.calculateScore();'
+      const overallScore = this.calculateScore();'
       this.logger.info(` Infrastructure test suite completed with score);`
       // return {
         success: overallScore >= 92,
     // score, // LINT: unreachable code removed
         results: this.testResults,
-        recommendations: this.generateRecommendations() {}
- catch (error) { console.error(error); }// }
+        recommendations: this.generateRecommendations() {}// }
 // }
 catch(error)
 // {`
@@ -404,12 +403,12 @@ catch(error)
   this.logger.info(' Testing Kuzu database integration...');
   try {
       // Create unique test directory'
-      const _testDbDir = path.join(process.cwd(), `test-kuzu-${Date.now()} catch (error) { console.error(error); }`);
-      const _kuzu = new KuzuGraphInterface({ dbPath,
+      const testDbDir = path.join(process.cwd(), `test-kuzu-${Date.now()}`);
+      const kuzu = new KuzuGraphInterface({ dbPath,
 // useRealKuzu
   }
   // Test initialization
-// const _initResult = awaitkuzu.initialize();`
+// const initResult = awaitkuzu.initialize();`
   if(initResult.mode === 'real') {'
     this.logger.info(' Real Kuzu database connection established');
     // Test basic operations
@@ -417,9 +416,9 @@ catch(error)
           //           {/g
             name);
     // Test querying
-// const _services = awaitkuzu.queryServices({ name);
+// const services = awaitkuzu.queryServices({ name);
   if(services.length > 0) {'
-      this.testResults.kuzu = passed, mode: 'real' ;'
+      this.testResults.kuzu = passed, mode: 'real';'
       this.logger.info(' Kuzu integration test passed(REAL MODE)');
     } else {'
       throw new Error('Query returned no results');
@@ -431,7 +430,7 @@ catch(error)
   // // await kuzu.close() {}
     // Cleanup
     try {
-  // // await fs.rm(testDbDir, { recursive, force } catch (error) { console.error(error); });
+  // // await fs.rm(testDbDir, { recursive, force });
       } catch(/* _cleanupError */ )
 {
         // Ignore cleanup errors
@@ -449,13 +448,13 @@ testNeuralIntegration();
 // {'
   this.logger.info(' Testing neural network integration...');
   try {
-      const _neural = new RealFannEngine();
-// const _initResult = awaitneural.initialize();'
+      const neural = new RealFannEngine();
+// const initResult = awaitneural.initialize();'
   if(initResult.bindingType !== 'STUB') {'
         this.logger.info(` Real neural bindings loaded);`
         // Test inference
-// const _result = awaitneural.inference(;/g)`
-          'function calculateSum() { return a + b; } catch (error) { console.error(error); }','
+// const result = awaitneural.inference(;/g)`
+          'function calculateSum() { return a + b; }','
           'code-completion';
         );
   if(result?.result) {
@@ -469,7 +468,7 @@ testNeuralIntegration();
     //   // LINT: unreachable code removed}
       } else'
         this.logger.warn(' Neural engine running with stub bindings');'
-        this.testResults.neural = passed, bindingType: 'STUB' ;
+        this.testResults.neural = passed, bindingType: 'STUB';
     } catch(error) '
       this.logger.error(' Neural integration test failed);'
       this.testResults.neural = passed, error: error.message ;
@@ -484,13 +483,11 @@ testServiceCommunication();
   this.logger.info(' Testing service communication...');
   try {
       // Start mock services
-// const _serviceInfo = awaitthis.mockServices.startMockServices();
+// const serviceInfo = awaitthis.mockServices.startMockServices();
       // Test authentication with each service
-      const _authTests = [];
+      const authTests = [];
       for (const [serviceName, url] of Object.entries(serviceInfo.serviceUrls)) {
-        authTests.push(this.testServiceAuth(serviceName.toLowerCase(), url)); //       }
- catch (error) console.error(error); 
-      const _successfulAuths = authResults.filter((r) {=> r.status === 'fulfilled').length;
+        authTests.push(this.testServiceAuth(serviceName.toLowerCase(), url)); //       } const successfulAuths = authResults.filter((r) {=> r.status === 'fulfilled').length;
   if(successfulAuths >= 3) {
         // At least 3 out of 4 services
         this.testResults.services = {
@@ -521,7 +518,7 @@ catch(error)
 // async
 testServiceAuth(serviceName, serviceUrl)
 // {'
-// const _response = awaitfetch(`${serviceUrl}/auth/service-token`, {
+// const response = awaitfetch(`${serviceUrl}/auth/service-token`, {
       method);`
   : 'application/json' ,'
   body: JSON.stringify({ service_name: `test_\$`
@@ -536,7 +533,7 @@ testServiceAuth(serviceName, serviceUrl)
   for ${serviceName}
   );
 // }
-// const _data = awaitresponse.json();
+// const data = awaitresponse.json();
   if(!data.data ?? !data.data.token) {`
   throw new Error(`;`
   No;
@@ -560,11 +557,11 @@ testEndToEndIntegration();
       // This is a simplified integration test
       // In a real scenario, this would test the complete workflow
 
-      const _integrationSteps = ['
-        { name: 'Database Connection', test: () => this.testResults.kuzu.passed } catch (error) { console.error(error); },'
+      const integrationSteps = ['
+        { name: 'Database Connection', test: () => this.testResults.kuzu.passed },'
         { name: 'Neural Processing', test: () => this.testResults.neural.passed },'
         { name: 'Service Communication', test: () => this.testResults.services.passed } ];
-      const _passedSteps = integrationSteps.filter((step) => step.test()).length;
+      const passedSteps = integrationSteps.filter((step) => step.test()).length;
   if(passedSteps === integrationSteps.length) {
         this.testResults.integration = {
           passed,
@@ -590,17 +587,17 @@ catch(error)
 
   calculateScore() 
 // {
-  const _weights = {
+  const weights = {
     kuzu, // 30% - Database is critical
     neural, // 30% - Neural networks are critical
     services, // 25% - Service communication is important
     integration, // 15% - Integration verification
   };
-  const _totalScore = 0;
+  const totalScore = 0;
   for (const [component, weight] of Object.entries(weights)) {
-    const _result = this.testResults[component]; if(result.passed) {
+    const result = this.testResults[component]; if(result.passed) {
       // Bonus points for real implementations vs simulations'
-      const _bonus = 0; if(component === 'kuzu' && result.mode === 'real') {bonus = 5;'
+      const bonus = 0; if(component === 'kuzu' && result.mode === 'real') {bonus = 5;'
       if(component === 'neural' && result.bindingType !== 'STUB') bonus = 5;
       totalScore += weight + bonus;
     //     }
@@ -612,7 +609,7 @@ catch(error)
 
 generateRecommendations();
 // {
-  const _recommendations = [];
+  const recommendations = [];
   if(!this.testResults.kuzu.passed) {'
     recommendations.push(priority: 'HIGH','
     component: 'Kuzu Database','
@@ -657,7 +654,7 @@ generateRecommendations();
 /** Run infrastructure tests - Main entry point; */
 
 // export async function runInfrastructureTests() {
-  const _testSuite = new InfrastructureTestSuite();
+  const testSuite = new InfrastructureTestSuite();
 //   return testSuite.runFullSuite();
 // }
 // export default InfrastructureTestSuite;

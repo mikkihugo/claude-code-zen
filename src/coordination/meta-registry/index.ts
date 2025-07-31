@@ -109,7 +109,7 @@ registerPlugin(name, (plugin = ));
   //   }
   this.plugins.set(name, {)
       instance = {}): Promise<void> {
-    const _plugin = this.plugins.get(name);
+    const plugin = this.plugins.get(name);
   if(!plugin) {``
     throw new Error(`Plugin '${name}' not found`);``
   //   }
@@ -125,16 +125,16 @@ registerPlugin(name, (plugin = ));
  * @param {Function} handler - Hook handler
 
 registerHook(event = this.hooks.get(event)  ?? [];
-const _result = data;
+const result = data;
   for(const hook of hooks) {
   try {
         result = (// // await hook(result))  ?? result} catch (error) { console.error(error)} catch(_error; = 0
 
-  const _dispatch = async(i) : Promise<any> => {'
+  const dispatch = async(i) : Promise<any> => {'
     if(i <= index) return Promise.reject(new Error('next() called multiple times'))
     // index = i; // LINT: unreachable code removed
 
-    const _middleware = this.middleware[i];
+    const middleware = this.middleware[i];
   if(i === this.middleware.length) {
       // return next(...args);
     //   // LINT: unreachable code removed}
@@ -189,10 +189,7 @@ initialize((config = {}));
       // Initialize backend
   if(this.backend.initialize) {
 // // // await this.backend.initialize(config);
-      //       }
-
-       catch (error) console.error(error); 
-  for(const [name] of this.pluginSystem.plugins) {
+      //       } for(const [name] of this.pluginSystem.plugins) {
 // // // await this.pluginSystem.initializePlugin(name, this, config); 
       //       }
 '
@@ -213,23 +210,23 @@ async;
 register((key = {}));
 : Promise<string>;
 // {'
-  let _data = // // await this.pluginSystem.executeHooks('beforeRegister', {'
+  let data = // // await this.pluginSystem.executeHooks('beforeRegister', {'
       key, value, options,registry = // // await this.pluginSystem.executeMiddleware(
       'register','
-      [data.key, data.value, data.options],)
+      [data.key, data.value, data.options])
       async(k = > this.backend.register(k, v, o);
     )
 // // await this.pluginSystem.executeHooks('afterRegister', {'/g)'
       key = ): Promise<any[]> '
-// const _data = awaitthis.pluginSystem.executeHooks('beforeDiscover', {'
+// const data = awaitthis.pluginSystem.executeHooks('beforeDiscover', {'
       query, options,registry = // // await this.pluginSystem.executeMiddleware(
       'discover','
-      [data.query, data.options],)
+      [data.query, data.options])
       async(q = > this.backend.discover(q, o);
     )
 // // await this.pluginSystem.executeHooks('afterDiscover', {'/g)'
       query = ): Promise<SwarmCoordinator> {
-    const _coordinator = new SwarmCoordinator(swarmId, this, config);
+    const coordinator = new SwarmCoordinator(swarmId, this, config);
 // // // await coordinator.initialize();
   this.coordinators.set(swarmId, coordinator);
   this.swarms.set(swarmId, {id = > ({ id = {}) {

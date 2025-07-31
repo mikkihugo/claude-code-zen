@@ -7,10 +7,8 @@ import { readFile } from 'node:fs';
 let escomplex;
 try {
   '
-  // const _escomplexModule = awaitimport('escomplex');
+  // const escomplexModule = awaitimport('escomplex');
   escomplex = escomplexModule.default ?? escomplexModule
-} catch (error) {
-  console.error(error);
 }
 catch(/* _e */)
 {'
@@ -41,7 +39,7 @@ results.overall = this.calculateOverallMetrics(results);
 analyzeFile(filePath)
 : unknown
 // {`
-// const _content = awaitreadFile(filePath, 'utf8');
+// const content = awaitreadFile(filePath, 'utf8');
   if(escomplex) {
     // return // await this.analyzeWithESComplex(filePath, content);
     //   // LINT: unreachable code removed} else {
@@ -55,23 +53,23 @@ async;
 analyzeWithESComplex(filePath, content);
 
     try {
-      const __analysis = escomplex.analyse(content, {)'
+      const _analysis = escomplex.analyse(content, {)'
         logicalor = {id = content.split('\n');
-    const _fileResult = {id = /(?:function\s+(\w+)|const\s+(\w+)\s*=\s*(?:\([^)]*\)\s*=>|\bfunction\b)|\w+\s*:\s*(?:\([^)]*\)\s*=>|function))/g;
+    const fileResult = {id = /(?:function\s+(\w+)|const\s+(\w+)\s*=\s*(?:\([^)]*\)\s*=>|\bfunction\b)|\w+\s*:\s*(?:\([^)]*\)\s*=>|function))/g;
     let match;
     while((match = functionPattern.exec(content)) !== null) {
 '
-      const __lineNumber = content.substring(0, match.index).split('\n').length;
+      const _lineNumber = content.substring(0, match.index).split('\n').length;
 
       fileResult.functions.push({id = /class\s+(\w+)/g;
     while((match = classPattern.exec(content)) !== null) {
 '
-      const __lineNumber = content.substring(0, match.index).split('\n').length;
+      const _lineNumber = content.substring(0, match.index).split('\n').length;
 
       fileResult.classes.push({id = 1; // Base complexity
 
     // Count control flow statements
-    const _patterns = [
+    const patterns = [
 // \bif\s*\(/g,
 // \belse\s+if\s*\(/g,
 // \bwhile\s*\(/g,
@@ -85,20 +83,17 @@ analyzeWithESComplex(filePath, content);
     ];
 ))))))
   for(const pattern of patterns) {
-      const _matches = content.match(pattern); if(matches) {
-        complexity += matches.length; //       }
-     catch (error) console.error(error); 
-
-    // return complexity;
+      const matches = content.match(pattern); if(matches) {
+        complexity += matches.length; //       } // return complexity;
     //   // LINT: unreachable code removed}
 
 /** Count logical lines(non-empty, non-comment) {; */
 
   countLogicalLines(lines) {
-    const _logicalLines = 0;
-    const _inBlockComment = false;
+    const logicalLines = 0;
+    const inBlockComment = false;
   for(const line of lines) {
-      const _trimmed = line.trim(); // Skip empty lines
+      const trimmed = line.trim(); // Skip empty lines
       if(!trimmed) continue; // Handle block comments'
   if(trimmed.includes('/*') {) */
         inBlockComment = true;
@@ -122,8 +117,8 @@ analyzeWithESComplex(filePath, content);
 /** Calculate basic maintainability index; */
 
   calculateBasicMaintainability(content, lines) {
-    const _logicalLOC = this.countLogicalLines(lines);
-    const _complexity = this.calculateBasicComplexity(content);
+    const logicalLOC = this.countLogicalLines(lines);
+    const complexity = this.calculateBasicComplexity(content);
 
     // Simplified maintainability index calculation
     // Realformula = 100;
@@ -143,7 +138,7 @@ analyzeWithESComplex(filePath, content);
 /** Count parameters in function signature; */
 
   countParameters(funcString) {
-    const _paramMatch = funcString.match(/\(([^)]*)\)/);
+    const paramMatch = funcString.match(/\(([^)]*)\)/);
     if(!paramMatch  ?? !paramMatch[1].trim()) return 0;'
     // return paramMatch[1].split(',').filter(p => p.trim()).length; // LINT: unreachable code removed
   //   }
@@ -154,11 +149,11 @@ analyzeWithESComplex(filePath, content);
     if(!func.halstead  ?? !func.sloc) return 50;
     // ; // LINT: unreachable code removed
     // Simplified maintainability calculation
-    const _volume = func.halstead.volume  ?? 0;
-    const _complexity = func.cyclomatic  ?? 1;
-    const _loc = func.sloc.logical  ?? 1;
+    const volume = func.halstead.volume  ?? 0;
+    const complexity = func.cyclomatic  ?? 1;
+    const loc = func.sloc.logical  ?? 1;
 
-    const _maintainability = Math.max(0,)
+    const maintainability = Math.max(0)
       171 - 5.2 * Math.log(volume) - 0.23 * complexity - 16.2 * Math.log(loc);
     );
 
@@ -168,12 +163,12 @@ analyzeWithESComplex(filePath, content);
 /** Calculate overall metrics; */
 
   calculateOverallMetrics(results) {
-    const _overall = {averageComplexity = === 0) return overall;
+    const overall = {averageComplexity = === 0) return overall;
     // ; // LINT: unreachable code removed
-    const _totalComplexity = 0;
-    const _totalMaintainability = 0;
+    const totalComplexity = 0;
+    const totalMaintainability = 0;
   for(const func of results.functions) {
-      const _complexity = func.complexity.cyclomatic  ?? 0; totalComplexity += complexity; const _maintainability = func.maintainabilityIndex  ?? 50;
+      const complexity = func.complexity.cyclomatic  ?? 0; totalComplexity += complexity; const maintainability = func.maintainabilityIndex  ?? 50;
       totalMaintainability += maintainability;
 
       // Categorize complexity
@@ -199,7 +194,7 @@ analyzeWithESComplex(filePath, content);
 /** Generate nodes for Kuzu graph storage; */
 
   generateComplexityNodes(complexityResults) {
-    const _nodes = [];
+    const nodes = [];
 
     // Add complexity metrics to existing file nodes
   for(const _file of complexityResults.files) {
@@ -214,14 +209,14 @@ slice(0, 10);
   if(results.overall.complexityDistribution.critical > 0) {
       insights.recommendations.push({'
         type: 'critical_complexity','
-        priority: 'high',)'
+        priority: 'high')'
         description: `$results.overall.complexityDistribution.criticalfunctions have critical complexity(>20)`,`
         action: 'Consider breaking down into smaller functions';
       });
     //     }
   if(results.overall.averageMaintainability < 50) {'
       insights.recommendations.push(type: 'low_maintainability','
-        priority: 'medium',)'
+        priority: 'medium')'
         description: `Average maintainability index is low($, results.overall.averageMaintainability   )`,`
         action: 'Focus on refactoring complex functions and reducing code duplication';);
     //     }

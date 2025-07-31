@@ -13,12 +13,10 @@ import path from 'node:path';
 import { printError, printInfo, printSuccess } from '..';
 
 // Dynamic import for Kuzu database
-const _kuzu = null;
+const kuzu = null;
 try {
   '
   kuzu = // await import('kuzu');
-} catch (error) {
-  console.error(error);
 }
 '
   console.warn('Kuzu database not available, using fallback mode = {}) {'
@@ -51,7 +49,7 @@ catch(/* kuzuError */)
         // For simulation mode, create directory structure
         if(!existsSync(this.config.dbPath)) {
 // // await mkdir(this.config.dbPath, {recursive = true;`
-      const _mode = this.stats.usingRealKuzu ? 'REAL KUZU' );
+      const mode = this.stats.usingRealKuzu ? 'REAL KUZU' );
         );'
       `);``
   console.warn(' Service table creation completed');
@@ -85,10 +83,10 @@ printInfo(' Database schema initialized');
 
 // async setupIndices() {}
 
-  const _indices = {service_name_idx = indices;
+  const indices = {service_name_idx = indices;
   // Save indices configuration only for simulation mode
   if(!this.stats.usingRealKuzu) {'
-    const _indicesPath = path.join(this.config.dbPath, 'indices.json');
+    const indicesPath = path.join(this.config.dbPath, 'indices.json');
 // // await writeFile(indicesPath, JSON.stringify(indices, null, 2));
   //   }'
   printInfo(' Performance indices configured');
@@ -106,17 +104,15 @@ loadExistingData();
     //   // LINT: unreachable code removed}
 
     try {'
-      const _nodesPath = path.join(this.config.dbPath, 'nodes.json');'
-      const _relationshipsPath = path.join(this.config.dbPath, 'relationships.json');
+      const nodesPath = path.join(this.config.dbPath, 'nodes.json');'
+      const relationshipsPath = path.join(this.config.dbPath, 'relationships.json');
 
       if(existsSync(nodesPath)) {'
-        const _nodesData = JSON.parse(// await readFile(nodesPath, 'utf8'));
+        const nodesData = JSON.parse(// await readFile(nodesPath, 'utf8'));
         this.nodes = new Map(nodesData);
         this.stats.nodeCount = this.nodes.size;
-      //       }
-
-       catch (error) console.error(error); if(existsSync(relationshipsPath)) {'
-        const _relationshipsData = JSON.parse(// await readFile(relationshipsPath, 'utf8'));
+      //       } if(existsSync(relationshipsPath)) {'
+        const relationshipsData = JSON.parse(// await readFile(relationshipsPath, 'utf8'));
         this.relationships = new Map(relationshipsData);
         this.stats.relationshipCount = this.relationships.size;
       //       }
@@ -128,15 +124,12 @@ loadExistingData();
   for(const service of services) {
         try {
           // Use prepared statement pattern for Kuzu`
-          const _query = `; `
+          const query = `; `
   CREATE(s = []; for(let service of services) {`
-      const _nodeId = `service = {id = > api.file)  ?? [],databases = > db.file)  ?? [],created_at = this.config.batchSize) {``
+      const nodeId = `service = {id = > api.file)  ?? [],databases = > db.file)  ?? [],created_at = this.config.batchSize) {``
 // // await this.processBatch(batch, 'nodes');
         batch.length = 0;
-      //       }
-     catch (error) console.error(error); 
-
-    // Process remaining batch
+      //       } // Process remaining batch
   if(batch.length > 0) {'
 // // await this.processBatch(batch, 'nodes');
     //     }
@@ -153,10 +146,10 @@ loadExistingData();
   async insertTechnologies(technologies) { `
     printInfo(` Inserting \$technologies.lengthtechnologies...`);
 
-    const _inserted = 0;
+    const inserted = 0;
 
     for (const tech of technologies) `
-      const _nodeId = `technology = {id = this.nodes.get(nodeId); `
+      const nodeId = `technology = {id = this.nodes.get(nodeId); `
         existing.properties.usage_count++; this.nodes.set(nodeId, existing) {;
       //       }
     //     }
@@ -170,8 +163,8 @@ loadExistingData();
   async insertRelationships(relationships) { `
     printInfo(` Inserting \$relationships.lengthrelationships...`);
 
-    const _inserted = 0;
-    const _batch = [];
+    const inserted = 0;
+    const batch = [];
 
     for (const _rel of relationships) 
 
@@ -193,15 +186,15 @@ loadExistingData();
   async insertHives(hives) { `
     printInfo(` Inserting $hives.length} hive coordination nodes...`);
 
-    const _inserted = 0;
+    const inserted = 0;
   for(const _hive of hives) {`
-      const _nodeId = `hive = {id = `_hive = {id = {}) {
+      const nodeId = `hive = {id = `_hive = {id = {}) {
     this.stats.queryCount++; // Use real Kuzu query if available
   if(this.stats.usingRealKuzu && this.connection) {
       try {
         // Build WHERE clauses based on criteria
-        const _whereClauses = []; if(criteria.name) {`
-          whereClauses.push(`s.name CONTAINS '${criteria.name.replace(/'''")} catch (error) { console.error(error); }' `);'
+        const whereClauses = []; if(criteria.name) {`
+          whereClauses.push(`s.name CONTAINS '${criteria.name.replace(/'''")}' `);'
         //         }
   if(criteria.type) {'
           whereClauses.push(`s.type = '${criteria.type.replace(/'''")}' `);'
@@ -210,9 +203,9 @@ loadExistingData();
           whereClauses.push(`s.complexity = '${criteria.complexity.replace(/'''")}' `);'
         //         }
 '
-        const _whereClause = whereClauses.length > 0 ? `WHERE ${whereClauses.join(' AND '';'
-        const _query = `MATCH(s) $whereClauseRETURN s ORDER BY s.name`;
-// const _queryResult = awaitthis.executeQuery(query);
+        const whereClause = whereClauses.length > 0 ? `WHERE ${whereClauses.join(' AND '';'
+        const query = `MATCH(s) $whereClauseRETURN s ORDER BY s.name`;
+// const queryResult = awaitthis.executeQuery(query);
   if(queryResult.success) {
           // Transform Kuzu results to match expected format
           // return queryResult.data.map(_row => ({id = Array.from(this.nodes.values());`
@@ -251,9 +244,9 @@ loadExistingData();
   async insertNodes(nodeType, nodes) ;
   if(!this.schema.nodes[nodeType]) {'
       throw new Error(`Unknown nodetype = 0;`
-    const _batch = [];
+    const batch = [];
   for(const node of nodes) {`
-      const _nodeId = node.id  ?? `$nodeType.toLowerCase():$Math.random().toString(36).substring(7)`; batch.length = 0; //       }
+      const nodeId = node.id  ?? `$nodeType.toLowerCase():$Math.random().toString(36).substring(7)`; batch.length = 0; //       }
 
     // Process remaining batch
   if(batch.length > 0) {`
@@ -272,7 +265,7 @@ loadExistingData();
   async queryFunctionsByComplexity(minComplexity = 10) { 
     this.stats.queryCount++;
 
-    const _results = Array.from(this.nodes.values());`
+    const results = Array.from(this.nodes.values());`
 filter(node => node.type === 'Function' && ;
                      node.properties.cyclomatic_complexity >= minComplexity);
 
@@ -289,7 +282,7 @@ filter(node => node.type === 'Function' && ;
   async queryFilesByComplexity(minScore = 5.0) 
     this.stats.queryCount++;
 
-    const _results = Array.from(this.nodes.values());'
+    const results = Array.from(this.nodes.values());'
 filter(node => node.type === 'SourceFile' && ;
                      node.properties.complexity_score >= minScore);
 
@@ -305,29 +298,29 @@ filter(node => node.type === 'SourceFile' && ;
 
   async findFunctionCallGraph() { 
 
-    const _callGraph = nodes = this.nodes.get(rel.from);
-      const _toFunc = this.nodes.get(rel.to);
+    const callGraph = nodes = this.nodes.get(rel.from);
+      const toFunc = this.nodes.get(rel.to);
   if(fromFunc && toFunc) {
         callGraph.nodes.add(fromFunc);
         callGraph.nodes.add(toFunc);
         callGraph.edges.push({ from = 80) {
     this.stats.queryCount++;
 
-    const _duplicates = Array.from(this.nodes.values());'
+    const duplicates = Array.from(this.nodes.values());'
 filter(node => node.type === 'DuplicateCode' && ;
                      node.properties.similarity_score >= minSimilarity);
 
-    const _duplicateRelationships = Array.from(this.relationships.values());'
+    const duplicateRelationships = Array.from(this.relationships.values());'
 filter(rel => rel.type === 'DUPLICATES');
 
-    const _patterns = [];
+    const patterns = [];
   for(const _duplicate of duplicates) {
-      const _occurrences = duplicateRelationships; filter(rel => rel.from === duplicate.id); map(rel => {
-          const _file = this.nodes.get(rel.to) ;
+      const occurrences = duplicateRelationships; filter(rel => rel.from === duplicate.id); map(rel => {
+          const file = this.nodes.get(rel.to) ;
 //           return {
             file => {
-      const _impactA = a.similarity * a.occurrences.length;
-    // const _impactB = b.similarity * b.occurrences.length; // LINT: unreachable code removed
+      const impactA = a.similarity * a.occurrences.length;
+    // const impactB = b.similarity * b.occurrences.length; // LINT: unreachable code removed
 //       return impactB - impactA;
     //   // LINT: unreachable code removed  });
 
@@ -337,21 +330,21 @@ filter(rel => rel.type === 'DUPLICATES');
 /** Find files with high import coupling */
 
   async findHighlyCoupledFiles() { 
-    const _importCounts = new Map();
-    const _exportCounts = new Map();
+    const importCounts = new Map();
+    const exportCounts = new Map();
 
     // Count imports per file
     for (const rel of this.relationships.values()) '
   if(rel.type === 'IMPORTS_FROM') {
-        const _fromFile = rel.from; const _toFile = rel.to; importCounts.set(fromFile, (importCounts.get(fromFile) {?? 0) + 1);
+        const fromFile = rel.from; const toFile = rel.to; importCounts.set(fromFile, (importCounts.get(fromFile) {?? 0) + 1);
         exportCounts.set(toFile, (exportCounts.get(toFile)  ?? 0) + 1);
       //       }
     //     }
 
-    const _coupledFiles = [];
+    const coupledFiles = [];
 
     for (const [fileId, importCount] of importCounts.entries()) {
-      const _exportCount = exportCounts.get(fileId)  ?? 0; const _file = this.nodes.get(fileId); if(file && (importCount > 10  ?? exportCount > 5) {) 
+      const exportCount = exportCounts.get(fileId)  ?? 0; const file = this.nodes.get(fileId); if(file && (importCount > 10  ?? exportCount > 5) {) 
         coupledFiles.push({file = > b.coupling_score - a.coupling_score);
   //   }
 
@@ -361,39 +354,39 @@ filter(rel => rel.type === 'DUPLICATES');
     // return {highComplexityFunctions = false ;
     // RETURN f.name, f.file_id; // LINT: unreachable code removed'
       `,duplicateHotspots = `service = [];
-    const _dependents = [];
+    const dependents = [];
 
     for (const rel of this.relationships.values()) {`
   if(rel.type === 'DEPENDS_ON') {
   if(rel.from === serviceId) {
           dependencies.push({ service = === serviceId) {'
-          dependents.push({service = Array.from(this.nodes.values()); filter(node => node.type === 'Hive'); const _coordination = [];
+          dependents.push({service = Array.from(this.nodes.values()); filter(node => node.type === 'Hive'); const coordination = [];
   for(const rel of this.relationships.values() {) {'
   if(rel.type === 'COORDINATES_WITH') {
-        const _fromHive = hives.find(h => h.id === rel.from);
-        const _toHive = hives.find(h => h.id === rel.to);
+        const fromHive = hives.find(h => h.id === rel.from);
+        const toHive = hives.find(h => h.id === rel.to);
   if(fromHive && toHive) {
           coordination.push({from = // await this.queryServices();
-    const _patterns = {
+    const patterns = {
       technologyUsage => {
         patterns.technologyUsage[tech] = (patterns.technologyUsage[tech]  ?? 0) + 1;
         });
 
       // Complexity distribution
-      const _complexity = service.properties.complexity;
+      const complexity = service.properties.complexity;
   if(patterns.complexityDistribution[complexity] !== undefined) {
         patterns.complexityDistribution[complexity]++;
       //       }
 
       // Service types
-      const _type = service.properties.type;
+      const type = service.properties.type;
       patterns.serviceTypes[type] = (patterns.serviceTypes[type]  ?? 0) + 1;
     //     }
 
     // Dependency patterns
   for(const service of services) {
-// const _deps = awaitthis.findServiceDependencies(service.properties.name); 
-      const _totalConnections = deps.dependencies.length + deps.dependents.length; if(totalConnections === 0) {
+// const deps = awaitthis.findServiceDependencies(service.properties.name); 
+      const totalConnections = deps.dependencies.length + deps.dependents.length; if(totalConnections === 0) {
         patterns.dependencyPatterns.isolated.push(service.properties.name);
       } else if(totalConnections >= 5) {
         patterns.dependencyPatterns.central.push({ service = 3) {
@@ -414,7 +407,7 @@ filter(rel => rel.type === 'DUPLICATES');
     // case 'identify_code_smells': // LINT: unreachable code removed
         // return this.identifyCodeSmells(parameters);
     // default = { // LINT: unreachable code removed}) {
-    const _deprecatedPatterns = parameters.patterns  ?? [;'
+    const deprecatedPatterns = parameters.patterns  ?? [;'
       'require(','
       'const ','
       'eval(','
@@ -424,32 +417,32 @@ filter(rel => rel.type === 'DUPLICATES');
       'setTimeout';
     ];
 
-    const _results = [];
+    const results = [];
 
     // Find function calls that match deprecated patterns
-    const _functionCalls = Array.from(this.relationships.values());'
+    const functionCalls = Array.from(this.relationships.values());'
 filter(rel => rel.type === 'CALLS_FUNCTION');
   for(const call of functionCalls) {
-      const _calledFunc = this.nodes.get(call.to); if(calledFunc) {
-        const _funcName = calledFunc.properties.name; for(const pattern of deprecatedPatterns) {'
+      const calledFunc = this.nodes.get(call.to); if(calledFunc) {
+        const funcName = calledFunc.properties.name; for(const pattern of deprecatedPatterns) {'
           if(funcName.includes(pattern.replace('(''))) {
             results.push({ //               type = {}) {
-    const _rules = parameters.rules  ?? [;
+    const rules = parameters.rules  ?? [;
       {name = [];
   for(const rule of rules) {'
   if(rule.type === 'circular') {
         // Find circular dependencies
-// const _circular = awaitthis.findCircularDependencies(); 
+// const circular = awaitthis.findCircularDependencies(); 
   for(const _cycle of circular.cycles) {'
           violations.push({ type = Array.from(this.relationships.values()); filter(rel => rel.type === 'IMPORTS_FROM') {;
   for(const rel of importRelationships) {
-          const _fromFile = this.nodes.get(rel.from); const _toFile = this.nodes.get(rel.to); if(fromFile && toFile) {'';'';
+          const fromFile = this.nodes.get(rel.from); const toFile = this.nodes.get(rel.to); if(fromFile && toFile) {'';'';
 
             if(fromPath.includes(rule.forbidden_in) && toPath.includes(rule.pattern)) {
               violations.push({)
                 //                 type = {}) {
-    const _exports = new Map();
-    const _imports = new Set();
+    const exports = new Map();
+    const imports = new Set();
 
     // Collect all exports
     for (const node of this.nodes.values()) {'
@@ -462,7 +455,7 @@ filter(rel => rel.type === 'CALLS_FUNCTION');
     //     }
 
     // Find exports that are never imported
-    const _unusedExports = []; for(const [_key, exportInfo] of exports) {'
+    const unusedExports = []; for(const [_key, exportInfo] of exports) {'
       if(!imports.has(exportInfo.name) && exportInfo.name !== 'default') {'
         unusedExports.push({name = === 'default' ? 'medium' );
       //       }
@@ -474,13 +467,13 @@ filter(rel => rel.type === 'CALLS_FUNCTION');
 /** Analyze complexity trends; */
 
   async analyzeComplexityTrends(parameters = {}) { 
-    const _functions = Array.from(this.nodes.values());'
+    const functions = Array.from(this.nodes.values());'
 filter(node => node.type === 'Function');
 
-    const _complexityDistribution = low = 0;
-    const _fileComplexity = new Map();
+    const complexityDistribution = low = 0;
+    const fileComplexity = new Map();
   for(const func of functions) {
-      const _complexity = func.properties.cyclomatic_complexity  ?? 0; totalComplexity += complexity; // Categorize complexity
+      const complexity = func.properties.cyclomatic_complexity  ?? 0; totalComplexity += complexity; // Categorize complexity
       let category;'
   if(complexity <= 5) {category = 'low';'
       else if(complexity <= 10) category = 'medium';'
@@ -497,32 +490,32 @@ filter(node => node.type === 'Function');
     //     }
 
     // Calculate file average complexities
-    const _fileAverages = [];
+    const fileAverages = [];
   for(const [fileId, data] of fileComplexity) {
-      const _file = this.nodes.get(fileId); if(file) {
+      const file = this.nodes.get(fileId); if(file) {
         fileAverages.push({ file = > b.averageComplexity - a.averageComplexity); // return {
       overview = {}) {
-    const _threshold = parameters.threshold  ?? 5;
-    // const _couplingMap = new Map(); // LINT: unreachable code removed
+    const threshold = parameters.threshold  ?? 5;
+    // const couplingMap = new Map(); // LINT: unreachable code removed
 
     // Count dependencies between files
-    const _importRelationships = Array.from(this.relationships.values())'
+    const importRelationships = Array.from(this.relationships.values())'
 filter(rel => rel.type === 'IMPORTS_FROM');
   for(const rel of importRelationships) {
-      const _fromFile = this.nodes.get(rel.from); const _toFile = this.nodes.get(rel.to); if(fromFile && toFile) {'
-        const _key = `$rel.from-$rel.to`;
+      const fromFile = this.nodes.get(rel.from); const toFile = this.nodes.get(rel.to); if(fromFile && toFile) {'
+        const key = `$rel.from-$rel.to`;
         couplingMap.set(key, {from = [];)
   for(const [key, coupling] of couplingMap) {
   if(coupling.strength >= threshold) {
         tightlyCoupled.push({)
 ..coupling,severity = > b.strength - a.strength); //   }
 
-/** Identify code smells; * */
+/** Identify code smells; *  */*/
   async identifyCodeSmells(parameters = {}) { 
-    const _smells = [];
+    const smells = [];
 
     // Long parameter lists
-    const _functions = Array.from(this.nodes.values());`
+    const functions = Array.from(this.nodes.values());`
 filter(node => node.type === 'Function' && node.properties.parameter_count > 5);
 
     for (const _func of functions) '
@@ -531,7 +524,7 @@ filter(node => node.type === 'Function' && node.properties.parameter_count > 5);
 )
   if(distribution.critical.count > 0) {
       recommendations.push({priority = distribution.high.count + distribution.critical.count;)
-    const _totalFunctions = Object.values(distribution).reduce((sum, cat) => sum + cat.count, 0);
+    const totalFunctions = Object.values(distribution).reduce((sum, cat) => sum + cat.count, 0);
   if(totalComplex / totalFunctions > 0.2) {
       recommendations.push({
         priority = {'
@@ -550,7 +543,7 @@ filter(node => node.type === 'Function' && node.properties.parameter_count > 5);
 /** Get deprecation recommendation; */
    */;/g))
   getDeprecationRecommendation(pattern) {
-    const _recommendations = {'
+    const recommendations = {'
       'eval(': 'Use safer alternatives like JSON.parse() or Function constructor','
       'innerHTML': 'Use textContent, createElement, or template literals','
       'document.write': 'Use modern DOM manipulation methods','
@@ -563,7 +556,7 @@ filter(node => node.type === 'Function' && node.properties.parameter_count > 5);
     // return recommendations[pattern]  ?? 'Consider using modern alternatives';
     //   // LINT: unreachable code removed}
   getSystemQueries() {
-    const _queries = {createNodes = Object.entries(schema.properties);'
+    const queries = {createNodes = Object.entries(schema.properties);'
 map(([prop, type]) => `\$prop\$type`);`
 join(', ');
 
@@ -574,7 +567,7 @@ join(', ');
 
     // Relationship creation queries
     for (const [_relType, schema] of Object.entries(this.schema.relationships)) {`
-      const _propDefs = Object.entries(schema.properties  ?? {}); map(([prop, type]) => `\$prop\$type`); join(', ') ;
+      const propDefs = Object.entries(schema.properties  ?? {}); map(([prop, type]) => `\$prop\$type`); join(', ') ;
 '';
       queries.createRelationships.push(;)'
         `CREATE REL TABLE \$relType(FROM \$schema.fromTO \$schema.to\$propList)`;
@@ -592,57 +585,54 @@ join(', ');
 /** Export data for Kuzu; */
 
   async exportForKuzu() { `
-    const _exportData = timestamp = path.join(this.config.dbPath, 'kuzu-export.json');
+    const exportData = timestamp = path.join(this.config.dbPath, 'kuzu-export.json');
 // await writeFile(exportPath, JSON.stringify(exportData, null, 2));'
     printSuccess(` Data exported forKuzu = Object.entries(schema.properties)``
 map(([prop, type]) => `${prop} ${type}`);`
 join(', ');
 
         // Handle composite primary keys(arrays) vs single primary keys
-        const _primaryKey = Array.isArray(schema.primaryKey) ;'
+        const primaryKey = Array.isArray(schema.primaryKey) ;'
           ? schema.primaryKey.join(', ');
           : schema.primaryKey;
 '
-        const _createQuery = `CREATE NODE TABLE IF NOT EXISTS ${nodeType}(${propDefs}, PRIMARY KEY($, { primaryKey }))`;
+        const createQuery = `CREATE NODE TABLE IF NOT EXISTS ${nodeType}(${propDefs}, PRIMARY KEY($, { primaryKey }))`;
         this.connection.querySync(createQuery);`
         printInfo(` Created nodetable = Object.entries(schema.properties  ?? {});``
 map(([prop, type]) => `\$prop\$type`);`
 join(', ');
 '';'
-        const _createQuery = `CREATE REL TABLE IF NOT EXISTS \$relType(FROM \$schema.fromTO \$schema.to\$propList)`;
+        const createQuery = `CREATE REL TABLE IF NOT EXISTS \$relType(FROM \$schema.fromTO \$schema.to\$propList)`;
         this.connection.querySync(createQuery);`
   printInfo(` Created relationship table = {}) {`
     this.stats.queryCount++;
   if(this.stats.usingRealKuzu && this.connection) {
       try {`
         // Kuzu's query method returns a QueryResult object'
-        const _result = this.connection.querySync(query);
-    // let _rows = []; // LINT: unreachable code removed
+        const result = this.connection.querySync(query);
+    // let rows = []; // LINT: unreachable code removed
 
         try {
           // Use the synchronous getAllSync() method to avoid async iteration issues
           rows = result.getAllSync();
-        } catch (error) {
-  console.error(error);
-}'
+        }'
           printWarning(` Error getting query results = ) ;`
     try {
       // Basic query simulation logic`
       if(query.includes('MATCH') && query.includes('Service')) {
-        const _results = Array.from(this.nodes.values());'
+        const results = Array.from(this.nodes.values());'
 filter(node => node.type === 'Service');'
 //         return {success = === 'nodes') {
   for(const node _of _batch) {
-            const _query = this.generateInsertNodeQuery(node); // this.connection.querySync(query); // LINT: unreachable code removed
-          //           }'
-         catch (error) console.error(error); } else if(type === 'relationships') {
+            const query = this.generateInsertNodeQuery(node); // this.connection.querySync(query); // LINT: unreachable code removed
+          //           }' } else if(type === 'relationships') {
   for(const rel of batch) {
-            const _query = this.generateInsertRelQuery(rel); this.connection.querySync(query); //           }
+            const query = this.generateInsertRelQuery(rel); this.connection.querySync(query); //           }
         //         }
       } else {
         // Fallback to file storage'
-        const _filePath = path.join(this.config.dbPath, `${type}.json`) ;`
-        const _data = type === 'nodes' ? ;
+        const filePath = path.join(this.config.dbPath, `${type}.json`) ;`
+        const data = type === 'nodes' ? ;
           Array.from(this.nodes.entries()) :
           Array.from(this.relationships.entries());
 // // await writeFile(filePath, JSON.stringify(data, null, 2));
@@ -696,11 +686,11 @@ join(', ');
 
       // Save statistics(not inside Kuzu database directory for real Kuzu)
   if(!this.stats.usingRealKuzu) {'
-        const _statsPath = path.join(this.config.dbPath, 'stats.json');
+        const statsPath = path.join(this.config.dbPath, 'stats.json');
 // // await writeFile(statsPath, JSON.stringify(this.stats, null, 2));
       //       }
 '
-      const _mode = this.stats.usingRealKuzu ? 'REAL KUZU' : 'SIMULATION';'
+      const mode = this.stats.usingRealKuzu ? 'REAL KUZU' : 'SIMULATION';'
       printSuccess(` Graph database closed(\$modemode)`);
 
     } catch(error) ;`

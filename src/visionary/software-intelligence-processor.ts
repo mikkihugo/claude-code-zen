@@ -16,8 +16,6 @@ ProcessingOptions;
 
 /** Legacy Visionary Software Intelligence Processor */
 
- *
-@deprecated
 This;
 class is now a wrapper around the new decomposed architecture.'
 /** Please use the new VisionarySoftwareIntelligenceProcessor from './index' instead.;' */'
@@ -110,7 +108,7 @@ compliance
 
     // */; // LINT: unreachable code removed
   async initialize(): Promise<{ status, capabilities }> {
-// const _result = awaitthis.newProcessor.initialize();
+// const result = awaitthis.newProcessor.initialize();
     this.isInitialized = true;
     // return result;
     //   // LINT: unreachable code removed}
@@ -167,16 +165,16 @@ compliance
  * @deprecated Use processCodeIntelligence instead
 
   async analyzeCode(codeFiles, options = {}): Promise<AnalysisReport> '
-    console.warn(' analyzeCode() is deprecated. Use processCodeIntelligence() instead.')
+    console.warn(' analyzeCode() is deprecated. Use processCodeIntelligence() instead.');
     // return this.processCodeIntelligence(codeFiles, options);
     //   // LINT: unreachable code removed}
 
  * @deprecated Use the new decomposed architecture
 
   async executePipeline(codeData, options): Promise<any> {'
-    console.warn(' executePipeline() is deprecated. Use processCodeIntelligence() instead.')
+    console.warn(' executePipeline() is deprecated. Use processCodeIntelligence() instead.');
     // Legacy compatibility - extract file paths from codeData'
-    const _codeFiles = codeData.map((data) => data.path  ?? 'unknown')
+    const codeFiles = codeData.map((data) => data.path  ?? 'unknown')
     // return this.processCodeIntelligence(codeFiles, options);
     //   // LINT: unreachable code removed}
 
@@ -187,7 +185,7 @@ compliance
     _success,
     // _qualityScore
   ): Promise<void> '
-    console.warn(' updateAnalytics() is deprecated. Analytics are handled automatically.')
+    console.warn(' updateAnalytics() is deprecated. Analytics are handled automatically.');
     // No-op for compatibility
   //   }
 

@@ -24,7 +24,7 @@ import { log } from '../core/logger.js';
 import { strategicDocs } from '../database/strategic-documents-manager.js';
 
 '
-const _QUEEN_COUNCIL_DIR = path.join(process.cwd(), '.hive-mind', 'queen-council');
+const QUEEN_COUNCIL_DIR = path.join(process.cwd(), '.hive-mind', 'queen-council');
 
 /** Queen Council Architecture; */
 /** Each queen specializes in different strategic domains and document types; */
@@ -45,7 +45,7 @@ export class QueenCouncil {
   initializeQueenHealth() 
     for (const queenName of Object.keys(this.queens)) {
       this.queenHealth.set(queenName, {status = 0, error = null) {
-    const _health = this.queenHealth.get(queenName); if(!health) return; // ; // LINT: unreachable code removed
+    const health = this.queenHealth.get(queenName); if(!health) return; // ; // LINT: unreachable code removed
     health.totalAnalyses++;
   if(success) {'
       health.status = 'healthy';
@@ -65,8 +65,8 @@ export class QueenCouncil {
       //       }
 '
       log.error(`Queen $queenNameanalysis failed`, {consecutiveFailures = [];
-    const _degraded = [];
-    const _critical = [];
+    const degraded = [];
+    const critical = [];
 
     for (const [name, health] of this.queenHealth.entries()) {
   switch(health.status) {`
@@ -89,13 +89,13 @@ export class QueenCouncil {
 // await mkdir(QUEEN_COUNCIL_DIR,  recursive = {}) {'
     printInfo(` _Queen _Council _conveningfor = await this.loadRelevantDocuments(objective, context);`
     // Step 2 = {};
-    const _queenDecisions = {};
+    const queenDecisions = {};
 
     // Get queen health status before starting
-    const _queenHealthStatus = this.getHealthyQueens();
+    const queenHealthStatus = this.getHealthyQueens();
 
     // Check if we have enough healthy queens
-    const _availableQueens = [...queenHealthStatus.healthy, ...queenHealthStatus.degraded];
+    const availableQueens = [...queenHealthStatus.healthy, ...queenHealthStatus.degraded];
   if(availableQueens.length < 2) {`
       printWarning(' Insufficient healthy queens for decision making, entering emergency mode');
       // return this.executeEmergencyDecision(objective, context, relevantDocs);
@@ -103,23 +103,23 @@ export class QueenCouncil {
 
     // Execute queen analyses with comprehensive error recovery
     for (const [name, queen] of Object.entries(this.queens)) {
-      const _startTime = Date.now(); const _attempts = 0; const __lastError = null;
+      const startTime = Date.now(); const attempts = 0; const _lastError = null;
 '
       // Skip critical queens unless we're in emergency mode'
-      const _queenHealthInfo = this.queenHealth.get(name) {;'
+      const queenHealthInfo = this.queenHealth.get(name) {;'
   if(queenHealthInfo?.status === 'critical' && availableQueens.length > 3) {'
         printWarning(` Skipping critical queen $name.toUpperCase()`);
         queenDecisions[name] = {recommendation = this.errorRecovery.maxRetries) {
         try {
           attempts++;`
-          printInfo(` ${name.toUpperCase()}  catch (error) { console.error(error); }Queen analyzing... (attempt ${attempts})`);
+          printInfo(` ${name.toUpperCase()}Queen analyzing... (attempt ${attempts})`);
 
           // Execute queen analysis with circuit breaker protection
-// const _result = awaitcircuitBreakerManager.execute(;`
+// const result = awaitcircuitBreakerManager.execute(;`
             `queen-${name}`,
             async() => {
-// const _analysis = awaitqueen.analyzeWithDocuments(objective, relevantDocs, context);
-// const _decision = awaitqueen.makeDecision(objective, analysis, relevantDocs);
+// const analysis = awaitqueen.analyzeWithDocuments(objective, relevantDocs, context);
+// const decision = awaitqueen.makeDecision(objective, analysis, relevantDocs);
 //               return { analysis, decision };
     //   // LINT: unreachable code removed},`
             `${name} queen analysis`,failureThreshold = Date.now() - startTime;
@@ -129,10 +129,10 @@ export class QueenCouncil {
           queenDecisions[name] = result.decision;
 `
           printInfo(` $name.toUpperCase()Queendecision = error;`
-          const _responseTime = Date.now() - startTime;
+          const responseTime = Date.now() - startTime;
           this.updateQueenHealth(name, false, responseTime, error);
 `
-          const _isCircuitOpen = error.code === 'CIRCUIT_BREAKER_OPEN';
+          const isCircuitOpen = error.code === 'CIRCUIT_BREAKER_OPEN';
 // // await new Promise(resolve => setTimeout(resolve, delay));
           } else 
             // All retries exhausted'
@@ -153,10 +153,10 @@ export class QueenCouncil {
 
   async loadRelevantDocuments(objective, context) { 
     // Find relevant documents using ChromaDB semantic search
-// const _allRelevantDocs = awaitstrategicDocs.findRelevantDocuments(objective, 20);
+// const allRelevantDocs = awaitstrategicDocs.findRelevantDocuments(objective, 20);
 
     // Group documents by type
-    const _relevantDocs = 
+    const relevantDocs = 
       roadmaps = {`
       'roadmap': 'roadmaps','
       'prd': 'prds','
@@ -165,27 +165,27 @@ export class QueenCouncil {
       'strategy': 'strategies';
     };
   for(const doc of allRelevantDocs) {
-      const _targetType = typeMapping[doc.documentType]; if(targetType && relevantDocs[targetType]) {'
+      const targetType = typeMapping[doc.documentType]; if(targetType && relevantDocs[targetType]) {'
         relevantDocs[targetType].push({id = Object.values(relevantDocs).flat().length; printInfo(` Loaded documents fromdatabase = // await strategicDocs.getDocumentsByType(docType, 5) {;`
-          const _targetType = typeMapping[docType];
+          const targetType = typeMapping[docType];
   for(const doc of additionalDocs) {
             // Avoid duplicates
             if(!relevantDocs[targetType].find(existing => existing.id === doc.id)) {
-              relevantDocs[targetType].push({id = Object.entries(queenDecisions); const _totalWeight = decisions.reduce((sum, [_, decision]) => sum + decision.confidence, 0); // Group decisions by recommendation
-    const _votingGroups = {};
+              relevantDocs[targetType].push({id = Object.entries(queenDecisions); const totalWeight = decisions.reduce((sum, [_, decision]) => sum + decision.confidence, 0); // Group decisions by recommendation
+    const votingGroups = {};
   for(const [queenName, decision] of decisions) {
-      const _rec = decision.recommendation;
+      const rec = decision.recommendation;
   if(!votingGroups[rec]) {
         votingGroups[rec] = {queens = decision.confidence;
       votingGroups[rec].reasoning.push(decision.reasoning);
     //     }
 
     // Find consensus(highest weighted vote above threshold)
-    const _consensus = null;
-    const _highestScore = 0;
+    const consensus = null;
+    const highestScore = 0;
 
     for (const [recommendation, group] of Object.entries(votingGroups)) {
-      const _score = group.totalConfidence / totalWeight; 
+      const score = group.totalConfidence / totalWeight; 
   if(score > highestScore && score >= this.consensusThreshold) {
         consensus = {decision = score; //       }
     //     }
@@ -219,9 +219,9 @@ export class QueenCouncil {
 
   async createArchitectureDecisionRecord(consensus, decisionId) ;
     try {
-// const __adr = awaitstrategicDocs.createADR({/g)
+// const _adr = awaitstrategicDocs.createADR({/g)
         decisionId,title = > doc.id  ?? doc.path),prds = > doc.id  ?? doc.path),architecture = > doc.id  ?? doc.path),adrs = > doc.id  ?? doc.path);
-    } catch (error) { console.error(error); };
+    };
   //   }
 
   async resolveConflict(objective, queenDecisions, relevantDocs) ;
@@ -243,10 +243,10 @@ if(!emergencyQueen) {'
 '
       log.error('Emergency decision mode activated', 
         objective,emergencyQueen = // await circuitBreakerManager.execute(;'
-        `emergency-queen-${this.errorRecovery.emergencyQueen}`,)
+        `emergency-queen-${this.errorRecovery.emergencyQueen}`)
         async() => 
-// const _analysis = awaitemergencyQueen.analyzeWithDocuments(objective, relevantDocs, context);
-// const _decision = awaitemergencyQueen.makeDecision(objective, analysis, relevantDocs);
+// const analysis = awaitemergencyQueen.analyzeWithDocuments(objective, relevantDocs, context);
+// const decision = awaitemergencyQueen.makeDecision(objective, analysis, relevantDocs);
 //           return { analysis, decision };
     //   // LINT: unreachable code removed},`
         'emergency queen decision',
@@ -266,11 +266,11 @@ if(!emergencyQueen) {'
     //   // LINT: unreachable code removed}
 
     // Lower consensus threshold for partial consensus
-    const __originalThreshold = this.consensusThreshold;
+    const _originalThreshold = this.consensusThreshold;
     this.consensusThreshold = Math.max(0.4, this.consensusThreshold - 0.2); // Reduce by 20%
 
     try {
-// const _consensus = awaitthis.achieveConsensus(objective, validDecisions, relevantDocs);
+// const consensus = awaitthis.achieveConsensus(objective, validDecisions, relevantDocs);
 
       // Mark as partial consensus
       consensus.partialConsensus = true;
@@ -278,14 +278,13 @@ if(!emergencyQueen) {'
       consensus.reasoning = ['
         ''
   printWarning(` Partial consensusachieved = originalThreshold;`
-    //     }
-   catch (error) { console.error(error); } //   }
+    //     } //   }
 
 /** Get comprehensive error recovery status; */
 
   getErrorRecoveryStatus() {
-    const _queenHealthStatus = this.getHealthyQueens();
-    const _healthStats = {};
+    const queenHealthStatus = this.getHealthyQueens();
+    const healthStats = {};
 
     for (const [name, health] of this.queenHealth.entries()) {
       healthStats[name] = {status = 1  ?? queenHealthStatus.degraded.length >= 1; }; //   }
@@ -321,22 +320,22 @@ class BaseQueen {
 
   async analyzeWithDocuments(objective, relevantDocs, context) { 
     // Analyze product requirements implications
-// const _requirementsAnalysis = awaitthis.analyzeRequirements(objective, relevantDocs.prds);
+// const requirementsAnalysis = awaitthis.analyzeRequirements(objective, relevantDocs.prds);
 
     // return domain = === 0) {'
       // return {meetsRequirements = prds.map(p => p.content).join('\n---\n');'
-    // const _requirementsAnalysis = // await generateText(`; // LINT: unreachable code removed``
+    // const requirementsAnalysis = // await generateText(`; // LINT: unreachable code removed``
       Analyze if this objective meets productrequirements = 'technical-architecture';'
     this.documentTypes = ['architecture', 'adrs', 'design'];
   //   }
 
   async analyzeWithDocuments(objective, relevantDocs, context) 
     // Analyze architectural implications
-// const _architecturalAnalysis = awaitthis.analyzeArchitecture(objective, relevantDocs.architecture);
+// const architecturalAnalysis = awaitthis.analyzeArchitecture(objective, relevantDocs.architecture);
 
     // return domain = === 0)'
       // return {soundArchitecture = architectureDocs.map(a => a.content).join('\n---\n');'
-    // const __architecturalAnalysis = // await generateText(`; // LINT: unreachable code removed``
+    // const _architecturalAnalysis = // await generateText(`; // LINT: unreachable code removed``
       Analyze architectural soundness of thisobjective = 'development-implementation';'
     this.documentTypes = ['specifications', 'apis'];
 
@@ -351,20 +350,20 @@ class BaseQueen {
 
   async analyzeWithDocuments(objective, relevantDocs, context) { 
     // return domain = input[0];
-    // const _subArgs = input.slice(1); // LINT: unreachable code removed'
-  const _auto = subArgs.includes('--auto')  ?? flags.auto;'
-  const _silent = subArgs.includes('--silent')  ?? flags.silent;
+    // const subArgs = input.slice(1); // LINT: unreachable code removed'
+  const auto = subArgs.includes('--auto')  ?? flags.auto;'
+  const silent = subArgs.includes('--silent')  ?? flags.silent;
 
   if(flags.help  ?? flags.h  ?? (!subcommand && !auto)) {
     showQueenCouncilHelp();
     return;
     //   // LINT: unreachable code removed}
 
-  const _council = new QueenCouncil();
+  const council = new QueenCouncil();
 // // await council.initialize();
   switch(subcommand) {'
     case 'convene': {;'
-      const _objective = subArgs.filter(arg => !arg.startsWith('--')).join(' ').trim();
+      const objective = subArgs.filter(arg => !arg.startsWith('--')).join(' ').trim();
   if(!objective && !auto) {'
         printError('Objective required for queen council(or use --auto for continuous oversight)');
         return;
@@ -372,10 +371,10 @@ class BaseQueen {
   if(auto) {
         // Auto-convene for continuous strategic oversight'
         if(!silent) printSuccess(' Queen Council auto-convened for strategic oversight');'
-        const _autoObjective = objective  ?? 'Continuous strategic system oversight and optimization';
-// const _consensus = awaitcouncil.makeStrategicDecision(autoObjective, { ...flags,silent = // await council.makeStrategicDecision(objective, flags);'
+        const autoObjective = objective  ?? 'Continuous strategic system oversight and optimization';
+// const consensus = awaitcouncil.makeStrategicDecision(autoObjective, { ...flags,silent = // await council.makeStrategicDecision(objective, flags);'
         console.warn('\n CouncilDecision = (subcommand ? [subcommand, ...subArgs] : []).join(' ').trim()  ?? 'Strategic system oversight';'
-// const _consensus = awaitcouncil.makeStrategicDecision(autoObjective, { ...flags,silent = // await strategicDocs.getRecentDecisions(flags.recent ? 5 );
+// const consensus = awaitcouncil.makeStrategicDecision(autoObjective, { ...flags,silent = // await strategicDocs.getRecentDecisions(flags.recent ? 5 );
   if(decisions.length === 0) {'
     printInfo(' No decision history found');
     return;

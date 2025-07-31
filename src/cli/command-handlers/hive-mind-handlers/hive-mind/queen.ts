@@ -21,7 +21,7 @@ if (score <= 9) return 'high';
 _countComplexityKeywords(text)
 : unknown
 // {'
-const _complexKeywords = ['complex','
+const complexKeywords = ['complex','
     'advanced','
     'enterprise','
     'distributed','
@@ -33,8 +33,8 @@ const _complexKeywords = ['complex','
     'security','
     'performance','
     'concurrent','
-    'real-time',,];
-const _lowerText = text.toLowerCase();
+    'real-time',];
+const lowerText = text.toLowerCase();
 // return complexKeywords.filter((keyword) => lowerText.includes(keyword)).length;
 // }
 
@@ -43,8 +43,8 @@ const _lowerText = text.toLowerCase();
 _identifyComponents(objective);
 : unknown
 // {
-const _components = [];
-const _componentKeywords = {backend = objective.toLowerCase();
+const components = [];
+const componentKeywords = {backend = objective.toLowerCase();
 Object.entries(componentKeywords).forEach(([component, keywords]) => {
     if(keywords.some((keyword) => lowerObjective.includes(keyword))) {
       components.push(component);
@@ -58,12 +58,12 @@ Object.entries(componentKeywords).forEach(([component, keywords]) => {
 _identifyRequiredCapabilities(objective);
 : unknown
 // {
-  const _capabilities = new Set();
-  const __components = this._identifyComponents(objective);
+  const capabilities = new Set();
+  const _components = this._identifyComponents(objective);
   // Map components to capabilities
-  const _capabilityMap = {
+  const capabilityMap = {
       backend => {
-      const _caps = capabilityMap[component]  ?? [];
+      const caps = capabilityMap[component]  ?? [];
   caps.forEach((cap) => capabilities.add(cap));
 // }
 // 
@@ -77,10 +77,10 @@ capabilities.add('researcher')
 _estimateTaskCount(objective)
 : unknown
 // {
-  const _complexity = this._assessComplexity(objective);
-  const __components = this._identifyComponents(objective).length;
+  const complexity = this._assessComplexity(objective);
+  const _components = this._identifyComponents(objective).length;
 
-  const _components = this._identifyComponents(objective);
+  const components = this._identifyComponents(objective);
 
   // Strategy selection heuristics'
   if(components.length > 3 && complexity !== 'low') {'
@@ -106,7 +106,7 @@ _estimateTaskCount(objective)
 _estimateResources(objective);
 
 // {
-  const __complexity = this._assessComplexity(objective);
+  const _complexity = this._assessComplexity(objective);
 '
   // return {minWorkers = === 'very_high' ? 'high' : 'medium',
     //   // LINT: unreachable code removed};
@@ -118,7 +118,7 @@ async;
 createExecutionPlan(analysis, workers);
 
 // {
-  const _strategy = this.strategies[analysis.recommendedStrategy];
+  const strategy = this.strategies[analysis.recommendedStrategy];
   if(!strategy) {'
     throw new Error(`Unknownstrategy = // await strategy(analysis, workers);`
 
@@ -126,24 +126,24 @@ createExecutionPlan(analysis, workers);
     this.state.strategiesExecuted++;
 `
     this.emit('plan = this._identifyComponents(analysis.objective);'
-    const _phases = [];
+    const phases = [];
 '
     // Phase1 = > ['researcher', 'architect'].includes(w.type)),
       parallel => {'
       phases.push({ name = > ['coder', 'architect'].includes(w.type)),parallel = > ['coder', 'tester'].includes(w.type)),parallel = > ['optimizer', 'documenter'].includes(w.type)),parallel = this._generateAllTasks(analysis);
-    const _workerGroups = this._groupWorkersByType(workers);
+    const workerGroups = this._groupWorkersByType(workers);
 // 
     return {strategy = 3;
-    // const _phases = []; // LINT: unreachable code removed
+    // const phases = []; // LINT: unreachable code removed
   for(const i = 0; i < iterations; i++) {
       phases.push({name = this._identifyDecisionPoints(analysis);
-    const _phases = [];
+    const phases = [];
 
     decisionPoints.forEach((decision, index) => {
       phases.push({name = === 0, // Only first phase in parallelrequiresConsensus = [/g)'
       {name = > ['analyst', 'researcher'].includes(w.type)),
         parallel = {backend = [];
-    const _components = this._identifyComponents(analysis.objective);
+    const components = this._identifyComponents(analysis.objective);
 
     // Add general tasks'
     tasks.push('Analyze requirements', 'Design architecture', 'Set up project structure');
@@ -162,7 +162,7 @@ createExecutionPlan(analysis, workers);
 /** Group workers by type */
 
   _groupWorkersByType(workers) {
-    const _groups = {};
+    const groups = {};
 
     workers.forEach((worker) => {
   if(!groups[worker.type]) {
@@ -177,14 +177,14 @@ createExecutionPlan(analysis, workers);
 /** Optimize worker assignment for tasks */
 
   _optimizeWorkerAssignment(tasks, workerGroups) {
-    const _assignments = {};
+    const assignments = {};
 
     tasks.forEach((task) => {
-      const _bestWorkerType = this._findBestWorkerType(task);
-      const _availableWorkers = workerGroups[bestWorkerType]  ?? [];
+      const bestWorkerType = this._findBestWorkerType(task);
+      const availableWorkers = workerGroups[bestWorkerType]  ?? [];
   if(availableWorkers.length > 0) {
         // Round-robin assignment within type
-        const _workerIndex =;
+        const workerIndex =;
           Object.keys(assignments).filter((t) => assignments[t].type === bestWorkerType).length %;
           availableWorkers.length;
 
@@ -198,7 +198,7 @@ createExecutionPlan(analysis, workers);
 /** Find best worker type for task */
 
   _findBestWorkerType(task) {
-    const _taskLower = task.toLowerCase();
+    const taskLower = task.toLowerCase();
 '
     if(taskLower.includes('research')  ?? taskLower.includes('analyze')) {'
       // return 'researcher';
@@ -226,8 +226,8 @@ createExecutionPlan(analysis, workers);
 
   _identifyDecisionPoints(analysis) {
 
-    const _decisions = [];
-    const _components = this._identifyComponents(analysis.objective);
+    const decisions = [];
+    const components = this._identifyComponents(analysis.objective);
 
     // Architecture decisions
   if(components.length > 2) {'
@@ -254,7 +254,7 @@ async;
 makeDecision(topic, options, (workerVotes = {}));
 
 // {
-  const _decision = {
+  const decision = {
       topic,
       options,
       workerVotes,queenVote = this._calculateFinalDecision(decision);
@@ -289,9 +289,9 @@ makeDecision(topic, options, (workerVotes = {}));
   _strategicVote(topic, options);
 // {
   // Prefer options that mention long-term benefits'
-  const _strategicKeywords = ['scalable', 'maintainable', 'extensible', 'future'];
+  const strategicKeywords = ['scalable', 'maintainable', 'extensible', 'future'];
   for(const option of options) {
-    const _optionLower = option.toLowerCase(); if(strategicKeywords.some((keyword) => optionLower.includes(keyword))) {
+    const optionLower = option.toLowerCase(); if(strategicKeywords.some((keyword) => optionLower.includes(keyword))) {
 //       return option; //   // LINT: unreachable code removed}
   //   }
 
@@ -304,20 +304,20 @@ makeDecision(topic, options, (workerVotes = {}));
 
 // {
   // Follow majority if consensus is strong
-  const _voteCounts = {};
+  const voteCounts = {};
   Object.values(workerVotes).forEach((vote) => {
     voteCounts[vote] = (voteCounts[vote]  ?? 0) + 1;
   });
 
-  const _sorted = Object.entries(voteCounts).sort((a, b) => b[1] - a[1]);
+  const sorted = Object.entries(voteCounts).sort((a, b) => b[1] - a[1]);
   if(sorted.length > 0 && sorted[0][1] > Object.keys(workerVotes).length * 0.6) {
 //     return sorted[0][0];
     //   // LINT: unreachable code removed}
 
   // Otherwise, prefer quick implementation'
-  const _tacticalKeywords = ['simple', 'quick', 'fast', 'efficient'];
+  const tacticalKeywords = ['simple', 'quick', 'fast', 'efficient'];
   for(const option of options) {
-    const _optionLower = option.toLowerCase(); if(tacticalKeywords.some((keyword) => optionLower.includes(keyword))) {
+    const optionLower = option.toLowerCase(); if(tacticalKeywords.some((keyword) => optionLower.includes(keyword))) {
 //       return option; //   // LINT: unreachable code removed}
   //   }
 
@@ -330,12 +330,12 @@ makeDecision(topic, options, (workerVotes = {}));
 
 // {'
   // Check if we've seen similar decisions before'
-  const _similarDecisions = Array.from(this.state.learningData.entries()).filter(;)'
+  const similarDecisions = Array.from(this.state.learningData.entries()).filter(;)'
     ([key, value]) => key.includes('decision') && value.topic.includes(topic);
   );
   if(similarDecisions.length > 0) {
     // Use learned preferences
-    const _successfulOptions = similarDecisions;
+    const successfulOptions = similarDecisions;
 filter(([_, decision]) => decision.success);
 map(([_, decision]) => decision.result);
   for(const option of options) {
@@ -351,7 +351,7 @@ map(([_, decision]) => decision.result);
 /** Calculate final decision with weighted votes */
 
 _calculateFinalDecision(decision); // {
-  const _voteCounts = {};
+  const voteCounts = {};
 
   // Count worker votes
   Object.values(decision.workerVotes) {.forEach((vote) => 
@@ -362,7 +362,7 @@ _calculateFinalDecision(decision); // {
     (voteCounts[decision.queenVote]  ?? 0) + this.config.decisionWeight;
 
   // Find winner
-  const _sorted = Object.entries(voteCounts).sort((a, b) => b[1] - a[1]);
+  const sorted = Object.entries(voteCounts).sort((a, b) => b[1] - a[1]);
 //   return sorted[0][0];
 // }
 
@@ -371,12 +371,12 @@ _calculateFinalDecision(decision); // {
 _learnFromDecision(decision);
 
 // {'
-  const _key = `decision-${this.state.decisionsCount}`;
+  const key = `decision-${this.state.decisionsCount}`;
   this.state.learningData.set(key, {
 ..decision,
       success = {}) `
-    const _key = `decision-$decisionId`;
-  const _decision = this.state.learningData.get(key);
+    const key = `decision-$decisionId`;
+  const decision = this.state.learningData.get(key);
   if(decision) {
     decision.success = success;
     decision.metrics = metrics;`

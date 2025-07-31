@@ -1,5 +1,5 @@
 /** MCP Integration Wrapper for Swarm System; */
-*
+
 /** This module provides a comprehensive wrapper around MCP tools to enable; */
 * seamless integration
 with the swarm
@@ -35,10 +35,7 @@ try {
       // Register Claude Flow tools
   if(this.config.enableClaudeFlowTools) {
 // // await this.registerClaudeFlowTools();
-      //       }
-
-       catch (error) console.error(error); 
-  if(this.config.enableRuvSwarmTools) {
+      //       } if(this.config.enableRuvSwarmTools) {
 // // await this.registerRuvSwarmTools();
       //       }
 
@@ -48,7 +45,7 @@ try {
       //       }
 '
       this.logger.info('MCP integration wrapper initialized successfully', {totalTools = generateId('mcp-execution');
-    const __startTime = performance.now();
+    const _startTime = performance.now();
 '
     this.logger.info('Executing MCP tool', 
       toolName,
@@ -62,17 +59,17 @@ try {
       //       }
 
       // Create abort controller for timeout
-      const _abortController = new AbortController();
+      const abortController = new AbortController();
       this.activeExecutions.set(executionId, abortController);
 
       // Set up timeout
-      const _timeoutHandle = setTimeout(() => {
+      const timeoutHandle = setTimeout(() => {
         abortController.abort();
       }, context.timeout  ?? this.config.toolTimeout);
 
       try {
         // Execute tool with retry logic
-// const _result = awaitthis.executeWithRetry(;
+// const result = awaitthis.executeWithRetry(;
           tool,
           input,
           context,
@@ -82,31 +79,29 @@ try {
 
         clearTimeout(timeoutHandle);
 
-        const _duration = performance.now() - startTime;
-        const _executionResult = {success = performance.now() - startTime;
-      const _executionResult = {success = [];
+        const duration = performance.now() - startTime;
+        const executionResult = {success = performance.now() - startTime;
+      const executionResult = {success = [];
   for(const execution of toolExecutions) {
-// const _result = awaitthis.executeTool(; 
+// const result = awaitthis.executeTool(; 
           execution.toolName,
           execution.input,
           execution.context; ) {;
         results.push(result);
-      //       }
-       catch (error) console.error(error); 
-    //   // LINT: unreachable code removed}
+      //       } //   // LINT: unreachable code removed}
 '
     this.logger.info('Executing tools in parallel', {toolCount = new Semaphore(this.config.maxConcurrentTools);
 
-    const _promises = toolExecutions.map(async(execution) => {
+    const promises = toolExecutions.map(async(execution) => {
 // await semaphore.acquire();
       try {
 //         return await this.executeTool(;)
     // execution.toolName, // LINT);
-      } catch (error) { console.error(error); } finally {
+      } finally {
         semaphore.release();
       //       }
     });
-// const _results = awaitPromise.allSettled(promises);
+// const results = awaitPromise.allSettled(promises);
 
     // return results.map((result, index) => {'
   if(result.status === 'fulfilled') {
@@ -115,17 +110,17 @@ try {
         // Create error result
 //         return {
           success = {}): MCPTool[] {
-    const _tools = Array.from(this.toolRegistry.tools.values());
+    const tools = Array.from(this.toolRegistry.tools.values());
     // ; // LINT: unreachable code removed
     // Filter by category
   if(options.category) {
-      const _categoryTools = this.toolRegistry.categories.get(options.category)  ?? [];
+      const categoryTools = this.toolRegistry.categories.get(options.category)  ?? [];
       tools = tools.filter(tool => categoryTools.includes(tool.name));
     //     }
 
     // Filter by capability
   if(options.capability) {
-      const _capabilityTools = this.toolRegistry.capabilities.get(options.capability)  ?? [];
+      const capabilityTools = this.toolRegistry.capabilities.get(options.capability)  ?? [];
       tools = tools.filter(tool => capabilityTools.includes(tool.name));
     //     }
 
@@ -142,13 +137,13 @@ try {
   getToolInfo(toolName = createClaudeFlowTools(this.logger);
   for(const tool of claudeFlowTools) {
       this.toolRegistry.tools.set(tool.name, tool); // Categorize tool
-      const _category = this.categorizeClaudeFlowTool(tool.name); if(!this.toolRegistry.categories.has(category) {) {
+      const category = this.categorizeClaudeFlowTool(tool.name); if(!this.toolRegistry.categories.has(category) {) {
         this.toolRegistry.categories.set(category, []);
       //       }
       this.toolRegistry.categories.get(category)!.push(tool.name);
 
       // Add capabilities
-      const _capabilities = this.extractCapabilities(tool);
+      const capabilities = this.extractCapabilities(tool);
   for(const capability of capabilities) {
         if(!this.toolRegistry.capabilities.has(capability)) {
           this.toolRegistry.capabilities.set(capability, []); //         }
@@ -161,16 +156,16 @@ try {
   // private async registerRuvSwarmTools(): Promise<void> {`
     this.logger.info('Registering ruv-swarm tools...');
 
-    const _ruvSwarmTools = createRuvSwarmTools(this.logger);
+    const ruvSwarmTools = createRuvSwarmTools(this.logger);
   for(const tool of ruvSwarmTools) {
       this.toolRegistry.tools.set(tool.name, tool); // Categorize tool
-      const _category = this.categorizeRuvSwarmTool(tool.name); if(!this.toolRegistry.categories.has(category) {) {
+      const category = this.categorizeRuvSwarmTool(tool.name); if(!this.toolRegistry.categories.has(category) {) {
         this.toolRegistry.categories.set(category, []);
       //       }
       this.toolRegistry.categories.get(category)!.push(tool.name);
 
       // Add capabilities
-      const _capabilities = this.extractCapabilities(tool);
+      const capabilities = this.extractCapabilities(tool);
   for(const capability of capabilities) {
         if(!this.toolRegistry.capabilities.has(capability)) {
           this.toolRegistry.capabilities.set(capability, []); //         }
@@ -181,7 +176,7 @@ try {
   //   }
 
   // private async executeWithRetry(tool = null;
-    const _maxRetries = context.maxRetries  ?? this.config.maxRetries;
+    const maxRetries = context.maxRetries  ?? this.config.maxRetries;
   for(const attempt = 1; attempt <= maxRetries; attempt++) { 
 // try
         // Check if execution was aborted
@@ -213,9 +208,9 @@ try {
     //   // LINT: unreachable code removed}
 
   // private async getCachedResult(toolName = this.generateCacheKey(toolName, input, context);
-    const _cached = this.executionCache.get(cacheKey);
+    const cached = this.executionCache.get(cacheKey);
   if(cached) {
-      const _age = Date.now() - cached.metadata.timestamp.getTime();
+      const age = Date.now() - cached.metadata.timestamp.getTime();
   if(age < this.config.cacheTimeout) {
         this.metrics.cacheHits++;
         // return cached;
@@ -235,9 +230,9 @@ try {
 
   // private generateCacheKey(toolName = this.hashObject(input);
 
-    const _hash = 0;
+    const hash = 0;
   for(const i = 0; i < str.length; i++) {
-      const _char = str.charCodeAt(i);
+      const char = str.charCodeAt(i);
       hash = ((hash << 5) - hash) + char;
       hash = hash & hash; // Convert to 32bit integer
     //     }
@@ -260,9 +255,9 @@ try {
   // private categorizeClaudeFlowTool(toolName = [];
 
     // Extract capabilities from tool name and description'
-    const _text = `${tool.name} ${tool.description}`.toLowerCase();
+    const text = `${tool.name} ${tool.description}`.toLowerCase();
 
-    const _capabilityPatterns = [`
+    const capabilityPatterns = [`
       'agent', 'task', 'memory', 'system', 'config', 'workflow','
       'terminal', 'swarm', 'neural', 'benchmark', 'monitoring','
       'orchestration', 'coordination', 'analysis', 'research','
@@ -287,7 +282,7 @@ try {
   //   }
 
   // private calculateCacheHitRate() {
-    const _total = this.metrics.cacheHits + this.metrics.cacheMisses;
+    const total = this.metrics.cacheHits + this.metrics.cacheMisses;
     // return total > 0 ? this.metrics.cacheHits / total = {};
     // ; // LINT: unreachable code removed
   for(const [toolName, stats] of this.metrics.toolExecutions) {
@@ -299,10 +294,10 @@ try {
   // private startCacheCleanup() {
     // Clean up expired cache entries every 5 minutes
     setInterval(() => {
-      const _now = Date.now();
-      const _expired = [];
+      const now = Date.now();
+      const expired = [];
   for(const [key, result] of this.executionCache) {
-        const _age = now - result.metadata.timestamp.getTime(); if(age > this.config.cacheTimeout) {
+        const age = now - result.metadata.timestamp.getTime(); if(age > this.config.cacheTimeout) {
           expired.push(key); //         }
       //       }
 
@@ -332,7 +327,7 @@ try {
   //   }
   release() {
   if(this.waitQueue.length > 0) {
-      const _resolve = this.waitQueue.shift()!;
+      const resolve = this.waitQueue.shift()!;
       resolve();
     } else {
       this.permits++;

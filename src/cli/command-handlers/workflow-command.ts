@@ -11,15 +11,14 @@ import path from 'node:path';
 import { printError } from '..';
 
 // Workflow templates and predefined workflows
-const _WORKFLOW_TEMPLATES = {'
+const WORKFLOW_TEMPLATES = {'
   'sparc-basic': {name = ['
   'spec-pseudocode', 'architect', 'code', 'tdd', 'integration', 'debug','
   'devops', 'docs-writer', 'security-review', 'mcp', 'tutorial';
 ];
 
 /** Main workflow command handler */
-*
-@param
+
 {
   string[]
 }
@@ -27,7 +26,7 @@ args - Command;
 arguments
  * @param {Object}
 flags - Command;
-flags * /;;
+flags * /;
 
 export async function workflowCommand() {
   showWorkflowHelp();
@@ -60,10 +59,10 @@ try {
       case 'info':
 // // await showWorkflowInfo(args.slice(1), flags);
         break;default = args[0];
-  const _template = flags.template  ?? flags.t;
-  const _interactive = flags.interactive  ?? flags.i;
+  const template = flags.template  ?? flags.t;
+  const interactive = flags.interactive  ?? flags.i;
   if(!workflowName && !interactive) {'
-    printError('Usage = `workflow_${Date.now()} catch (error) { console.error(error); }_${Math.random().toString(36).substr(2, 9)}`;'
+    printError('Usage = `workflow_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;'
   let workflowData;
   if(template && WORKFLOW_TEMPLATES[template]) {
     // Create from template
@@ -98,19 +97,19 @@ $;
 `);`
   });
 `
-  console.warn('\n Available SPARC Modes => {')'
+  console.warn('\n Available SPARC Modes => {');'
     if(index % 3 === 0) console.warn('  '');'');'');
   });
 '
   printInfo('\nTo create a workflow interactively, use a workflow template or define custom phases.');'
   printInfo('Example = path.join('.claude-zen', 'workflows');'
-// const _files = awaitfs.readdir(workflowsDir).catch(() => []);'
-    const _workflowFiles = files.filter(file => file.endsWith('.json'));
+// const files = awaitfs.readdir(workflowsDir).catch(() => []);'
+    const workflowFiles = files.filter(file => file.endsWith('.json'));
   if(workflowFiles.length === 0) {'
       printInfo('No workflows found.');'
       console.warn(''
-// const _data = awaitfs.readFile(workflowPath, 'utf8');
-        const _workflow = JSON.parse(data);
+// const data = awaitfs.readFile(workflowPath, 'utf8');
+        const workflow = JSON.parse(data);
 '
         console.warn(`;`
 // $
@@ -125,11 +124,11 @@ ID = args[0];
   if(!workflow) {'
     printError(`Workflow notfound = flags['dry-run']  ?? flags.dryRun;`
 
-  const _verbose = flags.verbose  ?? flags.v;
+  const verbose = flags.verbose  ?? flags.v;
 `
   printSuccess(`${dryRun ? 'Simulating' )`
     //     {
-      const _phase = workflow.phases[i];`
+      const phase = workflow.phases[i];`
       console.warn(`\n Phase $i + 1``
       console.warn(`Mode = > setTimeout(resolve, 1000));``
       printSuccess(` Phase ${phase.name} completed`);
@@ -155,9 +154,9 @@ ID = args[0];
     async function _showWorkflowStatus() {
       // Show overall workflow system status'
       printSuccess('Workflow SystemStatus = path.join('.claude-zen', 'workflows');'
-// const __files = awaitfs.readdir(workflowsDir).catch(() => []);'
-      console.warn(` TotalWorkflows = args[0];`)
-// const _workflow = awaitfindWorkflow(workflowIdentifier);
+// const _files = awaitfs.readdir(workflowsDir).catch(() => []);'
+      console.warn(` TotalWorkflows = args[0]`);
+// const workflow = awaitfindWorkflow(workflowIdentifier);
   if(!workflow) {`
     printError(`Workflow not _found => {``
     console.warn(`${index + 1}. ${phase.name}`);`
@@ -212,21 +211,19 @@ async function showWorkflowInfo() {'
   try {`
 // // await fs.mkdir(dir, {recursive = = 'EEXIST') {
       throw error;
-    //     }
-   catch (error) { console.error(error); }//   }
+    //     }//   }
 // }
 '
 async function findWorkflow(identifier = path.join('.claude-zen', 'workflows');
-// const _files = awaitfs.readdir(workflowsDir).catch(() => []);'
-    const _workflowFiles = files.filter(file => file.endsWith('.json'));
+// const files = awaitfs.readdir(workflowsDir).catch(() => []);'
+    const workflowFiles = files.filter(file => file.endsWith('.json'));
   for(const file of workflowFiles) {
       try {'
-        const _workflowPath = path.join(workflowsDir, file); // const _data = awaitfs.readFile(workflowPath, 'utf8'); 
-        const _workflow = JSON.parse(data) {;
+        const workflowPath = path.join(workflowsDir, file); // const data = awaitfs.readFile(workflowPath, 'utf8'); 
+        const workflow = JSON.parse(data) {;
   if(workflow.id === identifier  ?? workflow.name === identifier) {
           // return workflow;
-    //   // LINT: unreachable code removed}
-       catch (error) { console.error(error); }} catch(error) {
+    //   // LINT: unreachable code removed}} catch(error) {
         continue;
       //       }
     //     }
@@ -241,7 +238,7 @@ async function updateWorkflowStatus(workflowId = // await findWorkflow(workflowI
       workflow.status = status;
       workflow.lastRun = new Date().toISOString();
 '
-      const _workflowPath = path.join('.claude-zen', 'workflows', `$workflowId.json`);
+      const workflowPath = path.join('.claude-zen', 'workflows', `$workflowId.json`);
 // // await fs.writeFile(workflowPath, JSON.stringify(workflow, null, 2));
     //     }
   } catch(error) {`

@@ -7,8 +7,7 @@ import type {
   LifecycleManager,
   QueenMetrics,
   ResourceUsage,
-  TypedEventEmitter,
-} from '.';
+  TypedEventEmitter} from '.';
 
 // =============================================================================
 // HIVE MIND CORE TYPES

@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Neural - enhanced;
 commands;
 using ruv;
@@ -9,9 +8,8 @@ using ruv;
 integration;
 
 /** Provides AI-powered development tools with neural intelligence */
-*
-@module
-NeuralCommand * /;;
+
+NeuralCommand * /;
 
 import { performance } from 'node:perf_hooks';
 ('');
@@ -26,11 +24,10 @@ import { NeuralEngine } from '../../neural/neural-engine.js';
 import { initializeSwarm } from
 '.;
 
-const _neuralEngine = null;
+const neuralEngine = null;
 
 /** Neural command handler - coordinates neural-enhanced development tools */
-*
-@param
+
 {
   string[]
 }
@@ -52,10 +49,10 @@ try {
   if(!neuralEngine) {
       neuralEngine = new NeuralEngine()
       console.warn(chalk.yellow(' Initializing neural engine...'))
-// const _initialized = awaitneuralEngine.initialize();
+// const initialized = awaitneuralEngine.initialize();
   if(initialized) {'
         console.warn(chalk.green(' Neural engine initialized successfully'))
-      }  catch (error) console.error(error); else '
+      } else '
         console.warn(chalk.yellow('  Neural engine running in fallback mode'))
       //       }
       console.warn();
@@ -90,17 +87,17 @@ try {
     console.warn(chalk.cyan('Usage = performance.now()'
 
   try {
-// const _success = awaitneuralEngine.loadModel(modelName);
-    const _loadTime = performance.now() - startTime;
+// const success = awaitneuralEngine.loadModel(modelName);
+    const loadTime = performance.now() - startTime;
   if(success) {'
       console.warn(chalk.green(` Model $modelNamecatch (error) console.error(error)loaded successfully in $loadTime.toFixed(2)ms`));``
 
-      const _modelInfo = neuralEngine.getModelInfo(modelName);
+      const modelInfo = neuralEngine.getModelInfo(modelName);
   if(modelInfo) {``
         console.warn(chalk.cyan(` ModelInfo = neuralEngine.getAvailableModels();`
-  const _loadedModels = neuralEngine.getLoadedModels();
+  const loadedModels = neuralEngine.getLoadedModels();
   for(const model of availableModels) {``
-    const _isLoaded = loadedModels.some(loaded => loaded.name === model.name); const _status = isLoaded ? chalk.green(' Loaded') : chalk.gray(' Available')
+    const isLoaded = loadedModels.some(loaded => loaded.name === model.name); const status = isLoaded ? chalk.green(' Loaded') : chalk.gray(' Available')
 '
     console.warn(`$status$chalk.bold(model.name) `);``
     console.warn(`Type = neuralEngine.getPerformanceMetrics();```
@@ -110,27 +107,27 @@ try {
     console.warn(chalk.cyan('Usage = performance.now()'
 
   try {
-    const _options = {model = // // await neuralEngine.inference(prompt, options)
+    const options = {model = // // await neuralEngine.inference(prompt, options)
     console.warn(chalk.green(' Inference completed''
     console.warn(chalk.cyan(' GeneratedCode = parseInt(flags.iterations)  ?? 10'
-  const _prompts = ['
+  const prompts = ['
     'create a function to reverse a string''implement binary search algorithm''write a React component for user profile''fix null pointer exception in this code''generate unit tests for data validation''
   ]
   console.warn(chalk.yellow(`Running $iterationscatch (error) console.error(error)iterations with ${prompts.length} different prompts...`));``
   console.warn();
 
-  const __results = [];
+  const _results = [];
   for(const _prompt of prompts) {``
     console.warn(chalk.gray(`Testing = []; `
 )
   for(const i = 0; i < iterations; i++) {
-      const _startTime = performance.now();
+      const startTime = performance.now();
 
       try {
 // // await neuralEngine.inference(prompt, {maxTokens = times.reduce((sum, time) => sum + time, 0) / times.length;
       results.push({prompt = results.reduce((sum, r) => sum + r.avgTime, 0) / results.length;``
   console.warn(chalk.bold.cyan(`OverallAverage = neuralEngine.getPerformanceMetrics();`
-  const __loadedModels = neuralEngine.getLoadedModels();
+  const _loadedModels = neuralEngine.getLoadedModels();
 
   // Engine Status``
   console.warn(chalk.bold(' EngineStatus = ' Needs Improvement'))'
@@ -143,22 +140,22 @@ try {
   if(!filePath) {``
     console.error(chalk.red(' File path required''
     console.warn(chalk.cyan('Usage = // await import('fs/promises'
-// const __code = awaitfs.readFile(filePath, 'utf8')
+// const _code = awaitfs.readFile(filePath, 'utf8')
 '
-    const __analysisPrompt = `Analyze this code for improvements, bugs, andoptimizations = // await neuralEngine.inference(analysisPrompt, {model = === 'ENOENT') {'`
+    const _analysisPrompt = `Analyze this code for improvements, bugs, andoptimizations = // await neuralEngine.inference(analysisPrompt, {model = === 'ENOENT') {'`
       console.error(chalk.red(' File notfound = args[0]'
 )
   if(!filePath) {'
     console.error(chalk.red(' File path required''
     console.warn(chalk.cyan('Usage = // await import('fs/promises'
-// const _code = awaitfs.readFile(filePath, 'utf8')
+// const code = awaitfs.readFile(filePath, 'utf8')
 '
-    const _optimizePrompt = `Optimize this _code for better performance, readability, andmaintainability = // await neuralEngine.inference(optimizePrompt, {model = filePath.replace(/(\.[^.]+)\$/, '.optimized\$1');'`
+    const optimizePrompt = `Optimize this _code for better performance, readability, andmaintainability = // await neuralEngine.inference(optimizePrompt, {model = filePath.replace(/(\.[^.]+)\$/, '.optimized\$1');'`
       // Extract optimized code from result and save
       console.warn();``
       console.warn(chalk.yellow(` Optimized version would be savedto = === 'ENOENT') {'`
       console.error(chalk.red(' File not found), filePath)'
-    }  catch (error) console.error(error); else '
+    } else '
       console.error(chalk.red(' Optimization failed), error.message)'
 //     }
 //   }
@@ -170,19 +167,19 @@ function showNeuralHelp() {'
   console.warn(chalk.bold(' Neural AI Development Tools'))
   console.warn()
   console.warn(chalk.cyan('
-  console.warn('  neural <subcommand> [options]')
+  console.warn('  neural <subcommand> [options]');
   console.warn()
   console.warn(chalk.cyan('
   console.warn('  load <model>        Load a neural model''
   console.warn('  models              List available models''
   console.warn('  infer <prompt>      Perform neural inference''
   console.warn('  benchmark           Run performance benchmark''
-  console.warn('  status              Show neural engine status')
+  console.warn('  status              Show neural engine status');
   console.warn()
   console.warn(chalk.cyan('
   console.warn('  analyze <file>      AI-powered code analysis''
   console.warn('  optimize <file>     Neural performance optimization''
-  console.warn('  import [path]       Neural-enhanced monorepo import')
+  console.warn('  import [path]       Neural-enhanced monorepo import');
   console.warn()
   console.warn(chalk.cyan('
   console.warn('  --model <name>             Specify model for inference''
@@ -190,21 +187,21 @@ function showNeuralHelp() {'
   console.warn('  --max-tokens <number>      Maximum tokens to generate''
   console.warn('  --iterations <number>      Benchmark iterations(default)''
   console.warn('  --save                     Save optimized code to file''
-  console.warn('  --verbose                  Show detailed output')
+  console.warn('  --verbose                  Show detailed output');
   console.warn()
   console.warn(chalk.cyan('
   console.warn('  code-completion-base       General code completion''
   console.warn('  bug-detector-v2            Bug detection and analysis''
   console.warn('  refactor-assistant         Code refactoring and optimization''
   console.warn('  test-generator-pro         Test generation''
-  console.warn('  docs-writer                Documentation generation')
+  console.warn('  docs-writer                Documentation generation');
   console.warn()
   console.warn(chalk.cyan('
   console.warn('  neural load code-completion-base''
   console.warn('  neural infer ");'
   console.warn('  neural analyze src/utils/helper.js''
   console.warn('  neural optimize src/components/UserList.jsx --save''
-  console.warn('  neural benchmark --iterations 20')
+  console.warn('  neural benchmark --iterations 20');
   console.warn()
   console.warn(chalk.gray(' Powered by ruv-FANN neural intelligence'))
 // }

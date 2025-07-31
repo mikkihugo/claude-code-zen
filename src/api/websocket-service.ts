@@ -71,8 +71,7 @@ constructor(options);
     activeConnections,
     messagesSent,
     messagesReceived,
-    errors,
-  };
+    errors};
   // }
   async;
   initialize();
@@ -103,7 +102,7 @@ constructor(options);
   '
   this.emit('initialized')
   '
-  console.warn(' WebSocket service initialized')
+  console.warn(' WebSocket service initialized');
   // }
   async
   '
@@ -111,9 +110,9 @@ connectToServer((connectionName = 'main'), (customOptions =
   ))
   : Promise<any>
   // {'
-  const _url = `ws://${this.options.clientHost ?? 'localhost'}:${this.options.clientPort ?? 8080}`;
-  const _clientOptions = { ...this.options, ...customOptions };
-  const _client = this.connectionManager.addConnection(connectionName, url, clientOptions);
+  const url = `ws://${this.options.clientHost ?? 'localhost'}:${this.options.clientPort ?? 8080}`;
+  const clientOptions = { ...this.options, ...customOptions };
+  const client = this.connectionManager.addConnection(connectionName, url, clientOptions);
   // // await client.connect();
   this.stats.totalConnections++;
   `
@@ -127,14 +126,12 @@ connectToServer((connectionName = 'main'), (customOptions =
 
   async connectToExternal(connectionName, url, options = {}): Promise<any>
     try {
-      const _client = this.connectionManager.addConnection(connectionName, url, options);
+      const client = this.connectionManager.addConnection(connectionName, url, options);
 // await client.connect();
       this.stats.totalConnections++;`;
   console.warn(` Connected to external WebSocket`);
   // return client;
-  //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+  //   // LINT: unreachable code removed}
 `
       console.error(`;
 Error;
@@ -148,12 +145,12 @@ throw error;
 //     }
 sendMessage(connectionName, data);
 {
-    const _client = this.connectionManager.getConnection(connectionName);
+    const client = this.connectionManager.getConnection(connectionName);
   if(!client) {`;
 throw new Error(`Connection '${connectionName}' not found`);
 //     }
 
-const _success = client.send(data);
+const success = client.send(data);
 if(success) {
       this.stats.messagesSent++;
     //     }
@@ -161,12 +158,12 @@ if(success) {
     // return success;
     //   // LINT: unreachable code removed}
   sendBalanced(data) {
-    const _client = this.connectionManager.getNextConnection();
+    const client = this.connectionManager.getNextConnection();
   if(!client) {`
       throw new Error('No active connections available');
     //     }
 
-    const _success = client.send(data);
+    const success = client.send(data);
   if(success) {
       this.stats.messagesSent++;
     //     }
@@ -174,8 +171,8 @@ if(success) {
     // return success;
     //   // LINT: unreachable code removed}
   broadcast(data) {
-    const _results = this.connectionManager.broadcast(data);
-    const _successCount = results.filter((r) => r.success).length;
+    const results = this.connectionManager.broadcast(data);
+    const successCount = results.filter((r) => r.success).length;
     this.stats.messagesSent += successCount;
 '
     this.emit('broadcast', {
@@ -195,7 +192,7 @@ if(success) {
     this.messageHandlers.get(type)?.add(handler);
 
     // return() => {
-      const _handlers = this.messageHandlers.get(type);
+      const handlers = this.messageHandlers.get(type);
     // if(handlers) { // LINT: unreachable code removed
         handlers.delete(handler);
       };
@@ -203,8 +200,8 @@ if(success) {
 
   // private handleMessage(info) {
     const { data } = info;'
-    const _messageType = 'unknown';
-    const _messageData = data;'
+    const messageType = 'unknown';
+    const messageData = data;'
   if(typeof data === 'object' && data !== null) {
   if(data.type) {
         messageType = data.type;
@@ -215,14 +212,12 @@ if(success) {
       //       }
     //     }
 
-    const _handlers = this.messageHandlers.get(messageType);
+    const handlers = this.messageHandlers.get(messageType);
   if(handlers) {
       handlers.forEach((handler) => {
         try {
           handler({ type, data, source);
-        } catch (error) {
-  console.error(error);
-}'
+        }'
           console.error(`Error in message handler for type ${messageType});`
         //         }
       });
@@ -246,12 +241,12 @@ if(success) {
     });
 
   async sendCommand(connectionName, command, payload): Promise<boolean> {`
-    const _message = { type: 'command', command, payload };
+    const message = { type: 'command', command, payload };
     // return this.sendMessage(connectionName, message);
     //   // LINT: unreachable code removed}
 
   async sendEvent(connectionName, event, data): Promise<boolean> {'
-    const _message = { type: 'event', event, data };
+    const message = { type: 'event', event, data };
     // return this.sendMessage(connectionName, message);
     //   // LINT: unreachable code removed}
   getServiceStatus() 
@@ -261,7 +256,7 @@ if(success) {
       stats: this.stats,
       connectionManagerStatus: this.connectionManager.getStatus() }
   getConnectionStats(connectionName) {
-    const _client = this.connectionManager.getConnection(connectionName);
+    const client = this.connectionManager.getConnection(connectionName);
     // return client ? client.getStats() ;
     //   // LINT: unreachable code removed}
 
@@ -276,7 +271,7 @@ if(success) {
     this.emit('shutdown');
 
   // static async create(options): Promise<WebSocketService> 
-    const _service = new WebSocketService(options);
+    const service = new WebSocketService(options);
 // await service.initialize();
     service.setupClaudeZenHandlers();
     // return service;
@@ -290,8 +285,8 @@ if(success) {
 /** Utility function to check WebSocket support; */
 
 // export function _checkWebSocketSupport() {
-  const _nodeVersion = process.version;'
-  const _majorVersion = parseInt(nodeVersion.substring(1).split('.')[0]);
+  const nodeVersion = process.version;'
+  const majorVersion = parseInt(nodeVersion.substring(1).split('.')[0]);
 // 
   return {
     nodeVersion,

@@ -29,9 +29,9 @@ try {
       case 'model-update':
 // // await modelUpdateCommand(subArgs, flags);
         break;default = flags;'
-  const __data = options.data  ?? 'recent';'
-  const __model = options.model  ?? 'general-predictor';'
-  const _epochs = parseInt(options.epochs  ?? '50');
+  const _data = options.data  ?? 'recent';'
+  const _model = options.model  ?? 'general-predictor';'
+  const epochs = parseInt(options.epochs  ?? '50');
 '
   console.warn(` Starting neural training...`);`
   console.warn(` Datasource = // await checkRuvSwarmAvailable();`
@@ -44,15 +44,15 @@ try {
           ` WASM-acceleratedtraining = trainingResult.accuracy  ?? 0.65 + Math.min(epochs / 100, 1) * 0.3 + Math.random() * 0.05;``
       console.warn(`   Finalaccuracy = trainingResult.training_time  ?? Math.max(epochs * 0.1, 2);``
       console.warn(`   Trainingtime = 1; i <= Math.min(epochs, 3); i++) {``
-      console.warn(`  Epoch $icatch (error) console.error(error); /${epochs}: Training... (fallback mode)`);
+      console.warn(`  Epoch $i /${epochs}: Training... (fallback mode)`);
 // // await new Promise((resolve) => setTimeout(resolve, 200));
     //     }`
     printSuccess(` Neural training completed(fallback mode)`);
   //   }
 // }
 async function patternLearnCommand(subArgs = flags;`
-const __operation = options.operation ?? 'unknown';'
-const __outcome = options.outcome ?? 'success';'
+const _operation = options.operation ?? 'unknown';'
+const _outcome = options.outcome ?? 'success';'
 console.warn(` Learning from operation pattern...`);`
 console.warn(`Operation = // await checkRuvSwarmAvailable();`
   if(!isAvailable) {`
@@ -60,8 +60,8 @@ console.warn(`Operation = // await checkRuvSwarmAvailable();`
   if(patternResult.success) {'
       printSuccess(` Pattern learning completed`);`
       console.warn(` Updated neural patterns foroperation = flags;``
-const _agentType = options['agent-type'] ?? options.agentType ?? 'general';'
-const _result = options['operation-result'] ?? options.result ?? 'success';)'
+const agentType = options['agent-type'] ?? options.agentType ?? 'general';'
+const result = options['operation-result'] ?? options.result ?? 'success';)'
 console.warn(` Updating agent model...`);`
 console.warn(` Agenttype = // await checkRuvSwarmAvailable();`
   if(!isAvailable) {`

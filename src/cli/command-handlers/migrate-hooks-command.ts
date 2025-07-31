@@ -16,15 +16,13 @@ import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 
-const ___dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 '
 export async function migrateHooksCommand(flags = path.join(__dirname, '../../../scripts/migrate-hooks.js');
 
 // Check if script exists
 try {
   // // await fs.access(scriptPath);
-} catch (error) {
-  console.error(error);
 }
 // catch
 {'
@@ -32,7 +30,7 @@ try {
   process.exit(1);
 // }
 // Build command with any additional arguments'
-const _command = ['node', scriptPath];
+const command = ['node', scriptPath];
   if(args.length > 0) {
   command.push(...args);
 // }

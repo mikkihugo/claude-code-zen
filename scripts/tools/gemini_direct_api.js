@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /* Direct Gemini API Integration Tool; */
-*
+
 /** Reverse-engineered from the open-source Gemini CLI to provide: null */
 * - JSON output support
 * - Streaming responses
@@ -35,7 +35,7 @@ class GeminiDirectAPI {
 /** Analyze neural network output with structured response; */
 
   async analyzeNeuralOutput(neuralData, context = {}) { '
-    const _prompt = `;`
+    const prompt = `;`
 Analyze this neural network output and respond in JSON format: null
 Neural Output: $JSON.stringify(neuralData)}
 Context: $JSON.stringify(context)
@@ -57,7 +57,7 @@ Respond with this exact JSON structure: null
     async;
     optimizeSwarm(swarmData, (taskData = {}));
     //     {`
-      const _prompt = `;`
+      const prompt = `;`
 Optimize this swarm coordination scenario and respond in JSON format: null
 Swarm Data: $JSON.stringify(swarmData)
 Task Data: $JSON.stringify(taskData)
@@ -84,7 +84,7 @@ Respond with this exact JSON structure: null
       async;`
       analyzeCode(code, (language = 'unknown'));
       //       {'
-        const _prompt = `;`
+        const prompt = `;`
 Analyze this ${language} code for performance issues and respond in JSON format: null`
 \`\`\`$language`
 ${code}`
@@ -111,7 +111,7 @@ Respond with this exact JSON structure: null
     "priority_fixes": ['most', 'important', 'fixes', 'first']
 // }"), (context = {}));
         //         {'
-          const _prompt = `;`
+          const prompt = `;`
 Debug this neural network training issue and respond in JSON format: null
 Issue: $issue
 Error Logs: $errorLogs
@@ -140,28 +140,27 @@ Respond with this exact JSON structure: null
           async;`
           analyzeDirectory((pattern = '**/*.js,ts,rs,ex,exs,py'), (analysisType = 'performance')); */
           try {
-// const _files = awaitglob(pattern, {'
-        ignore: ['node_modules/**', '.git/**', 'dist/**', 'build/**'], */
+// const files = awaitglob(pattern, {'
+        ignore: ['node_modules/**', '.git/** */', 'dist/**', 'build/** */'], */
 // maxDepth
-} catch (error) { console.error(error); }
+}
   if(files.length === 0) {'
             // return { error: 'No files found matching pattern' };
             //   // LINT: unreachable code removed}
-            const _fileContents = {};
-            const _totalSize = 0;
+            const fileContents = {};
+            const totalSize = 0;
             for (const file of files.slice(0, 10)) {
               // Limit to 10 files
               try {'
-          const _content = fs.readFileSync(file, 'utf-8'); if(content.length < 50000) {
+          const content = fs.readFileSync(file, 'utf-8'); if(content.length < 50000) {
             // Limit file size
             fileContents[file] = content; totalSize += content.length;
   if(totalSize > 200000) {break; // Limit total content
-          //           }
-         catch (error) console.error(error); } catch(/* _error */) {'
+          //           } } catch(/* _error */) {'
           // Skip files that can't be read'
         //         }
             //             }'
-            const _prompt = `;`
+            const prompt = `;`
 Analyze these codebase files for ${analysisType} issues and respond in JSON format: null
 Files: null
 $Object.entries(fileContents);`
@@ -203,12 +202,12 @@ join('\n')
         generateContent(prompt, (options = {}));
         //         {
           try {
-      const _model = this.genAI.getGenerativeModel({ model: this.model,
+      const model = this.genAI.getGenerativeModel({ model: this.model,
           temperature: options.temperature  ?? 0.1,
           topK: options.topK  ?? 40,
           topP: options.topP  ?? 0.95,
           maxOutputTokens: options.maxOutputTokens  ?? 8192
-  } catch (error) { console.error(error); }
+  }
   if(this.verbose) {`
             console.warn(`;`
 // Generating
@@ -216,15 +215,15 @@ join('\n')
           );`
             console.warn(` Prompt length);`
           //           }
-          const _startTime = Date.now();`
+          const startTime = Date.now();`
   if(this.outputFormat === 'stream') {
             // return this.generateStreamingContent(model, prompt, options);
             //   // LINT: unreachable code removed}
-// const _result = awaitPromise.race([;/g)
+// const result = awaitPromise.race([;/g)
         model.generateContent(prompt),'
         new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), this.timeout)) ]);
-            const _endTime = Date.now();
-            const _responseText = result.response.text();
+            const endTime = Date.now();
+            const responseText = result.response.text();
   if(this.verbose) {'
               console.warn(` Generation time);``
               console.warn(` Response length);`
@@ -233,7 +232,7 @@ join('\n')
   if(options.format === 'json') {
               try {
           // Try to extract JSON from response
-          const _jsonMatch = responseText.match(/\{[\s\S]*\} catch (error) { console.error(error); }/);
+          const jsonMatch = responseText.match(/\{[\s\S]*\}/);
   if(jsonMatch) {
             // return JSON.parse(jsonMatch[0]);
     //   // LINT: unreachable code removed} else {
@@ -258,7 +257,7 @@ join('\n')
           //           }
           // return responseText;
           //   // LINT: unreachable code removed} catch(error) {
-          const _errorResponse = {
+          const errorResponse = {
         error: error.message,
           model: this.model,
           timestamp: new Date().toISOString()
@@ -275,20 +274,18 @@ join('\n')
       async;
       generateStreamingContent(model, prompt, (options = {}));
       try {
-// const _result = awaitmodel.generateContentStream(prompt);
-      const _chunks = [];
+// const result = awaitmodel.generateContentStream(prompt);
+      const chunks = [];
       for // await(const chunk of result.stream) {
-        const _chunkText = chunk.text();
+        const chunkText = chunk.text();
   if(chunkText) {
           chunks.push(chunkText);
   if(options.onChunk) {
             options.onChunk(chunkText);
-          //           }
-         catch (error) console.error(error); 
-      //       }'');'
+          //           } //       }'');'
   if(options.format === 'json') {
         try {
-          const _jsonMatch = fullResponse.match(/\{[\s\S]*\} catch (error) { console.error(error); }/);
+          const jsonMatch = fullResponse.match(/\{[\s\S]*\}/);
           // return jsonMatch ? JSON.parse(jsonMatch[0]) : JSON.parse(fullResponse);
     //   // LINT: unreachable code removed} catch(/* parseError */) {
           // return {'
@@ -308,7 +305,7 @@ join('\n')
 // }
 // CLI Interface
 async function main() {
-  const _args = process.argv.slice(2);
+  const args = process.argv.slice(2);
   if(args.length === 0) {`
     console.warn(`;`
  Gemini Direct API Tool
@@ -327,11 +324,11 @@ Examples: null`
   //   }
   try {
     // Parse options
-    const _options = {} catch (error) console.error(error); ;
-    const _cleanArgs = [];
+    const options = {} ;
+    const cleanArgs = [];
   for(let i = 0; i < args.length; i++) {`
       if(args[i].startsWith('--')) {
-        const _option = args[i].slice(2);'
+        const option = args[i].slice(2);'
         if(i + 1 < args.length && !args[i + 1].startsWith('--')) {
           options[option] = args[i + 1];
           i++; // Skip next arg
@@ -342,41 +339,41 @@ Examples: null`
         cleanArgs.push(args[i]);
       //       }
     //     }
-    const _gemini = new GeminiDirectAPI(process.env.GEMINI_API_KEY, {
+    const gemini = new GeminiDirectAPI(process.env.GEMINI_API_KEY, {
       model);
-    const _command = cleanArgs[0];
+    const command = cleanArgs[0];
     let _result;
   switch(command) {'
       case 'neural': {'
-        const _neuralData = JSON.parse(cleanArgs[1]  ?? '[]');
-        const _neuralContext = cleanArgs[2] ? JSON.parse(cleanArgs[2]) : {};
+        const neuralData = JSON.parse(cleanArgs[1]  ?? '[]');
+        const neuralContext = cleanArgs[2] ? JSON.parse(cleanArgs[2]) : {};
         _result = // await gemini.analyzeNeuralOutput(neuralData, neuralContext);
         break;
       //       }'
       case 'swarm': {'
-        const _swarmData = JSON.parse(cleanArgs[1]  ?? '{}');
-        const _taskData = cleanArgs[2] ? JSON.parse(cleanArgs[2]) : {};
+        const swarmData = JSON.parse(cleanArgs[1]  ?? '{}');
+        const taskData = cleanArgs[2] ? JSON.parse(cleanArgs[2]) : {};
         _result = // await gemini.optimizeSwarm(swarmData, taskData);
         break;
       //       }'
       case 'code': {'';'
-        const _language = cleanArgs[2]  ?? 'unknown';
+        const language = cleanArgs[2]  ?? 'unknown';
         _result = // await gemini.analyzeCode(code, language);
         break;
       //       }'
       case 'debug': {'';'';
-        const _debugContext = cleanArgs[3] ? JSON.parse(cleanArgs[3]) : {};
+        const debugContext = cleanArgs[3] ? JSON.parse(cleanArgs[3]) : {};
         _result = // await gemini.debugNeuralIssue(issue, errorLogs, debugContext);
         break;
       //       }'
       case 'directory': {'
-        const _pattern = cleanArgs[1]  ?? ''
-        const _analysisType = cleanArgs[2]  ?? 'performance';
+        const pattern = cleanArgs[1]  ?? ''
+        const analysisType = cleanArgs[2]  ?? 'performance';
         _result = // await gemini.analyzeDirectory(pattern, analysisType);
         break;
       //       }'
       case 'prompt': {'
-        const _prompt = cleanArgs.slice(1).join(' ');
+        const prompt = cleanArgs.slice(1).join(' ');
         _result = // await gemini.generateContent(prompt, {'
           format: options.format === 'json' ? 'json' ,
           temperature: parseFloat(options.temperature)  ?? 0.1 });
@@ -391,7 +388,7 @@ console.warn(JSON.stringify(result, null, 2));
 // {
   console.error(;
   JSON.stringify(;
-  error: error.message,)
+  error: error.message)
   timestamp: new Date().toISOString(),
 
   null,

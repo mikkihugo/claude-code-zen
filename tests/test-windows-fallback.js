@@ -13,20 +13,20 @@ import { fileURLToPath } from 'node:url';
 
 import chalk from 'chalk';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 '
 console.warn(chalk.blue.bold('\n Testing Windows SQLite Fallback Solution\n'))
 // Test 1: SQLite Wrapper'
 console.warn(chalk.yellow('Test 1));'
 try {
-  const { isSQLiteAvailable, isWindows, getStorageRecommendations }  catch (error) console.error(error); = // await import('
+  const { isSQLiteAvailable, isWindows, getStorageRecommendations } = // await import('
     '../src/memory/sqlite-wrapper.js';
   );
-// const _sqliteAvailable = awaitisSQLiteAvailable();'
+// const sqliteAvailable = awaitisSQLiteAvailable();'
   console.warn(` SQLite available);``
   console.warn(` Platform is Windows: ${isWindows()}`);
-  const _recommendations = getStorageRecommendations();`
+  const recommendations = getStorageRecommendations();`
   console.warn(` Storage recommendation);``
   console.warn(`   Reason);`
 } catch(error) {`
@@ -38,13 +38,13 @@ try {
   // FallbackMemoryStore h migrated to new architecture'
   console.warn(' FallbackMemoryStore h migrated to new memory architecture');'
   console.warn(' Test skipped - migration complete');
-  const _store = new FallbackMemoryStore();
+  const store = new FallbackMemoryStore();
   // // await store.initialize();
   // Test basic operations'
   // // await store.store('test-key', 'test-value', { namespace);'
-// const _value = awaitstore.retrieve('test-key', { namespace);'
+// const value = awaitstore.retrieve('test-key', { namespace);'
   console.warn(` Fallback store initialized`);`
-  console.warn(` Using fallback: $store.isUsingFallback()catch (error) console.error(error); `);`
+  console.warn(` Using fallback: $store.isUsingFallback() `);`
   console.warn(` Store/retrieve works);`
   store.close();
 } catch(error) {`
@@ -53,10 +53,10 @@ try {
 // Test 3: Session Manager`
 console.warn(chalk.yellow('\nTest 3));'
 try {
-  const { HiveMindSessionManager }  catch (error) console.error(error); = // await import('
+  const { HiveMindSessionManager } = // await import('
     '../src/cli/command-handlers/simple-commands/hive-mind/session-manager.js';
   );
-  const _sessionManager = new HiveMindSessionManager();
+  const sessionManager = new HiveMindSessionManager();
   // Note: Session manager initializes asynchronously in constructor
   // await new Promise((resolve) => setTimeout(resolve, 100));'
   console.warn(` Session manager initialized`);`
@@ -70,14 +70,14 @@ try {
 // Test 4: MCP Wrapper`
 console.warn(chalk.yellow('\nTest 4));'
 try {
-  const { MCPToolWrapper }  catch (error) console.error(error); = // await import('
+  const { MCPToolWrapper } = // await import('
     '../src/cli/command-handlers/simple-commands/hive-mind/mcp-wrapper.js';
   );
-  const _wrapper = new MCPToolWrapper();
+  const wrapper = new MCPToolWrapper();
   // // await new Promise((resolve) => setTimeout(resolve, 100)); // Wait for async init
 
   // Test memory storage'
-// const _result = awaitwrapper.storeMemory('test-swarm', 'test-key', { data);'
+// const result = awaitwrapper.storeMemory('test-swarm', 'test-key', { data);'
   console.warn(` MCP wrapper initialized`);`
   console.warn(` Memory storage works);`
 } catch(error) {`
@@ -87,9 +87,9 @@ try {
 console.warn(chalk.yellow('\nTest 5));'
 try {
   // Simulate Windows environment
-  const _originalPlatform = process.platform;'
+  const originalPlatform = process.platform;'
   Object.defineProperty(process, 'platform', { value);'
-  const { isWindows }  catch (error) console.error(error); = // await import('../src/memory/sqlite-wrapper.js');
+  const { isWindows } = // await import('../src/memory/sqlite-wrapper.js');
 
   if(isWindows()) {'
     console.warn(` Windows-specific error messages would be shown`);`

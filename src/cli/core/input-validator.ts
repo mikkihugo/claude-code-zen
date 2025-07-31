@@ -92,7 +92,7 @@ export class InputValidator {
 
     // Convert if string'
   if(typeof value === 'string') {'
-      const _parsed = integer ? parseInt(value, 10) : parseFloat(value);
+      const parsed = integer ? parseInt(value, 10) : parseFloat(value);
       if(Number.isNaN(parsed)) {
   if(required) {'
           throw new CliError(`${fieldName} must be a valid number`, 'VALIDATION_ERROR')
@@ -133,7 +133,7 @@ export class InputValidator {
 
     // Convert string representations'
   if(typeof value === 'string') {'
-      const _lower = value.toLowerCase()
+      const lower = value.toLowerCase()
       if(['true', '1', 'yes', 'on'].includes(lower)) {'
         // return true;
     //   // LINT: unreachable code removed}'
@@ -195,12 +195,12 @@ export class InputValidator {
       // return null;
     //   // LINT: unreachable code removed}
 
-    const _result = {};
+    const result = {};
 
     // Validate each field in schema: {}
     for (const [key, validator] of Object.entries(schema)) {
       try {
-        const _fieldValue = value[key]; result[key] = validator(fieldValue, {fieldName = > pattern.test(value)); //   }
+        const fieldValue = value[key]; result[key] = validator(fieldValue, {fieldName = > pattern.test(value)); //   }
 
  catch (error) console.error(error)
 

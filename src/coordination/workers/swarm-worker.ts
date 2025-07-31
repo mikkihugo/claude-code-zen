@@ -35,7 +35,7 @@ initialize();
         case 'shutdown':'
 // // // await this.shutdown();
           break;default = task;
-    const _startTime = Date.now();
+    const startTime = Date.now();
 
     try {'
       console.warn(` Worker $this.workerIdcatch (error) console.error(error)executing task $task.id($, { task.type })`);``
@@ -64,7 +64,7 @@ initialize();
         default = // // await this.executeGenericTask(task);
       //       }
 
-      const _executionTime = Date.now() - startTime;
+      const executionTime = Date.now() - startTime;
 
       // Send completion message
       this.sendCompletion(task.id, {
@@ -123,7 +123,7 @@ analyzeComplexity(codebase);
 : unknown
 // {
   // return {cyclomaticComplexity = Math.floor(Math.random() * 50) + 20
-  // const __passed = Math.floor(totalTests * 0.92); // LINT: unreachable code removed
+  // const _passed = Math.floor(totalTests * 0.92); // LINT: unreachable code removed
   // return {
       type,
   // target,total = > setTimeout(resolve, ms)); // LINT: unreachable code removed
@@ -142,7 +142,7 @@ this.isShuttingDown = true;
 // }
 process.exit(0);
 // Initialize and start the worker
-const _worker = new SwarmWorker(workerData.workerId);
+const worker = new SwarmWorker(workerData.workerId);
 worker.initialize();
 // Handle uncaught exceptions``
 process.on('uncaughtException''

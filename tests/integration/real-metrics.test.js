@@ -7,16 +7,16 @@ import fs from 'node:fs';
 
 import path from 'node:path';
 
-const _projectRoot = path.resolve(process.cwd());
+const projectRoot = path.resolve(process.cwd());
 '
 describe('Real Metrics Integration Tests', () =>
 { test('monitor.js should exist and contain real metrics collection', async() => {'
-    const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');
+    const monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');
     try {'
-// const _content = awaitfs.readFile(monitorPath, 'utf8');
+// const content = awaitfs.readFile(monitorPath, 'utf8');
       // Check for real metrics collection imports'
       expect(content).toContain("import os from ');"
-      expect(content).toContain("import { performance  }  catch (error) { console.error(error); }from '");"
+      expect(content).toContain("import { performance  }from '");"
       expect(content).toContain("import fs from '
 
       // Check for real CPU usage calculation"
@@ -43,15 +43,15 @@ describe('Real Metrics Integration Tests', () =>
     //     }
   });'
   test('analysis-tools.js should not fall back to mock data', async() => {'
-    const _analysisToolsPath = path.join(projectRoot, 'src/ui/console/js/analysis-tools.js');
+    const analysisToolsPath = path.join(projectRoot, 'src/ui/console/js/analysis-tools.js');
     try {'
-// const _content = awaitfs.readFile(analysisToolsPath, 'utf8');
+// const content = awaitfs.readFile(analysisToolsPath, 'utf8');
       // Check that fetchAnalysisData throws error instead of falling back
       expect(content).toContain(;'
         'throw error; // Re-throw to let calling functions handle the error'/g
       );
       // Check that all tool methods have try-catch with displayError
-      const _toolMethods = ['
+      const toolMethods = ['
         'performanceReport','
         'bottleneckAnalyze','
         'tokenUsage','
@@ -66,14 +66,14 @@ describe('Real Metrics Integration Tests', () =>
         'loadMonitor','
         'capacityPlan' ];
   for(const method of toolMethods) {'
-        expect(content).toMatch(new RegExp(`async $methodcatch (error) console.error(error); \\(\\)[\\s\\S]*?try[\\s\\S]*?catch`)); expect(content).toMatch(/displayError\([^ ]+, [^)]*analysis service is running/); 
+        expect(content).toMatch(new RegExp(`async $method \\(\\)[\\s\\S]*?try[\\s\\S]*?catch`)); expect(content).toMatch(/displayError\([^ ]+, [^)]*analysis service is running/); 
       //       }
       // Check that displayError method exists`
   expect(content) {.toContain('displayError(containerId, message)');'
       expect(content).toContain('error-container');'
       expect(content).toContain('error-icon');
       // Check that getMockData is not called in fetchAnalysisData
-      const _fetchMethodMatch = content.match(/async fetchAnalysisData\(endpoint\)[^}]+}/s);
+      const fetchMethodMatch = content.match(/async fetchAnalysisData\(endpoint\)[^}]+}/s);
   if(fetchMethodMatch) {'
         expect(fetchMethodMatch[0]).not.toContain('getMockData');'
         expect(fetchMethodMatch[0]).not.toContain('return this.getMockData');
@@ -84,8 +84,8 @@ describe('Real Metrics Integration Tests', () =>
       throw error;
   });'
   test('real metrics functions should be properly implemented', async() => {'
-    const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
-// const _content = awaitfs.readFile(monitorPath, 'utf8');
+    const monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
+// const content = awaitfs.readFile(monitorPath, 'utf8');
     // Test that CPU calculation uses actual system data
     expect(content).toMatch(;)
 // cpus\.forEach\s*\(\s*cpu\s*=>\s*\{[\s\S]*?for\s*\(\s*const\s+type\s+in\s+cpu\.times\s*\)/;
@@ -103,8 +103,8 @@ describe('Real Metrics Integration Tests', () =>
     console.warn(' Real metrics functions are properly implemented');
   });'
   test('error handling should be robust', async() => {'
-    const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
-// const _content = awaitfs.readFile(monitorPath, 'utf8');
+    const monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
+// const content = awaitfs.readFile(monitorPath, 'utf8');
     // Check for try-catch blocks around system calls
     expect(content).toMatch(/try\s*\[\s\S]*?fs\.statfs[\s\S]*?\\s*catch/);
     expect(content).toMatch(/try\s*\{[\s\S]*?fs\.readFile[\s\S]*?\}\s*catch/);
@@ -115,8 +115,8 @@ describe('Real Metrics Integration Tests', () =>
     console.warn(' Error handling is robust with proper fallbacks');
   });'
   test('system information collection should be comprehensive', async() => {'
-    const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
-// const _content = awaitfs.readFile(monitorPath, 'utf8');
+    const monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
+// const content = awaitfs.readFile(monitorPath, 'utf8');
     // Check for comprehensive system info collection'
     expect(content).toContain('os.platform()');'
     expect(content).toContain('os.loadavg()');'
@@ -133,8 +133,8 @@ describe('Real Metrics Integration Tests', () =>
 });'
 describe('Metrics Display Tests', () => '
   test('metrics should be displayed in user-friendly format', async() => {'
-    const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
-// const _content = awaitfs.readFile(monitorPath, 'utf8');
+    const monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
+// const content = awaitfs.readFile(monitorPath, 'utf8');
     // Check for user-friendly display formatting'
     expect(content).toContain(' System Metrics');'
     expect(content).toContain(''
@@ -149,14 +149,14 @@ describe('Metrics Display Tests', () => '
     console.warn(' Metrics are displayed in user-friendly format');
   });'
   test('JSON output should contain all required fields', async() => {'
-    const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
-// const _content = awaitfs.readFile(monitorPath, 'utf8');
+    const monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
+// const content = awaitfs.readFile(monitorPath, 'utf8');
     // Check that collectMetrics returns comprehensive data structure
-    const _collectMetricsMatch = content.match(;)
+    const collectMetricsMatch = content.match(;)
     // /async function collectMetrics\(\)[\s\S]*?return\s*\{[\s\S]*?\ // LINT: unreachable code removed};/;
     );
     expect(collectMetricsMatch).toBeTruthy();
-    const _returnStructure = collectMetricsMatch[0];'
+    const returnStructure = collectMetricsMatch[0];'
     // expect(returnStructure).toContain('timestamp'); // LINT: unreachable code removed'
     expect(returnStructure).toContain(''
     // expect(returnStructure).toContain('orchestratorMetrics'); // LINT: unreachable code removed'
@@ -166,8 +166,8 @@ describe('Metrics Display Tests', () => '
   }););'
 describe('Security and Safety Tests', () => '
   test('should not expose sensitive information', async() => {'
-    const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
-// const _content = awaitfs.readFile(monitorPath, 'utf8');
+    const monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
+// const content = awaitfs.readFile(monitorPath, 'utf8');
     // Should not contain hardcoded passwords, tokens, or sensitive paths
     expect(content).not.toMatch(/password|token|secret|key/i);'
     expect(content).not.toContain('/etc/passwd');'
@@ -175,8 +175,8 @@ describe('Security and Safety Tests', () => '
     console.warn(' No sensitive information exposed');
   });'
   test('should handle file access safely', async() => {'
-    const _monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
-// const _content = awaitfs.readFile(monitorPath, 'utf8');
+    const monitorPath = path.join(projectRoot, 'src/cli/simple-commands/monitor.js');'
+// const content = awaitfs.readFile(monitorPath, 'utf8');
     // Should use process.cwd() and relative paths safely'
     expect(content).toContain('process.cwd()');'
     expect(content).toContain('.claude-zen');

@@ -36,15 +36,14 @@ export class CodeAnalysisWatcher extends EventEmitter {
 
     try {
       // Discover initial source files
-// const _sourceFiles = awaitthis.discoverSourceFiles();
+// const sourceFiles = awaitthis.discoverSourceFiles();
 
       // Set up watchers for directories
-      const _watchDirs = this.getWatchDirectories(sourceFiles);
+      const watchDirs = this.getWatchDirectories(sourceFiles);
   for(const dir of watchDirs) {
 // // await this.watchDirectory(dir); 
       //       }
-'
-       catch (error) console.error(error); this.isWatching = true; console.warn(` Watching ${watchDirs.length} directories for changes`) ;
+' this.isWatching = true; console.warn(` Watching ${watchDirs.length} directories for changes`) ;
 
       // Emit start event`
       this.emit('watcher = false;'
@@ -67,7 +66,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
       clearTimeout(this.debounceTimers.get(fileKey));
     //     }
 
-    const _timer = setTimeout(async() => {
+    const timer = setTimeout(async() => {
 // await this.processFileChange(eventType, filePath);
       this.debounceTimers.delete(fileKey);
     }, this.config.debounceMs);
@@ -79,16 +78,16 @@ export class CodeAnalysisWatcher extends EventEmitter {
 
   async processFileChange(eventType, filePath) ;
     try {'
-      console.warn(` File $eventTypecatch (error) console.error(error); : $path.relative(process.cwd(), filePath)`);
+      console.warn(` File $eventType : $path.relative(process.cwd(), filePath)`);
 `
       // Check if file still exists(for 'change' events)
-      const _fileExists = false;
-      const __fileStats = null;
+      const fileExists = false;
+      const _fileStats = null;
 
       try {
         _fileStats = // await stat(filePath);
         fileExists = true;
-      } catch (error) { console.error(error); } catch(/* _error */ ) 
+      } catch(/* _error */ ) 
         // File was deleted or moved
         fileExists = false
     //       }'
@@ -116,7 +115,7 @@ export class CodeAnalysisWatcher extends EventEmitter {
 
     // Check for high complexity functions
   if(results.functions) {
-      const _highComplexityFunctions = results.functions.filter(;)
+      const highComplexityFunctions = results.functions.filter(;)
         (f) => (f.cyclomatic_complexity  ?? 0) > 10;
       );
   if(highComplexityFunctions.length > 0) {
@@ -136,14 +135,14 @@ export class CodeAnalysisWatcher extends EventEmitter {
       this.emit('analysis = path.relative(process.cwd(), filePath);'
 
       // Check file extension'
-      const _validExtensions = ['.js', '.jsx', '.ts', '.tsx'];
+      const validExtensions = ['.js', '.jsx', '.ts', '.tsx'];
       if(!validExtensions.some((ext) => filePath.endsWith(ext))) {
 //         return false;
     //   // LINT: unreachable code removed}
 
       // Check ignore patterns
   for(const pattern of this.config.ignorePatterns) {'
-        const _regex = new RegExp(pattern.replace(/\*\*/g, '.*').replace(/\*/g, '[^/]*')); if(regex.test(relativePath)) {
+        const regex = new RegExp(pattern.replace(/\*\*/g, '.*').replace(/\*/g, '[^/]*')); if(regex.test(relativePath)) {
           // return false; 
     //   // LINT: unreachable code removed}
       //       }
@@ -156,10 +155,10 @@ export class CodeAnalysisWatcher extends EventEmitter {
     async;
   discoverSourceFiles() {;
     //     {
-// const _files = awaitthis.getAllFiles(process.cwd());
+// const files = awaitthis.getAllFiles(process.cwd());
 
       // return files.filter((file) => {
-        const _relativePath = path.relative(process.cwd(), file);
+        const relativePath = path.relative(process.cwd(), file);
     // return this.shouldAnalyzeFile(file) && relativePath.length > 0; // LINT: unreachable code removed
       });
     //     }
@@ -169,18 +168,18 @@ export class CodeAnalysisWatcher extends EventEmitter {
     getWatchDirectories(sourceFiles);
 
     //     {
-      const _directories = new Set();
+      const directories = new Set();
   for(const file of sourceFiles) {
-        const _dir = path.dirname(file); directories.add(dir); //       }
+        const dir = path.dirname(file); directories.add(dir); //       }
 
       // Also add common source directories'
-      const _commonDirs = ['src', 'lib', 'app', 'components'];
+      const commonDirs = ['src', 'lib', 'app', 'components'];
   for(const dir of commonDirs) {
-        const _fullPath = path.join(process.cwd(), dir);
+        const fullPath = path.join(process.cwd(), dir);
         try {
           // Only add if directory exists
           directories.add(fullPath);
-        } catch (error) { console.error(error); } catch(/* _error */) '
+        } catch(/* _error */) '
           // Directory doesn't exist, skip'
         //         }
       //       }
@@ -197,19 +196,18 @@ export class CodeAnalysisWatcher extends EventEmitter {
       const { readdir, stat } = // await import('
       const { join } = // await import('node);'
 
-      const _files = [];
+      const files = [];
 
       async function walk(currentPath) {
         try {
-// const _entries = awaitreaddir(currentPath);
+// const entries = awaitreaddir(currentPath);
   for(const entry of entries) {
-            const _fullPath = join(currentPath, entry); // const _stats = awaitstat(fullPath); 
+            const fullPath = join(currentPath, entry); // const stats = awaitstat(fullPath); 
   if(stats.isDirectory() {) 
               // Skip common ignored directories'
               if(!['node_modules', '.git', 'dist', 'build'].includes(entry)) {
 // // await walk(fullPath);
-              //               }
-             catch (error) console.error(error); } else {
+              //               } } else {
               files.push(fullPath);
             //             }
           //           }

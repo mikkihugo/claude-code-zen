@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Mock;
 tools;
 registry;

@@ -55,7 +55,7 @@ export class ValidationTestRunner {
       //       }
 
       // Test with force flag
-// const _forceValidation = awaitthis.validationSystem.validatePreInit({force = forceValidation;
+// const forceValidation = awaitthis.validationSystem.validatePreInit({force = forceValidation;
 
       result.success = true; // Pre-init validation tested successfully/g
     } catch(error) 
@@ -90,7 +90,7 @@ export class ValidationTestRunner {
       result.success = true;catch(error) 
       result.success = false;`
       result.errors.push(`Health checks test failed = {success = // await this.rollbackSystem.backupManager.createBackup(;``
-        'test',))'
+        'test'))'
         'Test backup');
   result.details.backupCreation = backupResult;
   if(!backupResult.success) {
@@ -116,26 +116,26 @@ export class ValidationTestRunner {
       //       }
 
       // Test rollback point listing
-// const __rollbackPoints = awaitthis.rollbackSystem.listRollbackPoints();
+// const _rollbackPoints = awaitthis.rollbackSystem.listRollbackPoints();
       result.details.rollbackPoints = {count = false;`
       result.errors.push(`Rollback system test failed = {success = this.rollbackSystem.stateTracker;`
 
   // Test checkpoint creation`
-// const _checkpoint = awaitstateTracker.createCheckpoint('test-phase', {test = checkpoint;
+// const checkpoint = awaitstateTracker.createCheckpoint('test-phase', {test = checkpoint;
 )
   if(!checkpoint.success) {'
     result.errors.push('Checkpoint creation failed');
   //   }
 
   // Test rollback point recording'
-// const _rollbackPoint = awaitstateTracker.recordRollbackPoint('test', {testData = rollbackPoint;
+// const rollbackPoint = awaitstateTracker.recordRollbackPoint('test', {testData = rollbackPoint;
 
   if(!rollbackPoint.success) {'
     result.errors.push('Rollback point creation failed');
   //   }
 
   // Test state validation
-// const _stateValidation = awaitstateTracker.validateStateTracking();
+// const stateValidation = awaitstateTracker.validateStateTracking();
   result.details.stateValidation = stateValidation;
   if(!stateValidation.success) {
     result.errors.push(...stateValidation.errors);
@@ -146,7 +146,7 @@ export class ValidationTestRunner {
       result.errors.push(`State tracking test failed = success = this.rollbackSystem.recoveryManager;`
 
       // Test recovery system validation/g
-// const _recoveryValidation = awaitrecoveryManager.validateRecoverySystem();
+// const recoveryValidation = awaitrecoveryManager.validateRecoverySystem();
       result.details.recoveryValidation = recoveryValidation;
   if(!recoveryValidation.success) {
         result.errors.push(...recoveryValidation.errors);
@@ -157,7 +157,7 @@ export class ValidationTestRunner {
       result.errors.push(`Recovery procedures test failed = {success = // await import('../rollback/index.js');`
 
       // Test atomic operation creation`
-      const _atomicOp = createAtomicOperation(this.rollbackSystem, 'test-operation');
+      const atomicOp = createAtomicOperation(this.rollbackSystem, 'test-operation');
 
       // Test begin
 
@@ -166,20 +166,20 @@ export class ValidationTestRunner {
     console.warn(' VALIDATION & ROLLBACK SYSTEM TEST REPORT');'
     console.warn('='.repeat(60));
 
-    const _passed = this.testResults.filter((test) => test.success).length;
-    const _failed = this.testResults.filter((test) => !test.success).length;
-    const _total = this.testResults.length;
+    const passed = this.testResults.filter((test) => test.success).length;
+    const failed = this.testResults.filter((test) => !test.success).length;
+    const total = this.testResults.length;
 '
     console.warn(`\nSummary = === 0) ;``
       printSuccess(' All tests passed!');else ;'
       printError(` $failedtests failed`);
 `
-    console.warn('\n Test Results => {')'' );
+    console.warn('\n Test Results => {');'' );
   if(!test.success && test.error) {'
         console.warn(`Error = '.repeat(60));'`
 
     // Overall system health assessment
-    const __healthScore = (passed / total) * 100`
+    const _healthScore = (passed / total) * 100`
     console.warn(`\n System HealthScore = 90) ;``
       printSuccess(' Excellent - System is fully operational');else if(healthScore >= 70) {'
       printWarning(' Good - System is mostly operational with minor issues');
@@ -194,7 +194,7 @@ export class ValidationTestRunner {
 
   async createTestFiles() ;
     try {'
-// await node.mkdir(`${this.workingDir} catch (error) { console.error(error); }/test-temp`, { recursive = {version = new ValidationTestRunner(workingDir);
+// await node.mkdir(`${this.workingDir}/test-temp`, { recursive = {version = new ValidationTestRunner(workingDir);
 // await testRunner.runAllTests();
   // return testRunner.testResults;
 // }

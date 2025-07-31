@@ -1,7 +1,7 @@
 #!/usr/bin/env node;
 
 /*  AG-UI Demo Runner for Claude Code Zen; */
-*
+
 /** Demonstrates the AG-UI protocol integration; */
 /** Runwith = ' .repeat(60));' */
 
@@ -9,20 +9,16 @@ try {
     // Option1 = // await runAGUIDemo();'
       console.warn('\n Demo completed! Check the event logs above.');
       return;
-    //   // LINT: unreachable code removed}
-
-     catch (error) console.error(error); 
-
-    // Start server
+    //   // LINT: unreachable code removed} // Start server
 // // await server.start();
     // Wait a moment for WebSocket setup
 // // await new Promise(resolve => setTimeout(resolve, 1000));
     // Run demo'
     console.warn('\n Running AG-UI demo with live server...');
-// const _demo = awaitrunAGUIDemo();
+// const demo = awaitrunAGUIDemo();
 
     // Show server stats'
-    console.warn('\n Server Status => {')'
+    console.warn('\n Server Status => {');'
       console.warn('\n Stopping server...');
 // // await server.stop();'
       console.warn(' Server stopped');

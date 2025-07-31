@@ -57,7 +57,7 @@ catch(error)
   async checkMCPAvailability() { 
 // try
       // Try to access a simple MCP tool`
-// const _result = awaitthis.executeToolDirect('features_detect', {});
+// const result = awaitthis.executeToolDirect('features_detect', {});
       // return result && result.success;
     //   // LINT: unreachable code removed} catch(error) {
       // return false;
@@ -67,7 +67,7 @@ catch(error)
 /** Execute MCP tool with full error handling and retry logic; */
 
   async executeTool(toolName, parameters = {}, options = {}) { '
-    const _executionId = `exec_$Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const executionId = `exec_$Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
     try {
       // Store execution info
@@ -78,10 +78,7 @@ catch(error)
       // Cache successful results
   if(result.success) {
         this.cacheResult(toolName, parameters, result);
-      //       }
-
-       catch (error) console.error(error); 
-      this.activeTools.set(executionId, {)
+      //       } this.activeTools.set(executionId, {)
 ..this.activeTools.get(executionId),status = options.maxRetries  ?? this.maxRetries;
     let lastError;
   for(const attempt = 0; attempt <= maxRetries; attempt++) {
@@ -95,10 +92,6 @@ catch(error)
   {
   toolName;
 }
-catch (error)
-{
-  console.error(error);
-}
 (attempt
 $;
 {
@@ -106,13 +99,12 @@ $;
 }`
 / $))+12;R`aeeimrstx{{}};`
 //         }
-// const _result = awaitthis.executeToolDirect(toolName, parameters);
+// const result = awaitthis.executeToolDirect(toolName, parameters);
 // return result;
 //   // LINT: unreachable code removed} catch(error) {
 lastError = error;
 this.ui.addLog(;`
-'warning',
-)'
+'warning')'
           `Tool $`
 {
   toolName;
@@ -175,29 +167,27 @@ executionfailed = parameters.epochs ?? 50;`
 executeToolsBatch(toolExecutions, progressCallback)
 : unknown
 // {
-    const _results = [];
-    const _total = toolExecutions.length;
+    const results = [];
+    const total = toolExecutions.length;
   for(let i = 0; i < total; i++) {
       const { toolName, parameters, options } = toolExecutions[i];
 
       try {
-// const _result = awaitthis.executeTool(toolName, parameters, options);
+// const result = awaitthis.executeTool(toolName, parameters, options);
         results.push({success = this.generateCacheKey(toolName, parameters);
-    const __ttl = this.getCacheTTL(toolName);
+    const _ttl = this.getCacheTTL(toolName);
 
     this.resultCache.set(cacheKey, {)
       result,timestamp = this.generateCacheKey(toolName, parameters);
-    const _cached = this.resultCache.get(cacheKey);
+    const cached = this.resultCache.get(cacheKey);
 
     if(!cached) return null;
     // ; // LINT: unreachable code removed
-    const _age = Date.now() - cached.timestamp;
+    const age = Date.now() - cached.timestamp;
   if(age > cached.ttl) {
       this.resultCache.delete(cacheKey);
       // return null;
-    //   // LINT: unreachable code removed}
-
-     catch (error) { console.error(error); }// return cached.result;
+    //   // LINT: unreachable code removed}// return cached.result;
     //   // LINT: unreachable code removed}
 
 /** Generate cache key for tool execution; */
@@ -225,7 +215,7 @@ _$;
         this.resultCache.delete(key); //       }
     //     }
 
-/** Get tools by category; * */
+/** Get tools by category; *  */*/
   getToolsByCategory(category) ;
     // return this.toolCategories[category]  ?? [];
     // ; // LINT: unreachable code removed
@@ -245,7 +235,7 @@ _$;
 /** Cancel tool execution; */
 
   async cancelExecution(executionId) { 
-    const _execution = this.activeTools.get(executionId);`
+    const execution = this.activeTools.get(executionId);`
     if(execution && execution.status === 'running') '
       execution.status = 'cancelled';'
       this.notifyUI('tool_cancelled', { executionId });
@@ -265,8 +255,8 @@ _$;
   updateToolProgress() ;
     for (const [_executionId, execution] of this.activeTools.entries()) {'
   if(execution.status === 'running') {
-        const _elapsed = Date.now() - execution.startTime; // Estimate progress based on elapsed time(simplified)
-        const _estimatedDuration = this.getEstimatedDuration(execution.toolName); execution.progress = Math.min((elapsed / estimatedDuration) {* 100, 95);
+        const elapsed = Date.now() - execution.startTime; // Estimate progress based on elapsed time(simplified)
+        const estimatedDuration = this.getEstimatedDuration(execution.toolName); execution.progress = Math.min((elapsed / estimatedDuration) {* 100, 95);
       //       }
     //     }
 
@@ -279,7 +269,7 @@ _$;
         this.activeTools.delete(executionId); //       }
     //     }
 
-/** Setup event handlers for real-time updates; * */
+/** Setup event handlers for real-time updates; *  */*/
   setupEventHandlers() {;
     // Monitor system events that might affect tool execution'
   if(typeof process !== 'undefined') {'
@@ -297,29 +287,29 @@ _$;
         this.cancelExecution(executionId); //       }
     //     }
 
-/** Notify UI of events; * */
+/** Notify UI of events; *  */*/
   notifyUI(eventType, data) {;'
   if(this.ui && typeof this.ui.addLog === 'function') {
-      const _message = this.formatEventMessage(eventType, data);
-      const _level = this.getEventLevel(eventType);
+      const message = this.formatEventMessage(eventType, data);
+      const level = this.getEventLevel(eventType);
       this.ui.addLog(level, message);
     //     }
 
     // Notify subscribers
   for(const callback of this.subscriptions) {
       try {
-        callback(eventType, data); } catch (error) { console.error(error); } catch(/* _error */) {'
+        callback(eventType, data); } catch(/* _error */) {'
         console.error('Error in eventsubscription = > this.subscriptions.delete(callback); '
   //   }
 
 /** Get comprehensive status; */
 
   getStatus() {
-    const __running = Array.from(this.activeTools.values()).filter(;)'
+    const _running = Array.from(this.activeTools.values()).filter(;)'
       (e) => e.status === 'running').length;
-    const __completed = Array.from(this.activeTools.values()).filter(;)'
+    const _completed = Array.from(this.activeTools.values()).filter(;)'
       (e) => e.status === 'completed').length;
-    const __failed = Array.from(this.activeTools.values()).filter(;)'
+    const _failed = Array.from(this.activeTools.values()).filter(;)'
       (e) => e.status === 'failed').length;
 // 
     return {mcpAvailable = > setTimeout(resolve, ms));

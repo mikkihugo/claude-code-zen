@@ -10,11 +10,11 @@ import path from 'node:path';
 /** This script verifies that all required files are present and properly formatted; */
 
 */'
-const _TEMPLATE_DIR = path.join(__dirname, '.claude');
+const TEMPLATE_DIR = path.join(__dirname, '.claude');
 '
-const _MANIFEST_PATH = path.join(__dirname, 'manifest.json');
+const MANIFEST_PATH = path.join(__dirname, 'manifest.json');
 // Colors for console output'
-const __colors = {green = 'reset') {
+const _colors = {green = 'reset') {
   console.warn(colors[color] + message + colors.reset);
 // }
 // Read manifest
@@ -24,13 +24,11 @@ try {
   manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'))
   '
   log(' Manifest loaded successfully', 'green')
-} catch (error) {
-  console.error(error);
 }
 catch(/* _error */)
 {'
   log(' Failed to loadmanifest = 0;'
-const _passedTests = 0;
+const passedTests = 0;
 
   function test(description, condition = path.join(TEMPLATE_DIR, dirInfo.path);'
   test(`Directory $dirInfo.pathexists`, fs.existsSync(dirPath));
@@ -40,16 +38,16 @@ test(`File ${file.destination} exists`, fs.existsSync(filePath));
 // }`
 // Test4 = ['commands/sparc.md', 'commands/sparc/architect.md', 'BATCHTOOLS_GUIDE.md'];
   for(const fileName of sampleFiles) {
-  const _filePath = path.join(TEMPLATE_DIR, fileName); if(fs.existsSync(filePath)) {'
-    const _content = fs.readFileSync(filePath, 'utf8'); test(`${fileName} has content`, content.length > 100) ;`
+  const filePath = path.join(TEMPLATE_DIR, fileName); if(fs.existsSync(filePath)) {'
+    const content = fs.readFileSync(filePath, 'utf8'); test(`${fileName} has content`, content.length > 100) ;`
     test(`$fileNamecontains frontmatter`, content.startsWith('---'));
   //   }
 // }'
 // Test5 = manifest.files.filter((f) => f.category === 'sparc-mode');
 for (const cmd of sparcCommands.slice(0, 3)) {
   // Test first 3 commands
-  const _filePath = path.join(TEMPLATE_DIR, cmd.destination); if(fs.existsSync(filePath)) {'
-    const _content = fs.readFileSync(filePath, 'utf8'); test(;'
+  const filePath = path.join(TEMPLATE_DIR, cmd.destination); if(fs.existsSync(filePath)) {'
+    const content = fs.readFileSync(filePath, 'utf8'); test(;'
     `$cmd.destinationhas proper structure`,`
     content.includes('## Instructions') ?? content.includes('You are');
     //     
@@ -58,8 +56,8 @@ for (const cmd of sparcCommands.slice(0, 3)) {
 // Test6 = manifest.files.filter((f) => f.category === 'test');
 for (const testFile of testFiles.slice(0, 3)) {
   // Test first 3 test files
-  const _filePath = path.join(TEMPLATE_DIR, testFile.destination); if(fs.existsSync(filePath)) {'
-    const _content = fs.readFileSync(filePath, 'utf8'); test(;'
+  const filePath = path.join(TEMPLATE_DIR, testFile.destination); if(fs.existsSync(filePath)) {'
+    const content = fs.readFileSync(filePath, 'utf8'); test(;'
     `$testFile.destinationhas test structure`,`
     content.includes('describe') ?? content.includes('test') ?? content.includes('it');
     //     
@@ -67,12 +65,12 @@ for (const testFile of testFiles.slice(0, 3)) {
 // }'
 // Test7 = path.join(__dirname, 'VERSION');
 if(fs.existsSync(versionFile)) {'
-  const _fileVersion = fs.readFileSync(versionFile, 'utf8').trim();'
+  const fileVersion = fs.readFileSync(versionFile, 'utf8').trim();'
   test('Version file matches manifest', fileVersion === manifest.version);
 // }
 // Test8 = manifest.files.filter((f) => f.category === category).length;
 // Allow some flexibility in counts as they might have been updated
-const _countMatches = Math.abs(actualCount - info.count) <= 2;
+const countMatches = Math.abs(actualCount - info.count) <= 2;
 test(;'
 `$categoryfile count approximately correct(${actualCount} vs ${info.count})`,
 countMatches;
@@ -89,7 +87,7 @@ log(`\n$`
 log('ValidationSummary = === totalTests ? 'green''
 log(`;``
 Failed = === 0 ? 'green' 
-const __percentage = Math.round((passedTests / totalTests) * 100);
+const _percentage = Math.round((passedTests / totalTests) * 100);
 log(;'
 `  Successrate = 90 ? 'green' )`
   if(passedTests === totalTests) {`

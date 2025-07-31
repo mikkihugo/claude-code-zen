@@ -29,7 +29,7 @@ export { HookManager } from '.';
 // Quick start function
 export async function createHookManager() {'
   const { HookManager } = await import('.'
-  const _manager = new HookManager(config);
+  const manager = new HookManager(config);
   // Auto-register built-in hooks
 // // await registerBuiltInHooks(manager);
 //   return manager;
@@ -42,63 +42,63 @@ const { MEMORY_HOOKS } = await import('
 const { WORKFLOW_HOOKS } = // await import('./workflow-hooks.js');
 
 // Register all hooks
-const _allHooks = [..LLM_HOOKS,
+const allHooks = [..LLM_HOOKS,
 ..NEURAL_HOOKS,
 ..PERFORMANCE_HOOKS,
 ..MEMORY_HOOKS,
-..WORKFLOW_HOOKS,,];
+..WORKFLOW_HOOKS,];
   for(const hookRegistration of allHooks) {
   try {
 // // await manager.registerHook(hookRegistration); 
-  } catch (error) { console.error(error); } catch(error) '
+  } catch(error) '
     console.warn(`Failed to register hook $hookRegistration.name); `
   //   }
 // }`
 console.warn(`Successfully registered $allHooks.lengthbuilt-in hooks`) {;catch(error)
 // {`
   console.error('Failed to register built-inhooks = createHookContext('pre-task');'
-  const _payload = {'
+  const payload = {'
     context,data = // await manager.executeHooks('pre-task', payload);
   // return result;
 // }'
 // export async function executePostTaskHooks(manager = createHookContext('post-task');
-const __payload = {'
+const _payload = {'
     context,data = await manager.executeHooks('post-task', payload);
 // return result;
 // }'
 // export async function executePreEditHooks(manager = createHookContext('pre-edit');
-const _payload = {'
+const payload = {'
     context,data = await manager.executeHooks('pre-edit', payload);
 // return result;
 // }'
 // export async function executePostEditHooks(manager = createHookContext('post-edit');
-const _payload = {'
+const payload = {'
     context,data = await manager.executeHooks('post-edit', payload);
 // return result;
 // }'
 // export async function executeLLMHooks(manager = 'llm-request'): Promise<any> {
-  const _context = createHookContext(type);
-  const _payload = {
+  const context = createHookContext(type);
+  const payload = {
     context,data = await manager.executeHooks(type, payload);
 //   return result;
 // }'
 // export async function executeNeuralHooks(manager = createHookContext('neural-operation');
-const _payload = {'
+const payload = {'
     context,data = await manager.executeHooks('neural-operation', payload);
 // return result;
 // }'
 // export async function executePerformanceHooks(manager = createHookContext('performance-metric');
-const _payload = {'
+const payload = {'
     context,data = await manager.executeHooks('performance-metric', payload);
 // return result;
 // }'
 // export async function executeMemoryHooks(manager = createHookContext('memory-operation');
-const _payload = {'
+const payload = {'
     context,data = await manager.executeHooks('memory-operation', payload);
 // return result;
 // }'
 // export async function executeWorkflowHooks(manager = createHookContext('workflow-step');
-const _payload = {'
+const payload = {'
     context,data = await manager.executeHooks('workflow-step', payload);
 // return result;
 // }
@@ -127,7 +127,7 @@ const _payload = {'
         console.error(`[Hook] Error in LLM request = {BASIC_SETUP = // await createHookManager(HOOK_PRESETS.PRODUCTION);`
     // ; // LINT: unreachable code removed
 // Execute hooks for LLM request
-// const _result = awaitexecuteLLMHooks(hookManager, {provider = createLLMRequestHook(;`
+// const result = awaitexecuteLLMHooks(hookManager, {provider = createLLMRequestHook(;`
   'my-custom-hook',
   async(payload) => {
     // Custom logic here

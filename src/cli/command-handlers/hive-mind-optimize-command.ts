@@ -16,7 +16,7 @@ function _showOptimizeHelp() {
 $
   {
     chalk.bold('USAGE = path.join(cwd(), '.hive-mind''
-    const _dbPath = path.join(hiveMindDir, 'hive.db');
+    const dbPath = path.join(hiveMindDir, 'hive.db');
 
     if (!existsSync(dbPath)) {
       '
@@ -24,7 +24,7 @@ $
       if (report) {
         '
     console.warn(chalk.cyan('Current DatabaseStatus = 0;'
-        const __totalRows = 0;
+        const _totalRows = 0;
         )
     Object.entries(report.tables).forEach(([_name, stats]) =>
           totalSize += stats.sizeBytes
@@ -33,7 +33,7 @@ $
         '
     console.warn(`  TotalSize = report?.schemaVersion  ?? 1.0
         `
-        const _needsOptimization = schemaVersion < 1.5;
+        const needsOptimization = schemaVersion < 1.5;
 
         if (!needsOptimization) {
           `;
@@ -60,7 +60,7 @@ $
   console.warn(chalk.bold('\n Database Optimization Report\n'))
             '
   console.warn(chalk.cyan('Schema Version => {'))
-            const _sizeMB = (stats.sizeBytes / 1024 / 1024).toFixed(2);
+            const sizeMB = (stats.sizeBytes / 1024 / 1024).toFixed(2);
             '
     console.warn(`;
           $;
@@ -77,14 +77,14 @@ $
     console.warn(chalk.yellow(`   Can be upgraded from v\$report.schemaVersionto v1.5`))
             `
     console.warn(chalk.gray('Run = report.tables.collective_memory?.rowCount > 10000;'
-          const _largeTaskTable = report.tables.tasks?.rowCount > 50000;
+          const largeTaskTable = report.tables.tasks?.rowCount > 50000;
           )
           if (largeMemoryTable ?? largeTaskTable) {
             '
     console.warn(chalk.cyan('\nMaintenanceRecommendations = // await import('child_process'
-            const __timestamp = new Date().toISOString().replace(/[]/g, '-');
+            const _timestamp = new Date().toISOString().replace(/[]/g, '-');
             '
-            const _backupPath = dbPath.replace(
+            const backupPath = dbPath.replace(
               '.db',
               `-backup-\
             $timestamp.db`

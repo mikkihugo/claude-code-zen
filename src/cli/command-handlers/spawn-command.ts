@@ -12,13 +12,13 @@ function generateId(prefix = 'id') {'
 
 `
 export async function spawnCommand(subArgs = subArgs[0]  ?? flags.type  ?? 'general';'
-const _agentName = flags.name  ?? `$agentType-$generateId('agent')`;`
-const _swarmId = flags['swarm-id'] ?? flags.swarmId;
-const _capabilities = flags.capabilities;
-const __coordinated = flags.coordinated ?? flags.coord;
-const __enhanced = flags.enhanced ?? flags.e;
+const agentName = flags.name  ?? `$agentType-$generateId('agent')`;`
+const swarmId = flags['swarm-id'] ?? flags.swarmId;
+const capabilities = flags.capabilities;
+const _coordinated = flags.coordinated ?? flags.coord;
+const _enhanced = flags.enhanced ?? flags.e;
 // Validate agent type'
-const _validTypes = ['coordinator','
+const validTypes = ['coordinator','
   'coder','
   'developer','
   'researcher','
@@ -28,8 +28,8 @@ const _validTypes = ['coordinator','
   'architect','
   'reviewer','
   'optimizer','
-  'general',,];
-const __validatedType = agentType;
+  'general',];
+const _validatedType = agentType;
 if(!validTypes.includes(agentType)) {'
   printWarning(`  Unknown agent type '${agentType}'. Using 'general' instead.`);`
   _validatedType = 'general';
@@ -42,7 +42,7 @@ console.warn(`  Agenttype = > setTimeout(resolve, 500));`
   if(isAvailable) {
   try {`
       console.warn(` Spawning agent with ruv-swarm coordination...`);`
-// const __spawnResult = awaitcallRuvSwarmLibrary('agent_spawn', {type = > setTimeout(resolve, 800));
+// const _spawnResult = awaitcallRuvSwarmLibrary('agent_spawn', {type = > setTimeout(resolve, 800));
 '
   console.warn(` Loading agent capabilities and neural patterns...`);
 // // await new Promise(resolve => setTimeout(resolve, 600));`
@@ -52,10 +52,7 @@ console.warn(`  Agenttype = > setTimeout(resolve, 500));`
 // // await new Promise(resolve => setTimeout(resolve, 400));`
   printSuccess(` Enhanced agent spawned and coordinated successfully`);
   displayCoordinatedAgentDetails(agentType, agentName, swarmId, null, flags);
-// }
-
- catch (error) console.error(error); 
-  function displayCoordinatedAgentDetails(agentType = {
+// } function displayCoordinatedAgentDetails(agentType = {
       coordinator, agentName, swarmId, spawnResult, flags) {`
   console.warn(`\n COORDINATED AGENT DETAILS);``
   console.warn(`   Agent ID: $generateId('agent')`);`

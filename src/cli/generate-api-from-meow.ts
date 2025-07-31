@@ -1,25 +1,23 @@
 #!/usr/bin/env node
 
 /*  ENHANCED API GENERATION FROM MEOW CLI; */
-*
+
 /** Generates comprehensive REST/GraphQL/WebSocket APIs from CLI commands; */
-*
+
 with full OpenAPI
 documentation, validation, and;
 real - time;
 features.;
 
 /** Generate comprehensive OpenAPI specification from CLI commands; */
-*
-@param
+
 {
   Object;
 }
 cli - Meow;
 CLI;
 instance;
-*
-@returns
+
 {
   Object;
 }
@@ -30,10 +28,10 @@ specification;
 
 // */ // LINT: unreachable code removed
 export function generateApiFromMeow(cli => {
-    const _openapi = {
+    const openapi = {
       openapi = {get = {get = {post = {
       post => {
-      const _commandPath = `/api/execute/${cmd.name}`;
+      const commandPath = `/api/execute/${cmd.name}`;
 openapi.paths[commandPath] = {
         post = {get = {get = {};
 Object.entries(flags).forEach(([flagName, flagConfig]) => {`

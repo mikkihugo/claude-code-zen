@@ -17,7 +17,7 @@ export async function createClaudeSlashCommands(workingDir = {force = // await c
 // Create claude-zen specific commands
 try {
 // // await createClaudeFlowCommands(workingDir);
-} catch (error) { console.error(error); } catch(/* err */) `
+} catch(/* err */) `
   console.warn(`    Could not create Claude Code slash commands);`catch(/* mainErr */)
 // {`
   console.warn(`    Error creating slash commands);`

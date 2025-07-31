@@ -17,7 +17,7 @@ import { SqliteMemoryStore } from '../../memory/sqlite-store.js';
 import TimeoutProtection from '../../utils/timeout-protection.js';
 
 // Initialize memory store
-const _memoryStore = null;
+const memoryStore = null;
 async function getMemoryStore() {
   if(!memoryStore) {
     memoryStore = new SqliteMemoryStore();
@@ -88,44 +88,44 @@ try {
         break;default = ==== PRE-OPERATION HOOKS = ====
 
 async function preTaskCommand(subArgs, flags = flags;'
-  const __description = options.description  ?? 'Unnamed task';'
-  const __taskId = options['task-id']  ?? options.taskId  ?? generateId('task');'
-  const __agentId = options['agent-id']  ?? options.agentId;'
-  const __autoSpawnAgents = options['auto-spawn-agents'] !== 'false';
+  const _description = options.description  ?? 'Unnamed task';'
+  const _taskId = options['task-id']  ?? options.taskId  ?? generateId('task');'
+  const _agentId = options['agent-id']  ?? options.agentId;'
+  const _autoSpawnAgents = options['auto-spawn-agents'] !== 'false';
 '
   console.warn(` Executing pre-task hook...`);`
   console.warn(`Task = // await getMemoryStore();`
-    const _taskData = {
+    const taskData = {
       taskId,
       description,
       agentId,
       autoSpawnAgents,status = // await TimeoutProtection.checkRuvSwarmAvailableWithTimeout();
   if(isAvailable) {`
       console.warn(`\n Executing ruv-swarm pre-task hook...`);`
-// const _hookResult = awaitTimeoutProtection.execRuvSwarmHookWithTimeout('pre-task', {
+// const hookResult = awaitTimeoutProtection.execRuvSwarmHookWithTimeout('pre-task', {
         description,'
         'task-id','
-        'auto-spawn-agents',)'
-..(agentId ? 'agent-id'catch (error) console.error(error); ) });
+        'auto-spawn-agents')'
+..(agentId ? 'agent-id' ) });
   if(hookResult.success) {
 // // await store.store(;'
           `task = flags;``
-  const __file = options.file  ?? 'unknown-file';'
-  const __operation = options.operation  ?? 'edit';'
-  const __autoAssignAgents = options['auto-assign-agents']  ?? false;'
-  const __loadContext = options['load-context']  ?? false;
+  const _file = options.file  ?? 'unknown-file';'
+  const _operation = options.operation  ?? 'edit';'
+  const _autoAssignAgents = options['auto-assign-agents']  ?? false;'
+  const _loadContext = options['load-context']  ?? false;
 '
   console.warn(` Executing pre-edit hook...`);`
   console.warn(`File = // await getMemoryStore();`
 
     // Auto-assign agents based on file type`
-    let _assignedAgentType = 'general';
-    const _recommendedAgent = null;
+    let assignedAgentType = 'general';
+    const recommendedAgent = null;
   if(autoAssignAgents) {'
-// const _path = awaitimport('path');
-      const _ext = path.extname(file).toLowerCase();
+// const path = awaitimport('path');
+      const ext = path.extname(file).toLowerCase();
 
-      const _agentMapping = {'
+      const agentMapping = {'
         '.js': 'javascript-developer','
         '.ts': 'typescript-developer','
         '.py': 'python-developer','
@@ -152,27 +152,27 @@ async function preTaskCommand(subArgs, flags = flags;'
   if(loadContext) {
       try {
         // Check if file exists and get basic info'
-// const _fs = awaitimport('fs');'
-// const _path = awaitimport('path');
+// const fs = awaitimport('fs');'
+// const path = awaitimport('path');
 
         if(fs.existsSync(file)) {
 
-          const _dirname = path.dirname(file);
-          const _basename = path.basename(file);
+          const dirname = path.dirname(file);
+          const basename = path.basename(file);
 
           contextData = {fileExists = {fileExists = {error = {
       file,
       operation,timestamp = flags;'
-  const _command = options.command  ?? subArgs.slice(1).join(' '';
-  const _workingDir = options.cwd  ?? process.cwd();'
-  const _validateSafety = options['validate-safety'] === true  ?? options['validate-safety'] === 'true'  ?? options.validate === true  ?? options.validate === 'true'  ?? false;
+  const command = options.command  ?? subArgs.slice(1).join(' '';
+  const workingDir = options.cwd  ?? process.cwd();'
+  const validateSafety = options['validate-safety'] === true  ?? options['validate-safety'] === 'true'  ?? options.validate === true  ?? options.validate === 'true'  ?? false;
 '
   console.warn(` Executing pre-bash hook...`);`
   console.warn(`Command = // await getMemoryStore();``
-    const __safetyResult = 'skipped';
+    const _safetyResult = 'skipped';
   if(validateSafety) {
       // Basic safety validation
-      const _dangerousCommands = ['
+      const dangerousCommands = ['
         ''
         'rm -rf .','
         'rm -rf *','
@@ -185,51 +185,51 @@ async function preTaskCommand(subArgs, flags = flags;'
         'exec','
         'chmod 777' ];
 '
-      const _isDangerous = command && typeof command === 'string' && command.length > 0 ;
+      const isDangerous = command && typeof command === 'string' && command.length > 0 ;
         ? dangerousCommands.some((dangerous) =>;
             command.toLowerCase().includes(dangerous.toLowerCase()));
 '
       _safetyResult = isDangerous ? 'dangerous' : 'safe';
   if(isDangerous) {'
         console.warn(`    Safetycheck = // await import('fs');``
-// const _path = awaitimport('path');
+// const path = awaitimport('path');
 
       if(!fs.existsSync(workingDir)) {
         fs.mkdirSync(workingDir, {recursive = fs.statSync(workingDir);'
         console.warn(`   Working directory prepared`);
-      } catch (error) console.error(error); catch(/* err */) `
+      } catch(/* err */) `
         console.warn(`    Warning = {command = ==== POST-OPERATION HOOKS = ====`
 
 async function postTaskCommand(_subArgs, flags = flags;))`
-  const _taskId = options['task-id']  ?? options.taskId  ?? generateId('task');
+  const taskId = options['task-id']  ?? options.taskId  ?? generateId('task');
 '
   console.warn(` Executing post-task hook...`);`
   console.warn(` TaskID = // await getMemoryStore();``
-// const _taskData = awaitstore.retrieve(`task = {`/g)
+// const taskData = awaitstore.retrieve(`task = {`/g)
 ..(taskData  ?? ),
       status = {taskId = flags;`
-  const _file = options.file  ?? 'unknown-file';'
-  const _memoryKey = options['memory-key']  ?? options.memoryKey;
+  const file = options.file  ?? 'unknown-file';'
+  const memoryKey = options['memory-key']  ?? options.memoryKey;
 
   // Handle case where memory-key is passed as a boolean flag without value
   if(memoryKey === true) {
     // Generate a default memory key based on the file path and timestamp'
-// const _path = awaitimport('node);'
-    const __basename = path.basename(file);'
+// const path = awaitimport('node);'
+    const _basename = path.basename(file);'
     memoryKey = `edit = options.format  ?? false;``
-  const _updateMemory = options['update-memory']  ?? false;'
-  const _trainNeural = options['train-neural']  ?? false;
+  const updateMemory = options['update-memory']  ?? false;'
+  const trainNeural = options['train-neural']  ?? false;
 '
   console.warn(` Executing post-edit hook...`);`
   console.warn(`File = // await getMemoryStore();``
-// const _path = awaitimport('path');'
-// const _fs = awaitimport('fs');
+// const path = awaitimport('path');'
+// const fs = awaitimport('fs');
 
     // Auto-format file if requested
-    let _formatResult = null;
+    let formatResult = null;
     if(format && fs.existsSync(file)) {
-      const _ext = path.extname(file).toLowerCase();
-      const _formatters = {'
+      const ext = path.extname(file).toLowerCase();
+      const formatters = {'
         '.js': 'prettier','
         '.ts': 'prettier','
         '.json': 'prettier','
@@ -242,24 +242,24 @@ async function postTaskCommand(_subArgs, flags = flags;))`
         '.cpp': 'clang-format','
         '.c': 'clang-format' };
 
-      const _formatter = formatters[ext];
+      const formatter = formatters[ext];
   if(formatter) {'
         console.warn(`   Auto-formatting with ${formatter}...`);
         formatResult = {
           formatter,
           extension = {extension = null;
   if(updateMemory) {
-      const _editContext = {
+      const editContext = {
         file,editedAt = editContext;
 
       // Store in coordination namespace`
 // // await store.store(`edit-context = null;`/g)
   if(trainNeural) {
       // Simulate neural training with file patterns
-      const __ext = path.extname(file).toLowerCase();
-      const __basename = path.basename(file);
+      const _ext = path.extname(file).toLowerCase();
+      const _basename = path.basename(file);
 
-      const __patterns = {fileType = patterns;`
+      const _patterns = {fileType = patterns;`
 // // await store.store(`neural-pattern = {file = === 'string') {`
       // await store.store(;
         memoryKey,
@@ -269,21 +269,21 @@ async function postTaskCommand(_subArgs, flags = flags;))`
       historyKey,
       //       {
         file,editId = flags;)`
-  const _command = options.command  ?? subArgs.slice(1).join(' ');'
-  const __exitCode = options['exit-code']  ?? '0';'';'
-  const __trackMetrics = options['track-metrics']  ?? false;'
-  const __storeResults = options['store-results']  ?? false;
-  const __duration = options.duration  ?? 0;
+  const command = options.command  ?? subArgs.slice(1).join(' ');'
+  const _exitCode = options['exit-code']  ?? '0';'';'
+  const _trackMetrics = options['track-metrics']  ?? false;'
+  const _storeResults = options['store-results']  ?? false;
+  const _duration = options.duration  ?? 0;
 '
   console.warn(` Executing post-bash hook...`);`
   console.warn(`Command = // await getMemoryStore();`
 
     // Calculate performance metrics if enabled
-    let _metrics = null;
+    let metrics = null;
   if(trackMetrics) {
-      const _commandLength = command.length;
-      const _outputLength = output.length;
-      const _success = parseInt(exitCode) === 0;
+      const commandLength = command.length;
+      const outputLength = output.length;
+      const success = parseInt(exitCode) === 0;
 
       metrics = {
         commandLength,
@@ -301,55 +301,55 @@ async function postTaskCommand(_subArgs, flags = flags;))`
         existingMetrics.totalCommands;
       existingMetrics.lastUpdated = new Date().toISOString();`
 // // await store.store('command-metrics-summary', existingMetrics, {namespace = === 0,hasMetrics = flags;/g)'
-  const __query = options.query  ?? subArgs.slice(1).join(' ');'
-  const __resultCount = options['result-count']  ?? '0';
+  const _query = options.query  ?? subArgs.slice(1).join(' ');'
+  const _resultCount = options['result-count']  ?? '0';
 '
   console.warn(` Executing post-search hook...`);`
   console.warn(`Query = // await getMemoryStore();`
 `
-  const _serverName = options.server  ?? 'claude-zen';'
-  const _sessionId = options['session-id']  ?? generateId('mcp-session');
+  const serverName = options.server  ?? 'claude-zen';'
+  const sessionId = options['session-id']  ?? generateId('mcp-session');
 '
   console.warn(` Executing mcp-initialized hook...`);`
   console.warn(`Server = // await getMemoryStore();`
 `
-  const __agentType = options.type  ?? 'generic';'
-  const __agentName = options.name  ?? generateId('agent');'
-  const __swarmId = options['swarm-id']  ?? 'default';
+  const _agentType = options.type  ?? 'generic';'
+  const _agentName = options.name  ?? generateId('agent');'
+  const _swarmId = options['swarm-id']  ?? 'default';
 '
   console.warn(` Executing agent-spawned hook...`);`
   console.warn(`Agent = // await getMemoryStore();`
 `
-  const _taskId = options['task-id']  ?? generateId('orchestrated-task');'
-  const _strategy = options.strategy  ?? 'balanced';'
-  const _priority = options.priority  ?? 'medium';
+  const taskId = options['task-id']  ?? generateId('orchestrated-task');'
+  const strategy = options.strategy  ?? 'balanced';'
+  const priority = options.priority  ?? 'medium';
 '
   console.warn(` Executing task-orchestrated hook...`);`
   console.warn(`Task = // await getMemoryStore();`
 `
-  const __modelName = options.model  ?? 'default-neural';'
-  const __accuracy = options.accuracy  ?? '0.0';'
-  const _patterns = options.patterns  ?? '0';
+  const _modelName = options.model  ?? 'default-neural';'
+  const _accuracy = options.accuracy  ?? '0.0';'
+  const patterns = options.patterns  ?? '0';
 '
   console.warn(` Executing neural-trained hook...`);`
   console.warn(`Model = // await getMemoryStore();`
 `
-  const _generateSummary = options['generate-summary'] !== 'false';
+  const generateSummary = options['generate-summary'] !== 'false';
 '
-  const _exportMetrics = options['export-metrics']  ?? false;
+  const exportMetrics = options['export-metrics']  ?? false;
 '
   console.warn(` Executing session-end hook...`);`
   if(generateSummary) console.warn(` Summarygeneration = // await getMemoryStore();``
-// const _tasks = awaitstore.list({namespace = // await store.list({ namespace: 'file-history',limit = // await store.list({ namespace: 'command-history',limit = // await store.list({ namespace: 'agent-roster',limit = null;/g))))
+// const tasks = awaitstore.list({namespace = // await store.list({ namespace: 'file-history',limit = // await store.list({ namespace: 'command-history',limit = // await store.list({ namespace: 'agent-roster',limit = null;/g))))
   if(exportMetrics) {
-      const _now = new Date();
-      const _sessionStart = Math.min(;)
+      const now = new Date();
+      const sessionStart = Math.min(;)
 ..tasks.map((t) => new Date(t.value.timestamp  ?? now).getTime()),
 ..edits.map((e) => new Date(e.value.timestamp  ?? now).getTime()),
 ..commands.map((c) => new Date(c.value.timestamp  ?? now).getTime()));
 
-      const __duration = now.getTime() - sessionStart;
-      const __successfulCommands = commands.filter((c) => c.value.success !== false).length;
+      const _duration = now.getTime() - sessionStart;
+      const _successfulCommands = commands.filter((c) => c.value.success !== false).length;
 
     // Setup safe exit to prevent hanging
     TimeoutProtection.forceExit(1000);
@@ -357,7 +357,7 @@ async function postTaskCommand(_subArgs, flags = flags;))`
     printSuccess(` Session-end hook completed`);
   } catch(/* err */) {`
     printError(`Session-end hookfailed = flags;``
-  const _sessionId = options['session-id']  ?? 'latest';
+  const sessionId = options['session-id']  ?? 'latest';
 '
   console.warn(` Executing session-restore hook...`);`
   console.warn(`Session = // await getMemoryStore();`
@@ -365,12 +365,12 @@ async function postTaskCommand(_subArgs, flags = flags;))`
     // Find session to restore
     let _sessionData;`
   if(sessionId === 'latest') {
-// const _sessions = awaitstore.list({namespace = sessions[0]?.value;
+// const sessions = awaitstore.list({namespace = sessions[0]?.value;
     } else {'
       _sessionData = // await store.retrieve(`session = flags;`/g))`
-  const _message = options.message  ?? subArgs.slice(1).join(' ');'
-  const _level = options.level  ?? 'info';'
-  const _swarmStatus = options['swarm-status']  ?? 'active';
+  const message = options.message  ?? subArgs.slice(1).join(' ');'
+  const level = options.level  ?? 'info';'
+  const swarmStatus = options['swarm-status']  ?? 'active';
 '
   console.warn(` Executing notify hook...`);`
   console.warn(`Message = // await getMemoryStore();`

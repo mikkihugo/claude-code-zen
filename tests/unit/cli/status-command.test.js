@@ -16,11 +16,11 @@ beforeEach(async () => {
   '
   console.log = (...args) => consoleOutput.push(args.join(' '))
   // Import the module and mock function'
-  // const _module = awaitimport('../../../src/cli/command-handlers/status-command.js');
+  // const module = awaitimport('../../../src/cli/command-handlers/status-command.js');
   statusCommand =
   module.statusCommand;
   '
-  // const _utils = awaitimport('../../../src/cli/utils.js');
+  // const utils = awaitimport('../../../src/cli/utils.js');
   printSuccess = utils.printSuccess
   // Clear mocks
   jest.clearAllMocks()
@@ -52,14 +52,13 @@ describe('statusCommand function', () =>
   {
     // await statusCommand([], {});
     // Check that all expected status lines are logged
-    const _expectedLines = ['
+    const expectedLines = ['
       ' Status: Not Running(orchestrator not started)','
       ' Agents: 0 active','
       ' Tasks: 0 in queue','
       ' Memory: Ready','
       '  Terminal Pool: Ready','
       ' MCP Server: Stopped',
-      ,
     ];
     expectedLines.forEach((expectedLine) => {
       expect(consoleOutput).toContain(expectedLine);
@@ -96,7 +95,7 @@ describe('statusCommand function', () =>
   it('should indicate system is not running', async () =>
   {
     // await statusCommand([], {});'
-    const _statusLine = consoleOutput.find((line) => line.includes(''
+    const statusLine = consoleOutput.find((line) => line.includes(''
       expect(statusLine).toContain('Not Running');
     '
     expect(statusLine).toContain('orchestrator not started')
@@ -106,10 +105,10 @@ describe('statusCommand function', () =>
   it('should show zero counts for inactive system', async () =>
   {
     // await statusCommand([], {});'
-    const _agentsLine = consoleOutput.find((line) => line.includes(''
+    const agentsLine = consoleOutput.find((line) => line.includes(''
       expect(agentsLine).toContain('0 active');
     '
-    const _tasksLine = consoleOutput.find((line) => line.includes(''
+    const tasksLine = consoleOutput.find((line) => line.includes(''
       expect(tasksLine).toContain('0 in queue');
   }
   )
@@ -117,10 +116,10 @@ describe('statusCommand function', () =>
   it('should show ready status for memory and terminal pool', async () =>
   {
     // await statusCommand([], {});'
-    const _memoryLine = consoleOutput.find((line) => line.includes(''
+    const memoryLine = consoleOutput.find((line) => line.includes(''
       expect(memoryLine).toContain('Ready');
     '
-    const _terminalLine = consoleOutput.find((line) => line.includes(''
+    const terminalLine = consoleOutput.find((line) => line.includes(''
       expect(terminalLine).toContain('Ready');
   }
   )
@@ -128,23 +127,23 @@ describe('statusCommand function', () =>
   it('should show stopped status for MCP server', async () =>
   {
     // await statusCommand([], {});'
-    const _mcpLine = consoleOutput.find((line) => line.includes(''
+    const mcpLine = consoleOutput.find((line) => line.includes(''
       expect(mcpLine).toContain('Stopped');
   }
   )
   '
   it('should be async function', () =>
   {
-    const _result = statusCommand([], {});
+    const result = statusCommand([], {});
     expect(result).toBeInstanceOf(Promise);
   }
   )
   '
   it('should complete execution quickly', async () =>
   {
-    const _startTime = Date.now();
+    const startTime = Date.now();
     // await statusCommand([], {});
-    const _endTime = Date.now();
+    const endTime = Date.now();
     '
     // Should complete in less than 100ms(it's just logging)'
     expect(endTime - startTime).toBeLessThan(100)
@@ -166,7 +165,7 @@ describe('error handling', () =>
   )
   // The function should still try to execute
   try {
-    // // await statusCommand([], {} catch (error) { console.error(error); });
+    // // await statusCommand([], {});
   } catch (error) {
     '
       expect(error.message).toBe('Mock error')

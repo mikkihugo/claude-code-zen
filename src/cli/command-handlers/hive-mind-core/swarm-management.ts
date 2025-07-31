@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Hive;
 Mind;
 Swarm;
@@ -9,8 +8,7 @@ Management;
 Module;
 
 /** Handles swarm spawning, status monitoring, and lifecycle management; */
-*
-@module
+
 HiveMindSwarmManagement;
 
 import { existsSync } from 'node:fs';
@@ -28,8 +26,7 @@ import inquirer from 'inquirer';
 import { isInteractive } from '../../utils/interactive-detector.js';
 
 /** Interactive swarm spawning wizard; */
-*
-@returns
+
 {
   Promise<void>;
 }
@@ -43,7 +40,7 @@ if(!isInteractive()) {'
   console.warn(chalk.yellow('\n Hive Mind Swarm Wizard'));'
   console.warn(chalk.gray('Configure and launch a coordinated swarm for your objective\n'));
 
-  try {type = > input.trim().length > 0  ?? 'Objective is required';catch (error) console.error(error); ,'type = > (input >= 1 && input <= 32)  ?? 'Must be between 1 and 32';,type = > answers.claudeIntegration;,
+  try {type = > input.trim().length > 0  ?? 'Objective is required'; ,'type = > (input >= 1 && input <= 32)  ?? 'Must be between 1 and 32';,type = > answers.claudeIntegration;,
       //       {'
         //         type = {queenType = === 'verbose'  ?? answers.verbosity === 'debug',debug = === 'debug',sessionDir = args[0];
 
@@ -54,34 +51,34 @@ if(!isInteractive()) {'
     throw new Error('Objective is required when running in non-interactive mode');
   //   }
 '
-  const _spinner = ora('Initializing hive mind swarm...').start();
+  const spinner = ora('Initializing hive mind swarm...').start();
 
   try {
     // Verify system is initialized'
-    const _sessionDir = flags.sessionDir  ?? './.claude/hive-mind';
+    const sessionDir = flags.sessionDir  ?? './.claude/hive-mind';
 // // await verifySystemInitialized(sessionDir);
     // Generate unique swarm ID
-    const _swarmId = generateSwarmId();'
-    const _swarmName = `swarm-${Date.now()} catch (error) { console.error(error); }`;
+    const swarmId = generateSwarmId();'
+    const swarmName = `swarm-${Date.now()}`;
 
     // Initialize database connection`
-    const _dbPath = path.join(sessionDir, 'hive-mind.db');
-    const _db = new Database(dbPath);
+    const dbPath = path.join(sessionDir, 'hive-mind.db');
+    const db = new Database(dbPath);
 
     try {
       // Create session record
 // // await createSwarmSession(db, swarmId, swarmName, objective, flags);
       // Initialize queen coordinator'
       spinner.text = 'Initializing queen coordinator...';
-// const _queen = awaitinitializeQueen(swarmId, flags.queenType, db);
+// const queen = awaitinitializeQueen(swarmId, flags.queenType, db);
 
       // Spawn worker agents'
-      spinner.text = `Spawning ${flags.workers}  catch (error) { console.error(error); }worker agents...`;
-// const _workers = awaitspawnWorkerAgents(db, swarmId, flags.workers, objective);
+      spinner.text = `Spawning ${flags.workers}worker agents...`;
+// const workers = awaitspawnWorkerAgents(db, swarmId, flags.workers, objective);
 
       // Setup communication layer`
       spinner.text = 'Establishing communication protocols...';
-// const _communication = awaitsetupSwarmCommunication(swarmId, queen, workers);
+// const communication = awaitsetupSwarmCommunication(swarmId, queen, workers);
 
       // Launch Claude Code instances if requested
   if(flags.claude) {'
@@ -102,20 +99,19 @@ if(!isInteractive()) {'
     } finally 
       db.close();catch(error) {`
     spinner.fail(`Failed to spawnswarm = flags.sessionDir  ?? './.claude/hive-mind';`/g)`
-  const _dbPath = path.join(sessionDir, 'hive-mind.db');
+  const dbPath = path.join(sessionDir, 'hive-mind.db');
 
   if(!existsSync(dbPath)) {'
     console.warn(chalk.yellow('  Hive Mind not initialized.Run = new Database(dbPath);'
 
   try {
-// const _sessions = awaitgetActiveSessions(db);
+// const sessions = awaitgetActiveSessions(db);
   if(sessions.length === 0) {'
       console.warn(chalk.blue(' No active swarms found'));'
       console.warn(chalk.gray('Run "claude-zen hive-mind spawn" to start a new swarm'));
       return;
     //   // LINT: unreachable code removed}
-'
-     catch (error) console.error(error); console.warn(chalk.yellow(`\n Active Swarms($, { sessions.length })\n`));
+' console.warn(chalk.yellow(`\n Active Swarms($, { sessions.length })\n`));
 
     for (const session of sessions); // // await displaySessionStatus(db, session, flags.verbose); 
   } finally {
@@ -132,19 +128,19 @@ if(!isInteractive()) {'
 throw new Error('Session ID is required');
 // }
 '
-const _sessionDir = flags.sessionDir ?? './.claude/hive-mind';'
-const _dbPath = path.join(sessionDir, 'hive-mind.db');
-const _db = new Database(dbPath);
+const sessionDir = flags.sessionDir ?? './.claude/hive-mind';'
+const dbPath = path.join(sessionDir, 'hive-mind.db');
+const db = new Database(dbPath);
 
 try {
-// const _session = awaitgetSessionById(db, sessionId);
+// const session = awaitgetSessionById(db, sessionId);
   if(!session) {'
       throw new Error(`Session notfound = === 'stopped') {``
-      console.warn(chalk.yellow(`Session ${sessionId}  catch (error) { console.error(error); }is already stopped`));
+      console.warn(chalk.yellow(`Session ${sessionId}is already stopped`));
       return;
     //   // LINT: unreachable code removed}
 `
-    const _spinner = ora(`Stopping swarm session ${sessionId}...`).start();
+    const spinner = ora(`Stopping swarm session ${sessionId}...`).start();
 
     // Update session status`
 // // await updateSessionStatus(db, sessionId, 'stopping');
@@ -168,11 +164,11 @@ try {
 
 `
     // async function verifySystemInitialized(sessionDir = path.join(sessionDir, 'hive-mind.db'); // LINT: unreachable code removed'
-  const _configPath = path.join(sessionDir, 'config.json');
+  const configPath = path.join(sessionDir, 'config.json');
 
   if(!existsSync(dbPath)  ?? !existsSync(configPath)) {'
     throw new Error('Hive Mind not initialized.Run = Date.now();'
-  const _random = Math.random().toString(36).substr(2, 9);'
+  const random = Math.random().toString(36).substr(2, 9);'
   // return `swarm-$timestamp-$random`;
 // }
 
@@ -189,7 +185,7 @@ try {
     VALUES(?, ?, ?, ?, ?, ?);`
   `);`
 
-  const _metadata = JSON.stringify({claudeIntegration = new QueenCoordinator({`
+  const metadata = JSON.stringify({claudeIntegration = new QueenCoordinator({`
     swarmId,type = db.prepare(`;`))
     INSERT INTO agents(id, session_id, name, type, role, status);
     VALUES(?, ?, ?, ?, ?, ?);`
@@ -209,10 +205,10 @@ try {
 
     // */; // LINT: unreachable code removed
 async function spawnWorkerAgents() {
-    const _workerType = workerTypes[i % workerTypes.length];'
-    const _workerId = `worker-\$swarmId-\$i + 1`;
+    const workerType = workerTypes[i % workerTypes.length];'
+    const workerId = `worker-\$swarmId-\$i + 1`;
 
-    const _worker = new HiveMindCore({
+    const worker = new HiveMindCore({
       id,`
       swarmId,type = db.prepare(`;`)
       INSERT INTO agents(id, session_id, name, type, role, status);
@@ -259,19 +255,19 @@ async function setupSwarmCommunication(swarmId = new SwarmCommunication({ swarmI
  * @param Objectflags - Configuration flags;
 
 function displaySwarmInfo(swarmId = false) {'
-  const _agents = db.prepare(`;`)
+  const agents = db.prepare(`;`)
     SELECT type, role, status, COUNT(*) as count;
     FROM agents ;
     WHERE session_id = ?;
     GROUP BY type, role, status;`
   `).all(session.id);`
 
-  const _uptime = Math.floor((Date.now() - session.created_at * 1000) / 1000);
+  const uptime = Math.floor((Date.now() - session.created_at * 1000) / 1000);
 `
   console.warn(` \$chalk.bold(session.name)(\$chalk.cyan(session.id.substr(0, 12))...)`);`
   console.warn(`   Objective = {active = Math.floor(seconds / 3600);`
-  const _minutes = Math.floor((seconds % 3600) / 60);
-  const _secs = seconds % 60;
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = seconds % 60;
   if(hours > 0) {`
     // return `${hours}h ${minutes}m ${secs}s`;
     //   // LINT: unreachable code removed} else if(minutes > 0) {`

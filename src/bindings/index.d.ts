@@ -12,8 +12,7 @@ export interface TrainingConfig {
 export class NeuralNetwork {
 
 /** Create a new neural network with specified layer sizes; */
-*
-@param
+
 layers;
 Array;
 of;
@@ -23,13 +22,11 @@ sizes (including input and output layers);
 constructor(layers: number[]);
 
 /** Run the network with input data; */
-*
-@param
+
 input;
 Input;
 vector;
-*
-@returns
+
 Output;
 vector;
 
@@ -38,19 +35,16 @@ run(input: number[])
 : number[]
 
 /** Train the network on a single input/output pair; */
-*
-@param
+
 input;
 Input;
 vector;
-*
-@param
+
 target;
 Target;
 output;
 vector;
-*
-@returns
+
 Training;
 error;
 
@@ -59,8 +53,7 @@ trainOn(input: number[], target: number[])
 : number
 
 /** Get network information as JSON string; */
-*
-@returns
+
 JSON;
 string;
 with network details;
@@ -69,8 +62,7 @@ getInfo();
 : string
 
 /** Save network to file; */
-*
-@param
+
 filename;
 Path;
 to;
@@ -81,15 +73,13 @@ save(filename: string)
 : void
 
 /** Load network from file; */
-*
-@param
+
 filename;
 Path;
 to;
 load;
 file;
-*
-@returns
+
 New;
 NeuralNetwork;
 instance;

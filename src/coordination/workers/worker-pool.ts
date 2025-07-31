@@ -19,8 +19,8 @@ import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
 ('');
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // export class WorkerThreadPool extends EventEmitter {
 constructor((options = {}));
 {
@@ -51,15 +51,13 @@ constructor((options = {}));
       throw new Error('Maximum worker limit reached')
     //     }
 '
-    const _workerId = `worker-$Date.now()-$Math.random().toString(36).substr(2, 6)`;``
+    const workerId = `worker-$Date.now()-$Math.random().toString(36).substr(2, 6)`;``
 
     try {
-      const __worker = new Worker(this.workerScript, {
+      const _worker = new Worker(this.workerScript, {
         workerData => {
       this.handleWorkerMessage(workerId, message);
-    //     }
-     catch (error) console.error(error); 
-``
+    //     } ``
     worker.on('error''
       console.error(`Worker $workerIderror => ;`)
   if(code !== 0) {``
@@ -86,7 +84,7 @@ constructor((options = {}));
         this.updateWorkerStats(workerId,
     //     {/g
       status = this.workerStats.get(workerId);
-      const _executionTime = Date.now() - stats.currentTask?.startTime  ?? 0;
+      const executionTime = Date.now() - stats.currentTask?.startTime  ?? 0;
 
       // Update worker stats
       this.updateWorkerStats(workerId, {status = executionTime;
@@ -103,7 +101,7 @@ constructor((options = {}));
     handleTaskError(workerId, taskId, error);
 
     //     {
-      const __stats = this.workerStats.get(workerId);
+      const _stats = this.workerStats.get(workerId);
 
       this.updateWorkerStats(workerId, {status = this.workerStats.get(workerId);
       this.updateWorkerStats(workerId, {status = > this.restartWorker(workerId), 1000);
@@ -125,7 +123,7 @@ constructor((options = {}));
 /** Update worker statistics */
 
   updateWorkerStats(workerId, updates) {
-    const _current = this.workerStats.get(workerId);
+    const current = this.workerStats.get(workerId);
   if(current) {
       this.workerStats.set(workerId, { ...current, ...updates });
     //     }
@@ -135,11 +133,11 @@ constructor((options = {}));
 
   async executeTask(_task) { 
     // return new Promise((_resolve, _reject) => ``
-      const __taskId = `task-${++this.taskCounter}`;``
+      const _taskId = `task-${++this.taskCounter}`;``
     // ; // LINT: unreachable code removed
     //     }
 
-    const _availableWorker = this.selectAvailableWorker();
+    const availableWorker = this.selectAvailableWorker();
   if(!availableWorker) {
       // Try to scale up if we have capacity
   if(this.workers.size < this.maxWorkers) {
@@ -148,7 +146,7 @@ constructor((options = {}));
       // return;
     //   // LINT: unreachable code removed}
 
-    const _task = this.taskQueue.shift();
+    const task = this.taskQueue.shift();
     this.metrics.tasksQueued--;
 
     this.assignTaskToWorker(availableWorker, task);
@@ -157,7 +155,7 @@ constructor((options = {}));
 /** Select an available worker using load balancing strategy */
 
   selectAvailableWorker() {
-    const _idleWorkers = Array.from(this.workerStats.entries());``
+    const idleWorkers = Array.from(this.workerStats.entries());``
 filter(([_workerId, stats]) => stats.status === 'idle')
 map(([workerId]) => workerId);
   if(idleWorkers.length === 0) {
@@ -180,16 +178,16 @@ map(([workerId]) => workerId);
     selectLeastBusy(idleWorkers);
 
     // return idleWorkers.reduce((leastBusy, workerId) => {
-      const _stats = this.workerStats.get(workerId);
-    // const _leastBusyStats = this.workerStats.get(leastBusy); // LINT: unreachable code removed
+      const stats = this.workerStats.get(workerId);
+    // const leastBusyStats = this.workerStats.get(leastBusy); // LINT: unreachable code removed
 
       // return stats.tasksCompleted < leastBusyStats.tasksCompleted ? workerId => {
-      const _stats = this.workerStats.get(workerId);
-    // const _bestStats = this.workerStats.get(best); // LINT: unreachable code removed
+      const stats = this.workerStats.get(workerId);
+    // const bestStats = this.workerStats.get(best); // LINT: unreachable code removed
 
       // Select worker with best average task time and fewer errors
-      const _workerScore = (stats.averageTaskTime  ?? Infinity) + (stats.errors * 1000)
-      const _bestScore = (bestStats.averageTaskTime  ?? Infinity) + (bestStats.errors * 1000)
+      const workerScore = (stats.averageTaskTime  ?? Infinity) + (stats.errors * 1000)
+      const bestScore = (bestStats.averageTaskTime  ?? Infinity) + (bestStats.errors * 1000)
 
       // return workerScore < bestScore ?workerId = this.workers.get(workerId);
     // if(!worker) { // LINT: unreachable code removed'
@@ -206,7 +204,7 @@ map(([workerId]) => workerId);
       //       }
     };
 
-    const _onError = () => {
+    const onError = () => {
   if(data.taskId === task.id) {'
         this.off('task-completed''
         this.off('task-error', onError)
@@ -236,7 +234,7 @@ map(([workerId]) => workerId);
     // ; // LINT: unreachable code removed
     for (const [workerId, stats] of this.workerStats.entries()) {
       // Check for stuck tasks with configurable timeout
-      const _taskTimeout = stats.currentTask.timeout  ?? this.defaultTaskTimeout  ?? 60000; // Default 1 minute
+      const taskTimeout = stats.currentTask.timeout  ?? this.defaultTaskTimeout  ?? 60000; // Default 1 minute
       if(stats.currentTask && Date.now() - stats.currentTask.startTime > taskTimeout) {``
         console.warn(` Worker ${workerId} appears stuck on task ${stats.currentTask.id}`); ``
         this.restartWorker(workerId) 
@@ -248,7 +246,7 @@ map(([workerId]) => workerId);
 /** Get pool status and metrics */
 
   getStatus() {
-    const _workers = Array.from(this.workerStats.values());
+    const workers = Array.from(this.workerStats.values());
 ``
     // return {workers = > w.status === 'idle').length,busy = > w.status === 'busy').length,error = > w.status === 'error').length
     //   // LINT: unreachable code removed},queue = true;
@@ -260,7 +258,7 @@ map(([workerId]) => workerId);
     this.taskQueue = [];
 
     // Terminate all workers
-    const __terminationPromises = Array.from(this.workers.values()).map((worker) => {
+    const _terminationPromises = Array.from(this.workers.values()).map((worker) => {
 //       return new Promise((resolve) => {'
         worker.on('exit', resolve)
     // worker.postMessage({ type => { // LINT);

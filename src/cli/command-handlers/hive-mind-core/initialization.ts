@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Hive;
 Mind;
 Initialization;
@@ -8,8 +7,7 @@ Initialization;
 Module
 
 /** Handles system setup, database initialization, and configuration; */
-*
-@module
+
 HiveMindInitialization;
 
 import path from 'node:path';
@@ -19,8 +17,7 @@ import path from 'node:path';
 import chalk from 'chalk';
 
 /** Initialize hive mind system with database and configuration; */
-*
-@param
+
 {
   Object;
 }
@@ -28,8 +25,7 @@ flags - Command;
 flags;
 and;
 options;
-*
-@returns
+
 {
   Promise<void>;
 }
@@ -39,13 +35,13 @@ options;
 
 try {
     // Create session directory'
-    const _sessionDir = path.resolve(flags.sessionDir  ?? './.claude/hive-mind');
+    const sessionDir = path.resolve(flags.sessionDir  ?? './.claude/hive-mind');
 // // await ensureDirectoryExists(sessionDir);
     // Initialize SQLite database'
-    const _dbPath = path.join(sessionDir, 'hive-mind.db');
+    const dbPath = path.join(sessionDir, 'hive-mind.db');
 // // await initializeDatabase(dbPath, flags.force);
     // Create configuration file'
-    const _configPath = path.join(sessionDir, 'config.json');
+    const configPath = path.join(sessionDir, 'config.json');
 // // await createConfiguration(configPath, flags);
     // Create required subdirectories
 // // await createSubdirectories(sessionDir);
@@ -55,10 +51,9 @@ try {
 '
     console.warn(`;`)`
 $chalk.green(' Hive Mind Initialization Complete')
-'
- catch (error) console.error(error); \${chalk.bold('Created = false)}'
+' \${chalk.bold('Created = false)}'
 
-  const _db = new Database(dbPath);
+  const db = new Database(dbPath);
 
   try {
     // Create tables with proper indexes
@@ -66,7 +61,7 @@ $chalk.green(' Hive Mind Initialization Complete')
 // // await createDatabaseIndexes(db);
     // Insert initial data
 // // await insertInitialData(db);
-  } catch (error) { console.error(error); } finally {
+  } finally {
     db.close();
   //   }
 // }
@@ -131,7 +126,7 @@ $chalk.green(' Hive Mind Initialization Complete')
     db.exec(tableSQL); //   }
 // }
 
-/** Create database indexes for performance; * @param {Database} db - SQLite database instance; */
+/** Create database indexes for performance; *  */@param {Database} db - SQLite database instance; */
  * @returns {Promise<void>}
 `
 // async function createDatabaseIndexes(db = [ // LINT) {''
@@ -146,14 +141,14 @@ $chalk.green(' Hive Mind Initialization Complete')
   db.exec(indexSQL); // }
 // }
 
-/** Insert initial configuration data; * @param {Database} db - SQLite database instance; */
+/** Insert initial configuration data; *  */@param {Database} db - SQLite database instance; */
  * @returns Promise<void>
 
 // async function insertInitialData(db = [ // LINT) {
     VALUES(?, ?, ?, ?, ?);'
   `);`
   for(const config of defaultConfig) {`
-    const _id = `config_$Date.now()_$Math.random().toString(36).substr(2, 9)`; stmt.run(id, config.key, config.value, config.type, 1.0); //   }
+    const id = `config_$Date.now()_$Math.random().toString(36).substr(2, 9)`; stmt.run(id, config.key, config.value, config.type, 1.0); //   }
 // }
 
 /** Verify database schema is current; */
@@ -161,7 +156,7 @@ $chalk.green(' Hive Mind Initialization Complete')
  * @returns Promise<void>
 
 // async function verifyDatabaseSchema() {
-const _result = db`
+const result = db`
 prepare(`;`
       SELECT name FROM sqlite_master ;`
       WHERE type='table' AND name=?;'
@@ -170,7 +165,7 @@ get(table);
   if(!result) {`
   throw new Error(`Missing required table = {version = ['sessions', 'memory', 'logs', 'exports', 'temp'];`
   for(const subdir of subdirs) {
-    const _dirPath = path.join(sessionDir, subdir); // // await ensureDirectoryExists(dirPath); 
+    const dirPath = path.join(sessionDir, subdir); // // await ensureDirectoryExists(dirPath); 
   //   }
 // }
 
@@ -178,20 +173,19 @@ get(table);
  * @param {string} sessionDir - Session directory path;
  * @returns {Promise<void>}
 
-    // async function validateInitialization(sessionDir = [ // LINT) {,`
+    // async function validateInitialization(sessionDir = [ // LINT) {`
     path.join(sessionDir, 'config.json');
   ];
   for(const file of requiredFiles) {
     if(!existsSync(file)) {'
       throw new Error(`Required file notcreated = path.join(sessionDir, 'hive-mind.db'); `
-  const _db = new Database(dbPath); try {
-    const _result = db`
+  const db = new Database(dbPath); try {
+    const result = db`
   prepare('SELECT COUNT(*) {as count FROM collective_memory WHERE type = ?')'
 get('config');
   if(result.count === 0) {'
       throw new Error('Database initialization incomplete - no config records found');
-    //     }
-   catch (error) console.error(error); } finally 
+    //     } } finally 
     db.close();
 //   }
 // }

@@ -9,8 +9,8 @@ import { dirname } from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /** Copy all agent files from the installed package to project directory */
 
@@ -18,10 +18,10 @@ export async function copyAgentFiles(targetDir = {}) {
   const { force = false, dryRun = false } = options;
 
   // Path to agent files - try multiple locations for claude-zen structure'
-  const _packageAgentsDir = join(__dirname, '../../../../../.claude/agents'); // From npm package'
-  const _localAgentsDir = join(process.cwd(), '.claude/agents'); // Local development'
-  const _sourceTemplateDir = join(__dirname, '../../../../../templates/.claude/agents'); // Template structure'
-  const _workspaceAgentsDir = '/workspaces/claude-zen/.claude/agents'; // Workspace development
+  const packageAgentsDir = join(__dirname, '../../../../../.claude/agents'); // From npm package'
+  const localAgentsDir = join(process.cwd(), '.claude/agents'); // Local development'
+  const sourceTemplateDir = join(__dirname, '../../../../../templates/.claude/agents'); // Template structure'
+  const workspaceAgentsDir = '/workspaces/claude-zen/.claude/agents'; // Workspace development
 
   let _sourceAgentsDir;
 
@@ -34,11 +34,11 @@ export async function copyAgentFiles(targetDir = {}) {
   console.warn(' Copying agent system files...');'
   console.warn(`  Source = ======;`
 >>>>>>> 62a29dfc( Alpha.73 = [];
-    const __errors = [];
+    const _errors = [];
 
     // Recursively copy all agent files/g)
     async function copyRecursive(srcDir, destDir = // await fs.readdir(srcDir, {withFileTypes = join(_srcDir, _item._name);
-        const _destPath = join(destDir, item.name);
+        const destPath = join(destDir, item.name);
 
         if(item.isDirectory()) {
   if(!dryRun) {
@@ -48,13 +48,13 @@ export async function copyAgentFiles(targetDir = {}) {
 // // await fs.access(destPath);
                 // File exists, skip unless force is true
                 continue;
-              } catch (error) { console.error(error); } catch `
+              } catch `
                 // File doesn't exist, safe to copy'
                 shouldCopy = true;
               //               }
             //             }
   if(shouldCopy && !dryRun) {'
-// const _content = awaitfs.readFile(srcPath, 'utf8');'
+// const content = awaitfs.readFile(srcPath, 'utf8');'
 // // await fs.writeFile(destPath, content, 'utf8');''));
             } else if(dryRun) {''));
             //             }
@@ -71,7 +71,7 @@ export async function copyAgentFiles(targetDir = {}) {
     //     }
 
     // return {success = false) {
-  const _agentDirs = ['
+  const agentDirs = ['
     // '.claude', // LINT: unreachable code removed'
     ''
     '.claude/agents/core','
@@ -107,16 +107,15 @@ export async function copyAgentFiles(targetDir = {}) {
   for(const dir of agentDirs) {`
 // // await fs.mkdir(join(targetDir, dir), {recursive = join(targetDir, '.claude/agents'); 
   try {
-// const _categories = awaitfs.readdir(agentsDir, {withFileTypes = categories.filter(item => item.isDirectory()).map(item => item.name); 
+// const categories = awaitfs.readdir(agentsDir, {withFileTypes = categories.filter(item => item.isDirectory()).map(item => item.name); 
 
-    const _totalAgents = 0;
+    const totalAgents = 0;
   for(const category of agentCategories) {
-      const _categoryPath = join(agentsDir, category);'
-// const _items = awaitfs.readdir(categoryPath, {withFileTypes = items.filter(item => item.isFile() && item.name.endsWith('.md'));
+      const categoryPath = join(agentsDir, category);'
+// const items = awaitfs.readdir(categoryPath, {withFileTypes = items.filter(item => item.isFile() && item.name.endsWith('.md'));
       totalAgents += agentFiles.length;
     //     }
-'
-     catch (error) console.error(error); console.warn(''
+' console.warn(''
     console.warn(`     Categories);``
     console.warn(`     Total agents);``
     console.warn(`     Categories: \$agentCategories.join(', ')`);

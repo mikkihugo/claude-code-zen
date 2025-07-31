@@ -18,7 +18,7 @@ import { SqliteMemoryStore } from '../../../src/memory/sqlite-store.js';
 
 '
 // Mock dependencies that don't need actual implementation'
-const _mockSqliteWrapper = () => ({ createDatabase) => ({
+const mockSqliteWrapper = () => ({ createDatabase) => ({
     prepare) => ({
       run: jest.fn(),
 get: jest.fn(),
@@ -48,7 +48,7 @@ beforeEach(async () => {
     // await memoryStore.close();
     //   }
     try {
-  // // await fs.rm(testDir, { recursive, force } catch (error) { console.error(error); });
+  // // await fs.rm(testDir, { recursive, force });
     } catch(/* _error */) {
       // Ignore cleanup errors
     //     }
@@ -58,7 +58,7 @@ describe('constructor', () =>
 // {'
   it('should initialize with default options', () =>
     {
-      const _store = new SqliteMemoryStore();
+      const store = new SqliteMemoryStore();
       '
     expect(store.options.dbName).toBe('memory.db')
     expect(store.options.cacheSize).toBe(10000)
@@ -68,12 +68,11 @@ describe('constructor', () =>
     )'
   it('should initialize with custom options', () =>
     {
-      const _customOptions = {'
+      const customOptions = {'
       dbName: 'custom.db',
       cacheSize,
-      enableCache,
-    };
-      const _store = new SqliteMemoryStore(customOptions);
+      enableCache};
+      const store = new SqliteMemoryStore(customOptions);
       '
     expect(store.options.dbName).toBe('custom.db')
     expect(store.options.cacheSize).toBe(5000)
@@ -85,9 +84,9 @@ describe('_getMemoryDirectory', () =>
 // {'
   it('should return .swarm directory in current working directory', () =>
   {
-    const _store = new SqliteMemoryStore();
+    const store = new SqliteMemoryStore();
     '
-  // const _expectedPath = path.join(process.cwd(), '.swarm'); // LINT: unreachable code removed
+  // const expectedPath = path.join(process.cwd(), '.swarm'); // LINT: unreachable code removed
   expect(store._getMemoryDirectory()).toBe(expectedPath)
   }
 });
@@ -105,7 +104,7 @@ describe('initialization', () =>
 it('should not reinitialize if already initialized', async () =>
 {
   // await memoryStore.initialize();
-  const _firstDb = memoryStore.db;
+  const firstDb = memoryStore.db;
   // await memoryStore.initialize();
   expect(memoryStore.db).toBe(firstDb);
 }
@@ -120,13 +119,12 @@ describe('memory operations', () =>
 )'
 it('should store and retrieve memory', async () =>
 {
-  const _testMemory = {'
+  const testMemory = {'
     key: 'test-key','
     value: 'test-value','
-    type: 'test',
-  };
+    type: 'test'};
   // // await memoryStore.store(testMemory.key, testMemory.value, testMemory.metadata);
-  // const _retrieved = awaitmemoryStore.retrieve(testMemory.key);
+  // const retrieved = awaitmemoryStore.retrieve(testMemory.key);
   expect(retrieved).toEqual(;
   expect.objectContaining({ key: testMemory.key,
   value: testMemory.value,
@@ -137,14 +135,14 @@ it('should store and retrieve memory', async () =>
 )'
 it('should return null for non-existent keys', async() =>
 // {'
-// const _result = awaitmemoryStore.retrieve('non-existent-key');
+// const result = awaitmemoryStore.retrieve('non-existent-key');
 // expect(result).toBeNull(); // LINT: unreachable code removed
 })'
 it('should list all memories', async() =>
 // {'
   // await memoryStore.store('key1', 'value1');'
   // await memoryStore.store('key2', 'value2');
-// const _memories = awaitmemoryStore.list();
+// const memories = awaitmemoryStore.list();
   expect(memories).toHaveLength(2)'
 expect(memories.map((m) => m.key)).toContain('key1')'
 expect(memories.map((m) => m.key)).toContain('key2')
@@ -152,7 +150,7 @@ expect(memories.map((m) => m.key)).toContain('key2')
 it('should delete memory', async() =>
 // {'
   // await memoryStore.store('delete-test', 'value');'
-// const _retrieved = awaitmemoryStore.retrieve('delete-test');
+// const retrieved = awaitmemoryStore.retrieve('delete-test');
   expect(retrieved).toBeTruthy()'
 // // await memoryStore.delete('delete-test');'
 retrieved = expect(retrieved).toBeNull() // await memoryStore.retrieve('delete-test');
@@ -161,7 +159,7 @@ it('should clear all memories', async() =>
 // {'
   // await memoryStore.store('key1', 'value1');'
   // await memoryStore.store('key2', 'value2');
-// const _memories = awaitmemoryStore.list();
+// const memories = awaitmemoryStore.list();
   expect(memories.length).toBeGreaterThan(0)
 // // await memoryStore.clear();
 memories = expect(memories).toHaveLength(0) // await memoryStore.list();
@@ -180,7 +178,7 @@ describe('search functionality', () =>
 it('should search by term', async () =>
 {
   '
-  // const _results = awaitmemoryStore.search('hello');
+  // const results = awaitmemoryStore.search('hello');
   expect(results.length).toBeGreaterThanOrEqual(1)
   '
   expect(results.some((r) => r.key === 'search1')).toBe(true)
@@ -189,7 +187,7 @@ it('should search by term', async () =>
 it('should search with limit', async () =>
 {
   '
-  // const _results = awaitmemoryStore.search('world', { limit });
+  // const results = awaitmemoryStore.search('world', { limit });
   expect(results).toHaveLength(1)
 }
 )
@@ -198,14 +196,14 @@ describe('error handling', () =>
 // {'
   it('should handle initialization errors gracefully', async() =>
 {
-  const _store = new SqliteMemoryStore({ directory);
+  const store = new SqliteMemoryStore({ directory);
   // Should not throw but should handle gracefully
   // await expect(store.initialize()).rejects.toThrow();
 }
 )'
 it('should handle operations on uninitialized store', async () =>
 {
-  const _store = new SqliteMemoryStore();
+  const store = new SqliteMemoryStore();
   '
   // await expect(store.store('key', 'value')).rejects.toThrow();
 }
@@ -223,10 +221,10 @@ it('should cache query results when enabled', async() =>
 // {'
   // await memoryStore.store('cache-test', 'value');
   // First call should miss cache'
-// const _result1 = awaitmemoryStore.retrieve('cache-test');
+// const result1 = awaitmemoryStore.retrieve('cache-test');
   expect(memoryStore.cacheStats.misses).toBeGreaterThan(0)
 // Second call should hit cache(if caching is implemented)'
-// const _result2 = awaitmemoryStore.retrieve('cache-test');
+// const result2 = awaitmemoryStore.retrieve('cache-test');
 expect(result1).toEqual(result2)
 }
 })'

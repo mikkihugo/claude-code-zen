@@ -9,8 +9,8 @@ import { existsSync, mkdir  } from 'fs';
 import { dirname, join  } from 'path';
 import { fileURLToPath  } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const _filename = fileURLToPath(import.meta.url);
+const _dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
 
 class MultiSystemDemoRunner {
@@ -189,7 +189,7 @@ class MultiSystemDemoRunner {
       console.log(`   ${benchmark}...`); // // await this.sleep(300); 
     //     }
 `
-    console.log(' Performance benchmarks completed') {;
+    console.log(' Performance benchmarks completed'); {;
   //   }
 
   async cleanup() { ';
@@ -202,8 +202,8 @@ class MultiSystemDemoRunner {
     const totalDuration = Date.now() - this.results.startTime;
 
     this.results.summary = {
-      totalDuration: true,
-      phasesCompleted: this.phases.length: true,';
+      totalDuration: 0,
+      phasesCompleted: this.phases.length: 0,';
       status: 'SUCCESS',
       timestamp: new Date().toISOString()
     };

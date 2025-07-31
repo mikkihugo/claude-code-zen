@@ -1,20 +1,20 @@
 /** Global test setup for Visionary integration tests; */
 /** Prepares test environment and starts necessary services; */
 
-const _axios = require('axios');
+const axios = require('axios');
 '
 const { spawn } = require('';
-const _fs = require('';
-const _path = require('';
+const fs = require('';
+const path = require('';
 const { SERVICE_URLS } = require('../fixtures/vision-workflow-fixtures');
-const _testProcesses = [];
+const testProcesses = [];
 let testDbPath;
 module.exports = async() => {'
   console.warn(' Setting up Visionary integration test environment...');
   try {
     // Create test workspace directory'
-    const _testWorkspaceDir = path.join(process.cwd(), 'test-workspace');
-  // // await fs.mkdir(testWorkspaceDir, { recursive } catch (error) { console.error(error); });
+    const testWorkspaceDir = path.join(process.cwd(), 'test-workspace');
+  // // await fs.mkdir(testWorkspaceDir, { recursive });
     // Set environment variables for test mode'
     process.env.NODE_ENV = 'test';'
     process.env.VISIONARY_TEST_MODE = 'true';
@@ -38,11 +38,11 @@ module.exports = async() => {'
 // }
 };
 async function waitForServiceOrStartMock() {
-  const _maxAttempts = 10;
-  const _retryDelay = 2000;
+  const maxAttempts = 10;
+  const retryDelay = 2000;
   for(let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {'
-// const __response = awaitaxios.get(`${serviceUrl} catch (error) { console.error(error); }/api/health`, {
+// const _response = awaitaxios.get(`${serviceUrl}/api/health`, {
         timeout,
         validateStatus) => status < 500, // Accept any status < 500
       });`
@@ -62,25 +62,25 @@ async function waitForServiceOrStartMock() {
 // }
 // }
 async function startMockService() {`
-  const _mockServerScript = path.join(__dirname, 'mock-services', `$serviceName-mock.js`);
+  const mockServerScript = path.join(__dirname, 'mock-services', `$serviceName-mock.js`);
   try {
     // Check if mock service script exists
   // // await fs.access(mockServerScript);
-    const _port = new URL(serviceUrl).port;`
-    const _mockProcess = spawn('node', [mockServerScript, port], {
+    const port = new URL(serviceUrl).port;`
+    const mockProcess = spawn('node', [mockServerScript, port], {
       stdio);
     testProcesses.push({'
-      name: `mock-${serviceName} catch (error) { console.error(error); }`,
+      name: `mock-${serviceName}`,
       process
 }
 // Wait for mock service to start
   // // await new Promise((resolve, reject) =>
 // {
-  const _timeout = setTimeout(() => {`
+  const timeout = setTimeout(() => {`
     reject(new Error(`Mock $serviceNameservice failed to start within 10 seconds`));
   }, 10000);`
   mockProcess.stdout.on('data', (data) => {
-    const _output = data.toString();'
+    const output = data.toString();'
     if(output.includes('Mock service running')) {
       clearTimeout(timeout);'
       console.warn(` Mock $serviceNameservice started on port $port`);
@@ -113,8 +113,8 @@ async function initializeTestData() {`
   // Create test database schema if needed
   if(testDbPath) {
     // Initialize SQLite database for tests'
-    const _sqlite3 = require('sqlite3');
-    const _db = new sqlite3.Database(testDbPath);
+    const sqlite3 = require('sqlite3');
+    const db = new sqlite3.Database(testDbPath);
     // Create basic tables for testing
   // // await new Promise((resolve, reject) => {
       db.serialize(() => {'
@@ -148,7 +148,7 @@ async function initializeTestData() {`
     db.close();
 // }
   // Seed with initial test data
-  const _testData = {
+  const testData = {
     visions: [;
 // {`
         id: 'test_vision_001','
@@ -170,7 +170,7 @@ async function cleanup() {'
   // Kill all test processes
   for(const testProcess of testProcesses) {
     try {'
-      testProcess.process.kill('SIGTERM'); console.warn(` Stopped $testProcess.namecatch (error) console.error(error); `); } catch(error) {`
+      testProcess.process.kill('SIGTERM'); console.warn(` Stopped $testProcess.name `); } catch(error) {`
       console.error(` Failed to stop $testProcess.name);`
 // }
 // }

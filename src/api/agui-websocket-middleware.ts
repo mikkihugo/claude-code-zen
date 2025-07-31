@@ -1,10 +1,9 @@
 /**  AG-UI WebSocket Middleware for Claude Code Zen; */
-*
+
 /** Integrates AG-UI protocol with existing WebSocket infrastructure; */
 /** Provides real-time AG-UI event streaming to connected clients; */
-*
-*
-@module
+
+
 AGUIWebSocketMiddleware;
 
 import { WebSocket } from 'ws';
@@ -37,8 +36,8 @@ export // interface ClientSession {
 /** Bridges Claude Zen WebSocket service with AG-UI protocol; */
 
 // export class AGUIWebSocketMiddleware {
- *
-/;;
+
+/;
 constructor(webSocketService, (_options = {}));
 {
   this.wss = webSocketService;
@@ -92,7 +91,7 @@ this.globalAdapter.on('error', (error) =>
 setupClient(ws, sessionId?)
 : string
 // {
-const _clientSessionId =;
+const clientSessionId =;
 '
   sessionId ?? `client-$
 {
@@ -104,7 +103,7 @@ const _clientSessionId =;
 }
 `;
   // Create AG-UI adapter for this client
-  const _adapter = new AGUIAdapter({
+  const adapter = new AGUIAdapter({
       sessionId,`;
 threadId: `thread-${clientSessionId}`;
 }
@@ -112,13 +111,12 @@ threadId: `thread-${clientSessionId}`;
 // Store client adapter
 this.clientAdapters.set(ws, adapter)
 // Create session
-const _session = {
+const session = {
   ws,
   adapter,
   sessionId,
   connectedAt: Date.now(),
-  lastActivity: Date.now(),
-};
+  lastActivity: Date.now()};
 this.sessions.set(clientSessionId, session);
 // Setup event forwarding from adapter to client`
 adapter.on('agui-event', (event) =>
@@ -152,16 +150,15 @@ adapter.emitCustomEvent('clientConnected',
   ws.on('message', (data) =>
 {
     try {
-        const _message = JSON.parse(data.toString());
+        const message = JSON.parse(data.toString());
         this.handleClientMessage(ws, adapter, message);
         this.stats.messagesProcessed++;
 
         // Update session activity
-        const _session = this.getSessionByWebSocket(ws);
+        const session = this.getSessionByWebSocket(ws);
   if(session) {
           session.lastActivity = Date.now();
-        //         }
-       catch (error) console.error(error); } catch(error) '
+        //         } } catch(error) '
         console.error(''
         this.sendError(ws, 'Invalid JSON message'););'
   ws.on('close', () => 
@@ -221,8 +218,8 @@ adapter.emitCustomEvent('clientConnected',
 // private handleClientDisconnect(ws)
 : void
 // {
-  const _adapter = this.clientAdapters.get(ws);
-  const _session = this.getSessionByWebSocket(ws);
+  const adapter = this.clientAdapters.get(ws);
+  const session = this.getSessionByWebSocket(ws);
   if(adapter) {`
     adapter.finishRun(undefined, 'disconnected');
     this.clientAdapters.delete(ws);
@@ -241,9 +238,7 @@ adapter.emitCustomEvent('clientConnected',
   if(ws.readyState === WebSocket.OPEN) {
     try {
         ws.send(JSON.stringify(event));
-      } catch (error) {
-  console.error(error);
-}'
+      }'
         console.error('Failed to send message to client);'
       //       }
   //   }
@@ -268,14 +263,12 @@ adapter.emitCustomEvent('clientConnected',
 // {
   if(!this.options.enableBroadcast) return;
   // ; // LINT: unreachable code removed
-  const _message = JSON.stringify(event);
+  const message = JSON.stringify(event);
   this.clientAdapters.forEach((_adapter, ws) => {
   if(ws.readyState === WebSocket.OPEN) {
       try {
           ws.send(message);
-        } catch (error) {
-  console.error(error);
-}'
+        }'
           console.error('Failed to broadcast to client);'
         //         }
     //     }
@@ -316,8 +309,8 @@ adapter.emitCustomEvent('clientConnected',
 /** Cleanup expired sessions; */
 
   cleanupExpiredSessions() {
-    const _now = Date.now();
-    const _expiredSessions = [];
+    const now = Date.now();
+    const expiredSessions = [];
 
     for (const [sessionId, session] of this.sessions.entries()) {
   if(now - session.lastActivity > this.options.sessionTimeout!) {
@@ -325,7 +318,7 @@ adapter.emitCustomEvent('clientConnected',
     //     }
 
     expiredSessions.forEach((sessionId) => {
-      const _session = this.sessions.get(sessionId); if(session) {
+      const session = this.sessions.get(sessionId); if(session) {
         session.ws.close();
         this.sessions.delete(sessionId);
         this.clientAdapters.delete(session.ws);

@@ -1,5 +1,4 @@
 /**  AG-UI Integration Tests for Claude Code Zen; */
-*
 
 /** Basic tests to validate AG-UI protocol integration; */
 
@@ -39,9 +38,9 @@ describe('AG-UI Integration Tests', () =>
     '
     test('should emit text message events correctly', (done) =>
   {
-    const _eventsReceived = 0;
+    const eventsReceived = 0;
     '
-    const _expectedEvents = ['TEXT_MESSAGE_START', 'TEXT_MESSAGE_CONTENT', 'TEXT_MESSAGE_END'];
+    const expectedEvents = ['TEXT_MESSAGE_START', 'TEXT_MESSAGE_CONTENT', 'TEXT_MESSAGE_END'];
     '
       adapter.on('agui) => {'
       expect(expectedEvents).toContain(event.
@@ -53,7 +52,7 @@ describe('AG-UI Integration Tests', () =>
       //       }
     }
 
-    const _messageId = adapter.startTextMessage();
+    const messageId = adapter.startTextMessage();
     '
       adapter.addTextContent('Test message')
       adapter.endTextMessage(messageId)
@@ -62,13 +61,12 @@ describe('AG-UI Integration Tests', () =>
     '
     test('should emit tool call events correctly', (done) =>
   {
-    const _eventsReceived = 0;
-    const _expectedEvents = ['
+    const eventsReceived = 0;
+    const expectedEvents = ['
         'TOOL_CALL_START','
         'TOOL_CALL_ARGS','
         'TOOL_CALL_END','
         'TOOL_CALL_RESULT',
-        ,
       ];
     '
       adapter.on('agui) => {'
@@ -81,7 +79,7 @@ describe('AG-UI Integration Tests', () =>
       //       }
     }
     )'
-    const _toolCallId = adapter.startToolCall('test_tool');
+    const toolCallId = adapter.startToolCall('test_tool');
     '
       adapter.addToolCallArgs('{"param");'
     adapter.endToolCall(toolCallId)
@@ -115,9 +113,9 @@ describe('AG-UI Integration Tests', () =>
     adapter.addTextContent('Test')
       adapter.endTextMessage()
     '
-    const _toolCallId = adapter.startToolCall('test_tool');
+    const toolCallId = adapter.startToolCall('test_tool');
     adapter.endToolCall(toolCallId);
-    const _stats = adapter.getStats();
+    const stats = adapter.getStats();
     expect(stats.messagesCreated).toBe(1);
     expect(stats.toolCallsExecuted).toBe(1);
     expect(stats.eventsEmitted).toBeGreaterThan(0);
@@ -136,7 +134,7 @@ describe('AGUIWebSocketMiddleware', () =>
     '
   test('should create global adapter', () =>
     {
-      const _globalAdapter = middleware.getGlobalAdapter();
+      const globalAdapter = middleware.getGlobalAdapter();
       expect(globalAdapter).toBeDefined();
       '
     expect(globalAdapter.sessionId).toBe('server-global')
@@ -145,10 +143,10 @@ describe('AGUIWebSocketMiddleware', () =>
     '
   test('should initialize client adapters', () =>
     {
-      const _mockWS = new EventEmitter();
+      const mockWS = new EventEmitter();
       mockWS.readyState = 1; // OPEN
       mockWS.send = jest.fn();
-      const _clientAdapter = middleware.initializeClient(mockWS);
+      const clientAdapter = middleware.initializeClient(mockWS);
       expect(clientAdapter).toBeDefined();
       expect(middleware.getClientAdapter(mockWS)).toBe(clientAdapter);
     }
@@ -156,20 +154,19 @@ describe('AGUIWebSocketMiddleware', () =>
     '
   test('should broadcast events to clients', () =>
     {
-      const _mockWS1 = new EventEmitter();
+      const mockWS1 = new EventEmitter();
       mockWS1.readyState = 1; // OPEN
       mockWS1.send = jest.fn();
-      const _mockWS2 = new EventEmitter();
+      const mockWS2 = new EventEmitter();
       mockWS2.readyState = 1; // OPEN
       mockWS2.send = jest.fn();
       middleware.initializeClient(mockWS1);
       middleware.initializeClient(mockWS2);
-      const _testEvent = {
+      const testEvent = {
       type: EventType.CUSTOM,'
       name: 'test','
-      value: 'broadcast test',
-    };
-      const _sentCount = middleware.broadcastAGUIEvent(testEvent);
+      value: 'broadcast test'};
+      const sentCount = middleware.broadcastAGUIEvent(testEvent);
       expect(sentCount).toBe(2);
       expect(mockWS1.send).toHaveBeenCalled();
       expect(mockWS2.send).toHaveBeenCalled();
@@ -182,7 +179,7 @@ describe('Integration with Claude Code Zen', () =>
 // {'
   test('should handle Queen coordination events', () =>
   {
-    const _events = [];
+    const events = [];
     '
     adapter.on('agui) => {'
       events.push(event)
@@ -209,7 +206,7 @@ expect(events[2].value.action).toBe('consensus_reached')
     )'
 test('should handle swarm coordination events', () =>
     {
-      const _events = [];
+      const events = [];
       '
   adapter.on('agui) => {'
       events.push(event)
@@ -229,17 +226,16 @@ expect(events[0].value.agents).toEqual(['agent-1', 'agent-2'])
     )'
 test('should handle state synchronization', () =>
     {
-      const _events = [];
+      const events = [];
       '
   adapter.on('agui) => {'
         events.push(event)
     }
 
-    const _testState = {
+    const testState = {
   queens: { count },
   active,'
-  sqlite: 'healthy',
-};
+  sqlite: 'healthy'};
     adapter.emitStateSnapshot(testState);
     expect(events).toHaveLength(1);
     expect(events[0].type).toBe(EventType.STATE_SNAPSHOT);
@@ -249,18 +245,18 @@ test('should handle state synchronization', () =>
 // Run tests if called directly'
 if (process.argv[1].endsWith('/agui-integration.test.js')) {
   '
-  console.warn(' Running AG-UI Integration Tests...')
+  console.warn(' Running AG-UI Integration Tests...');
   // Simple test runner for when Jest is not available
   async
   function runBasicTests() {
-    const _adapter = new AGUIAdapter({ sessionId);
+    const adapter = new AGUIAdapter({ sessionId);
     // Test 1: Basic functionality'
     console.warn(' Testing basic adapter creation');
     // Test 2: Text message flow
-    const _eventCount = 0;
+    const eventCount = 0;
     '
     adapter.on('agui) => eventCount++);'
-    const _messageId = adapter.startTextMessage();
+    const messageId = adapter.startTextMessage();
     '
     adapter.addTextContent('Test')
     adapter.endTextMessage(messageId)
@@ -270,9 +266,9 @@ if (process.argv[1].endsWith('/agui-integration.test.js')) {
     events;
     )`)
     // Test 3: Tool call flow
-    const _initialCount = eventCount;
+    const initialCount = eventCount;
     `
-    const _toolCallId = adapter.startToolCall('test_tool');'
+    const toolCallId = adapter.startToolCall('test_tool');'
     adapter.addToolCallArgs('{}');
     adapter.endToolCall(toolCallId);'
     adapter.emitToolCallResult('result', toolCallId);'
@@ -281,14 +277,12 @@ if (process.argv[1].endsWith('/agui-integration.test.js')) {
     call;
     flow(${eventCount - initialCount} events)`);
     // Test 4: Custom events
-    const _beforeCustom = eventCount;`
+    const beforeCustom = eventCount;`
     adapter.emitQueenEvent('queen-1', 'test', {});
     '
-    adapter.emitSwarmEvent('swarm-1', 'test', [],
-    )
+    adapter.emitSwarmEvent('swarm-1', 'test', [])
     '
-    adapter.emitHiveMindEvent('test',
-    )
+    adapter.emitHiveMindEvent('test')
     '
     console.warn(` Custom events($
       eventCount - beforeCustom

@@ -25,18 +25,18 @@ export class ProjectScaffoldPlugin extends EventEmitter {
     initialize();
     {
       '
-    console.warn(' Project Scaffold Plugin initialized')
+    console.warn(' Project Scaffold Plugin initialized');
       // Create directories'
       // await mkdir(this.config.templatesDir,  recursive = {name = require('express');'
-      const _cors = require('cors');
+      const cors = require('cors');
       '
-      const _helmet = require('helmet');
+      const helmet = require('helmet');
       '
-      const _morgan = require('morgan');
+      const morgan = require('morgan');
       '
-      const _routes = require('.'
-      const _app = express();
-      const _PORT = process.env.PORT ?? 3000;
+      const routes = require('.'
+      const app = express();
+      const PORT = process.env.PORT ?? 3000;
       // Middleware
       app.use(helmet());
       app.use(cors());
@@ -66,7 +66,7 @@ export class ProjectScaffoldPlugin extends EventEmitter {
 `,
         (encoding = require('express'));
       `
-const _router = express.Router();
+const router = express.Router();
 
 // Health check`;
       router.get('/health', (req, res) => {
@@ -182,9 +182,9 @@ this.config = config
       '
 encoding = require('express')
       '
-      const _pino = require('pino');
-      const _app = express();
-      const _logger = pino({transport = process.env.PORT  ?? {{port}};
+      const pino = require('pino');
+      const app = express();
+      const logger = pino({transport = process.env.PORT  ?? {{port}};
       // Middleware
       app.use(express.json());
       // Request logging
@@ -211,7 +211,7 @@ encoding = require('express')
     )'
 `,``
   (encoding = require('node));'
-    const _options = {host = http.request(options, (res) => {
+    const options = {host = http.request(options, (res) => {
   if(res.statusCode === 200) {
     process.exit(0);
   } else {
@@ -252,7 +252,7 @@ initialize();
     //     }
 
     // Implement your plugin logic here'
-    console.warn('Executing {{pluginName}} withoptions = false;')'
+    console.warn('Executing {{pluginName}} withoptions = false;');'
     console.warn(' {{pluginName}} Plugin cleaned up');
 '
 // export default {{className}Plugin;`,encoding = new {{className}Plugin({ `
@@ -282,37 +282,37 @@ initialize();
 '
   test('should execute successfully', async() => 
 // await plugin.initialize();
-// const _result = awaitplugin.execute();
+// const result = awaitplugin.execute();
     expect(result.success).toBe(true););
 '
   test('should return status', async() => 
 // await plugin.initialize();
-    // const _status = await plugin.getStatus(); // LINT: unreachable code removed
+    // const status = await plugin.getStatus(); // LINT: unreachable code removed
     expect(status.initialized).toBe(true);
     expect(status.enabled).toBe(true););
 '
   test('should throw error if not initialized', async() => ');'
 });
     `,encoding = await readdir(this.config.customTemplatesDir, {withFileTypes = path.join(this.config.customTemplatesDir, entry.name);`;
-    const _template = // await this.loadTemplateFromDirectory(templatePath);
+    const template = // await this.loadTemplateFromDirectory(templatePath);
     if (template) {
       `
             this.templates.set(entry.name, { ...template,id = path.join(templatePath, 'template.json');'
-      const _manifest = JSON.parse(// await readFile(manifestPath, 'utf8'));
+      const manifest = JSON.parse(// await readFile(manifestPath, 'utf8'));
 
       // Load file mappings
-      const _files = {};
+      const files = {};
   if(manifest.files) {
         for (const [targetPath, sourcePath] of Object.entries(manifest.files)) {'
-          const _fullPath = path.join(templatePath, sourcePath); // const _content = awaitreadFile(fullPath, 'utf8'); '
+          const fullPath = path.join(templatePath, sourcePath); // const content = awaitreadFile(fullPath, 'utf8'); '
           files[targetPath] = { content,encoding = path.join(this.config.templatesDir, 'registry.json') {;'
-      const _registry = JSON.parse(// await readFile(registryPath, 'utf8'));
+      const registry = JSON.parse(// await readFile(registryPath, 'utf8'));
 
       // Merge remote templates into registry
       for (const [id, template] of Object.entries(registry.templates  ?? {})) {
         if(!this.templates.has(id)) {
           this.templates.set(id, { ...template, id, source = {}, options = {}) {
-    const _template = this.templates.get(templateId); if(!template) {'
+    const template = this.templates.get(templateId); if(!template) {'
       throw new Error(`;
       Template;
       ('${templateId}');
@@ -322,7 +322,7 @@ initialize();
       console.warn(` Generating project fromtemplate = // await this.processVariables(template, variables) {;`
 
       // Determine output directory`
-      const _outputDir =
+      const outputDir =
         options.outputDir ??
         path.join(
           this.config.outputDir,
@@ -335,10 +335,7 @@ initialize();
       // Run post-generate commands
   if(template.postGenerate && !options.skipPostGenerate) {
 // // await this.runPostGenerateCommands(template.postGenerate, outputDir);
-      //       }
-
-       catch (error) console.error(error); 
-  if(this.config.gitInit && !options.skipGit) {
+      //       } if(this.config.gitInit && !options.skipGit) {
 // // await this.initializeGit(outputDir);
       //       }
 
@@ -351,7 +348,7 @@ initialize();
 
     // Process template variables
     for (const [key, varDef] of Object.entries(template.variables  ?? {})) {
-      const _value = providedVars[key]; // Use default if not provided
+      const value = providedVars[key]; // Use default if not provided
   if(value === undefined && varDef.default !== undefined) {
         value = varDef.default; //       }
 
@@ -399,12 +396,12 @@ initialize();
     //   // LINT: unreachable code removed}
 
   async generateFiles(template, variables, outputDir) { 
-    const _generatedFiles = [];
+    const generatedFiles = [];
 
     for (const [filePath, fileConfig] of Object.entries(template.files  ?? })) {
       // Process file path template
-      const _processedPath = this.processTemplate(filePath, variables); const _fullPath = path.join(outputDir, processedPath); // Create directory if needed
-// // await mkdir(path.dirname(fullPath) {, {recursive = fileConfig.content;
+      const processedPath = this.processTemplate(filePath, variables); const fullPath = path.join(outputDir, processedPath); // Create directory if needed
+// // await mkdir(path.dirname(fullPath) { {recursive = fileConfig.content;
       // Process conditionals
       content = this.processConditionals(content, variables);
 
@@ -418,12 +415,12 @@ initialize();
 // // await writeFile(fullPath, content, fileConfig.encoding  ?? 'utf8');
       generatedFiles.push({
         path => {)'
-      const _parts = expression.trim().split('|');
-      const _value = this.evaluateExpression(parts[0].trim(), variables);
+      const parts = expression.trim().split('|');
+      const value = this.evaluateExpression(parts[0].trim(), variables);
 
       // Apply filters
   for(let i = 1; i < parts.length; i++) {
-        const _filter = parts[i].trim();
+        const filter = parts[i].trim();
         value = this.applyFilter(value, filter);
       //       }
 
@@ -433,26 +430,26 @@ initialize();
 
   processConditionals(template, variables): unknown
     // return template.replace(this.conditionalRegex, (_match, condition, _content) => {
-      const _result = this.evaluateExpression(condition.trim(), variables);
+      const result = this.evaluateExpression(condition.trim(), variables);
     // return result ? content => { // LINT: unreachable code removed
-      const _array = this.evaluateExpression(expression.trim(), variables);'';
+      const array = this.evaluateExpression(expression.trim(), variables);'';
     // ; // LINT: unreachable code removed
 //       return array.map((item, index) => {
-        const _loopVars = { ...variables, item, index };
+        const loopVars = { ...variables, item, index };
     // return this.processTemplate(content, loopVars); // LINT: unreachable code removed'');
     });
 
   evaluateExpression(expression, variables): unknown
     // Handle JSON special case'
     if(expression.startsWith('json ')) {
-      const _varName = expression.substring(5);
-      const _value = this.evaluateExpression(varName, variables);
+      const varName = expression.substring(5);
+      const value = this.evaluateExpression(varName, variables);
       // return JSON.stringify(value);
     //   // LINT: unreachable code removed}
 
     // Simple variable lookup(no eval for security)'
-    const _parts = expression.split('.');
-    const _value = variables;
+    const parts = expression.split('.');
+    const value = variables;
   for(const part of parts) {'
   if(value && typeof value === 'object') {
         value = value[part]; } else {
@@ -475,7 +472,7 @@ initialize();
     // .split(/[\s\-_]+/); // LINT: unreachable code removed
 map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());'');'
       case 'camelCase': {'
-        const _pascal = this.applyFilter(value, 'pascalCase');
+        const pascal = this.applyFilter(value, 'pascalCase');
 //         return pascal.charAt(0).toLowerCase() + pascal.slice(1);
     //   // LINT: unreachable code removed}'
       case 'kebabCase':
@@ -491,7 +488,7 @@ toLowerCase();
       default = ): unknown
     // return new Promise((resolve, reject) => {'
       const [_cmd, ..._args] = command.split(' ');
-    // const _child = spawn(cmd, args, { // LINT: unreachable code removed
+    // const child = spawn(cmd, args, { // LINT: unreachable code removed
 ..options,
         _shell => 
   if(code === 0) {
@@ -504,7 +501,7 @@ toLowerCase();
       child.on('error', reject););
 
   async listTemplates(options = {}) { 
-    const _templates = Array.from(this.templates.values());
+    const templates = Array.from(this.templates.values());
 
     // Filter by category
     if(options.category) 
@@ -518,9 +515,9 @@ toLowerCase();
 
     // Group by category
   if(options.grouped) {
-      const _grouped = {};
+      const grouped = {};
   for(const template of templates) {'
-        const _category = template.category  ?? 'other'; if(!grouped[category]) {
+        const category = template.category  ?? 'other'; if(!grouped[category]) {
           grouped[category] = []; //         }
         grouped[category].push(template) ;
       //       }
@@ -531,16 +528,16 @@ toLowerCase();
     //   // LINT: unreachable code removed}
 
   async createCustomTemplate(name, fromProject, options = {}) { 
-    const _templateDir = path.join(this.config.customTemplatesDir, name);
+    const templateDir = path.join(this.config.customTemplatesDir, name);
 
     // Create template directory
 // // await mkdir(templateDir, recursive = // await this.scanProjectFiles(fromProject, options.ignore  ?? []);
     // Create template manifest
-    const _manifest = {name = path.relative(fromProject, file);'
-      const _templatePath = `files`
+    const manifest = {name = path.relative(fromProject, file);'
+      const templatePath = `files`
 
       // Copy file to template
-      const _targetPath = path.join(templateDir, templatePath);
+      const targetPath = path.join(templateDir, templatePath);
 // // await mkdir(path.dirname(targetPath), {recursive = templatePath;
     //     }
 
@@ -551,12 +548,12 @@ toLowerCase();
     );
 
     // Reload templates
-// const _template = awaitthis.loadTemplateFromDirectory(templateDir);
+// const template = awaitthis.loadTemplateFromDirectory(templateDir);
   if(template) {
       this.templates.set(name, { ...template,id = []) {
 '
     const { glob } = // await import('glob');'
-// const _files = awaitglob('**/*', { */
+// const files = awaitglob('**/*', { */
       cwd = {}) '
   if(_source._startsWith(''
     _console._warn(` _Importing _template _fromGitHub = path.join(this.config.templatesDir, '.temp', Date.now().toString());`
@@ -566,25 +563,25 @@ toLowerCase();
       //       }
 
       // Save to custom templates
-      const _templateId = options.name  ?? path.basename(repo);
+      const templateId = options.name  ?? path.basename(repo);
 // // await this.createCustomTemplate(templateId, tempDir, {
 ..options,
         name = {}): unknown'
     console.warn(` Importing template fromNPM = path.join(this.config.templatesDir, '.temp', Date.now().toString());``
 // // await mkdir(tempDir, {recursive = path.join(tempDir, 'node_modules', packageName);
-// const _template = awaitthis.loadTemplateFromDirectory(packageDir);
+// const template = awaitthis.loadTemplateFromDirectory(packageDir);
   if(!template) {'
         throw new Error('No valid template found in package');
       //       }
 
       // Save to custom templates
-      const _templateId = options.name  ?? packageName;
+      const templateId = options.name  ?? packageName;
 // // await this.createCustomTemplate(templateId, packageDir, {/g)
 ..options,name = Array.from(this.templates.values());'
     // return {totalTemplates = > t.source === 'builtin').length,custom = > t.source === 'custom').length,registry = > t.source === 'registry').length;
     //   // LINT: unreachable code removed},
       _byCategory => {'
-        const _category = t.category  ?? 'other';
+        const category = t.category  ?? 'other';
         acc[category] = (acc[category]  ?? 0) + 1;
 //         return acc;
     //   // LINT: unreachable code removed}, {}),generatedProjects = [];

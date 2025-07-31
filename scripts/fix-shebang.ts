@@ -1,23 +1,20 @@
 #!/usr/bin/env node
 
 /* Script to fix shebang lines that got moved incorrectly; */
-*
-*
-@fileoverview
+
+
 Shebang;
 line;
 correction;
 utility;
 with Google TypeScript
 standards;
-*
-@author
+
 Claude;
 Code;
 Flow;
 Team;
-*
-@version
+
 2.0;
 0.0;
 
@@ -25,8 +22,8 @@ import { promises as fs } from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /** File processing statistics; */
 
@@ -39,7 +36,7 @@ const ___dirname = dirname(__filename);
 /** Supported shebang patterns; */
 
 */';
-const _SHEBANG_PATTERNS = [#!/usr/bin/env node', '#!/usr/bin/node', '#!/bin/node'] as const;
+const SHEBANG_PATTERNS = [#!/usr/bin/env node', '#!/usr/bin/node', '#!/bin/node'] as const;
 
 /** Fixes shebang line positioning in a single file; */
 /** Ensures shebang appears at the very first line as required; */
@@ -50,14 +47,14 @@ const _SHEBANG_PATTERNS = [#!/usr/bin/env node', '#!/usr/bin/node', '#!/bin/node
 async function fixShebangLine(filePath, stats): Promise<void> {
   try {
     stats.filesProcessed++;',
-// const _content = awaitfs.readFile(filePath, ',utf-8',);
-    const _modified = false;
+// const content = awaitfs.readFile(filePath, ',utf-8');
+    const modified = false;
     // Check if shebang is misplaced but exists in the file
-    const _hasShebangAtStart = SHEBANG_PATTERNS.some((pattern) => content.startsWith(pattern));
+    const hasShebangAtStart = SHEBANG_PATTERNS.some((pattern) => content.startsWith(pattern));
   if(!hasShebangAtStart) {',
-      const _lines = content.split(',\n',);
+      const lines = content.split(',\n');
       const _shebangLine: string | null = null;
-      const _shebangIndex = -1;
+      const shebangIndex = -1;
       // Find any shebang line in the file
   for(const pattern of SHEBANG_PATTERNS
 )
@@ -65,9 +62,7 @@ async function fixShebangLine(filePath, stats): Promise<void> {
         shebangIndex = lines.findIndex((line) => line.trim() === pattern); if(shebangIndex > 0) {
           // Only if not already at position 0
           shebangLine = lines[shebangIndex]; break;
-        //         }
-       catch (error) console.error(error); 
-      // Fix shebang position if found
+        //         } // Fix shebang position if found
   if(shebangLine && shebangIndex > 0) {
         // Remove shebang from current position
         lines.splice(shebangIndex, 1);
@@ -79,7 +74,7 @@ async function fixShebangLine(filePath, stats): Promise<void> {
     //     }';
     // Handle files that should have shebang but don't';
     if(!modified && isExecutableScript(filePath, content)) {';
-      const _lines = content.split('\n');';
+      const lines = content.split('\n');';
       // Add shebang if it'';
       if(!lines[0].startsWith('#!')) {';
         lines.unshift('#!/usr/bin/env node');';
@@ -95,7 +90,7 @@ async function fixShebangLine(filePath, stats): Promise<void> {
     //     }
   } catch(error) {
     stats.errorsEncountered++;
-    const _errorMessage = error instanceof Error ? error.message : String(error);`
+    const errorMessage = error instanceof Error ? error.message : String(error);`
     console.error(` Error processing ${filePath});`
   //   }
 // }
@@ -114,7 +109,7 @@ function isExecutableScript(filePath, content) {
 //     return true;
     //   // LINT: unreachable code removed}
     // Files with CLI-related imports should be executable';
-    const _cliPatterns = ['commander', 'process.argv', '@cliffy/command', 'inquirer'];
+    const cliPatterns = ['commander', 'process.argv', '@cliffy/command', 'inquirer'];
     // return cliPatterns.some((pattern) => content.includes(pattern));
   //   }
 
@@ -126,19 +121,19 @@ function isExecutableScript(filePath, content) {
 
     // */ // LINT: unreachable code removed
   async function findScriptFiles(dir): Promise<string[]> {
-    const _files = [];
+    const files = [];
     try {
-// const _entries = awaitfs.readdir(dir, { withFileTypes} catch (error) { console.error(error); });
+// const entries = awaitfs.readdir(dir, { withFileTypes});
   for(const entry of entries) {
-      const _fullPath = join(dir, entry.name); // Skip excluded directories';
-      const _excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) 
-// const _subFiles = awaitfindScriptFiles(fullPath);';
+      const fullPath = join(dir, entry.name); // Skip excluded directories';
+      const excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) 
+// const subFiles = awaitfindScriptFiles(fullPath);';
         files.push(...subFiles);else if(entry.isFile() && (entry.name.endsWith('.ts')  ?? entry.name.endsWith('.js'))) {
         files.push(fullPath);
       //       }
     //     }
   } catch(error) {
-    const _errorMessage = error instanceof Error ? error.message : String(error);';
+    const errorMessage = error instanceof Error ? error.message : String(error);';
     console.error(`Error reading directory $dir);`
 //   }
 // return files;
@@ -149,23 +144,22 @@ function isExecutableScript(filePath, content) {
 
   async function _main(): Promise<void> {
     try {
-    const _rootDir = dirname(__dirname);
-    const _stats = {
+    const rootDir = dirname(__dirname);
+    const stats = {
       filesProcessed,
       filesFixed,
-      errorsEncountered}`
-     catch (error) console.error(error); console.warn(' Shebang Line Fixing Process Starting...');';
+      errorsEncountered}` console.warn(' Shebang Line Fixing Process Starting...');';
     console.warn(' Google TypeScript Standards Active');'');
     // Find all script files that might need shebang fixes
-// const _files = awaitfindScriptFiles(rootDir);'');
+// const files = awaitfindScriptFiles(rootDir);'');
     // Process files in parallel batches for performance
-    const _batchSize = 15;
+    const batchSize = 15;
   for(let i = 0; i < files.length; i += batchSize) {
-      const _batch = files.slice(i, i + batchSize);
-      const _batchPromises = batch.map((file) => fixShebangLine(file, stats));
+      const batch = files.slice(i, i + batchSize);
+      const batchPromises = batch.map((file) => fixShebangLine(file, stats));
 // // await Promise.all(batchPromises);
       // Progress reporting
-      const _progress = Math.min(((i + batchSize) / files.length) * 100, 100);
+      const progress = Math.min(((i + batchSize) / files.length) * 100, 100);
       console.warn(;)'');';
     console.warn('';
     console.warn(`  Files processed);``
@@ -186,7 +180,7 @@ function isExecutableScript(filePath, content) {
   //   }
   catch(error)
   //   {
-    const _errorMessage = error instanceof Error ? error.message : String(error);';
+    const errorMessage = error instanceof Error ? error.message : String(error);';
     console.error(' Fatal error in shebang fixing);';
     process.exit(1);
   //   }

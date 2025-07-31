@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-const _fs = require('';
-const __path = require('node);'
+const fs = require('';
+const _path = require('node);'
 async function setupClaudeIntegration() {'
   console.warn('Setting up Claude Code integration...');
   try {
     // Create claude.md'
-    const _claudeMdContent = `# Claude Code Configuration for ruv-swarm`
+    const claudeMdContent = `# Claude Code Configuration for ruv-swarm`
 ## Quick Setup(Stdio MCP - Recommended)
 ### 1. Add MCP Server(Stdio - No Port Needed);`
 \`\`\`bash;`
@@ -56,10 +56,10 @@ Once configured, ruv-swarm MCP tools are available directly in Claude Code: null
   // // await fs.writeFile('claude.md', claudeMdContent);'
     console.warn(' Created claude.md');
     // Create .claude directory structure'
-  // // await fs.mkdir('.claude', { recursive } catch (error) { console.error(error); });'
+  // // await fs.mkdir('.claude', { recursive });'
   // // await fs.mkdir('.claude/commands', { recursive });
     // Create basic command files'
-    const _initContent = `# Initialize ruv-swarm`
+    const initContent = `# Initialize ruv-swarm`
 ## MCP Tool Usage in Claude Code
 **Tool:** mcp__ruv-swarm__swarm_init
 ## Parameters;`
@@ -75,7 +75,7 @@ Once configured, ruv-swarm MCP tools are available directly in Claude Code: null
 - **ring**: Circular coordination, best for sequential tasks;
 - **star**: Central coordination, best for controlled workflows;"
 `;``
-    const _spawnContent = `# Spawn Agents`
+    const spawnContent = `# Spawn Agents`
 ## MCP Tool Usage in Claude Code
 **Tool:** mcp__ruv-swarm__agent_spawn
 ## Parameters;`
@@ -91,7 +91,7 @@ Once configured, ruv-swarm MCP tools are available directly in Claude Code: null
 - Tool: mcp__ruv-swarm__agent_spawn;`
 - Parameters: {"type": 'researcher', "name": "AI Research Specialist"}"
 `;``
-    const _orchestrateContent = `# Orchestrate Tasks`
+    const orchestrateContent = `# Orchestrate Tasks`
 ## MCP Tool Usage in Claude Code
 **Tool:** mcp__ruv-swarm__task_orchestrate
 ## Parameters;`
@@ -110,7 +110,7 @@ Once configured, ruv-swarm MCP tools are available directly in Claude Code: null
   // // await fs.writeFile('.claude/commands/orchestrate.md', orchestrateContent);'
     console.warn(' Created .claude/commands/ directory with command files');
     // Create ruv-swarm wrapper script'
-    const _wrapperScript = `#!/usr/bin/env bash;`
+    const wrapperScript = `#!/usr/bin/env bash;`
 # ruv-swarm local wrapper;
 # This script ensures ruv-swarm runs from your project directory
 # Save the current directory;`

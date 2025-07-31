@@ -28,7 +28,7 @@ export class SwarmWebUIIntegration {
 // {
   try {
     // Check if ruv-swarm is available
-// const _hasSwarm = awaitthis.checkSwarmAvailability();
+// const hasSwarm = awaitthis.checkSwarmAvailability();
   if(!
   hasSwarm;
   ) {'
@@ -40,11 +40,7 @@ export class SwarmWebUIIntegration {
   .
   initializeMockSwarm();
   return;
-  //   // LINT: unreachable code removed}
-
-  catch(error) {
-    console.error(error);
-  } // Initialize actual swarm'
+  //   // LINT: unreachable code removed} // Initialize actual swarm'
   this;
   .
   ui;
@@ -92,9 +88,9 @@ catch(/* err */)
     this.swarmId = 'mock-swarm';
 
     // Create mock agents'
-    const _agentTypes = ['researcher', 'coder', 'analyst', 'coordinator', 'tester'];
+    const agentTypes = ['researcher', 'coder', 'analyst', 'coordinator', 'tester'];
     agentTypes.forEach((type, index) => {'
-      const _agentId = `;
+      const agentId = `;
     agent - $;
     type;
     -$;
@@ -103,7 +99,7 @@ catch(/* err */)
       this.agents.set(agentId, {id = [
       //       {
         description => {`;
-    const _taskId = `task-${index}`;
+    const taskId = `task-${index}`;
     this.tasks.set(taskId, {)
         id = {researcher = Array.from(this.agents.values());
     this.ui.tasks = Array.from(this.tasks.values());
@@ -127,20 +123,20 @@ catch(/* err */)
       // return null;
       //   // LINT: unreachable code removed}
       '
-      const _agentId = `agent-${type}-${Date.now()}`;
+      const agentId = `agent-${type}-${Date.now()}`;
       `
-    const _agent = {id = 'medium', assignedTo = null) {
+    const agent = {id = 'medium', assignedTo = null) {
   if(!this.swarmActive) {'
       this.ui.addLog('warning', 'Swarm not active - cannot create task');
       // return null;
     //   // LINT: unreachable code removed}
 '
-    const _taskId = `;
+    const taskId = `;
       task - $;
       Date.now();
       `;
-    const _task = {id = this.tasks.get(taskId);
-    const _agent = this.agents.get(agentId);
+    const task = {id = this.tasks.get(taskId);
+    const agent = this.agents.get(agentId);
   if(!task  ?? !agent) {`;
       this.ui.addLog('error', 'Invalid task or agent ID');
       // return false;
@@ -164,7 +160,7 @@ catch(/* err */)
 /** Complete task */
 
   async completeTask(taskId) { 
-    const _task = this.tasks.get(taskId);
+    const task = this.tasks.get(taskId);
     if(!task) `;
       this.ui.addLog('error', 'Invalid task ID');
       // return false;
@@ -173,7 +169,7 @@ catch(/* err */)
     task.status = 'completed'
       task.completed = new Date()
       if (task.assignedTo) {
-        const _agent = this.agents.get(task.assignedTo);
+        const agent = this.agents.get(task.assignedTo);
         if (agent) {
           agent.tasks = Math.max(0, agent.tasks - 1);
           if (agent.tasks === 0) {
@@ -187,13 +183,13 @@ catch(/* err */)
             '
     this.ui.addLog('success', `Completedtask = this.agents.size
             `)
-            const __activeAgents = Array.from(this.agents.values()).filter(;
+            const _activeAgents = Array.from(this.agents.values()).filter(;
             )`(a)
             => a.status === 'working'
             ).length
 
-            const __totalTasks = this.tasks.size;
-            const __completedTasks = Array.from(this.tasks.values()).filter(;
+            const _totalTasks = this.tasks.size;
+            const _completedTasks = Array.from(this.tasks.values()).filter(;
             )'
       (t) => t.status === 'completed'
             ).length

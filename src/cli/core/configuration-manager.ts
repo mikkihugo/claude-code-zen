@@ -25,7 +25,7 @@ import logger from
 // // DEFAULT CONFIGURATION
 // // =============================================================================
 
-// const _DEFAULT_CONFIG = {version = ============================================================================
+// const DEFAULT_CONFIG = {version = ============================================================================
 // // CONFIGURATION MANAGER CLASS
 // // =============================================================================
 
@@ -42,14 +42,13 @@ loaded = false;
 // }
 
 /** Get configuration file path */
-*
-@param
+
 options - Path;
 resolution;
 options
  * @returns Configuration
 file;
-path * /;;
+path * /;
 // */ // LINT: unreachable code removed
 // // public getConfigPath(options =
 // {
@@ -64,14 +63,14 @@ if(options.customPath) {
   if(this.configPath) return this.configPath;
     // ; // LINT: unreachable code removed
   // Try various locations in order of preference
-  const _possiblePaths = options.searchPaths  ?? [
+  const possiblePaths = options.searchPaths  ?? [
     process.env.CLAUDE_FLOW_CONFIG,'
     path.join(process.cwd(), '.claude-zen.json''
     path.join(process.cwd(), 'claude-zen.config.json''
     path.join(os.homedir(), '.config', 'claude-zen', 'config.json''
     path.join(os.homedir(), '.claude-zen.json') ]
 
-  const _validPaths = possiblePaths.filter(Boolean) as string[];
+  const validPaths = possiblePaths.filter(Boolean) as string[];
   for(const configPath of validPaths) {
     if(existsSync(configPath)) {
       this.configPath = configPath; // return configPath; 
@@ -79,7 +78,7 @@ if(options.customPath) {
   //   }
 
   // Default to user config directory'
-  const _defaultPath = path.join(os.homedir() {, '.config', 'claude-zen', 'config.json')
+  const defaultPath = path.join(os.homedir() { '.config', 'claude-zen', 'config.json')
   this.configPath = defaultPath;
   // return defaultPath;
 // }
@@ -96,12 +95,12 @@ loadConfiguration((options = {}));
 // {
   if(this.loaded && !options.customPath) return this.config;
     // ; // LINT: unreachable code removed
-  const _configPath = this.getConfigPath(options);
+  const configPath = this.getConfigPath(options);
 
   try {
       if(existsSync(configPath)) {'
-// const _content = awaitreadFile(configPath, 'utf-8')
-        const _parsedConfig = JSON.parse(content) as Partial<Configuration>;
+// const content = awaitreadFile(configPath, 'utf-8')
+        const parsedConfig = JSON.parse(content) as Partial<Configuration>;
 
         // Merge with defaults(deep merge)
         this.config = this.deepMerge(DEFAULT_CONFIG, parsedConfig)
@@ -124,8 +123,8 @@ loadConfiguration((options = {}));
     // */; // LINT
 : Promise<void>;
 // {
-  const _configPath = customPath  ?? this.getConfigPath();
-  const _configDir = path.dirname(configPath);
+  const configPath = customPath  ?? this.getConfigPath();
+  const configDir = path.dirname(configPath);
 
   try {
       // Ensure directory exists
@@ -153,8 +152,8 @@ public;
 validate();
 
 // {
-    const _errors = [];
-    const __warnings = [];
+    const errors = [];
+    const _warnings = [];
 
     try {
       // Validate required fields
@@ -164,7 +163,7 @@ validate();
 
        catch (error) console.error(error)
   if(this.config.logging) {'
-        const _validLevels = ['error', 'warn', 'info', 'debug', 'trace']
+        const validLevels = ['error', 'warn', 'info', 'debug', 'trace']
         if(!validLevels.includes(this.config.logging.level)) {'
           errors.push(`Invalid logginglevel = 0) ```
           errors.push('commands.timeout must be positive')
@@ -183,7 +182,7 @@ validate();
           errors.push('swarm.maxAgents must be between 1 and 50')
         //         }
 '
-        const _validTopologies = ['hierarchical', 'mesh', 'ring', 'star']
+        const validTopologies = ['hierarchical', 'mesh', 'ring', 'star']
         if(!validTopologies.includes(this.config.swarm.defaultTopology)) {'
           errors.push(`Invalidtopology = ['balanced', 'adaptive', 'performance', 'reliability'];'`)'
         if(!validStrategies.includes(this.config.swarm.defaultStrategy)) {'
@@ -216,7 +215,7 @@ validate();
 
   for(const key in source) {
       if(source.hasOwnProperty(key)) {``
-        const _sourceValue = source[key]; if(sourceValue && typeof sourceValue === 'object' && !Array.isArray(sourceValue)) {'
+        const sourceValue = source[key]; if(sourceValue && typeof sourceValue === 'object' && !Array.isArray(sourceValue)) {'
           result[key] = this.deepMerge(result[key]  ?? {}, sourceValue)} else {
           result[key] = sourceValue as T[Extract<keyof T, string>];
         //         }
@@ -234,8 +233,8 @@ validate();
 
     // */; // LINT: unreachable code removed
   // // private getNestedValue<T = any>(obj,path = null) {: T | null {'
-    const _keys = path.split('.')
-    let _value = obj;
+    const keys = path.split('.')
+    let value = obj;
   for(const key of keys) {'
   if(value && typeof value === 'object' && key in value) {'
         value = value[key]} else {
@@ -253,9 +252,9 @@ validate();
 
 '
   // // private setNestedValue(obj,path = path.split('.') {
-    let _current = obj;
+    let current = obj;
   for(const i = 0; i < keys.length - 1; i++) {
-      const _key = keys[i]
+      const key = keys[i]
       if(!(key in current)  ?? typeof current[key] !== 'object') {'
         current[key] = {};
       //       }
@@ -282,7 +281,7 @@ validate();
    * @param updates - Updates to apply
 
   // // public updateScope(scope = this.getScope(scope)  ?? {};
-    const _merged = { ...current, ...updates };
+    const merged = { ...current, ...updates };
     this.set(scope, merged);
   //   }
 // }
@@ -292,7 +291,7 @@ validate();
 // =============================================================================
 
 // Default configuration manager instance
-const _configManager = new ConfigurationManager();
+const configManager = new ConfigurationManager();
 
 // export { ConfigurationManager };
 // export default configManager;
@@ -314,9 +313,9 @@ const _configManager = new ConfigurationManager();
 
     // */; // LINT: unreachable code removed
 // export function createConfigurationManager(customDefaults?) {
-  const _manager = new ConfigurationManager();
+  const manager = new ConfigurationManager();
   if(customDefaults) {'
-    const _mergedDefaults = manager['deepMerge''
+    const mergedDefaults = manager['deepMerge''
     manager['config'] = mergedDefaults
   //   }
 

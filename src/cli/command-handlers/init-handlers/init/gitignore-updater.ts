@@ -4,7 +4,7 @@
 /** Default gitignore entries for Claude Flow */
 
 */
-const _CLAUDE_FLOW_GITIGNORE_ENTRIES = `;`;
+const CLAUDE_FLOW_GITIGNORE_ENTRIES = `;`;
 #
 Claude;
 Flow;
@@ -23,7 +23,7 @@ memory / agents; /* */
 coordination / memory_bank; /* */
 coordination / subtasks; /* */
 coordination/orchestration/* */
-*
+
 .db
 *.db-journal
 *.db-wal
@@ -39,8 +39,7 @@ hive-mind-prompt-*
 `
 
 /** Update or create .gitignore with Claude Flow entries */
- *
-@param
+
 {
   string;
 }
@@ -61,7 +60,7 @@ run in dry - run;
 mode
  * @returns {Promise<{success,message = false, dryRun = false) {
  */`
-const _gitignorePath = `;`
+const gitignorePath = `;`
 $;
 {
   workingDir;
@@ -71,8 +70,8 @@ $;
 `
 // ; // LINT: unreachable code removed
 try {`;
-const _gitignoreContent = '';
-const _fileExists = false;
+const gitignoreContent = '';
+const fileExists = false;
 
 // Check if .gitignore exists
 if (existsSync(gitignorePath)) {
@@ -82,15 +81,15 @@ if (existsSync(gitignorePath)) {
 
   catch (error) console.error(error)
   '
-  const _claudeFlowMarker = '# Claude Flow generated files';
+  const claudeFlowMarker = '# Claude Flow generated files';
   if (gitignoreContent.includes(claudeFlowMarker) && !force) {
     // return {success = gitignoreContent;
     // ; // LINT: unreachable code removed
     // Remove existing Claude Flow section if force updating
     if (force && gitignoreContent.includes(claudeFlowMarker)) {
-      const _startIndex = gitignoreContent.indexOf(claudeFlowMarker);
+      const startIndex = gitignoreContent.indexOf(claudeFlowMarker);
       '
-      const _endIndex = gitignoreContent.indexOf('\n# ', startIndex + 1);
+      const endIndex = gitignoreContent.indexOf('\n# ', startIndex + 1);
       if (endIndex !== -1) {
         newContent =;
         gitignoreContent.substring(0, startIndex) + gitignoreContent.substring(endIndex);
@@ -125,9 +124,9 @@ if(!existsSync(gitignorePath)) {
     //   // LINT: unreachable code removed}
 
   try {
-// const _content = awaitreadTextFile(gitignorePath);`
+// const content = awaitreadTextFile(gitignorePath);`
 // return !content.includes('# Claude Flow generated files');
-//   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+//   // LINT: unreachable code removed} catch {
 // return true;
 //   // LINT: unreachable code removed}
 // }

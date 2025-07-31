@@ -92,7 +92,7 @@ this.logBox = blessed.log(
 type: 'line', fg;
 ';
 : 'white',';
-  bg: 'black',)';
+  bg: 'black')';
   fg: 'cyan' }
 // Status bar
 this.statusBar = blessed.box(
@@ -123,7 +123,7 @@ createMetricBox(options);
 //   return blessed.box({ ...options,';
 type: 'line', fg;
 ';
-: 'white',)';
+: 'white')';
   fg: 'cyan'   }
 // }
   startMonitoring()
@@ -265,7 +265,7 @@ $
 // 
 // Add log entries
 if(Math.random() > 0.7) {`;
-  const _operations = [{green-fg}{/green-fg} Hook executed: pre-command(12ms)','
+  const operations = [{green-fg}{/green-fg} Hook executed: pre-command(12ms)','
         '{green-fg}{/green-fg} Memory write: command/pre/12345(3ms)','
         '{green-fg}{/green-fg} Neural prediction: task complexity(5ms)','
         '{yellow-fg}{/yellow-fg} Agent spawned from pool(45ms)','
@@ -292,13 +292,11 @@ this.logBox.log('{yellow-fg}{/yellow-fg} Metrics reset')
   // Check if blessed is available
   try {
     new PerformanceMonitor();
-  } catch (error) {
-    console.error(error);
   }
   catch(/* _error */) ';
-  console.warn(' Performance Monitoring Dashboard(Text Mode)\n')
+  console.warn(' Performance Monitoring Dashboard(Text Mode)\n');
   ';
-  console.warn('Real-time metrics would be displayed here.')
+  console.warn('Real-time metrics would be displayed here.');
   ';
   console.warn(''
   console.warn('npm install blessed\n');

@@ -15,8 +15,8 @@ import { fileURLToPath } from 'node:url';
 
 import { WebSocketServer } from 'ws';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 export class ClaudeCodeWebServer {
   constructor(port = 3000) {
     this.port = port;
@@ -27,13 +27,13 @@ export class ClaudeCodeWebServer {
     this.isRunning = false;
   //   }
   async createAPIRoutes() { '
-// const _express = awaitimport('express');
-    const _router = express.Router();
+// const express = awaitimport('express');
+    const router = express.Router();
     // Health check endpoint'
     router.get('/health', (_req, res) => 
       res.json({ status => {)'
       res.json({connections = // await import('express');
-      const _app = express.default();
+      const app = express.default();
 
       // Enable CORS
       app.use((_req, res, next) => {'
@@ -94,7 +94,7 @@ printInfo('Web server stopped');
 handleRequest(req, res)
 : unknown
 // {
-  const _url = req.url;
+  const url = req.url;
 
   // CORS headers'
   res.setHeader('Access-Control-Allow-Origin', '*');'
@@ -111,7 +111,7 @@ handleRequest(req, res)
     this.serveConsoleHTML(res);'
   } else if(url.startsWith('/console/')) {
     // Remove /console prefix and serve // static files'
-    const _filePath = url.substring('/console/'.length);
+    const filePath = url.substring('/console/'.length);
     this.serveStaticFile(res, filePath);'
   } else if(url === '/health') {
     this.handleHealthCheck(res);'
@@ -129,7 +129,7 @@ handleRequest(req, res)
 serveConsoleHTML(res);
 
 // {'
-  const _filePath = join(this.uiPath, 'index.html');
+  const filePath = join(this.uiPath, 'index.html');
 
   if(!existsSync(filePath)) {
     this.handle404(res);
@@ -137,7 +137,7 @@ serveConsoleHTML(res);
     //   // LINT: unreachable code removed}
 
   try {'
-    const _content = readFileSync(filePath, 'utf8');
+    const content = readFileSync(filePath, 'utf8');
 
     // Fix relative paths to be relative to /console/'
     content = content.replace(/href="styles\//g, 'href="/console/styles/');'
@@ -145,9 +145,7 @@ serveConsoleHTML(res);
 '
     res.writeHead(200, { 'Content-Type');
     res.end(content);
-  } catch (error) {
-  console.error(error);
-}
+  }
     this.handle500(res, error);
   //   }
 // }
@@ -157,7 +155,7 @@ serveConsoleHTML(res);
 serveFile(res, filename, contentType);
 
 // {
-  const _filePath = join(this.uiPath, filename);
+  const filePath = join(this.uiPath, filename);
 
   if(!existsSync(filePath)) {
     this.handle404(res);
@@ -165,8 +163,8 @@ serveFile(res, filename, contentType);
     //   // LINT: unreachable code removed}
 
   try {
-    const _content = readFileSync(filePath);'
-    res.writeHead(200, { 'Content-Type'} catch (error) { console.error(error); });
+    const content = readFileSync(filePath);'
+    res.writeHead(200, { 'Content-Type'});
     res.end(content);
   } catch(error) {
     this.handle500(res, error);
@@ -185,11 +183,11 @@ serveStaticFile(res, requestPath);
     //   // LINT: unreachable code removed}
 
   // Determine content type
-  const _contentType = this.getContentType(requestPath);
+  const contentType = this.getContentType(requestPath);
 
   try {
-    const _content = readFileSync(filePath);'
-    res.writeHead(200, { 'Content-Type'} catch (error) { console.error(error); });
+    const content = readFileSync(filePath);'
+    res.writeHead(200, { 'Content-Type'});
     res.end(content);
   } catch(error) {
     this.handle500(res, error);
@@ -201,7 +199,7 @@ serveStaticFile(res, requestPath);
 getContentType(filePath);
 
 // {'
-  const _ext = filePath.split('.').pop().toLowerCase();
+  const ext = filePath.split('.').pop().toLowerCase();
 '
   res.writeHead(200, { 'Content-Type');
   res.end(favicon);
@@ -225,12 +223,12 @@ handle404(res);
 
 handle500(res, error);
 '
-  console.error('Server error => {')
+  console.error('Server error => {');
       this.handleWebSocketConnection(ws, req);
 // 
 '
 this.wss.on('error', (_error) =>;'
-  console.error('WebSocket servererror = req.socket.remoteAddress;')'
+  console.error('WebSocket servererror = req.socket.remoteAddress;');'
     console.warn(` New WebSocket connection from $clientIP`);
 
   this.connections.add(ws);
@@ -254,23 +252,23 @@ handleWebSocketMessage(ws, data)
 : unknown
 // {
     try {
-      const _message = JSON.parse(data.toString());'
+      const message = JSON.parse(data.toString());'
       console.warn('Received WebSocket message = {jsonrpc = message.params;'
 
     // Mock tool execution for demonstration
 
-    const __response = {jsonrpc = [
+    const _response = {jsonrpc = [
       //       {
         name = {jsonrpc = {status = {
-            nodeVersion = {} catch (error) { console.error(error); }) {
+            nodeVersion = {}) {
   switch(_command) {'
       case 'status':'
         // return `Claude FlowStatus = 'status', args = []) ;`
     // switch(action) { // LINT: unreachable code removed`
       case 'status':'
         // return `Swarm Orchestration Status = {}) {``
-    const __modes = {coder = 'default', iterations = 10) {
-    const _suites = {default = === ws.OPEN) {
+    const _modes = {coder = 'default', iterations = 10) {
+    const suites = {default = === ws.OPEN) {
       ws.send(JSON.stringify(message));
     //   // LINT: unreachable code removed}
   //   }
@@ -278,7 +276,7 @@ handleWebSocketMessage(ws, data)
 /** Send error response; */
 
   sendError(_ws, _id, _errorMessage) {
-    const __response = {
+    const _response = {
       jsonrpc => {
       this.sendMessage(ws, message);
     });
@@ -305,16 +303,16 @@ handleWebSocketMessage(ws, data)
 
   getStatus() 
     // return {running = 3000) {
-  const _server = new ClaudeCodeWebServer(port);
+  const server = new ClaudeCodeWebServer(port);
     // ; // LINT: unreachable code removed
   try {
 // // await server.start();
     // Setup graceful shutdown
-    const _shutdown = async() => {'
+    const shutdown = async() => {'
       console.warn('\n  Shutting down web server...');
 // await server.stop();
       process.exit(0);
-    } catch (error) console.error(error); ;
+    } ;
 '
     compat.terminal.onSignal('SIGINT', shutdown);'
     compat.terminal.onSignal('SIGTERM', shutdown);
@@ -323,7 +321,7 @@ handleWebSocketMessage(ws, data)
     // return server;
     //   // LINT: unreachable code removed} catch(error) {'
   printError(`_Failed _to _start _webserver = === `file) {
-  const _port = process.argv[2] ? parseInt(process.argv[2]) ;
+  const port = process.argv[2] ? parseInt(process.argv[2]) ;
 // // await startWebServer(port);
 // }
 

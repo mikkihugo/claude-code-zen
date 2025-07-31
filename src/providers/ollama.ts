@@ -7,8 +7,7 @@ import {
   BaseProvider,
   ProviderCapabilities,
   ProviderConfig,
-  ProviderError,
-} from '.';
+  ProviderError} from '.';
 
 '
 // // interface OllamaRequest {model = ''
@@ -29,14 +28,12 @@ generateText(request = Date.now()
 this.validateRequest(request);
 this.emitRequest(request);
 try {'
-  const _ollamaRequest = {model = // await this.makeRequest('/api/chat', ollamaRequest);
+  const ollamaRequest = {model = // await this.makeRequest('/api/chat', ollamaRequest);
 '
   // Estimate token counts(Ollama doesn't always provide exact counts)'
   if(!reader) {'
     throw new ProviderError('No response body', this.name);
-  //   }
-
-   catch (error) console.error(error); const _decoder = new TextDecoder();'';
+  //   } const decoder = new TextDecoder();'';
   while(true) {
     const { done, value } = // await reader.read();
     if(done) break;
@@ -45,9 +42,8 @@ try {'
   for(const line of lines) {
       if(line.trim()) {
         try {
-          const _parsed = JSON.parse(line); if(parsed.message?.content) {
-            yield parsed.message.content; //           }
-   catch (error) console.error(error); if(parsed.done) {
+          const parsed = JSON.parse(line); if(parsed.message?.content) {
+            yield parsed.message.content; //           } if(parsed.done) {
             return;
     //   // LINT: unreachable code removed}
         } catch(/* e */)
@@ -65,9 +61,7 @@ getModels();
   try {
 // // await this.loadAvailableModels();
     // return [...this.availableModels];
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
     // Return cached models if API call fails
     // return [...this.availableModels];
     //   // LINT: unreachable code removed}
@@ -81,7 +75,7 @@ getModels();
   pullModel(modelName = await fetch(`\$this.baseUrl/api/pull`,
   //   {`
     method = await fetch(`\$this.baseUrl/api/delete`, {method = await this.makeRequest('/api/tags', null, 'GET');
-    const _models = response.models ?? [];
+    const models = response.models ?? [];
     this.availableModels = models.map((model) => model.name);
     // Cache model details
   for(const model of models) {
@@ -98,10 +92,10 @@ getModels();
   result.push(role = === 'system' && !systemPrompt) '
         result.push(role = === 'user'  ?? msg.role === 'assistant') '
         result.push(role = 'POST'): Promise<any> {'
-    const _options = {method = === 'POST') {
+    const options = {method = === 'POST') {
       options.body = JSON.stringify(data);
 // }'
-// const _response = awaitfetch(`\$this.baseUrl\$endpoint`, options);
+// const response = awaitfetch(`\$this.baseUrl\$endpoint`, options);
   if(!response.ok) {
   throw // await this.createErrorFromResponse(response);
 // }

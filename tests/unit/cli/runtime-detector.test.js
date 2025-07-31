@@ -43,15 +43,15 @@ describe('Runtime Detector', () =>
       expect(typeof compat.terminal.onSignal).toBe('function');););'
   describe('terminal utilities', () => '
     it('should return current process PID', () => {
-      const _pid = compat.terminal.getPid();'
+      const pid = compat.terminal.getPid();'
       // expect(typeof pid).toBe('number'); // LINT: unreachable code removed
       expect(pid).toBe(process.pid);
       expect(pid).toBeGreaterThan(0);
     });'
     it('should handle signal registration', () => {
-      const _mockHandler = jest.fn();
+      const mockHandler = jest.fn();
       // Mock process.on to avoid actually registering signals in tests
-      const _originalProcessOn = process.on;
+      const originalProcessOn = process.on;
       process.on = jest.fn();'
       compat.terminal.onSignal('SIGTERM', mockHandler);'
       expect(process.on).toHaveBeenCalledWith('SIGTERM', mockHandler);
@@ -60,7 +60,7 @@ describe('Runtime Detector', () =>
     });'
     it('should provide exit function', () => {
       // Mock process.exit to avoid actually exiting in tests
-      const _originalProcessExit = process.exit;
+      const originalProcessExit = process.exit;
       process.exit = jest.fn();
       compat.terminal.exit(0);
       expect(process.exit).toHaveBeenCalledWith(0);
@@ -69,47 +69,47 @@ describe('Runtime Detector', () =>
     }););'
   describe('safeCall utility', () => '
     it('should execute successful functions', async() => {'
-      const _successFn = jest.fn(async() => 'success');
-// const _result = awaitcompat.safeCall(successFn);
+      const successFn = jest.fn(async() => 'success');
+// const result = awaitcompat.safeCall(successFn);
       expect(successFn).toHaveBeenCalled();'
       expect(result).toBe('success');
       expect(consoleErrors).toHaveLength(0);
     });'
     it('should handle function errors gracefully', async() => {
-      const _errorFn = jest.fn(async() => {'
+      const errorFn = jest.fn(async() => {'
         throw new Error('Test error');
       });
-// const _result = awaitcompat.safeCall(errorFn);
+// const result = awaitcompat.safeCall(errorFn);
       expect(errorFn).toHaveBeenCalled();
       expect(result).toBeNull();
       expect(consoleErrors).toHaveLength(1);'
       expect(consoleErrors[0]).toContain('Runtime error);'
     });'
     it('should handle synchronous functions', async() => {'
-      const _syncFn = jest.fn(() => 'sync result');
-// const _result = awaitcompat.safeCall(syncFn);
+      const syncFn = jest.fn(() => 'sync result');
+// const result = awaitcompat.safeCall(syncFn);
       expect(syncFn).toHaveBeenCalled();'
       expect(result).toBe('sync result');
     });'
     it('should handle synchronous errors', async() => {
-      const _syncErrorFn = jest.fn(() => {'
+      const syncErrorFn = jest.fn(() => {'
         throw new Error('Sync error');
       });
-// const _result = awaitcompat.safeCall(syncErrorFn);
+// const result = awaitcompat.safeCall(syncErrorFn);
       expect(syncErrorFn).toHaveBeenCalled();
       expect(result).toBeNull();'
       expect(consoleErrors[0]).toContain('Runtime error);'
     });'
     it('should handle functions that return undefined', async() => {
-      const _undefinedFn = jest.fn(() => undefined);
+      const undefinedFn = jest.fn(() => undefined);
       // ; // LINT: unreachable code removed
-// const _result = awaitcompat.safeCall(undefinedFn);
+// const result = awaitcompat.safeCall(undefinedFn);
       expect(undefinedFn).toHaveBeenCalled();
       expect(result).toBeUndefined();
     });'
     it('should handle async functions that reject', async() => {'
-      const _rejectFn = jest.fn(() => Promise.reject(new Error('Promise rejected')));
-// const _result = awaitcompat.safeCall(rejectFn);
+      const rejectFn = jest.fn(() => Promise.reject(new Error('Promise rejected')));
+// const result = awaitcompat.safeCall(rejectFn);
       expect(rejectFn).toHaveBeenCalled();
       expect(result).toBeNull();'
       expect(consoleErrors[0]).toContain('Runtime error);'
@@ -118,23 +118,23 @@ describe('Runtime Detector', () =>
     it('should detect architecture correctly', () => '
       expect(['x64', 'arm64', 'arm', 'ia32'].includes(compat.platform.arch)).toBe(true););'
     it('should detect OS correctly', () => {'
-      const _validPlatforms = ['windows', 'linux', 'darwin', 'freebsd', 'openbsd'];
+      const validPlatforms = ['windows', 'linux', 'darwin', 'freebsd', 'openbsd'];
       expect(validPlatforms.includes(compat.platform.os)).toBe(true);
     }););'
   describe('edge cases', () => '
     it('should handle null function gracefully', async() => 
-// const _result = awaitcompat.safeCall(null);
+// const result = awaitcompat.safeCall(null);
       expect(result).toBeNull();
       expect(consoleErrors.length).toBeGreaterThan(0););'
     it('should handle undefined function gracefully', async() => 
-// const _result = awaitcompat.safeCall(undefined);
+// const result = awaitcompat.safeCall(undefined);
       expect(result).toBeNull();
       expect(consoleErrors.length).toBeGreaterThan(0););'
     it('should handle functions that throw non-Error objects', async() => {
-      const _throwStringFn = jest.fn(() => {'
+      const throwStringFn = jest.fn(() => {'
         throw 'String error';
       });
-// const _result = awaitcompat.safeCall(throwStringFn);
+// const result = awaitcompat.safeCall(throwStringFn);
       expect(result).toBeNull();
       expect(consoleErrors.length).toBeGreaterThan(0);
     });););

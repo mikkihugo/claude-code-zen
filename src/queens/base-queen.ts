@@ -8,21 +8,17 @@ import { performance } from 'node:perf_hooks';
 
 import { Logger } from '../utils/logger.js';
 
-*
-@typedef
 {
   Object;
 }
 // Task
-*
-@property
+
 {
   string;
 }
 id - Task;
 // ID'
-*
-@property
+
 {
   'code-generation' |
     'bug-detection' |
@@ -34,36 +30,31 @@ id - Task;
 type - Task;
 type;
 '
- *
-@property
+
 {
   string;
 }
 prompt - Task;
 // prompt
-*
-@property
+
 {
   code?, language?, framework?, testType?, fileType?
 }
 [context] - Task;
 context
- *
-@property
+
 {'
   'low' | 'medium' | 'high' | 'critical'}
 priority - Task;
 priority;
 '
- *
-@property
+
 {
   Date;
 }
 [deadline] - Task;
 // deadline
-*
-@property
+
 {
   any;
 }
@@ -76,22 +67,19 @@ priority;
  * @property {string};
 taskId - Task;
 // ID
-*
-@property
+
 {
   string;
 }
 queenName - Queen;
 // name
-*
-@property
+
 {
   string;
 }
 recommendation - Recommended;
 // solution
-*
-@property
+
 {
   number;
 }
@@ -111,15 +99,13 @@ for solution
  * @property {string}
 taskId - Task;
 // ID
-*
-@property
+
 {
   string;
 }
 decision - Consensus;
 // decision
-*
-@property
+
 {
   number;
 }
@@ -129,23 +115,20 @@ score(0-1)
 participants - Number;
 of;
 // participants'
-*
-@property
+
 {
   'majority' | 'weighted' | 'expert' | 'unanimous';
 }
 method - Consensus;
 method;
 '
- *
-@property
+
 {
   Result[]
 }
 [dissenting] - Dissenting;
 // opinions
-*
-@property
+
 {
   number;
 }
@@ -161,54 +144,48 @@ for consensus
 of;
 tasks;
 // processed
-*
-@property
+
 {
   number;
 }
 averageConfidence - Average;
 confidence;
 // score
-*
-@property
+
 {
   number;
 }
 averageProcessingTime - Average;
 processing;
 // time
-*
-@property
+
 {
   number;
 }
 successRate - Success;
 // rate
-*
-@property
+
 {
   number;
 }
 specialtyMatch - Specialty;
 match;
 // rate
-*
-@property
+
 {
   number;
 }
 collaborations - Number;
 of;
 // collaborations
-*
-@property
+
 {
   number;
 }
 consensusReached - Number;
 of;
 consensus;
-reached * /;;
+reached * /;
 
 // Export the JSDoc types as empty exports so they can be imported
 // export const Task = /** @type {Task} */ ({})
@@ -313,29 +290,29 @@ reachConsensus(task, results, method);
                 // return this.expertConsensus(task, results)
     // case 'weighted': // LINT: unreachable code removed'
                 // return this.weightedConsensus(task, results);default = results.map(r => r.recommendation);
-        const _firstRec = recommendations[0];
+        const firstRec = recommendations[0];
 
-        const _similarity = recommendations.every(_rec => ;)
+        const similarity = recommendations.every(_rec => ;)
             this.calculateSimilarity(rec, firstRec) > 0.8;
         );
   if(similarity) {
             // return {taskId = > r.confidence)),participants = this.weightedConsensus(task, results);
     // return { // LINT: unreachable code removed
 ..weighted,method = results.reduce((best, current) => {'
-            const _isExpert = current.queenName.toLowerCase().includes(task.type.split('-')[0])
-            const _hasHigherConfidence = current.confidence > best.confidence;
+            const isExpert = current.queenName.toLowerCase().includes(task.type.split('-')[0])
+            const hasHigherConfidence = current.confidence > best.confidence;
 
             // return(isExpert && hasHigherConfidence) ?current = > r.queenName !== expert.queenName);
     //   // LINT: unreachable code removed};
     //     }
   weightedConsensus(task, results) {
         // Weight results by confidence and specialty match
-        const _weightedResults = results.map(result => ({))
+        const weightedResults = results.map(result => ({))
 ..result,weight = > b.weight - a.weight);
 
-        const _totalWeight = weightedResults.reduce((sum, r) => sum + r.weight, 0);
-        const _cumulativeWeight = 0;
-        const _selectedResults = [];
+        const totalWeight = weightedResults.reduce((sum, r) => sum + r.weight, 0);
+        const cumulativeWeight = 0;
+        const selectedResults = [];
   for(const result of weightedResults) {
             selectedResults.push(result); cumulativeWeight += result.weight; if(cumulativeWeight >= totalWeight * 0.7) {
                 break;
@@ -343,30 +320,30 @@ reachConsensus(task, results, method);
         //         }
 
         // Combine selected results into final decision
-        const __decision = this.combineRecommendations(selectedResults.map(r => r.recommendation));
-        const __confidence = selectedResults.reduce((sum, r) => sum + r.confidence * r.weight, 0) / cumulativeWeight
+        const _decision = this.combineRecommendations(selectedResults.map(r => r.recommendation));
+        const _confidence = selectedResults.reduce((sum, r) => sum + r.confidence * r.weight, 0) / cumulativeWeight
 
         // return {taskId = > !selectedResults.some(s => s.queenName === r.queenName));
     //   // LINT: unreachable code removed};
     //     }
   majorityConsensus(task, results) {
         // Group similar recommendations
-        const _groups = this.groupSimilarRecommendations(results);
+        const groups = this.groupSimilarRecommendations(results);
 
         // Find the largest group
-        const _majority = groups.reduce((_largest, _current) => ;
+        const majority = groups.reduce((_largest, _current) => ;
             current.length > largest.length ?current = === 0) 
             throw new Error('No majority found')
 
         // Use the highest confidence recommendation from the majority group
-        const __best = majority.reduce((_best, _current) => ;
+        const _best = majority.reduce((_best, _current) => ;
             current.confidence > best.confidence ?current = majority.reduce((sum, r) => sum + r.confidence, 0) / majority.length;
 
         // return {taskId = > !majority.includes(r));
     //   // LINT: unreachable code removed};
     //     }
   calculateWeight(result, task) {
-        const _weight = result.confidence;
+        const weight = result.confidence;
 
         // Boost weight if queen specialty matches task type'
         if(result.queenName.toLowerCase().includes(task.type.split('-')[0])) {'
@@ -382,20 +359,20 @@ reachConsensus(task, results, method);
     //     }
   calculateSimilarity(text1, text2) {
         // Simple similarity calculation - could be enhanced with ML
-        const _words1 = new Set(text1.toLowerCase().split(/\W+/));
-        const _words2 = new Set(text2.toLowerCase().split(/\W+/));
+        const words1 = new Set(text1.toLowerCase().split(/\W+/));
+        const words2 = new Set(text2.toLowerCase().split(/\W+/));
 
-        const _intersection = new Set([...words1].filter(word => words2.has(word)));
-        const _union = new Set([...words1, ...words2]);
+        const intersection = new Set([...words1].filter(word => words2.has(word)));
+        const union = new Set([...words1, ...words2]);
 
         // return intersection.size / union.size;
     //   // LINT: unreachable code removed}
   groupSimilarRecommendations(results) {
-        const _groups = [];
-        const _threshold = 0.6;
+        const groups = [];
+        const threshold = 0.6;
   for(const result of results) {
-            const _addedToGroup = false; for(const group of groups) {
-                const _representative = group[0]; if(this.calculateSimilarity(result.recommendation, representative.recommendation) {> threshold) 
+            const addedToGroup = false; for(const group of groups) {
+                const representative = group[0]; if(this.calculateSimilarity(result.recommendation, representative.recommendation) {> threshold) 
                     group.push(result);
                     addedToGroup = true;
                     break;
@@ -432,13 +409,13 @@ reachConsensus(task, results, method);
     //   // LINT: unreachable code removed}
 
         // Check if this queen is suitable for the task
-// const _suitability = awaitthis.calculateSuitability(task);
+// const suitability = awaitthis.calculateSuitability(task);
         // return suitability > 0.3; // Minimum suitability threshold
     //     }
 
     async calculateSuitability(task) { 
         // Base suitability on specialty match
-        const _suitability = 0.5; // Base suitability
+        const suitability = 0.5; // Base suitability
 
         // Boost if specialty matches task type'
         if(this.specialty.includes(task.type.split('-')[0])) '
@@ -496,7 +473,7 @@ reachConsensus(task, results, method);
         this.isActive = false;
 
         // Wait for active tasks to complete(with timeout)
-        const _attempts = 0;
+        const attempts = 0;
   while(this.activeTasks.size > 0 && attempts < 30) {
 // // // await new Promise(resolve => setTimeout(resolve, 1000));
             attempts++;

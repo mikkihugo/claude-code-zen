@@ -5,13 +5,13 @@
 
 // Import validation functions by requiring the module
 
-const __path = require('node);'
+const _path = require('node);'
 // Test validation functions directly
 function testValidationFunctions() {'
   console.warn(' Testing Validation Functions(Unit Tests)\n');
   // Define validation constants(copied from the CLI)'
-  const _VALID_TOPOLOGIES = ['mesh', 'hierarchical', 'ring', 'star'];
-  const _VALID_AGENT_TYPES = ['
+  const VALID_TOPOLOGIES = ['mesh', 'hierarchical', 'ring', 'star'];
+  const VALID_AGENT_TYPES = ['
     'researcher','
     'coder','
     'analyst','
@@ -19,8 +19,8 @@ function testValidationFunctions() {'
     'coordinator','
     'architect','
     'tester' ];
-  const _MAX_AGENTS_LIMIT = 100;
-  const _MIN_AGENTS_LIMIT = 1;
+  const MAX_AGENTS_LIMIT = 100;
+  const MIN_AGENTS_LIMIT = 1;
   class ValidationError extends Error {
   constructor(message, parameter = null) {
 //       super(message);'
@@ -43,7 +43,7 @@ function testValidationFunctions() {'
   function validateMaxAgents() {
     // Handle string input'
   if(typeof maxAgents === 'string') {
-      const _parsed = parseInt(maxAgents, 10);
+      const parsed = parseInt(maxAgents, 10);
       if(Number.isNaN(parsed)) {
         throw new ValidationError(;'
           `Invalid maxAgents '${maxAgents}'. Must be a number between $MIN_AGENTS_LIMITand $MAX_AGENTS_LIMIT`,`
@@ -106,7 +106,7 @@ function testValidationFunctions() {'
     //     }
     // return task.trim();
     //   // LINT: unreachable code removed}
-  const _tests = [
+  const tests = [
     // Topology validation tests
     //     {'
       name: 'Invalid topology','
@@ -187,15 +187,15 @@ function testValidationFunctions() {'
       func: () => validateTaskDescription('Create a test application'),
       expectError,'
       expectedResult: 'Create a test application' } ];
-  const _passed = 0;
-  const _failed = 0;
+  const passed = 0;
+  const failed = 0;
   for(const test of tests) {'
     console.warn(`\n Testing); `
     try {
-      const _result = test.func(); if(test.expectError) {`
+      const result = test.func(); if(test.expectError) {`
         console.warn(`    FAIL - Expected error, but got result);`
         failed++;
-      }  catch (error) console.error(error); else 
+      } else 
   if(result === test.expectedResult) {`
           console.warn(`    PASS - Got expected result);`
           passed++;

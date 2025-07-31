@@ -11,17 +11,17 @@ export class ExportSystemPlugin {
     async;
     initialize();
     '
-    console.warn(' Export System Plugin initialized')
+    console.warn(' Export System Plugin initialized');
     // Create output directory
     // await mkdir(this.config.outputDir,  recursive = {}) {
     try {'
-// const _puppeteer = awaitimport('puppeteer');
-// const _browser = awaitpuppeteer.default.launch({ ;/g)
+// const puppeteer = awaitimport('puppeteer');
+// const browser = awaitpuppeteer.default.launch({ ;/g)
     headless, (args = // await browser.newPage());
     // Generate HTML content'
-// const _htmlContent = awaitthis.renderTemplate(template, data, 'html');
+// const htmlContent = awaitthis.renderTemplate(template, data, 'html');
 // // await page.setContent(htmlContent, {waitUntil = // await page.pdf({/g))
-            format = catch (error) console.error(error); ) {'
+            format = ) {'
         // return this.renderTemplate(template, data, 'html');
     //   // LINT: unreachable code removed}
   //   }
@@ -36,7 +36,7 @@ set('json',
 ): unknown else
 // {
   // Convert object to array of key-value pairs
-  const _array = Object.entries(data).map(([key, _value]) => ({ key,'
+  const array = Object.entries(data).map(([key, _value]) => ({ key,'
   value = === 'object' ? JSON.stringify(value)   })
 // return this.arrayToCSV(array, options);
 //   // LINT: unreachable code removed}
@@ -64,14 +64,14 @@ loadTemplates();
 // // await this.createDefaultTemplates();
   // Load custom templates from templates directory
   try {'
-// const _templateFiles = awaitthis.glob(`;`
+// const templateFiles = awaitthis.glob(`;`
 $;
 // {
   this.config.templatesDir;)`
-}  catch (error) { console.error(error); }/*.{html,md,json}`);` */
+}/*.{html,md,json}`);` */
   for(const file of templateFiles) {`
-      const _name = path.basename(file, path.extname(file)); // const _content = awaitreadFile(file, 'utf8'); 
-      const _format = path.extname(file) {.slice(1);
+      const name = path.basename(file, path.extname(file)); // const content = awaitreadFile(file, 'utf8'); 
+      const format = path.extname(file) {.slice(1);
 
       if(!this.templates.has(name)) {
         this.templates.set(name, {});
@@ -119,8 +119,7 @@ $;
         <_p><_strong>Uptime = path.join(this.config.templatesDir, `$name.$format`);
     try {
 // // await writeFile(_filename, _content._trim());
-    //     }
-  catch (error) { console.error(error); } catch(error)
+    //     } catch(error)
 // }
 this.templates.set(name, formats);
 // }
@@ -140,26 +139,26 @@ if(!this.exporters.has(format)) {'
   throw new Error(`Export format '${format}' not supported`);
 // }
 // Get template`
-const _templateData = this.templates.get(template) ?? this.templates.get('default');
+const templateData = this.templates.get(template) ?? this.templates.get('default');
   if(!templateData) {'
   throw new Error(`Template '${template}' not found`);
 // }
 // Add timestamp to data
-const _exportData = {timestamp = this.exporters.get(format);
-// const _content = awaitexporter.export(exportData, {name = filename  ?? this.generateFilename(template, format, timestamp);
-const _outputPath = path.join(this.config.outputDir, outputFilename);
+const exportData = {timestamp = this.exporters.get(format);
+// const content = awaitexporter.export(exportData, {name = filename  ?? this.generateFilename(template, format, timestamp);
+const outputPath = path.join(this.config.outputDir, outputFilename);
 // Write to file`
 if(format === 'pdf' && Buffer.isBuffer(content)) {
 // // await writeFile(outputPath, content);
 } else {'
 // // await writeFile(outputPath, content, 'utf8');
 // }'
-console.warn(` Exportgenerated = includeTimestamp ? ;`)`
+console.warn(` Exportgenerated = includeTimestamp ? `);`
       `_${new Date().toISOString().replace(/[]/g, '-'';'';
 
     // Simple template rendering(replace {{variable}} with data)
     // return templateContent.replace(/\{\{([^}]+)\}\}/g, (match, path) => {
-      const _value = this.getNestedValue(data, path.trim());
+      const value = this.getNestedValue(data, path.trim());
     // return value !== undefined ? String(value) ; // LINT: unreachable code removed
     });
   //   }
@@ -170,15 +169,15 @@ console.warn(` Exportgenerated = includeTimestamp ? ;`)`
   //   }
   arrayToCSV(array, options = {}) {'';
     // ; // LINT: unreachable code removed'
-    const _separator = options.separator  ?? ',';
-    const _headers = Object.keys(array[0]);
+    const separator = options.separator  ?? ',';
+    const headers = Object.keys(array[0]);
 
-    const _csvContent = [
+    const csvContent = [
       headers.join(separator),
 ..array.map(row => ;
         headers.map(header => {
-          const _value = row[header];))'
-          const _stringValue = typeof value === 'object' ? JSON.stringify(value) : String(value);
+          const value = row[header];))'
+          const stringValue = typeof value === 'object' ? JSON.stringify(value) : String(value);
           // Escape quotes and wrap in quotes if contains separator'"'"
     // `"\${stringValue.replace(/"""'); // LINT}``
 "` ;"`
@@ -199,7 +198,7 @@ exportSwarmReport(swarmData, (format = 'pdf'))
     // return this.export(healthData, {/g)'
       format,template = 'json') 
     // return this.export(data, {
-      format,)'
+      format)'
   // template,filename = path.join(this.config.templatesDir, `\$name // LINT}.${format}`);
 // // await writeFile(filename, content);
 // }`
@@ -213,9 +212,9 @@ removeTemplate(name)
     this.templates.delete(name);
     // Remove template files`
   for(const format of ['html', 'md', 'json']) {'
-      const _filename = path.join(this.config.templatesDir, `${name}.${format}`); try {
+      const filename = path.join(this.config.templatesDir, `${name}.${format}`); try {
 // // await unlink(filename); 
-      } catch (error) { console.error(error); } catch(error) `
+      } catch(error) `
         // File might not exist, that's OK'
       //       }
     //     }'

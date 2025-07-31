@@ -21,7 +21,7 @@ afterEach(() => {
 });'
 describe('Basic Functionality', () => '
   test('should import without errors', async() => 
-// const _monitor = awaitimport('
+// const monitor = awaitimport('
         '../../../../src/cli/command-handlers/simple-commands/monitor.js';
     //     
     expect(monitor.monitorCommand).toBeDefined() 
@@ -32,7 +32,7 @@ describe('Basic Functionality', () => '
     //     
   // // await monitorCommand([])
     // Check if metrics were displayed'
-    const _output = consoleSpy.log.mock.calls.join('\n');'
+    const output = consoleSpy.log.mock.calls.join('\n');'
     expect(output).toContain('System Metrics');
   });'
   test('should show help information', async() => {
@@ -40,7 +40,7 @@ describe('Basic Functionality', () => '
         '../../../../src/cli/command-handlers/simple-commands/monitor.js';
     //     
   showMonitorHelp() '
-    const _output = consoleSpy.log.mock.calls.join('\n');'
+    const output = consoleSpy.log.mock.calls.join('\n');'
     expect(output).toContain(''
     expect(output).toContain('--interval');'
     expect(output).toContain('--format');
@@ -51,18 +51,18 @@ describe('Output Formats', () => '
         '../../../../src/cli/command-handlers/simple-commands/monitor.js';
     //     )'
   // // await monitorCommand(['--format', 'json'])
-    const _calls = consoleSpy.log.mock.calls;
-    const _jsonOutput = calls.find((call) => {
+    const calls = consoleSpy.log.mock.calls;
+    const jsonOutput = calls.find((call) => {
       try {
           JSON.parse(call[0]);
 //           return true;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch {
+    //   // LINT: unreachable code removed} catch {
 //           return false;
     //   // LINT: unreachable code removed}
       }
       expect(jsonOutput).toBeDefined() 
   if(jsonOutput) {
-        const _parsed = JSON.parse(jsonOutput[0]);'
+        const parsed = JSON.parse(jsonOutput[0]);'
         expect(parsed).toHaveProperty('timestamp');'
         expect(parsed).toHaveProperty('system');
       //       }
@@ -72,7 +72,7 @@ describe('Output Formats', () => '
         '../../../../src/cli/command-handlers/simple-commands/monitor.js';
       //       
   // // await monitorCommand([])'
-      const _output = consoleSpy.log.mock.calls.join('\n');
+      const output = consoleSpy.log.mock.calls.join('\n');
       expect(output).toMatch(/System Metrics|System Resources|Performance/);
     });
   });

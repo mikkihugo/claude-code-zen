@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 /*  AUTO-GENERATED API - CLI Commands to REST/GraphQL/WebSocket; */
-*
+
 /** Automatically generates REST endpoints, GraphQL schema, and WebSocket handlers; */
 * from the CLI command registry
 with full validation
 and;
 real - time;
 features.;
-*
+
 /** Features: null */
 * -  REST API
 with OpenAPI docs;
@@ -118,7 +118,7 @@ this.server.listen(this.options.port, this.options.host, (err?) =>
         this.isRunning = true;
         this.metrics.uptime = Date.now();
 
-        const _result = {
+        const result = {
           port: this.options.port!,
           host: this.options.host!,
           urls: [;'
@@ -178,7 +178,7 @@ stop();
   //   }
   // Rate limiting
   if(this.options.rateLimit) {
-    const _limiter = rateLimit({
+    const limiter = rateLimit({
       windowMs);
     this.app.use(limiter);
   //   }
@@ -207,9 +207,9 @@ initializeEndpoints();
 
       // Health check`
       this.app.get('/health', (_req, res) => {'
-        res.json(status: 'healthy',)
+        res.json(status: 'healthy')
           uptime: Date.now() - this.metrics.uptime,
-          metrics: this.metrics   catch (error) console.error(error); );
+          metrics: this.metrics );
       //       }
   //   
   // API documentation'
@@ -223,7 +223,7 @@ initializeEndpoints();
 this.app.use((err, _req, res, _next) =>
     this.metrics.errors++'
   console.error('API Error:', err)'
-  res.status(500).json({ error: 'Internal Server Error',)
+  res.status(500).json({ error: 'Internal Server Error')
   message: err.message
 // 
 // }
@@ -259,14 +259,14 @@ this.app.get('/api/commands', (_req, res) =>
 this.app.post('/api/execute', async(req, res) =>
 // {
   try {
-        const { command, args = {}  catch (error) { console.error(error); }} = req.body;
+        const { command, args = {}} = req.body;
   if(!command) {
           // return res.status(400).json({/g)
             error);
         //         }
 
-        const _sessionId = this.generateSessionId();
-        const _session = {
+        const sessionId = this.generateSessionId();
+        const session = {
           id,
           command,
           args,
@@ -293,7 +293,7 @@ this.app.post('/api/execute', async(req, res) =>
 // Get execution status'
 this.app.get('/api/status/) =>'
 // {
-  const _session = this.executionSessions.get(req.params.sessionId);
+  const session = this.executionSessions.get(req.params.sessionId);
   if(!session) {
 //     return res.status(404).json({)
           error);
@@ -324,9 +324,9 @@ this.app.get('/api/metrics', (_req, res) =>
     this.metrics.websocketConnections++;'
     ws.on('message', (data) => 
         try {
-          const _message = JSON.parse(data.toString());
+          const message = JSON.parse(data.toString());
           this.handleWebSocketMessage(ws, message);
-        } catch (error) { console.error(error); } catch(/* _error */ )
+        } catch(/* _error */ )
   ws.send(;
   JSON.stringify({)
               error);
@@ -339,8 +339,7 @@ ws.on('close', () =>
 ws.send(;
 JSON.stringify({'
   type: 'welcome','
-  message: 'Connected to Claude Code Flow API',
-});
+  message: 'Connected to Claude Code Flow API'});
 // }
 
 /** Handle WebSocket messages; */
@@ -390,9 +389,9 @@ JSON.stringify({'
 : void
 // {
   const { channel } = message;
-  const _subscribers = this.realtimeSubscriptions.get(channel);
+  const subscribers = this.realtimeSubscriptions.get(channel);
   if(subscribers) {
-    const _index = subscribers.indexOf(ws);
+    const index = subscribers.indexOf(ws);
   if(index !== -1) {
       subscribers.splice(index, 1);
     //     }
@@ -412,8 +411,8 @@ handleWebSocketExecute(ws, message)
 : Promise<void>
 // {
   const { command, args = {} } = message;
-  const _sessionId = this.generateSessionId();
-  const _session = {
+  const sessionId = this.generateSessionId();
+  const session = {
       id,
   command,
   args,
@@ -424,7 +423,7 @@ this.executionSessions.set(sessionId, session);
 ws.send(;'
 JSON.stringify(type: 'execution_started',
 sessionId,
-command,)
+command)
 args   
 // 
 // Execute command with real-time updates
@@ -444,12 +443,10 @@ executeCommand(session, ws?)
           JSON.stringify({)
             type);
         );
-      //       }
-   catch (error) console.error(error); 
-  // In real implementation, this would call the actual CLI command
+      //       } // In real implementation, this would call the actual CLI command
 // // await this.simulateCommandExecution(session, ws);'
   session.status = 'completed';'
-  session.result = success, message: 'Command completed successfully' ;
+  session.result = success, message: 'Command completed successfully';
   if(ws) {
     ws.send(;
     JSON.stringify({'
@@ -504,7 +501,7 @@ ws?
 : void
 // {
   for (const [channel, subscribers] of this.realtimeSubscriptions.entries()) {
-    const _index = subscribers.indexOf(ws); if(index !== -1) {
+    const index = subscribers.indexOf(ws); if(index !== -1) {
       subscribers.splice(index, 1); if(subscribers.length === 0) {
         this.realtimeSubscriptions.delete(channel);
       //       }

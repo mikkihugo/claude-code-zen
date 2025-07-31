@@ -13,14 +13,13 @@ import {
   hasCommand,
   initializePlugins,
   showCommandHelp,
-',
-} from '.'
+'} from '.'
 
 async function _main() {
   // Use the comprehensive meow configuration from command-registry
-// const _cli = awaitcreateMeowCLI();
+// const cli = awaitcreateMeowCLI();
   const { input, flags } = cli;
-  const _command = input[0];
+  const command = input[0];
 
   // Handle version flag first(no plugins needed)
   if(flags.version  ?? flags.v) {
@@ -41,7 +40,7 @@ async function _main() {
     //   // LINT: unreachable code removed}
 '
   // Commands that don't need plugins(lightweight commands)'
-  const _lightweightCommands = ['
+  const lightweightCommands = ['
     'init','
     'status','
     'config','
@@ -51,14 +50,12 @@ async function _main() {
     '--version' ];
 
   // Initialize plugin system only for commands that need it
-  const __pluginManager = null;
+  const _pluginManager = null;
   if(!lightweightCommands.includes(command)) {
     try {'
       _pluginManager = // await initializePlugins({errorHandling = // await import('./plugin-activation.js');
         registerPluginCommands(commandRegistry);
-      //       }
-   catch (error) console.error(error); 
-  catch(error);
+      //       } catch(error);
   if(flags.debug) {'
     console.error(' Plugin initialization failed);'
   //   }
@@ -74,7 +71,7 @@ async function _main() {
 if(hasCommand(command)) {
   try {
 // // await executeCommand(command, input.slice(1), flags);
-  } catch (error) { console.error(error); } catch(/* err */) '
+  } catch(/* err */) '
     console.error(` Error executing command "${command}");`
   if(flags.debug) {`
       console.error('Stack trace);'

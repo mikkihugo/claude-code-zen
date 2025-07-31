@@ -7,8 +7,7 @@ import {
   init,
   isGpuAvailable,
   NetworkTrainer,
-  NeuralNetwork,
-} from '../bindings/index.js';
+  NeuralNetwork} from '../bindings/index.js';
 
 /** Network metadata interface; */
 
@@ -28,23 +27,23 @@ export // interface NetworkMetadata {id = false
 //   // ; // LINT: unreachable code removed
 //   try {
 // // // await init();
-//       const _backendInfo = getBackendInfo();'
-//       console.warn(` Claude Zen Neural Service initialized with ${backendInfo.backend}  catch (error) { console.error(error); }backend`);`
-console.warn(`Version = true;`);
+//       const backendInfo = getBackendInfo();'
+//       console.warn(` Claude Zen Neural Service initialized with ${backendInfo.backend}backend`);`
+console.warn(`Version = true`);
 } catch(error)
 {
 
     if(this.networks.has(id)) {`
       throw new Error(`Network with id '${id}' already exists`);
     //     }
-  const _network = new NeuralNetwork(layers);
+  const network = new NeuralNetwork(layers);
   this.networks.set(id, {)
       network,metadata = this.networks.get(id);
   // return entry ? entry.network = this.networks.get(networkId);
   // if(!entry) { // LINT: unreachable code removed`
   throw new Error(`Network '${networkId}' not found`);
 // }
-const _trainer = new NetworkTrainer(entry.network);
+const trainer = new NetworkTrainer(entry.network);
 this.trainers.set(networkId, trainer);
 // return trainer;
 // }
@@ -58,11 +57,11 @@ trainNetwork((networkId =
 )
 : Promise<any>
 // {
-  const _trainer = this.trainers.get(networkId);
+  const trainer = this.trainers.get(networkId);
   if(!trainer) {
     trainer = this.createTrainer(networkId);
   //   }
-  const __defaultConfig = {learning_rate = { ..._defaultConfig, ...config };
+  const _defaultConfig = {learning_rate = { ..._defaultConfig, ...config };
   // return // await trainer.train(;
   // trainingData.inputs, // LINT: unreachable code removed
   trainingData.outputs,

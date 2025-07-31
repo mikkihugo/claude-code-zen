@@ -101,7 +101,7 @@ orchestrator: this.orchestrator.getSystemStatus(),
 
 // CLI support'
   if(import.meta.url === `file) {`
-  const _bridge = new MCPBridge();`
+  const bridge = new MCPBridge();`
   process.on('SIGINT', async() => {'
     console.warn('\n Shutting down MCP Bridge...');
   // await bridge.stop();
@@ -112,28 +112,26 @@ orchestrator: this.orchestrator.getSystemStatus(),
     // Demo the MCP tools'
     console.warn('\n Testing MCP Service Tools...\n');
     // Test 1: Create service document
-// const _createResult = awaitbridge.createServiceDocument(;'
+// const createResult = awaitbridge.createServiceDocument(;'
       'payment-service','
       'service-description',
         name);'
     console.warn(' Service document created);'
     // Test 2: List documents'
-// const _listResult = awaitbridge.listServiceDocuments('payment-service');'
+// const listResult = awaitbridge.listServiceDocuments('payment-service');'
     console.warn(' Documents listed);'
     // Test 3: Validate document
-// const _validateResult = awaitbridge.validateServiceDocument(;'
+// const validateResult = awaitbridge.validateServiceDocument(;'
       'payment-service','
       'service-description';
     );'
     console.warn(' Document validated);'
     // Test 4: Queue approval'
-// const _approvalResult = awaitbridge.queueApproval(createResult.documentId, 'tech-lead');'
+// const approvalResult = awaitbridge.queueApproval(createResult.documentId, 'tech-lead');'
     console.warn(''
     console.warn('\n MCP Bridge fully operational!');'
     console.warn(' Connect Claude Desktop with);'
-  } catch (error) {
-  console.error(error);
-}'
+  }'
     console.error(' Failed to start MCP Bridge);'
     process.exit(1);
   //   }

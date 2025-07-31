@@ -42,7 +42,7 @@ export async function agentCommand() {
   default = subArgs[1]  ?? 'general'
 
   // Check if agent type exists using dynamic loader
-  // const _agentTypeInfo = awaitagentLoader.getAgentType(agentType);
+  // const agentTypeInfo = awaitagentLoader.getAgentType(agentType);
   if (!agentTypeInfo) {
     '
     printError(`Agent
@@ -76,7 +76,7 @@ export async function agentCommand() {
 '
     console.warn(`;
         \n Agent _Statistics => `)`
-        const _badge = type.legacy ? ' [LEGACY]'
+        const badge = type.legacy ? ' [LEGACY]'
         )
         '
       console.warn(`$type.description`)
@@ -89,7 +89,7 @@ export async function agentCommand() {
         case 'create':
         {
           '
-          const _hierarchyType = subArgs[2] ?? 'basic';
+          const hierarchyType = subArgs[2] ?? 'basic';
           '
       printSuccess(`Creating $hierarchyTypeagent hierarchy`)
           `
@@ -137,43 +137,43 @@ async function terminateAgent() {`;
             function _showAgentHelp() {
               '
   console.warn(''
-  console.warn('  spawn <type> [--name <name>]     Create new agent')
+  console.warn('  spawn <type> [--name <name>]     Create new agent');
               '
-  console.warn('  list [--verbose]                 List active agents')
+  console.warn('  list [--verbose]                 List active agents');
               '
-  console.warn('  terminate <id>                   Stop specific agent')
+  console.warn('  terminate <id>                   Stop specific agent');
               '
-  console.warn('  info <id>                        Show agent details')
+  console.warn('  info <id>                        Show agent details');
               '
-  console.warn('  hierarchy <create|show>          Manage agent hierarchies')
+  console.warn('  hierarchy <create|show>          Manage agent hierarchies');
               '
-  console.warn('  network <topology|metrics>       Agent network operations')
+  console.warn('  network <topology|metrics>       Agent network operations');
               '
-  console.warn('  ecosystem <status|optimize>      Ecosystem management')
+  console.warn('  ecosystem <status|optimize>      Ecosystem management');
               '
-  console.warn('  provision <count>                Auto-provision agents')
+  console.warn('  provision <count>                Auto-provision agents');
               console.warn();
               '
   console.warn(''
-  console.warn('  researcher    Research and information gathering')
+  console.warn('  researcher    Research and information gathering');
               '
-  console.warn('  coder         Code development and analysis')
+  console.warn('  coder         Code development and analysis');
               '
-  console.warn('  analyst       Data analysis and insights')
+  console.warn('  analyst       Data analysis and insights');
               '
-  console.warn('  coordinator   Task coordination and management')
+  console.warn('  coordinator   Task coordination and management');
               '
-  console.warn('  general       Multi-purpose agent')
+  console.warn('  general       Multi-purpose agent');
               console.warn();
               '
   console.warn(''
-  console.warn('  claude-zen agent spawn researcher --name "')
+  console.warn('  claude-zen agent spawn researcher --name "');
               '
-  console.warn('  claude-zen agent list --verbose')
+  console.warn('  claude-zen agent list --verbose');
               '
-  console.warn('  claude-zen agent hierarchy create enterprise')
+  console.warn('  claude-zen agent hierarchy create enterprise');
               '
-  console.warn('  claude-zen agent ecosystem status')
+  console.warn('  claude-zen agent ecosystem status');
               // }
             }
           }

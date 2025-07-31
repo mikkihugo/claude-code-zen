@@ -1,10 +1,9 @@
 /**  AG-UI Integration Demo for Claude Code Zen; */
-*
+
 /** Demonstrates the AG-UI protocol integration with the existing architecture; */
 /** Shows how to use AG-UI for real-time agent-to-UI communication; */
-*
-*
-@module
+
+
 AGUIDemoIntegration;
 
 import { AGUIAdapter } from '../ai/agui-adapter.js';
@@ -24,7 +23,7 @@ export class AGUIDemoIntegration {
     /** Demo1 = this.adapter.startTextMessage(null, 'assistant'); */
 
     // Simulate streaming text content'
-    const _text = "Hello! I'm demonstrating the AG-UI protocol integration with Claude Code Zen.";
+    const text = "Hello! I'm demonstrating the AG-UI protocol integration with Claude Code Zen.";
     '
     for (const char of text) {
       this.adapter.addTextContent(char, messageId); // await new Promise(resolve => setTimeout(resolve, 50)); // Simulate typing
@@ -40,7 +39,7 @@ export class AGUIDemoIntegration {
         // Stream arguments
 
         // Return results
-        const _result = {files_analyzed = > setTimeout(resolve, 500));
+        const result = {files_analyzed = > setTimeout(resolve, 500));
 
         // Queen 2 joins coordination'
         this.adapter.emitQueenEvent('queen-2', 'join_analysis', {specialization = > setTimeout(resolve, 500));
@@ -77,7 +76,7 @@ export class AGUIDemoIntegration {
         /** Standalone demo runner; */
 
         // export async function runAGUIDemo() {
-        const _demo = new AGUIDemoIntegration();
+        const demo = new AGUIDemoIntegration();
         // await demo.runAllDemos();
         //   return demo;
         // }
@@ -86,13 +85,13 @@ export class AGUIDemoIntegration {
 
         // export function createAGUIIntegrationTest(server => {'
         console.warn(' Running AG-UI Integration Test...');
-        const _demo = new AGUIDemoIntegration();
+        const demo = new AGUIDemoIntegration();
         // Test basic functionality
         // // await demo.demoBasicTextMessage();
         // // await demo.demoToolCallExecution();
         // Test server integration if available
         if (server?.aguiMiddleware) {
-          const _globalAdapter = server.aguiMiddleware.getGlobalAdapter();
+          const globalAdapter = server.aguiMiddleware.getGlobalAdapter();
           '
   globalAdapter.emitCustomEvent('integration_test',
             '
@@ -100,7 +99,7 @@ export class AGUIDemoIntegration {
   timestamp: Date.now()
           //
           // }'
-          console.warn(' AG-UI Integration Test completed')
+          console.warn(' AG-UI Integration Test completed');
           // return demo.adapter.getStats();
           // }
           // }

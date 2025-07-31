@@ -29,12 +29,12 @@ import { FlagValidator } from '../core/argument-parser.js';
 
 // export const configCommand = {
 //       name => {'
-// const _logger = context.logger.child({command = (context.arguments[0] as ConfigSubCommand)  ?? 'help'
+// const logger = context.logger.child({command = (context.arguments[0] as ConfigSubCommand)  ?? 'help'
 // // Parse and validate options
-// const __options = parseConfigOptions(context
+// const _options = parseConfigOptions(context
 // , logger
 // // Execute subcommand
-// // const _result = awaitinitConfig(options, logger);
+// // const result = awaitinitConfig(options, logger);
 // break;'
 // case 'show': null
 // result = // await showConfig(options, logger)
@@ -62,12 +62,12 @@ function parseConfigOptions(context = new FlagValidator(context.flags as any);
 '
 logger.debug('Parsing config options',
 {flags = validator.getBooleanFlag('force', false);'
-const _format = validator.getStringFlag('format', 'pretty') as 'pretty' | 'json';
+const format = validator.getStringFlag('format', 'pretty') as 'pretty' | 'json';
 // Validate format'
 if(!['pretty', 'json'].includes(format)) {'
   throw new CLIError('Format must be either "pretty" or '', 'config');
 // }
-const _options = {force = ============================================================================;
+const options = {force = ============================================================================;
 // CONFIG SUBCOMMAND IMPLEMENTATIONS
 // =============================================================================
 '
@@ -97,7 +97,7 @@ console.warn('  Currentconfiguration = === 'json') {'
   if(!key) {'
     logger.error('No key provided for get command');'
     console.error('Usage = // await readJsonFile<ClaudeFlowConfig>(configFile);'
-    const _value = getNestedValue(config, key);
+    const value = getNestedValue(config, key);
   if(value !== undefined) {'
       console.warn(`$key: $JSON.stringify(value)`);`
       logger.info('Configuration value retrieved', { key, value });
@@ -110,15 +110,15 @@ console.warn('  Currentconfiguration = === 'json') {'
     //     }
     catch(error)`
     logger.error('Configuration file not found', error)'
-    console.error(' Configuration file not found')'
-    console.warn('Run "claude-zen config init" to create configuration')'
+    console.error(' Configuration file not found');'
+    console.warn('Run "claude-zen config init" to create configuration');'
     throw new CLIError('Configuration file not found', 'config');
   //   }
   async function _setConfigValue() {'
     logger.error('Missing key or value for set command');'
     console.error('Usage = await readJsonFile<ClaudeFlowConfig>(configFile, {} as ClaudeFlowConfig);'
     // Parse value appropriately
-    const _parsedValue = value;'
+    const parsedValue = value;'
     if(value === 'true') parsedValue = true;'
     else if(value === 'false') parsedValue = false;'') parsedValue = Number(value);
     // Set nested value
@@ -134,20 +134,20 @@ async;`
 function validateConfig(options = 'claude-zen.config.json';'
 logger.debug('Validating configuration');
 try {
-// const _config = awaitreadJsonFile<ClaudeFlowConfig>(configFile);
+// const config = awaitreadJsonFile<ClaudeFlowConfig>(configFile);
 '
   console.warn('  Validating configuration...');
 
-  const _errors = [];
-  const _warnings = [];
+  const errors = [];
+  const warnings = [];
 
   // Validate required sections'
-  const _requiredSections = ['terminal', 'orchestrator', 'memory'];
+  const requiredSections = ['terminal', 'orchestrator', 'memory'];
   for(const section of requiredSections) {
   if(!config[section]) {'
       errors.push(`Missing required section = {valid = === 0,`
       errors,
-      warnings; } catch (error) console.error(error); ; if(errors.length === 0 && warnings.length === 0) {`
+      warnings; } ; if(errors.length === 0 && warnings.length === 0) {`
       console.warn(' Configuration is valid');
     } else {
   if(errors.length > 0) {'
@@ -176,9 +176,9 @@ async function resetConfig(options = ===========================================
 function getNestedValue(obj = > current?.[key], _obj);
 // }'
 function setNestedValue(obj = path.split('.');
-const _last = keys.pop();'
+const last = keys.pop();'
 if(!last) throw new Error('Invalid path');
-const _target = keys.reduce((current, key) => {
+const target = keys.reduce((current, key) => {
   if(!current[key]) current[key] = {};
 //   return current[key];
 }, obj);

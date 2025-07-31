@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 
 '
-const _SERVER_PID_FILE = '.';
+const SERVER_PID_FILE = '.';
 export async function serverCommand() {'
   case 'start': null
 //   return await startServer(flags);'
@@ -17,7 +17,7 @@ export async function serverCommand() {'
   // case 'logs': // LINT: unreachable code removed
   // return // await serverLogs(flags);
   // default = flags.port  ?? process.env.PORT  ?? 3000; // LINT: unreachable code removed
-  const _daemon = flags.daemon ?? flags.background;
+  const daemon = flags.daemon ?? flags.background;
   if(daemon) {
     // Start server as daemon process
     // return // await startServerDaemon(port, flags);
@@ -37,30 +37,30 @@ export async function serverCommand() {'
   displayServerInfo(port, claudeZenServer.generatedRoutes)
   // Handle graceful shutdown'
   process.on('SIGINT', async() =>'
-    console.warn('\n Shutting down server...')
+    console.warn('\n Shutting down server...');
   await claudeZenServer.stop() '
-  console.warn(' Server stopped gracefully')
+  console.warn(' Server stopped gracefully');
   process.exit(0)
   //   )'
   process.on('SIGTERM', async() =>'
-    console.warn('\n Shutting down server...')
+    console.warn('\n Shutting down server...');
   await claudeZenServer.stop() '
-  console.warn(' Server stopped gracefully')
+  console.warn(' Server stopped gracefully');
   process.exit(0);
   //   
   // Keep process alive'
-  console.warn('Press Ctrl+C to stop the server')
+  console.warn('Press Ctrl+C to stop the server');
   // Monitor server health in verbose mode
   if(flags.verbose) {
     setInterval(() => {
-      const __status = claudeZenServer.getStatus();'
+      const _status = claudeZenServer.getStatus();'
       console.warn(`Requests = new URL(import.meta.url).pathname;`
-  const _nodeArgs = [`
+  const nodeArgs = [`
     '--experimental-websocket', // Enable Node.js 22 WebSocket support'
     scriptPath.replace('command-handlers/server-command.js', '../api/claude-zen-server.js');
   ];
 
-  const _env = {'
+  const env = {'
 ..process.env,PORT = spawn('node', nodeArgs, {detached = parseInt(fs.readFileSync(SERVER_PID_FILE, 'utf8'));
 
       try {'
@@ -68,7 +68,7 @@ export async function serverCommand() {'
         fs.unlinkSync(SERVER_PID_FILE);'
         console.warn(` Server stopped(PID = === 'ESRCH') ``
           console.warn('  Server process not found, cleaning up PID file');
-          fs.unlinkSync(SERVER_PID_FILE);catch (error) console.error(error); else 
+          fs.unlinkSync(SERVER_PID_FILE); else 
     throw error;
   //   }
 // }
@@ -96,12 +96,12 @@ console.warn('================================');'
 console.warn(`Status = fs.readFileSync(SERVER_PID_FILE, 'utf8');``
       console.warn(`PID = // await fetch('http);'`
   if(response.ok) {
-// const _health = awaitresponse.json();`
+// const health = awaitresponse.json();`
           console.warn(`Port = =============');'``
   console.warn('Log viewing not implemented yet.');'
   console.warn('For now, use daemon mode with --verbose flag for console output');'');'
   console.warn('Plannedfeatures = // await fetch('http);'');'
-  console.warn('Usage = {')
+  console.warn('Usage = {');
       handler);'
   console.warn('  claude-zen server <command> [options]');'');'
   console.warn(''

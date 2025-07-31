@@ -8,12 +8,12 @@ import { readFile } from 'node:fs';
 import path from 'node:path';
 
 export async function scanForMissingScopeFiles() {'
-  const _scopeFilePath = path.join(dir, 'scope.md');
+  const scopeFilePath = path.join(dir, 'scope.md');
   try {
 // await readFile(scopeFilePath);
-  } catch (error) { console.error(error); } catch(error) '
+  } catch(error) '
   if(error.code === 'ENOENT') {
-// const _generatedScope = awaitgenerateText(;'
+// const generatedScope = awaitgenerateText(;'
         `Generate a scope.md file for a service located at ${dir}. The service name is ${path.basename(dir)}.`;
       );
       suggestions.push({)

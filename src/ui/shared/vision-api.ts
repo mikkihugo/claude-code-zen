@@ -8,7 +8,7 @@ async;
   // {
   try;
   {'
-// const _response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/api/v1/visions`);``
+// const response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/api/v1/visions`);``
       if(!
   response;
   .
@@ -25,7 +25,7 @@ async;
   warn('Using mock vision data = {}) {'
   try;
   {'
-  // const __response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/api/v1/visions/${visionId}/roadmap/generate`, {method = new VisionAPI();``
+  // const _response = awaitfetch(`${this.baseUrl} catch (error) { console.error(error)}/api/v1/visions/${visionId}/roadmap/generate`, {method = new VisionAPI();``
 }
 }}}})
 ``

@@ -107,22 +107,21 @@ performAutoSave();
 
     try {
       // Group changes by type
-      const _changesByType = this.pendingChanges.reduce((acc, change) => {
+      const changesByType = this.pendingChanges.reduce((acc, change) => {
   if(!acc[change.type]) {
           acc[change.type] = [];
-        //         }
-         catch (error) console.error(error); acc[change.type].push(change);
+        //         } acc[change.type].push(change);
 //         return acc;
     //   // LINT: unreachable code removed}, {});
 
       // Calculate progress
-      const _taskProgress = changesByType.task_progress  ?? [];'
-      const _completedTasks = taskProgress.filter((t) => t.data.status === 'completed').length;
-      const _totalTasks = taskProgress.length;
-      const _completionPercentage =;
+      const taskProgress = changesByType.task_progress  ?? [];'
+      const completedTasks = taskProgress.filter((t) => t.data.status === 'completed').length;
+      const totalTasks = taskProgress.length;
+      const completionPercentage =;
         totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) 
       // Create checkpoint data'
-      const _checkpointData = {timestamp = `auto-save-${Date.now()}`;
+      const checkpointData = {timestamp = `auto-save-${Date.now()}`;
 // // await this.sessionManager.saveCheckpoint(this.sessionId, checkpointName, checkpointData);
       // Update session progress
   if(completionPercentage > 0) {
@@ -135,7 +134,7 @@ performAutoSave();
           'info','
           `Auto-save = []; `
     } catch(error) {`
-      console.error('Auto-save failed => {')
+      console.error('Auto-save failed => {');
         this.childProcesses.delete(childProcess);
         this.sessionManager.removeChildPid(this.sessionId, childProcess.pid);
       });
@@ -164,7 +163,7 @@ performAutoSave();
             try {
               process.kill(childProcess.pid, 0); // Check if still alive'
               childProcess.kill('SIGKILL');
-            } catch (error) { console.error(error); } catch(/* e */ ) catch(error) '
+            } catch(/* e */ ) catch(error) '
           console.error(`Failed to terminate childprocess = // await this.sessionManager.getSession(this.sessionId);``
     if (session && (session.status === 'active' ?? session.status === 'paused')) {
       // // await this.sessionManager.stopSession(this.sessionId);
@@ -178,8 +177,8 @@ performAutoSave();
     catch(error)
     {'
       console.error('Error during cleanup = {}) {'
-      const _saveInterval = options.saveInterval ?? 30000; // Default 30 seconds
-      const _middleware = new AutoSaveMiddleware(sessionId, sessionManager, saveInterval);
+      const saveInterval = options.saveInterval ?? 30000; // Default 30 seconds
+      const middleware = new AutoSaveMiddleware(sessionId, sessionManager, saveInterval);
       if (options.autoStart !== false) {
         middleware.start();
         //   }

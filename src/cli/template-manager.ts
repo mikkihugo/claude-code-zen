@@ -15,8 +15,8 @@ import { fileURLToPath } from 'node:url';
 
 import { printWarning } from '.';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 export class TemplateManager {
   constructor() {
     this.templatePaths = ['
@@ -29,27 +29,25 @@ export class TemplateManager {
     /** Discover available templates; */
 
   async discoverTemplates() { 
-    const _templates = new Map();
+    const templates = new Map();
 
     for (const templatePath of this.templatePaths) 
       try {
-// const _exists = awaitfs.access(templatePath).then(() => true).catch(() => false); 
-        if(!exists) continue; // const __entries = awaitfs.readdir(templatePath, {withFileTypes = path.join(templatePath, entry.name) {;'
-            const _manifestPath = path.join(templateDir, 'template.json');
+// const exists = awaitfs.access(templatePath).then(() => true).catch(() => false); 
+        if(!exists) continue; // const _entries = awaitfs.readdir(templatePath, {withFileTypes = path.join(templatePath, entry.name) {;'
+            const manifestPath = path.join(templateDir, 'template.json');
 
             try {'
-// const _manifestContent = awaitfs.readFile(manifestPath, 'utf8');
-              const __manifest = JSON.parse(manifestContent);
+// const manifestContent = awaitfs.readFile(manifestPath, 'utf8');
+              const _manifest = JSON.parse(manifestContent);
 
               templates.set(entry.name, {name = // await this.discoverTemplates();
     // return templates.get(templateName);
-    //   // LINT: unreachable code removed}
-
- catch (error) { console.error(error); }/** List all available templates; */
+    //   // LINT: unreachable code removed}/** List all available templates; */
 
   async listTemplates() { 
-// const _templates = awaitthis.discoverTemplates();
-    const _templateList = Array.from(templates.values());
+// const templates = awaitthis.discoverTemplates();
+    const templateList = Array.from(templates.values());
 
     if(templateList.length === 0) '
       printWarning('No templates found');
@@ -68,22 +66,22 @@ export class TemplateManager {
 /** Install template to target directory; */
 
   async installTemplate(templateName, targetPath, options = {}) { 
-// const _template = awaitthis.getTemplate(templateName);
+// const template = awaitthis.getTemplate(templateName);
 
     if(!template) `
       throw new Error(`Template '${templateName}' not found. Run 'claude-zen templates list' to see available templates.`);
     //     }
 `
     const { force = false, minimal = false, variant = 'enhanced', addPlugins = true } = options;
-    const _absoluteTargetPath = path.resolve(targetPath);
+    const absoluteTargetPath = path.resolve(targetPath);
 
     // Check if target directory exists and is not empty
     try {
-// const _targetStats = awaitfs.stat(absoluteTargetPath);
+// const targetStats = awaitfs.stat(absoluteTargetPath);
       if(targetStats.isDirectory()) {
-// const _entries = awaitfs.readdir(absoluteTargetPath);
+// const entries = awaitfs.readdir(absoluteTargetPath);
   if(entries.length > 0 && !force) {'
-          throw new Error(`Directory '${targetPath} catch (error) { console.error(error); }' is not empty. Use --force to overwrite.`);
+          throw new Error(`Directory '${targetPath}' is not empty. Use --force to overwrite.`);
         //         }
       //       }
     } catch(error) {`
@@ -96,16 +94,13 @@ export class TemplateManager {
 // // await fs.mkdir(absoluteTargetPath, { recursive = {}) {
     const { minimal = false } = options;
     try {
-// const _entries = awaitfs.readdir(sourcePath, {withFileTypes = path.join(sourcePath, entry.name);
-        const _targetFile = path.join(targetPath, entry.name);
+// const entries = awaitfs.readdir(sourcePath, {withFileTypes = path.join(sourcePath, entry.name);
+        const targetFile = path.join(targetPath, entry.name);
 
         // Skip template.json and cache directories'
   if(entry.name === 'template.json'  ?? entry.name === 'cache'  ?? entry.name === '.swarm') {
           continue;
-        //         }
-
-         catch (error) console.error(error); 
-  if(minimal && manifest.files && manifest.files[entry.name] && !manifest.files[entry.name].required) {
+        //         } if(minimal && manifest.files && manifest.files[entry.name] && !manifest.files[entry.name].required) {
           continue;
         //         }
 
@@ -122,15 +117,15 @@ export class TemplateManager {
 /** Install settings variant; */
 
   async installSettingsVariant(templatePath, targetPath, variant) `
-    const _variantFile = variant === 'enhanced' ? 'settings.json' : `settings-$variant.json`;
-    const _sourcePath = path.join(templatePath, variantFile);`
-    const _targetSettingsPath = path.join(targetPath, '.claude', 'settings.json');
+    const variantFile = variant === 'enhanced' ? 'settings.json' : `settings-$variant.json`;
+    const sourcePath = path.join(templatePath, variantFile);`
+    const targetSettingsPath = path.join(targetPath, '.claude', 'settings.json');
 
     try {
       // Ensure .claude directory exists'
 // // await fs.mkdir(path.join(targetPath, '.claude'), {recursive = path.join(templatePath, 'settings.json');
 // // await fs.copyFile(defaultSettingsPath, targetSettingsPath);'
-        console.warn(` Installed default settings($variantcatch (error) console.error(error); variant not found)`);
+        console.warn(` Installed default settings($variant variant not found)`);
       } catch(/* fallbackError */ ) `
         console.warn(` Could not install settingsvariant = 'enhanced')``
     ``
@@ -165,17 +160,15 @@ export class TemplateManager {
       if (manifest.documentation) {'
         console.warn(''
         const { description = '', version = '1.0.0', category = 'custom' } = options;
-        const _sourcePath = process.cwd();'
-        const _targetPath = path.join(sourcePath, 'templates', templateName);
+        const sourcePath = process.cwd();'
+        const targetPath = path.join(sourcePath, 'templates', templateName);
 
         // Create template directory'
         // // await fs.mkdir(targetPath, {recursive = path.join(sourcePath, '.claude');
         try {
           // // await fs.access(claudePath);'
-          const _templateClaudePath = path.join(targetPath, 'claude');
+          const templateClaudePath = path.join(targetPath, 'claude');
           // // await this.copyDirectory(claudePath, templateClaudePath);
-        } catch (error) {
-          console.error(error);
         }
         catch(/* _error */)
         {'
@@ -183,8 +176,8 @@ export class TemplateManager {
           //     }
 
           // Create template manifest
-          const __manifest = {name = // await fs.readdir(source, {withFileTypes = path.join(source, entry.name);
-      const _targetFile = path.join(target, entry.name);
+          const _manifest = {name = // await fs.readdir(source, {withFileTypes = path.join(source, entry.name);
+      const targetFile = path.join(target, entry.name);
 
           if (entry.isDirectory()) {
             // // await this.copyDirectory(sourceFile, targetFile);

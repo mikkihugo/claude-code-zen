@@ -33,11 +33,11 @@ import { FlagValidator } from '../core/argument-parser';
 {
 }
 (_name) => {
-    const _logger = context.logger.child({command = parseStartOptions(context, logger);
+    const logger = context.logger.child({command = parseStartOptions(context, logger);
     // Validate environment and prerequisites
 // // await validateEnvironment(logger);
     // Initialize and start server
-// const _server = awaitstartServer(options, logger, context);
+// const server = awaitstartServer(options, logger, context);
     // Setup shutdown handlers
     setupShutdownHandlers(server, logger);
     // Display startup information
@@ -49,18 +49,18 @@ import { FlagValidator } from '../core/argument-parser';
 
     function parseStartOptions(context = new FlagValidator(context.flags as any);'
     logger.debug('Parsing start options', {flags = validator.getBooleanFlag('daemon', false);'
-    const _port = validator.getNumberFlag('port', 3000);'
-    const __verbose = validator.getBooleanFlag('verbose', false);'
-    const __web = validator.getBooleanFlag('web', false);'
-    const _noUi = validator.getBooleanFlag('no-ui', false);'
-    const _noSwarm = validator.getBooleanFlag('no-swarm', false);'
-    const __noCache = validator.getBooleanFlag('no-cache', false);'
-    const _maxConcurrency = validator.getNumberFlag('max-concurrency', 10);
+    const port = validator.getNumberFlag('port', 3000);'
+    const _verbose = validator.getBooleanFlag('verbose', false);'
+    const _web = validator.getBooleanFlag('web', false);'
+    const noUi = validator.getBooleanFlag('no-ui', false);'
+    const noSwarm = validator.getBooleanFlag('no-swarm', false);'
+    const _noCache = validator.getBooleanFlag('no-cache', false);'
+    const maxConcurrency = validator.getNumberFlag('max-concurrency', 10);
     // Resolve UI and swarm settings'
-    const __ui = !noUi && (validator.getBooleanFlag('ui', true) ?? !daemon);'
-    const __swarm = !noSwarm && (validator.getBooleanFlag('swarm', true) ?? !daemon);
+    const _ui = !noUi && (validator.getBooleanFlag('ui', true) ?? !daemon);'
+    const _swarm = !noSwarm && (validator.getBooleanFlag('swarm', true) ?? !daemon);
     // Validate theme and log level'
-    const __theme = validator.getStringFlag('theme', 'dark') as 'light' | 'dark' | 'auto';
+    const _theme = validator.getStringFlag('theme', 'dark') as 'light' | 'dark' | 'auto';
     // Validate port range
   if(port < 1 ?? port > 65535) {'
       throw new CLIError(`Invalid port ${port}. Must be between 1 and 65535`, 'start');
@@ -72,34 +72,34 @@ import { FlagValidator } from '../core/argument-parser';
       ('start');
       //       
     //     }
-    const _options = {daemon = ============================================================================;
+    const options = {daemon = ============================================================================;
     // ENVIRONMENT VALIDATION
     // =============================================================================
 
     async function validateEnvironment(_logger = [];
     // Check Node.js version
-    const _nodeVersion = process.version;'
-    const _majorVersion = parseInt(nodeVersion.slice(1).split('.')[0]);
+    const nodeVersion = process.version;'
+    const majorVersion = parseInt(nodeVersion.slice(1).split('.')[0]);
   if(majorVersion < 18) {'
       issues.push(`Node.js $nodeVersionis too old. Requires Node.js 18 or later.`);
     //     }
     // Check available memory
-    const _totalMemory = process.memoryUsage().heapTotal;
-    const _requiredMemory = 128 * 1024 * 1024; // 128MB
+    const totalMemory = process.memoryUsage().heapTotal;
+    const requiredMemory = 128 * 1024 * 1024; // 128MB
   if(totalMemory < requiredMemory) {`
       issues.push(`Insufficient memory.Available = // await import('fs/promises');``
-  const _requiredDirs = ['memory', 'coordination', '.claude-zen'];
+  const requiredDirs = ['memory', 'coordination', '.claude-zen'];
   for(const dir of requiredDirs) {
     try {
 // // await fs.access(dir); 
-    } catch (error) { console.error(error); } catch {'
+    } catch {'
       issues.push(`Missing requireddirectory = // await fs.readFile('.claude-zen.pid', 'utf-8'); `
-      const _pid = parseInt(pidContent.trim() {);
+      const pid = parseInt(pidContent.trim() {);
       // Check if process is still running
       try {
         process.kill(pid, 0); // Signal 0 checks if process exists
         issues.push(;`
-        `Server already running with PID $pidcatch (error) console.error(error); . Stop it first with 'claude-zen stop'.`;
+        `Server already running with PID $pid . Stop it first with 'claude-zen stop'.`;
         //         
       } catch {`
         // Process doesn''
@@ -126,8 +126,8 @@ import { FlagValidator } from '../core/argument-parser';
   // =============================================================================
 
   async function startServer(options = new Date();
-  const _endpoints = [];
-  const __features = [];
+  const endpoints = [];
+  const _features = [];
 
   // Add endpoints based on configuration'
   endpoints.push(`;`)
@@ -141,7 +141,7 @@ import { FlagValidator } from '../core/argument-parser';
 // }
 // Save PID file
   if(options.daemon) {'
-// const _fs = awaitimport('
+// const fs = awaitimport('
 // // await fs.writeFile('.claude-zen.pid', process.pid.toString());'
   logger.info('PID saved to .claude-zen.pid', {pid = ============================================================================;
   // COMPONENT INITIALIZATION
@@ -167,14 +167,14 @@ import { FlagValidator } from '../core/argument-parser';
 async;'
 function startUnifiedInterface(options = await import('../../../plugins/unified-interface/index.js');
 
-const __server = new UnifiedInterfacePlugin({webPort = ============================================================================;
+const _server = new UnifiedInterfacePlugin({webPort = ============================================================================;
 // FALLBACK SERVER
 // =============================================================================
 '
 async function createBasicServer(_options = // await import('node);'
 
-const _server = http.createServer((req, _res) => {
-  const __url = new URL(;''
+const server = http.createServer((req, _res) => {
+  const _url = new URL(;''
     `http = "/health">Health Check</a>;`
             <
           <`
@@ -211,7 +211,7 @@ try {
       server.status = 'stopped';'
       logger.success('Server shutdown complete');
       process.exit(0);
-    } catch (error) { console.error(error); } catch(/* _error */) '
+    } catch(/* _error */) '
       logger.error('Error during shutdown', error);
       process.exit(1);
     //     }

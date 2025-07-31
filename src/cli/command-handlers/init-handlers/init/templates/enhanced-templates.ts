@@ -5,13 +5,13 @@ import { readFileSync } from 'node:fs';
 
 import { dirname } from 'node:path';
 
-const ___dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Load template files
-const _loadTemplate = () => {
+const loadTemplate = () => {
   try {'
 //     return readFileSync(join(__dirname, filename), 'utf8');
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _error */) {
+    //   // LINT: unreachable code removed} catch(/* _error */) {
     // Silently fall back to hardcoded templates if files not found
     // This handles npm packaging scenarios where template files may not be included
     // return null;
@@ -19,7 +19,7 @@ const _loadTemplate = () => {
 }
 
   export function _createEnhancedClaudeMd() {'
-  const _template = loadTemplate('CLAUDE.md');
+  const template = loadTemplate('CLAUDE.md');
   if(!template) {
     // Fallback to hardcoded if template file not found
 //     return createEnhancedClaudeMdFallback();
@@ -28,7 +28,7 @@ const _loadTemplate = () => {
 // }
 
 // export function _createEnhancedSettingsJson() {'
-  const _template = loadTemplate('settings.json');
+  const template = loadTemplate('settings.json');
   if(!template) {
 //     return createEnhancedSettingsJsonFallback();
     //   // LINT: unreachable code removed}
@@ -38,16 +38,16 @@ const _loadTemplate = () => {
 // export function _createWrapperScript(type = 'unix') {
   // For unix, use the universal wrapper that works in both CommonJS and ES modules'
   if(type === 'unix') {'
-    const _universalTemplate = loadTemplate('claude-zen-universal');
+    const universalTemplate = loadTemplate('claude-zen-universal');
   if(universalTemplate) {
 //       return universalTemplate;
     //   // LINT: unreachable code removed}
   //   }
 
-  const _filename =;'
+  const filename =;'
     //     type === 'unix' ? 'claude-zen'  === 'windows' ? 'claude-zen.bat' : 'claude-zen.ps1';
 
-  const _template = loadTemplate(filename);
+  const template = loadTemplate(filename);
   if(!template) {
     // return createWrapperScriptFallback(type);
     //   // LINT: unreachable code removed}
@@ -78,24 +78,24 @@ const { fileURLToPath } = await import('node);'
 
 try {
   // Try to use import.meta.url(ES modules)
-  const ___filename = fileURLToPath(import.meta.url);'
-  const ___dirname = resolve(__filename, '..');
-} catch (error) { console.error(error); } catch {
+  const __filename = fileURLToPath(import.meta.url);'
+  const __dirname = resolve(__filename, '..');
+} catch {
   // Fallback for CommonJS
 // }
 
 // Try multiple strategies to find claude-zen
-const __strategies = [
+const _strategies = [
     // 1. Local node_modules
     async() => {
       try {'
-        const _localPath = resolve(process.cwd(), 'node_modules/.bin/claude-zen');'
-        const { existsSync }  catch (error) console.error(error); = await import('node);'
+        const localPath = resolve(process.cwd(), 'node_modules/.bin/claude-zen');'
+        const { existsSync } = await import('node);'
         if(existsSync(localPath)) {
 //           return spawn(localPath, process.argv.slice(2), { stdio => {
       try {'
-        const _parentPath = resolve(process.cwd(), '../node_modules/.bin/claude-zen');'
-    // const { existsSync  // LINT: unreachable code removed}  catch (error) { console.error(error); }= // await import('node);'
+        const parentPath = resolve(process.cwd(), '../node_modules/.bin/claude-zen');'
+    // const { existsSync  // LINT: unreachable code removed}= // await import('node);'
         if(existsSync(parentPath)) {
 //           return spawn(parentPath, process.argv.slice(2), { stdio => {'
 //       return spawn('npx', ['claude-zen@2.0.0-alpha.25', ...process.argv.slice(2)], {stdio = // await strategy();
@@ -135,9 +135,7 @@ function _createEnhancedClaudeMdFallback() {
   // Read from the actual template file we created
   try {'
 //     return readFileSync(join(__dirname, 'CLAUDE.md'), 'utf8');
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
     // If that fails, return a minimal version'
     // return `# Claude Code Configuration for Claude Flow`
 

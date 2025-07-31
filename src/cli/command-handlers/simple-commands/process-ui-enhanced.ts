@@ -5,7 +5,7 @@
 import { compat, printSuccess } from '..';
 
 // Simple color utilities
-const _colors = {'
+const colors = {'
   cyan = > `\x1b[36m${text}\x1b[0m`,`
   gray = > `\x1b[90m${text}\x1b[0m`,`
   white = > `\x1b[37m${text}\x1b[0m`,`
@@ -15,9 +15,8 @@ const _colors = {'
   blue = > `\x1b[34m${text}\x1b[0m`,`
   magenta = > `\x1b[35m${text}\x1b[0m`,`
   bold = > `\x1b[1m${text}\x1b[0m`,`
-  dim = > `\x1b[2m${text}\x1b[0m`,
-};
-const __PROCESSES = [
+  dim = > `\x1b[2m${text}\x1b[0m`};
+const _PROCESSES = [
   { id = {_PROCESSES = new Map();
     this.running = true;
     this.selectedIndex = 0;
@@ -48,22 +47,22 @@ const __PROCESSES = [
     this.memoryStats = totalEntries = [
       {time = ['';
     tabs.forEach((tab) => {
-      const _isActive = this.currentView === tab.view;''.repeat(80)));
+      const isActive = this.currentView === tab.view;''.repeat(80)));
     console.warn();
   //   }
   renderProcessView() {'
     console.warn(colors.white(colors.bold('Process Management')));
     console.warn();
 
-    const _index = 0;
+    const index = 0;
   for(const [_id, process] of this.processes) {'
-      const _selected = index === this.selectedIndex; const _prefix = selected ? colors.yellow(' ') : '  '; const _status = this.getStatusIcon(process.status) {;
-      const _name = selected ? colors.yellow(process.name) : colors.white(process.name);
+      const selected = index === this.selectedIndex; const prefix = selected ? colors.yellow(' ') : '  '; const status = this.getStatusIcon(process.status) {;
+      const name = selected ? colors.yellow(process.name) : colors.white(process.name);
 '
       console.warn(`$prefix$status$name`);`
       console.warn(`${colors.gray(process.description)}`);`
   if(process.status === 'running') {
-        const __stats = colors.dim(;)'
+        const _stats = colors.dim(;)'
           `PID = Array.from(this.processes.values()).filter(;`)`
       (p) => p.status === 'running').length;''.repeat(80)));
     console.warn(;
@@ -79,27 +78,27 @@ const __PROCESSES = [
     // Recent events`
     console.warn(colors.cyan(' Recent Events'));
     this.logs.slice(-3).forEach((log) => {
-      const __time = log.time.toLocaleTimeString();'
-      const __icon = log.level === 'success'' : log.level === 'warning'' : '';
-      const __color =;'
+      const _time = log.time.toLocaleTimeString();'
+      const _icon = log.level === 'success'' : log.level === 'warning'' : '';
+      const _color =;'
         log.level === 'success';'
           ? colors.green = === 'warning';
             ? colors.yellow = this.swarmIntegration.getSwarmMetrics();
   if(metrics) {'
       console.warn(colors.cyan(' Swarm Status'));'
       console.warn(`  Swarm ID => {`
-      const _selected = this.currentView === VIEWS.ORCHESTRATION && index === this.selectedIndex;)`
-      const _prefix = selected ? colors.yellow(' ') : '  ';'
-      const _statusIcon = agent.status === 'working'') : colors.gray('');
-      const _name = selected ? colors.yellow(agent.name) : colors.white(agent.name);
+      const selected = this.currentView === VIEWS.ORCHESTRATION && index === this.selectedIndex;)`
+      const prefix = selected ? colors.yellow(' ') : '  ';'
+      const statusIcon = agent.status === 'working'') : colors.gray('');
+      const name = selected ? colors.yellow(agent.name) : colors.white(agent.name);
 '
       console.warn(`$prefix$statusIcon$name($, agent.type )`);`
       console.warn(`     _ID => {`
-      const _statusColor =;`
+      const statusColor =;`
         task.status === 'completed';'
           ? colors.green = === 'in_progress';)'
             ? colors.yellow = statusColor(`[\$task.status]`);
-      const _priority =;`
+      const priority =;`
         task.priority === 'high';'
           ? colors.red(`[\$task.priority]`);`
           : task.priority === 'medium';'
@@ -107,16 +106,16 @@ const __PROCESSES = [
             : colors.gray(`[\$task.priority]`);`
       console.warn(`$status$priority$task.description`);
   if(task.assignedTo) {
-        const __agent = this.agents.find((a) => a.id === task.assignedTo);`
+        const _agent = this.agents.find((a) => a.id === task.assignedTo);`
         console.warn(`       Assigned to => {`
-      const _selected = this.currentView === VIEWS.MEMORY && index === this.selectedIndex;)`
-      const _prefix = selected ? colors.yellow(' ') : '  ';
-      const _name = selected ? colors.yellow(ns.name) : colors.white(ns.name);
+      const selected = this.currentView === VIEWS.MEMORY && index === this.selectedIndex;)`
+      const prefix = selected ? colors.yellow(' ') : '  ';
+      const name = selected ? colors.yellow(ns.name) : colors.white(ns.name);
 '
       console.warn(`$prefix$name`);`
       console.warn(`Entries = this.logs.slice(-15);`
     displayLogs.forEach((log) => {
-      const _time = log.time.toLocaleTimeString();
+      const time = log.time.toLocaleTimeString();
       let icon, color;
   switch(log.level) {`
         case 'success':'';
@@ -196,29 +195,29 @@ const __PROCESSES = [
     // case 'error': // LINT: unreachable code removed'');'
     // case 'starting': // LINT: unreachable code removed'');default = Array.from(this.processes.values()).filter(;/g)'
       (p) => p.status === 'running').length;
-    const _total = this.processes.size;
-    const _percentage = (running / total) * 100;
-    const _filled = Math.round(percentage / 10);''.repeat(filled) + ''.repeat(10 - filled);
-    const _color = percentage >= 80 ? colors.green = 50 ? colors.yellow : colors.red;''.repeat(filled) + ''.repeat(10 - filled);
-    const _color = percentage >= 80 ? colors.red = 50 ? colors.yellow : colors.green;
+    const total = this.processes.size;
+    const percentage = (running / total) * 100;
+    const filled = Math.round(percentage / 10);''.repeat(filled) + ''.repeat(10 - filled);
+    const color = percentage >= 80 ? colors.green = 50 ? colors.yellow : colors.red;''.repeat(filled) + ''.repeat(10 - filled);
+    const color = percentage >= 80 ? colors.red = 50 ? colors.yellow : colors.green;
     // return color(bar);
     //   // LINT: unreachable code removed}
   formatUptime(seconds) '
     if(seconds < 60) return `${seconds}s`;`
     // if(seconds < 3600) return `\${Math.floor(seconds / 60) // LINT}m ${seconds % 60}s`;
-    const _hours = Math.floor(seconds / 3600);
-    const _minutes = Math.floor((seconds % 3600) / 60);`
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);`
     // return `$hoursh $minutesm`;
     //   // LINT: unreachable code removed}
 
   async handleInput() { 
-    const _terminal = compat.terminal;`
+    const terminal = compat.terminal;`
 // await terminal.write('\nCommand = new Uint8Array(1024);'
-// const _n = awaitterminal.read(buf);
+// const n = awaitterminal.read(buf);
     if(n === null) return;
     // ; // LINT: unreachable code removed
-    const _rawInput = terminal.decoder.decode(buf.subarray(0, n)).trim();'
-    const _input = rawInput.split('\n')[0].toLowerCase();
+    const rawInput = terminal.decoder.decode(buf.subarray(0, n)).trim();'
+    const input = rawInput.split('\n')[0].toLowerCase();
 
     // Global commands
     switch(input) '
@@ -264,8 +263,8 @@ const __PROCESSES = [
       case 'tab':'
       case '\t': {
         // Cycle through views
-        const _viewKeys = Object.values(VIEWS);
-        const _currentIndex = viewKeys.indexOf(this.currentView);
+        const viewKeys = Object.values(VIEWS);
+        const currentIndex = viewKeys.indexOf(this.currentView);
         this.currentView = viewKeys[(currentIndex + 1) % viewKeys.length];
         this.selectedIndex = 0;
         break;
@@ -283,21 +282,21 @@ const __PROCESSES = [
   switch(input) {'
       case 'n': {
         // Spawn new agent'
-        const _agentTypes = ['researcher', 'coder', 'analyst', 'coordinator', 'tester'];
-        const _randomType = agentTypes[Math.floor(Math.random() * agentTypes.length)];
+        const agentTypes = ['researcher', 'coder', 'analyst', 'coordinator', 'tester'];
+        const randomType = agentTypes[Math.floor(Math.random() * agentTypes.length)];
 // // await this.swarmIntegration.spawnAgent(randomType);
         break;
       //       }
 '
       case 't': {
         // Create new task
-        const _sampleTasks = ['
+        const sampleTasks = ['
           'Implement new feature','
           'Fix critical bug','
           'Optimize performance','
           'Update documentation','
           'Review code quality' ];
-        const _randomTask = sampleTasks[Math.floor(Math.random() * sampleTasks.length)];'
+        const randomTask = sampleTasks[Math.floor(Math.random() * sampleTasks.length)];'
 // // await this.swarmIntegration.createTask(randomTask, 'medium');
         break;
       //       }
@@ -305,9 +304,9 @@ const __PROCESSES = [
       case 'd':
         // Complete selected task(simulate)
   if(this.tasks.length > 0) {'
-          const _pendingTasks = this.tasks.filter((t) => t.status === 'in_progress');
+          const pendingTasks = this.tasks.filter((t) => t.status === 'in_progress');
   if(pendingTasks.length > 0) {
-            const _taskToComplete = pendingTasks[0];
+            const taskToComplete = pendingTasks[0];
 // // await this.swarmIntegration.completeTask(taskToComplete.id);
           } else {'
             this.addLog('info', 'No in-progress tasks to complete');
@@ -317,7 +316,7 @@ const __PROCESSES = [
 '
       case 's': {
         // Show swarm metrics
-        const _metrics = this.swarmIntegration.getSwarmMetrics();
+        const metrics = this.swarmIntegration.getSwarmMetrics();
   if(metrics) {
           this.addLog(;'
             'info','
@@ -332,7 +331,7 @@ const __PROCESSES = [
   //   }
   addLog(level, message) 
     this.logs.push({time = Math.min(;
-      100,)
+      100)
       Math.max(0, this.systemStats.cpuUsage + (Math.random() - 0.5) * 10));
     this.systemStats.memoryUsage = Math.min(;
       100,
@@ -347,7 +346,7 @@ const __PROCESSES = [
   //   }
 
   async toggleSelected() { 
-    const _process = Array.from(this.processes.values())[this.selectedIndex];'
+    const process = Array.from(this.processes.values())[this.selectedIndex];'
     if(process.status === 'stopped') 
 // await this.startProcess(process.id);
     } else 
@@ -356,7 +355,7 @@ const __PROCESSES = [
   //   }
 
   async startProcess(id) { 
-    const _process = this.processes.get(id);
+    const process = this.processes.get(id);
     if(!process) return;
     // ; // LINT: unreachable code removed'
     this.addLog('info', `Starting \$process.name...`);`
@@ -370,7 +369,7 @@ const __PROCESSES = [
   //   }
 
   async stopProcess(id) { 
-    const _process = this.processes.get(id);
+    const process = this.processes.get(id);
     if(!process) return;
     // ; // LINT: unreachable code removed`
     this.addLog('info', `Stopping $process.name}...`);`
@@ -402,7 +401,7 @@ const __PROCESSES = [
 // }
 
 // export async function _launchEnhancedUI() 
-  const _ui = new EnhancedProcessUI();
+  const ui = new EnhancedProcessUI();
 // await ui.start();
 // }
 

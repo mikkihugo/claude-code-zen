@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Queen;
 command;
 handler;
@@ -14,11 +13,10 @@ import chalk from 'chalk';
 
 import { QueenCoordinator } from '../../queens/queen-coordinator.js';
 
-const _queenCoordinator = null;
+const queenCoordinator = null;
 
 /** Queen command handler - manages multi-queen architecture */
-*
-@param
+
 {
   string[]
 }
@@ -39,15 +37,15 @@ try {
       queenCoordinator = new QueenCoordinator({
         maxConcurrentTasks,enableLoadBalancing = queenCoordinator.isRunning();
 
-  const __metrics = queenCoordinator.getMetrics();
+  const _metrics = queenCoordinator.getMetrics();
 
   // Overall Status'
   console.warn(chalk.bold(' CoordinatorStatus = (utilization * 100).toFixed(1);'
-    let _color = chalk.green;
+    let color = chalk.green;
     if(utilization > 0.8) color = chalk.red;
     else if(utilization > 0.6) color = chalk.yellow;
 '
-    console.warn(`$queenNamecatch (error) console.error(error); : $color(`${utilizationPercent}%`)`);
+    console.warn(`$queenName : $color(`${utilizationPercent}%`)`);
   //   }
 // }
 
@@ -57,7 +55,7 @@ try {
 
 async function handleQueenList(args = queenCoordinator.getQueens();
 for (const [name, queen] of Object.entries(queens)) {
-    const __metrics = queen.getMetrics(); const __isHealthy = queen.isHealthy(); const __workload = queen.getWorkload() ;
+    const _metrics = queen.getMetrics(); const _isHealthy = queen.isHealthy(); const _workload = queen.getWorkload() ;
 `
     console.warn(chalk.bold(` ${name}`));`
     console.warn(`Specialty = args.join(' ');`
@@ -67,9 +65,9 @@ for (const [name, queen] of Object.entries(queens)) {
 
   try {
     // Submit task
-// const _taskId = awaitqueenCoordinator.submitTask(prompt, {type = // await queenCoordinator.waitForTask(taskId, 60000); // 60 second timeout
+// const taskId = awaitqueenCoordinator.submitTask(prompt, {type = // await queenCoordinator.waitForTask(taskId, 60000); // 60 second timeout
 
-    const _totalTime = performance.now() - startTime;
+    const totalTime = performance.now() - startTime;
 '
     console.warn(chalk.green(' Task completed successfully'));
     console.warn();
@@ -78,7 +76,7 @@ for (const [name, queen] of Object.entries(queens)) {
   if(result.decision) {
       // Consensus result'
       console.warn(chalk.cyan(' Queen Consensus Result => {'))'
-          console.warn(`$dissent.queenNamecatch (error) console.error(error); : $dissent.recommendation($(_dissent._confidence * 100).toFixed(1)%)`)
+          console.warn(`$dissent.queenName : $dissent.recommendation($(_dissent._confidence * 100).toFixed(1)%)`)
         });
       //       }
     } else 
@@ -95,18 +93,18 @@ for (const [name, queen] of Object.entries(queens)) {
 
   try {
     // Get available queens
-    const _queens = Object.values(queenCoordinator.getQueens());
+    const queens = Object.values(queenCoordinator.getQueens());
   if(queens.length < 2) {'
       console.warn(chalk.yellow(' Only one queen available, cannot collaborate'));'
       console.warn(chalk.gray('Falling back to single queen execution...'));
-    }  catch (error) console.error(error); else {'
+    } else {'
       console.warn(chalk.blue(` \$queens.lengthqueens available for collaboration`));
     //     }
 
     // Create collaboration task
-    const _task = {id = // await queenCoordinator.executeTask(task, true); // Require consensus
+    const task = {id = // await queenCoordinator.executeTask(task, true); // Require consensus
 
-    const _totalTime = performance.now() - startTime;
+    const totalTime = performance.now() - startTime;
 `
     console.warn(chalk.green(' Queen collaboration completed'));
     console.warn();
@@ -115,15 +113,15 @@ for (const [name, queen] of Object.entries(queens)) {
     console.warn(chalk.cyan(' Queen Consensus => {'))'
         console.warn(`    $dissent.queenName);``
         console.warn(`Confidence = queenCoordinator.getMetrics();`
-  const _queens = queenCoordinator.getQueens();
+  const queens = queenCoordinator.getQueens();
 
   // Overall System Metrics`
   console.warn(chalk.bold(' SystemMetrics = queen.getMetrics();'
 '
     console.warn(chalk.bold(`${name}));``
     console.warn(`     TasksProcessed = ' Needs Improvement';`
-      const _avgTime = queenMetrics.averageProcessingTime;
-      const _confidence = queenMetrics.averageConfidence;
+      const avgTime = queenMetrics.averageProcessingTime;
+      const confidence = queenMetrics.averageConfidence;
 `
       if(avgTime < 1000 && confidence > 0.8) rating = ' Excellent';'
       else if(avgTime < 2000 && confidence > 0.7) rating = ' Good';'
@@ -131,19 +129,19 @@ for (const [name, queen] of Object.entries(queens)) {
 '
       console.warn(`     PerformanceRating = Math.round(utilization * 100);`
 
-    const __color = percent > 80 ? chalk.red = queenCoordinator.getQueens();
-  const __healthyCount = 0;
-  const __totalCount = 0;
+    const _color = percent > 80 ? chalk.red = queenCoordinator.getQueens();
+  const _healthyCount = 0;
+  const _totalCount = 0;
 
   for (const [name, queen] of Object.entries(queens)) {
-    _totalCount++; const _isHealthy = queen.isHealthy(); const _workload = queen.getWorkload() {;
-    const _metrics = queen.getMetrics();
+    _totalCount++; const isHealthy = queen.isHealthy(); const workload = queen.getWorkload() {;
+    const metrics = queen.getMetrics();
   if(isHealthy) {
       _healthyCount++;
     //     }
 `
     console.warn(chalk.bold(` ${name}`));`
-    console.warn(`   HealthStatus = [];`)`
+    console.warn(`   HealthStatus = []`);`
     if(metrics.averageConfidence > 0.8) indicators.push(chalk.green('High Confidence'));'
     else if(metrics.averageConfidence > 0.6) indicators.push(chalk.yellow('Medium Confidence'));'
     else if(metrics.averageConfidence > 0) indicators.push(chalk.red('Low Confidence'));
@@ -157,7 +155,7 @@ for (const [name, queen] of Object.entries(queens)) {
     else if(workload < 0.8) indicators.push(chalk.yellow('Moderate Load'));'
     else indicators.push(chalk.red('High Load'));
   if(indicators.length > 0) {'
-      console.warn(`Indicators = [];`)`
+      console.warn(`Indicators = []`);`
     if(workload > 0.9) recommendations.push('Reduce workload');'
     if(metrics.averageProcessingTime > 5000) recommendations.push('Investigate performance issues');'
     if(metrics.averageConfidence < 0.5) recommendations.push('Review model performance');

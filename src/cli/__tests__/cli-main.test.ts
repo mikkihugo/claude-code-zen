@@ -71,7 +71,7 @@ describe('Claude-Flow CLI', () =>'
     // await'
     import('..'
     expect(consoleLogSpy).toHaveBeenCalled();
-    const _output = consoleLogSpy.mock.calls.join('\n');
+    const output = consoleLogSpy.mock.calls.join('\n');
     '
         expect(output).toContain('Claude-Flow v2.0.0')
     '
@@ -85,7 +85,7 @@ describe('Claude-Flow CLI', () =>'
 // // await import('../cli-main.js')
       expect(consoleLogSpy).toHaveBeenCalled()
         '
-  const _output = consoleLogSpy.mock.calls.join('\n');
+  const output = consoleLogSpy.mock.calls.join('\n');
   '
         expect(output).toContain('Claude-Flow v2.0.0')
 
@@ -135,27 +135,26 @@ const { hasCommand, listCommands } = hasCommand.mockReturnValue(false); // await
     expect.stringContaining('Unknown command => {'))'
     test('should parse boolean flags correctly')
 '
-const _flags = parseFlags(['--force', '--verbose']);
+const flags = parseFlags(['--force', '--verbose']);
 expect(flags).toEqual(force =>
             {
               )'
-              const _flags = parseFlags(['--port', '8080', '--name', 'test'])
+              const flags = parseFlags(['--port', '8080', '--name', 'test'])
       expect(flags).toEqual(port =>
               {
                 )'
-                const _flags = parseFlags(['arg1', '--flag', 'value', 'arg2', '--bool'])
+                const flags = parseFlags(['arg1', '--flag', 'value', 'arg2', '--bool'])
       expect(flags).toEqual(flag =>
                 {
                   )'
-                  const _flags = parseFlags(['--port=8080', '--name=test'])
+                  const flags = parseFlags(['--port=8080', '--name=test'])
       expect(flags).toEqual(port => )'
     test('should handle command execution errors gracefully');'
                     process.argv = ['node', 'claude-zen', 'init']
 '
                     const {
                       executeCommand,
-                      hasCommand,
-                    } = hasCommand.mockReturnValue(true); // await import('../command-registry.js')
+                      hasCommand} = hasCommand.mockReturnValue(true); // await import('../command-registry.js')
                     '
       executeCommand.mockRejectedValue(new Error('Test error');'
                     // // // await import('../cli-main.js')
@@ -166,8 +165,7 @@ expect(flags).toEqual(force =>
 ))'
                     const {
                       executeCommand,
-                      hasCommand,
-                    } = hasCommand.mockReturnValue(true); // // await import('../command-registry.js')
+                      hasCommand} = hasCommand.mockReturnValue(true); // // await import('../command-registry.js')
                     '
       executeCommand.mockRejectedValue(new Error('Missing required argument');'
                     // // // await import('../cli-main.js')

@@ -9,8 +9,7 @@ async function runNeuralServiceTests() {'
     console.warn(' Servicestatus = // await createNeuralNetwork('xor-network', [2, 4, 1], {description = getNeuralNetwork('xor-network');'
   if(!retrievedNetwork) {'
       throw new Error('Failed to retrieve network');
-    //     }'
-     catch (error) console.error(error); console.warn(' Network retrieved successfully');
+    //     }' console.warn(' Network retrieved successfully');
 '
     // Test 4 = {inputs = {learning_rate = // await trainNeuralNetwork('xor-network', trainingData, config);'
     console.warn(` Training completed witherror = [[0, 0], [0, 1], [1, 0], [1, 1]];`
@@ -18,7 +17,7 @@ async function runNeuralServiceTests() {'
   for(let i = 0; i < testInputs.length; i++) {
 `
       console.warn(`Input = getNeuralServiceStatus();``
-    console.warn(' Service status => {')'
+    console.warn(' Service status => {');'
         console.warn(`    - ${net.id}: ${net.layers} ($, { net.description  ?? 'no description' })`);
       //       }
   //   
@@ -27,7 +26,7 @@ async function runNeuralServiceTests() {'
 console.warn(` Multiple networkscreated = new ClaudeZenNeuralService();`
 // // await customService.initialize();`
 // // await customService.createNetwork('custom-net', [2, 3, 1]);
-    const _customStatus = customService.getStatus();'
+    const customStatus = customService.getStatus();'
     console.warn(` Custom service instance created with ${customStatus.networks.length} network(s)`);
 
     customService.dispose();`
@@ -37,26 +36,26 @@ console.warn(` Multiple networkscreated = new ClaudeZenNeuralService();`
 
     // Performance test'
     console.warn('\n Running neural service performance test...');
-    const _perfStart = performance.now();
+    const perfStart = performance.now();
   for(let i = 0; i < 100; i++) {'
       predictWithNetwork('xor-network', [Math.random(), Math.random()]);
     //     }
 
-    const _perfEnd = performance.now();
+    const perfEnd = performance.now();
 '
     console.warn(` Performance test = {inputs = // await trainNeuralNetwork('decision-maker', coordinationData, {learning_rate = [0, 1, 0, 1, 0]; // Medium priority, medium conflicts`/g))`
-const _decision = predictWithNetwork('decision-maker', testScenario);
+const decision = predictWithNetwork('decision-maker', testScenario);
 console.warn(;)'
 ` Decision for scenario ${testScenario}) => x.toFixed(3)).join(', ')}]`;
 // )`
-console.warn(' Claude Zen integration test completed successfully')
+console.warn(' Claude Zen integration test completed successfully');
 } catch(error)
 // {'
   console.error(' Claude Zen integration testfailed = === `file) {'`
   runNeuralServiceTests();
 then(() => runClaudeZenIntegrationTest())
 then(() =>`
-      console.warn('\n All neural service tests completed successfully!')
+      console.warn('\n All neural service tests completed successfully!');
   process.exit(0)
   //   
 catch((error) =>'

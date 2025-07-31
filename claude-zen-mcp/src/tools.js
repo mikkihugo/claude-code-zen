@@ -24,7 +24,7 @@ export const toolCategories = {
 
   handler: async (args) =>
   //   {
-    const _command = `npx ruv-swarm init --topology ${args.topology} --max-agents ${args.maxAgents ?? 8} --strategy ${args.strategy ?? 'auto'}`;
+    const command = `npx ruv-swarm init --topology ${args.topology} --max-agents ${args.maxAgents ?? 8} --strategy ${args.strategy ?? 'auto'}`;
 //     return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -101,11 +101,11 @@ default, description: 'Show detailed status' ,
 
   handler: (args) =>
 //   {
-const _basic = `;`;
+const basic = `;`;
 Swarm;
 Status: ACTIVE;
 \n Topology: hierarchical\n Agents: 6/8 active\n Tasks: 3 completed, 2 in-progress\n Memory: 512KB used``
-const _detailed = `${basic}\n\nAgent Details:\n  coordinator: Managing workflow\n  researcher: Data analysis\n  coder: Implementation\n  analyst: Waiting for data\n  tester: Running tests\n  optimizer: Idle`;
+const detailed = `${basic}\n\nAgent Details:\n  coordinator: Managing workflow\n  researcher: Data analysis\n  coder: Implementation\n  analyst: Waiting for data\n  tester: Running tests\n  optimizer: Idle`;
 //   return args.detailed ? detailed ;
 //   // LINT: unreachable code removed} }
 
@@ -165,7 +165,7 @@ enum: ['round-robin', 'least-connections', 'weighted'],
 
   handler: async (args) =>
 // {
-  const _command = `npx ruv-swarm load-balance --algorithm ${args.algorithm ?? 'weighted'}`
+  const command = `npx ruv-swarm load-balance --algorithm ${args.algorithm ?? 'weighted'}`
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) =>
 {
@@ -188,7 +188,7 @@ default, description: 'Force sync' ,
 
   handler: async (args) =>
 // {
-const _command = `npx ruv-swarm coordination sync ${args.force ? '--force'}`;
+const command = `npx ruv-swarm coordination sync ${args.force ? '--force'}`;
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -210,7 +210,7 @@ default, description: 'Auto-scaling enabled' ,
 
   handler: async (args) =>
 // {
-const _command = `npx ruv-swarm scale --target-size ${args.targetSize ?? 'auto'} ${args.auto ? '--auto'}`;
+const command = `npx ruv-swarm scale --target-size ${args.targetSize ?? 'auto'} ${args.auto ? '--auto'}`;
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -232,7 +232,7 @@ default, description: 'Shutdown timeout (seconds)' ,
 
   handler: async (args) =>
 // {
-const _command = `npx ruv-swarm destroy ${args.force ? '--force'} --timeout ${args.timeout ?? 30}`;
+const command = `npx ruv-swarm destroy ${args.force ? '--force'} --timeout ${args.timeout ?? 30}`;
 //   return new Promise((resolve, _reject) => {
 exec(command, (error, stdout, _stderr) => {
   if (error) {
@@ -651,7 +651,7 @@ enum: ['json', 'yaml', 'xml'], default: 'json' }
 
 required: ['workflowId'], handler;
 : (args) =>
-  ` Workflow exported (\$args.workflowId):\n Format: \$args.format  ?? 'json'\n Size: 1.2KB\n Includes, triggers, metadata\n Status: Export complete`,,
+  ` Workflow exported (\$args.workflowId):\n Format: \$args.format  ?? 'json'\n Size: 1.2KB\n Includes, triggers, metadata\n Status: Export complete`,
   description: 'Run SPARC development modes',
 type: 'object', type;
 : 'string',
@@ -982,7 +982,7 @@ type: 'array', type;
 
 // Generate tool list based on enabled categories
 export function generateTools() {
-  const _tools = [];
+  const tools = [];
 
   for (const [categoryName, categoryData] of Object.entries(toolCategories)) {
     if (enabledCategories[categoryName]) {
@@ -1000,7 +1000,7 @@ export function generateTools() {
 export function executeTool() {
   for (const categoryData of Object.values(toolCategories)) {
     if (categoryData.tools[toolName]) {
-      const _result = categoryData.tools[toolName].handler(args);
+      const result = categoryData.tools[toolName].handler(args);
 //       return {
         content: [
     // { // LINT: unreachable code removed

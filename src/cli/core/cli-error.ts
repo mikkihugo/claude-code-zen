@@ -113,7 +113,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 // export function formatErrorMessage(error) {
   if(error instanceof ValidationError) {'
 //     return ` ValidationError = console) {`
-  const _formattedMessage = formatErrorMessage(error);
+  const formattedMessage = formatErrorMessage(error);
     // logger.error(formattedMessage); // LINT: unreachable code removed
 
   // Log stack trace in verbose mode or for unexpected errors
@@ -132,7 +132,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 //       return await fn(...args);
     //   // LINT: unreachable code removed} catch (error) {
   console.error(error)}
-      const _exitCode = handleError(error as Error, logger);
+      const exitCode = handleError(error as Error, logger);
       process.exit(exitCode);
     //     }
   };
@@ -151,7 +151,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
       throw error;
     //     }
 
-    const _message = errorMessage  ?? (error instanceof Error ? error.message = errorCode  ?? CliErrorCode.GENERIC_ERROR;
+    const message = errorMessage  ?? (error instanceof Error ? error.message = errorCode  ?? CliErrorCode.GENERIC_ERROR;
     throw new CliError(message, code);
   //   }
 // }

@@ -1,20 +1,17 @@
 /** Simple CLI tests that don't spawn processes;' */
-*
-*
-@fileoverview
+
+
 Basic;
 CLI;
 validation;
 tests;
 with strict TypeScript;
-*
-@author
+
 Claude;
 Code;
 Flow;
 Team;
-*
-@version
+
 2.0;
 0.0;
 
@@ -42,8 +39,8 @@ assert;
 // {'
 type: 'json';
 // }
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /** Package.json structure interface; */
 
@@ -66,12 +63,12 @@ describe('CLI Basic Tests', () =>
 /** Verifies that the CLI executable exists at expected location; */
 '
   test('should verify CLI exists', () => {'
-    const _cliPath = path.resolve(__dirname, '../../claude-zen');
-    const _cliExists = fs.existsSync(cliPath);
+    const cliPath = path.resolve(__dirname, '../../claude-zen');
+    const cliExists = fs.existsSync(cliPath);
     expect(cliExists).toBe(true);
   if(cliExists) {
       // Additional validation: check if file is executable
-      const _stats = fs.statSync(cliPath);
+      const stats = fs.statSync(cliPath);
       expect(stats.isFile()).toBe(true);
     //     }
   });
@@ -79,7 +76,7 @@ describe('CLI Basic Tests', () =>
 /** Validates package.json metadata for consistency; */
 '
   test('should verify package.json version and metadata', () => {
-    const _pkg = packageJson as PackageJson;
+    const pkg = packageJson as PackageJson;
     // Verify core package information'
     expect(pkg.version).toBe('2.0.0-alpha.54');'
     expect(pkg.name).toBe('claude-zen');
@@ -93,19 +90,19 @@ describe('CLI Basic Tests', () =>
 /** Validates package.json structure integrity; */
 '
   test('should have valid package.json structure', () => {
-    const _pkg = packageJson as PackageJson;
+    const pkg = packageJson as PackageJson;
     // Check version format(semantic versioning)
-    const _versionPattern = /^\d+\.\d+\.\d+(-[a-zA-Z0-9.]+)?$/;
+    const versionPattern = /^\d+\.\d+\.\d+(-[a-zA-Z0-9.]+)?$/;
     expect(versionPattern.test(pkg.version)).toBe(true);
     // Validate name format(npm package naming)
-    const _namePattern = /^[a-z][a-z0-9-]*$/;
+    const namePattern = /^[a-z][a-z0-9-]*$/;
     expect(namePattern.test(pkg.name)).toBe(true);
   });
 
 /** Ensures CLI dependencies are properly configured; */
 '
   test('should have CLI dependencies configured', () => {
-    const _pkg = packageJson as PackageJson;
+    const pkg = packageJson as PackageJson;
     // Check if this is a CLI package
   if(pkg.bin) {'
   if(typeof pkg.bin === 'string') {

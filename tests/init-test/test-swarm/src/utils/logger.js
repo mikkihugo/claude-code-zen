@@ -1,9 +1,9 @@
-const _winston = require('winston');
+const winston = require('winston');
 '
-const _path = require('';
-const _logDir = process.env.LOG_DIR ?? '.';
+const path = require('';
+const logDir = process.env.LOG_DIR ?? '.';
 '
-const _logger = winston.createLogger({ level: process.env.LOG_LEVEL  ?? 'info',
+const logger = winston.createLogger({ level: process.env.LOG_LEVEL  ?? 'info',
 format: winston.format.combine(;
 )
 winston.format.timestamp(),

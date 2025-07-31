@@ -21,14 +21,14 @@ try {
       case 'workflow-select':
 // // await workflowSelectCommand(subArgs, flags);
         break;default = flags;'
-  const __complexity = options['task-complexity']  ?? options.complexity  ?? 'medium';'
-  const __swarmId = options['swarm-id']  ?? options.swarmId  ?? generateId('swarm');
+  const _complexity = options['task-complexity']  ?? options.complexity  ?? 'medium';'
+  const _swarmId = options['swarm-id']  ?? options.swarmId  ?? generateId('swarm');
 '
   console.warn(` Auto-spawning agents based on task complexity...`);`
   console.warn(` Task complexity = {coordinator = {coordinator = {coordinator = {coordinator = {`
       coordinator => {)`
   if(type !== 'total') {'
-      console.warn(`   $typecatch (error) console.error(error); );`
+      console.warn(`   $type );`
     //     }
   //   }
 // )`
@@ -47,10 +47,10 @@ for ${complexity} complexity tasks`;`
 // )`
 console.warn(`
  Agent configuration saved to swarmmemory = flags`
-const _requirement = options.requirement ?? 'general-development';)'
-const _maxAgents = parseInt(options['max-agents'] ?? options.maxAgents ?? '10');'
+const requirement = options.requirement ?? 'general-development';)'
+const maxAgents = parseInt(options['max-agents'] ?? options.maxAgents ?? '10');'
 console.warn(` Smart spawning agents based on requirements...`);`
-console.warn(`Requirement = [];`)`
+console.warn(`Requirement = []`);`
 if(requirement.includes('development') ?? requirement.includes('coding')) {
   recommendedAgents.push(;
   //   type = === 0/g
@@ -60,7 +60,7 @@ if(requirement.includes('development') ?? requirement.includes('coding')) {
     //     type = > setTimeout(resolve, 1000)
     //     )'
     printSuccess(` Smart spawn analysis completed`);`
-    console.warn(`\n RECOMMENDED AGENTCONFIGURATION = 0;`)
+    console.warn(`\n RECOMMENDED AGENTCONFIGURATION = 0`);
 recommendedAgents.forEach((agent) => {`
   console.warn(`   $agent.type);`
   totalRecommended += agent.count;
@@ -73,16 +73,16 @@ recommendedAgents.forEach((agent) => {`
   //   }
   async;
   function workflowSelectCommand(subArgs = flags;`
-  const _projectType = options['project-type'] ?? options.project ?? 'general';'
-  const _priority = options.priority ?? 'balanced';'
+  const projectType = options['project-type'] ?? options.project ?? 'general';'
+  const priority = options.priority ?? 'balanced';'
   console.warn(` Selecting optimal workflow configuration...`);`
-  console.warn(` Project type = {phases = workflows[projectType]  ?? workflows.general;`)
+  console.warn(` Project type = {phases = workflows[projectType]  ?? workflows.general`);
 // // await new Promise((resolve) => setTimeout(resolve, 800));`
 printSuccess(` Workflow selection completed`);`
 console.warn(`\n SELECTED _WORKFLOW => `)`
     console.warn(`${index + 1}. ${phase.charAt(0).toUpperCase() + phase.slice(1)}`););`
   console.warn(`\n RECOMMENDED _AGENTS => `)`
-    console.warn(`   ${type});`);`
+    console.warn(`   ${type})`);`
 console.warn(`\n PRIORITY OPTIMIZATIONS);`
   switch(priority) {`
   case 'speed': null'

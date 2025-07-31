@@ -17,14 +17,14 @@ export async function systemConsolidationCommand() {'
 
   try {
     // Import and start the main system'
-    const { startCommand }  catch (error) console.error(error); = // await import('./start-wrapper-command.js');
+    const { startCommand } = // await import('./start-wrapper-command.js');
 // // await startCommand(args, flags);'
     printSuccess(' Unified system started successfully');'
     printInfo(' Activeservices = > setTimeout(resolve, 2000)); // Wait 2 seconds'
 // // await startUnifiedSystem(args, flags);
   } catch(/* _error */) {'
     printError(`Failed to restartsystem = // await fetch('http);'`
-// const _health = awaitresponse.json();`
+// const health = awaitresponse.json();`
     printSuccess(` APIServer = // await import('./plugin-status-command.js');`
 `
     printSuccess(` PluginSystem = // await import('../database/strategic-documents-manager.js');`
@@ -56,7 +56,7 @@ async function showConsolidationPlan() {'
 '
   printInfo(' TEMPLATESYSTEM = Project setup(template selection)');'
   console.warn('   claude-zen template = Template management');'
-  console.warn('     Available = {')
+  console.warn('     Available = {');
       name);
   console.warn();
 '

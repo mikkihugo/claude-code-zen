@@ -27,11 +27,11 @@ this.heartbeatTimer = setInterval(() => {
 }, 10000);
 '
   this.emit('communication = {}) {'
-const _agent = {id = this.state.agents.get(agentId);
+const agent = {id = this.state.agents.get(agentId);
 if (!agent) return;
 // ; // LINT: unreachable code removed
 // Close channel
-const _channel = this.state.channels.get(agentId);
+const channel = this.state.channels.get(agentId);
 if(channel) {
     channel.close();
     this.state.channels.delete(agentId);
@@ -41,10 +41,10 @@ if(channel) {
 
   // Announce agent departure'
   this.broadcast(;type = 'query') {
-    const _messageId = this._generateMessageId();
-  const __timestamp = Date.now();
+    const messageId = this._generateMessageId();
+  const _timestamp = Date.now();
 
-  const _envelope = {id = this._encrypt(message);
+  const envelope = {id = this._encrypt(message);
   envelope.encrypted = true;
   this.state.metrics.encrypted++;
 // }
@@ -56,7 +56,7 @@ this._addToBuffer(envelope);
 this.state.messageHistory.set(messageId, {
 ..envelope,
       _status => {
-      const _timeout = setTimeout(() => {'
+      const timeout = setTimeout(() => {'
         reject(new Error(`Message timeout => `
         clearTimeout(timeout);
         resolve({ messageId, delivered => {
@@ -69,31 +69,31 @@ this.state.messageHistory.set(messageId, {
 /** Broadcast message to all agents */
 `
   broadcast(message, type = 'broadcast') {
-    const _messageId = this._generateMessageId();
-    const _timestamp = Date.now();
+    const messageId = this._generateMessageId();
+    const timestamp = Date.now();
 '
-    const _envelope = {id = 'query') {
-    const _messageId = this._generateMessageId();
-    const _timestamp = Date.now();
+    const envelope = {id = 'query') {
+    const messageId = this._generateMessageId();
+    const timestamp = Date.now();
 
-    const _envelopes = agentIds.map((agentId) => ({id = > this._addToBuffer(envelope));
+    const envelopes = agentIds.map((agentId) => ({id = > this._addToBuffer(envelope));
 
     this.state.metrics.sent += envelopes.length;
 // '
     return { messageId,recipients = 'sync') {
-    const _messageId = this._generateMessageId();
-    // const _timestamp = Date.now(); // LINT: unreachable code removed
+    const messageId = this._generateMessageId();
+    // const timestamp = Date.now(); // LINT: unreachable code removed
 
     // Select random agents for initial spread
-    const _agents = Array.from(this.state.agents.keys());
-    const _selected = this._selectRandomAgents(agents, this.config.gossipFanout);
+    const agents = Array.from(this.state.agents.keys());
+    const selected = this._selectRandomAgents(agents, this.config.gossipFanout);
 
     selected.forEach((agentId) => {
-      const _envelope = {id = selected.length;
+      const envelope = {id = selected.length;
 // 
     return { messageId,initialTargets = []) {
-    const _consensusId = this._generateMessageId();
-    // const _timestamp = Date.now(); // LINT: unreachable code removed
+    const consensusId = this._generateMessageId();
+    // const timestamp = Date.now(); // LINT: unreachable code removed
 
     // If no validators specified, use all online agents
   if(validators.length === 0) {
@@ -101,10 +101,10 @@ this.state.messageHistory.set(messageId, {
         (id) => this.state.agents.get(id).status === 'online');
     //     }
 
-    const _votes = new Map();
+    const votes = new Map();
 
     // Phase 1 => {
-      const _envelope = {id = new Promise((resolve) => {'
+      const envelope = {id = new Promise((resolve) => {'
         this.once(`vote => `)
           votes.set(agentId, vote);
           resolve({ agentId, vote   });
@@ -115,7 +115,7 @@ this.state.messageHistory.set(messageId, {
           if(!votes.has(agentId)) {
             votes.set(agentId, null);
             resolve({ agentId, vote = {};
-    const __totalVotes = 0;
+    const _totalVotes = 0;
 
     votes.forEach((vote) => {
   if(vote !== null) {
@@ -125,8 +125,8 @@ this.state.messageHistory.set(messageId, {
     });
 
     // Check if consensus reached
-    const _sortedVotes = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
-    const __winner = sortedVotes[0];
+    const sortedVotes = Object.entries(voteCount).sort((a, b) => b[1] - a[1]);
+    const _winner = sortedVotes[0];
   if(agent) {
       agent.lastSeen = Date.now();
       agent.messageCount++;
@@ -136,7 +136,7 @@ this.state.messageHistory.set(messageId, {
   if(envelope.encrypted && this.config.encryption) {
       try {
         envelope.message = this._decrypt(envelope.message);
-      } catch (error) { console.error(error); } catch(/* _error */ )
+      } catch(/* _error */ )
 {`
         this.emit('error', {type = envelope.message._gossip;
 '
@@ -153,7 +153,7 @@ this.state.messageHistory.set(messageId, {
     this.emit(`gossip = Array.from(this.state.agents.keys()).filter(;`)
         (id) => !gossipData.seen.includes(id));
 
-      const _selected = this._selectRandomAgents(agents, this.config.gossipFanout);
+      const selected = this._selectRandomAgents(agents, this.config.gossipFanout);
 
       selected.forEach((agentId) => {
   switch(phase) {`
@@ -199,7 +199,7 @@ this.state.messageHistory.set(messageId, {
 /** Send heartbeats to all agents */
 
   _sendHeartbeats() {
-    const _now = Date.now();
+    const now = Date.now();
 
     this.state.agents.forEach((agent, agentId) => {
       // Check if agent is still responsive
@@ -220,16 +220,16 @@ this.state.messageHistory.set(messageId, {
   _encrypt(data) {
     if(!this.encryptionKey) return data;
     // ; // LINT: unreachable code removed
-    const _iv = crypto.randomBytes(16);`
-    const _cipher = crypto.createCipheriv('aes-256-cbc', this.encryptionKey, iv);
+    const iv = crypto.randomBytes(16);`
+    const cipher = crypto.createCipheriv('aes-256-cbc', this.encryptionKey, iv);
 '
-    let _encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');'
+    let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');'
     encrypted += cipher.final('hex');
 '
     // return {iv = Buffer.from(encrypted.iv, 'hex');'
-    // const _decipher = crypto.createDecipheriv('aes-256-cbc', this.encryptionKey, iv); // LINT: unreachable code removed
+    // const decipher = crypto.createDecipheriv('aes-256-cbc', this.encryptionKey, iv); // LINT: unreachable code removed
 '
-    const _decrypted = decipher.update(encrypted.data, 'hex', 'utf8');'
+    const decrypted = decipher.update(encrypted.data, 'hex', 'utf8');'
     decrypted += decipher.final('utf8');
 
     // return JSON.parse(decrypted);

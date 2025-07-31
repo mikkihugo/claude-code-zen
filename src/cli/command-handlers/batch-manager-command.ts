@@ -21,17 +21,17 @@ export async function batchManagerCommand() {
   // return listEnvironments();'
   // case 'estimate': // LINT: unreachable code removed'
   // return // await estimateBatchOperation(subArgs.slice(1), flags);default = args[0]  ?? 'batch-config.json';
-  const _interactive = flags.interactive ?? flags.i;
+  const interactive = flags.interactive ?? flags.i;
   if (interactive) {
     // return // await createInteractiveConfig(outputFile);
     //   // LINT: unreachable code removed}
 
     // Create basic template'
-    const _config = {projects = =========================================\n');'
+    const config = {projects = =========================================\n');'
 
   // This would require a proper CLI prompt library in a real implementation'
   // For now, we'll create a comprehensive template with comments'
-  const _config = {_comment = args[0];
+  const config = {_comment = args[0];
     if (!configFile) {
       '
     printError('Please specify a configuration file to validate')
@@ -39,19 +39,18 @@ export async function batchManagerCommand() {
       //   // LINT: unreachable code removed}
 
       try {'
-// const _content = awaitfs.readFile(configFile, 'utf8');
-    const _config = JSON.parse(content);
+// const content = awaitfs.readFile(configFile, 'utf8');
+    const config = JSON.parse(content);
 '
     console.warn(` Validating batchconfiguration = ===============================================\n');'`
 
-    const _issues = [];
-    const _warnings = [];
+    const issues = [];
+    const warnings = [];
 
     // Validate structure
   if(!config.projects && !config.projectConfigs) {`
       issues.push('Missing "projects" array or "projectConfigs" object');
-    //     }
-   catch (error) console.error(error); if(config.projects && config.projectConfigs) {
+    //     } if(config.projects && config.projectConfigs) {
       warnings.push(;)'
         'Both "projects" and "projectConfigs" specified. "projectConfigs" will take precedence.');
     //     }
@@ -72,7 +71,7 @@ export async function batchManagerCommand() {
       //       }
 
       // Summary'
-      console.warn('\n ConfigurationSummary = config.projects;')'
+      console.warn('\n ConfigurationSummary = config.projects;');'
         ? config.projects.length = > console.error(`  - $issue`));
   if(warnings.length > 0) {`
         console.warn('\nWarnings = > console.warn(`  - $warning`));'
@@ -93,26 +92,26 @@ export async function batchManagerCommand() {
     //   // LINT: unreachable code removed}
 
   try {'
-// const _content = awaitfs.readFile(configFile, 'utf8');
-    const _config = JSON.parse(content);
+// const content = awaitfs.readFile(configFile, 'utf8');
+    const config = JSON.parse(content);
 '
     console.warn('  Batch Operation Estimation');'
     console.warn('=============================\n');
 
-    let _projectCount = 0;
-    let _totalEnvironments = 0;
+    let projectCount = 0;
+    let totalEnvironments = 0;
   if(config.projects) {
       projectCount = config.projects.length;'
-      const _environments = config.baseOptions?.environments  ?? ['dev'];
+      const environments = config.baseOptions?.environments  ?? ['dev'];
       totalEnvironments = projectCount * environments.length
-    }  catch (error) { console.error(error); }else if(config.projectConfigs) {
+    }else if(config.projectConfigs) {
       projectCount = Object.keys(config.projectConfigs).length;
       totalEnvironments = projectCount; // Each project has its own environment
     //     }
 
-    const _parallel = config.baseOptions?.parallel !== false;
-    const _maxConcurrency = config.baseOptions?.maxConcurrency  ?? 5;
-    const _avgTimePerProject = 15; // seconds estimate
+    const parallel = config.baseOptions?.parallel !== false;
+    const maxConcurrency = config.baseOptions?.maxConcurrency  ?? 5;
+    const avgTimePerProject = 15; // seconds estimate
 '
   console.warn(''
   console.warn('  claude-zen batch <command> [options]\n');

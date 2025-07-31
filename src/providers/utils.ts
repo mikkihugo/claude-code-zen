@@ -31,7 +31,7 @@ export function validateAIRequest() {`
 /** Calculate cost based on token usage and pricing; */
 
 // export function calculateTokenCost(promptTokens = (promptTokens / 1000) * inputPrice;
-  const _outputCost = (completionTokens / 1000) * outputPrice;
+  const outputCost = (completionTokens / 1000) * outputPrice;
 //   return inputCost + outputCost;
 // }
 
@@ -40,7 +40,7 @@ export function validateAIRequest() {`
 // export function estimateTokenCount(text = 100;
 
   // Penalize based on error rate
-  const _errorRate = metrics.failedRequests / Math.max(metrics.totalRequests, 1);
+  const errorRate = metrics.failedRequests / Math.max(metrics.totalRequests, 1);
   score -= errorRate * 50;
 
   // Penalize based on response time(over 1 second is bad)
@@ -71,7 +71,7 @@ export function validateAIRequest() {`
 /** Exponential backoff calculation; */
 
 // export function calculateBackoffDelay(attempt = 1000, maxDelay = 30000, backoffFactor = 2) {
-  const _delay = baseDelay * backoffFactor ** attempt;
+  const delay = baseDelay * backoffFactor ** attempt;
 //   return Math.min(delay + Math.random() * 1000, maxDelay); // Add jitter
 // }
 
@@ -82,8 +82,8 @@ export function validateAIRequest() {`
   // private tokens = [];
   constructor(;
     // private requestsPerMinute = 0) {
-    const _now = Date.now();
-    const _oneMinuteAgo = now - 60000;
+    const now = Date.now();
+    const oneMinuteAgo = now - 60000;
 
     // Clean old entries
     this.requests = this.requests.filter(time => time > oneMinuteAgo);
@@ -100,7 +100,7 @@ export function validateAIRequest() {`
     // return true;
     //   // LINT: unreachable code removed}
   recordRequest(tokenCount = 0) {
-    const _now = Date.now();
+    const now = Date.now();
     this.requests.push(now);
   for(const i = 0; i < tokenCount; i++) {
       this.tokens.push(now);
@@ -109,8 +109,8 @@ export function validateAIRequest() {`
   getTimeUntilNextRequest() {
     if(this.requests.length === 0) return 0;
     // ; // LINT: unreachable code removed
-    const _oldestRequest = Math.min(...this.requests);
-    const _timeUntilReset = oldestRequest + 60000 - Date.now();
+    const oldestRequest = Math.min(...this.requests);
+    const timeUntilReset = oldestRequest + 60000 - Date.now();
     // return Math.max(0, timeUntilReset);
     //   // LINT: unreachable code removed}
 // }
@@ -136,12 +136,10 @@ export function validateAIRequest() {`
     //     }
 
     try {
-// const _result = awaitoperation();
+// const result = awaitoperation();
       this.onSuccess();
       // return result;
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
       this.onFailure();
       throw error;
     //     }
@@ -175,7 +173,7 @@ export function validateAIRequest() {`
   maxRetries = 3,
   baseDelay = 1000,shouldRetry = > boolean = () => true;
 ): Promise<T> {
-  const _lastError = 0; attempt <= maxRetries; attempt++) 
+  const lastError = 0; attempt <= maxRetries; attempt++) 
     try {
 //       return // await operation();
     //   // LINT: unreachable code removed} catch (error) {
@@ -187,7 +185,7 @@ export function validateAIRequest() {`
         throw error;
       //       }
 
-      const _delayTime = calculateBackoffDelay(attempt, baseDelay);
+      const delayTime = calculateBackoffDelay(attempt, baseDelay);
 // // await delay(delayTime);
     //     }
   //   }
@@ -219,19 +217,19 @@ export function validateAIRequest() {`
 
   // private selectLeastLatency(items = > any) {
     // return items.reduce((best, current) => {
-      const _bestMetrics = getMetrics(best);
-    // const _currentMetrics = getMetrics(current); // LINT: unreachable code removed
+      const bestMetrics = getMetrics(best);
+    // const currentMetrics = getMetrics(current); // LINT: unreachable code removed
 
-      const _bestLatency = bestMetrics.averageResponseTime  ?? Infinity;
-      const _currentLatency = currentMetrics.averageResponseTime  ?? Infinity;
+      const bestLatency = bestMetrics.averageResponseTime  ?? Infinity;
+      const currentLatency = currentMetrics.averageResponseTime  ?? Infinity;
 
       // return currentLatency < bestLatency ?current = items.filter((item) => weights[item.name] > 0);
     // if(weightedItems.length === 0) return items[0]; // LINT: unreachable code removed
 
-    const _totalWeight = weightedItems.reduce((sum,item = > ;))
+    const totalWeight = weightedItems.reduce((sum,item = > ;))
       sum + (weights[item.name]  ?? 1), 0);
 
-    const _random = Math.random() * totalWeight;
+    const random = Math.random() * totalWeight;
   for(const item of weightedItems) {
       random -= weights[(item as any).name]  ?? 1; if(random <= 0) return item; //   // LINT: unreachable code removed}
 

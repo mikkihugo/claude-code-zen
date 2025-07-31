@@ -5,7 +5,7 @@ import Database from 'better-sqlite3';
 
 /** Memory types and their characteristics */
 
-const __MEMORY_TYPES = {knowledge = 1000) {
+const _MEMORY_TYPES = {knowledge = 1000) {
     this.createFn = createFn;
 this.resetFn = resetFn;
 this.maxSize = maxSize;
@@ -44,7 +44,7 @@ getStats();
 get(key);
 
   if(this.cache.has(key)) {
-    const _value = this.cache.get(key);
+    const value = this.cache.get(key);
     // Move to end(most recently used)
     this.cache.delete(key);
     this.cache.set(key, value);
@@ -58,7 +58,7 @@ get(key);
 set(key, data);
 
 // {
-  const _size = this._estimateSize(data);
+  const size = this._estimateSize(data);
 
   // Check memory pressure
   if(this.currentMemory + size > this.maxMemory) {
@@ -70,7 +70,7 @@ set(key, data);
     this._evictLRU();
   //   }
 
-  const __entry = {
+  const _entry = {
       data,
       size,timestamp = size;
 // }
@@ -81,9 +81,9 @@ _estimateSize(obj);
 
 _evictLRU();
 // {
-  const _firstKey = this.cache.keys().next().value;
+  const firstKey = this.cache.keys().next().value;
   if(firstKey) {
-    const _entry = this.cache.get(firstKey);
+    const entry = this.cache.get(firstKey);
     this.cache.delete(firstKey);
     this.currentMemory -= entry.size;
     this.evictions++;
@@ -104,7 +104,7 @@ forEach(callback);
 delete(key);
 
   if(this.cache.has(key)) {
-    const _entry = this.cache.get(key);
+    const entry = this.cache.get(key);
     this.cache.delete(key);
     this.currentMemory -= entry.size;
     // return true;
@@ -159,8 +159,7 @@ this._initialize();
       this.db.pragma('mmap_size = 268435456'); // 256MB memory mapping'
       this.db.pragma('optimize');
 
-      // Ensure table exists with optimized schema: {}'
-       catch (error) console.error(error); this.db.exec(`;`
+      // Ensure table exists with optimized schema: {}' this.db.exec(`;`
         CREATE TABLE IF NOT EXISTS collective_memory(;
           id TEXT PRIMARY KEY,
           swarm_id TEXT NOT NULL,
@@ -168,7 +167,7 @@ this._initialize();
           value BLOB,`
           //           type TEXT DEFAULT 'knowledge',
           confidence REAL DEFAULT 1.0,
-          created_by TEXT,))'
+          created_by TEXT))'
           created_at INTEGER DEFAULT(strftime('%s','now')),'
           accessed_at INTEGER DEFAULT(strftime('%s','now')),
           access_count INTEGER DEFAULT 0,
@@ -302,23 +301,23 @@ this._initialize();
 `
   async store(key, value, type = 'knowledge', metadata = {}) { 
 // try
-      const _serialized = JSON.stringify(value);
-      const _size = Buffer.byteLength(serialized);
-      const _shouldCompress =;
+      const serialized = JSON.stringify(value);
+      const size = Buffer.byteLength(serialized);
+      const shouldCompress =;
         size > this.config.compressionThreshold && MEMORY_TYPES[type]?.compress;
 
-      const _storedValue = serialized;
-      const _compressed = 0;
+      const storedValue = serialized;
+      const compressed = 0;
   if(shouldCompress) {
         // In production, use proper compression like zlib'
         // For now, we'll just mark it as compressed'
         compressed = 1;
       //       }
 '
-      const _id = `\$this.config.swarmId-\$key-\$Date.now()`;
+      const id = `\$this.config.swarmId-\$key-\$Date.now()`;
 
       // Check if key already exists
-      const _existing = this.db;
+      const existing = this.db;
 prepare(;`
           `;`
         SELECT id FROM collective_memory ;
@@ -374,7 +373,7 @@ run(;
     //   // LINT: unreachable code removed}
 
       // Query database
-      const _result = this.db;
+      const result = this.db;
 prepare(;'
           `;`
         SELECT value, type, compressed, confidence;
@@ -399,7 +398,7 @@ prepare(;'
 run(this.config.swarmId, key);
 
       // Decompress if needed
-      const _value = result.value;
+      const value = result.value;
   if(result.compressed) {
         // In production, decompress here
       //       }
@@ -410,11 +409,11 @@ run(this.config.swarmId, key);
       this.cache.set(key, {)
         value = {}) {
     try {
-      const _limit = options.limit  ?? 50;
-      const _type = options.type  ?? null;
-      const _minConfidence = options.minConfidence  ?? 0;
+      const limit = options.limit  ?? 50;
+      const type = options.type  ?? null;
+      const minConfidence = options.minConfidence  ?? 0;
 `
-      const _query = `;`
+      const query = `;`
         SELECT key, type, confidence, created_at, accessed_at, access_count;
         FROM collective_memory;
         WHERE swarm_id = ? ;
@@ -422,21 +421,20 @@ run(this.config.swarmId, key);
         AND confidence >= ?;`
       `;`
 `
-      const _params = [this.config.swarmId, `%\$pattern%`, minConfidence];
+      const params = [this.config.swarmId, `%\$pattern%`, minConfidence];
   if(type) {`
         query += ' AND type = ?';
         params.push(type);
       //       }
-'
-       catch (error) console.error(error); query += ' ORDER BY access_count DESC, confidence DESC LIMIT ?';
+' query += ' ORDER BY access_count DESC, confidence DESC LIMIT ?';
       params.push(limit);
 
-      const _results = this.db.prepare(query).all(...params);
+      const results = this.db.prepare(query).all(...params);
 '
       this._trackAccess(`search = 10) ;`
     try {
       // Get the original memory
-// const _original = awaitthis.retrieve(key);
+// const original = awaitthis.retrieve(key);
       if(!original) return [];
     // ; // LINT: unreachable code removed
       // Simpleassociation = this.db
@@ -455,9 +453,7 @@ prepare(;`
 all(key, key, this.config.swarmId, limit);
 
       // return result;
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}`
+    //   // LINT: unreachable code removed}`
       this.emit('error', error);
       throw error;
     //     }
@@ -480,39 +476,37 @@ prepare(;`
       `);`
 all(this.config.swarmId);
 
-      const _consolidated = new Map();
+      const consolidated = new Map();
 
       // Group by similarity(simple implementation)
       memories.forEach((memory) => {
-        const _value = JSON.parse(memory.value);
-        const _category = this._categorizeMemory(value);
+        const value = JSON.parse(memory.value);
+        const category = this._categorizeMemory(value);
 
         if(!consolidated.has(category)) {
           consolidated.set(category, []);
-        //         }
-
-         catch (error) { console.error(error); }consolidated.get(category).push({ ..memory,)
+        //         }consolidated.get(category).push({ ..memory)
           value   });
       });
 
       // Merge similar memories
-      const _mergeCount = 0;
+      const mergeCount = 0;
       consolidated.forEach((group, category) => {
   if(group.length > 1) {
-          const _merged = this._mergeMemories(group);
+          const merged = this._mergeMemories(group);
 
           // Store merged memory`
           this.store(`consolidated = === 'string') ;``
       // return 'text';
     // ; // LINT: unreachable code removed'
   if(typeof value === 'object') {'
-      const __keys = Object.keys(value).sort().join(''
+      const _keys = Object.keys(value).sort().join(''
       // return `object = 0;`
-    // const _weightedConfidence = 0; // LINT: unreachable code removed
-    const _mergedValue = {};
+    // const weightedConfidence = 0; // LINT: unreachable code removed
+    const mergedValue = {};
 
     memories.forEach((memory) => {
-      const _weight = memory.access_count + 1;
+      const weight = memory.access_count + 1;
       totalWeight += weight;
       weightedConfidence += memory.confidence * weight
 
@@ -523,12 +517,12 @@ all(this.config.swarmId);
     });
 
     // return {value = Date.now();
-    // const _deletedCount = 0; // LINT: unreachable code removed
+    // const deletedCount = 0; // LINT: unreachable code removed
 
       // Delete expired memories based on TTL
       Object.entries(MEMORY_TYPES).forEach(([type, config]) => {
   if(config.ttl) {
-          const _result = this.db;
+          const result = this.db;
 prepare(;'
               `;`
             DELETE FROM collective_memory;
@@ -543,7 +537,7 @@ run(this.config.swarmId, type, config.ttl);
       });
 
       // Clear old cache entries
-      const _cacheTimeout = 300000; // 5 minutes
+      const cacheTimeout = 300000; // 5 minutes
       this.cache.forEach((value, key) => {
   if(now - value.timestamp > cacheTimeout) {
           this.cache.delete(key);
@@ -566,7 +560,7 @@ prepare(;'
       `);`
 all(this.config.swarmId);
 
-      const __freedSize = 0;
+      const _freedSize = 0;
       toEvict.forEach((memory) => {`
         this.db.prepare('DELETE FROM collective_memory WHERE id = ?').run(memory.id);
         _freedSize += memory.size;
@@ -579,7 +573,7 @@ all(this.config.swarmId);
       this._updateStatistics();
 '
       this.emit('database = Date.now();'
-      const _cacheTimeout = 300000; // 5 minutes
+      const cacheTimeout = 300000; // 5 minutes
 
       // Clear expired cache entries
   if(this.cache.cache) {
@@ -634,13 +628,13 @@ get(this.config.swarmId);
 /** Track access patterns */
 
   _trackAccess(key, operation) {
-    const _pattern = this.state.accessPatterns.get(key)  ?? {reads = Date.now();
+    const pattern = this.state.accessPatterns.get(key)  ?? {reads = Date.now();
     this.state.accessPatterns.set(key, pattern);
 
     // Keep access patterns size limited
   if(this.state.accessPatterns.size > 1000) {
       // Remove oldest entries
-      const _sorted = Array.from(this.state.accessPatterns.entries()).sort(;)
+      const sorted = Array.from(this.state.accessPatterns.entries()).sort(;)
         (a, b) => a[1].lastAccess - b[1].lastAccess);
 
       sorted.slice(0, 100).forEach(([key]) => {
@@ -656,13 +650,13 @@ get(this.config.swarmId);
     // .prepare(; // LINT);
 all(this.config.swarmId);
 
-      const _snapshot = {swarmId = > ({ ..m,value = 0;
+      const snapshot = {swarmId = > ({ ..m,value = 0;
   for(const memory of snapshot.memories) {
 // // await this.store(memory.key, memory.value, memory.type, {
           confidence => {
         pool.pool.length = 0; }); //     }
 `
-    const _health = {status = 'warning';'
+    const health = {status = 'warning';'
       health.issues.push('High memory utilization') {;'
       health.recommendations.push('Consider increasing max memory or running garbage collection');
     //     }
@@ -681,22 +675,22 @@ all(this.config.swarmId);
 
 // export class MemoryOptimizer {
   // static async optimizeCollectiveMemory(memory) { 
-    const _startTime = performance.now();
+    const startTime = performance.now();
 
     // Run comprehensive optimization
 // // await memory._optimizeDatabase();
     memory._optimizeCache();
     memory._garbageCollect();
 
-    const _duration = performance.now() - startTime;
+    const duration = performance.now() - startTime;
 
     // return 
       duration,analytics = memoryStats.totalSize / memoryStats.entryCount;
-    // const _hotKeys = Array.from(accessPatterns.entries()); // LINT: unreachable code removed
+    // const hotKeys = Array.from(accessPatterns.entries()); // LINT: unreachable code removed
 sort((a, b) => b[1] - a[1]);
 slice(0, Math.min(1000, memoryStats.entryCount * 0.2))
 
-    const __optimalCacheEntries = hotKeys.length * 1.2; // 20% buffer
+    const _optimalCacheEntries = hotKeys.length * 1.2; // 20% buffer
 // 
     return {
       entries = {timestamp = analytics.performance.avgQueryTime;

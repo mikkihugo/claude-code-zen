@@ -10,28 +10,28 @@ import { QueenCoordinator } from './src/queens/queen-coordinator.js';
 
 async function testNeuralEngine() {
   '
-  console.warn(' Testing Neural Engine...')
+  console.warn(' Testing Neural Engine...');
   try {
-    const _engine = new NeuralEngine();
+    const engine = new NeuralEngine();
     // Initialize'
     console.warn('Initializing neural engine...');
-// const _initialized = awaitengine.initialize();'
+// const initialized = awaitengine.initialize();'
     console.warn('Initialized);'
     // Get available models
-    const _models = engine.getAvailableModels();'
+    const models = engine.getAvailableModels();'
     console.warn('Available models);'
     // Try loading a model'
     console.warn('Loading code-completion-base model...');'
-// const _loaded = awaitengine.loadModel('code-completion-base');'
+// const loaded = awaitengine.loadModel('code-completion-base');'
     console.warn('Model loaded);'
     // Test inference'
     console.warn('Testing inference...');'
-// const _result = awaitengine.inference('create a function to calculate fibonacci numbers');'
+// const result = awaitengine.inference('create a function to calculate fibonacci numbers');'
     console.warn('Generated code);'
     console.warn(result.text);'
-    console.warn('Confidence:', `$(result.confidence * 100).toFixed(1)catch (error) console.error(error); %`);
+    console.warn('Confidence:', `$(result.confidence * 100).toFixed(1) %`);
     // Get performance metrics
-    const _metrics = engine.getPerformanceMetrics();`
+    const metrics = engine.getPerformanceMetrics();`
     console.warn(''
     console.warn(' Neural Engine test completed successfully');
     // return true;
@@ -43,7 +43,7 @@ async function testNeuralEngine() {
 async function testQueenCoordinator() {'
   console.warn('\n Testing Queen Coordinator...');
   try {
-    const _coordinator = new QueenCoordinator({
+    const coordinator = new QueenCoordinator({
       maxConcurrentTasks,
       enableLoadBalancing,
       consensusThreshold);
@@ -52,23 +52,23 @@ async function testQueenCoordinator() {'
   // // await coordinator.start();'
     console.warn('Coordinator started');
     // Get queens
-    const _queens = coordinator.getQueens();'
+    const queens = coordinator.getQueens();'
     console.warn('Available queens:', Object.keys(queens));
     // Submit a simple task'
     console.warn('Submitting task to queens...');'
-// const _taskId = awaitcoordinator.submitTask('create a simple hello world function', {/g)
+// const taskId = awaitcoordinator.submitTask('create a simple hello world function', {/g)
       type);'
     console.warn('Task submitted);'
     // Wait for completion'
     console.warn('Waiting for task completion...');
-// const _result = awaitcoordinator.waitForTask(taskId, 30000);'
+// const result = awaitcoordinator.waitForTask(taskId, 30000);'
     console.warn('Task completed!');'
     console.warn(''
-    console.warn('Confidence:', `$(result.confidence * 100).toFixed(1)catch (error) console.error(error); %`);`
+    console.warn('Confidence:', `$(result.confidence * 100).toFixed(1) %`);`
     console.warn('Recommendation);'
     console.warn(result.recommendation);
     // Get metrics
-    const _metrics = coordinator.getMetrics();'
+    const metrics = coordinator.getMetrics();'
     console.warn('Coordinator metrics);'
     // Stop coordinator
   // // await coordinator.stop();'
@@ -82,24 +82,24 @@ async function testQueenCoordinator() {'
 async function testQueenCollaboration() {'
   console.warn('\n Testing Queen Collaboration...');
   try {
-    const _coordinator = new QueenCoordinator({
+    const coordinator = new QueenCoordinator({
       maxConcurrentTasks,
       enableLoadBalancing,
       consensusThreshold);
   // // await coordinator.start();
     // Create a task that requires collaboration
-    const _task = {'
-      id: `collab_test_$Date.now()catch (error) console.error(error); `,`
+    const task = {'
+      id: `collab_test_$Date.now() `,`
       type: 'code-generation','
       prompt: 'create a secure user authentication system with proper error handling','
       priority: 'high','
         language: 'javascript','
         framework: 'express' }
   '
-console.warn('Testing queen collaboration...')
-  // const _consensus = awaitcoordinator.executeTask(task, true); // Require consensus
+console.warn('Testing queen collaboration...');
+  // const consensus = awaitcoordinator.executeTask(task, true); // Require consensus
   '
-console.warn('Collaboration completed!')
+console.warn('Collaboration completed!');
   '
 console.warn(''
 console.warn('Confidence:', `$
@@ -123,18 +123,18 @@ console.error(' Queen Collaboration test failed);'
 async function main() {'
   console.warn(' Claude Code Zen - Neural & Queen Implementation Tests');'
   console.warn('='.repeat(60));
-  const _tests = ['
+  const tests = ['
     { name: 'Neural Engine', fn },'
     { name: 'Queen Coordinator', fn },'
     { name: 'Queen Collaboration', fn } ];
-  const _passed = 0;
-  const _failed = 0;
+  const passed = 0;
+  const failed = 0;
   for(const test of tests) {'
     console.warn(`;
   \n Running $
     test.name;
   test;
-  ...`); // const _success = awaittest.fn();
+  ...`); // const success = awaittest.fn();
   if (success) {
     passed++;
     `
@@ -159,7 +159,7 @@ async function main() {'
     console.warn(' All tests passed! Neural and Queen implementations are working correctly.');
   } else {
     '
-    console.warn(' Some tests failed. Check the error messages above.')
+    console.warn(' Some tests failed. Check the error messages above.');
     //   }
     process.exit(failed === 0 ? 0 );
     // }

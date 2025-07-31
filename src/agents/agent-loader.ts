@@ -12,8 +12,8 @@ import { dirname, extname } from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 export // interface AgentType {
 //   // name: string
 //   // displayName: string
@@ -111,7 +111,7 @@ initialize();
     // private setupLegacyMappings();
     : void
     for (const [legacy, modern] of Object.entries(AgentLoader.LEGACY_AGENT_MAPPING)) {
-      const _modernAgent = this.agentTypes.get(modern); if(modernAgent) {
+      const modernAgent = this.agentTypes.get(modern); if(modernAgent) {
         this.agentTypes.set(legacy, {
 ..modernAgent,
         legacy}
@@ -119,16 +119,14 @@ initialize();
     //     }
   //   }
 
-/** Discover agent modules from the filesystem; * */
+/** Discover agent modules from the filesystem; *  */*/
   // private async discoverDynamicAgents() {: Promise<void> {'
-    const _agentsDir = join(__dirname, '.');
+    const agentsDir = join(__dirname, '.');
     try {
-// const _files = awaitfs.readdir(agentsDir);
+// const files = awaitfs.readdir(agentsDir);
   for(const file of files) {'
   if(file === 'agent-loader.ts'  ?? file === 'agent-loader.js') {
-          continue; //         }
-
-         catch (error) console.error(error); const _filePath = join(agentsDir, file); // const _stats = awaitfs.stat(filePath) {;
+          continue; //         } const filePath = join(agentsDir, file); // const stats = awaitfs.stat(filePath) {;
 '
         if(stats.isFile() && (extname(file) === '.js'  ?? extname(file) === '.ts')) {
 // // await this.loadAgentFromFile(filePath);
@@ -143,16 +141,16 @@ initialize();
 
   // private async loadAgentFromFile(filePath): Promise<void> {
     try {
-// const _module = awaitimport(filePath);`
+// const module = awaitimport(filePath);`
   if(module.default && typeof module.default === 'object') {
-        const _agentConfig = module.default as AgentType;
+        const agentConfig = module.default as AgentType;
   if(agentConfig.name && agentConfig.displayName) {
-          const _agentType = {
+          const agentType = {
             name: agentConfig.name,
             displayName: agentConfig.displayName,'
             description: agentConfig.description  ?? 'Dynamic agent',
             capabilities: agentConfig.capabilities  ?? [],
-            priority: agentConfig.priority  ?? 3 } catch (error) console.error(error); ;
+            priority: agentConfig.priority  ?? 3 } ;
 
           this.agentTypes.set(agentType.name, agentType);
         //         }
@@ -170,13 +168,13 @@ getAgentType(name)
 : Promise<AgentType | null>
 // {
 // // await this.initialize();
-    const _agent = this.agentTypes.get(name);
+    const agent = this.agentTypes.get(name);
   if(agent) {
       // return agent;
     //   // LINT: unreachable code removed}
 
     // Try legacy mapping
-    const _modernName = AgentLoader.LEGACY_AGENT_MAPPING[name];
+    const modernName = AgentLoader.LEGACY_AGENT_MAPPING[name];
   if(modernName) {
       agent = this.agentTypes.get(modernName);
   if(agent) {
@@ -193,7 +191,7 @@ getAgentType(name)
 /** Check if an agent type exists; */
 
   async hasAgentType(name): Promise<boolean> {
-// const _agent = awaitthis.getAgentType(name);
+// const agent = awaitthis.getAgentType(name);
     // return agent !== null;
     //   // LINT: unreachable code removed}
 
@@ -227,12 +225,12 @@ getAgentType(name)
 
   async getStats(): Promise<AgentStats> {
 // await this.initialize();
-    const _agents = Array.from(this.agentTypes.values());
-    const _builtin = agents.filter(;)
+    const agents = Array.from(this.agentTypes.values());
+    const builtin = agents.filter(;)
       (a) => !a.legacy && AgentLoader.BUILTIN_AGENTS.some((b) => b.name === a.name);
     ).length;
-    const _legacy = agents.filter((a) => a.legacy).length;
-    const _dynamic = agents.length - builtin - legacy;
+    const legacy = agents.filter((a) => a.legacy).length;
+    const dynamic = agents.length - builtin - legacy;
 // 
     return {
       total: agents.length,
@@ -241,7 +239,7 @@ getAgentType(name)
       dynamic };
 
 // Export singleton instance
-const _agentLoader = AgentLoader.getInstance();
+const agentLoader = AgentLoader.getInstance();
 // export default agentLoader;
 `
 }

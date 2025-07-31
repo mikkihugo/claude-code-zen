@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 /* Orchestrator MCP Server - Remote Claude Desktop Access; */
-*
 
 /** PURPOSE: Enable remote Claude Desktop access to Singularity Engine documents; */
 /** PROTOCOL: HTTP on port 3000(accessible via Cloudflare */
@@ -25,17 +24,17 @@ import { DocumentStack } from './src/mcp/document-stack.cjs';
 
 import { ClaudeFlowMCPServer } from './src/mcp/mcp-server.js';
 
-const _app = express();
-const _PORT = process.env.PORT ?? 3000;
+const app = express();
+const PORT = process.env.PORT ?? 3000;
 '
-const _HOST = process.env.HOST ?? '0.0.0.0';
+const HOST = process.env.HOST ?? '0.0.0.0';
 // Middleware
 app.use(cors());
 app.use(express.json({ limit));
 app.use(express.urlencoded({ extended }));
 // Initialize services
-const _mcpServer = new ClaudeFlowMCPServer();
-const _orchestrator = new ServicesOrchestrator();
+const mcpServer = new ClaudeFlowMCPServer();
+const orchestrator = new ServicesOrchestrator();
 // Initialize document stack(always enabled for remote access)
 class MockMemoryStore {
   constructor() {
@@ -45,20 +44,20 @@ class MockMemoryStore {
     store(key, value, (options = {}));
     {
       '
-      const _fullKey = options.namespace ? `$options.namespace}:${key}` ;
+      const fullKey = options.namespace ? `$options.namespace}:${key}` ;
       this.data.set(fullKey, value);
       // return { id, size: value.length };
       //   // LINT: unreachable code removed}
       async;
       retrieve(key, (options = {}));
       //     {`
-      const _fullKey = options.namespace ? `${options.namespace}:${key}` ;
+      const fullKey = options.namespace ? `${options.namespace}:${key}` ;
       // return this.data.get(fullKey) ?? null;
       //   // LINT: unreachable code removed}
       async;
       search((options = {}));
       //       {
-      const _results = {};
+      const results = {};
       for (const [key, value] of this.data) {
         `
         if (options.pattern === '*'')) {
@@ -67,9 +66,9 @@ class MockMemoryStore {
           // return results;
           //   // LINT: unreachable code removed}
           //       }
-          const _documentMemoryStore = new MockMemoryStore();
+          const documentMemoryStore = new MockMemoryStore();
           {
-            const _documentStack = new DocumentStack(documentMemoryStore);
+            const documentStack = new DocumentStack(documentMemoryStore);
             setupDefaultRules(documentStack);
             // Health check endpoint'
             app.get('/health', (_req, res) => {'
@@ -82,15 +81,15 @@ class MockMemoryStore {
             // MCP tools endpoint'
             app.post('/mcp/tools/) =>'
             try {
-    const { toolName }  catch (error) console.error(error); = req.params;
-    const _args = req.body;'
+    const { toolName } = req.params;
+    const args = req.body;'
     console.warn(`;
         MCP;
         Tool;
         Call;
         )
         `
-// const _result = awaitmcpServer.callTool(toolName, args);
+// const result = awaitmcpServer.callTool(toolName, args);
     res.json(success,
       tool,
       result,
@@ -116,8 +115,6 @@ class MockMemoryStore {
   req;
 
         body;
-      } catch (error) {
-        console.error(error);
       }
 
       res.json(result);
@@ -130,12 +127,10 @@ app.get('/service-documents/list/) =>'
       // {
       try {
         '
-              // const _result = awaitmcpServer.handleServiceDocumentManager({ action: 'list',
+              // const result = awaitmcpServer.handleServiceDocumentManager({ action: 'list',
               serviceName: req.params.serviceName, documentType
         '
               : 'all'
-      } catch (error) {
-        console.error(error);
       }
 
       res.json(result);
@@ -147,10 +142,8 @@ app.get('/service-documents/list/) =>'
 app.post('/service-documents/validate', async(req, res) =>
       // {
       try {
-        // const _result = awaitmcpServer.handleServiceDocumentValidator(req.body);
+        // const result = awaitmcpServer.handleServiceDocumentValidator(req.body);
         res.json(result);
-      } catch (error) {
-        console.error(error);
       }
       catch(error) 
     res.status(500).json(
@@ -160,10 +153,8 @@ app.post('/service-documents/validate', async(req, res) =>
 app.post('/service-documents/approve', async(req, res) =>
       // {
       try {
-        // const _result = awaitmcpServer.handleServiceApprovalWorkflow(req.body);
+        // const result = awaitmcpServer.handleServiceApprovalWorkflow(req.body);
         res.json(result);
-      } catch (error) {
-        console.error(error);
       }
       catch(error) 
     res.status(500).json(
@@ -174,10 +165,8 @@ app.post('/swarm/init', async(req, res) =>
       // {
       try {
         '
-              // const _result = awaitmcpServer.callTool('swarm_init', req.body);
+              // const result = awaitmcpServer.callTool('swarm_init', req.body);
               res.json(result)
-      } catch (error) {
-        console.error(error);
       }
       catch(error) 
     res.status(500).json(
@@ -189,10 +178,8 @@ app.post('/swarm/spawn-agent', async(req, res) =>
         // {
         try {
           '
-                // const _result = awaitmcpServer.callTool('agent_spawn', req.body);
+                // const result = awaitmcpServer.callTool('agent_spawn', req.body);
                 res.json(result)
-        } catch (error) {
-          console.error(error);
         }
         catch(error) 
     res.status(500).json(
@@ -203,11 +190,9 @@ app.post('/memory/store', async(_req, res) =>
         // {
         try {
           '
-                // const _result = awaitmcpServer.callTool('memory_usage', {'
+                // const result = awaitmcpServer.callTool('memory_usage', {'
                 action: 'store',
                 ..req.body
-        } catch (error) {
-          console.error(error);
         }
 
         res.json(result);
@@ -220,12 +205,10 @@ app.get('/memory/retrieve/) =>'
         // {
         try {
           '
-                // const _result = awaitmcpServer.callTool('memory_usage', {'
+                // const result = awaitmcpServer.callTool('memory_usage', {'
                 action: 'retrieve', key
           : req.params.key,
           namespace: req.query.namespace;
-        } catch (error) {
-          console.error(error);
         }
 
         res.json(result);
@@ -238,15 +221,14 @@ app.get('/memory/retrieve/) =>'
 app.get('/status', async(_req, res) =>
         // {
         try {
-    const _systemStatus = orchestrator.getSystemStatus();
-// const _healthCheck = awaitorchestrator.healthCheck();
+    const systemStatus = orchestrator.getSystemStatus();
+// const healthCheck = awaitorchestrator.healthCheck();
     res.json({
       mcp: {
         host,
         port,'
         status: 'running',
-        uptime: process.uptime() {}
- catch (error) { console.error(error); }// }
+        uptime: process.uptime() {}// }
 
   services,
   health,
@@ -276,7 +258,7 @@ app.get('/status', async(_req, res) =>
   // // await mcpServer.initializeMemory();
   // // await orchestrator.start();
     // Start HTTP server
-    const _server = app.listen(PORT, HOST, () => {'
+    const server = app.listen(PORT, HOST, () => {'
       console.warn(`\n HTTP MCP Server running on http);``
       console.warn(''
       console.warn(`    GET  http);``
@@ -286,11 +268,11 @@ app.get('/status', async(_req, res) =>
       console.warn(`    POST http);``
       console.warn(`    GET  http);``
       console.warn('\n Server ready for external connections!');
-    } catch (error) { console.error(error); }
+    }
 
           // Graceful shutdown'
           process.on('SIGINT', async () => '
-                      console.warn('\n Shutting down server...')
+                      console.warn('\n Shutting down server...');
                 server.close();
           // await orchestrator.stop();
           process.exit(0);

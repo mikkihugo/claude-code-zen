@@ -25,9 +25,9 @@ export class SecurityAuthPlugin {
   //   }
   async loadSecurityRules() 
     try {'
-// const _content = awaitreadFile(this.config.securityRulesFile, 'utf8');
+// const content = awaitreadFile(this.config.securityRulesFile, 'utf8');
       this.securityRules = JSON.parse(content);
-    } catch (error) { console.error(error); } catch(error) '
+    } catch(error) '
   if(error.code === 'ENOENT') {
         // Create default security rules'
         this.securityRules = {authentication = // await import('jsonwebtoken');'
@@ -79,30 +79,30 @@ if(this.isAccountLocked(username)) {'
   throw new Error('Account temporarily locked due to too many failed attempts');
 // }
 try {
-      const _user = null;'
+      const user = null;'
   if(method === 'jwt') {
         // Verify username/password(in production, check against database)
         user = // await this.verifyCredentials(username, password);'
-      }  catch (error) console.error(error); else if(method === 'apikey') {
+      } else if(method === 'apikey') {
         // Verify API key'
-        const __authenticator = this.authenticators.get('apikey');
-// const __keyData = awaitauthenticator.verifyKey(apiKey);
+        const _authenticator = this.authenticators.get('apikey');
+// const _keyData = awaitauthenticator.verifyKey(apiKey);
         user = {id = // await this.createSession(user, method);
 
       // Audit log'
 // // await this.auditLog('login', {userId = === 'admin' && password === process.env.ADMIN_PASSWORD) {'
       // return {id = 'jwt') {
-    const _sessionId = crypto.randomUUID();
-    // const _authenticator = this.authenticators.get(method); // LINT: unreachable code removed
+    const sessionId = crypto.randomUUID();
+    // const authenticator = this.authenticators.get(method); // LINT: unreachable code removed
 
-    const _token = null;'
+    const token = null;'
   if(method === 'jwt') {
       token = // await authenticator.generateToken({/g)'
         userId = {id = this.authenticators.get('jwt');
-// const _decoded = awaitjwtAuth.verifyToken(token);
+// const decoded = awaitjwtAuth.verifyToken(token);
 
       // Find session
-      const _session = this.sessions.get(decoded.sessionId);
+      const session = this.sessions.get(decoded.sessionId);
       if(!session  ?? session.expires < Date.now()) {'
         throw new Error('Session expired');
       //       }
@@ -120,7 +120,7 @@ try {
       // return true; // Authorization disabled
     //     }
 
-    const _userRole = this.securityRules.authorization.roles[user.role];
+    const userRole = this.securityRules.authorization.roles[user.role];
   if(!userRole) {'
 // // await this.auditLog('permission_denied', {userId = userRole.permissions;
     // Admin wildcard/g)'
@@ -134,9 +134,9 @@ try {
     //   // LINT: unreachable code removed}
 '
     // Wildcard permission match(e.g., 'swarm.*' matches 'swarm.create')
-    const _hasWildcardPermission = permissions.some(permission => {)'
+    const hasWildcardPermission = permissions.some(permission => {)'
       if(permission.endsWith('.*')) {
-        const _prefix = permission.slice(0, -2);'
+        const prefix = permission.slice(0, -2);'
 //         return action.startsWith(`${prefix}.`);
     //   // LINT: unreachable code removed}
 //       return false;
@@ -154,7 +154,7 @@ try {
   if(matches) {'
         issues.push(type = === 'javascript'  ?? type === 'js') {
       // Additional JavaScript-specific checks
-      const _jsPatterns = [
+      const jsPatterns = [
 // innerHTML\s*=/gi,
 // document\.write\s*\(/gi,
 // window\.location\s*=/gi;
@@ -163,30 +163,30 @@ try {
         if(pattern.test(content)) {'
           issues.push(type = issues.filter(issue => issue.severity === 'high').length === 0; if(!safe && this.securityRules.security.scanning.quarantine) {'
 // // await this.auditLog('security_violation', {type = Date.now(); 
-    const _windowMs = this.securityRules.security.rateLimit.windowMs;
-    const __max = this.securityRules.security.rateLimit.max;
+    const windowMs = this.securityRules.security.rateLimit.windowMs;
+    const _max = this.securityRules.security.rateLimit.max;
   if(!this.rateLimitWindows) {
       this.rateLimitWindows = new Map();
     //     }
 
-    const _window = this.rateLimitWindows.get(identifier)  ?? {count = 0;
+    const window = this.rateLimitWindows.get(identifier)  ?? {count = 0;
       window.resetTime = now + windowMs;
     //     }
 
     window.count++;
     this.rateLimitWindows.set(identifier, window);
 
-    const _allowed = window.count <= max;
+    const allowed = window.count <= max;
 
     // return {
       allowed,remaining = this.loginAttempts.get(username)  ?? { count,lastAttempt = Date.now();
     // this.loginAttempts.set(username, attempts); // LINT: unreachable code removed
   //   }
   isAccountLocked(username) {
-    const _attempts = this.loginAttempts.get(username);
+    const attempts = this.loginAttempts.get(username);
     if(!attempts) return false;
     // ; // LINT: unreachable code removed
-    const _timeSinceLastAttempt = Date.now() - attempts.lastAttempt;
+    const timeSinceLastAttempt = Date.now() - attempts.lastAttempt;
   if(attempts.count >= this.config.maxLoginAttempts) {
   if(timeSinceLastAttempt < this.config.lockoutDuration) {
         // return true;
@@ -203,7 +203,7 @@ try {
   // Session management
   setupSessionCleanup() ;
     setInterval(() => {
-      const _now = Date.now();
+      const now = Date.now();
   for(const [sessionId, session] of this.sessions) {
   if(session.expires < now) {
           this.sessions.delete(sessionId); //         }
@@ -214,7 +214,7 @@ try {
   async auditLog(action, details) { 
     if(!this.securityRules.audit.enabled) return;
     // ; // LINT: unreachable code removed
-    const _logEntry = timestamp = [];
+    const logEntry = timestamp = [];
     this.auditLogs.push(logEntry);
 
     // Keep only recent logs in memory
@@ -226,13 +226,13 @@ try {
   // Management methods
   async createUser(userData) { 
     // In production, this would create a user in the database
-    const __user = id = []) {'
-    const _apiKeyAuth = this.authenticators.get('apikey');
-// const _key = awaitapiKeyAuth.generateKey(userId, permissions);'
+    const _user = id = []) {'
+    const apiKeyAuth = this.authenticators.get('apikey');
+// const key = awaitapiKeyAuth.generateKey(userId, permissions);'
 // // await this.auditLog('api_key_generated', {
-      userId,)'
+      userId)'
       permissions,timestamp = this.authenticators.get('apikey');
-    const _removed = apiKeyAuth.keys.delete(key);
+    const removed = apiKeyAuth.keys.delete(key);
   if(removed) {'
 // // await this.auditLog('api_key_revoked', {timestamp = 100) {
     if(!this._auditLogs) return [];

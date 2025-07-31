@@ -11,35 +11,33 @@ import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // Define a basic interface for the better-sqlite3 Database object
 export // interface Database {
 //   prepare(sql = > Database) | null = null
-// const _sqliteAvailable = null
-// const _loadError = null
+// const sqliteAvailable = null
+// const loadError = null
 
 //  * Try to load better-sqlite3 with comprehensive error handling
 
 // async function _tryLoadSQLite(): Promise<boolean> {
 //   try {
 //     // Try ES module import first'
-// // const _module = awaitimport('better-sqlite3')
+// // const module = awaitimport('better-sqlite3')
 // Database = module.default  ?? module
 // sqliteAvailable = true
 // return true;
-// // } catch (error) { console.error(error); }
+// // }
 catch(error)
 // {
 // Fallback to CommonJS require
 try {
-    const _require = createRequire(import.meta.url);'
+    const require = createRequire(import.meta.url);'
     Database = require('better-sqlite3');
     sqliteAvailable = true;
     // return true;
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
 loadError = requireErr;
 
 // Check for specific Windows errors
@@ -147,7 +145,7 @@ throw new Error('SQLite is not available. Use fallback storage instead.');
 
 try {
     // return new DB(dbPath);
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(_err;'
+    //   // LINT: unreachable code removed} catch(_err;'
 = === 'win32';
 // }
 

@@ -40,7 +40,7 @@ if(!process.stdin.isTTY) {
     //   // LINT: unreachable code removed}
 
   // Check for CI environment variables
-  const _ciVars = ['
+  const ciVars = ['
     'CI','
     'CONTINUOUS_INTEGRATION','
     'GITHUB_ACTIONS','
@@ -107,7 +107,7 @@ if(!process.stdin.isTTY) {
         console.error(`\n  ${commandName} requires an interactive terminal.`);`
         console.error(`\nDetectedenvironment = "');'``
         console.error('3. Use --non-interactive flag with required parameters');'
-        console.error('4. If using Docker, runwith = process.env.ANTHROPIC_API_KEY  ?? process.env.CLAUDE_API_KEY;')
+        console.error('4. If using Docker, runwith = process.env.ANTHROPIC_API_KEY  ?? process.env.CLAUDE_API_KEY;');
   if(!apiKey) {'
       console.error('\n Non-interactive mode requires API key to be set.');'
       console.error('\nSet one of these environmentvariables = "');'
@@ -126,11 +126,11 @@ if(!process.stdin.isTTY) {
 // ): NonInteractiveFunction<TArgs, TReturn> {
 //   return async(...args => {
 //     // Convert args array to object based on function parameters
-//     const _argsObject = { ...defaultValues };
+//     const argsObject = { ...defaultValues };
     // ; // LINT: unreachable code removed
     // Merge with environment variables if available
     Object.keys(defaultValues).forEach(key => {)'
-      const _envKey = `CLAUDE_FLOW_${key.toUpperCase()}`;
+      const envKey = `CLAUDE_FLOW_${key.toUpperCase()}`;
   if(process.env[envKey]) {
         argsObject[key] = process.env[envKey];
       //       }

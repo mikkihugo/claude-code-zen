@@ -3,8 +3,6 @@
 /** Handles AST parsing, code metrics calculation, and complexity analysis. */
 /** Processes code files to extract structural information and calculate quality metrics. */
 
-*
-@fileoverview
 Core;
 code;
 analysis;
@@ -13,7 +11,7 @@ metrics;
 calculation;
 engine
  * @version 1.0
-0.0 * /;;
+0.0 * /;
 
 import { existsSync } from 'node:fs';
 '
@@ -136,10 +134,8 @@ import { existsSync } from 'node:fs';
 
 /** Initialize the Code Analysis Engine */
 
-   *
-@param
 config - Configuration;
-options * /;;
+options * /;
 constructor(config);
 {
     this.config = config;
@@ -148,7 +144,7 @@ constructor(config);
 /** Initialize the analysis engine */
 
   async initialize(): Promise<void> '
-    console.warn(' Code Analysis Engine initialized')
+    console.warn(' Code Analysis Engine initialized');
   //   }
 
 /** Analyze code files and return comprehensive analysis results */
@@ -158,26 +154,26 @@ constructor(config);
 
     // */ // LINT: unreachable code removed
   async analyzeCode(codeData): Promise<CodeAnalysisResult> {
-    const _startTime = Date.now();
-    const _totalLines = 0;
+    const startTime = Date.now();
+    const totalLines = 0;
     try {
       // Extract AST information
-// const _ast = awaitthis.extractAST(codeData);
+// const ast = awaitthis.extractAST(codeData);
 
       // Extract functions
-// const _functions = awaitthis.extractFunctions(codeData);
+// const functions = awaitthis.extractFunctions(codeData);
 
       // Extract classes
-// const _classes = awaitthis.extractClasses(codeData);
+// const classes = awaitthis.extractClasses(codeData);
 
       // Calculate complexity
-// const _complexity = awaitthis.calculateCodeComplexity(codeData);
+// const complexity = awaitthis.calculateCodeComplexity(codeData);
 
       // Analyze dependencies
-// const _dependencies = awaitthis.analyzeDependencies(codeData);
+// const dependencies = awaitthis.analyzeDependencies(codeData);
 
       // Calculate metrics
-// const _metrics = awaitthis.calculateMetrics(codeData);
+// const metrics = awaitthis.calculateMetrics(codeData);
 
       totalLines = metrics.totalLines;
 
@@ -192,7 +188,7 @@ constructor(config);
         //         }
       //       }
 
-      const _analysisTime = Date.now() - startTime;
+      const analysisTime = Date.now() - startTime;
 
       // return {
         ast,
@@ -223,13 +219,13 @@ async;
 readCodeData(codeFiles)
 : Promise<CodeFileData[]>
 // {
-  const _codeData = [];
+  const codeData = [];
   for(const filePath of codeFiles) {
     if(!existsSync(filePath)) {'
       throw new Error(`Code file not found); `
     //     }``
-// const _content = awaitreadFile(filePath, 'utf8''
-// const _stats = awaitimport('node) {.then((fs) => fs.promises.stat(filePath))'
+// const content = awaitreadFile(filePath, 'utf8''
+// const stats = awaitimport('node) {.then((fs) => fs.promises.stat(filePath))'
 
     codeData.push({
         content,
@@ -251,7 +247,7 @@ readCodeData(codeFiles)
 // // private detectLanguage(filePath)
 : string
 // {
-  const _extension = path.extname(filePath).toLowerCase();
+  const extension = path.extname(filePath).toLowerCase();
   const _languageMap: Record<string, string> = {'
       '.js': 'javascript''
   ('.ts''
@@ -293,7 +289,7 @@ validateCodeInputs(codeFiles, language)
     if(!existsSync(filePath)) {'
       throw new Error(`Code file not found); `
     //     }
-    const _extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) ``
+    const extension = path.extname(filePath).toLowerCase().substring(1); if(!this.config.supportedFormats.includes(extension) {) ``
       throw new Error(`Unsupported code file format);`
     //     }
   //   }
@@ -313,10 +309,10 @@ validateCodeInputs(codeFiles, language)
 extractAST(codeData)
 : Promise<ASTNode[]>
 // {
-    const _astResults = [];
+    const astResults = [];
   for(const file of codeData) {
       try {
-// const _ast = awaitthis.parseFileAST(file); 
+// const ast = awaitthis.parseFileAST(file); 
         astResults.push(...ast)} catch (error) { console.error(error)} catch(error) ``
         console.warn(` AST parsing failed for ${file.path});`
       //       }
@@ -350,16 +346,16 @@ extractAST(codeData)
 
     // */; // LINT: unreachable code removed
   // // private parseJavaScriptAST(code): ASTNode[] {'
-    const _lines = code.split('\n')
-    const _nodes = [];
-    const _depth = 0;
-    const _maxDepth = 0;
+    const lines = code.split('\n')
+    const nodes = [];
+    const depth = 0;
+    const maxDepth = 0;
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i].trim();
+      const line = lines[i].trim();
 
       // Track nesting depth
-      const _openBraces = (line.match(/\{/g)  ?? []).length;
-      const _closeBraces = (line.match(/\}/g)  ?? []).length;
+      const openBraces = (line.match(/\{/g)  ?? []).length;
+      const closeBraces = (line.match(/\}/g)  ?? []).length;
       depth += openBraces - closeBraces;
       maxDepth = Math.max(maxDepth, depth);
 
@@ -383,16 +379,16 @@ extractAST(codeData)
 
     // */; // LINT: unreachable code removed
   // // private parsePythonAST(code): ASTNode[] {'
-    const _lines = code.split('\n')
-    const _nodes = [];
-    const _indentLevel = 0;
-    const _maxIndent = 0;
+    const lines = code.split('\n')
+    const nodes = [];
+    const indentLevel = 0;
+    const maxIndent = 0;
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
-      const _trimmed = line.trim();
+      const line = lines[i];
+      const trimmed = line.trim();
   if(trimmed) {
         // Calculate indentation level
-        const _currentIndent = line.length - line.trimStart().length;
+        const currentIndent = line.length - line.trimStart().length;
         indentLevel = Math.floor(currentIndent / 4);
         maxIndent = Math.max(maxIndent, indentLevel);
 
@@ -418,7 +414,7 @@ extractAST(codeData)
 
     // */; // LINT: unreachable code removed
   // // private parseGenericAST(code): ASTNode[] {'
-    const _lines = code.split('\n''
+    const lines = code.split('\n''
 //     return [{ type: 'generic', line: lines.length, depth}]
     //   // LINT: unreachable code removed}
 
@@ -453,8 +449,8 @@ extractAST(codeData)
 
     // */; // LINT: unreachable code removed
   // // private extractNodeName(line): string | undefined {
-    const _functionMatch = line.match(/(?)?(\w+)(?:\s*\(|\s*=)/)
-    const _classMatch = line.match(/class\s+(\w+)/);
+    const functionMatch = line.match(/(?)?(\w+)(?:\s*\(|\s*=)/)
+    const classMatch = line.match(/class\s+(\w+)/);
 //     return functionMatch?.[1]  ?? classMatch?.[1];
     //   // LINT: unreachable code removed}
 
@@ -466,7 +462,7 @@ extractAST(codeData)
     // */; // LINT: unreachable code removed
   // // private calculateNodeComplexity(line) {
     // Simple complexity calculation based on decision points
-    const _decisionPoints = (line.match(/if|while|for|switch|case|catch|&&|\|\|/g)  ?? []).length;
+    const decisionPoints = (line.match(/if|while|for|switch|case|catch|&&|\|\|/g)  ?? []).length;
     // return Math.max(1, decisionPoints);
     //   // LINT: unreachable code removed}
 
@@ -477,9 +473,9 @@ extractAST(codeData)
 
     // */; // LINT: unreachable code removed
   // // private async extractFunctions(codeData): Promise<FunctionData[]> {
-    const _functions = [];
+    const functions = [];
   for(const file of codeData) {
-// const _fileFunctions = awaitthis.extractFileFunctions(file); 
+// const fileFunctions = awaitthis.extractFileFunctions(file); 
       functions.push(...fileFunctions); //     }
 // 
     return functions;
@@ -492,13 +488,13 @@ extractAST(codeData)
 
     // */; // LINT: unreachable code removed
   // // private async extractFileFunctions(file) {: Promise<FunctionData[]> {
-    const _functions = []
-    const _lines = file.content.split('\n')
+    const functions = []
+    const lines = file.content.split('\n')
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
-      const _functionMatch = this.matchFunction(line, file.language);
+      const line = lines[i];
+      const functionMatch = this.matchFunction(line, file.language);
   if(functionMatch) {
-        const _func = {
+        const func = {
           name: functionMatch.name,
           parameters: functionMatch.parameters,
           isAsync: functionMatch.isAsync,
@@ -534,9 +530,9 @@ extractAST(codeData)
 // (async\s+)?(\w+)\s*\(([^)]*)\)\s*=>/ ],
       python: [/(async\s+)?def\s+(\w+)\s*\(([^)]*)\)/] }
 
-    const _langPatterns = patterns[language]  ?? patterns.javascript;
+    const langPatterns = patterns[language]  ?? patterns.javascript;
   for(const pattern of langPatterns) {
-      const _match = line.match(pattern); if(match) {
+      const match = line.match(pattern); if(match) {
         // return {
           name: match[2]  ?? match[1],'); // LINT: unreachable code removed'
   split(",') 
@@ -557,13 +553,13 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async calculateFunctionComplexity(lines, startLine): Promise<number> {
-    const _complexity = 1; // Base complexity
-    const _braceCount = 0;
-    const _i = startLine;
+    const complexity = 1; // Base complexity
+    const braceCount = 0;
+    const i = startLine;
 
     // Find function body and count decision points
   while(i < lines.length) {
-      const _line = lines[i];
+      const line = lines[i];
 
       // Count decision points
       if(
@@ -592,12 +588,12 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async countFunctionLines(lines, startLine): Promise<number> {
-    const _braceCount = 0;
-    const _i = startLine;
-    const _lineCount = 0;
+    const braceCount = 0;
+    const i = startLine;
+    const lineCount = 0;
   while(i < lines.length) {
       lineCount++;
-      const _line = lines[i];
+      const line = lines[i];
 
       braceCount += (line.match(/\{/g)  ?? []).length;
       braceCount -= (line.match(/\}/g)  ?? []).length;
@@ -618,9 +614,9 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async extractClasses(codeData): Promise<ClassData[]> {
-    const _classes = [];
+    const classes = [];
   for(const file of codeData) {
-// const _fileClasses = awaitthis.extractFileClasses(file); 
+// const fileClasses = awaitthis.extractFileClasses(file); 
       classes.push(...fileClasses); //     }
 
     // return classes;
@@ -633,13 +629,13 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async extractFileClasses(file) {: Promise<ClassData[]> {
-    const _classes = []
-    const _lines = file.content.split('\n')
+    const classes = []
+    const lines = file.content.split('\n')
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
-      const _classMatch = this.matchClass(line, file.language);
+      const line = lines[i];
+      const classMatch = this.matchClass(line, file.language);
   if(classMatch) {
-        const _cls = {
+        const cls = {
           name: classMatch.name,
           extends: classMatch.extends,
           implements: classMatch.implements,
@@ -672,8 +668,8 @@ filter((p) => p),'
       javascript: /class\s+(\w+)(?:\s+extends\s+(\w+))?(?:\s+implements\s+([^{]+))?/,
       python: /class\s+(\w+)(?:\(([^)]+)\))?/ };
 
-    const _pattern = patterns[language]  ?? patterns.javascript;
-    const _match = line.match(pattern);
+    const pattern = patterns[language]  ?? patterns.javascript;
+    const match = line.match(pattern);
   if(match) {
       // return {
         name: match[1],
@@ -692,11 +688,11 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async countClassMethods(lines, startLine): Promise<number> {
-    const _methodCount = 0;
-    const _braceCount = 0;
-    const _i = startLine;
+    const methodCount = 0;
+    const braceCount = 0;
+    const i = startLine;
   while(i < lines.length) {
-      const _line = lines[i];
+      const line = lines[i];
 
       // Count methods'
       if(this.matchFunction(line, 'javascript')) {'
@@ -723,12 +719,12 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async countClassLines(lines, startLine): Promise<number> {
-    const _braceCount = 0;
-    const _i = startLine;
-    const _lineCount = 0;
+    const braceCount = 0;
+    const i = startLine;
+    const lineCount = 0;
   while(i < lines.length) {
       lineCount++;
-      const _line = lines[i];
+      const line = lines[i];
 
       braceCount += (line.match(/\{/g)  ?? []).length;
       braceCount -= (line.match(/\}/g)  ?? []).length;
@@ -749,24 +745,24 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async calculateCodeComplexity(codeData): Promise<ComplexityAnalysis> {
-    const _totalComplexity = 0;
-    const _totalLines = 0;
-    const _totalFunctions = 0;
-    const _maxComplexity = 0;
+    const totalComplexity = 0;
+    const totalLines = 0;
+    const totalFunctions = 0;
+    const maxComplexity = 0;
   for(const file of codeData) {
-// const _fileComplexity = awaitthis.calculateFileComplexity(file); 
+// const fileComplexity = awaitthis.calculateFileComplexity(file); 
       totalComplexity += fileComplexity.cyclomatic; totalLines += fileComplexity.lines;
       totalFunctions += fileComplexity.functions;
       maxComplexity = Math.max(maxComplexity, fileComplexity.maxFunctionComplexity) {
     //     }
 
-    const _avgComplexity = totalFunctions > 0 ? totalComplexity / totalFunctions ;
-    const _maintainabilityIndex = this.calculateMaintainabilityIndex();
+    const avgComplexity = totalFunctions > 0 ? totalComplexity / totalFunctions ;
+    const maintainabilityIndex = this.calculateMaintainabilityIndex();
       totalLines,
       totalComplexity,
       avgComplexity;
     );
-    const _technicalDebt = this.assessTechnicalDebt(avgComplexity, maxComplexity);
+    const technicalDebt = this.assessTechnicalDebt(avgComplexity, maxComplexity);
 
     // return {
       cyclomatic,
@@ -789,21 +785,21 @@ filter((p) => p),'
     // lines: number
     // functions: number
     maxFunctionComplexity,> {'
-    const _lines = file.content.split('\n')
-    const _complexity = 0;
-    const _functionCount = 0;
-    const _maxFunctionComplexity = 0;
+    const lines = file.content.split('\n')
+    const complexity = 0;
+    const functionCount = 0;
+    const maxFunctionComplexity = 0;
   for(let i = 0; i < lines.length; i++) {
-      const _line = lines[i];
+      const line = lines[i];
 
       // Count decision points
-      const _decisions = (line.match(/if|while|for|switch|case|catch|&&|\|\|/g)  ?? []).length;
+      const decisions = (line.match(/if|while|for|switch|case|catch|&&|\|\|/g)  ?? []).length;
       complexity += decisions;
 
       // Check if this is a function and calculate its complexity
       if(this.matchFunction(line, file.language)) {
         functionCount++;
-// const _funcComplexity = awaitthis.calculateFunctionComplexity(lines, i);
+// const funcComplexity = awaitthis.calculateFunctionComplexity(lines, i);
         maxFunctionComplexity = Math.max(maxFunctionComplexity, funcComplexity);
       //       }
     //     }
@@ -829,8 +825,8 @@ filter((p) => p),'
     // _halsteadVolume
   ) {
     // Simplified maintainability index calculation
-    const _volume = Math.log2(lines) * 10; // Simplified Halstead volume
-    const _index = Math.max();
+    const volume = Math.log2(lines) * 10; // Simplified Halstead volume
+    const index = Math.max();
       0,
       171 - 5.2 * Math.log(volume) - 0.23 * complexity - 16.2 * Math.log(lines)
     );
@@ -859,17 +855,17 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async analyzeDependencies(codeData): Promise<DependencyAnalysis> {
-    const _dependencies = {
+    const dependencies = {
       external: new Set<string>(),
       internal: new Set<string>() };
   for(const file of codeData) {
-// const _fileDeps = awaitthis.extractFileDependencies(file); 
+// const fileDeps = awaitthis.extractFileDependencies(file); 
       fileDeps.external.forEach((dep) => dependencies.external.add(dep)); fileDeps.internal.forEach((dep) {=> dependencies.internal.add(dep));
     //     }
 
     // Convert sets to arrays for serialization
-    const _external = Array.from(dependencies.external);
-    const _internal = Array.from(dependencies.internal);
+    const external = Array.from(dependencies.external);
+    const internal = Array.from(dependencies.internal);
 
     // return {
       external,
@@ -888,14 +884,14 @@ filter((p) => p),'
   // // private async extractFileDependencies(file): Promise<
     external: Set<string>;
     internal: Set<string>;> {
-    const _dependencies = {
+    const dependencies = {
       external: new Set<string>(),
       internal: new Set<string>() }
-    const _lines = file.content.split('\n')
+    const lines = file.content.split('\n')
   for(const line of lines) {
       // Extract import statements']([^']/); "
   if(importMatch) {'
-        const _dep = importMatch[1]; if(dep.startsWith('.') {?? dep.startsWith('/')) '
+        const dep = importMatch[1]; if(dep.startsWith('.') {?? dep.startsWith('/')) '
           dependencies.internal.add(dep);else {
           dependencies.external.add(dep);
         //         }
@@ -903,7 +899,7 @@ filter((p) => p),'
 
       // Extract require statements']([^'']\)/);"
   if(requireMatch) {
-        const _dep = requireMatch[1]
+        const dep = requireMatch[1]
         if(dep.startsWith('.')  ?? dep.startsWith('/')) {'
           dependencies.internal.add(dep)} else {
           dependencies.external.add(dep);
@@ -921,14 +917,14 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async calculateMetrics(codeData): Promise<CodeMetrics> {
-    const _totalLines = 0;
-    const _codeLines = 0;
-    const _commentLines = 0;
-    const _blankLines = 0;
-    const _totalFunctions = 0;
-    const _totalClasses = 0;
+    const totalLines = 0;
+    const codeLines = 0;
+    const commentLines = 0;
+    const blankLines = 0;
+    const totalFunctions = 0;
+    const totalClasses = 0;
   for(const file of codeData) {
-// const _fileMetrics = awaitthis.calculateFileMetrics(file); 
+// const fileMetrics = awaitthis.calculateFileMetrics(file); 
       totalLines += fileMetrics.totalLines; codeLines += fileMetrics.codeLines;
       commentLines += fileMetrics.commentLines;
       blankLines += fileMetrics.blankLines;
@@ -936,7 +932,7 @@ filter((p) => p),'
       totalClasses += fileMetrics.classes;
     //     }
 
-    const _commentRatio = totalLines > 0 ? (commentLines / totalLines) {* 100 
+    const commentRatio = totalLines > 0 ? (commentLines / totalLines) {* 100 
     // return {
       totalLines,
     // codeLines, // LINT: unreachable code removed
@@ -954,14 +950,14 @@ filter((p) => p),'
 
     // */; // LINT: unreachable code removed
   // // private async calculateFileMetrics(file): Promise<CodeMetrics> {'
-    const _lines = file.content.split('\n')
-    const _codeLines = 0;
-    const _commentLines = 0;
-    const _blankLines = 0;
-    const _functions = 0;
-    const _classes = 0;
+    const lines = file.content.split('\n')
+    const codeLines = 0;
+    const commentLines = 0;
+    const blankLines = 0;
+    const functions = 0;
+    const classes = 0;
   for(const line of lines) {
-      const _trimmed = line.trim(); if(!trimmed) {
+      const trimmed = line.trim(); if(!trimmed) {
         blankLines++} else if(this.isCommentLine(trimmed, file.language) {) 
         commentLines++;else 
         codeLines++;
@@ -1001,7 +997,7 @@ filter((p) => p),'
       c: /^\/\/|^\/\*|\*\/$/,
       cpp: /^\/\/|^\/\*|\*\/$/ }
 
-    const _pattern = commentPatterns[language]  ?? commentPatterns.javascript;
+    const pattern = commentPatterns[language]  ?? commentPatterns.javascript;
     // return pattern.test(line);
     //   // LINT: unreachable code removed}
 
@@ -1017,10 +1013,10 @@ filter((p) => p),'
       throw new Error('Neural engine not available')
     //     }
 '
-    const _codeContent = codeData.map((file) => file.content).join('\n\n')
+    const codeContent = codeData.map((file) => file.content).join('\n\n')
 
     // Use neural engine for analysis
-// const _result = awaitthis.config.neuralEngine.infer(
+// const result = awaitthis.config.neuralEngine.infer(
       'analysis''analyzeComplexity','
       codeContent;
     );

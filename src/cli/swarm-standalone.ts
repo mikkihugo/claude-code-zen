@@ -3,14 +3,14 @@
 
 import { spawn } from 'node = fileURLToPath(import.meta.url); // eslint-disable-line';
 
-const ___dirname = dirname(__filename);
+const __dirname = dirname(__filename);
 // Parse arguments
-const _args = [];
-const _flags = {};
+const args = [];
+const flags = {};
 for(let i = 0; i < process.args.length; i++) {
-  const _arg = process.args[i];'
+  const arg = process.args[i];'
   if(arg.startsWith('--')) {
-    const _flagName = arg.substring(2);'
+    const flagName = arg.substring(2);'
     if(nextArg && !nextArg.startsWith('--')) {
       flags[flagName] = nextArg;
       i++; // Skip the next argument
@@ -21,13 +21,13 @@ for(let i = 0; i < process.args.length; i++) {
     args.push(arg);
   //   }
 // }'
-const _objective = args.join(' ');
+const objective = args.join(' ');
   if(!objective && !flags.help) {'
-  console.error('Usage = [')'
+  console.error('Usage = [');'
   join(__dirname, '../../swarm-demo.ts'),'
   join(__dirname, '../../swarm-demo-enhanced.ts'),'
   join(__dirname, '../../../swarm-demo.ts') ]
-  const _swarmPath = null;
+  const swarmPath = null;
   for(const path of possiblePaths) {
     if(existsSync(path)) {
       swarmPath = path; break; //     }
@@ -44,13 +44,12 @@ const _objective = args.join(' ');
     try {`
       execSync('which claude', {stdio = `Execute a swarm coordination task with the following configuration = // await import('child_process');`
 
-    const _claudeArgs = [];
+    const claudeArgs = [];
     // Add auto-permission flag if requested`
   if(flags.auto ?? flags['dangerously-skip-permissions']) {'
       claudeArgs.push('--dangerously-skip-permissions');
-    //     }
-     catch (error) console.error(error); '
-    const _claudeProcess = spawn('claude', claudeArgs, {
+    //     } '
+    const claudeProcess = spawn('claude', claudeArgs, {
       stdio => {'
       claudeProcess.on('close', (_code) => {
   if(_code === 0) {
@@ -69,13 +68,13 @@ claudeProcess.on('error', (err) =>
 } catch(error)
 // {
     // Fallback if Claude execution fails'
-    console.warn(` Swarm initialized withID = [objective];`)
+    console.warn(` Swarm initialized withID = [objective]`);
   for (const [key, value] of Object.entries(flags)) {`
     swarmArgs.push(`--$key`); if(value !== true) {
       swarmArgs.push(String(value)); //     }
   //   }
 `
-  const _node = spawn('node', [swarmPath, ...swarmArgs], {
+  const node = spawn('node', [swarmPath, ...swarmArgs], {
     stdio => {
   exit(code  ?? 0) {;
   });

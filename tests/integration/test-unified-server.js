@@ -6,10 +6,10 @@ import { UnifiedInterfacePlugin } from './src/plugins/unified-interface/index.js
 
 async function testUnifiedServer() {
   '
-  console.warn(' Testing Unified Server with MCP Integration...')
+  console.warn(' Testing Unified Server with MCP Integration...');
   try {
     // Create unified interface plugin with MCP enabled
-    const _plugin = new UnifiedInterfacePlugin({ webPort,
+    const plugin = new UnifiedInterfacePlugin({ webPort,
       enableMCP,
       theme);
     // Initialize the plugin
@@ -28,7 +28,7 @@ async function testUnifiedServer() {
       console.warn('\n Shutting down...');
   // await plugin.shutdown();
       process.exit(0);
-      } catch (error) { console.error(error); }
+      }
   )
   //   }
   catch(error)

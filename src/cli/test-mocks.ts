@@ -37,8 +37,7 @@ config = config;
 // }
 
 /** Initialize the agent; */
-*
-@returns
+
 Promise;
 resolving;
 to;
@@ -50,13 +49,11 @@ initialize();
 // return true;
 
 /** Execute a task; */
- *
-@param
+
 task - Task;
 to;
 execute;
-*
-@returns
+
 Promise;
 resolving;
 to;
@@ -74,8 +71,7 @@ this.config = config
 this.agents = new Map<string, Agent>();
 
 /** Initialize the swarm; */
-*
-@returns
+
 Promise;
 resolving;
 to;
@@ -87,16 +83,13 @@ init();
 // return true;
 
 /** Spawn a new agent; */
- *
-@param
+
 type - Agent;
 type;
-*
-@param
+
 config - Agent;
 configuration;
-*
-@returns
+
 Promise;
 resolving;
 to;
@@ -112,13 +105,11 @@ this.agents.set(agent.id, agent);
 // }
 
 /** Orchestrate a task across agents; */
-*
-@param
+
 task - Task;
 to;
 orchestrate;
-*
-@returns
+
 Promise;
 resolving;
 to;
@@ -131,17 +122,14 @@ orchestrate(task = new Map<string, any>()
 // }
 
 /** Store a value in memory; */
-   *
-@param
+
 key - Storage;
 key;
-*
-@param
+
 value - Value;
 to;
 store;
-*
-@returns
+
 Promise;
 resolving;
 to;

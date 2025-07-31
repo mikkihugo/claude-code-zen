@@ -29,23 +29,23 @@ export class DebugQueen extends BaseQueen {
 
         try {'
             this.logger.info(`Processing debugtask = // // await this.analyzeCode(task);`
-// const _recommendations = awaitthis.generateRecommendations(analysis, task);
+// const recommendations = awaitthis.generateRecommendations(analysis, task);
 
-            const _result = {taskId = > i.type))],
+            const result = {taskId = > i.type))],
                     securityIssues = {taskId = task.context?.code  ?? task.prompt;
-        const _language = task.context?.language  ?? this.detectLanguage(code);
+        const language = task.context?.language  ?? this.detectLanguage(code);
 
         // Perform // // static analysis
-// const _issues = awaitthis.staticAnalysis(code, language);
-// const _securityIssues = awaitthis.securityAnalysis(code, language);
-// const _performanceIssues = awaitthis.performanceAnalysis(code, language);
+// const issues = awaitthis.staticAnalysis(code, language);
+// const securityIssues = awaitthis.securityAnalysis(code, language);
+// const performanceIssues = awaitthis.performanceAnalysis(code, language);
 
         // Use neural network for complex pattern detection
-// const _neuralIssues = awaitthis.neuralAnalysis(code, task);
+// const neuralIssues = awaitthis.neuralAnalysis(code, task);
 
-        const _allIssues = [...issues, ...neuralIssues];
-        const _maxSeverity = this.getMaxSeverity(allIssues);
-        const _fixComplexity = this.calculateFixComplexity(allIssues);
+        const allIssues = [...issues, ...neuralIssues];
+        const maxSeverity = this.getMaxSeverity(allIssues);
+        const fixComplexity = this.calculateFixComplexity(allIssues);
 
         // return {
             code,
@@ -60,13 +60,13 @@ export class DebugQueen extends BaseQueen {
                     securityIssues.push({
                         type,severity = []; // Check for common performance anti-patterns
 ``
-        const _lines = analysis.split('\n') 
+        const lines = analysis.split('\n') 
   for(const line of lines) {'
             if(line.includes('ERROR = analysis''
-        const _report = ' **Debug Analysis Report**\n\n''
+        const report = ' **Debug Analysis Report**\n\n''
 
         // Summary'
-        report += `**Summary = `- $issues.lengthcatch (error) console.error(error); issues found\n`;```
+        report += `**Summary = `- $issues.length issues found\n`;```
         report += `- $securityIssues.lengthsecurity vulnerabilities\n`;``
         report += `- $performanceIssues.lengthperformance concerns\n`;`)```
         report += `- RiskScore = [...issues, ...securityIssues].filter(i => i.severity === 'critical') {'`'
@@ -77,7 +77,7 @@ export class DebugQueen extends BaseQueen {
         //         }
 
         // High priority issues``
-        const _highIssues = issues.filter(i => i.severity === 'high')
+        const highIssues = issues.filter(i => i.severity === 'high')
   if(highIssues.length > 0) {'
             report += ' **High PriorityIssues = `- \$issue.description\n`;`'`
   if(issue.fix) {``
@@ -91,18 +91,18 @@ export class DebugQueen extends BaseQueen {
         //         }
 
         // Generate fixed code if possible
-        const _fixedCode = this.generateFixedCode(analysis);
+        const fixedCode = this.generateFixedCode(analysis);
   if(fixedCode) {``
             report += ' **Suggested FixedCode = this.generateBestPractices(analysis)'
 
-        const _confidence = this.calculateConfidence(analysis);
+        const confidence = this.calculateConfidence(analysis);
 
         // return {primary = analysis.code;
     // ; // LINT: unreachable code removed
             // Apply fixes for detected issues
   for(const issue of analysis.issues) {'
   if(issue.fix && issue.fix !== 'Review and fix based on neural analysis') {'
-                    const _pattern = this.errorPatterns.get(issue.type); if(pattern) {
+                    const pattern = this.errorPatterns.get(issue.type); if(pattern) {
                         fixedCode = pattern.fix(fixedCode); //                     }
                 //                 }
             //             }
@@ -153,17 +153,17 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
     async generateAlternatives(analysis) { 
-        const _alternatives = [];
+        const alternatives = [];
 
         // Quick fix summary
         if(analysis.issues.length > 0) '
-            const _quickFix = ` **Quick FixSummary = > `- \$i.description: \$i.fix`).join('\n')}`;``
+            const quickFix = ` **Quick FixSummary = > `- \$i.description: \$i.fix`).join('\n')}`;``
             alternatives.push(quickFix);
         //         }
 
         // Security-focused review
   if(analysis.securityIssues.length > 0) {``
-            const _securityFocus = ` **Security-FocusedReview = > `- \$i.description: \$i.fix`).join('\n')}`;``
+            const securityFocus = ` **Security-FocusedReview = > `- \$i.description: \$i.fix`).join('\n')}`;``
             alternatives.push(securityFocus);
         //         }
 
@@ -178,7 +178,7 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
   analyzeJavaScript(code) {
-        const _issues = [];
+        const issues = [];
 
         // Check for common JS issues``
         if(code.includes('==') && !code.includes('==='
@@ -190,10 +190,10 @@ export class DebugQueen extends BaseQueen {
         // Check for string concatenation in loops/g)'
         if(code.includes('for') && code.includes('+') && code.includes('String')) {'
             issues.push({type = /(\w+)\.(\w+)/g;
-        const _nullCheckPattern = /if\s*\(\s*\w+\s*[!=]=\s*null\s*\)/
+        const nullCheckPattern = /if\s*\(\s*\w+\s*[!=]=\s*null\s*\)/
 
-        const _accesses = code.match(accessPattern)  ?? [];
-        const _nullChecks = code.match(nullCheckPattern)  ?? [];
+        const accesses = code.match(accessPattern)  ?? [];
+        const nullChecks = code.match(nullCheckPattern)  ?? [];
 
         // return accesses.length > nullChecks.length;
     //   // LINT: unreachable code removed}
@@ -223,11 +223,11 @@ export class DebugQueen extends BaseQueen {
     // */; // LINT: unreachable code removed
     fixAsyncError(code) 
         if(code.includes('await') && !code.includes('try')) {'
-            const _awaitMatch = code.match(/(.*await.*)/)
+            const awaitMatch = code.match(/(.*await.*)/)
   if(awaitMatch) {'
                 // return code.replace(awaitMatch[1], `try {\n  $awaitMatch[1]\n} catch (error) { console.error(error)} catch(/* _error */) {\n  console.error('Asyncerror = /setInterval|setTimeout/.test(code);'`
-    // const _hasListener = /addEventListener/.test(code); // LINT: unreachable code removed
-        const _hasCleanup = /clearInterval|clearTimeout|removeEventListener/.test(code);
+    // const hasListener = /addEventListener/.test(code); // LINT: unreachable code removed
+        const hasCleanup = /clearInterval|clearTimeout|removeEventListener/.test(code);
 
         // return(hasInterval  ?? hasListener) && !hasCleanup;
     //   // LINT: unreachable code removed}
@@ -238,7 +238,7 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
   fixMemoryLeak(code) {
-        const _fixed = code;
+        const fixed = code;
 ``
         if(code.includes('setInterval') && !code.includes('clearInterval''
             fixed += '\n// Remember to clearinterval = '\n// Remember to remove listener: element.removeEventListener(event, handler);'
@@ -300,7 +300,7 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
   findLine(code, pattern) {'
-        const _lines = code.split('\n')
+        const lines = code.split('\n')
   for(let i = 0; i < lines.length; i++) 
             if(pattern.test(lines[i])) {
                 // return i + 1;
@@ -315,8 +315,8 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
   getMaxSeverity(issues) {'
-        const _severityOrder = ['low', 'medium', 'high', 'critical''
-        const _maxSeverity = 'low''
+        const severityOrder = ['low', 'medium', 'high', 'critical''
+        const maxSeverity = 'low''
   for(const issue of issues) 
             if(severityOrder.indexOf(issue.severity) > severityOrder.indexOf(maxSeverity)) {
                 maxSeverity = issue.severity; //             }
@@ -331,8 +331,8 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
   calculateFixComplexity(issues) {'
-        const _criticalCount = issues.filter(i => i.severity === 'critical''
-        const _highCount = issues.filter(i => i.severity === 'high').length
+        const criticalCount = issues.filter(i => i.severity === 'critical''
+        const highCount = issues.filter(i => i.severity === 'high').length
 '
         if(criticalCount > 0  ?? highCount > 3) return 'high''
     // if(highCount > 0  ?? issues.length > 5) return 'medium''
@@ -347,7 +347,7 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
   calculateRiskScore(issues, securityIssues, performanceIssues) {
-        const _score = 0;
+        const score = 0;
   for(const issue of issues) {
   switch(issue.severity) {'
                 case 'critical''
@@ -369,14 +369,14 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
   calculateConfidence(analysis) {
-        const _confidence = 0.8; // Base confidence
+        const confidence = 0.8; // Base confidence
 
         // Increase confidence with more issues found
         if(analysis.issues.length > 0) confidence += 0.1;
         if(analysis.securityIssues.length > 0) confidence += 0.05;
 
         // Decrease confidence if code is very short or complex'
-        const _lines = analysis.code.split('\n').length
+        const lines = analysis.code.split('\n').length
         if(lines < 5) confidence -= 0.2;
         if(lines > 100) confidence -= 0.1;
 
@@ -389,7 +389,7 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
   getCWE(type) {
-        const _cweMap = {'
+        const cweMap = {'
             'sql-injection': 'CWE-89''xss': 'CWE-79''weak-crypto': 'CWE-327''hardcoded-secrets': 'CWE-798''
         }
         // return cweMap[type]  ?? 'CWE-0''
@@ -401,7 +401,7 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
   getPerformanceFix(type) {
-        const _fixes = {'
+        const fixes = {'
             'inefficient-loop': 'Use for...of or forEach for arrays''dom-query': 'Cache DOM queries in variables''deep-clone': 'Use structuredClone() or a proper deep clone library''
         }
         // return fixes[type]  ?? 'Review and optimize''
@@ -413,7 +413,7 @@ export class DebugQueen extends BaseQueen {
 
     // */; // LINT: unreachable code removed
     async calculateSuitability(task) 
-// const _suitability = awaitsuper.calculateSuitability(task);
+// const suitability = awaitsuper.calculateSuitability(task);
 
         // DebugQueen is highly suitable for debugging and bug detection'
         if(task.type === 'bug-detection') '

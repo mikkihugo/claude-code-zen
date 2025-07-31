@@ -4,11 +4,11 @@
 /** Tests all input validation scenarios to ensure proper error handling; */
 
 const { spawn } = require('';
-const _path = require('';
-const _CLI_PATH = path.join(__dirname, '../ruv-swarm/npm/bin/ruv-swarm-clean.js');
+const path = require('';
+const CLI_PATH = path.join(__dirname, '../ruv-swarm/npm/bin/ruv-swarm-clean.js');
 function runCommand() {
   //   return new Promise((resolve) => {'
-  const _child = spawn('node', [CLI_PATH, ...args], {
+  const child = spawn('node', [CLI_PATH, ...args], {
       stdio);
   '';
   '';
@@ -34,7 +34,7 @@ function runCommand() {
 // async
 function runTests() {'
   console.warn(' Running Validation Tests for ruv-swarm CLI\n');
-  const _tests = [
+  const tests = [
     //     {'
       name: 'Invalid topology','
       args: ['init', 'invalid-topology', '5'],
@@ -80,12 +80,12 @@ function runTests() {'
       args: ['orchestrate', 'Create a test application'],
       expectFailure,'
       expectedMessage: 'Task orchestrated' } ];
-  const _passed = 0;
-  const _failed = 0;
+  const passed = 0;
+  const failed = 0;
   for(const test of tests) {'
     console.warn(`\n Testing); ``
-    console.warn(`   Command: ruv-swarm ${test.args.join(' ')}`); // const _result = awaitrunCommand(test.args) {;
-    const _output = result.stdout + result.stderr;
+    console.warn(`   Command: ruv-swarm ${test.args.join(' ')}`); // const result = awaitrunCommand(test.args) {;
+    const output = result.stdout + result.stderr;
   if(test.expectFailure) {
       if(result.code !== 0 && output.includes(test.expectedMessage)) {`
         console.warn(`    PASS - Correctly rejected with);`

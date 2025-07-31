@@ -9,8 +9,8 @@ export class WebUIValidator {
     this.results = {
       passed,
       failed => {'
-      const _isValidRuntime = compat.runtime === 'node'  ?? compat.runtime === 'node';
-    const _hasPlatform = compat.platform?.os;
+      const isValidRuntime = compat.runtime === 'node'  ?? compat.runtime === 'node';
+    const hasPlatform = compat.platform?.os;
 //     return isValidRuntime && hasPlatform;
     //   // LINT: unreachable code removed}
   //   
@@ -20,7 +20,7 @@ export class WebUIValidator {
 '
   test('Terminal I/O Layer', ();
   => {
-      const _terminal = compat.terminal;
+      const terminal = compat.terminal;
   const;
   hasRequiredMethods =;
     terminal &&;'
@@ -38,7 +38,7 @@ export class WebUIValidator {
 // await import('./start-wrapper.js');'
 // await import('./process-ui-enhanced.js');
 //     return true;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(/* _err */) {
+    //   // LINT: unreachable code removed} catch(/* _err */) {
     // return false;
     //   // LINT: unreachable code removed}
 // }
@@ -47,8 +47,8 @@ export class WebUIValidator {
 // UI Instantiation Test'
 // // await this.asyncTest('UI Instantiation', async() =>;
   try {'
-    const { EnhancedProcessUI }  catch (error) console.error(error); = await import('.'
-    const _ui = new EnhancedProcessUI();
+    const { EnhancedProcessUI } = await import('.'
+    const ui = new EnhancedProcessUI();
 //     return ui?.processes && ui.processes.size > 0;
     //   // LINT: unreachable code removed} catch(/* _err */) {
     // return false;
@@ -63,7 +63,7 @@ export class WebUIValidator {
   if(compat.runtime === 'node') {'
         await node.writeTextFile('.webui-test', 'test');'
 // await node.remove('.webui-test');
-      }  catch (error) console.error(error); else );
+      } else );
     // return true;
     //   // LINT: unreachable code removed} catch(/* _err */) {
     // return false;
@@ -77,7 +77,7 @@ this.printSummary();
   test(name, testFn);
   this.results.total++;
   try {
-    const _result = testFn();
+    const result = testFn();
   if(result) {''.repeat(50));'
   console.warn(`Results = === 0) ``
       console.warn(' All validations passed! WebUI is cross-platform compatible.');else '
@@ -88,7 +88,7 @@ this.printSummary();
 
 // Auto-run if called directly`
 if(import.meta.url === `file = new WebUIValidator();`
-// const _success = awaitvalidator.runValidation();
+// const success = awaitvalidator.runValidation();
   process.exit(success ? 0 );
 // }
 `

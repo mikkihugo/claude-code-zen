@@ -72,11 +72,11 @@ structure;
 ...`;
 )`
 `
-const _projectDir = '.';
+const projectDir = '.';
 '
 // // await fs.mkdir(projectDir, recursive = `import express from 'express';`/g)
-const _app = express();
-const __port = process.env.PORT ?? 3000;
+const app = express();
+const _port = process.env.PORT ?? 3000;
 app.use(express.json());
 `
 app.get('/health', (_req, res) => {
@@ -100,7 +100,7 @@ completed`);
   //   {`;
 // return {id = > t.status === 'completed').length,in_progress = > t.status === 'in_progress').length,'
 //   // LINT: unreachable code removed},runtime = 'completed';
-// const __summary = awaitthis.getStatus();'
+// const _summary = awaitthis.getStatus();'
 console.warn(`\n Swarm completed successfully!`);
 `
     console.warn(`;
@@ -115,7 +115,7 @@ Summary = `./swarm-runs/${this.id}`;
 async function executeSwarm(objective = {}) {
   try {
     // Parse configuration from flags
-    const _config = {name = = false } catch (error) console.error(error); ,security = new SwarmCoordinator(config);
+    const config = {name = = false } ,security = new SwarmCoordinator(config);
 // // await coordinator.initialize();
     // Spawn agents based on strategy'
   if(config.strategy === 'development'  ?? config.strategy === 'auto') {'
@@ -137,7 +137,7 @@ async function executeSwarm(objective = {}) {
     // Execute the main objective
 // // await coordinator.executeTask(objective);
     // Complete and return summary
-// const _summary = awaitcoordinator.complete();
+// const summary = awaitcoordinator.complete();
     // ; // LINT: unreachable code removed
     // return { success, summary };
     //   // LINT: unreachable code removed} catch(error) {'

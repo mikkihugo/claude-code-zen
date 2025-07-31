@@ -54,7 +54,7 @@ describe('Help output', () => {
     // Import after mocks are set up'
     // // // await import('../cli-main.js')
     expect(consoleLogSpy).toHaveBeenCalled();
-    const __output = consoleLogSpy.mock.calls.join('\n');
+    const _output = consoleLogSpy.mock.calls.join('\n');
     '
       expect(output).toContain('Claude-Flow v2.0.0')'
       expect(output).toContain('
@@ -64,7 +64,7 @@ describe('Help output', () => {
     const { hasCommand } = hasCommand.mockReturnValue(false); // // await import('../command-registry.js'
     // // // await import('../cli-main.js')
     expect(consoleLogSpy).toHaveBeenCalled();
-    const _output = consoleLogSpy.mock.calls.join('\n');
+    const output = consoleLogSpy.mock.calls.join('\n');
     '
       expect(output).toContain('Claude-Flow v2.0.0')'
     '
@@ -85,12 +85,11 @@ describe('Command execution''
 '
 const {
   executeCommand,
-  hasCommand,
-} = hasCommand.mockReturnValue(true); // await import('../command-registry.js')
+  hasCommand} = hasCommand.mockReturnValue(true); // await import('../command-registry.js')
 executeCommand.mockResolvedValue(undefined);
 // // // await import('../cli-main.js''
 expect(hasCommand).toHaveBeenCalledWith('init'
-      expect(executeCommand).toHaveBeenCalledWith('init', ['--sparc'], )
+      expect(executeCommand).toHaveBeenCalledWith('init', ['--sparc'])
 })
     test('should handle command with multiple arguments', async() =>
 {'
@@ -112,13 +111,13 @@ expect(hasCommand).toHaveBeenCalledWith('init'
       expect(consoleErrorSpy).toHaveBeenCalledWith(
         expect.stringContaining('Unknown command => {'))'
     test('should parse boolean flags correctly''
-      const _flags = parseFlags(['--force', '--verbose'])
+      const flags = parseFlags(['--force', '--verbose'])
       expect(flags).toEqual(force => {)'
-      const _flags = parseFlags(['--port', '8080', '--name', 'test'])
+      const flags = parseFlags(['--port', '8080', '--name', 'test'])
       expect(flags).toEqual(port => {)'
-      const _flags = parseFlags(['arg1', '--flag', 'value', 'arg2', '--bool'])
+      const flags = parseFlags(['arg1', '--flag', 'value', 'arg2', '--bool'])
       expect(flags).toEqual(flag => {)'
-      const _flags = parseFlags(['--port=8080', '--name=test'])
+      const flags = parseFlags(['--port=8080', '--name=test'])
       expect(flags).toEqual(port => )'
     test('should handle command execution errors gracefully''
       process.argv = ['node', 'claude-zen', 'init']

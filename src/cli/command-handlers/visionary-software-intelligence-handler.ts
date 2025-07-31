@@ -13,21 +13,21 @@ async function _initializeMetaRegistry() {
     const { MetaRegistryManager, MemoryBackend } = await import(
       '../../coordination/meta-registry/meta-manager.js';
     //     
-    const _HierarchicalTaskManagerPlugin = (;'
+    const HierarchicalTaskManagerPlugin = (;'
 // // await import('../../coordination/meta-registry/plugins/hierarchical-task-manager.js');
     ).default
-    const _ArchitectAdvisorPlugin = (;'
+    const ArchitectAdvisorPlugin = (;'
 // // await import('../../coordination/meta-registry/plugins/architect-advisor.js');
     ).default
-    const _MemoryRAGPlugin = ('
+    const MemoryRAGPlugin = ('
 // // await import('../../coordination/meta-registry/plugins/memory-rag.js')
     ).default;
-    const _PortDiscoveryPlugin = (;'
+    const PortDiscoveryPlugin = (;'
 // // await import('../../coordination/meta-registry/plugins/port-discovery.js');
     ).default'
-    const _PubSubPlugin = (// await import('../../coordination/meta-registry/plugins/pubsub.js'))
+    const PubSubPlugin = (// await import('../../coordination/meta-registry/plugins/pubsub.js'))
 default;
-    const _NATTraversalPlugin = (;'
+    const NATTraversalPlugin = (;'
 // // await import('../../coordination/meta-registry/plugins/nat-traversal.js');
     ).default
     metaRegistryManager = new MetaRegistryManager() 
@@ -54,23 +54,23 @@ default;
 // // await hiveMindCore.initialize();
   //   }
 // }
-const __handleVisionCommand = async(subcommand, args, flags) => {
+const _handleVisionCommand = async(subcommand, args, flags) => {
   switch(subcommand) {'
     case 'create': {'
       console.warn('Creating vision...');
-// const __vision = awaithierarchicalTaskManagerPlugin.createVision({title = // await hierarchicalTaskManagerPlugin.approveVision(args[0], {approver_email = // await hierarchicalTaskManagerPlugin.getVision(args[0]);'
+// const _vision = awaithierarchicalTaskManagerPlugin.createVision({title = // await hierarchicalTaskManagerPlugin.approveVision(args[0], {approver_email = // await hierarchicalTaskManagerPlugin.getVision(args[0]);'
       console.warn(''
       console.warn('Visions = async(subcommand, args, flags) => {'
   switch(subcommand) {'
     case 'create': {'
       console.warn('Creating ADR...');
 
-      const _objective = flags.objective  ?? args[0];
+      const objective = flags.objective  ?? args[0];
   if(!objective) {'
         console.error('Objective is required for advanced swarm coordination.');
         return;
     //   // LINT: unreachable code removed}
-      const __advancedSwarmConfig = {objective = = false,encryption = = false,cognitiveSupport = hiveMindCore.getStatus().workers; // Assuming getStatus returns worker agents'
+      const _advancedSwarmConfig = {objective = = false,encryption = = false,cognitiveSupport = hiveMindCore.getStatus().workers; // Assuming getStatus returns worker agents'
       console.warn('Agentstatus = // await hiveMindCore.buildConsensus(;'
     // flags.topic  ?? args[0], // LINT: unreachable code removed/g))'
         flags.options ? flags.options.split(',') : []);'
@@ -79,9 +79,9 @@ const __handleVisionCommand = async(subcommand, args, flags) => {
     case 'analyze': {'
       console.warn(' Executing Visionary Software Intelligence analysis...');
 
-  const _mainCommand = subArgs[0];
-  const _subcommand = subArgs[1];
-  const _remainingArgs = subArgs.slice(2);
+  const mainCommand = subArgs[0];
+  const subcommand = subArgs[1];
+  const remainingArgs = subArgs.slice(2);
   switch(mainCommand) {'
     case 'vision':
 // // await _handleVisionCommand(subcommand, remainingArgs, flags);

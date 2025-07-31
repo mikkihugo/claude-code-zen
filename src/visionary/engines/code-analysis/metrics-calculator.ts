@@ -3,8 +3,6 @@
 /** Calculates comprehensive code metrics including lines of code, complexity, */
 * maintainability index, and various quality metrics.
 
- *
-@fileoverview
 Code;
 metrics;
 calculation;
@@ -83,29 +81,29 @@ file;
 data
    * @returns Complexity
 analysis;
-results * /;;
+results * /;
 // */ // LINT: unreachable code removed
 async;
 calculateCodeComplexity(codeData);
 : Promise<ComplexityAnalysis>
 {
-    const _totalComplexity = 0;
-    const _totalLines = 0;
-    const _totalFunctions = 0;
-    const _maxComplexity = 0;
+    const totalComplexity = 0;
+    const totalLines = 0;
+    const totalFunctions = 0;
+    const maxComplexity = 0;
   for(const file of codeData) {
-// const _fileComplexity = awaitthis.calculateFileComplexity(file); 
+// const fileComplexity = awaitthis.calculateFileComplexity(file); 
       totalComplexity += fileComplexity.cyclomatic; totalLines += fileComplexity.lines;
       totalFunctions += fileComplexity.functions;
       maxComplexity = Math.max(maxComplexity, fileComplexity.maxFunctionComplexity) {
     //     }
-    const _avgComplexity = totalFunctions > 0 ? totalComplexity / totalFunctions ;
-    const _maintainabilityIndex = this.calculateMaintainabilityIndex();
+    const avgComplexity = totalFunctions > 0 ? totalComplexity / totalFunctions ;
+    const maintainabilityIndex = this.calculateMaintainabilityIndex();
     totalLines,
     totalComplexity,
     avgComplexity;
     //     
-    const _technicalDebt = this.assessTechnicalDebt(avgComplexity, maxComplexity);
+    const technicalDebt = this.assessTechnicalDebt(avgComplexity, maxComplexity);
     // return {
       cyclomatic,
     // lines, // LINT: unreachable code removed
@@ -126,21 +124,21 @@ async;
 calculateMetrics(codeData)
 : Promise<CodeMetrics>
 // {
-  const _totalLines = 0;
-  const _codeLines = 0;
-  const _commentLines = 0;
-  const _blankLines = 0;
-  const _totalFunctions = 0;
-  const _totalClasses = 0;
+  const totalLines = 0;
+  const codeLines = 0;
+  const commentLines = 0;
+  const blankLines = 0;
+  const totalFunctions = 0;
+  const totalClasses = 0;
   for(const file of codeData) {
-// const _fileMetrics = awaitthis.calculateFileMetrics(file); 
+// const fileMetrics = awaitthis.calculateFileMetrics(file); 
     totalLines += fileMetrics.totalLines; codeLines += fileMetrics.codeLines;
     commentLines += fileMetrics.commentLines;
     blankLines += fileMetrics.blankLines;
     totalFunctions += fileMetrics.functions;
     totalClasses += fileMetrics.classes;
   //   }
-  const _commentRatio = totalLines > 0 ? (commentLines / totalLines) {* 100 
+  const commentRatio = totalLines > 0 ? (commentLines / totalLines) {* 100 
   // return {
       totalLines,
   // codeLines, // LINT: unreachable code removed
@@ -168,19 +166,19 @@ calculateFileComplexity(file)
 // }
 >
 // {'
-  const _lines = file.content.split('\n')
-  const _complexity = 0;
-  const _functionCount = 0;
-  const _maxFunctionComplexity = 0;
+  const lines = file.content.split('\n')
+  const complexity = 0;
+  const functionCount = 0;
+  const maxFunctionComplexity = 0;
   for(let i = 0; i < lines.length; i++) {
-    const _line = lines[i];
+    const line = lines[i];
     // Count decision points
-    const _decisions = (line.match(/if|while|for|switch|case|catch|&&|\|\|/g) ?? []).length;
+    const decisions = (line.match(/if|while|for|switch|case|catch|&&|\|\|/g) ?? []).length;
     complexity += decisions;
     // Check if this is a function and calculate its complexity
     if(this.matchFunction(line, file.language)) {
       functionCount++;
-// const _funcComplexity = awaitthis.calculateFunctionComplexity(lines, i);
+// const funcComplexity = awaitthis.calculateFunctionComplexity(lines, i);
       maxFunctionComplexity = Math.max(maxFunctionComplexity, funcComplexity);
     //     }
   //   }
@@ -201,14 +199,14 @@ calculateFileComplexity(file)
 calculateFileMetrics(file)
 : Promise<CodeMetrics>
 // {'
-  const _lines = file.content.split('\n')
-  const _codeLines = 0;
-  const _commentLines = 0;
-  const _blankLines = 0;
-  const _functions = 0;
-  const _classes = 0;
+  const lines = file.content.split('\n')
+  const codeLines = 0;
+  const commentLines = 0;
+  const blankLines = 0;
+  const functions = 0;
+  const classes = 0;
   for(const line of lines) {
-    const _trimmed = line.trim(); if(!trimmed) {
+    const trimmed = line.trim(); if(!trimmed) {
       blankLines++} else if(this.isCommentLine(trimmed, file.language) {) 
       commentLines++;else 
       codeLines++;
@@ -241,12 +239,12 @@ calculateFileMetrics(file)
 calculateFunctionComplexity(lines, startLine)
 : Promise<number>
 // {
-  const _complexity = 1; // Base complexity
-  const _braceCount = 0;
-  const _i = startLine;
+  const complexity = 1; // Base complexity
+  const braceCount = 0;
+  const i = startLine;
   // Find function body and count decision points
   while(i < lines.length) {
-    const _line = lines[i];
+    const line = lines[i];
     // Count decision points
     if(
     line.includes('if''
@@ -283,8 +281,8 @@ calculateFunctionComplexity(lines, startLine)
   ): number
   //   {
     // Simplified maintainability index calculation
-    const _volume = Math.log2(lines) * 10; // Simplified Halstead volume
-    const _index = Math.max();
+    const volume = Math.log2(lines) * 10; // Simplified Halstead volume
+    const index = Math.max();
     0,
     171 - 5.2 * Math.log(volume) - 0.23 * complexity - 16.2 * Math.log(lines)
     //     
@@ -322,9 +320,9 @@ calculateFunctionComplexity(lines, startLine)
 // (\w+)\s*[]\s*\(([^)]*)\)\s*=>/,
 // (async\s+)?(\w+)\s*\(([^)]*)\)\s*=>/ ],
       python: [/(async\s+)?def\s+(\w+)\s*\(([^)]*)\)/] }
-    const _langPatterns = patterns[language] ?? patterns.javascript;
+    const langPatterns = patterns[language] ?? patterns.javascript;
   for(const pattern of langPatterns) {
-      const _match = line.match(pattern); if(match) {
+      const match = line.match(pattern); if(match) {
         // return {
           name: match[2]  ?? match[1],'); // LINT: unreachable code removed'
   split(",') '
@@ -349,8 +347,8 @@ filter((p) => p),'
     const _patterns: Record<string, RegExp> = {
       javascript: /class\s+(\w+)(?:\s+extends\s+(\w+))?(?:\s+implements\s+([^{]+))?/,
     python: /class\s+(\w+)(?:\(([^)]+)\))?/ }
-  const _pattern = patterns[language] ?? patterns.javascript;
-  const _match = line.match(pattern);
+  const pattern = patterns[language] ?? patterns.javascript;
+  const match = line.match(pattern);
   if(match) {
     // return {
         name: match[1],
@@ -376,7 +374,7 @@ filter((p) => p),'
   java: /^\/\/|^\/\*|\*\/$/,
   c: /^\/\/|^\/\*|\*\/$/,
   cpp: /^\/\/|^\/\*|\*\/$/ }
-const _pattern = commentPatterns[language] ?? commentPatterns.javascript;
+const pattern = commentPatterns[language] ?? commentPatterns.javascript;
 // return pattern.test(line);
 //   // LINT: unreachable code removed}
 // }

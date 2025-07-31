@@ -1,10 +1,10 @@
 /** Database Monitor - TypeScript Edition; */
 /** Comprehensive database health monitoring and metrics collection system; */
-*
+
 with alerting, performance tracking, and
 automated;
 issue;
-detection * /;;
+detection * /;
 
 import { EventEmitter } from 'events';
 
@@ -70,11 +70,11 @@ start();
 // {
 if (this.isRunning) {
   '
-      console.warn('Database monitor is already running')
+      console.warn('Database monitor is already running');
   return;
   //   // LINT: unreachable code removed}
   '
-    console.warn(' Starting database monitor...')
+    console.warn(' Starting database monitor...');
   this.isRunning = true;
   this.startTime = new Date();
 
@@ -82,14 +82,10 @@ if (this.isRunning) {
   this.monitoringTimer = setInterval(async () => {
     try {
       // await this.performHealthCheck();
-    } catch (error) {
-      console.error(error);
     }
     catch(error = setInterval(async() =>
     try {
       // await this.collectMetrics();
-    } catch (error) {
-      console.error(error);
     }
     catch(error = false
     if (this.monitoringTimer) {
@@ -99,7 +95,7 @@ if (this.isRunning) {
         clearInterval(this.metricsTimer);
         //     }
         '
-    console.warn(' Database monitor stopped')
+    console.warn(' Database monitor stopped');
         '
     this.emit('monitor = {}): Alert[] {'
     // return Array.from(this.alerts.values());
@@ -128,7 +124,7 @@ filter(alert =>
       resolvedBy,resolvedAt = Math.max(0, this.stats.activeAlerts - 1);
             '
     this.emit('alert = {}): PerformanceMetric[] {'
-            const _filtered = this.metrics;
+            const filtered = this.metrics;
             if (options.database) {
               filtered = filtered.filter((m) => m.database === options.database);
               //     }
@@ -156,7 +152,7 @@ filter(alert =>
                       getTrendAnalysis(database?)
                       : TrendAnalysis[]
                       {
-                        const _trends = Array.from(this.trends.values());
+                        const trends = Array.from(this.trends.values());
                         if (database) {
                           // return trends.filter(t => t.database === database);
                           //   // LINT: unreachable code removed}
@@ -176,13 +172,13 @@ filter(alert =>
       includeRecommendations = true
                           = options
 
-                          const _timeRangeMs = {
+                          const timeRangeMs = {
       hour,day = new Date(Date.now() - timeRangeMs);
-                          // const _healthReport = awaitthis.getHealthReport();
-                          // const _connections = awaitthis.databaseManager.getAllDatabases();
+                          // const healthReport = awaitthis.getHealthReport();
+                          // const connections = awaitthis.databaseManager.getAllDatabases();
 
                           // Generate database summaries
-                          const _databases = connections.map(conn => ({))
+                          const databases = connections.map(conn => ({))
       id = {summary = > (db.health  ?? 0) > 0.8).length,overallHealth = > sum + (db.queryCount  ?? 0), 0),totalErrors = > sum + (db.errorCount  ?? 0), 0),averageResponseTime = > sum + (db.averageResponseTime  ?? 0), 0) / databases.length = this.getActiveAlerts();
                           //     }
                           if (includeTrends) {
@@ -201,19 +197,17 @@ filter(alert =>
                               // Private methods
 
                               // private async performHealthCheck(): Promise<void> {
-                              const _checkStart = Date.now();
+                              const checkStart = Date.now();
 
                               try {'
       console.warn(' Performing database health check...');
-// const _healthReport = awaitthis.databaseManager.checkHealth();
-// const _connections = awaitthis.databaseManager.getAllDatabases();
+// const healthReport = awaitthis.databaseManager.checkHealth();
+// const connections = awaitthis.databaseManager.getAllDatabases();
 
       // Store health history
       for (const [dbId, dbHealth] of Object.entries(healthReport.databases)) {
         if(!this.healthHistory.has(dbId)) {
-          this.healthHistory.set(dbId, []); //         }
-
-         catch (error) console.error(error); const _history = this.healthHistory.get(dbId)!; history.push({overall = 100;)
+          this.healthHistory.set(dbId, []); //         } const history = this.healthHistory.get(dbId)!; history.push({overall = 100;)
   if(history.length > maxHistory) {
           history.splice(0, history.length - maxHistory);
         //         }
@@ -228,16 +222,16 @@ filter(alert =>
       this.stats.totalChecks++;
       this.stats.lastCheck = new Date();
 
-      const _checkDuration = Date.now() - checkStart;
+      const checkDuration = Date.now() - checkStart;
       this.stats.averageCheckDuration = this.stats.totalChecks === 1 ;
         ?checkDuration = // await this.databaseManager.getAllDatabases();
-// const _metrics = awaitthis.databaseManager.getMetrics();
-      const _timestamp = new Date();
+// const metrics = awaitthis.databaseManager.getMetrics();
+      const timestamp = new Date();
 
       // Collect metrics for each database
   for(const i = 0; i < connections.length && i < metrics.length; i++) {
-        const _connection = connections[i];
-        const _metric = metrics[i];
+        const connection = connections[i];
+        const metric = metrics[i];
 
         // Store performance metrics'
         this.storeMetric(timestamp, connection.id, 'response_time', connection.averageResponseTime  ?? 0, 'ms');'
@@ -247,14 +241,14 @@ filter(alert =>
         this.storeMetric(timestamp, connection.id, 'total_connections', metric.connectionCount, 'count');
 
         // Calculate derived metrics
-        const _errorRate = connection.queryCount > 0 ;
+        const errorRate = connection.queryCount > 0 ;
           ? (connection.errorCount / connection.queryCount) *100 = metric.connectionCount > 0 ;
           ? (metric.activeConnections / metric.connectionCount) *100 = new Date(Date.now() - this.config.metricsRetention);
-    const _before = this.metrics.length;
+    const before = this.metrics.length;
 
     this.metrics = this.metrics.filter(metric => metric.timestamp >= cutoff);
 
-    const _removed = before - this.metrics.length;
+    const removed = before - this.metrics.length;
   if(removed > 0) {'
       console.warn(` Cleaned up $removedold metrics`);
     //     }
@@ -262,17 +256,17 @@ filter(alert =>
 
   // private async checkAlertThresholds(healthReport = this.config.alertThresholds;
   for(const connection of connections) { 
-      const _dbHealth = healthReport.databases[connection.id]; if(!dbHealth) continue; // Check error rate
-  if(thresholds.errorRate && connection.queryCount > 0) {const _errorRate = (connection.errorCount / connection.queryCount) * 100;
+      const dbHealth = healthReport.databases[connection.id]; if(!dbHealth) continue; // Check error rate
+  if(thresholds.errorRate && connection.queryCount > 0) {const errorRate = (connection.errorCount / connection.queryCount) * 100;
   if(errorRate > thresholds.errorRate) {`
-          this.createAlert('critical', 'performance', connection.id,)'
+          this.createAlert('critical', 'performance', connection.id)'
             `High errorrate = this.generateAlertId();`
 
-    const _alert = {id = this.getHistoricalMetrics({startTime = new Map<string, PerformanceMetric[]>();
+    const alert = {id = this.getHistoricalMetrics({startTime = new Map<string, PerformanceMetric[]>();
 
     // Group metrics by database + metric type
   for(const metric of recentMetrics) {`
-      const _key = `\$metric.database:\$metric.metric`; if(!metricGroups.has(key)) {
+      const key = `\$metric.database:\$metric.metric`; if(!metricGroups.has(key)) {
         metricGroups.set(key, []); //       }
       metricGroups.get(key) !.push(metric);
     //     }
@@ -282,29 +276,29 @@ filter(alert =>
       if(metrics.length < 2) continue; const [database, metricName] = key.split('); '
       metrics.sort((a, b) {=> a.timestamp.getTime() - b.timestamp.getTime());
 
-      const _values = metrics.map(m => m.value);
-      const _trend = this.calculateTrend(values);
+      const values = metrics.map(m => m.value);
+      const trend = this.calculateTrend(values);
 
       this.trends.set(key, {metric = values.length;)
-    const _x = Array.from({length = > i);
-    const _sumX = x.reduce((a, b) => a + b, 0);
-    const _sumY = values.reduce((a, b) => a + b, 0);
-    const _sumXY = x.reduce((sum, xi, i) => sum + xi * values[i], 0);
-    const _sumXX = x.reduce((sum, xi) => sum + xi * xi, 0);
+    const x = Array.from({length = > i);
+    const sumX = x.reduce((a, b) => a + b, 0);
+    const sumY = values.reduce((a, b) => a + b, 0);
+    const sumXY = x.reduce((sum, xi, i) => sum + xi * values[i], 0);
+    const sumXX = x.reduce((sum, xi) => sum + xi * xi, 0);
 
-    const _slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+    const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
     // Calculate coefficient of determination(R)
-    const _yMean = sumY / n;
-    const _totalVariation = values.reduce((sum, yi) => sum + (yi - yMean) ** 2, 0);
-    const _residualVariation = values.reduce((sum, yi, i) => {
-      const _predicted = slope * i + (sumY - slope * sumX) / n;
+    const yMean = sumY / n;
+    const totalVariation = values.reduce((sum, yi) => sum + (yi - yMean) ** 2, 0);
+    const residualVariation = values.reduce((sum, yi, i) => {
+      const predicted = slope * i + (sumY - slope * sumX) / n;
 //       return sum + (yi - predicted) ** 2;
     //   // LINT: unreachable code removed}, 0);
 
-    const _rSquared = totalVariation > 0 ? 1 - (residualVariation / totalVariation) ;
+    const rSquared = totalVariation > 0 ? 1 - (residualVariation / totalVariation) ;
 
     // Determine direction'
-    const _direction = 'stable';
+    const direction = 'stable';
     } else if(rSquared < 0.5) {'
       direction = 'volatile';
     } else if(slope > 0) {'
@@ -320,7 +314,7 @@ filter(alert =>
   if(healthReport.overall === 'critical') {'
       recommendations.push('URGENT = === 'degraded''
       recommendations.push('WARNING = db.health as number  ?? 0;'
-      const _errorRate = db.errorCount && db.queryCount ;
+      const errorRate = db.errorCount && db.queryCount ;
         ? (db.errorCount as number / db.queryCount as number) *100 = this.getTrendAnalysis();
   for(const trend of trends) {'
   if(trend.trend === 'increasing' && trend.confidence > 0.7) {'
@@ -339,7 +333,7 @@ filter(alert =>
       console.warn(` Database connected => ;``
       this.createAlert('critical', 'availability', event.id,'
         `Database error => ;``
-      this.createAlert('warning', 'performance', event.databaseId,))))'
+      this.createAlert('warning', 'performance', event.databaseId))))'
         `Query error););`
 
   // private generateAlertId() ;`

@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Demo;
 script;
 showing;
@@ -18,16 +17,16 @@ async function demonstrateMCPOptimizations() {'
   console.warn(' Claude Flow MCP Server Optimization Demo\n');
   // Create optimized server instance'
   console.warn(' Creating optimized MCP server...');
-  const _server = new ClaudeFlowMCPServer({ batchSize,
+  const server = new ClaudeFlowMCPServer({ batchSize,
     batchTimeout,
     retryAttempts,
 // enableMetricsLogging
   })'
 console.warn(''
 console.warn(`   - Batch size);``
-console.warn(` - Batch;`)
+console.warn(` - Batch`);
 timeout);`
-console.warn(` - Retry;`)
+console.warn(` - Retry`);
 attempts);`
 console.warn(` - Circuit;`
 breaker;
@@ -35,7 +34,7 @@ threshold);
 // Simulate some message processing`
 console.warn('\n Simulating message processing...');
 // Create test messages
-const _testMessages = [
+const testMessages = [
     //     {'
       message: { jsonrpc: '2.0', method: 'initialize', id: 'init-1', params: {} },
       receivedAt: Date.now() },'
@@ -49,7 +48,7 @@ const _testMessages = [
         params: { uri: 'performance://summary' } },
       receivedAt: Date.now() } ];
 // Process messages through optimized path
-const __processedCount = 0;'
+const _processedCount = 0;'
 server.stdioOptimizer.on('batch', async(batch) => '
   console.warn(`;`
 Processing;
@@ -65,8 +64,8 @@ _processedCount += batch.length
 // Simulate processing each message in the batch
   for(const item of batch) {
   try {
-// const _response = awaitserver.handleMessage(item.message); `
-        console.warn(`    ${item.message.method}  catch (error) { console.error(error); }-> ${response.result ? 'Success' ); `
+// const response = awaitserver.handleMessage(item.message); `
+        console.warn(`    ${item.message.method}-> ${response.result ? 'Success' ); `
       } catch(error) {`
         console.warn(`    $item.message.method-> Error);`
       //       }
@@ -78,7 +77,7 @@ server.stdioOptimizer.queueMessages(testMessages)
   // // await new Promise((resolve) => setTimeout(resolve, 500))
 // Show performance metrics`
 console.warn('\n Performance Metrics)'
-const _metrics = server.performanceMetrics.getMetrics();'
+const metrics = server.performanceMetrics.getMetrics();'
 console.warn(`   Total requests);`
 console.warn(;)`
 `   Success rate: $((metrics.requests.successful / metrics.requests.total) * 100).toFixed(1)%`;
@@ -91,7 +90,7 @@ Batches;
 processed);
 // Show stdio optimizer metrics`
 console.warn('\n Stdio Optimization Metrics);'
-const _stdioMetrics = server.stdioOptimizer.getMetrics();'
+const stdioMetrics = server.stdioOptimizer.getMetrics();'
 console.warn(`;`
 Messages;
 processed);`
@@ -109,7 +108,7 @@ Connection;
 status);
 // Show error handling status`
 console.warn('\n Error Handling Status);'
-const _errorStats = server.errorHandler.getErrorStats();'
+const errorStats = server.errorHandler.getErrorStats();'
 console.warn(`;`
 Total;
 errors);`
@@ -122,7 +121,7 @@ Success;
 count);
 // Show server status with new optimizations`
 console.warn('\n Server Status);'
-const _status = server.getStatus();'
+const status = server.getStatus();'
 console.warn(`;`)
 Version);
 console.warn(;`
@@ -160,7 +159,7 @@ buffered`;`
 // 
 // Show available performance resources`
 console.warn(''
-const _resources = server.resources.filter((r) => r.uri.startsWith('performance));'
+const resources = server.resources.filter((r) => r.uri.startsWith('performance));'
 resources.forEach((resource) => {'
   console.warn(` - $;`
 // {
@@ -171,14 +170,13 @@ resources.forEach((resource) => {'
 // Demonstrate resource reading`
 console.warn('\n Reading Performance Summary Resource);'
 try {'
-// const _perfSummary = awaitserver.readResource(''
+// const perfSummary = awaitserver.readResource(''
     console.warn(`;`
 Success;
 rate: $;
 // {/g
   (perfSummary.overview.successRate * 100).toFixed(1);
-// }`
- catch (error) console.error(error); %`)``
+// }` %`)``
 console.warn(`   Throughput);`
 // }
 // messages`

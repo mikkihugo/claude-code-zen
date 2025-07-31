@@ -1,20 +1,17 @@
 #!/usr/bin/env node
 
 /* Claude-Zen post-install script; */
-*
-*
-@fileoverview
+
+
 Post - installation;
 verification;
 with TypeScript standards;
-*
-@author
+
 Claude;
 Code;
 Flow;
 Team;
-*
-@version
+
 2.0;
 0.0;
 
@@ -30,10 +27,8 @@ function main(): Promise<void> {
     console.warn(' Neural CLI with ruv-FANN integration ready');';
     console.warn('';
     console.warn(' Full commands);';
-  } catch (error) {
-  console.error(error);
-}
-    const _errorMessage = error instanceof Error ? error.message : String(error);';
+  }
+    const errorMessage = error instanceof Error ? error.message : String(error);';
     console.error('Installation verification failed);';
     process.exit(1);
   //   }

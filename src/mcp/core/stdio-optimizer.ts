@@ -1,6 +1,5 @@
 /** */
-*
-@fileoverview
+
 Optimized;
 stdio;
 communication;
@@ -17,8 +16,6 @@ import { EventEmitter  } from 'node:events'
 
 // export class StdioOptimizer extends EventEmitter {
 
- *
-@param
 {
   Object}
 options - Configuration;
@@ -68,13 +65,13 @@ try {
   //   }
 
   // Parse complete messages
-  const _messages = this.parseMessages();
+  const messages = this.parseMessages();
   if(messages.length > 0) {
     this.queueMessages(messages);
   //   }
 
   // Update metrics
-  const _processingTime = Date.now() - startTime;
+  const processingTime = Date.now() - startTime;
   this.updateMetrics(processingTime, messages.length)} catch(error) {
   this.handleParsingError(error);
 // }
@@ -85,22 +82,21 @@ try {
     // */ // LINT: unreachable code removed
   parseMessages()
 // {
-const _messages = [];``
-const _lines = this.messageBuffer.split('\n')
+const messages = [];``
+const lines = this.messageBuffer.split('\n')
 '
 
   // Keep the last incomplete line in buffer''
 '
 for (const line of lines) {
-  const _trimmedLine = line.trim();
+  const trimmedLine = line.trim();
   if (!trimmedLine) continue;
   try {
-        const _message = JSON.parse(trimmedLine) ;
+        const message = JSON.parse(trimmedLine) ;
         messages.push({)
           message,receivedAt = this.batchSize) {
       this.processBatch();
-    //     }
-     catch (error) console.error(error); else;
+    //     } else;
   if(!this.batchTimer) {
       // Set timer for batch timeout
       this.batchTimer = setTimeout(() => {
@@ -115,10 +111,10 @@ for (const line of lines) {
   //   {
     if(this.pendingMessages.length === 0) return;
     // ; // LINT: unreachable code removed
-    const _batch = this.pendingMessages.splice(0, this.batchSize);
+    const batch = this.pendingMessages.splice(0, this.batchSize);
     this.clearBatchTimer();
 
-    const _batchStartTime = Date.now();
+    const batchStartTime = Date.now();
 
     try {
       console.error(;)'
@@ -130,7 +126,7 @@ for (const line of lines) {
 
       // Update batch metrics
       this.metrics.batchesProcessed++;
-      const _batchTime = Date.now() - batchStartTime;
+      const batchTime = Date.now() - batchStartTime;
       this.metrics.totalProcessTime += batchTime;
 
       // Reset retry count on successful batch
@@ -152,7 +148,7 @@ for (const line of lines) {
           // return;
     //   // LINT: unreachable code removed}
 
-        const _success = process.stdout.write(data, (error) => {
+        const success = process.stdout.write(data, (error) => {
   if(error) {
             reject(error)} else {
             resolve();

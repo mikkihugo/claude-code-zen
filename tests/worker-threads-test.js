@@ -9,9 +9,9 @@ import { WorkerThreadPool } from '../src/coordination/workers/worker-pool.js';
 
 async function testWorkerThreads() {
   '
-  console.warn(' Testing Worker Thread Implementation')
+  console.warn(' Testing Worker Thread Implementation');
   '
-  console.warn('=====================================')
+  console.warn('=====================================');
 
   let pool = null;
 
@@ -31,7 +31,7 @@ async function testWorkerThreads() {
       type);
 
     const endTime = performance.now();'
-    console.warn(` Task completed in $(endTime - startTime).toFixed(0)catch (error) console.error(error); ms`);`
+    console.warn(` Task completed in $(endTime - startTime).toFixed(0) ms`);`
     console.warn(` Result);`
 
     // Test 2: Parallel task execution`
@@ -114,7 +114,7 @@ finally
   // // await testWorkerThreads();`
     console.warn('\n Worker thread test completed successfully');
     process.exit(0);
-  } catch (error) { console.error(error); }
+  }
     catch(error) '
     console.error(' Worker thread test failed);'
     process.exit(1)

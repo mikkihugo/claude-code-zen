@@ -34,19 +34,18 @@ if(!this.projectId) {'
     this.emitRequest(request);
 
     try {
-      const _googleRequest = {contents = {parts = // await this.makeRequest(;`
+      const googleRequest = {contents = {parts = // await this.makeRequest(;`
         ` / \$request.model;``
   :generateContent`,`
   googleRequest
   //   
   if(!response.candidates ?? response.candidates.length === 0) {`
     throw new ProviderError('No response generated', this.name, 'NO_RESPONSE');
-  //   }
-   catch (error) console.error(error); const _candidate = response.candidates[0];'');
+  //   } const candidate = response.candidates[0];'');
   if(!reader) {'
     throw new ProviderError('No response body', this.name);
   //   }
-  const _decoder = new TextDecoder();'';
+  const decoder = new TextDecoder();'';
   while(true) {
     const { done, value } = // await reader.read();
     if(done) break;'
@@ -55,12 +54,10 @@ if(!this.projectId) {'
       if(line.startsWith('data = line.slice(6); '
 
       try {
-              const _parsed = JSON.parse(data); if(parsed.candidates?.[0]?.content?.parts) {
+              const parsed = JSON.parse(data); if(parsed.candidates?.[0]?.content?.parts) {
   for(const part of parsed.candidates[0].content.parts) {
   if(part.text) {
-                    yield part.text; //                   }
-                 catch (error) console.error(error); 
-              //               }
+                    yield part.text; //                   } //               }
             } catch(/* _e */) catch(error)
 // {
   this.emitError(error, request); throw this.handleError(error) ;
@@ -84,12 +81,12 @@ for (const msg of messages) {'
     // System messages are handled separately in Google's API'
     continue; //   }
 '
-  result.push({role = === 'user' ? 'user' ); const _errorData = {};
+  result.push({role = === 'user' ? 'user' ); const errorData = {};
 
   try {
-    errorData = JSON.parse(text) ;catch (error) console.error(error); catch(/* _e */) 
+    errorData = JSON.parse(text) ; catch(/* _e */) 
     errorData = message = === 429) {'
-      const _retryAfter = response.headers.get('retry-after');
+      const retryAfter = response.headers.get('retry-after');
     // return new RateLimitError(this.name, retryAfter ? parseInt(retryAfter) );
     //   // LINT: unreachable code removed}
 

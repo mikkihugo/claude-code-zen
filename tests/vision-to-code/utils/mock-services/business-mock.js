@@ -1,23 +1,22 @@
 /** Mock Business Service for Integration Testing; */
 /** Provides realistic API responses for testing without real service; */
 
-const _express = require('express');
+const express = require('express');
 '
-const _cors = require('cors');
+const cors = require('cors');
 const {
   mockVisions,
   mockStakeholders,
   apiResponseTemplates,
-',
-} = require('../../fixtures/vision-workflow-fixtures')
-const _app = express();
-const _port = process.argv[2] ?? 4102;
+'} = require('../../fixtures/vision-workflow-fixtures')
+const app = express();
+const port = process.argv[2] ?? 4102;
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended }));
 // Mock data storage
-const _mockData = {
+const mockData = {
   visions: new Map(),
 approvals: new Map(),
 // {
@@ -49,8 +48,7 @@ app.get('/api/health', (_req, res) =>
 {
   service: 'business','
   status: 'healthy','
-  version: '1.0.0-mock',
-  )
+  version: '1.0.0-mock')
   uptime: process.uptime(),
   timestamp: new Date().toISOString()
 }
@@ -111,7 +109,7 @@ permissions: permissions  ?? ['read', 'write'],
 // Vision management endpoints'
 app.post('/api/visions', (req, res) =>
 // {
-const _vision = { ...req.body,'
+const vision = { ...req.body,'
   id: req.body.id  ?? `;`
 vision_mock_$;
 {
@@ -136,7 +134,7 @@ setTimeout(;
 })'
 app.get('/api/visions/) =>'
 // {
-const _vision = mockData.visions.get(req.params.id);
+const vision = mockData.visions.get(req.params.id);
 if (vision) {
   res.json(apiResponseTemplates.success(vision));
 } else {
@@ -148,9 +146,9 @@ if (vision) {
 app.get('/api/visions', (req, res) =>
 // {
 const { page = 1, limit = 10, status, priority } = req.query;
-const _pageNum = parseInt(page);
-const _limitNum = parseInt(limit);
-const _visions = Array.from(mockData.visions.values());
+const pageNum = parseInt(page);
+const limitNum = parseInt(limit);
+const visions = Array.from(mockData.visions.values());
 // Apply filters
 if (status) {
   visions = visions.filter((v) => v.status === status);
@@ -159,14 +157,14 @@ if (status) {
     visions = visions.filter((v) => v.priority === priority);
     // }
     // Pagination
-    const _startIndex = (pageNum - 1) * limitNum;
-    const _endIndex = startIndex + limitNum;
-    const _paginatedVisions = visions.slice(startIndex, endIndex);
+    const startIndex = (pageNum - 1) * limitNum;
+    const endIndex = startIndex + limitNum;
+    const paginatedVisions = visions.slice(startIndex, endIndex);
     res.json(;
     apiResponseTemplates.success({ visions,
   page,
   limit,
-  total: visions.length,)
+  total: visions.length)
   totalPages: Math.ceil(visions.length / limitNum)
   }
     //
@@ -174,9 +172,9 @@ if (status) {
   )'
 app.patch('/api/visions/) =>'
   // {
-  const _vision = mockData.visions.get(req.params.id);
+  const vision = mockData.visions.get(req.params.id);
   if (vision) {
-    const _updatedVision = { ...vision,
+    const updatedVision = { ...vision,
 ..req.body,
     updated_at: new Date
     ().toISOString()
@@ -203,9 +201,9 @@ app.delete('/api/visions/) =>'
   // Stakeholder approval endpoints'
   app.post('/api/visions/) =>'
   // {
-  const _vision = mockData.visions.get(req.params.id);
+  const vision = mockData.visions.get(req.params.id);
   if (vision) {
-    const _approval = {
+    const approval = {
       vision_id: req.params.id,
     stakeholder_ids: req.body.stakeholder_ids  ?? [],'
     approval_status: 'pending',
@@ -227,7 +225,7 @@ app.delete('/api/visions/) =>'
   )'
 app.post('/api/visions/) =>'
   // {
-  const _approval = mockData.approvals.get(req.params.id);
+  const approval = mockData.approvals.get(req.params.id);
   const { stakeholder_id, decision, comments } = req.body;
   if (approval) {
     '
@@ -263,13 +261,13 @@ json(apiResponseTemplates.error('Approval request not found', 'APPROVAL_NOT_FOUN
     // ROI Analysis endpoints'
     app.post('/api/visions/) =>'
     // {
-    const _vision = mockData.visions.get(req.params.id);
+    const vision = mockData.visions.get(req.params.id);
     if (vision) {
       // Mock ROI analysis with realistic values
-      const _estimatedRevenue = Math.random() * 1000000 + 100000; // $100K - $1M
-      const _implementationCost = Math.random() * 200000 + 50000; // $50K - $250K
-      const _roi = ((estimatedRevenue - implementationCost) / implementationCost) * 100;
-      const _roiAnalysis = {
+      const estimatedRevenue = Math.random() * 1000000 + 100000; // $100K - $1M
+      const implementationCost = Math.random() * 200000 + 50000; // $50K - $250K
+      const roi = ((estimatedRevenue - implementationCost) / implementationCost) * 100;
+      const roiAnalysis = {
       roi_analysis: {
         estimated_revenue: Math.round(estimatedRevenue),
     implementation_cost: Math.round(implementationCost),
@@ -297,9 +295,9 @@ res.json(apiResponseTemplates.success(roiAnalysis));
 )'
 app.get('/api/visions/) =>'
 // {
-const _vision = mockData.visions.get(req.params.id);
+const vision = mockData.visions.get(req.params.id);
 if (vision) {
-  const _analytics = {
+  const analytics = {
       progress_percentage: Math.random() * 100,
     time_elapsed: Math.random() *
       3600000, // Up to 1 hour
@@ -330,7 +328,7 @@ if (vision) {
 app.post('/api/ai/analyze-vision', (req, res) =>
 // {
 const { vision, analysis_type, include_market_research } = req.body;
-const _aiAnalysis = {
+const aiAnalysis = {
     strategic_insights: [;'
       'Market opportunity estimated at $2.5M over 3 years','
       'Competitive advantage through unique feature set','
@@ -356,7 +354,7 @@ res.json(apiResponseTemplates.success(aiAnalysis));
 app.post('/api/ai/generate-roadmap', (req, res) =>
 // {
 const { vision, timeline_preferences } = req.body;
-const _roadmap = {
+const roadmap = {
     roadmap: {
       phases: [;
 // {'
@@ -393,7 +391,7 @@ app.get('/api/events', (req, res) =>
 // {
   const { entity_id, event_type, limit = 10 } = req.query;
 // Mock events for testing
-const _events = [
+const events = [
 // {'
       id: 'event_001','
       event_type: 'vision.created','

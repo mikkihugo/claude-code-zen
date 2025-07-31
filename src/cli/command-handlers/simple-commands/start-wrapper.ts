@@ -11,29 +11,29 @@ if(flags.help  ?? flags.h  ?? subArgs.includes('--help')  ?? subArgs.includes('-
   return;
 // }
 // Parse start options'
-const _daemon = subArgs.includes('--daemon') ?? subArgs.includes('-d') ?? flags.daemon;
-const _port =;
+const daemon = subArgs.includes('--daemon') ?? subArgs.includes('-d') ?? flags.daemon;
+const port =;
 process.env.PORT ??
   flags.port ??'
   getArgValue(subArgs, '--port') ??'
   getArgValue(subArgs, '-p') ??
   3000;'
-const _verbose = subArgs.includes('--verbose') ?? subArgs.includes('-v') ?? flags.verbose;
+const verbose = subArgs.includes('--verbose') ?? subArgs.includes('-v') ?? flags.verbose;
 // UI defaults to ON, can be disabled with --no-ui'
-const _noUi = subArgs.includes('--no-ui') ?? flags['no-ui'];'
-const __ui = !noUi && (subArgs.includes('--ui') ?? subArgs.includes('-u') ?? flags.ui ?? !daemon);'
-const _web = subArgs.includes('--web') ?? subArgs.includes('-w') ?? flags.web;
+const noUi = subArgs.includes('--no-ui') ?? flags['no-ui'];'
+const _ui = !noUi && (subArgs.includes('--ui') ?? subArgs.includes('-u') ?? flags.ui ?? !daemon);'
+const web = subArgs.includes('--web') ?? subArgs.includes('-w') ?? flags.web;
 // Swarm defaults to ON, can be disabled with --no-swarm'
-const _noSwarm = subArgs.includes('--no-swarm') ?? flags['no-swarm'];
-const __swarm =;'
+const noSwarm = subArgs.includes('--no-swarm') ?? flags['no-swarm'];
+const _swarm =;'
 // ! noSwarm && (subArgs.includes('--swarm') ?? subArgs.includes('-s') ?? flags.swarm ?? !daemon);
 try {'
     printSuccess(' Starting Claude Zen Unified Server...');
 
     // Import and start the unified interface plugin'
-    const { UnifiedInterfacePlugin }  catch (error) console.error(error); = // await import('../../../plugins/unified-interface/index.js');
+    const { UnifiedInterfacePlugin } = // await import('../../../plugins/unified-interface/index.js');
 
-    const _server = new UnifiedInterfacePlugin({
+    const server = new UnifiedInterfacePlugin({
       webPort,
       _enableMCP => {'
       console.warn('\n Shutting down unified server...');
@@ -56,8 +56,8 @@ return;
   if(web) {
   try {
         // Launch the web server'
-        const { startWebServer }  catch (error) console.error(error); = // await import('./web-server.js');
-// const __server = awaitstartWebServer(port);
+        const { startWebServer } = // await import('./web-server.js');
+// const _server = awaitstartWebServer(port);
 '
         printSuccess(` Web UI is running!`);`
         console.warn(` Open your browser to => {});`
@@ -79,17 +79,17 @@ return;
         // If unified UI fails, fall back to existing terminal UI'
         printWarning('Unified UI failed, launching fallback UI...');
         try {'
-          const { launchEnhancedUI }  catch (error) console.error(error); = // await import('./process-ui-enhanced.js');
+          const { launchEnhancedUI } = // await import('./process-ui-enhanced.js');
 // // await launchEnhancedUI();
           return;
     //   // LINT: unreachable code removed} catch(/* fallbackErr */) {'
   printError('Failed to launchUI = ['memory', 'coordination'];'
-    const _missingDirs = [];
+    const missingDirs = [];
 
     for (const dir of requiredDirs) {
       try {
 // // await node.stat(dir); 
-      } catch (error) { console.error(error); } catch 
+      } catch 
         missingDirs.push(dir); //       }
     //     }
   if(missingDirs.length > 0) {'
@@ -101,7 +101,7 @@ return;
   if(compat.runtime === 'node') {'
           await node.writeTextFile('.claude-zen.pid', pid.toString());
         } else {'
-// const _fs = awaitimport('fs/promises');'
+// const fs = awaitimport('fs/promises');'
 // // await fs.writeFile('.claude-zen.pid', pid.toString());
         //         }
       });'
@@ -115,7 +115,7 @@ return;
 
       // Simple heartbeat to show system is alive
   if(!daemon) {
-        const __heartbeat = setInterval(() => {
+        const _heartbeat = setInterval(() => {
   if(verbose) {'
             console.warn(`[$new Date().toISOString()] Heartbeat - System healthy`);
           //           }
@@ -140,7 +140,7 @@ async function cleanup() {
 // await compat.safeCall(async() => {`
   if(compat.runtime === 'node') {'
         await node.remove('.claude-zen.pid');
-      }  catch (error) console.error(error); else ');
+      } else ');
   } catch {
     // File might not exist
   //   }

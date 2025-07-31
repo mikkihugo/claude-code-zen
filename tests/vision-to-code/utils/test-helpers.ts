@@ -1,7 +1,5 @@
 /** Test helper utilities for Vision-to-Code tests */
 
-*
-@fileoverview
 Comprehensive;
 test;
 utilities;
@@ -12,7 +10,7 @@ Code;
 Flow;
 Team
  * @version 2.0
-0.0 * /;;
+0.0 * /;
 
 import crypto from 'node:crypto';
 
@@ -192,23 +190,13 @@ export // interface MockImageOptions {
 //   // duration: number
 //   // status: number
 //   // timestamp: number
-// // }
-
-catch (error)
-{
-  console.error(error);
-} /** Error metrics entry */
+// // } /** Error metrics entry */
 
 // export // interface ErrorEntry {
 //   // error: string
 //   // endpoint: string
 //   // timestamp: number
-// // }
-
-catch (error)
-{
-  console.error(error);
-} /** Performance statistics */
+// // } /** Performance statistics */
 
 // export // interface PerformanceStats {
 //   // totalRequests: number
@@ -482,8 +470,7 @@ id: TestHelpers.generateTestId('vision'), timestamp
     setHeader: function (name, value) {
       this.headers[name] = value;
       //         return this;
-    },
-  };
+    }};
   //
   return res;
 }
@@ -498,8 +485,7 @@ id: TestHelpers.generateTestId('vision'), timestamp
   for(const file of files) {'
         if(file.startsWith('test_')) {
 // // await fs.unlink(path.join(directory, file)); 
-// }
- catch (error) { console.error(error); }// }
+// }// }
     } catch {
       // Directory might not exist
 // }
@@ -510,7 +496,7 @@ id: TestHelpers.generateTestId('vision'), timestamp
   async *generateTestDataBatch<T>({ generator: AsyncIterable<T>,
     batchSize = 100
   ): AsyncGenerator<T[]> {
-    let batch = []; let _count = 0;
+    let batch = []; let count = 0;
 
     for // await(const item of generator) {
       batch.push(item);

@@ -61,15 +61,15 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
           break;default = 'active';
       this.pools.set(poolId, poolInstance);
 
-      const _typeSet = this.poolsByType.get(config.type)!;
+      const typeSet = this.poolsByType.get(config.type)!;
       typeSet.add(poolId);
 '
       console.warn(` Connection pool created = `)
   ): Promise<connection = Date.now();
 
     try {
-// const _poolId = awaitthis.selectPool(databaseType, options);
-      const _pool = this.pools.get(poolId);
+// const poolId = awaitthis.selectPool(databaseType, options);
+      const pool = this.pools.get(poolId);
   if(!pool) {`
         throw new Error(`Pool notfound = = 'active') {`
         // Try failover if enabled
@@ -85,34 +85,34 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
       this.emit('connection = this.pools.get(poolId);'
   if(!pool) {'
       console.warn(`Cannot releaseconnection = [],`
-    options = {} catch (error) { console.error(error); }
+    options = {}
   ): Promise<any> {
-    const _maxRetries = options.retries  ?? 3;
-    const __lastError = 0; attempt <= maxRetries; attempt++) {
+    const maxRetries = options.retries  ?? 3;
+    const _lastError = 0; attempt <= maxRetries; attempt++) {
       try {
-        const { connection, poolId }  catch (error) { console.error(error); }= // await this.getConnection(databaseType, options);
+        const { connection, poolId }= // await this.getConnection(databaseType, options);
 
         try {
           // Execute query with timeout
-          const _timeoutPromise = options.timeout ? ;
+          const timeoutPromise = options.timeout ? ;
             new Promise((_, _reject) => ;`
               setTimeout(() => reject(new Error('Query timeout')), options.timeout);
             ) ;
 
-          const _queryPromise = connection.execute ? ;
+          const queryPromise = connection.execute ? ;
             connection.execute(query, params) :
             connection.query(query, params);
 
-          const _result = timeoutPromise ? ;
+          const result = timeoutPromise ? ;
 // // await Promise.race([queryPromise, timeoutPromise]) :
 // // await queryPromise;
           // return result;
     // ; // LINT: unreachable code removed
-        } catch (error) console.error(error); finally catch(_error = error;'
+        } finally catch(_error = error;'
         console.warn(`Query attempt $attempt + 1failed = === maxRetries) break;`
 
         // Exponential backoff
-        const _backoffTime = Math.pow(2, attempt) * 100;
+        const backoffTime = Math.pow(2, attempt) * 100;
 // // await this.sleep(backoffTime);
       //       }
     //     }
@@ -136,35 +136,32 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
 
       // Remove from tracking
       this.pools.delete(poolId);
-      const _typeSet = this.poolsByType.get(pool.type);
+      const typeSet = this.poolsByType.get(pool.type);
   if(typeSet) {
         typeSet.delete(poolId);
       //       }
 `
       console.warn(` Poolremoved = this.getTotalConnections();`
-    const _activeConnections = this.getActiveConnections();
+    const activeConnections = this.getActiveConnections();
 `
     // return {totalPools = > p.status === 'active').length,
     // totalConnections, // LINT: unreachable code removed
       activeConnections,averageResponseTime = [];
-    const _failed = [];
+    const failed = [];
 '
     console.warn(' Optimizing all connection pools...');
   for(const [poolId, pool] of this.pools) {
       try {
   if(pool.pool && pool.pool.cleanup) {
 // // await pool.pool.cleanup(); 
-        //         }
-
-         catch (error) console.error(error); 
-  if(this.options.adaptiveResizing) {
+        //         } if(this.options.adaptiveResizing) {
 // // await this.adaptiveResize(pool); 
         //         }
 
         optimized.push(poolId) ;catch(error = {overall = 0;
-    const _totalPools = 0;
+    const totalPools = 0;
   for(const [poolId, pool] of this.pools) {
-      totalPools++; // const _poolHealth = awaitthis.checkPoolHealth(pool); 
+      totalPools++; // const poolHealth = awaitthis.checkPoolHealth(pool); 
       healthReport.pools[poolId] = poolHealth;
   if(poolHealth.health > 0.7) {
         healthyPools++;
@@ -175,7 +172,7 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
   if(totalPools === 0) {'
       healthReport.overall = 'critical';
     } else {
-      const _healthRatio = healthyPools / totalPools;
+      const healthRatio = healthyPools / totalPools;
   if(healthRatio < 0.5) {'
         healthReport.overall = 'critical';
       } else if(healthRatio < 0.8) {'
@@ -200,7 +197,7 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
     //     }
 
     // Shutdown all pools
-    const _shutdownPromises = Array.from(this.pools.keys()).map(poolId =>;)
+    const shutdownPromises = Array.from(this.pools.keys()).map(poolId =>;)
       this.removePool(poolId);
     );
 // // await Promise.all(shutdownPromises);'
@@ -213,41 +210,39 @@ if(this.getTotalConnections() + (config.pool.max  ?? 10) > this.options.globalCo
     //   // LINT: unreachable code removed}
     //     }
 
-    const _availablePools = Array.from(typeSet);
+    const availablePools = Array.from(typeSet);
 map(poolId => this.pools.get(poolId)!);'
 filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loadBalancing.healthThreshold  ?? 0.7));
   if(availablePools.length === 0) {'
       throw new Error(`No healthy pools available for databasetype = this.options.loadBalancing;`
   switch(strategy.type) {`
       case 'round_robin':
-        const _selected = pools[this.loadBalancingIndex % pools.length];
+        const selected = pools[this.loadBalancingIndex % pools.length];
         this.loadBalancingIndex++;
         // return selected;
     // ; // LINT: unreachable code removed'
       case 'least_connections':
         // return pools.reduce((best, current) => ;
     // current.loadFactor < best.loadFactor ?current = pools.map(pool => ({ // LINT) => sum + w.weight, 0);
-          const _random = Math.random() * totalWeight;
-          const _current = 0;
+          const random = Math.random() * totalWeight;
+          const current = 0;
   for(const { pool, weight } of weighted) {
             current += weight; if(current >= random) return pool; //   // LINT: unreachable code removed}
         //         }
         // Fallback to least connections
         // return pools.reduce((best, current) {=> ;
     // current.loadFactor < best.loadFactor ? current => { // LINT: unreachable code removed
-          const _bestScore = best.healthScore * (1 - best.loadFactor);
-          const _currentScore = current.healthScore * (1 - current.loadFactor);
+          const bestScore = best.healthScore * (1 - best.loadFactor);
+          const currentScore = current.healthScore * (1 - current.loadFactor);
 //           return currentScore > bestScore ?current = [];
-    // const _recommendations = []; // LINT: unreachable code removed
-    const _health = 1.0;
+    // const recommendations = []; // LINT: unreachable code removed
+    const health = 1.0;
 
     try {
       // Check pool status'
   if(pool.status !== 'active') {'
         issues.push(`Poolstatus = 0.5;`
-      //       }
-
-       catch (error) { console.error(error); }// Check load factor/g
+      //       }// Check load factor/g
   if(pool.loadFactor > 0.9) {`
         issues.push('High load factor');'
         recommendations.push('Consider increasing pool size');
@@ -256,7 +251,7 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
 
       // Database-specific health checks
   if(pool.pool?.getHealth) {
-        const _poolHealth = pool.pool.getHealth();'
+        const poolHealth = pool.pool.getHealth();'
   if(poolHealth.status !== 'healthy') {
           issues.push(...poolHealth.issues);
           health -= 0.2;
@@ -270,7 +265,7 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
     //     }
 
     // return {status = pool.pool.getStats();
-    // const _utilizationRatio = stats.activeConnections / stats.totalConnections; // LINT: unreachable code removed
+    // const utilizationRatio = stats.activeConnections / stats.totalConnections; // LINT: unreachable code removed
 
     // Scale up if utilization is high
     if(utilizationRatio > 0.8 && stats.totalConnections < (pool.config.pool.max  ?? 10)) {'
@@ -312,11 +307,11 @@ filter(pool => pool.status === 'active' && pool.healthScore >= (this.options.loa
     //   // LINT: unreachable code removed}, 0);
 
   // private calculateThroughput() {
-    const _uptimeMs = Date.now() - this.startTime.getTime();
+    const uptimeMs = Date.now() - this.startTime.getTime();
     // return uptimeMs > 0 ? (this.metrics.requestCount / uptimeMs) *1000 = setInterval(async() => {
       try {
 // await this.checkHealth();
-    //   // LINT: unreachable code removed} catch (error) { console.error(error); } catch(_error = setInterval(() => ;`
+    //   // LINT: unreachable code removed} catch(_error = setInterval(() => ;`
       this.emit('metrics = > setTimeout(resolve, ms));'
 // }
 

@@ -16,7 +16,7 @@ prevent;
 commonissues = await TimeoutProtection.checkRuvSwarmAvailableWithTimeout();
 
 // Execute hooks with timeout protection`
-// const _result = awaitTimeoutProtection.execRuvSwarmHookWithTimeout('pre-task', params);
+// const result = awaitTimeoutProtection.execRuvSwarmHookWithTimeout('pre-task', params);
 
 // Setup safe exit handlers
 TimeoutProtection.setupSafeExit();
@@ -50,7 +50,7 @@ name;
 import GitHubCliSafe from './src/utils/github-cli-safe.js';
 
 // Create PR safely with special characters'
-// const _result = awaitGitHubCliSafe.createPullRequestSafe({title = await GitHubCliSafe.execGhSafe(['repo', 'view'], {timeout = await agentLoader.getAgentType('analyst'); // Maps to 'code-analyzer'
+// const result = awaitGitHubCliSafe.createPullRequestSafe({title = await GitHubCliSafe.execGhSafe(['repo', 'view'], {timeout = await agentLoader.getAgentType('analyst'); // Maps to 'code-analyzer'
 
 // List all available agents
 
@@ -58,10 +58,10 @@ import GitHubCliSafe from './src/utils/github-cli-safe.js';
 '
 console.warn(\`Total = await checkRuvSwarmAvailable()
 `
-// const _result = awaitexecRuvSwarmHook('pre-task', params);
+// const result = awaitexecRuvSwarmHook('pre-task', params);
 
 // NEW(timeout protected)'
-// const _result = awaitTimeoutProtection.execRuvSwarmHookWithTimeout('pre-task', params);'
+// const result = awaitTimeoutProtection.execRuvSwarmHookWithTimeout('pre-task', params);'
 \`\`\`
 
 ### For GitHub Operations
@@ -71,7 +71,7 @@ direct;
 ghcommands = execSync(\`gh pr create --title "\${title}" --body "\${body}"\`);
 
 // NEW(safe)
-// const _result = awaitGitHubCliSafe.createPullRequestSafe({ title, body   });`;
+// const result = awaitGitHubCliSafe.createPullRequestSafe({ title, body   });`;
 \`\`\`
 
 ### For Agent Management
@@ -82,7 +82,7 @@ Update agentspawning = === 'analyst')
 }
 
 // NEW(handles legacy mapping)'
-// const _agentTypeInfo = awaitagentLoader.getAgentType('analyst'); // Returns code-analyzer
+// const agentTypeInfo = awaitagentLoader.getAgentType('analyst'); // Returns code-analyzer
 if (agentTypeInfo) {
   /* spawn agent using agentTypeInfo */
 }

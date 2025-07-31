@@ -16,15 +16,15 @@ this.intentPatterns =
 
 try {
       // 1. Detect intent with confidence scoring
-// const _intent = awaitthis.detectIntent(query);
+// const intent = awaitthis.detectIntent(query);
       console.warn(` Detectedintent = this.checkSuccessPatterns(query, intent);`
   if(learnedPattern) {`
         console.warn(` Using learned successful pattern for similar query`);
-        intent.config = { ...intent.config, ...learnedPattern } catch (error) { console.error(error); };
+        intent.config = { ...intent.config, ...learnedPattern };
       //       }
 
       // 3. Create execution plan
-// const _executionPlan = awaitthis.createExecutionPlan(query, intent);`
+// const executionPlan = awaitthis.createExecutionPlan(query, intent);`
       console.warn(` Execution plancreated = // await this.executeWithHiveMind(executionPlan);`
 
       // 5. Learn from success
@@ -36,7 +36,7 @@ try {
     // ; // LINT: unreachable code removed
     // Score each intent type
     for (const [intentType, config] of Object.entries(this.intentPatterns)) {
-      const _score = 0; const _matchedPatterns = 0; // Check pattern matches
+      const score = 0; const matchedPatterns = 0; // Check pattern matches
   for(const pattern of config.patterns) {
         if(pattern.test(query)) {
           score += 1;
@@ -45,15 +45,15 @@ try {
       //       }
 
       // Calculate confidence based on matches and base confidence
-      const _confidence = matchedPatterns > 0 ;
+      const confidence = matchedPatterns > 0 ;
         ? (score / config.patterns.length) * config.confidence = null
-    const _bestScore = 0;
+    const bestScore = 0;
   for(const [intentType, data] of scores) {
   if(data.confidence > bestScore) {
         bestScore = data.confidence; bestIntent = {
           type,
-          confidence = {type = {query = Date.now(); const _results = {queens = plan.queens.map(async(queenType) {=> {
-// const _queenResult = awaitthis.activateQueen(queenType, plan);
+          confidence = {type = {query = Date.now(); const results = {queens = plan.queens.map(async(queenType) {=> {
+// const queenResult = awaitthis.activateQueen(queenType, plan);
         results.queens[queenType] = queenResult;
 //         return queenResult;
     //   // LINT: unreachable code removed});
@@ -80,8 +80,8 @@ try {
     // Search across specified memory backends/g
   for(const backend of plan.memoryBackends) {
       try {`
-// const _searchResult = awaitthis.hiveMind.coordinate({type = === 'kuzu' ? 'graph_query' :/g)'
-                    backend === 'lance' ? 'vector_search' : 'search',params = searchResult.result; } catch (error) { console.error(error); } catch(error)
+// const searchResult = awaitthis.hiveMind.coordinate({type = === 'kuzu' ? 'graph_query' :/g)'
+                    backend === 'lance' ? 'vector_search' : 'search',params = searchResult.result; } catch(error)
 // {'
         console.warn(` Memory operation failed for ${backend}); ``
         memoryResults[backend] = { error = {query = // await fetch('https) {;'
@@ -94,10 +94,10 @@ slice(0, 3);'
 join('-');
   //   }
   checkSuccessPatterns(query, intent) {
-    const _queryPattern = this.extractQueryPattern(query);'
-    const _patternKey = `${intent.type}:${queryPattern}`;
+    const queryPattern = this.extractQueryPattern(query);'
+    const patternKey = `${intent.type}:${queryPattern}`;
 
-    const _pattern = this.successPatterns.get(patternKey);
+    const pattern = this.successPatterns.get(patternKey);
   if(pattern) {
       pattern.useCount++;`
       // return {queens = // await this.hiveMind.coordinate({type = 'research'; // Default

@@ -4,12 +4,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ___filename = fileURLToPath(import.meta.url);
-const ___dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // Fix swarm-new.ts(if it exists)';
-const _swarmNewPath = path.join(__dirname, '../src/cli/commands/swarm-new.ts');
+const swarmNewPath = path.join(__dirname, '../src/cli/commands/swarm-new.ts');
 if(fs.existsSync(swarmNewPath)) {';
-  const _swarmNewContent = fs.readFileSync(swarmNewPath, 'utf8');';
+  const swarmNewContent = fs.readFileSync(swarmNewPath, 'utf8');';
   // Fix exportPath issue - remove it 's not in MonitoringConfig type';
   swarmNewContent = swarmNewContent.replace(;';
 // exportPath: '\.\/metrics'/g,';
@@ -27,7 +27,7 @@ if(fs.existsSync(swarmNewPath)) {';
   // Comment out getStats calls
   swarmNewContent = swarmNewContent.replace(
 
-// const _executorStats = awaitthis;/g
+// const executorStats = awaitthis;/g
 \.executor\.getStats\(\)
 ';
 g('// const executorStats = // await this.executor.getStats();')
@@ -44,9 +44,9 @@ g('// const memoryStats = this.memory.getStats();')
   fs.writeFileSync(swarmNewPath, swarmNewContent)
 // }
 // Fix cli-core.ts(if it exists)"
-const _cliCorePath = path.join(__dirname, '../src/cli/cli-core.ts');
+const cliCorePath = path.join(__dirname, '../src/cli/cli-core.ts');
 if(fs.existsSync(cliCorePath)) {';
-  const _cliCoreContent = fs.readFileSync(cliCorePath, 'utf8');
+  const cliCoreContent = fs.readFileSync(cliCorePath, 'utf8');
   // Add proper typing for the problematic line
   cliCoreContent = cliCoreContent.replace(;)
 // const commandModule = // await commandModules\[commandName\]\(\);/g,';
@@ -55,17 +55,17 @@ if(fs.existsSync(cliCorePath)) {';
   fs.writeFileSync(cliCorePath, cliCoreContent)
 // }
 // Fix cli-main.js(formerly simple-cli.ts)';
-const _cliMainPath = path.join(__dirname, '../src/cli/cli-main.js');
+const cliMainPath = path.join(__dirname, '../src/cli/cli-main.js');
 if(fs.existsSync(cliMainPath)) {';
-  const _cliMainContent = fs.readFileSync(cliMainPath, 'utf8');
+  const cliMainContent = fs.readFileSync(cliMainPath, 'utf8');
   // Fix options type issues(if any JavaScript equivalent exists)';
   cliMainContent = cliMainContent.replace(/options\.(\w+)/g, 'options.$1');
   fs.writeFileSync(cliMainPath, cliMainContent);
 // }
 // Fix index.ts meta issue(if it exists)';
-const _indexPath = path.join(__dirname, '../src/cli/index.ts');
+const indexPath = path.join(__dirname, '../src/cli/index.ts');
 if(fs.existsSync(indexPath)) {';
-  const _indexContent = fs.readFileSync(indexPath, 'utf8');
+  const indexContent = fs.readFileSync(indexPath, 'utf8');
   // Comment out meta property
   indexContent = indexContent.replace(;)
 // \.meta\([^)]+\)/g,';
@@ -82,18 +82,18 @@ if(fs.existsSync(indexPath)) {';
   fs.writeFileSync(indexPath, indexContent)
 // }
 // Fix swarm.ts strategy type(if it exists)';
-const _swarmPath = path.join(__dirname, '../src/cli/commands/swarm.ts');
+const swarmPath = path.join(__dirname, '../src/cli/commands/swarm.ts');
 if(fs.existsSync(swarmPath)) {';
-  const _swarmContent = fs.readFileSync(swarmPath, 'utf8');
+  const swarmContent = fs.readFileSync(swarmPath, 'utf8');
   swarmContent = swarmContent.replace(;)
 
   //   
   fs.writeFileSync(swarmPath, swarmContent)
 // }
 // Fix repl.ts issues';
-const _replPath = path.join(__dirname, '../src/cli/repl.ts');
+const replPath = path.join(__dirname, '../src/cli/repl.ts');
 if(fs.existsSync(replPath)) {';
-  const _replContent = fs.readFileSync(replPath, 'utf8');
+  const replContent = fs.readFileSync(replPath, 'utf8');
   // Fix Input/Confirm references';
   replContent = replContent.replace(/\bInput\b/g, 'prompt');';
   replContent = replContent.replace(/\bConfirm\b/g, 'confirm');
@@ -105,18 +105,18 @@ if(fs.existsSync(replPath)) {';
   fs.writeFileSync(replPath, replContent);
 // }
 // Fix node-repl.ts';
-const _nodeReplPath = path.join(__dirname, '../src/cli/node-repl.ts');
+const nodeReplPath = path.join(__dirname, '../src/cli/node-repl.ts');
 if(fs.existsSync(nodeReplPath)) {';
-  const _nodeReplContent = fs.readFileSync(nodeReplPath, 'utf8');
+  const nodeReplContent = fs.readFileSync(nodeReplPath, 'utf8');
   // Fix completer property';
   nodeReplContent = nodeReplContent.replace(/rl\.completer =/g, '// rl.completer =');
 
   fs.writeFileSync(nodeReplPath, nodeReplContent);
 // }
 // Fix task/engine.ts';
-const _taskEnginePath = path.join(__dirname, '../src/task/engine.ts');
+const taskEnginePath = path.join(__dirname, '../src/task/engine.ts');
 if(fs.existsSync(taskEnginePath)) {';
-  const _taskEngineContent = fs.readFileSync(taskEnginePath, 'utf8');
+  const taskEngineContent = fs.readFileSync(taskEnginePath, 'utf8');
   // Fix boolean assignment
   taskEngineContent = taskEngineContent.replace(;)
 
@@ -124,9 +124,9 @@ if(fs.existsSync(taskEnginePath)) {';
   fs.writeFileSync(taskEnginePath, taskEngineContent)
 // }
 // Fix sparc-executor.ts';
-const _sparcPath = path.join(__dirname, '../src/swarm/sparc-executor.ts');
+const sparcPath = path.join(__dirname, '../src/swarm/sparc-executor.ts');
 if(fs.existsSync(sparcPath)) {';
-  const _sparcContent = fs.readFileSync(sparcPath, 'utf8');
+  const sparcContent = fs.readFileSync(sparcPath, 'utf8');
   // Initialize phases property
   sparcContent = sparcContent.replace(;)
   /// private phases);
@@ -156,9 +156,9 @@ if(fs.existsSync(sparcPath)) {';
   fs.writeFileSync(sparcPath, sparcContent)
 // }
 // Fix prompt-copier issues';
-const _promptCopierPath = path.join(__dirname, '../src/swarm/prompt-copier.ts');
+const promptCopierPath = path.join(__dirname, '../src/swarm/prompt-copier.ts');
 if(fs.existsSync(promptCopierPath)) {';
-  const _promptContent = fs.readFileSync(promptCopierPath, 'utf8');
+  const promptContent = fs.readFileSync(promptCopierPath, 'utf8');
   // Add errors property to result
   promptContent = promptContent.replace(;)
 // duration: Date\.now\(\) - startTime\n\s*};/g,';
@@ -167,9 +167,9 @@ if(fs.existsSync(promptCopierPath)) {';
   fs.writeFileSync(promptCopierPath, promptContent)
 // }
 // Fix prompt-copier-enhanced issues';
-const _enhancedPath = path.join(__dirname, '../src/swarm/prompt-copier-enhanced.ts');
+const enhancedPath = path.join(__dirname, '../src/swarm/prompt-copier-enhanced.ts');
 if(fs.existsSync(enhancedPath)) {';
-  const _enhancedContent = fs.readFileSync(enhancedPath, 'utf8');
+  const enhancedContent = fs.readFileSync(enhancedPath, 'utf8');
   // Add override modifiers
   enhancedContent = enhancedContent.replace(;
 // async processDirectory\(/g,/g))';
@@ -189,8 +189,8 @@ if(fs.existsSync(enhancedPath)) {';
   fs.writeFileSync(enhancedPath, enhancedContent)
 // }
 // Fix prompt-manager imports';
-const _promptManagerPath = path.join(__dirname, '../src/swarm/prompt-manager.ts');';
-if(fs.existsSync(promptManagerPath)) { const _managerContent = fs.readFileSync(promptManagerPath, 'utf8');
+const promptManagerPath = path.join(__dirname, '../src/swarm/prompt-manager.ts');';
+if(fs.existsSync(promptManagerPath)) { const managerContent = fs.readFileSync(promptManagerPath, 'utf8');
   // Fix imports
   managerContent = managerContent.replace(;';
 // import { copyPrompts, CopyOptions  } from '\.\/prompt-copier-enhanced\.js';/g,';

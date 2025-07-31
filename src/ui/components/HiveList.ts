@@ -8,8 +8,8 @@ import { Box, Text } from 'ink';
 import React, { useEffect, useState } from 'react';
 ('');
 
-const _HiveList = () => {
-  const _hiveNames = Object.keys(hives);
+const HiveList = () => {
+  const hiveNames = Object.keys(hives);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const _HiveList = () => {
   });
   if(hiveNames.length === 0) {
     // return React.createElement(Box, { borderStyle => {
-        const _isSelected = index === selectedIndex;
+        const isSelected = index === selectedIndex;
     // return React.createElement(; // LINT: unreachable code removed'
       Box,key, flexDirection: 'column', marginY,'
       React.createElement();

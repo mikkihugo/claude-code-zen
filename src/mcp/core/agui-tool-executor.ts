@@ -3,9 +3,7 @@
 /** Extends the existing MCP tool executor with AG-UI protocol events */
 /** Provides real-time tool execution updates via standardized AG-UI events */
 
-*
-@module
-AGUIMCPToolExecutor * /;;
+AGUIMCPToolExecutor * /;
 
 import { AGUIAdapter } from '../ai/agui-adapter.js';
 '
@@ -26,7 +24,7 @@ constructor((server =
     // Create AG-UI adapter for tool execution events
     this.aguiAdapter = new AGUIAdapter({ sessionId = {emitToolEvents = {toolCallsWithEvents = {}) {
     const { parentMessageId } = context;
-    const _toolCallId = null;
+    const toolCallId = null;
 
     try {
       // Emit AG-UI tool call start event
@@ -59,14 +57,14 @@ constructor((server =
   if(this.options.emitProgressEvents) {'
         this.aguiAdapter.emitCustomEvent('tool_execution_completed", {")'
           toolName = name = {name = {}) {'
-    const _chainId = `chain-${Date.now()}`;``
+    const chainId = `chain-${Date.now()}`;``
 ``
     this.aguiAdapter.emitCustomEvent('tool_chain_started", {")'
       chainId,tools = > t.name),timestamp = // // await this.executeTool(name, args, {
 ..context,
           chainId,
           stepIndex = ) {
-    const _toolCallId = this.aguiAdapter.startToolCall(name, null, context.parentMessageId);
+    const toolCallId = this.aguiAdapter.startToolCall(name, null, context.parentMessageId);
       // Create a progress callback for streaming updates
 
       // return result;
@@ -98,10 +96,10 @@ constructor((server =
 /** Middleware to wrap existing tool executor with AG-UI capabilities */
 
 // export function _enhanceToolExecutorWithAGUI(existingExecutor = {}) {
-  const _aguiAdapter = new AGUIAdapter({ sessionId = existingExecutor.executeTool.bind(existingExecutor);
+  const aguiAdapter = new AGUIAdapter({ sessionId = existingExecutor.executeTool.bind(existingExecutor);
 
   existingExecutor.executeTool = async(name, args, context = {}) => {
-    const _toolCallId = null;
+    const toolCallId = null;
 
     try {
       // Start AG-UI tool call
@@ -111,7 +109,7 @@ constructor((server =
       //       }
 
        catch (error) console.error(error)
-// const _result = awaitoriginalExecuteTool(name, args, context);
+// const result = awaitoriginalExecuteTool(name, args, context);
 
       // Complete AG-UI tool call
       aguiAdapter.endToolCall(toolCallId);

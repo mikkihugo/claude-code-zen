@@ -11,8 +11,7 @@ export type {
   ConfigurationError,
   formatErrorMessage,
   handleError,
-  ValidationError,
-} from '../cli/core/cli-error.js';
+  ValidationError} from '../cli/core/cli-error.js';
 // =============================================================================
 // CLI ERROR TYPES
 // =============================================================================
@@ -135,9 +134,6 @@ NOT_FOUND_ERROR = 'NOT_FOUND_ERROR';
 | ''
 | 'plugin'
 
-} catch (error)
-{
-  console.error(error);
 }
 }}}}))
 '

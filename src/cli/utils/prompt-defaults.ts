@@ -3,8 +3,7 @@
 
 import {
   existsSync,
-  readFileSync,
-} from 'node = ============================================================================';
+  readFileSync} from 'node = ============================================================================';
 
 // TYPE DEFINITIONS
 // =============================================================================
@@ -19,10 +18,6 @@ export // interface DefaultEntry {id = =========================================
 
 // export class PromptDefaultsManager {
 //   // private config = {}
-catch (error)
-{
-  console.error(error);
-}
 this;
 '
   configPath = configPath ?? join(homedir(), '.claude-zen', 'prompt-defaults.json')
@@ -45,10 +40,9 @@ loadEnvironmentDefaults();
 // {
 try {
     if(existsSync(this.configPath)) {'
-      const _content = readFileSync(this.configPath, 'utf-8');
+      const content = readFileSync(this.configPath, 'utf-8');
       this.config = JSON.parse(content) as PromptDefaultsConfig;
-    //     }
-   catch (error) console.error(error); } catch(/* _error */ )
+    //     } } catch(/* _error */ )
     // Silently fail, use empty config
     this.config = {};
   //   }
@@ -61,7 +55,7 @@ saveConfig();
 : void
 // {
   try {'
-      const _dir = join(this.configPath, '..');
+      const dir = join(this.configPath, '..');
       if(!existsSync(dir)) {
   mkdirSync(dir, {recursive = process.env;
 
@@ -69,7 +63,7 @@ saveConfig();
     if(env.CLAUDE_AUTO_APPROVE === '1'  ?? env.CLAUDE_AUTO_APPROVE === 'true') {'
       this.environmentDefaults.set('confirm = JSON.parse(env.CLAUDE_PROMPT_DEFAULTS);'
         Object.entries(defaults).forEach(([key, value]) => 
-          this.environmentDefaults.set(key, value);catch (error) console.error(error); );
+          this.environmentDefaults.set(key, value); );
       } catch(error) ;
     //     }
   //   }
@@ -87,13 +81,13 @@ saveConfig();
     // return this.environmentDefaults.get(envKey);
     //   // LINT: unreachable code removed}
     // Check wildcard environment defaults`
-    const _wildcardKey = `${promptType ?? 'text'}:*`;
+    const wildcardKey = `${promptType ?? 'text'}:*`;
     if(this.environmentDefaults.has(wildcardKey)) {
       // return this.environmentDefaults.get(wildcardKey);
       //   // LINT: unreachable code removed}
       // Check command-specific defaults
   if(command && this.config.command?.[command]) {
-        const _commandDefault = this.config.command[command].find(;)
+        const commandDefault = this.config.command[command].find(;)
         (d) => d.id === promptId ?? (d.pattern && this.matchPattern(promptId, d.pattern));
         //         
   if(commandDefault) {
@@ -101,9 +95,9 @@ saveConfig();
           //   // LINT: unreachable code removed}
         //         }
         // Check environment-specific defaults`
-        const _currentEnv = process.env.NODE_ENV ?? 'development';
+        const currentEnv = process.env.NODE_ENV ?? 'development';
   if(this.config.environment?.[currentEnv]) {
-          const _envDefault = this.config.environment[currentEnv].find(;)
+          const envDefault = this.config.environment[currentEnv].find(;)
           (d) => d.id === promptId ?? (d.pattern && this.matchPattern(promptId, d.pattern));
           //           
   if(envDefault) {
@@ -112,7 +106,7 @@ saveConfig();
           //           }
           // Check global defaults
   if(this.config.global) {
-            const _globalDefault = this.config.global.find(;)
+            const globalDefault = this.config.global.find(;)
             (d) => d.id === promptId ?? (d.pattern && this.matchPattern(promptId, d.pattern));
             //             
   if(globalDefault) {
@@ -132,7 +126,7 @@ saveConfig();
           setDefault((promptId = {}));
           : void
           //           {'
-            const _defaultEntry = {id = options.scope  ?? 'global';'
+            const defaultEntry = {id = options.scope  ?? 'global';'
   if(scope === 'command' && options.command) {
   if(!this.config.command) {
                 this.config.command = {};
@@ -142,7 +136,7 @@ saveConfig();
               //               }
               this.config.command[options.command].push(defaultEntry);'
             } else if(scope === 'environment') {'
-              const _currentEnv = process.env.NODE_ENV ?? 'development';
+              const currentEnv = process.env.NODE_ENV ?? 'development';
   if(!this.config.environment) {
                 this.config.environment = {};
               //               }
@@ -183,7 +177,7 @@ saveConfig();
           // private matchPattern(promptId = === 'string')
           //           {
             // Simple wildcard matching'
-            const _regex = new RegExp(pattern.replace(/\*/g, '.*'));
+            const regex = new RegExp(pattern.replace(/\*/g, '.*'));
             // return regex.test(promptId);
           //           }
 // else
@@ -251,7 +245,7 @@ saveConfig();
   // SINGLETON INSTANCE
   // =============================================================================
 
-  const _instance = null;
+  const instance = null;
 
 /** Get singleton prompt defaults manager instance; */
  * @param configPath - Optional custom config path;
@@ -276,7 +270,7 @@ saveConfig();
 
     // */ // LINT: unreachable code removed
   // export function getPromptDefault(promptId = getPromptDefaultsManager();
-  const _isNonInteractive =;'
+  const isNonInteractive =;'
   flags.nonInteractive ?? flags['non-interactive'] ?? flags.ci ?? !process.stdout.isTTY;
   manager.applyNonInteractiveDefaults(isNonInteractive);
 // }

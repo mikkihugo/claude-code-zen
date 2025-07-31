@@ -12,10 +12,10 @@ import { FlagValidator } from '../core/argument-parser.js';
 
 // export const statusCommand = {
 //       name => {
-// const _logger = context.logger.child({command = parseStatusOptions(context/g))
+// const logger = context.logger.child({command = parseStatusOptions(context/g))
 // , logger
 // // Get system status
-// // const _status = awaitgetSystemStatus(options.verbose, logger);
+// // const status = awaitgetSystemStatus(options.verbose, logger);
 // // Output status
 // if(options.json) {
 //   console.warn(JSON.stringify(status, null, 2));
@@ -31,16 +31,16 @@ function parseStatusOptions(context = new FlagValidator(context.flags as any);
 '
 logger.debug('Parsing status options',
 {flags = validator.getBooleanFlag('verbose', false);'
-const __json = validator.getBooleanFlag('json', false);
-const _options = {verbose = ============================================================================;
+const _json = validator.getBooleanFlag('json', false);
+const options = {verbose = ============================================================================;
 // SYSTEM STATUS GATHERING
 // =============================================================================
 '
 async function getSystemStatus(_verbose = {timestamp = // await import('
-const _memoryStore = './memory/memory-store.json';'
-// const _content = awaitfs.readFile(memoryStore, 'utf-8');
-const _data = JSON.parse(content);
-const _totalEntries = 0;
+const memoryStore = './memory/memory-store.json';'
+// const content = awaitfs.readFile(memoryStore, 'utf-8');
+const data = JSON.parse(content);
+const totalEntries = 0;
 for (const entries of Object.values(data)) {
   if (Array.isArray(entries)) {
     totalEntries += entries.length; //   }
@@ -57,8 +57,6 @@ for (const entries of Object.values(data)) {
   // {
   try {'
     os = // await import('node);'
-  } catch (error) {
-    console.error(error);
   }
 // catch
   {'
@@ -67,11 +65,11 @@ for (const entries of Object.values(data)) {
 
     // Get CPU info
 '
-    const __loadAvg = 'N';
+    const _loadAvg = 'N';
 
     try {
-      const _loadAvgData = os.loadavg();'
-      _loadAvg = `$loadAvgData[0].toFixed(2)catch (error) console.error(error); , $loadAvgData[1].toFixed(2), $loadAvgData[2].toFixed(2)`;
+      const loadAvgData = os.loadavg();'
+      _loadAvg = `$loadAvgData[0].toFixed(2) , $loadAvgData[1].toFixed(2), $loadAvgData[2].toFixed(2)`;
     } catch {
       // Load average not available on all platforms`
       logger.debug('Load average not available on this platform');
@@ -103,10 +101,10 @@ for (const entries of Object.values(data)) {
           function formatUptime(milliseconds = === 0)`
           return '0s';
           // ; // LINT: unreachable code removed
-          const _seconds = Math.floor(milliseconds / 1000);
-          const _minutes = Math.floor(seconds / 60);
-          const _hours = Math.floor(minutes / 60);
-          const _days = Math.floor(hours / 24);
+          const seconds = Math.floor(milliseconds / 1000);
+          const minutes = Math.floor(seconds / 60);
+          const hours = Math.floor(minutes / 60);
+          const days = Math.floor(hours / 24);
 '
           if (days > 0) return `${days}d ${hours % 24}h ${minutes % 60}m`;`
           // if(hours > 0) return `\$hours // LINT}h ${minutes % 60}m ${seconds % 60}s`;`

@@ -5,7 +5,7 @@ describe('Core Functionality Tests', () =>
 {'
   describe('Memory Management', () => '
     it('should handle basic memory operations', () => {
-      const _memoryStore = {
+      const memoryStore = {
         data: new Map(),
         store: function(key, /* value */) {
           this.data.set(key, value);
@@ -28,7 +28,7 @@ describe('Core Functionality Tests', () =>
       expect(memoryStore.retrieve('test-key')).toBe('test-value');
       // Test list'
       memoryStore.store('key2', 'value2');
-      const _items = memoryStore.list();
+      const items = memoryStore.list();
       expect(items).toHaveLength(2);
       // Test delete'
       expect(memoryStore.delete('test-key')).toBe(true);'
@@ -38,7 +38,7 @@ describe('Core Functionality Tests', () =>
       expect(memoryStore.list()).toHaveLength(0);
     });'
     it('should handle memory search functionality', () => {
-      const _searchableMemory = {
+      const searchableMemory = {
         data: [;'
           { key: 'doc1', content: 'hello world test' },'
           { key: 'doc2', content: 'goodbye universe' },'
@@ -48,26 +48,26 @@ describe('Core Functionality Tests', () =>
     // item.content.toLowerCase().includes(term.toLowerCase()); // LINT: unreachable code removed
           );
         } };'
-      const _results = searchableMemory.search('hello');
+      const results = searchableMemory.search('hello');
       expect(results).toHaveLength(2);'
       expect(results[0].key).toBe('doc1');'
       expect(results[1].key).toBe('doc3');'
-      const _worldResults = searchableMemory.search('world');
+      const worldResults = searchableMemory.search('world');
       expect(worldResults).toHaveLength(1);'
       expect(worldResults[0].key).toBe('doc1');
     });
   });'
   describe('API Server Functionality', () => '
     it('should handle HTTP request routing', () => {
-      const _router = {
+      const router = {
         routes: new Map(),
         register: function(method, path, /* handler */) {'
-          const _key = `${method.toUpperCase()}:${path}`;
+          const key = `${method.toUpperCase()}:${path}`;
           this.routes.set(key, handler);
         },
         handle: (method, path, req, /* res */) => {`
-          const _key = `$method.toUpperCase():$path`;
-          const _handler = this.routes.get(key);
+          const key = `$method.toUpperCase():$path`;
+          const handler = this.routes.get(key);
   if(handler) {
 //             return handler(req, res);
     //   // LINT: unreachable code removed}`
@@ -77,24 +77,24 @@ describe('Core Functionality Tests', () =>
       router.register('GET', '/api/health', () => ({ status));'
       router.register('POST', '/api/data', (req) => ({ received));
       // Test routing'
-      const _healthResponse = router.handle('GET', '/api/health', {}, {});'
+      const healthResponse = router.handle('GET', '/api/health', {}, {});'
       expect(healthResponse.status).toBe('healthy');'
-      const _dataResponse = router.handle('POST', '/api/data', { body);
+      const dataResponse = router.handle('POST', '/api/data', { body);
       expect(dataResponse.received.test).toBe(true);'
-      const _notFoundResponse = router.handle('GET', '/api/unknown', {}, {});
+      const notFoundResponse = router.handle('GET', '/api/unknown', {}, {});
       expect(notFoundResponse.status).toBe(404);
     });'
     it('should handle middleware processing', () => {
-      const _middleware = {
+      const middleware = {
         stack: [],
         use: function(fn) {
           this.stack.push(fn);
         },
         process: function(req, /* res */) {
-          const _index = 0;
-          const _next = () => {
+          const index = 0;
+          const next = () => {
   if(index < this.stack.length) {
-              const _fn = this.stack[index++];
+              const fn = this.stack[index++];
               fn(req, res, next);
             //             }
           };
@@ -110,20 +110,20 @@ describe('Core Functionality Tests', () =>
         req.processed = true;
         next();
       });
-      const _result = middleware.process({}, {});
+      const result = middleware.process({}, {});
       expect(result.req.timestamp).toBeDefined();
       expect(result.req.processed).toBe(true);
     });
   });'
   describe('CLI Command Processing', () => '
     it('should parse command line arguments', () => {
-      const _argParser = {
+      const argParser = {
         parse: (_args) => {
-          const _result = {
+          const result = {
             command,
             positional: [] };
   for(let i = 0; i < args.length; i++) {
-            const _arg = args[i];'
+            const arg = args[i];'
             if(arg.startsWith('--')) {'
               const [key, value] = arg.slice(2).split('=');
               result.flags[key] = value  ?? true;'
@@ -137,14 +137,14 @@ describe('Core Functionality Tests', () =>
           //           }
           // return result;
     //   // LINT: unreachable code removed} };'
-      const _parsed = argParser.parse(['init', '--force', '--template=basic', 'arg1']);'
+      const parsed = argParser.parse(['init', '--force', '--template=basic', 'arg1']);'
       expect(parsed.command).toBe('init');
       expect(parsed.flags.force).toBe(true);'
       expect(parsed.flags.template).toBe('basic');'
       expect(parsed.positional).toEqual(['arg1']);
     });'
     it('should validate command configuration', () => {
-      const _commandValidator = {
+      const commandValidator = {
         commands: {
           init: {
             requiredFlags: [],'
@@ -156,7 +156,7 @@ describe('Core Functionality Tests', () =>
             minArgs,
             maxArgs},
         validate: function(command, flags, /* args */) {
-          const _spec = this.commands[command];
+          const spec = this.commands[command];
   if(!spec) {'
 //             return { valid, error: 'Unknown command' };
     //   // LINT: unreachable code removed}
@@ -182,12 +182,12 @@ describe('Core Functionality Tests', () =>
       expect(commandValidator.validate('unknown', {}, [])).toEqual({
         valid,
         error);'
-      expect(commandValidator.validate('deploy', , [])).toEqual(valid,)
+      expect(commandValidator.validate('deploy', [])).toEqual(valid)
         error););
   });'
   describe('Coordination and Orchestration', () => '
     it('should manage task queues', () => {
-      const _taskQueue = {
+      const taskQueue = {
         queue: [],
         running: [],
         completed: [],
@@ -200,16 +200,16 @@ describe('Core Functionality Tests', () =>
     //   // LINT: unreachable code removed},
         start: function() {
           if(this.canStart()) {
-            const _task = this.queue.shift();
+            const task = this.queue.shift();
             this.running.push(task);
 //             return task;
     //   // LINT: unreachable code removed}
           // return null;
     //   // LINT: unreachable code removed},
         complete: function(taskId) {
-          const _index = this.running.findIndex((t) => t.id === taskId);
+          const index = this.running.findIndex((t) => t.id === taskId);
   if(index >= 0) {
-            const _task = this.running.splice(index, 1)[0];
+            const task = this.running.splice(index, 1)[0];
             this.completed.push(task);
 //             return true;
     //   // LINT: unreachable code removed}
@@ -223,9 +223,9 @@ describe('Core Functionality Tests', () =>
       expect(taskQueue.queue).toHaveLength(4);
       expect(taskQueue.canStart()).toBe(true);
       // Start tasks
-      const _task1 = taskQueue.start();
-      const __task2 = taskQueue.start();
-      const __task3 = taskQueue.start();'
+      const task1 = taskQueue.start();
+      const _task2 = taskQueue.start();
+      const _task3 = taskQueue.start();'
       expect(task1.id).toBe('task1');
       expect(taskQueue.running).toHaveLength(3);
       expect(taskQueue.canStart()).toBe(false); // At capacity
@@ -236,7 +236,7 @@ describe('Core Functionality Tests', () =>
       expect(taskQueue.canStart()).toBe(true); // Can start again
       });'
     it('should handle dependency resolution', () => {
-      const _dependencyResolver = {
+      const dependencyResolver = {
         dependencies: new Map(),
         addDependency: function(task, /* dependency */) {
           if(!this.dependencies.has(task)) {
@@ -245,7 +245,7 @@ describe('Core Functionality Tests', () =>
           this.dependencies.get(task).push(dependency);
         },
         canExecute: function(task, /* completed */) {
-          const _deps = this.dependencies.get(task)  ?? [];
+          const deps = this.dependencies.get(task)  ?? [];
 //           return deps.every((dep) => completed.includes(dep));
     //   // LINT: unreachable code removed},
         getExecutableTasks: function(allTasks, /* completed */) {
@@ -257,9 +257,9 @@ describe('Core Functionality Tests', () =>
       dependencyResolver.addDependency('test', 'build');'
       dependencyResolver.addDependency('deploy', 'test');'
       dependencyResolver.addDependency('deploy', 'security-scan');'
-      const _allTasks = ['build', 'test', 'deploy', 'security-scan'];
+      const allTasks = ['build', 'test', 'deploy', 'security-scan'];
       // Initially only build and security-scan can execute
-      const _executable = dependencyResolver.getExecutableTasks(allTasks, []);'
+      const executable = dependencyResolver.getExecutableTasks(allTasks, []);'
       expect(executable).toContain('build');'
       expect(executable).toContain('security-scan');'
       expect(executable).not.toContain('test');'
@@ -271,16 +271,16 @@ describe('Core Functionality Tests', () =>
       // After both test and security-scan complete, deploy can execute
       executable = dependencyResolver.getExecutableTasks(allTasks, [;'
         'build','
-        'test',)'
+        'test')'
         'security-scan' ]);'
       expect(executable).toEqual(['deploy']);
     });
   });'
   describe('Configuration Management', () => '
     it('should handle configuration merging', () => {
-      const _configManager = {
+      const configManager = {
         merge: function(base, /* override */) {
-          const _result = { ...base };
+          const result = { ...base };
           for (const [key, value] of Object.entries(override)) {'
             if(typeof value === 'object' && value !== null && !Array.isArray(value)) {
               result[key] = this.merge(result[key]  ?? {}, value); } else {
@@ -288,11 +288,11 @@ describe('Core Functionality Tests', () =>
           //           }
           // return result;
     //   // LINT: unreachable code removed} };
-      const _baseConfig = {'
+      const baseConfig = {'
         server: { port, host: 'localhost' },type: 'sqlite', file: 'default.db' ,analytics  };
-      const _userConfig = {'
+      const userConfig = {'
         server: { port },file: 'custom.db', pool, max ,analytics, newFeature  };
-      const _merged = configManager.merge(baseConfig, userConfig) ;
+      const merged = configManager.merge(baseConfig, userConfig) ;
       expect(merged.server.port).toBe(8080);'
       expect(merged.server.host).toBe('localhost');'
       expect(merged.database.type).toBe('sqlite');'
@@ -301,14 +301,14 @@ describe('Core Functionality Tests', () =>
       expect(merged.features.analytics).toBe(false);
       expect(merged.features.newFeature).toBe(true););'
     it('should validate configuration schema', () => {
-      const _schemaValidator = {
+      const schemaValidator = {
         schema: {
           server: {'
-            port: { type: 'number', min, max },type: 'string', required  },'string', enum: ['sqlite', 'postgres', 'mysql'] },,
+            port: { type: 'number', min, max },type: 'string', required  },'string', enum: ['sqlite', 'postgres', 'mysql'] },
         validate: function(config, schema = this.schema) {
-          const _errors = [];
+          const errors = [];
           for (const [key, rules] of Object.entries(schema)) {
-            const _value = config[key]; if(rules.required && value === undefined) {'
+            const value = config[key]; if(rules.required && value === undefined) {'
               errors.push(`$keyis required`); continue;
             //             }
   if(value === undefined) {continue;
@@ -325,19 +325,19 @@ describe('Core Functionality Tests', () =>
               errors.push(`$keymust be one of: $rules.enum.join(', ')`);
             //             }`
   if(typeof rules === 'object' && typeof value === 'object') {
-              const _nestedErrors = this.validate(value, rules);'
+              const nestedErrors = this.validate(value, rules);'
               errors.push(...nestedErrors.map((err) => `$key.$err`));
             //             }
           //           }
 //           return errors;
     //   // LINT: unreachable code removed} };
       // Valid config
-      const _validConfig = {`port, host: 'localhost' ,type: 'sqlite'  };
+      const validConfig = {`port, host: 'localhost' ,type: 'sqlite'  };
       expect(schemaValidator.validate(validConfig)).toEqual([]);
       // Invalid config
-      const _invalidConfig = {'
+      const invalidConfig = {'
         server: { port: 'invalid', host },type: 'invalid'  };
-      const _errors = schemaValidator.validate(invalidConfig);
+      const errors = schemaValidator.validate(invalidConfig);
       expect(errors.length).toBeGreaterThan(0);'
       expect(errors.some((e) => e.includes('port must be of type number'))).toBe(true);
     });

@@ -11,12 +11,12 @@ import { loadRealNeuralBindings } from '.';
 export // interface RuvFannBindings {
 //   loadModel(path = // await loadRealNeuralBindings();
 //         if(realBindings) {'
-//             console.warn(' Using REAL ruv-FANN neural bindings')
+//             console.warn(' Using REAL ruv-FANN neural bindings');
 // return realBindings;
 // // }
 } catch(error)
 // {
-const __errorMessage = error instanceof Error ? error.message = null;
+const _errorMessage = error instanceof Error ? error.message = null;
 // private loadAttempted = false;
 
 /** Creates a new RuvFannBindingsLoader */
@@ -26,8 +26,7 @@ constructor();
         this.logger = new Logger('RuvFannBindings')
 
 /** Load neural bindings(native, WASM, or stub); */
-*
-@returns
+
 The;
 loaded;
 bindings;
@@ -45,15 +44,12 @@ if(this.loadAttempted) {
 
         try {
             // First, try to load the native NAPI bindings
-// const _bindings = awaitthis.loadNativeBindings();
+// const bindings = awaitthis.loadNativeBindings();
   if(bindings) {'
                 this.logger.info('Native ruv-FANN bindings loaded successfully');
                 this.bindings = bindings;
                 // return bindings;
-    //   // LINT: unreachable code removed}
-
-             catch (error) console.error(error); 
-// const _wasmBindings = awaitthis.loadWasmBindings();
+    //   // LINT: unreachable code removed} // const wasmBindings = awaitthis.loadWasmBindings();
   if(wasmBindings) {'
                 this.logger.info('WASM ruv-FANN bindings loaded successfully');
                 this.bindings = wasmBindings;
@@ -66,7 +62,7 @@ if(this.loadAttempted) {
             // return this.bindings;
     // ; // LINT: unreachable code removed
         } catch(error) {
-            const __errorMessage = error instanceof Error ? error.message = this.createStubBindings();
+            const _errorMessage = error instanceof Error ? error.message = this.createStubBindings();
             // return this.bindings;
     //   // LINT: unreachable code removed}
 
@@ -78,10 +74,10 @@ if(this.loadAttempted) {
     // private async loadNativeBindings(): Promise<RuvFannBindings | null> ;
         try {
             // Try to require the native addon
-            const _require = createRequire(import.meta.url);
+            const require = createRequire(import.meta.url);
 
             // Check if the binding file exists
-            const _possiblePaths = ['
+            const possiblePaths = ['
                 '../ruv-FANN/target/release/ruv_fann.node','
                 './ruv-FANN/target/release/ruv_fann.node','
                 './native/ruv_fann.node','
@@ -89,7 +85,7 @@ if(this.loadAttempted) {
             ];
   for(const path of possiblePaths) {
                 try {'
-                    const _binding = require(path); if(binding && typeof binding.loadModel === 'function') {'
+                    const binding = require(path); if(binding && typeof binding.loadModel === 'function') {'
                         this.logger.info(`Native bindings loadedfrom = error instanceof Error ? error.message ); ``
             this.logger.debug(''
                 '../ruv-FANN/pkg/ruv_fann.js','
@@ -99,37 +95,29 @@ if(this.loadAttempted) {
 
   for(const path of wasmPaths) {
                 try {
-// const _wasmModule = awaitimport(path);
+// const wasmModule = awaitimport(path);
                     // await wasmModule.default(); // Initialize WASM
   if(wasmModule.loadModel) {'
                         this.logger.info(`WASM bindings loadedfrom = error instanceof Error ? error.message => `
                 try {
 //                     return binding.loadModel(path);
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
-                    const __errorMessage = error instanceof Error ? error.message => {
+    //   // LINT: unreachable code removed}
+                    const _errorMessage = error instanceof Error ? error.message => {
 //                 return binding.unloadModel(modelName);
     //   // LINT: unreachable code removed} ,
 
             inference = ): Promise<string> => ;
                 try {
 //                     return binding.inference(prompt, options);
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
-                    const __errorMessage = error instanceof Error ? error.message => {
+    //   // LINT: unreachable code removed}
+                    const _errorMessage = error instanceof Error ? error.message => {
                 try {
 //                     return binding.listModels()  ?? [];
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
-                    const __errorMessage = error instanceof Error ? error.message => {
+    //   // LINT: unreachable code removed}
+                    const _errorMessage = error instanceof Error ? error.message => {
                 try {
 //                     return binding.isModelLoaded(modelName);
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
 //                     return false;
     //   // LINT: unreachable code removed}
             },
@@ -166,28 +154,20 @@ if(this.loadAttempted) {
     // private wrapWasmBindings(wasmModule => {
                 try {
 //                     return wasmModule.load_model(path);
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
-                    const __errorMessage = error instanceof Error ? error.message = {}): Promise<string> => ;
+    //   // LINT: unreachable code removed}
+                    const _errorMessage = error instanceof Error ? error.message = {}): Promise<string> => ;
                 try {
 //                     return wasmModule.inference(prompt, JSON.stringify(options));
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
-                    const __errorMessage = error instanceof Error ? error.message => {
+    //   // LINT: unreachable code removed}
+                    const _errorMessage = error instanceof Error ? error.message => {
                 try {
-                    const _result = wasmModule.list_models();
+                    const result = wasmModule.list_models();
 //                     return JSON.parse(result);
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
-                    const __errorMessage = error instanceof Error ? error.message => {
+    //   // LINT: unreachable code removed}
+                    const _errorMessage = error instanceof Error ? error.message => {
                 try {
 //                     return wasmModule.is_model_loaded(modelName);
-    //   // LINT: unreachable code removed} catch (error) {
-  console.error(error);
-}
+    //   // LINT: unreachable code removed}
 //                     return false;
     //   // LINT: unreachable code removed}
             //             }
@@ -227,12 +207,12 @@ if(this.loadAttempted) {
 
             isModelLoaded => {
                 // Simulate some models being loaded'
-                const _loadedModels = ['code-completion-base', 'bug-detector-v2'];
+                const loadedModels = ['code-completion-base', 'bug-detector-v2'];
 //                 return loadedModels.includes(modelName);
     //   // LINT: unreachable code removed},
 
             batchInference = {}): Promise<string[]> => {
-                const _results = [];
+                const results = [];
   for(const prompt of prompts) {
                     results.push(// await this.inference(prompt, options)); 
                 //                 }
