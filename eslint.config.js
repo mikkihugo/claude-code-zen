@@ -12,7 +12,10 @@ export default [
       ecmaVersion: 2024,
       sourceType: 'module',
       parserOptions: {
-        project: './tsconfig.json'
+        // Remove project requirement to avoid path issues
+        ecmaFeatures: {
+          modules: true,
+        },
       },
       globals: {
         console: 'readonly',
@@ -39,18 +42,18 @@ export default [
         Request: 'readonly',
         Express: 'readonly',
         NextFunction: 'readonly',
-        NodeJS: 'readonly'
-      }
+        NodeJS: 'readonly',
+      },
     },
     plugins: {
-      '@typescript-eslint': typescriptEslint
+      '@typescript-eslint': typescriptEslint,
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       'prefer-const': 'warn',
-      'no-var': 'error'
-    }
+      'no-var': 'error',
+    },
   },
   // JavaScript files configuration
   {
@@ -83,8 +86,8 @@ export default [
         Request: 'readonly',
         Express: 'readonly',
         NextFunction: 'readonly',
-        NodeJS: 'readonly'
-      }
+        NodeJS: 'readonly',
+      },
     },
     rules: {
       // Focus on auto-fixable rules only

@@ -1,90 +1,85 @@
 #!/usr/bin/env node
 
-/** */
+/**
  * Build Monitor - Continuous build verification for alpha release
  * @fileoverview
  * Advanced build monitoring with strict TypeScript standards
  * @author Claude Code Flow Team
+ * @version 2.0.0
  */
-Flow;
-Team;
-*
-@version
-2.0;
-0.0;
-
 import { exec } from 'node:child_process';
 import { promisify } from 'node:util';
 
-const _execAsync = promisify(exec)
+const execAsync = promisify(exec);
 
-/** TypeScript error information; */
+/** TypeScript error information */
+interface TypeScriptError {
+  file?: string;
+  line?: number;
+  code?: string;
+  message: string;
+}
 
-// // interface TypeScriptError {
-//   file?;
-//   code?;
-//   // message: string
-// // }
+/** Build result information */
+interface BuildResult {
+  timestamp: string;
+  errorCount: number;
+  errors: TypeScriptError[];
+  success: boolean;
+}
 
-/** Build result information; */
+/** Error category breakdown */
+interface ErrorCategories {
+  type_compatibility: number;
+  missing_properties: number;
+  import_export: number;
+  null_undefined: number;
+  constructor_issues: number;
+  other: number;
+}
 
-// // interface BuildResult {
-//   // timestamp: string
-//   // errorCount: number
-//   errors;
-//   // success: boolean
-// // }
+/** Alpha certification status */
+interface AlphaCertification {
+  timestamp: string;
+  status: 'ALPHA_READY' | 'IN_PROGRESS';
+  errorCount: number;
+  buildSuccess: boolean;
+  verifiedBy: string;
+}
 
-/** Error category breakdown; */
+/** Build monitoring report */
+interface BuildReport {
+  timestamp: string;
+  currentErrorCount: number;
+  buildHistory: BuildResult[];
+  errorCategories: ErrorCategories;
+  status: 'ALPHA_READY' | 'IN_PROGRESS';
+}
 
-// // interface ErrorCategories {
-//   // type_compatibility: number
-//   // missing_properties: number
-//   // import_export: number
-//   // null_undefined: number
-//   // constructor_issues: number
-//   // other: number
-// // }
-
-/** Alpha certification status; */
-
-// // interface AlphaCertification {
-//   // timestamp: string';
-//   status: 'ALPHA_READY' | 'IN_PROGRESS';
-//   // errorCount: number
-//   // buildSuccess: boolean
-//   // verifiedBy: string
-// // }
-
-/** Build monitoring report; */
-
-// // interface BuildReport {
-//   // timestamp: string
-//   // currentErrorCount: number
-//   buildHistory;
-//   // errorCategories: ErrorCategories';
-//   status: 'ALPHA_READY' | 'IN_PROGRESS';
-// // }
-
-/** Build Monitor class for continuous build verification; */
-/** Monitors TypeScript compilation progress toward zero-error alpha release; */
-
+/** Build Monitor class for continuous build verification */
+/** Monitors TypeScript compilation progress toward zero-error alpha release */
 class BuildMonitor {
-  /** Initializes build monitor with baseline metrics; */
+  private errorCount: number;
+  private lastCheck: number;
+  private monitoringActive: boolean;
+  private buildHistory: BuildResult[];
+  private errorCategories: ErrorCategories;
 
+  /** Initializes build monitor with baseline metrics */
   constructor() {
     this.errorCount = 282; // Baseline error count
-    this.lastCheck = Date.now()
+    this.lastCheck = Date.now();
     this.monitoringActive = true;
     this.buildHistory = [];
     this.errorCategories = {
-      type_compatibility,
-    missing_properties,
-    import_export, null_undefined;
-
-    constructor_issues, other;
+      type_compatibility: 0,
+      missing_properties: 0,
+      import_export: 0,
+      null_undefined: 0,
+      constructor_issues: 0,
+      other: 0
+    };
   }
-  // }
 
   /** Executes build process and captures results; */
   /** Parses TypeScript errors and categorizes them; */

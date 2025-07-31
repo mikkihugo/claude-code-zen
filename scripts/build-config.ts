@@ -1,4 +1,4 @@
-/** */
+/**
  * Build Configuration for Claude Zen
  * @fileoverview
  * TypeScript build configuration with Google standards
@@ -7,12 +7,12 @@
  */
 
 /** Module alias configuration for build system */
-// interface ModuleAliases {
+interface ModuleAliases {
   [pattern: string]: string;
 }
 
 /** Build configuration interface */
-// interface BuildConfiguration {
+interface BuildConfiguration {
   moduleAliases: ModuleAliases;
   excludeModules: string[];
   externals: string[];
