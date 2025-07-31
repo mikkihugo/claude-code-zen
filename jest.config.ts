@@ -1,7 +1,7 @@
 /** Jest Configuration for Claude Code Flow */
 
 /**
- *  */@fileoverview TypeScript Jest configuration with Google standards compliance
+ * @fileoverview TypeScript Jest configuration with Google standards compliance
  * @author Claude Code Flow Team
  * @version 2.0.0
  */

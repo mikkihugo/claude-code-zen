@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- *  */just-alternative.js - Alternative to `just` command runner for Claude Code Zen
+ * just-alternative.js - Alternative to `just` command runner for Claude Code Zen
  */
 
 /** This script provides similar functionality to `just` when the tool cannot be installed. */

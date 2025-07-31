@@ -1,6 +1,6 @@
 /** Jest Setup File - TypeScript ESM Compatible */
 /**
- *  */@fileoverview
+ * @fileoverview
  * Test environment configuration with strict TypeScript standards
  * @author Claude Code Flow Team
  * @version 2.0.0
@@ -23,18 +23,20 @@ function setupTestEnvironment() {
   // Set test environment flags
   process.env.CLAUDE_FLOW_ENV = 'test';
   process.env.NODE_ENV = 'test';
-  
+
   // Suppress console output during tests unless explicitly needed
   const originalConsole = {
     log: console.log,
     error: console.error,
     warn: console.warn,
     info: console.info,
-    debug: console.debug
+    debug: console.debug,
   };
 
   // Store original console for restoration in tests
-  (global as unknown as { originalConsole: unknown }).originalConsole = originalConsole;
+  if (typeof global !== 'undefined') {
+    global.originalConsole = originalConsole;
+  }
 }
 
 /** Sets up global error handling for tests */
@@ -68,10 +70,10 @@ function setupErrorHandling() {
 function setupJestConfiguration() {
   // Set reasonable timeout for integration tests
   jest.setTimeout(30000);
-  
+
   // Configure global test utilities if needed
   if (typeof globalThis !== 'undefined') {
-    (globalThis as unknown as { testUtils?: unknown }).testUtils = {
+    globalThis.testUtils = {
       // Add shared test utilities
     };
   }
