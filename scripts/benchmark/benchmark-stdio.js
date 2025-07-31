@@ -1,5 +1,5 @@
 /**
- *  */@fileoverview
+ * @fileoverview
  * Performance benchmark for MCP stdio optimizations
  */
 
@@ -9,259 +9,218 @@ import { MCPErrorHandler } from './src/mcp/core/error-handler.js';
 import { PerformanceMetrics } from './src/mcp/core/performance-metrics.js';
 import { StdioOptimizer } from './src/mcp/core/stdio-optimizer.js';
 
-/** Benchmark stdio optimization performance; */
-
 class StdioBenchmark {
   constructor() {
-    this.results = {
-      baseline: {} }
-// }
-
-/** Run complete benchmark suite; */
-
-async;
-runBenchmark();
-// {';
-  console.warn(' MCP Stdio Optimization Benchmark\n');
-  // Baseline performance(simulated single message processing)';
-  console.warn(' Running baseline performance test...');
-  this.results.baseline = // await this.runBaselineTest();
-  // Optimized performance(with batching and error handling)';
-  console.warn(' Running optimized performance test...');
-  this.results.optimized = // await this.runOptimizedTest();
-  // Display results
-  this.displayResults();
-// }
-
-/** Simulate baseline(non-optimized) message processing; */
-
-async;
-runBaselineTest();
-// {
-  const messageCount = 1000;
-  const messages = this.generateTestMessages(messageCount);
-  const startTime = Date.now();
-  const processedCount = 0;
-  const errorCount = 0;
-  // Simulate individual message processing (no batching)
-  for (const message of messages) {
-    try {
-      // Simulate processing time
-      // await this.delay(Math.random() * 2); 
-      // Simulate 5% error rate
-      if (Math.random() < 0.05) {
-        throw new Error('Simulated processing error');
-      }
-      processedCount++;
-    } catch (error) {
-      console.error('Processing error:', error);
-    }
+    this.config = {
+      messageCount: 1000,
+      batchSize: 50,
+      maxRetries: 3,
+      retryDelay: 100,
+      errorRate: 0.05,
+    };
   }
+
+  /** Generate test messages for benchmarking */
+  generateTestMessages(count) {
+    const messages = [];
+    for (let i = 0; i < count; i++) {
+      messages.push({
+        id: i,
+        type: 'test',
+        payload: `Test message ${i}`,
+        timestamp: Date.now(),
+      });
+    }
+    return messages;
+  }
+
+  /** Simulate processing delay */
+  async delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  /** Test baseline message processing without optimizations */
+  async runBaselineTest() {
+    console.warn('Running baseline test...');
+
+    const messageCount = this.config.messageCount;
+    const messages = this.generateTestMessages(messageCount);
+    const startTime = Date.now();
+    let processedCount = 0;
+    let errorCount = 0;
+
+    // Simulate individual message processing (no batching)
+    for (const message of messages) {
+      try {
+        // Simulate processing time
+        await this.delay(Math.random() * 2);
+        // Simulate error rate
+        if (Math.random() < this.config.errorRate) {
+          throw new Error('Simulated processing error');
+        }
+        processedCount++;
+      } catch (error) {
+        console.error('Processing error:', error.message);
         errorCount++;
         // No retry logic in baseline
-      //       }
-  //   }
-  const endTime = Date.now();
-  const totalTime = endTime - startTime;
-  // return {
-      messageCount,
-  // processedCount, // LINT: unreachable code removed
-  errorCount,
-  totalTime,
-  throughput: (processedCount / totalTime) *
-    1000, // messages per second
-    errorRate;
-  : errorCount / messageCount,
-  avgLatency: totalTime / messageCount
-// }
-// }
+      }
+    }
 
-/** Test optimized message processing with batching and error handling; */
-
-// async runOptimizedTest() {}
-
-  const messageCount = 1000;
-  const messages = this.generateTestMessages(messageCount);
-  // Initialize optimized components
-  const stdioOptimizer = new StdioOptimizer({ batchSize,
-  batchTimeout,
-// retryAttempts
-  }
-const errorHandler = new MCPErrorHandler({ maxRetries,
-// retryDelay
-  }
-const performanceMetrics = new PerformanceMetrics({ enableLogging
-  }
-const startTime = Date.now();
-const processedCount = 0;
-const errorCount = 0;
-const batchCount = 0;
-// Setup batch processing';
-stdioOptimizer.on('batch', async(batch) => {
-      batchCount++;
-  for(const item of batch) {';
-        const requestId = `req-${item.message.id}`; performanceMetrics.recordRequestStart(requestId); try {
-          // Use error handler with retry logic
-  // // await errorHandler.executeWithRetry(async() {=> {
-            // Simulate processing time
-  // await this.delay(Math.random() * 2);
-            // Simulate 5% error rate(same )
-            if(Math.random() < 0.05) {`
-              throw new Error('Simulated processing error');
-            //             }// return { success };
-    //   // LINT: unreachable code removed});
-          processedCount++;
-          performanceMetrics.recordRequestEnd(requestId, true);
-        } catch(error) {
-          errorCount++;
-          performanceMetrics.recordRequestEnd(requestId, false, { error });
-        //         }
-      //       }
-    });
-    // Process messages in batches
-    const batches = this.createBatches(messages, 20);
-  for(const batch of batches) {
-      stdioOptimizer.queueMessages(batch); // Small delay to allow batch processing
-  // // await this.delay(5); 
-    //     }
-    // Wait for any remaining processing
-  // // await this.delay(100) {;
     const endTime = Date.now();
     const totalTime = endTime - startTime;
-    // Get detailed metrics
-    const metrics = performanceMetrics.getMetrics();
-    const errorStats = errorHandler.getErrorStats();
-    // return {
+
+    return {
       messageCount,
-    // processedCount, // LINT: unreachable code removed
+      processedCount,
       errorCount,
-      batchCount,
       totalTime,
+      throughput: (processedCount / totalTime) * 1000, // messages per second
+      errorRate: errorCount / messageCount,
+      avgLatency: totalTime / messageCount,
+    };
+  }
+
+  /** Test optimized message processing with batching and error handling */
+  async runOptimizedTest() {
+    console.warn('Running optimized test...');
+
+    const messageCount = this.config.messageCount;
+    const messages = this.generateTestMessages(messageCount);
+    const errorHandler = new MCPErrorHandler({
+      maxRetries: this.config.maxRetries,
+      retryDelay: this.config.retryDelay,
+    });
+    const performanceMetrics = new PerformanceMetrics({ enableLogging: false });
+    const startTime = Date.now();
+    let processedCount = 0;
+    let errorCount = 0;
+    let batchCount = 0;
+
+    // Setup batch processing
+    const stdioOptimizer = new StdioOptimizer({
+      batchSize: this.config.batchSize,
+      flushInterval: 10,
+    });
+
+    stdioOptimizer.on('batch', async (batch) => {
+      batchCount++;
+      for (const item of batch) {
+        const requestId = `req-${item.message.id}`;
+        performanceMetrics.recordRequestStart(requestId);
+
+        try {
+          // Use error handler with retry logic
+          await errorHandler.executeWithRetry(async () => {
+            // Simulate processing time
+            await this.delay(Math.random() * 2);
+            // Simulate error rate
+            if (Math.random() < this.config.errorRate) {
+              throw new Error('Simulated processing error');
+            }
+            return { success: true };
+          });
+
+          processedCount++;
+          performanceMetrics.recordRequestEnd(requestId, true);
+        } catch (error) {
+          console.error('Processing error after retries:', error.message);
+          errorCount++;
+          performanceMetrics.recordRequestEnd(requestId, false);
+        }
+      }
+    });
+
+    // Process all messages through optimizer
+    for (const message of messages) {
+      stdioOptimizer.addMessage(message);
+    }
+
+    // Wait for final batch to complete
+    await stdioOptimizer.flush();
+
+    const endTime = Date.now();
+    const totalTime = endTime - startTime;
+
+    return {
+      messageCount,
+      processedCount,
+      errorCount,
+      totalTime,
+      batchCount,
       throughput: (processedCount / totalTime) * 1000,
       errorRate: errorCount / messageCount,
       avgLatency: totalTime / messageCount,
-      batchSize,
-      retryAttempts: errorStats.totalErrors - errorStats.permanentFailures,
-      circuitBreakerTrips: errorStats.circuitBreakerTrips,
-      performanceMetrics };
-// }
+      avgBatchSize: messageCount / batchCount,
+    };
+  }
 
-/** Generate test messages; */
+  /** Run comprehensive benchmark comparison */
+  async runBenchmark() {
+    console.warn('🚀 Starting MCP Stdio Benchmark');
+    console.warn('='.repeat(50));
 
-generateTestMessages(count)
-// {
-  const messages = [];
-  for(let i = 0; i < count; i++) {
-    messages.push({
-        message: {';
-          jsonrpc: '2.0',';
-    method: 'test_method',';
-    id: `test-$i`,`
-    data: `test data ${i}`
-// }
+    try {
+      // Run baseline test
+      const baseline = await this.runBaselineTest();
 
-  receivedAt: Date.now() 
+      // Run optimized test
+      const optimized = await this.runOptimizedTest();
+
+      // Calculate improvements
+      const throughputImprovement = ((optimized.throughput - baseline.throughput) / baseline.throughput) * 100;
+      const errorReduction = ((baseline.errorRate - optimized.errorRate) / baseline.errorRate) * 100;
+      const latencyImprovement = ((baseline.avgLatency - optimized.avgLatency) / baseline.avgLatency) * 100;
+
+      // Display results
+      console.warn('\n📊 BENCHMARK RESULTS');
+      console.warn('='.repeat(50));
+
+      console.warn('\n🔧 THROUGHPUT:');
+      console.warn(`  Baseline:  ${baseline.throughput.toFixed(2)} msg/sec`);
+      console.warn(`  Optimized: ${optimized.throughput.toFixed(2)} msg/sec`);
+      console.warn(`  Improvement: ${throughputImprovement.toFixed(1)}%`);
+
+      console.warn('\n📈 SUCCESS RATE:');
+      const baselineSuccessRate = (baseline.processedCount / baseline.messageCount) * 100;
+      const optimizedSuccessRate = (optimized.processedCount / optimized.messageCount) * 100;
+      console.warn(`  Baseline:  ${baselineSuccessRate.toFixed(1)}% (${baseline.processedCount}/${baseline.messageCount})`);
+      console.warn(`  Optimized: ${optimizedSuccessRate.toFixed(1)}% (${optimized.processedCount}/${optimized.messageCount})`);
+      console.warn(`  Error Reduction: ${errorReduction.toFixed(1)}%`);
+
+      console.warn('\n⚡ LATENCY:');
+      console.warn(`  Baseline:  ${baseline.avgLatency.toFixed(2)}ms/msg`);
+      console.warn(`  Optimized: ${optimized.avgLatency.toFixed(2)}ms/msg`);
+      console.warn(`  Improvement: ${latencyImprovement.toFixed(1)}%`);
+
+      console.warn('\n📦 BATCHING:');
+      console.warn(`  Batch Count: ${optimized.batchCount}`);
+      console.warn(`  Avg Batch Size: ${optimized.avgBatchSize.toFixed(1)} messages`);
+      console.warn(`  Batching Efficiency: ${((optimized.messageCount / optimized.batchCount) / this.config.batchSize * 100).toFixed(1)}%`);
+
+      console.warn('\n' + '='.repeat(50));
+      console.warn('✅ Benchmark completed successfully!');
+
+      return {
+        baseline,
+        optimized,
+        improvements: {
+          throughput: throughputImprovement,
+          errorReduction,
+          latency: latencyImprovement,
+        },
+      };
+
+    } catch (error) {
+      console.error('❌ Benchmark failed:', error);
+      throw error;
+    }
+  }
 }
-// }
-// return messages;
-//   // LINT: unreachable code removed}
 
-/** Create batches from messages; */
-
-createBatches(messages, batchSize);
-// {
-    const batches = [];
-  for(let i = 0; i < messages.length; i += batchSize) {
-      batches.push(messages.slice(i, i + batchSize));
-    //     }
-    // return batches;
-    //   // LINT: unreachable code removed}
-
-/** Display benchmark results; */
-
-  displayResults() {
-    const baseline = this.results.baseline;
-    const optimized = this.results.optimized;`
-    console.warn(`\n$'='.repeat(60)`);`
-    console.warn(' PERFORMANCE BENCHMARK RESULTS');';
-    console.warn('='.repeat(60));
-    // Throughput comparison
-    const throughputImprovement =;
-      ((optimized.throughput - baseline.throughput) / baseline.throughput) * 100;';
-    console.warn(`\n THROUGHPUT);``
-    console.warn(`  Baseline:  ${baseline.throughput.toFixed(2)} messages``
-    console.warn(`  Optimized: ${optimized.throughput.toFixed(2)} messages`
-    console.warn(;)`
-      `  Improvement: \$throughputImprovement > 0 ? '+' $throughputImprovement.toFixed(1)%`;
-    );
-    // Latency comparison
-    const latencyImprovement =;
-      ((baseline.avgLatency - optimized.avgLatency) / baseline.avgLatency) * 100;`
-    console.warn(`\n LATENCY);``
-    console.warn(`  Baseline:  ${baseline.avgLatency.toFixed(2)}ms avg`);`
-    console.warn(`  Optimized: $optimized.avgLatency.toFixed(2)ms avg`);
-    console.warn(;)`
-      `  Improvement: \${latencyImprovement > 0 ? '+' }${latencyImprovement.toFixed(1)}%`;
-    );
-    // Error handling comparison`
-    console.warn(`\n ERROR HANDLING);`
-    console.warn(;)`
-      `  Baseline errors:  $baseline.errorCount/${baseline.messageCount} (${(baseline.errorRate * 100).toFixed(1)}%)`;
-    );
-    console.warn(;)`
-      `  Optimized errors: $optimized.errorCount/${optimized.messageCount} (${(optimized.errorRate * 100).toFixed(1)}%)`;
-    );`
-    console.warn(`  Retry attempts);``
-    console.warn(`  Circuit breaker);`
-    // Processing efficiency`
-    console.warn(`\n PROCESSING EFFICIENCY);``
-    console.warn(`  Baseline);`
-    console.warn(;)`
-      `  Optimized: ${optimized.batchCount} batches(avg ${(optimized.messageCount / optimized.batchCount).toFixed(1)} msgs/batch)`;
-    );
-    // Time comparison
-    const timeImprovement = ((baseline.totalTime - optimized.totalTime) / baseline.totalTime) * 100;`
-    console.warn(`\n TOTAL PROCESSING TIME);``
-    console.warn(`  Baseline);``
-    console.warn(`  Optimized);``
-    console.warn(`  Improvement: \${timeImprovement > 0 ? '+' }${timeImprovement.toFixed(1)}%`);
-    // Success rates
-    const baselineSuccessRate = (baseline.processedCount / baseline.messageCount) * 100;
-    const optimizedSuccessRate = (optimized.processedCount / optimized.messageCount) * 100;`
-    console.warn(`\n SUCCESS RATES);`
-    console.warn(;)`
-      `  Baseline:  ${baselineSuccessRate.toFixed(1)}% (${baseline.processedCount}`
-    );
-    console.warn(;)`
-      `  Optimized: $optimizedSuccessRate.toFixed(1)% ($optimized.processedCount`
-    );
-    // Summary`
-    console.warn(`\n OPTIMIZATION SUMMARY);`
-  if(throughputImprovement > 0) {`
-      console.warn(`   $throughputImprovement.toFixed(1)% throughput increase`);
-    //     }
-  if(latencyImprovement > 0) {`
-      console.warn(`   $latencyImprovement.toFixed(1)% latency reduction`);
-    //     }
-  if(optimized.retryAttempts > 0) {`
-      console.warn(`   $optimized.retryAttemptsautomatic error recoveries`);
-    //     }`
-    console.warn(`   Batch processing with ${optimized.batchSize} message batches`);`
-    console.warn(`   Circuit breaker protection enabled`);`
-    console.warn(`   Performance metrics and monitoring`);`
-    console.warn(`\n$'='.repeat(60)`);
-  //   }
-
-/** Utility delay function; */
-
-  delay(ms)
-//     return new Promise((resolve) => setTimeout(resolve, ms));
-// Run benchmark if this file is executed directly`
-  if(import.meta.url === `file) {`
+// Execute benchmark if run directly
+if (import.meta.url === 'file://' + process.argv[1]) {
   const benchmark = new StdioBenchmark();
   benchmark.runBenchmark().catch(console.error);
-// }
-// export { StdioBenchmark };
-`
 }
-}
+
+export default StdioBenchmark;
