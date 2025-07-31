@@ -38,7 +38,7 @@ export // interface ClientSession {
 // export class AGUIWebSocketMiddleware {
 
 /;
-constructor(webSocketService, (_options = {}));
+constructor(webSocketService, (_options = {}))
 {
   this.wss = webSocketService;
   this.options = {
@@ -61,7 +61,7 @@ this.globalAdapter = new AGUIAdapter({ sessionId: 'server-global','
 threadId: 'server-thread'   }
 
 // Setup global event forwarding
-this.setupGlobalEventForwarding();
+this.setupGlobalEventForwarding()
 {
 }
 // }
@@ -73,7 +73,7 @@ this.setupGlobalEventForwarding();
 // {'
   this.globalAdapter.on('agui-event', (event) =>
 {
-  this.broadcastAGUIEvent(event);
+  this.broadcastAGUIEvent(event)
   this.stats.eventsRouted++;
 }
 )
@@ -81,7 +81,7 @@ this.setupGlobalEventForwarding();
 this.globalAdapter.on('error', (error) =>
 {
   '
-    console.error('AG-UI Global Adapter Error);'
+    console.error('AG-UI Global Adapter Error)'
 }
 )
 // }
@@ -95,11 +95,11 @@ const clientSessionId =;
 '
   sessionId ?? `client-$
 {
-  Date.now();
+  Date.now()
 }
 -$;
 {
-  Math.random().toString(36).substr(2, 4);
+  Math.random().toString(36).substr(2, 4)
 }
 `;
   // Create AG-UI adapter for this client
@@ -117,20 +117,20 @@ const session = {
   sessionId,
   connectedAt: Date.now(),
   lastActivity: Date.now()};
-this.sessions.set(clientSessionId, session);
+this.sessions.set(clientSessionId, session)
 // Setup event forwarding from adapter to client`
 adapter.on('agui-event', (event) =>
 // {
-  this.sendToClient(ws, event);
+  this.sendToClient(ws, event)
 // }
 //
 // Setup client message handling
-this.setupClientMessageHandling(ws, adapter);
+this.setupClientMessageHandling(ws, adapter)
 // Update stats
 this.stats.clientsConnected++;
 this.stats.totalConnections++;
 // Send welcome message
-adapter.startRun();
+adapter.startRun()
 {
 }
 '
@@ -150,22 +150,22 @@ adapter.emitCustomEvent('clientConnected',
   ws.on('message', (data) =>
 {
     try {
-        const message = JSON.parse(data.toString());
-        this.handleClientMessage(ws, adapter, message);
+        const message = JSON.parse(data.toString())
+        this.handleClientMessage(ws, adapter, message)
         this.stats.messagesProcessed++;
 
         // Update session activity
-        const session = this.getSessionByWebSocket(ws);
+        const session = this.getSessionByWebSocket(ws)
   if(session) {
-          session.lastActivity = Date.now();
+          session.lastActivity = Date.now()
         //         } } catch(error) '
         console.error(''
-        this.sendError(ws, 'Invalid JSON message'););'
+        this.sendError(ws, 'Invalid JSON message'))'
   ws.on('close', () => 
-    this.handleClientDisconnect(ws););'
+    this.handleClientDisconnect(ws))'
   ws.on('error', (error) => '
-    console.error('WebSocket client error);'
-    this.handleClientDisconnect(ws););
+    console.error('WebSocket client error)'
+    this.handleClientDisconnect(ws))
 // }
 
 /** Handle client message; */
@@ -175,28 +175,28 @@ adapter.emitCustomEvent('clientConnected',
 // {
   switch(message.type) {'
     case 'startTextMessage': { null
-      adapter.startTextMessage(message.messageId, message.role);
+      adapter.startTextMessage(message.messageId, message.role)
       break;'
     case 'addTextContent': null
-      adapter.addTextContent(message.content, message.messageId);
+      adapter.addTextContent(message.content, message.messageId)
       break;'
     case 'endTextMessage': null
-      adapter.endTextMessage(message.messageId);
+      adapter.endTextMessage(message.messageId)
       break;'
     case 'startToolCall': null
-      adapter.startToolCall(message.toolName, message.toolCallId, message.parentMessageId);
+      adapter.startToolCall(message.toolName, message.toolCallId, message.parentMessageId)
       break;'
     case 'addToolCallArgs': null
-      adapter.addToolCallArgs(message.args, message.toolCallId);
+      adapter.addToolCallArgs(message.args, message.toolCallId)
       break;'
     case 'endToolCall': null
-      adapter.endToolCall(message.toolCallId);
+      adapter.endToolCall(message.toolCallId)
       break;'
     case 'addToolCallResult': null
-      adapter.addToolCallResult(message.result, message.toolCallId);
+      adapter.addToolCallResult(message.result, message.toolCallId)
       break;'
     case 'emitCustomEvent': null
-      adapter.emitCustomEvent(message.eventType, message.data);
+      adapter.emitCustomEvent(message.eventType, message.data)
       break;'
     case 'getStats': null
       this.sendToClient(ws, '
@@ -209,7 +209,7 @@ adapter.emitCustomEvent('clientConnected',
       break;
     // default: null'
       console.warn(''
-      this.sendError(ws, `Unknown message type);`
+      this.sendError(ws, `Unknown message type)`
   //   }
 // }
 
@@ -218,14 +218,14 @@ adapter.emitCustomEvent('clientConnected',
 // private handleClientDisconnect(ws)
 : void
 // {
-  const adapter = this.clientAdapters.get(ws);
-  const session = this.getSessionByWebSocket(ws);
+  const adapter = this.clientAdapters.get(ws)
+  const session = this.getSessionByWebSocket(ws)
   if(adapter) {`
-    adapter.finishRun(undefined, 'disconnected');
-    this.clientAdapters.delete(ws);
+    adapter.finishRun(undefined, 'disconnected')
+    this.clientAdapters.delete(ws)
   //   }
   if(session) {
-    this.sessions.delete(session.sessionId);
+    this.sessions.delete(session.sessionId)
   //   }
   this.stats.clientsConnected--;
 // }
@@ -237,9 +237,9 @@ adapter.emitCustomEvent('clientConnected',
 // {
   if(ws.readyState === WebSocket.OPEN) {
     try {
-        ws.send(JSON.stringify(event));
+        ws.send(JSON.stringify(event))
       }'
-        console.error('Failed to send message to client);'
+        console.error('Failed to send message to client)'
       //       }
   //   }
 // }
@@ -263,16 +263,16 @@ adapter.emitCustomEvent('clientConnected',
 // {
   if(!this.options.enableBroadcast) return;
   // ; // LINT: unreachable code removed
-  const message = JSON.stringify(event);
+  const message = JSON.stringify(event)
   this.clientAdapters.forEach((_adapter, ws) => {
   if(ws.readyState === WebSocket.OPEN) {
       try {
-          ws.send(message);
+          ws.send(message)
         }'
-          console.error('Failed to broadcast to client);'
+          console.error('Failed to broadcast to client)'
         //         }
     //     }
-  });
+  })
 // }
 
 /** Get session by WebSocket; */
@@ -297,7 +297,7 @@ adapter.emitCustomEvent('clientConnected',
 /** Get all active sessions; */
 
   getActiveSessions(): ClientSession[]
-    // return Array.from(this.sessions.values());
+    // return Array.from(this.sessions.values())
     //   // LINT: unreachable code removed}
 
 /** Get global adapter for server-wide events; */
@@ -309,22 +309,22 @@ adapter.emitCustomEvent('clientConnected',
 /** Cleanup expired sessions; */
 
   cleanupExpiredSessions() {
-    const now = Date.now();
+    const now = Date.now()
     const expiredSessions = [];
 
     for (const [sessionId, session] of this.sessions.entries()) {
   if(now - session.lastActivity > this.options.sessionTimeout!) {
-        expiredSessions.push(sessionId); //       }
+        expiredSessions.push(sessionId) //       }
     //     }
 
     expiredSessions.forEach((sessionId) => {
-      const session = this.sessions.get(sessionId); if(session) {
-        session.ws.close();
-        this.sessions.delete(sessionId);
-        this.clientAdapters.delete(session.ws);
+      const session = this.sessions.get(sessionId) if(session) {
+        session.ws.close()
+        this.sessions.delete(sessionId)
+        this.clientAdapters.delete(session.ws)
         this.stats.clientsConnected--;
       //       }
-    });
+    })
   //   }
 
 /** Start periodic cleanup; */
@@ -332,10 +332,10 @@ adapter.emitCustomEvent('clientConnected',
   startCleanupTimer(): void
     setInterval(;
       () => {
-        this.cleanupExpiredSessions();
+        this.cleanupExpiredSessions()
       },
       5 * 60 * 1000;
-    ); // Every 5 minutes
+    ) // Every 5 minutes
 
 // export default AGUIWebSocketMiddleware;
 '

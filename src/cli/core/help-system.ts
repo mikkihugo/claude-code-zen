@@ -1,12 +1,12 @@
-/** Centralized help system */
-/** Implements Google's single responsibility principle;' */
-/** Provides comprehensive help and usage information for CLI commands */
+/** */Centralized help system */
+/** */ Implements Google's single responsibility principle;' */
+/** */ Provides comprehensive help and usage information for CLI commands */
 
 */'
 import { HelpFormatter } from
-'.;
+''.;
 
-/** Help system options interface */
+/** */ Help system options interface */
 
 // // interface HelpSystemOptions {
 //   appName?;
@@ -14,7 +14,7 @@ import { HelpFormatter } from
 //   formatter?: typeof HelpFormatter;
 // // }
 
-/** Command information interface */
+/** */ Command information interface */
 
 // // interface CommandInfo {
 //   name = {}
@@ -27,7 +27,7 @@ this.version = options.version ?? '2.0.0''
   this.formatter = options.formatter ?? HelpFormatter
 // }
 
-/** Show main application help with command overview */
+/** */ Show main application help with command overview */
 
 public
 showMainHelp();
@@ -76,106 +76,94 @@ if(!commandInfo) {
     console.warn(this.formatter.formatHelp(helpInfo));
   //   }
 
-/** Parse options from command details text */
-   * @param details - Command details text
-   * @returns Parsed help options
-
-// */; // LINT: unreachable code removed
-// // private parseOptionsFromDetails(details = details.match(/Options:([\s\S]*?)(?=\n\n|$)/)
-if (!optionsMatch) return [];
-// ; // LINT: unreachable code removed
-const optionsText = optionsMatch[1];
-const options = [];``
-const optionLines = optionsText.split('\n').filter((line) => line.trim())
-'
-for(const line of optionLines) {
-      const match = line.match(/^\s*(--.+?)\s{2 }(.+)$/)
-  if(match) {
-        const [ flags, description] = match; // Check for default value in description
-        const defaultMatch = description.match(/\(default = {flags = defaultMatch[1]; 
-        //         }
-
-)
-        options.push(option) ;
-      //       }
-    //     }
-
-    // return options;
-    //   // LINT: unreachable code removed}
-
-/** Show version information */
-
-  // // public showVersion() {'
-    console.warn(`;`)``
-  v\$this.version`);`
-  //   }
-
-/** Show brief usage information */
-
-  // // public showUsage() {``
-    console.warn(`;```
-  Usage = ['CLAUDE_API_KEY''OPENAI_API_KEY''ANTHROPIC_API_KEY''HUGGINGFACE_API_KEY''
-  console.warn('\n APIKEYS = process.env[varName];');
-  if(value) {'
-    const masked = `$value.substring(0, 8)...$value.substring(value.length - 4)`;``
-    console.warn(`$varName);`
-  } else {``
-    console.warn(`$varName);`
-  //   }
-// }
-// }
-
-/** Show command categories and organization */
-
-// // public showCommandCategories() {}
-: void
-// {
-  const commands = this.commandExecutor.listCommands();
-  const categories = {};
-  // Group commands by category(if available) or type
-  for(const command of commands) {
-    const category = this.inferCommandCategory(command.name); if(!categories[category]) {
-      categories[category] = []; //     }
-    categories[category].push(command) {
-  //   }``
-  console.warn('
-        console.warn(`$name$command.description`);``
-// }``
-console.warn(');
-// }
-  //   }
-
-/** Infer command category from name */
-   * @param commandName - Command name
-   * @returns Inferred category
-
-    // */ // LINT: unreachable code removed
-// // private inferCommandCategory(commandName =
-// {
-  // setup): string'
-  if(['init', 'config', 'setup'].includes(commandName)) return 'setup''
-  // if(['start', 'stop', 'restart', 'status'].includes(commandName)) return 'control''
-  if(['swarm', 'agent', 'hive-mind'].includes(commandName)) return 'orchestration''
-  // if(['memory', 'backup', 'restore'].includes(commandName)) return 'data''
-  if(['deploy', 'build', 'test'].includes(commandName)) return 'development''
-  // if(['help', 'version', 'info'].includes(commandName)) return 'utility''
-  // return 'other''
-  // ; // LINT: unreachable code removed
-
-/** Get category icon */
-   * @param category - Category name
-   * @returns Icon string
-
-    // */ // LINT: unreachable code removed
-  private;
-  getCategoryIcon(category);
-  : string
-  //   {
-    const __icons: Record<string, string>,','','','','','','''
-  //   }''
-// }
-// }
-// Export types for external use
-// export type { HelpSystemOptions, CommandInfo, HelpOption, HelpInfo, CommandExecutor };
-))))))))
-'
+/** */ Parse options from command details text
+    // @param details - Command details text
+    // @returns Parsed help options
+    // // */; // LINT: unreachable code removed
+    // // // private parseOptionsFromDetails(details = details.match(/Options:([\s\S]*?)(?=\n\n|$)/)
+    // if (!optionsMatch) return [];
+    // // ; // LINT: unreachable code removed
+    // const optionsText = optionsMatch[1];
+    // const options = [];``
+    // const optionLines = optionsText.split('\n').filter((line) => line.trim())
+    // '
+    // for(const line of optionLines) {
+    // const match = line.match(/^\s*(--.+?)\s{2 }(.+)$/)
+    // if(match) {
+    // const [ flags, description] = match; // Check for default value in description
+    // const defaultMatch = description.match(/\(default = {flags = defaultMatch[1];
+    // //         }
+    // )
+    // options.push(option) ;
+    // //       }
+    // //     }
+    // // return options;
+    // //   // LINT: unreachable code removed}
+    // /** */ Show version information */
+    // // // public showVersion() {'
+    // console.warn(`;`)``
+    // v\$this.version`);`
+    // //   }
+    // /** */ Show brief usage information */
+    // // // public showUsage() {``
+    // console.warn(`;```
+    // Usage = ['CLAUDE_API_KEY''OPENAI_API_KEY''ANTHROPIC_API_KEY''HUGGINGFACE_API_KEY''
+    // console.warn('\n APIKEYS = process.env[varName];');
+    // if(value) {'
+    // const masked = `$value.substring(0, 8)...$value.substring(value.length - 4)`;``
+    // console.warn(`$varName);`
+    // } else {``
+    // console.warn(`$varName);`
+    // //   }
+    // // }
+    // // }
+    // /** */ Show command categories and organization */
+    // // // public showCommandCategories() {}
+    // : void
+    // // {
+    // const commands = this.commandExecutor.listCommands();
+    // const categories = {};
+    // // Group commands by category(if available) or type
+    // for(const command of commands) {
+    // const category = this.inferCommandCategory(command.name); if(!categories[category]) {
+    // categories[category] = []; //     }
+    // categories[category].push(command) {
+    // //   }``
+    // console.warn('
+    // console.warn(`$name$command.description`);``
+    // // }``
+    // console.warn(');
+    // // }
+    // //   }
+    // /** */ Infer command category from name */
+    // @param commandName - Command name
+    // @returns Inferred category
+    // // */ // LINT: unreachable code removed
+    // // // private inferCommandCategory(commandName =
+    // // {
+    // // setup): string'
+    // if(['init', 'config', 'setup'].includes(commandName)) return 'setup''
+    // // if(['start', 'stop', 'restart', 'status'].includes(commandName)) return 'control''
+    // if(['swarm', 'agent', 'hive-mind'].includes(commandName)) return 'orchestration''
+    // // if(['memory', 'backup', 'restore'].includes(commandName)) return 'data''
+    // if(['deploy', 'build', 'test'].includes(commandName)) return 'development''
+    // // if(['help', 'version', 'info'].includes(commandName)) return 'utility''
+    // // return 'other''
+    // // ; // LINT: unreachable code removed
+    // /** */ Get category icon */
+    // @param category - Category name
+    // @returns Icon string
+    // // */ // LINT: unreachable code removed
+    // private;
+    // getCategoryIcon(category);
+    // : string
+    // //   {
+    // const __icons: Record<string, string>,','','','','','','''
+    // //   }''
+    // // }
+    // // }
+    // // Export types for external use
+    // // export type { HelpSystemOptions, CommandInfo, HelpOption, HelpInfo, CommandExecutor };
+    // ))))))))
+    // '
+    */

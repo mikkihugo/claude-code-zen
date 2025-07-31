@@ -1,22 +1,22 @@
-/** */
+/** */ */
 
 Test;
 script;
 for MCP stdio optimizations
 
-/** Validates message batching, retry logic, and performance metrics */
+/** */ Validates message batching, retry logic, and performance metrics */
 
-import { dirname  } from 'node:path'
+import { dirname  } from ''node:path'
 ('');
 '
 
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from ''node:url';
 ('');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-/** Test suite for stdio optimizations */
+/** */ Test suite for stdio optimizations */
 
 class StdioOptimizationTests {
   constructor() {
@@ -24,7 +24,7 @@ class StdioOptimizationTests {
     this.server = null;
   //   }
 
-/** Run all tests */
+/** */ Run all tests */
 
   async runAllTests() '
     console.warn('Starting MCP stdio optimization tests...\n');
@@ -62,7 +62,7 @@ class StdioOptimizationTests {
       this.addTestResult('Server Initialization', false, error.message)
 //   }
 
-/** Test batch processing functionality */
+/** */ Test batch processing functionality */
 
   async testBatchProcessing() { '
     console.warn('Testing batch processing...');
@@ -83,7 +83,7 @@ class StdioOptimizationTests {
     //     }
   //   }
 
-/** Test error handling capabilities */
+/** */ Test error handling capabilities */
 
   async testErrorHandling() { '
     console.warn('Testing error handling...');
@@ -113,7 +113,7 @@ class StdioOptimizationTests {
     //     }
   //   }
 
-/** Test performance metrics functionality */
+/** */ Test performance metrics functionality */
 
   async testPerformanceMetrics() { '
     console.warn('Testing performance metrics...');
@@ -144,7 +144,7 @@ class StdioOptimizationTests {
     //     }
   //   }
 
-/** Test retry logic */
+/** */ Test retry logic */
 
   async testRetryLogic() { '
     console.warn('Testing retry logic...');
@@ -167,7 +167,7 @@ class StdioOptimizationTests {
     //     }
   //   }
 
-/** Test connection handling */
+/** */ Test connection handling */
 
   async testConnectionHandling() { '
     console.warn('Testing connection handling...');
@@ -186,7 +186,7 @@ class StdioOptimizationTests {
         `Buffersize = passed ? ' PASS' );'`'
   //   }
 
-/** Print final test results */
+/** */ Print final test results */
 
     printResults();
     //     {

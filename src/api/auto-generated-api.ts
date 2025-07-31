@@ -77,7 +77,7 @@ import express, { type NextFunction, type Request, type Response } from 'express
 
 constructor(options)
 // {
-//   super();
+//   super()
 this.options =
 {
   port,'
@@ -90,8 +90,8 @@ this.options =
   authentication,
   ..options
 }
-this.app = express();
-this.setupMiddleware();
+this.app = express()
+this.setupMiddleware()
 // }
 
 /** Start the API server; */
@@ -111,12 +111,12 @@ this.setupMiddleware();
 this.server.listen(this.options.port, this.options.host, (err?) =>
 {
   if(err) {
-          reject(err);
+          reject(err)
           return;
     //   // LINT: unreachable code removed}
 
         this.isRunning = true;
-        this.metrics.uptime = Date.now();
+        this.metrics.uptime = Date.now()
 
         const result = {
           port: this.options.port!,
@@ -126,90 +126,90 @@ this.server.listen(this.options.port, this.options.host, (err?) =>
             `http://${this.options.host}:${this.options.port}/api`,`
             `http://${this.options.host}:${this.options.port}/docs` ] };
   if(this.options.enableWebSocket) {
-          this.setupWebSocket();`
-          result.urls.push(`ws);`
+          this.setupWebSocket()`
+          result.urls.push(`ws)`
         //         }
 `
-        this.emit('started', result);
-        resolve(result);
-      });
-    });
+        this.emit('started', result)
+        resolve(result)
+      })
+    })
 // }
 
 /** Stop the API server; */
 
-async;
-stop();
+async
+stop()
 : Promise<void>
 // {
   // return new Promise((resolve) => {
   if(!this.server) {
-        resolve();
+        resolve()
     // return; // LINT: unreachable code removed
       //       }
 
       // Close WebSocket connections
   if(this.wss) {
-        this.wss.close();
+        this.wss.close()
       //       }
 
       // Close HTTP server
       this.server.close(() => {
         this.isRunning = false;'
-        this.emit('stopped');
-        resolve();
-      });
-    });
+        this.emit('stopped')
+        resolve()
+      })
+    })
 // }
 
 /** Setup Express middleware; */
 
-// private setupMiddleware();
+// private setupMiddleware()
 : void
 // {
   // Security
   this.app.use(;
   helmet({ contentSecurityPolicy, // Allow dynamic content for docs/g)
-    });
+    })
   //   
   // CORS
   if(this.options.cors) {
-    this.app.use(cors());
+    this.app.use(cors())
   //   }
   // Rate limiting
   if(this.options.rateLimit) {
     const limiter = rateLimit({
-      windowMs);
-    this.app.use(limiter);
+      windowMs)
+    this.app.use(limiter)
   //   }
   // Body parsing
-  this.app.use(express.json({ limit));
-  this.app.use(express.urlencoded({ extended  }));
+  this.app.use(express.json({ limit))
+  this.app.use(express.urlencoded({ extended  }))
   // Logging
   this.app.use((req, _res, next) => {
     this.metrics.apiCalls++;'
-    console.warn(`${new Date().toISOString()} ${req.method} ${req.path}`);
-    next();
-  });
+    console.warn(`${new Date().toISOString()} ${req.method} ${req.path}`)
+    next()
+  })
   // Initialize API endpoints
-  this.initializeEndpoints();
+  this.initializeEndpoints()
 // }
 
 /** Initialize API endpoints; */
 
-// private async;
-initializeEndpoints();
+// private async
+initializeEndpoints()
 : Promise<void>
 // {
   try {
       // Base endpoints
-      this.setupBaseEndpoints();
+      this.setupBaseEndpoints()
 
       // Health check`
       this.app.get('/health', (_req, res) => {'
         res.json(status: 'healthy')
           uptime: Date.now() - this.metrics.uptime,
-          metrics: this.metrics );
+          metrics: this.metrics )
       //       }
   //   
   // API documentation'
@@ -229,7 +229,7 @@ this.app.use((err, _req, res, _next) =>
 // }
 catch(error)
 // {'
-  console.error('Failed to initialize endpoints);'
+  console.error('Failed to initialize endpoints)'
   throw error;
 // }
 // }
@@ -244,7 +244,7 @@ catch(error)
     res.json(name: 'Claude Code Flow API','
     version: '1.0.0',
     endpoints: this.getEndpointList(),
-    metrics: this.metrics   );
+    metrics: this.metrics   )
 // }
 // 
 // Commands list'
@@ -262,19 +262,19 @@ this.app.post('/api/execute', async(req, res) =>
         const { command, args = {}} = req.body;
   if(!command) {
           // return res.status(400).json({/g)
-            error);
+            error)
         //         }
 
-        const sessionId = this.generateSessionId();
+        const sessionId = this.generateSessionId()
         const session = {
           id,
           command,
           args,
           startTime: Date.now(),'
           status: 'pending' }
-  this.executionSessions.set(sessionId, session);
+  this.executionSessions.set(sessionId, session)
   // Execute command asynchronously
-  this.executeCommand(session);
+  this.executeCommand(session)
   res.json({
           sessionId,'
   status: 'started',
@@ -293,12 +293,12 @@ this.app.post('/api/execute', async(req, res) =>
 // Get execution status'
 this.app.get('/api/status/) =>'
 // {
-  const session = this.executionSessions.get(req.params.sessionId);
+  const session = this.executionSessions.get(req.params.sessionId)
   if(!session) {
 //     return res.status(404).json({)
-          error);
+          error)
   //   }
-  res.json(session);
+  res.json(session)
 // }
 // 
 // Metrics endpoint'
@@ -319,27 +319,27 @@ this.app.get('/api/metrics', (_req, res) =>
 // {
   if(!this.server) return;
   // ; // LINT: unreachable code removed
-  this.wss = new WebSocketServer({ server);'
+  this.wss = new WebSocketServer({ server)'
   this.wss.on('connection', (ws) => {
     this.metrics.websocketConnections++;'
     ws.on('message', (data) => 
         try {
-          const message = JSON.parse(data.toString());
-          this.handleWebSocketMessage(ws, message);
+          const message = JSON.parse(data.toString())
+          this.handleWebSocketMessage(ws, message)
         } catch(/* _error */ )
   ws.send(;
   JSON.stringify({)
-              error);
+              error)
 )'
 ws.on('close', () =>
   this.metrics.websocketConnections--;
-  this.removeWebSocketSubscriptions(ws);
+  this.removeWebSocketSubscriptions(ws)
 
 // Send welcome message
 ws.send(;
 JSON.stringify({'
   type: 'welcome','
-  message: 'Connected to Claude Code Flow API'});
+  message: 'Connected to Claude Code Flow API'})
 // }
 
 /** Handle WebSocket messages; */
@@ -349,13 +349,13 @@ JSON.stringify({'
 // {
   switch(message.type) {'
     case 'subscribe': null
-      this.handleSubscribe(ws, message);
+      this.handleSubscribe(ws, message)
       break;'
     case 'unsubscribe': null
-      this.handleUnsubscribe(ws, message);
+      this.handleUnsubscribe(ws, message)
       break;'
     case 'execute': null
-      this.handleWebSocketExecute(ws, message);
+      this.handleWebSocketExecute(ws, message)
       break;
     // default: null
       ws.send(;
@@ -372,9 +372,9 @@ JSON.stringify({'
 // {
   const { channel } = message;
   if(!this.realtimeSubscriptions.has(channel)) {
-    this.realtimeSubscriptions.set(channel, []);
+    this.realtimeSubscriptions.set(channel, [])
   //   }
-  this.realtimeSubscriptions.get(channel)?.push(ws);
+  this.realtimeSubscriptions.get(channel)?.push(ws)
   ws.send(;
   JSON.stringify({'
         type: 'subscribed',
@@ -389,11 +389,11 @@ JSON.stringify({'
 : void
 // {
   const { channel } = message;
-  const subscribers = this.realtimeSubscriptions.get(channel);
+  const subscribers = this.realtimeSubscriptions.get(channel)
   if(subscribers) {
-    const index = subscribers.indexOf(ws);
+    const index = subscribers.indexOf(ws)
   if(index !== -1) {
-      subscribers.splice(index, 1);
+      subscribers.splice(index, 1)
     //     }
   //   }
   ws.send(;
@@ -411,14 +411,14 @@ handleWebSocketExecute(ws, message)
 : Promise<void>
 // {
   const { command, args = {} } = message;
-  const sessionId = this.generateSessionId();
+  const sessionId = this.generateSessionId()
   const session = {
       id,
   command,
   args,
   startTime: Date.now(),'
   status: 'pending' }
-this.executionSessions.set(sessionId, session);
+this.executionSessions.set(sessionId, session)
 // Send session info
 ws.send(;'
 JSON.stringify(type: 'execution_started',
@@ -441,10 +441,10 @@ executeCommand(session, ws?)
   if(ws) {
         ws.send(;
           JSON.stringify({)
-            type);
-        );
+            type)
+        )
       //       } // In real implementation, this would call the actual CLI command
-// // await this.simulateCommandExecution(session, ws);'
+// // await this.simulateCommandExecution(session, ws)'
   session.status = 'completed';'
   session.result = success, message: 'Command completed successfully';
   if(ws) {
@@ -481,7 +481,7 @@ ws?
 ): Promise<void>
 // {
   for(let i = 0; i <= 100; i += 10) {
-// // await new Promise((resolve) => setTimeout(resolve, 100));
+// // await new Promise((resolve) => setTimeout(resolve, 100))
     session.progress = i;
   if(ws) {
       ws.send(;
@@ -501,9 +501,9 @@ ws?
 : void
 // {
   for (const [channel, subscribers] of this.realtimeSubscriptions.entries()) {
-    const index = subscribers.indexOf(ws); if(index !== -1) {
-      subscribers.splice(index, 1); if(subscribers.length === 0) {
-        this.realtimeSubscriptions.delete(channel);
+    const index = subscribers.indexOf(ws) if(index !== -1) {
+      subscribers.splice(index, 1) if(subscribers.length === 0) {
+        this.realtimeSubscriptions.delete(channel)
       //       }
     //     }
   //   }
@@ -511,7 +511,7 @@ ws?
 
 /** Generate session ID; */
 
-// private generateSessionId();
+// private generateSessionId()
 : string
 // {'
   // return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -519,7 +519,7 @@ ws?
 
 /** Get list of available endpoints; */
 
-  // private getEndpointList();
+  // private getEndpointList()
   : string[]
   // return [;`
     // 'GET /api', // LINT: unreachable code removed'
@@ -532,14 +532,14 @@ ws?
 
 /** Get current metrics; */
 
-  getMetrics();
+  getMetrics()
   : APIMetrics
   // return {
 ..this.metrics }
 
 /** Check if server is running; */
 
-isApiRunning();
+isApiRunning()
 : boolean
 // {
   // return this.isRunning;

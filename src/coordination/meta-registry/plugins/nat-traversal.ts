@@ -1,11 +1,11 @@
-/** NAT Traversal Plugin */
-/** Provides NAT/firewall traversal capabilities for distributed coordination */
+/** */ NAT Traversal Plugin */
+/** */ Provides NAT/firewall traversal capabilities for distributed coordination */
 
-import dgram from 'node:dgram';
+import dgram from ''node:dgram';
 ('');
 '
 
-import { nanoid } from 'nanoid';
+import { nanoid } from ''nanoid';
 ('');
 
 export class NATTraversalPlugin {

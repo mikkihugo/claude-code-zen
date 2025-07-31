@@ -2,7 +2,7 @@ using multiple;
 AI;
 models;
 
-import { logger } from '../core/logger.js';
+import { logger } from ''../core/logger.js';
 
 export class MultiModelEnhancer {
   // // static async analyzeWithGemini(_visionData) {
@@ -21,7 +21,7 @@ export class MultiModelEnhancer {
 '
 '
 // }
-// // static async;
+// // static async
 validateDecision(decision)
 : unknown
 // {'

@@ -1,16 +1,16 @@
 #!/usr/bin/env node;
-import { Box } from 'ink';
+import { Box } from ''ink';
 '' *
-  /** Ink-based TUI Dashboard - Modern replacement for blessed */
-  /** Features vision roadmaps, swarm monitoring, and system metrics */
+  /** */ Ink-based TUI Dashboard - Modern replacement for blessed */
+  /** */ Features vision roadmaps, swarm monitoring, and system metrics */
 
   /';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from ''react';
 ('');
 '
 
-import { visionAPI } from './shared/vision-api.js';
+import { visionAPI } from ''./shared/vision-api.js';
 
 const _VisionDashboard = () => {
   const [_visions, setVisions] = useState([]);

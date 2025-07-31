@@ -1,19 +1,19 @@
-/** */
+/***/
 
 MCP;
 Tool;
 Executor;
 
-/** Handles execution of MCP tools with proper error handling and logging */
+/** */ Handles execution of MCP tools with proper error handling and logging */
 
 MCPToolExecutor *
-  /** Tool execution handler class */
-  /** Provides centralized tool execution with logging, error handling, and metrics */
+  /** */ Tool execution handler class */
+  /** */ Provides centralized tool execution with logging, error handling, and metrics */
 
   /;
 export class MCPToolExecutor {
 
- * @param {Object}
+ // @param {Object}
 server - Reference;
 to;
 MCP;
@@ -26,17 +26,17 @@ this;
 executionStats = new Map();
 // }
 
-/** Execute a tool by name with arguments */
+/** */ Execute a tool by name with arguments */
 
 {
   string;
 }
 name - Tool;
 name
- * @param {Object}
+ // @param {Object}
 args - Tool;
 arguments
- * @returns {Promise<any>}
+ // @returns {Promise<any>}
 Tool;
 execution;
 result * /;
@@ -241,26 +241,26 @@ try {
       //       }
   //   }
 
-/** Get execution statistics */
-   * @returns ObjectExecution statistics
-    // */; // LINT: unreachable code removed
-  getExecutionStats() {
-    const stats = {};
-    for (const [toolName, toolStats] of this.executionStats.entries()) {
-      stats[toolName] = { ...toolStats }; //     }
-    // return stats; 
-    //   // LINT: unreachable code removed}
-      //       }
-// }
-
-}}}}}}}}}
-        }}}
-          }
-        }
-      }
-    }
-  }
-}
-) )))
-``
-)))))))))))))
+/** */ Get execution statistics
+    // @returns ObjectExecution statistics
+    // // */; // LINT: unreachable code removed
+    // getExecutionStats() {
+    // const stats = {};
+    // for (const [toolName, toolStats] of this.executionStats.entries()) {
+    // stats[toolName] = { ...toolStats }; //     }
+    // // return stats;
+    // //   // LINT: unreachable code removed}
+    // //       }
+    // // }
+    // }}}}}}}}}
+    // }}}
+    // }
+    // }
+    // }
+    // }
+    // }
+    // }
+    // ) )))
+    // ``
+    // )))))))))))))
+    */

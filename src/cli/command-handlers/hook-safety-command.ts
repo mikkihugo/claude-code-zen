@@ -1,10 +1,10 @@
-/** Hook Safety System - Prevents recursive hook execution and financial damage */
+/** */ Hook Safety System - Prevents recursive hook execution and financial damage */
 
-/** This system protects against infinite loops where Claude Code hooks call */
+/** */ This system protects against infinite loops where Claude Code hooks call */
 * 'claude' commands, which could bypass rate limits and cost thousands of dollars.
 '
 
-/** Critical protections = {CONTEXT = new Map() */
+/** */ Critical protections = {CONTEXT = new Map() */
 
 this.sessionId = this.generateSessionId()
 this.resetTimeout = null
@@ -38,7 +38,7 @@ generateSessionId();
 // Global instance
 const executionTracker = new HookExecutionTracker();
 
-/** Hook Context Manager - Tracks hook execution context */
+/** */ Hook Context Manager - Tracks hook execution context */
 
 // export class HookContextManager {
   // // static setContext(hookType, depth = 1) {
@@ -74,11 +74,11 @@ const executionTracker = new HookExecutionTracker();
       delete process.env[HOOK_SAFETY_CONFIG.ENV_VARS.SKIP_HOOKS];
     //     }
 
-/** Command Validator - Validates commands for hook safety */
+/** */ Command Validator - Validates commands for hook safety */
 
 // export class HookCommandValidator {
 
-/** Validate if a command is safe to execute from a hook */
+/** */ Validate if a command is safe to execute from a hook */
 
   // // static validateCommand(command, hookType) {
     const context = HookContextManager.getContext();
@@ -126,14 +126,14 @@ const executionTracker = new HookExecutionTracker();
     //   // LINT: unreachable code removed}
   //   }
 
-/** Circuit Breaker - Prevents runaway hook execution */
+/** */ Circuit Breaker - Prevents runaway hook execution */
 
   // export;
   class;
   HookCircuitBreaker;
   //   {
 
-/** Check if hook execution should be allowed */
+/** */ Check if hook execution should be allowed */
 
   // // static checkExecution(hookType) {
     const executionCount = executionTracker.track(hookType);
@@ -167,11 +167,11 @@ const executionTracker = new HookExecutionTracker();
 // }
 // }
 
-/** Configuration Validator - Validates hook configurations for safety */
+/** */ Configuration Validator - Validates hook configurations for safety */
 
 // export class HookConfigValidator {
 
-/** Validate Claude Code settings.json for dangerous hook configurations */
+/** */ Validate Claude Code settings.json for dangerous hook configurations */
 
   // // static validateClaudeCodeConfig(configPath = null) {
   if(!configPath) {
@@ -221,7 +221,7 @@ const executionTracker = new HookExecutionTracker();
 // return { warnings, errors };
 //   // LINT: unreachable code removed}
 
-/** Generate safe configuration recommendations */
+/** */ Generate safe configuration recommendations */
 
   // // static generateSafeAlternatives(dangerousConfig): unknown
 

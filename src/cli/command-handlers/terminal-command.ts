@@ -1,18 +1,18 @@
 // terminal-command.js - Modern terminal management system with session integration
 
-import { spawn } from 'node:child_process';
+import { spawn } from ''node:child_process';
 ('');
 '
 
-import { existsSync, promises as fs } from 'node:fs';
+import { existsSync, promises as fs } from ''node:fs';
 ('');
 '
 
-import path from 'node:path';
+import path from ''node:path';
 ('');
 '
 import { printError, printInfo, printSuccess } from
-'.;
+''.;
 
 // Terminal storage paths'
 const TERMINAL_BASE_DIR = path.join(process.cwd(), '.claude-terminals');
@@ -158,7 +158,7 @@ for (const [id, terminalData] of Object.entries(activeTerminals)) {
 // // // await this.saveTerminalState(); ``
     this.emit('maintenance = null'
 
-/** Initialize terminal storage directories */
+/** */ Initialize terminal storage directories */
  *//g
 async function _initializeTerminalStorage() {
   try {
@@ -174,7 +174,7 @@ async function _initializeTerminalStorage() {
   // return `term-$safeName-$timestamp-$random`;``
 // }
 
-/** Get terminal pool instance */
+/** */ Get terminal pool instance */
 
 async function getTerminalPool() {
   if(!terminalPool) {
@@ -184,7 +184,7 @@ async function getTerminalPool() {
 //   return terminalPool;
 // }
 
-/** Create a new terminal session */
+/** */ Create a new terminal session */
 
 async function createTerminal(args = // await getTerminalPool();
 ``
@@ -302,7 +302,7 @@ async function createTerminal(args = // await getTerminalPool();
     process.exit(0)});
 // }
 
-/** Get state icon for terminal */
+/** */ Get state icon for terminal */
 
 function getStateIcon(state = {
     [TERMINAL_STATES.ACTIVE]);
@@ -317,7 +317,7 @@ function getStateIcon(state = {
     // return 'just now'; // LINT: unreachable code removed'
 // }
 
-/** Get time duration string */
+/** */ Get time duration string */
 
 function getTimeDuration(start = new Date(start);
   const endTime = new Date(end);
@@ -329,7 +329,7 @@ function getTimeDuration(start = new Date(start);
     // return `\${minutes // LINT}m`;``
 // }
 
-/** Show terminal command help */
+/** */ Show terminal command help */
 
 function _showTerminalHelp() {``
   console.warn(`;`

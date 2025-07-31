@@ -1,10 +1,10 @@
-/** Claude Flow MCP Server - Full 87-tool Suite */
-/** Based on Cloudflare's official MCP server pattern' */
+/** */ Claude Flow MCP Server - Full 87-tool Suite */
+/** */ Based on Cloudflare's official MCP server pattern' */
 
 import configData from
-'.;
+''.;
 import { executeTool } from
-';
+'';
 
 // Load configuration from config.json
 const config = configData;

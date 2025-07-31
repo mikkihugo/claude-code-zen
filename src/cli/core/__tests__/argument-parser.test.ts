@@ -1,9 +1,9 @@
-/** Tests for argument parsing utilities */
-/** Implements Google's testing best practices;' */
+/** */ Tests for argument parsing utilities */
+/** */ Implements Google's testing best practices;' */
 
 */'
 import { describe, expect } from
-'@jest";
+''@jest";
 
 import {
   FlagValidator,
@@ -14,7 +14,7 @@ import {
   ","
 } from '..'
 '
-// import { ValidationError  } from '../cli-error.js'''
+// import { ValidationError  } from ''../cli-error.js'''
 describe('Argument Parser''
   describe('parseCommandLineArguments''
     it('should parse basic flags and arguments''

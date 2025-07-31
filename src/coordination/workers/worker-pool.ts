@@ -1,22 +1,22 @@
-/** WorkerThreadPool - Manages a pool of worker threads for parallel swarm execution */
+/** */ WorkerThreadPool - Manages a pool of worker threads for parallel swarm execution */
 
-import { EventEmitter } from 'node:events';
+import { EventEmitter } from ''node:events';
 ('');
 '
 
-import os from 'node:os';
+import os from ''node:os';
 ('');
 '
 
-import path from 'node:path';
+import path from ''node:path';
 ('');
 '
 
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from ''node:url';
 ('');
 '
 
-import { Worker } from 'node:worker_threads';
+import { Worker } from ''node:worker_threads';
 ('');
 
 const __filename = fileURLToPath(import.meta.url);
@@ -44,7 +44,7 @@ constructor((options = {}));
     // return this;
     //   // LINT: unreachable code removed}
 
-/** Create a new worker thread */
+/** */ Create a new worker thread */
 
   async createWorker() { 
     if(this.workers.size >= this.maxWorkers) ``
@@ -96,7 +96,7 @@ constructor((options = {}));
     //     }
     //     }
 
-/** Handle task error */
+/** */ Handle task error */
 
     handleTaskError(workerId, taskId, error);
 
@@ -107,7 +107,7 @@ constructor((options = {}));
       this.updateWorkerStats(workerId, {status = > this.restartWorker(workerId), 1000);
     //     }
 
-/** Handle worker exit */
+/** */ Handle worker exit */
 
   handleWorkerExit(workerId, _code) ;
     this.workers.delete(workerId);
@@ -120,7 +120,7 @@ constructor((options = {}));
       setTimeout(() => this.createWorker(), 1000);
 //     }
 
-/** Update worker statistics */
+/** */ Update worker statistics */
 
   updateWorkerStats(workerId, updates) {
     const current = this.workerStats.get(workerId);
@@ -129,7 +129,7 @@ constructor((options = {}));
     //     }
   //   }
 
-/** Execute a task using worker threads */
+/** */ Execute a task using worker threads */
 
   async executeTask(_task) { 
     // return new Promise((_resolve, _reject) => ``
@@ -152,7 +152,7 @@ constructor((options = {}));
     this.assignTaskToWorker(availableWorker, task);
   //   }
 
-/** Select an available worker using load balancing strategy */
+/** */ Select an available worker using load balancing strategy */
 
   selectAvailableWorker() {
     const idleWorkers = Array.from(this.workerStats.entries());``
@@ -173,7 +173,7 @@ map(([workerId]) => workerId);
     // return worker;
     //   // LINT: unreachable code removed}
 
-/** Select least busy worker */
+/** */ Select least busy worker */
 
     selectLeastBusy(idleWorkers);
 
@@ -226,7 +226,7 @@ map(([workerId]) => workerId);
       console.error(`Failed to restart worker \$workerId);`
   //   }
 
-/** Start health monitoring for workers */
+/** */ Start health monitoring for workers */
 
   startHealthMonitoring() {
     setInterval(() => {
@@ -243,7 +243,7 @@ map(([workerId]) => workerId);
     , 30000) // Check every 30 seconds
   //   }
 
-/** Get pool status and metrics */
+/** */ Get pool status and metrics */
 
   getStatus() {
     const workers = Array.from(this.workerStats.values());

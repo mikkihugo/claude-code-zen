@@ -1,12 +1,12 @@
-/** Claude Code Provider for AI Service */
-/** Uses Claude Code CLI for AI generation without API keys */
-/** Based on claude-task-master implementation */
+/** */ Claude Code Provider for AI Service */
+/** */ Uses Claude Code CLI for AI generation without API keys */
+/** */ Based on claude-task-master implementation */
 
-import { exec } from 'node:child_process';
+import { exec } from ''node:child_process';
 ('');
 '
 
-import { promisify } from 'node:util';
+import { promisify } from ''node:util';
 ('');
 
 const execAsync = promisify(exec);

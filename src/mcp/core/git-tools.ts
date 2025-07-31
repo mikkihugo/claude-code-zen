@@ -1,13 +1,13 @@
-/** Git Tools for MCP Server */
-/** Provides comprehensive Git operations through MCP protocol */
+/** */ Git Tools for MCP Server */
+/** */ Provides comprehensive Git operations through MCP protocol */
 
 */
 
-import { exec } from 'node:child_process';
+import { exec } from ''node:child_process';
 ('');
 '
 
-import { promisify } from 'node:util';
+import { promisify } from ''node:util';
 ('');
 
 const _execAsync = promisify(exec);
@@ -15,7 +15,7 @@ const _execAsync = promisify(exec);
 // GIT TYPES
 // =============================================================================
 
-/** Git command execution result */
+/** */ Git command execution result */
 
 // export // interface GitCommandResult {success = ============================================================================
 // // GIT COMMAND EXECUTION
@@ -41,7 +41,7 @@ const _execAsync = promisify(exec);
 // GIT TOOLS REGISTRY
 // =============================================================================
 
-/** Git tools configuration */
+/** */ Git tools configuration */
 ``
 // export const gitTools = {git_status = 'status''
 if (args.short) cmd += ' -s';
@@ -418,7 +418,7 @@ $;
 // REGISTRATION FUNCTIONS
 // =============================================================================
 
-/** Tool registry interface for registration */
+/** */ Tool registry interface for registration */
 
 // export // interface ToolsRegistry {
 //   registerTool(name => {

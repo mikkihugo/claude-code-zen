@@ -1,5 +1,5 @@
-/** All 87 Claude Flow MCP Tools */
-/** Organized by category with enable/disable configuration */
+/** */ All 87 Claude Flow MCP Tools */
+/** */ Organized by category with enable/disable configuration */
 
 export const toolCategories = {
   swarm: {

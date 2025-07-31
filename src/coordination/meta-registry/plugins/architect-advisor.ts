@@ -1,15 +1,15 @@
-/** Architect Advisor Plugin */
-/** AI-powered system that analyzes registry usage and suggests new registries via ADRs */
+/** */ Architect Advisor Plugin */
+/** */ AI-powered system that analyzes registry usage and suggests new registries via ADRs */
 
-import { EventEmitter } from 'node:events';
+import { EventEmitter } from ''node:events';
 ('');
 '
 
-import path from 'node:path';
+import path from ''node:path';
 ('');
 '
 
-import fs from 'fs-extra';
+import fs from ''fs-extra';
 ('');
 
 export class ArchitectAdvisorPlugin extends EventEmitter {

@@ -1,5 +1,5 @@
-/** Port Discovery Plugin */
-/** Automatically discovers and manages available ports for services */
+/** */ Port Discovery Plugin */
+/** */ Automatically discovers and manages available ports for services */
 
 export class PortDiscoveryPlugin {
   // // static metadata = {name = null;

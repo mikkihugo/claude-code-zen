@@ -1,9 +1,9 @@
-/** Tests for CLI error handling system */
-/** Implements Google's testing best practices;' */
+/** */ Tests for CLI error handling system */
+/** */ Implements Google's testing best practices;' */
 
 */'
 import { describe, expect } from
-'@jest";
+''@jest";
 
 import {
   CliError,

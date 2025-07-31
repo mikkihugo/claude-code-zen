@@ -1,7 +1,7 @@
-/** Tests for command-registry.js */
+/** */ Tests for command-registry.js */
 
 import { jest } from
-'@jest";
+''@jest";
 import {
   commandRegistry,
   executeCommand,

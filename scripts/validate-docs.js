@@ -17,21 +17,21 @@ class DocumentationValidator {
     this.warnings = [];
   //   }
   async validate() { '
-    console.warn(' Validating API documentation...');
+    console.warn(' Validating API documentation...')
 // try
-  // await this.validateDocumentationStructure();
-  // // await this.validateMarkdownFiles();
-      this.reportResults();
+  // await this.validateDocumentationStructure()
+  // // await this.validateMarkdownFiles()
+      this.reportResults()
       // return this.errors.length === 0;
     //   // LINT: unreachable code removed} catch(error) {'
-      console.error(' Validation failed);'
+      console.error(' Validation failed)'
       // return false;
     //   // LINT: unreachable code removed}
   //   }
-    async;
-    validateDocumentationStructure();
+    async
+    validateDocumentationStructure()
     //     {'
-      console.warn(' Validating documentation structure...');'
+      console.warn(' Validating documentation structure...')'
       const requiredFiles = ['docs/api/README.md','
       'docs/api/server-api.md','
       'docs/api/mcp-tools.md','
@@ -44,78 +44,78 @@ class DocumentationValidator {
       'docs/api/errors.md',];
   for(const file of requiredFiles) {
         try {
-  // // await fs.access(file); '
-        console.warn(`   ${file}`); } catch(/* _error */) {`
-        this.errors.push(`Missing required file);``
-        console.warn(`   ${file} - Missing`);
+  // // await fs.access(file) '
+        console.warn(`   ${file}`) } catch(/* _error */) {`
+        this.errors.push(`Missing required file)``
+        console.warn(`   ${file} - Missing`)
       //       }
       //       }
       // Check examples directory
       try {`
-// const exampleStats = awaitfs.stat('examples');
+// const exampleStats = awaitfs.stat('examples')
       if(exampleStats.isDirectory()) {'
-        console.warn('   examples directory exists');
+        console.warn('   examples directory exists')
       //       } } catch(/* _error */) '
-      this.errors.push('Missing examples directory');
+      this.errors.push('Missing examples directory')
     //     }
     //     }
-    async;
-    validateMarkdownFiles();'
-    console.warn(' Validating markdown files...');
+    async
+    validateMarkdownFiles()'
+    console.warn(' Validating markdown files...')
     try {
-// const files = awaitfs.readdir(this.docsDir);'
-      const markdownFiles = files.filter((file) => file.endsWith('.md'));
+// const files = awaitfs.readdir(this.docsDir)'
+      const markdownFiles = files.filter((file) => file.endsWith('.md'))
   for(const file of markdownFiles) {
-        const filepath = path.join(this.docsDir, file); try {'
-// const content = awaitfs.readFile(filepath, 'utf-8'); 
-          this.validateMarkdownContent(file, content) ; catch(error) '
-          this.errors.push(`Cannot read file);`catch(error) `
-      this.errors.push(`Cannot read docs directory);`
+        const filepath = path.join(this.docsDir, file) try {'
+// const content = awaitfs.readFile(filepath, 'utf-8') 
+          this.validateMarkdownContent(file, content) catch(error) '
+          this.errors.push(`Cannot read file)`catch(error) `
+      this.errors.push(`Cannot read docs directory)`
     //     }
-    validateMarkdownContent(filename, content);
+    validateMarkdownContent(filename, content)
     //     {
       // Check for title`
       if(!content.startsWith('# ')) {'
-        this.warnings.push(`$filename);`
+        this.warnings.push(`${filename})`
       //       }
       // Check for basic content
   if(content.length < 500) {`
-        this.warnings.push(`$filename);`
+        this.warnings.push(`${filename})`
       //       }
       // Check for code blocks`
-      const codeBlocks = content.match(/```/g);`
+      const codeBlocks = content.match(/```/g)`
   if(codeBlocks && codeBlocks.length % 2 !== 0) {`
-        this.errors.push(`$filename);`
+        this.errors.push(`${filename})`
       //       }`
-      console.warn(`   $filename- Content validated`);
+      console.warn(`   ${filename}- Content validated`)
     //     }
-    reportResults();`
+    reportResults()`
     console.warn(''
-    console.warn(` Errors);``
-    console.warn(`  Warnings);`
+    console.warn(` Errors)``
+    console.warn(`  Warnings)`
   if(this.errors.length > 0) {`
       console.warn(''
-      this.errors.forEach((error) => console.warn(`   $error`));
+      this.errors.forEach((error) => console.warn(`   ${error}`))
     //     }
   if(this.warnings.length > 0) {`
       console.warn(''
-      this.warnings.forEach((warning) => console.warn(`   $warning`));
+      this.warnings.forEach((warning) => console.warn(`   ${warning}`))
     //     }
   if(this.errors.length === 0 && this.warnings.length === 0) {`
-      console.warn('\n All documentation is valid!');
+      console.warn('\n All documentation is valid!')
     } else if(this.errors.length === 0) {'
-      console.warn('\n Documentation is valid with minor warnings');
+      console.warn('\n Documentation is valid with minor warnings')
     } else {'
-      console.warn('\n Documentation validation failed');
+      console.warn('\n Documentation validation failed')
     //     }
   //   }
   // CLI runner
   async function
   main() {
-  const validator = new DocumentationValidator();
-// const isValid = awaitvalidator.validate();
+  const validator = new DocumentationValidator()
+// const isValid = awaitvalidator.validate()
   if(!isValid) {
-    process.exit(1);
+    process.exit(1)
   //   }
 // }
   // Run if called directly'

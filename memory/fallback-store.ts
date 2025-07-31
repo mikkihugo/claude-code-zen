@@ -94,14 +94,15 @@ export class FallbackStore implements MemoryStore {
   private initialized: boolean;
 
   constructor() {
-    this.memory = new Map<string, StoreEntry>();
-    this.contexts = new Map<string, ContextItem[]>();
+    this.memory = new Map<string, StoreEntry>()
+    this.contexts = new Map<string, ContextItem[]>()
     this.initialized = false;
   }
 
   /** Initialize the fallback store
    * @returns Initialization result
    */
+
   async initialize(): Promise<StoreResult> {
     this.initialized = true;
     return { success: true, message: 'Fallback store initialized' };
@@ -113,6 +114,7 @@ export class FallbackStore implements MemoryStore {
    * @param options - Storage options
    * @returns Store operation result
    */
+
   async store(key: string, value: unknown, options: StoreOptions = {}): Promise<StoreResult> {
     try {
       const entry: StoreEntry = {
@@ -121,10 +123,10 @@ export class FallbackStore implements MemoryStore {
         ttl: options.ttl ?? null,
         metadata: options.metadata ?? {}
       };
-      this.memory.set(key, entry);
+      this.memory.set(key, entry)
       return { success: true, key };
     } catch(error) {
-      console.error('Fallback store error:', error);
+      console.error('Fallback store error:', error)
       return { success: false, error: (error as Error).message };
     }
   }
@@ -133,16 +135,17 @@ export class FallbackStore implements MemoryStore {
    * @param key - Storage key
    * @returns Retrieve operation result
    */
+
   async retrieve(key: string): Promise<RetrieveResult> {
     try {
-      const entry = this.memory.get(key);
+      const entry = this.memory.get(key)
       if (!entry) {
         return { success: false, error: 'Key not found' };
       }
 
       // Check TTL expiration
       if (entry.ttl && entry.timestamp + entry.ttl < Date.now()) {
-        this.memory.delete(key);
+        this.memory.delete(key)
         return { success: false, error: 'Key expired' };
       }
 
@@ -153,7 +156,7 @@ export class FallbackStore implements MemoryStore {
         timestamp: new Date(entry.timestamp).toISOString()
       };
     } catch(error) {
-      console.error('Fallback retrieve error:', error);
+      console.error('Fallback retrieve error:', error)
       return { success: false, error: (error as Error).message };
     }
   }
@@ -162,90 +165,100 @@ export class FallbackStore implements MemoryStore {
    * @param pattern - Optional pattern to match
    * @returns List operation result
    */
+
   async list(pattern?: string): Promise<ListResult> {
     try {
-      let keys = Array.from(this.memory.keys());
+      let keys = Array.from(this.memory.keys())
       
       if (pattern) {
-        const regex = new RegExp(pattern);
-        keys = keys.filter(key => regex.test(key));
+        const regex = new RegExp(pattern)
+        keys = keys.filter(key => regex.test(key))
       }
 
       return { success: true, keys };
     } catch(error) {
-      console.error('Fallback list error:', error);
+      console.error('Fallback list error:', error)
       return { success: false, error: (error as Error).message };
     }
   }
 
-  /** Delete a key
+  /** Delete a key 
    * @param key - Storage key
    * @returns Store operation result
    */
+
   async delete(key: string): Promise<StoreResult> {
     try {
-      const existed = this.memory.has(key);
+      const existed = this.memory.has(key)
       if (existed) {
-        this.memory.delete(key);
+        this.memory.delete(key)
         return { success: true, key, deleted: 1 };
       } else {
         return { success: false, error: 'Key not found' };
       }
     } catch(error) {
-      console.error('Fallback delete error:', error);
+      console.error('Fallback delete error:', error)
       return { success: false, error: (error as Error).message };
     }
   }
 
-  /** Clear all stored data
+  /** Clear all stored data 
    * @returns Store operation result
    */
+
+
   async clear(): Promise<StoreResult> {
     try {
       const count = this.memory.size;
-      this.memory.clear();
-      this.contexts.clear();
+      this.memory.clear()
+      this.contexts.clear()
       return { success: true, deleted: count, message: 'All data cleared' };
     } catch(error) {
-      console.error('Fallback clear error:', error);
+      console.error('Fallback clear error:', error)
       return { success: false, error: (error as Error).message };
     }
   }
 
-  /** Get context items
+  /** Get context items 
    * @param contextId - Context identifier
    * @returns Context operation result
    */
+
+
   async getContext(contextId: string): Promise<ContextResult> {
     try {
       const context = this.contexts.get(contextId) || [];
       return { success: true, context };
     } catch(error) {
-      console.error('Fallback getContext error:', error);
+      console.error('Fallback getContext error:', error)
       return { success: false, error: (error as Error).message };
     }
   }
 
-  /** Add item to context
+  /** Add item to context 
    * @param contextId - Context identifier
    * @param item - Context item to add
    * @returns Store operation result
    */
+
+
   async addToContext(contextId: string, item: ContextItem): Promise<StoreResult> {
     try {
       const context = this.contexts.get(contextId) || [];
-      context.push({ ...item, timestamp: Date.now() });
-      this.contexts.set(contextId, context);
+      context.push({ ...item, timestamp: Date.now() })
+      this.contexts.set(contextId, context)
       return { success: true, contextId, itemCount: context.length };
     } catch(error) {
-      console.error('Fallback addToContext error:', error);
+      console.error('Fallback addToContext error:', error)
       return { success: false, error: (error as Error).message };
     }
   }
 
-  /** Get storage statistics
+  /** Get storage statistics 
    * @returns Stats operation result
    */
+
+
   async getStats(): Promise<StatsResult> {
     try {
       const stats = {
@@ -255,7 +268,7 @@ export class FallbackStore implements MemoryStore {
       };
       return { success: true, stats };
     } catch(error) {
-      console.error('Fallback getStats error:', error);
+      console.error('Fallback getStats error:', error)
       return { success: false, error: (error as Error).message };
     }
   }

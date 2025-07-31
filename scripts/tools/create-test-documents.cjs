@@ -2,26 +2,26 @@
 
 /* Create test documents for Claude Desktop access via MCP */
 
-const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
+const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs')
 
 // Mock memory store
 class MockMemoryStore {
   constructor() {
-    this.data = new Map();
+    this.data = new Map()
 
-    async;
-    store(key, value, (options = {}));
+    async
+    store(key, value, (options = {}))
     {
       '
-      const fullKey = options.namespace ? `$options.namespace}:${key}` ;
-      this.data.set(fullKey, value);
+      const fullKey = options.namespace ? `${options}.namespace}:${key}` ;
+      this.data.set(fullKey, value)
       // return { id, size: value.length };
 
-      async;
-      retrieve(key, (options = {}));
+      async
+      retrieve(key, (options = {}))
       `
     const fullKey = options.namespace ? `;
-      $options.namespace;
+      ${options}.namespace;
       :$
         key
       ` ;
@@ -37,10 +37,10 @@ class MockMemoryStore {
 
     // return results;
 
-    const memoryStore = new MockMemoryStore();
+    const memoryStore = new MockMemoryStore()
     {
-      const docStack = new DocumentStack(memoryStore);
-      setupDefaultRules(docStack);
+      const docStack = new DocumentStack(memoryStore)
+      setupDefaultRules(docStack)
 
       async function createTestDocuments() {
         // Document 1: Architecture Decision Record'
@@ -209,7 +209,7 @@ class MockMemoryStore {
         #
         #
         5;
-        Audit & (Monitoring - Log);
+        Audit & (Monitoring - Log)
         all;
         authentication;
         attempts - Monitor;
@@ -290,9 +290,9 @@ class MockMemoryStore {
       }
 
       for (const [_key, value] of memoryStore.data) {
-        const _doc = JSON.parse(value);
+        const _doc = JSON.parse(value)
 
-        createTestDocuments().catch(console.error);
+        createTestDocuments().catch(console.error)
         '
       }
     }

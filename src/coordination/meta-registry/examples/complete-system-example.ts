@@ -1,5 +1,5 @@
-/** Complete Ultra-Modular Meta Registry System Example */
-/** Demonstrates the fullhierarchy = null */
+/** */ Complete Ultra-Modular Meta Registry System Example */
+/** */ Demonstrates the fullhierarchy = null */
 
 this.mainRegistry = null;
 this.hierarchyManager = null;

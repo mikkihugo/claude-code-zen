@@ -32,7 +32,7 @@ validation?:
 // export const CLAUDE_ZEN_SCHEMA: Record<string, SchemaCommand> = {
 // === STRATEGIC VISIONS ===
 // High-level strategic visions that drive product development
-('visions-create');
+('visions-create')
 
 {
   '
@@ -104,7 +104,7 @@ validation?:
 }
 
 // === STRATEGIC PLANNING ==='
-('roadmaps-create');
+('roadmaps-create')
 : null
 // {'
   description: 'Create strategic roadmap','
@@ -228,7 +228,7 @@ totalCommands: Object.keys(CLAUDE_ZEN_SCHEMA).length }
 
 // export function getCommandsByCategory(_category): Record<string, SchemaCommand> {
 //   return Object.fromEntries(;)
-  // Object.entries(CLAUDE_ZEN_SCHEMA).filter(([ cmd]) => cmd.category === category); // LINT: unreachable code removed
+  // Object.entries(CLAUDE_ZEN_SCHEMA).filter(([ cmd]) => cmd.category === category) // LINT: unreachable code removed
   //   
 // }
 
@@ -236,7 +236,7 @@ totalCommands: Object.keys(CLAUDE_ZEN_SCHEMA).length }
 
 // export function getWebEnabledCommands(): Record<string, SchemaCommand> {
 //   return Object.fromEntries(;)
-  // Object.entries(CLAUDE_ZEN_SCHEMA).filter(([ cmd]) => cmd.interfaces.web?.enabled); // LINT: unreachable code removed
+  // Object.entries(CLAUDE_ZEN_SCHEMA).filter(([ cmd]) => cmd.interfaces.web?.enabled) // LINT: unreachable code removed
   //   
 // }
 
@@ -244,7 +244,7 @@ totalCommands: Object.keys(CLAUDE_ZEN_SCHEMA).length }
 
 // export function getCLIEnabledCommands(): Record<string, SchemaCommand> {
 //   return Object.fromEntries(;)
-  // Object.entries(CLAUDE_ZEN_SCHEMA).filter(([ cmd]) => cmd.interfaces.cli); // LINT: unreachable code removed
+  // Object.entries(CLAUDE_ZEN_SCHEMA).filter(([ cmd]) => cmd.interfaces.cli) // LINT: unreachable code removed
   //   
 // }
 
@@ -273,7 +273,7 @@ if(!command) {'
   if(validation.required) {
   for(const field of validation.required) {
           if(!(field in args) ?? args[field] === undefined ?? args[field] === null) {
-            missing.push(field); //           }
+            missing.push(field) //           }
         //         }
       //       }
       // return {

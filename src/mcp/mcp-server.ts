@@ -5,23 +5,23 @@ Claude - Flow;
 MCP;
 Server;
 
-/** Clean architecture implementation of the Model Context Protocol server */
+/** */Clean architecture implementation of the Model Context Protocol server */
 
 MCPServerRefactored * /;
 
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from ''node:url';
 ('');
 '
 
-import { NeuralEngine } from '../neural/neural-engine.js';
+import { NeuralEngine } from ''../neural/neural-engine.js';
 '
 
-import { MCPErrorHandler } from './core/error-handler.js';
+import { MCPErrorHandler } from ''./core/error-handler.js';
 '
 
-import { PerformanceMetrics } from './core/performance-metrics.js';
+import { PerformanceMetrics } from ''./core/performance-metrics.js';
 '
-// import { StdioOptimizer  } from './core/stdio-optimizer.js''
+// import { StdioOptimizer  } from ''./core/stdio-optimizer.js''
 
 // Try to import dependencies, fall back to mocks if not available
 let SqliteMemoryStore, RuvSwarm, initializeAllTools, MCPMessageHandler, MCPToolExecutor;
@@ -78,13 +78,13 @@ class {
   MCPToolExecutor = class {
     async executeTool(_name, _args) { 
       // return tool = fileURLToPath(import.meta.url);
-    // /** // LINT: unreachable code removed */
+    // /** */ // LINT: unreachable code removed */
 // Refactored Claude Flow MCP Server
 // Implements MCP protocol with clean modular architecture
 
 // export class ClaudeFlowMCPServer {
 
- * @param Objectoptions - Server configuration options
+ // @param Objectoptions - Server configuration options
 
   constructor(_options = {}) '
     this.version = '2.0.0-alpha.70''
@@ -121,67 +121,58 @@ class {
       this.shutdown());
   //   }
 
-/** Process a batch of messages */
-   * @param Arraybatch - Array of message objects
-
-  async processBatch(batch) { 
-    const batchStartTime = Date.now();
-    this.performanceMetrics.recordBatchMetrics(batch.length, 0); // Will update processing time later
-``
-    console.error(`[$new Date().toISOString()] DEBUG [MCP-Server] Processing batch of $batch.lengthmessages`);``
-  for(const item of batch) {``
-      const { message, receivedAt } = item; const requestId = message.id  ?? `req-$Date.now()-$Math.random().toString(36).substr(2, 4)`; ``
-
-      try {
-        // Record request start for metrics
-        this.performanceMetrics.recordRequestStart(requestId, {method = // // await this.errorHandler.executeWithRetry(;/g))
-          () {=> this.handleMessage(message),operation = this.errorHandler.createErrorResponse();
-          message.id,
-          error,operation = Date.now() - batchStartTime;
-    this.performanceMetrics.recordBatchMetrics(batch.length, batchProcessingTime);
-
-    // Update memory metrics
-    this.performanceMetrics.updateMemoryMetrics(this.stdioOptimizer.messageBuffer?.length  ?? 0);
-
-/** Handle individual message errors */
-   * @param Errorcatch (error) console.error(error)error - The error that occurred
-   * @param {Object} message - The message that caused the error
-
-  async handleMessageError(error, message): unknown
-    this.performanceMetrics.recordError(error, messageId = this.errorHandler.createErrorResponse();
-      message?.id  ?? null,
-      error)
-      {operation = this.performanceMetrics.getMetrics();
-    const _stdioMetrics = this.stdioOptimizer.getMetrics();
-    const _errorStats = this.errorHandler.getErrorStats();
-
-    // return {performanceMetrics = Array.from(this.swarms.entries()).map(([id, _swarm]) => ({``
-      id,status = // // await this.memoryStore.search('swarm:', {namespace = > ({ ...s,status = // await this.memoryStore.search('agent:', {namespace = > a.type))],lastUpdated = // await this.memoryStore.search('task:', {namespace = > t.status))],lastUpdated = this.toolExecutor.getExecutionStats()
-    // ; // LINT: unreachable code removed
-    // return {toolExecutionStats = this.performanceMetrics.generateReport()
-    // console.error(`[\${new Date().toISOString() // LINT] INFO [MCP-Server] Final performancereport = this.performanceMetrics ? this.performanceMetrics.getMetrics() };`
-    const stdioMetrics = this.stdioOptimizer ? this.stdioOptimizer.getMetrics() : {};
-    const errorStats = this.errorHandler ? this.errorHandler.getErrorStats() : {};
-
-    // return {version = = false;``
-    //   // LINT: unreachable code removed},errors = === `file://${__filename}`) {``
-    const server = new ClaudeFlowMCPServer();
-
-    // Setup graceful shutdown``
-    process.on('SIGINT', async() => {'
-// // await server.shutdown();
-      process.exit(0)})
-    process.on('SIGTERM', async() => {'
-// // await server.shutdown();
-      process.exit(0)});
-// // // await server.start();
-  //   }
-
-// Export for use as module(class already exported above)
-// export default ClaudeFlowMCPServer;
-
-// Start server if run directly
-startMCPServer().catch(error => {)'
-  console.error(`[$new Date().toISOString()] FATAL [MCP-Server] Failed to start:`, error);``
-  process.exit(1)})}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))
-``
+/** */ Process a batch of messages
+    // @param Arraybatch - Array of message objects
+    // async processBatch(batch) {
+    // const batchStartTime = Date.now();
+    // this.performanceMetrics.recordBatchMetrics(batch.length, 0); // Will update processing time later
+    // ``
+    // console.error(`[$new Date().toISOString()] DEBUG [MCP-Server] Processing batch of $batch.lengthmessages`);``
+    // for(const item of batch) {``
+    // const { message, receivedAt } = item; const requestId = message.id  ?? `req-$Date.now()-$Math.random().toString(36).substr(2, 4)`; ``
+    // try {
+    // // Record request start for metrics
+    // this.performanceMetrics.recordRequestStart(requestId, {method = // // await this.errorHandler.executeWithRetry(;/g))
+    // () {=> this.handleMessage(message),operation = this.errorHandler.createErrorResponse();
+    // message.id,
+    // error,operation = Date.now() - batchStartTime;
+    // this.performanceMetrics.recordBatchMetrics(batch.length, batchProcessingTime);
+    // // Update memory metrics
+    // this.performanceMetrics.updateMemoryMetrics(this.stdioOptimizer.messageBuffer?.length  ?? 0);
+    // /** */ Handle individual message errors */
+    // @param Errorcatch (error) console.error(error)error - The error that occurred
+    // @param {Object} message - The message that caused the error
+    // async handleMessageError(error, message): unknown
+    // this.performanceMetrics.recordError(error, messageId = this.errorHandler.createErrorResponse();
+    // message?.id  ?? null,
+    // error)
+    // {operation = this.performanceMetrics.getMetrics();
+    // const _stdioMetrics = this.stdioOptimizer.getMetrics();
+    // const _errorStats = this.errorHandler.getErrorStats();
+    // // return {performanceMetrics = Array.from(this.swarms.entries()).map(([id, _swarm]) => ({``
+    // id,status = // // await this.memoryStore.search('swarm:', {namespace = > ({ ...s,status = // await this.memoryStore.search('agent:', {namespace = > a.type))],lastUpdated = // await this.memoryStore.search('task:', {namespace = > t.status))],lastUpdated = this.toolExecutor.getExecutionStats()
+    // // ; // LINT: unreachable code removed
+    // // return {toolExecutionStats = this.performanceMetrics.generateReport()
+    // // console.error(`[\${new Date().toISOString() // LINT] INFO [MCP-Server] Final performancereport = this.performanceMetrics ? this.performanceMetrics.getMetrics() };`
+    // const stdioMetrics = this.stdioOptimizer ? this.stdioOptimizer.getMetrics() : {};
+    // const errorStats = this.errorHandler ? this.errorHandler.getErrorStats() : {};
+    // // return {version = = false;``
+    // //   // LINT: unreachable code removed},errors = === `file://${__filename}`) {``
+    // const server = new ClaudeFlowMCPServer();
+    // // Setup graceful shutdown``
+    // process.on('SIGINT', async() => {'
+    // // // await server.shutdown();
+    // process.exit(0)})
+    // process.on('SIGTERM', async() => {'
+    // // // await server.shutdown();
+    // process.exit(0)});
+    // // // // await server.start();
+    // //   }
+    // // Export for use as module(class already exported above)
+    // // export default ClaudeFlowMCPServer;
+    // // Start server if run directly
+    // startMCPServer().catch(error => {)'
+    // console.error(`[$new Date().toISOString()] FATAL [MCP-Server] Failed to start:`, error);``
+    // process.exit(1)})}}}}}}}}}}}}}}}}}}}}}}}}}}}))))))))))))
+    // ``
+    */

@@ -2,7 +2,7 @@
 
 /*  ENHANCED MEOW + INK INTEGRATION */
 
-/** Modern CLI with advanced TUIfeaturing = () => { */
+/** */ Modern CLI with advanced TUIfeaturing = () => { */
 
 const filled = Math.floor((progress / 100) * width);
 const empty = width - filled;

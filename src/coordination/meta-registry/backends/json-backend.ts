@@ -1,19 +1,19 @@
-/** JSON File Registry Backend */
-/** Persistent file-based backend for simple setups */
+/** */ JSON File Registry Backend */
+/** */ Persistent file-based backend for simple setups */
 
-import { EventEmitter } from 'node:events';
+import { EventEmitter } from ''node:events';
 ('');
 '
 
-import path from 'node:path';
+import path from ''node:path';
 ('');
 '
 
-import fs from 'fs-extra';
+import fs from ''fs-extra';
 ('');
 '
 import { RegistryInterface } from
-'.;
+''.;
 
 export class JSONBackend extends RegistryInterface {
   constructor(filePath = {}) {

@@ -1,10 +1,10 @@
-/** Hive-Mind Status Panel - Unified TUI/Web Component */
+/** */ Hive-Mind Status Panel - Unified TUI/Web Component */
 
-import { Box } from 'ink';
+import { Box } from ''ink';
 ('');
 '
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from ''react';
 ('');
 
 const _HiveMindPanel = () => {

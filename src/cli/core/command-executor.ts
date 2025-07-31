@@ -1,31 +1,31 @@
-/** Command execution engine - separated from argument parsing */
-/** Implements Google's single responsibility and dependency injection principles;' */
+/** */Command execution engine - separated from argument parsing */
+/** */ Implements Google's single responsibility and dependency injection principles;' */
 
 */'
 
-import type { CommandContext } from '../../types/cli.js';
+import type { CommandContext } from ''../../types/cli.js';
 '
 import logger, { ValidationError } from
-';
+'';
 
 // =============================================================================
 // TYPE DEFINITIONS
 // =============================================================================
 
-/** Command registry interface */
+/** */ Command registry interface */
 
 // export // interface CommandRegistry {get = > Command | undefined
 // has = > boolean
 // entries = > IterableIterator<[string
 // , Command]>
-// // } /** Command definition */
+// // } /** */ Command definition */
 
 // export // interface Command {handler = > void
 // onCommandComplete?: (commandName = > void;
 // onCommandError?: (commandName = > void;
 // // }
 
-/** Execution context */
+/** */ Execution context */
 
 // export // interface ExecutionContext extends CommandContext {commandName = ============================================================================
 // // COMMAND EXECUTOR CLASS
@@ -64,21 +64,21 @@ logger = options.logger ?? logger.createChild('executor');
   onCommandError = options.onCommandError
 // }
 
-/** Execute a command with proper error handling and logging */
+/** */ Execute a command with proper error handling and logging */
 
 commandName - Name;
 of;
 command;
 to;
 execute
- * @param subArgs - Command
+ // @param subArgs - Command
 arguments
- * @param flags - Command
+ // @param flags - Command
 flags
- * @param context - Additional
+ // @param context - Additional
 execution;
 context
- * @returns Promise
+ // @returns Promise
 resolving;
 to;
 command;
@@ -117,142 +117,121 @@ catch(reject);
 finally(() => clearTimeout(timeoutId))});
   //   }
 
-/** List available commands */
-   * @param includeHidden - Whether to include hidden commands
-   * @returns Array of command information
-
-    // */; // LINT: unreachable code removed
-  // // public listCommands(includeHidden = false): CommandListItem[] {
-    const commands = [];
-
-    for (const [name, command] of this.commandRegistry.entries()) {
-  if(includeHidden  ?? !command.hidden) {
-        commands.push({)
-          name,description = > a.name.localeCompare(b.name)); //   }
-
-/** Get command information */
-   * @param commandName - Name of command
-   * @returns Command information or null if not found
-
-    // */; // LINT: unreachable code removed
-  // // public getCommandInfo(commandName = this.commandRegistry.get(commandName) {
-  if(!command) {
-      // return null;
-    //   // LINT: unreachable code removed}
-
-    // return {name = this.commandRegistry.get(commandName);
-    // if(!command) { // LINT: unreachable code removed``
-      throw new ValidationError(`Unknowncommand = [];`
-  for(const cmd of commands) {
-// const result = awaitthis.executeCommand();
-        cmd.name,
-        cmd.args  ?? [],
-        cmd.flags  ?? {},
-        cmd.context  ?? {}
-      ); results.push(result) 
-    //     }
-
-    // return results;
-    //   // LINT: unreachable code removed}
-
-/** Execute multiple commands in parallel */
-   * @param commands - Array of command specifications
-   * @returns Array of results(in same order as input)
-
-    // */; // LINT: unreachable code removed
-  public;
-  async;
-  executeParallel(commands = commands.map(_cmd =>;
-      this.executeCommand();
-        cmd.name,
-        cmd.args  ?? [],
-        cmd.flags  ?? {},
-        cmd.context  ?? {})
-      );
-    );
-
-  // return Promise.all(promises);
-// }
-
-/** Get execution metrics */
- * @returns Current executor metrics
-    // */; // LINT: unreachable code removed
-public;
-getMetrics();
-: Record<string, any>;
-  // return {timeout = = undefined) this.timeout = options.timeout;
-    // if(options.retries !== undefined) this.retries = options.retries; // LINT: unreachable code removed
-  if(options.onCommandStart) this.onCommandStart = options.onCommandStart;
-  if(options.onCommandComplete) this.onCommandComplete = options.onCommandComplete;
-  if(options.onCommandError) this.onCommandError = options.onCommandError;
-
-/** Check if error should trigger a retry */
- * @param error - Error to check
- * @returns True if should retry
-
-    // */; // LINT: unreachable code removed
-private;
-shouldRetry(error);
-``
-  // Don't retry validation errors'
-  if(error instanceof ValidationError) {
-    // return false;
-    //   // LINT: unreachable code removed}
-'
-  // Don'
-  if(error.message.includes('timed out')) {'
-    // return false;
-    //   // LINT: unreachable code removed}
-
-  // Retry other errors
-  // return true;
-// }
-
-/** Sleep for specified milliseconds */
- * @param ms - Milliseconds to sleep
- * @returns Promise that resolves after delay
-
-    // */; // LINT: unreachable code removed
-private;
-sleep(ms = > setTimeout(resolve, ms));
-// }
-
-// =============================================================================
-// FACTORY FUNCTIONS
-// =============================================================================
-
-/** Create command executor with default dependencies */
- * @param commandRegistry - Command registry
- * @param options - Executor options
- * @returns Command executor instance
-
-    // */; // LINT: unreachable code removed
-// export function _createCommandExecutor(commandRegistry = {}) {
-//   return new CommandExecutor(commandRegistry, options);
-// }
-
-/** Create command executor with enhanced error handling */
- * @param commandRegistry - Command registry
- * @param options - Executor options
- * @returns Command executor with enhanced error handling
-
-    // */; // LINT: unreachable code removed
-// export function _createRobustCommandExecutor(_commandRegistry = {}) {
-  const _enhancedOptions = {
-      timeout => {'
-      logger.error(`Command '${commandName}' failed after $durationms`, {`)`
-        error);
-  if(options.onCommandError) {
-        options.onCommandError(commandName, error, duration);
-      //       }
-    //     }
-  };
-
-  // return new CommandExecutor(commandRegistry, enhancedOptions);
-// }
-
-}}}}}}}}})
-  )))))
-``
-}
-}
+/** */ List available commands
+    // @param includeHidden - Whether to include hidden commands
+    // @returns Array of command information
+    // // */; // LINT: unreachable code removed
+    // // // public listCommands(includeHidden = false): CommandListItem[] {
+    // const commands = [];
+    // for (const [name, command] of this.commandRegistry.entries()) {
+    // if(includeHidden  ?? !command.hidden) {
+    // commands.push({)
+    // name,description = > a.name.localeCompare(b.name)); //   }
+    // /** */ Get command information */
+    // @param commandName - Name of command
+    // @returns Command information or null if not found
+    // // */; // LINT: unreachable code removed
+    // // // public getCommandInfo(commandName = this.commandRegistry.get(commandName) {
+    // if(!command) {
+    // // return null;
+    // //   // LINT: unreachable code removed}
+    // // return {name = this.commandRegistry.get(commandName);
+    // // if(!command) { // LINT: unreachable code removed``
+    // throw new ValidationError(`Unknowncommand = [];`
+    // for(const cmd of commands) {
+    // // const result = awaitthis.executeCommand();
+    // cmd.name,
+    // cmd.args  ?? [],
+    // cmd.flags  ?? {},
+    // cmd.context  ?? {}
+    // ); results.push(result)
+    // //     }
+    // // return results;
+    // //   // LINT: unreachable code removed}
+    // /** */ Execute multiple commands in parallel */
+    // @param commands - Array of command specifications
+    // @returns Array of results(in same order as input)
+    // // */; // LINT: unreachable code removed
+    // public;
+    // async;
+    // executeParallel(commands = commands.map(_cmd =>;
+    // this.executeCommand();
+    // cmd.name,
+    // cmd.args  ?? [],
+    // cmd.flags  ?? {},
+    // cmd.context  ?? {})
+    // );
+    // );
+    // // return Promise.all(promises);
+    // // }
+    // /** */ Get execution metrics */
+    // @returns Current executor metrics
+    // // */; // LINT: unreachable code removed
+    // public;
+    // getMetrics();
+    // : Record<string, any>;
+    // // return {timeout = = undefined) this.timeout = options.timeout;
+    // // if(options.retries !== undefined) this.retries = options.retries; // LINT: unreachable code removed
+    // if(options.onCommandStart) this.onCommandStart = options.onCommandStart;
+    // if(options.onCommandComplete) this.onCommandComplete = options.onCommandComplete;
+    // if(options.onCommandError) this.onCommandError = options.onCommandError;
+    // /** */ Check if error should trigger a retry */
+    // @param error - Error to check
+    // @returns True if should retry
+    // // */; // LINT: unreachable code removed
+    // private;
+    // shouldRetry(error);
+    // ``
+    // // Don't retry validation errors'
+    // if(error instanceof ValidationError) {
+    // // return false;
+    // //   // LINT: unreachable code removed}
+    // '
+    // // Don'
+    // if(error.message.includes('timed out')) {'
+    // // return false;
+    // //   // LINT: unreachable code removed}
+    // // Retry other errors
+    // // return true;
+    // // }
+    // /** */ Sleep for specified milliseconds */
+    // @param ms - Milliseconds to sleep
+    // @returns Promise that resolves after delay
+    // // */; // LINT: unreachable code removed
+    // private;
+    // sleep(ms = > setTimeout(resolve, ms));
+    // // }
+    // // =============================================================================
+    // // FACTORY FUNCTIONS
+    // // =============================================================================
+    // /** */ Create command executor with default dependencies */
+    // @param commandRegistry - Command registry
+    // @param options - Executor options
+    // @returns Command executor instance
+    // // */; // LINT: unreachable code removed
+    // // export function _createCommandExecutor(commandRegistry = {}) {
+    // //   return new CommandExecutor(commandRegistry, options);
+    // // }
+    // /** */ Create command executor with enhanced error handling */
+    // @param commandRegistry - Command registry
+    // @param options - Executor options
+    // @returns Command executor with enhanced error handling
+    // // */; // LINT: unreachable code removed
+    // // export function _createRobustCommandExecutor(_commandRegistry = {}) {
+    // const _enhancedOptions = {
+    // timeout => {'
+    // logger.error(`Command '${commandName}' failed after $durationms`, {`)`
+    // error);
+    // if(options.onCommandError) {
+    // options.onCommandError(commandName, error, duration);
+    // //       }
+    // //     }
+    // };
+    // // return new CommandExecutor(commandRegistry, enhancedOptions);
+    // // }
+    // }}}}}}}}})
+    // )))))
+    // ``
+    // }
+    // }
+    */

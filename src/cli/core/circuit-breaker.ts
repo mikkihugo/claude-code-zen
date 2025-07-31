@@ -1,8 +1,8 @@
-/** Circuit Breaker Implementation for Queen Operations */
-/** Provides fault tolerance and prevents cascading failures */
+/** */ Circuit Breaker Implementation for Queen Operations */
+/** */ Provides fault tolerance and prevents cascading failures */
 
 import { CliError } from
-';
+'';
 
 export class CircuitBreaker {
   constructor(options = {}) {
@@ -41,7 +41,7 @@ export class CircuitBreaker {
     //     }
 // }
 
-/** Get current state(simple read, no locking needed) */
+/** */ Get current state(simple read, no locking needed) */
 
 _getState();
 // {`;`
@@ -72,7 +72,7 @@ _getState();
       throw error;
   //   }
 
-/** Handle successful operation */
+/** */ Handle successful operation */
 
   async onSuccess() ;
     this.stats.totalSuccesses++;
@@ -91,7 +91,7 @@ _getState();
     //     }
   //   }
 
-/** Handle failed operation with simplified error handling */
+/** */ Handle failed operation with simplified error handling */
    *//g)'
   async onFailure(error, operationName = 'operation') 
     this.stats.totalFailures++;
@@ -133,7 +133,7 @@ _getState();
                   // return 'Unknown''
                   // ; // LINT: unreachable code removed
 
-                  /** Reset circuit breaker to closed state */
+                  /** */ Reset circuit breaker to closed state */
 
                   reset()
     this._changeState('CLOSED');'
@@ -146,7 +146,7 @@ _getState();
                     // return this.breakers.get(name);
                     // ; // LINT: unreachable code removed
 
-                    /** Execute operation with circuit breaker */
+                    /** */ Execute operation with circuit breaker */
                     '
   async execute(serviceName, operation, operationName = 'operation', config =
                     )
@@ -156,7 +156,7 @@ _getState();
                       // return breaker.execute(operation, operationName);
                       //   // LINT: unreachable code removed}
 
-                      /** Reset specific circuit breaker */
+                      /** */ Reset specific circuit breaker */
 
                       reset(serviceName);
                       const breaker = this.breakers.get(serviceName);
@@ -167,7 +167,7 @@ _getState();
                         // return false;
                         //   // LINT: unreachable code removed}
 
-                        /** Reset all circuit breakers */
+                        /** */ Reset all circuit breakers */
 
                         resetAll();
                         {
@@ -178,7 +178,7 @@ _getState();
                             // return resetCount;
                             //   // LINT: unreachable code removed}
 
-                            /** Get status of all circuit breakers */
+                            /** */ Get status of all circuit breakers */
 
                             getAllStatus();
                             {
@@ -188,7 +188,7 @@ _getState();
                                 // return status;
                                 //   // LINT: unreachable code removed}
 
-                                /** Get health summary */
+                                /** */ Get health summary */
 
                                 getHealthSummary();
                                 {

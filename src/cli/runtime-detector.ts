@@ -1,13 +1,13 @@
-/** Runtime Detector Module */
-/** Converted from JavaScript to TypeScript */
+/** */ Runtime Detector Module */
+/** */ Converted from JavaScript to TypeScript */
 
 // runtime-detector.js - Simple runtime detection for CLI compatibility
 
-import os from 'node:os';
+import os from ''node:os';
 ('');
 '
 
-import process from 'node:process';
+import process from ''node:process';
 ('');
 
 export const compat = {'

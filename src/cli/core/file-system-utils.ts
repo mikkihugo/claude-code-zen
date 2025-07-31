@@ -1,20 +1,20 @@
-/** File system utilities with consistent error handling */
-/** Implements Google's single responsibility principle;' */
-/** Provides type-safe file system operations with comprehensive error handling */
+/** */File system utilities with consistent error handling */
+/** */ Implements Google's single responsibility principle;' */
+/** */ Provides type-safe file system operations with comprehensive error handling */
 
 */'
 
-import { promises as fs } from 'node:fs';
+import { promises as fs } from ''node:fs';
 ('');
 '
 
-import path from 'node:path';
+import path from ''node:path';
 ('');
 '
 import logger, { CliError } from
-';
+'';
 
-/** Directory listing options */
+/** */ Directory listing options */
 
 // export // interface DirectoryListingOptions {
 //   filesOnly?;
@@ -23,7 +23,7 @@ import logger, { CliError } from
 //   recursive?;
 // // }
 
-/** File stats interface */
+/** */ File stats interface */
 '
 // export // interface FileStats {size = BufferEncoding | '
 // /\*\*/ / ,8;Eaacccdeeeeeefgiiiiinnnorrrrrsssssttttuxyy{};
@@ -78,68 +78,63 @@ throw new CliError(`Failed to remove '${targetPath}');'`'
 // }
 // }
 
-/** Move/rename file or directory */
- * @param sourcePath - Source path
- * @param destinationPath - Destination path
- * @returns Promise resolving to true if successful
-
-    // */ // LINT: unreachable code removed
-// export async function movePathSecurely(sourcePath = path.dirname(destinationPath);
-// await ensureDirectoryExists(destDir);
-// await fs.rename(sourcePath, destinationPath)
-logger.debug(`Pathmoved = await fs.stat(filePath);`
-//     return stats.isFile();
-    //   // LINT: unreachable code removed} catch {
-    // return false;
-    //   // LINT: unreachable code removed}
-// }
-
-/** Check if path is a directory */
- * @param dirPath - Path to check
- * @returns Promise resolving to true if path is a directory
-
-    // */; // LINT: unreachable code removed
-// export async function isDirectory(dirPath = // await fs.stat(dirPath);
-//     return stats.isDirectory();
-    //   // LINT: unreachable code removed} catch {
-//     return false;
-    //   // LINT: unreachable code removed}
-// }
-
-/** Get file size in bytes */
- * @param filePath - File path
- * @returns Promise resolving to file size in bytes
-
-    // */; // LINT: unreachable code removed
-// export async function getFileSize(filePath = // await fs.stat(filePath);
-//     return stats.size;
-    //   // LINT: unreachable code removed} catch(error = any>(filePath): Promise<T> {
-  try {``
-// const content = awaitreadFileSecurely(filePath, 'utf8') as string
-//     return JSON.parse(content) as T;
-    //   // LINT: unreachable code removed} catch (error) { console.error(error)} catch(error = true): Promise<boolean> {
-  try {
-    const content = pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data)
-    // return // await writeFileSecurely(filePath, content, 'utf8''
-    //   // LINT: unreachable code removed} catch (error) { console.error(error)} catch(error = 'temp', extension = '.tmp''
-  const tmpDir = process.env.TMPDIR  ?? process.env.TMP  ?? '
-  const timestamp = Date.now();
-  const random = Math.random().toString(36).substring(2);', 'utf8''
-  logger.debug(`Temporary filecreated = 'temp');'`'
-: Promise<string>
-// {'
-  const tmpDir = process.env.TMPDIR ?? process.env.TMP ?? '
-  const timestamp = Date.now();
-  const random = Math.random().toString(36).substring(2)
-  const tempPath = path.join(tmpDir, `${prefix}-${timestamp}-${random}`);``
-// // await ensureDirectoryExists(tempPath);``
-  logger.debug(`Temporary directory created);`
-  // return tempPath;
-// }
-
-}}}}}
-}
-}
-}})))))
-``
-)
+/** */ Move/rename file or directory
+  // @param sourcePath - Source path
+  // @param destinationPath - Destination path
+  // @returns Promise resolving to true if successful
+  // // */ // LINT: unreachable code removed
+  // // export async function movePathSecurely(sourcePath = path.dirname(destinationPath);
+  // // await ensureDirectoryExists(destDir);
+  // // await fs.rename(sourcePath, destinationPath)
+  // logger.debug(`Pathmoved = await fs.stat(filePath);`
+  // //     return stats.isFile();
+  // //   // LINT: unreachable code removed} catch {
+  // // return false;
+  // //   // LINT: unreachable code removed}
+  // // }
+  // /** */ Check if path is a directory */
+  // @param dirPath - Path to check
+  // @returns Promise resolving to true if path is a directory
+  // // */; // LINT: unreachable code removed
+  // // export async function isDirectory(dirPath = // await fs.stat(dirPath);
+  // //     return stats.isDirectory();
+  // //   // LINT: unreachable code removed} catch {
+  // //     return false;
+  // //   // LINT: unreachable code removed}
+  // // }
+  // /** */ Get file size in bytes */
+  // @param filePath - File path
+  // @returns Promise resolving to file size in bytes
+  // // */; // LINT: unreachable code removed
+  // // export async function getFileSize(filePath = // await fs.stat(filePath);
+  // //     return stats.size;
+  // //   // LINT: unreachable code removed} catch(error = any>(filePath): Promise<T> {
+  // try {``
+  // // const content = awaitreadFileSecurely(filePath, 'utf8') as string
+  // //     return JSON.parse(content) as T;
+  // //   // LINT: unreachable code removed} catch (error) { console.error(error)} catch(error = true): Promise<boolean> {
+  // try {
+  // const content = pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data)
+  // // return // await writeFileSecurely(filePath, content, 'utf8''
+  // //   // LINT: unreachable code removed} catch (error) { console.error(error)} catch(error = 'temp', extension = '.tmp''
+  // const tmpDir = process.env.TMPDIR  ?? process.env.TMP  ?? '
+  // const timestamp = Date.now();
+  // const random = Math.random().toString(36).substring(2);', 'utf8''
+  // logger.debug(`Temporary filecreated = 'temp');'`'
+  // : Promise<string>
+  // // {'
+  // const tmpDir = process.env.TMPDIR ?? process.env.TMP ?? '
+  // const timestamp = Date.now();
+  // const random = Math.random().toString(36).substring(2)
+  // const tempPath = path.join(tmpDir, `${prefix}-${timestamp}-${random}`);``
+  // // // await ensureDirectoryExists(tempPath);``
+  // logger.debug(`Temporary directory created);`
+  // // return tempPath;
+  // // }
+  // }}}}}
+  // }
+  // }
+  // }})))))
+  // ``
+  // )
+  */

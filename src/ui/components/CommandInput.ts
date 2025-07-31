@@ -1,11 +1,11 @@
-/** CommandInput Module */
-/** Converted from JavaScript to TypeScript */
+/** */ CommandInput Module */
+/** */ Converted from JavaScript to TypeScript */
 
-import { Text } from 'ink';
+import { Text } from ''ink';
 ('');
 '
 
-import React, { useState } from 'react';
+import React, { useState } from ''react';
 ('');
 
 const CommandInput = () => {')

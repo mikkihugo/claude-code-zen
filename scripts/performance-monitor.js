@@ -19,7 +19,7 @@ class PerformanceMonitor {
 
   agents: { active, pooled, spawns }
 
-this.setupUI();
+this.setupUI()
   this;
   .
   startMonitoring()
@@ -118,7 +118,7 @@ this.screen.key(['q', 'C-c'], () => process.exit(0))';
 this.screen.key('r', () => this.resetMetrics())
 this.screen.render()
 // }
-createMetricBox(options);
+createMetricBox(options)
 // {
 //   return blessed.box({ ...options,';
 type: 'line', fg;
@@ -132,26 +132,26 @@ type: 'line', fg;
 // {
 // Simulate real-time metrics
 setInterval(() => {
-  this.updateMetrics();
-  this.render();
-}, 100);
+  this.updateMetrics()
+  this.render()
+}, 100)
 // Monitor actual Claude Flow processes
-this.monitorClaudeFlow();
+this.monitorClaudeFlow()
 // }
-updateMetrics();
+updateMetrics()
 // {
 // Simulate metric updates(in real implementation, these would come from actual monitoring)
-this.metrics.hooks.calls += Math.floor(Math.random() * 5);
+this.metrics.hooks.calls += Math.floor(Math.random() * 5)
 this.metrics.hooks.avgTime = Math.floor(Math.random() * 50) + 10;
-this.metrics.memory.reads += Math.floor(Math.random() * 10);
-this.metrics.memory.writes += Math.floor(Math.random() * 5);
-this.metrics.memory.cacheHits = Math.floor(this.metrics.memory.reads * 0.85);
-this.metrics.neural.predictions += Math.floor(Math.random() * 3);
-this.metrics.neural.accuracy = 85 + Math.floor(Math.random() * 10);
+this.metrics.memory.reads += Math.floor(Math.random() * 10)
+this.metrics.memory.writes += Math.floor(Math.random() * 5)
+this.metrics.memory.cacheHits = Math.floor(this.metrics.memory.reads * 0.85)
+this.metrics.neural.predictions += Math.floor(Math.random() * 3)
+this.metrics.neural.accuracy = 85 + Math.floor(Math.random() * 10)
 this.metrics.agents.active = Math.floor(Math.random() * 10) + 5;
 this.metrics.agents.pooled = 15 - this.metrics.agents.active;
 // }
-render();
+render()
 // {
 // Update hook metrics
 this.hookBox.setContent(;
@@ -169,7 +169,7 @@ Total;
   bold
   Error;
   /bold} ${((this.metrics.hooks.errors /;
-  Math.max(1, this.metrics.hooks.calls);
+  Math.max(1, this.metrics.hooks.calls)
   ) * 100).toFixed(1`
 %\n` +`
 `
@@ -209,7 +209,7 @@ Cache;`
 // bold
   Hit
 /bold} ${((this.metrics.memory.cacheHits /;
-Math.max(1, this.metrics.memory.reads);
+Math.max(1, this.metrics.memory.reads)
 ) * 100).toFixed(1)`
 %`
 //   
@@ -271,15 +271,15 @@ if(Math.random() > 0.7) {`;
         '{yellow-fg}{/yellow-fg} Agent spawned from pool(45ms)','
         '{blue-fg}{/blue-fg} Cache hit: prediction/task/analyze','
         '{green-fg}{/green-fg} Parallel batch processed: 10 operations'];
-  this.logBox.log(operations[Math.floor(Math.random() * operations.length)]);
+  this.logBox.log(operations[Math.floor(Math.random() * operations.length)])
   // }
-  this.screen.render();
-  monitorClaudeFlow();
+  this.screen.render()
+  monitorClaudeFlow()
   // In real implementation, this would connect to Claude Flow metrics';
-  this.logBox.log('{green-fg}{/green-fg} Connected to Claude Flow metrics');
+  this.logBox.log('{green-fg}{/green-fg} Connected to Claude Flow metrics')
   ';
 this.logBox.log('{blue-fg}{/blue-fg} Monitoring performance in real-time...')
-  resetMetrics();
+  resetMetrics()
   this.metrics = {
       hooks: { calls, avgTime, errors },
 reads, writes;
@@ -291,39 +291,39 @@ reads, writes;
 this.logBox.log('{yellow-fg}{/yellow-fg} Metrics reset')
   // Check if blessed is available
   try {
-    new PerformanceMonitor();
+    new PerformanceMonitor()
   }
   catch(/* _error */) ';
-  console.warn(' Performance Monitoring Dashboard(Text Mode)\n');
+  console.warn(' Performance Monitoring Dashboard(Text Mode)\n')
   ';
-  console.warn('Real-time metrics would be displayed here.');
+  console.warn('Real-time metrics would be displayed here.')
   ';
   console.warn(''
-  console.warn('npm install blessed\n');
+  console.warn('npm install blessed\n')
   // Fallback text-based monitoring
   setInterval(() => {';
-    console.warn(' Claude Flow Performance Metrics\n');';
+    console.warn(' Claude Flow Performance Metrics\n')';
     console.warn('';
-    console.warn(`;`
+    console.warn(';
   Calls: $;
-    Math.floor(Math.random() * 1000);`
-  `);``
-    console.warn(`;`
+    Math.floor(Math.random() * 1000)`
+  `)``
+    console.warn(';
   Avg;
   Time: $;
     Math.floor(Math.random() * 50) + 10;`
-  ms`);``
+  ms`)``
     console.warn('';
-    console.warn(`;`
+    console.warn(';
   Cache;
   Hit;
   Rate: $;
-    (85 + Math.random() * 10).toFixed(1);`
+    (85 + Math.random() * 10).toFixed(1)`
   %`)``
   console.warn('';
-    console.warn(`  Accuracy: $(85 + Math.random() * 10).toFixed(1)%`);`
+    console.warn(`  Accuracy: $(85 + Math.random() * 10).toFixed(1)%`)`
   console.warn('';
-    console.warn(`  Active/Pooled: $Math.floor(Math.random() * 10) + 5/10`);
+    console.warn(`  Active/Pooled: ${Math}.floor(Math.random() * 10) + 5/10`)
 , 1000
 // }
 `

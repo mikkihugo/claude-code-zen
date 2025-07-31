@@ -11,42 +11,42 @@ import { ClaudeFlowMCPServer } from './src/mcp/mcp-server.js';
 
 class MCPBridge {
   constructor() {
-    this.mcpServer = new ClaudeFlowMCPServer();
-    this.orchestrator = new ServicesOrchestrator();
+    this.mcpServer = new ClaudeFlowMCPServer()
+    this.orchestrator = new ServicesOrchestrator()
     this.isRunning = false;
   //   }
   async start() '
-    console.warn(' Starting Claude-Flow MCP Bridge...\n');
+    console.warn(' Starting Claude-Flow MCP Bridge...\n')
     // Start the services orchestrator
-  // await this.orchestrator.start();
+  // await this.orchestrator.start()
     // Initialize MCP server
-  // // await this.mcpServer.initializeMemory();
+  // // await this.mcpServer.initializeMemory()
     // Bind service methods to MCP
-    this.bindServiceMethods();
+    this.bindServiceMethods()
     this.isRunning = true;'
-    console.warn('\n MCP Bridge Ready!');'
+    console.warn('\n MCP Bridge Ready!')'
     console.warn(''
-    console.warn('    mcp__claude-zen__service_document_manager');'
-    console.warn('    mcp__claude-zen__service_approval_workflow');'
-    console.warn('    mcp__claude-zen__service_document_validator');'
-    console.warn('    mcp__claude-zen__swarm_init');'
-    console.warn('    mcp__claude-zen__agent_spawn');'
-    console.warn('    mcp__claude-zen__memory_usage');'
-    console.warn('\n Ready for Claude Desktop integration!');
+    console.warn('    mcp__claude-zen__service_document_manager')'
+    console.warn('    mcp__claude-zen__service_approval_workflow')'
+    console.warn('    mcp__claude-zen__service_document_validator')'
+    console.warn('    mcp__claude-zen__swarm_init')'
+    console.warn('    mcp__claude-zen__agent_spawn')'
+    console.warn('    mcp__claude-zen__memory_usage')'
+    console.warn('\n Ready for Claude Desktop integration!')
     // return this;
     //   // LINT: unreachable code removed}
-    async;
-    stop();
-  // await this.orchestrator.stop();
+    async
+    stop()
+  // await this.orchestrator.stop()
     this.isRunning = false;'
-    console.warn(' MCP Bridge stopped');
-    bindServiceMethods();
+    console.warn(' MCP Bridge stopped')
+    bindServiceMethods()
     // These methods are now available through the MCP server
     // The tools are already implemented in the MCP server'
-    console.warn(' Service document tools bound to MCP interface');
+    console.warn(' Service document tools bound to MCP interface')
     // Direct access methods for testing
-    async;
-    createServiceDocument(serviceName, documentType, content, (metadata = }));
+    async
+    createServiceDocument(serviceName, documentType, content, (metadata = }))
     // return await this.mcpServer.handleServiceDocumentManager({'
       action: 'create',
     // serviceName, // LINT: unreachable code removed
@@ -60,8 +60,8 @@ class MCPBridge {
     // serviceName, // LINT: unreachable code removed'
     documentType: 'all')
 // }
-async;
-validateServiceDocument(serviceName, documentType);
+async
+validateServiceDocument(serviceName, documentType)
 // {'
   // return await this.mcpServer.handleServiceDocumentValidator({ validateType: 'single-document',
   // serviceName, // LINT: unreachable code removed
@@ -101,39 +101,39 @@ orchestrator: this.orchestrator.getSystemStatus(),
 
 // CLI support'
   if(import.meta.url === `file) {`
-  const bridge = new MCPBridge();`
+  const bridge = new MCPBridge()`
   process.on('SIGINT', async() => {'
-    console.warn('\n Shutting down MCP Bridge...');
-  // await bridge.stop();
-    process.exit(0);
-  });
+    console.warn('\n Shutting down MCP Bridge...')
+  // await bridge.stop()
+    process.exit(0)
+  })
   try {
-  // // await bridge.start();
+  // // await bridge.start()
     // Demo the MCP tools'
-    console.warn('\n Testing MCP Service Tools...\n');
+    console.warn('\n Testing MCP Service Tools...\n')
     // Test 1: Create service document
 // const createResult = awaitbridge.createServiceDocument(;'
       'payment-service','
       'service-description',
-        name);'
-    console.warn(' Service document created);'
+        name)'
+    console.warn(' Service document created)'
     // Test 2: List documents'
-// const listResult = awaitbridge.listServiceDocuments('payment-service');'
-    console.warn(' Documents listed);'
+// const listResult = awaitbridge.listServiceDocuments('payment-service')'
+    console.warn(' Documents listed)'
     // Test 3: Validate document
 // const validateResult = awaitbridge.validateServiceDocument(;'
       'payment-service','
       'service-description';
-    );'
-    console.warn(' Document validated);'
+    )'
+    console.warn(' Document validated)'
     // Test 4: Queue approval'
-// const approvalResult = awaitbridge.queueApproval(createResult.documentId, 'tech-lead');'
+// const approvalResult = awaitbridge.queueApproval(createResult.documentId, 'tech-lead')'
     console.warn(''
-    console.warn('\n MCP Bridge fully operational!');'
-    console.warn(' Connect Claude Desktop with);'
+    console.warn('\n MCP Bridge fully operational!')'
+    console.warn(' Connect Claude Desktop with)'
   }'
-    console.error(' Failed to start MCP Bridge);'
-    process.exit(1);
+    console.error(' Failed to start MCP Bridge)'
+    process.exit(1)
   //   }
 // }
 '

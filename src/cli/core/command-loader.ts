@@ -1,15 +1,15 @@
-/** */
+/** */ */
 
 Command;
 Loader;
 
-/** Loads and registers all CLI commands with proper error handling */
+/** */ Loads and registers all CLI commands with proper error handling */
 
 CommandLoader * /;
 import { CommandRouter } from
-';
+'';
 
-/** Load and register all core commands */
+/** */ Load and register all core commands */
 
 {
   Promise<CommandRouter>;
@@ -31,7 +31,7 @@ const router = new CommandRouter();
 // return router;
 // }
 
-/** Register core system commands */
+/** */ Register core system commands */
 
 {
   CommandRouter;

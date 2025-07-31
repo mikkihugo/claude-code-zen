@@ -14,12 +14,12 @@ import { HierarchicalTaskManagerPlugin } from './src/coordination/meta-registry/
 
 async function testHierarchicalTaskManager() {
   '
-  console.warn(' Testing Enhanced Hierarchical Task Manager with AI Breakdown...\n');
+  console.warn(' Testing Enhanced Hierarchical Task Manager with AI Breakdown...\n')
   // Create test database directory'
   const testDbPath = './.test-swarm/hierarchy-test.db';
-  // // await mkdir(path.dirname(testDbPath), { recursive });
+  // // await mkdir(path.dirname(testDbPath), { recursive })
   // Initialize the task manager
-  const taskManager = new HierarchicalTaskManagerPlugin();
+  const taskManager = new HierarchicalTaskManagerPlugin()
   // Mock registry object
   const mockRegistry = {
     register: async (key, _value, _options) => {
@@ -28,7 +28,7 @@ async function testHierarchicalTaskManager() {
       `
 //       return true;
       getPlugin: (name) => {`;
-      console.warn(` Plugin requested);`
+      console.warn(` Plugin requested)`
       //         return null; // Mock plugins not available
     }};
   try {
@@ -37,10 +37,10 @@ async function testHierarchicalTaskManager() {
       dbPath,
       autoBreakdown,
       enableQueenCoordination,
-      minConfidenceForSuggestion);`
-    console.warn(' Task Manager initialized successfully\n');
+      minConfidenceForSuggestion)`
+    console.warn(' Task Manager initialized successfully\n')
     // Test Vision Creation with AI Breakdown'
-    console.warn(' Testing Vision Creation with AI Breakdown...');
+    console.warn(' Testing Vision Creation with AI Breakdown...')
     const testVision = {'
       title: 'Build Modern E-commerce Platform',
       description: null'
@@ -53,45 +53,45 @@ async function testHierarchicalTaskManager() {
       stakeholders: ['customers', 'administrators', 'developers'],'
       timeline: '6 months','
       priority: 'high'
-// }// const visionId = awaittaskManager.createVision(testVision);'
-console.warn(` Vision created with ID);`
+// }// const visionId = awaittaskManager.createVision(testVision)'
+console.warn(` Vision created with ID)`
 // Wait a moment for async breakdown to complete
-  // await new Promise((resolve) => setTimeout(resolve, 2000));
+  // await new Promise((resolve) => setTimeout(resolve, 2000))
 // Test querying the results`
-console.warn(' Querying breakdown results...');'
-const visions = taskManager.db.prepare('SELECT * FROM visions').all();'
-const epics = taskManager.db.prepare('SELECT * FROM epics').all();'
-const assignments = taskManager.db.prepare('SELECT * FROM assignments').all();'
-console.warn(`\nResults);``
-console.warn(`- Visions);``
-console.warn(`- Epics);``
-console.warn(`- Assignments);`
+console.warn(' Querying breakdown results...')'
+const visions = taskManager.db.prepare('SELECT * FROM visions').all()'
+const epics = taskManager.db.prepare('SELECT * FROM epics').all()'
+const assignments = taskManager.db.prepare('SELECT * FROM assignments').all()'
+console.warn(`\nResults)``
+console.warn(`- Visions)``
+console.warn(`- Epics)``
+console.warn(`- Assignments)`
   if(epics.length > 0) {`
-  console.warn('\n Generated Epics);'
+  console.warn('\n Generated Epics)'
   epics.forEach((epic, index) => {'
-    console.warn(`$index + 1. $epic.title`);`
-    console.warn(`     Priority);`
-  });
+    console.warn(`${index} + 1. ${epic}.title`)`
+    console.warn(`     Priority)`
+  })
 // }
   if(assignments.length > 0) {`
-  console.warn('\n Delegations);'
+  console.warn('\n Delegations)'
   assignments.forEach((assignment, index) => {
-    const context = JSON.parse(assignment.context);'
-    console.warn(`$index + 1. Assigned to);``
-    console.warn(`     Epic);``
-    console.warn(`     Status);`
-  });
+    const context = JSON.parse(assignment.context)'
+    console.warn(`${index} + 1. Assigned to)``
+    console.warn(`     Epic)``
+    console.warn(`     Status)`
+  })
 // }`
-console.warn('\n Test completed successfully!');
+console.warn('\n Test completed successfully!')
 } catch(error)
 // {'
-  console.error(' Test failed);'
-  console.error(error.stack);
+  console.error(' Test failed)'
+  console.error(error.stack)
 // }
 // finally
 // {
   // Cleanup
-  // // await taskManager.cleanup();
+  // // await taskManager.cleanup()
 // }
 // }
 // Run the test

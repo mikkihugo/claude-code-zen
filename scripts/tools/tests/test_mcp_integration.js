@@ -2,14 +2,14 @@ import { ClaudeFlowMCPServer } from './dist/mcp/mcp-server.js';
 
 async function testMCPIntegration() {
   '
-  console.warn(' Testing claude-zen MCP tools with ruv-swarm library integration...\n');
-  const server = new ClaudeFlowMCPServer();
-  // await server.initializeMemory();
+  console.warn(' Testing claude-zen MCP tools with ruv-swarm library integration...\n')
+  const server = new ClaudeFlowMCPServer()
+  // await server.initializeMemory()
   try {
     // Test memory operations'
     console.warn(''
   // // await server.executeTool('memory_usage', {/g)
-      action);
+      action)
     '
     // const memoryResult = awaitserver.executeTool('memory_usage', {'
     action: 'retrieve', key
@@ -25,7 +25,7 @@ console.warn()'
 }
 catch(error)
 // {'
-  console.error(' Test failed);'
+  console.error(' Test failed)'
   console.error(error.stack)
 // }
 // }

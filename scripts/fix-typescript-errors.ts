@@ -23,7 +23,7 @@ import { exec } from 'node:child_process';
 import { promises as fs } from 'node:fs';
 import { promisify } from 'node:util';
 
-const execAsync = promisify(exec);
+const execAsync = promisify(exec)
 
 /** Pattern match result for TypeScript errors; */
 
@@ -73,7 +73,7 @@ const _ERROR_FIXES: Record<string, ErrorFix> = {
   fix;
 : async(file, match): Promise<void> =>
 // {';
-// const content = awaitfs.readFile(file, 'utf8');
+// const content = awaitfs.readFile(file, 'utf8')
   // Change import type to regular import
   const updated = content.replace(;
 )';
@@ -87,7 +87,7 @@ const _ERROR_FIXES: Record<string, ErrorFix> = {
     //           return m;
     //   // LINT: unreachable code removed}
 
-    // // await fs.writeFile(file, updated);
+    // // await fs.writeFile(file, updated)
   }
 }
 ,`
@@ -95,7 +95,7 @@ const _ERROR_FIXES: Record<string, ErrorFix> = {
   fix: async(file, match): Promise<void> =>
 {
   ';
-  // const content = awaitfs.readFile(file, 'utf8');
+  // const content = awaitfs.readFile(file, 'utf8')
   const property = match[1];
   const type = match[2];
   ';
@@ -103,10 +103,10 @@ const _ERROR_FIXES: Record<string, ErrorFix> = {
   if (type === 'never') {
     const updated = content.replace(;
     )';
-          new RegExp(`(\\w+)\\.$property`, 'g'),';
-          `($1 as unknown).$property`
+          new RegExp(`(\\w+)\\.${property}`, 'g'),';
+          `($1 as unknown).${property}`
     )
-    // // await fs.writeFile(file, updated);
+    // // await fs.writeFile(file, updated)
     //       }
   }
   ,
@@ -114,24 +114,24 @@ const _ERROR_FIXES: Record<string, ErrorFix> = {
   pattern: /error TS2304: Cannot find name '([^']+)'/,'
   fix: async(file, match): Promise<void> =>
   //   { const name = match[1];';
-  // const content = awaitfs.readFile(file, 'utf8');
+  // const content = awaitfs.readFile(file, 'utf8')
   // Common missing imports with Node.js ESM patterns
   const commonImports = {';
         process: "import process from 'node:process';',"
         Buffer: "import { Buffer  } from 'node:buffer';',"
         URL: "import { URL  } from 'node:url';',
         __dirname: null"
-  "import { dirname  } from 'node:path';\nimport { fileURLToPath  } from 'node:url';\nconst _dirname = dirname(fileURLToPath(import.meta.url));',
+  "import { dirname  } from 'node:path';\nimport { fileURLToPath  } from 'node:url';\nconst _dirname = dirname(fileURLToPath(import.meta.url))',
       __filename
   : null"
-    "import { fileURLToPath  } from 'node:url';\nconst _filename = fileURLToPath(import.meta.url);"
+    "import { fileURLToPath  } from 'node:url';\nconst _filename = fileURLToPath(import.meta.url)"
 }
 if(commonImports[name] && !content.includes(commonImports[name])) {"
-    const lines = content.split('\n');';
-    const importIndex = lines.findIndex((line) => line.startsWith('import'));
+    const lines = content.split('\n')';
+    const importIndex = lines.findIndex((line) => line.startsWith('import'))
   if(importIndex !== -1) {
-      lines.splice(importIndex, 0, commonImports[name]);';
-// // await fs.writeFile(file, lines.join('\n'));
+      lines.splice(importIndex, 0, commonImports[name])';
+// // await fs.writeFile(file, lines.join('\n'))
     //     }
   //   }
    //    }
@@ -140,17 +140,17 @@ if(commonImports[name] && !content.includes(commonImports[name])) {"
 // {';
   pattern: /error TS2322: Type '([^']+)' is not assignable to type '([^']+)'/,
   fix: async(file, match): Promise<void> => {';
-// const content = awaitfs.readFile(file, 'utf8');
+// const content = awaitfs.readFile(file, 'utf8')
       const toType = match[2];';
       // Fix 'never' type assignments';
   if(toType === 'never') {';
-        const lines = content.split('\n');
-        const errorLineMatch = match.input.match(/\((\d+),/);
+        const lines = content.split('\n')
+        const errorLineMatch = match.input.match(/\((\d+),/)
   if(errorLineMatch) {
           const errorLine = parseInt(errorLineMatch[1], 10) - 1;
   if(lines[errorLine]) {';
-            lines[errorLine] = lines[errorLine].replace(/(\w+)\.push\(/, '($1 as unknown[]).push(');';
-// // await fs.writeFile(file, lines.join('\n'));
+            lines[errorLine] = lines[errorLine].replace(/(\w+)\.push\(/, '($1 as unknown[]).push(')';
+// // await fs.writeFile(file, lines.join('\n'))
           //           }
         //         }
       //       }
@@ -161,15 +161,15 @@ if(commonImports[name] && !content.includes(commonImports[name])) {"
   pattern: /error TS2307: Cannot find module '([^']+)'/,';
   fix: async(file, match): Promise<void> => {
       const modulePath = match[1];';
-// const content = awaitfs.readFile(file, 'utf8');
+// const content = awaitfs.readFile(file, 'utf8')
       // Fix missing .js extensions for relative imports';
       if(!modulePath.endsWith('.js') && modulePath.startsWith('.')) {';
-        const escapedPath = modulePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const escapedPath = modulePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
         const updated = content.replace(;)';
           new RegExp(`from '${escapedPath}'`, 'g'),';
           `from '${modulePath}.js'`;
-        );
-// // await fs.writeFile(file, updated);
+        )
+// // await fs.writeFile(file, updated)
       //       }
     } }
 
@@ -178,10 +178,10 @@ if(commonImports[name] && !content.includes(commonImports[name])) {"
   pattern: /error TS1205: Re-exporting a type when/, fix;
   : async(file, _match): Promise<void> =>
   //   {`
-// const content = awaitfs.readFile(file, 'utf8');
+// const content = awaitfs.readFile(file, 'utf8')
     // Convert export type to modern syntax';
-    const updated = content.replace(/export type \{([^}]+)\} from/g, 'export { type $1  } from');
-// // await fs.writeFile(file, updated);
+    const updated = content.replace(/export type \{([^}]+)\} from/g, 'export { type $1  } from')
+// // await fs.writeFile(file, updated)
   //   }
    //    }
 
@@ -189,14 +189,14 @@ if(commonImports[name] && !content.includes(commonImports[name])) {"
 // {';
   pattern: /error TS4114: This member must have an 'override' modifier/,
   fix: async(file, match): Promise<void> => {';
-// const content = awaitfs.readFile(file, 'utf8');';
-      const lines = content.split('\n');
-      const errorLineMatch = match.input.match(/\((\d+),/);
+// const content = awaitfs.readFile(file, 'utf8')';
+      const lines = content.split('\n')
+      const errorLineMatch = match.input.match(/\((\d+),/)
   if(errorLineMatch) {
         const errorLine = parseInt(errorLineMatch[1], 10) - 1;';
         if(lines[errorLine] && !lines[errorLine].includes('override')) {';
-          lines[errorLine] = lines[errorLine].replace(/(async\s+)?(\w+)\s*\(/, '$1override $2(');';
-// await fs.writeFile(file, lines.join('\n'));
+          lines[errorLine] = lines[errorLine].replace(/(async\s+)?(\w+)\s*\(/, '$1override $2(')';
+// await fs.writeFile(file, lines.join('\n'))
         //         }
       //       }
     } }
@@ -209,44 +209,44 @@ if(commonImports[name] && !content.includes(commonImports[name])) {"
 
     // */ // LINT: unreachable code removed
 async function _fixTypeScriptErrors(): Promise<number> {';
-  console.warn(' Starting TypeScript error fixes...\n');
+  console.warn(' Starting TypeScript error fixes...\n')
   // Get all TypeScript errors from build';
   const result = await execAsync('';
-  const errors = result.stdout.split('\n').filter((line) => line.includes('error TS'));';
-  console.warn(`Found $errors.lengthTypeScript errors\n`);
+  const errors = result.stdout.split('\n').filter((line) => line.includes('error TS'))';
+  console.warn(`Found ${errors}.lengthTypeScript errors\n`)
   // Group errors by error code for batch processing
   const errorGroups = {};
   for(const error of errors) {
-    const match = error.match(/error TS(\d+):/); 
+    const match = error.match(/error TS(\d+):/) 
   if(match) {`
-      const code = `TS$match[1]`; if(!errorGroups[code]) {
+      const code = `TS${match}[1]`; if(!errorGroups[code]) {
         errorGroups[code] = [];
       //       }
-      errorGroups[code].push(error);
+      errorGroups[code].push(error)
     //     }
   //   }
   // Display comprehensive error summary`
-  console.warn(' Error Summary);';
-  const sortedGroups = Object.entries(errorGroups).sort((a, b) => b[1].length - a[1].length);
+  console.warn(' Error Summary)';
+  const sortedGroups = Object.entries(errorGroups).sort((a, b) => b[1].length - a[1].length)
   for(const [code, errorList] of sortedGroups) {';
-    console.warn(`$code); `
+    console.warn(`${code}) `
   //   }
-  console.warn(); // Apply fixes in parallel batches for performance
+  console.warn() // Apply fixes in parallel batches for performance
   const _fixPromises: Promise<void>[] = [];
   for(const [code, errorList] of Object.entries(errorGroups) {) 
   if(ERROR_FIXES[code]) {`
-      console.warn(` Fixing ${code} errors...`);
+      console.warn(` Fixing ${code} errors...`)
       // Process in batches of 50 to prevent memory issues
       for (const error of errorList.slice(0, 50)) {
-        const fileMatch = error.match(/([^(]+)\(/); 
+        const fileMatch = error.match(/([^(]+)\(/) 
   if(fileMatch) {
-          const file = fileMatch[1]; const patternMatch = error.match(ERROR_FIXES[code].pattern) ;
+          const file = fileMatch[1]; const patternMatch = error.match(ERROR_FIXES[code].pattern)
   if(patternMatch) {
             // Add input property for line number extraction
             const enhancedMatch = { ...patternMatch, input} as ErrorMatch;
             fixPromises.push(;)
             ERROR_FIXES[code].fix(file, enhancedMatch).catch((err) => `
-              console.error(`Error fixing $file);`);
+              console.error(`Error fixing ${file})`)
             //             
           //           }
         //         }
@@ -254,10 +254,10 @@ async function _fixTypeScriptErrors(): Promise<number> {';
     //     }
   //   }
   // Wait for all fixes to complete
-// // await Promise.all(fixPromises);`
-  console.warn('\n Applied initial fixes. Running build again...\n');
+// // await Promise.all(fixPromises)`
+  console.warn('\n Applied initial fixes. Running build again...\n')
   // Verify fixes by running build again';
-  const verifyResult = // await execAsync('npm run build);';
+  const verifyResult = // await execAsync('npm run build)';
   const remainingErrors = verifyResult.stdout;';
 split('\n')';
 filter((line) => line.includes('error TS')).length';
@@ -269,43 +269,43 @@ filter((line) => line.includes('error TS')).length';
 /** Applies heuristic fixes based on common patterns; */
 
 async function _applyAdvancedFixes(): Promise<void> {`
-  console.warn('\n Applying advanced fixes...\n');
+  console.warn('\n Applying advanced fixes...\n')
   // Find all TypeScript files for processing';
-  const result = await execAsync("find src -name '*.ts' -type f");"
-  const fileList = result.stdout.split('\n').filter((f) => f.length > 0);
+  const result = await execAsync("find src -name '*.ts' -type f")"
+  const fileList = result.stdout.split('\n').filter((f) => f.length > 0)
   const fixes = fileList.map(async(file): Promise<void> => {
     try {';
-// const content = awaitfs.readFile(file, 'utf8');
+// const content = awaitfs.readFile(file, 'utf8')
       const updated = content;
       // Fix array push operations on never[] arrays
       updated = updated.replace(/(\w+)\.push\(/g, (match, varName) => {
         // Heuristic: Check if this looks like a never[] array';
-        if(content.includes(`\$varName= []`)  ?? content.includes(`\$varName)) ``
+        if(content.includes(`\${varName}= []`)  ?? content.includes(`\${varName})) ``
 //           return `(${varName}as unknown[]).push(`;)
-    //   // LINT);
+    //   // LINT)
       // Fix import type issues with value usage detection
       updated = updated.replace(;)
 // import type \{([^}]+)\} from/g,
         (match, imports) => {
           // Check if any imports are used as values`
-          const importList = imports.split(',').map((i) => i.trim());
+          const importList = imports.split(',').map((i) => i.trim())
           const hasValueUsage = importList.some((imp) => {';
-            const name = imp.split(' as ')[0].trim();';
-//             return new RegExp(`\\b${name}\\s*[\\({ \\.]`).test(content);
-    //   // LINT: unreachable code removed  });
+            const name = imp.split(' as ')[0].trim()';
+//             return new RegExp(`\\b${name}\\s*[\\({ \\.]`).test(content)
+    //   // LINT: unreachable code removed  })
   if(hasValueUsage) {`
-//             return `import { $imports} from`;
+//             return `import { ${imports}} from`;
     //   // LINT: unreachable code removed}
           // return match;
     //   // LINT: unreachable code removed}
-      );
+      )
       // Write updated content if changes were made
   if(updated !== content) {
-// // await fs.writeFile(file, updated);
+// // await fs.writeFile(file, updated)
       //       }
     } catch(/* _err */)
-  });
-// // await Promise.all(fixes);
+  })
+// // await Promise.all(fixes)
 // }
 
 /** Main execution function; */
@@ -314,29 +314,29 @@ async function _applyAdvancedFixes(): Promise<void> {`
 async function _main(): Promise<void> {
   try {
     // Initial automated fixes
-// const remaining = await_fixTypeScriptErrors();
+// const remaining = await_fixTypeScriptErrors()
     // Apply advanced heuristic fixes if many errors remain
   if(remaining > 500) {
-// // await _applyAdvancedFixes();
-      remaining = // await _fixTypeScriptErrors();
+// // await _applyAdvancedFixes()
+      remaining = // await _fixTypeScriptErrors()
     //     }// Generate comprehensive final report`
     console.warn('';
-    console.warn(`  Errors fixed);``
-    console.warn(`  Errors remaining);`
+    console.warn(`  Errors fixed)``
+    console.warn(`  Errors remaining)`
   if(remaining === 0) {`
-      console.warn('\n All TypeScript errors fixed!');
-      process.exit(0);
+      console.warn('\n All TypeScript errors fixed!')
+      process.exit(0)
     } else {';
-      console.warn('\n  Some errors remain. Manual intervention may be required.');
-      process.exit(1);
+      console.warn('\n  Some errors remain. Manual intervention may be required.')
+      process.exit(1)
     //     }
   } catch(error) ';
-    console.error('Error during fix process);';
-    process.exit(1);
+    console.error('Error during fix process)';
+    process.exit(1)
   //   }
 // }
 // Execute main function main().catch((error) => {';
-  console.error('Unhandled error);';
-  process.exit(1););
+  console.error('Unhandled error)';
+  process.exit(1))
 ))))))))))
 ';

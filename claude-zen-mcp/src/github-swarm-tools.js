@@ -3,8 +3,8 @@
 // This file provides MCP tools for interacting with GitHub-related swarm commands.
 // It wraps the `npx ruv-swarm github` commands to provide a consistent MCP interface.
 
-import { exec } from 'node:child_process';
-import { promisify } from 'node:util';
+import { exec } from ''node:child_process';
+import { promisify } from ''node:util';
 
 const execAsync = promisify(exec);
 async function executeRuvSwarmCommand() {

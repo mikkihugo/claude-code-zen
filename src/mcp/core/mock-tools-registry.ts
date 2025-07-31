@@ -1,11 +1,11 @@
-/** */
+/** */ */
 
 Mock;
 tools;
 registry;
 
 for testing
-/** Provides basic tools when full registry is not available */
+/** */ Provides basic tools when full registry is not available */
 
 export function initializeAllTools() {
 //   return {

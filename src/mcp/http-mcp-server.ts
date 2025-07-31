@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 
 /* HTTP MCP Server - Runs MCP protocol over HTTP on port 3000 */
-/** Provides all Claude Flow tools including Git integration */
+/** */ Provides all Claude Flow tools including Git integration */
 
-import cors from 'cors';
+import cors from ''cors';
 ('');
 '
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from ''events';
 ('');
 '
 
-import express, { Application, NextFunction, Request, Response } from 'express';
+import express, { Application, NextFunction, Request, Response } from ''express';
 ('');
 '
 import { HealthCheck, JSONObject, JSONValue } from
-'../types/core.js";
+''../types/core.js";
 
 import {
   MCPError,
@@ -41,9 +41,9 @@ UserContext,'
 ValidationResult;
 } from '
 '
-// import { ClaudeFlowMCPServer  } from './mcp-server.js''
+// import { ClaudeFlowMCPServer  } from ''./mcp-server.js''
 
-/** HTTP MCP Server Configuration */
+/** */ HTTP MCP Server Configuration */
 
 // export // interface HTTPMCPServerConfig {
 //   port?;
@@ -59,7 +59,7 @@ ValidationResult;
 //   };
 // }
 
-/** Server Metrics */
+/** */ Server Metrics */
 
 // // interface HTTPMCPServerMetrics {requests = null
 // private;
@@ -81,7 +81,7 @@ ValidationResult;
   // return 'healthy'; // LINT: unreachable code removed'
 // }
 
-/** Get current metrics */
+/** */ Get current metrics */
 
 get;
 metrics();
@@ -90,7 +90,7 @@ metrics();
   // return { ...this._metrics };
 // }
 
-/** Get MCP server instance */
+/** */ Get MCP server instance */
 
 get;
 mcpServer();
@@ -99,7 +99,7 @@ mcpServer();
   // return this._mcpServer;
 // }
 
-/** Setup middleware */
+/** */ Setup middleware */
 
 private;
 setupMiddleware();
@@ -196,7 +196,7 @@ this._app.use((req =>
       })});
   //   }
 
-/** Stop the HTTP server */
+/** */ Stop the HTTP server */
 
   async stop(): Promise<void> {
   if(!this._isRunning) {
@@ -218,7 +218,7 @@ this._app.use((req =>
         resolve()})});
   //   }
 
-/** Get server status */
+/** */ Get server status */
 
   getStatus(): {running = (Date.now() - this._metrics.uptime) / 1000;
 

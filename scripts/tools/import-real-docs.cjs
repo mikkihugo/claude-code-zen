@@ -5,30 +5,30 @@
 
 const fs = require('';
 const _path = require('';
-const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
+const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs')
 
 // Mock memory store that we can verify
 class VerifiableMemoryStore {
   constructor() {
-    this.data = new Map();
+    this.data = new Map()
     this.documentList = [];
 
   async store(key, value, options = {}) { '
-    const fullKey = options.namespace ? `$options.namespace}:${key}` ;
-    this.data.set(fullKey, value);
+    const fullKey = options.namespace ? `${options}.namespace}:${key}` ;
+    this.data.set(fullKey, value)
 
-    const docData = JSON.parse(value);
+    const docData = JSON.parse(value)
     this.documentList.push({
       key,
       service: docData.metadata.service,
       type: docData.metadata.type,
       layer: docData.metadata.stack_layer,
       title: docData.metadata.title || docData.id,)`
-      size: `${Math.round(value.length / 1024)}KB` });
+      size: `${Math.round(value.length / 1024)}KB` })
     // return { id, size: value.length };
 
   async retrieve(key, options = {}) `
-    const fullKey = options.namespace ? `$options.namespace:$key` ;
+    const fullKey = options.namespace ? `${options}.namespace:${key}` ;
     // return this.data.get(fullKey) || null;
 
   async search(options = {}) { 
@@ -42,9 +42,9 @@ class VerifiableMemoryStore {
   getStoredDocs() {
     // return this.documentList;
 
-const memoryStore = new VerifiableMemoryStore();
-const docStack = new DocumentStack(memoryStore);
-setupDefaultRules(docStack);
+const memoryStore = new VerifiableMemoryStore()
+const docStack = new DocumentStack(memoryStore)
+setupDefaultRules(docStack)
 
 // Real Singularity Engine documents to import
 const realDocs = [
@@ -80,56 +80,56 @@ async function importRealDocs() {
     try {
       // Check if file exists
       try {
-// // await fs.access(docInfo.file); 
-      } catch (error) { console.error(error); } catch(_error) 
+// // await fs.access(docInfo.file) 
+      } catch (error) { console.error(error) } catch(_error) 
         continue; '
-// const content = awaitfs.readFile(docInfo.file, 'utf-8') {;
+// const content = awaitfs.readFile(docInfo.file, 'utf-8') {
 
       // Extract real metadata from content
-      const titleMatch = content.match(/^#\s+(.+)$/m);
+      const titleMatch = content.match(/^#\s+(.+)$/m)
       const title = titleMatch ? titleMatch[1] : docInfo.docId;
 
       // Smart tag extraction from real content
       const tags = [];
-      const lowerContent = content.toLowerCase();
+      const lowerContent = content.toLowerCase()
 
       // Architecture tags'
       if(lowerContent.includes('microservice') || lowerContent.includes('service'))'
-        tags.push('microservices');'
+        tags.push('microservices')'
       if(lowerContent.includes('architecture') || lowerContent.includes('design'))'
-        tags.push('architecture');'
-      if(lowerContent.includes('domain')) tags.push('domain-driven-design');
+        tags.push('architecture')'
+      if(lowerContent.includes('domain')) tags.push('domain-driven-design')
 
       // Technology tags'
-      if(lowerContent.includes('nats')) tags.push('nats', 'messaging');'
+      if(lowerContent.includes('nats')) tags.push('nats', 'messaging')'
       if(lowerContent.includes('postgresql') || lowerContent.includes('postgres'))'
-        tags.push('postgresql', 'database');'
-      if(lowerContent.includes('redis')) tags.push('redis', 'cache');'
+        tags.push('postgresql', 'database')'
+      if(lowerContent.includes('redis')) tags.push('redis', 'cache')'
       if(lowerContent.includes('kubernetes') || lowerContent.includes('k8s'))'
-        tags.push('kubernetes');'
-      if(lowerContent.includes('docker')) tags.push('docker');
+        tags.push('kubernetes')'
+      if(lowerContent.includes('docker')) tags.push('docker')
 
       // Functional tags'
-      if(lowerContent.includes('api') || lowerContent.includes('rest')) tags.push('api');'
+      if(lowerContent.includes('api') || lowerContent.includes('rest')) tags.push('api')'
       if(lowerContent.includes('auth') || lowerContent.includes('jwt'))'
-        tags.push('authentication');'
+        tags.push('authentication')'
       if(lowerContent.includes('deploy') || lowerContent.includes('infrastructure'))'
-        tags.push('deployment');'
+        tags.push('deployment')'
       if(lowerContent.includes('monitor') || lowerContent.includes('observability'))'
-        tags.push('monitoring');'
-      if(lowerContent.includes('agent') || lowerContent.includes('ai')) tags.push('ai-agents');'
-      if(lowerContent.includes('mcp')) tags.push('mcp', 'model-context-protocol');
+        tags.push('monitoring')'
+      if(lowerContent.includes('agent') || lowerContent.includes('ai')) tags.push('ai-agents')'
+      if(lowerContent.includes('mcp')) tags.push('mcp', 'model-context-protocol')
 
       // Smart dependency detection
       const dependencies = [];'
-      if(lowerContent.includes('postgresql')) dependencies.push('postgresql-database');'
-      if(lowerContent.includes('nats')) dependencies.push('nats-messaging');'
-      if(lowerContent.includes('redis')) dependencies.push('redis-cache');'
-      if(lowerContent.includes('auth-service')) dependencies.push('auth-service');'
-      if(lowerContent.includes('agent-management')) dependencies.push('agent-management-service');'
-      if(lowerContent.includes('memory-service')) dependencies.push('memory-service');'
+      if(lowerContent.includes('postgresql')) dependencies.push('postgresql-database')'
+      if(lowerContent.includes('nats')) dependencies.push('nats-messaging')'
+      if(lowerContent.includes('redis')) dependencies.push('redis-cache')'
+      if(lowerContent.includes('auth-service')) dependencies.push('auth-service')'
+      if(lowerContent.includes('agent-management')) dependencies.push('agent-management-service')'
+      if(lowerContent.includes('memory-service')) dependencies.push('memory-service')'
       if(lowerContent.includes('infrastructure-service'))'
-        dependencies.push('infrastructure-service');
+        dependencies.push('infrastructure-service')
 // // await docStack.createDocument(docInfo.docType, docInfo.service, docInfo.docId, content, {
         title,
         tags,
@@ -137,27 +137,27 @@ async function importRealDocs() {
         source: 'singularity-engine-docs',
         original_path: docInfo.file,
         file_size: content.length,
-        word_count: content.split(/\s+/).length });
+        word_count: content.split(/\s+/).length })
       _successCount++;
     } catch(_error) 
 
   // Show verification
-  const storedDocs = memoryStore.getStoredDocs();
+  const storedDocs = memoryStore.getStoredDocs()
 
   storedDocs.forEach((doc) => {
-    const _service = doc.service.substring(0, 26).padEnd(26);
-    const _type = doc.type.substring(0, 14).padEnd(14);
-    const _layer = doc.layer.substring(0, 10).padEnd(10);
-    const _size = doc.size.padEnd(6);
-    const _title = doc.title.substring(0, 20);
-  });'
+    const _service = doc.service.substring(0, 26).padEnd(26)
+    const _type = doc.type.substring(0, 14).padEnd(14)
+    const _layer = doc.layer.substring(0, 10).padEnd(10)
+    const _size = doc.size.padEnd(6)
+    const _title = doc.title.substring(0, 20)
+  })'
 // const testDoc = awaitmemoryStore.retrieve('service-adr/singularity-engine-system-architecture', {/g)
-    namespace);
+    namespace)
   if(testDoc) {
-    const _parsed = JSON.parse(testDoc);
+    const _parsed = JSON.parse(testDoc)
   } else {
 
-importRealDocs().catch(console.error);
+importRealDocs().catch(console.error)
 '
 }
 }

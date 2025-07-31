@@ -1,8 +1,8 @@
-/** ROCKET CLAUDE ZEN NATIVE SWARM INTEGRATION */
+/** */ ROCKET CLAUDE ZEN NATIVE SWARM INTEGRATION */
 
-/** REVOLUTIONARY REPLACEMENT for MCP + Plugin architecture */
+/** */ REVOLUTIONARY REPLACEMENT for MCP + Plugin architecture */
 
-/** This completely eliminates = {}) { */
+/** */ This completely eliminates = {}) { */
 
 //     super();
 
@@ -62,7 +62,7 @@ initialize();
 
 // NATIVE COORDINATION METHODS(Direct replacements for MCP tools)
 
-/** NATIVE = {}) { */
+/** */ NATIVE = {}) { */
 // // // await this.ensureInitialized();``
     const operation = this.trackOperation('swarm_init')
 

@@ -1,11 +1,11 @@
-/** Pub/Sub Communication Plugin */
-/** Provides publish-subscribe messaging coordination through the registry */
+/** */ Pub/Sub Communication Plugin */
+/** */ Provides publish-subscribe messaging coordination through the registry */
 
-import { EventEmitter } from 'node:events';
+import { EventEmitter } from ''node:events';
 ('');
 '
 
-import { nanoid } from 'nanoid';
+import { nanoid } from ''nanoid';
 ('');
 
 export class PubSubPlugin extends EventEmitter {

@@ -1,9 +1,9 @@
-/** Deploy Command Module */
-/** Converted from JavaScript to TypeScript */
+/** */ Deploy Command Module */
+/** */ Converted from JavaScript to TypeScript */
 
 // deploy-command.js - Handles the deploy command
 
-import { log } from '../core/logger.js';
+import { log } from ''../core/logger.js';
 
 // Helper functions
 const printSuccess = (msg) => log.success(msg);

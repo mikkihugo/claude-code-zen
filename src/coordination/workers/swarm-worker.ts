@@ -1,6 +1,6 @@
-/** Swarm Worker Thread - Executes individual swarm tasks in parallel */
+/** */ Swarm Worker Thread - Executes individual swarm tasks in parallel */
 
-import { parentPort } from 'node:worker_threads';
+import { parentPort } from ''node:worker_threads';
 ('');
 
 class SwarmWorker {
@@ -15,7 +15,7 @@ class SwarmWorker {
   warn(` Swarm worker ${this.workerId} initialized`);``
 // }
 
-/** Initialize worker and set up message handlers */
+/** */ Initialize worker and set up message handlers */
 
 initialize();
 // {
@@ -73,7 +73,7 @@ initialize();
     //     }
   //   }
 
-/** Execute agent spawning task */
+/** */ Execute agent spawning task */
 
   async;
   executeAgentSpawn(task);
@@ -103,7 +103,7 @@ initialize();
   // return capabilities[agentType]  ?? ['general-purpose']
   //   // LINT: unreachable code removed}
 
-/** Create coordination plan for subtasks */
+/** */ Create coordination plan for subtasks */
 
   createCoordinationPlan(subtasks, strategy);
   : unknown
@@ -117,7 +117,7 @@ initialize();
   //     }) {
 // }
 
-/** Analyze code complexity */
+/** */ Analyze code complexity */
 
 analyzeComplexity(codebase);
 : unknown
@@ -129,7 +129,7 @@ analyzeComplexity(codebase);
   // target,total = > setTimeout(resolve, ms)); // LINT: unreachable code removed
 // }
 
-/** Graceful shutdown */
+/** */ Graceful shutdown */
 
 async;
 shutdown()

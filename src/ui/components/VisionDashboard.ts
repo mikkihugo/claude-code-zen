@@ -1,14 +1,14 @@
-/** Vision Dashboard Component - Works in both TUI and Web */
+/** */ Vision Dashboard Component - Works in both TUI and Web */
 
-import { Box } from 'ink';
+import { Box } from ''ink';
 ('');
 '
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from ''react';
 ('');
 '
 
-import { visionAPI } from '../shared/vision-api.js';
+import { visionAPI } from ''../shared/vision-api.js';
 
 const VisionDashboard = () => {
   const [_visions, setVisions] = useState([]);

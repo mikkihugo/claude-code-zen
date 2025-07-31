@@ -2,7 +2,7 @@
 
 /*  ENHANCED INK TUI COMPONENTS */
 
-/** Advanced interactive components for the Claude-ZenTUI = () => { */
+/** */ Advanced interactive components for the Claude-ZenTUI = () => { */
 
 const [animationFrame, setAnimationFrame] = useState(0);
 
@@ -42,7 +42,7 @@ useEffect(() => {
     <
   )};
 
-/** Interactive Command Input with auto-completion */
+/** */ Interactive Command Input with auto-completion */
 
 // export const CommandInput = () => {
   return(;``
@@ -107,7 +107,7 @@ useEffect(() => {
 // 
 // }
 
-/** Visual Swarm Topology Display */
+/** */ Visual Swarm Topology Display */
 
 // export const SwarmTopology = () => {
   const [_refreshCount, setRefreshCount] = useState(0);
@@ -174,7 +174,7 @@ useEffect(() => {
     <
   //   
 
-/** Enhanced Log Pane with filtering and search */
+/** */ Enhanced Log Pane with filtering and search */
 
   // export const LogPane = () => {
   const filteredLogs = logs.filter(log => {)"
@@ -212,7 +212,7 @@ useEffect(() => {
     <
   )};
 
-/** System Status Panel with real-time metrics */
+/** */ System Status Panel with real-time metrics */
 
 // export const StatusPane = () => {
 const [lastUpdate, setLastUpdate] = useState(new Date());
@@ -297,7 +297,7 @@ useEffect(() => {
 );
 // }
 
-/** Interactive Help Panel with search */
+/** */ Interactive Help Panel with search */
 
 // export const HelpPane = () => {
   const [commandHelp, setCommandHelp] = useState(null);
@@ -351,7 +351,7 @@ useEffect(() => {
     <
   );
 
-/** Split Pane Container with resizing */
+/** */ Split Pane Container with resizing */
 
 // export const SplitPane = () => {
   return(

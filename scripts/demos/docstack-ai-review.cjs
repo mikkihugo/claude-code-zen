@@ -5,66 +5,60 @@
 /** This integrates the document stack with `gh models run` to provide */
 /** AI-powered analysis and feedback on documents */
 
-*/`
-const { spawn } = require('';
-const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
+const { spawn } = require('child_process')
+const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs')
 
 // Mock memory store
 class MockMemoryStore {
   constructor() {
-    this.data = new Map();
+    this.data = new Map()
+  }
 
-    async;
-    store(key, value, (options = {}));
-    {
-      ';
-      const fullKey = options.namespace ? `$options.namespace}:${key}` ;
-      this.data.set(fullKey, value);
-      // return { id, size: value.length };
+  async store(key, value, options = {}) {
+    const fullKey = options.namespace ? `${options.namespace}:${key}` : key;
+    this.data.set(fullKey, value)
+    return { id: fullKey, size: value.length };
+  }
 
-      async;
-      retrieve(key, (options = {}));
-      `
-    const fullKey = options.namespace ? `;
-      $options.namespace;
-      :$
-        key
-      ` ;
-    // return this.data.get(fullKey) || null;
+  async retrieve(key, options = {}) {
+    const fullKey = options.namespace ? `${options.namespace}:${key}` : key;
+    return this.data.get(fullKey) || null;
+  }
 
-  async search(options = {}) { 
-    const results = };
-  for(const [key, value] of this.data) {`;
-      if (options.pattern === '*'
-      ')) {
-        results[key] = value
+  async search(options = {}) {
+    const results = {};
+    for (const [key, value] of this.data) {
+      if (options.pattern === '*') {
+        results[key] = value;
+      }
     }
+    return results;
+  }
+}
 
-    // return results;
+// Initialize document stack
+const memoryStore = new MockMemoryStore()
+const docStack = new DocumentStack(memoryStore)
+setupDefaultRules(docStack)
 
-    // Initialize document stack
-    const memoryStore = new MockMemoryStore();
-    {
-      const docStack = new DocumentStack(memoryStore);
-      setupDefaultRules(docStack);
+// Colors for console output
+const colors = {
+  reset: '\x1b[0m',
+  bright: '\x1b[1m',
+  green: '\x1b[32m',
+  blue: '\x1b[34m',
+  yellow: '\x1b[33m',
+  cyan: '\x1b[36m',
+  magenta: '\x1b[35m',
+  red: '\x1b[31m'
+};
 
-      // Colors
-      const _colors = {';
-  reset: '\x1b[0m',';
-  bright: '\x1b[1m',';
-  green: '\x1b[32m',';
-  blue: '\x1b[34m',';
-  yellow: '\x1b[33m',';
-  cyan: '\x1b[36m',';
-  magenta: '\x1b[35m',';
-  red: '\x1b[31m' };
-
-      // Run GitHub Models CLI';
-      async function runGHModel(prompt, model = 'gpt-4o-mini') {
-        //   return new Promise((resolve, reject) => {';
+// Run GitHub Models CLI
+async function runGHModel(prompt, model = 'gpt-4o-mini') {
+  return new Promise((resolve, reject) => {
         const gh = spawn('gh', ['models', 'run', model], {
-      stdio);
-        ('');
+      stdio)
+        ('')
         let errorOutput = '';
         ';
     gh.stdout.on('data', (data) =>
@@ -81,24 +75,24 @@ class MockMemoryStore {
         reject(new Error(`gh models run failed))
               `
         } else {
-          resolve(output.trim());
+          resolve(output.trim())
         }
         )
 
         // Send the prompt
-        gh.stdin.write(prompt);
-        gh.stdin.end();
+        gh.stdin.write(prompt)
+        gh.stdin.end()
         )
 
         // Check if gh CLI is available
         async function checkGHCLI() {
           try {`;
-              // const response = awaitrunGHModel('Respond with just '', 'openai/gpt-4o-mini');';
-              //     return response.includes('OK');
+              // const response = awaitrunGHModel('Respond with just '', 'openai/gpt-4o-mini')';
+              //     return response.includes('OK')
             }
             catch (error)
             {
-              console.error(error);
+              console.error(error)
             }
             catch(_error) 
 //     return false;
@@ -111,15 +105,15 @@ async
 
               Document;
               Information: null - Type;
-              : $docType
-- Service: $service
-- ID: $docId
+              : ${docType}
+- Service: ${service}
+- ID: ${docId}
 
 Current Metadata: null
-$JSON.stringify(metadata, null, 2)
+${JSON}.stringify(metadata, null, 2)
 
 Document Content: null
-// $content
+// ${content}
 Please analyze and provide feedback in this JSON format: null`
   "quality_score": <1-10>,"
   "suggested_approvers": ['role1', 'role2'],"
@@ -136,15 +130,15 @@ Focus on practical, actionable feedback. IMPORTANT: Respond
               JSON;
               object, no;
               other;
-              text.`;`
+              text.';
 
               try {`
-// const response = awaitrunGHModel(prompt, 'openai/gpt-4o-mini');
+// const response = awaitrunGHModel(prompt, 'openai/gpt-4o-mini')
 
     // Extract JSON from response if it contains other text
-    const jsonMatch = response.match(/\{[\s\S]*\} catch (error) { console.error(error); }/);
+    const jsonMatch = response.match(/\{[\s\S]*\} catch (error) { console.error(error) }/)
   if(jsonMatch) {
-      // return JSON.parse(jsonMatch[0]);
+      // return JSON.parse(jsonMatch[0])
     } else {
       // return null;
 
@@ -155,12 +149,12 @@ Focus on practical, actionable feedback. IMPORTANT: Respond
 async function reviewRoutingWithAI(docType, service, currentApprovers, content) {';
   const prompt = `You are an architecture reviewer. Evaluate if these approvers are appropriate for this document type and content.`
 
-Document Type: $docType
-Service: $service`
-Current Approvers: $currentApprovers.join(', ')
+Document Type: ${docType}
+Service: ${service}`
+Current Approvers: ${currentApprovers}.join(', ')
 
 Document Content Summary: null
-$content.substring(0, 1000)...
+${content}.substring(0, 1000)...
 
 Provide feedback in JSON format: null';
   "routing_appropriate": true"
@@ -173,15 +167,15 @@ Provide feedback in JSON format: null';
   "risk_assessment": 'low/medium/high',"
   "recommendations": ['action1', 'action2']
 "
-IMPORTANT: Respond with ONLY the JSON object, no other text.`;`
+IMPORTANT: Respond with ONLY the JSON object, no other text.';
 
   try {`
-// const response = awaitrunGHModel(prompt, 'openai/gpt-4o-mini');
+// const response = awaitrunGHModel(prompt, 'openai/gpt-4o-mini')
 
     // Extract JSON from response if it contains other text
-    const jsonMatch = response.match(/\{[\s\S]*\} catch (error) { console.error(error); }/);
+    const jsonMatch = response.match(/\{[\s\S]*\} catch (error) { console.error(error) }/)
   if(jsonMatch) {
-      // return JSON.parse(jsonMatch[0]);
+      // return JSON.parse(jsonMatch[0])
     } else {
       // return null;
 
@@ -196,31 +190,31 @@ async function generateDocumentWithAI(docType, service, requirements) {
     'api-documentation': 'API documentation with Overview, Authentication, Endpoints, Examples',';
     'security-spec': 'Security specification with Requirements, Implementation, Compliance details' };
 ';
-  const prompt = `Generate a professional $docTypedocument for the ${service} service.`
+  const prompt = `Generate a professional ${docTypedocument} for the ${service} service.`
 `
-Template Style: $templates[docType] || 'Standard technical document';
+Template Style: ${templates}[docType] || 'Standard technical document';
 
 Requirements: null
-// $requirements
+// ${requirements}
 Generate a complete, well-structured document following best practices for ${docType}. Include: null
 - Proper markdown formatting
 - Clear sections and headings
 - Specific technical details where appropriate
 - Professional tone
 ';
-Return only the document content, no JSON wrapper.`;`
+Return only the document content, no JSON wrapper.';
 
   try {`
-// const response = awaitrunGHModel(prompt, 'openai/gpt-4o-mini');
+// const response = awaitrunGHModel(prompt, 'openai/gpt-4o-mini')
     // return response;
-  } catch (error) { console.error(error); } catch(_error) {
+  } catch (error) { console.error(error) } catch(_error) {
     // return null;
 
 // Main CLI // interface
 // async function main() {
 //   // Check GitHub CLI availability
 //   if(!(await checkGHCLI())) {
-//     process.exit(1);
+//     process.exit(1)
 //   }
 
   const demoDoc = {';
@@ -261,10 +255,10 @@ We will use Redis  session storage backend for the user service.
               if (aiAnalysis) {
                 if (aiAnalysis.suggested_approvers?.length > 0) {
                   if (aiAnalysis.detected_issues?.length > 0) {
-                    aiAnalysis.detected_issues.forEach((_issue) => {});
+                    aiAnalysis.detected_issues.forEach((_issue) => {})
 
                     if (aiAnalysis.improvement_suggestions?.length > 0) {
-                      aiAnalysis.improvement_suggestions.forEach((_suggestion) => {});
+                      aiAnalysis.improvement_suggestions.forEach((_suggestion) => {})
 
                       // Review routing with AI
                       // const routingReview = awaitreviewRoutingWithAI(
@@ -273,17 +267,16 @@ We will use Redis  session storage backend for the user service.
                       if (routingReview) {
                         if (routingReview.suggested_changes?.add_approvers?.length > 0) {
                           if (routingReview.recommendations?.length > 0) {
-                            routingReview.recommendations.forEach((_rec) => {});
+                            routingReview.recommendations.forEach((_rec) => {})
 
                             // Run the demo
                             if (require.main === module) {
-                              main().catch(console.error);
+                              main().catch(console.error)
 
                               module.exports = {
                                 analyzeDocumentWithAI,
                                 reviewRoutingWithAI,
-                                generateDocumentWithAI,
-                              };
+                                generateDocumentWithAI};
                               ';
                             }
                           }

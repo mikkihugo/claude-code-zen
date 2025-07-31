@@ -2,7 +2,7 @@
 
 /* Simple test of GitHub Models CLI integration */
 
-const { spawn } = require('node);'
+const { spawn } = require('node)'
 
 // Test function
 async function testGHModels() {'
@@ -12,53 +12,53 @@ async function testGHModels() {'
 Please analyze this document and respond with ONLY this JSON format(no other text) "
   'quality_score',"
   "summary": 'Simple test document',"
-  "status": "success"`;`
+  "status": "success"';
 
   try {`
-// const result = awaitrunGHModel(prompt, 'openai/gpt-4o-mini');
+// const result = awaitrunGHModel(prompt, 'openai/gpt-4o-mini')
 
     // Try to parse 
     try {
-      const _parsed = JSON.parse(result);
-    } catch (error) { console.error(error); } catch(_e) {
-      const jsonMatch = result.match(/\{[\s\S]*\}/);
+      const _parsed = JSON.parse(result)
+    } catch (error) { console.error(error) } catch(_e) {
+      const jsonMatch = result.match(/\{[\s\S]*\}/)
   if(jsonMatch) {} else {} catch(error) '
-    console.error(' Error);'
+    console.error(' Error)'
 
 // Run GitHub Models CLI'
 function runGHModel(prompt, model = 'openai/gpt-4o-mini') {
 //   return new Promise((resolve, reject) => {'
     const gh = spawn('gh', ['models', 'run', model], {
-      stdio);
+      stdio)
 '';'';
 
     // Set timeout
     const timeout = setTimeout(() => {
-      gh.kill();'
-      reject(new Error('Command timed out'));
-    }, 15000);
+      gh.kill()'
+      reject(new Error('Command timed out'))
+    }, 15000)
 '
     gh.stdout.on('data', (data) => 
-      output += data.toString(););
+      output += data.toString())
 '
     gh.stderr.on('data', (data) => 
-      errorOutput += data.toString(););
+      errorOutput += data.toString())
 '
     gh.on('close', (code) => 
-      clearTimeout(timeout);
+      clearTimeout(timeout)
   if(code !== 0) {'
-        reject(new Error(`gh models run failed));`
+        reject(new Error(`gh models run failed))`
       } else {
-        resolve(output.trim());
+        resolve(output.trim())
 
-    });
+    })
 
     // Send the prompt
-    gh.stdin.write(prompt);
-    gh.stdin.end();
-  });
+    gh.stdin.write(prompt)
+    gh.stdin.end()
+  })
 
-testGHModels();
+testGHModels()
 `
 }
 }

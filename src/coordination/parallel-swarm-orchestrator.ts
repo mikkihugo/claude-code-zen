@@ -1,17 +1,17 @@
-/** Parallel Swarm Orchestrator - Enhanced orchestrator with worker threads support */
+/** */ Parallel Swarm Orchestrator - Enhanced orchestrator with worker threads support */
 
-import { EventEmitter } from 'node:events';
+import { EventEmitter } from ''node:events';
 ('');
 '
 
-import os from 'node:os';
+import os from ''node:os';
 ('');
 '
 
-import { SwarmOrchestrator } from '../cli/command-handlers/swarm-orchestrator.js';
+import { SwarmOrchestrator } from ''../cli/command-handlers/swarm-orchestrator.js';
 '
 
-import { WorkerThreadPool } from './workers/worker-pool.js';
+import { WorkerThreadPool } from ''./workers/worker-pool.js';
 
 export class ParallelSwarmOrchestrator extends EventEmitter {
   constructor(options = {}) {
@@ -71,7 +71,7 @@ this.updateMetrics(useParallel, executionTime);
 // }
   //   }
 
-/** Launch swarm with parallel worker thread execution */
+/** */ Launch swarm with parallel worker thread execution */
 
   async launchParallelSwarm(objective, options =;
 // {
@@ -129,14 +129,14 @@ this.updateMetrics(useParallel, executionTime);
 // return this.sortGroupsByDependencies(groupArray);
 //   // LINT: unreachable code removed}
 
-/** Get dependencies for a group of tasks */
+/** */ Get dependencies for a group of tasks */
 
   getGroupDependencies(tasks) {
   const allDependencies = tasks.flatMap((task) => task.dependencies);
   // return [...new Set(allDependencies)];
 // }
 
-/** Sort groups by dependency order */
+/** */ Sort groups by dependency order */
 
 sortGroupsByDependencies(groups);
 
@@ -162,7 +162,7 @@ sortGroupsByDependencies(groups);
   // return sorted;
 // }
 
-/** Execute parallel task plan */
+/** */ Execute parallel task plan */
 
 async;
 executeParallelTaskPlan(taskPlan, swarmConfig);
@@ -190,7 +190,7 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
     // return results;
     //   // LINT: unreachable code removed}
 
-/** Execute a group of tasks in parallel */
+/** */ Execute a group of tasks in parallel */
 
   async executeTaskGroupInParallel(tasks) { ``
     console.warn(` Executing $tasks.length} tasks in parallel`);``
@@ -241,7 +241,7 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
     // return false;
     //   // LINT: unreachable code removed}
 
-/** Estimate execution time for task plan */
+/** */ Estimate execution time for task plan */
 
   estimateExecutionTime(tasks, parallelGroups): unknown
     // Sequential time would be sum of all tasks
@@ -265,7 +265,7 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
     //     }
   //   }
 
-/** Get orchestrator status including parallel metrics */
+/** */ Get orchestrator status including parallel metrics */
 
   async getSwarmStatus(swarmId = null) { 
 // const baseStatus = awaitthis.baseOrchestrator.getSwarmStatus(swarmId);
@@ -287,7 +287,7 @@ executeParallelTaskPlan(taskPlan, swarmConfig);
     };
   //   }
 
-/** Shutdown orchestrator and worker pool */
+/** */ Shutdown orchestrator and worker pool */
 
   async shutdown() '
     console.warn(' Shutting down Parallel Swarm Orchestrator...');

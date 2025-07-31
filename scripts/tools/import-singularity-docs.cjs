@@ -5,27 +5,27 @@
 
 const fs = require('';
 const _path = require('';
-const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
+const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs')
 
 // Mock memory store for testing
 class MockMemoryStore {
   constructor() {
-    this.data = new Map();
+    this.data = new Map()
     this.documentList = []; // Track imported documents
 
   async store(key, value, options = {}) { '
-    const fullKey = options.namespace ? `$options.namespace}:${key}` ;
-    this.data.set(fullKey, value);
+    const fullKey = options.namespace ? `${options}.namespace}:${key}` ;
+    this.data.set(fullKey, value)
 
     // Track this document
-    const docData = JSON.parse(value);
+    const docData = JSON.parse(value)
     this.documentList.push({
       key,
-      service);
+      service)
     // return { id, size: value.length };
 
   async retrieve(key, options = {}) `
-    const fullKey = options.namespace ? `$options.namespace:$key` ;
+    const fullKey = options.namespace ? `${options}.namespace:${key}` ;
     // return this.data.get(fullKey) || null;
 
   async search(options = {}) { 
@@ -39,9 +39,9 @@ class MockMemoryStore {
   getDocumentSummary() {
     // return this.documentList;
 
-const memoryStore = new MockMemoryStore();
-const docStack = new DocumentStack(memoryStore);
-setupDefaultRules(docStack);
+const memoryStore = new MockMemoryStore()
+const docStack = new DocumentStack(memoryStore)
+setupDefaultRules(docStack)
 
 // Documents to import from Singularity Engine
 const documentsToImport = [
@@ -64,44 +64,44 @@ const documentsToImport = [
 async function importDocuments() {
   for(const docInfo of documentsToImport) {
     try {'
-// const content = awaitfs.readFile(docInfo.file, 'utf-8'); 
+// const content = awaitfs.readFile(docInfo.file, 'utf-8') 
 
       // Extract title from first heading
-      const titleMatch = content.match(/^#\s+(.+)$/m); 
+      const titleMatch = content.match(/^#\s+(.+)$/m) 
       const title = titleMatch ? titleMatch[1] : docInfo.docId;
 
       // Determine tags from content
       const tags = [];'
-  if(content.includes('swarm') {) tags.push('swarm');'
-      if(content.includes('agent')) tags.push('agent');'
-      if(content.includes('performance')) tags.push('performance');'
-      if(content.includes('automation')) tags.push('automation');'
-      if(content.includes('API') || content.includes('api')) tags.push('api');'
-      if(content.includes('Claude')) tags.push('claude');'
-      if(content.includes('bottleneck')) tags.push('bottleneck');'
-      if(content.includes('analysis')) tags.push('analysis');
+  if(content.includes('swarm') {) tags.push('swarm')'
+      if(content.includes('agent')) tags.push('agent')'
+      if(content.includes('performance')) tags.push('performance')'
+      if(content.includes('automation')) tags.push('automation')'
+      if(content.includes('API') || content.includes('api')) tags.push('api')'
+      if(content.includes('Claude')) tags.push('claude')'
+      if(content.includes('bottleneck')) tags.push('bottleneck')'
+      if(content.includes('analysis')) tags.push('analysis')
 
       // Determine dependencies from content
       const dependencies = [];'
-      if(content.includes('claude-zen')) dependencies.push('claude-zen-core');'
-      if(content.includes('swarm')) dependencies.push('swarm-engine');'
-      if(content.includes('MCP')) dependencies.push('mcp-protocol');'
-      if(content.includes('memory')) dependencies.push('memory-store');
+      if(content.includes('claude-zen')) dependencies.push('claude-zen-core')'
+      if(content.includes('swarm')) dependencies.push('swarm-engine')'
+      if(content.includes('MCP')) dependencies.push('mcp-protocol')'
+      if(content.includes('memory')) dependencies.push('memory-store')
 // // await docStack.createDocument(docInfo.docType, docInfo.service, docInfo.docId, content, {
         title,
         tags,
         dependencies,
-        source);
-    } catch (error) console.error(error); catch(_error) 
+        source)
+    } catch (error) console.error(error) catch(_error) 
 
   // Show summary
-  const summary = memoryStore.getDocumentSummary();
+  const summary = memoryStore.getDocumentSummary()
 
   summary.forEach((doc) => {
-    const _service = doc.service.padEnd(22);
-    const _type = doc.type.padEnd(19);
-    const _layer = doc.layer.padEnd(13);
-  });
+    const _service = doc.service.padEnd(22)
+    const _type = doc.type.padEnd(19)
+    const _layer = doc.layer.padEnd(13)
+  })
 
   // Save import log for reference
   const importLog = {
@@ -112,9 +112,9 @@ async function importDocuments() {
 // // await fs.writeFile('
     '/home/mhugo/code/claude-code-flow/document-import-log.json',/g
     JSON.stringify(importLog, null, 2)
-  );
+  )
 
-importDocuments().catch(console.error);
+importDocuments().catch(console.error)
 '
 }
 }

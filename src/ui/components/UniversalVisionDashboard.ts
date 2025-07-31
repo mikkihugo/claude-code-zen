@@ -1,14 +1,14 @@
-/** Universal Vision Dashboard - Works in TUI(Ink) and Web(React DOM) */
-/** Same component, automatically adapts rendering based on environment */
+/** */ Universal Vision Dashboard - Works in TUI(Ink) and Web(React DOM) */
+/** */ Same component, automatically adapts rendering based on environment */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from ''react';
 ('');
 '
 
-import { UniversalBox as Box } from '../adapters/render-adapter.js';
+import { UniversalBox as Box } from ''../adapters/render-adapter.js';
 '
 
-import { visionAPI } from '../shared/vision-api.js';
+import { visionAPI } from ''../shared/vision-api.js';
 
 const UniversalVisionDashboard = () => { // eslint-disable-line
   const [visions, setVisions] = useState([]);

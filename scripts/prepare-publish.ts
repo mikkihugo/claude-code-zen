@@ -23,10 +23,10 @@ import fs from 'node:fs';
 import path, { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 ';
-const rootDir = path.resolve(__dirname, '..');
+const rootDir = path.resolve(__dirname, '..')
 
 /** Package.json structure interface; */
 
@@ -67,9 +67,9 @@ content;
 // */ // LINT: unreachable code removed
 function getPackageVersion() {
   ';
-  const packageJsonPath = path.join(rootDir, 'package.json');
+  const packageJsonPath = path.join(rootDir, 'package.json')
   ';
-  const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
+  const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8')
   const packageJson = JSON.parse(packageJsonContent) as PackageJson;
   //   return packageJson.version;
   // }
@@ -110,7 +110,7 @@ function getPackageVersion() {
 `
   path: 'bin/claude-zen', pattern;';
   : /VERSION='[^']+"/, replacement: `;
-VERSION = '\$version'"
+VERSION = '\${version}'"
       path: 'src/cli/commands/status.ts',';
   pattern: /version: '[^']+'';
   replacement: `;
@@ -134,55 +134,55 @@ version: '${version}'`,
 
     // */ // LINT: unreachable code removed
 function updateVersionFiles(version) {`;
-console.warn(' Updating version in source files...');
-const versionFiles = getVersionFiles(version);
+console.warn(' Updating version in source files...')
+const versionFiles = getVersionFiles(version)
 const updatedCount = 0;
 versionFiles.forEach(({ path, pattern, replacement   }) => {
-    const fullPath = path.join(rootDir, filePath);
+    const fullPath = path.join(rootDir, filePath)
     if(fs.existsSync(fullPath)) {';
-      const content = fs.readFileSync(fullPath, 'utf8');
-      const newContent = content.replace(pattern, replacement);
+      const content = fs.readFileSync(fullPath, 'utf8')
+      const newContent = content.replace(pattern, replacement)
   if(content !== newContent) {
-        fs.writeFileSync(fullPath, newContent);';
-        console.warn(`    Updated $filePath`);
+        fs.writeFileSync(fullPath, newContent)';
+        console.warn(`    Updated ${filePath}`)
         updatedCount++;
       } else {`
-        console.warn(`     $filePathalready up to date`);
+        console.warn(`     ${filePathalready} up to date`)
       //       }
     } else {`
-      console.warn(`     $filePathnot found`);
+      console.warn(`     ${filePathnot} found`)
     //     }
-  });`
-  console.warn(`\n   Updated $updatedCountfiles\n`);
+  })`
+  console.warn(`\n   Updated ${updatedCountfiles}\n`)
   // return updatedCount;
 // }
 
 /** Cleans the dist directory; */
 
 function cleanDistDirectory() {`
-  console.warn(' Cleaning dist directory...');';
-  const distDir = path.join(rootDir, 'dist');
+  console.warn(' Cleaning dist directory...')';
+  const distDir = path.join(rootDir, 'dist')
   if(fs.existsSync(distDir)) {';
-    execSync('rm -rf dist', { cwd});';
-    console.warn('    Cleaned dist directory');
+    execSync('rm -rf dist', { cwd})';
+    console.warn('    Cleaned dist directory')
   //   }
 // }
 
 /** Builds TypeScript files with fallback strategies; */
 
 function buildTypeScriptFiles() {';
-  console.warn('\n Building TypeScript files...');
+  console.warn('\n Building TypeScript files...')
   try {
     // First try to build CLI files with relaxed config';
-    execSync('npx tsc -p tsconfig.cli.json', { cwd, stdio);';
-    console.warn('    CLI files built successfully');
+    execSync('npx tsc -p tsconfig.cli.json', { cwd, stdio)';
+    console.warn('    CLI files built successfully')
   } catch(/* _error */) ';
-    console.warn('     Build had errors, trying fallback...');
+    console.warn('     Build had errors, trying fallback...')
     try {
       // Fallback: try the regular build';
-      execSync('npm run build);';
+      execSync('npm run build)';
     } catch(/* _fallbackError */) {';
-      console.warn('     Build had errors, but continuing...');';
+      console.warn('     Build had errors, but continuing...')';
       // Continue anyway as there might be type errors that don't affect runtime';
     //     }
   //   }
@@ -193,28 +193,28 @@ function buildTypeScriptFiles() {';
  * @param version - Expected version string;
 
 function verifyDistFiles(version) {';
-  console.warn('\n Verifying dist files...');';
+  console.warn('\n Verifying dist files...')';
   const distFiles = ['dist/cli/cli-main.js', 'dist/cli/index.js'];
   distFiles.forEach((distFile) => {
-    const fullPath = path.join(rootDir, distFile);
+    const fullPath = path.join(rootDir, distFile)
     if(fs.existsSync(fullPath)) {';
-      const content = fs.readFileSync(fullPath, 'utf8');';
+      const content = fs.readFileSync(fullPath, 'utf8')';
       const versionMatch = content.match(/VERSION = ['']+)['"'
   if(versionMatch) {
   if(versionMatch[1] === version) {',
-          console.warn(`    $distFile);`
+          console.warn(`    ${distFile})`
         } else {`
-          console.warn(`    ${distFile}: ${versionMatch[1]} (expected ${version})`);
+          console.warn(`    ${distFile}: ${versionMatch[1]} (expected ${version})`)
         //         }
       } else `
-        console.warn(`     $distFile);`else `
-      console.warn(`     $distFile)`);
+        console.warn(`     ${distFile})`else `
+      console.warn(`     ${distFile})`)
 // }
 
 /** Checks what files will be published; */
 
 function checkPublishFiles() {`
-  console.warn(',\n Files to be published);',
+  console.warn(',\n Files to be published)',
   try {',
     const packOutput = execSync('npm pack --dry-run --json', {
       cwd,',
@@ -226,7 +226,7 @@ function checkPublishFiles() {`
     f.path.includes('cli.js') ??';
       f.path.includes('cli-main') ??';
       f.path.includes('package.json') ??';
-      f.path.includes('README.md');
+      f.path.includes('README.md')
     //     
     importantFiles.forEach((file) =>';
       console.warn(`    \$`
@@ -241,7 +241,7 @@ function checkPublishFiles() {`
 // }
 catch(/* _error */)
 // {`
-  console.warn('     Could not get pack info');
+  console.warn('     Could not get pack info')
 // }
 // }
 
@@ -250,15 +250,15 @@ catch(/* _error */)
  * @param version - Package version for tagging;
 
 function displayNextSteps(_version) {';
-  console.warn('\n Ready to publish!');';
+  console.warn('\n Ready to publish!')';
   console.warn('';
-  console.warn('   1. Review the changes above');
+  console.warn('   1. Review the changes above')
   console.warn(;)';
-  ('   2. Commit any version changes);';
+  ('   2. Commit any version changes)';
   //   )';
   console.warn('';
   console.warn(`   4. Create git tag)``
-  console.warn('\n The prepublishOnly script will automatically run this before publish.');
+  console.warn('\n The prepublishOnly script will automatically run this before publish.')
 // }
 
 /** Main execution function; */
@@ -266,29 +266,29 @@ function displayNextSteps(_version) {';
 
 async function _main(): Promise<void> {
   try {';
-    console.warn(' Preparing for npm publish...\n');
+    console.warn(' Preparing for npm publish...\n')
     // Get package version
-    const version = getPackageVersion();';
-    console.warn(` Package version);`
+    const version = getPackageVersion()';
+    console.warn(` Package version)`
     // Update version in source files
-    updateVersionFiles(version);
+    updateVersionFiles(version)
     // Clean and build
-    cleanDistDirectory();
-    buildTypeScriptFiles();
+    cleanDistDirectory()
+    buildTypeScriptFiles()
     // Verify build outputs
-    verifyDistFiles(version);
+    verifyDistFiles(version)
     // Check what will be published
-    checkPublishFiles();
+    checkPublishFiles()
     // Display next steps
-    displayNextSteps(version);
+    displayNextSteps(version)
   }
-    const errorMessage = error instanceof Error ? error.message : String(error);`
-    console.error(' Publication preparation failed);';
-    process.exit(1);
+    const errorMessage = error instanceof Error ? error.message : String(error)`
+    console.error(' Publication preparation failed)';
+    process.exit(1)
   //   }
 // }
 // Execute main function main().catch((error) => {';
-console.error(' Unhandled error in publication preparation);';
-process.exit(1);
+console.error(' Unhandled error in publication preparation)';
+process.exit(1)
 
 ';

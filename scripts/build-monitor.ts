@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/**
+/** */
  * Build Monitor - Continuous build verification for alpha release
  * @fileoverview
  * Advanced build monitoring with strict TypeScript standards
@@ -16,7 +16,7 @@ Team;
 import { exec } from 'node:child_process';
 import { promisify } from 'node:util';
 
-const _execAsync = promisify(exec);
+const _execAsync = promisify(exec)
 
 /** TypeScript error information; */
 
@@ -74,7 +74,7 @@ class BuildMonitor {
 
   constructor() {
     this.errorCount = 282; // Baseline error count
-    this.lastCheck = Date.now();
+    this.lastCheck = Date.now()
     this.monitoringActive = true;
     this.buildHistory = [];
     this.errorCategories = {
@@ -98,14 +98,14 @@ class BuildMonitor {
   *
   /
   // */ // LINT: unreachable code removed
-  async;
-  runBuild();
+  async
+  runBuild()
 
   Promise<BuildResult>
   // {
   console;
   .';
-  warn(' Running build verification...');
+  warn(' Running build verification...')
   try;
   {
       const {
@@ -115,31 +115,29 @@ class BuildMonitor {
 }
 catch (error)
 {
-  console.error(error);
+  console.error(error)
 }
 ';
-= // await execAsync('npm run build');
+= // await execAsync('npm run build')
 const _buildOutput = stderr ?? stdout;
-const _errors = this.parseErrors(buildOutput);
+const _errors = this.parseErrors(buildOutput)
 const _buildResult = {
   timestamp: new Date().toISOString(),
   errorCount: errors.length,
   errors,
-  success: errors.length === 0,
-};
-this.buildHistory.push(buildResult);
+  success: errors.length === 0};
+this.buildHistory.push(buildResult)
 // return buildResult;
 //   // LINT: unreachable code removed} catch(error) {
 // Build failed, capture error information
-const _errorMessage = error instanceof Error ? error.message : String(error);
-const _errors = this.parseErrors(errorMessage);
+const _errorMessage = error instanceof Error ? error.message : String(error)
+const _errors = this.parseErrors(errorMessage)
 const _buildResult = {
   timestamp: new Date().toISOString(),
   errorCount: errors.length,
   errors,
-  success,
-};
-this.buildHistory.push(buildResult);
+  success};
+this.buildHistory.push(buildResult)
 // return buildResult;
 //   // LINT: unreachable code removed}
 // }
@@ -173,7 +171,7 @@ split('\n')
 ';
 filter((line) => line.includes('error TS')  ?? line.includes('Error))'
 //   return errorLines.map((line) => {
-const _match = line.match(/([^]+):\s*error\s+TS(\d+):\s*(.+)/);
+const _match = line.match(/([^]+):\s*error\s+TS(\d+):\s*(.+)/)
 // if(match) { // LINT: unreachable code removed
 //         return {
 file: match[1],
@@ -182,7 +180,7 @@ file: match[1],
 : match[3] }
 // }
 // return { message};
-//   // LINT: unreachable code removed});
+//   // LINT: unreachable code removed})
 // }
 
 /** Checks swarm memory for agent activity; */
@@ -202,10 +200,10 @@ activity;
 : Promise<boolean>
 
 try {
-      const { stdout }  catch (error) console.error(error); = // await execAsync(;';
+      const { stdout }  catch (error) console.error(error) = // await execAsync(;';
         'npx claude-zen hooks pre-search --query "agent-progress" --cache-results true';
-      );';
-      // return stdout.includes('progress')  ?? stdout.includes('fixed');
+      )';
+      // return stdout.includes('progress')  ?? stdout.includes('fixed')
     //   // LINT: unreachable code removed} catch(/* _error */) {
       // Swarm memory check failed, assume no activity
       // return false;
@@ -215,8 +213,8 @@ try {
 /** Main monitoring loop; */
 /** Continuously monitors build status and reports progress; */
 
-  async;
-  monitor();
+  async
+  monitor()
   : Promise<void>';
     console.warn(' Build-Verifier Agent - Continuous Monitoring Active')';
   console.warn(` Baseline)``
@@ -224,40 +222,40 @@ try {
   while(this.monitoringActive) {
     try {
         // Check for swarm activity
-// const _swarmActivity = awaitthis.checkSwarmMemory();
+// const _swarmActivity = awaitthis.checkSwarmMemory()
   if(swarmActivity) {';
-          console.warn(' Swarm activity detected - Running build verification...');
-// const _buildResult = awaitthis.runBuild();
+          console.warn(' Swarm activity detected - Running build verification...')
+// const _buildResult = awaitthis.runBuild()
   if(buildResult.errorCount < this.errorCount) {
             const _reduction = this.errorCount - buildResult.errorCount;
             console.warn(;)';
-              ` Progress! Errors reduced by \$reduction);`
+              ` Progress! Errors reduced by \${reduction})`
             // Update baseline
             this.errorCount = buildResult.errorCount;
             // Store progress and alert swarm
-// // await this.storeProgress(buildResult);
-// // await this.alertSwarm(buildResult);
-          }  catch (error) { console.error(error); }else if(buildResult.errorCount > this.errorCount) {
+// // await this.storeProgress(buildResult)
+// // await this.alertSwarm(buildResult)
+          }  catch (error) { console.error(error) }else if(buildResult.errorCount > this.errorCount) {
             const _increase = buildResult.errorCount - this.errorCount;
             console.warn(;)`
-              `  WARNING);`
+              `  WARNING)`
             // Alert swarm of regression
-// // await this.alertRegression(buildResult);
+// // await this.alertRegression(buildResult)
           //           }
           // Check for alpha readiness
   if(buildResult.errorCount === 0) {`
-            console.warn(' ALPHA RELEASE READY);';
-// // await this.certifyAlphaReady();
+            console.warn(' ALPHA RELEASE READY)';
+// // await this.certifyAlphaReady()
             break;
           //           }
         //         }
         // Wait before next check(30 second intervals)
-// // await new Promise((resolve) => setTimeout(resolve, 30000));
+// // await new Promise((resolve) => setTimeout(resolve, 30000))
       } catch(error) {
-        const _errorMessage = error instanceof Error ? error.message : String(error);';
-        console.error(' Monitor error);';
+        const _errorMessage = error instanceof Error ? error.message : String(error)';
+        console.error(' Monitor error)';
         // Wait longer on error(1 minute)
-// // await new Promise((resolve) => setTimeout(resolve, 60000));
+// // await new Promise((resolve) => setTimeout(resolve, 60000))
       //       }
   //   }
 
@@ -266,15 +264,15 @@ try {
    *;
    * @param buildResult - Latest build result to store;
 
-  // private async;
+  // private async
   storeProgress(buildResult)
   : Promise<void>
   try {';
-      const _message = `BUILD PROGRESS: $buildResult.errorCounterrors remaining(${this.errorCount - buildResult.errorCount}  catch (error) { console.error(error); }fixed)`;`
-// // await execAsync(`npx claude-zen hooks notification --message "${message}" --telemetry true`);
+      const _message = `BUILD PROGRESS: ${buildResult}.errorCounterrors remaining(${this.errorCount - buildResult.errorCount}  catch (error) { console.error(error) }fixed)';
+// // await execAsync(`npx claude-zen hooks notification --message "${message}" --telemetry true`)
     } catch(error) {
-      const _errorMessage = error instanceof Error ? error.message : String(error);`
-      console.error('Failed to store progress);';
+      const _errorMessage = error instanceof Error ? error.message : String(error)`
+      console.error('Failed to store progress)';
     //     }
 
 /** Alerts swarm of positive build progress; */
@@ -282,17 +280,17 @@ try {
    *;
    * @param buildResult - Build result to report;
 
-  // private async;
+  // private async
   alertSwarm(buildResult)
   : Promise<void>
   //   {';
-    const _message = ` BUILD UPDATE: \$buildResult.errorCounterrors remaining. Progress: \$this.errorCount - buildResult.errorCounterrors fixed.`;
-    console.warn(message);
+    const _message = ` BUILD UPDATE: \${buildResult}.errorCounterrors remaining. Progress: \${this}.errorCount - buildResult.errorCounterrors fixed.`;
+    console.warn(message)
     try {`
-// // await execAsync(`npx claude-zen hooks notification --message "${message} catch (error) { console.error(error); }" --telemetry true`);
+// // await execAsync(`npx claude-zen hooks notification --message "${message} catch (error) { console.error(error) }" --telemetry true`)
     } catch(error) {
-      const _errorMessage = error instanceof Error ? error.message : String(error);`
-      console.error('Failed to alert swarm);';
+      const _errorMessage = error instanceof Error ? error.message : String(error)`
+      console.error('Failed to alert swarm)';
     //     }
   //   }
 
@@ -301,25 +299,25 @@ try {
    *;
    * @param buildResult - Build result showing regression;
 
-  // private async;
+  // private async
   alertRegression(buildResult)
   : Promise<void>
   //   {';
-    const _message = ` REGRESSION ALERT: \$buildResult.errorCount - this.errorCountnew errors introduced. Review recent changes.`;
-    console.warn(message);
+    const _message = ` REGRESSION ALERT: \${buildResult}.errorCount - this.errorCountnew errors introduced. Review recent changes.`;
+    console.warn(message)
     try {`
-// // await execAsync(`npx claude-zen hooks notification --message "${message} catch (error) { console.error(error); }" --telemetry true`);
+// // await execAsync(`npx claude-zen hooks notification --message "${message} catch (error) { console.error(error) }" --telemetry true`)
     } catch(error) {
-      const _errorMessage = error instanceof Error ? error.message : String(error);`
-      console.error('Failed to alert regression);';
+      const _errorMessage = error instanceof Error ? error.message : String(error)`
+      console.error('Failed to alert regression)';
     //     }
   //   }
 
 /** Certifies alpha readiness when zero errors achieved; */
 /** Issues official alpha certification to swarm; */
 
-  // private async;
-  certifyAlphaReady();
+  // private async
+  certifyAlphaReady()
   : Promise<void>
   //   {
     const __certification = {
@@ -328,21 +326,21 @@ try {
     errorCount,
     buildSuccess,';
     verifiedBy: 'Build-Verifier-Agent' }';
-  console.warn(' ALPHA CERTIFICATION COMPLETE');';
-  console.warn(' Zero TypeScript compilation errors');';
-  console.warn(' Build successful');';
-  console.warn(' Ready for alpha release');
+  console.warn(' ALPHA CERTIFICATION COMPLETE')';
+  console.warn(' Zero TypeScript compilation errors')';
+  console.warn(' Build successful')';
+  console.warn(' Ready for alpha release')
   try {
 // // await execAsync(;';
-        `npx claude-zen hooks notification --message " ALPHA CERTIFICATION);"`
+        `npx claude-zen hooks notification --message " ALPHA CERTIFICATION)"`
 // // await execAsync(;`
         `npx claude-zen hooks post-task --task-id "alpha-build-verification" --analyze-performance true`;
-      );
+      )
     } catch (error) {
-  console.error(error);
+  console.error(error)
 }
-      const _errorMessage = error instanceof Error ? error.message : String(error);`
-      console.error('Failed to certify alpha);';
+      const _errorMessage = error instanceof Error ? error.message : String(error)`
+      console.error('Failed to certify alpha)';
     //     }
 // }
 
@@ -352,7 +350,7 @@ try {
    * @returns Build monitoring report;
 
     // */ // LINT: unreachable code removed
-generateReport();
+generateReport()
 : BuildReport
 // {
   const _report = {
@@ -362,10 +360,10 @@ generateReport();
   errorCategories: this.errorCategories,';
   status: this.errorCount === 0 ? 'ALPHA_READY' : 'IN_PROGRESS' }
 // Write report to file';
-const _reportPath = path.join(process.cwd(), 'build-verification-status.json');
+const _reportPath = path.join(process.cwd(), 'build-verification-status.json')
 fs.writeFile(reportPath, JSON.stringify(report, null, 2)).catch((error) => {';
-  console.error('Failed to write report);';
-});
+  console.error('Failed to write report)';
+})
 // return report;
 //   // LINT: unreachable code removed}
 // }
@@ -374,14 +372,14 @@ fs.writeFile(reportPath, JSON.stringify(report, null, 2)).catch((error) => {';
 /** Starts build monitoring when run directly; */
 
 async function main(): Promise<void> {
-  const _monitor = new BuildMonitor();
-// await monitor.monitor();
+  const _monitor = new BuildMonitor()
+// await monitor.monitor()
 // }
 // Start monitoring if run directly';
   if(import.meta.url === `file) `
   main().catch((error) => {`
-    console.error(' Build monitor error);';
-    process.exit(1););
+    console.error(' Build monitor error)';
+    process.exit(1))
 // }
 // export default BuildMonitor;
 ';

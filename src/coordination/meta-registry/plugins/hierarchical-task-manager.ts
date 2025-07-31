@@ -1,5 +1,5 @@
-/** Hierarchical Task Management Plugin */
-/** Manages the complete hierarchy = {name = null */
+/** */ Hierarchical Task Management Plugin */
+/** */ Manages the complete hierarchy = {name = null */
 
 this.memoryRag = null;
 this.architectAdvisor = null;

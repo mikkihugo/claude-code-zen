@@ -1,11 +1,11 @@
-/** AG-UI Protocol Integration for Claude Code Zen */
+/** */ AG-UI Protocol Integration for Claude Code Zen */
 
-/** Standardizes agent-to-UI communication using the AG-UI protocol */
-/** Maps Claude Zen events to AG-UI standard event types */
+/** */ Standardizes agent-to-UI communication using the AG-UI protocol */
+/** */ Maps Claude Zen events to AG-UI standard event types */
 
 AGUIAdapter * /;
 
-import { EventEmitter } from 'node:events';
+import { EventEmitter } from ''node:events';
 
 // Define types for AG-UI protocol events
 // export // interface AGUIEvent {
@@ -26,8 +26,8 @@ import { EventEmitter } from 'node:events';
 //   // uptime: number
 // // }
 
-/** AG-UI Protocol Adapter for Claude Code Zen */
-/** Converts internal events to AG-UI standard format */
+/** */ AG-UI Protocol Adapter for Claude Code Zen */
+/** */ Converts internal events to AG-UI standard format */
 
 // export class AGUIAdapter extends EventEmitter {
 // // public sessionId,
@@ -35,13 +35,13 @@ import { EventEmitter } from 'node:events';
 // // public runId,
 // // public currentMessageId: string | null = null;
 // // public currentToolCallId: string | null = null;
-constructor(options);
+constructor(options)
 {
 //     super()
-    this.sessionId = options.sessionId ?? `agui-${Date.now()}`;``
-    this.threadId = options.threadId ?? `thread-${Date.now()}`;``
-    this.runId = options.runId ?? `run-${Date.now()}`;``
-    this.startTime = Date.now();
+    this.sessionId = options.sessionId ?? `agui-${Date.now()}';`
+    this.threadId = options.threadId ?? `thread-${Date.now()}';`
+    this.runId = options.runId ?? `run-${Date.now()}';`
+    this.startTime = Date.now()
     this.stats = {
       messagesCreated,
     toolCallsExecuted,
@@ -49,12 +49,12 @@ constructor(options);
     uptime}
 // }
 
-/** Start a new text message */
+/** */ Start a new text message */
 ``
 startTextMessage(messageId?, role = 'assistant')'
 : string
 // {'
-  const id = messageId ?? `msg-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;``
+  const id = messageId ?? `msg-${Date.now()}-${Math.random().toString(36).substr(2, 4)}';`
   this.currentMessageId = id;
   const event = {``
       type: 'textMessageStart','
@@ -73,7 +73,7 @@ this._emitEvent(event)
 // return id;
 //   // LINT: unreachable code removed}
 
-/** Add content to an active text message */
+/** */ Add content to an active text message */
 
 addTextContent(content, messageId?)
 : void
@@ -90,14 +90,14 @@ addTextContent(content, messageId?)
   sessionId: this.sessionId,
    //    }
 // Update active message
-const activeMessage = this.activeMessages.get(id);
+const activeMessage = this.activeMessages.get(id)
   if(activeMessage) {
   activeMessage.content += content;
 // }
-this._emitEvent(event);
+this._emitEvent(event)
 // }
 
-/** End an active text message */
+/** */ End an active text message */
 
 endTextMessage(messageId?)
 : void
@@ -111,19 +111,19 @@ endTextMessage(messageId?)
   timestamp: Date.now(),
   sessionId: this.sessionId,
    //    }
-this.activeMessages.delete(id);
+this.activeMessages.delete(id)
   if(id === this.currentMessageId) {
   this.currentMessageId = null;
 // }
-this._emitEvent(event);
+this._emitEvent(event)
 // }
 
-/** Start a tool call execution */
+/** */ Start a tool call execution */
 
 startToolCall(toolName, toolCallId?, parentMessageId?)
 : string
 // {'
-  const id = toolCallId ?? `tool-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`;``
+  const id = toolCallId ?? `tool-${Date.now()}-${Math.random().toString(36).substr(2, 4)}';`
   this.currentToolCallId = id;
   const event = {``
       type: 'toolCallStart','
@@ -144,7 +144,7 @@ this._emitEvent(event)
 // return id;
 //   // LINT: unreachable code removed}
 
-/** Add arguments to an active tool call */
+/** */ Add arguments to an active tool call */
 
 addToolCallArgs(args, toolCallId?)
 : void
@@ -161,14 +161,14 @@ addToolCallArgs(args, toolCallId?)
   sessionId: this.sessionId,
    //    }
 // Update active tool call
-const activeToolCall = this.activeToolCalls.get(id);
+const activeToolCall = this.activeToolCalls.get(id)
   if(activeToolCall) {
   activeToolCall.args = args;
 // }
-this._emitEvent(event);
+this._emitEvent(event)
 // }
 
-/** End a tool call */
+/** */ End a tool call */
 
 endToolCall(toolCallId?)
 : void
@@ -182,14 +182,14 @@ endToolCall(toolCallId?)
   timestamp: Date.now(),
   sessionId: this.sessionId,
    //    }
-this.activeToolCalls.delete(id);
+this.activeToolCalls.delete(id)
   if(id === this.currentToolCallId) {
   this.currentToolCallId = null;
 // }
-this._emitEvent(event);
+this._emitEvent(event)
 // }
 
-/** Add result to a tool call */
+/** */ Add result to a tool call */
 
 addToolCallResult(result, toolCallId?)
 : void
@@ -205,14 +205,14 @@ addToolCallResult(result, toolCallId?)
   sessionId: this.sessionId,
    //    }
 // Update active tool call
-const activeToolCall = this.activeToolCalls.get(id);
+const activeToolCall = this.activeToolCalls.get(id)
   if(activeToolCall) {
   activeToolCall.result = result;
 // }
-this._emitEvent(event);
+this._emitEvent(event)
 // }
 
-/** Emit a run started event */
+/** */ Emit a run started event */
 
 startRun(runId?)
 : void
@@ -225,10 +225,10 @@ startRun(runId?)
   sessionId: this.sessionId,
   threadId: this.threadId,
    //    }
-this._emitEvent(event);
+this._emitEvent(event)
 // }
 
-/** Emit a run finished event */
+/** */ Emit a run finished event */
 '
 finishRun(runId?, status = 'completed')'
 : void
@@ -243,10 +243,10 @@ finishRun(runId?, status = 'completed')'
   threadId: this.threadId,
   stats: this.getStats(),
    //    }
-this._emitEvent(event);
+this._emitEvent(event)
 // }
 
-/** Emit a state snapshot event */
+/** */ Emit a state snapshot event */
 
 emitStateSnapshot(state)
 : void
@@ -260,10 +260,10 @@ emitStateSnapshot(state)
   activeMessages: Array.from(this.activeMessages.keys()),
   activeToolCalls: Array.from(this.activeToolCalls.keys()),
    //    }
-this._emitEvent(event);
+this._emitEvent(event)
 // }
 
-/** Emit a custom event */
+/** */ Emit a custom event */
 
 emitCustomEvent(eventType, data)
 : void
@@ -275,10 +275,10 @@ emitCustomEvent(eventType, data)
 ..data,
   sessionId: this.sessionId,
    //    }
-this._emitEvent(event);
+this._emitEvent(event)
 // }
 
-/** Get adapter statistics */
+/** */ Get adapter statistics */
 
   getStats() 
 : AGUIStats
@@ -289,7 +289,7 @@ this._emitEvent(event);
 // }
 // }
 
-/** Get active sessions info */
+/** */ Get active sessions info */
 
   getActiveSessions() 
 : unknown
@@ -302,13 +302,13 @@ this._emitEvent(event);
   activeToolCalls: this.activeToolCalls.size }
 // }
 
-/** Reset adapter state */
+/** */ Reset adapter state */
 
   reset() 
 : void
 // {
-  this.activeMessages.clear();
-  this.activeToolCalls.clear();
+  this.activeMessages.clear()
+  this.activeToolCalls.clear()
   this.currentMessageId = null;
   this.currentToolCallId = null;
   this.stats = {
@@ -316,17 +316,17 @@ this._emitEvent(event);
   toolCallsExecuted,
   eventsEmitted,
   uptime}
-this.startTime = Date.now();
+this.startTime = Date.now()
 // }
 
-/** Internal method to emit events */
+/** */ Internal method to emit events */
 
 // // private _emitEvent(event)
 : void
 // {
   this.stats.eventsEmitted++;``
   this.emit('agui-event', event)
-  this.emit(event.type, event);
+  this.emit(event.type, event)
 // }
 // }
 // export default AGUIAdapter

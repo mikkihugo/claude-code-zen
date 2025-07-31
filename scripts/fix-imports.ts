@@ -18,8 +18,8 @@ import { promises as fs } from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 /** Import replacement rule configuration; */
 
@@ -117,14 +117,14 @@ update;
 function processFile(filePath, stats): Promise<void> {
   try {
     stats.filesProcessed++;';
-// const content = awaitfs.readFile(filePath, 'utf-8');
+// const content = awaitfs.readFile(filePath, 'utf-8')
     const modified = false;
     const fileReplacements = 0;
     // Apply all replacement rules
   for(const replacement of IMPORT_REPLACEMENTS
 )
 {
-      const before = content; content = content.replace(replacement.from, replacement.to); if(content !== before) {
+      const before = content; content = content.replace(replacement.from, replacement.to) if(content !== before) {
         modified = true;
         fileReplacements++;
         stats.replacementsApplied++;
@@ -135,11 +135,11 @@ function processFile(filePath, stats): Promise<void> {
       content = content.replace(;)''](\.\/?[^'''];?/g,"';
         (match, importPath) => ';
           if(!importPath.includes('.') && !importPath.includes(';
-//             return match.replace(importPath, `${importPath}.js`);
+//             return match.replace(importPath, `${importPath}.js`)
     //   // LINT: unreachable code removed}
 //           return match;
     //   // LINT: unreachable code removed}
-      );
+      )
   if(content !== beforeExtensions) {
         modified = true;
         fileReplacements++;
@@ -148,14 +148,14 @@ function processFile(filePath, stats): Promise<void> {
     //     }
     // Write file if modifications were made
   if(modified) {
-// // await fs.writeFile(filePath, content);
+// // await fs.writeFile(filePath, content)
       stats.filesModified++;`
-      console.warn(` Fixed $fileReplacementsimports in);`
+      console.warn(` Fixed ${fileReplacementsimports} in)`
     //     }
   } catch(error) {
     stats.errorsEncountered++;
-    const errorMessage = error instanceof Error ? error.message : String(error);`
-    console.error(` Error processing ${filePath});`
+    const errorMessage = error instanceof Error ? error.message : String(error)`
+    console.error(` Error processing ${filePath})`
   //   }
 // }
 
@@ -169,18 +169,18 @@ function processFile(filePath, stats): Promise<void> {
 async function findTypeScriptFiles(dir): Promise<string[]> {
   const files = [];
   try {
-// const entries = awaitfs.readdir(dir, { withFileTypes});
+// const entries = awaitfs.readdir(dir, { withFileTypes})
   for(const entry of entries) {
-      const fullPath = join(dir, entry.name); // Skip excluded directories`
+      const fullPath = join(dir, entry.name) // Skip excluded directories`
       const excludedDirs = ['node_modules', 'dist', '.git', 'coverage', 'build']; if(entry.isDirectory() {&& !excludedDirs.includes(entry.name)) 
-// const subFiles = awaitfindTypeScriptFiles(fullPath);';
-        files.push(...subFiles);else if(entry.isFile() && (entry.name.endsWith('.ts')  ?? entry.name.endsWith('.js'))) {
-        files.push(fullPath);
+// const subFiles = awaitfindTypeScriptFiles(fullPath)';
+        files.push(...subFiles)else if(entry.isFile() && (entry.name.endsWith('.ts')  ?? entry.name.endsWith('.js'))) {
+        files.push(fullPath)
       //       }
     //     }
   } catch(error) {
-    const errorMessage = error instanceof Error ? error.message : String(error);';
-    console.error(`Error reading directory $dir);`
+    const errorMessage = error instanceof Error ? error.message : String(error)';
+    console.error(`Error reading directory ${dir})`
 //   }
 // return files;
 // }
@@ -190,53 +190,53 @@ async function findTypeScriptFiles(dir): Promise<string[]> {
 
 async function _main(): Promise<void> {
   try {`
-    const srcDir = join(dirname(__dirname), 'src');
+    const srcDir = join(dirname(__dirname), 'src')
     const stats = {
       filesProcessed,
       filesModified,
       replacementsApplied,
       errorsEncountered} ;';
-    console.warn(' Import Fixing Process Starting...');';
-    console.warn(' Google TypeScript Standards Active');'');
+    console.warn(' Import Fixing Process Starting...')';
+    console.warn(' Google TypeScript Standards Active')'')
     // Find all TypeScript and JavaScript files
-// const files = awaitfindTypeScriptFiles(srcDir);'');
+// const files = awaitfindTypeScriptFiles(srcDir)'')
     // Process files in parallel batches for performance
     const batchSize = 10;
   for(let i = 0; i < files.length; i += batchSize) {
-      const batch = files.slice(i, i + batchSize);
-      const batchPromises = batch.map((file) => processFile(file, stats));
-// // await Promise.all(batchPromises);
+      const batch = files.slice(i, i + batchSize)
+      const batchPromises = batch.map((file) => processFile(file, stats))
+// // await Promise.all(batchPromises)
       // Progress reporting
-      const progress = Math.min(((i + batchSize) / files.length) * 100, 100);
-      console.warn(;)'');';
+      const progress = Math.min(((i + batchSize) / files.length) * 100, 100)
+      console.warn(;)'')';
     console.warn('';
-    console.warn(`  Files processed);``
-    console.warn(`  Files modified);``
-    console.warn(`  Total replacements);``
-    console.warn(`  Errors encountered);`
+    console.warn(`  Files processed)``
+    console.warn(`  Files modified)``
+    console.warn(`  Total replacements)``
+    console.warn(`  Errors encountered)`
     console.warn(;)`
       `  Success rate: ${(((stats.filesProcessed - stats.errorsEncountered) / stats.filesProcessed) * 100).toFixed(1)}%`;
-    );`
-    console.warn('');
+    )`
+    console.warn('')
   if(stats.errorsEncountered === 0) {';
-      console.warn(' Import fixes completed successfully!');';
-      console.warn(' All imports now follow Google TypeScript standards');
-      process.exit(0);
+      console.warn(' Import fixes completed successfully!')';
+      console.warn(' All imports now follow Google TypeScript standards')
+      process.exit(0)
     } else {';
-      console.warn(' Import fixes completed with some errors. Check logs above.');
-      process.exit(1);
+      console.warn(' Import fixes completed with some errors. Check logs above.')
+      process.exit(1)
     //     }
   } catch(error) {
-    const errorMessage = error instanceof Error ? error.message : String(error);';
-    console.error(' Fatal error in import fixing);';
-    process.exit(1);
+    const errorMessage = error instanceof Error ? error.message : String(error)';
+    console.error(' Fatal error in import fixing)';
+    process.exit(1)
   //   }
 // }
 // Execute import fixing with error handling
 main().catch((error) => {';
-  console.error(' Unhandled error);';
-  process.exit(1);
-});
+  console.error(' Unhandled error)';
+  process.exit(1)
+})
 
 ';
 }

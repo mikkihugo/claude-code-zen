@@ -4,28 +4,25 @@
 
 /** This demonstrates the actual `gh models run` integration for document analysis */
 
-*/`
-const { spawn } = require('';
-const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs');
+const { spawn } = require('child_process')
+const { DocumentStack, setupDefaultRules } = require('./src/mcp/document-stack.cjs')
 
 // Mock memory store
 class MockMemoryStore {
   constructor() {
-    this.data = new Map();
+    this.data = new Map()
+  }
 
-    async;
-    store(key, value, (options = {}));
-    {
-      ';
-      const fullKey = options.namespace ? `$options.namespace}:${key}` ;
-      this.data.set(fullKey, value);
+  async store(key, value, options = {}) {
+    const fullKey = options.namespace ? `${options.namespace}:${key}` : key;
+      this.data.set(fullKey, value)
       // return { id, size: value.length };
 
-      async;
-      retrieve(key, (options = {}));
+      async
+      retrieve(key, (options = {}))
         `
     const fullKey = options.namespace ? `;
-        $options.namespace;
+        ${options}.namespace;
       :$
         key;
       ` ;
@@ -41,10 +38,10 @@ class MockMemoryStore {
       // return results;
 
       // Initialize document stack
-      const memoryStore = new MockMemoryStore();
+      const memoryStore = new MockMemoryStore()
       {
-        const docStack = new DocumentStack(memoryStore);
-        setupDefaultRules(docStack);
+        const docStack = new DocumentStack(memoryStore)
+        setupDefaultRules(docStack)
 
         // Colors for output
         const _c = {';
@@ -60,29 +57,29 @@ class MockMemoryStore {
         // Run GitHub Models CLI';
         function runGHModel(prompt, model = 'openai/gpt-4o-mini') {
           //   return new Promise((resolve, reject) => {';
-          const gh = spawn('gh', ['models', 'run', model], { stdio);
+          const gh = spawn('gh', ['models', 'run', model], { stdio)
           '';
           const errorOutput = '';
 
           const timeout = setTimeout(() => {
-            gh.kill();
+            gh.kill()
             ';
       reject(new Error('Timeout'))
-          }, 15000);
+          }, 15000)
           ';
     gh.stdout.on('data', (data) => (output += data.toString()))
           ';
     gh.stderr.on('data', (data) => (errorOutput += data.toString()))
           ';
     gh.on('close', (code) =>
-            clearTimeout(timeout);
+            clearTimeout(timeout)
             ';
-            if(code !== 0) reject(new Error(`gh failed));`
-      else resolve(output.trim());
+            if(code !== 0) reject(new Error(`gh failed))`
+      else resolve(output.trim())
           )
 
-          gh.stdin.write(prompt);
-          gh.stdin.end();
+          gh.stdin.write(prompt)
+          gh.stdin.end()
         }
         )
 
@@ -90,23 +87,23 @@ class MockMemoryStore {
         function extractJSON(response) {
           try {
             // Try direct parse first
-            //     return JSON.parse(response);
+            //     return JSON.parse(response)
           } catch (error) {
-            console.error(error);
+            console.error(error)
           }
           catch(_e)
           {
             // Look for JSON in code blocks`
-            const codeBlockMatch = response.match(/```(?)?\s*(\{[\s\S]*?\})\s*```/);
+            const codeBlockMatch = response.match(/```(?)?\s*(\{[\s\S]*?\})\s*```/)
             if (codeBlockMatch) {
-              // return JSON.parse(codeBlockMatch[1]);
+              // return JSON.parse(codeBlockMatch[1])
 
               // Look for any JSON object
-              const jsonMatch = response.match(/\{[\s\S]*\}/);
+              const jsonMatch = response.match(/\{[\s\S]*\}/)
               if (jsonMatch) {
-                // return JSON.parse(jsonMatch[0]);
+                // return JSON.parse(jsonMatch[0])
                 `
-    throw new Error('No JSON found');
+    throw new Error('No JSON found')
 
 // AI Document Analysis
 async function analyzeDocument(docType, service, _docId, content) {';
@@ -134,15 +131,15 @@ Respond
                 `
 
   try {
-// const response = awaitrunGHModel(prompt);
-    // return extractJSON(response);
-  } catch (error) { console.error(error); } catch(_error) 
+// const response = awaitrunGHModel(prompt)
+    // return extractJSON(response)
+  } catch (error) { console.error(error) } catch(_error) 
     // return null;
 
 // Review routing decisions
 async function reviewRouting(docType, currentApprovers, content) {`;
                 const prompt = `Review if these approvers are appropriate for this ${docType}: null``
-Current approvers: $currentApprovers.join(', ')
+Current approvers: ${currentApprovers}.join(', ')
 ';
 Document excerpt: "${content.substring(0, 200)}..."
 
@@ -156,20 +153,20 @@ Respond with ONLY JSON: null"
                 `
 
   try {
-// const response = awaitrunGHModel(prompt);
-    // return extractJSON(response);
-  } catch (error) { console.error(error); } catch(_error) 
+// const response = awaitrunGHModel(prompt)
+    // return extractJSON(response)
+  } catch (error) { console.error(error) } catch(_error) 
     // return null;
 
 // Main demo
 async function main() {
   // Test connection first
   try {`;
-                // await runGHModel('Respond with just "');
+                // await runGHModel('Respond with just "')
               }
               catch (error)
               {
-                console.error(error);
+                console.error(error)
               }
               catch(_error)
               {
@@ -211,10 +208,10 @@ We will use Redis  session storage backend.
 
   // Create document in stack
 // const result = awaitdocStack.createDocument(doc.docType, doc.service, doc.docId, doc.content, {/g)
-    dependencies);
+    dependencies)
 
   // Analyze with AI
-// const analysis = awaitanalyzeDocument(doc.docType, doc.service, doc.docId, doc.content);
+// const analysis = awaitanalyzeDocument(doc.docType, doc.service, doc.docId, doc.content)
   if(analysis) {
   if(analysis.suggested_approvers?.length > 0) {
 
@@ -223,12 +220,12 @@ We will use Redis  session storage backend.
   if(analysis.improvements?.length > 0) {
 
   // Review routing
-// const routingReview = awaitreviewRouting(doc.docType, result.routing.approvers, doc.content);
+// const routingReview = awaitreviewRouting(doc.docType, result.routing.approvers, doc.content)
   if(routingReview) {
   if(routingReview.add_approvers?.length > 0) {
 
   if(require.main === module) {
-  main().catch(console.error);
+  main().catch(console.error)
 `;
             }
           }

@@ -1,4 +1,4 @@
-/** Shared Vision API - Works for both TUI and Web interfaces */
+/** */ Shared Vision API - Works for both TUI and Web interfaces */
 
 export class VisionAPI {
   constructor(baseUrl = 'http = baseUrl'

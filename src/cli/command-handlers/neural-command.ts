@@ -1,4 +1,4 @@
-/** */
+/** */ */
 
 Neural - enhanced;
 commands;
@@ -7,36 +7,36 @@ using ruv;
 -FANN;
 integration;
 
-/** Provides AI-powered development tools with neural intelligence */
+/** */ Provides AI-powered development tools with neural intelligence */
 
 NeuralCommand * /;
 
-import { performance } from 'node:perf_hooks';
+import { performance } from ''node:perf_hooks';
 ('');
 '
 
-import chalk from 'chalk';
+import chalk from ''chalk';
 ('');
 '
 
-import { NeuralEngine } from '../../neural/neural-engine.js';
+import { NeuralEngine } from ''../../neural/neural-engine.js';
 '
 import { initializeSwarm } from
-'.;
+''.;
 
 const neuralEngine = null;
 
-/** Neural command handler - coordinates neural-enhanced development tools */
+/** */ Neural command handler - coordinates neural-enhanced development tools */
 
 {
   string[]
 }
 args - Command;
 arguments
- * @param {Object}
+ // @param {Object}
 flags - Command;
 flags
- * @returns {Promise<void>}
+ // @returns {Promise<void>}
 
 // export async function neuralCommand(args, flags = args[0]; // LINT)
 console.warn(chalk.cyan(' Neural AI Development Tools'));
@@ -161,7 +161,7 @@ try {
 //   }
 // }
 
-/** Show neural command help */
+/** */ Show neural command help */
 
 function showNeuralHelp() {'
   console.warn(chalk.bold(' Neural AI Development Tools'))

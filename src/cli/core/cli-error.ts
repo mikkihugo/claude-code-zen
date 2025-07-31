@@ -1,7 +1,7 @@
-/** Centralized error handling for Claude Code CLI */
-/** Implements Google's consistent error handling principle;' */
+/** */ Centralized error handling for Claude Code CLI */
+/** */ Implements Google's consistent error handling principle;' */
 
-/** CLI error codes enum */
+/** */ CLI error codes enum */
 
 export // // enum CliErrorCode {'
 (GENERIC_ERROR = 'GENERIC_ERROR';
@@ -25,7 +25,7 @@ export // // enum CliErrorCode {'
 NOT_FOUND_ERROR = 'NOT_FOUND_ERROR''
 }'
 
-/** Logger interface for error handling */
+/** */ Logger interface for error handling */
 
 // export // interface ErrorLogger {
 //   error(message, ...args = CliErrorCode.GENERIC_ERROR, exitCode = 1) {
@@ -41,14 +41,14 @@ NOT_FOUND_ERROR = 'NOT_FOUND_ERROR''
 // // }
 // }
 
-/** Create an error with additional context */
+/** */ Create an error with additional context */
 
 withContext(context = new CliError(this.message, this.code, this.exitCode)
 (error as any).context = context
 // return error;
 // }
 
-/** Convert error to JSON representation */
+/** */ Convert error to JSON representation */
 
   toJSON()
 {
@@ -62,7 +62,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 // }
 // }
 
-/** Configuration error for config-related issues */
+/** */ Configuration error for config-related issues */
 
 // export class ConfigurationError extends CliError {
 // // public readonlyconfigPath = null;
@@ -83,7 +83,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 // }
 // }
 
-/** Command execution error for failed commands */
+/** */ Command execution error for failed commands */
 
 // export class CommandExecutionError extends CliError {
   // // public readonlycommand = null;
@@ -108,7 +108,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
 // }
 // }
 
-/** Format error message for user display */
+/** */ Format error message for user display */
 
 // export function formatErrorMessage(error) {
   if(error instanceof ValidationError) {'
@@ -122,7 +122,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
   // return exitCode;
 // }
 
-/** Wrap a function to catch and handle errors consistently */
+/** */ Wrap a function to catch and handle errors consistently */
 
 // export function withErrorHandling<TArgs extends any[], TReturn>(fn = > Promise<TReturn>,
   logger?;)
@@ -138,7 +138,7 @@ withContext(context = new CliError(this.message, this.code, this.exitCode)
   };
 // }
 
-/** Create a validation error with field information */
+/** */ Create a validation error with field information */
 
 // export function createValidationError(message = > Promise<T>,
   errorMessage?,

@@ -6,9 +6,9 @@ import { ClaudeFlowMCPServer } from './src/mcp/mcp-server.js';
 
 async function testServiceDocumentTools() {
   '
-  console.warn(' Testing Service Document MCP Tools...\n');
-  const server = new ClaudeFlowMCPServer();
-  // await server.initializeMemory();
+  console.warn(' Testing Service Document MCP Tools...\n')
+  const server = new ClaudeFlowMCPServer()
+  // await server.initializeMemory()
   // Test 1: Create a service document'
   console.warn(''
 // const createResult = awaitserver.handleServiceDocumentManager({ action: 'create','
@@ -42,7 +42,7 @@ serviceName: 'claude-zen-core','
 documentType: 'service-description'
   })'
 console.warn('Validation result:', JSON.stringify(validationResult, null, 2))'
-console.warn('\n Service Document Tools Test Complete!');
+console.warn('\n Service Document Tools Test Complete!')
 // return {
     create,
 // list, // LINT: unreachable code removed
@@ -52,7 +52,7 @@ approval,
 // }
 // Run test if called directly'
 if(import.meta.url === `file) {`
-  testServiceDocumentTools();
+  testServiceDocumentTools()
 then((results) =>`
       console.warn(''
   console.warn('- Create:'' : '')'

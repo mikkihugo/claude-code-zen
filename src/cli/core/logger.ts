@@ -1,14 +1,14 @@
-/** Centralized structured logging system for Claude Code CLI */
-/** Implements enterprise-grade logging with error context and correlation */
+/** */ Centralized structured logging system for Claude Code CLI */
+/** */ Implements enterprise-grade logging with error context and correlation */
 
-import fs from 'fs';
+import fs from ''fs';
 '
 
-import { nanoid } from 'nanoid';
+import { nanoid } from ''nanoid';
 ('');
 '
 
-import path from 'path';
+import path from ''path';
 ('');
 
 // // enum LogLevel {
@@ -28,7 +28,7 @@ import path from 'path';
 //     this.initFileLogging();
 //   //   } // }
 
-/** Initialize file logging */
+/** */ Initialize file logging */
 
 private;
 async;
@@ -46,7 +46,7 @@ setLevel(level = typeof level === 'string' ? LogLevel[level.toUpperCase() as key
 shouldLog(level = this.level
 // }
 
-/** Create structured log entry */
+/** */ Create structured log entry */
 
 // // private createLogEntry(level =
 // {
@@ -118,7 +118,7 @@ baseMessage += `\nError = === 'true') {'```
     this.log(LogLevel.INFO, ` \$message`, meta);
     ``
 
-/** Log an operation with timing */
+/** */ Log an operation with timing */
 
   async logOperation(operationName = > Promise<any>, meta = {}): Promise<any> {
     const startTime = Date.now();

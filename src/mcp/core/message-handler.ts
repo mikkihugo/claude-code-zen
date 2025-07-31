@@ -1,17 +1,17 @@
-/** */
+/***/
 
 MCP;
 Message;
 Handler;
 
-/** Handles MCP protocol message routing and processing */
+/** */ Handles MCP protocol message routing and processing */
 
 MCPMessageHandler * /;
 import { validateToolArgs } from
-';
+'';
 
-/** MCP Message Handler class */
-/** Processes incoming MCP protocol messages and routes to appropriate handlers */
+/** */ MCP Message Handler class */
+/** */ Processes incoming MCP protocol messages and routes to appropriate handlers */
 
 // export class MCPMessageHandler {
 
@@ -23,11 +23,11 @@ to;
 MCP;
 server;
 instance
-   * @param {Object}
+   // @param {Object}
 toolExecutor - Tool;
 execution;
 handler
-   * @param {Object}
+   // @param {Object}
 resourceManager - Resource;
 management;
 handler * /;
@@ -41,7 +41,7 @@ this;
 resourceManager = resourceManager;
 // }
 
-/** Main message handling entry point */
+/** */ Main message handling entry point */
 
 {
   Object;
@@ -49,7 +49,7 @@ resourceManager = resourceManager;
 message - MCP;
 protocol;
 message
- * @returns {Promise<Object>}
+ // @returns {Promise<Object>}
 Response;
 message * /;
 // */ // LINT
@@ -106,37 +106,35 @@ catch(error)
   // return response;
 // }
 
-/** Validate MCP message format */
- * @param {Object} message - Message to validate
- * @returns {Object} Validation result
-
-    // */ // LINT: unreachable code removed
-validateMessage(message);
-: unknown
-// {
-  if(!message) {``
-    // return {valid = = '2.0') {'
-      // return {valid = === undefined) {'
-      // return {valid = success ? 'SUCCESS' : 'FAILED''
-    // console.error(; // LINT: unreachable code removed/g)'
-    `[$new Date().toISOString()```
-  ] STATS [MCP-Handler] $method: $status($processingTimems)``
-  //   
-// }
-
-/** Get handler statistics */
-   * @returns {Object} Handler statistics
-    // */ // LINT: unreachable code removed
-getStats();
-// return {
-      totalMessages: this.totalMessages  ?? 0,
-// successfulMessages: this.successfulMessages  ?? 0, // LINT: unreachable code removed
-failedMessages: this.failedMessages  ?? 0,
-averageProcessingTime: this.averageProcessingTime  ?? 0,
-lastActivity: this.lastActivity ?? null;
-// }
-// }
-
-}}}}}}}}}}})
-``
-)
+/** */ Validate MCP message format
+  // @param {Object} message - Message to validate
+  // @returns {Object} Validation result
+  // // */ // LINT: unreachable code removed
+  // validateMessage(message);
+  // : unknown
+  // // {
+  // if(!message) {``
+  // // return {valid = = '2.0') {'
+  // // return {valid = === undefined) {'
+  // // return {valid = success ? 'SUCCESS' : 'FAILED''
+  // // console.error(; // LINT: unreachable code removed/g)'
+  // `[$new Date().toISOString()```
+  // ] STATS [MCP-Handler] $method: $status($processingTimems)``
+  // //
+  // // }
+  // /** */ Get handler statistics */
+  // @returns {Object} Handler statistics
+  // // */ // LINT: unreachable code removed
+  // getStats();
+  // // return {
+  // totalMessages: this.totalMessages  ?? 0,
+  // // successfulMessages: this.successfulMessages  ?? 0, // LINT: unreachable code removed
+  // failedMessages: this.failedMessages  ?? 0,
+  // averageProcessingTime: this.averageProcessingTime  ?? 0,
+  // lastActivity: this.lastActivity ?? null;
+  // // }
+  // // }
+  // }}}}}}}}}}})
+  // ``
+  // )
+  */

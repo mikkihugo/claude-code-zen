@@ -1,14 +1,14 @@
-/** Plugin Activation System - Global initialization of enterprise plugins */
-/** This file handles the activation and registration of all valuable plugins */
+/** */ Plugin Activation System - Global initialization of enterprise plugins */
+/** */ This file handles the activation and registration of all valuable plugins */
 
-import { PluginManager } from '../plugins/plugin-manager.js';
+import { PluginManager } from ''../plugins/plugin-manager.js';
 
 // All plugins are imported dynamically to handle missing ones gracefully
 
 // Global plugin manager instance
 const globalPluginManager = null;
 
-/** Initialize and activate all enterprise plugins */
+/** */ Initialize and activate all enterprise plugins */
 
 // export async function initializePlugins(_config = {}) {
 if(globalPluginManager) {'
@@ -41,7 +41,7 @@ if(globalPluginManager) {'
   //   }
 // }
 
-/** Display plugin activation summary */
+/** */ Display plugin activation summary */
 
 function displayActivationSummary(pluginManager = pluginManager.getStatus()
   console.warn('\n Plugin ActivationSummary = > p.loaded)'
@@ -55,7 +55,7 @@ forEach(plugin => {'
     console.warn('\n Failed to Load => {');')
 // }
 
-/** Get the global plugin manager instance */
+/** */ Get the global plugin manager instance */
 
 // export function getPluginManager() {
   if(!globalPluginManager) {'
@@ -64,19 +64,19 @@ forEach(plugin => {'
   // return globalPluginManager;
 // }
 
-/** Get a specific plugin instance */
+/** */ Get a specific plugin instance */
 
 // export function getPlugin(name = getPluginManager();
   // return manager.getPlugin(name);
 // }
 
-/** Check if a plugin is loaded */
+/** */ Check if a plugin is loaded */
 
 // export function isPluginLoaded(name = getPluginManager();
   // return manager.isLoaded(name);
 // }
 
-/** Register plugin commands with the command registry */
+/** */ Register plugin commands with the command registry */
 
 // export function registerPluginCommands(commandRegistry = getPluginManager();
 
@@ -92,7 +92,7 @@ forEach(plugin => {'
   console.warn(' Plugin system shutdown complete'); {
 // }
 
- catch (error) { console.error(error)}/** Plugin health check */
+ catch (error) { console.error(error)}/** */ Plugin health check */
 
 // export async function checkPluginHealth() {
   const manager = getPluginManager();

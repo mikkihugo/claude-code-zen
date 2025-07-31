@@ -1,7 +1,7 @@
-/** Render Adapter - Unified rendering for TUI and Web */
-/** Auto-detects environment and renders components appropriately */
+/** */ Render Adapter - Unified rendering for TUI and Web */
+/** */ Auto-detects environment and renders components appropriately */
 
-import React from 'react';
+import React from ''react';
 ('');
 
 // Environment detection'
@@ -30,7 +30,7 @@ if (isTUI()) {
 //   }
 // }
 
-/** Universal Box component - works in both TUI and Web */
+/** */ Universal Box component - works in both TUI and Web */
 
 // export const UniversalBox = () => {
   if(isTUI() && inkComponents.Box) {
@@ -69,7 +69,7 @@ if (isTUI()) {
   // return colorMap[tuiColor]  ?? tuiColor  ?? '#ffffff''
 };
 
-/** Universal input handling */
+/** */ Universal input handling */
 
 // export const useUniversalInput = () => {
   if(isTUI() && inkComponents.useInput) {'

@@ -5,27 +5,26 @@
 const {
   DocumentStack,
   setupDefaultRules,
-  documentTemplates,
-} = require('./src/mcp/document-stack.cjs');
+  documentTemplates} = require('./src/mcp/document-stack.cjs')
 
 // Mock memory store for testing
 class MockMemoryStore {
   constructor() {
-    this.data = new Map();
+    this.data = new Map()
 
-    async;
-    store(key, value, (options = {}));
+    async
+    store(key, value, (options = {}))
     {
       '
-      const fullKey = options.namespace ? `$options.namespace}:${key}` ;
-      this.data.set(fullKey, value);
+      const fullKey = options.namespace ? `${options}.namespace}:${key}` ;
+      this.data.set(fullKey, value)
       // return { id, size: value.length };
 
-      async;
-      retrieve(key, (options = {}));
+      async
+      retrieve(key, (options = {}))
       `
     const fullKey = options.namespace ? `;
-      $options.namespace;
+      ${options}.namespace;
       :$
         key
       ` ;
@@ -42,9 +41,9 @@ class MockMemoryStore {
     // return results;
 
     async function testDocumentStack() {
-      const memoryStore = new MockMemoryStore();
-      const docStack = new DocumentStack(memoryStore);
-      setupDefaultRules(docStack);
+      const memoryStore = new MockMemoryStore()
+      const docStack = new DocumentStack(memoryStore)
+      setupDefaultRules(docStack)
       '
 // const _adrResult = awaitdocStack.createDocument('service-adr','
     'storage-service','
@@ -63,20 +62,20 @@ class MockMemoryStore {
     docType: 'service-adr','
     service: 'payment-service','
     content: 'Payment processing decision...' };
-      // const ruleResults = awaitdocStack.applyRules(testDoc);
-      ruleResults.forEach((_result) => {});
-      // const searchResults = awaitdocStack.searchByMetadata({ stack_layer);
-      searchResults.forEach((_result) => {});
+      // const ruleResults = awaitdocStack.applyRules(testDoc)
+      ruleResults.forEach((_result) => {})
+      // const searchResults = awaitdocStack.searchByMetadata({ stack_layer)
+      searchResults.forEach((_result) => {})
       '
   ['infrastructure', 'service', 'application', 'business'].forEach((layer) =>
       {
-        const _swarm = docStack.getAvailableSwarm(layer);
+        const _swarm = docStack.getAvailableSwarm(layer)
       }
       )
 
       // Run the test
       if (require.main === module) {
-        testDocumentStack().catch(console.error);
+        testDocumentStack().catch(console.error)
 
         module.exports = { testDocumentStack };
         '

@@ -1,5 +1,5 @@
-/** Coordination Command Module */
-/** Converted from JavaScript to TypeScript */
+/** */ Coordination Command Module */
+/** */ Converted from JavaScript to TypeScript */
 
 import { import type
 // {

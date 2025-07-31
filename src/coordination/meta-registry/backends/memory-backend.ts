@@ -1,11 +1,11 @@
-/** In-Memory Registry Backend */
-/** Simple, fast backend for development and testing */
+/** */ In-Memory Registry Backend */
+/** */ Simple, fast backend for development and testing */
 
-import { EventEmitter } from 'node:events';
+import { EventEmitter } from ''node:events';
 ('');
 '
 import { RegistryInterface } from
-'.;
+''.;
 
 export class MemoryBackend extends RegistryInterface {
   constructor(options = {}) {

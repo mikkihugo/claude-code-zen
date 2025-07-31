@@ -1,12 +1,19 @@
 // Simplified ESLint 9 config that focuses on fixable issues
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
+
 export default [
-  // Base config for all files
+  // TypeScript files configuration
   {
-    name: 'claude-zen-permissive',
-    files: ['**/*.js', '**/*.mjs', '**/*.cjs', '**/*.ts', '**/*.tsx'],
+    name: 'claude-zen-typescript',
+    files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
+      parser: typescriptParser,
       ecmaVersion: 2024,
       sourceType: 'module',
+      parserOptions: {
+        project: './tsconfig.json'
+      },
       globals: {
         console: 'readonly',
         process: 'readonly',
@@ -32,7 +39,53 @@ export default [
         Request: 'readonly',
         Express: 'readonly',
         NextFunction: 'readonly',
-        NodeJS: 'readonly'}},
+        NodeJS: 'readonly'
+      }
+    },
+    plugins: {
+      '@typescript-eslint': typescriptEslint
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      'prefer-const': 'warn',
+      'no-var': 'error'
+    }
+  },
+  // JavaScript files configuration
+  {
+    name: 'claude-zen-javascript',
+    files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+    languageOptions: {
+      ecmaVersion: 2024,
+      sourceType: 'module',
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        Buffer: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        exports: 'readonly',
+        global: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        setImmediate: 'readonly',
+        clearImmediate: 'readonly',
+        Promise: 'readonly',
+        Generator: 'readonly',
+        GeneratorFunction: 'readonly',
+        AsyncGenerator: 'readonly',
+        Response: 'readonly',
+        Request: 'readonly',
+        Express: 'readonly',
+        NextFunction: 'readonly',
+        NodeJS: 'readonly'
+      }
+    },
     rules: {
       // Focus on auto-fixable rules only
       'no-unused-vars': 'off', // Too many false positives with TypeScript

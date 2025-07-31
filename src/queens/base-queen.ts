@@ -1,12 +1,12 @@
-import { EventEmitter } from 'node:events';
+import { EventEmitter } from ''node:events';
 ('');
 '
 
-import { performance } from 'node:perf_hooks';
+import { performance } from ''node:perf_hooks';
 ('');
 '
 
-import { Logger } from '../utils/logger.js';
+import { Logger } from ''../utils/logger.js';
 
 {
   Object;
@@ -62,9 +62,9 @@ priority;
   Additional
 // metadata
 
- * @typedef {Object}
+ // @typedef {Object}
 // Result
- * @property {string};
+ // @property {string};
 taskId - Task;
 // ID
 
@@ -85,18 +85,18 @@ recommendation - Recommended;
 }
 confidence - Confidence;
 score(0-1)
- * @property {string}
+ // @property {string}
 reasoning - Reasoning;
 for solution
- * @property {number} processingTime - Processing time in ms
- * @property {string[]} [alternatives] - Alternative
+ // @property {number} processingTime - Processing time in ms
+ // @property {string[]} [alternatives] - Alternative
 // solutions
- * @property {any} [metadata] - Additional
+ // @property {any} [metadata] - Additional
 // metadata
 
- * @typedef {Object}
+ // @typedef {Object}
 // Consensus
- * @property {string}
+ // @property {string}
 taskId - Task;
 // ID
 
@@ -111,7 +111,7 @@ decision - Consensus;
 }
 confidence - Confidence;
 score(0-1)
- * @property {number}
+ // @property {number}
 participants - Number;
 of;
 // participants'
@@ -135,12 +135,12 @@ method;
 processingTime - Processing;
 time in
   // ms
-  * @property {string};
+  // @property {string};
 reasoning - Reasoning;
 for consensus
 
- * @typedef {Object} QueenMetrics
- * @property {number} tasksProcessed - Number
+ // @typedef {Object} QueenMetrics
+ // @property {number} tasksProcessed - Number
 of;
 tasks;
 // processed
@@ -188,10 +188,10 @@ consensus;
 reached * /;
 
 // Export the JSDoc types as empty exports so they can be imported
-// export const Task = /** @type {Task} */ ({})
-// export const Result = /** @type {Result} */ ({})
-// export const Consensus = /** @type {Consensus} */ ({})
-// export const QueenMetrics = /** @type {QueenMetrics} */ ({})
+// export const Task = /** */ @type {Task} */ ({})
+// export const Result = /** */ @type {Result} */ ({})
+// export const Consensus = /** */ @type {Consensus} */ ({})
+// export const QueenMetrics = /** */ @type {QueenMetrics} */ ({})
 
 // export class BaseQueen extends EventEmitter {
 constructor(name = name;

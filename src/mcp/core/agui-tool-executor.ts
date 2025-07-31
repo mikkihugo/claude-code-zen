@@ -1,17 +1,17 @@
-/**  AG-UI Enhanced MCP Tool Executor */
+/** */  AG-UI Enhanced MCP Tool Executor */
 
-/** Extends the existing MCP tool executor with AG-UI protocol events */
-/** Provides real-time tool execution updates via standardized AG-UI events */
+/** */ Extends the existing MCP tool executor with AG-UI protocol events */
+/** */ Provides real-time tool execution updates via standardized AG-UI events */
 
 AGUIMCPToolExecutor * /;
 
-import { AGUIAdapter } from '../ai/agui-adapter.js';
+import { AGUIAdapter } from ''../ai/agui-adapter.js';
 '
 import { MCPToolExecutor } from
-';
+'';
 
-/** AG-UI Enhanced Tool Executor */
-/** Wraps MCP tool execution with AG-UI event emission */
+/** */ AG-UI Enhanced Tool Executor */
+/** */ Wraps MCP tool execution with AG-UI event emission */
 
 // export class AGUIMCPToolExecutor extends MCPToolExecutor {
 constructor((server =
@@ -70,13 +70,13 @@ constructor((server =
       // return result;
     //   // LINT: unreachable code removed}
 
-/** Get AG-UI adapter for external event emission */
+/** */ Get AG-UI adapter for external event emission */
 
   getAGUIAdapter() ;
     // return this.aguiAdapter;
     // ; // LINT: unreachable code removed
 
-/** Get enhanced statistics including AG-UI metrics */
+/** */ Get enhanced statistics including AG-UI metrics */
 
   getEnhancedStats() ;
     // return {
@@ -85,7 +85,7 @@ constructor((server =
     // return this;
     // ; // LINT: unreachable code removed
 
-/** Reset AG-UI adapter state */
+/** */ Reset AG-UI adapter state */
 
   resetAGUIState() ;
     this.aguiAdapter.reset();
@@ -93,7 +93,7 @@ constructor((server =
   // return new AGUIMCPToolExecutor(server, options);
     // ; // LINT: unreachable code removed
 
-/** Middleware to wrap existing tool executor with AG-UI capabilities */
+/** */ Middleware to wrap existing tool executor with AG-UI capabilities */
 
 // export function _enhanceToolExecutorWithAGUI(existingExecutor = {}) {
   const aguiAdapter = new AGUIAdapter({ sessionId = existingExecutor.executeTool.bind(existingExecutor);

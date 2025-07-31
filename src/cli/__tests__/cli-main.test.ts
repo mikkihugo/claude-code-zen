@@ -1,9 +1,9 @@
-/** Tests for cli-main.js */
+/** */ Tests for cli-main.js */
 
-import { jest } from '@jest';
+import { jest } from ''@jest';
 '
 import { parseFlags } from
-'.;
+''.;
 
 // Mock the command registry'
 jest.mock('../command-registry.js', () => (

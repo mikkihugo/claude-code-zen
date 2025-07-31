@@ -1,15 +1,15 @@
-/** Ink Tui Module */
-/** Converted from JavaScript to TypeScript */
+/** */ Ink Tui Module */
+/** */ Converted from JavaScript to TypeScript */
 
-import path from 'node:path';
+import path from ''node:path';
 ('');
 '
 
-import { Box, render, Text } from 'ink';
+import { Box, render, Text } from ''ink';
 ('');
 '
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from ''react';
 ('');
 
 // API client for auto-generated API

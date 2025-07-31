@@ -1,12 +1,12 @@
-/** Standardized CLI Help Formatter */
-/** Follows Unix/Linux conventions for help output */
+/** */ Standardized CLI Help Formatter */
+/** */ Follows Unix/Linux conventions for help output */
 
 export class HelpFormatter {
 // // static INDENT = ''
 // // static COLUMN_GAP = 2;
 // // static MIN_DESCRIPTION_COLUMN = 25;
 
-/** Format main command help */
+/** */ Format main command help */
 
   // // static formatHelp(info) {
     const sections = [];
@@ -56,7 +56,7 @@ export class HelpFormatter {
     // return sections.join('\n\n')
     //   // LINT: unreachable code removed}
 
-/** Format error message with usage hint */
+/** */ Format error message with usage hint */
 
   // // static formatError(_error, _command, _usage): unknown
 
