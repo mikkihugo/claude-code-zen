@@ -126,3 +126,6 @@ export class DIContainerBuilder {
 export function createContainerBuilder(): DIContainerBuilder {
   return new DIContainerBuilder();
 }
+
+// Export integration examples
+export { CompleteSystemIntegration, runCompleteIntegration } from './examples/complete-system-integration.js';
