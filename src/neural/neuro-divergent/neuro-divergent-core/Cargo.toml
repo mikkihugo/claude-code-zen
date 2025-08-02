@@ -45,7 +45,7 @@ nalgebra = "0.32"
 ruv-fann = "0.1"
 
 # Optional GPU acceleration
-candle-core = { version = "0.3", optional = true }
+candle-core = { version = "0.9", optional = true }
 candle-nn = { version = "0.3", optional = true }
 
 [dev-dependencies]
