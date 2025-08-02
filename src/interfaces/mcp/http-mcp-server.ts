@@ -18,6 +18,7 @@ import { z } from 'zod';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { createLogger } from './simple-logger.js';
+import { advancedMCPToolsManager, MCPServerIntegration } from './advanced-tools-registry.js';
 
 const logger = createLogger('SDK-HTTP-MCP-Server');
 
@@ -287,7 +288,154 @@ export class HTTPMCPServer {
       }
     );
 
+    // Register advanced tools from claude-flow
+    await this.registerAdvancedTools();
+    
     logger.info('Registered Claude-Zen tools with official MCP SDK');
+  }
+
+  /**
+   * Register advanced tools from claude-flow (87 tools)
+   */
+  private async registerAdvancedTools(): Promise<void> {
+    logger.info('Registering 87 advanced tools from claude-flow...');
+    
+    // Advanced tool discovery endpoint
+    this.server.tool(
+      'advanced_tools_list',
+      'List all 87 advanced MCP tools with categories and metadata',
+      {
+        category: z.string().optional().describe('Filter by tool category'),
+        search: z.string().optional().describe('Search tools by name or tags'),
+      },
+      {
+        title: 'Advanced Tools Discovery',
+        description: 'Comprehensive listing of all advanced MCP tools available in the system',
+      },
+      async ({ category, search }) => {
+        try {
+          let tools;
+          
+          if (search) {
+            tools = advancedMCPToolsManager.searchTools(search);
+          } else if (category) {
+            tools = advancedMCPToolsManager.getToolsByCategory(category);
+          } else {
+            tools = advancedMCPToolsManager.listAllTools();
+          }
+
+          const overview = advancedMCPToolsManager.getRegistryOverview();
+          
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify({
+                  overview,
+                  tools: typeof tools === 'object' && 'tools' in tools ? tools.tools : tools,
+                  filter: { category, search },
+                  timestamp: new Date().toISOString()
+                }, null, 2),
+              },
+            ],
+          };
+        } catch (error) {
+          logger.error('Error listing advanced tools:', error);
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify({ error: error.message }, null, 2),
+              },
+            ],
+          };
+        }
+      }
+    );
+
+    // Advanced tool execution proxy
+    this.server.tool(
+      'advanced_tool_execute',
+      'Execute any of the 87 advanced MCP tools',
+      {
+        toolName: z.string().describe('Name of the advanced tool to execute'),
+        params: z.record(z.any()).optional().describe('Parameters for the tool'),
+      },
+      {
+        title: 'Advanced Tool Execution',
+        description: 'Execute advanced coordination, monitoring, neural, GitHub, system, and orchestration tools',
+      },
+      async ({ toolName, params = {} }) => {
+        try {
+          if (!advancedMCPToolsManager.hasTool(toolName)) {
+            throw new Error(`Advanced tool not found: ${toolName}`);
+          }
+
+          const result = await advancedMCPToolsManager.executeTool(toolName, params);
+          
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify({
+                  tool: toolName,
+                  params,
+                  result,
+                  executedAt: new Date().toISOString()
+                }, null, 2),
+              },
+            ],
+          };
+        } catch (error) {
+          logger.error(`Error executing advanced tool ${toolName}:`, error);
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify({
+                  tool: toolName,
+                  error: error.message,
+                  params,
+                  executedAt: new Date().toISOString()
+                }, null, 2),
+              },
+            ],
+          };
+        }
+      }
+    );
+
+    // Tool statistics endpoint
+    this.server.tool(
+      'advanced_tools_stats',
+      'Get execution statistics for advanced MCP tools',
+      {
+        detailed: z.boolean().default(false).describe('Include detailed per-tool statistics'),
+      },
+      {
+        title: 'Advanced Tools Statistics',
+        description: 'Performance metrics and usage statistics for advanced MCP tools',
+      },
+      async ({ detailed }) => {
+        const overview = advancedMCPToolsManager.getRegistryOverview();
+        const stats = detailed ? advancedMCPToolsManager.getToolStats() : {};
+        
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({
+                overview,
+                ...(detailed && { detailedStats: stats }),
+                generatedAt: new Date().toISOString()
+              }, null, 2),
+            },
+          ],
+        };
+      }
+    );
+
+    logger.info(`✅ Registered 3 proxy tools for ${advancedMCPToolsManager.getToolCount()} advanced tools`);
   }
 
   /**
