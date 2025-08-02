@@ -70,7 +70,7 @@ export class HTTPMCPServer {
     // Setup Express app for SDK transport
     this.expressApp = express();
     this.setupExpressMiddleware();
-    this.registerTools();
+    // registerTools() will be called in start() method due to async nature
     this.setupSDKRoutes();
   }
 
@@ -123,7 +123,7 @@ export class HTTPMCPServer {
   /**
    * Register Claude-Zen tools with the SDK
    */
-  private registerTools(): void {
+  private async registerTools(): Promise<void> {
     // System information tool
     this.server.tool(
       'system_info',
@@ -679,6 +679,9 @@ export class HTTPMCPServer {
       logger.warn('Server already running');
       return;
     }
+
+    // Register tools before starting the server
+    await this.registerTools();
 
     return new Promise((resolve, reject) => {
       this.httpServer = this.expressApp.listen(this.config.port, this.config.host, () => {
