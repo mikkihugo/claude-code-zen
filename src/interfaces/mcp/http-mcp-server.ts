@@ -18,7 +18,7 @@ import { z } from 'zod';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { createLogger } from './simple-logger.js';
-import { advancedMCPToolsManager, MCPServerIntegration } from './advanced-tools-registry.js';
+import { advancedMCPToolsManager } from './advanced-tools-registry.js';
 
 const logger = createLogger('SDK-HTTP-MCP-Server');
 
@@ -291,6 +291,9 @@ export class HTTPMCPServer {
     // Register advanced tools from claude-flow
     await this.registerAdvancedTools();
     
+    // Integrate all advanced tools as native MCP tools
+    await this.integrateAdvancedToolsNatively();
+    
     logger.info('Registered Claude-Zen tools with official MCP SDK');
   }
 
@@ -436,6 +439,69 @@ export class HTTPMCPServer {
     );
 
     logger.info(`✅ Registered 3 proxy tools for ${advancedMCPToolsManager.getToolCount()} advanced tools`);
+  }
+
+  /**
+   * Integrate all advanced tools as native MCP tools (not proxy)
+   */
+  private async integrateAdvancedToolsNatively(): Promise<void> {
+    logger.info('Integrating advanced tools as native MCP tools...');
+    
+    const allTools = advancedMCPToolsManager.listAllTools();
+    const tools = allTools.tools || [];
+    
+    let registeredCount = 0;
+    
+    for (const tool of tools) {
+      try {
+        // Register each advanced tool as a native MCP tool using the SDK
+        this.server.tool(
+          tool.name,
+          tool.description,
+          tool.inputSchema,
+          {
+            title: tool.metadata?.title || tool.name,
+            description: tool.description,
+          },
+          async (params: any) => {
+            const result = await advancedMCPToolsManager.executeTool(tool.name, params);
+            
+            // Ensure result is in proper MCP format
+            if (result && typeof result === 'object' && !Array.isArray(result)) {
+              if ('content' in result) {
+                return result; // Already in MCP format
+              } else {
+                // Convert to MCP format
+                return {
+                  content: [
+                    {
+                      type: 'text',
+                      text: JSON.stringify(result, null, 2),
+                    },
+                  ],
+                };
+              }
+            } else {
+              // Handle primitive results
+              return {
+                content: [
+                  {
+                    type: 'text',
+                    text: typeof result === 'string' ? result : JSON.stringify(result, null, 2),
+                  },
+                ],
+              };
+            }
+          }
+        );
+        
+        registeredCount++;
+      } catch (error) {
+        logger.warn(`Failed to register tool ${tool.name}:`, error);
+      }
+    }
+    
+    logger.info(`✅ Integrated ${registeredCount}/${tools.length} advanced tools as native MCP tools`);
   }
 
   /**
