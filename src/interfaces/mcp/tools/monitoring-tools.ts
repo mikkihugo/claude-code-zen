@@ -326,14 +326,14 @@ class BottleneckAnalyzerHandler extends AdvancedToolHandler {
 // Tool definitions - 15 Monitoring Tools
 export const monitoringTools: AdvancedMCPTool[] = [
   {
-    name: 'mcp__claude-flow__swarm_status',
+    name: 'mcp__claude-zen__swarm_status',
     description: 'Real-time swarm monitoring and status reporting',
     category: 'monitoring',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'swarm' }],
     priority: 'high',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['monitoring', 'swarm', 'status'],
       examples: [
         {
@@ -355,14 +355,14 @@ export const monitoringTools: AdvancedMCPTool[] = [
     handler: new SwarmStatusHandler().execute.bind(new SwarmStatusHandler())
   },
   {
-    name: 'mcp__claude-flow__agent_list',
+    name: 'mcp__claude-zen__agent_list',
     description: 'Active agent inventory and status',
     category: 'monitoring',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'agent' }],
     priority: 'medium',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['monitoring', 'agents', 'inventory'],
       examples: [
         {
@@ -422,14 +422,14 @@ export const monitoringTools: AdvancedMCPTool[] = [
     }
   },
   {
-    name: 'mcp__claude-flow__agent_metrics',
+    name: 'mcp__claude-zen__agent_metrics',
     description: 'Individual agent performance metrics and analytics',
     category: 'monitoring',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'metrics' }],
     priority: 'medium',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['monitoring', 'metrics', 'performance'],
       examples: [
         {
@@ -451,14 +451,14 @@ export const monitoringTools: AdvancedMCPTool[] = [
     handler: new AgentMetricsHandler().execute.bind(new AgentMetricsHandler())
   },
   {
-    name: 'mcp__claude-flow__performance_dashboard',
+    name: 'mcp__claude-zen__performance_dashboard',
     description: 'System performance overview and real-time metrics',
     category: 'monitoring',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'system' }],
     priority: 'high',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['monitoring', 'dashboard', 'real-time'],
       examples: [
         {
@@ -480,14 +480,14 @@ export const monitoringTools: AdvancedMCPTool[] = [
     handler: new PerformanceDashboardHandler().execute.bind(new PerformanceDashboardHandler())
   },
   {
-    name: 'mcp__claude-flow__health_monitor',
+    name: 'mcp__claude-zen__health_monitor',
     description: 'System health assessment and diagnostic monitoring',
     category: 'monitoring',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'system' }, { type: 'execute', resource: 'diagnostics' }],
     priority: 'high',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['monitoring', 'health', 'diagnostics'],
       examples: [
         {
@@ -509,14 +509,14 @@ export const monitoringTools: AdvancedMCPTool[] = [
     handler: new HealthMonitorHandler().execute.bind(new HealthMonitorHandler())
   },
   {
-    name: 'mcp__claude-flow__bottleneck_analyzer',
+    name: 'mcp__claude-zen__bottleneck_analyzer',
     description: 'Performance bottleneck detection and analysis',
     category: 'monitoring',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'performance' }],
     priority: 'medium',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['monitoring', 'bottleneck', 'optimization'],
       examples: [
         {

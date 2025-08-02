@@ -181,14 +181,14 @@ class SwarmCoordinationHandler extends AdvancedToolHandler {
 // Tool definitions - 12 Coordination Tools
 export const coordinationTools: AdvancedMCPTool[] = [
   {
-    name: 'mcp__claude-flow__swarm_init',
+    name: 'mcp__claude-zen__swarm_init',
     description: 'Initialize coordination topology for enhanced swarm management',
     category: 'coordination',
     version: '2.0.0',
     permissions: [{ type: 'write', resource: 'swarm' }],
     priority: 'high',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['swarm', 'coordination', 'initialization'],
       examples: [
         {
@@ -211,14 +211,14 @@ export const coordinationTools: AdvancedMCPTool[] = [
     handler: new SwarmInitHandler().execute.bind(new SwarmInitHandler())
   },
   {
-    name: 'mcp__claude-flow__agent_spawn',
+    name: 'mcp__claude-zen__agent_spawn',
     description: 'Create specialized agents for coordinated tasks',
     category: 'coordination',
     version: '2.0.0',
     permissions: [{ type: 'write', resource: 'agent' }],
     priority: 'high',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['agent', 'spawn', 'specialization'],
       examples: [
         {
@@ -243,14 +243,14 @@ export const coordinationTools: AdvancedMCPTool[] = [
     handler: new AgentSpawnHandler().execute.bind(new AgentSpawnHandler())
   },
   {
-    name: 'mcp__claude-flow__task_orchestrate',
+    name: 'mcp__claude-zen__task_orchestrate',
     description: 'Coordinate complex tasks across swarm agents',
     category: 'coordination',
     version: '2.0.0',
     permissions: [{ type: 'execute', resource: 'task' }],
     priority: 'high',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['task', 'orchestration', 'coordination'],
       examples: [
         {
@@ -275,14 +275,14 @@ export const coordinationTools: AdvancedMCPTool[] = [
     handler: new TaskOrchestrateHandler().execute.bind(new TaskOrchestrateHandler())
   },
   {
-    name: 'mcp__claude-flow__swarm_coordination',
+    name: 'mcp__claude-zen__swarm_coordination',
     description: 'Advanced multi-swarm coordination and synchronization',
     category: 'coordination',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'swarm' }, { type: 'write', resource: 'coordination' }],
     priority: 'medium',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['swarm', 'coordination', 'synchronization'],
       examples: [
         {

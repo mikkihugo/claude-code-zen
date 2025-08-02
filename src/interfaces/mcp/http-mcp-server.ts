@@ -288,7 +288,7 @@ export class HTTPMCPServer {
       }
     );
 
-    // Register advanced tools from claude-flow
+    // Register advanced tools from claude-zen
     await this.registerAdvancedTools();
     
     // Integrate all advanced tools as native MCP tools
@@ -298,10 +298,10 @@ export class HTTPMCPServer {
   }
 
   /**
-   * Register advanced tools from claude-flow (87 tools)
+   * Register advanced tools from claude-zen (87 tools)
    */
   private async registerAdvancedTools(): Promise<void> {
-    logger.info('Registering 87 advanced tools from claude-flow...');
+    logger.info('Registering 87 advanced tools from claude-zen...');
     
     // Advanced tool discovery endpoint
     this.server.tool(

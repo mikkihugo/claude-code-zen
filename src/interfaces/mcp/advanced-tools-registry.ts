@@ -1,19 +1,17 @@
 /**
  * @fileoverview Advanced MCP Tools Registry
  * 
- * Central registry for all 87 advanced MCP tools from claude-flow.
+ * Central registry for all 87 advanced MCP tools from claude-zen.
  * Integrates with existing HTTP and Stdio MCP servers.
  */
 
-import { advancedToolRegistry, AdvancedMCPTool } from '../advanced-tools';
-import coordinationTools from './coordination-tools';
-import monitoringTools from './monitoring-tools';
-import memoryNeuralTools from './memory-neural-tools';
-
-// Import other tool categories (to be implemented)
-// import githubIntegrationTools from './github-integration-tools';
-// import systemTools from './system-tools';
-// import orchestrationTools from './orchestration-tools';
+import { advancedToolRegistry, AdvancedMCPTool } from './advanced-tools';
+import coordinationTools from './tools/coordination-tools';
+import monitoringTools from './tools/monitoring-tools';
+import memoryNeuralTools from './tools/memory-neural-tools';
+import githubIntegrationTools from './tools/github-integration-tools';
+import systemTools from './tools/system-tools';
+import orchestrationTools from './tools/orchestration-tools';
 
 /**
  * Advanced MCP Tools Manager
@@ -39,22 +37,35 @@ export class AdvancedMCPToolsManager {
       this.initializeToolStats(tool.name);
     });
 
-    // Register Monitoring Tools (15 tools - 6 implemented as examples)
+    // Register Monitoring Tools (15 tools)
     monitoringTools.forEach(tool => {
       advancedToolRegistry.registerTool(tool);
       this.initializeToolStats(tool.name);
     });
 
-    // Register Memory & Neural Tools (18 tools - 6 implemented as examples)
+    // Register Memory & Neural Tools (18 tools)
     memoryNeuralTools.forEach(tool => {
       advancedToolRegistry.registerTool(tool);
       this.initializeToolStats(tool.name);
     });
 
-    // TODO: Register remaining tool categories
-    // GitHub Integration Tools (20 tools)
-    // System Tools (12 tools)
-    // Orchestration Tools (10 tools)
+    // Register GitHub Integration Tools (20 tools)
+    githubIntegrationTools.forEach(tool => {
+      advancedToolRegistry.registerTool(tool);
+      this.initializeToolStats(tool.name);
+    });
+
+    // Register System Tools (12 tools)
+    systemTools.forEach(tool => {
+      advancedToolRegistry.registerTool(tool);
+      this.initializeToolStats(tool.name);
+    });
+
+    // Register Orchestration Tools (10 tools)
+    orchestrationTools.forEach(tool => {
+      advancedToolRegistry.registerTool(tool);
+      this.initializeToolStats(tool.name);
+    });
 
     this.initialized = true;
     console.log(`🧠 Advanced MCP Tools initialized: ${this.getToolCount()} tools loaded`);

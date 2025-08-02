@@ -421,14 +421,14 @@ class PatternRecognitionHandler extends AdvancedToolHandler {
 // Tool definitions - 18 Memory & Neural Tools
 export const memoryNeuralTools: AdvancedMCPTool[] = [
   {
-    name: 'mcp__claude-flow__memory_usage',
+    name: 'mcp__claude-zen__memory_usage',
     description: 'Memory operations and persistence management',
     category: 'memory-neural',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'memory' }, { type: 'write', resource: 'memory' }],
     priority: 'high',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['memory', 'storage', 'persistence'],
       examples: [
         {
@@ -452,14 +452,14 @@ export const memoryNeuralTools: AdvancedMCPTool[] = [
     handler: new MemoryUsageHandler().execute.bind(new MemoryUsageHandler())
   },
   {
-    name: 'mcp__claude-flow__neural_status',
+    name: 'mcp__claude-zen__neural_status',
     description: 'Neural network state monitoring and performance',
     category: 'memory-neural',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'neural' }],
     priority: 'medium',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['neural', 'monitoring', 'status'],
       examples: [
         {
@@ -481,14 +481,14 @@ export const memoryNeuralTools: AdvancedMCPTool[] = [
     handler: new NeuralStatusHandler().execute.bind(new NeuralStatusHandler())
   },
   {
-    name: 'mcp__claude-flow__neural_train',
+    name: 'mcp__claude-zen__neural_train',
     description: 'Pattern learning and adaptation for neural networks',
     category: 'memory-neural',
     version: '2.0.0',
     permissions: [{ type: 'execute', resource: 'neural' }],
     priority: 'high',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['neural', 'training', 'learning'],
       examples: [
         {
@@ -511,14 +511,14 @@ export const memoryNeuralTools: AdvancedMCPTool[] = [
     handler: new NeuralTrainHandler().execute.bind(new NeuralTrainHandler())
   },
   {
-    name: 'mcp__claude-flow__neural_patterns',
+    name: 'mcp__claude-zen__neural_patterns',
     description: 'Cognitive pattern analysis and behavioral insights',
     category: 'memory-neural',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'neural' }, { type: 'read', resource: 'patterns' }],
     priority: 'medium',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['neural', 'patterns', 'analysis'],
       examples: [
         {
@@ -541,14 +541,14 @@ export const memoryNeuralTools: AdvancedMCPTool[] = [
     handler: new NeuralPatternsHandler().execute.bind(new NeuralPatternsHandler())
   },
   {
-    name: 'mcp__claude-flow__memory_bank',
+    name: 'mcp__claude-zen__memory_bank',
     description: 'Large-scale memory management and organization',
     category: 'memory-neural',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'memory' }, { type: 'write', resource: 'memory' }],
     priority: 'medium',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['memory', 'bank', 'management'],
       examples: [
         {
@@ -570,14 +570,14 @@ export const memoryNeuralTools: AdvancedMCPTool[] = [
     handler: new MemoryBankHandler().execute.bind(new MemoryBankHandler())
   },
   {
-    name: 'mcp__claude-flow__pattern_recognition',
+    name: 'mcp__claude-zen__pattern_recognition',
     description: 'Behavioral pattern detection and analysis',
     category: 'memory-neural',
     version: '2.0.0',
     permissions: [{ type: 'read', resource: 'data' }, { type: 'execute', resource: 'analysis' }],
     priority: 'medium',
     metadata: {
-      author: 'claude-flow',
+      author: 'claude-zen',
       tags: ['patterns', 'recognition', 'analysis'],
       examples: [
         {
