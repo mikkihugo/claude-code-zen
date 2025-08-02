@@ -60,7 +60,7 @@ futures = { version = "0.3", optional = true }
 
 # Optional GPU support
 candle-core = { version = "0.3", optional = true }
-candle-nn = { version = "0.3", optional = true }
+candle-nn = { version = "0.9", optional = true }
 
 # Logging and monitoring
 log = "0.4"
