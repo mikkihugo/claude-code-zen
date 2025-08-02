@@ -89,7 +89,7 @@ plotly = "0.8"
 csv = "1.3"
 
 # For benchmarking - minimal for security
-pprof = { version = "0.14", features = ["flamegraph"] }
+pprof = { version = "0.15", features = ["flamegraph"] }
 
 # For memory profiling - minimal for security  
 stats_alloc = "0.1"
