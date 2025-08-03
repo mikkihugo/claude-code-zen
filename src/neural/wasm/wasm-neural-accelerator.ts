@@ -3,7 +3,7 @@
  * High-performance neural network computations using WebAssembly
  */
 
-import type { NeuralNetwork } from '../core/neural-network.js';
+import type { NeuralNetwork } from '../core/neural-network.ts';
 
 export interface WasmComputeOptions {
   threads?: number;

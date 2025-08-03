@@ -4,7 +4,7 @@
  */
 
 import { EventEmitter } from 'node:events';
-import type { ILogger } from '../di/tokens/core-tokens.js';
+import type { ILogger } from '../di/tokens/core-tokens.ts';
 
 export interface ErrorContext {
   component: string;

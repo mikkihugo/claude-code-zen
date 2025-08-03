@@ -17,7 +17,7 @@ import {
   TRAINING_ALGORITHMS,
   type TrainingConfig,
   type TrainingDataConfig,
-} from '../../../../neural/core/neural-network.js';
+} from '../../../../neural/core/neural-network.ts';
 
 describe('Prediction Accuracy - Classical TDD', () => {
   let wasmModule: any;

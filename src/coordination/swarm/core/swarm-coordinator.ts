@@ -4,8 +4,8 @@
  */
 
 import { EventEmitter } from 'node:events';
-import type { AgentType } from '../../../types/agent-types.js';
-import type { SwarmConfig, SwarmTopology } from '../../../types/shared-types.js';
+import type { AgentType } from '../../../types/agent-types.ts';
+import type { SwarmConfig, SwarmTopology } from '../../../types/shared-types.ts';
 
 export interface SwarmAgent {
   id: string;

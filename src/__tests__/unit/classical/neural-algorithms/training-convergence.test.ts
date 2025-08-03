@@ -17,7 +17,7 @@ import {
   TRAINING_ALGORITHMS,
   type TrainingConfig,
   type TrainingDataConfig,
-} from '../../../../neural/core/neural-network.js';
+} from '../../../../neural/core/neural-network.ts';
 
 describe('Training Convergence - Classical TDD', () => {
   let wasmModule: any;
