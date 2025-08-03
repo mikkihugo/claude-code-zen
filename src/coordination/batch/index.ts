@@ -1,6 +1,6 @@
 /**
  * @fileoverview Batch Operations Module
- * Exports all batch operation components following claude-flow patterns
+ * Exports all batch operation components following claude-zen patterns
  */
 
 export { BatchEngine, createBatchOperation, createToolBatch } from './batch-engine';

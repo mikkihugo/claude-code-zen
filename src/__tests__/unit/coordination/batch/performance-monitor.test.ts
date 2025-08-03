@@ -7,7 +7,7 @@ import { BatchPerformanceMonitor } from '../../../../coordination/batch/performa
 import type { BatchExecutionSummary } from '../../../../coordination/batch/batch-engine';
 import type { PerformanceMetrics, PerformanceComparison } from '../../../../coordination/batch/performance-monitor';
 
-describe('BatchPerformanceMonitor - Claude-flow Performance Tracking', () => {
+describe('BatchPerformanceMonitor - Claude-zen Performance Tracking', () => {
   let monitor: BatchPerformanceMonitor;
 
   beforeEach(() => {
@@ -59,8 +59,8 @@ describe('BatchPerformanceMonitor - Claude-flow Performance Tracking', () => {
     });
   });
 
-  describe('⚡ Performance Comparison - Claude-flow Validation', () => {
-    it('should validate claude-flow speed improvement claims', () => {
+  describe('⚡ Performance Comparison - Claude-zen Validation', () => {
+    it('should validate claude-zen speed improvement claims', () => {
       const batchMetrics: PerformanceMetrics = {
         executionMode: 'batch',
         operationCount: 8,
@@ -87,7 +87,7 @@ describe('BatchPerformanceMonitor - Claude-flow Performance Tracking', () => {
 
       const comparison = monitor.comparePerformance(batchMetrics, sequentialMetrics);
 
-      // Verify speed improvement meets claude-flow claims
+      // Verify speed improvement meets claude-zen claims
       expect(comparison.speedImprovement).toBe(3.2);
       expect(comparison.speedImprovement).toBeGreaterThanOrEqual(2.8); // Lower bound
       expect(comparison.speedImprovement).toBeLessThanOrEqual(4.4); // Upper bound

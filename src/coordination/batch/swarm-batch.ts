@@ -1,6 +1,6 @@
 /**
  * @fileoverview Swarm Batch Coordination
- * Implements concurrent swarm operations following claude-flow patterns
+ * Implements concurrent swarm operations following claude-zen patterns
  * Enables batch agent spawning, task distribution, and coordination
  */
 
@@ -55,7 +55,7 @@ export interface SwarmBatchConfig {
 
 /**
  * Coordinates multiple swarm operations concurrently
- * Implements claude-flow's swarm batch optimization patterns
+ * Implements claude-zen's swarm batch optimization patterns
  */
 export class SwarmBatchCoordinator {
   private readonly config: Required<SwarmBatchConfig>;
@@ -76,7 +76,7 @@ export class SwarmBatchCoordinator {
 
   /**
    * Execute multiple swarm operations concurrently
-   * Implements claude-flow's batch swarm coordination
+   * Implements claude-zen's batch swarm coordination
    */
   async executeBatch(operations: SwarmOperation[]): Promise<SwarmOperationResult[]> {
     logger.info(`Starting batch swarm operations: ${operations.length} operations`);

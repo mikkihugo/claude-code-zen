@@ -1,6 +1,6 @@
 /**
  * @fileoverview Claude-Zen Batch Execution Engine
- * Implementation of claude-flow's "1 MESSAGE = ALL OPERATIONS" principle
+ * Implementation of claude-zen's "1 MESSAGE = ALL OPERATIONS" principle
  * Achieves 2.8-4.4x speed improvements through concurrent execution
  */
 
@@ -49,7 +49,7 @@ export interface BatchExecutionSummary {
 }
 
 /**
- * Core batch execution engine implementing claude-flow's concurrent patterns
+ * Core batch execution engine implementing claude-zen's concurrent patterns
  * Follows the "1 MESSAGE = ALL OPERATIONS" principle for maximum efficiency
  */
 export class BatchEngine {
@@ -60,7 +60,7 @@ export class BatchEngine {
 
   constructor(config: BatchExecutionConfig = {}) {
     this.config = {
-      maxConcurrency: config.maxConcurrency ?? 6, // claude-flow default
+      maxConcurrency: config.maxConcurrency ?? 6, // claude-zen default
       timeoutMs: config.timeoutMs ?? 30000,
       retryAttempts: config.retryAttempts ?? 2,
       enableDependencyResolution: config.enableDependencyResolution ?? true,
@@ -73,7 +73,7 @@ export class BatchEngine {
   }
 
   /**
-   * Execute multiple operations concurrently following the claude-flow pattern
+   * Execute multiple operations concurrently following the claude-zen pattern
    * This is the core implementation of "1 MESSAGE = ALL OPERATIONS"
    */
   async executeBatch(operations: BatchOperation[]): Promise<BatchExecutionSummary> {
@@ -338,13 +338,13 @@ export class BatchEngine {
     // Calculate theoretical sequential execution time
     const sequentialTime = results.reduce((sum, r) => sum + r.executionTime, 0);
     
-    // Calculate speed improvement (claude-flow claims 2.8-4.4x)
+    // Calculate speed improvement (claude-zen claims 2.8-4.4x)
     const speedImprovement = sequentialTime > 0 ? sequentialTime / totalExecutionTime : 1;
     
     // Calculate actual concurrency achieved
     const concurrencyAchieved = sequentialTime > 0 ? sequentialTime / totalExecutionTime : 1;
     
-    // Estimate token reduction (claude-flow claims 32.3%)
+    // Estimate token reduction (claude-zen claims 32.3%)
     // This is estimated based on reduced coordination overhead
     const tokenReduction = Math.min(32.3, (speedImprovement - 1) * 10);
 

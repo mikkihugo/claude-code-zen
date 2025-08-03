@@ -1,6 +1,6 @@
 /**
  * @fileoverview File Batch Operations
- * Implements concurrent file operations following claude-flow patterns
+ * Implements concurrent file operations following claude-zen patterns
  * Achieves significant performance improvements for file-heavy workflows
  */
 
@@ -31,7 +31,7 @@ export interface FileOperationResult {
 
 /**
  * Handles concurrent file operations with intelligent batching
- * Implements claude-flow's file operation optimization patterns
+ * Implements claude-zen's file operation optimization patterns
  */
 export class FileBatchOperator {
   private readonly maxConcurrentFiles: number;
@@ -44,7 +44,7 @@ export class FileBatchOperator {
 
   /**
    * Execute multiple file operations concurrently
-   * Follows claude-flow's "1 MESSAGE = ALL OPERATIONS" principle for files
+   * Follows claude-zen's "1 MESSAGE = ALL OPERATIONS" principle for files
    */
   async executeBatch(operations: FileOperation[]): Promise<FileOperationResult[]> {
     logger.info(`Starting batch file operations: ${operations.length} files`);
@@ -394,7 +394,7 @@ export class FileBatchOperator {
 
   /**
    * Create multiple file write operations for batch execution
-   * Implements claude-flow's "BatchWrite" pattern
+   * Implements claude-zen's "BatchWrite" pattern
    */
   static createWriteBatch(files: Array<{
     path: string;
@@ -411,7 +411,7 @@ export class FileBatchOperator {
 
   /**
    * Create project structure batch operations
-   * Implements claude-flow's project initialization pattern
+   * Implements claude-zen's project initialization pattern
    */
   static createProjectStructure(
     basePath: string,

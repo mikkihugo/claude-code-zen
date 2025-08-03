@@ -1,7 +1,7 @@
 /**
  * @fileoverview Batch Performance Monitor
  * Tracks and compares batch vs sequential execution performance
- * Implements claude-flow's performance monitoring patterns
+ * Implements claude-zen's performance monitoring patterns
  */
 
 import { createLogger } from '../../core/logger';
@@ -370,7 +370,7 @@ export class BatchPerformanceMonitor {
     }
 
     if (avgSpeedImprovement < 2.8) {
-      recommendations.push('Speed improvement below claude-flow target (2.8x). Optimize batch configuration');
+      recommendations.push('Speed improvement below claude-zen target (2.8x). Optimize batch configuration');
     }
 
     if (avgTokenReduction < 20) {
