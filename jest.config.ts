@@ -17,12 +17,20 @@ const config: Config = {
   },
 
   moduleNameMapper: {
+    // Map TypeScript path aliases
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/src/',
     }),
   },
 
+  // Use custom resolver approach
+  resolver: '<rootDir>/tests/jest-resolver.cjs',
+
+  // Remove custom resolver
+  // resolver: '<rootDir>/tests/jest-resolver.cjs',
+
   extensionsToTreatAsEsm: ['.ts'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
 
   roots: ['<rootDir>/src', '<rootDir>/tests'],
   testMatch: ['<rootDir>/tests/**/*.test.ts', '<rootDir>/src/__tests__/**/*.test.ts'],
