@@ -59,7 +59,7 @@ async function validateIntegration() {
     console.log(
       `   Runtime features: ${Object.keys(features.runtime)
         .filter((k) => features.runtime[k])
-        .join(', ')}`
+        .join(', ')}`,
     );
 
     // Test 6: Neural Networks
@@ -119,7 +119,7 @@ async function validateIntegration() {
     console.log('   - Backward compatibility: Maintained');
     console.log('   - Feature detection: Complete');
     console.log(
-      `   - Neural networks: ${ruvSwarm.features.neural_networks ? 'Enabled' : 'Simulated'}`
+      `   - Neural networks: ${ruvSwarm.features.neural_networks ? 'Enabled' : 'Simulated'}`,
     );
   } catch (error) {
     console.error('\n❌ Validation failed:', error.message);

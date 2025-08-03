@@ -266,7 +266,7 @@ export class TestClass {
         workersGenerated: results.taskDistribution.size,
         totalTasks: Array.from(results.taskDistribution.values()).reduce(
           (sum, tasks) => sum + tasks.length,
-          0
+          0,
         ),
       });
 

@@ -132,7 +132,7 @@ class EnhancedMCPTools {
       if (!this.persistenceReady) {
         throw new PersistenceError(
           'Persistence layer not ready after timeout',
-          'PERSISTENCE_NOT_READY'
+          'PERSISTENCE_NOT_READY',
         );
       }
     }
@@ -260,7 +260,7 @@ class EnhancedMCPTools {
       throw ErrorFactory.createError(
         'validation',
         `Parameter validation failed for ${toolName}: ${error.message}`,
-        { tool: toolName, originalError: error }
+        { tool: toolName, originalError: error },
       );
     }
   }
@@ -321,7 +321,7 @@ class EnhancedMCPTools {
       }
 
       console.error(
-        `🔗 Integrated ${runtimeNotifications.length} hook notifications into MCP memory`
+        `🔗 Integrated ${runtimeNotifications.length} hook notifications into MCP memory`,
       );
       return true;
     } catch (error) {
@@ -362,7 +362,7 @@ class EnhancedMCPTools {
           }));
 
         console.error(
-          `🔍 Debug: Agent ${agent} has ${agentNotifications.length} notification memories`
+          `🔍 Debug: Agent ${agent} has ${agentNotifications.length} notification memories`,
         );
         notifications.push(...agentNotifications);
       }
@@ -605,25 +605,25 @@ class EnhancedMCPTools {
         handledError = ErrorFactory.createError(
           'wasm',
           `WASM module error during swarm initialization: ${error.message}`,
-          { operation: 'swarm_init', topology: params?.topology, originalError: error }
+          { operation: 'swarm_init', topology: params?.topology, originalError: error },
         );
       } else if (error.message.includes('memory') || error.message.includes('allocation')) {
         handledError = ErrorFactory.createError(
           'resource',
           `Insufficient resources for swarm initialization: ${error.message}`,
-          { resourceType: 'memory', operation: 'swarm_init', maxAgents: params?.maxAgents }
+          { resourceType: 'memory', operation: 'swarm_init', maxAgents: params?.maxAgents },
         );
       } else if (error.message.includes('persistence') || error.message.includes('database')) {
         handledError = ErrorFactory.createError(
           'persistence',
           `Database error during swarm creation: ${error.message}`,
-          { operation: 'create_swarm', originalError: error }
+          { operation: 'create_swarm', originalError: error },
         );
       } else if (!(error instanceof ValidationError || error instanceof RuvSwarmError)) {
         handledError = ErrorFactory.createError(
           'swarm',
           `Swarm initialization failed: ${error.message}`,
-          { operation: 'swarm_init', originalError: error }
+          { operation: 'swarm_init', originalError: error },
         );
       }
 
@@ -659,7 +659,7 @@ class EnhancedMCPTools {
         throw ErrorFactory.createError(
           'swarm',
           'No active swarm found. Please initialize a swarm first using swarm_init.',
-          { operation: 'agent_spawn', requestedSwarmId: swarmId }
+          { operation: 'agent_spawn', requestedSwarmId: swarmId },
         );
       }
 
@@ -673,7 +673,7 @@ class EnhancedMCPTools {
             swarmId: swarm.id,
             currentAgents: swarm.agents.size,
             maxAgents: swarm.maxAgents,
-          }
+          },
         );
       }
 
@@ -761,19 +761,19 @@ class EnhancedMCPTools {
         handledError = ErrorFactory.createError(
           'neural',
           `Neural network error during agent spawn: ${error.message}`,
-          { operation: 'agent_spawn', agentType: params?.type, originalError: error }
+          { operation: 'agent_spawn', agentType: params?.type, originalError: error },
         );
       } else if (error.message.includes('capabilities') || error.message.includes('mismatch')) {
         handledError = ErrorFactory.createError(
           'agent',
           `Agent capability error: ${error.message}`,
-          { operation: 'agent_spawn', agentType: params?.type, capabilities: params?.capabilities }
+          { operation: 'agent_spawn', agentType: params?.type, capabilities: params?.capabilities },
         );
       } else if (error.message.includes('database') || error.message.includes('persistence')) {
         handledError = ErrorFactory.createError(
           'persistence',
           `Database error during agent creation: ${error.message}`,
-          { operation: 'create_agent', agentType: params?.type, originalError: error }
+          { operation: 'create_agent', agentType: params?.type, originalError: error },
         );
       } else if (!(error instanceof ValidationError || error instanceof RuvSwarmError)) {
         handledError = ErrorFactory.createError('agent', `Agent spawn failed: ${error.message}`, {
@@ -886,7 +886,7 @@ class EnhancedMCPTools {
         handledError = ErrorFactory.createError(
           'swarm',
           `Swarm not found for task orchestration: ${error.message}`,
-          { operation: 'task_orchestrate', swarmId: params?.swarmId, originalError: error }
+          { operation: 'task_orchestrate', swarmId: params?.swarmId, originalError: error },
         );
       } else if (error.message.includes('agent') && error.message.includes('available')) {
         handledError = ErrorFactory.createError(
@@ -897,7 +897,7 @@ class EnhancedMCPTools {
             task: params?.task,
             requiredCapabilities: params?.requiredCapabilities,
             originalError: error,
-          }
+          },
         );
       } else if (error.message.includes('timeout') || error.message.includes('duration')) {
         handledError = ErrorFactory.createError(
@@ -908,13 +908,13 @@ class EnhancedMCPTools {
             task: params?.task,
             estimatedDuration: params?.estimatedDuration,
             originalError: error,
-          }
+          },
         );
       } else if (!(error instanceof ValidationError || error instanceof RuvSwarmError)) {
         handledError = ErrorFactory.createError(
           'task',
           `Task orchestration failed: ${error.message}`,
-          { operation: 'task_orchestrate', task: params?.task, originalError: error }
+          { operation: 'task_orchestrate', task: params?.task, originalError: error },
         );
       }
 
@@ -1146,10 +1146,10 @@ class EnhancedMCPTools {
         final_result: targetTask.result,
         error_details: targetTask.error
           ? {
-              message: targetTask.error,
-              timestamp: targetTask.completedAt,
-              recovery_suggestions: this.generateRecoverySuggestions(targetTask.error),
-            }
+            message: targetTask.error,
+            timestamp: targetTask.completedAt,
+            recovery_suggestions: this.generateRecoverySuggestions(targetTask.error),
+          }
           : null,
       };
 
@@ -1494,13 +1494,13 @@ class EnhancedMCPTools {
           'system',
           'memory',
           'javascript_mb',
-          summary.javascript_mb
+          summary.javascript_mb,
         );
         await this.persistence.recordMetric(
           'system',
           'memory',
           'available_mb',
-          summary.available_mb
+          summary.available_mb,
         );
 
         // Store detailed memory snapshot if heap info available
@@ -1509,19 +1509,19 @@ class EnhancedMCPTools {
             'system',
             'memory',
             'heap_used_mb',
-            jsMemory.heapUsed / (1024 * 1024)
+            jsMemory.heapUsed / (1024 * 1024),
           );
           await this.persistence.recordMetric(
             'system',
             'memory',
             'heap_total_mb',
-            jsMemory.heapTotal / (1024 * 1024)
+            jsMemory.heapTotal / (1024 * 1024),
           );
           await this.persistence.recordMetric(
             'system',
             'memory',
             'external_mb',
-            (jsMemory.external || 0) / (1024 * 1024)
+            (jsMemory.external || 0) / (1024 * 1024),
           );
         }
 
@@ -1668,7 +1668,7 @@ class EnhancedMCPTools {
         throw ErrorFactory.createError(
           'validation',
           'agentId is required and must be a string. The agentId parameter identifies which agent to train.',
-          { parameter: 'agentId', providedValue: agentId, expectedType: 'string' }
+          { parameter: 'agentId', providedValue: agentId, expectedType: 'string' },
         );
       }
 
@@ -1679,14 +1679,14 @@ class EnhancedMCPTools {
           throw ErrorFactory.createError(
             'validation',
             'iterations must be a positive integer greater than 0',
-            { parameter: 'iterations', providedValue: rawIterations, validRange: '1-100' }
+            { parameter: 'iterations', providedValue: rawIterations, validRange: '1-100' },
           );
         }
         if (iterations > 100) {
           throw ErrorFactory.createError(
             'validation',
             'iterations must not exceed 100 to prevent excessive training time',
-            { parameter: 'iterations', providedValue: iterations, validRange: '1-100' }
+            { parameter: 'iterations', providedValue: iterations, validRange: '1-100' },
           );
         }
       } catch (parseError) {
@@ -1708,7 +1708,7 @@ class EnhancedMCPTools {
           throw ErrorFactory.createError(
             'validation',
             'learningRate must be a number between 0.0001 and 1.0',
-            { parameter: 'learningRate', providedValue: learningRate, validRange: '0.0001-1.0' }
+            { parameter: 'learningRate', providedValue: learningRate, validRange: '0.0001-1.0' },
           );
         }
         validatedLearningRate = Math.max(0.0001, Math.min(1.0, validatedLearningRate));
@@ -1726,7 +1726,7 @@ class EnhancedMCPTools {
         throw ErrorFactory.createError(
           'validation',
           `modelType must be one of: ${validModelTypes.join(', ')}`,
-          { parameter: 'modelType', providedValue: modelType, validOptions: validModelTypes }
+          { parameter: 'modelType', providedValue: modelType, validOptions: validModelTypes },
         );
       }
       validatedModelType = modelType;
@@ -1865,19 +1865,19 @@ class EnhancedMCPTools {
           'agent',
           agentId,
           'neural_training_accuracy',
-          currentAccuracy
+          currentAccuracy,
         );
         await this.persistence.recordMetric(
           'agent',
           agentId,
           'neural_training_iterations',
-          iterations
+          iterations,
         );
         await this.persistence.recordMetric(
           'agent',
           agentId,
           'neural_training_time_ms',
-          performance.now() - startTime
+          performance.now() - startTime,
         );
 
         this.logger.debug('Training metrics recorded', {
@@ -2048,8 +2048,8 @@ class EnhancedMCPTools {
       operations_per_second:
         neuralNetworkTimes.length > 0
           ? Math.round(
-              1000 / (neuralNetworkTimes.reduce((a, b) => a + b, 0) / neuralNetworkTimes.length)
-            )
+            1000 / (neuralNetworkTimes.reduce((a, b) => a + b, 0) / neuralNetworkTimes.length),
+          )
           : 0,
     };
 
@@ -2059,8 +2059,8 @@ class EnhancedMCPTools {
       predictions_per_second:
         forecastingTimes.length > 0
           ? Math.round(
-              1000 / (forecastingTimes.reduce((a, b) => a + b, 0) / forecastingTimes.length)
-            )
+            1000 / (forecastingTimes.reduce((a, b) => a + b, 0) / forecastingTimes.length),
+          )
           : 0,
     };
 
@@ -2070,8 +2070,8 @@ class EnhancedMCPTools {
       operations_per_second:
         swarmOperationTimes.length > 0
           ? Math.round(
-              1000 / (swarmOperationTimes.reduce((a, b) => a + b, 0) / swarmOperationTimes.length)
-            )
+            1000 / (swarmOperationTimes.reduce((a, b) => a + b, 0) / swarmOperationTimes.length),
+          )
           : 0,
     };
 
@@ -2122,7 +2122,7 @@ class EnhancedMCPTools {
         data.reduce((sq, n) => {
           const diff = n - data.reduce((a, b) => a + b, 0) / data.length;
           return sq + diff * diff;
-        }, 0) / data.length
+        }, 0) / data.length,
       ),
     });
 
@@ -2164,7 +2164,7 @@ class EnhancedMCPTools {
             topology: Array.from({ length: 50 }, (_, idx) => ({
               nodeId: idx,
               connections: Array.from({ length: Math.floor(Math.random() * 5) }, () =>
-                Math.floor(Math.random() * 50)
+                Math.floor(Math.random() * 50),
               ),
             })),
           },
@@ -2403,11 +2403,11 @@ class EnhancedMCPTools {
 
         subtasks.forEach((subtask) => {
           const suitableAgents = agents.filter((agent) =>
-            agent.capabilities.includes(subtask.requirement)
+            agent.capabilities.includes(subtask.requirement),
           );
           if (suitableAgents.length > 0) {
             const bestAgent = suitableAgents.reduce((best, current) =>
-              current.workload < best.workload ? current : best
+              current.workload < best.workload ? current : best,
             );
             subtask.assignedAgent = bestAgent.id;
             bestAgent.workload += subtask.weight;
@@ -2442,7 +2442,7 @@ class EnhancedMCPTools {
               results.reduce((sum, r) => sum + r.result.metadata.confidence, 0) / results.length,
             totalProcessingTime: results.reduce(
               (sum, r) => sum + r.result.metadata.processingTime,
-              0
+              0,
             ),
           },
           completedAt: new Date(),
@@ -2567,14 +2567,14 @@ class EnhancedMCPTools {
     return summary.length > 0
       ? summary
       : [
-          {
-            name: 'WASM Module Loading',
-            avgTime: '0.00ms',
-            minTime: '0.00ms',
-            maxTime: '0.00ms',
-            successRate: '0.0%',
-          },
-        ];
+        {
+          name: 'WASM Module Loading',
+          avgTime: '0.00ms',
+          minTime: '0.00ms',
+          maxTime: '0.00ms',
+          successRate: '0.0%',
+        },
+      ];
   }
 
   // New MCP Tool: Agent Metrics - Return performance metrics for agents
@@ -2679,7 +2679,7 @@ class EnhancedMCPTools {
             metricsData.length,
           total_neural_networks: metricsData.reduce(
             (sum, a) => sum + (a.neural_networks?.length || 0),
-            0
+            0,
           ),
           active_agents: metricsData.filter((a) => a.status === 'active' || a.status === 'busy')
             .length,
@@ -2814,12 +2814,12 @@ class EnhancedMCPTools {
         total_swarms: this.activeSwarms.size,
         total_agents: Array.from(this.activeSwarms.values()).reduce(
           (sum, swarm) => sum + swarm.agents.size,
-          0
+          0,
         ),
         wasm_memory_usage_mb: this.ruvSwarm?.wasmLoader?.getTotalMemoryUsage() / (1024 * 1024) || 0,
         system_uptime_ms: Date.now() - (this.systemStartTime || Date.now()),
         features_available: Object.keys(this.ruvSwarm.features).filter(
-          (f) => this.ruvSwarm.features[f]
+          (f) => this.ruvSwarm.features[f],
         ).length,
       };
 
@@ -2911,7 +2911,7 @@ class EnhancedMCPTools {
           originalError: error,
         }),
         'pool_health',
-        'health_check'
+        'health_check',
       );
     }
   }
@@ -2955,8 +2955,8 @@ class EnhancedMCPTools {
           error_rate:
             persistenceStats.totalOperations > 0
               ? ((persistenceStats.totalErrors / persistenceStats.totalOperations) * 100).toFixed(
-                  2
-                ) + '%'
+                2,
+              ) + '%'
               : '0%',
         },
         health_status: {
@@ -2971,7 +2971,7 @@ class EnhancedMCPTools {
           originalError: error,
         }),
         'pool_stats',
-        'statistics'
+        'statistics',
       );
     }
   }
@@ -3005,9 +3005,9 @@ class EnhancedMCPTools {
           success_rate_percent:
             stats.totalOperations > 0
               ? (
-                  ((stats.totalOperations - stats.totalErrors) / stats.totalOperations) *
+                ((stats.totalOperations - stats.totalErrors) / stats.totalOperations) *
                   100
-                ).toFixed(2)
+              ).toFixed(2)
               : '100.00',
         },
         pool_health: {
@@ -3025,7 +3025,7 @@ class EnhancedMCPTools {
           originalError: error,
         }),
         'persistence_stats',
-        'statistics'
+        'statistics',
       );
     }
   }

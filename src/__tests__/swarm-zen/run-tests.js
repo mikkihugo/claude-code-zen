@@ -80,7 +80,7 @@ async function runJest(suite, coverage = false) {
         '--coverageReporters',
         'text',
         'lcov',
-        'html'
+        'html',
       );
     }
 

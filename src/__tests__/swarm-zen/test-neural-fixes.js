@@ -74,7 +74,7 @@ function assertPattern(output, pattern, testName) {
 // Test 1: Pattern Parsing Fix Validation
 async function testPatternParsing() {
   console.log(
-    `\n${colors.bold}${colors.blue}Test 1: Pattern Parsing Fix Validation${colors.reset}`
+    `\n${colors.bold}${colors.blue}Test 1: Pattern Parsing Fix Validation${colors.reset}`,
   );
   console.log('─'.repeat(50));
 
@@ -138,7 +138,7 @@ async function testPatternParsing() {
     assertContains(
       result3.stdout,
       'Cognitive: convergent, divergent, lateral, systems, critical, abstract',
-      'Cognitive patterns list'
+      'Cognitive patterns list',
     );
     assertContains(result3.stdout, 'Models: attention, lstm, transformer', 'Model patterns list');
   } else {
@@ -149,7 +149,7 @@ async function testPatternParsing() {
 // Test 2: Memory Optimization Validation
 async function testMemoryOptimization() {
   console.log(
-    `\n${colors.bold}${colors.blue}Test 2: Memory Optimization Validation${colors.reset}`
+    `\n${colors.bold}${colors.blue}Test 2: Memory Optimization Validation${colors.reset}`,
   );
   console.log('─'.repeat(50));
 
@@ -172,7 +172,7 @@ async function testMemoryOptimization() {
           testResults.passed.push(`${pattern}: Memory optimized (${memoryUsage} MB)`);
         } else if (memoryUsage >= 200 && memoryUsage <= 350) {
           testResults.warnings.push(
-            `${pattern}: Memory slightly outside target (${memoryUsage} MB)`
+            `${pattern}: Memory slightly outside target (${memoryUsage} MB)`,
           );
         } else {
           testResults.failed.push(`${pattern}: Memory not optimized (${memoryUsage} MB)`);
@@ -206,7 +206,7 @@ async function testMemoryOptimization() {
 // Test 3: Persistence Indicators Validation
 async function testPersistenceIndicators() {
   console.log(
-    `\n${colors.bold}${colors.blue}Test 3: Persistence Indicators Validation${colors.reset}`
+    `\n${colors.bold}${colors.blue}Test 3: Persistence Indicators Validation${colors.reset}`,
   );
   console.log('─'.repeat(50));
 
@@ -223,7 +223,7 @@ async function testPersistenceIndicators() {
     assertPattern(
       result.stdout,
       /Training Sessions:\s*\d+\s*sessions/,
-      'Training sessions display'
+      'Training sessions display',
     );
 
     // Check for saved models count with 📁 indicator
@@ -267,7 +267,7 @@ async function testPersistenceIndicators() {
 // Additional test: Pattern switching memory efficiency
 async function testPatternSwitching() {
   console.log(
-    `\n${colors.bold}${colors.blue}Additional Test: Pattern Switching Memory Efficiency${colors.reset}`
+    `\n${colors.bold}${colors.blue}Additional Test: Pattern Switching Memory Efficiency${colors.reset}`,
   );
   console.log('─'.repeat(50));
 
@@ -307,7 +307,7 @@ async function testPatternSwitching() {
 
         if (variance < 50) {
           testResults.passed.push(
-            `${pattern}: Stable memory across switches (variance: ${variance} MB)`
+            `${pattern}: Stable memory across switches (variance: ${variance} MB)`,
           );
         } else {
           testResults.warnings.push(`${pattern}: Higher memory variance (${variance} MB)`);
@@ -320,7 +320,7 @@ async function testPatternSwitching() {
 // Main test runner
 async function runAllTests() {
   console.log(
-    `${colors.bold}${colors.green}🧪 Neural Pattern Fixes Validation Test Suite${colors.reset}`
+    `${colors.bold}${colors.green}🧪 Neural Pattern Fixes Validation Test Suite${colors.reset}`,
   );
   console.log(`${'='.repeat(60)}`);
   console.log(`Started: ${new Date().toLocaleString()}`);
@@ -360,12 +360,12 @@ async function runAllTests() {
 
     if (testResults.failed.length === 0) {
       console.log(
-        `\n${colors.green}${colors.bold}🎉 All tests passed! All fixes are working correctly.${colors.reset}`
+        `\n${colors.green}${colors.bold}🎉 All tests passed! All fixes are working correctly.${colors.reset}`,
       );
       process.exit(0);
     } else {
       console.log(
-        `\n${colors.red}${colors.bold}❌ Some tests failed. Please review the issues above.${colors.reset}`
+        `\n${colors.red}${colors.bold}❌ Some tests failed. Please review the issues above.${colors.reset}`,
       );
       process.exit(1);
     }

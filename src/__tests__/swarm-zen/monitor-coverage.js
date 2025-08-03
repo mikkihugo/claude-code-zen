@@ -24,13 +24,13 @@ async function main() {
     console.log('═══════════════════════════════════════════');
     console.log(`Lines:      ${initial.coverage.lines.toFixed(2)}% (${initial.details.lines})`);
     console.log(
-      `Branches:   ${initial.coverage.branches.toFixed(2)}% (${initial.details.branches})`
+      `Branches:   ${initial.coverage.branches.toFixed(2)}% (${initial.details.branches})`,
     );
     console.log(
-      `Functions:  ${initial.coverage.functions.toFixed(2)}% (${initial.details.functions})`
+      `Functions:  ${initial.coverage.functions.toFixed(2)}% (${initial.details.functions})`,
     );
     console.log(
-      `Statements: ${initial.coverage.statements.toFixed(2)}% (${initial.details.statements})`
+      `Statements: ${initial.coverage.statements.toFixed(2)}% (${initial.details.statements})`,
     );
     console.log('═══════════════════════════════════════════\n');
 
@@ -45,7 +45,7 @@ async function main() {
 
   // Store initial metrics
   await execAsync(
-    `npx ruv-swarm hook notification --message "Initial coverage: Lines ${initial?.coverage.lines || 0}%, Branches ${initial?.coverage.branches || 0}%, Functions ${initial?.coverage.functions || 0}%, Statements ${initial?.coverage.statements || 0}%" --telemetry true`
+    `npx ruv-swarm hook notification --message "Initial coverage: Lines ${initial?.coverage.lines || 0}%, Branches ${initial?.coverage.branches || 0}%, Functions ${initial?.coverage.functions || 0}%, Statements ${initial?.coverage.statements || 0}%" --telemetry true`,
   );
 
   // Start live monitoring with 15 second intervals
@@ -66,22 +66,22 @@ async function main() {
     console.log('\n📊 FINAL SESSION METRICS:');
     console.log('═══════════════════════════════════════════');
     console.log(
-      `Lines:      ${final.coverage.lines.toFixed(2)}% (improvement: +${progress.improvement.lines.toFixed(2)}%)`
+      `Lines:      ${final.coverage.lines.toFixed(2)}% (improvement: +${progress.improvement.lines.toFixed(2)}%)`,
     );
     console.log(
-      `Branches:   ${final.coverage.branches.toFixed(2)}% (improvement: +${progress.improvement.branches.toFixed(2)}%)`
+      `Branches:   ${final.coverage.branches.toFixed(2)}% (improvement: +${progress.improvement.branches.toFixed(2)}%)`,
     );
     console.log(
-      `Functions:  ${final.coverage.functions.toFixed(2)}% (improvement: +${progress.improvement.functions.toFixed(2)}%)`
+      `Functions:  ${final.coverage.functions.toFixed(2)}% (improvement: +${progress.improvement.functions.toFixed(2)}%)`,
     );
     console.log(
-      `Statements: ${final.coverage.statements.toFixed(2)}% (improvement: +${progress.improvement.statements.toFixed(2)}%)`
+      `Statements: ${final.coverage.statements.toFixed(2)}% (improvement: +${progress.improvement.statements.toFixed(2)}%)`,
     );
     console.log('═══════════════════════════════════════════\n');
 
     // Store final metrics
     await execAsync(
-      `npx ruv-swarm hook notification --message "Session complete: Achieved ${final.coverage.lines.toFixed(1)}% line coverage" --telemetry true`
+      `npx ruv-swarm hook notification --message "Session complete: Achieved ${final.coverage.lines.toFixed(1)}% line coverage" --telemetry true`,
     );
 
     process.exit(0);

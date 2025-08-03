@@ -71,7 +71,7 @@ class ModelSpecificTests {
     };
 
     console.log(
-      `✅ Sequential memory test complete: ${this.results.lstm.sequentialMemory.averageAccuracy.toFixed(2)}% accuracy`
+      `✅ Sequential memory test complete: ${this.results.lstm.sequentialMemory.averageAccuracy.toFixed(2)}% accuracy`,
     );
   }
 
@@ -98,13 +98,13 @@ class ModelSpecificTests {
     this.results.attention.multiHead = {
       configurations: results,
       optimalHeads: results.sort(
-        (a, b) => a.accuracy / a.computeTime - b.accuracy / b.computeTime
+        (a, b) => a.accuracy / a.computeTime - b.accuracy / b.computeTime,
       )[0].heads,
       scalability: 'linear',
     };
 
     console.log(
-      `✅ Multi-head attention test complete: Optimal heads = ${this.results.attention.multiHead.optimalHeads}`
+      `✅ Multi-head attention test complete: Optimal heads = ${this.results.attention.multiHead.optimalHeads}`,
     );
   }
 
@@ -136,7 +136,7 @@ class ModelSpecificTests {
     };
 
     console.log(
-      `✅ Parallelization test complete: Max efficiency = ${this.results.transformer.parallelization.maxEfficiency.toFixed(1)}%`
+      `✅ Parallelization test complete: Max efficiency = ${this.results.transformer.parallelization.maxEfficiency.toFixed(1)}%`,
     );
   }
 
@@ -166,7 +166,7 @@ class ModelSpecificTests {
     };
 
     console.log(
-      `✅ Latency test complete: Avg = ${this.results.feedforward.latency.avgLatency.toFixed(2)}ms`
+      `✅ Latency test complete: Avg = ${this.results.feedforward.latency.avgLatency.toFixed(2)}ms`,
     );
   }
 
@@ -323,29 +323,29 @@ class ModelSpecificTests {
 
     console.log('\n🧠 LSTM:');
     console.log(
-      `  Sequential Memory: ${this.results.lstm.sequentialMemory.averageAccuracy.toFixed(1)}% accuracy`
+      `  Sequential Memory: ${this.results.lstm.sequentialMemory.averageAccuracy.toFixed(1)}% accuracy`,
     );
     console.log(
-      `  Memory Retention: ${this.results.lstm.sequentialMemory.memoryRetention.toFixed(1)}%`
+      `  Memory Retention: ${this.results.lstm.sequentialMemory.memoryRetention.toFixed(1)}%`,
     );
     console.log(
-      `  Generalization Robustness: ${this.results.lstm.generalization.robustness.toFixed(1)}%`
+      `  Generalization Robustness: ${this.results.lstm.generalization.robustness.toFixed(1)}%`,
     );
 
     console.log('\n🎯 Attention:');
     console.log(`  Optimal Head Count: ${this.results.attention.multiHead.optimalHeads}`);
     console.log(`  Scalability: ${this.results.attention.multiHead.scalability}`);
     console.log(
-      `  Generalization Robustness: ${this.results.attention.generalization.robustness.toFixed(1)}%`
+      `  Generalization Robustness: ${this.results.attention.generalization.robustness.toFixed(1)}%`,
     );
 
     console.log('\n⚡ Transformer:');
     console.log(
-      `  Max Parallel Efficiency: ${this.results.transformer.parallelization.maxEfficiency.toFixed(1)}%`
+      `  Max Parallel Efficiency: ${this.results.transformer.parallelization.maxEfficiency.toFixed(1)}%`,
     );
     console.log(`  Optimal Batch Size: ${this.results.transformer.parallelization.optimalBatch}`);
     console.log(
-      `  Generalization Robustness: ${this.results.transformer.generalization.robustness.toFixed(1)}%`
+      `  Generalization Robustness: ${this.results.transformer.generalization.robustness.toFixed(1)}%`,
     );
 
     console.log('\n🚀 Feedforward:');

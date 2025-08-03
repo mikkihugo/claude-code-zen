@@ -72,7 +72,7 @@ class BatchToolEnforcer {
   getRecentOperations(operationType, timeWindowMs) {
     const cutoff = Date.now() - timeWindowMs;
     return this.sessionOperations.filter(
-      (op) => op.type === operationType && op.timestamp > cutoff
+      (op) => op.type === operationType && op.timestamp > cutoff,
     );
   }
 
@@ -83,7 +83,7 @@ class BatchToolEnforcer {
     const totalOps = this.sessionOperations.length;
     const violations = Array.from(this.violationWarnings.values());
     const batchableOps = Array.from(this.operationCounts.entries()).filter(
-      ([_, count]) => count >= this.parallelThreshold
+      ([_, count]) => count >= this.parallelThreshold,
     );
 
     return {
@@ -272,7 +272,7 @@ class ClaudeFlowEnhanced {
 
     console.log(`📋 Created optimized workflow: ${name}`);
     console.log(
-      `⚡ Parallelization rate: ${(workflow.metrics.parallelizationRate * 100).toFixed(1)}%`
+      `⚡ Parallelization rate: ${(workflow.metrics.parallelizationRate * 100).toFixed(1)}%`,
     );
 
     return workflow;
@@ -328,7 +328,7 @@ class ClaudeFlowEnhanced {
       const otherOutputs = otherStep.outputs || [];
 
       const hasDepedency = stepInputs.some((input) =>
-        otherOutputs.some((output) => input.includes(output) || output.includes(input))
+        otherOutputs.some((output) => input.includes(output) || output.includes(input)),
       );
 
       if (hasDepedency) {
@@ -375,7 +375,7 @@ class ClaudeFlowEnhanced {
 
       for (const [batchIndex, batch] of batches.entries()) {
         console.log(
-          `⚡ Executing batch ${batchIndex + 1}/${batches.length} (${batch.length} steps)`
+          `⚡ Executing batch ${batchIndex + 1}/${batches.length} (${batch.length} steps)`,
         );
 
         if (batch.length === 1) {
@@ -455,7 +455,7 @@ class ClaudeFlowEnhanced {
       if (currentBatch.length === 0) {
         throw new ClaudeFlowError(
           'Circular dependency detected in workflow',
-          'CIRCULAR_DEPENDENCY'
+          'CIRCULAR_DEPENDENCY',
         );
       }
 
@@ -555,7 +555,7 @@ class ClaudeFlowEnhanced {
       const _executionTime = Date.now() - startTime;
       throw new ClaudeFlowError(
         `Step execution failed: ${step.name || step.id} - ${error.message}`,
-        'STEP_EXECUTION_FAILED'
+        'STEP_EXECUTION_FAILED',
       );
     }
   }
@@ -746,7 +746,7 @@ class ClaudeFlowEnhanced {
 
     // Check for missing SIMD optimization
     const simdCandidates = workflow.steps.filter((s) =>
-      ['neural_inference', 'data_processing', 'vector_operations'].includes(s.type)
+      ['neural_inference', 'data_processing', 'vector_operations'].includes(s.type),
     );
     const simdEnabled = simdCandidates.filter((s) => s.enableSIMD);
 
@@ -757,7 +757,7 @@ class ClaudeFlowEnhanced {
 
     // Check for batching opportunities
     const batchableOps = workflow.steps.filter((s) =>
-      ['file_read', 'file_write', 'mcp_tool_call'].includes(s.type)
+      ['file_read', 'file_write', 'mcp_tool_call'].includes(s.type),
     );
 
     if (batchableOps.length >= 3) {
@@ -780,7 +780,7 @@ class ClaudeFlowEnhanced {
   calculatePotentialSpeedup(workflow) {
     const parallelizableSteps = workflow.steps.filter((s) => s.batchable).length;
     const simdCandidates = workflow.steps.filter((s) =>
-      ['neural_inference', 'data_processing'].includes(s.type)
+      ['neural_inference', 'data_processing'].includes(s.type),
     ).length;
 
     const parallelSpeedup = parallelizableSteps > 0 ? 2.8 : 1.0;

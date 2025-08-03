@@ -394,7 +394,7 @@ describe('Cross-Browser WASM Compatibility', () => {
             matB,
             matrixSize,
             matrixSize,
-            matrixSize
+            matrixSize,
           );
           benchmarks.matrixOps = performance.now() - matrixStart;
 

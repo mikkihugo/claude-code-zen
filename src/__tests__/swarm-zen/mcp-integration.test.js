@@ -177,12 +177,12 @@ async function runMCPIntegrationTests() {
       assert(result, 'Initialize should return a result');
       assert(
         result.protocolVersion || result.capabilities,
-        'Should have protocol version or capabilities'
+        'Should have protocol version or capabilities',
       );
 
       if (result.serverInfo) {
         console.log(
-          `   Server: ${result.serverInfo.name} v${result.serverInfo.version || 'unknown'}`
+          `   Server: ${result.serverInfo.name} v${result.serverInfo.version || 'unknown'}`,
         );
       }
     });
@@ -447,7 +447,7 @@ async function runMCPIntegrationTests() {
               agent_type: ['researcher', 'coder', 'analyst', 'tester', 'reviewer'][i],
               name: `concurrent-agent-${i}`,
             },
-          })
+          }),
         );
       }
 
@@ -521,7 +521,7 @@ async function runMCPIntegrationTests() {
       // Note: This might fail if session-based storage is used
       // In production, implement proper persistent storage
       console.log(
-        `   Persistence test result: ${result.found ? 'Data persisted' : 'Data not persisted (session-based storage)'}`
+        `   Persistence test result: ${result.found ? 'Data persisted' : 'Data not persisted (session-based storage)'}`,
       );
     });
 
@@ -538,7 +538,7 @@ async function runMCPIntegrationTests() {
               agent_type: 'researcher',
               name: `perf-test-agent-${i}`,
             },
-          })
+          }),
         );
       }
 
@@ -546,7 +546,7 @@ async function runMCPIntegrationTests() {
       const duration = Date.now() - startTime;
 
       console.log(
-        `   Spawned 10 agents in ${duration}ms (${(duration / 10).toFixed(1)}ms per agent)`
+        `   Spawned 10 agents in ${duration}ms (${(duration / 10).toFixed(1)}ms per agent)`,
       );
       assert(duration < 5000, 'Agent spawning too slow');
     });
@@ -664,7 +664,7 @@ async function runIntegrationScenarios() {
       arguments: { include_metrics: true },
     });
     console.log(
-      `  ✅ Final state: ${state.total_agents} agents, ${state.active_tasks} active tasks`
+      `  ✅ Final state: ${state.total_agents} agents, ${state.active_tasks} active tasks`,
     );
 
     // Scenario 2: Development Pipeline

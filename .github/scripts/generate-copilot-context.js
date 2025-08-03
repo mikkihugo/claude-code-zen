@@ -57,18 +57,18 @@ ${this.config.architecture.domains.map((domain) => `├── ${domain}/`).join(
 
 ## Performance Requirements
 ${Object.entries(this.config.development.performance_requirements)
-  .map(([key, value]) => `- **${key.replace(/_/g, ' ')}**: ${value}`)
-  .join('\n')}
+    .map(([key, value]) => `- **${key.replace(/_/g, ' ')}**: ${value}`)
+    .join('\n')}
 
 ## Quality Gates
 ${Object.entries(this.config.quality_gates)
-  .map(([key, value]) => `- **${key.replace(/_/g, ' ')}**: ${value}`)
-  .join('\n')}
+    .map(([key, value]) => `- **${key.replace(/_/g, ' ')}**: ${value}`)
+    .join('\n')}
 
 ## Custom Instructions
 ${this.config.custom_instructions.architectural_constraints
-  .map((constraint) => `- ${constraint}`)
-  .join('\n')}
+    .map((constraint) => `- ${constraint}`)
+    .join('\n')}
 
 ## Integration Patterns
 ${this.config.custom_instructions.integration_patterns.map((pattern) => `- ${pattern}`).join('\n')}
@@ -129,13 +129,13 @@ This is a sophisticated, production-grade AI platform. Maintain high standards a
 
 ## Performance Benchmarks
 ${this.config.performance_benchmarks
-  .map((benchmark) => `- **${benchmark.name}**: ${benchmark.target} (${benchmark.measurement})`)
-  .join('\n')}
+    .map((benchmark) => `- **${benchmark.name}**: ${benchmark.target} (${benchmark.measurement})`)
+    .join('\n')}
 
 ## Validation Rules
 ${this.config.validation_rules
-  .map((rule) => `- **${rule.name}**: ${rule.description}`)
-  .join('\n')}`;
+    .map((rule) => `- **${rule.name}**: ${rule.description}`)
+    .join('\n')}`;
 
     await fs.writeFile('.github/copilot-context.md', context);
     console.log('✅ Generated Copilot context file');
@@ -465,8 +465,8 @@ ${this.config.architecture.domains.map((domain) => `        - "${domain}"`).join
       description: Specific performance constraints
       placeholder: |
         ${Object.entries(this.config.development.performance_requirements)
-          .map(([key, value]) => `- ${key.replace(/_/g, ' ')}: ${value}`)
-          .join('\n')}
+    .map(([key, value]) => `- ${key.replace(/_/g, ' ')}: ${value}`)
+    .join('\n')}
         
   - type: textarea
     id: acceptance-criteria

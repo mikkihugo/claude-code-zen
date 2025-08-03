@@ -88,7 +88,7 @@ async function comprehensiveOrchestrationTest() {
       });
       capabilityResults.push(result);
       console.log(
-        `✅ Assigned "${task.description}" to agent with ${task.capabilities} capability`
+        `✅ Assigned "${task.description}" to agent with ${task.capabilities} capability`,
       );
     }
 
@@ -101,7 +101,7 @@ async function comprehensiveOrchestrationTest() {
       strategy: 'parallel',
     });
     console.log(
-      `✅ Multi-agent task assigned to ${multiAgentTask.assigned_agents.length} agents (max: 3)`
+      `✅ Multi-agent task assigned to ${multiAgentTask.assigned_agents.length} agents (max: 3)`,
     );
 
     // Test 6: Test task queue when all agents are busy
@@ -163,7 +163,7 @@ async function comprehensiveOrchestrationTest() {
     console.log(
       `🔧 Runtime features: ${Object.keys(swarmStatus.runtime_info.features)
         .filter((f) => swarmStatus.runtime_info.features[f])
-        .join(', ')}`
+        .join(', ')}`,
     );
 
     // Test 9: Test memory usage tracking
@@ -171,7 +171,7 @@ async function comprehensiveOrchestrationTest() {
     const memoryUsage = await mcpTools.memory_usage({ detail: 'summary' });
     console.log(`💾 Total memory: ${memoryUsage.total_mb.toFixed(2)} MB`);
     console.log(
-      `   WASM: ${memoryUsage.wasm_mb.toFixed(2)} MB, JS: ${memoryUsage.javascript_mb.toFixed(2)} MB`
+      `   WASM: ${memoryUsage.wasm_mb.toFixed(2)} MB, JS: ${memoryUsage.javascript_mb.toFixed(2)} MB`,
     );
 
     // Test 10: Test error handling

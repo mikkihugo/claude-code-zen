@@ -56,7 +56,7 @@ function addTestResult(name, status, message, error = null, duration = null) {
     results.summary.failed++;
   }
   console.log(
-    `${status === 'passed' ? '✅' : '❌'} ${name}: ${message}${duration ? ` (${duration}ms)` : ''}`
+    `${status === 'passed' ? '✅' : '❌'} ${name}: ${message}${duration ? ` (${duration}ms)` : ''}`,
   );
 }
 
@@ -100,7 +100,7 @@ async function testServerStartup() {
           'passed',
           'Server started successfully',
           null,
-          duration
+          duration,
         );
         resolve({ serverReady: true, logs: initializationLogs });
       }
@@ -113,7 +113,7 @@ async function testServerStartup() {
         'failed',
         'Failed to start server process',
         error.message,
-        duration
+        duration,
       );
       reject({ error, logs: initializationLogs });
     });
@@ -126,7 +126,7 @@ async function testServerStartup() {
           'failed',
           `Server exited unexpectedly (code: ${code}, signal: ${signal})`,
           null,
-          duration
+          duration,
         );
         reject({ error: `Process exited with code ${code}`, logs: initializationLogs });
       }
@@ -145,7 +145,7 @@ async function testServerStartup() {
           'failed',
           'Server startup timeout (30s)',
           null,
-          duration
+          duration,
         );
         reject({ error: 'Server startup timeout', logs: initializationLogs });
       }
@@ -185,7 +185,7 @@ async function testStdioCommunication() {
             'passed',
             'JSON-RPC communication working',
             null,
-            duration
+            duration,
           );
         } else {
           addTestResult('Stdio Communication', 'failed', 'Invalid JSON-RPC response format');
@@ -254,7 +254,7 @@ async function testServerStability() {
                 'passed',
                 `All ${expectedResponses} requests handled successfully`,
                 null,
-                duration
+                duration,
               );
               mcpProcess.stdout.removeListener('data', responseHandler);
               resolve();
@@ -266,7 +266,7 @@ async function testServerStability() {
           'Server Stability',
           'failed',
           'Invalid JSON in stability test',
-          error.message
+          error.message,
         );
         mcpProcess.stdout.removeListener('data', responseHandler);
         resolve();
@@ -295,7 +295,7 @@ async function testServerStability() {
           'failed',
           `Only ${responsesReceived}/${expectedResponses} responses received`,
           null,
-          duration
+          duration,
         );
         mcpProcess.stdout.removeListener('data', responseHandler);
         resolve();
@@ -329,7 +329,7 @@ async function testGracefulShutdown() {
           'failed',
           `Unexpected exit code: ${code}, signal: ${signal}`,
           null,
-          duration
+          duration,
         );
       }
       resolve();

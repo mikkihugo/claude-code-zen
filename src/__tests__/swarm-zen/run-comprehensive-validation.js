@@ -117,7 +117,7 @@ async function main() {
     console.log('===========================');
     console.log(`Overall Status: ${finalReport.status}`);
     console.log(
-      `Validation Score: ${validationScore.toFixed(1)}% (${finalReport.validation.status})`
+      `Validation Score: ${validationScore.toFixed(1)}% (${finalReport.validation.status})`,
     );
     console.log(`Targets Met: ${targetsMet}/${totalTargets}`);
     console.log(`Total Duration: ${Math.round(totalDuration / 1000)}s`);
@@ -126,13 +126,13 @@ async function main() {
     console.log('\n📊 Performance Target Validation:');
     Object.entries(finalReport.validation.performanceTargets).forEach(([key, target]) => {
       console.log(
-        `   ${target.met ? '✅' : '❌'} ${key}: ${target.actual} (Target: ${target.target})`
+        `   ${target.met ? '✅' : '❌'} ${key}: ${target.actual} (Target: ${target.target})`,
       );
     });
 
     console.log('\n🔒 Security & Quality:');
     console.log(
-      `   ${finalReport.validation.performanceTargets.security.met ? '✅' : '❌'} Security Score: ${finalReport.validation.performanceTargets.security.actual}/100`
+      `   ${finalReport.validation.performanceTargets.security.met ? '✅' : '❌'} Security Score: ${finalReport.validation.performanceTargets.security.actual}/100`,
     );
 
     console.log('\n🔗 Integration Validation:');
@@ -240,11 +240,11 @@ async function generateSummaryReport(finalReport) {
 
 ## Test Suite Results
 ${finalReport.testSuites
-  .map(
-    (suite) =>
-      `- ${suite.passed ? '✅' : '❌'} **${suite.name}**: ${suite.passed ? 'PASSED' : 'FAILED'} (${Math.round(suite.duration / 1000)}s)`
-  )
-  .join('\n')}
+    .map(
+      (suite) =>
+        `- ${suite.passed ? '✅' : '❌'} **${suite.name}**: ${suite.passed ? 'PASSED' : 'FAILED'} (${Math.round(suite.duration / 1000)}s)`,
+    )
+    .join('\n')}
 
 ## Key Metrics Summary
 - **Max Concurrent Agents**: ${finalReport.metrics.reliability?.maxConcurrentAgents || 'N/A'}
@@ -283,9 +283,9 @@ ${
 - Document performance baselines`
     : `### 🔧 Additional Work Required
 - Address failing test suites: ${finalReport.testSuites
-        .filter((s) => !s.passed)
-        .map((s) => s.name)
-        .join(', ')}
+    .filter((s) => !s.passed)
+    .map((s) => s.name)
+    .join(', ')}
 - Fix performance regressions
 - Meet security requirements
 - Complete integration testing

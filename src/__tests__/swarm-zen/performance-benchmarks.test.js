@@ -388,7 +388,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
             topology: 'mesh',
             connections: [],
             metrics: { totalTasks: 0, completedTasks: 0, failedTasks: 0 },
-          }
+          },
         );
 
         sessionIds.push(sessionId);
@@ -410,7 +410,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       expect(singleStats.throughput).toBeGreaterThan(10); // > 10 sessions/sec
 
       console.log(
-        `Session creation: ${singleStats.duration.mean.toFixed(2)}ms avg, ${singleStats.throughput.toFixed(2)} ops/sec`
+        `Session creation: ${singleStats.duration.mean.toFixed(2)}ms avg, ${singleStats.throughput.toFixed(2)} ops/sec`,
       );
     });
 
@@ -448,7 +448,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       expect(updateStats.throughput).toBeGreaterThan(20); // > 20 updates/sec
 
       console.log(
-        `State updates: ${updateStats.duration.mean.toFixed(2)}ms avg, ${updateStats.throughput.toFixed(2)} ops/sec`
+        `State updates: ${updateStats.duration.mean.toFixed(2)}ms avg, ${updateStats.throughput.toFixed(2)} ops/sec`,
       );
     });
 
@@ -468,7 +468,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
                 status: 'active',
                 metadata: { performance: 'benchmark', index: i },
               },
-            ])
+            ]),
           ),
           tasks: new Map(
             Array.from({ length: 100 }, (_, i) => [
@@ -479,7 +479,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
                 status: 'running',
                 data: Array.from({ length: 100 }, () => Math.random()),
               },
-            ])
+            ]),
           ),
           topology: 'hierarchical',
           connections: Array.from({ length: 49 }, (_, i) => `agent-${i}:agent-${i + 1}`),
@@ -489,11 +489,11 @@ describe('Performance Benchmarks - Session Persistence', () => {
             failedTasks: 5,
             averageCompletionTime: 1500,
             agentUtilization: new Map(
-              Array.from({ length: 50 }, (_, i) => [`agent-${i}`, Math.random()])
+              Array.from({ length: 50 }, (_, i) => [`agent-${i}`, Math.random()]),
             ),
             throughput: 85.5,
           },
-        }
+        },
       );
 
       const checkpointCount = 100;
@@ -506,7 +506,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
         const checkpointId = await sessionManager.createCheckpoint(
           sessionId,
           `Benchmark checkpoint ${i}`,
-          { benchmarkIndex: i, timestamp: Date.now() }
+          { benchmarkIndex: i, timestamp: Date.now() },
         );
 
         checkpointIds.push(checkpointId);
@@ -520,7 +520,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       expect(checkpointIds).toHaveLength(checkpointCount);
 
       console.log(
-        `Checkpoints: ${checkpointStats.duration.mean.toFixed(2)}ms avg, ${checkpointStats.throughput.toFixed(2)} ops/sec`
+        `Checkpoints: ${checkpointStats.duration.mean.toFixed(2)}ms avg, ${checkpointStats.throughput.toFixed(2)} ops/sec`,
       );
     });
 
@@ -545,7 +545,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
                 })),
               },
             },
-          ])
+          ]),
         ),
         tasks: new Map(
           Array.from({ length: 1000 }, (_, i) => [
@@ -561,7 +561,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
                 tags: Array.from({ length: 5 }, (_, j) => `tag-${j}`),
               },
             },
-          ])
+          ]),
         ),
         topology: 'mesh',
         connections: Array.from({ length: 999 }, (_, i) => `agent-${i}:agent-${i + 1}`),
@@ -571,7 +571,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
           failedTasks: Math.floor(Math.random() * 50),
           averageCompletionTime: 2500,
           agentUtilization: new Map(
-            Array.from({ length: 500 }, (_, i) => [`agent-${i}`, Math.random()])
+            Array.from({ length: 500 }, (_, i) => [`agent-${i}`, Math.random()]),
           ),
           throughput: 125.7,
           detailedMetrics: Array.from({ length: 100 }, (_, i) => ({
@@ -584,7 +584,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       const sessionId = await sessionManager.createSession(
         'large-state-benchmark',
         { topology: 'mesh', maxAgents: 500 },
-        largeState
+        largeState,
       );
 
       // Benchmark loading
@@ -607,7 +607,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       expect(loadStats.duration.mean).toBeLessThan(500); // Average < 500ms for large state
 
       console.log(
-        `Large state loading: ${loadStats.duration.mean.toFixed(2)}ms avg, ${loadStats.throughput.toFixed(2)} ops/sec`
+        `Large state loading: ${loadStats.duration.mean.toFixed(2)}ms avg, ${loadStats.throughput.toFixed(2)} ops/sec`,
       );
     });
 
@@ -620,7 +620,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       const concurrentTest = async (workerId, iteration) => {
         const sessionId = await sessionManager.createSession(
           `concurrent-${workerId}-${iteration}`,
-          { topology: 'ring', maxAgents: 8 }
+          { topology: 'ring', maxAgents: 8 },
         );
 
         // Perform mixed operations
@@ -630,7 +630,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
 
         const checkpointId = await sessionManager.createCheckpoint(
           sessionId,
-          `Concurrent checkpoint ${workerId}-${iteration}`
+          `Concurrent checkpoint ${workerId}-${iteration}`,
         );
 
         const loadedSession = await sessionManager.loadSession(sessionId);
@@ -645,7 +645,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       const results = await loadTester.runConcurrentLoad(
         concurrentTest,
         concurrency,
-        operationsPerWorker
+        operationsPerWorker,
       );
       benchmark.endMeasurement('concurrent-operations');
 
@@ -655,7 +655,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       expect(analysis.successful).toBe(concurrency * operationsPerWorker);
 
       console.log(
-        `Concurrent ops: ${analysis.successRate.toFixed(2)}% success, ${analysis.duration.mean.toFixed(2)}ms avg`
+        `Concurrent ops: ${analysis.successRate.toFixed(2)}% success, ${analysis.duration.mean.toFixed(2)}ms avg`,
       );
     });
   });
@@ -684,7 +684,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
           {
             priority: i % 4 === 0 ? 'high' : 'normal',
             category: `category-${i % 5}`,
-          }
+          },
         );
       }
 
@@ -697,7 +697,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
 
       const parallelStats = benchmark.calculateStatistics('health-checks-parallel');
       console.log(
-        `Health checks (parallel): ${parallelStats.duration.mean.toFixed(2)}ms for ${checkCount} checks`
+        `Health checks (parallel): ${parallelStats.duration.mean.toFixed(2)}ms for ${checkCount} checks`,
       );
 
       // Compare with sequential execution
@@ -710,7 +710,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
 
       const sequentialStats = benchmark.calculateStatistics('health-checks-sequential');
       console.log(
-        `Sequential execution would be much slower: ${sequentialStats.duration.mean}ms for 20 checks`
+        `Sequential execution would be much slower: ${sequentialStats.duration.mean}ms for 20 checks`,
       );
     });
 
@@ -727,7 +727,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
           {
             interval: 100, // Very frequent
             priority: 'low',
-          }
+          },
         );
       }
 
@@ -787,7 +787,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
 
       const alertStats = benchmark.calculateStatistics('alert-processing');
       console.log(
-        `Alert processing: ${alertsTriggered} alerts generated in ${alertStats.duration.mean.toFixed(2)}ms`
+        `Alert processing: ${alertsTriggered} alerts generated in ${alertStats.duration.mean.toFixed(2)}ms`,
       );
     });
   });
@@ -845,7 +845,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
 
       const workflowStats = benchmark.calculateStatistics('single-workflow-execution');
       console.log(
-        `Workflow execution: ${workflowStats.duration.mean.toFixed(2)}ms avg, ${workflowStats.throughput.toFixed(2)} workflows/sec`
+        `Workflow execution: ${workflowStats.duration.mean.toFixed(2)}ms avg, ${workflowStats.throughput.toFixed(2)} workflows/sec`,
       );
     });
 
@@ -876,8 +876,8 @@ describe('Performance Benchmarks - Session Persistence', () => {
         // Execute all workflows
         const executions = await Promise.all(
           Array.from({ length: workflowCount }, (_, i) =>
-            recoveryWorkflows.triggerRecovery(`scale-${scale}-trigger-${i}`)
-          )
+            recoveryWorkflows.triggerRecovery(`scale-${scale}-trigger-${i}`),
+          ),
         );
 
         return {
@@ -892,12 +892,12 @@ describe('Performance Benchmarks - Session Persistence', () => {
       const scalabilityResults = await scalabilityTester.testScalability(
         scalabilityTest,
         scales,
-        25 // base workflow count
+        25, // base workflow count
       );
 
       expect(scalabilityResults.overallEfficiency).toBeGreaterThan(0.5); // Reasonable scaling
       console.log(
-        `Workflow scalability: ${scalabilityResults.overallEfficiency.toFixed(2)} efficiency`
+        `Workflow scalability: ${scalabilityResults.overallEfficiency.toFixed(2)} efficiency`,
       );
       console.log(`Recommendations: ${scalabilityResults.recommendations.join(', ')}`);
     });
@@ -952,7 +952,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
             }
 
             return sessionId;
-          })()
+          })(),
         );
       }
 
@@ -973,7 +973,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
 
       const recoveryStats = benchmark.calculateStatistics('recovery-under-load');
       console.log(
-        `Recovery under load: ${recoveryStats.duration.mean.toFixed(2)}ms, ${successfulLoads}/50 loads succeeded`
+        `Recovery under load: ${recoveryStats.duration.mean.toFixed(2)}ms, ${successfulLoads}/50 loads succeeded`,
       );
     });
   });
@@ -999,13 +999,13 @@ describe('Performance Benchmarks - Session Persistence', () => {
                   id: `agent-${j}`,
                   data: Array.from({ length: 1000 }, () => Math.random()),
                 },
-              ])
+              ]),
             ),
             tasks: new Map(),
             topology: 'ring',
             connections: [],
             metrics: {},
-          }
+          },
         );
 
         await sessionManager.createCheckpoint(sessionId, `Memory test checkpoint ${i}`);
@@ -1027,7 +1027,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       expect(memoryGrowth).toBeLessThan(1024 * 1024);
 
       console.log(
-        `Memory growth: ${memoryGrowth} bytes total, ${memoryGrowthPerOperation.toFixed(2)} bytes per operation`
+        `Memory growth: ${memoryGrowth} bytes total, ${memoryGrowthPerOperation.toFixed(2)} bytes per operation`,
       );
 
       // Analyze memory snapshots for leak patterns
@@ -1086,7 +1086,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
                 Array.from({ length: 100 }, (_, i) => [
                   `agent-${i}`,
                   { id: `agent-${i}`, data: Array.from({ length: 500 }, () => Math.random()) },
-                ])
+                ]),
               ),
               tasks: new Map(),
               topology: 'hierarchical',
@@ -1171,7 +1171,7 @@ describe('Performance Benchmarks - Session Persistence', () => {
       console.log('=================================');
       console.log(`System: ${report.systemInfo.platform} with ${report.systemInfo.cpus} CPUs`);
       console.log(
-        `Memory: ${(report.systemInfo.totalMemory / 1024 / 1024 / 1024).toFixed(2)}GB total`
+        `Memory: ${(report.systemInfo.totalMemory / 1024 / 1024 / 1024).toFixed(2)}GB total`,
       );
       console.log(`Node.js: ${report.systemInfo.nodeVersion}`);
       console.log('\nMeasurements:');

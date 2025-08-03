@@ -95,7 +95,7 @@ export class ConnectionStateManager extends EventEmitter {
         {
           error: error.message,
           component: 'connection-state-manager',
-        }
+        },
       );
       this.logger.error('Connection State Manager initialization failed', managerError);
       throw managerError;
@@ -571,7 +571,7 @@ export class ConnectionStateManager extends EventEmitter {
     // Calculate delay with exponential backoff
     const delay = Math.min(
       this.options.reconnectDelay * 2 ** connection.reconnectAttempts,
-      this.options.maxReconnectDelay
+      this.options.maxReconnectDelay,
     );
 
     this.logger.info(`Scheduling reconnection for ${connectionId}`, {
@@ -652,7 +652,7 @@ export class ConnectionStateManager extends EventEmitter {
         active: this.activeConnections,
         failed: Array.from(this.connections.values()).filter((c) => c.status === 'failed').length,
         reconnecting: Array.from(this.connections.values()).filter(
-          (c) => c.status === 'reconnecting'
+          (c) => c.status === 'reconnecting',
         ).length,
       },
     };
@@ -666,7 +666,7 @@ export class ConnectionStateManager extends EventEmitter {
       ...this.stats,
       connectionCount: this.connections.size,
       healthyConnections: Array.from(this.connections.values()).filter(
-        (c) => c.health.status === 'healthy'
+        (c) => c.health.status === 'healthy',
       ).length,
       reconnectingConnections: this.reconnectTimers.size,
     };
@@ -869,7 +869,7 @@ export class ConnectionStateManager extends EventEmitter {
           connection.lastDisconnected?.toISOString(),
           connection.reconnectAttempts,
           JSON.stringify(connection.metadata),
-        ]
+        ],
       );
     } catch (error) {
       this.logger.error('Failed to persist connection state', {
@@ -903,7 +903,7 @@ export class ConnectionStateManager extends EventEmitter {
 
       const connections = await this.persistence.pool.read(
         'SELECT * FROM mcp_connections WHERE status IN (?, ?)',
-        ['connected', 'reconnecting']
+        ['connected', 'reconnecting'],
       );
 
       for (const row of connections) {
@@ -1021,8 +1021,8 @@ export class ConnectionStateManager extends EventEmitter {
     // Disconnect all connections
     const disconnectPromises = Array.from(this.connections.keys()).map((connectionId) =>
       this.disconnectConnection(connectionId, 'System shutdown').catch((error) =>
-        this.logger.warn(`Error disconnecting ${connectionId}`, { error: error.message })
-      )
+        this.logger.warn(`Error disconnecting ${connectionId}`, { error: error.message }),
+      ),
     );
 
     await Promise.allSettled(disconnectPromises);

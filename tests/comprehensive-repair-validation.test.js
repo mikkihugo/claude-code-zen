@@ -141,7 +141,7 @@ class ComprehensiveRepairValidator {
           this.recordResult(
             `TS Compilation: ${tsFile}`,
             true,
-            'TypeScript compiles without errors'
+            'TypeScript compiles without errors',
           );
         } catch (tscError) {
           // If tsc fails, at least check if it's valid JavaScript
@@ -177,7 +177,7 @@ class ComprehensiveRepairValidator {
           this.recordResult(
             `Dependency: ${dep}`,
             true,
-            'Package available (version check skipped)'
+            'Package available (version check skipped)',
           );
         }
       }
@@ -195,7 +195,7 @@ class ComprehensiveRepairValidator {
         this.recordResult(
           'better-sqlite3 loading',
           false,
-          'NODE_MODULE_VERSION mismatch - needs rebuild'
+          'NODE_MODULE_VERSION mismatch - needs rebuild',
         );
       } else {
         this.recordResult('better-sqlite3 loading', false, `Load error: ${error.message}`);
@@ -250,7 +250,7 @@ class ComprehensiveRepairValidator {
     // Basic structure validation
     const content = require('fs').readFileSync(
       '/home/mhugo/code/claude-zen-flow/src/memory/enhanced-memory.ts',
-      'utf8'
+      'utf8',
     );
 
     const requiredComponents = [
@@ -274,7 +274,7 @@ class ComprehensiveRepairValidator {
   testLanceDBInterface() {
     const content = require('fs').readFileSync(
       '/home/mhugo/code/claude-zen-flow/src/database/lancedb-interface.ts',
-      'utf8'
+      'utf8',
     );
 
     const requiredComponents = [
@@ -299,7 +299,7 @@ class ComprehensiveRepairValidator {
   testMCPMetrics() {
     const content = require('fs').readFileSync(
       '/home/mhugo/code/claude-zen-flow/src/mcp/performance-metrics.ts',
-      'utf8'
+      'utf8',
     );
 
     const requiredComponents = [
@@ -324,7 +324,7 @@ class ComprehensiveRepairValidator {
   testUnifiedDashboard() {
     const content = require('fs').readFileSync(
       '/home/mhugo/code/claude-zen-flow/src/dashboard/unified-performance-dashboard.ts',
-      'utf8'
+      'utf8',
     );
 
     const requiredComponents = [
@@ -408,7 +408,7 @@ class ComprehensiveRepairValidator {
         test: () => {
           const content = require('fs').readFileSync(
             '/home/mhugo/code/claude-zen-flow/scripts/performance-monitor.js',
-            'utf8'
+            'utf8',
           );
           return content.includes('try {') && content.includes('catch');
         },
@@ -418,7 +418,7 @@ class ComprehensiveRepairValidator {
         test: () => {
           const content = require('fs').readFileSync(
             '/home/mhugo/code/claude-zen-flow/src/memory/enhanced-memory.ts',
-            'utf8'
+            'utf8',
           );
           return content.includes('try {') && content.includes('catch');
         },
@@ -431,7 +431,7 @@ class ComprehensiveRepairValidator {
         this.recordResult(
           name,
           hasErrorHandling,
-          hasErrorHandling ? 'Proper error handling implemented' : 'No error handling found'
+          hasErrorHandling ? 'Proper error handling implemented' : 'No error handling found',
         );
       } catch (error) {
         this.recordResult(name, false, `Test failed: ${error.message}`);
@@ -475,7 +475,7 @@ class ComprehensiveRepairValidator {
     log(`Failed: ${this.results.failed}`, this.results.failed > 0 ? 'red' : 'green');
     log(
       `Success Rate: ${successRate}%`,
-      successRate >= 90 ? 'green' : successRate >= 70 ? 'yellow' : 'red'
+      successRate >= 90 ? 'green' : successRate >= 70 ? 'yellow' : 'red',
     );
 
     if (this.results.failed === 0) {
@@ -495,7 +495,7 @@ class ComprehensiveRepairValidator {
 
     require('fs').writeFileSync(
       '/home/mhugo/code/claude-zen-flow/test-results.json',
-      JSON.stringify(report, null, 2)
+      JSON.stringify(report, null, 2),
     );
 
     log(`\n📄 Detailed results saved to: test-results.json`, 'cyan');

@@ -222,7 +222,7 @@ describe('DAA Service', () => {
             task: async (agent) => ({ agent: agent.id, result: 'step2-complete' }),
           },
         ],
-        { step2: ['step1'] }
+        { step2: ['step1'] },
       );
 
       expect(workflow.id).toBe('simple-workflow');
@@ -252,12 +252,12 @@ describe('DAA Service', () => {
         {
           B: ['A'],
           C: ['A', 'B'],
-        }
+        },
       );
 
       // Try to execute C before dependencies
       await expect(
-        service.executeWorkflowStep('dependent-workflow', 'C', ['worker-1'])
+        service.executeWorkflowStep('dependent-workflow', 'C', ['worker-1']),
       ).rejects.toThrow('Dependency A not completed');
 
       // Execute in correct order
@@ -280,7 +280,7 @@ describe('DAA Service', () => {
         ],
         {
           final: ['parallel-1', 'parallel-2', 'parallel-3'],
-        }
+        },
       );
 
       // Execute parallel steps concurrently
@@ -352,7 +352,7 @@ describe('DAA Service', () => {
         expect.objectContaining({
           agentIds: ['sync-agent-1', 'sync-agent-2'],
           duration: expect.any(Number),
-        })
+        }),
       );
     });
   });
@@ -461,13 +461,13 @@ describe('DAA Service', () => {
 
     test('should handle agent not found errors', async () => {
       await expect(service.makeDecision('non-existent', {})).rejects.toThrow(
-        'Agent non-existent not found'
+        'Agent non-existent not found',
       );
     });
 
     test('should handle workflow not found errors', async () => {
       await expect(
-        service.executeWorkflowStep('non-existent-workflow', 'step1', ['agent1'])
+        service.executeWorkflowStep('non-existent-workflow', 'step1', ['agent1']),
       ).rejects.toThrow('Workflow non-existent-workflow not found');
     });
 
@@ -514,7 +514,7 @@ describe('DAA Service Performance Benchmarks', () => {
 
     expect(results.every((r) => r.success)).toBe(true);
     console.log(
-      `Created 100 agents in ${duration.toFixed(0)}ms (${(duration / 100).toFixed(2)}ms per agent)`
+      `Created 100 agents in ${duration.toFixed(0)}ms (${(duration / 100).toFixed(2)}ms per agent)`,
     );
 
     // Cleanup bench agents
@@ -574,7 +574,7 @@ describe('DAA Service Performance Benchmarks', () => {
     console.log(`Average latency: ${avgLatency.toFixed(3)}ms`);
     console.log(`Max latency: ${maxLatency.toFixed(3)}ms`);
     console.log(
-      `95th percentile: ${latencies.sort((a, b) => a - b)[Math.floor(latencies.length * 0.95)].toFixed(3)}ms`
+      `95th percentile: ${latencies.sort((a, b) => a - b)[Math.floor(latencies.length * 0.95)].toFixed(3)}ms`,
     );
 
     // Cleanup

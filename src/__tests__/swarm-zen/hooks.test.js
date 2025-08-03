@@ -101,7 +101,7 @@ describe('RuvSwarmHooks', () => {
       expect(result.assignedAgent).toBeDefined();
       expect(mockExecSync).toHaveBeenCalledWith(
         expect.stringContaining('ruv-swarm agent spawn'),
-        expect.any(Object)
+        expect.any(Object),
       );
     });
 
@@ -146,7 +146,7 @@ describe('RuvSwarmHooks', () => {
       expect(result.formatted).toBe(true);
       expect(mockExecSync).toHaveBeenCalledWith(
         expect.stringContaining('prettier'),
-        expect.any(Object)
+        expect.any(Object),
       );
     });
 
@@ -173,7 +173,7 @@ describe('RuvSwarmHooks', () => {
       expect(result.memoryStored).toBe(true);
       expect(mockExecSync).toHaveBeenCalledWith(
         expect.stringContaining('memory store'),
-        expect.any(Object)
+        expect.any(Object),
       );
     });
   });
@@ -299,7 +299,7 @@ describe('RuvSwarmHooks', () => {
       expect(result.metricsExported).toBe(true);
       expect(mockFs.writeFile).toHaveBeenCalledWith(
         expect.stringContaining('metrics.json'),
-        expect.any(String)
+        expect.any(String),
       );
     });
 
@@ -327,7 +327,7 @@ describe('RuvSwarmHooks', () => {
       expect(result.statePersisted).toBe(true);
       expect(mockExecSync).toHaveBeenCalledWith(
         expect.stringContaining('memory store'),
-        expect.any(Object)
+        expect.any(Object),
       );
     });
   });

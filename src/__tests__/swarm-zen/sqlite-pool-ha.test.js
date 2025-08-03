@@ -124,7 +124,7 @@ async function testConcurrentReads() {
 
     for (let i = 0; i < CONCURRENT_CONNECTIONS; i++) {
       concurrentReads.push(
-        pool.read('SELECT * FROM test_data WHERE id = ?', [Math.floor(Math.random() * 1000) + 1])
+        pool.read('SELECT * FROM test_data WHERE id = ?', [Math.floor(Math.random() * 1000) + 1]),
       );
     }
 
@@ -190,7 +190,7 @@ async function testWriteQueueUnderLoad() {
             thread,
             op,
             `data-${thread}-${op}`,
-          ])
+          ]),
         );
       }
     }
@@ -274,8 +274,8 @@ async function testWorkerThreadPerformance() {
           WHERE category = ? 
           GROUP BY category
         `,
-          [`category-${i % 10}`]
-        )
+          [`category-${i % 10}`],
+        ),
       );
     }
 
@@ -337,7 +337,7 @@ async function testHAPersistenceLayer() {
           name: `Agent ${i}`,
           type: 'researcher',
           capabilities: ['research', 'analysis'],
-        })
+        }),
       );
     }
 
@@ -351,7 +351,7 @@ async function testHAPersistenceLayer() {
         persistence.storeMemory(`agent-${i}`, 'test-key', {
           value: `test-value-${i}`,
           timestamp: Date.now(),
-        })
+        }),
       );
     }
 
@@ -446,7 +446,7 @@ async function testStressTestSustainedLoad() {
               pool
                 .read('SELECT COUNT(*) as count FROM stress_test')
                 .then(() => operationCount++)
-                .catch(() => errorCount++)
+                .catch(() => errorCount++),
             );
           } else {
             // Write operation (30% of operations)
@@ -454,7 +454,7 @@ async function testStressTestSustainedLoad() {
               pool
                 .write('INSERT INTO stress_test (data) VALUES (?)', [`data-${operationCount}`])
                 .then(() => operationCount++)
-                .catch(() => errorCount++)
+                .catch(() => errorCount++),
             );
           }
         }
@@ -533,7 +533,7 @@ async function testConnectionRecovery() {
     const stressPromises = [];
     for (let i = 0; i < 100; i++) {
       stressPromises.push(
-        pool.write('INSERT INTO recovery_test (value) VALUES (?)', [`stress-${i}`])
+        pool.write('INSERT INTO recovery_test (value) VALUES (?)', [`stress-${i}`]),
       );
     }
 

@@ -108,7 +108,7 @@ class SecurityHardeningSystem {
 
       await fs.promises.writeFile(
         `${this.securityDir}/configs/npm-audit-config.json`,
-        JSON.stringify(npmAuditConfig, null, 2)
+        JSON.stringify(npmAuditConfig, null, 2),
       );
 
       // 2. Create dependency monitoring script
@@ -141,7 +141,7 @@ echo "📊 Dependency audit complete"
 
       await fs.promises.writeFile(
         `${this.securityDir}/scripts/dependency-monitor.sh`,
-        depMonitorScript
+        depMonitorScript,
       );
 
       // Make script executable
@@ -198,7 +198,7 @@ new DependencyAnalyzer().analyze();
 
       await fs.promises.writeFile(
         `${this.securityDir}/scripts/dependency-analysis.js`,
-        depAnalysisScript
+        depAnalysisScript,
       );
 
       this.hardeningResults.implemented.push('Dependency Security Monitoring');
@@ -356,7 +356,7 @@ export class SecurityMiddleware {
 
       await fs.promises.writeFile(
         `${this.securityDir}/input-validation.js`,
-        inputValidationFramework
+        inputValidationFramework,
       );
 
       this.hardeningResults.implemented.push('Input Validation Framework');

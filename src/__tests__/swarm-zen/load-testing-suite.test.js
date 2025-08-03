@@ -81,15 +81,15 @@ class LoadTestingSuite extends EventEmitter {
   logSystemInfo() {
     console.log('📊 System Information:');
     console.log(
-      `   Platform: ${this.testResults.systemInfo.platform} ${this.testResults.systemInfo.arch}`
+      `   Platform: ${this.testResults.systemInfo.platform} ${this.testResults.systemInfo.arch}`,
     );
     console.log(`   Node.js: ${this.testResults.systemInfo.nodeVersion}`);
     console.log(`   CPUs: ${this.testResults.systemInfo.cpus}`);
     console.log(
-      `   Memory: ${(this.testResults.systemInfo.totalMemory / 1024 / 1024 / 1024).toFixed(1)}GB total`
+      `   Memory: ${(this.testResults.systemInfo.totalMemory / 1024 / 1024 / 1024).toFixed(1)}GB total`,
     );
     console.log(
-      `   Free: ${(this.testResults.systemInfo.freeMemory / 1024 / 1024 / 1024).toFixed(1)}GB\n`
+      `   Free: ${(this.testResults.systemInfo.freeMemory / 1024 / 1024 / 1024).toFixed(1)}GB\n`,
     );
   }
 
@@ -108,7 +108,7 @@ class LoadTestingSuite extends EventEmitter {
       // Update peak values
       this.testResults.performance.memoryPeak = Math.max(
         this.testResults.performance.memoryPeak,
-        memUsage.heapUsed
+        memUsage.heapUsed,
       );
     }, 1000);
   }
@@ -219,11 +219,11 @@ class LoadTestingSuite extends EventEmitter {
       scenario.passed = scenario.agents.length >= 50 && scenario.metrics.errors.length < 5;
       this.testResults.performance.maxConcurrentAgents = Math.max(
         this.testResults.performance.maxConcurrentAgents,
-        scenario.agents.length
+        scenario.agents.length,
       );
 
       console.log(
-        `   ✅ Completed: ${scenario.agents.length} agents, ${scenario.metrics.errors.length} errors`
+        `   ✅ Completed: ${scenario.agents.length} agents, ${scenario.metrics.errors.length} errors`,
       );
     } catch (error) {
       scenario.error = error.message;
@@ -281,7 +281,7 @@ class LoadTestingSuite extends EventEmitter {
               error: error.message,
             });
             return null;
-          })
+          }),
       );
 
       const spawnedAgents = await Promise.all(spawnPromises);
@@ -289,7 +289,7 @@ class LoadTestingSuite extends EventEmitter {
       scenario.metrics.spawnTime = Date.now() - spawnStartTime;
 
       console.log(
-        `     Spawned ${scenario.agents.length}/50 agents in ${scenario.metrics.spawnTime}ms`
+        `     Spawned ${scenario.agents.length}/50 agents in ${scenario.metrics.spawnTime}ms`,
       );
 
       // Execute tasks simultaneously
@@ -333,7 +333,7 @@ class LoadTestingSuite extends EventEmitter {
       console.log(`   First response: ${scenario.metrics.firstResponseTime}ms`);
       console.log(`   All responses: ${scenario.metrics.allResponsesTime}ms`);
       console.log(
-        `   Average response: ${validResponses.length > 0 ? Math.round(validResponses.reduce((a, b) => a + b, 0) / validResponses.length) : 'N/A'}ms`
+        `   Average response: ${validResponses.length > 0 ? Math.round(validResponses.reduce((a, b) => a + b, 0) / validResponses.length) : 'N/A'}ms`,
       );
       console.log(`   Errors: ${scenario.metrics.errors.length}`);
     } catch (error) {
@@ -380,7 +380,7 @@ class LoadTestingSuite extends EventEmitter {
         swarm.spawn({
           type: ['coder', 'researcher', 'analyst'][i % 3],
           name: `sustained-agent-${i}`,
-        })
+        }),
       );
 
       scenario.agents = await Promise.all(spawnPromises);
@@ -429,10 +429,10 @@ class LoadTestingSuite extends EventEmitter {
           const elapsed = Date.now() - scenario.startTime;
           const remaining = endTime - Date.now();
           console.log(
-            `     Progress: ${Math.round(elapsed / 1000)}s elapsed, ${Math.round(remaining / 1000)}s remaining`
+            `     Progress: ${Math.round(elapsed / 1000)}s elapsed, ${Math.round(remaining / 1000)}s remaining`,
           );
           console.log(
-            `     Tasks completed: ${scenario.metrics.tasksCompleted}, Errors: ${scenario.metrics.errors.length}`
+            `     Tasks completed: ${scenario.metrics.tasksCompleted}, Errors: ${scenario.metrics.errors.length}`,
           );
         }
       }
@@ -453,7 +453,7 @@ class LoadTestingSuite extends EventEmitter {
       console.log(`   Average task time: ${scenario.metrics.avgTaskTime}ms`);
       console.log(`   Memory growth: ${Math.round(scenario.metrics.memoryGrowth / 1024 / 1024)}MB`);
       console.log(
-        `   Error rate: ${((scenario.metrics.errors.length / scenario.metrics.tasksCompleted) * 100).toFixed(2)}%`
+        `   Error rate: ${((scenario.metrics.errors.length / scenario.metrics.tasksCompleted) * 100).toFixed(2)}%`,
       );
     } catch (error) {
       scenario.error = error.message;
@@ -511,7 +511,7 @@ class LoadTestingSuite extends EventEmitter {
       console.log('   Spawning mixed agent types...');
       for (const { type, count } of agentTypes) {
         const typePromises = Array.from({ length: count }, (_, i) =>
-          swarm.spawn({ type, name: `${type}-${i}` })
+          swarm.spawn({ type, name: `${type}-${i}` }),
         );
 
         const typeAgents = await Promise.all(typePromises);
@@ -553,7 +553,7 @@ class LoadTestingSuite extends EventEmitter {
                 });
               }
             }
-          })
+          }),
         );
       });
 
@@ -649,7 +649,7 @@ class LoadTestingSuite extends EventEmitter {
                     error: error.message,
                   });
                   return null;
-                })
+                }),
             );
           }
 
@@ -778,18 +778,18 @@ class LoadTestingSuite extends EventEmitter {
     this.testResults.performance.avgResponseTime =
       this.metrics.responseTimes.length > 0
         ? Math.round(
-            this.metrics.responseTimes.reduce((a, b) => a + b, 0) /
-              this.metrics.responseTimes.length
-          )
+          this.metrics.responseTimes.reduce((a, b) => a + b, 0) /
+              this.metrics.responseTimes.length,
+        )
         : 0;
 
     this.testResults.performance.errorRate =
       this.metrics.errors.length > 0
         ? (
-            (this.metrics.errors.length /
+          (this.metrics.errors.length /
               (this.metrics.responseTimes.length + this.metrics.errors.length)) *
             100
-          ).toFixed(2)
+        ).toFixed(2)
         : 0;
 
     this.testResults.performance.memoryPeak = this.testResults.performance.memoryPeak / 1024 / 1024; // Convert to MB
@@ -815,7 +815,7 @@ class LoadTestingSuite extends EventEmitter {
     console.log('\n🎯 LOAD TEST SUMMARY');
     console.log('====================');
     console.log(
-      `Scenarios Passed: ${passedScenarios}/${totalScenarios} (${report.summary.successRate})`
+      `Scenarios Passed: ${passedScenarios}/${totalScenarios} (${report.summary.successRate})`,
     );
     console.log(`Max Concurrent Agents: ${this.testResults.performance.maxConcurrentAgents}`);
     console.log(`Average Response Time: ${this.testResults.performance.avgResponseTime}ms`);

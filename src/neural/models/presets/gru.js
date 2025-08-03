@@ -410,7 +410,7 @@ class GRUModel extends NeuralModel {
             this.config.outputSize > 1
               ? `, Val Acc: ${(valMetrics.accuracy * 100).toFixed(2)}%`
               : ''
-          }`
+          }`,
       );
 
       this.updateMetrics(avgTrainLoss, avgTrainAccuracy);

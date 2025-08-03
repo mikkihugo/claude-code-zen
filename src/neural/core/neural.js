@@ -56,18 +56,18 @@ class NeuralCLI {
 
       // Display training sessions and saved models
       console.log(
-        `Training Sessions: ${persistenceInfo.totalSessions} sessions | 📁 ${persistenceInfo.savedModels} saved models\n`
+        `Training Sessions: ${persistenceInfo.totalSessions} sessions | 📁 ${persistenceInfo.savedModels} saved models\n`,
       );
 
       console.log('📊 System Status:');
       console.log(
-        `   WASM Core: ${rs.wasmLoader.modules.has('core') ? '✅ Loaded' : '❌ Not loaded'}`
+        `   WASM Core: ${rs.wasmLoader.modules.has('core') ? '✅ Loaded' : '❌ Not loaded'}`,
       );
       console.log(
-        `   Neural Module: ${rs.features.neural_networks ? '✅ Enabled' : '❌ Disabled'}`
+        `   Neural Module: ${rs.features.neural_networks ? '✅ Enabled' : '❌ Disabled'}`,
       );
       console.log(
-        `   SIMD Support: ${rs.features.simd_support ? '✅ Available' : '❌ Not available'}`
+        `   SIMD Support: ${rs.features.simd_support ? '✅ Available' : '❌ Not available'}`,
       );
 
       console.log('\n🤖 Models:');
@@ -122,13 +122,13 @@ class NeuralCLI {
       console.log(`   Total Training Time: ${persistenceInfo.totalTrainingTime}`);
       console.log(`   Average Accuracy: ${persistenceInfo.averageAccuracy}%`);
       console.log(
-        `   Best Model: ${persistenceInfo.bestModel.name} (${persistenceInfo.bestModel.accuracy}% accuracy)`
+        `   Best Model: ${persistenceInfo.bestModel.name} (${persistenceInfo.bestModel.accuracy}% accuracy)`,
       );
 
       if (persistenceInfo.sessionContinuity) {
         console.log('\n🔄 Session Continuity:');
         console.log(
-          `   Models loaded from previous session: ${persistenceInfo.sessionContinuity.loadedModels}`
+          `   Models loaded from previous session: ${persistenceInfo.sessionContinuity.loadedModels}`,
         );
         console.log(`   Session started: ${persistenceInfo.sessionContinuity.sessionStart}`);
         console.log(`   Persistent memory: ${persistenceInfo.sessionContinuity.memorySize}`);
@@ -167,7 +167,7 @@ class NeuralCLI {
         const accuracy = Math.min(95, 60 + progress * 30 + Math.random() * 5);
 
         process.stdout.write(
-          `\r🔄 Training: [${'█'.repeat(Math.floor(progress * 20))}${' '.repeat(20 - Math.floor(progress * 20))}] ${(progress * 100).toFixed(0)}% | Loss: ${loss.toFixed(4)} | Accuracy: ${accuracy.toFixed(1)}%`
+          `\r🔄 Training: [${'█'.repeat(Math.floor(progress * 20))}${' '.repeat(20 - Math.floor(progress * 20))}] ${(progress * 100).toFixed(0)}% | Loss: ${loss.toFixed(4)} | Accuracy: ${accuracy.toFixed(1)}%`,
         );
 
         // Simulate training delay
@@ -359,7 +359,7 @@ class NeuralCLI {
 
       // Use pattern-specific memory configuration
       const memoryUsage = await this.getPatternMemoryUsage(
-        patternType === 'all' ? 'convergent' : patternType
+        patternType === 'all' ? 'convergent' : patternType,
       );
       console.log(`   Memory Usage: ${memoryUsage.toFixed(0)} MB`);
       console.log(`   Energy Efficiency: ${(85 + Math.random() * 10).toFixed(1)}%`);
@@ -421,7 +421,7 @@ class NeuralCLI {
       // Show summary
       const totalParams = Object.values(weights.models).reduce(
         (sum, model) => sum + model.parameters,
-        0
+        0,
       );
       console.log(`🔢 Total Parameters: ${totalParams.toLocaleString()}`);
     } catch (error) {
@@ -567,11 +567,11 @@ class NeuralCLI {
       const sessionContinuity =
         totalSessions > 0
           ? {
-              loadedModels: Object.keys(modelDetails).filter((m) => modelDetails[m].hasSavedWeights)
-                .length,
-              sessionStart: new Date().toLocaleString(),
-              memorySize: `${(Math.random() * 50 + 10).toFixed(1)} MB`,
-            }
+            loadedModels: Object.keys(modelDetails).filter((m) => modelDetails[m].hasSavedWeights)
+              .length,
+            sessionStart: new Date().toLocaleString(),
+            memorySize: `${(Math.random() * 50 + 10).toFixed(1)} MB`,
+          }
           : null;
 
       return {

@@ -153,7 +153,7 @@ class MemoryIntegrationTest {
     // Verify it's in runtime memory
     const runtimeNotifications = this.hooks.sessionData.notifications;
     const foundInRuntime = runtimeNotifications.some(
-      (n) => n.type === notification.type && n.message === notification.message
+      (n) => n.type === notification.type && n.message === notification.message,
     );
 
     if (!foundInRuntime) {
@@ -163,7 +163,7 @@ class MemoryIntegrationTest {
     // Verify it's in persistent database
     const dbNotifications = await this.hooks.getNotificationsFromDatabase('test-agent');
     const foundInDb = dbNotifications.some(
-      (n) => n.type === notification.type && n.message === notification.message
+      (n) => n.type === notification.type && n.message === notification.message,
     );
 
     if (!foundInDb) {
@@ -190,7 +190,7 @@ class MemoryIntegrationTest {
         progress: 0.75,
         dependencies: ['database-setup', 'auth-implementation'],
       },
-      agent1Id
+      agent1Id,
     );
 
     // Agent 2 retrieves the shared memory
@@ -245,7 +245,7 @@ class MemoryIntegrationTest {
       const allMemories = await this.persistence.getAllMemory('coder-1');
       console.log(`🔍 Debug: Agent coder-1 has ${allMemories.length} memories`);
       allMemories.forEach((m) =>
-        console.log(`  - ${m.key}: ${JSON.stringify(m.value).substring(0, 100)}`)
+        console.log(`  - ${m.key}: ${JSON.stringify(m.value).substring(0, 100)}`),
       );
 
       throw new Error('No cross-agent notifications found after integration');
@@ -315,7 +315,7 @@ class MemoryIntegrationTest {
     // Verify completion is in database
     const dbCompletion = await this.persistence.getAgentMemory(
       completionData.agentId,
-      `completion/${completionData.taskId}`
+      `completion/${completionData.taskId}`,
     );
 
     if (!dbCompletion || dbCompletion.value.taskId !== completionData.taskId) {

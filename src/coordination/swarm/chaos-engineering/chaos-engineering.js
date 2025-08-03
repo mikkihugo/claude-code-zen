@@ -101,7 +101,7 @@ export class ChaosEngineering extends EventEmitter {
         {
           error: error.message,
           component: 'chaos-engineering',
-        }
+        },
       );
       this.logger.error('Chaos Engineering initialization failed', chaosError);
       throw chaosError;
@@ -133,7 +133,7 @@ export class ChaosEngineering extends EventEmitter {
     if (experiment.blastRadius > this.options.blastRadiusLimit) {
       throw ErrorFactory.createError(
         'validation',
-        `Experiment blast radius (${experiment.blastRadius}) exceeds limit (${this.options.blastRadiusLimit})`
+        `Experiment blast radius (${experiment.blastRadius}) exceeds limit (${this.options.blastRadiusLimit})`,
       );
     }
 
@@ -160,7 +160,7 @@ export class ChaosEngineering extends EventEmitter {
     if (this.emergencyStop) {
       throw ErrorFactory.createError(
         'concurrency',
-        'Emergency stop is active - chaos experiments blocked'
+        'Emergency stop is active - chaos experiments blocked',
       );
     }
 
@@ -177,7 +177,7 @@ export class ChaosEngineering extends EventEmitter {
     if (this.activeExperiments.size >= this.options.maxConcurrentExperiments) {
       throw ErrorFactory.createError(
         'concurrency',
-        `Maximum concurrent experiments reached (${this.options.maxConcurrentExperiments})`
+        `Maximum concurrent experiments reached (${this.options.maxConcurrentExperiments})`,
       );
     }
 
@@ -650,7 +650,7 @@ export class ChaosEngineering extends EventEmitter {
     if (this.connectionManager) {
       const connectionStatus = this.connectionManager.getConnectionStatus();
       const failedConnections = Object.values(connectionStatus.connections).filter(
-        (conn) => conn.status === 'failed'
+        (conn) => conn.status === 'failed',
       ).length;
 
       if (failedConnections > 0) {
@@ -976,7 +976,7 @@ export class ChaosEngineering extends EventEmitter {
 
     // Cancel all active experiments
     const cancelPromises = Array.from(this.activeExperiments.keys()).map((executionId) =>
-      this.cancelExperiment(executionId, 'Emergency stop')
+      this.cancelExperiment(executionId, 'Emergency stop'),
     );
 
     await Promise.allSettled(cancelPromises);
@@ -1109,8 +1109,8 @@ export class ChaosEngineering extends EventEmitter {
     // Cancel all active experiments
     const cancelPromises = Array.from(this.activeExperiments.keys()).map((executionId) =>
       this.cancelExperiment(executionId, 'System shutdown').catch((error) =>
-        this.logger.warn(`Error cancelling experiment ${executionId}`, { error: error.message })
-      )
+        this.logger.warn(`Error cancelling experiment ${executionId}`, { error: error.message }),
+      ),
     );
 
     await Promise.allSettled(cancelPromises);

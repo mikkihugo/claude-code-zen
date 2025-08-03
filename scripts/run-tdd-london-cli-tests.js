@@ -100,7 +100,7 @@ function displayTestInfo() {
   console.log('  - School: London TDD (Interaction-based testing)');
   console.log('  - Focus: CLI command processing behavior');
   console.log(
-    '  - Components: CommandRegistry, BaseCommand, ArgumentParser, OutputFormatter, ErrorHandler'
+    '  - Components: CommandRegistry, BaseCommand, ArgumentParser, OutputFormatter, ErrorHandler',
   );
   console.log('  - Approach: Mock external dependencies, test collaborations');
   console.log('  - Pattern: Given-When-Then with behavior verification\n');

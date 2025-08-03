@@ -770,7 +770,7 @@ describe('Error Handling and Edge Cases', () => {
 
     // Manually try to initialize a failing component
     await expect(integration.initializeComponent('failing', FailingComponent)).rejects.toThrow(
-      'Initialization failed'
+      'Initialization failed',
     );
 
     await integration.shutdown();

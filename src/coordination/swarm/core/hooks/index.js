@@ -485,7 +485,7 @@ class RuvSwarmHooks {
       await fs.mkdir(configDir, { recursive: true });
       await fs.writeFile(
         path.join(configDir, 'swarm-config.json'),
-        JSON.stringify(swarmConfig, null, 2)
+        JSON.stringify(swarmConfig, null, 2),
       );
     }
 
@@ -625,7 +625,7 @@ class RuvSwarmHooks {
 
       await fs.writeFile(
         path.join(weightsDir, `weights-${Date.now()}.json`),
-        JSON.stringify(weightData, null, 2)
+        JSON.stringify(weightData, null, 2),
       );
 
       result.saved = true;
@@ -837,7 +837,7 @@ EOF
    */
   getModifiedFilesCount() {
     const fileOps = this.sessionData.operations.filter((op) =>
-      ['edit', 'write', 'create'].includes(op.type)
+      ['edit', 'write', 'create'].includes(op.type),
     );
 
     const uniqueFiles = new Set(fileOps.map((op) => op.file).filter(Boolean));
@@ -849,7 +849,7 @@ EOF
    */
   getModifiedFilesList() {
     const fileOps = this.sessionData.operations.filter((op) =>
-      ['edit', 'write', 'create'].includes(op.type)
+      ['edit', 'write', 'create'].includes(op.type),
     );
 
     const fileMap = new Map();
@@ -1169,21 +1169,21 @@ Token Reduction: ${this.sessionData.metrics.tokensSaved} tokens
 
 ## Operations Breakdown
 ${this.sessionData.operations
-  .slice(-10)
-  .map(
-    (op) =>
-      `- ${new Date(op.timestamp).toLocaleTimeString()}: ${op.type} on ${op.file} (${op.agent})`
-  )
-  .join('\n')}
+    .slice(-10)
+    .map(
+      (op) =>
+        `- ${new Date(op.timestamp).toLocaleTimeString()}: ${op.type} on ${op.file} (${op.agent})`,
+    )
+    .join('\n')}
 
 ## Learning Highlights
 ${this.sessionData.learnings
-  .slice(-5)
-  .map(
-    (l) =>
-      `- Pattern "${l.pattern}" improved by ${(l.improvement * 100).toFixed(1)}% (confidence: ${l.confidence})`
-  )
-  .join('\n')}
+    .slice(-5)
+    .map(
+      (l) =>
+        `- Pattern "${l.pattern}" improved by ${(l.improvement * 100).toFixed(1)}% (confidence: ${l.confidence})`,
+    )
+    .join('\n')}
 
 ## Performance Metrics
 - Average Operation Time: ${(duration / this.sessionData.operations.length / 1000).toFixed(1)}s
@@ -1231,7 +1231,7 @@ ${this.sessionData.learnings
           Array.from(this.sessionData.agents.values()).reduce((acc, agent) => {
             acc.set(agent.type, (acc.get(agent.type) || 0) + 1);
             return acc;
-          }, new Map())
+          }, new Map()),
         ),
       },
     };
@@ -1365,7 +1365,7 @@ ${this.sessionData.learnings
     relatedFiles.forEach((related) => {
       if (
         !graph.edges.find(
-          (e) => (e.from === nodeId && e.to === related) || (e.from === related && e.to === nodeId)
+          (e) => (e.from === nodeId && e.to === related) || (e.from === related && e.to === nodeId),
         )
       ) {
         graph.edges.push({
@@ -1633,7 +1633,7 @@ ${this.sessionData.learnings
     return {
       agents: this.sessionData.agents,
       activeTasks: this.sessionData.operations.filter(
-        (op) => Date.now() - op.timestamp < 300000 // Last 5 minutes
+        (op) => Date.now() - op.timestamp < 300000, // Last 5 minutes
       ).length,
       health: 'operational',
     };
@@ -1721,7 +1721,7 @@ ${this.sessionData.learnings
     agents.forEach((agent) => {
       // Allocate based on agent type and current load
       const load = this.sessionData.operations.filter(
-        (op) => op.agent === agent.id && Date.now() - op.timestamp < 60000
+        (op) => op.agent === agent.id && Date.now() - op.timestamp < 60000,
       ).length;
 
       allocation[agent.id] = {

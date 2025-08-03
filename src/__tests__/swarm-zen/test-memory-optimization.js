@@ -40,7 +40,7 @@ async function testMemoryOptimization() {
     const reduction = (((beforeMem - afterMem) / beforeMem) * 100).toFixed(1);
 
     console.log(
-      `${pattern.padEnd(12)} | ${beforeMem.toFixed(0).padStart(6)} | ${afterMem.toFixed(0).padStart(6)} | ${reduction.padStart(8)}%`
+      `${pattern.padEnd(12)} | ${beforeMem.toFixed(0).padStart(6)} | ${afterMem.toFixed(0).padStart(6)} | ${reduction.padStart(8)}%`,
     );
   }
 
@@ -57,7 +57,7 @@ async function testMemoryOptimization() {
   for (const agentType of ['researcher', 'coder', 'analyst']) {
     const agent = NeuralAgentFactory.createNeuralAgent(
       { id: `test-${agentType}`, type: agentType },
-      agentType
+      agentType,
     );
     agents.push(agent);
 

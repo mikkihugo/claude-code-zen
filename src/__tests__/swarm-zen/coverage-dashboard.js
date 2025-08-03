@@ -149,7 +149,7 @@ export async function validatePresets() {
 async function getPresetCoverage(preset) {
   try {
     const { stdout } = await execAsync(
-      `npm run test:coverage -- --preset=${preset} --reporter=json-summary`
+      `npm run test:coverage -- --preset=${preset} --reporter=json-summary`,
     );
     const summaryPath = path.join(process.cwd(), 'coverage', 'coverage-summary.json');
     const data = JSON.parse(await fs.readFile(summaryPath, 'utf8'));
@@ -174,16 +174,16 @@ export async function startLiveMonitoring(intervalMs = 30000) {
 
     console.log('\n📊 Coverage Update:');
     console.log(
-      `  Lines:      ${current.coverage.lines.toFixed(2)}% ${getProgressBar(current.coverage.lines)}`
+      `  Lines:      ${current.coverage.lines.toFixed(2)}% ${getProgressBar(current.coverage.lines)}`,
     );
     console.log(
-      `  Branches:   ${current.coverage.branches.toFixed(2)}% ${getProgressBar(current.coverage.branches)}`
+      `  Branches:   ${current.coverage.branches.toFixed(2)}% ${getProgressBar(current.coverage.branches)}`,
     );
     console.log(
-      `  Functions:  ${current.coverage.functions.toFixed(2)}% ${getProgressBar(current.coverage.functions)}`
+      `  Functions:  ${current.coverage.functions.toFixed(2)}% ${getProgressBar(current.coverage.functions)}`,
     );
     console.log(
-      `  Statements: ${current.coverage.statements.toFixed(2)}% ${getProgressBar(current.coverage.statements)}`
+      `  Statements: ${current.coverage.statements.toFixed(2)}% ${getProgressBar(current.coverage.statements)}`,
     );
     console.log(`\n  ⏱️  Elapsed: ${Math.floor(current.elapsed / 1000)}s`);
     console.log(`  📈 Improvement Rate: ${progress.rate.perMinute.toFixed(2)}% per minute`);
@@ -233,14 +233,14 @@ ${generateProgressChart()}
 
 ## 🧬 Preset Validation
 ${Object.entries(presetResults)
-  .map(
-    ([preset, result]) =>
-      `### ${preset}
+    .map(
+      ([preset, result]) =>
+        `### ${preset}
 - Success: ${result.success ? '✅' : '❌'}
 - Tests: ${result.passed || 0} passed, ${result.failed || 0} failed
-- Coverage: ${result.coverage ? `${result.coverage.lines.pct}%` : 'N/A'}`
-  )
-  .join('\n\n')}
+- Coverage: ${result.coverage ? `${result.coverage.lines.pct}%` : 'N/A'}`,
+    )
+    .join('\n\n')}
 
 ## 🚀 Performance Impact
 - No regression detected

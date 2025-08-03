@@ -102,7 +102,7 @@ class ProductionValidationTest {
       // Memory increase should be reasonable (less than 50MB)
       if (memoryIncrease > 50 * 1024 * 1024) {
         throw new Error(
-          `Excessive memory usage: ${Math.round(memoryIncrease / 1024 / 1024)}MB increase`
+          `Excessive memory usage: ${Math.round(memoryIncrease / 1024 / 1024)}MB increase`,
         );
       }
     });
@@ -270,7 +270,7 @@ class ProductionValidationTest {
     console.log(`❌ Failed: ${this.failed}`);
     console.log(`⏱️  Total Time: ${totalTime}ms`);
     console.log(
-      `📈 Success Rate: ${((this.passed / (this.passed + this.failed)) * 100).toFixed(1)}%`
+      `📈 Success Rate: ${((this.passed / (this.passed + this.failed)) * 100).toFixed(1)}%`,
     );
 
     if (this.failed > 0) {

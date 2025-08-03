@@ -102,7 +102,7 @@ async function benchmarkSwarmCreation() {
       const swarm = new RuvSwarm({ maxAgents: 64 });
       return swarm;
     },
-    100
+    100,
   );
 }
 
@@ -151,7 +151,7 @@ async function benchmarkNeuralOperations() {
       const target = new Float32Array(64).fill(0.8);
       await agent.neuralNetwork.train(input, target);
     },
-    100
+    100,
   );
 
   await benchmark('Pattern Recognition', async () => {
@@ -205,7 +205,7 @@ async function benchmarkTaskOrchestration() {
         priority: 'high',
       });
     },
-    100
+    100,
   );
 
   await benchmark(
@@ -218,7 +218,7 @@ async function benchmarkTaskOrchestration() {
         priority: 'critical',
       });
     },
-    10
+    10,
   );
 }
 
@@ -282,10 +282,10 @@ async function generatePerformanceReport() {
   console.log(`Average Mean Time: ${aggregateStats.avgMeanTime.toFixed(3)}ms`);
   console.log(`Average P95 Time: ${aggregateStats.avgP95Time.toFixed(3)}ms`);
   console.log(
-    `Fastest Operation: ${aggregateStats.fastestOperation.name} (${aggregateStats.fastestOperation.mean.toFixed(3)}ms)`
+    `Fastest Operation: ${aggregateStats.fastestOperation.name} (${aggregateStats.fastestOperation.mean.toFixed(3)}ms)`,
   );
   console.log(
-    `Slowest Operation: ${aggregateStats.slowestOperation.name} (${aggregateStats.slowestOperation.mean.toFixed(3)}ms)`
+    `Slowest Operation: ${aggregateStats.slowestOperation.name} (${aggregateStats.slowestOperation.mean.toFixed(3)}ms)`,
   );
   console.log(`Performance Grade: ${grade}`);
   console.log('');

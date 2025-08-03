@@ -408,7 +408,7 @@ class NeuralCoordinationProtocol {
       // Score based on agent count and scalability
       const scalabilityScore = this.calculateScalabilityScore(
         agentCount,
-        strategy.characteristics.scalability
+        strategy.characteristics.scalability,
       );
       score += scalabilityScore * 0.3;
 
@@ -757,7 +757,7 @@ class NeuralCoordinationProtocol {
       if (coordinationSession.consensusProtocol) {
         const consensusResult = await this.executeConsensusProtocol(
           coordinationSession,
-          coordinationResult
+          coordinationResult,
         );
         coordinationResult.consensus = consensusResult;
       }
@@ -1006,7 +1006,7 @@ class NeuralCoordinationProtocol {
         agentId,
         currentPolicy,
         sharedReward,
-        session
+        session,
       );
       agentPolicies.set(agentId, updatedPolicy);
     }

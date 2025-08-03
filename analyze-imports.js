@@ -234,7 +234,7 @@ console.log('## Refactoring Recommendations\n');
 console.log('### Priority 1 (Critical)');
 if (cycles.length > 0) {
   console.log(
-    '- **Break circular dependencies** - These can cause runtime issues and make the code hard to test'
+    '- **Break circular dependencies** - These can cause runtime issues and make the code hard to test',
   );
   console.log('  - Consider dependency inversion or extracting shared interfaces');
 }
@@ -242,7 +242,7 @@ if (cycles.length > 0) {
 console.log('\n### Priority 2 (High)');
 if (deepImports.length > 0) {
   console.log(
-    '- **Reduce deep relative imports** - Files with 4+ level imports suggest poor module organization'
+    '- **Reduce deep relative imports** - Files with 4+ level imports suggest poor module organization',
   );
   console.log('  - Consider creating barrel exports (index.ts files)');
   console.log('  - Move commonly imported utilities to a shared location');
@@ -258,7 +258,7 @@ if (crossLayerImports.length > 0) {
 console.log('\n### Priority 4 (Low)');
 console.log('- **Create proper module boundaries** - Use barrel exports and clear interfaces');
 console.log(
-  '- **Consider path mapping** - Use TypeScript path mapping to avoid deep relative imports'
+  '- **Consider path mapping** - Use TypeScript path mapping to avoid deep relative imports',
 );
 
 console.log('\n## Recommended Fix Order\n');

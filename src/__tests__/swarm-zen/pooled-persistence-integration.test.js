@@ -75,7 +75,7 @@ async function testMCPToolsIntegration() {
     const statsResult = await mcpTools.pool_stats();
     console.log('✅ Pool statistics working');
     console.log(
-      `📈 Total operations: ${statsResult.persistence_metrics?.total_operations || 'N/A'}`
+      `📈 Total operations: ${statsResult.persistence_metrics?.total_operations || 'N/A'}`,
     );
 
     // Test persistence statistics
@@ -128,7 +128,7 @@ async function testRuvSwarmCoreIntegration() {
     // Test that it's the pooled version
     if (ruvSwarm.persistence.constructor.name !== 'SwarmPersistencePooled') {
       throw new Error(
-        'Expected SwarmPersistencePooled, got ' + ruvSwarm.persistence.constructor.name
+        'Expected SwarmPersistencePooled, got ' + ruvSwarm.persistence.constructor.name,
       );
     }
 
@@ -144,7 +144,7 @@ async function testRuvSwarmCoreIntegration() {
     if (typeof ruvSwarm.persistence.getPoolStats === 'function') {
       const poolStats = ruvSwarm.persistence.getPoolStats();
       console.log(
-        `📊 Pool connections: ${poolStats.activeConnections || 0} active, ${poolStats.availableReaders || 0} readers`
+        `📊 Pool connections: ${poolStats.activeConnections || 0} active, ${poolStats.availableReaders || 0} readers`,
       );
     }
 
@@ -177,7 +177,7 @@ async function testConcurrentOperations() {
           topology: 'mesh',
           maxAgents: 3,
           strategy: 'balanced',
-        })
+        }),
       );
     }
 
@@ -192,7 +192,7 @@ async function testConcurrentOperations() {
           type: 'researcher',
           name: `Concurrent Agent ${i}`,
           capabilities: ['analysis'],
-        })
+        }),
       );
     }
 
@@ -218,7 +218,7 @@ async function testConcurrentOperations() {
     }
 
     console.log(
-      `🏥 Pool remained healthy during concurrent operations: ${healthResult.healthy || 'N/A'}`
+      `🏥 Pool remained healthy during concurrent operations: ${healthResult.healthy || 'N/A'}`,
     );
     console.log('✅ Concurrent operations test passed\n');
   } catch (error) {
@@ -270,11 +270,11 @@ async function testPerformanceComparison() {
     const finalStats = await mcpTools.pool_stats();
     console.log(`📈 Final pool stats:`);
     console.log(
-      `   - Total operations: ${finalStats.persistence_metrics?.total_operations || 'N/A'}`
+      `   - Total operations: ${finalStats.persistence_metrics?.total_operations || 'N/A'}`,
     );
     console.log(`   - Error rate: ${finalStats.persistence_metrics?.error_rate || 'N/A'}`);
     console.log(
-      `   - Avg response time: ${finalStats.persistence_metrics?.average_response_time || 'N/A'}ms`
+      `   - Avg response time: ${finalStats.persistence_metrics?.average_response_time || 'N/A'}ms`,
     );
 
     console.log('✅ Performance validation test passed\n');

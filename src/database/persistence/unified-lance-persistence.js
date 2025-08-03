@@ -96,7 +96,7 @@ export class UnifiedLancePersistence {
 
       console.log('✅ Unified Lance-Swarm Persistence initialized successfully');
       console.log(
-        `📊 Features: Vector=${this.options.enableVectorSearch}, Graph=${this.options.enableGraphTraversal}, Neural=${this.options.enableNeuralPatterns}`
+        `📊 Features: Vector=${this.options.enableVectorSearch}, Graph=${this.options.enableGraphTraversal}, Neural=${this.options.enableNeuralPatterns}`,
       );
     } catch (error) {
       this.initializing = false;
@@ -337,7 +337,7 @@ export class UnifiedLancePersistence {
       if (this.options.enableVectorSearch && query.semantic) {
         results.vector_results = await this.vectorSimilaritySearch(
           query.semantic,
-          options.vectorLimit || 10
+          options.vectorLimit || 10,
         );
       }
 
@@ -345,7 +345,7 @@ export class UnifiedLancePersistence {
       if (query.relational) {
         results.relational_results = await this.relationalSearch(
           query.relational,
-          options.relationalLimit || 20
+          options.relationalLimit || 20,
         );
       }
 
@@ -354,7 +354,7 @@ export class UnifiedLancePersistence {
         results.graph_results = await this.graphTraversal(
           query.graph.startEntity,
           query.graph.relationshipTypes,
-          query.graph.maxDepth || 2
+          query.graph.maxDepth || 2,
         );
       }
 
@@ -564,7 +564,7 @@ export class UnifiedLancePersistence {
           rel.relationshipType,
           rel.strength || 1.0,
           JSON.stringify(rel.metadata || {}),
-        ]
+        ],
       );
     }
   }
@@ -582,7 +582,7 @@ export class UnifiedLancePersistence {
       (id, pattern_type, pattern_name, pattern_data, success_rate, usage_count)
       VALUES (?, ?, ?, ?, ?, 1)
     `,
-      [patternId, patternType, patternName, JSON.stringify(patternData), successRate]
+      [patternId, patternType, patternName, JSON.stringify(patternData), successRate],
     );
   }
 
@@ -596,7 +596,7 @@ export class UnifiedLancePersistence {
       ORDER BY success_rate DESC, usage_count DESC 
       LIMIT ?
     `,
-      [patternType, limit]
+      [patternType, limit],
     );
 
     return patterns.map((p) => ({
@@ -613,7 +613,7 @@ export class UnifiedLancePersistence {
       SELECT success_rate, usage_count FROM neural_patterns 
       WHERE pattern_type = ? AND pattern_name = ?
     `,
-      [patternType, patternName]
+      [patternType, patternName],
     );
 
     if (pattern.length === 0) return;
@@ -630,7 +630,7 @@ export class UnifiedLancePersistence {
       SET success_rate = ?, usage_count = ?, last_used = CURRENT_TIMESTAMP
       WHERE pattern_type = ? AND pattern_name = ?
     `,
-      [newSuccessRate, newUsageCount, patternType, patternName]
+      [newSuccessRate, newUsageCount, patternType, patternName],
     );
   }
 

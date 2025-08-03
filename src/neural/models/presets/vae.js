@@ -122,7 +122,7 @@ class VAEModel extends NeuralModel {
     const logVar = this.linearTransform(
       h,
       this.encoder.logVarLayer.weight,
-      this.encoder.logVarLayer.bias
+      this.encoder.logVarLayer.bias,
     );
 
     // Reparameterization trick
@@ -367,7 +367,7 @@ class VAEModel extends NeuralModel {
       console.log(
         `Epoch ${epoch + 1}/${epochs} - ` +
           `Recon Loss: ${avgReconLoss.toFixed(4)}, KL Loss: ${avgKLLoss.toFixed(4)} - ` +
-          `Val Recon: ${valLosses.reconstruction.toFixed(4)}, Val KL: ${valLosses.kl.toFixed(4)}`
+          `Val Recon: ${valLosses.reconstruction.toFixed(4)}, Val KL: ${valLosses.kl.toFixed(4)}`,
       );
     }
 

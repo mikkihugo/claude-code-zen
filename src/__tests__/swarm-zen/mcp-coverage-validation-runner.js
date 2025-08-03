@@ -226,7 +226,7 @@ function generateFinalReport() {
   console.log(`📋 Total Tests: ${testResults.totalTests}`);
   console.log(`✅ Passed: ${testResults.passed} (${overallSuccessRate.toFixed(1)}%)`);
   console.log(
-    `❌ Failed: ${testResults.failed} (${((testResults.failed / testResults.totalTests) * 100).toFixed(1)}%)`
+    `❌ Failed: ${testResults.failed} (${((testResults.failed / testResults.totalTests) * 100).toFixed(1)}%)`,
   );
 
   console.log('\n🔧 MCP TOOLS COVERAGE:');
@@ -272,7 +272,7 @@ function generateFinalReport() {
     __dirname,
     '..',
     'test-reports',
-    `mcp-coverage-validation-${Date.now()}.json`
+    `mcp-coverage-validation-${Date.now()}.json`,
   );
   writeFileSync(
     reportPath,
@@ -294,8 +294,8 @@ function generateFinalReport() {
         ],
       },
       null,
-      2
-    )
+      2,
+    ),
   );
 
   console.log(`\n📄 Detailed report saved to: ${reportPath}`);

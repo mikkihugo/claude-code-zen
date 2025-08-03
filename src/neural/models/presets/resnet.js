@@ -405,7 +405,7 @@ class ResNetModel extends NeuralModel {
       console.log(
         `Epoch ${epoch + 1}/${epochs} - ` +
           `Train Loss: ${avgTrainLoss.toFixed(4)}, Train Acc: ${(trainAccuracy * 100).toFixed(2)}% - ` +
-          `Val Loss: ${valMetrics.loss.toFixed(4)}, Val Acc: ${(valMetrics.accuracy * 100).toFixed(2)}%`
+          `Val Loss: ${valMetrics.loss.toFixed(4)}, Val Acc: ${(valMetrics.accuracy * 100).toFixed(2)}%`,
       );
     }
 
