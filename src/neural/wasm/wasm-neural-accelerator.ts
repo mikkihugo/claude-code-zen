@@ -298,6 +298,67 @@ export class WasmNeuralAccelerator {
     return result;
   }
 
+  /**
+   * Vector reduction operations (sum, mean, max, min)
+   */
+  async vectorReduction(
+    vector: Float32Array | number[],
+    operation: string,
+    options: WasmComputeOptions = {}
+  ): Promise<number> {
+    await this.initialize();
+    
+    const data = vector instanceof Float32Array ? vector : new Float32Array(vector);
+    
+    switch (operation) {
+      case 'sum':
+        return data.reduce((sum, val) => sum + val, 0);
+      case 'mean':
+        return data.reduce((sum, val) => sum + val, 0) / data.length;
+      case 'max':
+        return Math.max(...data);
+      case 'min':
+        return Math.min(...data);
+      default:
+        throw new Error(`Unsupported reduction operation: ${operation}`);
+    }
+  }
+
+  /**
+   * 2D Convolution operation
+   */
+  async convolution2D(
+    input: Float32Array,
+    kernel: Float32Array,
+    inputShape: [number, number],
+    kernelShape: [number, number],
+    options: WasmComputeOptions = {}
+  ): Promise<Float32Array> {
+    await this.initialize();
+    
+    const [inputHeight, inputWidth] = inputShape;
+    const [kernelHeight, kernelWidth] = kernelShape;
+    const outputHeight = inputHeight - kernelHeight + 1;
+    const outputWidth = inputWidth - kernelWidth + 1;
+    const output = new Float32Array(outputHeight * outputWidth);
+    
+    for (let oh = 0; oh < outputHeight; oh++) {
+      for (let ow = 0; ow < outputWidth; ow++) {
+        let sum = 0;
+        for (let kh = 0; kh < kernelHeight; kh++) {
+          for (let kw = 0; kw < kernelWidth; kw++) {
+            const inputIdx = (oh + kh) * inputWidth + (ow + kw);
+            const kernelIdx = kh * kernelWidth + kw;
+            sum += input[inputIdx] * kernel[kernelIdx];
+          }
+        }
+        output[oh * outputWidth + ow] = sum;
+      }
+    }
+    
+    return output;
+  }
+
   private mockAllocate(size: number): number {
     this.memoryStats.allocated += size;
     this.memoryStats.current += size;
