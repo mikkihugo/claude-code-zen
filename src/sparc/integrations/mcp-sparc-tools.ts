@@ -777,7 +777,7 @@ export class SPARCMCPTools {
   }
 
   /**
-   * Handle project management artifacts generation with enhanced integration
+   * Handle project management artifacts generation with enhanced infrastructure integration
    */
   public async handleGenerateProjectManagementArtifacts(args: any): Promise<any> {
     const project = this.activeProjects.get(args.projectId);
@@ -786,51 +786,68 @@ export class SPARCMCPTools {
     }
 
     try {
-      const results = [];
+      // Initialize enhanced infrastructure integration
+      await this.projectManagement.initialize();
 
-      if (args.artifactTypes.includes('all') || args.artifactTypes.includes('tasks')) {
-        await this.projectManagement.updateTasksWithSPARC(project);
-        await this.projectManagement.distributeTasksWithCoordination(project);
-        results.push({
-          type: 'tasks',
-          status: 'generated',
-          message: 'Integrated with existing TaskAPI and coordination',
-        });
-      }
+      // Use comprehensive artifact generation with enhanced infrastructure
+      const results = await this.projectManagement.createAllProjectManagementArtifacts(
+        project,
+        args.artifactTypes || ['all']
+      );
 
-      if (args.artifactTypes.includes('all') || args.artifactTypes.includes('adrs')) {
-        await this.projectManagement.createADRFiles(project);
-        results.push({
-          type: 'adrs',
-          status: 'generated',
-          message: 'Created using existing ADR template structure',
-        });
-      }
+      return {
+        success: true,
+        projectId: args.projectId,
+        workspaceId: results.workspaceId,
+        workflowResults: results.workflowResults,
+        infrastructure: {
+          documentDrivenSystem: 'initialized',
+          unifiedWorkflowEngine: 'active',
+          memorySystem: 'connected',
+        },
+        artifacts: {
+          tasks: {
+            count: results.tasks.length,
+            status: 'integrated with TaskAPI and EnhancedTaskTool',
+          },
+          adrs: {
+            count: results.adrs.length,
+            status: 'created using existing template structure',
+          },
+          prd: {
+            id: results.prd.id,
+            status: 'generated with comprehensive requirements',
+          },
+          epics: {
+            count: results.epics.length,
+            status: 'processed through DocumentDrivenSystem',
+          },
+          features: {
+            count: results.features.length,
+            status: 'integrated with workflow engine',
+          },
+        },
+        integration: {
+          vision_workflow: results.workflowResults['vision-to-adrs'] ? 'executed' : 'failed',
+          prd_workflow: results.workflowResults['vision-to-prds'] ? 'executed' : 'failed',
+          epic_workflow: results.workflowResults['prd-to-epics'] ? 'executed' : 'failed',
+          feature_workflow: results.workflowResults['epic-to-features'] ? 'executed' : 'failed',
+          task_workflow: results.workflowResults['feature-to-tasks'] ? 'executed' : 'failed',
+        },
+        message: 'Successfully integrated SPARC with existing Claude-Zen infrastructure',
+      };
+    } catch (error) {
+      return {
+        success: false,
+        projectId: args.projectId,
+        error: error instanceof Error ? error.message : String(error),
+        message: 'Failed to generate artifacts with enhanced infrastructure',
+      };
+    }
+  }
 
-      if (args.artifactTypes.includes('all') || args.artifactTypes.includes('prd')) {
-        await this.projectManagement.createPRDFile(project);
-        results.push({ type: 'prd', status: 'generated', message: 'Generated comprehensive PRD' });
-      }
-
-      if (args.artifactTypes.includes('all') || args.artifactTypes.includes('epics')) {
-        const epics = await this.projectManagement.createEpicsFromSPARC(project);
-        results.push({ type: 'epics', status: 'generated', count: epics.length });
-      }
-
-      if (args.artifactTypes.includes('all') || args.artifactTypes.includes('features')) {
-        const features = await this.projectManagement.createFeaturesFromSPARC(project);
-        results.push({ type: 'features', status: 'generated', count: features.length });
-      }
-
-      // Generate comprehensive artifacts if 'all' is specified
-      if (args.artifactTypes.includes('all')) {
-        const comprehensive =
-          await this.projectManagement.createAllProjectManagementArtifacts(project);
-        results.push({
-          type: 'comprehensive',
-          status: 'generated',
-          summary: {
-            tasks: comprehensive.tasks.length,
+  /**
+   * Handle epic creation from SPARC project
             adrs: comprehensive.adrs.length,
             epics: comprehensive.epics.length,
             features: comprehensive.features.length,

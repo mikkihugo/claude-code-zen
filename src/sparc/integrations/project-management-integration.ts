@@ -1,11 +1,11 @@
 /**
- * SPARC Integration with Project Management Artifacts
+ * SPARC Integration with Existing Claude-Zen Infrastructure
  *
- * Integrates SPARC methodology with existing project management infrastructure:
- * - ADRs (Architecture Decision Records)
- * - PRDs (Product Requirements Documents)
- * - Tasks (tasks.json)
- * - Features, Epics, Roadmaps
+ * Integrates SPARC methodology with existing sophisticated infrastructure:
+ * - DocumentDrivenSystem (core document workflow)
+ * - UnifiedWorkflowEngine (Vision → ADRs → PRDs → Epics → Features → Tasks → Code)
+ * - TaskAPI & EnhancedTaskTool (coordination)
+ * - Existing ADR templates and project management systems
  */
 
 import * as fs from 'fs/promises';
@@ -15,6 +15,9 @@ import {
   type EnhancedTaskConfig,
   EnhancedTaskTool,
 } from '../../coordination/enhanced-task-tool.js';
+import { DocumentDrivenSystem } from '../../core/document-driven-system.js';
+import { UnifiedWorkflowEngine } from '../../core/unified-workflow-engine.js';
+import { UnifiedMemorySystem } from '../../core/unified-memory-system.js';
 import type { DetailedSpecification, SPARCProject } from '../types/sparc-types';
 
 // Task Management Integration Types
@@ -146,6 +149,11 @@ export class ProjectManagementIntegration {
   private readonly roadmapFile: string;
   private readonly taskTool: EnhancedTaskTool;
   private readonly taskDistributor: any;
+  
+  // Enhanced infrastructure integration
+  private documentDrivenSystem: DocumentDrivenSystem;
+  private workflowEngine: UnifiedWorkflowEngine;
+  private memorySystem: UnifiedMemorySystem;
 
   constructor(projectRoot: string = process.cwd()) {
     this.projectRoot = projectRoot;
@@ -160,6 +168,172 @@ export class ProjectManagementIntegration {
     this.taskTool = EnhancedTaskTool.getInstance();
     // Note: TaskDistributionEngine requires complex setup, will use TaskAPI instead
     this.taskDistributor = null;
+    
+    // Initialize sophisticated document-driven infrastructure
+    this.memorySystem = new UnifiedMemorySystem();
+    this.documentDrivenSystem = new DocumentDrivenSystem();
+    this.workflowEngine = new UnifiedWorkflowEngine(this.memorySystem);
+  }
+
+  /**
+   * Initialize sophisticated infrastructure integration
+   */
+  async initialize(): Promise<void> {
+    await this.memorySystem.initialize();
+    await this.documentDrivenSystem.initialize();
+    await this.workflowEngine.initialize();
+  }
+
+  /**
+   * Enhanced comprehensive project management artifacts using existing infrastructure
+   */
+  async createAllProjectManagementArtifacts(
+    project: SPARCProject,
+    artifactTypes: string[] = ['all']
+  ): Promise<{
+    tasks: Task[];
+    adrs: ADR[];
+    prd: PRD;
+    epics: Epic[];
+    features: Feature[];
+    workspaceId: string;
+    workflowResults: any;
+  }> {
+    // Initialize infrastructure
+    await this.initialize();
+    
+    // Load workspace using DocumentDrivenSystem
+    const workspaceId = await this.documentDrivenSystem.loadWorkspace(this.projectRoot);
+    
+    // Create vision document from SPARC project for document workflow
+    const visionDocument = await this.createVisionDocumentFromSPARC(project, workspaceId);
+    
+    // Process through DocumentDrivenSystem
+    await this.documentDrivenSystem.processVisionaryDocument(workspaceId, visionDocument.path);
+
+    // Execute document workflows using UnifiedWorkflowEngine
+    const workflowResults = await this.executeDocumentWorkflows(workspaceId, visionDocument);
+
+    const results = {
+      tasks: [],
+      adrs: [],
+      prd: {} as PRD,
+      epics: [],
+      features: [],
+      workspaceId,
+      workflowResults,
+    };
+
+    if (artifactTypes.includes('all') || artifactTypes.includes('tasks')) {
+      results.tasks = await this.generateTasksFromSPARC(project);
+      await this.updateTasksWithSPARC(project);
+      await this.distributeTasksWithCoordination(project);
+    }
+
+    if (artifactTypes.includes('all') || artifactTypes.includes('adrs')) {
+      results.adrs = await this.generateADRFromSPARC(project);
+      await this.createADRFiles(results.adrs);
+    }
+
+    if (artifactTypes.includes('all') || artifactTypes.includes('prd')) {
+      results.prd = await this.generatePRDFromSPARC(project);
+      await this.createPRDFile(results.prd);
+    }
+
+    if (artifactTypes.includes('all') || artifactTypes.includes('epics')) {
+      results.epics = await this.createEpicsFromSPARC(project);
+      await this.saveEpicsToWorkspace(results.epics, workspaceId);
+    }
+
+    if (artifactTypes.includes('all') || artifactTypes.includes('features')) {
+      results.features = await this.createFeaturesFromSPARC(project);
+      await this.saveFeaturesFromWorkspace(results.features, workspaceId);
+    }
+
+    return results;
+  }
+
+  /**
+   * Create vision document from SPARC project using DocumentDrivenSystem patterns
+   */
+  private async createVisionDocumentFromSPARC(project: SPARCProject, workspaceId: string): Promise<{
+    path: string;
+    content: string;
+  }> {
+    const visionContent = `# Vision: ${project.name}
+
+## Overview
+${project.specification.successMetrics?.[0]?.description || `Vision for ${project.name} in the ${project.domain} domain.`}
+
+## Domain
+${project.domain}
+
+## Objectives
+${project.specification.functionalRequirements.map((req) => `- ${req.description}`).join('\n')}
+
+## Success Metrics
+${project.specification.acceptanceCriteria.map((criteria) => 
+  criteria.criteria.map(c => `- ${c}`).join('\n')
+).join('\n')}
+
+## Constraints
+${project.specification.constraints.map((constraint) => `- ${constraint.description}`).join('\n')}
+
+## Dependencies
+${project.specification.dependencies.map((dep) => `- ${dep.name}: ${dep.description}`).join('\n')}
+
+---
+Author: SPARC Engine
+Created: ${new Date().toISOString()}
+Status: draft
+Related: SPARC-${project.id}
+`;
+
+    const visionDir = path.join(this.projectRoot, 'docs/01-vision');
+    const visionPath = path.join(visionDir, `${project.id}-vision.md`);
+    
+    await fs.mkdir(visionDir, { recursive: true });
+    await fs.writeFile(visionPath, visionContent);
+
+    return { path: visionPath, content: visionContent };
+  }
+
+  /**
+   * Execute document workflows using UnifiedWorkflowEngine
+   */
+  private async executeDocumentWorkflows(workspaceId: string, visionDocument: { path: string; content: string }): Promise<any> {
+    const workflows = [
+      'vision-to-adrs',
+      'vision-to-prds',
+      'prd-to-epics',
+      'epic-to-features',
+      'feature-to-tasks'
+    ];
+
+    const results = {};
+
+    for (const workflowName of workflows) {
+      try {
+        const result = await this.workflowEngine.startWorkflow(workflowName, {
+          workspaceId,
+          currentDocument: {
+            type: 'vision',
+            content: visionDocument.content,
+            metadata: { source: 'sparc', projectId: workspaceId }
+          },
+          workspace: this.projectRoot
+        });
+
+        if (result.success && result.workflowId) {
+          results[workflowName] = result.workflowId;
+        }
+      } catch (error) {
+        console.warn(`Failed to execute workflow ${workflowName}:`, error);
+        results[workflowName] = { error: (error as Error).message };
+      }
+    }
+
+    return results;
   }
 
   /**
@@ -942,5 +1116,190 @@ ${prd.timeline}
 ## Stakeholders
 ${prd.stakeholders.map((stakeholder) => `- ${stakeholder}`).join('\n')}
 `;
+  }
+
+  /**
+   * Enhanced ADR creation using existing template structure and workspace management
+   */
+  async createADRFilesWithWorkspace(adrs: ADR[], workspaceId: string): Promise<string[]> {
+    const createdFiles: string[] = [];
+
+    // Ensure ADR directory exists
+    await fs.mkdir(this.adrDir, { recursive: true });
+
+    // Check for existing ADR template (following existing patterns)
+    const templatePath = path.join(this.projectRoot, 'docs/adrs/adr-template.md');
+    let template = '';
+    
+    try {
+      template = await fs.readFile(templatePath, 'utf-8');
+    } catch {
+      // Use default template that matches existing structure
+      template = `# ADR-{NUMBER}: {TITLE}
+
+## Status
+{STATUS}
+
+## Context
+{CONTEXT}
+
+## Decision
+{DECISION}
+
+## Consequences
+{CONSEQUENCES}
+
+## Date
+{DATE}
+
+## Related
+- SPARC Project: {SPARC_PROJECT_ID}
+- Phase: {PHASE}
+`;
+    }
+
+    for (const adr of adrs) {
+      const number = adr.id.replace(/.*ADR-/, '').replace(/-.*/, '');
+      const filename = `${adr.id.toLowerCase()}-${adr.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.md`;
+      const filePath = path.join(this.adrDir, filename);
+
+      const content = template
+        .replace(/{NUMBER}/g, number)
+        .replace(/{TITLE}/g, adr.title)
+        .replace(/{STATUS}/g, adr.status)
+        .replace(/{CONTEXT}/g, adr.context)
+        .replace(/{DECISION}/g, adr.decision)
+        .replace(/{CONSEQUENCES}/g, Array.isArray(adr.consequences) ? adr.consequences.map(c => `- ${c}`).join('\n') : adr.consequences)
+        .replace(/{DATE}/g, adr.date)
+        .replace(/{SPARC_PROJECT_ID}/g, adr.sparc_project_id || 'N/A')
+        .replace(/{PHASE}/g, adr.phase || 'N/A');
+
+      await fs.writeFile(filePath, content);
+      createdFiles.push(filePath);
+
+      // Store in memory system for workflow engine access
+      if (this.memorySystem) {
+        await this.memorySystem.storeDocument('adr', adr.id, {
+          id: adr.id,
+          title: adr.title,
+          content,
+          metadata: {
+            status: adr.status,
+            phase: adr.phase,
+            sparcProjectId: adr.sparc_project_id,
+            filePath
+          }
+        });
+      }
+
+      // Process through document-driven system
+      if (this.documentDrivenSystem && workspaceId) {
+        await this.documentDrivenSystem.processVisionaryDocument(workspaceId, filePath);
+      }
+    }
+
+    return createdFiles;
+  }
+
+  /**
+   * Save epics to workspace using document-driven system
+   */
+  async saveEpicsToWorkspace(epics: Epic[], workspaceId: string): Promise<void> {
+    const epicsDir = path.join(this.projectRoot, 'docs/04-epics');
+    await fs.mkdir(epicsDir, { recursive: true });
+
+    for (const epic of epics) {
+      const filename = `${epic.id.toLowerCase()}-${epic.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.md`;
+      const filePath = path.join(epicsDir, filename);
+
+      const content = `# Epic: ${epic.title}
+
+## Description
+${epic.description}
+
+## Business Value
+${epic.business_value}
+
+## Timeline
+- Start: ${epic.timeline.start_date}
+- End: ${epic.timeline.end_date}
+
+## Status
+${epic.status}
+
+## Features
+${epic.features.map(f => `- ${f}`).join('\n')}
+
+## Related SPARC Project
+${epic.sparc_project_id || 'N/A'}
+
+---
+Created: ${new Date().toISOString()}
+Type: Epic
+`;
+
+      await fs.writeFile(filePath, content);
+
+      // Process through document-driven system
+      if (this.documentDrivenSystem && workspaceId) {
+        await this.documentDrivenSystem.processVisionaryDocument(workspaceId, filePath);
+      }
+    }
+
+    // Also save to epics.json for backward compatibility
+    try {
+      await fs.writeFile(this.epicsFile, JSON.stringify(epics, null, 2));
+    } catch (error) {
+      console.warn('Could not save epics.json:', error);
+    }
+  }
+
+  /**
+   * Save features to workspace using document-driven system
+   */
+  async saveFeaturesFromWorkspace(features: Feature[], workspaceId: string): Promise<void> {
+    const featuresDir = path.join(this.projectRoot, 'docs/05-features');
+    await fs.mkdir(featuresDir, { recursive: true });
+
+    for (const feature of features) {
+      const filename = `${feature.id.toLowerCase()}-${feature.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.md`;
+      const filePath = path.join(featuresDir, filename);
+
+      const content = `# Feature: ${feature.title}
+
+## Description
+${feature.description}
+
+## Epic
+${feature.epic_id || 'N/A'}
+
+## Status
+${feature.status}
+
+## User Stories
+${feature.user_stories.map(us => `- ${us}`).join('\n')}
+
+## Related SPARC Project
+${feature.sparc_project_id || 'N/A'}
+
+---
+Created: ${new Date().toISOString()}
+Type: Feature
+`;
+
+      await fs.writeFile(filePath, content);
+
+      // Process through document-driven system
+      if (this.documentDrivenSystem && workspaceId) {
+        await this.documentDrivenSystem.processVisionaryDocument(workspaceId, filePath);
+      }
+    }
+
+    // Also save to features.json for backward compatibility
+    try {
+      await fs.writeFile(this.featuresFile, JSON.stringify(features, null, 2));
+    } catch (error) {
+      console.warn('Could not save features.json:', error);
+    }
   }
 }
