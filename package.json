@@ -33,7 +33,6 @@
     "format:biome": "biome format --write .",
     "mcp": "npx tsx src/interfaces/mcp/start-server.ts",
     "mcp:swarm": "npx tsx src/coordination/swarm/core/mcp-server-enhanced.js",
-    "mcp:validate": "node scripts/validate-mcp-config.js",
     "server": "npx tsx src/claude-zen-integrated.ts",
     "benchmark": "node src/coordination/diagnostics/benchmark.js",
     "docs:build": "node scripts/generate-docs.js",

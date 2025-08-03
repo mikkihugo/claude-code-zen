@@ -60,9 +60,9 @@ src/
 - **Coverage Target**: 85%
 
 ## MCP Integration
-- **HTTP MCP**: Port 3000 for external tool integration
+- **External MCP Tools**: Integration with research and development tools
 
-- **Stdio MCP**: Internal swarm coordination protocol
+- **Protocol Support**: HTTP and SSE endpoints for external services
 
 
 ## Performance Requirements
