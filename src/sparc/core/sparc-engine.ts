@@ -11,6 +11,7 @@ import { PseudocodePhaseEngine } from '../phases/pseudocode/pseudocode-engine.js
 import { ArchitecturePhaseEngine } from '../phases/architecture/architecture-engine.js';
 import { RefinementPhaseEngine } from '../phases/refinement/refinement-engine.js';
 import { CompletionPhaseEngine } from '../phases/completion/completion-engine.js';
+import { ProjectManagementIntegration } from '../integrations/project-management-integration.js';
 import type {
   SPARCEngine,
   SPARCProject,
@@ -38,11 +39,13 @@ export class SPARCEngineCore implements SPARCEngine {
   private readonly phaseDefinitions: Map<SPARCPhase, PhaseDefinition>;
   private readonly activeProjects: Map<string, SPARCProject>;
   private readonly phaseEngines: Map<SPARCPhase, any>;
+  private readonly projectManagement: ProjectManagementIntegration;
 
   constructor() {
     this.phaseDefinitions = this.initializePhaseDefinitions();
     this.activeProjects = new Map();
     this.phaseEngines = this.initializePhaseEngines();
+    this.projectManagement = new ProjectManagementIntegration();
   }
 
   /**
@@ -86,6 +89,15 @@ export class SPARCEngineCore implements SPARCEngine {
     };
 
     this.activeProjects.set(projectId, project);
+
+    // Generate project management artifacts
+    try {
+      await this.projectManagement.updateTasksWithSPARC(project);
+      await this.projectManagement.createPRDFile(project);
+      console.log(`📋 Generated project management artifacts for ${project.name}`);
+    } catch (error) {
+      console.warn('⚠️ Could not generate project management artifacts:', error);
+    }
 
     // Log project initialization
     console.log(`🚀 SPARC Project initialized: ${project.name} (${project.id})`);
@@ -135,6 +147,16 @@ export class SPARCEngineCore implements SPARCEngine {
       // Update overall progress
       project.progress.completedPhases.push(phase);
       project.progress.overallProgress = this.calculateOverallProgress(project.progress);
+
+      // Generate ADRs for architecture phase
+      if (phase === 'architecture') {
+        try {
+          await this.projectManagement.createADRFiles(project);
+          console.log(`📝 Generated ADRs for ${project.name}`);
+        } catch (error) {
+          console.warn('⚠️ Could not generate ADRs:', error);
+        }
+      }
 
       const metrics: PhaseMetrics = {
         duration: duration / 1000 / 60,

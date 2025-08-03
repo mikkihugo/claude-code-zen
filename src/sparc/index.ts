@@ -17,6 +17,10 @@ export type * from './types/sparc-types.js';
 // MCP Integration
 export { sparcMCPTools, SPARCMCPTools } from './integrations/mcp-sparc-tools.js';
 
+// Project Management Integration
+export { ProjectManagementIntegration } from './integrations/project-management-integration.js';
+export { SPARCRoadmapManager } from './integrations/roadmap-integration.js';
+
 // Templates
 export { SWARM_COORDINATION_TEMPLATE } from './templates/swarm-coordination-template.js';
 

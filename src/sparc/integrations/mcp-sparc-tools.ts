@@ -7,6 +7,8 @@
 
 import type { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { SPARCEngineCore } from '../core/sparc-engine.js';
+import { ProjectManagementIntegration } from './project-management-integration.js';
+import { SPARCRoadmapManager } from './roadmap-integration.js';
 import type {
   ProjectSpecification,
   SPARCProject,
@@ -18,10 +20,14 @@ import type {
 export class SPARCMCPTools {
   private sparcEngine: SPARCEngineCore;
   private activeProjects: Map<string, SPARCProject>;
+  private projectManagement: ProjectManagementIntegration;
+  private roadmapManager: SPARCRoadmapManager;
 
   constructor() {
     this.sparcEngine = new SPARCEngineCore();
     this.activeProjects = new Map();
+    this.projectManagement = new ProjectManagementIntegration();
+    this.roadmapManager = new SPARCRoadmapManager();
   }
 
   /**
@@ -37,7 +43,12 @@ export class SPARCMCPTools {
       this.listProjectsTool(),
       this.refineImplementationTool(),
       this.applyTemplateTool(),
-      this.executeFullWorkflowTool()
+      this.executeFullWorkflowTool(),
+      // Project Management Integration Tools
+      this.generateProjectManagementArtifactsTool(),
+      this.createEpicFromProjectTool(),
+      this.addToRoadmapTool(),
+      this.generateDomainRoadmapTool()
     ];
   }
 
@@ -273,7 +284,7 @@ export class SPARCMCPTools {
   /**
    * Execute MCP tool calls
    */
-  async handleToolCall(name: string, args: any): Promise<any> {
+  async handleOldToolCall(name: string, args: any): Promise<any> {
     switch (name) {
       case 'sparc_create_project':
         return this.handleCreateProject(args);
@@ -612,6 +623,315 @@ export class SPARCMCPTools {
       results,
       message: 'Full SPARC workflow execution completed'
     };
+  }
+
+  // Project Management Integration Tools
+
+  private generateProjectManagementArtifactsTool(): Tool {
+    return {
+      name: 'sparc_generate_pm_artifacts',
+      description: 'Generate project management artifacts (tasks, ADRs, PRDs) from SPARC project',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          projectId: {
+            type: 'string',
+            description: 'SPARC project identifier'
+          },
+          artifactTypes: {
+            type: 'array',
+            items: {
+              type: 'string',
+              enum: ['tasks', 'adrs', 'prd', 'all']
+            },
+            description: 'Types of artifacts to generate'
+          }
+        },
+        required: ['projectId', 'artifactTypes']
+      }
+    };
+  }
+
+  private createEpicFromProjectTool(): Tool {
+    return {
+      name: 'sparc_create_epic',
+      description: 'Create an epic and features from a SPARC project for strategic planning',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          projectId: {
+            type: 'string',
+            description: 'SPARC project identifier'
+          },
+          includeFeatures: {
+            type: 'boolean',
+            description: 'Also generate features from project phases'
+          }
+        },
+        required: ['projectId']
+      }
+    };
+  }
+
+  private addToRoadmapTool(): Tool {
+    return {
+      name: 'sparc_add_to_roadmap',
+      description: 'Add SPARC project to enterprise roadmap planning',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          projectId: {
+            type: 'string',
+            description: 'SPARC project identifier'
+          },
+          targetQuarter: {
+            type: 'string',
+            pattern: '^[0-9]{4}-Q[1-4]$',
+            description: 'Target quarter (e.g., "2024-Q2")'
+          },
+          priority: {
+            type: 'string',
+            enum: ['high', 'medium', 'low'],
+            description: 'Business priority level'
+          }
+        },
+        required: ['projectId', 'targetQuarter']
+      }
+    };
+  }
+
+  private generateDomainRoadmapTool(): Tool {
+    return {
+      name: 'sparc_generate_domain_roadmap',
+      description: 'Generate strategic roadmap for a specific domain',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          domain: {
+            type: 'string',
+            enum: ['swarm-coordination', 'neural-networks', 'wasm-integration', 'rest-api', 'memory-systems', 'interfaces'],
+            description: 'Domain to generate roadmap for'
+          },
+          timeframe: {
+            type: 'object',
+            properties: {
+              startQuarter: {
+                type: 'string',
+                pattern: '^[0-9]{4}-Q[1-4]$'
+              },
+              endQuarter: {
+                type: 'string',
+                pattern: '^[0-9]{4}-Q[1-4]$'
+              }
+            },
+            required: ['startQuarter', 'endQuarter']
+          }
+        },
+        required: ['domain', 'timeframe']
+      }
+    };
+  }
+
+  /**
+   * Handle project management artifacts generation
+   */
+  public async handleGenerateProjectManagementArtifacts(args: any): Promise<any> {
+    const project = this.activeProjects.get(args.projectId);
+    if (!project) {
+      throw new Error(`Project not found: ${args.projectId}`);
+    }
+
+    const results = [];
+
+    for (const artifactType of args.artifactTypes) {
+      try {
+        switch (artifactType) {
+          case 'tasks':
+          case 'all':
+            await this.projectManagement.updateTasksWithSPARC(project);
+            results.push({ type: 'tasks', status: 'generated' });
+            if (artifactType !== 'all') break;
+            
+          case 'adrs':
+            if (artifactType === 'adrs' || artifactType === 'all') {
+              await this.projectManagement.createADRFiles(project);
+              results.push({ type: 'adrs', status: 'generated' });
+            }
+            if (artifactType !== 'all') break;
+            
+          case 'prd':
+            if (artifactType === 'prd' || artifactType === 'all') {
+              await this.projectManagement.createPRDFile(project);
+              results.push({ type: 'prd', status: 'generated' });
+            }
+            break;
+        }
+      } catch (error) {
+        results.push({ 
+          type: artifactType, 
+          status: 'failed', 
+          error: error instanceof Error ? error.message : 'Unknown error' 
+        });
+      }
+    }
+
+    return {
+      success: true,
+      projectId: args.projectId,
+      projectName: project.name,
+      artifactsGenerated: results,
+      message: `Generated ${results.filter(r => r.status === 'generated').length} project management artifacts`
+    };
+  }
+
+  /**
+   * Handle epic creation from project
+   */
+  public async handleCreateEpic(args: any): Promise<any> {
+    const project = this.activeProjects.get(args.projectId);
+    if (!project) {
+      throw new Error(`Project not found: ${args.projectId}`);
+    }
+
+    try {
+      const epic = await this.roadmapManager.generateEpicFromSPARCProject(project);
+      
+      let features = [];
+      if (args.includeFeatures) {
+        features = await this.roadmapManager.generateFeaturesFromProject(project);
+      }
+
+      await this.roadmapManager.saveProjectArtifacts(project);
+
+      return {
+        success: true,
+        projectId: args.projectId,
+        epic: {
+          id: epic.id,
+          title: epic.title,
+          description: epic.description,
+          timeline: epic.timeline,
+          businessValue: epic.business_value
+        },
+        features: features.map(f => ({
+          id: f.id,
+          title: f.title,
+          status: f.status
+        })),
+        message: `Epic created for ${project.name} with ${features.length} features`
+      };
+    } catch (error) {
+      throw new Error(`Failed to create epic: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
+
+  /**
+   * Handle adding project to roadmap
+   */
+  public async handleAddToRoadmap(args: any): Promise<any> {
+    const project = this.activeProjects.get(args.projectId);
+    if (!project) {
+      throw new Error(`Project not found: ${args.projectId}`);
+    }
+
+    try {
+      await this.roadmapManager.addProjectToRoadmap(project, args.targetQuarter);
+
+      return {
+        success: true,
+        projectId: args.projectId,
+        projectName: project.name,
+        targetQuarter: args.targetQuarter,
+        priority: args.priority || 'medium',
+        message: `Added ${project.name} to roadmap for ${args.targetQuarter}`
+      };
+    } catch (error) {
+      throw new Error(`Failed to add to roadmap: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
+
+  /**
+   * Handle domain roadmap generation
+   */
+  public async handleGenerateDomainRoadmap(args: any): Promise<any> {
+    try {
+      const roadmap = await this.roadmapManager.generateDomainRoadmap(
+        args.domain,
+        {
+          start: args.timeframe.startQuarter,
+          end: args.timeframe.endQuarter
+        }
+      );
+
+      return {
+        success: true,
+        domain: args.domain,
+        roadmap: {
+          id: roadmap.id,
+          title: roadmap.title,
+          description: roadmap.description,
+          timeframe: roadmap.timeframe,
+          itemCount: roadmap.items.length
+        },
+        items: roadmap.items.map(item => ({
+          id: item.id,
+          title: item.title,
+          type: item.type,
+          quarter: item.quarter,
+          effortEstimate: item.effort_estimate,
+          businessValue: item.business_value
+        })),
+        message: `Generated ${args.domain} roadmap with ${roadmap.items.length} items`
+      };
+    } catch (error) {
+      throw new Error(`Failed to generate domain roadmap: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
+
+  /**
+   * Handle tool calls with project management integration
+   */
+  public async handleToolCall(toolName: string, args: any): Promise<any> {
+    try {
+      switch (toolName) {
+        case 'sparc_create_project':
+          return await this.handleCreateProject(args);
+        case 'sparc_execute_phase':
+          return await this.handleExecutePhase(args);
+        case 'sparc_get_project_status':
+          return await this.handleGetProjectStatus(args);
+        case 'sparc_generate_artifacts':
+          return await this.handleGenerateArtifacts(args);
+        case 'sparc_validate_completion':
+          return await this.handleValidateCompletion(args);
+        case 'sparc_list_projects':
+          return await this.handleListProjects(args);
+        case 'sparc_refine_implementation':
+          return await this.handleRefineImplementation(args);
+        case 'sparc_apply_template':
+          return await this.handleApplyTemplate(args);
+        case 'sparc_execute_full_workflow':
+          return await this.handleExecuteFullWorkflow(args);
+        // Project Management Integration Tools
+        case 'sparc_generate_pm_artifacts':
+          return await this.handleGenerateProjectManagementArtifacts(args);
+        case 'sparc_create_epic':
+          return await this.handleCreateEpic(args);
+        case 'sparc_add_to_roadmap':
+          return await this.handleAddToRoadmap(args);
+        case 'sparc_generate_domain_roadmap':
+          return await this.handleGenerateDomainRoadmap(args);
+        default:
+          throw new Error(`Unknown tool: ${toolName}`);
+      }
+    } catch (error) {
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error occurred',
+        toolName,
+        args
+      };
+    }
   }
 }
 
