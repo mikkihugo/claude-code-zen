@@ -29,9 +29,16 @@ class WasmBindingProvider implements WasmBindingInterface {
     if (!this.wasmModule) {
       try {
         // Dynamic import through abstraction - no direct dependency
-        const { neuralWasmManager } = await import('../neural/wasm/index.js');
-        await neuralWasmManager.loadComponent('cuda-rust');
-        this.wasmModule = neuralWasmManager;
+        const wasmModule = await import('../neural/wasm/index.js');
+        // Use available exports from the wasm module
+        const manager = wasmModule.WasmLoader || wasmModule.WasmLoader2 || wasmModule.WasmMemoryOptimizer;
+        // Only call loadComponent if it exists
+        if (manager && typeof manager.loadComponent === 'function') {
+          await manager.loadComponent('cuda-rust');
+        } else if (manager && typeof manager.load === 'function') {
+          await manager.load();
+        }
+        this.wasmModule = manager || wasmModule;
       } catch (error) {
         console.warn('WASM neural module not available, using fallback:', error);
         this.wasmModule = { fallback: true };

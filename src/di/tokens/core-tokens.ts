@@ -26,9 +26,11 @@ export interface IEventBus {
 }
 
 export interface IDatabase {
+  initialize?(): Promise<void>;
   query<T>(sql: string, params?: any[]): Promise<T[]>;
   execute(sql: string, params?: any[]): Promise<void>;
   transaction<T>(fn: (db: IDatabase) => Promise<T>): Promise<T>;
+  shutdown?(): Promise<void>;
 }
 
 export interface IHttpClient {
