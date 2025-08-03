@@ -2,7 +2,7 @@
 
 /**
  * Enhanced SPARC Infrastructure Integration Demo
- * 
+ *
  * Demonstrates SPARC integration with existing Claude-Zen infrastructure:
  * - DocumentDrivenSystem for document workflow management
  * - UnifiedWorkflowEngine for Vision → ADRs → PRDs → Epics → Features → Tasks
@@ -28,7 +28,11 @@ try {
   console.log('✅ UnifiedWorkflowEngine initialized');
   console.log('✅ UnifiedMemorySystem initialized\n');
 } catch (error) {
-  console.log('⚠️  Infrastructure initialization failed (continuing with basic mode):', error.message, '\n');
+  console.log(
+    '⚠️  Infrastructure initialization failed (continuing with basic mode):',
+    error.message,
+    '\n'
+  );
 }
 
 // Create SPARC project
@@ -41,8 +45,8 @@ const createResult = await sparcTools.handleToolCall('sparc_create_project', {
     'Integrate with existing DocumentDrivenSystem',
     'Use UnifiedWorkflowEngine for document workflows',
     'Leverage TaskAPI for task coordination',
-    'Follow existing ADR template structure'
-  ]
+    'Follow existing ADR template structure',
+  ],
 });
 
 console.log(`✅ Project created: ${createResult.projectId}\n`);
@@ -51,7 +55,7 @@ console.log(`✅ Project created: ${createResult.projectId}\n`);
 console.log('📄 Generating comprehensive artifacts with enhanced infrastructure...');
 const artifactsResult = await sparcTools.handleToolCall('sparc_generate_pm_artifacts', {
   projectId: createResult.projectId,
-  artifactTypes: ['all'] // tasks, adrs, prd, epics, features
+  artifactTypes: ['all'], // tasks, adrs, prd, epics, features
 });
 
 if (artifactsResult.success) {
@@ -61,13 +65,23 @@ if (artifactsResult.success) {
   console.log(`  - DocumentDrivenSystem: ${artifactsResult.infrastructure.documentDrivenSystem}`);
   console.log(`  - UnifiedWorkflowEngine: ${artifactsResult.infrastructure.unifiedWorkflowEngine}`);
   console.log(`  - MemorySystem: ${artifactsResult.infrastructure.memorySystem}`);
-  
+
   console.log('\n📊 Generated Artifacts:');
-  console.log(`  - Tasks: ${artifactsResult.artifacts.tasks.count} (${artifactsResult.artifacts.tasks.status})`);
-  console.log(`  - ADRs: ${artifactsResult.artifacts.adrs.count} (${artifactsResult.artifacts.adrs.status})`);
-  console.log(`  - PRD: ${artifactsResult.artifacts.prd.id} (${artifactsResult.artifacts.prd.status})`);
-  console.log(`  - Epics: ${artifactsResult.artifacts.epics.count} (${artifactsResult.artifacts.epics.status})`);
-  console.log(`  - Features: ${artifactsResult.artifacts.features.count} (${artifactsResult.artifacts.features.status})`);
+  console.log(
+    `  - Tasks: ${artifactsResult.artifacts.tasks.count} (${artifactsResult.artifacts.tasks.status})`
+  );
+  console.log(
+    `  - ADRs: ${artifactsResult.artifacts.adrs.count} (${artifactsResult.artifacts.adrs.status})`
+  );
+  console.log(
+    `  - PRD: ${artifactsResult.artifacts.prd.id} (${artifactsResult.artifacts.prd.status})`
+  );
+  console.log(
+    `  - Epics: ${artifactsResult.artifacts.epics.count} (${artifactsResult.artifacts.epics.status})`
+  );
+  console.log(
+    `  - Features: ${artifactsResult.artifacts.features.count} (${artifactsResult.artifacts.features.status})`
+  );
 
   console.log('\n🔄 Workflow Integration:');
   console.log(`  - Vision → ADRs: ${artifactsResult.integration.vision_workflow}`);
@@ -88,12 +102,11 @@ if (artifactsResult.success) {
 
   console.log('\n🎯 Key Integration Features:');
   console.log('  ✅ Uses existing DocumentDrivenSystem for document processing');
-  console.log('  ✅ Leverages UnifiedWorkflowEngine for automated workflows'); 
+  console.log('  ✅ Leverages UnifiedWorkflowEngine for automated workflows');
   console.log('  ✅ Integrates with TaskAPI & EnhancedTaskTool for task management');
   console.log('  ✅ Follows existing ADR template structure');
   console.log('  ✅ Stores documents in UnifiedMemorySystem');
   console.log('  ✅ Processes through existing document workflow patterns');
-
 } else {
   console.log('❌ Infrastructure integration failed:', artifactsResult.error);
 }

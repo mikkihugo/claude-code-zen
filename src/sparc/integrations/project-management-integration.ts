@@ -16,8 +16,8 @@ import {
   EnhancedTaskTool,
 } from '../../coordination/enhanced-task-tool.js';
 import { DocumentDrivenSystem } from '../../core/document-driven-system.js';
-import { UnifiedWorkflowEngine } from '../../core/unified-workflow-engine.js';
 import { UnifiedMemorySystem } from '../../core/unified-memory-system.js';
+import { UnifiedWorkflowEngine } from '../../core/unified-workflow-engine.js';
 import type { DetailedSpecification, SPARCProject } from '../types/sparc-types';
 
 // Task Management Integration Types
@@ -149,7 +149,7 @@ export class ProjectManagementIntegration {
   private readonly roadmapFile: string;
   private readonly taskTool: EnhancedTaskTool;
   private readonly taskDistributor: any;
-  
+
   // Enhanced infrastructure integration
   private documentDrivenSystem: DocumentDrivenSystem;
   private workflowEngine: UnifiedWorkflowEngine;
@@ -168,7 +168,7 @@ export class ProjectManagementIntegration {
     this.taskTool = EnhancedTaskTool.getInstance();
     // Note: TaskDistributionEngine requires complex setup, will use TaskAPI instead
     this.taskDistributor = null;
-    
+
     // Initialize sophisticated document-driven infrastructure
     this.memorySystem = new UnifiedMemorySystem();
     this.documentDrivenSystem = new DocumentDrivenSystem();
@@ -201,13 +201,13 @@ export class ProjectManagementIntegration {
   }> {
     // Initialize infrastructure
     await this.initialize();
-    
+
     // Load workspace using DocumentDrivenSystem
     const workspaceId = await this.documentDrivenSystem.loadWorkspace(this.projectRoot);
-    
+
     // Create vision document from SPARC project for document workflow
     const visionDocument = await this.createVisionDocumentFromSPARC(project, workspaceId);
-    
+
     // Process through DocumentDrivenSystem
     await this.documentDrivenSystem.processVisionaryDocument(workspaceId, visionDocument.path);
 
@@ -256,7 +256,10 @@ export class ProjectManagementIntegration {
   /**
    * Create vision document from SPARC project using DocumentDrivenSystem patterns
    */
-  private async createVisionDocumentFromSPARC(project: SPARCProject, workspaceId: string): Promise<{
+  private async createVisionDocumentFromSPARC(
+    project: SPARCProject,
+    workspaceId: string
+  ): Promise<{
     path: string;
     content: string;
   }> {
@@ -272,9 +275,9 @@ ${project.domain}
 ${project.specification.functionalRequirements.map((req) => `- ${req.description}`).join('\n')}
 
 ## Success Metrics
-${project.specification.acceptanceCriteria.map((criteria) => 
-  criteria.criteria.map(c => `- ${c}`).join('\n')
-).join('\n')}
+${project.specification.acceptanceCriteria
+  .map((criteria) => criteria.criteria.map((c) => `- ${c}`).join('\n'))
+  .join('\n')}
 
 ## Constraints
 ${project.specification.constraints.map((constraint) => `- ${constraint.description}`).join('\n')}
@@ -291,7 +294,7 @@ Related: SPARC-${project.id}
 
     const visionDir = path.join(this.projectRoot, 'docs/01-vision');
     const visionPath = path.join(visionDir, `${project.id}-vision.md`);
-    
+
     await fs.mkdir(visionDir, { recursive: true });
     await fs.writeFile(visionPath, visionContent);
 
@@ -301,13 +304,16 @@ Related: SPARC-${project.id}
   /**
    * Execute document workflows using UnifiedWorkflowEngine
    */
-  private async executeDocumentWorkflows(workspaceId: string, visionDocument: { path: string; content: string }): Promise<any> {
+  private async executeDocumentWorkflows(
+    workspaceId: string,
+    visionDocument: { path: string; content: string }
+  ): Promise<any> {
     const workflows = [
       'vision-to-adrs',
       'vision-to-prds',
       'prd-to-epics',
       'epic-to-features',
-      'feature-to-tasks'
+      'feature-to-tasks',
     ];
 
     const results = {};
@@ -319,9 +325,9 @@ Related: SPARC-${project.id}
           currentDocument: {
             type: 'vision',
             content: visionDocument.content,
-            metadata: { source: 'sparc', projectId: workspaceId }
+            metadata: { source: 'sparc', projectId: workspaceId },
           },
-          workspace: this.projectRoot
+          workspace: this.projectRoot,
         });
 
         if (result.success && result.workflowId) {
@@ -464,7 +470,7 @@ Related: SPARC-${project.id}
             type: task.component,
             description: task.description,
             priority: task.priority * 20, // Convert to 0-100 scale
-            deadline: task.completed_date ? new Date(task.completed_date) : undefined
+            deadline: task.completed_date ? new Date(task.completed_date) : undefined,
           });
           console.log(`Task created via TaskAPI: ${task.title}`);
         } catch (error) {
@@ -1130,7 +1136,7 @@ ${prd.stakeholders.map((stakeholder) => `- ${stakeholder}`).join('\n')}
     // Check for existing ADR template (following existing patterns)
     const templatePath = path.join(this.projectRoot, 'docs/adrs/adr-template.md');
     let template = '';
-    
+
     try {
       template = await fs.readFile(templatePath, 'utf-8');
     } catch {
@@ -1169,7 +1175,12 @@ ${prd.stakeholders.map((stakeholder) => `- ${stakeholder}`).join('\n')}
         .replace(/{STATUS}/g, adr.status)
         .replace(/{CONTEXT}/g, adr.context)
         .replace(/{DECISION}/g, adr.decision)
-        .replace(/{CONSEQUENCES}/g, Array.isArray(adr.consequences) ? adr.consequences.map(c => `- ${c}`).join('\n') : adr.consequences)
+        .replace(
+          /{CONSEQUENCES}/g,
+          Array.isArray(adr.consequences)
+            ? adr.consequences.map((c) => `- ${c}`).join('\n')
+            : adr.consequences
+        )
         .replace(/{DATE}/g, adr.date)
         .replace(/{SPARC_PROJECT_ID}/g, adr.sparc_project_id || 'N/A')
         .replace(/{PHASE}/g, adr.phase || 'N/A');
@@ -1187,8 +1198,8 @@ ${prd.stakeholders.map((stakeholder) => `- ${stakeholder}`).join('\n')}
             status: adr.status,
             phase: adr.phase,
             sparcProjectId: adr.sparc_project_id,
-            filePath
-          }
+            filePath,
+          },
         });
       }
 
@@ -1228,7 +1239,7 @@ ${epic.business_value}
 ${epic.status}
 
 ## Features
-${epic.features.map(f => `- ${f}`).join('\n')}
+${epic.features.map((f) => `- ${f}`).join('\n')}
 
 ## Related SPARC Project
 ${epic.sparc_project_id || 'N/A'}
@@ -1277,7 +1288,7 @@ ${feature.epic_id || 'N/A'}
 ${feature.status}
 
 ## User Stories
-${feature.user_stories.map(us => `- ${us}`).join('\n')}
+${feature.user_stories.map((us) => `- ${us}`).join('\n')}
 
 ## Related SPARC Project
 ${feature.sparc_project_id || 'N/A'}
