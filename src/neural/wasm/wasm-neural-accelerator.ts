@@ -3,7 +3,7 @@
  * High-performance neural network computations using WebAssembly
  */
 
-import type { NeuralNetwork } from '../core/neural-network.ts';
+import type { NeuralNetwork } from '../core/neural-network';
 
 export interface WasmComputeOptions {
   threads?: number;
@@ -307,6 +307,17 @@ export class WasmNeuralAccelerator {
 
   private mockDeallocate(size: number = 0): void {
     this.memoryStats.current = Math.max(0, this.memoryStats.current - size);
+  }
+
+  /**
+   * Get current memory usage
+   */
+  async getMemoryUsage(): Promise<WasmMemoryStats> {
+    return {
+      allocated: this.memoryStats.allocated,
+      peak: this.memoryStats.peak,
+      current: this.memoryStats.current,
+    };
   }
 
   private jsMatrixMultiply(a: Float32Array, b: Float32Array, rows: number, cols: number, inner: number): Float32Array {
