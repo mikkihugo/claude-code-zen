@@ -8,11 +8,12 @@ import {
   createNeuralTestSuite,
   NeuralTestDataGenerator,
   NeuralPerformanceTester,
+} from '../../../helpers/neural-test-helpers';
+import {
   createPerformanceProfiler,
   createBenchmarkSuite,
   PerformanceValidator,
-  DomainPerformanceTests,
-} from '../../../helpers';
+} from '../../../helpers/performance-test-suite';
 
 // Mock WASM module for testing (in real implementation, this would be the actual WASM import)
 const mockWasmModule = {

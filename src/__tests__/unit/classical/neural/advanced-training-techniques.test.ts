@@ -9,7 +9,7 @@ import {
   NeuralTestDataGenerator,
   NeuralNetworkValidator,
   NeuralPerformanceTester,
-} from '../../../helpers';
+} from '../../../helpers/neural-test-helpers';
 
 interface TrainingMetrics {
   trainLoss: number[];
