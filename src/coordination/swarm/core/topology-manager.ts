@@ -1,0 +1,7 @@
+/**
+ * Topology Manager for Swarm Core
+ * Re-exports the advanced topology manager for swarm coordination
+ */
+
+export { TopologyManager as default } from '../../protocols/topology/topology-manager.js';
+export * from '../../protocols/topology/topology-manager.js';
