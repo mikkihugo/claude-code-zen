@@ -28,7 +28,7 @@ import type {
   Priority,
   RiskLevel,
   ValidationResult
-} from '../types/sparc-types.js';
+} from '../../types/sparc-types.js';
 
 export class SpecificationPhaseEngine implements SpecificationEngine {
   
