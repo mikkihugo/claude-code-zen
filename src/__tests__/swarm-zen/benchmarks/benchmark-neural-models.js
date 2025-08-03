@@ -240,8 +240,8 @@ class NeuralBenchmark {
           analysis,
         },
         null,
-        2,
-      ),
+        2
+      )
     );
 
     // Display summary
@@ -280,13 +280,13 @@ class NeuralBenchmark {
 
     // Generate recommendations
     const bestAccuracy = Object.entries(analysis.performance).sort(
-      (a, b) => b[1].accuracy - a[1].accuracy,
+      (a, b) => b[1].accuracy - a[1].accuracy
     )[0];
     const bestSpeed = Object.entries(analysis.performance).sort(
-      (a, b) => b[1].inferenceSpeed - a[1].inferenceSpeed,
+      (a, b) => b[1].inferenceSpeed - a[1].inferenceSpeed
     )[0];
     const mostEfficient = Object.entries(analysis.memory).sort(
-      (a, b) => b[1].efficiency - a[1].efficiency,
+      (a, b) => b[1].efficiency - a[1].efficiency
     )[0];
 
     analysis.recommendations = [
@@ -314,14 +314,14 @@ class NeuralBenchmark {
     console.log('\n💾 Memory Usage:');
     Object.entries(analysis.memory).forEach(([model, metrics]) => {
       console.log(
-        `${model.toUpperCase()}: ${metrics.totalMemory}MB (${metrics.efficiency.toFixed(1)}% efficient)`,
+        `${model.toUpperCase()}: ${metrics.totalMemory}MB (${metrics.efficiency.toFixed(1)}% efficient)`
       );
     });
 
     console.log('\n🏗️ Architecture Complexity:');
     Object.entries(analysis.architecture).forEach(([model, arch]) => {
       console.log(
-        `${model.toUpperCase()}: ${arch.layers} layers, ${arch.parameters.toLocaleString()} parameters`,
+        `${model.toUpperCase()}: ${arch.layers} layers, ${arch.parameters.toLocaleString()} parameters`
       );
     });
 

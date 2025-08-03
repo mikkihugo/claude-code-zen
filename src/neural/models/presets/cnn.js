@@ -394,7 +394,7 @@ class CNNModel extends NeuralModel {
           `Train Loss: ${avgTrainLoss.toFixed(4)}, ` +
           `Train Acc: ${(avgTrainAccuracy * 100).toFixed(2)}%, ` +
           `Val Loss: ${valMetrics.loss.toFixed(4)}, ` +
-          `Val Acc: ${(valMetrics.accuracy * 100).toFixed(2)}%`,
+          `Val Acc: ${(valMetrics.accuracy * 100).toFixed(2)}%`
       );
 
       this.updateMetrics(avgTrainLoss, avgTrainAccuracy);

@@ -385,7 +385,7 @@ class AutoencoderModel extends NeuralModel {
           `Loss: ${avgTrainLoss.toFixed(4)} ` +
           `(Recon: ${avgReconLoss.toFixed(4)}, ` +
           `KL: ${avgKLLoss.toFixed(4)}) - ` +
-          `Val Loss: ${valLosses.total.toFixed(4)}`,
+          `Val Loss: ${valLosses.total.toFixed(4)}`
       );
 
       this.updateMetrics(avgTrainLoss);

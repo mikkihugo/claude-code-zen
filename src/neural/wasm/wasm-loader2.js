@@ -101,7 +101,7 @@ class WasmModuleLoader {
       } else {
         // Only warn for other optional modules
         console.warn(
-          `⚠️ Optional module ${moduleName} is not available, functionality will be provided by core module`,
+          `⚠️ Optional module ${moduleName} is not available, functionality will be provided by core module`
         );
       }
 
@@ -135,7 +135,7 @@ class WasmModuleLoader {
       // If it's an optional module, provide fallback to core functionality
       if (moduleInfo.optional && this.modules.has('core')) {
         console.warn(
-          `⚠️ Optional module ${moduleName} failed to load, using core module functionality`,
+          `⚠️ Optional module ${moduleName} failed to load, using core module functionality`
         );
         const coreModule = this.modules.get('core');
         this.modules.set(moduleName, coreModule);
@@ -335,13 +335,13 @@ class WasmModuleLoader {
   async loadAllModules() {
     // Only load modules that actually exist
     const existingModules = Object.keys(this.moduleManifest).filter(
-      (name) => this.moduleManifest[name].exists,
+      (name) => this.moduleManifest[name].exists
     );
 
     await Promise.all(existingModules.map((name) => this.loadModule(name)));
 
     console.error(
-      `🎯 All available WASM modules loaded successfully (${existingModules.length} modules`,
+      `🎯 All available WASM modules loaded successfully (${existingModules.length} modules`
     );
     return true;
   }
@@ -359,14 +359,14 @@ class WasmModuleLoader {
               // Trigger module loading
               this.loadModule(moduleName);
               throw new Error(
-                `Module ${moduleName} is loading. Please await loadModule('${moduleName}') first.`,
+                `Module ${moduleName} is loading. Please await loadModule('${moduleName}') first.`
               );
             }
 
             const module = this.modules.get(moduleName);
             return module.exports[prop];
           },
-        },
+        }
       );
     }
 

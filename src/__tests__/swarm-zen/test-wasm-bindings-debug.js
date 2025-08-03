@@ -52,7 +52,7 @@ async function testWasmDirectly() {
       if (instantiateError.message.includes('Import #')) {
         console.log('\n🔍 Missing imports detected:');
         const importMatch = instantiateError.message.match(
-          /Import #(\d+) module="([^"]+)" function="([^"]+)"/,
+          /Import #(\d+) module="([^"]+)" function="([^"]+)"/
         );
         if (importMatch) {
           console.log(`  - Module: ${importMatch[2]}`);

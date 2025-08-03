@@ -55,7 +55,7 @@ async function runAllTests() {
     console.log('-'.repeat(60));
     console.log(`TOTAL:          ${results.overall.passed}/${results.overall.total} passed`);
     console.log(
-      `Success Rate:   ${((results.overall.passed / results.overall.total) * 100).toFixed(2)}%`,
+      `Success Rate:   ${((results.overall.passed / results.overall.total) * 100).toFixed(2)}%`
     );
 
     // Generate coverage report
@@ -80,7 +80,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     .then((results) => {
       const exitCode = results.failed > 0 ? 1 : 0;
       console.log(
-        `\n${exitCode === 0 ? '✅' : '❌'} Tests ${exitCode === 0 ? 'passed' : 'failed'}`,
+        `\n${exitCode === 0 ? '✅' : '❌'} Tests ${exitCode === 0 ? 'passed' : 'failed'}`
       );
       process.exit(exitCode);
     })

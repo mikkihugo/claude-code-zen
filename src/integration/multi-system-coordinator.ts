@@ -5,9 +5,8 @@
  */
 
 import { EventEmitter } from 'node:events';
-import { injectable, inject } from '../di/index.js';
-import { CORE_TOKENS } from '../di/index.js';
 import type { ILogger } from '../di/index.js';
+import { CORE_TOKENS, inject, injectable } from '../di/index.js';
 
 @injectable
 export class MultiSystemCoordinator extends EventEmitter {
@@ -28,7 +27,7 @@ export class MultiSystemCoordinator extends EventEmitter {
    */
   async initialize(): Promise<void> {
     this.logger.info('Initializing Multi-System Coordinator...');
-    
+
     try {
       // Initialize systems - placeholder implementation
       this.isInitialized = true;
@@ -52,10 +51,10 @@ export class MultiSystemCoordinator extends EventEmitter {
 
     try {
       this.logger.debug(`Coordinating operation: ${operation}`, { operationId });
-      
+
       // Placeholder coordination logic
       const result = { operationId, operation, status: 'completed', data };
-      
+
       this.activeOperations.delete(operationId);
       return result;
     } catch (error) {

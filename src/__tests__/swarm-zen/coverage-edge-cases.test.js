@@ -37,7 +37,7 @@ describe('Edge Cases for 100% Coverage', () => {
           type: 'invalid-type',
           dimensions: -1,
         }),
-        /Invalid configuration/,
+        /Invalid configuration/
       );
     });
 
@@ -104,7 +104,7 @@ describe('Edge Cases for 100% Coverage', () => {
           topology: 'invalid-topology',
           maxAgents: -5,
         }),
-        /Invalid configuration/,
+        /Invalid configuration/
       );
     });
   });
@@ -136,7 +136,7 @@ describe('Edge Cases for 100% Coverage', () => {
           promise,
           new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 100)),
         ]),
-        /Timeout/,
+        /Timeout/
       );
     });
 
@@ -216,7 +216,7 @@ describe('Edge Cases for 100% Coverage', () => {
           input: [[1, 2, 3]],
           attentionMask: null, // Invalid mask
         }),
-        /Invalid attention mask/,
+        /Invalid attention mask/
       );
     });
 
@@ -228,7 +228,7 @@ describe('Edge Cases for 100% Coverage', () => {
           type: 'cnn',
           kernelSize: -1,
         }),
-        /Invalid kernel size/,
+        /Invalid kernel size/
       );
     });
 
@@ -241,7 +241,7 @@ describe('Edge Cases for 100% Coverage', () => {
           input: [[1, 2, 3]],
           hiddenState: new Array(64).fill(0), // Wrong size
         }),
-        /Hidden state dimension mismatch/,
+        /Hidden state dimension mismatch/
       );
     });
 

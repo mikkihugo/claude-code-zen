@@ -348,7 +348,7 @@ describe('Performance Benchmarks', () => {
             ruvSwarm.createSwarm({
               name: `concurrent-swarm-${i}`,
               topology: 'mesh',
-            }),
+            })
           );
         }
         await Promise.all(promises);
@@ -371,7 +371,7 @@ describe('Performance Benchmarks', () => {
             swarm.spawn({
               type: i % 2 === 0 ? 'researcher' : 'coder',
               name: `agent-${i}`,
-            }),
+            })
           );
         }
         await Promise.all(promises);
@@ -454,7 +454,7 @@ describe('Performance Benchmarks', () => {
       console.log('\nScalability Results:');
       for (const result of results) {
         console.log(
-          `  ${result.agents} agents: ${result.totalTime.toFixed(2)}ms total, ${result.timePerAgent.toFixed(3)}ms per agent`,
+          `  ${result.agents} agents: ${result.totalTime.toFixed(2)}ms total, ${result.timePerAgent.toFixed(3)}ms per agent`
         );
       }
 

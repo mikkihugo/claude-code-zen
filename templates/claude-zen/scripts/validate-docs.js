@@ -174,7 +174,7 @@ class DocumentValidator {
       const validStatuses = this.getValidStatuses(docType);
       if (!validStatuses.includes(status)) {
         this.errors.push(
-          `${filePath}: Invalid status '${status}'. Valid values: ${validStatuses.join(', ')}`,
+          `${filePath}: Invalid status '${status}'. Valid values: ${validStatuses.join(', ')}`
         );
       }
     }
@@ -230,7 +230,7 @@ class DocumentValidator {
       const semverPattern = /^\d+\.\d+\.\d+$/;
       if (!semverPattern.test(version)) {
         this.errors.push(
-          `${filePath}: Invalid version format '${version}'. Use semantic versioning (x.y.z)`,
+          `${filePath}: Invalid version format '${version}'. Use semantic versioning (x.y.z)`
         );
       }
     }

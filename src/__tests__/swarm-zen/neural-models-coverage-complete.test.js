@@ -75,7 +75,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       const target = [1.0, 0.0];
 
       await expect(model.backward(output, target)).rejects.toThrow(
-        'backward method must be implemented',
+        'backward method must be implemented'
       );
     });
 
@@ -196,7 +196,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const input = Array.from({ length: 10 }, () =>
-        Array.from({ length: 128 }, () => Math.random()),
+        Array.from({ length: 128 }, () => Math.random())
       );
 
       const attention = model.computeMultiHeadAttention(input, 0);
@@ -215,7 +215,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const input = Array.from({ length: 50 }, () =>
-        Array.from({ length: 256 }, () => Math.random()),
+        Array.from({ length: 256 }, () => Math.random())
       );
 
       const encoded = model.applyPositionalEncoding(input);
@@ -234,7 +234,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const input = Array.from({ length: 5 }, () =>
-        Array.from({ length: 64 }, () => Math.random()),
+        Array.from({ length: 64 }, () => Math.random())
       );
 
       const output = await model.forward(input);
@@ -295,7 +295,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const prompt = Array.from({ length: 3 }, () =>
-        Array.from({ length: 32 }, () => Math.random()),
+        Array.from({ length: 32 }, () => Math.random())
       );
 
       const generated = await model.generate(prompt, {
@@ -374,7 +374,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const input = Array.from({ length: 4 }, () =>
-        Array.from({ length: 4 }, () => Array.from({ length: 2 }, () => Math.random())),
+        Array.from({ length: 4 }, () => Array.from({ length: 2 }, () => Math.random()))
       );
 
       const pooled = model.maxPool(input, 2, 2);
@@ -393,7 +393,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const featureMaps = Array.from({ length: 4 }, () =>
-        Array.from({ length: 4 }, () => Array.from({ length: 3 }, () => Math.random())),
+        Array.from({ length: 4 }, () => Array.from({ length: 3 }, () => Math.random()))
       );
 
       const flattened = model.flatten(featureMaps);
@@ -433,7 +433,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
 
       const trainingData = {
         inputs: Array.from({ length: 10 }, () =>
-          Array.from({ length: 4 }, () => Array.from({ length: 4 }, () => Math.random())),
+          Array.from({ length: 4 }, () => Array.from({ length: 4 }, () => Math.random()))
         ),
         targets: Array.from({ length: 10 }, () => Array.from({ length: 2 }, () => Math.random())),
       };
@@ -474,8 +474,8 @@ describe('🧠 Complete Neural Models Coverage', () => {
 
       const batch = Array.from({ length: 4 }, () =>
         Array.from({ length: 2 }, () =>
-          Array.from({ length: 2 }, () => Array.from({ length: 2 }, () => Math.random())),
-        ),
+          Array.from({ length: 2 }, () => Array.from({ length: 2 }, () => Math.random()))
+        )
       );
 
       const normalized = model.batchNormalize(batch, 0);
@@ -594,7 +594,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const sequence = Array.from({ length: 10 }, () =>
-        Array.from({ length: 8 }, () => Math.random()),
+        Array.from({ length: 8 }, () => Math.random())
       );
 
       const output = await model.forward(sequence);
@@ -615,7 +615,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const sequence = Array.from({ length: 5 }, () =>
-        Array.from({ length: 6 }, () => Math.random()),
+        Array.from({ length: 6 }, () => Math.random())
       );
 
       const output = await model.forward(sequence);
@@ -634,7 +634,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
 
       const trainingData = {
         inputs: Array.from({ length: 20 }, () =>
-          Array.from({ length: 5 }, () => Array.from({ length: 4 }, () => Math.random())),
+          Array.from({ length: 5 }, () => Array.from({ length: 4 }, () => Math.random()))
         ),
         targets: Array.from({ length: 20 }, () => Array.from({ length: 2 }, () => Math.random())),
       };
@@ -750,7 +750,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const sequence = Array.from({ length: 15 }, () =>
-        Array.from({ length: 12 }, () => Math.random()),
+        Array.from({ length: 12 }, () => Math.random())
       );
 
       const output = await model.forward(sequence);
@@ -770,7 +770,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const sequence = Array.from({ length: 8 }, () =>
-        Array.from({ length: 10 }, () => Math.random()),
+        Array.from({ length: 10 }, () => Math.random())
       );
 
       const output = await model.forward(sequence);
@@ -790,7 +790,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
 
       const trainingData = {
         inputs: Array.from({ length: 30 }, () =>
-          Array.from({ length: 20 }, () => Array.from({ length: 50 }, () => Math.random())),
+          Array.from({ length: 20 }, () => Array.from({ length: 50 }, () => Math.random()))
         ),
         targets: Array.from({ length: 30 }, () => Array.from({ length: 3 }, () => Math.random())),
       };
@@ -1467,7 +1467,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const input = Array.from({ length: 8 }, () =>
-        Array.from({ length: 8 }, () => Array.from({ length: 32 }, () => Math.random())),
+        Array.from({ length: 8 }, () => Array.from({ length: 32 }, () => Math.random()))
       );
 
       const output = model.computeResidualBlock(input, 0);
@@ -1486,11 +1486,11 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const input = Array.from({ length: 4 }, () =>
-        Array.from({ length: 4 }, () => Array.from({ length: 16 }, () => Math.random())),
+        Array.from({ length: 4 }, () => Array.from({ length: 16 }, () => Math.random()))
       );
 
       const processed = Array.from({ length: 4 }, () =>
-        Array.from({ length: 4 }, () => Array.from({ length: 16 }, () => Math.random())),
+        Array.from({ length: 4 }, () => Array.from({ length: 16 }, () => Math.random()))
       );
 
       const output = model.applySkipConnection(input, processed);
@@ -1511,8 +1511,8 @@ describe('🧠 Complete Neural Models Coverage', () => {
 
       const batch = Array.from({ length: 8 }, () =>
         Array.from({ length: 4 }, () =>
-          Array.from({ length: 4 }, () => Array.from({ length: 16 }, () => Math.random())),
-        ),
+          Array.from({ length: 4 }, () => Array.from({ length: 16 }, () => Math.random()))
+        )
       );
 
       const normalized = model.batchNormalize(batch, 0);
@@ -1530,7 +1530,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const featureMaps = Array.from({ length: 8 }, () =>
-        Array.from({ length: 8 }, () => Array.from({ length: 64 }, () => Math.random())),
+        Array.from({ length: 8 }, () => Array.from({ length: 64 }, () => Math.random()))
       );
 
       const pooled = model.globalAveragePool(featureMaps);
@@ -1573,7 +1573,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
 
       const trainingData = {
         inputs: Array.from({ length: 20 }, () =>
-          Array.from({ length: 4 }, () => Array.from({ length: 4 }, () => Math.random())),
+          Array.from({ length: 4 }, () => Array.from({ length: 4 }, () => Math.random()))
         ),
         targets: Array.from({ length: 20 }, () => Array.from({ length: 3 }, () => Math.random())),
       };
@@ -1626,7 +1626,7 @@ describe('🧠 Complete Neural Models Coverage', () => {
       });
 
       const input = Array.from({ length: 8 }, () =>
-        Array.from({ length: 8 }, () => Array.from({ length: 16 }, () => Math.random())),
+        Array.from({ length: 8 }, () => Array.from({ length: 16 }, () => Math.random()))
       );
 
       const downsampled = model.downsample(input, 2);

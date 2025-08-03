@@ -138,7 +138,7 @@ class TestRunner {
             NODE_OPTIONS:
               '--experimental-vm-modules --experimental-wasm-modules --max-old-space-size=4096',
           },
-        },
+        }
       );
 
       let stdout = '';
@@ -312,7 +312,7 @@ class TestRunner {
       if (result.stdout) {
         // Simple regex to extract coverage percentages
         const coverageMatch = result.stdout.match(
-          /All files.*?(\d+\.?\d*)\s*\|\s*(\d+\.?\d*)\s*\|\s*(\d+\.?\d*)\s*\|\s*(\d+\.?\d*)/,
+          /All files.*?(\d+\.?\d*)\s*\|\s*(\d+\.?\d*)\s*\|\s*(\d+\.?\d*)\s*\|\s*(\d+\.?\d*)/
         );
         if (coverageMatch) {
           coverageInfo.details.push({
@@ -478,8 +478,8 @@ class TestRunner {
     <div class="test-results">
         <h3 style="margin: 0; padding: 15px; background: #f8f9fa; border-bottom: 1px solid #dee2e6;">Test Results</h3>
         ${summary.results
-    .map(
-      (result) => `
+          .map(
+            (result) => `
             <div class="test-result">
                 <div>
                     <div class="test-name">${result.name}</div>
@@ -489,9 +489,9 @@ class TestRunner {
                     ${result.success ? '✅ PASSED' : '❌ FAILED'}
                 </div>
             </div>
-        `,
-    )
-    .join('')}
+        `
+          )
+          .join('')}
     </div>
 
     <div class="recommendations">

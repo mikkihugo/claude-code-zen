@@ -183,16 +183,54 @@ export class ClaudeZenCore {
         const logger = c.resolve(CORE_TOKENS.Logger);
         return new LearningCoordinator(
           {
-            patternRecognition: { enabled: true, minPatternFrequency: 5, confidenceThreshold: 0.8, analysisWindow: 1000 },
-            learning: { enabled: true, learningRate: 0.1, adaptationRate: 0.05, knowledgeRetention: 0.9 },
-            optimization: { enabled: true, optimizationThreshold: 0.7, maxOptimizations: 10, validationRequired: true },
-            ml: { neuralNetwork: true, reinforcementLearning: false, ensemble: false, onlineLearning: true }
+            patternRecognition: {
+              enabled: true,
+              minPatternFrequency: 5,
+              confidenceThreshold: 0.8,
+              analysisWindow: 1000,
+            },
+            learning: {
+              enabled: true,
+              learningRate: 0.1,
+              adaptationRate: 0.05,
+              knowledgeRetention: 0.9,
+            },
+            optimization: {
+              enabled: true,
+              optimizationThreshold: 0.7,
+              maxOptimizations: 10,
+              validationRequired: true,
+            },
+            ml: {
+              neuralNetwork: true,
+              reinforcementLearning: false,
+              ensemble: false,
+              onlineLearning: true,
+            },
           },
-          { 
+          {
             environment: 'development',
-            resources: [{ type: 'memory', limit: 1024 }, { type: 'cpu', limit: 4 }],
-            constraints: [{ type: 'latency', description: 'Max response time', limit: 1000 }],
-            objectives: [{ type: 'performance', description: 'Maximize throughput', priority: 1 }]
+            resources: [
+              { type: 'memory', limit: 1024, flexibility: 0.2, cost: 1.0 },
+              { type: 'cpu', limit: 4, flexibility: 0.1, cost: 2.0 },
+            ],
+            constraints: [
+              {
+                type: 'latency',
+                description: 'Max response time',
+                limit: 1000,
+                priority: 1,
+              },
+            ],
+            objectives: [
+              {
+                type: 'performance',
+                description: 'Maximize throughput',
+                target: 1000,
+                weight: 1.0,
+                measurement: 'requests/second',
+              },
+            ],
           },
           logger
         );

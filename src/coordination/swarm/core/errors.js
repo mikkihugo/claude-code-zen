@@ -446,7 +446,7 @@ class ErrorFactory {
           message,
           details.resourceType,
           details.currentUsage,
-          details.limit,
+          details.limit
         );
       case 'concurrency':
         return new ConcurrencyError(message, details.operation, details.conflictType);

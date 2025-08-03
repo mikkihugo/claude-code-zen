@@ -37,7 +37,7 @@ async function testAgentTaskBinding() {
       Object.entries(swarmResult.features)
         .filter(([key, value]) => value)
         .map(([key]) => key)
-        .join(', '),
+        .join(', ')
     );
 
     // Step 2: Spawn multiple agents
@@ -53,7 +53,7 @@ async function testAgentTaskBinding() {
       });
       agents.push(agentResult);
       console.log(
-        `✅ Spawned ${agentResult.agent.type} agent: ${agentResult.agent.name} (${agentResult.agent.id})`,
+        `✅ Spawned ${agentResult.agent.type} agent: ${agentResult.agent.name} (${agentResult.agent.id})`
       );
     }
 
@@ -65,7 +65,7 @@ async function testAgentTaskBinding() {
     if (statusResult.swarms && statusResult.swarms.length > 0) {
       const swarm = statusResult.swarms[0];
       console.log(
-        `   Agents: ${swarm.status.agents.total} total, ${swarm.status.agents.idle} idle, ${swarm.status.agents.active} active`,
+        `   Agents: ${swarm.status.agents.total} total, ${swarm.status.agents.idle} idle, ${swarm.status.agents.active} active`
       );
     }
 
@@ -131,7 +131,7 @@ async function testAgentTaskBinding() {
             format: 'summary',
           });
           console.log(
-            `✅ Task completed in ${results.execution_summary?.execution_time_ms || 'N/A'}ms`,
+            `✅ Task completed in ${results.execution_summary?.execution_time_ms || 'N/A'}ms`
           );
         }
       } catch (error) {
@@ -145,7 +145,7 @@ async function testAgentTaskBinding() {
     if (finalStatus.swarms && finalStatus.swarms.length > 0) {
       const swarm = finalStatus.swarms[0];
       console.log(
-        `📊 Final agent states: ${swarm.status.agents.idle} idle, ${swarm.status.agents.active} active`,
+        `📊 Final agent states: ${swarm.status.agents.idle} idle, ${swarm.status.agents.active} active`
       );
     }
 

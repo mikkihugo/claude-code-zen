@@ -334,7 +334,7 @@ class NeuralAgent {
 
     // Log execution
     console.log(
-      `   Agent ${this.id} executing ${decision.action} for task ${task.id} (confidence: ${decision.confidence.toFixed(3)})`,
+      `   Agent ${this.id} executing ${decision.action} for task ${task.id} (confidence: ${decision.confidence.toFixed(3)})`
     );
   }
 
@@ -392,7 +392,7 @@ class NeuralAgent {
         layers: this.network.layers,
         totalWeights: this.network.weights.reduce(
           (sum, layer) => sum + layer.reduce((layerSum, neuron) => layerSum + neuron.length, 0),
-          0,
+          0
         ),
       },
       recentDecisions: this.experience.slice(-5).map((e) => ({
@@ -430,7 +430,7 @@ class SwarmIntelligence {
           ...e,
           agentId: agent.id,
           agentType: agent.type,
-        })),
+        }))
       );
     }
 
@@ -506,7 +506,7 @@ class SwarmIntelligence {
 
     const targets = patterns.map((p) => {
       const target = new Array(this.swarmNetwork.layers[this.swarmNetwork.layers.length - 1]).fill(
-        0.1,
+        0.1
       );
       target[p.recommendation === 'preferred' ? 0 : 1] = 0.9;
       return target;
@@ -533,7 +533,7 @@ class SwarmIntelligence {
 
     // Historical performance
     const relevantPattern = Array.from(this.sharedKnowledge.values()).find((p) =>
-      p.id.includes(task.type),
+      p.id.includes(task.type)
     );
 
     if (relevantPattern) {
@@ -664,7 +664,7 @@ async function runNeuralIntegrationTests() {
     // More realistic assertion - improvement should be positive OR final error should be low
     assert(
       improvement > 0 || finalError < 0.5,
-      `Training should show improvement or converge: improvement=${improvement.toFixed(4)}, finalError=${finalError.toFixed(4)}`,
+      `Training should show improvement or converge: improvement=${improvement.toFixed(4)}, finalError=${finalError.toFixed(4)}`
     );
   });
 
@@ -720,7 +720,7 @@ async function runNeuralIntegrationTests() {
     assert(typeof learningResult.improvement === 'number');
     assert(
       learningResult.improvement >= 0,
-      `Improvement should be non-negative: ${learningResult.improvement}`,
+      `Improvement should be non-negative: ${learningResult.improvement}`
     );
   });
 
@@ -838,7 +838,7 @@ async function runNeuralIntegrationTests() {
     console.log('   Phase 2: Learning from experience...');
     const learningResult1 = await agent.learn();
     console.log(
-      `   Initial learning: Error reduced by ${(learningResult1.improvement || 0).toFixed(4)}`,
+      `   Initial learning: Error reduced by ${(learningResult1.improvement || 0).toFixed(4)}`
     );
 
     // Phase 3: More tasks with improved performance
@@ -857,7 +857,7 @@ async function runNeuralIntegrationTests() {
 
     const finalInsights = agent.getInsights();
     console.log(
-      `   Final performance: ${(finalInsights.performance.successRate * 100).toFixed(1)}% success rate`,
+      `   Final performance: ${(finalInsights.performance.successRate * 100).toFixed(1)}% success rate`
     );
 
     assert(finalInsights.performance.tasksCompleted === 10);
@@ -918,7 +918,7 @@ async function runNeuralIntegrationTests() {
     const learningResult = await swarm.collectiveLearning();
 
     console.log(
-      `   Collective learning complete: ${learningResult.patternsIdentified} patterns found`,
+      `   Collective learning complete: ${learningResult.patternsIdentified} patterns found`
     );
 
     assert(learningResult.totalExperiences >= 18); // At least 6 agents * 3 tasks
@@ -944,7 +944,7 @@ async function runNeuralIntegrationTests() {
     const agents = [];
     for (let i = 0; i < 10; i++) {
       agents.push(
-        new NeuralAgent(uuidv4(), ['researcher', 'coder', 'analyst', 'optimizer'][i % 4], {}),
+        new NeuralAgent(uuidv4(), ['researcher', 'coder', 'analyst', 'optimizer'][i % 4], {})
       );
     }
 
@@ -955,7 +955,7 @@ async function runNeuralIntegrationTests() {
         id: uuidv4(),
         type: 'analysis',
         priority: 'high',
-      }),
+      })
     );
 
     const results = await Promise.all(promises);

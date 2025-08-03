@@ -203,7 +203,7 @@ async function runTestSuite(suite, report) {
       }
 
       console.log(
-        `\n${suiteResult.passed ? '✅' : '❌'} ${suite.name} completed in ${(suiteResult.duration / 1000).toFixed(2)}s`,
+        `\n${suiteResult.passed ? '✅' : '❌'} ${suite.name} completed in ${(suiteResult.duration / 1000).toFixed(2)}s`
       );
 
       report.addSuite(suiteResult);

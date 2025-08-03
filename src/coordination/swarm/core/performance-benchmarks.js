@@ -146,7 +146,7 @@ class PerformanceBenchmarks {
 
         try {
           const performanceReport = JSON.parse(
-            coreModule.exports.simd_performance_report(size, iterCount),
+            coreModule.exports.simd_performance_report(size, iterCount)
           );
 
           const speedup = performanceReport.vector_operations?.speedup_factor || 1.0;
@@ -529,7 +529,7 @@ class PerformanceBenchmarks {
 
         // Create batch of parallel tasks
         const tasks = Array.from({ length: batchSize }, (_, i) =>
-          this.simulateAsyncTask(10 + Math.random() * 10, `task_${i}`),
+          this.simulateAsyncTask(10 + Math.random() * 10, `task_${i}`)
         );
 
         // Execute in parallel
@@ -556,7 +556,7 @@ class PerformanceBenchmarks {
         const startTime = performance.now();
 
         const tasks = Array.from({ length: batchSize }, (_, i) =>
-          this.simulateAsyncTask(taskType.duration, `${taskType.name}_${i}`),
+          this.simulateAsyncTask(taskType.duration, `${taskType.name}_${i}`)
         );
 
         await Promise.all(tasks);
@@ -579,7 +579,7 @@ class PerformanceBenchmarks {
         const startTime = performance.now();
 
         const tasks = Array.from({ length: size }, () =>
-          this.simulateAsyncTask(20, 'scalability_test'),
+          this.simulateAsyncTask(20, 'scalability_test')
         );
 
         await Promise.all(tasks);

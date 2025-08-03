@@ -276,33 +276,34 @@ export class Orchestrator extends EventEmitter implements ISwarmCoordinator {
   async addAgent(config: any): Promise<string> {
     const agentId = `agent_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     this.logger.info(`Adding agent with config`, { agentId, config });
-    
+
     // Create agent record in database
     await this.db.execute(
       'INSERT INTO agents (id, config, status, created_at) VALUES (?, ?, ?, ?)',
       [agentId, JSON.stringify(config), 'active', new Date().toISOString()]
     );
-    
+
     return agentId;
   }
 
   async removeAgent(agentId: string): Promise<void> {
     this.logger.info(`Removing agent`, { agentId });
-    
+
     // Update agent status in database
-    await this.db.execute(
-      'UPDATE agents SET status = ?, removed_at = ? WHERE id = ?',
-      ['removed', new Date().toISOString(), agentId]
-    );
+    await this.db.execute('UPDATE agents SET status = ?, removed_at = ? WHERE id = ?', [
+      'removed',
+      new Date().toISOString(),
+      agentId,
+    ]);
   }
 
   async assignTask(task: any): Promise<string> {
     const taskId = `task_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     this.logger.info(`Assigning task`, { taskId, task });
-    
+
     // Submit task through existing method
     await this.submitTask({ ...task, id: taskId });
-    
+
     return taskId;
   }
 

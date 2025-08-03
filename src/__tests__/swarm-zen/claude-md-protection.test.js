@@ -120,7 +120,7 @@ describe('CLAUDE.md Protection Features', () => {
       await fs.writeFile(claudePath, 'existing content');
 
       await expect(docsGenerator.generateClaudeMd({ interactive: false })).rejects.toThrow(
-        'CLAUDE.md already exists. Use --force to overwrite, --backup to backup existing, or --merge to combine.',
+        'CLAUDE.md already exists. Use --force to overwrite, --backup to backup existing, or --merge to combine.'
       );
     });
 
@@ -245,10 +245,10 @@ This is my existing project setup.
       // Should intelligently position content, not just append to bottom
       const lines = mergedContent.split('\n');
       const projectConfigIndex = lines.findIndex((line) =>
-        line.includes('My Project Configuration'),
+        line.includes('My Project Configuration')
       );
       const ruvSwarmIndex = lines.findIndex((line) =>
-        line.includes('Claude Code Configuration for ruv-swarm'),
+        line.includes('Claude Code Configuration for ruv-swarm')
       );
       const notesIndex = lines.findIndex((line) => line.includes('Important Notes'));
 
@@ -356,7 +356,7 @@ This is my existing project setup.
       const lines = mergedContent.split('\n');
       const setupIndex = lines.findIndex((line) => line.includes('Setup Instructions'));
       const ruvSwarmIndex = lines.findIndex((line) =>
-        line.includes('Claude Code Configuration for ruv-swarm'),
+        line.includes('Claude Code Configuration for ruv-swarm')
       );
 
       // Content should be intelligently positioned

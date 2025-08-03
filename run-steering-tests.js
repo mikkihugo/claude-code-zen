@@ -228,7 +228,7 @@ class SteeringTestRunner {
         line.includes('FAIL') ||
         line.includes('Error:') ||
         line.includes('Expected:') ||
-        line.includes('Received:'),
+        line.includes('Received:')
     );
 
     if (failureLines.length > 0) {
@@ -279,7 +279,7 @@ class SteeringTestRunner {
     console.log(`${chalk.green('Passed:')} ${passedTests}`);
     console.log(`${chalk.red('Failed:')} ${failedTests}`);
     console.log(
-      `Success Rate: ${totalTests > 0 ? ((passedTests / totalTests) * 100).toFixed(1) : 0}%`,
+      `Success Rate: ${totalTests > 0 ? ((passedTests / totalTests) * 100).toFixed(1) : 0}%`
     );
     console.log(`Total Duration: ${(totalDuration / 1000).toFixed(2)}s`);
 
@@ -297,12 +297,12 @@ class SteeringTestRunner {
     } else if (passedTests >= totalTests * 0.8) {
       console.log(chalk.yellow('⚠️  MOSTLY SUCCESSFUL'));
       console.log(
-        chalk.yellow(`   ${passedTests}/${totalTests} test suites passed. Review failed tests.`),
+        chalk.yellow(`   ${passedTests}/${totalTests} test suites passed. Review failed tests.`)
       );
     } else {
       console.log(chalk.red('❌ SIGNIFICANT ISSUES DETECTED'));
       console.log(
-        chalk.red(`   Only ${passedTests}/${totalTests} test suites passed. Major fixes needed.`),
+        chalk.red(`   Only ${passedTests}/${totalTests} test suites passed. Major fixes needed.`)
       );
     }
 

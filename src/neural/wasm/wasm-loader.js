@@ -266,12 +266,12 @@ class WasmModuleLoader {
           get: (_, p) => {
             if (!this.modules.has(n)) {
               throw new Error(
-                `Module '${n}' not yet loaded; await loader.loadModule('${n}') first`,
+                `Module '${n}' not yet loaded; await loader.loadModule('${n}') first`
               );
             }
             return this.modules.get(n).exports[p];
           },
-        },
+        }
       );
     }
     return proxyBag;
@@ -505,7 +505,7 @@ class WasmModuleLoader {
       // Neural network functions
       create_neural_network: (layers, neurons_per_layer) => {
         console.error(
-          `Creating neural network with ${layers} layers and ${neurons_per_layer} neurons per layer`,
+          `Creating neural network with ${layers} layers and ${neurons_per_layer} neurons per layer`
         );
         return 1;
       },

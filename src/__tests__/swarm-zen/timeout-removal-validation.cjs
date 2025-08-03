@@ -84,7 +84,7 @@ for (const { name, pattern } of securityPatterns) {
 }
 
 console.log(
-  `\n   🎯 RESULT: ${preservedCount}/${securityPatterns.length} security features preserved`,
+  `\n   🎯 RESULT: ${preservedCount}/${securityPatterns.length} security features preserved`
 );
 
 // Test 3: Core functionality preservation
@@ -117,7 +117,7 @@ for (const { name, pattern } of corePatterns) {
 }
 
 console.log(
-  `\n   🎯 RESULT: ${corePreservedCount}/${corePatterns.length} core functions preserved`,
+  `\n   🎯 RESULT: ${corePreservedCount}/${corePatterns.length} core functions preserved`
 );
 
 // Test 4: Version identification
@@ -147,7 +147,7 @@ for (const { name, pattern } of versionPatterns) {
 }
 
 console.log(
-  `\n   🎯 RESULT: ${versionCount}/${versionPatterns.length} version identifiers present`,
+  `\n   🎯 RESULT: ${versionCount}/${versionPatterns.length} version identifiers present`
 );
 
 // Test 5: Functional testing
@@ -239,11 +239,11 @@ const overallScore = {
 console.log(`\n📊 DETAILED SCORES:`);
 console.log(`   🔥 Timeout Removal: ${(overallScore.timeoutRemoval * 100).toFixed(1)}%`);
 console.log(
-  `   🔒 Security Preservation: ${(overallScore.securityPreservation * 100).toFixed(1)}%`,
+  `   🔒 Security Preservation: ${(overallScore.securityPreservation * 100).toFixed(1)}%`
 );
 console.log(`   ⚡ Core Functionality: ${(overallScore.corePreservation * 100).toFixed(1)}%`);
 console.log(
-  `   🏷️  Version Identification: ${(overallScore.versionIdentification * 100).toFixed(1)}%`,
+  `   🏷️  Version Identification: ${(overallScore.versionIdentification * 100).toFixed(1)}%`
 );
 console.log(`   📝 Code Quality: ${(overallScore.codeQuality * 100).toFixed(1)}%`);
 
@@ -253,7 +253,7 @@ console.log(`\n🎯 OVERALL SCORE: ${(averageScore * 100).toFixed(1)}%`);
 
 if (averageScore >= 0.95) {
   console.log(
-    `\n🎉 EXCELLENT! All timeout mechanisms successfully eliminated while preserving functionality.`,
+    `\n🎉 EXCELLENT! All timeout mechanisms successfully eliminated while preserving functionality.`
   );
 } else if (averageScore >= 0.85) {
   console.log(`\n✅ GOOD! Most timeout mechanisms eliminated with minor issues.`);

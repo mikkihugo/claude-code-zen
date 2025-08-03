@@ -166,7 +166,7 @@ class RuvSwarm {
           console.log('[INFO] Pooled persistence layer initialized successfully');
           if (debug) {
             console.log(
-              `[DEBUG] Pool configuration: ${poolOptions.maxReaders} readers, ${poolOptions.maxWorkers} workers`,
+              `[DEBUG] Pool configuration: ${poolOptions.maxReaders} readers, ${poolOptions.maxWorkers} workers`
             );
           }
         } catch (error) {
@@ -621,7 +621,7 @@ class Swarm {
     }
 
     console.log(
-      `📋 Orchestrated task: ${description} (${taskId}) - Assigned to ${result.assigned_agents.length} agents`,
+      `📋 Orchestrated task: ${description} (${taskId}) - Assigned to ${result.assigned_agents.length} agents`
     );
     return task;
   }
@@ -637,7 +637,7 @@ class Swarm {
       // Check if agent has required capabilities
       if (requiredCapabilities.length > 0) {
         const hasCapabilities = requiredCapabilities.some((capability) =>
-          agent.capabilities.includes(capability),
+          agent.capabilities.includes(capability)
         );
         if (!hasCapabilities) {
           return false;

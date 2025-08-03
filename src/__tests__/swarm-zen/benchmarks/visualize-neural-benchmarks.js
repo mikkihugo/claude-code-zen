@@ -17,7 +17,7 @@ class BenchmarkVisualizer {
       process.cwd(),
       '.ruv-swarm',
       'benchmarks',
-      'neural-benchmark-1751398753060.json',
+      'neural-benchmark-1751398753060.json'
     );
     this.benchmarkData = JSON.parse(await fs.readFile(benchmarkPath, 'utf8'));
   }
@@ -155,7 +155,7 @@ class BenchmarkVisualizer {
       .forEach((model) => {
         const score = ((model.accuracy * model.speed) / 100).toFixed(1);
         console.log(
-          `  ${model.name}: ${score} (${model.accuracy}% × ${Math.floor(model.speed)} ops/s)`,
+          `  ${model.name}: ${score} (${model.accuracy}% × ${Math.floor(model.speed)} ops/s)`
         );
       });
 

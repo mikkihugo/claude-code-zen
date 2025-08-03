@@ -99,7 +99,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       const maxTime = Math.max(...times);
 
       console.log(
-        `\nMinimal initialization: avg=${avgTime.toFixed(2)}ms, min=${minTime.toFixed(2)}ms, max=${maxTime.toFixed(2)}ms`,
+        `\nMinimal initialization: avg=${avgTime.toFixed(2)}ms, min=${minTime.toFixed(2)}ms, max=${maxTime.toFixed(2)}ms`
       );
       expect(avgTime).toBeLessThan(PERFORMANCE_TARGETS.initialization.minimal);
     });
@@ -121,7 +121,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       const forecastingLoadTime = performance.now() - forecastingStart;
 
       console.log(
-        `Progressive loading: core=${coreLoadTime.toFixed(2)}ms, forecasting=${forecastingLoadTime.toFixed(2)}ms`,
+        `Progressive loading: core=${coreLoadTime.toFixed(2)}ms, forecasting=${forecastingLoadTime.toFixed(2)}ms`
       );
 
       expect(coreLoadTime).toBeLessThan(PERFORMANCE_TARGETS.initialization.standard);
@@ -153,7 +153,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       const p95Time = times.sort((a, b) => a - b)[Math.floor(runs * 0.95)];
 
       console.log(
-        `\nSingle agent creation: avg=${avgTime.toFixed(2)}ms, p95=${p95Time.toFixed(2)}ms`,
+        `\nSingle agent creation: avg=${avgTime.toFixed(2)}ms, p95=${p95Time.toFixed(2)}ms`
       );
       expect(avgTime).toBeLessThan(PERFORMANCE_TARGETS.agentCreation.single);
     });
@@ -172,7 +172,7 @@ describe('Comprehensive Performance Benchmarks', () => {
         const agents = await Promise.all(
           Array(batchSize)
             .fill(null)
-            .map((_, i) => swarm.spawn({ type: ['researcher', 'coder', 'analyst'][i % 3] })),
+            .map((_, i) => swarm.spawn({ type: ['researcher', 'coder', 'analyst'][i % 3] }))
         );
         const time = performance.now() - start;
 
@@ -189,7 +189,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       console.log('\nBatch agent creation:');
       results.forEach((r) => {
         console.log(
-          `  ${r.batchSize} agents: ${r.totalTime.toFixed(2)}ms total, ${r.perAgent.toFixed(2)}ms per agent`,
+          `  ${r.batchSize} agents: ${r.totalTime.toFixed(2)}ms total, ${r.perAgent.toFixed(2)}ms per agent`
         );
       });
 
@@ -205,7 +205,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       const agents = await Promise.all(
         Array(10)
           .fill(null)
-          .map(() => swarm.spawn({ type: 'researcher' })),
+          .map(() => swarm.spawn({ type: 'researcher' }))
       );
 
       const messageCount = 1000;
@@ -341,7 +341,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       console.log('\nBatch inference performance:');
       results.forEach((r) => {
         console.log(
-          `  Batch size ${r.batchSize}: ${r.totalTime.toFixed(2)}ms total, ${r.perSample.toFixed(3)}ms per sample`,
+          `  Batch size ${r.batchSize}: ${r.totalTime.toFixed(2)}ms total, ${r.perSample.toFixed(3)}ms per sample`
         );
       });
 
@@ -401,7 +401,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       console.log('\nMatrix multiplication performance:');
       results.forEach((r) => {
         console.log(
-          `  ${r.size}x${r.size}: ${r.time.toFixed(2)}ms (${r.gflops.toFixed(2)} GFLOPS)`,
+          `  ${r.size}x${r.size}: ${r.time.toFixed(2)}ms (${r.gflops.toFixed(2)} GFLOPS)`
         );
       });
 
@@ -445,7 +445,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       console.log('\nMemory allocation performance:');
       results.forEach((r) => {
         console.log(
-          `  ${r.size} bytes: alloc=${r.allocPerOp.toFixed(3)}ms, dealloc=${r.deallocPerOp.toFixed(3)}ms`,
+          `  ${r.size} bytes: alloc=${r.allocPerOp.toFixed(3)}ms, dealloc=${r.deallocPerOp.toFixed(3)}ms`
         );
       });
 
@@ -487,7 +487,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       console.log('\nMemory transfer performance:');
       results.forEach((r) => {
         console.log(
-          `  ${(r.size / 1024).toFixed(0)}KB: upload=${r.uploadThroughput.toFixed(0)}MB/s, download=${r.downloadThroughput.toFixed(0)}MB/s`,
+          `  ${(r.size / 1024).toFixed(0)}KB: upload=${r.uploadThroughput.toFixed(0)}MB/s, download=${r.downloadThroughput.toFixed(0)}MB/s`
         );
       });
 
@@ -523,7 +523,7 @@ describe('Comprehensive Performance Benchmarks', () => {
               { units: 50, activation: 'relu' },
               { units: 10, activation: 'softmax' },
             ],
-          }),
+          })
         );
       }
 
@@ -556,7 +556,7 @@ describe('Comprehensive Performance Benchmarks', () => {
         await Promise.all(
           Array(size)
             .fill(null)
-            .map(() => swarm.spawn({ type: 'analyst' })),
+            .map(() => swarm.spawn({ type: 'analyst' }))
         );
 
         // Create tasks
@@ -587,7 +587,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       console.log('\nTask orchestration scalability:');
       results.forEach((r) => {
         console.log(
-          `  ${r.swarmSize} agents, ${r.taskCount} tasks: ${r.duration.toFixed(0)}ms (${r.throughput.toFixed(0)} tasks/sec)`,
+          `  ${r.swarmSize} agents, ${r.taskCount} tasks: ${r.duration.toFixed(0)}ms (${r.throughput.toFixed(0)} tasks/sec)`
         );
       });
 
@@ -610,7 +610,7 @@ describe('Comprehensive Performance Benchmarks', () => {
         const agents = await Promise.all(
           Array(10)
             .fill(null)
-            .map(() => swarm.spawn({ type: 'researcher' })),
+            .map(() => swarm.spawn({ type: 'researcher' }))
         );
 
         // Measure broadcast performance
@@ -637,7 +637,7 @@ describe('Comprehensive Performance Benchmarks', () => {
       console.log('\nTopology performance comparison:');
       results.forEach((r) => {
         console.log(
-          `  ${r.topology}: broadcast=${r.broadcastTime.toFixed(2)}ms, orchestrate=${r.orchestrateTime.toFixed(0)}ms`,
+          `  ${r.topology}: broadcast=${r.broadcastTime.toFixed(2)}ms, orchestrate=${r.orchestrateTime.toFixed(0)}ms`
         );
       });
 

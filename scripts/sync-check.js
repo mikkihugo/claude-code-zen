@@ -71,7 +71,7 @@ class UpstreamSyncChecker {
         try {
           const behindCount = this.execCommand(
             `git rev-list --count ${ourCommit}..${upstreamCommit}`,
-            { silent: true },
+            { silent: true }
           ).trim();
 
           if (parseInt(behindCount) > 0) {
@@ -80,7 +80,7 @@ class UpstreamSyncChecker {
 
             const recentCommits = this.execCommand(
               `git log --oneline -5 ${this.upstreamRemote}/main`,
-              { silent: true },
+              { silent: true }
             ).trim();
 
             recentCommits.split('\n').forEach((commit) => {

@@ -65,10 +65,10 @@ class PerformanceCLI {
       };
 
       console.log(
-        `   Memory: ${(memUsage.heapUsed / 1024 / 1024).toFixed(1)}MB / ${(memUsage.heapTotal / 1024 / 1024).toFixed(1)}MB (${analysis.performance.system.memory.utilization}%)`,
+        `   Memory: ${(memUsage.heapUsed / 1024 / 1024).toFixed(1)}MB / ${(memUsage.heapTotal / 1024 / 1024).toFixed(1)}MB (${analysis.performance.system.memory.utilization}%)`
       );
       console.log(
-        `   CPU: User ${(cpuUsage.user / 1000).toFixed(1)}ms, System ${(cpuUsage.system / 1000).toFixed(1)}ms`,
+        `   CPU: User ${(cpuUsage.user / 1000).toFixed(1)}ms, System ${(cpuUsage.system / 1000).toFixed(1)}ms`
       );
 
       // 2. WASM Performance Analysis
@@ -97,7 +97,7 @@ class PerformanceCLI {
       console.log(`   Active Agents: ${swarmMetrics.agentCount}`);
       console.log(`   Coordination Latency: ${swarmMetrics.coordinationLatency.toFixed(1)}ms`);
       console.log(
-        `   Distribution Efficiency: ${swarmMetrics.taskDistributionEfficiency.toFixed(1)}%`,
+        `   Distribution Efficiency: ${swarmMetrics.taskDistributionEfficiency.toFixed(1)}%`
       );
       console.log(`   Communication Overhead: ${swarmMetrics.communicationOverhead.toFixed(1)}%`);
 

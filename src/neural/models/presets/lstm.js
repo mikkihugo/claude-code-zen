@@ -135,7 +135,7 @@ class LSTMModel extends NeuralModel {
       // Concatenate forward and backward states
       const concatenated = this.concatenateBidirectional(
         forwardStates.states,
-        backwardStates.states,
+        backwardStates.states
       );
 
       return {
@@ -212,17 +212,17 @@ class LSTMModel extends NeuralModel {
 
     // Input gate
     const i = this.sigmoid(
-      this.add(this.add(this.matmulBatch(x, cell.Wi), this.matmulBatch(hPrev, cell.Ui)), cell.bi),
+      this.add(this.add(this.matmulBatch(x, cell.Wi), this.matmulBatch(hPrev, cell.Ui)), cell.bi)
     );
 
     // Forget gate
     const f = this.sigmoid(
-      this.add(this.add(this.matmulBatch(x, cell.Wf), this.matmulBatch(hPrev, cell.Uf)), cell.bf),
+      this.add(this.add(this.matmulBatch(x, cell.Wf), this.matmulBatch(hPrev, cell.Uf)), cell.bf)
     );
 
     // Cell candidate
     const cTilde = this.tanh(
-      this.add(this.add(this.matmulBatch(x, cell.Wc), this.matmulBatch(hPrev, cell.Uc)), cell.bc),
+      this.add(this.add(this.matmulBatch(x, cell.Wc), this.matmulBatch(hPrev, cell.Uc)), cell.bc)
     );
 
     // New cell state
@@ -230,7 +230,7 @@ class LSTMModel extends NeuralModel {
 
     // Output gate
     const o = this.sigmoid(
-      this.add(this.add(this.matmulBatch(x, cell.Wo), this.matmulBatch(hPrev, cell.Uo)), cell.bo),
+      this.add(this.add(this.matmulBatch(x, cell.Wo), this.matmulBatch(hPrev, cell.Uo)), cell.bo)
     );
 
     // New hidden state
@@ -438,7 +438,7 @@ class LSTMModel extends NeuralModel {
       });
 
       console.log(
-        `Epoch ${epoch + 1}/${epochs} - Train Loss: ${avgTrainLoss.toFixed(4)}, Val Loss: ${valLoss.toFixed(4)}`,
+        `Epoch ${epoch + 1}/${epochs} - Train Loss: ${avgTrainLoss.toFixed(4)}, Val Loss: ${valLoss.toFixed(4)}`
       );
     }
 

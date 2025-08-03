@@ -504,7 +504,7 @@ class FinalCoverageReport {
     console.log(`   📊 Code Coverage: ${this.metrics.afterCoverage}%`);
     console.log(`   ✅ Actual Tests Run: ${this.metrics.actualTests}`);
     console.log(
-      `   🎆 Pass Rate: ${((this.metrics.passedTests / Math.max(this.metrics.actualTests, 1)) * 100).toFixed(1)}%`,
+      `   🎆 Pass Rate: ${((this.metrics.passedTests / Math.max(this.metrics.actualTests, 1)) * 100).toFixed(1)}%`
     );
     console.log('');
 
@@ -512,7 +512,7 @@ class FinalCoverageReport {
     console.log(`   🎯 Target: ${this.metrics.targetCoverage}%`);
     console.log(`   📈 Achieved: ${this.metrics.afterCoverage}%`);
     console.log(
-      `   🚀 Progress: ${((this.metrics.afterCoverage / this.metrics.targetCoverage) * 100).toFixed(1)}% of target`,
+      `   🚀 Progress: ${((this.metrics.afterCoverage / this.metrics.targetCoverage) * 100).toFixed(1)}% of target`
     );
     console.log('');
 

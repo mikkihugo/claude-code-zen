@@ -140,7 +140,7 @@ class GNNModel extends NeuralModel {
       const nodeMessage = this.transform(
         sourceFeatures,
         weights.nodeToMessage,
-        weights.messageBias,
+        weights.messageBias
       );
 
       // If edge features exist, incorporate them
@@ -152,7 +152,7 @@ class GNNModel extends NeuralModel {
         const edgeMessage = this.transform(
           edgeFeatures,
           weights.edgeToMessage,
-          new Float32Array(this.config.hiddenDimensions),
+          new Float32Array(this.config.hiddenDimensions)
         );
 
         // Combine node and edge messages
@@ -236,11 +236,11 @@ class GNNModel extends NeuralModel {
 
       // GRU-style update
       const updateGate = this.sigmoid(
-        this.transform(concatenated, weights.gateTransform, weights.gateBias),
+        this.transform(concatenated, weights.gateTransform, weights.gateBias)
       );
 
       const candidate = this.tanh(
-        this.transform(concatenated, weights.updateTransform, weights.updateBias),
+        this.transform(concatenated, weights.updateTransform, weights.updateBias)
       );
 
       // Apply gated update
@@ -260,7 +260,7 @@ class GNNModel extends NeuralModel {
     const output = this.transform(
       nodeRepresentations,
       this.outputWeights.transform,
-      this.outputWeights.bias,
+      this.outputWeights.bias
     );
 
     output.shape = [nodeRepresentations.shape[0], this.config.outputDimensions];
@@ -345,7 +345,7 @@ class GNNModel extends NeuralModel {
       });
 
       console.log(
-        `Epoch ${epoch + 1}/${epochs} - Train Loss: ${avgTrainLoss.toFixed(4)}, Val Loss: ${valLoss.toFixed(4)}`,
+        `Epoch ${epoch + 1}/${epochs} - Train Loss: ${avgTrainLoss.toFixed(4)}, Val Loss: ${valLoss.toFixed(4)}`
       );
     }
 

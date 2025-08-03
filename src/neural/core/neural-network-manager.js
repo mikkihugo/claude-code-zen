@@ -346,7 +346,7 @@ class NeuralNetworkManager {
           activation: networkConfig.activation,
           learning_rate: learningRate,
           optimizer,
-        }),
+        })
       );
 
       const network = new NeuralNetwork(networkId, agentId, networkConfig, neuralModule);
@@ -389,7 +389,7 @@ class NeuralNetworkManager {
     const cognitivePatterns = this.cognitivePatternSelector.selectPatternsForPreset(
       config.modelType,
       template,
-      taskContext,
+      taskContext
     );
 
     config.cognitivePatterns = cognitivePatterns;
@@ -427,7 +427,7 @@ class NeuralNetworkManager {
       });
 
       console.log(
-        `Created ${config.modelType} neural network for agent ${agentId} with enhanced cognitive capabilities`,
+        `Created ${config.modelType} neural network for agent ${agentId} with enhanced cognitive capabilities`
       );
 
       return wrappedModel;
@@ -685,7 +685,7 @@ class NeuralNetworkManager {
 
       console.log(`Creating ${agentId} from preset: ${preset.name}`);
       console.log(
-        `Expected performance: ${preset.performance.expectedAccuracy} accuracy in ${preset.performance.inferenceTime}`,
+        `Expected performance: ${preset.performance.expectedAccuracy} accuracy in ${preset.performance.inferenceTime}`
       );
 
       // Merge preset config with custom overrides
@@ -725,7 +725,7 @@ class NeuralNetworkManager {
 
     console.log(`Creating ${agentId} from complete preset: ${preset.name}`);
     console.log(
-      `Expected performance: ${preset.performance.expectedAccuracy} accuracy in ${preset.performance.inferenceTime}`,
+      `Expected performance: ${preset.performance.expectedAccuracy} accuracy in ${preset.performance.inferenceTime}`
     );
     console.log(`Cognitive patterns: ${preset.cognitivePatterns.join(', ')}`);
 
@@ -741,7 +741,7 @@ class NeuralNetworkManager {
     const cognitivePatterns = this.cognitivePatternSelector.selectPatternsForPreset(
       preset.model,
       presetName,
-      taskContext,
+      taskContext
     );
 
     // Merge preset config with custom overrides
@@ -822,7 +822,7 @@ class NeuralNetworkManager {
         agentId,
         bestMatch.category,
         bestMatch.presetName,
-        customConfig,
+        customConfig
       );
     }
 
@@ -830,7 +830,7 @@ class NeuralNetworkManager {
       agentId,
       recommendedPreset.category,
       recommendedPreset.presetName,
-      customConfig,
+      customConfig
     );
   }
 
@@ -916,7 +916,7 @@ class NeuralNetworkManager {
       agentId,
       category,
       presetName,
-      customConfig,
+      customConfig
     );
 
     // Restore cognitive evolution and meta-learning state
@@ -940,7 +940,7 @@ class NeuralNetworkManager {
           config.agentId,
           config.category,
           config.presetName,
-          config.customConfig || {},
+          config.customConfig || {}
         );
         results.push({ agentId: config.agentId, success: true, agent });
       } catch (error) {
@@ -1307,7 +1307,7 @@ class NeuralNetworkManager {
     } catch (error) {
       console.error(
         `Knowledge distillation failed between ${teacherAgentId} and ${studentAgentId}:`,
-        error,
+        error
       );
     }
   }
@@ -1654,7 +1654,7 @@ class NeuralNetwork {
             this.networkId,
             JSON.stringify(batch),
             learningRate,
-            JSON.stringify(freezeLayers),
+            JSON.stringify(freezeLayers)
           );
 
           epochLoss += loss;

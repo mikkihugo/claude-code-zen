@@ -43,7 +43,7 @@ class AdvancedLintFixer {
   logMemory(message, data = {}) {
     const timestamp = new Date().toISOString();
     console.log(
-      `🧠 [${timestamp}] MEMORY: swarm-lint-fix/hierarchy/level2/specialists/fixer/advanced - ${message}`,
+      `🧠 [${timestamp}] MEMORY: swarm-lint-fix/hierarchy/level2/specialists/fixer/advanced - ${message}`
     );
     if (Object.keys(data).length > 0) {
       console.log('📊 Data:', JSON.stringify(data, null, 2));
@@ -244,7 +244,7 @@ class AdvancedLintFixer {
       (match, prop1, indent, prop2) => {
         fixes++;
         return `${prop1},\n${indent}${prop2}`;
-      },
+      }
     );
 
     // Fix missing commas in array literals
@@ -261,7 +261,7 @@ class AdvancedLintFixer {
           return `${item1},\n${indent}${item2}`;
         }
         return match;
-      },
+      }
     );
 
     this.updateStats('comma-expected', fixes);
@@ -319,7 +319,7 @@ class AdvancedLintFixer {
         (match, varName, moduleName) => {
           fixes++;
           return `import ${varName} from '${moduleName}';`;
-        },
+        }
       );
 
       // Convert module.exports to export

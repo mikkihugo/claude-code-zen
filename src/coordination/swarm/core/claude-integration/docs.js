@@ -43,7 +43,7 @@ class ClaudeDocsGenerator {
       } else {
         // Non-interactive mode - fail safely
         throw new Error(
-          'CLAUDE.md already exists. Use --force to overwrite, --backup to backup existing, or --merge to combine.',
+          'CLAUDE.md already exists. Use --force to overwrite, --backup to backup existing, or --merge to combine.'
         );
       }
     } else if (fileExists && force) {
@@ -53,7 +53,7 @@ class ClaudeDocsGenerator {
         console.log('📄 Backing up existing CLAUDE.md before force overwrite');
       } else {
         console.log(
-          '⚠️  Force overwriting existing CLAUDE.md (no backup - disabled by --no-backup)',
+          '⚠️  Force overwriting existing CLAUDE.md (no backup - disabled by --no-backup)'
         );
       }
     } else if (fileExists && backup && !force && !merge) {
@@ -667,7 +667,7 @@ Remember: **ruv-swarm coordinates, Claude Code creates!** Start with \`mcp__ruv-
         tool: 'mcp__ruv-swarm-zen__swarm_init',
         params: '{"topology": "mesh", "maxAgents": 5, "strategy": "balanced"}',
         description:
-          'Set up a coordination topology to guide Claude Code\'s approach to complex tasks',
+          "Set up a coordination topology to guide Claude Code's approach to complex tasks",
         details: `This tool creates a coordination framework that helps Claude Code:
 - Break down complex problems systematically
 - Approach tasks from multiple perspectives

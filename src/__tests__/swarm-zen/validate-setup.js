@@ -63,7 +63,7 @@ try {
     check(
       `  ${dep}`,
       packageJson.dependencies[dep] || packageJson.devDependencies[dep],
-      'Missing dependency in package.json',
+      'Missing dependency in package.json'
     );
   });
 } catch (error) {

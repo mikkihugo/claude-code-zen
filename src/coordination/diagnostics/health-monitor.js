@@ -140,7 +140,7 @@ export class HealthMonitor extends EventEmitter {
 
     // Run all registered health checks
     const checkPromises = Array.from(this.healthChecks.entries()).map(([name, check]) =>
-      this.runSingleHealthCheck(name, check),
+      this.runSingleHealthCheck(name, check)
     );
 
     const checkResults = await Promise.allSettled(checkPromises);
@@ -367,7 +367,7 @@ export class HealthMonitor extends EventEmitter {
           },
         };
       },
-      { weight: 2, critical: true, description: 'System memory usage monitoring' },
+      { weight: 2, critical: true, description: 'System memory usage monitoring' }
     );
 
     // Event loop lag check
@@ -400,7 +400,7 @@ export class HealthMonitor extends EventEmitter {
           });
         });
       },
-      { weight: 1, description: 'Event loop performance monitoring' },
+      { weight: 1, description: 'Event loop performance monitoring' }
     );
 
     // CPU usage check (simplified)
@@ -433,7 +433,7 @@ export class HealthMonitor extends EventEmitter {
           },
         };
       },
-      { weight: 1, description: 'CPU usage monitoring' },
+      { weight: 1, description: 'CPU usage monitoring' }
     );
 
     // Persistence connectivity check
@@ -483,7 +483,7 @@ export class HealthMonitor extends EventEmitter {
           };
         }
       },
-      { weight: 3, critical: true, description: 'Database connectivity monitoring' },
+      { weight: 3, critical: true, description: 'Database connectivity monitoring' }
     );
   }
 

@@ -33,7 +33,7 @@ async function runTests() {
     console.log(
       `   Features: ${Object.keys(swarmResult.features)
         .filter((f) => swarmResult.features[f])
-        .join(', ')}`,
+        .join(', ')}`
     );
     testsPassed++;
     console.log('   ✅ PASSED\n');
@@ -72,7 +72,7 @@ async function runTests() {
         metricType: 'performance',
       });
       console.log(
-        `   Agent ${agents[0].name} performance: ${(agentMetrics.agents[0].performance.accuracy_score * 100).toFixed(1)}%`,
+        `   Agent ${agents[0].name} performance: ${(agentMetrics.agents[0].performance.accuracy_score * 100).toFixed(1)}%`
       );
 
       testsPassed++;
@@ -94,10 +94,10 @@ async function runTests() {
       console.log(`   Monitoring session: ${monitoring.monitoring_session_id}`);
       console.log(`   Health score: ${(monitoring.swarms[0].health_score * 100).toFixed(1)}%`);
       console.log(
-        `   CPU usage: ${monitoring.swarms[0].resource_utilization.cpu_usage_percent.toFixed(1)}%`,
+        `   CPU usage: ${monitoring.swarms[0].resource_utilization.cpu_usage_percent.toFixed(1)}%`
       );
       console.log(
-        `   Memory usage: ${monitoring.swarms[0].resource_utilization.memory_usage_mb.toFixed(1)}MB`,
+        `   Memory usage: ${monitoring.swarms[0].resource_utilization.memory_usage_mb.toFixed(1)}MB`
       );
 
       testsPassed++;
@@ -223,7 +223,7 @@ async function runTests() {
       console.log('\n🎉 All tests passed! MCP methods are working correctly.');
     } else {
       console.log(
-        `\n⚠️  ${testsTotal - testsPassed} test(s) failed. Please review the implementation.`,
+        `\n⚠️  ${testsTotal - testsPassed} test(s) failed. Please review the implementation.`
       );
     }
   } catch (error) {

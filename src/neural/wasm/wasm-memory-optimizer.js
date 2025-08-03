@@ -307,7 +307,7 @@ class WasmMemoryPool {
         : [];
 
     console.log(
-      `🗜️ Compacted ${moduleId}: ${moves.length} moves, freed ${pool.memory.buffer.byteLength - newOffset} bytes`,
+      `🗜️ Compacted ${moduleId}: ${moves.length} moves, freed ${pool.memory.buffer.byteLength - newOffset} bytes`
     );
   }
 }
@@ -390,7 +390,7 @@ class ProgressiveWasmLoader {
    */
   async processLoadingQueue() {
     for (const priority of Object.keys(this.priorityLevels).sort(
-      (a, b) => this.priorityLevels[a] - this.priorityLevels[b],
+      (a, b) => this.priorityLevels[a] - this.priorityLevels[b]
     )) {
       const queue = this.loadingQueues.get(priority);
       if (!queue || queue.length === 0) {
@@ -444,7 +444,7 @@ class ProgressiveWasmLoader {
       // Allocate memory for module
       const memoryAllocation = this.memoryPool.allocate(
         moduleId,
-        module.size || wasmBytes.byteLength * 2,
+        module.size || wasmBytes.byteLength * 2
       );
 
       module.memoryAllocations.add(memoryAllocation.id);
@@ -570,7 +570,7 @@ class ProgressiveWasmLoader {
    */
   async loadAllModules() {
     const modules = Array.from(this.loadedModules.values()).sort(
-      (a, b) => this.priorityLevels[a.priority] - this.priorityLevels[b.priority],
+      (a, b) => this.priorityLevels[a.priority] - this.priorityLevels[b.priority]
     );
 
     await Promise.all(modules.map((m) => this.loadModule(m.id)));

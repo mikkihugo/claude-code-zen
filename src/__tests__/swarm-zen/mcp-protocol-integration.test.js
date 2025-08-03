@@ -112,7 +112,7 @@ class MCPProtocolIntegrationTestSuite {
 
       assert(
         mcpErrorResponse.jsonrpc === '2.0',
-        'Error response should have correct JSON-RPC version',
+        'Error response should have correct JSON-RPC version'
       );
       assert(typeof mcpErrorResponse.error === 'object', 'Should have error object');
       assert(typeof mcpErrorResponse.error.code === 'number', 'Error should have numeric code');
@@ -205,7 +205,7 @@ class MCPProtocolIntegrationTestSuite {
       assert(Array.isArray(batchResponse), 'Should handle batch requests');
       assert(
         batchResponse.length === batchRequest.length,
-        'Should return same number of responses',
+        'Should return same number of responses'
       );
 
       this.results.coverage.communication++;
@@ -258,12 +258,12 @@ class MCPProtocolIntegrationTestSuite {
 
       assert(
         JSON.stringify(deserialized) === JSON.stringify(originalMessage),
-        'Should preserve message integrity',
+        'Should preserve message integrity'
       );
       assert(deserialized.params.arguments.capabilities.length === 3, 'Should preserve array data');
       assert(
         deserialized.params.arguments.config.timeout === 30000,
-        'Should preserve nested objects',
+        'Should preserve nested objects'
       );
 
       this.results.coverage.serialization++;
@@ -292,7 +292,7 @@ class MCPProtocolIntegrationTestSuite {
 
       assert(
         recoveredBinary.toString('utf8') === 'Hello, World!',
-        'Should handle binary data correctly',
+        'Should handle binary data correctly'
       );
 
       this.results.coverage.serialization++;
@@ -320,11 +320,11 @@ class MCPProtocolIntegrationTestSuite {
       assert(deserialized.params.arguments.text.includes('🌍'), 'Should preserve emoji');
       assert(
         deserialized.params.arguments.text.includes('中文'),
-        'Should preserve Chinese characters',
+        'Should preserve Chinese characters'
       );
       assert(
         deserialized.params.arguments.math.includes('π'),
-        'Should preserve mathematical symbols',
+        'Should preserve mathematical symbols'
       );
 
       this.results.coverage.serialization++;
@@ -557,7 +557,7 @@ class MCPProtocolIntegrationTestSuite {
             topology: '<script>alert("XSS")</script>',
             config: {
               command: 'rm -rf /',
-              sql: '\'; DROP TABLE users; --',
+              sql: "'; DROP TABLE users; --",
             },
           },
         },
@@ -568,7 +568,7 @@ class MCPProtocolIntegrationTestSuite {
       const sanitizedArgs = {
         topology: maliciousRequest.params.arguments.topology.replace(
           /<script[^>]*>.*?<\/script>/gi,
-          '',
+          ''
         ),
         config: {
           command: maliciousRequest.params.arguments.config.command.replace(/[;&|`$()]/g, ''),
@@ -747,7 +747,7 @@ class MCPProtocolIntegrationTestSuite {
 
         assert(
           response.result.content[0].type === content.type,
-          `Should handle ${content.type} content`,
+          `Should handle ${content.type} content`
         );
       }
 
