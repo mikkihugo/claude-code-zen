@@ -1,28 +1,23 @@
 /**
  * SPARC Methodology System - Main Export
- * 
+ *
  * Comprehensive SPARC (Specification, Pseudocode, Architecture, Refinement, Completion)
  * methodology system for systematic AI-assisted development workflow.
  */
 
 // Core Engine
 export { SPARCEngineCore } from './core/sparc-engine.js';
-
-// Phase Engines
-export { SpecificationPhaseEngine } from './phases/specification/specification-engine.js';
-
-// Types
-export type * from './types/sparc-types.js';
-
 // MCP Integration
-export { sparcMCPTools, SPARCMCPTools } from './integrations/mcp-sparc-tools.js';
-
+export { SPARCMCPTools, sparcMCPTools } from './integrations/mcp-sparc-tools.js';
 // Project Management Integration
 export { ProjectManagementIntegration } from './integrations/project-management-integration.js';
 export { SPARCRoadmapManager } from './integrations/roadmap-integration.js';
-
+// Phase Engines
+export { SpecificationPhaseEngine } from './phases/specification/specification-engine.js';
 // Templates
 export { SWARM_COORDINATION_TEMPLATE } from './templates/swarm-coordination-template.js';
+// Types
+export type * from './types/sparc-types.js';
 
 // Main SPARC facade for easy usage
 export class SPARC {
@@ -32,10 +27,10 @@ export class SPARC {
    * Get singleton SPARC engine instance
    */
   static getEngine(): SPARCEngineCore {
-    if (!this.instance) {
-      this.instance = new SPARCEngineCore();
+    if (!SPARC.instance) {
+      SPARC.instance = new SPARCEngineCore();
     }
-    return this.instance;
+    return SPARC.instance;
   }
 
   /**
@@ -43,16 +38,23 @@ export class SPARC {
    */
   static async createProject(
     name: string,
-    domain: 'swarm-coordination' | 'neural-networks' | 'wasm-integration' | 'rest-api' | 'memory-systems' | 'interfaces' | 'general',
+    domain:
+      | 'swarm-coordination'
+      | 'neural-networks'
+      | 'wasm-integration'
+      | 'rest-api'
+      | 'memory-systems'
+      | 'interfaces'
+      | 'general',
     requirements: string[],
     complexity: 'simple' | 'moderate' | 'high' | 'complex' | 'enterprise' = 'moderate'
   ) {
-    const engine = this.getEngine();
+    const engine = SPARC.getEngine();
     return engine.initializeProject({
       name,
       domain,
       complexity,
-      requirements
+      requirements,
     });
   }
 
@@ -60,12 +62,18 @@ export class SPARC {
    * Execute complete SPARC workflow
    */
   static async executeFullWorkflow(projectId: string) {
-    const engine = this.getEngine();
-    const phases = ['specification', 'pseudocode', 'architecture', 'refinement', 'completion'] as const;
-    
+    const engine = SPARC.getEngine();
+    const phases = [
+      'specification',
+      'pseudocode',
+      'architecture',
+      'refinement',
+      'completion',
+    ] as const;
+
     const results = [];
     for (const phase of phases) {
-      const project = await this.getProject(projectId);
+      const project = await SPARC.getProject(projectId);
       const result = await engine.executePhase(project, phase);
       results.push(result);
     }

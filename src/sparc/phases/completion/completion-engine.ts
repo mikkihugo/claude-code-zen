@@ -1,32 +1,31 @@
 /**
  * SPARC Completion Phase Engine
- * 
+ *
  * Handles the fifth and final phase of SPARC methodology - generating
  * production-ready code, tests, documentation, and deployment artifacts.
  */
 
 import { nanoid } from 'nanoid';
 import type {
-  CompletionEngine,
-  RefinementResult,
-  ImplementationArtifacts,
-  CodeGeneration,
-  TestGeneration,
-  DocumentationGeneration,
-  DeploymentArtifacts,
-  CompletionValidation,
-  QualityGate,
-  ProductionReadinessCheck,
   CodeArtifact,
-  TestArtifact,
-  DocumentationArtifact,
+  CodeGeneration,
+  CompletionEngine,
+  CompletionValidation,
+  ComplianceCheck,
   DeploymentArtifact,
+  DeploymentArtifacts,
+  DocumentationArtifact,
+  DocumentationGeneration,
+  ImplementationArtifacts,
+  ProductionReadinessCheck,
+  QualityGate,
+  RefinementResult,
+  TestArtifact,
+  TestGeneration,
   ValidationResult,
-  ComplianceCheck
 } from '../../types/sparc-types.js';
 
 export class CompletionPhaseEngine implements CompletionEngine {
-  
   /**
    * Generate complete implementation from refinement results
    */
@@ -65,7 +64,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       deploymentInstructions: await this.generateDeploymentInstructions(deploymentArtifacts),
       maintenanceGuide: await this.generateMaintenanceGuide(refinement),
       createdAt: new Date(),
-      completedAt: new Date()
+      completedAt: new Date(),
     };
   }
 
@@ -85,7 +84,9 @@ export class CompletionPhaseEngine implements CompletionEngine {
     }
 
     // Generate data access layer
-    const dataComponents = refinement.refinedArchitecture.components.filter(c => c.type === 'data-manager');
+    const dataComponents = refinement.refinedArchitecture.components.filter(
+      (c) => c.type === 'data-manager'
+    );
     for (const component of dataComponents) {
       artifacts.push(await this.generateRepositoryCode(component));
       artifacts.push(await this.generateDataModelCode(component));
@@ -109,7 +110,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       codeQualityMetrics: await this.calculateCodeQualityMetrics(artifacts),
       generationStrategy: 'Template-based generation with optimization patterns',
       technologies: this.extractTechnologies(refinement.refinedArchitecture),
-      estimatedLines: artifacts.reduce((sum, artifact) => sum + artifact.estimatedLines, 0)
+      estimatedLines: artifacts.reduce((sum, artifact) => sum + artifact.estimatedLines, 0),
     };
   }
 
@@ -145,14 +146,16 @@ export class CompletionPhaseEngine implements CompletionEngine {
       testStrategy: await this.defineTestStrategy(refinement),
       coverage: await this.calculateTestCoverage(artifacts),
       automationLevel: 95,
-      testFrameworks: ['Jest', 'Supertest', 'Playwright', 'Artillery']
+      testFrameworks: ['Jest', 'Supertest', 'Playwright', 'Artillery'],
     };
   }
 
   /**
    * Generate comprehensive documentation
    */
-  private async generateDocumentation(refinement: RefinementResult): Promise<DocumentationGeneration> {
+  private async generateDocumentation(
+    refinement: RefinementResult
+  ): Promise<DocumentationGeneration> {
     const artifacts: DocumentationArtifact[] = [];
 
     // Generate API documentation
@@ -181,14 +184,16 @@ export class CompletionPhaseEngine implements CompletionEngine {
       artifacts,
       documentationStandards: ['OpenAPI 3.0', 'AsyncAPI', 'C4 Model', 'ADR'],
       automationLevel: 80,
-      maintenanceStrategy: 'Automated generation from code annotations and architectural models'
+      maintenanceStrategy: 'Automated generation from code annotations and architectural models',
     };
   }
 
   /**
    * Generate deployment artifacts
    */
-  private async generateDeploymentArtifacts(refinement: RefinementResult): Promise<DeploymentArtifacts> {
+  private async generateDeploymentArtifacts(
+    refinement: RefinementResult
+  ): Promise<DeploymentArtifacts> {
     const artifacts: DeploymentArtifact[] = [];
 
     // Generate containerization artifacts
@@ -218,7 +223,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       artifacts,
       deploymentStrategy: refinement.refinedArchitecture.deploymentStrategy,
       environments: ['development', 'staging', 'production'],
-      automationLevel: 90
+      automationLevel: 90,
     };
   }
 
@@ -235,11 +240,11 @@ export class CompletionPhaseEngine implements CompletionEngine {
           'Code coverage >= 90%',
           'No critical code smells',
           'Complexity score < 10',
-          'No security vulnerabilities'
+          'No security vulnerabilities',
         ],
         tools: ['SonarQube', 'ESLint', 'Security Scanner'],
         threshold: 95,
-        blocking: true
+        blocking: true,
       },
       {
         id: nanoid(),
@@ -249,11 +254,11 @@ export class CompletionPhaseEngine implements CompletionEngine {
           'Response time < 100ms',
           'Throughput > 1000 rps',
           'Memory usage < 512MB',
-          'CPU usage < 80%'
+          'CPU usage < 80%',
         ],
         tools: ['Artillery', 'K6', 'New Relic'],
         threshold: 90,
-        blocking: true
+        blocking: true,
       },
       {
         id: nanoid(),
@@ -263,11 +268,11 @@ export class CompletionPhaseEngine implements CompletionEngine {
           'No high/critical vulnerabilities',
           'All dependencies scanned',
           'Security headers configured',
-          'Authentication/authorization tested'
+          'Authentication/authorization tested',
         ],
         tools: ['OWASP ZAP', 'Snyk', 'Semgrep'],
         threshold: 100,
-        blocking: true
+        blocking: true,
       },
       {
         id: nanoid(),
@@ -277,12 +282,12 @@ export class CompletionPhaseEngine implements CompletionEngine {
           'API documentation complete',
           'Architecture docs updated',
           'Deployment guide available',
-          'User documentation complete'
+          'User documentation complete',
         ],
         tools: ['Swagger', 'GitBook', 'Confluence'],
         threshold: 85,
-        blocking: false
-      }
+        blocking: false,
+      },
     ];
   }
 
@@ -303,11 +308,23 @@ export class CompletionPhaseEngine implements CompletionEngine {
         status: 'passed',
         score: 95,
         checks: [
-          { name: 'Code quality standards', passed: true, details: 'All quality metrics above threshold' },
-          { name: 'Error handling', passed: true, details: 'Comprehensive error handling implemented' },
+          {
+            name: 'Code quality standards',
+            passed: true,
+            details: 'All quality metrics above threshold',
+          },
+          {
+            name: 'Error handling',
+            passed: true,
+            details: 'Comprehensive error handling implemented',
+          },
           { name: 'Logging', passed: true, details: 'Structured logging with appropriate levels' },
-          { name: 'Configuration management', passed: true, details: 'Environment-based configuration' }
-        ]
+          {
+            name: 'Configuration management',
+            passed: true,
+            details: 'Environment-based configuration',
+          },
+        ],
       },
       {
         id: nanoid(),
@@ -316,11 +333,15 @@ export class CompletionPhaseEngine implements CompletionEngine {
         status: 'passed',
         score: 92,
         checks: [
-          { name: 'Unit test coverage', passed: true, details: `${testGen.coverage}% coverage achieved` },
+          {
+            name: 'Unit test coverage',
+            passed: true,
+            details: `${testGen.coverage}% coverage achieved`,
+          },
           { name: 'Integration tests', passed: true, details: 'All integration scenarios covered' },
           { name: 'Performance tests', passed: true, details: 'Load and stress tests defined' },
-          { name: 'Security tests', passed: true, details: 'Security test suite comprehensive' }
-        ]
+          { name: 'Security tests', passed: true, details: 'Security test suite comprehensive' },
+        ],
       },
       {
         id: nanoid(),
@@ -332,8 +353,8 @@ export class CompletionPhaseEngine implements CompletionEngine {
           { name: 'Containerization', passed: true, details: 'All services containerized' },
           { name: 'Orchestration', passed: true, details: 'Kubernetes manifests ready' },
           { name: 'Monitoring', passed: true, details: 'Comprehensive monitoring setup' },
-          { name: 'Alerting', passed: true, details: 'Alert rules configured' }
-        ]
+          { name: 'Alerting', passed: true, details: 'Alert rules configured' },
+        ],
       },
       {
         id: nanoid(),
@@ -342,11 +363,15 @@ export class CompletionPhaseEngine implements CompletionEngine {
         status: 'passed',
         score: 96,
         checks: [
-          { name: 'Vulnerability scanning', passed: true, details: 'No critical vulnerabilities found' },
+          {
+            name: 'Vulnerability scanning',
+            passed: true,
+            details: 'No critical vulnerabilities found',
+          },
           { name: 'Authentication', passed: true, details: 'Robust authentication implemented' },
           { name: 'Authorization', passed: true, details: 'Fine-grained access control' },
-          { name: 'Data encryption', passed: true, details: 'End-to-end encryption configured' }
-        ]
+          { name: 'Data encryption', passed: true, details: 'End-to-end encryption configured' },
+        ],
       },
       {
         id: nanoid(),
@@ -358,9 +383,9 @@ export class CompletionPhaseEngine implements CompletionEngine {
           { name: 'Documentation', passed: true, details: 'Complete documentation available' },
           { name: 'Runbooks', passed: false, details: 'Some operational runbooks missing' },
           { name: 'Backup strategy', passed: true, details: 'Automated backup configured' },
-          { name: 'Disaster recovery', passed: true, details: 'DR procedures documented' }
-        ]
-      }
+          { name: 'Disaster recovery', passed: true, details: 'DR procedures documented' },
+        ],
+      },
     ];
   }
 
@@ -374,7 +399,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateServiceImplementation(component),
       estimatedLines: 150,
       dependencies: component.dependencies,
-      tests: [`${component.name}.test.ts`]
+      tests: [`${component.name}.test.ts`],
     };
   }
 
@@ -387,7 +412,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateInterfaceDefinition(component),
       estimatedLines: 30,
       dependencies: [],
-      tests: []
+      tests: [],
     };
   }
 
@@ -400,7 +425,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateConfigurationFile(component),
       estimatedLines: 50,
       dependencies: ['config'],
-      tests: []
+      tests: [],
     };
   }
 
@@ -413,7 +438,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateRepositoryImplementation(component),
       estimatedLines: 200,
       dependencies: ['database', 'models'],
-      tests: [`${component.name}Repository.test.ts`]
+      tests: [`${component.name}Repository.test.ts`],
     };
   }
 
@@ -426,7 +451,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateDataModel(component),
       estimatedLines: 80,
       dependencies: ['database'],
-      tests: []
+      tests: [],
     };
   }
 
@@ -439,7 +464,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateMigrationSQL(component),
       estimatedLines: 25,
       dependencies: [],
-      tests: []
+      tests: [],
     };
   }
 
@@ -452,7 +477,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateControllerCode(architecture),
       estimatedLines: 300,
       dependencies: ['express', 'services'],
-      tests: ['ApiControllers.test.ts']
+      tests: ['ApiControllers.test.ts'],
     };
   }
 
@@ -465,7 +490,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateRoutesCode(architecture),
       estimatedLines: 100,
       dependencies: ['express', 'controllers'],
-      tests: ['routes.test.ts']
+      tests: ['routes.test.ts'],
     };
   }
 
@@ -478,7 +503,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateMiddlewareCode(architecture),
       estimatedLines: 150,
       dependencies: ['express', 'security'],
-      tests: ['middleware.test.ts']
+      tests: ['middleware.test.ts'],
     };
   }
 
@@ -491,7 +516,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateConfigManagerCode(),
       estimatedLines: 120,
       dependencies: ['dotenv'],
-      tests: ['ConfigManager.test.ts']
+      tests: ['ConfigManager.test.ts'],
     };
   }
 
@@ -504,7 +529,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateLoggerCode(),
       estimatedLines: 80,
       dependencies: ['winston'],
-      tests: ['Logger.test.ts']
+      tests: ['Logger.test.ts'],
     };
   }
 
@@ -517,7 +542,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateErrorHandlerCode(),
       estimatedLines: 100,
       dependencies: ['express'],
-      tests: ['ErrorHandler.test.ts']
+      tests: ['ErrorHandler.test.ts'],
     };
   }
 
@@ -530,7 +555,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateSecurityCode(securityOpts),
       estimatedLines: 200,
       dependencies: ['jsonwebtoken', 'bcrypt', 'helmet'],
-      tests: ['SecurityFramework.test.ts']
+      tests: ['SecurityFramework.test.ts'],
     };
   }
 
@@ -544,7 +569,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateUnitTestContent(component),
       estimatedLines: 100,
       coverage: 95,
-      framework: 'Jest'
+      framework: 'Jest',
     };
   }
 
@@ -557,7 +582,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateIntegrationTestContent(architecture),
       estimatedLines: 200,
       coverage: 85,
-      framework: 'Jest + Supertest'
+      framework: 'Jest + Supertest',
     };
   }
 
@@ -570,7 +595,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateE2ETestContent(architecture),
       estimatedLines: 150,
       coverage: 80,
-      framework: 'Playwright'
+      framework: 'Playwright',
     };
   }
 
@@ -583,7 +608,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generatePerformanceTestContent(performanceOpts),
       estimatedLines: 100,
       coverage: 70,
-      framework: 'Artillery'
+      framework: 'Artillery',
     };
   }
 
@@ -596,7 +621,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateSecurityTestContent(securityOpts),
       estimatedLines: 120,
       coverage: 90,
-      framework: 'Jest + OWASP ZAP'
+      framework: 'Jest + OWASP ZAP',
     };
   }
 
@@ -609,7 +634,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       content: this.generateLoadTestContent(scalabilityOpts),
       estimatedLines: 80,
       coverage: 75,
-      framework: 'K6'
+      framework: 'K6',
     };
   }
 
@@ -622,11 +647,13 @@ export class CompletionPhaseEngine implements CompletionEngine {
       format: 'OpenAPI 3.0',
       path: 'docs/api/openapi.yml',
       content: this.generateOpenAPISpec(architecture),
-      automationLevel: 90
+      automationLevel: 90,
     };
   }
 
-  private async generateArchitectureDocumentation(architecture: any): Promise<DocumentationArtifact> {
+  private async generateArchitectureDocumentation(
+    architecture: any
+  ): Promise<DocumentationArtifact> {
     return {
       id: nanoid(),
       name: 'Architecture Documentation',
@@ -634,7 +661,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       format: 'Markdown + C4 Models',
       path: 'docs/architecture/README.md',
       content: this.generateArchitectureDoc(architecture),
-      automationLevel: 70
+      automationLevel: 70,
     };
   }
 
@@ -646,7 +673,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       format: 'Markdown',
       path: 'docs/user/README.md',
       content: this.generateUserDoc(architecture),
-      automationLevel: 60
+      automationLevel: 60,
     };
   }
 
@@ -658,7 +685,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       format: 'Markdown',
       path: 'docs/developer/README.md',
       content: this.generateDeveloperDoc(refinement),
-      automationLevel: 80
+      automationLevel: 80,
     };
   }
 
@@ -670,7 +697,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       format: 'Markdown',
       path: 'docs/deployment/README.md',
       content: this.generateDeploymentDoc(refinement),
-      automationLevel: 85
+      automationLevel: 85,
     };
   }
 
@@ -682,7 +709,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       format: 'Markdown',
       path: 'docs/troubleshooting/README.md',
       content: this.generateTroubleshootingDoc(refinement),
-      automationLevel: 50
+      automationLevel: 50,
     };
   }
 
@@ -694,7 +721,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       format: 'Markdown',
       path: 'docs/security/README.md',
       content: this.generateSecurityDoc(securityOpts),
-      automationLevel: 75
+      automationLevel: 75,
     };
   }
 
@@ -706,7 +733,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'containerization',
       path: 'docker/',
       content: this.generateDockerfileContent(architecture),
-      environment: 'all'
+      environment: 'all',
     };
   }
 
@@ -717,7 +744,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'containerization',
       path: 'docker-compose.yml',
       content: this.generateDockerComposeContent(architecture),
-      environment: 'development'
+      environment: 'development',
     };
   }
 
@@ -728,7 +755,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'orchestration',
       path: 'k8s/',
       content: this.generateK8sManifests(architecture),
-      environment: 'production'
+      environment: 'production',
     };
   }
 
@@ -739,7 +766,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'configuration',
       path: 'k8s/configmaps/',
       content: this.generateK8sConfigMaps(architecture),
-      environment: 'all'
+      environment: 'all',
     };
   }
 
@@ -750,7 +777,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'security',
       path: 'k8s/secrets/',
       content: this.generateK8sSecrets(securityOpts),
-      environment: 'all'
+      environment: 'all',
     };
   }
 
@@ -761,7 +788,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'cicd',
       path: '.github/workflows/ci.yml',
       content: this.generateCIPipelineContent(refinement),
-      environment: 'all'
+      environment: 'all',
     };
   }
 
@@ -772,7 +799,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'cicd',
       path: '.github/workflows/cd.yml',
       content: this.generateCDPipelineContent(refinement),
-      environment: 'all'
+      environment: 'all',
     };
   }
 
@@ -783,7 +810,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'infrastructure',
       path: 'terraform/',
       content: this.generateTerraformContent(architecture),
-      environment: 'production'
+      environment: 'production',
     };
   }
 
@@ -794,7 +821,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'infrastructure',
       path: 'ansible/',
       content: this.generateAnsibleContent(architecture),
-      environment: 'production'
+      environment: 'production',
     };
   }
 
@@ -805,7 +832,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'monitoring',
       path: 'monitoring/prometheus/',
       content: this.generatePrometheusContent(architecture),
-      environment: 'production'
+      environment: 'production',
     };
   }
 
@@ -816,7 +843,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'monitoring',
       path: 'monitoring/grafana/',
       content: this.generateGrafanaContent(architecture),
-      environment: 'production'
+      environment: 'production',
     };
   }
 
@@ -827,7 +854,7 @@ export class CompletionPhaseEngine implements CompletionEngine {
       type: 'monitoring',
       path: 'monitoring/alerts/',
       content: this.generateAlertingContent(architecture),
-      environment: 'production'
+      environment: 'production',
     };
   }
 
@@ -1005,7 +1032,7 @@ describe('End-to-End Tests', () => {
   private generatePerformanceTestContent(performanceOpts: any[]): string {
     return `
 // Performance tests based on optimization targets
-// ${performanceOpts.map(opt => opt.description).join('\n// ')}
+// ${performanceOpts.map((opt) => opt.description).join('\n// ')}
     `.trim();
   }
 
@@ -1013,7 +1040,7 @@ describe('End-to-End Tests', () => {
     return `
 describe('Security Tests', () => {
   // Security tests for vulnerabilities and compliance
-  // ${securityOpts.map(opt => opt.description).join('\n  // ')}
+  // ${securityOpts.map((opt) => opt.description).join('\n  // ')}
 });
     `.trim();
   }
@@ -1021,7 +1048,7 @@ describe('Security Tests', () => {
   private generateLoadTestContent(scalabilityOpts: any[]): string {
     return `
 // Load tests based on scalability requirements
-// ${scalabilityOpts.map(opt => opt.description).join('\n// ')}
+// ${scalabilityOpts.map((opt) => opt.description).join('\n// ')}
     `.trim();
   }
 
@@ -1101,7 +1128,7 @@ Solutions for frequent problems and error scenarios.
 # Security Documentation
 
 ## Security Measures
-${securityOpts.map(opt => `- ${opt.description}`).join('\n')}
+${securityOpts.map((opt) => `- ${opt.description}`).join('\n')}
     `.trim();
   }
 
@@ -1284,13 +1311,13 @@ groups:
       complexity: 'Low',
       maintainabilityIndex: 85,
       testCoverage: 90,
-      codeSmells: 2
+      codeSmells: 2,
     };
   }
 
   private extractTechnologies(architecture: any): string[] {
     const technologies = new Set<string>();
-    
+
     for (const component of architecture.components) {
       if (component.technologies) {
         component.technologies.forEach((tech: string) => technologies.add(tech));
@@ -1305,7 +1332,7 @@ groups:
       approach: 'Hybrid TDD (70% London, 30% Classical)',
       coverage: 90,
       testLevels: ['unit', 'integration', 'e2e', 'performance', 'security'],
-      automation: 95
+      automation: 95,
     };
   }
 
@@ -1314,29 +1341,32 @@ groups:
     return totalCoverage / artifacts.length;
   }
 
-  private async performComplianceChecks(codeGen: CodeGeneration, testGen: TestGeneration): Promise<ComplianceCheck[]> {
+  private async performComplianceChecks(
+    codeGen: CodeGeneration,
+    testGen: TestGeneration
+  ): Promise<ComplianceCheck[]> {
     return [
       {
         id: nanoid(),
         standard: 'OWASP Top 10',
         status: 'compliant',
         score: 95,
-        details: 'All security vulnerabilities addressed'
+        details: 'All security vulnerabilities addressed',
       },
       {
         id: nanoid(),
         standard: 'GDPR',
         status: 'compliant',
         score: 92,
-        details: 'Data protection measures implemented'
+        details: 'Data protection measures implemented',
       },
       {
         id: nanoid(),
         standard: 'SOC 2',
         status: 'compliant',
         score: 88,
-        details: 'Security and availability controls in place'
-      }
+        details: 'Security and availability controls in place',
+      },
     ];
   }
 
@@ -1344,18 +1374,20 @@ groups:
     return {
       metrics: ['response_time', 'throughput', 'error_rate', 'resource_usage'],
       alerts: ['high_response_time', 'service_down', 'high_error_rate'],
-      dashboards: ['system_overview', 'performance_metrics', 'security_metrics']
+      dashboards: ['system_overview', 'performance_metrics', 'security_metrics'],
     };
   }
 
-  private async generateDeploymentInstructions(deploymentArtifacts: DeploymentArtifacts): Promise<string[]> {
+  private async generateDeploymentInstructions(
+    deploymentArtifacts: DeploymentArtifacts
+  ): Promise<string[]> {
     return [
       'Build and tag container images',
       'Push images to container registry',
       'Apply Kubernetes manifests',
       'Configure monitoring and alerting',
       'Verify deployment health',
-      'Run smoke tests'
+      'Run smoke tests',
     ];
   }
 
@@ -1364,7 +1396,7 @@ groups:
       updateProcedures: 'Rolling updates with zero downtime',
       backupStrategy: 'Automated daily backups with point-in-time recovery',
       monitoringProcedures: 'Continuous monitoring with automated alerting',
-      troubleshootingSteps: 'Comprehensive runbooks for common issues'
+      troubleshootingSteps: 'Comprehensive runbooks for common issues',
     };
   }
 
@@ -1379,9 +1411,10 @@ groups:
       criterion: 'Code generation completeness',
       passed: implementation.codeGeneration.artifacts.length > 0,
       score: implementation.codeGeneration.artifacts.length > 0 ? 1.0 : 0.0,
-      feedback: implementation.codeGeneration.artifacts.length > 0 ? 
-        'Complete code artifacts generated' : 
-        'Missing code generation artifacts'
+      feedback:
+        implementation.codeGeneration.artifacts.length > 0
+          ? 'Complete code artifacts generated'
+          : 'Missing code generation artifacts',
     });
 
     // Validate test generation
@@ -1389,9 +1422,10 @@ groups:
       criterion: 'Test coverage',
       passed: implementation.testGeneration.coverage >= 90,
       score: implementation.testGeneration.coverage >= 90 ? 1.0 : 0.8,
-      feedback: implementation.testGeneration.coverage >= 90 ? 
-        'Excellent test coverage achieved' : 
-        'Test coverage should be improved'
+      feedback:
+        implementation.testGeneration.coverage >= 90
+          ? 'Excellent test coverage achieved'
+          : 'Test coverage should be improved',
     });
 
     // Validate documentation
@@ -1399,30 +1433,35 @@ groups:
       criterion: 'Documentation completeness',
       passed: implementation.documentationGeneration.artifacts.length >= 5,
       score: implementation.documentationGeneration.artifacts.length >= 5 ? 1.0 : 0.6,
-      feedback: implementation.documentationGeneration.artifacts.length >= 5 ? 
-        'Comprehensive documentation generated' : 
-        'Documentation could be more comprehensive'
+      feedback:
+        implementation.documentationGeneration.artifacts.length >= 5
+          ? 'Comprehensive documentation generated'
+          : 'Documentation could be more comprehensive',
     });
 
     // Validate production readiness
-    const readinessScore = implementation.productionReadinessChecks.reduce((sum, check) => sum + check.score, 0) / implementation.productionReadinessChecks.length;
+    const readinessScore =
+      implementation.productionReadinessChecks.reduce((sum, check) => sum + check.score, 0) /
+      implementation.productionReadinessChecks.length;
     validationResults.push({
       criterion: 'Production readiness',
       passed: readinessScore >= 85,
       score: readinessScore >= 85 ? 1.0 : 0.7,
-      feedback: readinessScore >= 85 ? 
-        'System ready for production deployment' : 
-        'Some production readiness issues need addressing'
+      feedback:
+        readinessScore >= 85
+          ? 'System ready for production deployment'
+          : 'Some production readiness issues need addressing',
     });
 
-    const overallScore = validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
+    const overallScore =
+      validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
 
     return {
       overallScore,
       validationResults,
       recommendations: this.generateCompletionRecommendations(validationResults),
       approved: overallScore >= 0.8,
-      productionReady: readinessScore >= 85
+      productionReady: readinessScore >= 85,
     };
   }
 

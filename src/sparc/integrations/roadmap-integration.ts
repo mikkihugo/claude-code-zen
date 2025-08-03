@@ -1,20 +1,23 @@
 /**
  * SPARC Roadmap and Epic Management Integration
- * 
- * Provides strategic planning integration between SPARC projects and 
+ *
+ * Provides strategic planning integration between SPARC projects and
  * enterprise roadmap planning systems.
  */
 
-import { SPARCProject, ProjectDomain, ComplexityLevel } from '../types/sparc-types';
-import { Epic, Feature, RoadmapItem, Roadmap } from './project-management-integration';
 import * as fs from 'fs/promises';
 import * as path from 'path';
+import { ComplexityLevel, type ProjectDomain, type SPARCProject } from '../types/sparc-types';
+import type { Epic, Feature, Roadmap, RoadmapItem } from './project-management-integration';
 
 export interface SPARCRoadmapPlanning {
   generateEpicFromSPARCProject(project: SPARCProject): Promise<Epic>;
   generateFeaturesFromProject(project: SPARCProject): Promise<Feature[]>;
   addProjectToRoadmap(project: SPARCProject, targetQuarter: string): Promise<void>;
-  generateDomainRoadmap(domain: ProjectDomain, timeframe: { start: string; end: string }): Promise<Roadmap>;
+  generateDomainRoadmap(
+    domain: ProjectDomain,
+    timeframe: { start: string; end: string }
+  ): Promise<Roadmap>;
 }
 
 export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
@@ -42,15 +45,15 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
       business_value: this.calculateBusinessValue(project),
       timeline: {
         start_date: new Date().toISOString().split('T')[0],
-        end_date: this.calculateEpicEndDate(project)
+        end_date: this.calculateEpicEndDate(project),
       },
       status: 'approved',
-      sparc_project_id: project.id
+      sparc_project_id: project.id,
     };
 
     // Generate features for this epic
     const features = await this.generateFeaturesFromProject(project);
-    epic.features = features.map(f => f.id);
+    epic.features = features.map((f) => f.id);
 
     return epic;
   }
@@ -66,18 +69,18 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
       {
         phase: 'specification',
         title: `${project.name} Requirements Analysis`,
-        description: 'Complete requirements gathering and constraint analysis'
+        description: 'Complete requirements gathering and constraint analysis',
       },
       {
         phase: 'architecture',
         title: `${project.name} System Architecture`,
-        description: 'Design and document system architecture and components'
+        description: 'Design and document system architecture and components',
       },
       {
         phase: 'completion',
         title: `${project.name} Implementation`,
-        description: 'Production-ready implementation with full test coverage'
-      }
+        description: 'Production-ready implementation with full test coverage',
+      },
     ];
 
     phaseFeatures.forEach((phaseFeature, index) => {
@@ -88,7 +91,7 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
         epic_id: `EPIC-${project.id}`,
         user_stories: this.generateUserStoryIds(project, phaseFeature.phase),
         status: this.getFeatureStatus(project, phaseFeature.phase as any),
-        sparc_project_id: project.id
+        sparc_project_id: project.id,
       };
 
       features.push(feature);
@@ -104,7 +107,7 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
           epic_id: `EPIC-${project.id}`,
           user_stories: [`US-${project.id}-${index + 1}`],
           status: 'backlog',
-          sparc_project_id: project.id
+          sparc_project_id: project.id,
         };
 
         features.push(feature);
@@ -131,10 +134,10 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
           description: 'Strategic development roadmap for Claude-Zen platform',
           timeframe: {
             start_quarter: targetQuarter,
-            end_quarter: this.calculateEndQuarter(targetQuarter, 4) // 4 quarters ahead
+            end_quarter: this.calculateEndQuarter(targetQuarter, 4), // 4 quarters ahead
           },
           items: [],
-          last_updated: new Date().toISOString()
+          last_updated: new Date().toISOString(),
         };
       }
 
@@ -149,7 +152,7 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
         business_value: this.mapBusinessValueToLevel(project),
         dependencies: this.extractProjectDependencies(project),
         status: 'planned',
-        sparc_project_id: project.id
+        sparc_project_id: project.id,
       };
 
       // Add to roadmap
@@ -161,7 +164,6 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
 
       // Save updated roadmap
       await fs.writeFile(this.roadmapFile, JSON.stringify(roadmap, null, 2));
-
     } catch (error) {
       console.warn('Could not update roadmap:', error);
     }
@@ -170,17 +172,20 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
   /**
    * Generate domain-specific roadmap
    */
-  async generateDomainRoadmap(domain: ProjectDomain, timeframe: { start: string; end: string }): Promise<Roadmap> {
+  async generateDomainRoadmap(
+    domain: ProjectDomain,
+    timeframe: { start: string; end: string }
+  ): Promise<Roadmap> {
     const roadmap: Roadmap = {
       id: `${domain}-roadmap`,
       title: `${domain.charAt(0).toUpperCase() + domain.slice(1)} Domain Roadmap`,
       description: `Strategic roadmap for ${domain} development in Claude-Zen`,
       timeframe: {
         start_quarter: timeframe.start,
-        end_quarter: timeframe.end
+        end_quarter: timeframe.end,
       },
       items: this.generateDomainRoadmapItems(domain, timeframe),
-      last_updated: new Date().toISOString()
+      last_updated: new Date().toISOString(),
     };
 
     return roadmap;
@@ -223,7 +228,6 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
       // Save files
       await fs.writeFile(this.epicsFile, JSON.stringify(epics, null, 2));
       await fs.writeFile(this.featuresFile, JSON.stringify(featuresData, null, 2));
-
     } catch (error) {
       console.warn('Could not save project artifacts:', error);
     }
@@ -252,9 +256,9 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
       'neural-networks': 'High - AI/ML acceleration and intelligence enhancement',
       'memory-systems': 'Medium - Infrastructure efficiency and data management',
       'rest-api': 'Medium - External integration and user interface capabilities',
-      'interfaces': 'Medium - User experience and system accessibility',
+      interfaces: 'Medium - User experience and system accessibility',
       'wasm-integration': 'High - Performance optimization and computational efficiency',
-      'general': 'Low to Medium - General platform improvements'
+      general: 'Low to Medium - General platform improvements',
     };
 
     return domainValues[project.domain] || 'Medium - Platform enhancement';
@@ -266,13 +270,13 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
       moderate: 8,
       high: 12,
       complex: 16,
-      enterprise: 20
+      enterprise: 20,
     };
 
     const weeks = complexityWeeks['moderate'];
     const endDate = new Date();
-    endDate.setDate(endDate.getDate() + (weeks * 7));
-    
+    endDate.setDate(endDate.getDate() + weeks * 7);
+
     return endDate.toISOString().split('T')[0];
   }
 
@@ -282,7 +286,10 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
     return [`${baseId}-001`, `${baseId}-002`];
   }
 
-  private getFeatureStatus(project: SPARCProject, phase: string): 'backlog' | 'planned' | 'in_progress' | 'completed' {
+  private getFeatureStatus(
+    project: SPARCProject,
+    phase: string
+  ): 'backlog' | 'planned' | 'in_progress' | 'completed' {
     if (project.progress?.completedPhases?.includes(phase as any)) {
       return 'completed';
     } else if (project.currentPhase === phase) {
@@ -299,7 +306,7 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
   private determineRoadmapItemType(project: SPARCProject): 'epic' | 'feature' | 'initiative' {
     // For now, determine based on project domain and size
     const highComplexityDomains = ['neural-networks', 'swarm-coordination'];
-    
+
     if (highComplexityDomains.includes(project.domain)) {
       return 'epic';
     } else {
@@ -313,7 +320,7 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
       moderate: 13,
       high: 21,
       complex: 34,
-      enterprise: 55
+      enterprise: 55,
     };
 
     return complexityPoints['moderate'];
@@ -321,7 +328,7 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
 
   private mapBusinessValueToLevel(project: SPARCProject): 'high' | 'medium' | 'low' {
     const highValueDomains = ['swarm-coordination', 'neural-networks', 'wasm-integration'];
-    
+
     if (highValueDomains.includes(project.domain)) {
       return 'high';
     } else {
@@ -330,25 +337,28 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
   }
 
   private extractProjectDependencies(project: SPARCProject): string[] {
-    return project.specification?.dependencies?.map(dep => dep.name) || [];
+    return project.specification?.dependencies?.map((dep) => dep.name) || [];
   }
 
   private calculateEndQuarter(startQuarter: string, quartersAhead: number): string {
     const [year, quarter] = startQuarter.split('-Q');
     const startQuarterNum = parseInt(quarter);
-    
+
     let endYear = parseInt(year);
     let endQuarter = startQuarterNum + quartersAhead;
-    
+
     while (endQuarter > 4) {
       endQuarter -= 4;
       endYear += 1;
     }
-    
+
     return `${endYear}-Q${endQuarter}`;
   }
 
-  private generateDomainRoadmapItems(domain: ProjectDomain, timeframe: { start: string; end: string }): RoadmapItem[] {
+  private generateDomainRoadmapItems(
+    domain: ProjectDomain,
+    timeframe: { start: string; end: string }
+  ): RoadmapItem[] {
     // Generate domain-specific roadmap items based on strategic priorities
     const domainStrategies = {
       'swarm-coordination': [
@@ -356,34 +366,34 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
           title: 'Advanced Agent Coordination',
           description: 'Enhanced swarm intelligence and coordination algorithms',
           effort_estimate: 34,
-          business_value: 'high' as const
+          business_value: 'high' as const,
         },
         {
           title: 'Fault-Tolerant Load Balancing',
           description: 'Resilient load balancing with automatic failover',
           effort_estimate: 21,
-          business_value: 'high' as const
-        }
+          business_value: 'high' as const,
+        },
       ],
       'neural-networks': [
         {
           title: 'WASM Neural Acceleration',
           description: 'High-performance WASM-based neural network execution',
           effort_estimate: 55,
-          business_value: 'high' as const
+          business_value: 'high' as const,
         },
         {
           title: 'Distributed Training Framework',
           description: 'Multi-node neural network training coordination',
           effort_estimate: 34,
-          business_value: 'medium' as const
-        }
-      ]
+          business_value: 'medium' as const,
+        },
+      ],
       // Add more domains as needed
     };
 
     const strategies = domainStrategies[domain] || [];
-    
+
     return strategies.map((strategy, index) => ({
       id: `${domain}-roadmap-${index + 1}`,
       title: strategy.title,
@@ -393,7 +403,7 @@ export class SPARCRoadmapManager implements SPARCRoadmapPlanning {
       effort_estimate: strategy.effort_estimate,
       business_value: strategy.business_value,
       dependencies: [],
-      status: 'planned' as const
+      status: 'planned' as const,
     }));
   }
 }

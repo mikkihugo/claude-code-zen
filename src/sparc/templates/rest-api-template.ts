@@ -1,18 +1,18 @@
 /**
  * SPARC REST API Template
- * 
+ *
  * Pre-built template for REST API systems with authentication,
  * validation, rate limiting, and comprehensive error handling.
  */
 
 import { nanoid } from 'nanoid';
 import type {
-  SPARCTemplate,
-  ProjectSpecification,
-  DetailedSpecification,
-  PseudocodeStructure,
   ArchitectureDesign,
-  TemplateMetadata
+  DetailedSpecification,
+  ProjectSpecification,
+  PseudocodeStructure,
+  SPARCTemplate,
+  TemplateMetadata,
 } from '../types/sparc-types.js';
 
 export const REST_API_TEMPLATE: SPARCTemplate = {
@@ -27,14 +27,15 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
     tags: ['rest-api', 'authentication', 'validation', 'enterprise'],
     complexity: 'moderate',
     estimatedDevelopmentTime: '4-8 weeks',
-    targetPerformance: 'Sub-50ms response time, 10k+ requests/second'
+    targetPerformance: 'Sub-50ms response time, 10k+ requests/second',
   },
 
   specification: {
     id: nanoid(),
     name: 'Enterprise REST API System',
     domain: 'rest-api',
-    description: 'High-performance REST API with authentication, validation, rate limiting, and comprehensive monitoring',
+    description:
+      'High-performance REST API with authentication, validation, rate limiting, and comprehensive monitoring',
     functionalRequirements: [
       {
         id: nanoid(),
@@ -49,8 +50,8 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Consistent REST endpoint structure',
           'HTTP status codes follow standards',
-          'Resource relationships properly modeled'
-        ]
+          'Resource relationships properly modeled',
+        ],
       },
       {
         id: nanoid(),
@@ -65,8 +66,8 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'JWT token-based authentication',
           'Role-based access control',
-          'Token refresh mechanism'
-        ]
+          'Token refresh mechanism',
+        ],
       },
       {
         id: nanoid(),
@@ -81,8 +82,8 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'JSON schema validation',
           'Input sanitization',
-          'Type checking and coercion'
-        ]
+          'Type checking and coercion',
+        ],
       },
       {
         id: nanoid(),
@@ -97,8 +98,8 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Per-user rate limiting',
           'Per-endpoint rate limiting',
-          'Adaptive throttling'
-        ]
+          'Adaptive throttling',
+        ],
       },
       {
         id: nanoid(),
@@ -113,9 +114,9 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'OpenAPI 3.0 specification',
           'Interactive documentation',
-          'Code examples and SDKs'
-        ]
-      }
+          'Code examples and SDKs',
+        ],
+      },
     ],
     nonFunctionalRequirements: [
       {
@@ -128,7 +129,7 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         metric: 'response_time',
         target: '<50ms P95 response time',
         measurement: 'API response latency',
-        rationale: 'Modern applications require fast API responses'
+        rationale: 'Modern applications require fast API responses',
       },
       {
         id: nanoid(),
@@ -140,7 +141,7 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         metric: 'requests_per_second',
         target: '10,000 requests/second',
         measurement: 'Sustained request throughput',
-        rationale: 'Support for high-traffic applications'
+        rationale: 'Support for high-traffic applications',
       },
       {
         id: nanoid(),
@@ -152,8 +153,8 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         metric: 'uptime',
         target: '99.9% uptime',
         measurement: 'Service availability monitoring',
-        rationale: 'APIs are critical infrastructure components'
-      }
+        rationale: 'APIs are critical infrastructure components',
+      },
     ],
     systemConstraints: [
       {
@@ -161,28 +162,28 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         type: 'security',
         description: 'All API endpoints must require authentication except health checks',
         rationale: 'Prevent unauthorized access to system resources',
-        impact: 'HIGH'
+        impact: 'HIGH',
       },
       {
         id: nanoid(),
         type: 'compatibility',
         description: 'API must follow OpenAPI 3.0 specification',
         rationale: 'Ensure interoperability and documentation standards',
-        impact: 'MEDIUM'
+        impact: 'MEDIUM',
       },
       {
         id: nanoid(),
         type: 'performance',
         description: 'Response payloads must not exceed 10MB',
         rationale: 'Prevent network congestion and timeout issues',
-        impact: 'MEDIUM'
-      }
+        impact: 'MEDIUM',
+      },
     ],
     projectAssumptions: [
       'HTTP/HTTPS protocol support available',
       'Database backend for data persistence',
       'Load balancer for high availability',
-      'Monitoring and logging infrastructure'
+      'Monitoring and logging infrastructure',
     ],
     externalDependencies: [
       {
@@ -191,7 +192,7 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         type: 'framework',
         description: 'Node.js web framework for API development',
         version: '4.18+',
-        criticality: 'HIGH'
+        criticality: 'HIGH',
       },
       {
         id: nanoid(),
@@ -199,7 +200,7 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         type: 'authentication',
         description: 'JSON Web Token implementation',
         version: '9.0+',
-        criticality: 'HIGH'
+        criticality: 'HIGH',
       },
       {
         id: nanoid(),
@@ -207,8 +208,8 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         type: 'validation',
         description: 'Schema validation library',
         version: 'Latest',
-        criticality: 'HIGH'
-      }
+        criticality: 'HIGH',
+      },
     ],
     riskAnalysis: {
       identifiedRisks: [
@@ -217,40 +218,40 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
           description: 'API abuse through automated attacks',
           probability: 'MEDIUM',
           impact: 'HIGH',
-          category: 'security'
+          category: 'security',
         },
         {
           id: nanoid(),
           description: 'Performance degradation under high load',
           probability: 'MEDIUM',
           impact: 'MEDIUM',
-          category: 'performance'
+          category: 'performance',
         },
         {
           id: nanoid(),
           description: 'Breaking changes affecting client applications',
           probability: 'LOW',
           impact: 'HIGH',
-          category: 'compatibility'
-        }
+          category: 'compatibility',
+        },
       ],
       mitigationStrategies: [
         {
           riskId: 'api-abuse',
           strategy: 'Implement comprehensive rate limiting, IP blocking, and request analysis',
-          effectiveness: 'HIGH'
+          effectiveness: 'HIGH',
         },
         {
           riskId: 'performance-degradation',
           strategy: 'Load testing, caching, and auto-scaling implementation',
-          effectiveness: 'MEDIUM'
+          effectiveness: 'MEDIUM',
         },
         {
           riskId: 'breaking-changes',
           strategy: 'API versioning strategy and backward compatibility testing',
-          effectiveness: 'HIGH'
-        }
-      ]
+          effectiveness: 'HIGH',
+        },
+      ],
     },
     successMetrics: [
       {
@@ -258,25 +259,25 @@ export const REST_API_TEMPLATE: SPARCTemplate = {
         metric: 'response_time',
         target: '<50ms P95',
         measurement: 'Automated performance monitoring',
-        frequency: 'Continuous'
+        frequency: 'Continuous',
       },
       {
         id: nanoid(),
         metric: 'error_rate',
         target: '<0.1% server errors',
         measurement: 'Error tracking and monitoring',
-        frequency: 'Real-time'
+        frequency: 'Real-time',
       },
       {
         id: nanoid(),
         metric: 'api_adoption',
         target: '>95% endpoint usage',
         measurement: 'API analytics and usage tracking',
-        frequency: 'Weekly'
-      }
+        frequency: 'Weekly',
+      },
     ],
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
 
   pseudocode: {
@@ -340,13 +341,13 @@ END
         complexity: {
           time: 'O(n)' as const,
           space: 'O(n)' as const,
-          explanation: 'Linear time and space complexity based on request size'
+          explanation: 'Linear time and space complexity based on request size',
         },
         inputParameters: ['request', 'schema', 'sanitizationRules'],
         outputFormat: 'ValidationResult',
         preconditions: ['Request object is valid', 'Schema is properly defined'],
         postconditions: ['Request validated or errors returned'],
-        invariants: ['Original request unchanged', 'Validation rules consistently applied']
+        invariants: ['Original request unchanged', 'Validation rules consistently applied'],
       },
       {
         id: nanoid(),
@@ -416,13 +417,13 @@ END
         complexity: {
           time: 'O(1)' as const,
           space: 'O(1)' as const,
-          explanation: 'Constant time operations with cache lookups'
+          explanation: 'Constant time operations with cache lookups',
         },
         inputParameters: ['request', 'user', 'endpoint', 'currentLoad'],
         outputFormat: 'RateLimitResult',
         preconditions: ['Rate limiter initialized', 'User and endpoint valid'],
         postconditions: ['Rate limit decision made', 'Usage counters updated'],
-        invariants: ['Rate limits consistently enforced', 'Usage tracking accurate']
+        invariants: ['Rate limits consistently enforced', 'Usage tracking accurate'],
       },
       {
         id: nanoid(),
@@ -495,14 +496,14 @@ END
         complexity: {
           time: 'O(1)' as const,
           space: 'O(1)' as const,
-          explanation: 'Constant time JWT operations with database lookups'
+          explanation: 'Constant time JWT operations with database lookups',
         },
         inputParameters: ['request', 'jwtSecret', 'refreshSecret'],
         outputFormat: 'AuthenticationResult',
         preconditions: ['JWT secrets configured', 'User service available'],
         postconditions: ['Authentication result determined', 'User context loaded'],
-        invariants: ['Security policies enforced', 'Token validation consistent']
-      }
+        invariants: ['Security policies enforced', 'Token validation consistent'],
+      },
     ],
     dataStructures: [
       {
@@ -517,8 +518,8 @@ END
         performance: {
           get: 'O(1)' as const,
           set: 'O(1)' as const,
-          invalidate: 'O(1)' as const
-        }
+          invalidate: 'O(1)' as const,
+        },
       },
       {
         id: nanoid(),
@@ -532,8 +533,8 @@ END
         performance: {
           increment: 'O(1)' as const,
           get: 'O(1)' as const,
-          reset: 'O(1)' as const
-        }
+          reset: 'O(1)' as const,
+        },
       },
       {
         id: nanoid(),
@@ -547,9 +548,9 @@ END
         performance: {
           register: 'O(1)' as const,
           lookup: 'O(1)' as const,
-          update: 'O(1)' as const
-        }
-      }
+          update: 'O(1)' as const,
+        },
+      },
     ],
     processFlows: [
       {
@@ -564,7 +565,7 @@ END
             algorithm: 'RequestParsingAlgorithm',
             inputs: ['rawRequest'],
             outputs: ['parsedRequest'],
-            duration: 1
+            duration: 1,
           },
           {
             id: nanoid(),
@@ -573,7 +574,7 @@ END
             algorithm: 'JWTAuthenticationFlow',
             inputs: ['parsedRequest', 'jwtSecret'],
             outputs: ['authResult', 'userContext'],
-            duration: 5
+            duration: 5,
           },
           {
             id: nanoid(),
@@ -582,7 +583,7 @@ END
             algorithm: 'AdaptiveRateLimiting',
             inputs: ['parsedRequest', 'userContext'],
             outputs: ['rateLimitResult'],
-            duration: 2
+            duration: 2,
           },
           {
             id: nanoid(),
@@ -591,7 +592,7 @@ END
             algorithm: 'RequestValidationPipeline',
             inputs: ['parsedRequest', 'validationSchema'],
             outputs: ['validatedRequest'],
-            duration: 3
+            duration: 3,
           },
           {
             id: nanoid(),
@@ -600,7 +601,7 @@ END
             algorithm: 'BusinessLogicProcessor',
             inputs: ['validatedRequest', 'userContext'],
             outputs: ['businessResult'],
-            duration: 20
+            duration: 20,
           },
           {
             id: nanoid(),
@@ -609,12 +610,19 @@ END
             algorithm: 'ResponseFormattingAlgorithm',
             inputs: ['businessResult'],
             outputs: ['formattedResponse'],
-            duration: 2
-          }
+            duration: 2,
+          },
         ],
         parallelizable: false,
-        criticalPath: ['RequestParsing', 'Authentication', 'RateLimiting', 'Validation', 'BusinessLogic', 'ResponseFormatting']
-      }
+        criticalPath: [
+          'RequestParsing',
+          'Authentication',
+          'RateLimiting',
+          'Validation',
+          'BusinessLogic',
+          'ResponseFormatting',
+        ],
+      },
     ],
     complexityAnalysis: {
       worstCase: 'O(n)' as const,
@@ -625,8 +633,8 @@ END
       bottlenecks: [
         'Database queries for authentication and authorization',
         'Complex validation rules processing',
-        'Business logic execution time'
-      ]
+        'Business logic execution time',
+      ],
     },
     optimizationOpportunities: [
       {
@@ -635,7 +643,7 @@ END
         description: 'Implement response caching for read-only endpoints',
         impact: 'high',
         effort: 'low',
-        estimatedImprovement: '500% improvement for cached responses'
+        estimatedImprovement: '500% improvement for cached responses',
       },
       {
         id: nanoid(),
@@ -643,7 +651,7 @@ END
         description: 'Add database connection pooling and query optimization',
         impact: 'medium',
         effort: 'medium',
-        estimatedImprovement: '200% improvement in database operations'
+        estimatedImprovement: '200% improvement in database operations',
       },
       {
         id: nanoid(),
@@ -651,28 +659,28 @@ END
         description: 'Pre-compile validation schemas for better performance',
         impact: 'medium',
         effort: 'low',
-        estimatedImprovement: '150% improvement in validation speed'
-      }
+        estimatedImprovement: '150% improvement in validation speed',
+      },
     ],
     estimatedPerformance: [
       {
         metric: 'response_time',
         target: '<50ms P95 for simple endpoints',
-        measurement: 'milliseconds'
+        measurement: 'milliseconds',
       },
       {
         metric: 'throughput',
         target: '10,000 requests/second',
-        measurement: 'requests/second'
+        measurement: 'requests/second',
       },
       {
         metric: 'error_rate',
         target: '<0.1% server errors',
-        measurement: 'percentage'
-      }
+        measurement: 'percentage',
+      },
     ],
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
 
   architecture: {
@@ -688,7 +696,7 @@ END
           'Request routing and method handling',
           'Middleware pipeline execution',
           'Response formatting and headers',
-          'CORS and security headers'
+          'CORS and security headers',
         ],
         interfaces: ['IAPIGateway'],
         dependencies: ['Router', 'MiddlewareManager', 'ResponseFormatter'],
@@ -697,8 +705,8 @@ END
         performance: {
           expectedThroughput: '15000 requests/second',
           expectedLatency: '<10ms',
-          memoryUsage: '128MB'
-        }
+          memoryUsage: '128MB',
+        },
       },
       {
         id: nanoid(),
@@ -709,7 +717,7 @@ END
           'JWT token generation and validation',
           'User authentication and session management',
           'Role-based access control',
-          'Token refresh and revocation'
+          'Token refresh and revocation',
         ],
         interfaces: ['IAuthenticationService'],
         dependencies: ['JWTLibrary', 'UserService', 'TokenBlacklist'],
@@ -718,8 +726,8 @@ END
         performance: {
           expectedThroughput: '50000 auth checks/second',
           expectedLatency: '<5ms',
-          memoryUsage: '256MB'
-        }
+          memoryUsage: '256MB',
+        },
       },
       {
         id: nanoid(),
@@ -730,7 +738,7 @@ END
           'Schema-based validation',
           'Input sanitization and type coercion',
           'Business rule validation',
-          'Security constraint checking'
+          'Security constraint checking',
         ],
         interfaces: ['IValidationService'],
         dependencies: ['SchemaRegistry', 'SanitizationEngine'],
@@ -739,8 +747,8 @@ END
         performance: {
           expectedThroughput: '100000 validations/second',
           expectedLatency: '<3ms',
-          memoryUsage: '512MB'
-        }
+          memoryUsage: '512MB',
+        },
       },
       {
         id: nanoid(),
@@ -751,7 +759,7 @@ END
           'Rate limit enforcement',
           'Usage tracking and analytics',
           'Adaptive threshold adjustment',
-          'Abuse detection and blocking'
+          'Abuse detection and blocking',
         ],
         interfaces: ['IRateLimitingService'],
         dependencies: ['RateLimitStore', 'AnalyticsEngine'],
@@ -760,8 +768,8 @@ END
         performance: {
           expectedThroughput: '200000 checks/second',
           expectedLatency: '<2ms',
-          memoryUsage: '128MB'
-        }
+          memoryUsage: '128MB',
+        },
       },
       {
         id: nanoid(),
@@ -772,7 +780,7 @@ END
           'Response caching and retrieval',
           'Cache invalidation strategies',
           'Cache warming and preloading',
-          'Performance optimization'
+          'Performance optimization',
         ],
         interfaces: ['IResponseCacheService'],
         dependencies: ['CacheStore', 'InvalidationEngine'],
@@ -781,8 +789,8 @@ END
         performance: {
           expectedThroughput: '500000 cache operations/second',
           expectedLatency: '<1ms',
-          memoryUsage: '1GB'
-        }
+          memoryUsage: '1GB',
+        },
       },
       {
         id: nanoid(),
@@ -793,7 +801,7 @@ END
           'OpenAPI specification generation',
           'Interactive documentation interface',
           'Code example generation',
-          'API testing interface'
+          'API testing interface',
         ],
         interfaces: ['IDocumentationService'],
         dependencies: ['SchemaRegistry', 'TemplateEngine'],
@@ -802,9 +810,9 @@ END
         performance: {
           expectedThroughput: '1000 doc requests/second',
           expectedLatency: '<20ms',
-          memoryUsage: '256MB'
-        }
-      }
+          memoryUsage: '256MB',
+        },
+      },
     ],
     relationships: [
       {
@@ -814,7 +822,7 @@ END
         type: 'uses',
         description: 'Gateway uses auth service for request authentication',
         strength: 'strong',
-        protocol: 'synchronous'
+        protocol: 'synchronous',
       },
       {
         id: nanoid(),
@@ -823,7 +831,7 @@ END
         type: 'uses',
         description: 'Gateway uses validation service for request validation',
         strength: 'strong',
-        protocol: 'synchronous'
+        protocol: 'synchronous',
       },
       {
         id: nanoid(),
@@ -832,7 +840,7 @@ END
         type: 'uses',
         description: 'Gateway enforces rate limits through rate limiting service',
         strength: 'medium',
-        protocol: 'synchronous'
+        protocol: 'synchronous',
       },
       {
         id: nanoid(),
@@ -841,8 +849,8 @@ END
         type: 'uses',
         description: 'Gateway uses cache service for response optimization',
         strength: 'medium',
-        protocol: 'synchronous'
-      }
+        protocol: 'synchronous',
+      },
     ],
     patterns: [
       {
@@ -854,14 +862,10 @@ END
           'Centralized cross-cutting concerns',
           'Protocol translation',
           'Service aggregation',
-          'Security enforcement'
+          'Security enforcement',
         ],
-        tradeoffs: [
-          'Single point of failure',
-          'Performance bottleneck',
-          'Increased latency'
-        ],
-        applicableComponents: ['api-gateway']
+        tradeoffs: ['Single point of failure', 'Performance bottleneck', 'Increased latency'],
+        applicableComponents: ['api-gateway'],
       },
       {
         id: nanoid(),
@@ -872,33 +876,20 @@ END
           'Modular processing',
           'Easy to extend',
           'Separation of concerns',
-          'Reusable components'
+          'Reusable components',
         ],
-        tradeoffs: [
-          'Processing overhead',
-          'Complexity in debugging',
-          'Order dependency'
-        ],
-        applicableComponents: ['api-gateway', 'authentication-service', 'validation-service']
+        tradeoffs: ['Processing overhead', 'Complexity in debugging', 'Order dependency'],
+        applicableComponents: ['api-gateway', 'authentication-service', 'validation-service'],
       },
       {
         id: nanoid(),
         name: 'Token-Based Authentication Pattern',
         type: 'security',
         description: 'Stateless authentication using JWT tokens',
-        benefits: [
-          'Stateless design',
-          'Scalability',
-          'Cross-domain support',
-          'Mobile-friendly'
-        ],
-        tradeoffs: [
-          'Token size overhead',
-          'Revocation complexity',
-          'Security considerations'
-        ],
-        applicableComponents: ['authentication-service']
-      }
+        benefits: ['Stateless design', 'Scalability', 'Cross-domain support', 'Mobile-friendly'],
+        tradeoffs: ['Token size overhead', 'Revocation complexity', 'Security considerations'],
+        applicableComponents: ['authentication-service'],
+      },
     ],
     interfaces: [
       {
@@ -910,12 +901,12 @@ END
           { name: 'handleRequest', parameters: ['request'], returns: 'Promise<Response>' },
           { name: 'routeRequest', parameters: ['path', 'method'], returns: 'RouteHandler' },
           { name: 'applyMiddleware', parameters: ['middleware[]'], returns: 'void' },
-          { name: 'getHealthStatus', parameters: [], returns: 'HealthStatus' }
+          { name: 'getHealthStatus', parameters: [], returns: 'HealthStatus' },
         ],
         protocol: 'HTTP/REST',
         authentication: 'JWT',
         rateLimit: '10000/hour',
-        documentation: 'Main API gateway interface for all endpoints'
+        documentation: 'Main API gateway interface for all endpoints',
       },
       {
         id: nanoid(),
@@ -926,13 +917,13 @@ END
           { name: 'authenticate', parameters: ['credentials'], returns: 'Promise<AuthResult>' },
           { name: 'validateToken', parameters: ['token'], returns: 'Promise<TokenValidation>' },
           { name: 'refreshToken', parameters: ['refreshToken'], returns: 'Promise<NewTokens>' },
-          { name: 'revokeToken', parameters: ['token'], returns: 'Promise<void>' }
+          { name: 'revokeToken', parameters: ['token'], returns: 'Promise<void>' },
         ],
         protocol: 'Internal',
         authentication: 'Internal',
         rateLimit: 'unlimited',
-        documentation: 'Authentication and authorization service interface'
-      }
+        documentation: 'Authentication and authorization service interface',
+      },
     ],
     dataFlows: [
       {
@@ -945,7 +936,7 @@ END
         volume: 'High',
         frequency: 'High',
         security: 'High',
-        transformation: 'JWT token extraction and validation'
+        transformation: 'JWT token extraction and validation',
       },
       {
         id: nanoid(),
@@ -957,8 +948,8 @@ END
         volume: 'High',
         frequency: 'High',
         security: 'Medium',
-        transformation: 'Request payload validation and sanitization'
-      }
+        transformation: 'Request payload validation and sanitization',
+      },
     ],
     qualityAttributes: [
       {
@@ -969,10 +960,10 @@ END
         criteria: [
           'P95 response time < 50ms',
           'Throughput > 10,000 requests/second',
-          'Memory usage < 2GB per instance'
+          'Memory usage < 2GB per instance',
         ],
         measurement: 'Load testing and performance monitoring',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -982,24 +973,20 @@ END
         criteria: [
           'All endpoints authenticated',
           'Input validation on all requests',
-          'Rate limiting enforced'
+          'Rate limiting enforced',
         ],
         measurement: 'Security audits and penetration testing',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
         name: 'Scalability',
         type: 'scalability',
         description: 'Horizontal scaling capability',
-        criteria: [
-          'Stateless design',
-          'Load balancer compatible',
-          'Database connection pooling'
-        ],
+        criteria: ['Stateless design', 'Load balancer compatible', 'Database connection pooling'],
         measurement: 'Load testing with multiple instances',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     deploymentStrategy: {
       id: nanoid(),
@@ -1013,8 +1000,8 @@ END
             replicas: 1,
             resources: { cpu: '500m', memory: '1Gi' },
             database: 'sqlite',
-            cache: 'memory'
-          }
+            cache: 'memory',
+          },
         },
         {
           name: 'production',
@@ -1022,16 +1009,16 @@ END
             replicas: 3,
             resources: { cpu: '2', memory: '4Gi' },
             database: 'postgresql',
-            cache: 'redis-cluster'
-          }
-        }
+            cache: 'redis-cluster',
+          },
+        },
       ],
       infrastructure: ['Kubernetes', 'Docker', 'Load Balancer', 'Redis'],
       cicd: {
         buildPipeline: ['Test', 'Security Scan', 'Build', 'Deploy'],
         testStrategy: ['Unit Tests', 'Integration Tests', 'Load Tests'],
-        deploymentStrategy: 'Rolling Update'
-      }
+        deploymentStrategy: 'Rolling Update',
+      },
     },
     integrationPoints: [
       {
@@ -1042,7 +1029,7 @@ END
         protocol: 'SQL/TCP',
         security: 'Connection encryption and credential management',
         errorHandling: 'Connection pooling with retry logic',
-        monitoring: 'Query performance and connection health'
+        monitoring: 'Query performance and connection health',
       },
       {
         id: nanoid(),
@@ -1052,8 +1039,8 @@ END
         protocol: 'Redis Protocol',
         security: 'Password authentication and TLS encryption',
         errorHandling: 'Graceful degradation when cache unavailable',
-        monitoring: 'Cache hit rates and memory usage'
-      }
+        monitoring: 'Cache hit rates and memory usage',
+      },
     ],
     performanceRequirements: [
       {
@@ -1061,15 +1048,15 @@ END
         metric: 'response_time',
         target: '<50ms P95',
         measurement: 'milliseconds',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
         metric: 'throughput',
         target: '10,000 requests/second',
         measurement: 'requests/second',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     securityRequirements: [
       {
@@ -1077,15 +1064,15 @@ END
         type: 'authentication',
         description: 'JWT-based authentication for all endpoints',
         implementation: 'Bearer token authentication with role-based access',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
         type: 'input-validation',
         description: 'Comprehensive input validation and sanitization',
         implementation: 'Schema-based validation with sanitization rules',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     scalabilityRequirements: [
       {
@@ -1094,18 +1081,18 @@ END
         description: 'Scale by adding more API server instances',
         target: 'Linear scaling up to 50 instances',
         implementation: 'Stateless design with load balancing',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
 
   async applyTo(projectSpec: ProjectSpecification) {
     return {
       specification: this.customizeSpecification(projectSpec),
       pseudocode: this.customizePseudocode(projectSpec),
-      architecture: this.customizeArchitecture(projectSpec)
+      architecture: this.customizeArchitecture(projectSpec),
     };
   },
 
@@ -1113,7 +1100,7 @@ END
     const customized = { ...this.specification };
     customized.name = projectSpec.name;
     customized.description = `${projectSpec.name} - ${this.specification.description}`;
-    
+
     // Add project-specific requirements
     if (projectSpec.requirements) {
       for (const requirement of projectSpec.requirements) {
@@ -1127,17 +1114,17 @@ END
           source: 'project',
           validation: `API supports ${requirement}`,
           dependencies: [],
-          acceptanceCriteria: [`Successfully implements ${requirement}`]
+          acceptanceCriteria: [`Successfully implements ${requirement}`],
         });
       }
     }
-    
+
     return customized;
   },
 
   customizePseudocode(projectSpec: ProjectSpecification): PseudocodeStructure {
     const customized = { ...this.pseudocode };
-    
+
     // Adjust algorithms based on complexity
     if (projectSpec.complexity === 'simple') {
       // Simplify for basic APIs
@@ -1174,40 +1161,40 @@ END
         complexity: {
           time: 'O(1)' as const,
           space: 'O(1)' as const,
-          explanation: 'Constant time logging operation'
+          explanation: 'Constant time logging operation',
         },
         inputParameters: ['request', 'response', 'user', 'action'],
         outputFormat: 'AuditLogEntry',
         preconditions: ['Audit store available'],
         postconditions: ['Audit entry recorded'],
-        invariants: ['Audit trail integrity maintained']
+        invariants: ['Audit trail integrity maintained'],
       });
     }
-    
+
     return customized;
   },
 
   customizeArchitecture(projectSpec: ProjectSpecification): ArchitectureDesign {
     const customized = { ...this.architecture };
-    
+
     // Adjust deployment based on complexity
     if (projectSpec.complexity === 'simple') {
       customized.deploymentStrategy.type = 'monolith';
       customized.deploymentStrategy.infrastructure = ['Docker', 'Nginx'];
     }
-    
+
     return customized;
   },
 
   validateCompatibility(projectSpec: ProjectSpecification) {
     const warnings: string[] = [];
     const recommendations: string[] = [];
-    let compatible = true;
+    const compatible = true;
 
     if (projectSpec.domain !== 'rest-api') {
       warnings.push('Project domain does not match template domain');
     }
 
     return { compatible, warnings, recommendations };
-  }
+  },
 };

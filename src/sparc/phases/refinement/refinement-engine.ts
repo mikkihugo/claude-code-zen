@@ -1,54 +1,65 @@
 /**
  * SPARC Refinement Phase Engine
- * 
+ *
  * Handles the fourth phase of SPARC methodology - performance optimization,
  * iterative improvement, and quality enhancement.
  */
 
 import { nanoid } from 'nanoid';
 import type {
-  RefinementEngine,
   ArchitectureDesign,
-  RefinementFeedback,
-  RefinementResult,
-  OptimizationStrategy,
-  PerformanceOptimization,
-  SecurityOptimization,
-  ScalabilityOptimization,
-  CodeQualityOptimization,
-  RefactoringOpportunity,
-  TechnicalDebtAnalysis,
-  RefinementValidation,
   BenchmarkResult,
+  CodeQualityOptimization,
   ImprovementMetric,
-  ValidationResult,
+  OptimizationStrategy,
+  OptimizationType,
+  PerformanceOptimization,
+  RefactoringOpportunity,
+  RefinementEngine,
+  RefinementFeedback,
   RefinementPriority,
-  OptimizationType
+  RefinementResult,
+  RefinementValidation,
+  ScalabilityOptimization,
+  SecurityOptimization,
+  TechnicalDebtAnalysis,
+  ValidationResult,
 } from '../../types/sparc-types.js';
 
 export class RefinementPhaseEngine implements RefinementEngine {
-  
   /**
    * Apply refinements to architecture design based on feedback
    */
   async applyRefinements(
-    architecture: ArchitectureDesign, 
+    architecture: ArchitectureDesign,
     feedback: RefinementFeedback
   ): Promise<RefinementResult> {
     console.log(`🔧 Applying refinements to architecture ${architecture.id}`);
 
-    const optimizationStrategies = await this.identifyOptimizationStrategies(architecture, feedback);
-    const performanceOptimizations = await this.generatePerformanceOptimizations(architecture, feedback);
+    const optimizationStrategies = await this.identifyOptimizationStrategies(
+      architecture,
+      feedback
+    );
+    const performanceOptimizations = await this.generatePerformanceOptimizations(
+      architecture,
+      feedback
+    );
     const securityOptimizations = await this.generateSecurityOptimizations(architecture, feedback);
-    const scalabilityOptimizations = await this.generateScalabilityOptimizations(architecture, feedback);
-    const codeQualityOptimizations = await this.generateCodeQualityOptimizations(architecture, feedback);
+    const scalabilityOptimizations = await this.generateScalabilityOptimizations(
+      architecture,
+      feedback
+    );
+    const codeQualityOptimizations = await this.generateCodeQualityOptimizations(
+      architecture,
+      feedback
+    );
 
     console.log(`   Generated ${optimizationStrategies.length} optimization strategies`);
     console.log(`   Created ${performanceOptimizations.length} performance optimizations`);
     console.log(`   Created ${securityOptimizations.length} security optimizations`);
 
     const refinedArchitecture = await this.applyOptimizations(
-      architecture, 
+      architecture,
       optimizationStrategies,
       performanceOptimizations,
       securityOptimizations,
@@ -75,7 +86,7 @@ export class RefinementPhaseEngine implements RefinementEngine {
       technicalDebtAnalysis: await this.analyzeTechnicalDebt(refinedArchitecture),
       recommendedNextSteps: await this.generateNextStepsRecommendations(improvementMetrics),
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     };
   }
 
@@ -83,7 +94,7 @@ export class RefinementPhaseEngine implements RefinementEngine {
    * Identify optimization strategies based on feedback
    */
   private async identifyOptimizationStrategies(
-    architecture: ArchitectureDesign, 
+    architecture: ArchitectureDesign,
     feedback: RefinementFeedback
   ): Promise<OptimizationStrategy[]> {
     const strategies: OptimizationStrategy[] = [];
@@ -104,13 +115,13 @@ export class RefinementPhaseEngine implements RefinementEngine {
           'Database query optimization',
           'Algorithm complexity reduction',
           'Resource pooling',
-          'Lazy loading'
+          'Lazy loading',
         ],
         successCriteria: [
           '50% reduction in response time',
           '100% increase in throughput',
-          '30% reduction in resource usage'
-        ]
+          '30% reduction in resource usage',
+        ],
       });
     }
 
@@ -130,13 +141,13 @@ export class RefinementPhaseEngine implements RefinementEngine {
           'Authorization improvements',
           'Data encryption upgrades',
           'Input validation strengthening',
-          'Audit logging enhancement'
+          'Audit logging enhancement',
         ],
         successCriteria: [
           'Zero critical security vulnerabilities',
           '100% audit coverage',
-          'Compliance with security standards'
-        ]
+          'Compliance with security standards',
+        ],
       });
     }
 
@@ -156,13 +167,13 @@ export class RefinementPhaseEngine implements RefinementEngine {
           'Database sharding',
           'Caching layers',
           'Load balancing optimization',
-          'Auto-scaling implementation'
+          'Auto-scaling implementation',
         ],
         successCriteria: [
           '10x scaling capacity',
           'Linear performance scaling',
-          'Zero downtime deployments'
-        ]
+          'Zero downtime deployments',
+        ],
       });
     }
 
@@ -182,13 +193,13 @@ export class RefinementPhaseEngine implements RefinementEngine {
           'Design pattern application',
           'Documentation improvement',
           'Test coverage increase',
-          'Code review process enhancement'
+          'Code review process enhancement',
         ],
         successCriteria: [
           '90% code coverage',
           'Zero critical code smells',
-          'Improved maintainability index'
-        ]
+          'Improved maintainability index',
+        ],
       });
     }
 
@@ -213,14 +224,16 @@ export class RefinementPhaseEngine implements RefinementEngine {
           type: 'algorithm',
           description: `Optimize algorithms in ${component.name}`,
           currentPerformance: component.performance.expectedLatency,
-          targetPerformance: this.calculateImprovedPerformance(component.performance.expectedLatency),
+          targetPerformance: this.calculateImprovedPerformance(
+            component.performance.expectedLatency
+          ),
           techniques: [
             'Replace O(n²) algorithms with O(n log n) alternatives',
             'Implement caching for frequently computed results',
-            'Use WASM for performance-critical computations'
+            'Use WASM for performance-critical computations',
           ],
           estimatedGain: '200%',
-          implementationCost: 'Medium'
+          implementationCost: 'Medium',
         });
       }
     }
@@ -237,10 +250,10 @@ export class RefinementPhaseEngine implements RefinementEngine {
         'Add appropriate indexes for frequent queries',
         'Implement query result caching',
         'Optimize JOIN operations',
-        'Use connection pooling'
+        'Use connection pooling',
       ],
       estimatedGain: '1000%',
-      implementationCost: 'Low'
+      implementationCost: 'Low',
     });
 
     // Caching optimization
@@ -255,10 +268,10 @@ export class RefinementPhaseEngine implements RefinementEngine {
         'In-memory caching for hot data',
         'Distributed caching for shared data',
         'CDN for static content',
-        'Intelligent cache invalidation'
+        'Intelligent cache invalidation',
       ],
       estimatedGain: '500%',
-      implementationCost: 'Medium'
+      implementationCost: 'Medium',
     });
 
     // Network optimization
@@ -273,10 +286,10 @@ export class RefinementPhaseEngine implements RefinementEngine {
         'Enable HTTP/2 multiplexing',
         'Implement request/response compression',
         'Use connection pooling',
-        'Optimize payload sizes'
+        'Optimize payload sizes',
       ],
       estimatedGain: '150%',
-      implementationCost: 'Low'
+      implementationCost: 'Low',
     });
 
     return optimizations;
@@ -302,16 +315,16 @@ export class RefinementPhaseEngine implements RefinementEngine {
       vulnerabilities: [
         'Weak password policies',
         'No multi-factor authentication',
-        'Insufficient session management'
+        'Insufficient session management',
       ],
       mitigations: [
         'Implement MFA for all users',
         'Strengthen password requirements',
         'Add biometric authentication options',
-        'Implement secure session management'
+        'Implement secure session management',
       ],
       complianceStandards: ['OWASP', 'NIST', 'SOC 2'],
-      implementationCost: 'High'
+      implementationCost: 'High',
     });
 
     // Data encryption optimization
@@ -325,16 +338,16 @@ export class RefinementPhaseEngine implements RefinementEngine {
       vulnerabilities: [
         'Weak encryption algorithms',
         'Poor key management',
-        'Unencrypted sensitive data'
+        'Unencrypted sensitive data',
       ],
       mitigations: [
         'Upgrade to AES-256 encryption',
         'Implement proper key rotation',
         'Use hardware security modules',
-        'Encrypt all sensitive data fields'
+        'Encrypt all sensitive data fields',
       ],
       complianceStandards: ['FIPS 140-2', 'Common Criteria'],
-      implementationCost: 'Medium'
+      implementationCost: 'Medium',
     });
 
     // Access control optimization
@@ -348,16 +361,16 @@ export class RefinementPhaseEngine implements RefinementEngine {
       vulnerabilities: [
         'Overly broad permissions',
         'Insufficient access auditing',
-        'Missing privilege escalation protection'
+        'Missing privilege escalation protection',
       ],
       mitigations: [
         'Implement ABAC policies',
         'Apply principle of least privilege',
         'Add comprehensive audit logging',
-        'Implement privilege escalation detection'
+        'Implement privilege escalation detection',
       ],
       complianceStandards: ['NIST RBAC', 'ABAC'],
-      implementationCost: 'High'
+      implementationCost: 'High',
     });
 
     return optimizations;
@@ -383,16 +396,16 @@ export class RefinementPhaseEngine implements RefinementEngine {
       bottlenecks: [
         'Single instance deployment',
         'Session affinity requirements',
-        'Shared state dependencies'
+        'Shared state dependencies',
       ],
       solutions: [
         'Containerize all services',
         'Implement stateless design',
         'Add load balancers',
-        'Use auto-scaling groups'
+        'Use auto-scaling groups',
       ],
       scalingFactor: '100x',
-      implementationCost: 'High'
+      implementationCost: 'High',
     });
 
     // Database scaling optimization
@@ -403,19 +416,15 @@ export class RefinementPhaseEngine implements RefinementEngine {
       description: 'Implement database scaling strategies',
       currentCapacity: '1M records',
       targetCapacity: '1B records',
-      bottlenecks: [
-        'Single database instance',
-        'Large table scans',
-        'Write contention'
-      ],
+      bottlenecks: ['Single database instance', 'Large table scans', 'Write contention'],
       solutions: [
         'Implement database sharding',
         'Add read replicas',
         'Use partitioning strategies',
-        'Implement CQRS pattern'
+        'Implement CQRS pattern',
       ],
       scalingFactor: '1000x',
-      implementationCost: 'High'
+      implementationCost: 'High',
     });
 
     // Caching scaling optimization
@@ -426,19 +435,15 @@ export class RefinementPhaseEngine implements RefinementEngine {
       description: 'Scale caching infrastructure',
       currentCapacity: '1GB cache',
       targetCapacity: '100GB distributed cache',
-      bottlenecks: [
-        'Single cache instance',
-        'Memory limitations',
-        'Cache invalidation complexity'
-      ],
+      bottlenecks: ['Single cache instance', 'Memory limitations', 'Cache invalidation complexity'],
       solutions: [
         'Implement distributed caching',
         'Add cache clustering',
         'Use intelligent cache partitioning',
-        'Implement cache coherence protocols'
+        'Implement cache coherence protocols',
       ],
       scalingFactor: '100x',
-      implementationCost: 'Medium'
+      implementationCost: 'Medium',
     });
 
     return optimizations;
@@ -464,20 +469,20 @@ export class RefinementPhaseEngine implements RefinementEngine {
       issues: [
         'Large monolithic functions',
         'Tight coupling between components',
-        'Inconsistent naming conventions'
+        'Inconsistent naming conventions',
       ],
       improvements: [
         'Break down large functions',
         'Implement dependency injection',
         'Standardize naming conventions',
-        'Apply SOLID principles'
+        'Apply SOLID principles',
       ],
       metrics: {
         cyclomaticComplexity: 'Reduce from 15 to 5',
         codeduplication: 'Reduce from 20% to 5%',
-        testCoverage: 'Increase from 60% to 90%'
+        testCoverage: 'Increase from 60% to 90%',
       },
-      implementationCost: 'Medium'
+      implementationCost: 'Medium',
     });
 
     // Documentation optimization
@@ -491,20 +496,20 @@ export class RefinementPhaseEngine implements RefinementEngine {
       issues: [
         'Missing API documentation',
         'Outdated code comments',
-        'No architectural documentation'
+        'No architectural documentation',
       ],
       improvements: [
         'Generate API documentation from code',
         'Add comprehensive code comments',
         'Create architectural decision records',
-        'Implement documentation automation'
+        'Implement documentation automation',
       ],
       metrics: {
         apiDocCoverage: 'Increase from 20% to 100%',
         codeComments: 'Increase from 30% to 80%',
-        architecturalDocs: 'Create comprehensive ADRs'
+        architecturalDocs: 'Create comprehensive ADRs',
       },
-      implementationCost: 'Low'
+      implementationCost: 'Low',
     });
 
     // Testing optimization
@@ -515,23 +520,19 @@ export class RefinementPhaseEngine implements RefinementEngine {
       description: 'Enhance testing strategy and coverage',
       currentQuality: 'Basic unit tests',
       targetQuality: 'Comprehensive test suite with high coverage',
-      issues: [
-        'Low test coverage',
-        'Missing integration tests',
-        'No performance tests'
-      ],
+      issues: ['Low test coverage', 'Missing integration tests', 'No performance tests'],
       improvements: [
         'Increase unit test coverage',
         'Add integration test suite',
         'Implement performance testing',
-        'Add contract testing'
+        'Add contract testing',
       ],
       metrics: {
         unitTestCoverage: 'Increase from 60% to 95%',
         integrationTests: 'Create comprehensive suite',
-        performanceTests: 'Add automated benchmarks'
+        performanceTests: 'Add automated benchmarks',
       },
-      implementationCost: 'Medium'
+      implementationCost: 'Medium',
     });
 
     return optimizations;
@@ -552,18 +553,22 @@ export class RefinementPhaseEngine implements RefinementEngine {
     const refinedArchitecture: ArchitectureDesign = {
       ...architecture,
       id: nanoid(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     };
 
     // Apply performance optimizations
     for (const opt of performanceOpts) {
-      if (opt.targetComponent !== 'all' && opt.targetComponent !== 'database' && opt.targetComponent !== 'communication') {
-        const component = refinedArchitecture.components.find(c => c.id === opt.targetComponent);
+      if (
+        opt.targetComponent !== 'all' &&
+        opt.targetComponent !== 'database' &&
+        opt.targetComponent !== 'communication'
+      ) {
+        const component = refinedArchitecture.components.find((c) => c.id === opt.targetComponent);
         if (component) {
           component.performance = {
             ...component.performance,
             expectedLatency: opt.targetPerformance,
-            optimizations: [...(component.performance.optimizations || []), opt.description]
+            optimizations: [...(component.performance.optimizations || []), opt.description],
           };
         }
       }
@@ -576,7 +581,7 @@ export class RefinementPhaseEngine implements RefinementEngine {
         type: opt.type,
         description: opt.description,
         implementation: opt.mitigations.join(', '),
-        priority: 'HIGH'
+        priority: 'HIGH',
       });
     }
 
@@ -588,17 +593,14 @@ export class RefinementPhaseEngine implements RefinementEngine {
         description: opt.description,
         target: opt.targetCapacity,
         implementation: opt.solutions.join(', '),
-        priority: 'HIGH'
+        priority: 'HIGH',
       });
     }
 
     // Update quality attributes with improvements
-    refinedArchitecture.qualityAttributes = refinedArchitecture.qualityAttributes.map(qa => ({
+    refinedArchitecture.qualityAttributes = refinedArchitecture.qualityAttributes.map((qa) => ({
       ...qa,
-      criteria: [
-        ...qa.criteria,
-        ...this.generateImprovedCriteria(qa, strategies)
-      ]
+      criteria: [...qa.criteria, ...this.generateImprovedCriteria(qa, strategies)],
     }));
 
     return refinedArchitecture;
@@ -619,7 +621,7 @@ export class RefinementPhaseEngine implements RefinementEngine {
         originalValue: '500ms',
         refinedValue: '100ms',
         improvement: '400%',
-        measurementMethod: 'Load testing simulation'
+        measurementMethod: 'Load testing simulation',
       },
       {
         id: nanoid(),
@@ -628,7 +630,7 @@ export class RefinementPhaseEngine implements RefinementEngine {
         originalValue: '1000 rps',
         refinedValue: '5000 rps',
         improvement: '500%',
-        measurementMethod: 'Stress testing analysis'
+        measurementMethod: 'Stress testing analysis',
       },
       {
         id: nanoid(),
@@ -637,7 +639,7 @@ export class RefinementPhaseEngine implements RefinementEngine {
         originalValue: '75/100',
         refinedValue: '95/100',
         improvement: '27%',
-        measurementMethod: 'Security audit assessment'
+        measurementMethod: 'Security audit assessment',
       },
       {
         id: nanoid(),
@@ -646,7 +648,7 @@ export class RefinementPhaseEngine implements RefinementEngine {
         originalValue: '10x',
         refinedValue: '100x',
         improvement: '1000%',
-        measurementMethod: 'Capacity planning analysis'
+        measurementMethod: 'Capacity planning analysis',
       },
       {
         id: nanoid(),
@@ -655,16 +657,18 @@ export class RefinementPhaseEngine implements RefinementEngine {
         originalValue: '6.5/10',
         refinedValue: '9.0/10',
         improvement: '38%',
-        measurementMethod: 'Static code analysis'
-      }
+        measurementMethod: 'Static code analysis',
+      },
     ];
   }
 
   /**
    * Calculate improvement metrics
    */
-  private async calculateImprovementMetrics(benchmarks: BenchmarkResult[]): Promise<ImprovementMetric[]> {
-    return benchmarks.map(benchmark => ({
+  private async calculateImprovementMetrics(
+    benchmarks: BenchmarkResult[]
+  ): Promise<ImprovementMetric[]> {
+    return benchmarks.map((benchmark) => ({
       id: nanoid(),
       name: benchmark.metric,
       category: benchmark.category,
@@ -672,14 +676,16 @@ export class RefinementPhaseEngine implements RefinementEngine {
       afterValue: benchmark.refinedValue,
       improvementPercentage: parseFloat(benchmark.improvement.replace('%', '')),
       confidenceLevel: 95,
-      measurementAccuracy: 'High'
+      measurementAccuracy: 'High',
     }));
   }
 
   /**
    * Identify refactoring opportunities
    */
-  private async identifyRefactoringOpportunities(architecture: ArchitectureDesign): Promise<RefactoringOpportunity[]> {
+  private async identifyRefactoringOpportunities(
+    architecture: ArchitectureDesign
+  ): Promise<RefactoringOpportunity[]> {
     return [
       {
         id: nanoid(),
@@ -688,16 +694,9 @@ export class RefinementPhaseEngine implements RefinementEngine {
         description: 'Extract common functionality into shared libraries',
         priority: 'MEDIUM',
         effort: 'Medium',
-        benefits: [
-          'Reduced code duplication',
-          'Improved maintainability',
-          'Better testability'
-        ],
-        risks: [
-          'Increased coupling between services',
-          'Version management complexity'
-        ],
-        estimatedImpact: 'Medium'
+        benefits: ['Reduced code duplication', 'Improved maintainability', 'Better testability'],
+        risks: ['Increased coupling between services', 'Version management complexity'],
+        estimatedImpact: 'Medium',
       },
       {
         id: nanoid(),
@@ -709,13 +708,10 @@ export class RefinementPhaseEngine implements RefinementEngine {
         benefits: [
           'Better separation of concerns',
           'Improved testability',
-          'Database independence'
+          'Database independence',
         ],
-        risks: [
-          'Additional abstraction layer',
-          'Slight performance overhead'
-        ],
-        estimatedImpact: 'High'
+        risks: ['Additional abstraction layer', 'Slight performance overhead'],
+        estimatedImpact: 'High',
       },
       {
         id: nanoid(),
@@ -724,25 +720,19 @@ export class RefinementPhaseEngine implements RefinementEngine {
         description: 'Implement Event Sourcing for audit trail',
         priority: 'LOW',
         effort: 'High',
-        benefits: [
-          'Complete audit trail',
-          'Event replay capabilities',
-          'Better debugging'
-        ],
-        risks: [
-          'Increased complexity',
-          'Storage overhead',
-          'Event schema evolution'
-        ],
-        estimatedImpact: 'Medium'
-      }
+        benefits: ['Complete audit trail', 'Event replay capabilities', 'Better debugging'],
+        risks: ['Increased complexity', 'Storage overhead', 'Event schema evolution'],
+        estimatedImpact: 'Medium',
+      },
     ];
   }
 
   /**
    * Analyze technical debt
    */
-  private async analyzeTechnicalDebt(architecture: ArchitectureDesign): Promise<TechnicalDebtAnalysis> {
+  private async analyzeTechnicalDebt(
+    architecture: ArchitectureDesign
+  ): Promise<TechnicalDebtAnalysis> {
     return {
       id: nanoid(),
       architectureId: architecture.id,
@@ -755,8 +745,8 @@ export class RefinementPhaseEngine implements RefinementEngine {
           items: [
             'Complex functions that should be refactored',
             'Inconsistent error handling patterns',
-            'Missing unit tests for some components'
-          ]
+            'Missing unit tests for some components',
+          ],
         },
         {
           category: 'Architecture',
@@ -765,8 +755,8 @@ export class RefinementPhaseEngine implements RefinementEngine {
           items: [
             'Tight coupling between some services',
             'Missing service discovery mechanisms',
-            'Inconsistent data access patterns'
-          ]
+            'Inconsistent data access patterns',
+          ],
         },
         {
           category: 'Documentation',
@@ -775,30 +765,30 @@ export class RefinementPhaseEngine implements RefinementEngine {
           items: [
             'Missing API documentation',
             'Outdated architecture diagrams',
-            'Insufficient operational runbooks'
-          ]
-        }
+            'Insufficient operational runbooks',
+          ],
+        },
       ],
       remediationPlan: [
         {
           priority: 'HIGH',
           description: 'Refactor complex functions and improve error handling',
           estimatedEffort: '2 weeks',
-          impact: 'High'
+          impact: 'High',
         },
         {
           priority: 'MEDIUM',
           description: 'Implement service discovery and reduce coupling',
           estimatedEffort: '3 weeks',
-          impact: 'Medium'
+          impact: 'Medium',
         },
         {
           priority: 'LOW',
           description: 'Update documentation and create runbooks',
           estimatedEffort: '1 week',
-          impact: 'Low'
-        }
-      ]
+          impact: 'Low',
+        },
+      ],
     };
   }
 
@@ -808,19 +798,21 @@ export class RefinementPhaseEngine implements RefinementEngine {
   private async generateNextStepsRecommendations(metrics: ImprovementMetric[]): Promise<string[]> {
     const recommendations: string[] = [];
 
-    const performanceMetrics = metrics.filter(m => m.category === 'performance');
-    const securityMetrics = metrics.filter(m => m.category === 'security');
-    const scalabilityMetrics = metrics.filter(m => m.category === 'scalability');
+    const performanceMetrics = metrics.filter((m) => m.category === 'performance');
+    const securityMetrics = metrics.filter((m) => m.category === 'security');
+    const scalabilityMetrics = metrics.filter((m) => m.category === 'scalability');
 
-    if (performanceMetrics.some(m => m.improvementPercentage > 200)) {
-      recommendations.push('Proceed with implementation of performance optimizations - high impact expected');
+    if (performanceMetrics.some((m) => m.improvementPercentage > 200)) {
+      recommendations.push(
+        'Proceed with implementation of performance optimizations - high impact expected'
+      );
     }
 
-    if (securityMetrics.some(m => m.improvementPercentage > 20)) {
+    if (securityMetrics.some((m) => m.improvementPercentage > 20)) {
       recommendations.push('Prioritize security improvements for immediate implementation');
     }
 
-    if (scalabilityMetrics.some(m => m.improvementPercentage > 500)) {
+    if (scalabilityMetrics.some((m) => m.improvementPercentage > 500)) {
       recommendations.push('Plan phased implementation of scalability enhancements');
     }
 
@@ -840,7 +832,7 @@ export class RefinementPhaseEngine implements RefinementEngine {
 
   private generateImprovedCriteria(qa: any, strategies: OptimizationStrategy[]): string[] {
     const improvedCriteria: string[] = [];
-    
+
     for (const strategy of strategies) {
       if (strategy.type === qa.type.toLowerCase()) {
         improvedCriteria.push(...strategy.successCriteria);
@@ -861,50 +853,64 @@ export class RefinementPhaseEngine implements RefinementEngine {
       criterion: 'Optimization strategies',
       passed: refinement.optimizationStrategies.length > 0,
       score: refinement.optimizationStrategies.length > 0 ? 1.0 : 0.0,
-      feedback: refinement.optimizationStrategies.length > 0 ? 
-        'Comprehensive optimization strategies defined' : 
-        'Missing optimization strategy definitions'
+      feedback:
+        refinement.optimizationStrategies.length > 0
+          ? 'Comprehensive optimization strategies defined'
+          : 'Missing optimization strategy definitions',
     });
 
     // Validate performance improvements
-    const performanceImprovement = refinement.improvementMetrics.find(m => m.category === 'performance');
+    const performanceImprovement = refinement.improvementMetrics.find(
+      (m) => m.category === 'performance'
+    );
     validationResults.push({
       criterion: 'Performance improvements',
       passed: !!performanceImprovement && performanceImprovement.improvementPercentage > 50,
-      score: !!performanceImprovement && performanceImprovement.improvementPercentage > 50 ? 1.0 : 0.5,
-      feedback: !!performanceImprovement && performanceImprovement.improvementPercentage > 50 ? 
-        'Significant performance improvements achieved' : 
-        'Performance improvements could be more substantial'
+      score:
+        !!performanceImprovement && performanceImprovement.improvementPercentage > 50 ? 1.0 : 0.5,
+      feedback:
+        !!performanceImprovement && performanceImprovement.improvementPercentage > 50
+          ? 'Significant performance improvements achieved'
+          : 'Performance improvements could be more substantial',
     });
 
     // Validate security enhancements
-    const securityImprovement = refinement.improvementMetrics.find(m => m.category === 'security');
+    const securityImprovement = refinement.improvementMetrics.find(
+      (m) => m.category === 'security'
+    );
     validationResults.push({
       criterion: 'Security enhancements',
       passed: !!securityImprovement && securityImprovement.improvementPercentage > 20,
       score: !!securityImprovement && securityImprovement.improvementPercentage > 20 ? 1.0 : 0.5,
-      feedback: !!securityImprovement && securityImprovement.improvementPercentage > 20 ? 
-        'Good security improvements implemented' : 
-        'Security enhancements need strengthening'
+      feedback:
+        !!securityImprovement && securityImprovement.improvementPercentage > 20
+          ? 'Good security improvements implemented'
+          : 'Security enhancements need strengthening',
     });
 
     // Validate technical debt reduction
     validationResults.push({
       criterion: 'Technical debt analysis',
-      passed: !!refinement.technicalDebtAnalysis && refinement.technicalDebtAnalysis.totalDebtScore < 4.0,
-      score: !!refinement.technicalDebtAnalysis && refinement.technicalDebtAnalysis.totalDebtScore < 4.0 ? 1.0 : 0.5,
-      feedback: !!refinement.technicalDebtAnalysis && refinement.technicalDebtAnalysis.totalDebtScore < 4.0 ? 
-        'Technical debt properly analyzed and addressed' : 
-        'Technical debt analysis needs improvement'
+      passed:
+        !!refinement.technicalDebtAnalysis && refinement.technicalDebtAnalysis.totalDebtScore < 4.0,
+      score:
+        !!refinement.technicalDebtAnalysis && refinement.technicalDebtAnalysis.totalDebtScore < 4.0
+          ? 1.0
+          : 0.5,
+      feedback:
+        !!refinement.technicalDebtAnalysis && refinement.technicalDebtAnalysis.totalDebtScore < 4.0
+          ? 'Technical debt properly analyzed and addressed'
+          : 'Technical debt analysis needs improvement',
     });
 
-    const overallScore = validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
+    const overallScore =
+      validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
 
     return {
       overallScore,
       validationResults,
       recommendations: this.generateRefinementRecommendations(validationResults),
-      approved: overallScore >= 0.7
+      approved: overallScore >= 0.7,
     };
   }
 
@@ -918,16 +924,22 @@ export class RefinementPhaseEngine implements RefinementEngine {
       if (!result.passed) {
         switch (result.criterion) {
           case 'Optimization strategies':
-            recommendations.push('Define comprehensive optimization strategies for all identified issues');
+            recommendations.push(
+              'Define comprehensive optimization strategies for all identified issues'
+            );
             break;
           case 'Performance improvements':
             recommendations.push('Focus on high-impact performance optimizations');
             break;
           case 'Security enhancements':
-            recommendations.push('Strengthen security improvements and address all vulnerabilities');
+            recommendations.push(
+              'Strengthen security improvements and address all vulnerabilities'
+            );
             break;
           case 'Technical debt analysis':
-            recommendations.push('Provide more detailed technical debt analysis and remediation plan');
+            recommendations.push(
+              'Provide more detailed technical debt analysis and remediation plan'
+            );
             break;
         }
       }

@@ -1,38 +1,38 @@
 /**
  * SPARC Engine Core Implementation
- * 
- * Main orchestration engine for the SPARC (Specification, Pseudocode, 
+ *
+ * Main orchestration engine for the SPARC (Specification, Pseudocode,
  * Architecture, Refinement, Completion) development methodology.
  */
 
 import { nanoid } from 'nanoid';
-import { SpecificationPhaseEngine } from '../phases/specification/specification-engine.js';
-import { PseudocodePhaseEngine } from '../phases/pseudocode/pseudocode-engine.js';
-import { ArchitecturePhaseEngine } from '../phases/architecture/architecture-engine.js';
-import { RefinementPhaseEngine } from '../phases/refinement/refinement-engine.js';
-import { CompletionPhaseEngine } from '../phases/completion/completion-engine.js';
 import { ProjectManagementIntegration } from '../integrations/project-management-integration.js';
+import { ArchitecturePhaseEngine } from '../phases/architecture/architecture-engine.js';
+import { CompletionPhaseEngine } from '../phases/completion/completion-engine.js';
+import { PseudocodePhaseEngine } from '../phases/pseudocode/pseudocode-engine.js';
+import { RefinementPhaseEngine } from '../phases/refinement/refinement-engine.js';
+import { SpecificationPhaseEngine } from '../phases/specification/specification-engine.js';
 import type {
-  SPARCEngine,
-  SPARCProject,
-  SPARCPhase,
-  ProjectSpecification,
-  PhaseResult,
-  RefinementFeedback,
-  RefinementResult,
+  ArchitectureDesign,
+  ArtifactReference,
   ArtifactSet,
   CompletionValidation,
-  ProjectDomain,
   DetailedSpecification,
-  PseudocodeStructure,
-  ArchitectureDesign,
   ImplementationArtifacts,
-  PhaseProgress,
-  ProjectMetadata,
   PhaseDefinition,
-  PhaseStatus,
   PhaseMetrics,
-  ArtifactReference
+  PhaseProgress,
+  PhaseResult,
+  PhaseStatus,
+  ProjectDomain,
+  ProjectMetadata,
+  ProjectSpecification,
+  PseudocodeStructure,
+  RefinementFeedback,
+  RefinementResult,
+  SPARCEngine,
+  SPARCPhase,
+  SPARCProject,
 } from '../types/sparc-types.js';
 
 export class SPARCEngineCore implements SPARCEngine {
@@ -84,8 +84,8 @@ export class SPARCEngineCore implements SPARCEngine {
         updatedAt: timestamp,
         version: '1.0.0',
         author: 'SPARC Engine',
-        tags: [projectSpec.domain, projectSpec.complexity]
-      }
+        tags: [projectSpec.domain, projectSpec.complexity],
+      },
     };
 
     this.activeProjects.set(projectId, project);
@@ -121,7 +121,7 @@ export class SPARCEngineCore implements SPARCEngine {
       status: 'in-progress',
       startedAt: new Date(),
       deliverables: [],
-      validationResults: []
+      validationResults: [],
     };
 
     try {
@@ -140,8 +140,8 @@ export class SPARCEngineCore implements SPARCEngine {
         startedAt: project.progress.phaseStatus[phase]?.startedAt || new Date(),
         completedAt: new Date(),
         duration: duration / 1000 / 60, // convert to minutes
-        deliverables: deliverables.map(d => d.id),
-        validationResults: []
+        deliverables: deliverables.map((d) => d.id),
+        validationResults: [],
       };
 
       // Update overall progress
@@ -162,7 +162,7 @@ export class SPARCEngineCore implements SPARCEngine {
         duration: duration / 1000 / 60,
         qualityScore: 0.85, // AI-calculated quality score
         completeness: 0.95,
-        complexityScore: 0.7
+        complexityScore: 0.7,
       };
 
       const result: PhaseResult = {
@@ -171,12 +171,13 @@ export class SPARCEngineCore implements SPARCEngine {
         deliverables,
         metrics,
         nextPhase: this.determineNextPhase(phase),
-        recommendations: this.generatePhaseRecommendations(phase, project)
+        recommendations: this.generatePhaseRecommendations(phase, project),
       };
 
-      console.log(`✅ Phase ${phase} completed successfully in ${metrics.duration.toFixed(1)} minutes`);
+      console.log(
+        `✅ Phase ${phase} completed successfully in ${metrics.duration.toFixed(1)} minutes`
+      );
       return result;
-
     } catch (error) {
       // Handle phase execution failure
       project.progress.phaseStatus[phase] = {
@@ -184,12 +185,14 @@ export class SPARCEngineCore implements SPARCEngine {
         startedAt: project.progress.phaseStatus[phase]?.startedAt || new Date(),
         completedAt: new Date(),
         deliverables: [],
-        validationResults: [{
-          criterion: 'phase-execution',
-          passed: false,
-          details: error instanceof Error ? error.message : 'Unknown error',
-          suggestions: ['Review phase requirements', 'Check input data quality']
-        }]
+        validationResults: [
+          {
+            criterion: 'phase-execution',
+            passed: false,
+            details: error instanceof Error ? error.message : 'Unknown error',
+            suggestions: ['Review phase requirements', 'Check input data quality'],
+          },
+        ],
       };
 
       console.error(`❌ Phase ${phase} failed:`, error);
@@ -200,12 +203,15 @@ export class SPARCEngineCore implements SPARCEngine {
   /**
    * Refine implementation based on feedback and metrics
    */
-  async refineImplementation(project: SPARCProject, feedback: RefinementFeedback): Promise<RefinementResult> {
+  async refineImplementation(
+    project: SPARCProject,
+    feedback: RefinementFeedback
+  ): Promise<RefinementResult> {
     console.log(`🔧 Refining implementation for project ${project.name}`);
 
     // Analyze current implementation against targets
     const gapAnalysis = this.analyzePerformanceGaps(feedback);
-    
+
     // Generate refinement strategies
     const refinementStrategies = this.generateRefinementStrategies(gapAnalysis, project.domain);
 
@@ -214,7 +220,7 @@ export class SPARCEngineCore implements SPARCEngine {
       performanceGain: 0.25, // 25% improvement
       resourceReduction: 0.15, // 15% resource savings
       scalabilityIncrease: 1.5, // 1.5x scalability improvement
-      maintainabilityImprovement: 0.3 // 30% maintainability improvement
+      maintainabilityImprovement: 0.3, // 30% maintainability improvement
     };
 
     // Record refinement in history
@@ -223,10 +229,12 @@ export class SPARCEngineCore implements SPARCEngine {
       timestamp: new Date(),
       strategy: refinementStrategies[0], // Use primary strategy
       changes: refinementStrategies[0].changes,
-      results: result
+      results: result,
     });
 
-    console.log(`✨ Implementation refined with ${(result.performanceGain * 100).toFixed(1)}% performance gain`);
+    console.log(
+      `✨ Implementation refined with ${(result.performanceGain * 100).toFixed(1)}% performance gain`
+    );
     return result;
   }
 
@@ -244,7 +252,7 @@ export class SPARCEngineCore implements SPARCEngine {
         type: 'specification-document',
         path: `/projects/${project.id}/specification.md`,
         checksum: this.calculateChecksum('spec-content'),
-        createdAt: new Date()
+        createdAt: new Date(),
       },
       // Architecture artifacts
       {
@@ -253,7 +261,7 @@ export class SPARCEngineCore implements SPARCEngine {
         type: 'architecture-document',
         path: `/projects/${project.id}/architecture.md`,
         checksum: this.calculateChecksum('arch-content'),
-        createdAt: new Date()
+        createdAt: new Date(),
       },
       // Implementation artifacts
       {
@@ -262,7 +270,7 @@ export class SPARCEngineCore implements SPARCEngine {
         type: 'source-code',
         path: `/projects/${project.id}/src/`,
         checksum: this.calculateChecksum('impl-content'),
-        createdAt: new Date()
+        createdAt: new Date(),
       },
       // Test artifacts
       {
@@ -271,8 +279,8 @@ export class SPARCEngineCore implements SPARCEngine {
         type: 'test-suite',
         path: `/projects/${project.id}/tests/`,
         checksum: this.calculateChecksum('test-content'),
-        createdAt: new Date()
-      }
+        createdAt: new Date(),
+      },
     ];
 
     const artifactSet: ArtifactSet = {
@@ -281,25 +289,25 @@ export class SPARCEngineCore implements SPARCEngine {
         totalSize: 1024 * 1024, // 1MB estimated
         lastModified: new Date(),
         version: project.metadata.version,
-        author: project.metadata.author || 'SPARC Engine'
+        author: project.metadata.author || 'SPARC Engine',
       },
       relationships: [
         {
           source: artifacts[0].id, // specification
           target: artifacts[1].id, // architecture
-          type: 'generates'
+          type: 'generates',
         },
         {
           source: artifacts[1].id, // architecture
           target: artifacts[2].id, // implementation
-          type: 'implements'
+          type: 'implements',
         },
         {
           source: artifacts[2].id, // implementation
           target: artifacts[3].id, // tests
-          type: 'validates'
-        }
-      ]
+          type: 'validates',
+        },
+      ],
     };
 
     console.log(`📦 Generated ${artifacts.length} artifacts for project ${project.name}`);
@@ -317,54 +325,56 @@ export class SPARCEngineCore implements SPARCEngine {
         criterion: 'all-phases-completed',
         passed: project.progress.completedPhases.length === 5,
         score: project.progress.completedPhases.length / 5,
-        details: `${project.progress.completedPhases.length}/5 phases completed`
+        details: `${project.progress.completedPhases.length}/5 phases completed`,
       },
       {
         criterion: 'specification-quality',
         passed: project.specification.functionalRequirements.length > 0,
         score: 0.9,
-        details: 'Specification contains functional requirements'
+        details: 'Specification contains functional requirements',
       },
       {
         criterion: 'architecture-completeness',
         passed: project.architecture.systemArchitecture.components.length > 0,
         score: 0.85,
-        details: 'Architecture defines system components'
+        details: 'Architecture defines system components',
       },
       {
         criterion: 'implementation-artifacts',
         passed: project.implementation.sourceCode.length > 0,
         score: 0.8,
-        details: 'Implementation artifacts generated'
+        details: 'Implementation artifacts generated',
       },
       {
         criterion: 'test-coverage',
         passed: project.implementation.testSuites.length > 0,
         score: 0.75,
-        details: 'Test suites available'
-      }
+        details: 'Test suites available',
+      },
     ];
 
     const overallScore = validations.reduce((sum, v) => sum + v.score, 0) / validations.length;
-    const readyForProduction = validations.every(v => v.passed) && overallScore >= 0.8;
+    const readyForProduction = validations.every((v) => v.passed) && overallScore >= 0.8;
 
     const blockers = validations
-      .filter(v => !v.passed)
-      .map(v => `${v.criterion}: ${v.details}`);
+      .filter((v) => !v.passed)
+      .map((v) => `${v.criterion}: ${v.details}`);
 
     const warnings = validations
-      .filter(v => v.passed && v.score < 0.9)
-      .map(v => `${v.criterion} could be improved`);
+      .filter((v) => v.passed && v.score < 0.9)
+      .map((v) => `${v.criterion} could be improved`);
 
     const result: CompletionValidation = {
       readyForProduction,
       score: overallScore,
       validations,
       blockers,
-      warnings
+      warnings,
     };
 
-    console.log(`🎯 Completion validation: ${(overallScore * 100).toFixed(1)}% ready for production`);
+    console.log(
+      `🎯 Completion validation: ${(overallScore * 100).toFixed(1)}% ready for production`
+    );
     return result;
   }
 
@@ -377,19 +387,46 @@ export class SPARCEngineCore implements SPARCEngine {
       name: 'specification',
       description: 'Gather and analyze detailed requirements, constraints, and acceptance criteria',
       requirements: [
-        { id: 'req-001', description: 'Project context and domain', type: 'input', mandatory: true },
+        {
+          id: 'req-001',
+          description: 'Project context and domain',
+          type: 'input',
+          mandatory: true,
+        },
         { id: 'req-002', description: 'Stakeholder requirements', type: 'input', mandatory: true },
-        { id: 'req-003', description: 'System constraints', type: 'input', mandatory: false }
+        { id: 'req-003', description: 'System constraints', type: 'input', mandatory: false },
       ],
       deliverables: [
-        { id: 'del-001', name: 'Detailed Specification', description: 'Comprehensive requirements document', type: 'document', format: 'markdown' },
-        { id: 'del-002', name: 'Risk Analysis', description: 'Risk assessment and mitigation strategies', type: 'analysis', format: 'json' }
+        {
+          id: 'del-001',
+          name: 'Detailed Specification',
+          description: 'Comprehensive requirements document',
+          type: 'document',
+          format: 'markdown',
+        },
+        {
+          id: 'del-002',
+          name: 'Risk Analysis',
+          description: 'Risk assessment and mitigation strategies',
+          type: 'analysis',
+          format: 'json',
+        },
       ],
       validationCriteria: [
-        { id: 'val-001', description: 'All functional requirements defined', type: 'automated', threshold: 1.0 },
-        { id: 'val-002', description: 'Risk analysis completed', type: 'ai-assisted', threshold: 0.8 }
+        {
+          id: 'val-001',
+          description: 'All functional requirements defined',
+          type: 'automated',
+          threshold: 1.0,
+        },
+        {
+          id: 'val-002',
+          description: 'Risk analysis completed',
+          type: 'ai-assisted',
+          threshold: 0.8,
+        },
       ],
-      estimatedDuration: 30 // 30 minutes
+      estimatedDuration: 30, // 30 minutes
     });
 
     phases.set('pseudocode', {
@@ -397,17 +434,39 @@ export class SPARCEngineCore implements SPARCEngine {
       description: 'Design algorithms and data structures with complexity analysis',
       requirements: [
         { id: 'req-011', description: 'Detailed specification', type: 'input', mandatory: true },
-        { id: 'req-012', description: 'Performance requirements', type: 'input', mandatory: true }
+        { id: 'req-012', description: 'Performance requirements', type: 'input', mandatory: true },
       ],
       deliverables: [
-        { id: 'del-011', name: 'Algorithm Pseudocode', description: 'Detailed algorithm specifications', type: 'code', format: 'pseudocode' },
-        { id: 'del-012', name: 'Data Structure Design', description: 'Data structure definitions', type: 'diagram', format: 'uml' }
+        {
+          id: 'del-011',
+          name: 'Algorithm Pseudocode',
+          description: 'Detailed algorithm specifications',
+          type: 'code',
+          format: 'pseudocode',
+        },
+        {
+          id: 'del-012',
+          name: 'Data Structure Design',
+          description: 'Data structure definitions',
+          type: 'diagram',
+          format: 'uml',
+        },
       ],
       validationCriteria: [
-        { id: 'val-011', description: 'Algorithm complexity analyzed', type: 'automated', threshold: 1.0 },
-        { id: 'val-012', description: 'Data structures defined', type: 'automated', threshold: 1.0 }
+        {
+          id: 'val-011',
+          description: 'Algorithm complexity analyzed',
+          type: 'automated',
+          threshold: 1.0,
+        },
+        {
+          id: 'val-012',
+          description: 'Data structures defined',
+          type: 'automated',
+          threshold: 1.0,
+        },
       ],
-      estimatedDuration: 45 // 45 minutes
+      estimatedDuration: 45, // 45 minutes
     });
 
     phases.set('architecture', {
@@ -415,17 +474,34 @@ export class SPARCEngineCore implements SPARCEngine {
       description: 'Design system architecture and component relationships',
       requirements: [
         { id: 'req-021', description: 'Algorithm pseudocode', type: 'input', mandatory: true },
-        { id: 'req-022', description: 'Quality attributes', type: 'input', mandatory: true }
+        { id: 'req-022', description: 'Quality attributes', type: 'input', mandatory: true },
       ],
       deliverables: [
-        { id: 'del-021', name: 'System Architecture', description: 'Complete system design', type: 'diagram', format: 'architecture' },
-        { id: 'del-022', name: 'Component Interfaces', description: 'Interface definitions', type: 'code', format: 'typescript' }
+        {
+          id: 'del-021',
+          name: 'System Architecture',
+          description: 'Complete system design',
+          type: 'diagram',
+          format: 'architecture',
+        },
+        {
+          id: 'del-022',
+          name: 'Component Interfaces',
+          description: 'Interface definitions',
+          type: 'code',
+          format: 'typescript',
+        },
       ],
       validationCriteria: [
         { id: 'val-021', description: 'All components defined', type: 'automated', threshold: 1.0 },
-        { id: 'val-022', description: 'Architecture patterns applied', type: 'ai-assisted', threshold: 0.8 }
+        {
+          id: 'val-022',
+          description: 'Architecture patterns applied',
+          type: 'ai-assisted',
+          threshold: 0.8,
+        },
       ],
-      estimatedDuration: 60 // 60 minutes
+      estimatedDuration: 60, // 60 minutes
     });
 
     phases.set('refinement', {
@@ -433,17 +509,39 @@ export class SPARCEngineCore implements SPARCEngine {
       description: 'Optimize and refine the architecture and algorithms',
       requirements: [
         { id: 'req-031', description: 'System architecture', type: 'input', mandatory: true },
-        { id: 'req-032', description: 'Performance feedback', type: 'input', mandatory: false }
+        { id: 'req-032', description: 'Performance feedback', type: 'input', mandatory: false },
       ],
       deliverables: [
-        { id: 'del-031', name: 'Optimization Plan', description: 'Performance optimization strategies', type: 'document', format: 'markdown' },
-        { id: 'del-032', name: 'Refined Architecture', description: 'Updated system design', type: 'diagram', format: 'architecture' }
+        {
+          id: 'del-031',
+          name: 'Optimization Plan',
+          description: 'Performance optimization strategies',
+          type: 'document',
+          format: 'markdown',
+        },
+        {
+          id: 'del-032',
+          name: 'Refined Architecture',
+          description: 'Updated system design',
+          type: 'diagram',
+          format: 'architecture',
+        },
       ],
       validationCriteria: [
-        { id: 'val-031', description: 'Performance improvements identified', type: 'ai-assisted', threshold: 0.7 },
-        { id: 'val-032', description: 'Architecture consistency maintained', type: 'automated', threshold: 1.0 }
+        {
+          id: 'val-031',
+          description: 'Performance improvements identified',
+          type: 'ai-assisted',
+          threshold: 0.7,
+        },
+        {
+          id: 'val-032',
+          description: 'Architecture consistency maintained',
+          type: 'automated',
+          threshold: 1.0,
+        },
       ],
-      estimatedDuration: 30 // 30 minutes
+      estimatedDuration: 30, // 30 minutes
     });
 
     phases.set('completion', {
@@ -451,25 +549,61 @@ export class SPARCEngineCore implements SPARCEngine {
       description: 'Generate production-ready implementation and documentation',
       requirements: [
         { id: 'req-041', description: 'Refined architecture', type: 'input', mandatory: true },
-        { id: 'req-042', description: 'Optimization strategies', type: 'input', mandatory: true }
+        { id: 'req-042', description: 'Optimization strategies', type: 'input', mandatory: true },
       ],
       deliverables: [
-        { id: 'del-041', name: 'Production Code', description: 'Complete implementation', type: 'code', format: 'typescript' },
-        { id: 'del-042', name: 'Test Suite', description: 'Comprehensive tests', type: 'code', format: 'jest' },
-        { id: 'del-043', name: 'Documentation', description: 'API and user documentation', type: 'document', format: 'markdown' }
+        {
+          id: 'del-041',
+          name: 'Production Code',
+          description: 'Complete implementation',
+          type: 'code',
+          format: 'typescript',
+        },
+        {
+          id: 'del-042',
+          name: 'Test Suite',
+          description: 'Comprehensive tests',
+          type: 'code',
+          format: 'jest',
+        },
+        {
+          id: 'del-043',
+          name: 'Documentation',
+          description: 'API and user documentation',
+          type: 'document',
+          format: 'markdown',
+        },
       ],
       validationCriteria: [
-        { id: 'val-041', description: 'Code compiles without errors', type: 'automated', threshold: 1.0 },
-        { id: 'val-042', description: 'Test coverage above 90%', type: 'automated', threshold: 0.9 },
-        { id: 'val-043', description: 'Documentation completeness', type: 'ai-assisted', threshold: 0.8 }
+        {
+          id: 'val-041',
+          description: 'Code compiles without errors',
+          type: 'automated',
+          threshold: 1.0,
+        },
+        {
+          id: 'val-042',
+          description: 'Test coverage above 90%',
+          type: 'automated',
+          threshold: 0.9,
+        },
+        {
+          id: 'val-043',
+          description: 'Documentation completeness',
+          type: 'ai-assisted',
+          threshold: 0.8,
+        },
       ],
-      estimatedDuration: 90 // 90 minutes
+      estimatedDuration: 90, // 90 minutes
     });
 
     return phases;
   }
 
-  private async executePhaseLogic(project: SPARCProject, phase: SPARCPhase): Promise<ArtifactReference[]> {
+  private async executePhaseLogic(
+    project: SPARCProject,
+    phase: SPARCPhase
+  ): Promise<ArtifactReference[]> {
     const phaseEngine = this.phaseEngines.get(phase);
     if (!phaseEngine) {
       throw new Error(`No engine available for phase: ${phase}`);
@@ -478,19 +612,19 @@ export class SPARCEngineCore implements SPARCEngine {
     const deliverables: ArtifactReference[] = [];
 
     switch (phase) {
-      case 'specification':
+      case 'specification': {
         const specification = await phaseEngine.gatherRequirements({
           domain: project.domain,
           constraints: project.specification.constraints?.map((c: any) => c.description) || [],
           requirements: [],
-          complexity: 'moderate'
+          complexity: 'moderate',
         });
-        
+
         // Update project with detailed specification
         project.specification = {
           ...project.specification,
           functionalRequirements: specification.slice(0, Math.ceil(specification.length / 2)),
-          nonFunctionalRequirements: specification.slice(Math.ceil(specification.length / 2))
+          nonFunctionalRequirements: specification.slice(Math.ceil(specification.length / 2)),
         };
 
         deliverables.push({
@@ -499,15 +633,19 @@ export class SPARCEngineCore implements SPARCEngine {
           type: 'specification',
           path: `specs/${project.id}/requirements.json`,
           checksum: this.calculateChecksum('specification-content'),
-          createdAt: new Date()
+          createdAt: new Date(),
         });
         break;
+      }
 
-      case 'pseudocode':
-        if (!project.specification.functionalRequirements || project.specification.functionalRequirements.length === 0) {
+      case 'pseudocode': {
+        if (
+          !project.specification.functionalRequirements ||
+          project.specification.functionalRequirements.length === 0
+        ) {
           throw new Error('Specification phase must be completed first');
         }
-        
+
         const specForPseudocode = {
           id: project.id,
           name: project.name,
@@ -517,46 +655,51 @@ export class SPARCEngineCore implements SPARCEngine {
           systemConstraints: project.specification.constraints || [],
           projectAssumptions: project.specification.assumptions || [],
           externalDependencies: project.specification.dependencies || [],
-          riskAnalysis: project.specification.riskAssessment || { risks: [], mitigationStrategies: [], overallRisk: 'LOW' },
+          riskAnalysis: project.specification.riskAssessment || {
+            risks: [],
+            mitigationStrategies: [],
+            overallRisk: 'LOW',
+          },
           successMetrics: project.specification.successMetrics || [],
           createdAt: new Date(),
-          updatedAt: new Date()
+          updatedAt: new Date(),
         };
-        
+
         project.pseudocode = await phaseEngine.generatePseudocode(specForPseudocode);
-        
+
         deliverables.push({
           id: nanoid(),
           name: 'Algorithmic Pseudocode',
           type: 'pseudocode',
           path: `specs/${project.id}/pseudocode.json`,
           checksum: this.calculateChecksum('pseudocode-content'),
-          createdAt: new Date()
+          createdAt: new Date(),
         });
         break;
+      }
 
       case 'architecture':
         if (!project.pseudocode || !project.pseudocode.algorithms) {
           throw new Error('Pseudocode phase must be completed first');
         }
-        
+
         project.architecture = await phaseEngine.designArchitecture(project.pseudocode);
-        
+
         deliverables.push({
           id: nanoid(),
           name: 'System Architecture Design',
           type: 'architecture',
           path: `specs/${project.id}/architecture.json`,
           checksum: this.calculateChecksum('architecture-content'),
-          createdAt: new Date()
+          createdAt: new Date(),
         });
         break;
 
-      case 'refinement':
+      case 'refinement': {
         if (!project.architecture || !project.architecture.systemArchitecture) {
           throw new Error('Architecture phase must be completed first');
         }
-        
+
         // Create mock refinement feedback for demonstration
         const mockFeedback = {
           id: nanoid(),
@@ -564,31 +707,36 @@ export class SPARCEngineCore implements SPARCEngine {
           securityConcerns: ['Weak authentication', 'Missing input validation'],
           scalabilityRequirements: ['Support 10x more users', 'Horizontal scaling'],
           codeQualityIssues: ['Complex functions', 'Missing documentation'],
-          priority: 'HIGH' as const
+          priority: 'HIGH' as const,
         };
-        
-        const refinementResult = await phaseEngine.applyRefinements(project.architecture, mockFeedback);
+
+        const refinementResult = await phaseEngine.applyRefinements(
+          project.architecture,
+          mockFeedback
+        );
         project.architecture = refinementResult.refinedArchitecture;
-        
+
         deliverables.push({
           id: nanoid(),
           name: 'Refinement Analysis and Optimizations',
           type: 'refinement',
           path: `specs/${project.id}/refinements.json`,
           checksum: this.calculateChecksum('refinement-content'),
-          createdAt: new Date()
+          createdAt: new Date(),
         });
         break;
+      }
 
-      case 'completion':
+      case 'completion': {
         if (!project.architecture || !project.architecture.systemArchitecture) {
           throw new Error('Architecture and refinement phases must be completed first');
         }
-        
+
         // Create mock refinement result for completion phase
         const mockRefinementResult = {
           id: nanoid(),
-          architectureId: project.architecture.systemArchitecture?.components?.[0]?.id || 'mock-arch',
+          architectureId:
+            project.architecture.systemArchitecture?.components?.[0]?.id || 'mock-arch',
           feedbackId: 'mock-feedback',
           optimizationStrategies: [],
           performanceOptimizations: [],
@@ -601,27 +749,29 @@ export class SPARCEngineCore implements SPARCEngine {
           refactoringOpportunities: [],
           technicalDebtAnalysis: {
             id: nanoid(),
-            architectureId: project.architecture.systemArchitecture?.components?.[0]?.id || 'mock-arch',
+            architectureId:
+              project.architecture.systemArchitecture?.components?.[0]?.id || 'mock-arch',
             totalDebtScore: 2.5,
             debtCategories: [],
-            remediationPlan: []
+            remediationPlan: [],
           },
           recommendedNextSteps: [],
           createdAt: new Date(),
-          updatedAt: new Date()
+          updatedAt: new Date(),
         };
-        
+
         project.implementation = await phaseEngine.generateImplementation(mockRefinementResult);
-        
+
         deliverables.push({
           id: nanoid(),
           name: 'Production-Ready Implementation',
           type: 'implementation',
           path: `output/${project.id}/`,
           checksum: this.calculateChecksum('implementation-content'),
-          createdAt: new Date()
+          createdAt: new Date(),
         });
         break;
+      }
 
       default:
         throw new Error(`Unsupported phase: ${phase}`);
@@ -641,9 +791,9 @@ export class SPARCEngineCore implements SPARCEngine {
       riskAssessment: {
         risks: [],
         mitigationStrategies: [],
-        overallRisk: 'LOW'
+        overallRisk: 'LOW',
       },
-      successMetrics: []
+      successMetrics: [],
     };
   }
 
@@ -653,7 +803,7 @@ export class SPARCEngineCore implements SPARCEngine {
       dataStructures: [],
       controlFlows: [],
       optimizations: [],
-      dependencies: []
+      dependencies: [],
     };
   }
 
@@ -666,12 +816,12 @@ export class SPARCEngineCore implements SPARCEngine {
         deploymentUnits: [],
         qualityAttributes: [],
         architecturalPatterns: [],
-        technologyStack: []
+        technologyStack: [],
       },
       componentDiagrams: [],
       dataFlow: [],
       deploymentPlan: [],
-      validationResults: []
+      validationResults: [],
     };
   }
 
@@ -683,7 +833,7 @@ export class SPARCEngineCore implements SPARCEngine {
       configurationFiles: [],
       deploymentScripts: [],
       monitoringDashboards: [],
-      securityConfigurations: []
+      securityConfigurations: [],
     };
   }
 
@@ -696,9 +846,9 @@ export class SPARCEngineCore implements SPARCEngine {
         pseudocode: { status: 'not-started', deliverables: [], validationResults: [] },
         architecture: { status: 'not-started', deliverables: [], validationResults: [] },
         refinement: { status: 'not-started', deliverables: [], validationResults: [] },
-        completion: { status: 'not-started', deliverables: [], validationResults: [] }
+        completion: { status: 'not-started', deliverables: [], validationResults: [] },
       },
-      overallProgress: 0
+      overallProgress: 0,
     };
   }
 
@@ -708,7 +858,13 @@ export class SPARCEngineCore implements SPARCEngine {
   }
 
   private determineNextPhase(currentPhase: SPARCPhase): SPARCPhase | undefined {
-    const phaseOrder: SPARCPhase[] = ['specification', 'pseudocode', 'architecture', 'refinement', 'completion'];
+    const phaseOrder: SPARCPhase[] = [
+      'specification',
+      'pseudocode',
+      'architecture',
+      'refinement',
+      'completion',
+    ];
     const currentIndex = phaseOrder.indexOf(currentPhase);
     return currentIndex < phaseOrder.length - 1 ? phaseOrder[currentIndex + 1] : undefined;
   }
@@ -718,28 +874,28 @@ export class SPARCEngineCore implements SPARCEngine {
       specification: [
         'Ensure all stakeholder requirements are captured',
         'Consider edge cases and error scenarios',
-        'Validate acceptance criteria with stakeholders'
+        'Validate acceptance criteria with stakeholders',
       ],
       pseudocode: [
         'Optimize algorithm complexity where possible',
         'Consider data structure efficiency',
-        'Plan for scalability requirements'
+        'Plan for scalability requirements',
       ],
       architecture: [
         'Apply appropriate architectural patterns',
         'Consider separation of concerns',
-        'Plan for testing and maintainability'
+        'Plan for testing and maintainability',
       ],
       refinement: [
         'Focus on performance bottlenecks',
         'Consider security implications',
-        'Validate against quality attributes'
+        'Validate against quality attributes',
       ],
       completion: [
         'Ensure comprehensive test coverage',
         'Document all public APIs',
-        'Prepare deployment documentation'
-      ]
+        'Prepare deployment documentation',
+      ],
     };
 
     return recommendations[phase] || [];
@@ -747,43 +903,49 @@ export class SPARCEngineCore implements SPARCEngine {
 
   private analyzePerformanceGaps(feedback: RefinementFeedback) {
     // Analyze gaps between current performance and targets
-    return feedback.targets.map(target => ({
+    return feedback.targets.map((target) => ({
       metric: target.metric,
       currentValue: feedback.metrics.latency, // simplified
       targetValue: target.target,
       gap: target.target - feedback.metrics.latency,
-      priority: target.priority
+      priority: target.priority,
     }));
   }
 
   private generateRefinementStrategies(gapAnalysis: any[], domain: ProjectDomain) {
     // Generate domain-specific refinement strategies
-    return [{
-      type: 'performance' as const,
-      priority: 'HIGH' as const,
-      changes: [{
-        component: 'main-algorithm',
-        modification: 'Implement caching strategy',
-        rationale: 'Reduce repeated computations',
-        expectedImprovement: '25% performance gain',
-        effort: 'medium' as const,
-        risk: 'LOW' as const
-      }],
-      expectedImpact: {
-        performanceGain: 0.25,
-        resourceReduction: 0.15,
-        scalabilityIncrease: 1.5,
-        maintainabilityImprovement: 0.1
+    return [
+      {
+        type: 'performance' as const,
+        priority: 'HIGH' as const,
+        changes: [
+          {
+            component: 'main-algorithm',
+            modification: 'Implement caching strategy',
+            rationale: 'Reduce repeated computations',
+            expectedImprovement: '25% performance gain',
+            effort: 'medium' as const,
+            risk: 'LOW' as const,
+          },
+        ],
+        expectedImpact: {
+          performanceGain: 0.25,
+          resourceReduction: 0.15,
+          scalabilityIncrease: 1.5,
+          maintainabilityImprovement: 0.1,
+        },
+        riskAssessment: 'LOW' as const,
+        implementationPlan: [
+          {
+            id: 'step-1',
+            description: 'Add caching layer',
+            duration: 30,
+            dependencies: [],
+            risks: [],
+          },
+        ],
       },
-      riskAssessment: 'LOW' as const,
-      implementationPlan: [{
-        id: 'step-1',
-        description: 'Add caching layer',
-        duration: 30,
-        dependencies: [],
-        risks: []
-      }]
-    }];
+    ];
   }
 
   private calculateChecksum(content: string): string {

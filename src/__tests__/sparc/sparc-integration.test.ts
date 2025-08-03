@@ -1,19 +1,19 @@
 /**
  * SPARC Engine Integration Tests
- * 
+ *
  * Comprehensive tests for the SPARC methodology system using London TDD approach
  * for testing interactions and protocols.
  */
 
 import { SPARCEngineCore } from '../sparc/core/sparc-engine.js';
-import { SpecificationPhaseEngine } from '../sparc/phases/specification/specification-engine.js';
 import { sparcMCPTools } from '../sparc/integrations/mcp-sparc-tools.js';
+import { SpecificationPhaseEngine } from '../sparc/phases/specification/specification-engine.js';
 import type {
-  ProjectSpecification,
-  SPARCProject,
-  ProjectDomain,
   ComplexityLevel,
-  SPARCPhase
+  ProjectDomain,
+  ProjectSpecification,
+  SPARCPhase,
+  SPARCProject,
 } from '../sparc/types/sparc-types.js';
 
 describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
@@ -36,9 +36,9 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           requirements: [
             'Distribute tasks optimally across agents',
             'Handle agent failures gracefully',
-            'Support 1000+ concurrent agents'
+            'Support 1000+ concurrent agents',
           ],
-          constraints: ['Sub-100ms response time', 'TypeScript implementation']
+          constraints: ['Sub-100ms response time', 'TypeScript implementation'],
         };
 
         // Act
@@ -64,14 +64,19 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
       }, 10000);
 
       it('should handle different domain types correctly', async () => {
-        const domains: ProjectDomain[] = ['neural-networks', 'wasm-integration', 'rest-api', 'memory-systems'];
+        const domains: ProjectDomain[] = [
+          'neural-networks',
+          'wasm-integration',
+          'rest-api',
+          'memory-systems',
+        ];
 
         for (const domain of domains) {
           const projectSpec: ProjectSpecification = {
             name: `Test ${domain} Project`,
             domain,
             complexity: 'moderate',
-            requirements: ['Basic functionality', 'Performance optimization']
+            requirements: ['Basic functionality', 'Performance optimization'],
           };
 
           const project = await sparcEngine.initializeProject(projectSpec);
@@ -90,7 +95,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           name: 'Test Swarm System',
           domain: 'swarm-coordination',
           complexity: 'high',
-          requirements: ['Agent coordination', 'Task distribution', 'Health monitoring']
+          requirements: ['Agent coordination', 'Task distribution', 'Health monitoring'],
         };
         testProject = await sparcEngine.initializeProject(projectSpec);
       });
@@ -107,7 +112,9 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         expect(result.metrics.completeness).toBeGreaterThan(0.8);
         expect(result.deliverables).toHaveLength(1);
         expect(result.nextPhase).toBe('pseudocode');
-        expect(result.recommendations).toContain('Ensure all stakeholder requirements are captured');
+        expect(result.recommendations).toContain(
+          'Ensure all stakeholder requirements are captured'
+        );
 
         // Verify project state updated
         expect(testProject.currentPhase).toBe('specification');
@@ -117,11 +124,17 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
       });
 
       it('should execute all phases in sequence', async () => {
-        const phases: SPARCPhase[] = ['specification', 'pseudocode', 'architecture', 'refinement', 'completion'];
+        const phases: SPARCPhase[] = [
+          'specification',
+          'pseudocode',
+          'architecture',
+          'refinement',
+          'completion',
+        ];
 
         for (const phase of phases) {
           const result = await sparcEngine.executePhase(testProject, phase);
-          
+
           expect(result.success).toBe(true);
           expect(result.phase).toBe(phase);
           expect(testProject.progress.completedPhases).toContain(phase);
@@ -136,13 +149,15 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         const expectedRecommendations = {
           specification: ['Ensure all stakeholder requirements are captured'],
           pseudocode: ['Optimize algorithm complexity where possible'],
-          architecture: ['Apply appropriate architectural patterns']
+          architecture: ['Apply appropriate architectural patterns'],
         };
 
         for (const phase of phases) {
           const result = await sparcEngine.executePhase(testProject, phase);
           expect(result.recommendations).toEqual(
-            expect.arrayContaining([expect.stringContaining(expectedRecommendations[phase][0].split(' ')[0])])
+            expect.arrayContaining([
+              expect.stringContaining(expectedRecommendations[phase][0].split(' ')[0]),
+            ])
           );
         }
       });
@@ -156,7 +171,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           name: 'Artifact Test Project',
           domain: 'swarm-coordination',
           complexity: 'moderate',
-          requirements: ['Core functionality']
+          requirements: ['Core functionality'],
         };
         testProject = await sparcEngine.initializeProject(projectSpec);
       });
@@ -173,7 +188,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         expect(artifactSet.relationships).toHaveLength(3);
 
         // Verify artifact types
-        const artifactTypes = artifactSet.artifacts.map(a => a.type);
+        const artifactTypes = artifactSet.artifacts.map((a) => a.type);
         expect(artifactTypes).toContain('specification-document');
         expect(artifactTypes).toContain('architecture-document');
         expect(artifactTypes).toContain('source-code');
@@ -194,7 +209,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           name: 'Validation Test Project',
           domain: 'swarm-coordination',
           complexity: 'simple',
-          requirements: ['Basic functionality']
+          requirements: ['Basic functionality'],
         };
         testProject = await sparcEngine.initializeProject(projectSpec);
       });
@@ -212,7 +227,13 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
 
       it('should validate complete project correctly', async () => {
         // Arrange - complete all phases
-        const phases: SPARCPhase[] = ['specification', 'pseudocode', 'architecture', 'refinement', 'completion'];
+        const phases: SPARCPhase[] = [
+          'specification',
+          'pseudocode',
+          'architecture',
+          'refinement',
+          'completion',
+        ];
         for (const phase of phases) {
           await sparcEngine.executePhase(testProject, phase);
         }
@@ -223,7 +244,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           title: 'Test Requirement',
           description: 'Test',
           priority: 'HIGH',
-          testCriteria: ['Test criteria']
+          testCriteria: ['Test criteria'],
         });
         testProject.architecture.systemArchitecture.components.push({
           name: 'TestComponent',
@@ -231,20 +252,20 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           responsibilities: ['Test'],
           interfaces: ['ITest'],
           dependencies: [],
-          qualityAttributes: {}
+          qualityAttributes: {},
         });
         testProject.implementation.sourceCode.push({
           path: 'test.ts',
           content: 'test content',
           language: 'typescript',
           type: 'implementation',
-          dependencies: []
+          dependencies: [],
         });
         testProject.implementation.testSuites.push({
           name: 'Test Suite',
           type: 'unit',
           tests: [],
-          coverage: { lines: 0, functions: 0, branches: 0, statements: 0 }
+          coverage: { lines: 0, functions: 0, branches: 0, statements: 0 },
         });
 
         // Act
@@ -266,7 +287,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           domain: 'swarm-coordination' as ProjectDomain,
           teamSize: 5,
           timeline: 90,
-          constraints: ['Performance critical', 'High availability']
+          constraints: ['Performance critical', 'High availability'],
         };
 
         // Act
@@ -275,11 +296,11 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         // Assert
         expect(requirements).toBeDefined();
         expect(requirements.length).toBeGreaterThan(5);
-        
+
         // Should have both functional and non-functional requirements
-        const functionalReqs = requirements.filter(req => 'testCriteria' in req);
-        const nonFunctionalReqs = requirements.filter(req => 'metrics' in req);
-        
+        const functionalReqs = requirements.filter((req) => 'testCriteria' in req);
+        const nonFunctionalReqs = requirements.filter((req) => 'metrics' in req);
+
         expect(functionalReqs.length).toBeGreaterThan(0);
         expect(nonFunctionalReqs.length).toBeGreaterThan(0);
       });
@@ -287,14 +308,15 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
       it('should include domain-specific requirements for swarm coordination', async () => {
         const context = { domain: 'swarm-coordination' as ProjectDomain };
         const requirements = await specificationEngine.gatherRequirements(context);
-        
-        const functionalReqs = requirements.filter(req => 'testCriteria' in req);
-        const swarmSpecificReqs = functionalReqs.filter(req => 
-          req.id.includes('SWM') || 
-          req.title.toLowerCase().includes('agent') ||
-          req.title.toLowerCase().includes('swarm')
+
+        const functionalReqs = requirements.filter((req) => 'testCriteria' in req);
+        const swarmSpecificReqs = functionalReqs.filter(
+          (req) =>
+            req.id.includes('SWM') ||
+            req.title.toLowerCase().includes('agent') ||
+            req.title.toLowerCase().includes('swarm')
         );
-        
+
         expect(swarmSpecificReqs.length).toBeGreaterThan(0);
       });
     });
@@ -307,19 +329,23 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
             title: 'Performance Requirements',
             description: 'System performance benchmarks',
             metrics: { 'response-time': '<100ms' },
-            priority: 'HIGH' as const
-          }
+            priority: 'HIGH' as const,
+          },
         ] as any[];
 
         const constraints = await specificationEngine.analyzeConstraints(mockRequirements);
 
         expect(constraints).toBeDefined();
         expect(constraints.length).toBeGreaterThan(2);
-        
+
         // Should identify technical and performance constraints
-        const technicalConstraints = constraints.filter(c => 'type' in c && c.type === 'technical');
-        const performanceConstraints = constraints.filter(c => 'type' in c && c.type === 'performance');
-        
+        const technicalConstraints = constraints.filter(
+          (c) => 'type' in c && c.type === 'technical'
+        );
+        const performanceConstraints = constraints.filter(
+          (c) => 'type' in c && c.type === 'performance'
+        );
+
         expect(technicalConstraints.length).toBeGreaterThan(0);
         expect(performanceConstraints.length).toBeGreaterThan(0);
       });
@@ -332,14 +358,14 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
             id: 'SC-001',
             type: 'technical' as const,
             description: 'TypeScript implementation required',
-            impact: 'medium' as const
+            impact: 'medium' as const,
           },
           {
             id: 'PA-001',
             description: 'Users have basic technical knowledge',
             confidence: 'medium' as const,
-            riskIfIncorrect: 'MEDIUM' as const
-          }
+            riskIfIncorrect: 'MEDIUM' as const,
+          },
         ] as any[];
 
         const spec = await specificationEngine.generateSpecificationDocument(mockAnalysis);
@@ -365,33 +391,66 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
       it('should validate specification completeness', async () => {
         const mockSpec = {
           functionalRequirements: [
-            { id: 'FR-001', title: 'Test', description: 'Test', priority: 'HIGH', testCriteria: ['test'] }
+            {
+              id: 'FR-001',
+              title: 'Test',
+              description: 'Test',
+              priority: 'HIGH',
+              testCriteria: ['test'],
+            },
           ],
           nonFunctionalRequirements: [
-            { id: 'NFR-001', title: 'Performance', description: 'Test', metrics: { 'latency': '<100ms' }, priority: 'HIGH' }
+            {
+              id: 'NFR-001',
+              title: 'Performance',
+              description: 'Test',
+              metrics: { latency: '<100ms' },
+              priority: 'HIGH',
+            },
           ],
           constraints: [],
           assumptions: [],
           dependencies: [],
           acceptanceCriteria: [
-            { id: 'AC-001', requirement: 'FR-001', criteria: ['test'], testMethod: 'automated' as const }
+            {
+              id: 'AC-001',
+              requirement: 'FR-001',
+              criteria: ['test'],
+              testMethod: 'automated' as const,
+            },
           ],
           riskAssessment: {
-            risks: [{ id: 'R-001', description: 'Test risk', probability: 'low' as const, impact: 'low' as const, category: 'technical' as const }],
+            risks: [
+              {
+                id: 'R-001',
+                description: 'Test risk',
+                probability: 'low' as const,
+                impact: 'low' as const,
+                category: 'technical' as const,
+              },
+            ],
             mitigationStrategies: [],
-            overallRisk: 'LOW' as const
+            overallRisk: 'LOW' as const,
           },
           successMetrics: [
-            { id: 'SM-001', name: 'Coverage', description: 'Test coverage', target: '90%', measurement: 'automated' }
-          ]
+            {
+              id: 'SM-001',
+              name: 'Coverage',
+              description: 'Test coverage',
+              target: '90%',
+              measurement: 'automated',
+            },
+          ],
         } as any;
 
         const validation = await specificationEngine.validateSpecificationCompleteness(mockSpec);
 
         expect(validation.overall).toBe(true);
         expect(validation.score).toBeGreaterThan(0.8);
-        expect(validation.results.every(r => r.passed)).toBe(true);
-        expect(validation.recommendations).toContain('Specification is complete - proceed to pseudocode phase');
+        expect(validation.results.every((r) => r.passed)).toBe(true);
+        expect(validation.recommendations).toContain(
+          'Specification is complete - proceed to pseudocode phase'
+        );
       });
     });
   });
@@ -402,8 +461,8 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         const tools = sparcMCPTools.getTools();
 
         expect(tools).toHaveLength(7);
-        
-        const toolNames = tools.map(t => t.name);
+
+        const toolNames = tools.map((t) => t.name);
         expect(toolNames).toContain('sparc_create_project');
         expect(toolNames).toContain('sparc_execute_phase');
         expect(toolNames).toContain('sparc_get_project_status');
@@ -413,7 +472,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         expect(toolNames).toContain('sparc_refine_implementation');
 
         // Verify tool schemas
-        tools.forEach(tool => {
+        tools.forEach((tool) => {
           expect(tool.inputSchema).toBeDefined();
           expect(tool.description).toBeDefined();
           expect(tool.description.length).toBeGreaterThan(10);
@@ -425,7 +484,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           name: 'MCP Test Project',
           domain: 'swarm-coordination',
           complexity: 'moderate',
-          requirements: ['Agent coordination', 'Task distribution']
+          requirements: ['Agent coordination', 'Task distribution'],
         };
 
         const result = await sparcMCPTools.handleToolCall('sparc_create_project', args);
@@ -443,16 +502,19 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           name: 'Phase Test Project',
           domain: 'general',
           complexity: 'simple',
-          requirements: ['Basic functionality']
+          requirements: ['Basic functionality'],
         };
         const createResult = await sparcMCPTools.handleToolCall('sparc_create_project', createArgs);
 
         // Then execute a phase
         const executeArgs = {
           projectId: createResult.projectId,
-          phase: 'specification'
+          phase: 'specification',
         };
-        const executeResult = await sparcMCPTools.handleToolCall('sparc_execute_phase', executeArgs);
+        const executeResult = await sparcMCPTools.handleToolCall(
+          'sparc_execute_phase',
+          executeArgs
+        );
 
         expect(executeResult.success).toBe(true);
         expect(executeResult.phase).toBe('specification');
@@ -467,15 +529,18 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           name: 'Status Test Project',
           domain: 'neural-networks',
           complexity: 'high',
-          requirements: ['Neural network training', 'WASM acceleration']
+          requirements: ['Neural network training', 'WASM acceleration'],
         };
         const createResult = await sparcMCPTools.handleToolCall('sparc_create_project', createArgs);
 
         const statusArgs = {
           projectId: createResult.projectId,
-          includeDetails: true
+          includeDetails: true,
         };
-        const statusResult = await sparcMCPTools.handleToolCall('sparc_get_project_status', statusArgs);
+        const statusResult = await sparcMCPTools.handleToolCall(
+          'sparc_get_project_status',
+          statusArgs
+        );
 
         expect(statusResult.id).toBe(createResult.projectId);
         expect(statusResult.name).toBe('Status Test Project');
@@ -488,8 +553,18 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
       it('should list projects correctly via MCP', async () => {
         // Create multiple projects
         const projects = [
-          { name: 'Project 1', domain: 'swarm-coordination', complexity: 'simple', requirements: ['test'] },
-          { name: 'Project 2', domain: 'neural-networks', complexity: 'moderate', requirements: ['test'] }
+          {
+            name: 'Project 1',
+            domain: 'swarm-coordination',
+            complexity: 'simple',
+            requirements: ['test'],
+          },
+          {
+            name: 'Project 2',
+            domain: 'neural-networks',
+            complexity: 'moderate',
+            requirements: ['test'],
+          },
         ];
 
         for (const project of projects) {
@@ -503,8 +578,12 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         expect(listResult.projects.length).toBeGreaterThanOrEqual(2);
 
         // Test domain filtering
-        const filteredResult = await sparcMCPTools.handleToolCall('sparc_list_projects', { domain: 'swarm-coordination' });
-        expect(filteredResult.projects.every((p: any) => p.domain === 'swarm-coordination')).toBe(true);
+        const filteredResult = await sparcMCPTools.handleToolCall('sparc_list_projects', {
+          domain: 'swarm-coordination',
+        });
+        expect(filteredResult.projects.every((p: any) => p.domain === 'swarm-coordination')).toBe(
+          true
+        );
       });
     });
   });
@@ -517,13 +596,19 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         name: 'Performance Test Project',
         domain: 'rest-api',
         complexity: 'moderate',
-        requirements: ['API endpoints', 'Authentication', 'Data validation']
+        requirements: ['API endpoints', 'Authentication', 'Data validation'],
       };
 
       // Full SPARC cycle
       const project = await sparcEngine.initializeProject(projectSpec);
-      
-      const phases: SPARCPhase[] = ['specification', 'pseudocode', 'architecture', 'refinement', 'completion'];
+
+      const phases: SPARCPhase[] = [
+        'specification',
+        'pseudocode',
+        'architecture',
+        'refinement',
+        'completion',
+      ];
       for (const phase of phases) {
         await sparcEngine.executePhase(project, phase);
       }
@@ -551,7 +636,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
           name: `Quality Test ${domain}`,
           domain,
           complexity: 'moderate',
-          requirements: ['Core functionality', 'Performance optimization']
+          requirements: ['Core functionality', 'Performance optimization'],
         };
 
         const project = await sparcEngine.initializeProject(projectSpec);
@@ -561,12 +646,12 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         qualityResults.push({
           domain,
           score: validation.score,
-          blockers: validation.blockers.length
+          blockers: validation.blockers.length,
         });
       }
 
       // All domains should maintain minimum quality
-      qualityResults.forEach(result => {
+      qualityResults.forEach((result) => {
         expect(result.score).toBeGreaterThan(0.3); // Partial completion acceptable
         console.log(`📊 ${result.domain}: ${(result.score * 100).toFixed(1)}% quality score`);
       });
@@ -577,8 +662,18 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
     it('should handle invalid project specifications gracefully', async () => {
       const invalidSpecs = [
         { name: '', domain: 'swarm-coordination', complexity: 'simple', requirements: [] },
-        { name: 'Test', domain: 'invalid-domain' as any, complexity: 'simple', requirements: ['test'] },
-        { name: 'Test', domain: 'swarm-coordination', complexity: 'invalid' as any, requirements: ['test'] }
+        {
+          name: 'Test',
+          domain: 'invalid-domain' as any,
+          complexity: 'simple',
+          requirements: ['test'],
+        },
+        {
+          name: 'Test',
+          domain: 'swarm-coordination',
+          complexity: 'invalid' as any,
+          requirements: ['test'],
+        },
       ];
 
       for (const spec of invalidSpecs) {
@@ -597,7 +692,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         // Mock project with invalid ID
         const mockProject = {
           id: 'non-existent-id',
-          currentPhase: 'specification'
+          currentPhase: 'specification',
         } as any;
 
         await sparcEngine.executePhase(mockProject, 'specification');
@@ -611,7 +706,7 @@ describe('SPARC Methodology System - Integration Tests (London TDD)', () => {
         { tool: 'sparc_create_project', args: {} }, // Missing required fields
         { tool: 'sparc_execute_phase', args: { projectId: 'invalid' } }, // Missing phase
         { tool: 'sparc_get_project_status', args: {} }, // Missing projectId
-        { tool: 'invalid_tool', args: {} } // Invalid tool name
+        { tool: 'invalid_tool', args: {} }, // Invalid tool name
       ];
 
       for (const call of invalidCalls) {

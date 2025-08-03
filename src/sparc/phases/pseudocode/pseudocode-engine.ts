@@ -1,30 +1,29 @@
 /**
  * SPARC Pseudocode Phase Engine
- * 
+ *
  * Handles the second phase of SPARC methodology - generating algorithmic
  * pseudocode with complexity analysis and optimization strategies.
  */
 
 import { nanoid } from 'nanoid';
 import type {
-  PseudocodeEngine,
-  DetailedSpecification,
-  PseudocodeStructure,
   AlgorithmDesign,
   ComplexityAnalysis,
-  PseudocodeValidation,
-  PseudocodeDocument,
+  ComplexityClass,
   CoreAlgorithm,
   DataStructureSpec,
-  ProcessFlow,
+  DetailedSpecification,
   OptimizationOpportunity,
   PerformanceTarget,
-  ComplexityClass,
-  ValidationResult
+  ProcessFlow,
+  PseudocodeDocument,
+  PseudocodeEngine,
+  PseudocodeStructure,
+  PseudocodeValidation,
+  ValidationResult,
 } from '../../types/sparc-types.js';
 
 export class PseudocodePhaseEngine implements PseudocodeEngine {
-  
   /**
    * Generate algorithmic pseudocode from detailed specifications
    */
@@ -50,19 +49,24 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
       optimizationOpportunities: await this.identifyOptimizations(coreAlgorithms),
       estimatedPerformance: await this.estimatePerformance(coreAlgorithms, complexityAnalysis),
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     };
   }
 
   /**
    * Design core algorithms based on functional requirements
    */
-  private async designCoreAlgorithms(specification: DetailedSpecification): Promise<CoreAlgorithm[]> {
+  private async designCoreAlgorithms(
+    specification: DetailedSpecification
+  ): Promise<CoreAlgorithm[]> {
     const algorithms: CoreAlgorithm[] = [];
 
     for (const requirement of specification.functionalRequirements) {
       if (requirement.type === 'algorithmic') {
-        const algorithm = await this.createAlgorithmForRequirement(requirement, specification.domain);
+        const algorithm = await this.createAlgorithmForRequirement(
+          requirement,
+          specification.domain
+        );
         algorithms.push(algorithm);
       }
     }
@@ -70,16 +74,16 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
     // Add domain-specific algorithms
     switch (specification.domain) {
       case 'swarm-coordination':
-        algorithms.push(...await this.createSwarmCoordinationAlgorithms(specification));
+        algorithms.push(...(await this.createSwarmCoordinationAlgorithms(specification)));
         break;
       case 'neural-networks':
-        algorithms.push(...await this.createNeuralNetworkAlgorithms(specification));
+        algorithms.push(...(await this.createNeuralNetworkAlgorithms(specification)));
         break;
       case 'memory-systems':
-        algorithms.push(...await this.createMemorySystemAlgorithms(specification));
+        algorithms.push(...(await this.createMemorySystemAlgorithms(specification)));
         break;
       default:
-        algorithms.push(...await this.createGeneralAlgorithms(specification));
+        algorithms.push(...(await this.createGeneralAlgorithms(specification)));
     }
 
     return algorithms;
@@ -88,7 +92,10 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
   /**
    * Create algorithm for specific requirement
    */
-  private async createAlgorithmForRequirement(requirement: any, domain: string): Promise<CoreAlgorithm> {
+  private async createAlgorithmForRequirement(
+    requirement: any,
+    domain: string
+  ): Promise<CoreAlgorithm> {
     return {
       id: nanoid(),
       name: `${requirement.title.replace(/\s+/g, '')}Algorithm`,
@@ -99,14 +106,16 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
       outputFormat: await this.defineOutputFormat(requirement),
       preconditions: requirement.preconditions || [],
       postconditions: requirement.postconditions || [],
-      invariants: requirement.invariants || []
+      invariants: requirement.invariants || [],
     };
   }
 
   /**
    * Generate pseudocode for swarm coordination algorithms
    */
-  private async createSwarmCoordinationAlgorithms(specification: DetailedSpecification): Promise<CoreAlgorithm[]> {
+  private async createSwarmCoordinationAlgorithms(
+    specification: DetailedSpecification
+  ): Promise<CoreAlgorithm[]> {
     return [
       {
         id: nanoid(),
@@ -138,13 +147,13 @@ END
         complexity: {
           time: 'O(log n)' as ComplexityClass,
           space: 'O(1)' as ComplexityClass,
-          explanation: 'Logarithmic time for registry insertion, constant space for agent data'
+          explanation: 'Logarithmic time for registry insertion, constant space for agent data',
         },
         inputParameters: ['agent_info', 'capabilities', 'resource_requirements'],
         outputFormat: 'RegistrationResult',
         preconditions: ['Agent info is valid', 'Network is available'],
         postconditions: ['Agent is registered or error is returned'],
-        invariants: ['Registry consistency maintained']
+        invariants: ['Registry consistency maintained'],
       },
       {
         id: nanoid(),
@@ -180,21 +189,23 @@ END
         complexity: {
           time: 'O(n log n)' as ComplexityClass,
           space: 'O(n)' as ComplexityClass,
-          explanation: 'Linear scan with logarithmic sorting for agent selection'
+          explanation: 'Linear scan with logarithmic sorting for agent selection',
         },
         inputParameters: ['task', 'available_agents', 'performance_metrics'],
         outputFormat: 'TaskAssignment',
         preconditions: ['Task is valid', 'Agents list is current'],
         postconditions: ['Task assigned to optimal agent'],
-        invariants: ['Load balance maintained across swarm']
-      }
+        invariants: ['Load balance maintained across swarm'],
+      },
     ];
   }
 
   /**
    * Generate pseudocode for neural network algorithms
    */
-  private async createNeuralNetworkAlgorithms(specification: DetailedSpecification): Promise<CoreAlgorithm[]> {
+  private async createNeuralNetworkAlgorithms(
+    specification: DetailedSpecification
+  ): Promise<CoreAlgorithm[]> {
     return [
       {
         id: nanoid(),
@@ -227,21 +238,23 @@ END
         complexity: {
           time: 'O(n * m * k)' as ComplexityClass,
           space: 'O(n * m)' as ComplexityClass,
-          explanation: 'Matrix multiplication complexity where n,m,k are layer dimensions'
+          explanation: 'Matrix multiplication complexity where n,m,k are layer dimensions',
         },
         inputParameters: ['input_vector', 'weights', 'biases', 'layer_configs'],
         outputFormat: 'NetworkOutput',
         preconditions: ['Network is initialized', 'Input dimensions match'],
         postconditions: ['Output computed correctly'],
-        invariants: ['Network weights unchanged during forward pass']
-      }
+        invariants: ['Network weights unchanged during forward pass'],
+      },
     ];
   }
 
   /**
    * Generate pseudocode for memory system algorithms
    */
-  private async createMemorySystemAlgorithms(specification: DetailedSpecification): Promise<CoreAlgorithm[]> {
+  private async createMemorySystemAlgorithms(
+    specification: DetailedSpecification
+  ): Promise<CoreAlgorithm[]> {
     return [
       {
         id: nanoid(),
@@ -292,21 +305,23 @@ END
         complexity: {
           time: 'O(b)' as ComplexityClass,
           space: 'O(1)' as ComplexityClass,
-          explanation: 'Linear in number of backends, constant space per operation'
+          explanation: 'Linear in number of backends, constant space per operation',
         },
         inputParameters: ['operation_type', 'key', 'value', 'consistency_level'],
         outputFormat: 'MemoryOperationResult',
         preconditions: ['Backends are initialized', 'Key is valid'],
         postconditions: ['Data consistency maintained'],
-        invariants: ['At least one backend remains available']
-      }
+        invariants: ['At least one backend remains available'],
+      },
     ];
   }
 
   /**
    * Create general-purpose algorithms
    */
-  private async createGeneralAlgorithms(specification: DetailedSpecification): Promise<CoreAlgorithm[]> {
+  private async createGeneralAlgorithms(
+    specification: DetailedSpecification
+  ): Promise<CoreAlgorithm[]> {
     return [
       {
         id: nanoid(),
@@ -336,21 +351,23 @@ END
         complexity: {
           time: 'O(n * t)' as ComplexityClass,
           space: 'O(n)' as ComplexityClass,
-          explanation: 'Linear in data size and number of transformations'
+          explanation: 'Linear in data size and number of transformations',
         },
         inputParameters: ['data', 'transformation_pipeline', 'validation_rules'],
         outputFormat: 'ProcessedDataResult',
         preconditions: ['Pipeline is valid', 'Data format is correct'],
         postconditions: ['Data processed according to pipeline'],
-        invariants: ['Data integrity maintained throughout processing']
-      }
+        invariants: ['Data integrity maintained throughout processing'],
+      },
     ];
   }
 
   /**
    * Specify data structures needed for the algorithms
    */
-  private async specifyDataStructures(specification: DetailedSpecification): Promise<DataStructureSpec[]> {
+  private async specifyDataStructures(
+    specification: DetailedSpecification
+  ): Promise<DataStructureSpec[]> {
     const structures: DataStructureSpec[] = [];
 
     // Add domain-specific data structures
@@ -369,8 +386,8 @@ END
             performance: {
               lookup: 'O(1)' as ComplexityClass,
               insert: 'O(1)' as ComplexityClass,
-              delete: 'O(1)' as ComplexityClass
-            }
+              delete: 'O(1)' as ComplexityClass,
+            },
           },
           {
             id: nanoid(),
@@ -384,29 +401,27 @@ END
             performance: {
               enqueue: 'O(log n)' as ComplexityClass,
               dequeue: 'O(log n)' as ComplexityClass,
-              peek: 'O(1)' as ComplexityClass
-            }
+              peek: 'O(1)' as ComplexityClass,
+            },
           }
         );
         break;
       case 'neural-networks':
-        structures.push(
-          {
-            id: nanoid(),
-            name: 'WeightMatrix',
-            type: 'Matrix',
-            description: 'WASM-backed matrix for neural network weights',
-            keyType: 'number',
-            valueType: 'float64',
-            expectedSize: 1000000,
-            accessPatterns: ['random_access', 'batch_update', 'matrix_multiply'],
-            performance: {
-              access: 'O(1)' as ComplexityClass,
-              multiply: 'O(n^3)' as ComplexityClass,
-              update: 'O(1)' as ComplexityClass
-            }
-          }
-        );
+        structures.push({
+          id: nanoid(),
+          name: 'WeightMatrix',
+          type: 'Matrix',
+          description: 'WASM-backed matrix for neural network weights',
+          keyType: 'number',
+          valueType: 'float64',
+          expectedSize: 1000000,
+          accessPatterns: ['random_access', 'batch_update', 'matrix_multiply'],
+          performance: {
+            access: 'O(1)' as ComplexityClass,
+            multiply: 'O(n^3)' as ComplexityClass,
+            update: 'O(1)' as ComplexityClass,
+          },
+        });
         break;
     }
 
@@ -430,7 +445,7 @@ END
             algorithm: 'InitializationAlgorithm',
             inputs: ['config', 'environment'],
             outputs: ['system_state'],
-            duration: 5000
+            duration: 5000,
           },
           {
             id: nanoid(),
@@ -439,12 +454,12 @@ END
             algorithm: 'MainProcessingAlgorithm',
             inputs: ['system_state', 'external_events'],
             outputs: ['processed_results'],
-            duration: 100
-          }
+            duration: 100,
+          },
         ],
         parallelizable: true,
-        criticalPath: ['Initialization', 'MainLoop']
-      }
+        criticalPath: ['Initialization', 'MainLoop'],
+      },
     ];
   }
 
@@ -462,13 +477,13 @@ END
       bestCase,
       spaceComplexity: this.calculateSpaceComplexity(algorithms),
       scalabilityAnalysis: this.analyzeScalability(algorithms),
-      bottlenecks: this.identifyBottlenecks(algorithms)
+      bottlenecks: this.identifyBottlenecks(algorithms),
     };
   }
 
   private calculateWorstCaseComplexity(algorithms: CoreAlgorithm[]): ComplexityClass {
     // Find the algorithm with highest complexity
-    const complexities = algorithms.map(alg => alg.complexity.time);
+    const complexities = algorithms.map((alg) => alg.complexity.time);
     return this.maxComplexity(complexities);
   }
 
@@ -483,7 +498,7 @@ END
   }
 
   private calculateSpaceComplexity(algorithms: CoreAlgorithm[]): ComplexityClass {
-    const spaceComplexities = algorithms.map(alg => alg.complexity.space);
+    const spaceComplexities = algorithms.map((alg) => alg.complexity.space);
     return this.maxComplexity(spaceComplexities);
   }
 
@@ -491,7 +506,8 @@ END
     // Simple complexity comparison - in real implementation would be more sophisticated
     if (complexities.includes('O(n^3)' as ComplexityClass)) return 'O(n^3)' as ComplexityClass;
     if (complexities.includes('O(n^2)' as ComplexityClass)) return 'O(n^2)' as ComplexityClass;
-    if (complexities.includes('O(n log n)' as ComplexityClass)) return 'O(n log n)' as ComplexityClass;
+    if (complexities.includes('O(n log n)' as ComplexityClass))
+      return 'O(n log n)' as ComplexityClass;
     if (complexities.includes('O(n)' as ComplexityClass)) return 'O(n)' as ComplexityClass;
     return 'O(1)' as ComplexityClass;
   }
@@ -504,14 +520,16 @@ END
     return [
       'Matrix multiplication in neural network operations',
       'Network communication latency in distributed coordination',
-      'Database query performance for large agent registries'
+      'Database query performance for large agent registries',
     ];
   }
 
   /**
    * Identify optimization opportunities
    */
-  private async identifyOptimizations(algorithms: CoreAlgorithm[]): Promise<OptimizationOpportunity[]> {
+  private async identifyOptimizations(
+    algorithms: CoreAlgorithm[]
+  ): Promise<OptimizationOpportunity[]> {
     return [
       {
         id: nanoid(),
@@ -519,7 +537,7 @@ END
         description: 'Use WASM for performance-critical mathematical operations',
         impact: 'high',
         effort: 'medium',
-        estimatedImprovement: '300% performance increase for matrix operations'
+        estimatedImprovement: '300% performance increase for matrix operations',
       },
       {
         id: nanoid(),
@@ -527,7 +545,7 @@ END
         description: 'Implement intelligent caching for frequently accessed agent data',
         impact: 'medium',
         effort: 'low',
-        estimatedImprovement: '50% reduction in database queries'
+        estimatedImprovement: '50% reduction in database queries',
       },
       {
         id: nanoid(),
@@ -535,31 +553,34 @@ END
         description: 'Parallelize independent algorithm execution across multiple threads',
         impact: 'high',
         effort: 'high',
-        estimatedImprovement: '200% throughput increase on multi-core systems'
-      }
+        estimatedImprovement: '200% throughput increase on multi-core systems',
+      },
     ];
   }
 
   /**
    * Estimate performance characteristics
    */
-  private async estimatePerformance(algorithms: CoreAlgorithm[], complexity: ComplexityAnalysis): Promise<PerformanceTarget[]> {
+  private async estimatePerformance(
+    algorithms: CoreAlgorithm[],
+    complexity: ComplexityAnalysis
+  ): Promise<PerformanceTarget[]> {
     return [
       {
         metric: 'throughput',
         target: '10000 operations/second',
-        measurement: 'ops/sec'
+        measurement: 'ops/sec',
       },
       {
         metric: 'latency',
         target: '<100ms average response time',
-        measurement: 'milliseconds'
+        measurement: 'milliseconds',
       },
       {
         metric: 'memory_usage',
         target: '<1GB peak memory consumption',
-        measurement: 'bytes'
-      }
+        measurement: 'bytes',
+      },
     ];
   }
 
@@ -584,11 +605,13 @@ END
   /**
    * Estimate algorithm complexity
    */
-  private async estimateAlgorithmComplexity(requirement: any): Promise<{time: ComplexityClass, space: ComplexityClass, explanation: string}> {
+  private async estimateAlgorithmComplexity(
+    requirement: any
+  ): Promise<{ time: ComplexityClass; space: ComplexityClass; explanation: string }> {
     return {
       time: 'O(n)' as ComplexityClass,
       space: 'O(1)' as ComplexityClass,
-      explanation: 'Linear time complexity based on input size, constant space usage'
+      explanation: 'Linear time complexity based on input size, constant space usage',
     };
   }
 
@@ -617,19 +640,20 @@ END
       criterion: 'Algorithm completeness',
       passed: pseudocode.coreAlgorithms.length > 0,
       score: pseudocode.coreAlgorithms.length > 0 ? 1.0 : 0.0,
-      feedback: pseudocode.coreAlgorithms.length > 0 ? 
-        'All required algorithms defined' : 
-        'Missing core algorithm definitions'
+      feedback:
+        pseudocode.coreAlgorithms.length > 0
+          ? 'All required algorithms defined'
+          : 'Missing core algorithm definitions',
     });
 
     // Validate complexity analysis
     validationResults.push({
       criterion: 'Complexity analysis',
       passed: !!pseudocode.complexityAnalysis,
-      score: !!pseudocode.complexityAnalysis ? 1.0 : 0.0,
-      feedback: !!pseudocode.complexityAnalysis ? 
-        'Comprehensive complexity analysis provided' : 
-        'Missing complexity analysis'
+      score: pseudocode.complexityAnalysis ? 1.0 : 0.0,
+      feedback: pseudocode.complexityAnalysis
+        ? 'Comprehensive complexity analysis provided'
+        : 'Missing complexity analysis',
     });
 
     // Validate data structures
@@ -637,18 +661,20 @@ END
       criterion: 'Data structure design',
       passed: pseudocode.dataStructures.length > 0,
       score: pseudocode.dataStructures.length > 0 ? 1.0 : 0.0,
-      feedback: pseudocode.dataStructures.length > 0 ? 
-        'Appropriate data structures specified' : 
-        'Missing data structure specifications'
+      feedback:
+        pseudocode.dataStructures.length > 0
+          ? 'Appropriate data structures specified'
+          : 'Missing data structure specifications',
     });
 
-    const overallScore = validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
+    const overallScore =
+      validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
 
     return {
       overallScore,
       validationResults,
       recommendations: this.generateRecommendations(validationResults),
-      approved: overallScore >= 0.7
+      approved: overallScore >= 0.7,
     };
   }
 
@@ -668,7 +694,9 @@ END
             recommendations.push('Provide detailed time and space complexity analysis');
             break;
           case 'Data structure design':
-            recommendations.push('Specify appropriate data structures for algorithm implementation');
+            recommendations.push(
+              'Specify appropriate data structures for algorithm implementation'
+            );
             break;
         }
       }

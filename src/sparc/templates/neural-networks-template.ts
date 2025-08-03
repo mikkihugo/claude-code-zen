@@ -1,18 +1,18 @@
 /**
  * SPARC Neural Networks Template
- * 
+ *
  * Pre-built template for neural network systems with WASM acceleration,
  * training algorithms, and model management.
  */
 
 import { nanoid } from 'nanoid';
 import type {
-  SPARCTemplate,
-  ProjectSpecification,
-  DetailedSpecification,
-  PseudocodeStructure,
   ArchitectureDesign,
-  TemplateMetadata
+  DetailedSpecification,
+  ProjectSpecification,
+  PseudocodeStructure,
+  SPARCTemplate,
+  TemplateMetadata,
 } from '../types/sparc-types.js';
 
 export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
@@ -27,14 +27,15 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
     tags: ['neural-networks', 'wasm', 'machine-learning', 'ai'],
     complexity: 'high',
     estimatedDevelopmentTime: '8-12 weeks',
-    targetPerformance: 'Sub-millisecond inference, GPU-accelerated training'
+    targetPerformance: 'Sub-millisecond inference, GPU-accelerated training',
   },
 
   specification: {
     id: nanoid(),
     name: 'Neural Networks System',
     domain: 'neural-networks',
-    description: 'High-performance neural network system with WASM acceleration and distributed training',
+    description:
+      'High-performance neural network system with WASM acceleration and distributed training',
     functionalRequirements: [
       {
         id: nanoid(),
@@ -49,8 +50,8 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Support for multiple network types',
           'Dynamic architecture configuration',
-          'Architecture validation and optimization'
-        ]
+          'Architecture validation and optimization',
+        ],
       },
       {
         id: nanoid(),
@@ -65,8 +66,8 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'WASM compilation for critical operations',
           'Memory-efficient tensor operations',
-          'Batch processing support'
-        ]
+          'Batch processing support',
+        ],
       },
       {
         id: nanoid(),
@@ -81,8 +82,8 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Parameter server architecture',
           'Asynchronous gradient updates',
-          'Fault tolerance and recovery'
-        ]
+          'Fault tolerance and recovery',
+        ],
       },
       {
         id: nanoid(),
@@ -97,8 +98,8 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Model versioning with metadata',
           'Performance tracking and comparison',
-          'Model deployment automation'
-        ]
+          'Model deployment automation',
+        ],
       },
       {
         id: nanoid(),
@@ -113,9 +114,9 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Inference latency monitoring',
           'Model accuracy tracking',
-          'Resource utilization alerts'
-        ]
-      }
+          'Resource utilization alerts',
+        ],
+      },
     ],
     nonFunctionalRequirements: [
       {
@@ -128,7 +129,7 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         metric: 'response_time',
         target: '<1ms for standard models',
         measurement: 'P95 inference latency',
-        rationale: 'Real-time applications require immediate responses'
+        rationale: 'Real-time applications require immediate responses',
       },
       {
         id: nanoid(),
@@ -140,7 +141,7 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         metric: 'throughput',
         target: 'Linear scaling up to 100 nodes',
         measurement: 'Training throughput per node',
-        rationale: 'Efficient utilization of distributed resources'
+        rationale: 'Efficient utilization of distributed resources',
       },
       {
         id: nanoid(),
@@ -152,8 +153,8 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         metric: 'memory_usage',
         target: '<50% of available memory',
         measurement: 'Peak memory consumption',
-        rationale: 'Support for large models on limited hardware'
-      }
+        rationale: 'Support for large models on limited hardware',
+      },
     ],
     systemConstraints: [
       {
@@ -161,28 +162,28 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         type: 'performance',
         description: 'WASM must be used for all performance-critical operations',
         rationale: 'Achieve native-level performance in browser environments',
-        impact: 'HIGH'
+        impact: 'HIGH',
       },
       {
         id: nanoid(),
         type: 'compatibility',
         description: 'Support for multiple hardware accelerators (CPU, GPU, TPU)',
         rationale: 'Flexibility in deployment environments',
-        impact: 'MEDIUM'
+        impact: 'MEDIUM',
       },
       {
         id: nanoid(),
         type: 'security',
         description: 'Model and training data must be encrypted',
         rationale: 'Protect intellectual property and sensitive data',
-        impact: 'HIGH'
-      }
+        impact: 'HIGH',
+      },
     ],
     projectAssumptions: [
       'WASM runtime available in target environment',
       'Access to GPU resources for training',
       'Sufficient network bandwidth for distributed training',
-      'Compatible data formats and preprocessing pipelines'
+      'Compatible data formats and preprocessing pipelines',
     ],
     externalDependencies: [
       {
@@ -191,7 +192,7 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         type: 'runtime',
         description: 'WebAssembly runtime for high-performance computations',
         version: 'Latest',
-        criticality: 'HIGH'
+        criticality: 'HIGH',
       },
       {
         id: nanoid(),
@@ -199,7 +200,7 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         type: 'hardware',
         description: 'CUDA or OpenCL drivers for GPU acceleration',
         version: '11.0+',
-        criticality: 'MEDIUM'
+        criticality: 'MEDIUM',
       },
       {
         id: nanoid(),
@@ -207,8 +208,8 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         type: 'data',
         description: 'Preprocessed training and validation datasets',
         version: 'Current',
-        criticality: 'HIGH'
-      }
+        criticality: 'HIGH',
+      },
     ],
     riskAnalysis: {
       identifiedRisks: [
@@ -217,40 +218,40 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
           description: 'WASM performance bottlenecks in complex operations',
           probability: 'MEDIUM',
           impact: 'HIGH',
-          category: 'technical'
+          category: 'technical',
         },
         {
           id: nanoid(),
           description: 'Memory limitations for very large models',
           probability: 'MEDIUM',
           impact: 'MEDIUM',
-          category: 'resource'
+          category: 'resource',
         },
         {
           id: nanoid(),
           description: 'Network partitions affecting distributed training',
           probability: 'LOW',
           impact: 'HIGH',
-          category: 'infrastructure'
-        }
+          category: 'infrastructure',
+        },
       ],
       mitigationStrategies: [
         {
           riskId: 'wasm-performance',
           strategy: 'Implement hybrid WASM/JavaScript execution with performance monitoring',
-          effectiveness: 'HIGH'
+          effectiveness: 'HIGH',
         },
         {
           riskId: 'memory-limitations',
           strategy: 'Model sharding and streaming techniques for large models',
-          effectiveness: 'MEDIUM'
+          effectiveness: 'MEDIUM',
         },
         {
           riskId: 'network-partitions',
           strategy: 'Checkpoint-based recovery and elastic training protocols',
-          effectiveness: 'HIGH'
-        }
-      ]
+          effectiveness: 'HIGH',
+        },
+      ],
     },
     successMetrics: [
       {
@@ -258,25 +259,25 @@ export const NEURAL_NETWORKS_TEMPLATE: SPARCTemplate = {
         metric: 'inference_latency',
         target: '<1ms P95',
         measurement: 'Automated performance testing',
-        frequency: 'Continuous'
+        frequency: 'Continuous',
       },
       {
         id: nanoid(),
         metric: 'training_efficiency',
         target: '>80% GPU utilization',
         measurement: 'Resource monitoring',
-        frequency: 'During training'
+        frequency: 'During training',
       },
       {
         id: nanoid(),
         metric: 'model_accuracy',
         target: '>95% on validation set',
         measurement: 'Automated evaluation',
-        frequency: 'Per training run'
-      }
+        frequency: 'Per training run',
+      },
     ],
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
 
   pseudocode: {
@@ -319,13 +320,13 @@ END
         complexity: {
           time: 'O(n^3)' as const,
           space: 'O(n^2)' as const,
-          explanation: 'Cubic time for matrix multiplication, quadratic space for matrices'
+          explanation: 'Cubic time for matrix multiplication, quadratic space for matrices',
         },
         inputParameters: ['matrixA', 'matrixB', 'wasmModule'],
         outputFormat: 'Matrix',
         preconditions: ['Matrices have compatible dimensions', 'WASM module loaded'],
         postconditions: ['Result matrix computed correctly'],
-        invariants: ['Matrix dimensions preserved', 'WASM memory properly managed']
+        invariants: ['Matrix dimensions preserved', 'WASM memory properly managed'],
       },
       {
         id: nanoid(),
@@ -368,13 +369,17 @@ END
         complexity: {
           time: 'O(n * p + c)' as const,
           space: 'O(p)' as const,
-          explanation: 'Linear in network parameters and training samples, plus communication overhead'
+          explanation:
+            'Linear in network parameters and training samples, plus communication overhead',
         },
         inputParameters: ['network', 'trainingBatch', 'nodeId', 'clusterNodes'],
         outputFormat: 'NetworkWeights',
         preconditions: ['Network initialized', 'Training batch valid', 'Cluster connectivity'],
         postconditions: ['Weights updated with synchronized gradients'],
-        invariants: ['Network structure unchanged', 'Gradient synchronization maintains consistency']
+        invariants: [
+          'Network structure unchanged',
+          'Gradient synchronization maintains consistency',
+        ],
       },
       {
         id: nanoid(),
@@ -424,14 +429,14 @@ END
         complexity: {
           time: 'O(l * n)' as const,
           space: 'O(l)' as const,
-          explanation: 'Linear in layers and nodes, space linear in layer count'
+          explanation: 'Linear in layers and nodes, space linear in layer count',
         },
         inputParameters: ['model', 'availableMemory', 'computeNodes', 'targetLatency'],
         outputFormat: 'ShardingPlan',
         preconditions: ['Model structure analyzed', 'Resource availability known'],
         postconditions: ['Optimal sharding plan generated'],
-        invariants: ['Model functionality preserved across shards']
-      }
+        invariants: ['Model functionality preserved across shards'],
+      },
     ],
     dataStructures: [
       {
@@ -446,8 +451,8 @@ END
         performance: {
           access: 'O(1)' as const,
           multiply: 'O(n^3)' as const,
-          update: 'O(1)' as const
-        }
+          update: 'O(1)' as const,
+        },
       },
       {
         id: nanoid(),
@@ -461,8 +466,8 @@ END
         performance: {
           lookup: 'O(1)' as const,
           insert: 'O(1)' as const,
-          update: 'O(1)' as const
-        }
+          update: 'O(1)' as const,
+        },
       },
       {
         id: nanoid(),
@@ -476,9 +481,9 @@ END
         performance: {
           append: 'O(1)' as const,
           average: 'O(n)' as const,
-          clear: 'O(1)' as const
-        }
-      }
+          clear: 'O(1)' as const,
+        },
+      },
     ],
     processFlows: [
       {
@@ -493,7 +498,7 @@ END
             algorithm: 'DataPreprocessingAlgorithm',
             inputs: ['rawData', 'preprocessingConfig'],
             outputs: ['preprocessedData'],
-            duration: 5000
+            duration: 5000,
           },
           {
             id: nanoid(),
@@ -502,7 +507,7 @@ END
             algorithm: 'ModelInitializationAlgorithm',
             inputs: ['networkArchitecture', 'initializationStrategy'],
             outputs: ['initializedModel'],
-            duration: 1000
+            duration: 1000,
           },
           {
             id: nanoid(),
@@ -511,7 +516,7 @@ END
             algorithm: 'DistributedBackpropagation',
             inputs: ['initializedModel', 'preprocessedData', 'clusterConfig'],
             outputs: ['trainedModel'],
-            duration: 3600000
+            duration: 3600000,
           },
           {
             id: nanoid(),
@@ -520,12 +525,17 @@ END
             algorithm: 'ModelValidationAlgorithm',
             inputs: ['trainedModel', 'validationData'],
             outputs: ['validationResults'],
-            duration: 30000
-          }
+            duration: 30000,
+          },
         ],
         parallelizable: true,
-        criticalPath: ['DataPreprocessing', 'ModelInitialization', 'DistributedTraining', 'ModelValidation']
-      }
+        criticalPath: [
+          'DataPreprocessing',
+          'ModelInitialization',
+          'DistributedTraining',
+          'ModelValidation',
+        ],
+      },
     ],
     complexityAnalysis: {
       worstCase: 'O(n^3)' as const,
@@ -536,8 +546,8 @@ END
       bottlenecks: [
         'Matrix multiplication operations (mitigated by WASM)',
         'Network communication for gradient synchronization',
-        'Memory bandwidth for large tensor operations'
-      ]
+        'Memory bandwidth for large tensor operations',
+      ],
     },
     optimizationOpportunities: [
       {
@@ -546,7 +556,7 @@ END
         description: 'Implement sparse matrix operations for networks with dropout',
         impact: 'high',
         effort: 'medium',
-        estimatedImprovement: '400% speedup for sparse networks'
+        estimatedImprovement: '400% speedup for sparse networks',
       },
       {
         id: nanoid(),
@@ -554,7 +564,7 @@ END
         description: 'Cache compiled WASM modules for repeated inference',
         impact: 'medium',
         effort: 'low',
-        estimatedImprovement: '50% reduction in initialization time'
+        estimatedImprovement: '50% reduction in initialization time',
       },
       {
         id: nanoid(),
@@ -562,28 +572,28 @@ END
         description: 'Pipeline parallelism for sequential model layers',
         impact: 'high',
         effort: 'high',
-        estimatedImprovement: '300% throughput increase for large models'
-      }
+        estimatedImprovement: '300% throughput increase for large models',
+      },
     ],
     estimatedPerformance: [
       {
         metric: 'inference_latency',
         target: '<1ms for models up to 100M parameters',
-        measurement: 'milliseconds'
+        measurement: 'milliseconds',
       },
       {
         metric: 'training_throughput',
         target: '1000 samples/second per GPU',
-        measurement: 'samples/sec'
+        measurement: 'samples/sec',
       },
       {
         metric: 'memory_efficiency',
         target: '<2GB memory for 100M parameter model',
-        measurement: 'bytes'
-      }
+        measurement: 'bytes',
+      },
     ],
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
 
   architecture: {
@@ -599,7 +609,7 @@ END
           'Matrix operations using WASM',
           'Neural network inference',
           'Memory management',
-          'Performance optimization'
+          'Performance optimization',
         ],
         interfaces: ['INeuralEngine'],
         dependencies: ['WASMModule', 'TensorStorage'],
@@ -608,8 +618,8 @@ END
         performance: {
           expectedThroughput: '10000 inferences/second',
           expectedLatency: '<1ms',
-          memoryUsage: '512MB'
-        }
+          memoryUsage: '512MB',
+        },
       },
       {
         id: nanoid(),
@@ -620,7 +630,7 @@ END
           'Training job orchestration',
           'Gradient synchronization',
           'Node health monitoring',
-          'Fault tolerance and recovery'
+          'Fault tolerance and recovery',
         ],
         interfaces: ['ITrainingCoordinator'],
         dependencies: ['ClusterManager', 'GradientSynchronizer'],
@@ -629,8 +639,8 @@ END
         performance: {
           expectedThroughput: '1000 training steps/second',
           expectedLatency: '<100ms',
-          memoryUsage: '1GB'
-        }
+          memoryUsage: '1GB',
+        },
       },
       {
         id: nanoid(),
@@ -641,7 +651,7 @@ END
           'Model storage and retrieval',
           'Version management',
           'Metadata tracking',
-          'Performance benchmarking'
+          'Performance benchmarking',
         ],
         interfaces: ['IModelRegistry'],
         dependencies: ['ModelStorage', 'MetadataDB'],
@@ -650,8 +660,8 @@ END
         performance: {
           expectedThroughput: '100 model operations/second',
           expectedLatency: '<50ms',
-          memoryUsage: '256MB'
-        }
+          memoryUsage: '256MB',
+        },
       },
       {
         id: nanoid(),
@@ -662,7 +672,7 @@ END
           'Tensor allocation and deallocation',
           'Memory pool management',
           'Data compression and serialization',
-          'Cache optimization'
+          'Cache optimization',
         ],
         interfaces: ['ITensorStorage'],
         dependencies: ['MemoryPool', 'CompressionEngine'],
@@ -671,8 +681,8 @@ END
         performance: {
           expectedThroughput: '1GB/second data transfer',
           expectedLatency: '<10ms',
-          memoryUsage: '2GB'
-        }
+          memoryUsage: '2GB',
+        },
       },
       {
         id: nanoid(),
@@ -683,7 +693,7 @@ END
           'Latency tracking',
           'Accuracy monitoring',
           'Resource utilization',
-          'Alert generation'
+          'Alert generation',
         ],
         interfaces: ['IPerformanceMonitor'],
         dependencies: ['MetricsCollector', 'AlertManager'],
@@ -692,9 +702,9 @@ END
         performance: {
           expectedThroughput: '100000 metrics/second',
           expectedLatency: '<5ms',
-          memoryUsage: '128MB'
-        }
-      }
+          memoryUsage: '128MB',
+        },
+      },
     ],
     relationships: [
       {
@@ -704,7 +714,7 @@ END
         type: 'uses',
         description: 'Neural engine uses tensor storage for data management',
         strength: 'strong',
-        protocol: 'synchronous'
+        protocol: 'synchronous',
       },
       {
         id: nanoid(),
@@ -713,7 +723,7 @@ END
         type: 'orchestrates',
         description: 'Training coordinator orchestrates neural engine instances',
         strength: 'medium',
-        protocol: 'asynchronous'
+        protocol: 'asynchronous',
       },
       {
         id: nanoid(),
@@ -722,8 +732,8 @@ END
         type: 'provides-models',
         description: 'Registry provides trained models to engine',
         strength: 'medium',
-        protocol: 'synchronous'
-      }
+        protocol: 'synchronous',
+      },
     ],
     patterns: [
       {
@@ -735,14 +745,14 @@ END
           'Near-native performance',
           'Cross-platform compatibility',
           'Memory safety',
-          'Deterministic execution'
+          'Deterministic execution',
         ],
         tradeoffs: [
           'Compilation overhead',
           'Limited debugging tools',
-          'Memory management complexity'
+          'Memory management complexity',
         ],
-        applicableComponents: ['wasm-neural-engine', 'tensor-storage-manager']
+        applicableComponents: ['wasm-neural-engine', 'tensor-storage-manager'],
       },
       {
         id: nanoid(),
@@ -753,14 +763,14 @@ END
           'Simplified synchronization',
           'Fault tolerance',
           'Scalable to many workers',
-          'Consistent global state'
+          'Consistent global state',
         ],
         tradeoffs: [
           'Single point of failure',
           'Network bottleneck',
-          'Complexity in implementation'
+          'Complexity in implementation',
         ],
-        applicableComponents: ['distributed-training-coordinator']
+        applicableComponents: ['distributed-training-coordinator'],
       },
       {
         id: nanoid(),
@@ -771,15 +781,15 @@ END
           'Version control',
           'Metadata tracking',
           'Easy rollback',
-          'Performance comparison'
+          'Performance comparison',
         ],
         tradeoffs: [
           'Storage overhead',
           'Complexity in large deployments',
-          'Consistency challenges'
+          'Consistency challenges',
         ],
-        applicableComponents: ['model-registry-service']
-      }
+        applicableComponents: ['model-registry-service'],
+      },
     ],
     interfaces: [
       {
@@ -790,12 +800,12 @@ END
         methods: [
           { name: 'inference', parameters: ['input_tensor'], returns: 'Promise<Tensor>' },
           { name: 'loadModel', parameters: ['model_id'], returns: 'Promise<void>' },
-          { name: 'getPerformanceMetrics', parameters: [], returns: 'PerformanceMetrics' }
+          { name: 'getPerformanceMetrics', parameters: [], returns: 'PerformanceMetrics' },
         ],
         protocol: 'HTTP/REST',
         authentication: 'API Key',
         rateLimit: '10000/hour',
-        documentation: 'Neural network inference and model management API'
+        documentation: 'Neural network inference and model management API',
       },
       {
         id: nanoid(),
@@ -803,15 +813,19 @@ END
         componentId: 'distributed-training-coordinator',
         type: 'gRPC',
         methods: [
-          { name: 'startTraining', parameters: ['training_config'], returns: 'Promise<TrainingJob>' },
+          {
+            name: 'startTraining',
+            parameters: ['training_config'],
+            returns: 'Promise<TrainingJob>',
+          },
           { name: 'stopTraining', parameters: ['job_id'], returns: 'Promise<void>' },
-          { name: 'getTrainingStatus', parameters: ['job_id'], returns: 'TrainingStatus' }
+          { name: 'getTrainingStatus', parameters: ['job_id'], returns: 'TrainingStatus' },
         ],
         protocol: 'gRPC',
         authentication: 'mTLS',
         rateLimit: '1000/hour',
-        documentation: 'Distributed training coordination and management'
-      }
+        documentation: 'Distributed training coordination and management',
+      },
     ],
     dataFlows: [
       {
@@ -824,7 +838,7 @@ END
         volume: 'High',
         frequency: 'High',
         security: 'Medium',
-        transformation: 'Batch preprocessing and augmentation'
+        transformation: 'Batch preprocessing and augmentation',
       },
       {
         id: nanoid(),
@@ -836,8 +850,8 @@ END
         volume: 'Medium',
         frequency: 'Low',
         security: 'High',
-        transformation: 'Model deserialization and optimization'
-      }
+        transformation: 'Model deserialization and optimization',
+      },
     ],
     qualityAttributes: [
       {
@@ -848,10 +862,10 @@ END
         criteria: [
           'P95 inference latency < 1ms',
           'Throughput > 10000 inferences/second',
-          'Memory usage < 512MB per engine instance'
+          'Memory usage < 512MB per engine instance',
         ],
         measurement: 'Automated performance testing with synthetic workloads',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -861,10 +875,10 @@ END
         criteria: [
           'Training throughput scales linearly with nodes up to 100',
           'No degradation in model convergence',
-          'Fault tolerance for node failures'
+          'Fault tolerance for node failures',
         ],
         measurement: 'Distributed training benchmarks',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -874,11 +888,11 @@ END
         criteria: [
           'No accuracy loss in WASM vs native implementation',
           'Distributed training achieves same accuracy as single-node',
-          'Model versioning preserves reproducibility'
+          'Model versioning preserves reproducibility',
         ],
         measurement: 'Automated accuracy testing and comparison',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     deploymentStrategy: {
       id: nanoid(),
@@ -892,8 +906,8 @@ END
             replicas: 1,
             resources: { cpu: '2', memory: '4Gi', gpu: '1' },
             storage: 'local-ssd',
-            monitoring: 'basic'
-          }
+            monitoring: 'basic',
+          },
         },
         {
           name: 'training-cluster',
@@ -901,8 +915,8 @@ END
             replicas: 10,
             resources: { cpu: '16', memory: '64Gi', gpu: '8' },
             storage: 'distributed-ssd',
-            monitoring: 'full'
-          }
+            monitoring: 'full',
+          },
         },
         {
           name: 'edge-inference',
@@ -910,16 +924,16 @@ END
             replicas: 'auto',
             resources: { cpu: '1', memory: '1Gi' },
             storage: 'local',
-            monitoring: 'basic'
-          }
-        }
+            monitoring: 'basic',
+          },
+        },
       ],
       infrastructure: ['Kubernetes', 'Docker', 'WASM Runtime', 'GPU Operator'],
       cicd: {
         buildPipeline: ['Test', 'WASM Build', 'Performance Test', 'Deploy'],
         testStrategy: ['Unit Tests', 'Integration Tests', 'Performance Tests'],
-        deploymentStrategy: 'Blue-Green with A/B Testing'
-      }
+        deploymentStrategy: 'Blue-Green with A/B Testing',
+      },
     },
     integrationPoints: [
       {
@@ -930,7 +944,7 @@ END
         protocol: 'WebAssembly',
         security: 'Sandboxed execution',
         errorHandling: 'Fallback to JavaScript implementation',
-        monitoring: 'Performance profiling and resource usage'
+        monitoring: 'Performance profiling and resource usage',
       },
       {
         id: nanoid(),
@@ -940,8 +954,8 @@ END
         protocol: 'CUDA/OpenCL',
         security: 'Secure GPU context isolation',
         errorHandling: 'Graceful fallback to CPU training',
-        monitoring: 'GPU utilization and thermal monitoring'
-      }
+        monitoring: 'GPU utilization and thermal monitoring',
+      },
     ],
     performanceRequirements: [
       {
@@ -949,15 +963,15 @@ END
         metric: 'inference_latency',
         target: '<1ms P95',
         measurement: 'milliseconds',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
         metric: 'training_throughput',
         target: '1000 samples/second per GPU',
         measurement: 'samples/sec',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     securityRequirements: [
       {
@@ -965,15 +979,15 @@ END
         type: 'model-protection',
         description: 'Protect neural network models from extraction',
         implementation: 'Model encryption and obfuscation in WASM',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
         type: 'data-privacy',
         description: 'Ensure training data privacy in distributed settings',
         implementation: 'Differential privacy and federated learning',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     scalabilityRequirements: [
       {
@@ -982,7 +996,7 @@ END
         description: 'Scale training across multiple GPU clusters',
         target: 'Linear scaling up to 100 nodes',
         implementation: 'Parameter server with gradient compression',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -990,11 +1004,11 @@ END
         description: 'Support models with billions of parameters',
         target: 'Models up to 100B parameters',
         implementation: 'Model parallelism and sharding',
-        priority: 'MEDIUM'
-      }
+        priority: 'MEDIUM',
+      },
     ],
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
 
   /**
@@ -1013,7 +1027,7 @@ END
     return {
       specification: customizedSpec,
       pseudocode: customizedPseudocode,
-      architecture: customizedArchitecture
+      architecture: customizedArchitecture,
     };
   },
 
@@ -1022,11 +1036,11 @@ END
    */
   customizeSpecification(projectSpec: ProjectSpecification): DetailedSpecification {
     const customized = { ...this.specification };
-    
+
     // Update basic information
     customized.name = projectSpec.name;
     customized.description = `${projectSpec.name} - ${this.specification.description}`;
-    
+
     // Add project-specific requirements
     if (projectSpec.requirements) {
       for (const requirement of projectSpec.requirements) {
@@ -1040,11 +1054,11 @@ END
           source: 'project',
           validation: `Implements ${requirement}`,
           dependencies: [],
-          acceptanceCriteria: [`Successfully implements ${requirement}`]
+          acceptanceCriteria: [`Successfully implements ${requirement}`],
         });
       }
     }
-    
+
     // Add project-specific constraints
     if (projectSpec.constraints) {
       for (const constraint of projectSpec.constraints) {
@@ -1053,7 +1067,7 @@ END
           type: 'project',
           description: constraint,
           rationale: 'Project-specific constraint',
-          impact: 'MEDIUM'
+          impact: 'MEDIUM',
         });
       }
     }
@@ -1066,7 +1080,7 @@ END
    */
   customizePseudocode(projectSpec: ProjectSpecification): PseudocodeStructure {
     const customized = { ...this.pseudocode };
-    
+
     // Adjust complexity based on project complexity
     if (projectSpec.complexity === 'simple') {
       // Remove some advanced algorithms for simple projects
@@ -1092,13 +1106,13 @@ END
         complexity: {
           time: 'O(n)' as const,
           space: 'O(1)' as const,
-          explanation: 'Linear time for compliance validation'
+          explanation: 'Linear time for compliance validation',
         },
         inputParameters: ['model', 'complianceRules', 'auditRequirements'],
         outputFormat: 'GovernanceReport',
         preconditions: ['Model is valid', 'Compliance rules defined'],
         postconditions: ['Compliance status determined'],
-        invariants: ['Audit trail integrity maintained']
+        invariants: ['Audit trail integrity maintained'],
       });
     }
 
@@ -1110,7 +1124,7 @@ END
    */
   customizeArchitecture(projectSpec: ProjectSpecification): ArchitectureDesign {
     const customized = { ...this.architecture };
-    
+
     // Adjust deployment strategy based on complexity
     if (projectSpec.complexity === 'simple') {
       customized.deploymentStrategy.type = 'monolith';
@@ -1136,7 +1150,7 @@ END
   } {
     const warnings: string[] = [];
     const recommendations: string[] = [];
-    let compatible = true;
+    const compatible = true;
 
     // Check domain compatibility
     if (projectSpec.domain !== 'neural-networks') {
@@ -1153,12 +1167,14 @@ END
     // Check for required dependencies
     const requiredTech = ['WASM', 'GPU'];
     for (const tech of requiredTech) {
-      if (!projectSpec.requirements?.some(req => req.toLowerCase().includes(tech.toLowerCase()))) {
+      if (
+        !projectSpec.requirements?.some((req) => req.toLowerCase().includes(tech.toLowerCase()))
+      ) {
         warnings.push(`Template requires ${tech} but not mentioned in requirements`);
         recommendations.push(`Ensure ${tech} is available in your environment`);
       }
     }
 
     return { compatible, warnings, recommendations };
-  }
+  },
 };

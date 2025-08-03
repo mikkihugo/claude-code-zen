@@ -25,9 +25,9 @@ async function runSPARCDemo() {
         'Agent registration and discovery',
         'Intelligent task distribution',
         'Real-time monitoring',
-        'Fault tolerance'
+        'Fault tolerance',
       ],
-      constraints: ['Sub-100ms coordination latency', 'Support 1000+ agents']
+      constraints: ['Sub-100ms coordination latency', 'Support 1000+ agents'],
     };
 
     console.log('\n📋 Creating SPARC project...');
@@ -63,22 +63,21 @@ async function runSPARCDemo() {
     console.log(`   Blockers: ${validation.blockers.length}`);
 
     console.log('\n🎉 SPARC Demo completed successfully!');
-    
+
     return {
       success: true,
       project,
       results: {
         specification: specResult,
         artifacts,
-        validation
-      }
+        validation,
+      },
     };
-
   } catch (error) {
     console.error('❌ SPARC Demo failed:', error);
     return {
       success: false,
-      error: error.message
+      error: error.message,
     };
   }
 }
@@ -86,19 +85,21 @@ async function runSPARCDemo() {
 // Run the demo if this file is executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   runSPARCDemo()
-    .then(result => {
+    .then((result) => {
       if (result.success) {
         console.log('\n📊 Demo Results Summary:');
         console.log(`   Project created: ${result.project.name}`);
         console.log(`   Artifacts generated: ${result.results.artifacts.artifacts.length}`);
-        console.log(`   Production ready: ${result.results.validation.readyForProduction ? 'Yes' : 'No'}`);
+        console.log(
+          `   Production ready: ${result.results.validation.readyForProduction ? 'Yes' : 'No'}`
+        );
         process.exit(0);
       } else {
         console.error('\n💥 Demo failed with error:', result.error);
         process.exit(1);
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('💥 Unexpected error:', error);
       process.exit(1);
     });

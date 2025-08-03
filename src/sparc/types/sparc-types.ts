@@ -1,15 +1,26 @@
 /**
  * SPARC Methodology Core Types
- * 
- * Comprehensive type definitions for the SPARC (Specification, Pseudocode, 
+ *
+ * Comprehensive type definitions for the SPARC (Specification, Pseudocode,
  * Architecture, Refinement, Completion) development methodology system.
  */
 
 // Core SPARC Phase Types
-export type SPARCPhase = 'specification' | 'pseudocode' | 'architecture' | 'refinement' | 'completion';
+export type SPARCPhase =
+  | 'specification'
+  | 'pseudocode'
+  | 'architecture'
+  | 'refinement'
+  | 'completion';
 
-export type ProjectDomain = 'swarm-coordination' | 'neural-networks' | 'wasm-integration' | 
-                           'rest-api' | 'memory-systems' | 'interfaces' | 'general';
+export type ProjectDomain =
+  | 'swarm-coordination'
+  | 'neural-networks'
+  | 'wasm-integration'
+  | 'rest-api'
+  | 'memory-systems'
+  | 'interfaces'
+  | 'general';
 
 export type ComplexityLevel = 'simple' | 'moderate' | 'high' | 'complex' | 'enterprise';
 
@@ -23,7 +34,10 @@ export type RiskLevel = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
 export interface SPARCEngine {
   initializeProject(projectSpec: ProjectSpecification): Promise<SPARCProject>;
   executePhase(project: SPARCProject, phase: SPARCPhase): Promise<PhaseResult>;
-  refineImplementation(project: SPARCProject, feedback: RefinementFeedback): Promise<RefinementResult>;
+  refineImplementation(
+    project: SPARCProject,
+    feedback: RefinementFeedback
+  ): Promise<RefinementResult>;
   generateArtifacts(project: SPARCProject): Promise<ArtifactSet>;
   validateCompletion(project: SPARCProject): Promise<CompletionValidation>;
 }
@@ -336,11 +350,16 @@ export interface FlowEdge {
 
 // Architecture Phase Types
 export interface ArchitectureEngine {
-  designSystemArchitecture(spec: DetailedSpecification, pseudocode: AlgorithmPseudocode[]): Promise<SystemArchitecture>;
+  designSystemArchitecture(
+    spec: DetailedSpecification,
+    pseudocode: AlgorithmPseudocode[]
+  ): Promise<SystemArchitecture>;
   generateComponentDiagrams(architecture: SystemArchitecture): Promise<ComponentDiagram[]>;
   designDataFlow(components: Component[]): Promise<DataFlowDiagram>;
   planDeploymentArchitecture(system: SystemArchitecture): Promise<DeploymentPlan>;
-  validateArchitecturalConsistency(architecture: SystemArchitecture): Promise<ArchitecturalValidation>;
+  validateArchitecturalConsistency(
+    architecture: SystemArchitecture
+  ): Promise<ArchitecturalValidation>;
 }
 
 export interface ArchitectureDesign {
@@ -436,7 +455,10 @@ export interface TechnologyChoice {
 
 // Refinement Phase Types
 export interface RefinementEngine {
-  analyzeImplementationGaps(architecture: SystemArchitecture, currentImpl: Implementation): Promise<GapAnalysis>;
+  analyzeImplementationGaps(
+    architecture: SystemArchitecture,
+    currentImpl: Implementation
+  ): Promise<GapAnalysis>;
   generateOptimizationSuggestions(performance: PerformanceMetrics): Promise<OptimizationPlan>;
   refineAlgorithms(feedback: PerformanceFeedback): Promise<AlgorithmRefinement[]>;
   updateArchitecture(refinements: ArchitecturalRefinement[]): Promise<UpdatedArchitecture>;
@@ -486,7 +508,10 @@ export interface ImplementationStep {
 
 // Completion Phase Types
 export interface CompletionEngine {
-  generateProductionCode(architecture: SystemArchitecture, refinements: RefinementStrategy[]): Promise<CodeArtifacts>;
+  generateProductionCode(
+    architecture: SystemArchitecture,
+    refinements: RefinementStrategy[]
+  ): Promise<CodeArtifacts>;
   createTestSuites(requirements: DetailedSpecification): Promise<TestSuite[]>;
   generateDocumentation(project: SPARCProject): Promise<DocumentationSet>;
   validateProductionReadiness(implementation: Implementation): Promise<ProductionReadinessReport>;
@@ -633,7 +658,10 @@ export interface AISPARCAssistant {
   enhanceSpecification(draft: Partial<DetailedSpecification>): Promise<DetailedSpecification>;
   generateOptimalPseudocode(spec: DetailedSpecification): Promise<AlgorithmPseudocode[]>;
   suggestArchitecturalPatterns(requirements: RequirementSet): Promise<PatternRecommendation[]>;
-  optimizeRefinementStrategy(current: Implementation, targets: PerformanceTarget[]): Promise<RefinementPlan>;
+  optimizeRefinementStrategy(
+    current: Implementation,
+    targets: PerformanceTarget[]
+  ): Promise<RefinementPlan>;
   validateCompletionReadiness(artifacts: ArtifactReference[]): Promise<ReadinessAssessment>;
 }
 

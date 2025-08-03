@@ -1,32 +1,31 @@
 /**
  * SPARC Architecture Phase Engine
- * 
+ *
  * Handles the third phase of SPARC methodology - designing system architecture,
  * component relationships, and deployment strategies.
  */
 
 import { nanoid } from 'nanoid';
 import type {
-  ArchitectureEngine,
-  PseudocodeStructure,
   ArchitectureDesign,
-  SystemComponent,
-  ComponentRelationship,
+  ArchitectureEngine,
   ArchitecturePattern,
-  DeploymentStrategy,
   ArchitectureValidation,
-  QualityAttribute,
-  PerformanceRequirement,
-  SecurityRequirement,
-  ScalabilityRequirement,
-  IntegrationPoint,
   ComponentInterface,
+  ComponentRelationship,
   DataFlow,
-  ValidationResult
+  DeploymentStrategy,
+  IntegrationPoint,
+  PerformanceRequirement,
+  PseudocodeStructure,
+  QualityAttribute,
+  ScalabilityRequirement,
+  SecurityRequirement,
+  SystemComponent,
+  ValidationResult,
 } from '../../types/sparc-types.js';
 
 export class ArchitecturePhaseEngine implements ArchitectureEngine {
-  
   /**
    * Design system architecture from pseudocode structure
    */
@@ -58,14 +57,16 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
       securityRequirements: await this.defineSecurityRequirements(components),
       scalabilityRequirements: await this.defineScalabilityRequirements(pseudocode),
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     };
   }
 
   /**
    * Identify system components from algorithms and data structures
    */
-  private async identifySystemComponents(pseudocode: PseudocodeStructure): Promise<SystemComponent[]> {
+  private async identifySystemComponents(
+    pseudocode: PseudocodeStructure
+  ): Promise<SystemComponent[]> {
     const components: SystemComponent[] = [];
 
     // Create components from core algorithms
@@ -81,7 +82,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
     }
 
     // Add infrastructure components
-    components.push(...await this.createInfrastructureComponents(pseudocode));
+    components.push(...(await this.createInfrastructureComponents(pseudocode)));
 
     return components;
   }
@@ -99,7 +100,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         algorithm.description,
         'Input validation',
         'Error handling',
-        'Performance monitoring'
+        'Performance monitoring',
       ],
       interfaces: [`I${algorithm.name}`],
       dependencies: await this.extractAlgorithmDependencies(algorithm),
@@ -108,8 +109,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
       performance: {
         expectedThroughput: '1000 ops/sec',
         expectedLatency: '<100ms',
-        memoryUsage: '256MB'
-      }
+        memoryUsage: '256MB',
+      },
     };
   }
 
@@ -126,7 +127,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         'Data storage and retrieval',
         'Data consistency',
         'Performance optimization',
-        'Backup and recovery'
+        'Backup and recovery',
       ],
       interfaces: [`I${dataStructure.name}Manager`],
       dependencies: await this.extractDataStructureDependencies(dataStructure),
@@ -135,15 +136,17 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
       performance: {
         expectedThroughput: `${dataStructure.expectedSize} items/sec`,
         expectedLatency: this.getDataStructureLatency(dataStructure.performance),
-        memoryUsage: this.estimateMemoryUsage(dataStructure)
-      }
+        memoryUsage: this.estimateMemoryUsage(dataStructure),
+      },
     };
   }
 
   /**
    * Create infrastructure components
    */
-  private async createInfrastructureComponents(pseudocode: PseudocodeStructure): Promise<SystemComponent[]> {
+  private async createInfrastructureComponents(
+    pseudocode: PseudocodeStructure
+  ): Promise<SystemComponent[]> {
     return [
       {
         id: nanoid(),
@@ -154,7 +157,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
           'Request routing',
           'Authentication',
           'Rate limiting',
-          'Request/response transformation'
+          'Request/response transformation',
         ],
         interfaces: ['IAPIGateway'],
         dependencies: ['AuthenticationService', 'RateLimitingService'],
@@ -163,8 +166,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         performance: {
           expectedThroughput: '10000 requests/sec',
           expectedLatency: '<50ms',
-          memoryUsage: '512MB'
-        }
+          memoryUsage: '512MB',
+        },
       },
       {
         id: nanoid(),
@@ -175,7 +178,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
           'Configuration storage',
           'Environment-specific configs',
           'Hot reloading',
-          'Configuration validation'
+          'Configuration validation',
         ],
         interfaces: ['IConfigurationManager'],
         dependencies: ['FileSystem', 'EnvironmentVariables'],
@@ -184,8 +187,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         performance: {
           expectedThroughput: '1000 config reads/sec',
           expectedLatency: '<10ms',
-          memoryUsage: '64MB'
-        }
+          memoryUsage: '64MB',
+        },
       },
       {
         id: nanoid(),
@@ -196,7 +199,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
           'Metrics collection',
           'Health monitoring',
           'Alerting',
-          'Performance tracking'
+          'Performance tracking',
         ],
         interfaces: ['IMonitoringService'],
         dependencies: ['MetricsDatabase', 'AlertingSystem'],
@@ -205,22 +208,26 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         performance: {
           expectedThroughput: '100000 metrics/sec',
           expectedLatency: '<20ms',
-          memoryUsage: '1GB'
-        }
-      }
+          memoryUsage: '1GB',
+        },
+      },
     ];
   }
 
   /**
    * Define relationships between components
    */
-  private async defineComponentRelationships(components: SystemComponent[]): Promise<ComponentRelationship[]> {
+  private async defineComponentRelationships(
+    components: SystemComponent[]
+  ): Promise<ComponentRelationship[]> {
     const relationships: ComponentRelationship[] = [];
 
     for (const component of components) {
       // Create dependency relationships
       for (const dependency of component.dependencies) {
-        const dependentComponent = components.find(c => c.name === dependency || c.interfaces.includes(dependency));
+        const dependentComponent = components.find(
+          (c) => c.name === dependency || c.interfaces.includes(dependency)
+        );
         if (dependentComponent) {
           relationships.push({
             id: nanoid(),
@@ -229,14 +236,14 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
             type: 'depends-on',
             description: `${component.name} depends on ${dependentComponent.name}`,
             strength: 'strong',
-            protocol: 'synchronous'
+            protocol: 'synchronous',
           });
         }
       }
 
       // Create composition relationships for related components
       if (component.type === 'service') {
-        const managerComponents = components.filter(c => c.type === 'data-manager');
+        const managerComponents = components.filter((c) => c.type === 'data-manager');
         for (const manager of managerComponents) {
           if (this.areComponentsRelated(component, manager)) {
             relationships.push({
@@ -246,7 +253,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
               type: 'uses',
               description: `${component.name} uses ${manager.name}`,
               strength: 'medium',
-              protocol: 'asynchronous'
+              protocol: 'asynchronous',
             });
           }
         }
@@ -259,7 +266,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
   /**
    * Select appropriate architecture patterns
    */
-  private async selectArchitecturePatterns(pseudocode: PseudocodeStructure, components: SystemComponent[]): Promise<ArchitecturePattern[]> {
+  private async selectArchitecturePatterns(
+    pseudocode: PseudocodeStructure,
+    components: SystemComponent[]
+  ): Promise<ArchitecturePattern[]> {
     const patterns: ArchitecturePattern[] = [];
 
     // Microservices pattern for complex systems
@@ -273,14 +283,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
           'Independent scaling',
           'Technology diversity',
           'Fault isolation',
-          'Team autonomy'
+          'Team autonomy',
         ],
-        tradeoffs: [
-          'Increased complexity',
-          'Network overhead',
-          'Data consistency challenges'
-        ],
-        applicableComponents: components.filter(c => c.type === 'service').map(c => c.id)
+        tradeoffs: ['Increased complexity', 'Network overhead', 'Data consistency challenges'],
+        applicableComponents: components.filter((c) => c.type === 'service').map((c) => c.id),
       });
     }
 
@@ -291,18 +297,9 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         name: 'Event-Driven Architecture',
         type: 'communication',
         description: 'Use events for loose coupling between components',
-        benefits: [
-          'Loose coupling',
-          'Scalability',
-          'Responsiveness',
-          'Extensibility'
-        ],
-        tradeoffs: [
-          'Event ordering complexity',
-          'Debugging difficulty',
-          'Eventual consistency'
-        ],
-        applicableComponents: components.map(c => c.id)
+        benefits: ['Loose coupling', 'Scalability', 'Responsiveness', 'Extensibility'],
+        tradeoffs: ['Event ordering complexity', 'Debugging difficulty', 'Eventual consistency'],
+        applicableComponents: components.map((c) => c.id),
       });
     }
 
@@ -313,18 +310,9 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         name: 'CQRS',
         type: 'data',
         description: 'Separate read and write operations for optimal performance',
-        benefits: [
-          'Read/write optimization',
-          'Scalability',
-          'Performance',
-          'Flexibility'
-        ],
-        tradeoffs: [
-          'Complexity',
-          'Eventual consistency',
-          'Duplication'
-        ],
-        applicableComponents: components.filter(c => c.type === 'data-manager').map(c => c.id)
+        benefits: ['Read/write optimization', 'Scalability', 'Performance', 'Flexibility'],
+        tradeoffs: ['Complexity', 'Eventual consistency', 'Duplication'],
+        applicableComponents: components.filter((c) => c.type === 'data-manager').map((c) => c.id),
       });
     }
 
@@ -334,18 +322,9 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
       name: 'Layered Architecture',
       type: 'structural',
       description: 'Organize components into logical layers with clear separation of concerns',
-      benefits: [
-        'Clear separation of concerns',
-        'Reusability',
-        'Maintainability',
-        'Testability'
-      ],
-      tradeoffs: [
-        'Performance overhead',
-        'Tight coupling between layers',
-        'Monolithic tendency'
-      ],
-      applicableComponents: components.map(c => c.id)
+      benefits: ['Clear separation of concerns', 'Reusability', 'Maintainability', 'Testability'],
+      tradeoffs: ['Performance overhead', 'Tight coupling between layers', 'Monolithic tendency'],
+      applicableComponents: components.map((c) => c.id),
     });
 
     return patterns;
@@ -354,12 +333,15 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
   /**
    * Define data flows between components
    */
-  private async defineDataFlows(components: SystemComponent[], relationships: ComponentRelationship[]): Promise<DataFlow[]> {
+  private async defineDataFlows(
+    components: SystemComponent[],
+    relationships: ComponentRelationship[]
+  ): Promise<DataFlow[]> {
     const dataFlows: DataFlow[] = [];
 
     for (const relationship of relationships) {
-      const sourceComponent = components.find(c => c.id === relationship.sourceId);
-      const targetComponent = components.find(c => c.id === relationship.targetId);
+      const sourceComponent = components.find((c) => c.id === relationship.sourceId);
+      const targetComponent = components.find((c) => c.id === relationship.targetId);
 
       if (sourceComponent && targetComponent) {
         dataFlows.push({
@@ -372,7 +354,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
           volume: this.estimateDataVolume(sourceComponent, targetComponent),
           frequency: this.estimateDataFrequency(relationship),
           security: this.determineSecurityRequirements(sourceComponent, targetComponent),
-          transformation: this.identifyDataTransformation(sourceComponent, targetComponent)
+          transformation: this.identifyDataTransformation(sourceComponent, targetComponent),
         });
       }
     }
@@ -383,7 +365,9 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
   /**
    * Define component interfaces
    */
-  private async defineComponentInterfaces(components: SystemComponent[]): Promise<ComponentInterface[]> {
+  private async defineComponentInterfaces(
+    components: SystemComponent[]
+  ): Promise<ComponentInterface[]> {
     const interfaces: ComponentInterface[] = [];
 
     for (const component of components) {
@@ -397,7 +381,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
           protocol: this.selectProtocol(component),
           authentication: this.determineAuthentication(component),
           rateLimit: this.calculateRateLimit(component),
-          documentation: `Interface for ${component.description}`
+          documentation: `Interface for ${component.description}`,
         });
       }
     }
@@ -408,7 +392,9 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
   /**
    * Define quality attributes
    */
-  private async defineQualityAttributes(pseudocode: PseudocodeStructure): Promise<QualityAttribute[]> {
+  private async defineQualityAttributes(
+    pseudocode: PseudocodeStructure
+  ): Promise<QualityAttribute[]> {
     return [
       {
         id: nanoid(),
@@ -418,10 +404,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         criteria: [
           'Response time < 100ms for 95% of requests',
           'Throughput > 1000 requests/second',
-          'CPU utilization < 80% under normal load'
+          'CPU utilization < 80% under normal load',
         ],
         measurement: 'Automated performance testing',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -431,10 +417,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         criteria: [
           'Support 10x increase in load',
           'Linear scaling with resources',
-          'No single points of failure'
+          'No single points of failure',
         ],
         measurement: 'Load testing and monitoring',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -444,10 +430,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         criteria: [
           '99.9% uptime',
           'Graceful degradation under failure',
-          'Automatic recovery from failures'
+          'Automatic recovery from failures',
         ],
         measurement: 'Uptime monitoring and fault injection testing',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -457,10 +443,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         criteria: [
           'Authentication and authorization',
           'Data encryption in transit and at rest',
-          'Regular security audits'
+          'Regular security audits',
         ],
         measurement: 'Security testing and audits',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -470,27 +456,30 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         criteria: [
           'Clear code structure and documentation',
           'Comprehensive test coverage',
-          'Monitoring and observability'
+          'Monitoring and observability',
         ],
         measurement: 'Code quality metrics and developer feedback',
-        priority: 'MEDIUM'
-      }
+        priority: 'MEDIUM',
+      },
     ];
   }
 
   /**
    * Create deployment strategy
    */
-  private async createDeploymentStrategy(components: SystemComponent[], patterns: ArchitecturePattern[]): Promise<DeploymentStrategy> {
-    const hasMicroservices = patterns.some(p => p.name === 'Microservices');
+  private async createDeploymentStrategy(
+    components: SystemComponent[],
+    patterns: ArchitecturePattern[]
+  ): Promise<DeploymentStrategy> {
+    const hasMicroservices = patterns.some((p) => p.name === 'Microservices');
 
     return {
       id: nanoid(),
       name: hasMicroservices ? 'Containerized Microservices' : 'Monolithic Deployment',
       type: hasMicroservices ? 'microservices' : 'monolith',
-      description: hasMicroservices ? 
-        'Deploy each service as independent containers' : 
-        'Deploy as single application instance',
+      description: hasMicroservices
+        ? 'Deploy each service as independent containers'
+        : 'Deploy as single application instance',
       environments: [
         {
           name: 'development',
@@ -498,8 +487,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
             replicas: 1,
             resources: { cpu: '500m', memory: '512Mi' },
             database: 'sqlite',
-            monitoring: 'basic'
-          }
+            monitoring: 'basic',
+          },
         },
         {
           name: 'staging',
@@ -507,8 +496,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
             replicas: 2,
             resources: { cpu: '1', memory: '1Gi' },
             database: 'postgresql',
-            monitoring: 'full'
-          }
+            monitoring: 'full',
+          },
         },
         {
           name: 'production',
@@ -516,25 +505,27 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
             replicas: 3,
             resources: { cpu: '2', memory: '2Gi' },
             database: 'postgresql-cluster',
-            monitoring: 'full'
-          }
-        }
+            monitoring: 'full',
+          },
+        },
       ],
-      infrastructure: hasMicroservices ? 
-        ['Kubernetes', 'Docker', 'Load Balancer', 'Service Mesh'] :
-        ['Docker', 'Reverse Proxy', 'Database'],
+      infrastructure: hasMicroservices
+        ? ['Kubernetes', 'Docker', 'Load Balancer', 'Service Mesh']
+        : ['Docker', 'Reverse Proxy', 'Database'],
       cicd: {
         buildPipeline: ['Test', 'Build', 'Security Scan', 'Deploy'],
         testStrategy: ['Unit Tests', 'Integration Tests', 'E2E Tests'],
-        deploymentStrategy: 'Blue-Green'
-      }
+        deploymentStrategy: 'Blue-Green',
+      },
     };
   }
 
   /**
    * Identify integration points
    */
-  private async identifyIntegrationPoints(components: SystemComponent[]): Promise<IntegrationPoint[]> {
+  private async identifyIntegrationPoints(
+    components: SystemComponent[]
+  ): Promise<IntegrationPoint[]> {
     return [
       {
         id: nanoid(),
@@ -544,7 +535,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         protocol: 'HTTP/REST',
         security: 'API Key + OAuth 2.0',
         errorHandling: 'Retry with exponential backoff',
-        monitoring: 'Health checks and response time monitoring'
+        monitoring: 'Health checks and response time monitoring',
       },
       {
         id: nanoid(),
@@ -554,7 +545,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         protocol: 'TCP/SQL',
         security: 'Connection encryption + credentials',
         errorHandling: 'Connection pooling and failover',
-        monitoring: 'Connection health and query performance'
+        monitoring: 'Connection health and query performance',
       },
       {
         id: nanoid(),
@@ -564,15 +555,15 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         protocol: 'AMQP/WebSocket',
         security: 'Message encryption + authentication',
         errorHandling: 'Dead letter queues and retries',
-        monitoring: 'Queue depth and processing times'
-      }
+        monitoring: 'Queue depth and processing times',
+      },
     ];
   }
 
   // Helper methods for component analysis
   private async extractAlgorithmDependencies(algorithm: any): Promise<string[]> {
     const dependencies: string[] = [];
-    
+
     // Extract dependencies from input parameters
     for (const param of algorithm.inputParameters) {
       if (param.includes('Agent')) dependencies.push('AgentRegistryManager');
@@ -585,11 +576,14 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   private async selectTechnologiesForAlgorithm(algorithm: any): Promise<string[]> {
     const technologies = ['TypeScript', 'Node.js'];
-    
-    if (algorithm.complexity.time.includes('O(n^2)') || algorithm.complexity.time.includes('O(n^3)')) {
+
+    if (
+      algorithm.complexity.time.includes('O(n^2)') ||
+      algorithm.complexity.time.includes('O(n^3)')
+    ) {
       technologies.push('WASM', 'Rust');
     }
-    
+
     if (algorithm.name.includes('Neural')) {
       technologies.push('TensorFlow.js', 'WASM');
     }
@@ -598,7 +592,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
   }
 
   private async assessComponentScalability(algorithm: any): Promise<string> {
-    if (algorithm.complexity.time.includes('O(1)') || algorithm.complexity.time.includes('O(log n)')) {
+    if (
+      algorithm.complexity.time.includes('O(1)') ||
+      algorithm.complexity.time.includes('O(log n)')
+    ) {
       return 'horizontal';
     }
     return 'vertical';
@@ -606,7 +603,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   private async extractDataStructureDependencies(dataStructure: any): Promise<string[]> {
     const dependencies: string[] = [];
-    
+
     if (dataStructure.type === 'HashMap') dependencies.push('HashingService');
     if (dataStructure.type === 'PriorityQueue') dependencies.push('ComparatorService');
     if (dataStructure.type === 'Matrix') dependencies.push('WASMModule');
@@ -616,7 +613,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   private async selectTechnologiesForDataStructure(dataStructure: any): Promise<string[]> {
     const technologies = ['TypeScript'];
-    
+
     switch (dataStructure.type) {
       case 'HashMap':
         technologies.push('Map', 'Redis');
@@ -656,22 +653,25 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
     // Check if components share similar naming or responsibilities
     const name1 = component1.name.toLowerCase();
     const name2 = component2.name.toLowerCase();
-    
-    return name1.includes('agent') && name2.includes('agent') ||
-           name1.includes('task') && name2.includes('task') ||
-           name1.includes('neural') && name2.includes('neural');
+
+    return (
+      (name1.includes('agent') && name2.includes('agent')) ||
+      (name1.includes('task') && name2.includes('task')) ||
+      (name1.includes('neural') && name2.includes('neural'))
+    );
   }
 
   private hasCoordinationComponents(components: SystemComponent[]): boolean {
-    return components.some(c => 
-      c.name.toLowerCase().includes('coordination') ||
-      c.name.toLowerCase().includes('agent') ||
-      c.name.toLowerCase().includes('swarm')
+    return components.some(
+      (c) =>
+        c.name.toLowerCase().includes('coordination') ||
+        c.name.toLowerCase().includes('agent') ||
+        c.name.toLowerCase().includes('swarm')
     );
   }
 
   private hasDataIntensiveComponents(components: SystemComponent[]): boolean {
-    return components.some(c => c.type === 'data-manager');
+    return components.some((c) => c.type === 'data-manager');
   }
 
   private inferDataType(source: SystemComponent, target: SystemComponent): string {
@@ -713,7 +713,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   private async generateInterfaceMethods(component: SystemComponent): Promise<any[]> {
     const methods = [];
-    
+
     if (component.type === 'service') {
       methods.push(
         { name: 'execute', parameters: ['input'], returns: 'Promise<Result>' },
@@ -750,43 +750,49 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
     return 'unlimited';
   }
 
-  private async extractPerformanceRequirements(pseudocode: PseudocodeStructure): Promise<PerformanceRequirement[]> {
-    return pseudocode.estimatedPerformance.map(target => ({
+  private async extractPerformanceRequirements(
+    pseudocode: PseudocodeStructure
+  ): Promise<PerformanceRequirement[]> {
+    return pseudocode.estimatedPerformance.map((target) => ({
       id: nanoid(),
       metric: target.metric,
       target: target.target,
       measurement: target.measurement,
-      priority: 'HIGH' as const
+      priority: 'HIGH' as const,
     }));
   }
 
-  private async defineSecurityRequirements(components: SystemComponent[]): Promise<SecurityRequirement[]> {
+  private async defineSecurityRequirements(
+    components: SystemComponent[]
+  ): Promise<SecurityRequirement[]> {
     return [
       {
         id: nanoid(),
         type: 'authentication',
         description: 'All API endpoints must require authentication',
         implementation: 'JWT tokens with expiration',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
         type: 'authorization',
         description: 'Role-based access control for sensitive operations',
         implementation: 'RBAC with principle of least privilege',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
         type: 'encryption',
         description: 'Data encryption in transit and at rest',
         implementation: 'TLS 1.3 for transit, AES-256 for storage',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ];
   }
 
-  private async defineScalabilityRequirements(pseudocode: PseudocodeStructure): Promise<ScalabilityRequirement[]> {
+  private async defineScalabilityRequirements(
+    pseudocode: PseudocodeStructure
+  ): Promise<ScalabilityRequirement[]> {
     return [
       {
         id: nanoid(),
@@ -794,7 +800,7 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         description: 'System must scale horizontally to handle increased load',
         target: '10x current capacity',
         implementation: 'Container orchestration with auto-scaling',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -802,8 +808,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
         description: 'Data storage must scale with data growth',
         target: '100x current data volume',
         implementation: 'Distributed database with sharding',
-        priority: 'MEDIUM'
-      }
+        priority: 'MEDIUM',
+      },
     ];
   }
 
@@ -818,9 +824,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
       criterion: 'Component design',
       passed: architecture.components.length > 0,
       score: architecture.components.length > 0 ? 1.0 : 0.0,
-      feedback: architecture.components.length > 0 ? 
-        'System components properly defined' : 
-        'Missing system component definitions'
+      feedback:
+        architecture.components.length > 0
+          ? 'System components properly defined'
+          : 'Missing system component definitions',
     });
 
     // Validate relationships
@@ -828,9 +835,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
       criterion: 'Component relationships',
       passed: architecture.relationships.length > 0,
       score: architecture.relationships.length > 0 ? 1.0 : 0.0,
-      feedback: architecture.relationships.length > 0 ? 
-        'Component relationships clearly defined' : 
-        'Missing component relationship definitions'
+      feedback:
+        architecture.relationships.length > 0
+          ? 'Component relationships clearly defined'
+          : 'Missing component relationship definitions',
     });
 
     // Validate patterns
@@ -838,9 +846,10 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
       criterion: 'Architecture patterns',
       passed: architecture.patterns.length > 0,
       score: architecture.patterns.length > 0 ? 1.0 : 0.0,
-      feedback: architecture.patterns.length > 0 ? 
-        'Appropriate architecture patterns selected' : 
-        'Missing architecture pattern selection'
+      feedback:
+        architecture.patterns.length > 0
+          ? 'Appropriate architecture patterns selected'
+          : 'Missing architecture pattern selection',
     });
 
     // Validate quality attributes
@@ -848,18 +857,20 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
       criterion: 'Quality attributes',
       passed: architecture.qualityAttributes.length >= 3,
       score: architecture.qualityAttributes.length >= 3 ? 1.0 : 0.5,
-      feedback: architecture.qualityAttributes.length >= 3 ? 
-        'Comprehensive quality attributes defined' : 
-        'Need more quality attribute definitions'
+      feedback:
+        architecture.qualityAttributes.length >= 3
+          ? 'Comprehensive quality attributes defined'
+          : 'Need more quality attribute definitions',
     });
 
-    const overallScore = validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
+    const overallScore =
+      validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
 
     return {
       overallScore,
       validationResults,
       recommendations: this.generateArchitectureRecommendations(validationResults),
-      approved: overallScore >= 0.7
+      approved: overallScore >= 0.7,
     };
   }
 
@@ -882,7 +893,9 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
             recommendations.push('Select appropriate architecture patterns for the system');
             break;
           case 'Quality attributes':
-            recommendations.push('Define comprehensive quality attributes including performance, security, and scalability');
+            recommendations.push(
+              'Define comprehensive quality attributes including performance, security, and scalability'
+            );
             break;
         }
       }

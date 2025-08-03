@@ -2,7 +2,7 @@
 
 /**
  * SPARC Project Management Integration Demo
- * 
+ *
  * Demonstrates how SPARC integrates with enterprise project management
  * including ADRs, PRDs, Tasks, Features, Epics, and Roadmaps.
  */
@@ -22,7 +22,7 @@ async function demonstrateSPARCProjectManagementIntegration() {
         'Dynamic agent registration and discovery',
         'Intelligent load balancing with fault tolerance',
         'Real-time consensus protocols',
-        'Performance monitoring and optimization'
+        'Performance monitoring and optimization',
       ],
       'enterprise'
     );
@@ -35,11 +35,11 @@ async function demonstrateSPARCProjectManagementIntegration() {
     console.log('2️⃣ Generating Project Management Artifacts...');
     const pmResult = await sparcMCPTools.handleToolCall('sparc_generate_pm_artifacts', {
       projectId: project.id,
-      artifactTypes: ['all']
+      artifactTypes: ['all'],
     });
 
     console.log('   📋 Generated artifacts:');
-    pmResult.artifactsGenerated.forEach(artifact => {
+    pmResult.artifactsGenerated.forEach((artifact) => {
       console.log(`      ${artifact.type}: ${artifact.status}`);
     });
     console.log('');
@@ -47,16 +47,18 @@ async function demonstrateSPARCProjectManagementIntegration() {
     // 3. Execute SPARC phases with ADR generation
     console.log('3️⃣ Executing SPARC Phases...');
     const phases = ['specification', 'pseudocode', 'architecture', 'refinement', 'completion'];
-    
+
     for (const phase of phases) {
       console.log(`   🔄 Executing ${phase} phase...`);
       const phaseResult = await sparcMCPTools.handleToolCall('sparc_execute_phase', {
         projectId: project.id,
-        phase: phase
+        phase: phase,
       });
-      
+
       if (phaseResult.success) {
-        console.log(`   ✅ ${phase} completed (${phaseResult.duration.toFixed(1)}min, ${(phaseResult.qualityScore * 100).toFixed(1)}% quality)`);
+        console.log(
+          `   ✅ ${phase} completed (${phaseResult.duration.toFixed(1)}min, ${(phaseResult.qualityScore * 100).toFixed(1)}% quality)`
+        );
       } else {
         console.log(`   ❌ ${phase} failed: ${phaseResult.error}`);
       }
@@ -67,14 +69,16 @@ async function demonstrateSPARCProjectManagementIntegration() {
     console.log('4️⃣ Creating Epic and Features for Strategic Planning...');
     const epicResult = await sparcMCPTools.handleToolCall('sparc_create_epic', {
       projectId: project.id,
-      includeFeatures: true
+      includeFeatures: true,
     });
 
     console.log(`   📈 Epic Created: ${epicResult.epic.title}`);
     console.log(`   🎯 Business Value: ${epicResult.epic.businessValue}`);
-    console.log(`   📅 Timeline: ${epicResult.epic.timeline.start_date} to ${epicResult.epic.timeline.end_date}`);
+    console.log(
+      `   📅 Timeline: ${epicResult.epic.timeline.start_date} to ${epicResult.epic.timeline.end_date}`
+    );
     console.log(`   🔢 Features Generated: ${epicResult.features.length}`);
-    epicResult.features.forEach(feature => {
+    epicResult.features.forEach((feature) => {
       console.log(`      - ${feature.title} (${feature.status})`);
     });
     console.log('');
@@ -84,7 +88,7 @@ async function demonstrateSPARCProjectManagementIntegration() {
     const roadmapResult = await sparcMCPTools.handleToolCall('sparc_add_to_roadmap', {
       projectId: project.id,
       targetQuarter: '2024-Q3',
-      priority: 'high'
+      priority: 'high',
     });
 
     console.log(`   🗺️ Added to roadmap: ${roadmapResult.targetQuarter}`);
@@ -93,19 +97,26 @@ async function demonstrateSPARCProjectManagementIntegration() {
 
     // 6. Generate Domain Roadmap
     console.log('6️⃣ Generating Swarm Coordination Domain Roadmap...');
-    const domainRoadmapResult = await sparcMCPTools.handleToolCall('sparc_generate_domain_roadmap', {
-      domain: 'swarm-coordination',
-      timeframe: {
-        startQuarter: '2024-Q3',
-        endQuarter: '2025-Q2'
+    const domainRoadmapResult = await sparcMCPTools.handleToolCall(
+      'sparc_generate_domain_roadmap',
+      {
+        domain: 'swarm-coordination',
+        timeframe: {
+          startQuarter: '2024-Q3',
+          endQuarter: '2025-Q2',
+        },
       }
-    });
+    );
 
     console.log(`   📊 Domain Roadmap: ${domainRoadmapResult.roadmap.title}`);
-    console.log(`   ⏱️ Timeframe: ${domainRoadmapResult.roadmap.timeframe.start_quarter} to ${domainRoadmapResult.roadmap.timeframe.end_quarter}`);
+    console.log(
+      `   ⏱️ Timeframe: ${domainRoadmapResult.roadmap.timeframe.start_quarter} to ${domainRoadmapResult.roadmap.timeframe.end_quarter}`
+    );
     console.log(`   📋 Strategic Items: ${domainRoadmapResult.itemCount}`);
-    domainRoadmapResult.items.forEach(item => {
-      console.log(`      - ${item.title} (${item.type}, ${item.businessValue} value, ${item.effortEstimate} pts)`);
+    domainRoadmapResult.items.forEach((item) => {
+      console.log(
+        `      - ${item.title} (${item.type}, ${item.businessValue} value, ${item.effortEstimate} pts)`
+      );
     });
     console.log('');
 
@@ -133,7 +144,6 @@ async function demonstrateSPARCProjectManagementIntegration() {
     console.log('   ├── Strategic alignment with business roadmaps');
     console.log('   ├── Traceability from epic to implementation');
     console.log('   └── Enterprise-grade project governance');
-
   } catch (error) {
     console.error('❌ Demo failed:', error);
   }

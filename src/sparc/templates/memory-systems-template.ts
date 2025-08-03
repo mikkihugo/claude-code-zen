@@ -1,25 +1,26 @@
 /**
  * SPARC Memory Systems Template
- * 
+ *
  * Pre-built template for multi-backend memory systems with caching,
  * consistency, and distributed storage capabilities.
  */
 
 import { nanoid } from 'nanoid';
 import type {
-  SPARCTemplate,
-  ProjectSpecification,
-  DetailedSpecification,
-  PseudocodeStructure,
   ArchitectureDesign,
-  TemplateMetadata
+  DetailedSpecification,
+  ProjectSpecification,
+  PseudocodeStructure,
+  SPARCTemplate,
+  TemplateMetadata,
 } from '../types/sparc-types.js';
 
 export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
   id: 'memory-systems-template',
   name: 'Multi-Backend Memory System',
   domain: 'memory-systems',
-  description: 'Comprehensive template for memory systems with multiple storage backends and advanced caching',
+  description:
+    'Comprehensive template for memory systems with multiple storage backends and advanced caching',
   version: '1.0.0',
   metadata: {
     author: 'SPARC Memory Systems Template Generator',
@@ -27,19 +28,21 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
     tags: ['memory', 'caching', 'storage', 'distributed'],
     complexity: 'high',
     estimatedDevelopmentTime: '6-10 weeks',
-    targetPerformance: 'Sub-10ms access time, 99.9% availability'
+    targetPerformance: 'Sub-10ms access time, 99.9% availability',
   },
 
   specification: {
     id: nanoid(),
     name: 'Multi-Backend Memory System',
     domain: 'memory-systems',
-    description: 'High-performance memory system supporting multiple storage backends with intelligent caching and consistency guarantees',
+    description:
+      'High-performance memory system supporting multiple storage backends with intelligent caching and consistency guarantees',
     functionalRequirements: [
       {
         id: nanoid(),
         title: 'Multi-Backend Storage',
-        description: 'Support multiple storage backends with automatic failover and data consistency',
+        description:
+          'Support multiple storage backends with automatic failover and data consistency',
         type: 'core',
         priority: 'HIGH',
         category: 'storage',
@@ -49,8 +52,8 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Support for SQLite, LanceDB, and JSON backends',
           'Automatic backend selection based on data type',
-          'Seamless failover between backends'
-        ]
+          'Seamless failover between backends',
+        ],
       },
       {
         id: nanoid(),
@@ -65,8 +68,8 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'L1, L2, and L3 cache layers',
           'LRU, LFU, and adaptive eviction policies',
-          'Cache warming and preloading'
-        ]
+          'Cache warming and preloading',
+        ],
       },
       {
         id: nanoid(),
@@ -81,8 +84,8 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Configurable consistency levels',
           'Vector clocks for conflict detection',
-          'Automatic conflict resolution'
-        ]
+          'Automatic conflict resolution',
+        ],
       },
       {
         id: nanoid(),
@@ -97,8 +100,8 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Object pooling for frequent allocations',
           'Memory usage monitoring and alerts',
-          'Automatic memory reclamation'
-        ]
+          'Automatic memory reclamation',
+        ],
       },
       {
         id: nanoid(),
@@ -113,9 +116,9 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         acceptanceCriteria: [
           'Incremental and full backup strategies',
           'Cross-region backup replication',
-          'Automated recovery testing'
-        ]
-      }
+          'Automated recovery testing',
+        ],
+      },
     ],
     nonFunctionalRequirements: [
       {
@@ -128,7 +131,7 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         metric: 'response_time',
         target: '<10ms for cache hits, <100ms for backend queries',
         measurement: 'P95 access latency',
-        rationale: 'Real-time applications require immediate data access'
+        rationale: 'Real-time applications require immediate data access',
       },
       {
         id: nanoid(),
@@ -140,7 +143,7 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         metric: 'operations_per_second',
         target: '100,000 operations/second',
         measurement: 'Peak sustained throughput',
-        rationale: 'Support for high-volume applications'
+        rationale: 'Support for high-volume applications',
       },
       {
         id: nanoid(),
@@ -152,8 +155,8 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         metric: 'uptime',
         target: '99.9% availability',
         measurement: 'Monthly uptime percentage',
-        rationale: 'Critical system component requiring high availability'
-      }
+        rationale: 'Critical system component requiring high availability',
+      },
     ],
     systemConstraints: [
       {
@@ -161,28 +164,28 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         type: 'performance',
         description: 'Memory usage must not exceed 80% of available system memory',
         rationale: 'Prevent system instability and maintain performance',
-        impact: 'HIGH'
+        impact: 'HIGH',
       },
       {
         id: nanoid(),
         type: 'compatibility',
         description: 'Support for multiple storage engines (SQLite, LanceDB, JSON)',
         rationale: 'Flexibility for different data types and use cases',
-        impact: 'MEDIUM'
+        impact: 'MEDIUM',
       },
       {
         id: nanoid(),
         type: 'security',
         description: 'All data must be encrypted at rest and in transit',
         rationale: 'Data protection and compliance requirements',
-        impact: 'HIGH'
-      }
+        impact: 'HIGH',
+      },
     ],
     projectAssumptions: [
       'Sufficient storage capacity for data and backups',
       'Network connectivity for distributed operations',
       'Compatible storage backend drivers available',
-      'Proper security credentials and access controls'
+      'Proper security credentials and access controls',
     ],
     externalDependencies: [
       {
@@ -191,7 +194,7 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         type: 'database',
         description: 'Embedded SQL database for structured data',
         version: '3.40+',
-        criticality: 'HIGH'
+        criticality: 'HIGH',
       },
       {
         id: nanoid(),
@@ -199,7 +202,7 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         type: 'vector-database',
         description: 'Vector database for embeddings and similarity search',
         version: '0.3+',
-        criticality: 'MEDIUM'
+        criticality: 'MEDIUM',
       },
       {
         id: nanoid(),
@@ -207,8 +210,8 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         type: 'cache',
         description: 'In-memory cache for high-speed data access',
         version: '7.0+',
-        criticality: 'MEDIUM'
-      }
+        criticality: 'MEDIUM',
+      },
     ],
     riskAnalysis: {
       identifiedRisks: [
@@ -217,40 +220,40 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
           description: 'Data inconsistency during network partitions',
           probability: 'MEDIUM',
           impact: 'HIGH',
-          category: 'distributed'
+          category: 'distributed',
         },
         {
           id: nanoid(),
           description: 'Memory leaks in long-running processes',
           probability: 'LOW',
           impact: 'MEDIUM',
-          category: 'resource'
+          category: 'resource',
         },
         {
           id: nanoid(),
           description: 'Backend storage capacity exhaustion',
           probability: 'MEDIUM',
           impact: 'HIGH',
-          category: 'capacity'
-        }
+          category: 'capacity',
+        },
       ],
       mitigationStrategies: [
         {
           riskId: 'data-inconsistency',
           strategy: 'Implement conflict-free replicated data types (CRDTs) and vector clocks',
-          effectiveness: 'HIGH'
+          effectiveness: 'HIGH',
         },
         {
           riskId: 'memory-leaks',
           strategy: 'Comprehensive memory monitoring and automatic cleanup routines',
-          effectiveness: 'MEDIUM'
+          effectiveness: 'MEDIUM',
         },
         {
           riskId: 'capacity-exhaustion',
           strategy: 'Proactive monitoring with automated scaling and data archival',
-          effectiveness: 'HIGH'
-        }
-      ]
+          effectiveness: 'HIGH',
+        },
+      ],
     },
     successMetrics: [
       {
@@ -258,25 +261,25 @@ export const MEMORY_SYSTEMS_TEMPLATE: SPARCTemplate = {
         metric: 'cache_hit_ratio',
         target: '>90%',
         measurement: 'Percentage of cache hits vs total requests',
-        frequency: 'Real-time'
+        frequency: 'Real-time',
       },
       {
         id: nanoid(),
         metric: 'data_consistency',
         target: '100% for critical data',
         measurement: 'Consistency validation checks',
-        frequency: 'Continuous'
+        frequency: 'Continuous',
       },
       {
         id: nanoid(),
         metric: 'backup_success_rate',
         target: '>99.5%',
         measurement: 'Successful backup operations',
-        frequency: 'Daily'
-      }
+        frequency: 'Daily',
+      },
     ],
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
 
   pseudocode: {
@@ -330,13 +333,13 @@ END
         complexity: {
           time: 'O(b)' as const,
           space: 'O(1)' as const,
-          explanation: 'Linear in number of backends, constant space for operation'
+          explanation: 'Linear in number of backends, constant space for operation',
         },
         inputParameters: ['key', 'consistency_level', 'timeout'],
         outputFormat: 'ValueWithMetadata',
         preconditions: ['At least one backend available', 'Key is valid'],
         postconditions: ['Value retrieved or error thrown'],
-        invariants: ['Backend availability maintained', 'Cache consistency preserved']
+        invariants: ['Backend availability maintained', 'Cache consistency preserved'],
       },
       {
         id: nanoid(),
@@ -389,13 +392,13 @@ END
         complexity: {
           time: 'O(log n)' as const,
           space: 'O(1)' as const,
-          explanation: 'Logarithmic time for cache operations, constant space per operation'
+          explanation: 'Logarithmic time for cache operations, constant space per operation',
         },
         inputParameters: ['key', 'value', 'access_pattern', 'priority'],
         outputFormat: 'CacheResult',
         preconditions: ['Cache layers initialized', 'Value is cacheable'],
         postconditions: ['Value cached in appropriate layer'],
-        invariants: ['Cache hierarchy maintained', 'Eviction policies respected']
+        invariants: ['Cache hierarchy maintained', 'Eviction policies respected'],
       },
       {
         id: nanoid(),
@@ -468,14 +471,14 @@ END
         complexity: {
           time: 'O(n)' as const,
           space: 'O(n)' as const,
-          explanation: 'Linear in number of nodes for consensus operations'
+          explanation: 'Linear in number of nodes for consensus operations',
         },
         inputParameters: ['operation', 'data', 'consistency_level', 'nodes'],
         outputFormat: 'ConsistencyResult',
         preconditions: ['Nodes available', 'Operation is valid'],
         postconditions: ['Consistency level maintained'],
-        invariants: ['Vector clock monotonicity', 'Node consensus preserved']
-      }
+        invariants: ['Vector clock monotonicity', 'Node consensus preserved'],
+      },
     ],
     dataStructures: [
       {
@@ -490,8 +493,8 @@ END
         performance: {
           get: 'O(1)' as const,
           put: 'O(log n)' as const,
-          evict: 'O(1)' as const
-        }
+          evict: 'O(1)' as const,
+        },
       },
       {
         id: nanoid(),
@@ -505,8 +508,8 @@ END
         performance: {
           lookup: 'O(1)' as const,
           register: 'O(1)' as const,
-          update_health: 'O(1)' as const
-        }
+          update_health: 'O(1)' as const,
+        },
       },
       {
         id: nanoid(),
@@ -520,9 +523,9 @@ END
         performance: {
           get: 'O(1)' as const,
           update: 'O(n)' as const,
-          compare: 'O(n)' as const
-        }
-      }
+          compare: 'O(n)' as const,
+        },
+      },
     ],
     processFlows: [
       {
@@ -537,7 +540,7 @@ END
             algorithm: 'IntelligentCaching',
             inputs: ['key', 'access_pattern'],
             outputs: ['cached_value', 'cache_level'],
-            duration: 1
+            duration: 1,
           },
           {
             id: nanoid(),
@@ -546,7 +549,7 @@ END
             algorithm: 'MultiBackendRead',
             inputs: ['key', 'consistency_level'],
             outputs: ['value', 'metadata'],
-            duration: 50
+            duration: 50,
           },
           {
             id: nanoid(),
@@ -555,12 +558,12 @@ END
             algorithm: 'IntelligentCaching',
             inputs: ['key', 'value', 'access_pattern'],
             outputs: ['cache_result'],
-            duration: 5
-          }
+            duration: 5,
+          },
         ],
         parallelizable: false,
-        criticalPath: ['CacheCheck', 'BackendQuery', 'CacheUpdate']
-      }
+        criticalPath: ['CacheCheck', 'BackendQuery', 'CacheUpdate'],
+      },
     ],
     complexityAnalysis: {
       worstCase: 'O(n * b)' as const,
@@ -571,8 +574,8 @@ END
       bottlenecks: [
         'Network latency for distributed operations',
         'Disk I/O for persistent backends',
-        'Memory bandwidth for large cached objects'
-      ]
+        'Memory bandwidth for large cached objects',
+      ],
     },
     optimizationOpportunities: [
       {
@@ -581,7 +584,7 @@ END
         description: 'Implement predictive cache preloading based on access patterns',
         impact: 'high',
         effort: 'medium',
-        estimatedImprovement: '300% improvement in cache hit rate'
+        estimatedImprovement: '300% improvement in cache hit rate',
       },
       {
         id: nanoid(),
@@ -589,7 +592,7 @@ END
         description: 'Add data compression for large cached objects',
         impact: 'medium',
         effort: 'low',
-        estimatedImprovement: '50% reduction in memory usage'
+        estimatedImprovement: '50% reduction in memory usage',
       },
       {
         id: nanoid(),
@@ -597,28 +600,28 @@ END
         description: 'Batch multiple operations for better backend utilization',
         impact: 'high',
         effort: 'medium',
-        estimatedImprovement: '200% increase in throughput'
-      }
+        estimatedImprovement: '200% increase in throughput',
+      },
     ],
     estimatedPerformance: [
       {
         metric: 'access_latency',
         target: '<1ms for L1 cache, <10ms for L2 cache, <100ms for backend',
-        measurement: 'milliseconds'
+        measurement: 'milliseconds',
       },
       {
         metric: 'throughput',
         target: '100,000 operations/second',
-        measurement: 'ops/sec'
+        measurement: 'ops/sec',
       },
       {
         metric: 'cache_efficiency',
         target: '>90% hit rate for hot data',
-        measurement: 'percentage'
-      }
+        measurement: 'percentage',
+      },
     ],
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
 
   architecture: {
@@ -634,7 +637,7 @@ END
           'Route operations to appropriate backends',
           'Manage cache coherence',
           'Handle failover and recovery',
-          'Monitor system health'
+          'Monitor system health',
         ],
         interfaces: ['IMemoryCoordinator'],
         dependencies: ['BackendRegistry', 'CacheManager', 'ConsistencyManager'],
@@ -643,8 +646,8 @@ END
         performance: {
           expectedThroughput: '100000 operations/second',
           expectedLatency: '<5ms',
-          memoryUsage: '256MB'
-        }
+          memoryUsage: '256MB',
+        },
       },
       {
         id: nanoid(),
@@ -655,7 +658,7 @@ END
           'Cache layer management',
           'Eviction policy enforcement',
           'Cache warming and preloading',
-          'Performance monitoring'
+          'Performance monitoring',
         ],
         interfaces: ['ICacheManager'],
         dependencies: ['L1Cache', 'L2Cache', 'L3Cache', 'EvictionPolicyEngine'],
@@ -664,8 +667,8 @@ END
         performance: {
           expectedThroughput: '1000000 cache operations/second',
           expectedLatency: '<1ms',
-          memoryUsage: '2GB'
-        }
+          memoryUsage: '2GB',
+        },
       },
       {
         id: nanoid(),
@@ -676,7 +679,7 @@ END
           'Backend registration and discovery',
           'Health monitoring and failover',
           'Load balancing across backends',
-          'Connection pooling'
+          'Connection pooling',
         ],
         interfaces: ['IBackendManager'],
         dependencies: ['SQLiteBackend', 'LanceDBBackend', 'JSONBackend'],
@@ -685,8 +688,8 @@ END
         performance: {
           expectedThroughput: '50000 backend operations/second',
           expectedLatency: '<50ms',
-          memoryUsage: '512MB'
-        }
+          memoryUsage: '512MB',
+        },
       },
       {
         id: nanoid(),
@@ -697,7 +700,7 @@ END
           'Vector clock management',
           'Conflict detection and resolution',
           'Consensus coordination',
-          'Consistency level enforcement'
+          'Consistency level enforcement',
         ],
         interfaces: ['IConsistencyEngine'],
         dependencies: ['VectorClockManager', 'ConflictResolver'],
@@ -706,8 +709,8 @@ END
         performance: {
           expectedThroughput: '10000 consensus operations/second',
           expectedLatency: '<20ms',
-          memoryUsage: '128MB'
-        }
+          memoryUsage: '128MB',
+        },
       },
       {
         id: nanoid(),
@@ -718,7 +721,7 @@ END
           'Backup scheduling and execution',
           'Point-in-time recovery',
           'Cross-region replication',
-          'Backup verification'
+          'Backup verification',
         ],
         interfaces: ['IBackupManager'],
         dependencies: ['BackupStorage', 'CompressionEngine'],
@@ -727,9 +730,9 @@ END
         performance: {
           expectedThroughput: '1000 backup operations/hour',
           expectedLatency: '<5 minutes',
-          memoryUsage: '256MB'
-        }
-      }
+          memoryUsage: '256MB',
+        },
+      },
     ],
     relationships: [
       {
@@ -739,7 +742,7 @@ END
         type: 'uses',
         description: 'Coordinator uses cache manager for fast data access',
         strength: 'strong',
-        protocol: 'synchronous'
+        protocol: 'synchronous',
       },
       {
         id: nanoid(),
@@ -748,7 +751,7 @@ END
         type: 'uses',
         description: 'Coordinator uses backend manager for persistent storage',
         strength: 'strong',
-        protocol: 'synchronous'
+        protocol: 'synchronous',
       },
       {
         id: nanoid(),
@@ -757,8 +760,8 @@ END
         type: 'coordinates',
         description: 'Coordinator ensures consistency through consistency engine',
         strength: 'medium',
-        protocol: 'asynchronous'
-      }
+        protocol: 'asynchronous',
+      },
     ],
     patterns: [
       {
@@ -770,14 +773,10 @@ END
           'High availability',
           'Performance optimization',
           'Data type specialization',
-          'Risk distribution'
+          'Risk distribution',
         ],
-        tradeoffs: [
-          'Increased complexity',
-          'Consistency challenges',
-          'Resource overhead'
-        ],
-        applicableComponents: ['memory-coordinator', 'backend-manager']
+        tradeoffs: ['Increased complexity', 'Consistency challenges', 'Resource overhead'],
+        applicableComponents: ['memory-coordinator', 'backend-manager'],
       },
       {
         id: nanoid(),
@@ -788,14 +787,10 @@ END
           'Fine-grained control',
           'Cache miss handling',
           'Data consistency',
-          'Performance optimization'
+          'Performance optimization',
         ],
-        tradeoffs: [
-          'Code complexity',
-          'Cache management overhead',
-          'Potential inconsistency'
-        ],
-        applicableComponents: ['multi-layer-cache-manager']
+        tradeoffs: ['Code complexity', 'Cache management overhead', 'Potential inconsistency'],
+        applicableComponents: ['multi-layer-cache-manager'],
       },
       {
         id: nanoid(),
@@ -806,15 +801,11 @@ END
           'Conflict detection',
           'Partial ordering',
           'Distributed coordination',
-          'Causality tracking'
+          'Causality tracking',
         ],
-        tradeoffs: [
-          'Storage overhead',
-          'Complexity scaling',
-          'Clock synchronization'
-        ],
-        applicableComponents: ['consistency-engine']
-      }
+        tradeoffs: ['Storage overhead', 'Complexity scaling', 'Clock synchronization'],
+        applicableComponents: ['consistency-engine'],
+      },
     ],
     interfaces: [
       {
@@ -827,12 +818,12 @@ END
           { name: 'set', parameters: ['key', 'value', 'options'], returns: 'Promise<void>' },
           { name: 'delete', parameters: ['key'], returns: 'Promise<boolean>' },
           { name: 'exists', parameters: ['key'], returns: 'Promise<boolean>' },
-          { name: 'getMetrics', parameters: [], returns: 'MemoryMetrics' }
+          { name: 'getMetrics', parameters: [], returns: 'MemoryMetrics' },
         ],
         protocol: 'HTTP/REST',
         authentication: 'API Key',
         rateLimit: '100000/hour',
-        documentation: 'Memory system coordination and management API'
+        documentation: 'Memory system coordination and management API',
       },
       {
         id: nanoid(),
@@ -843,13 +834,13 @@ END
           { name: 'getFromCache', parameters: ['key', 'layer'], returns: 'Promise<CacheEntry>' },
           { name: 'putInCache', parameters: ['key', 'value', 'layer'], returns: 'Promise<void>' },
           { name: 'evict', parameters: ['key', 'layer'], returns: 'Promise<void>' },
-          { name: 'getCacheStats', parameters: ['layer'], returns: 'CacheStatistics' }
+          { name: 'getCacheStats', parameters: ['layer'], returns: 'CacheStatistics' },
         ],
         protocol: 'Internal',
         authentication: 'Internal',
         rateLimit: 'unlimited',
-        documentation: 'Internal cache management interface'
-      }
+        documentation: 'Internal cache management interface',
+      },
     ],
     dataFlows: [
       {
@@ -862,7 +853,7 @@ END
         volume: 'High',
         frequency: 'High',
         security: 'Medium',
-        transformation: 'Request validation and key normalization'
+        transformation: 'Request validation and key normalization',
       },
       {
         id: nanoid(),
@@ -874,8 +865,8 @@ END
         volume: 'Medium',
         frequency: 'Medium',
         security: 'High',
-        transformation: 'Data serialization and encryption'
-      }
+        transformation: 'Data serialization and encryption',
+      },
     ],
     qualityAttributes: [
       {
@@ -886,10 +877,10 @@ END
         criteria: [
           'P95 access latency < 10ms',
           'Throughput > 100,000 operations/second',
-          'Cache hit rate > 90% for hot data'
+          'Cache hit rate > 90% for hot data',
         ],
         measurement: 'Automated performance testing',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
@@ -899,11 +890,11 @@ END
         criteria: [
           '99.9% uptime guarantee',
           'Automatic failover in < 30 seconds',
-          'Zero data loss for critical operations'
+          'Zero data loss for critical operations',
         ],
         measurement: 'Uptime monitoring and failover testing',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     deploymentStrategy: {
       id: nanoid(),
@@ -917,8 +908,8 @@ END
             replicas: 1,
             resources: { cpu: '1', memory: '2Gi' },
             storage: 'local',
-            backends: ['sqlite', 'json']
-          }
+            backends: ['sqlite', 'json'],
+          },
         },
         {
           name: 'production',
@@ -926,16 +917,16 @@ END
             replicas: 3,
             resources: { cpu: '4', memory: '8Gi' },
             storage: 'distributed',
-            backends: ['sqlite', 'lancedb', 'json', 'redis']
-          }
-        }
+            backends: ['sqlite', 'lancedb', 'json', 'redis'],
+          },
+        },
       ],
       infrastructure: ['Kubernetes', 'Docker', 'Redis Cluster', 'Distributed Storage'],
       cicd: {
         buildPipeline: ['Test', 'Build', 'Performance Test', 'Deploy'],
         testStrategy: ['Unit Tests', 'Integration Tests', 'Performance Tests'],
-        deploymentStrategy: 'Rolling Deployment'
-      }
+        deploymentStrategy: 'Rolling Deployment',
+      },
     },
     integrationPoints: [
       {
@@ -946,8 +937,8 @@ END
         protocol: 'Native drivers',
         security: 'Connection encryption',
         errorHandling: 'Automatic failover and retry',
-        monitoring: 'Health checks and performance metrics'
-      }
+        monitoring: 'Health checks and performance metrics',
+      },
     ],
     performanceRequirements: [
       {
@@ -955,15 +946,15 @@ END
         metric: 'access_latency',
         target: '<10ms P95',
         measurement: 'milliseconds',
-        priority: 'HIGH'
+        priority: 'HIGH',
       },
       {
         id: nanoid(),
         metric: 'throughput',
         target: '100,000 ops/second',
         measurement: 'operations/second',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     securityRequirements: [
       {
@@ -971,8 +962,8 @@ END
         type: 'encryption',
         description: 'Encrypt all data at rest and in transit',
         implementation: 'AES-256 encryption with key rotation',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     scalabilityRequirements: [
       {
@@ -981,18 +972,18 @@ END
         description: 'Scale by adding more nodes to the cluster',
         target: 'Linear scaling up to 100 nodes',
         implementation: 'Consistent hashing and data sharding',
-        priority: 'HIGH'
-      }
+        priority: 'HIGH',
+      },
     ],
     createdAt: new Date(),
-    updatedAt: new Date()
+    updatedAt: new Date(),
   },
 
   async applyTo(projectSpec: ProjectSpecification) {
     return {
       specification: this.customizeSpecification(projectSpec),
       pseudocode: this.customizePseudocode(projectSpec),
-      architecture: this.customizeArchitecture(projectSpec)
+      architecture: this.customizeArchitecture(projectSpec),
     };
   },
 
@@ -1014,12 +1005,12 @@ END
   validateCompatibility(projectSpec: ProjectSpecification) {
     const warnings: string[] = [];
     const recommendations: string[] = [];
-    let compatible = true;
+    const compatible = true;
 
     if (projectSpec.domain !== 'memory-systems') {
       warnings.push('Project domain does not match template domain');
     }
 
     return { compatible, warnings, recommendations };
-  }
+  },
 };
