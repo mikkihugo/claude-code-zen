@@ -123,6 +123,21 @@ export class WasmNeuralAccelerator {
   }
 
   /**
+   * Check if WebGPU support is available
+   */
+  async hasWebGPUSupport(): Promise<boolean> {
+    try {
+      if (typeof navigator !== 'undefined' && 'gpu' in navigator) {
+        const adapter = await (navigator as any).gpu?.requestAdapter();
+        return !!adapter;
+      }
+      return false;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  /**
    * Benchmark WASM vs JavaScript performance
    */
   async benchmark(size: number = 1000): Promise<{
@@ -167,6 +182,13 @@ export class WasmNeuralAccelerator {
       this.wasmModule.memory.deallocate();
     }
     this.isInitialized = false;
+  }
+
+  /**
+   * Cleanup WASM resources (alias for dispose)
+   */
+  async cleanup(): Promise<void> {
+    await this.dispose();
   }
 
   // Mock implementations (would be replaced with actual WASM calls)

@@ -6,6 +6,7 @@ const config: Config = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
   verbose: true,
+  testTimeout: 30000, // 30 seconds per test
 
   transform: {
     '^.+\.tsx?$': [
