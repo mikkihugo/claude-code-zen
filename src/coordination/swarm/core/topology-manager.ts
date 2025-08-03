@@ -5,3 +5,6 @@
 
 export { TopologyManager as default } from '../../protocols/topology/topology-manager.js';
 export * from '../../protocols/topology/topology-manager.js';
+
+// Additional re-export for direct access
+export { TopologyManager } from '../../protocols/topology/topology-manager.js';

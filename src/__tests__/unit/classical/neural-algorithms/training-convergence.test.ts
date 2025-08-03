@@ -17,7 +17,7 @@ import {
   TRAINING_ALGORITHMS,
   type TrainingConfig,
   type TrainingDataConfig,
-} from '../../../../../ruv-FANN-zen/ruv-swarm-zen/npm/src/neural-network';
+} from '../../../../neural/core/neural-network.js';
 
 describe('Training Convergence - Classical TDD', () => {
   let wasmModule: any;

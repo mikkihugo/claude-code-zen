@@ -3,7 +3,7 @@
  * Classical TDD approach - testing actual computation results and performance
  */
 
-import { NeuralNetworkManager } from '../../../../neural/core/neural-network-manager';
+import { NeuralNetworkManager } from '../../../../neural/core/neural-network-manager.js';
 import { WasmNeuralAccelerator } from '../../../../neural/wasm/wasm-neural-accelerator';
 import { NeuralTestHelpers } from '../../../helpers/neural-test-helpers';
 import { PerformanceMeasurement } from '../../../helpers/performance-measurement';

@@ -17,7 +17,7 @@ import {
   TRAINING_ALGORITHMS,
   type TrainingConfig,
   type TrainingDataConfig,
-} from '../../../../../ruv-FANN-zen/ruv-swarm-zen/npm/src/neural-network';
+} from '../../../../neural/core/neural-network.js';
 
 describe('Memory Efficiency - Classical TDD', () => {
   let wasmModule: any;
