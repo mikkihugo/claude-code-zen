@@ -6,16 +6,16 @@
 import { WebSocket } from 'ws';
 import { DocumentDrivenSystem } from '../../core/document-driven-system';
 import { WebInterfaceServer } from '../../interfaces/web/WebInterfaceServer';
-import { FileSystemTestHelper } from '../helpers/filesystem-test-helper';
+import { RealFileSystemTestHelper } from '../helpers/filesystem-test-helper';
 import { IntegrationTestSetup } from '../helpers/integration-test-setup';
-import { NetworkTestHelper } from '../helpers/network-test-helper';
+import { RealNetworkTestHelper } from '../helpers/network-test-helper';
 
 describe('Real-Time Collaboration E2E Tests', () => {
   let documentSystem: DocumentDrivenSystem;
   let webServer: WebInterfaceServer;
   let testSetup: IntegrationTestSetup;
-  let fsHelper: FileSystemTestHelper;
-  let networkHelper: NetworkTestHelper;
+  let fsHelper: RealFileSystemTestHelper;
+  let networkHelper: RealNetworkTestHelper;
 
   const TEST_PROJECT_PATH = '/tmp/claude-zen-realtime-test';
   const WEB_SERVER_PORT = 3459;
@@ -23,8 +23,8 @@ describe('Real-Time Collaboration E2E Tests', () => {
 
   beforeAll(async () => {
     testSetup = new IntegrationTestSetup();
-    fsHelper = new FileSystemTestHelper();
-    networkHelper = new NetworkTestHelper();
+    fsHelper = new RealFileSystemTestHelper();
+    networkHelper = new RealNetworkTestHelper();
 
     await testSetup.initializeFullEnvironment();
     await fsHelper.createTestDirectory(TEST_PROJECT_PATH);

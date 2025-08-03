@@ -8,9 +8,9 @@ import { SwarmCoordinator } from '../../coordination/swarm/core/swarm-coordinato
 import { HttpMcpServer } from '../../interfaces/mcp/http-mcp-server';
 import { StdioMcpServer } from '../../coordination/mcp/mcp-server';
 import { WebInterfaceServer } from '../../interfaces/web/WebInterfaceServer';
-import { FileSystemTestHelper } from '../helpers/filesystem-test-helper';
+import { RealFileSystemTestHelper } from '../helpers/filesystem-test-helper';
 import { IntegrationTestSetup } from '../helpers/integration-test-setup';
-import { NetworkTestHelper } from '../helpers/network-test-helper';
+import { RealNetworkTestHelper } from '../helpers/network-test-helper';
 import { PerformanceMeasurement } from '../helpers/performance-measurement';
 
 interface PerformanceMetrics {
@@ -36,8 +36,8 @@ describe('Performance and Load Testing E2E Tests', () => {
   let stdioMcpServer: StdioMcpServer;
   let webServer: WebInterfaceServer;
   let testSetup: IntegrationTestSetup;
-  let fsHelper: FileSystemTestHelper;
-  let networkHelper: NetworkTestHelper;
+  let fsHelper: RealFileSystemTestHelper;
+  let networkHelper: RealNetworkTestHelper;
   let perfMeasurement: PerformanceMeasurement;
 
   const TEST_PROJECT_PATH = '/tmp/claude-zen-performance-test';
@@ -47,8 +47,8 @@ describe('Performance and Load Testing E2E Tests', () => {
 
   beforeAll(async () => {
     testSetup = new IntegrationTestSetup();
-    fsHelper = new FileSystemTestHelper();
-    networkHelper = new NetworkTestHelper();
+    fsHelper = new RealFileSystemTestHelper();
+    networkHelper = new RealNetworkTestHelper();
     perfMeasurement = new PerformanceMeasurement();
 
     await testSetup.initializeFullEnvironment();

@@ -4,9 +4,9 @@
  */
 
 import { DocumentDrivenSystem } from '../../core/document-driven-system';
-import { FileSystemTestHelper } from '../helpers/filesystem-test-helper';
+import { RealFileSystemTestHelper } from '../helpers/filesystem-test-helper';
 import { IntegrationTestSetup } from '../helpers/integration-test-setup';
-import { NetworkTestHelper } from '../helpers/network-test-helper';
+import { RealNetworkTestHelper } from '../helpers/network-test-helper';
 
 // Mock GitHub API for testing
 class MockGitHubAPI {
@@ -78,8 +78,8 @@ class MockGitHubAPI {
 describe('GitHub Integration Automation E2E Tests', () => {
   let documentSystem: DocumentDrivenSystem;
   let testSetup: IntegrationTestSetup;
-  let fsHelper: FileSystemTestHelper;
-  let networkHelper: NetworkTestHelper;
+  let fsHelper: RealFileSystemTestHelper;
+  let networkHelper: RealNetworkTestHelper;
   let mockGitHub: MockGitHubAPI;
 
   const TEST_PROJECT_PATH = '/tmp/claude-zen-github-test';
@@ -87,8 +87,8 @@ describe('GitHub Integration Automation E2E Tests', () => {
 
   beforeAll(async () => {
     testSetup = new IntegrationTestSetup();
-    fsHelper = new FileSystemTestHelper();
-    networkHelper = new NetworkTestHelper();
+    fsHelper = new RealFileSystemTestHelper();
+    networkHelper = new RealNetworkTestHelper();
     mockGitHub = new MockGitHubAPI();
 
     await testSetup.initializeFullEnvironment();
