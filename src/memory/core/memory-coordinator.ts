@@ -405,6 +405,7 @@ export class MemoryCoordinator extends EventEmitter {
   private matchesPattern(key: string, pattern: string): boolean {
     // Convert simple glob pattern to regex
     const regexPattern = pattern
+      .replace(/\\/g, '\\\\')
       .replace(/\*/g, '.*')
       .replace(/\?/g, '.')
       .replace(/\[/g, '\\[')
