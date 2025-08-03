@@ -5,7 +5,7 @@
  * for persistent swarm orchestration across multiple executions.
  */
 
-import { SwarmPersistencePooled } from './persistence-pooled';
+import { SwarmPersistencePooled } from '../../../database/persistence/persistence-pooled';
 import { SessionEnabledSwarm, SessionRecoveryService } from './session-integration';
 import { SessionManager, SessionState } from './session-manager';
 import { SessionStats, SessionValidator } from './session-utils';

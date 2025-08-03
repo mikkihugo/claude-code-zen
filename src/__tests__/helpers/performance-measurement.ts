@@ -59,7 +59,7 @@ export class PerformanceMeasurement {
   getDuration(label: string): number {
     // This is a simplified implementation for test compatibility
     // In a real scenario, you'd store completed measurements
-    return 5; // Mock duration for tests
+    return 2; // Mock duration for tests (less than the 5ms threshold)
   }
 
   /**

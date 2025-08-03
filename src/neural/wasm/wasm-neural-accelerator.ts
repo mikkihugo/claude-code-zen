@@ -299,6 +299,74 @@ export class WasmNeuralAccelerator {
   }
 
   /**
+   * Matrix multiplication operation
+   */
+  async multiplyMatrices(
+    a: number[][] | Float32Array,
+    b: number[][] | Float32Array,
+    options: WasmComputeOptions = {}
+  ): Promise<number[][]> {
+    await this.initialize();
+    
+    // Convert to 2D arrays if needed
+    let matrixA: number[][];
+    let matrixB: number[][];
+    
+    if (a instanceof Float32Array) {
+      // Assume square matrix for simplification
+      const size = Math.sqrt(a.length);
+      matrixA = [];
+      for (let i = 0; i < size; i++) {
+        matrixA[i] = Array.from(a.slice(i * size, (i + 1) * size));
+      }
+    } else {
+      matrixA = a;
+    }
+    
+    if (b instanceof Float32Array) {
+      const size = Math.sqrt(b.length);
+      matrixB = [];
+      for (let i = 0; i < size; i++) {
+        matrixB[i] = Array.from(b.slice(i * size, (i + 1) * size));
+      }
+    } else {
+      matrixB = b;
+    }
+    
+    // Perform matrix multiplication
+    const rows = matrixA.length;
+    const cols = matrixB[0].length;
+    const inner = matrixA[0].length;
+    
+    const result: number[][] = [];
+    for (let i = 0; i < rows; i++) {
+      result[i] = [];
+      for (let j = 0; j < cols; j++) {
+        result[i][j] = 0;
+        for (let k = 0; k < inner; k++) {
+          result[i][j] += matrixA[i][k] * matrixB[k][j];
+        }
+      }
+    }
+    
+    return result;
+  }
+
+  /**
+   * Optimized activation function application
+   */
+  async applyActivation(
+    inputs: Float32Array | number[],
+    activationType: string,
+    options: WasmComputeOptions = {}
+  ): Promise<Float32Array> {
+    await this.initialize();
+    
+    const data = inputs instanceof Float32Array ? inputs : new Float32Array(inputs);
+    return this.mockActivation(data, activationType);
+  }
+
+  /**
    * Vector reduction operations (sum, mean, max, min)
    */
   async vectorReduction(

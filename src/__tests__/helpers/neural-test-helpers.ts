@@ -37,6 +37,17 @@ export class NeuralTestDataGenerator {
   }
 
   /**
+   * Check if two vectors are equal within tolerance
+   */
+  vectorsEqual(a: number[], b: number[], tolerance: number = 1e-6): boolean {
+    if (a.length !== b.length) return false;
+    for (let i = 0; i < a.length; i++) {
+      if (Math.abs(a[i] - b[i]) > tolerance) return false;
+    }
+    return true;
+  }
+
+  /**
    * Generate XOR training data
    */
   static generateXORData(): NeuralTestData[] {

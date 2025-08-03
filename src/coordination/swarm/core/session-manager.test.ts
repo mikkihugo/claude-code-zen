@@ -3,7 +3,7 @@
  */
 
 import { afterEach, beforeEach, describe, expect, jest, test } from '@jest/globals';
-import { SwarmPersistencePooled } from './persistence-pooled';
+import { SwarmPersistencePooled } from '../../../database/persistence/persistence-pooled';
 import { SessionEnabledSwarm, SessionRecoveryService } from './session-integration';
 import { SessionConfig, SessionManager, type SessionState } from './session-manager';
 import {

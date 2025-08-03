@@ -7,7 +7,7 @@
 
 import { EventEmitter } from 'events';
 import { RuvSwarm } from './index';
-import { SwarmPersistencePooled } from './persistence-pooled';
+import { SwarmPersistencePooled } from '../../../database/persistence/persistence-pooled';
 import { type SessionConfig, SessionManager, type SessionState } from './session-manager';
 import { SessionRecovery, SessionSerializer, SessionValidator } from './session-utils';
 import type { AgentConfig, SwarmEvent, SwarmOptions, SwarmState, Task } from './types';

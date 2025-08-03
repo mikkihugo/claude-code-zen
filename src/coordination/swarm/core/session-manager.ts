@@ -14,7 +14,7 @@
 
 import crypto from 'crypto';
 import { EventEmitter } from 'events';
-import type { SwarmPersistencePooled } from './persistence-pooled';
+import type { SwarmPersistencePooled } from '../../../database/persistence/persistence-pooled';
 import { AgentConfig, SwarmEvent, type SwarmOptions, type SwarmState, Task } from './types';
 import { generateId } from './utils';
 
