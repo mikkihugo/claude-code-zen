@@ -1,0 +1,83 @@
+{
+  "mcp": {
+    "servers": {
+      "context7": {
+        "type": "http",
+        "url": "https://mcp.context7.com/mcp",
+        "description": "Context7 research and analysis tools for enhanced development workflow"
+      },
+      "deepwiki": {
+        "type": "sse",
+        "url": "https://mcp.deepwiki.com/sse",
+        "description": "DeepWiki knowledge base and research tools for comprehensive documentation"
+      },
+      "gitmcp": {
+        "type": "http", 
+        "url": "https://gitmcp.io/mcp",
+        "description": "Git operations and repository management tools"
+      },
+      "semgrep": {
+        "type": "sse",
+        "url": "https://mcp.semgrep.ai/sse", 
+        "description": "Code analysis and security scanning tools for code quality"
+      },
+      "claude-code-zen": {
+        "command": "npx",
+        "args": ["tsx", "src/interfaces/mcp/start-server.ts", "--port", "3000"],
+        "cwd": ".",
+        "description": "Local Claude Code Zen MCP server for coordination and system management"
+      }
+    }
+  },
+  "tools": {
+    "research": {
+      "context7": [
+        "research_analysis",
+        "code_analysis", 
+        "performance_analysis"
+      ],
+      "deepwiki": [
+        "knowledge_search",
+        "documentation_query",
+        "concept_explanation"
+      ]
+    },
+    "development": {
+      "gitmcp": [
+        "git_operations",
+        "repository_analysis", 
+        "branch_management"
+      ],
+      "semgrep": [
+        "security_scan",
+        "code_quality_check",
+        "vulnerability_detection"
+      ]
+    },
+    "coordination": {
+      "claude-code-zen": [
+        "swarm_management",
+        "agent_coordination",
+        "performance_monitoring",
+        "memory_management"
+      ]
+    }
+  },
+  "usage_instructions": {
+    "research_workflow": [
+      "Use Context7 for in-depth analysis and research tasks",
+      "Query DeepWiki for documentation and knowledge base searches",
+      "Leverage local Claude Code Zen tools for system coordination"
+    ],
+    "development_workflow": [
+      "Use GitMCP for repository operations and git management",
+      "Apply Semgrep tools for security analysis and code quality",
+      "Coordinate using local MCP server for multi-agent tasks"
+    ],
+    "optimization_notes": [
+      "This configuration follows GitHub Copilot best practices",
+      "External MCP servers enhance research capabilities",
+      "Local server provides system-specific coordination tools"
+    ]
+  }
+}

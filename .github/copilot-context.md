@@ -123,3 +123,19 @@ json,
 3. Follow domain-driven boundaries
 4. Apply hybrid-tdd approach
 5. Maintain performance standards
+6. Leverage MCP tools for research and analysis
+
+## MCP Research Tools
+- **Context7**: In-depth research and analysis
+- **DeepWiki**: Knowledge base and documentation queries
+- **GitMCP**: Repository operations and git management
+- **Semgrep**: Security analysis and code quality checks
+- **Local MCP**: Swarm coordination and system management
+
+## Copilot Optimization
+This setup follows GitHub's copilot coding agent best practices:
+- Comprehensive project context via domain instructions
+- External research capabilities through MCP integration
+- Performance benchmarks and quality gates
+- Clear architectural constraints and patterns
+- Multi-agent coordination with 147+ specialized types

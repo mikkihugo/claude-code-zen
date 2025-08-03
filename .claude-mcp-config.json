@@ -1,0 +1,38 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "node",
+      "args": ["-e", "console.log('Context7 MCP Server - placeholder for HTTP server')"],
+      "env": {
+        "MCP_SERVER_URL": "https://mcp.context7.com/mcp"
+      }
+    },
+    "claude-code-zen-local": {
+      "command": "npx",
+      "args": ["tsx", "src/interfaces/mcp/start-server.ts", "--port", "3000"],
+      "cwd": "/home/runner/work/claude-code-zen/claude-code-zen"
+    }
+  },
+  "httpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "description": "Context7 research and analysis tools"
+    },
+    "deepwiki": {
+      "type": "sse",
+      "url": "https://mcp.deepwiki.com/sse",
+      "description": "DeepWiki knowledge base and research tools"
+    },
+    "gitmcp": {
+      "type": "http",
+      "url": "https://gitmcp.io/mcp",
+      "description": "Git operations and repository management tools"
+    },
+    "semgrep": {
+      "type": "sse", 
+      "url": "https://mcp.semgrep.ai/sse",
+      "description": "Code analysis and security scanning tools"
+    }
+  }
+}

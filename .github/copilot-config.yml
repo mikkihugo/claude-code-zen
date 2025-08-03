@@ -154,3 +154,42 @@ custom_instructions:
     - "Use established types from src/types/"
     - "Follow async/await patterns for coordination"
     - "Implement proper error handling and recovery"
+
+  research_tools:
+    - "Use Context7 MCP tools for research and analysis"
+    - "Leverage DeepWiki for knowledge base queries"
+    - "Utilize GitMCP for repository operations"
+    - "Apply Semgrep for security analysis"
+
+mcp_configuration:
+  external_servers:
+    context7:
+      url: "https://mcp.context7.com/mcp"
+      type: "http"
+      purpose: "Research and analysis tools"
+    deepwiki:
+      url: "https://mcp.deepwiki.com/sse"
+      type: "sse"
+      purpose: "Knowledge base and research"
+    gitmcp:
+      url: "https://gitmcp.io/docs"
+      type: "http"
+      purpose: "Git operations and repository management"
+    semgrep:
+      url: "https://mcp.semgrep.ai/sse"
+      type: "sse"
+      purpose: "Code analysis and security scanning"
+  
+  local_server:
+    port: 3000
+    command: "npx tsx src/interfaces/mcp/start-server.ts"
+    tools: "coordination, monitoring, memory, github integration"
+
+copilot_optimization:
+  reference: "https://github.blog/ai-and-ml/github-copilot/onboarding-your-ai-peer-programmer-setting-up-github-copilot-coding-agent-for-success/"
+  features:
+    - "Comprehensive project context"
+    - "Domain-specific instructions"
+    - "Performance benchmarks and quality gates"
+    - "Integrated MCP tool ecosystem"
+    - "Clear architectural constraints"
