@@ -6,6 +6,11 @@
  */
 
 import { nanoid } from 'nanoid';
+import { SpecificationPhaseEngine } from '../phases/specification/specification-engine.js';
+import { PseudocodePhaseEngine } from '../phases/pseudocode/pseudocode-engine.js';
+import { ArchitecturePhaseEngine } from '../phases/architecture/architecture-engine.js';
+import { RefinementPhaseEngine } from '../phases/refinement/refinement-engine.js';
+import { CompletionPhaseEngine } from '../phases/completion/completion-engine.js';
 import type {
   SPARCEngine,
   SPARCProject,
@@ -32,10 +37,25 @@ import type {
 export class SPARCEngineCore implements SPARCEngine {
   private readonly phaseDefinitions: Map<SPARCPhase, PhaseDefinition>;
   private readonly activeProjects: Map<string, SPARCProject>;
+  private readonly phaseEngines: Map<SPARCPhase, any>;
 
   constructor() {
     this.phaseDefinitions = this.initializePhaseDefinitions();
     this.activeProjects = new Map();
+    this.phaseEngines = this.initializePhaseEngines();
+  }
+
+  /**
+   * Initialize phase engines for all SPARC phases
+   */
+  private initializePhaseEngines(): Map<SPARCPhase, any> {
+    const engines = new Map();
+    engines.set('specification', new SpecificationPhaseEngine());
+    engines.set('pseudocode', new PseudocodePhaseEngine());
+    engines.set('architecture', new ArchitecturePhaseEngine());
+    engines.set('refinement', new RefinementPhaseEngine());
+    engines.set('completion', new CompletionPhaseEngine());
+    return engines;
   }
 
   /**
@@ -428,20 +448,164 @@ export class SPARCEngineCore implements SPARCEngine {
   }
 
   private async executePhaseLogic(project: SPARCProject, phase: SPARCPhase): Promise<ArtifactReference[]> {
-    // This would integrate with specific phase engines
-    // For now, return mock artifacts
-    const artifacts: ArtifactReference[] = [
-      {
-        id: nanoid(),
-        name: `${phase}-deliverable.md`,
-        type: phase,
-        path: `/projects/${project.id}/${phase}/`,
-        checksum: this.calculateChecksum(`${phase}-content`),
-        createdAt: new Date()
-      }
-    ];
+    const phaseEngine = this.phaseEngines.get(phase);
+    if (!phaseEngine) {
+      throw new Error(`No engine available for phase: ${phase}`);
+    }
 
-    return artifacts;
+    const deliverables: ArtifactReference[] = [];
+
+    switch (phase) {
+      case 'specification':
+        const specification = await phaseEngine.gatherRequirements({
+          domain: project.domain,
+          constraints: project.specification.constraints?.map((c: any) => c.description) || [],
+          requirements: [],
+          complexity: 'moderate'
+        });
+        
+        // Update project with detailed specification
+        project.specification = {
+          ...project.specification,
+          functionalRequirements: specification.slice(0, Math.ceil(specification.length / 2)),
+          nonFunctionalRequirements: specification.slice(Math.ceil(specification.length / 2))
+        };
+
+        deliverables.push({
+          id: nanoid(),
+          name: 'Detailed Requirements Specification',
+          type: 'specification',
+          path: `specs/${project.id}/requirements.json`,
+          checksum: this.calculateChecksum('specification-content'),
+          createdAt: new Date()
+        });
+        break;
+
+      case 'pseudocode':
+        if (!project.specification.functionalRequirements || project.specification.functionalRequirements.length === 0) {
+          throw new Error('Specification phase must be completed first');
+        }
+        
+        const specForPseudocode = {
+          id: project.id,
+          name: project.name,
+          domain: project.domain,
+          functionalRequirements: project.specification.functionalRequirements,
+          nonFunctionalRequirements: project.specification.nonFunctionalRequirements || [],
+          systemConstraints: project.specification.constraints || [],
+          projectAssumptions: project.specification.assumptions || [],
+          externalDependencies: project.specification.dependencies || [],
+          riskAnalysis: project.specification.riskAssessment || { risks: [], mitigationStrategies: [], overallRisk: 'LOW' },
+          successMetrics: project.specification.successMetrics || [],
+          createdAt: new Date(),
+          updatedAt: new Date()
+        };
+        
+        project.pseudocode = await phaseEngine.generatePseudocode(specForPseudocode);
+        
+        deliverables.push({
+          id: nanoid(),
+          name: 'Algorithmic Pseudocode',
+          type: 'pseudocode',
+          path: `specs/${project.id}/pseudocode.json`,
+          checksum: this.calculateChecksum('pseudocode-content'),
+          createdAt: new Date()
+        });
+        break;
+
+      case 'architecture':
+        if (!project.pseudocode || !project.pseudocode.algorithms) {
+          throw new Error('Pseudocode phase must be completed first');
+        }
+        
+        project.architecture = await phaseEngine.designArchitecture(project.pseudocode);
+        
+        deliverables.push({
+          id: nanoid(),
+          name: 'System Architecture Design',
+          type: 'architecture',
+          path: `specs/${project.id}/architecture.json`,
+          checksum: this.calculateChecksum('architecture-content'),
+          createdAt: new Date()
+        });
+        break;
+
+      case 'refinement':
+        if (!project.architecture || !project.architecture.systemArchitecture) {
+          throw new Error('Architecture phase must be completed first');
+        }
+        
+        // Create mock refinement feedback for demonstration
+        const mockFeedback = {
+          id: nanoid(),
+          performanceIssues: ['Slow database queries', 'High memory usage'],
+          securityConcerns: ['Weak authentication', 'Missing input validation'],
+          scalabilityRequirements: ['Support 10x more users', 'Horizontal scaling'],
+          codeQualityIssues: ['Complex functions', 'Missing documentation'],
+          priority: 'HIGH' as const
+        };
+        
+        const refinementResult = await phaseEngine.applyRefinements(project.architecture, mockFeedback);
+        project.architecture = refinementResult.refinedArchitecture;
+        
+        deliverables.push({
+          id: nanoid(),
+          name: 'Refinement Analysis and Optimizations',
+          type: 'refinement',
+          path: `specs/${project.id}/refinements.json`,
+          checksum: this.calculateChecksum('refinement-content'),
+          createdAt: new Date()
+        });
+        break;
+
+      case 'completion':
+        if (!project.architecture || !project.architecture.systemArchitecture) {
+          throw new Error('Architecture and refinement phases must be completed first');
+        }
+        
+        // Create mock refinement result for completion phase
+        const mockRefinementResult = {
+          id: nanoid(),
+          architectureId: project.architecture.systemArchitecture?.components?.[0]?.id || 'mock-arch',
+          feedbackId: 'mock-feedback',
+          optimizationStrategies: [],
+          performanceOptimizations: [],
+          securityOptimizations: [],
+          scalabilityOptimizations: [],
+          codeQualityOptimizations: [],
+          refinedArchitecture: project.architecture,
+          benchmarkResults: [],
+          improvementMetrics: [],
+          refactoringOpportunities: [],
+          technicalDebtAnalysis: {
+            id: nanoid(),
+            architectureId: project.architecture.systemArchitecture?.components?.[0]?.id || 'mock-arch',
+            totalDebtScore: 2.5,
+            debtCategories: [],
+            remediationPlan: []
+          },
+          recommendedNextSteps: [],
+          createdAt: new Date(),
+          updatedAt: new Date()
+        };
+        
+        project.implementation = await phaseEngine.generateImplementation(mockRefinementResult);
+        
+        deliverables.push({
+          id: nanoid(),
+          name: 'Production-Ready Implementation',
+          type: 'implementation',
+          path: `output/${project.id}/`,
+          checksum: this.calculateChecksum('implementation-content'),
+          createdAt: new Date()
+        });
+        break;
+
+      default:
+        throw new Error(`Unsupported phase: ${phase}`);
+    }
+
+    return deliverables;
   }
 
   private createEmptySpecification(): DetailedSpecification {

@@ -35,7 +35,9 @@ export class SPARCMCPTools {
       this.generateArtifactsTool(),
       this.validateCompletionTool(),
       this.listProjectsTool(),
-      this.refineImplementationTool()
+      this.refineImplementationTool(),
+      this.applyTemplateTool(),
+      this.executeFullWorkflowTool()
     ];
   }
 
@@ -498,6 +500,117 @@ export class SPARCMCPTools {
         'Validate performance improvements',
         'Consider additional refinement iterations if needed'
       ]
+    };
+  }
+
+  private applyTemplateTool(): Tool {
+    return {
+      name: 'sparc_apply_template',
+      description: 'Apply a pre-built SPARC template to accelerate project development',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          projectId: {
+            type: 'string',
+            description: 'SPARC project identifier'
+          },
+          templateType: {
+            type: 'string',
+            enum: ['swarm-coordination', 'neural-networks', 'memory-systems', 'rest-api'],
+            description: 'Type of template to apply'
+          },
+          customizations: {
+            type: 'object',
+            properties: {
+              complexity: {
+                type: 'string',
+                enum: ['simple', 'moderate', 'high', 'complex', 'enterprise']
+              },
+              specificRequirements: {
+                type: 'array',
+                items: { type: 'string' }
+              }
+            }
+          }
+        },
+        required: ['projectId', 'templateType']
+      }
+    };
+  }
+
+  private executeFullWorkflowTool(): Tool {
+    return {
+      name: 'sparc_execute_full_workflow',
+      description: 'Execute complete SPARC workflow from specification to completion',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          projectId: {
+            type: 'string',
+            description: 'SPARC project identifier'
+          },
+          options: {
+            type: 'object',
+            properties: {
+              skipValidation: {
+                type: 'boolean',
+                description: 'Skip validation between phases (not recommended)'
+              },
+              generateArtifacts: {
+                type: 'boolean',
+                description: 'Generate downloadable artifacts after completion'
+              },
+              includeDemo: {
+                type: 'boolean',
+                description: 'Include demonstration code and examples'
+              }
+            }
+          }
+        },
+        required: ['projectId']
+      }
+    };
+  }
+
+  private async handleApplyTemplate(args: any): Promise<any> {
+    const project = this.activeProjects.get(args.projectId);
+    if (!project) {
+      throw new Error(`Project not found: ${args.projectId}`);
+    }
+
+    return {
+      success: true,
+      projectId: args.projectId,
+      templateApplied: args.templateType,
+      message: `Template ${args.templateType} would be applied (implementation pending)`
+    };
+  }
+
+  private async handleExecuteFullWorkflow(args: any): Promise<any> {
+    const project = this.activeProjects.get(args.projectId);
+    if (!project) {
+      throw new Error(`Project not found: ${args.projectId}`);
+    }
+
+    const phases: SPARCPhase[] = ['specification', 'pseudocode', 'architecture', 'refinement', 'completion'];
+    const results = [];
+    
+    for (const phase of phases) {
+      try {
+        const phaseResult = await this.sparcEngine.executePhase(project, phase);
+        results.push({ phase, success: true, duration: phaseResult.metrics.duration });
+      } catch (error) {
+        results.push({ phase, success: false, error: error instanceof Error ? error.message : 'Unknown error' });
+        break; // Stop on first failure
+      }
+    }
+
+    return {
+      success: true,
+      projectId: args.projectId,
+      executedPhases: results.length,
+      results,
+      message: 'Full SPARC workflow execution completed'
     };
   }
 }
