@@ -7,12 +7,33 @@ import { execSync } from 'node:child_process';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SwarmPersistencePooled as SwarmPersistence } from '../../../database/persistence/persistence-pooled.js';
+// Type-only import for typing
+import type { SwarmPersistencePooled } from '../../../database/persistence/persistence-pooled';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 class ZenSwarmHooks {
+  public sessionData: {
+    startTime: number;
+    operations: any[];
+    agents: Map<string, any>;
+    learnings: any[];
+    metrics: {
+      tokensSaved: number;
+      tasksCompleted: number;
+      patternsImproved: number;
+    };
+    searchCache?: Map<string, any>;
+    taskStartTimes?: Map<string, number>;
+    taskAgents?: Map<string, any>;
+    searchPatterns?: Map<string, any>;
+    contentCache?: Map<string, any>;
+    notifications?: any[];
+  };
+  public persistence: SwarmPersistencePooled | null;
+  private _sessionId?: string;
+
   constructor() {
     this.sessionData = {
       startTime: Date.now(),
@@ -24,6 +45,12 @@ class ZenSwarmHooks {
         tasksCompleted: 0,
         patternsImproved: 0,
       },
+      searchCache: new Map(),
+      taskStartTimes: new Map(),
+      taskAgents: new Map(),
+      searchPatterns: new Map(),
+      contentCache: new Map(),
+      notifications: [],
     };
 
     // Initialize persistence layer for cross-agent memory
@@ -36,7 +63,9 @@ class ZenSwarmHooks {
    */
   async initializePersistence() {
     try {
-      this.persistence = new SwarmPersistence();
+      // Dynamic import to avoid circular dependency issues
+      const { SwarmPersistencePooled } = await import('../../../database/persistence/persistence-pooled.js');
+      this.persistence = new SwarmPersistencePooled();
     } catch (error) {
       console.warn('⚠️ Failed to initialize persistence layer:', error.message);
       console.warn('⚠️ Operating in memory-only mode');
@@ -254,7 +283,7 @@ class ZenSwarmHooks {
    */
   async postEditHook(args) {
     const { file, autoFormat, trainPatterns, updateGraph } = args;
-    const result = {
+    const result: any = {
       continue: true,
       formatted: false,
       training: null,
@@ -271,7 +300,7 @@ class ZenSwarmHooks {
     if (trainPatterns) {
       const training = await this.trainPatternsFromEdit(file);
       result.training = training;
-      this.sessionData.metrics.patternsImproved += training.improvement || 0;
+      this.sessionData.metrics.patternsImproved += Number(training.improvement) || 0;
     }
 
     // Update knowledge graph if requested
@@ -291,7 +320,7 @@ class ZenSwarmHooks {
   async postTaskHook(args) {
     const { taskId, analyzePerformance, updateCoordination } = args;
 
-    const performance = {
+    const performance: any = {
       taskId,
       completionTime: Date.now() - (this.sessionData.taskStartTimes?.get(taskId) || Date.now()),
       agentsUsed: this.sessionData.taskAgents?.get(taskId) || [],
@@ -392,7 +421,7 @@ class ZenSwarmHooks {
   async notificationHook(args) {
     const { message, level, withSwarmStatus, sendTelemetry, type, context, agentId } = args;
 
-    const notification = {
+    const notification: any = {
       message,
       level: level || 'info',
       type: type || 'general',
@@ -1938,6 +1967,62 @@ ${this.sessionData.learnings
       } catch (error) {
         console.error('❌ Failed to store shared memory:', error.message);
       }
+    }
+  }
+
+  /**
+   * Post-bash hook - Handle bash command completion
+   */
+  async postBashHook(args: any) {
+    const result = {
+      continue: true,
+      patterns: [],
+      improvements: []
+    };
+
+    try {
+      // Record bash operation
+      this.sessionData.operations.push({
+        type: 'bash',
+        timestamp: Date.now(),
+        args: args
+      });
+
+      // Update metrics
+      this.sessionData.metrics.tasksCompleted++;
+
+      return result;
+    } catch (error) {
+      console.error('❌ Post-bash hook error:', error.message);
+      return { continue: true, error: error.message };
+    }
+  }
+
+  /**
+   * Post-search hook - Handle search completion  
+   */
+  async postSearchHook(args: any) {
+    const result = {
+      continue: true,
+      patterns: [],
+      improvements: []
+    };
+
+    try {
+      // Record search operation
+      this.sessionData.operations.push({
+        type: 'search',
+        timestamp: Date.now(),
+        args: args
+      });
+
+      // Update metrics
+      this.sessionData.metrics.tasksCompleted++;
+
+      return result;
+    } catch (error) {
+      console.error('❌ Post-search hook error:', error.message);
+      return { continue: true, error: error.message };
     }
   }
 }
