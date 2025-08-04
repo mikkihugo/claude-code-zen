@@ -7,8 +7,25 @@ import { ClaudeIntegrationCore } from './core';
 import { ClaudeDocsGenerator } from './docs';
 import { RemoteWrapperGenerator } from './remote';
 
+interface ClaudeIntegrationOptions {
+  autoSetup?: boolean;
+  forceSetup?: boolean;
+  mergeSetup?: boolean;
+  backupSetup?: boolean;
+  noBackup?: boolean;
+  interactive?: boolean;
+  workingDir?: string;
+  packageName?: string;
+  [key: string]: any;
+}
+
 class ClaudeIntegrationOrchestrator {
-  constructor(options = {}) {
+  public options: ClaudeIntegrationOptions;
+  public core: ClaudeIntegrationCore;
+  public docs: ClaudeDocsGenerator;
+  public remote: RemoteWrapperGenerator;
+
+  constructor(options: ClaudeIntegrationOptions = {}) {
     this.options = {
       autoSetup: options.autoSetup || false,
       forceSetup: options.forceSetup || false,
@@ -36,7 +53,7 @@ class ClaudeIntegrationOrchestrator {
         timestamp: new Date().toISOString(),
         workingDir: this.options.workingDir,
         success: true,
-        modules: {},
+        modules: {} as any,
       };
       results.modules.docs = await this.docs.generateAll({
         force: this.options.forceSetup,

@@ -20,6 +20,22 @@ interface GenerateOptions {
   interactive?: boolean;
 }
 
+// Define the command configuration types
+interface ToolCommandConfig {
+  title: string;
+  tool: string;
+  params: string;
+  description: string;
+  details: string;
+}
+
+interface ContentCommandConfig {
+  title: string;
+  content: string;
+}
+
+type CommandConfig = ToolCommandConfig | ContentCommandConfig;
+
 class ClaudeDocsGenerator {
   private workingDir: string;
   private advancedGenerator: any;
@@ -671,7 +687,7 @@ Remember: **ruv-swarm coordinates, Claude Code creates!** Start with \`mcp__zen-
       await fs.mkdir(path.join(commandsDir, subdir), { recursive: true });
     }
 
-    const commands = {
+    const commands: Record<string, CommandConfig> = {
       // Coordination commands
       'coordination/init.md': {
         title: 'Initialize Coordination Framework',
@@ -1029,9 +1045,9 @@ Already configured by default for common file types.
     for (const [filepath, config] of Object.entries(commands)) {
       let content;
 
-      if (config.content) {
+      if ('content' in config) {
         // Use provided content for workflow files
-        ({ content } = config);
+        content = config.content;
       } else {
         // Generate content for tool documentation
         content = `# ${config.title}

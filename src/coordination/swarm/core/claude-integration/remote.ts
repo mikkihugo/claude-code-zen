@@ -6,8 +6,17 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
+interface RemoteWrapperOptions {
+  workingDir?: string;
+  packageName?: string;
+  [key: string]: any;
+}
+
 class RemoteWrapperGenerator {
-  constructor(options = {}) {
+  public workingDir: string;
+  public packageName: string;
+
+  constructor(options: RemoteWrapperOptions = {}) {
     this.workingDir = options.workingDir || process.cwd();
     this.packageName = options.packageName || 'ruv-swarm';
   }
