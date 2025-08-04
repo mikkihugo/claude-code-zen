@@ -7,23 +7,9 @@ import { execSync } from 'node:child_process';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-// Import declaration for persistence (will be resolved at runtime)
-declare module '../../../database/persistence/persistence-pooled' {
-  export class SwarmPersistencePooled {
-    constructor(dbPath?: string, options?: any);
-    initialize(): Promise<void>;
-    shutdown(): Promise<void>;
-    save(key: string, data: any): Promise<void>;
-    load(key: string): Promise<any>;
-    delete(key: string): Promise<void>;
-    clear(): Promise<void>;
-    storeAgentMemory(agentId: string, key: string, data: any): Promise<void>;
-    updateAgentStatus(agentId: string, status: string): Promise<void>;
-    [key: string]: any;
-  }
-}
 
-import { SwarmPersistencePooled as SwarmPersistence } from '../../../database/persistence/persistence-pooled';
+// Use any type for SwarmPersistence to avoid import issues
+type SwarmPersistence = any;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -31,6 +17,7 @@ const __dirname = path.dirname(__filename);
 class ZenSwarmHooks {
   public sessionData: any;
   public persistence: SwarmPersistence | null;
+  private _sessionId?: string;
 
   constructor() {
     this.sessionData = {
@@ -55,7 +42,11 @@ class ZenSwarmHooks {
    */
   async initializePersistence() {
     try {
-      this.persistence = new SwarmPersistence();
+      // Dynamic import to avoid module resolution issues
+      const { SwarmPersistencePooled } = await import('../../../database/persistence/persistence-pooled.js').catch(() => ({ SwarmPersistencePooled: null }));
+      if (SwarmPersistencePooled) {
+        this.persistence = new SwarmPersistencePooled();
+      }
     } catch (error) {
       console.warn('⚠️ Failed to initialize persistence layer:', error.message);
       console.warn('⚠️ Operating in memory-only mode');
@@ -791,7 +782,7 @@ class ZenSwarmHooks {
             .catch(() => false)
         ) {
           const roster = JSON.parse(await fs.readFile(rosterPath, 'utf-8'));
-          roster.forEach((agent) => {
+          roster.forEach((agent: any) => {
             this.sessionData.agents.set(agent.id, agent);
           });
           result.restored.agents = true;
@@ -1033,16 +1024,16 @@ Duration: ${this.formatDuration(duration)}
 Token Reduction: ${this.sessionData.metrics.tokensSaved} tokens
 
 ## Swarm Activity
-- Active Agents: ${agentList.length} (${agentList.map((a) => a.type).join(', ')})
+- Active Agents: ${agentList.length} (${agentList.map((a: any) => a.type).join(', ')})
 - Operations Performed: ${this.sessionData.operations.length}
-- Files Modified: ${new Set(this.sessionData.operations.map((o) => o.file)).size}
+- Files Modified: ${new Set(this.sessionData.operations.map((o: any) => o.file)).size}
 - Neural Improvements: ${this.sessionData.metrics.patternsImproved}
 
 ## Operations Breakdown
 ${this.sessionData.operations
   .slice(-10)
   .map(
-    (op) =>
+    (op: any) =>
       `- ${new Date(op.timestamp).toLocaleTimeString()}: ${op.type} on ${op.file} (${op.agent})`
   )
   .join('\n')}
@@ -1051,7 +1042,7 @@ ${this.sessionData.operations
 ${this.sessionData.learnings
   .slice(-5)
   .map(
-    (l) =>
+    (l: any) =>
       `- Pattern "${l.pattern}" improved by ${(l.improvement * 100).toFixed(1)}% (confidence: ${l.confidence})`
   )
   .join('\n')}
@@ -1589,10 +1580,10 @@ ${this.sessionData.learnings
     const agents = Array.from(this.sessionData.agents.values());
     const allocation = {};
 
-    agents.forEach((agent) => {
+    agents.forEach((agent: any) => {
       // Allocate based on agent type and current load
       const load = this.sessionData.operations.filter(
-        (op) => op.agent === agent.id && Date.now() - op.timestamp < 60000
+        (op: any) => op.agent === agent.id && Date.now() - op.timestamp < 60000
       ).length;
 
       allocation[agent.id] = {
@@ -1647,7 +1638,7 @@ ${this.sessionData.learnings
       }
     });
 
-    const sorted = Object.entries(agentCounts).sort((a, b) => b[1] - a[1]);
+    const sorted = Object.entries(agentCounts).sort((a, b) => Number(b[1]) - Number(a[1]));
     return sorted.length > 0 ? sorted[0][0] : 'coordinator';
   }
 
