@@ -1103,7 +1103,8 @@ ${config.details}
 `;
       } else {
         // Fallback for unexpected config structure
-        content = `# ${config.title}\n\nConfiguration error: Unknown command structure.`;
+        const title = (config as any).title || 'Unknown Command';
+        content = `# ${title}\n\nConfiguration error: Unknown command structure.`;
       }
 
       const filePath = path.join(commandsDir, filepath);

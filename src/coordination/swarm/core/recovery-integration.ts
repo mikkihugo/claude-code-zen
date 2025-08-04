@@ -14,11 +14,10 @@
  */
 
 import { EventEmitter } from 'node:events';
+import HealthMonitor from '../../diagnostics/health-monitor';
 import ChaosEngineering from '../chaos-engineering/chaos-engineering';
 import ConnectionStateManager from '../connection-management/connection-state-manager';
 import { ErrorFactory } from './errors';
-
-import HealthMonitor from '../../diagnostics/health-monitor';
 import { Logger } from './logger';
 import MonitoringDashboard from './monitoring-dashboard';
 import RecoveryWorkflows from './recovery-workflows';

@@ -1703,35 +1703,53 @@ export interface ConsensusProcess {
 export class ProblemDecompositionSystem {
   constructor(_config: any, _logger: ILogger, _eventBus: IEventBus) {}
   on(_event: string, _handler: Function) {}
-  shutdown() { return Promise.resolve(); }
+  shutdown() {
+    return Promise.resolve();
+  }
 }
 
 export class DistributedReasoningSystem {
   constructor(_config: any, _logger: ILogger, _eventBus: IEventBus) {}
   on(_event: string, _handler: Function) {}
-  assignReasoningTasks(_subproblems: SubProblem[]) { return Promise.resolve(); }
-  shutdown() { return Promise.resolve(); }
+  assignReasoningTasks(_subproblems: SubProblem[]) {
+    return Promise.resolve();
+  }
+  shutdown() {
+    return Promise.resolve();
+  }
 }
 
 export class ConsensusBuilderSystem {
   constructor(_config: any, _logger: ILogger, _eventBus: IEventBus) {}
   on(_event: string, _handler: Function) {}
-  initiateConsensus(_results: any) { return Promise.resolve(); }
-  shutdown() { return Promise.resolve(); }
+  initiateConsensus(_results: any) {
+    return Promise.resolve();
+  }
+  shutdown() {
+    return Promise.resolve();
+  }
 }
 
 export class SolutionSynthesisSystem {
   constructor(_config: any, _logger: ILogger, _eventBus: IEventBus) {}
   on(_event: string, _handler: Function) {}
-  synthesizeSolution(_consensus: any) { return Promise.resolve(); }
-  shutdown() { return Promise.resolve(); }
+  synthesizeSolution(_consensus: any) {
+    return Promise.resolve();
+  }
+  shutdown() {
+    return Promise.resolve();
+  }
 }
 
 export class ContextSharingSystem {
   constructor(_config: any, _logger: ILogger, _eventBus: IEventBus) {}
   on(_event: string, _handler: Function) {}
-  updateSharedContext(_solution: any) { return Promise.resolve(); }
-  shutdown() { return Promise.resolve(); }
+  updateSharedContext(_solution: any) {
+    return Promise.resolve();
+  }
+  shutdown() {
+    return Promise.resolve();
+  }
 }
 
 export default CollaborativeReasoningEngine;

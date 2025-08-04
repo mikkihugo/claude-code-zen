@@ -738,7 +738,9 @@ export class DatabaseController {
       const executionTime = Date.now() - startTime;
       this.updateMetrics(executionTime, true);
 
-      this._logger.info(`Migration ${request.version} completed successfully in ${executionTime}ms`);
+      this._logger.info(
+        `Migration ${request.version} completed successfully in ${executionTime}ms`
+      );
 
       return {
         success: true,

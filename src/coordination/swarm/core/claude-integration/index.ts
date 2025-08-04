@@ -60,9 +60,9 @@ class ClaudeIntegrationOrchestrator {
    */
   async setupIntegration(): Promise<SetupResults> {
     try {
-      const results = {
+      const results: SetupResults = {
         timestamp: new Date().toISOString(),
-        workingDir: this.options.workingDir,
+        workingDir: this.options.workingDir || process.cwd(),
         success: true,
         modules: {},
       };
@@ -171,13 +171,18 @@ class ClaudeIntegrationOrchestrator {
 }
 
 // Convenience function for simple setup
-async function setupClaudeIntegration(options: ClaudeIntegrationOptions = {}): Promise<SetupResults> {
+async function setupClaudeIntegration(
+  options: ClaudeIntegrationOptions = {}
+): Promise<SetupResults> {
   const orchestrator = new ClaudeIntegrationOrchestrator(options);
   return await orchestrator.setupIntegration();
 }
 
 // Convenience function for Claude invocation
-async function invokeClaudeWithSwarm(prompt: string, options: ClaudeIntegrationOptions = {}): Promise<any> {
+async function invokeClaudeWithSwarm(
+  prompt: string,
+  options: ClaudeIntegrationOptions = {}
+): Promise<any> {
   const orchestrator = new ClaudeIntegrationOrchestrator(options);
   return await orchestrator.invokeClaudeWithPrompt(prompt);
 }

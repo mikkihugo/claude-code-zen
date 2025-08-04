@@ -10,7 +10,7 @@ export class WasmModuleLoader {
 
   async load(): Promise<void> {
     if (this.loaded) return;
-    
+
     // TODO: Implement actual WASM loading
     this.loaded = true;
   }

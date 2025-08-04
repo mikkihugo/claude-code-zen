@@ -296,7 +296,14 @@ export interface ComplexityAnalysis {
 }
 
 export interface OptimizationOpportunity {
-  type: 'performance' | 'memory' | 'readability' | 'maintainability' | 'algorithmic' | 'caching' | 'parallelization';
+  type:
+    | 'performance'
+    | 'memory'
+    | 'readability'
+    | 'maintainability'
+    | 'algorithmic'
+    | 'caching'
+    | 'parallelization';
   description: string;
   impact: 'low' | 'medium' | 'high';
   effort: 'low' | 'medium' | 'high';
@@ -919,14 +926,14 @@ export interface ImprovementMetric {
 }
 
 // Missing exports required by pseudocode engine
-export type ComplexityClass = 
-  | 'O(1)' 
-  | 'O(log n)' 
-  | 'O(n)' 
-  | 'O(n log n)' 
-  | 'O(n²)' 
-  | 'O(n³)' 
-  | 'O(2^n)' 
+export type ComplexityClass =
+  | 'O(1)'
+  | 'O(log n)'
+  | 'O(n)'
+  | 'O(n log n)'
+  | 'O(n²)'
+  | 'O(n³)'
+  | 'O(2^n)'
   | 'O(n!)';
 
 export interface CoreAlgorithm {

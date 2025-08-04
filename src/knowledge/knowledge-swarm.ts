@@ -134,7 +134,7 @@ export class KnowledgeSwarm extends EventEmitter {
       crossAgentSharing: true,
       ...config,
     };
-    
+
     this.vectorDb = vectorDb;
   }
 

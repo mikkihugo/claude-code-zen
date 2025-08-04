@@ -51,7 +51,12 @@ class ValidationError extends ZenSwarmError {
   public value: any;
   public expectedType: string | null;
 
-  constructor(message: string, field: string | null = null, value: any = null, expectedType: string | null = null) {
+  constructor(
+    message: string,
+    field: string | null = null,
+    value: any = null,
+    expectedType: string | null = null
+  ) {
     const details = {
       field,
       value: typeof value === 'object' ? JSON.stringify(value) : value,
@@ -320,6 +325,9 @@ class ConfigurationError extends ZenSwarmError {
  * Network/connectivity errors
  */
 class NetworkError extends ZenSwarmError {
+  public endpoint: string | null;
+  public statusCode: number | null;
+
   constructor(message, endpoint = null, statusCode = null) {
     const details = { endpoint, statusCode };
     super(message, 'NETWORK_ERROR', details);
@@ -354,6 +362,9 @@ class NetworkError extends ZenSwarmError {
  * Database/persistence errors
  */
 class PersistenceError extends ZenSwarmError {
+  public operation: string | null;
+  public table: string | null;
+
   constructor(message, operation = null, table = null) {
     const details = { operation, table };
     super(message, 'PERSISTENCE_ERROR', details);
@@ -388,6 +399,10 @@ class PersistenceError extends ZenSwarmError {
  * Resource/memory errors
  */
 class ResourceError extends ZenSwarmError {
+  public resourceType: string | null;
+  public currentUsage: number | null;
+  public limit: number | null;
+
   constructor(message, resourceType = null, currentUsage = null, limit = null) {
     const details = { resourceType, currentUsage, limit };
     super(message, 'RESOURCE_ERROR', details);
@@ -453,7 +468,7 @@ class ErrorFactory {
   /**
    * Create an appropriate error based on the context
    */
-  static createError(type, message, details = {}) {
+  static createError(type: string, message: string, details: any = {}) {
     switch (type) {
       case 'validation':
         return new ValidationError(message, details.field, details.value, details.expectedType);
@@ -509,15 +524,17 @@ class ErrorFactory {
  * Error context for logging and debugging
  */
 class ErrorContext {
+  public context: Map<string, any>;
+
   constructor() {
     this.context = new Map();
   }
 
-  set(key, value) {
+  set(key: string, value: any) {
     this.context.set(key, value);
   }
 
-  get(key) {
+  get(key: string) {
     return this.context.get(key);
   }
 
@@ -532,7 +549,7 @@ class ErrorContext {
   /**
    * Add context to an error
    */
-  enrichError(error) {
+  enrichError(error: any) {
     if (error instanceof ZenSwarmError) {
       error.details = {
         ...error.details,
