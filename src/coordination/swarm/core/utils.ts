@@ -231,6 +231,26 @@ export function validateSwarmOptions(options: any): string[] {
 }
 
 /**
+ * Normalize and validate SwarmOptions with defaults
+ */
+export function normalizeSwarmOptions(options: SwarmOptions = {}): Required<SwarmOptions> {
+  const errors = validateSwarmOptions(options);
+  if (errors.length > 0) {
+    throw new Error(`Invalid SwarmOptions: ${errors.join(', ')}`);
+  }
+
+  return {
+    topology: options.topology ?? 'mesh',
+    maxAgents: options.maxAgents ?? 10,
+    connectionDensity: options.connectionDensity ?? 0.7,
+    syncInterval: options.syncInterval ?? 1000,
+    wasmPath: options.wasmPath ?? './wasm',
+    persistence: options.persistence ?? {},
+    pooling: options.pooling ?? {}
+  };
+}
+
+/**
  * Deep clone an object
  */
 export function deepClone<T>(obj: T): T {

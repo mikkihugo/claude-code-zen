@@ -314,17 +314,17 @@ export class ConnectionStateManager extends EventEmitter {
       }, this.options.connectionTimeout);
 
       try {
-        const process = spawn(command, args, {
+        const childProcess = spawn(command, args, {
           stdio: ['pipe', 'pipe', 'pipe'],
           env: { ...process.env, ...config.env },
         });
 
-        process.on('spawn', () => {
+        childProcess.on('spawn', () => {
           clearTimeout(timeout);
-          connection.process = process;
-          connection.stdin = process.stdin;
-          connection.stdout = process.stdout;
-          connection.stderr = process.stderr;
+          connection.process = childProcess;
+          connection.stdin = childProcess.stdin;
+          connection.stdout = childProcess.stdout;
+          connection.stderr = childProcess.stderr;
 
           // Set up message handling
           this.setupMessageHandling(connection);
@@ -332,12 +332,12 @@ export class ConnectionStateManager extends EventEmitter {
           resolve();
         });
 
-        process.on('error', (error) => {
+        childProcess.on('error', (error) => {
           clearTimeout(timeout);
           reject(new Error(`Failed to spawn process: ${error.message}`));
         });
 
-        process.on('exit', (code, signal) => {
+        childProcess.on('exit', (code, signal) => {
           this.handleConnectionClosed(connection.id, code, signal);
         });
       } catch (error) {
@@ -404,15 +404,25 @@ export class ConnectionStateManager extends EventEmitter {
       throw new Error('Base URL is required for HTTP connection');
     }
 
-    // Test connection with a simple request
-    const response = await fetch(`${baseUrl}/health`, {
-      method: 'GET',
-      timeout: this.options.connectionTimeout,
-      headers: config.headers || {},
-    });
+    // Test connection with a simple request using AbortController for timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), this.options.connectionTimeout);
+    
+    try {
+      const response = await fetch(`${baseUrl}/health`, {
+        method: 'GET',
+        signal: controller.signal,
+        headers: config.headers || {},
+      });
 
-    if (!response.ok) {
-      throw new Error(`HTTP connection test failed: ${response.status} ${response.statusText}`);
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`HTTP connection test failed: ${response.status} ${response.statusText}`);
+      }
+    } catch (error) {
+      clearTimeout(timeoutId);
+      throw error;
     }
 
     connection.http = {

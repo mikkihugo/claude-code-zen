@@ -10,8 +10,8 @@ import { SwarmPersistencePooled } from '../../../database/persistence/persistenc
 import { WasmModuleLoader } from '../../../neural/wasm/wasm-loader';
 import { AgentPool, type BaseAgent } from '../../agents/agent';
 import { getContainer } from './singleton-container';
-import type { SwarmEventEmitter, SwarmOptions, SwarmState } from './types';
-import { generateId, validateSwarmOptions } from './utils';
+import type { SwarmEventEmitter, SwarmOptions, SwarmLifecycleState } from './types';
+import { generateId, normalizeSwarmOptions } from './utils';
 
 /**
  * Core ZenSwarm implementation with all base functionality
@@ -19,7 +19,7 @@ import { generateId, validateSwarmOptions } from './utils';
 export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
   private swarmId: string;
   private agents: Map<string, BaseAgent> = new Map();
-  private state: SwarmState = 'idle';
+  private state: SwarmLifecycleState = 'initializing';
   private persistence?: SwarmPersistencePooled;
   private agentPool?: AgentPool;
   private wasmLoader: WasmModuleLoader;
@@ -31,7 +31,7 @@ export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
   constructor(options: SwarmOptions = {}) {
     super();
 
-    this.options = validateSwarmOptions(options);
+    this.options = normalizeSwarmOptions(options);
     this.swarmId = generateId('swarm');
     this.wasmLoader = getContainer().get(WasmModuleLoader) || new WasmModuleLoader();
     this.isRunning = false;
@@ -57,13 +57,14 @@ export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
 
     // Initialize persistence if enabled
     if (this.options.persistence.enabled) {
-      this.persistence = new SwarmPersistencePooled({
-        dbPath: this.options.persistence.dbPath || './swarm-state.db',
+      const dbPath = this.options.persistence.dbPath || './swarm-state.db';
+      const persistenceOptions = {
         checkpointInterval: this.options.persistence.checkpointInterval || 30000,
         compressionEnabled: this.options.persistence.compressionEnabled ?? true,
         usePooledConnections: true,
         maxConnections: this.options.pooling?.maxPoolSize || 10,
-      });
+      };
+      this.persistence = new SwarmPersistencePooled(dbPath, persistenceOptions);
       await this.persistence.initialize();
     }
 
@@ -80,7 +81,7 @@ export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
       this.agentPool = new AgentPool();
     }
 
-    this.state = 'initialized';
+    this.state = 'active';
     this.emit('swarm:initialized', { swarmId: this.swarmId });
   }
 
@@ -88,7 +89,7 @@ export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
     return this.swarmId;
   }
 
-  getState(): SwarmState {
+  getState(): SwarmLifecycleState {
     return this.state;
   }
 
