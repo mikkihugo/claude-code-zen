@@ -408,6 +408,11 @@ export class SPARCEngineCore implements SPARCEngine {
       validations,
       blockers,
       warnings,
+      overallScore,
+      validationResults: validations,
+      recommendations: blockers.length > 0 ? blockers : ['System ready for production'],
+      approved: overallScore >= 0.8 && blockers.length === 0,
+      productionReady: readyForProduction,
     };
     return result;
   }
@@ -884,6 +889,12 @@ export class SPARCEngineCore implements SPARCEngine {
       deploymentScripts: [],
       monitoringDashboards: [],
       securityConfigurations: [],
+      documentationGeneration: {
+        artifacts: [],
+        coverage: 0,
+        quality: 0,
+      },
+      productionReadinessChecks: [],
     };
   }
 

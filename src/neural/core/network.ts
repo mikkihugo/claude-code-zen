@@ -558,18 +558,8 @@ export function getRecommendedAgentConfig(
 // =============================================================================
 // TYPE EXPORTS
 // =============================================================================
-
-export type {
-  NetworkConfig,
-  LayerConfig,
-  TrainingDataConfig,
-  TrainingConfig,
-  AgentNetworkConfig,
-  CascadeConfig,
-  NetworkInfo,
-  TrainingResult,
-  CognitiveState,
-};
+// Neural Network Core Module - Complete Implementation
+// =============================================================================
 
 // Export all classes and functions as default
 export default {

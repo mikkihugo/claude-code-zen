@@ -181,6 +181,3 @@ export function createAGUI(type: 'terminal' | 'mock' = 'terminal'): AGUIInterfac
       return new TerminalAGUI();
   }
 }
-
-// Export factory function only
-export { createAGUI };

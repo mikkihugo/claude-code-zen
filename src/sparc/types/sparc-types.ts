@@ -292,10 +292,14 @@ export interface ComplexityAnalysis {
   spaceComplexity: string;
   scalability: string;
   worstCase: string;
+  averageCase?: string;
+  bestCase?: string;
+  scalabilityAnalysis?: string;
   bottlenecks?: string[];
 }
 
 export interface OptimizationOpportunity {
+  id?: string;
   type:
     | 'performance'
     | 'memory'
@@ -307,6 +311,7 @@ export interface OptimizationOpportunity {
   description: string;
   impact: 'low' | 'medium' | 'high';
   effort: 'low' | 'medium' | 'high';
+  estimatedImprovement?: string;
 }
 
 export interface DataStructureDesign {
@@ -578,6 +583,8 @@ export interface ImplementationArtifacts {
   deploymentScripts: DeploymentScript[];
   monitoringDashboards: MonitoringDashboard[];
   securityConfigurations: SecurityConfiguration[];
+  documentationGeneration: DocumentationGeneration;
+  productionReadinessChecks: ProductionReadinessCheck[];
 }
 
 export interface SourceCodeArtifact {
@@ -673,6 +680,11 @@ export interface CompletionValidation {
   validations: ValidationResult[];
   blockers: string[];
   warnings: string[];
+  overallScore: number;
+  validationResults: ValidationResult[];
+  recommendations: string[];
+  approved: boolean;
+  productionReady: boolean;
 }
 
 // Context and Configuration Types
@@ -792,6 +804,22 @@ export type ProductionReadinessReport = CompletionValidation;
 export type DeploymentConfig = Record<string, unknown>;
 export type DeploymentResult = { success: boolean; details: string };
 export type Implementation = ImplementationArtifacts;
+
+// Additional interfaces for completion engine
+export interface DocumentationGeneration {
+  artifacts: DocumentationArtifact[];
+  coverage: number;
+  quality: number;
+}
+
+export interface ProductionReadinessCheck {
+  name: string;
+  type: 'security' | 'performance' | 'reliability' | 'monitoring';
+  passed: boolean;
+  score: number;
+  details: string;
+  recommendations: string[];
+}
 export type RefinementFeedback = PerformanceFeedback;
 export type DocumentationArtifact = ArtifactReference;
 export type ConfigurationArtifact = ArtifactReference;
@@ -951,10 +979,16 @@ export interface DataStructureSpec {
   id: string;
   name: string;
   type: string;
+  description?: string;
   properties: PropertyDefinition[];
   methods: MethodDefinition[];
   memoryComplexity: string;
   accessPatterns: string[];
+  relationships: StructureRelationship[];
+  keyType?: string;
+  valueType?: string;
+  expectedSize?: number;
+  performance?: Record<string, string>;
 }
 
 export interface ProcessFlow {
@@ -972,6 +1006,9 @@ export interface ProcessStep {
   description: string;
   dependencies: string[];
   duration?: number;
+  algorithm?: string;
+  inputs?: string[];
+  outputs?: string[];
 }
 
 export interface FlowCondition {
@@ -989,4 +1026,6 @@ export interface PseudocodeValidation {
   optimizationSuggestions: string[];
   complexityVerification: boolean;
   overallScore: number; // Overall validation score (0-1)
+  recommendations: string[];
+  approved: boolean;
 }

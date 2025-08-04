@@ -16,6 +16,7 @@ import type {
   SwarmOptions, 
   SwarmState, 
   SwarmEvent,
+  SwarmMetrics,
   Message,
   AgentConfig,
   Task,
@@ -24,7 +25,7 @@ import type {
 import { AgentPool, createAgent, BaseAgent } from '../../agents/agent';
 import { WasmModuleLoader } from '../../../neural/wasm/wasm-loader';
 import { SwarmPersistencePooled } from '../../../database/persistence/persistence-pooled';
-import { validateSwarmOptions, generateId } from './utils';
+import { validateSwarmOptions, generateId, formatMetrics, priorityToNumber } from './utils';
 import { getContainer } from './singleton-container';
 
 export * from '../../../neural/core/neural-network';
@@ -720,7 +721,7 @@ export class ZenSwarm implements SwarmEventEmitter {
       timestamp: Date.now(),
     };
 
-    await agent.communicate(message);
+    await (agent as any).communicate(message);
 
     try {
       task.status = 'in_progress';
@@ -883,6 +884,7 @@ export class ZenSwarm implements SwarmEventEmitter {
  */
 export class SwarmWrapper {
   public id: string;
+  private wasmSwarm: any;  // Add missing property declaration
   private ruvSwarm: ZenSwarm;
   public agents: Map<string, Agent>;
   private tasks: Map<string, TaskWrapper>;

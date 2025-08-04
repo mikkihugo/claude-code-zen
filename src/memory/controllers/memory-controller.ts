@@ -596,7 +596,7 @@ export class MemoryController {
    */
   private async initializeBackend(): Promise<void> {
     try {
-      this.backend = this.factory.createProvider(this._config);
+      this.backend = this._factory.createProvider(this._config);
       this._logger.info(`Memory controller initialized with ${this._config.type} backend`);
     } catch (error) {
       this._logger.error(`Failed to initialize memory backend: ${error}`);
@@ -614,6 +614,7 @@ export class MemoryController {
         storedAt: Date.now(),
         ttl: options?.ttl || 0,
         compressed: options?.compress || false,
+        originalSize: 0, // Will be set below if compression is enabled
         ...options?.metadata,
       },
     };

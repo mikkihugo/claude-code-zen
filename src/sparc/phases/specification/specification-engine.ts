@@ -108,7 +108,7 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
 
     const specification: DetailedSpecification = {
       id: `spec-${Date.now()}`, // Generate unique specification ID
-      domain: context.domain, // Use domain from context
+      domain: 'general' as ProjectDomain, // Default domain since analysis doesn't have domain
       functionalRequirements,
       nonFunctionalRequirements,
       constraints,
