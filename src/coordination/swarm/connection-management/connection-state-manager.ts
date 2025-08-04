@@ -51,6 +51,13 @@ export class ConnectionStateManager extends EventEmitter {
   private currentState: any;
   private stateHistory: any[];
   private metrics: any;
+  private isShuttingDown: boolean;
+  private activeConnections: number;
+  private stats: any;
+  private persistence: any;
+  private healthMonitor: any;
+  private recoveryWorkflows: any;
+  private healthMonitorInterval: any;
 
   constructor(options: any = {}) {
     super();
@@ -67,11 +74,7 @@ export class ConnectionStateManager extends EventEmitter {
       ...options,
     };
 
-    this.logger = new Logger({
-      name: 'connection-state-manager',
-      level: process.env.LOG_LEVEL || 'INFO',
-      metadata: { component: 'connection-state-manager' },
-    });
+    this.logger = Logger;
 
     // Connection state
     this.connections = new Map();
@@ -82,7 +85,7 @@ export class ConnectionStateManager extends EventEmitter {
     // State tracking
     this.isInitialized = false;
     this.isShuttingDown = false;
-    this.connectionPool = [];
+    this.connectionPool = new Map();
     this.activeConnections = 0;
 
     // Statistics
@@ -130,7 +133,10 @@ export class ConnectionStateManager extends EventEmitter {
           component: 'connection-state-manager',
         }
       );
-      this.logger.error('Connection State Manager initialization failed', managerError);
+      this.logger.error('Connection State Manager initialization failed', {
+        error: error.message,
+        component: 'connection-state-manager',
+      });
       throw managerError;
     }
   }

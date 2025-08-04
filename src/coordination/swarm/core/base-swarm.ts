@@ -24,6 +24,9 @@ export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
   private agentPool?: AgentPool;
   private wasmLoader: WasmModuleLoader;
   private options: Required<SwarmOptions>;
+  private metrics: any;
+  private neuralProcessor: any;
+  private isRunning: boolean;
 
   constructor(options: SwarmOptions = {}) {
     super();
@@ -31,6 +34,7 @@ export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
     this.options = validateSwarmOptions(options);
     this.swarmId = generateId('swarm');
     this.wasmLoader = getContainer().get(WasmModuleLoader) || new WasmModuleLoader();
+    this.isRunning = false;
 
     this.metrics = {
       tasksCreated: 0,

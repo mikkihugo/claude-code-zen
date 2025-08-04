@@ -8,6 +8,10 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
 class ClaudeIntegrationCore {
+  private autoSetup: boolean;
+  private forceSetup: boolean;
+  private workingDir: string;
+
   constructor(options = {}) {
     this.autoSetup = options.autoSetup || false;
     this.forceSetup = options.forceSetup || false;
