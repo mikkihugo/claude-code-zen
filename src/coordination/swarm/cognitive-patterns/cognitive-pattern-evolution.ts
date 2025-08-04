@@ -4,6 +4,12 @@
  */
 
 class CognitivePatternEvolution {
+  private agentPatterns: Map<string, any>;
+  private evolutionHistory: Map<string, any>;
+  private patternTemplates: Map<string, any>;
+  private crossAgentPatterns: Map<string, any>;
+  private evolutionMetrics: Map<string, any>;
+
   constructor() {
     this.agentPatterns = new Map();
     this.evolutionHistory = new Map();
