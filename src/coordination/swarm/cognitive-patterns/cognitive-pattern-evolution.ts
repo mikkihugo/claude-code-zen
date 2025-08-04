@@ -675,8 +675,10 @@ class CognitivePatternEvolution {
   assessEvolutionNeed(effectiveness: any, context: any): any {
     const values = Object.values(effectiveness);
     const avgEffectiveness =
-      values.reduce((sum: number, e: any) => sum + (e?.overall || 0), 0) /
-      Object.keys(effectiveness).length;
+      values.reduce((sum: number, e: any) => {
+        const effectivenessValue = e?.overall || 0;
+        return sum + (typeof effectivenessValue === 'number' ? effectivenessValue : 0);
+      }, 0) / Object.keys(effectiveness).length;
 
     // Evolution needed if effectiveness is low
     if (avgEffectiveness < 0.4) {

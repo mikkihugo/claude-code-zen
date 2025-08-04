@@ -93,6 +93,9 @@ class ValidationError extends ZenSwarmError {
  * Swarm-related errors
  */
 class SwarmError extends ZenSwarmError {
+  public swarmId: string | null;
+  public operation: string | null;
+
   constructor(message, swarmId = null, operation = null) {
     const details = { swarmId, operation };
     super(message, 'SWARM_ERROR', details);
@@ -168,6 +171,10 @@ class AgentError extends ZenSwarmError {
  * Task-related errors
  */
 class TaskError extends ZenSwarmError {
+  public taskId: string | null;
+  public taskType: string | null;
+  public operation: string | null;
+
   constructor(message, taskId = null, taskType = null, operation = null) {
     const details = { taskId, taskType, operation };
     super(message, 'TASK_ERROR', details);
@@ -206,6 +213,10 @@ class TaskError extends ZenSwarmError {
  * Neural network related errors
  */
 class NeuralError extends ZenSwarmError {
+  public networkId: string | null;
+  public operation: string | null;
+  public modelType: string | null;
+
   constructor(message, networkId = null, operation = null, modelType = null) {
     const details = { networkId, operation, modelType };
     super(message, 'NEURAL_ERROR', details);
@@ -244,6 +255,9 @@ class NeuralError extends ZenSwarmError {
  * WASM-related errors
  */
 class WasmError extends ZenSwarmError {
+  public module: string | null;
+  public operation: string | null;
+
   constructor(message, module = null, operation = null) {
     const details = { module, operation };
     super(message, 'WASM_ERROR', details);
@@ -281,6 +295,9 @@ class WasmError extends ZenSwarmError {
  * Configuration errors
  */
 class ConfigurationError extends ZenSwarmError {
+  public configKey: string | null;
+  public configValue: any;
+
   constructor(message, configKey = null, configValue = null) {
     const details = { configKey, configValue };
     super(message, 'CONFIGURATION_ERROR', details);

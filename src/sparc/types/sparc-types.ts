@@ -247,10 +247,12 @@ export interface PseudocodeEngine {
 export interface PseudocodeStructure {
   id: string;
   algorithms: AlgorithmPseudocode[];
+  coreAlgorithms: AlgorithmPseudocode[]; // Legacy property for backward compatibility
   dataStructures: DataStructureDesign[];
   controlFlows: ControlFlowDiagram[];
   optimizations: OptimizationOpportunity[];
   dependencies: AlgorithmDependency[];
+  complexityAnalysis?: ComplexityAnalysis; // Overall complexity analysis
 }
 
 export interface AlgorithmPseudocode {
@@ -769,6 +771,11 @@ export interface RefinementResult {
   refactoringOpportunities: RefactoringOpportunity[];
   technicalDebtAnalysis: TechnicalDebtAnalysis;
   recommendedNextSteps: string[];
+  // Additional metrics for MCP tools
+  performanceGain: number;
+  resourceReduction: number;
+  scalabilityIncrease: number;
+  maintainabilityImprovement: number;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -912,13 +919,15 @@ export interface ImprovementMetric {
 }
 
 // Missing exports required by pseudocode engine
-export interface ComplexityClass {
-  id: string;
-  name: string;
-  description: string;
-  notation: string;
-  examples: string[];
-}
+export type ComplexityClass = 
+  | 'O(1)' 
+  | 'O(log n)' 
+  | 'O(n)' 
+  | 'O(n log n)' 
+  | 'O(n²)' 
+  | 'O(n³)' 
+  | 'O(2^n)' 
+  | 'O(n!)';
 
 export interface CoreAlgorithm {
   id: string;
@@ -972,4 +981,5 @@ export interface PseudocodeValidation {
   logicErrors: string[];
   optimizationSuggestions: string[];
   complexityVerification: boolean;
+  overallScore: number; // Overall validation score (0-1)
 }
