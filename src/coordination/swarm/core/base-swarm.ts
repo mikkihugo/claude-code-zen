@@ -77,11 +77,7 @@ export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
 
     // Initialize agent pool
     if (this.options.pooling?.enabled) {
-      this.agentPool = new AgentPool({
-        maxSize: this.options.pooling.maxPoolSize || 10,
-        minSize: this.options.pooling.minPoolSize || 2,
-        idleTimeout: this.options.pooling.idleTimeout || 300000,
-      });
+      this.agentPool = new AgentPool();
     }
 
     this.state = 'initialized';

@@ -7,7 +7,7 @@
 
 import { getClaudeFlow } from './claude-flow-enhanced';
 import { ZenSwarm } from './index-enhanced';
-import { WasmModuleLoader } from './wasm-loader';
+import { WasmModuleLoader } from '../../../neural/wasm/wasm-loader';
 
 class PerformanceBenchmarks {
   constructor() {

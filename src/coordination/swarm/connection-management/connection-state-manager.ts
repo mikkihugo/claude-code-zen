@@ -127,11 +127,7 @@ export class ConnectionStateManager extends EventEmitter {
     } catch (error) {
       const managerError = ErrorFactory.createError(
         'resource',
-        'Failed to initialize connection state manager',
-        {
-          error: error.message,
-          component: 'connection-state-manager',
-        }
+        `Failed to initialize connection state manager: ${error.message}`
       );
       this.logger.error('Connection State Manager initialization failed', {
         error: error.message,
@@ -300,7 +296,7 @@ export class ConnectionStateManager extends EventEmitter {
   /**
    * Establish stdio-based MCP connection
    */
-  async establishStdioConnection(connection) {
+  async establishStdioConnection(connection): Promise<void> {
     const { spawn } = await import('node:child_process');
 
     const config = connection.config;
@@ -353,7 +349,7 @@ export class ConnectionStateManager extends EventEmitter {
   /**
    * Establish WebSocket-based MCP connection
    */
-  async establishWebSocketConnection(connection) {
+  async establishWebSocketConnection(connection): Promise<void> {
     const WebSocket = await import('ws').then((m) => m.default);
 
     const config = connection.config;
