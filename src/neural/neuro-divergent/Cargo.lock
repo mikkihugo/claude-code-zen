@@ -2404,7 +2404,7 @@ dependencies = [
  "serde_json",
  "stats_alloc",
  "tempfile",
- "thiserror 1.0.69",
+ "thiserror 2.0.12",
  "tokio",
  "toml",
  "tracing",
@@ -2432,7 +2432,7 @@ dependencies = [
  "ruv-fann",
  "serde",
  "serde_json",
- "thiserror 1.0.69",
+ "thiserror 2.0.12",
 ]
 
 [[package]]
@@ -2485,7 +2485,7 @@ dependencies = [
  "splines",
  "statrs",
  "tempfile",
- "thiserror 1.0.69",
+ "thiserror 2.0.12",
 ]
 
 [[package]]
@@ -2510,7 +2510,7 @@ dependencies = [
  "ruv-fann",
  "serde",
  "serde_json",
- "thiserror 1.0.69",
+ "thiserror 2.0.12",
  "tokio",
 ]
 
@@ -2560,7 +2560,7 @@ dependencies = [
  "sha2",
  "tar",
  "tempfile",
- "thiserror 1.0.69",
+ "thiserror 2.0.12",
  "tokio",
  "toml",
  "tracing",
@@ -2615,7 +2615,7 @@ dependencies = [
  "ruv-fann",
  "serde",
  "serde_json",
- "thiserror 1.0.69",
+ "thiserror 2.0.12",
  "wide",
 ]
 
