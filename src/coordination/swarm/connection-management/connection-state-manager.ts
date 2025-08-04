@@ -14,12 +14,45 @@
  */
 
 import { EventEmitter } from 'node:events';
-import { ErrorFactory } from './errors.js';
-import { Logger } from './logger.js';
-import { generateId } from './utils.js';
+// Note: These imports might need to be created or replaced with actual modules
+// import { ErrorFactory } from './errors';
+// import { Logger } from './logger';
+// import { generateId } from './utils';
+
+// Temporary implementations for missing modules
+const ErrorFactory = {
+  createError: (type: string, message: string) => new Error(`${type}: ${message}`)
+};
+
+const Logger = {
+  info: (message: string, data?: any) => console.log(message, data),
+  error: (message: string, data?: any) => console.error(message, data),
+  debug: (message: string, data?: any) => console.debug(message, data),
+  warn: (message: string, data?: any) => console.warn(message, data),
+};
+
+const generateId = (prefix: string = 'id') => `${prefix}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
 export class ConnectionStateManager extends EventEmitter {
-  constructor(options = {}) {
+  private options: any;
+  private logger: any;
+  private connections: Map<string, any>;
+  private connectionStats: any;
+  private connectionPool: Map<string, any>;
+  private healthCheckers: Map<string, any>;
+  private retryHandlers: Map<string, any>;
+  private fallbackHandlers: Map<string, any>;
+  private persistenceBackend: any;
+  private connectionHealth: Map<string, any>;
+  private reconnectTimers: Map<string, any>;
+  private fallbackConnections: Map<string, any>;
+  private isInitialized: boolean;
+  private metadata: any;
+  private currentState: any;
+  private stateHistory: any[];
+  private metrics: any;
+
+  constructor(options: any = {}) {
     super();
 
     this.options = {
