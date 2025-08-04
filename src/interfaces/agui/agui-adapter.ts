@@ -182,5 +182,5 @@ export function createAGUI(type: 'terminal' | 'mock' = 'terminal'): AGUIInterfac
   }
 }
 
-// Export types
-export type { AGUIInterface, ValidationQuestion };
+// Export factory function only
+export { createAGUI };

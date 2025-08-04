@@ -43,7 +43,7 @@ class ZenSwarmHooks {
   async initializePersistence() {
     try {
       // Dynamic import to avoid module resolution issues
-      const { SwarmPersistencePooled } = await import('../../../database/persistence/persistence-pooled.js').catch(() => ({ SwarmPersistencePooled: null }));
+      const { SwarmPersistencePooled } = await import('../../../database/persistence/persistence-pooled').catch(() => ({ SwarmPersistencePooled: null as any }));
       if (SwarmPersistencePooled) {
         this.persistence = new SwarmPersistencePooled();
       }
@@ -1090,10 +1090,10 @@ ${this.sessionData.learnings
       agents: {
         total_spawned: this.sessionData.agents.size,
         by_type: Object.fromEntries(
-          Array.from(this.sessionData.agents.values()).reduce((acc, agent) => {
+          Array.from((this.sessionData.agents as any).values()).reduce((acc: any, agent: any) => {
             acc.set(agent.type, (acc.get(agent.type) || 0) + 1);
             return acc;
-          }, new Map())
+          }, new Map()) as any
         ),
       },
     };

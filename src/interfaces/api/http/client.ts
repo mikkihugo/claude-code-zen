@@ -15,7 +15,7 @@ import type {
   PerformanceMetrics,
   SwarmConfig,
   Task,
-} from '../coordination/schemas';
+} from '../../coordination/schemas';
 import type { APIError } from './schemas/common';
 import type {
   NeuralNetwork,
@@ -684,19 +684,6 @@ export const createAPIClient = (config?: Partial<APIClientConfig>): APIClient =>
 export const apiClient = createAPIClient();
 
 /**
- * Export types for external usage
+ * Export classes and functions for external usage
  */
-export type {
-  APIClientConfig,
-  RequestOptions,
-  PaginationOptions,
-  Agent,
-  Task,
-  SwarmConfig,
-  HealthStatus,
-  PerformanceMetrics,
-  NeuralNetwork,
-  TrainingRequest,
-  PredictionRequest,
-  PredictionResponse,
-};
+export { createAPIClient, APIClient };

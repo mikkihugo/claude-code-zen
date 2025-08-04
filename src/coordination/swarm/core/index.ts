@@ -11,12 +11,22 @@
  * - Chaos engineering and fault tolerance
  */
 
+import type { 
+  SwarmEventEmitter, 
+  SwarmOptions, 
+  SwarmState, 
+  SwarmEvent,
+  Message
+} from './types';
+import { AgentPool } from '../../agents/agent';
+import { WasmModuleLoader } from '../../../neural/wasm/wasm-loader';
+
 export * from '../../../neural/core/neural-network';
 export * from '../../../neural/wasm/wasm-loader';
 // Enhanced exports with neural capabilities
 export * from '../../agents/agent';
-// Export the base implementation
-export { ZenSwarm } from './base-swarm';
+// Export the base implementation as BaseZenSwarm to avoid conflict
+export { ZenSwarm as BaseZenSwarm } from './base-swarm';
 export * from './errors';
 export * from './hooks';
 export * from './logger';
@@ -33,7 +43,7 @@ export * from './session-integration';
 export * from './session-manager';
 export * from './session-utils';
 export * from './singleton-container';
-export * from './topology-manager';
+export { TopologyManager } from './topology-manager';
 // Re-export all types and utilities
 export * from './types';
 export * from './utils';
@@ -87,7 +97,7 @@ export class Agent {
 
       // If neural network is available, enhance the execution
       if (this.neuralNetworkId) {
-        result = {
+        return {
           ...result,
           neuralProcessing: {
             networkId: this.neuralNetworkId,
@@ -95,7 +105,7 @@ export class Agent {
             patternMatching: this.cognitivePattern,
             executionStrategy: 'neural-enhanced',
           },
-        };
+        } as any;
       }
 
       return result;
@@ -137,7 +147,7 @@ export class ZenSwarm implements SwarmEventEmitter {
   private isInitialized: boolean = false;
 
   // Enhanced WASM and Neural capabilities
-  private wasmModule?: WasmModule;
+  private wasmModule?: any;
   public wasmLoader: WasmModuleLoader;
   public persistence: SwarmPersistencePooled | null = null;
   public activeSwarms: Map<string, SwarmWrapper> = new Map();
