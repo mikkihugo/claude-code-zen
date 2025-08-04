@@ -51,8 +51,7 @@ export function adaptTaskForExecution(coordinationTask: CoordinationTask): BaseT
     maxAgents: 1,
     requiredCapabilities: [],
     createdAt: new Date(),
-    updatedAt: new Date(),
-    completedAt: undefined
+    metadata: {}
   };
 }
 

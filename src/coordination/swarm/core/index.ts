@@ -947,6 +947,7 @@ export class TaskWrapper {
   public status: string;
   public assignedAgents: string[];
   public result: any;
+  public swarm: SwarmWrapper;
   private startTime: number | null;
   private endTime: number | null;
   public progress: number;

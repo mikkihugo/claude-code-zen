@@ -19,6 +19,9 @@ import {
   IConfig
 } from '../../core/interfaces/base-interfaces';
 
+// Re-export DatabaseAdapter for external use
+export { DatabaseAdapter } from '../../core/interfaces/base-interfaces';
+
 /**
  * Configuration interface for database adapters
  */
