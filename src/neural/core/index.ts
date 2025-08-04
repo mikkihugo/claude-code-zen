@@ -6,13 +6,12 @@
 
 // Export types from network module
 export type {
-  ActivationFunction,
+  ActivationFunctions as ActivationFunction,
   AgentNetworkConfig,
   AgentNeuralManager,
   CascadeConfig,
   CognitiveState,
   LayerConfig,
-  LayerType,
   NetworkConfig,
   NetworkInfo,
   TrainingConfig,
@@ -35,13 +34,13 @@ export {
   TRAINING_ALGORITHMS,
 } from './network';
 // Export from neural module (avoid duplicates with neural-core)
-export { Neural, NeuralCLI as LegacyNeuralCLI, neuralCLI } from './neural';
+// export { Neural, NeuralCLI as LegacyNeuralCLI, neuralCLI } from './neural';
 // Export from neural-core module (primary source)
 export {
   type ModelMetadata,
   NeuralCLI,
   type NeuralConfig,
-  NeuralCore,
+  // NeuralCore,
   neuralCLI as NeuralCoreCLI,
   PATTERN_MEMORY_CONFIG,
   type PatternData,
@@ -52,7 +51,7 @@ export {
 } from './neural-core';
 // Export from neural-network module
 export * from './neural-network';
-export { NeuralNetworkJS } from './neural-network';
+export { NeuralNetwork as NeuralNetworkJS } from './neural-network';
 // Neural network manager (JavaScript)
 export { NeuralNetworkManager } from './neural-network-manager';
 

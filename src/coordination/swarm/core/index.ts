@@ -16,10 +16,16 @@ import type {
   SwarmOptions, 
   SwarmState, 
   SwarmEvent,
-  Message
+  Message,
+  AgentConfig,
+  Task,
+  TaskStatus
 } from './types';
-import { AgentPool } from '../../agents/agent';
+import { AgentPool, createAgent, BaseAgent } from '../../agents/agent';
 import { WasmModuleLoader } from '../../../neural/wasm/wasm-loader';
+import { SwarmPersistencePooled } from '../../../database/persistence/persistence-pooled';
+import { validateSwarmOptions, generateId } from './utils';
+import { getContainer } from './singleton-container';
 
 export * from '../../../neural/core/neural-network';
 export * from '../../../neural/wasm/wasm-loader';
@@ -199,7 +205,19 @@ export class ZenSwarm implements SwarmEventEmitter {
       connectionDensity: options.connectionDensity || 0.5,
       syncInterval: options.syncInterval || 1000,
       wasmPath: options.wasmPath || './wasm/ruv_swarm_wasm.js',
-    };
+      persistence: {
+        enabled: false,
+        dbPath: '',
+        checkpointInterval: 60000,
+        compressionEnabled: false
+      },
+      pooling: {
+        enabled: false,
+        maxPoolSize: 10,
+        minPoolSize: 1,
+        idleTimeout: 300000
+      }
+    } as Required<SwarmOptions>;
 
     this.agentPool = new AgentPool();
     this.eventHandlers = new Map();
@@ -338,7 +356,7 @@ export class ZenSwarm implements SwarmEventEmitter {
       // Pre-load neural networks if enabled
       if (enableNeuralNetworks && loadingStrategy !== 'minimal') {
         try {
-          await instance.wasmLoader.loadModule('neural');
+          await instance.wasmLoader.loadModule();
           instance.features.neural_networks = true;
           if (debug) {
           }
@@ -350,7 +368,7 @@ export class ZenSwarm implements SwarmEventEmitter {
       // Pre-load forecasting if enabled
       if (enableForecasting && enableNeuralNetworks && loadingStrategy !== 'minimal') {
         try {
-          await instance.wasmLoader.loadModule('forecasting');
+          await instance.wasmLoader.loadModule();
           instance.features.forecasting = true;
         } catch (_error) {
           instance.features.forecasting = false;
@@ -378,7 +396,8 @@ export class ZenSwarm implements SwarmEventEmitter {
   async detectFeatures(useSIMD = true): Promise<void> {
     try {
       // Load core module to detect basic features
-      const coreModule = await this.wasmLoader.loadModule('core');
+      await this.wasmLoader.loadModule();
+      const coreModule = this.wasmLoader.getModule();
 
       // Detect SIMD support
       if (useSIMD) {
@@ -386,7 +405,7 @@ export class ZenSwarm implements SwarmEventEmitter {
       }
 
       // Check if core module has the expected exports
-      if (coreModule.exports) {
+      if (coreModule?.exports) {
         this.features.neural_networks = true;
         this.features.cognitive_diversity = true;
       }
@@ -409,7 +428,8 @@ export class ZenSwarm implements SwarmEventEmitter {
     } = config;
 
     // Ensure core module is loaded
-    const coreModule = await this.wasmLoader.loadModule('core');
+    await this.wasmLoader.loadModule();
+    const coreModule = this.wasmLoader.getModule();
 
     // Create swarm configuration
     const swarmConfig = {
@@ -421,7 +441,7 @@ export class ZenSwarm implements SwarmEventEmitter {
 
     // Use the core module exports to create swarm
     let wasmSwarm: any;
-    if (coreModule.exports?.ZenSwarm) {
+    if (coreModule?.exports?.ZenSwarm) {
       try {
         wasmSwarm = new coreModule.exports.ZenSwarm();
         wasmSwarm.id = id || `swarm-${Date.now()}`;
@@ -528,14 +548,14 @@ export class ZenSwarm implements SwarmEventEmitter {
       throw new Error(`Maximum agent limit (${this.options.maxAgents}) reached`);
     }
 
-    const agent = createAgent(config);
-    this.state.agents.set(agent.id, agent);
-    this.agentPool.addAgent(agent);
+    const agent = createAgent(config as any);
+    this.state.agents.set(agent.id, agent as any);
+    this.agentPool.addAgent(agent as any);
 
     // Add to WASM if available
     if (this.wasmModule && this.swarmId !== undefined) {
       const wasmAgentId = this.wasmModule.addAgent(this.swarmId, config);
-      (agent as BaseAgent).setWasmAgentId(wasmAgentId);
+      (agent as any).setWasmAgentId(wasmAgentId);
     }
 
     this.updateConnections(agent.id);
