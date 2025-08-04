@@ -5,7 +5,7 @@
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { AdvancedCommandsGenerator } from './advanced-commands.js';
+import { AdvancedCommandsGenerator } from './advanced-commands';
 
 class ClaudeDocsGenerator {
   constructor(options = {}) {

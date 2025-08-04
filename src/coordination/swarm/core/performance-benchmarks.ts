@@ -5,9 +5,9 @@
  * WASM loading, memory management, and Claude Code Flow coordination.
  */
 
-import { getClaudeFlow } from './claude-flow-enhanced.js';
-import { ZenSwarm } from './index-enhanced.js';
-import { WasmModuleLoader } from './wasm-loader.js';
+import { getClaudeFlow } from './claude-flow-enhanced';
+import { ZenSwarm } from './index-enhanced';
+import { WasmModuleLoader } from './wasm-loader';
 
 class PerformanceBenchmarks {
   constructor() {
