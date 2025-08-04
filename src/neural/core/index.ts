@@ -6,7 +6,7 @@
 
 // Core neural components (explicit exports to avoid conflicts)
 export { NeuralNetwork } from './network';
-export { ActivationFunction, LayerType } from './network';
+export type { ActivationFunction, LayerType } from './network';
 export { NeuralCore } from './neural-core';
 export { neuralCLI as NeuralCoreCLI } from './neural-core'; // Renamed to avoid conflict
 export { Neural } from './neural';
@@ -18,25 +18,28 @@ export { NeuralNetworkManager } from './neural-network-manager';
 export {
   ACTIVATION_FUNCTIONS,
   ActivationFunctions,
-  AgentNetworkConfig,
-  AgentNeuralManager,
   COGNITIVE_PATTERNS,
-  CascadeConfig,
   CascadeTrainer,
-  CognitiveState,
-  LayerConfig,
-  NetworkConfig,
-  NetworkInfo,
-  NeuralNetwork,
-  NeuralTrainer,
-  TRAINING_ALGORITHMS,
-  TrainingConfig,
-  TrainingDataConfig,
-  TrainingResult,
   createAgentNeuralManager,
   createNeuralNetwork,
   createTrainer,
   initializeNeuralWasm,
+  NeuralTrainer,
+  TRAINING_ALGORITHMS,
+} from './network';
+
+// Export types from network module
+export type {
+  AgentNetworkConfig,
+  AgentNeuralManager,
+  CascadeConfig,
+  CognitiveState,
+  LayerConfig,
+  NetworkConfig,
+  NetworkInfo,
+  TrainingConfig,
+  TrainingDataConfig,
+  TrainingResult,
 } from './network';
 
 // Export from neural module (avoid duplicates with neural-core)
