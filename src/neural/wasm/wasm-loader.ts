@@ -15,6 +15,10 @@ export class WasmModuleLoader {
     this.loaded = true;
   }
 
+  async loadModule(): Promise<void> {
+    await this.load();
+  }
+
   isLoaded(): boolean {
     return this.loaded;
   }

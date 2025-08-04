@@ -7,12 +7,22 @@ import { execSync } from 'node:child_process';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
+interface ClaudeInvokeOptions {
+  secure?: boolean;
+}
+
+interface ClaudeIntegrationOptions {
+  autoSetup?: boolean;
+  forceSetup?: boolean;
+  workingDir?: string;
+}
+
 class ClaudeIntegrationCore {
   private autoSetup: boolean;
   private forceSetup: boolean;
   private workingDir: string;
 
-  constructor(options = {}) {
+  constructor(options: ClaudeIntegrationOptions = {}) {
     this.autoSetup = options.autoSetup || false;
     this.forceSetup = options.forceSetup || false;
     this.workingDir = options.workingDir || process.cwd();
@@ -87,7 +97,7 @@ class ClaudeIntegrationCore {
   /**
    * Invoke Claude with a prompt (supports both secure and legacy modes)
    */
-  async invokeClaudeWithPrompt(prompt, options = {}) {
+  async invokeClaudeWithPrompt(prompt: string, options: ClaudeInvokeOptions = {}) {
     if (!prompt || !prompt.trim()) {
       throw new Error('No prompt provided');
     }

@@ -157,6 +157,7 @@ export class ConnectionStateManager extends EventEmitter {
       lastConnected: null,
       lastDisconnected: null,
       reconnectAttempts: 0,
+      error: null,
       health: {
         status: 'unknown',
         lastCheck: null,
@@ -417,10 +418,10 @@ export class ConnectionStateManager extends EventEmitter {
     connection.http = {
       baseUrl,
       headers: config.headers || {},
-      fetch: (endpoint, options = {}) => {
+      fetch: (endpoint, options: any = {}) => {
         return fetch(`${baseUrl}${endpoint}`, {
           ...options,
-          headers: { ...connection.http.headers, ...options.headers },
+          headers: { ...connection.http.headers, ...(options.headers || {}) },
         });
       },
     };
@@ -951,6 +952,7 @@ export class ConnectionStateManager extends EventEmitter {
           lastConnected: row.last_connected ? new Date(row.last_connected) : null,
           lastDisconnected: row.last_disconnected ? new Date(row.last_disconnected) : null,
           reconnectAttempts: row.reconnect_attempts,
+          error: null,
           health: {
             status: 'unknown',
             lastCheck: null,
