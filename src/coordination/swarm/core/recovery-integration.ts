@@ -23,8 +23,36 @@ import { Logger } from './logger';
 import MonitoringDashboard from './monitoring-dashboard';
 import RecoveryWorkflows from './recovery-workflows';
 
+interface RecoveryIntegrationOptions {
+  enableHealthMonitoring?: boolean;
+  enableRecoveryWorkflows?: boolean;
+  enableConnectionManagement?: boolean;
+  enableMonitoringDashboard?: boolean;
+  enableChaosEngineering?: boolean;
+  autoIntegrate?: boolean;
+  configValidation?: boolean;
+  performanceOptimization?: boolean;
+  [key: string]: any;
+}
+
 export class RecoveryIntegration extends EventEmitter {
-  constructor(options = {}) {
+  public options: RecoveryIntegrationOptions;
+  public logger: Logger;
+  public healthMonitor: HealthMonitor | null;
+  public recoveryWorkflows: RecoveryWorkflows | null;
+  public connectionManager: ConnectionStateManager | null;
+  public monitoringDashboard: MonitoringDashboard | null;
+  public chaosEngineering: ChaosEngineering | null;
+  public mcpTools: any;
+  public persistence: any;
+  public isInitialized: boolean;
+  public isRunning: boolean;
+  public components: Map<string, any>;
+  public integrationStatus: Map<string, any>;
+  public performanceMetrics: any;
+  public optimizationInterval: NodeJS.Timeout | null;
+
+  constructor(options: RecoveryIntegrationOptions = {}) {
     super();
 
     this.options = {
@@ -61,6 +89,7 @@ export class RecoveryIntegration extends EventEmitter {
     this.isRunning = false;
     this.components = new Map();
     this.integrationStatus = new Map();
+    this.optimizationInterval = null;
 
     // Performance tracking
     this.performanceMetrics = {
