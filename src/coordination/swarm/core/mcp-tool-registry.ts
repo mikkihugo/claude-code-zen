@@ -16,10 +16,10 @@ import {
   WasmError,
   ZenSwarmError,
 } from './errors';
-import { ZenSwarm } from './index-enhanced';
+import { ZenSwarm } from './index';
 import { Logger } from './logger';
 import { DAA_MCPTools } from './mcp-daa-tools';
-import { SwarmPersistencePooled } from './persistence-pooled';
+import { SwarmPersistencePooled } from '../../../database/persistence/persistence-pooled';
 import { ValidationUtils } from './schemas';
 
 /**

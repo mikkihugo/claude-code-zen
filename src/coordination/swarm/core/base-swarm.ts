@@ -69,8 +69,8 @@ export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
 
     // Initialize WASM neural processor
     try {
-      const wasmModule = await this.wasmLoader.loadModule('./neural_fann_bg.wasm');
-      this.neuralProcessor = wasmModule;
+      await this.wasmLoader.loadModule();
+      this.neuralProcessor = this.wasmLoader;
     } catch (error) {
       console.warn('Failed to load WASM module, falling back to JS implementation:', error);
     }
