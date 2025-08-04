@@ -221,6 +221,8 @@ export class ChaosEngineering extends EventEmitter {
       experimentId: experiment.id,
       status: 'running',
       startTime: new Date(startTime),
+      endTime: undefined as Date | undefined,
+      duration: undefined as number | undefined,
       parameters: { ...experiment.parameters, ...overrideParams },
       phases: [],
       currentPhase: 'preparation',
