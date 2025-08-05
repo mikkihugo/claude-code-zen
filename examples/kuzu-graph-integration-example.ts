@@ -3,9 +3,9 @@
  * Demonstrates the integrated graph database capabilities
  */
 
-import { DatabaseController } from '../database/controllers/database-controller';
-import { DatabaseProviderFactory, KuzuAdapter } from '../database/providers/database-providers';
-import type { DatabaseConfig } from '../database/providers/database-providers';
+import { DatabaseController } from '../src/database/controllers/database-controller';
+import { DatabaseProviderFactory, KuzuAdapter } from '../src/database/providers/database-providers';
+import type { DatabaseConfig } from '../src/database/providers/database-providers';
 
 // Mock logger for example
 const logger = {
