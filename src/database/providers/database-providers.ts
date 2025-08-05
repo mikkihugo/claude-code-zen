@@ -9,22 +9,24 @@
 import { inject, injectable } from '../../di/decorators/injectable';
 import { CORE_TOKENS, DATABASE_TOKENS } from '../../di/tokens/core-tokens';
 import {
+
   DatabaseAdapter,
-  QueryResult,
   ExecuteResult,
-  TransactionContext,
-  SchemaInfo,
-  ConnectionStats,
-  ILogger,
   IConfig,
+  ILogger,
+  QueryResult,
+  SchemaInfo,
+  TransactionContext,
 } from '../../core/interfaces/base-interfaces';
+import { Inject, Injectable } from '../../di/decorators/injectable';
+import { CORE_TOKENS, DATABASE_TOKENS } from '../../di/tokens/core-tokens';
 
 import {
-  DatabaseResult,
-  QuerySuccess,
-  QueryError,
-  isQuerySuccess,
+  type DatabaseResult,
   isQueryError,
+  isQuerySuccess,
+  type QueryError,
+  type QuerySuccess,
 } from '../../utils/type-guards';
 
 // Re-export DatabaseAdapter for external use
@@ -202,7 +204,7 @@ export class DatabaseProviderFactory {
     } catch (error) {
       this.logger.error(`Failed to create database adapter: ${error}`);
       throw new Error(
-        `Database adapter creation failed: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        `Database adapter creation failed: ${error instanceof Error ? error.message : 'Unknown error'}`
       );
     }
   }
@@ -242,7 +244,7 @@ export class PostgreSQLAdapter implements DatabaseAdapter {
 
   constructor(
     private config: DatabaseConfig,
-    private logger: ILogger,
+    private logger: ILogger
   ) {}
 
   async connect(): Promise<void> {
@@ -517,7 +519,7 @@ export class SQLiteAdapter implements DatabaseAdapter {
 
   constructor(
     private config: DatabaseConfig,
-    private logger: ILogger,
+    private logger: ILogger
   ) {}
 
   async connect(): Promise<void> {
@@ -739,7 +741,7 @@ export class KuzuAdapter implements GraphDatabaseAdapter {
 
   constructor(
     private config: DatabaseConfig,
-    private logger: ILogger,
+    private logger: ILogger
   ) {}
 
   async connect(): Promise<void> {
@@ -1022,7 +1024,7 @@ export class LanceDBAdapter implements VectorDatabaseAdapter {
 
   constructor(
     private config: DatabaseConfig,
-    private logger: ILogger,
+    private logger: ILogger
   ) {}
 
   async connect(): Promise<void> {
@@ -1307,7 +1309,7 @@ export class MySQLAdapter implements DatabaseAdapter {
 
   constructor(
     private config: DatabaseConfig,
-    private logger: ILogger,
+    private logger: ILogger
   ) {}
 
   async connect(): Promise<void> {
