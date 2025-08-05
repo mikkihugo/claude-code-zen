@@ -1,8 +1,9 @@
 /**
- * SPARC Template Engine
+ * SPARC Template Engine - Database-Driven
  * 
  * Core template management system for SPARC methodology.
  * Provides template loading, application, validation, and customization.
+ * Integrated with claude-code-zen's multi-backend memory system.
  */
 
 import { nanoid } from 'nanoid';
@@ -14,6 +15,10 @@ import type {
   ProjectDomain,
   SPARCTemplate,
 } from '../types/sparc-types';
+
+// Import memory backend infrastructure
+import { BackendFactory } from '../../../../memory/backends/factory';
+import type { BackendInterface, BackendConfig } from '../../../../memory/backends/memory-backend';
 
 // Import all available templates
 import { MEMORY_SYSTEMS_TEMPLATE } from '../templates/memory-systems-template';
@@ -47,46 +52,139 @@ export interface TemplateRegistryEntry {
   };
 }
 
+export interface TemplateEngineConfig {
+  backend: BackendConfig;
+  namespace?: string;
+  cacheSize?: number;
+}
+
 /**
- * Core template engine for SPARC methodology
+ * Database-driven template engine for SPARC methodology
+ * Uses claude-code-zen's multi-backend memory system for persistence
  */
 export class TemplateEngine {
-  private readonly templateRegistry: Map<string, TemplateRegistryEntry>;
-  private readonly domainMappings: Map<ProjectDomain, string[]>;
+  private readonly backend: BackendInterface;
+  private readonly namespace: string;
+  private readonly templateCache: Map<string, TemplateRegistryEntry>;
+  private readonly domainMappingsCache: Map<ProjectDomain, string[]>;
 
-  constructor() {
-    this.templateRegistry = new Map();
-    this.domainMappings = new Map();
-    this.initializeTemplateRegistry();
+  constructor(config?: TemplateEngineConfig) {
+    // Use default SQLite backend if no config provided
+    const backendConfig = config?.backend || {
+      type: 'sqlite' as const,
+      path: './data/sparc-templates.db',
+      enabled: true,
+    };
+
+    this.backend = BackendFactory.create(backendConfig);
+    this.namespace = config?.namespace || 'sparc-templates';
+    this.templateCache = new Map();
+    this.domainMappingsCache = new Map();
   }
 
   /**
-   * Initialize template registry with all available templates
+   * Initialize the template engine and database backend
    */
-  private initializeTemplateRegistry(): void {
-    const templates = [
-      MEMORY_SYSTEMS_TEMPLATE,
-      NEURAL_NETWORKS_TEMPLATE,
-      REST_API_TEMPLATE,
-      SWARM_COORDINATION_TEMPLATE,
-    ];
+  async initialize(): Promise<void> {
+    await this.backend.initialize();
+    await this.loadTemplatesFromDatabase();
+    await this.initializeTemplateRegistry();
+  }
 
-    for (const template of templates) {
-      this.registerTemplate(template);
+  /**
+   * Load existing templates from database into cache
+   */
+  private async loadTemplatesFromDatabase(): Promise<void> {
+    try {
+      // Load template registry
+      const registryData = await this.backend.retrieve('template-registry', this.namespace);
+      if (registryData && typeof registryData === 'object') {
+        const registry = registryData as Record<string, TemplateRegistryEntry>;
+        for (const [id, entry] of Object.entries(registry)) {
+          this.templateCache.set(id, {
+            ...entry,
+            metadata: {
+              ...entry.metadata,
+              registeredAt: new Date(entry.metadata.registeredAt),
+              lastUsed: entry.metadata.lastUsed ? new Date(entry.metadata.lastUsed) : undefined,
+            },
+          });
+        }
+      }
+
+      // Load domain mappings
+      const mappingsData = await this.backend.retrieve('domain-mappings', this.namespace);
+      if (mappingsData && typeof mappingsData === 'object') {
+        const mappings = mappingsData as Record<string, string[]>;
+        for (const [domain, templateIds] of Object.entries(mappings)) {
+          this.domainMappingsCache.set(domain as ProjectDomain, templateIds);
+        }
+      }
+
+      console.log(`📋 Loaded ${this.templateCache.size} templates from database`);
+    } catch (error) {
+      console.warn('⚠️ Could not load templates from database, will use defaults:', error);
+    }
+  }
+
+  /**
+   * Save template registry to database
+   */
+  private async saveTemplateRegistry(): Promise<void> {
+    try {
+      const registryData: Record<string, TemplateRegistryEntry> = {};
+      for (const [id, entry] of this.templateCache.entries()) {
+        registryData[id] = entry;
+      }
+
+      await this.backend.store('template-registry', registryData, this.namespace);
+
+      // Save domain mappings
+      const mappingsData: Record<string, string[]> = {};
+      for (const [domain, templateIds] of this.domainMappingsCache.entries()) {
+        mappingsData[domain] = templateIds;
+      }
+
+      await this.backend.store('domain-mappings', mappingsData, this.namespace);
+    } catch (error) {
+      console.error('❌ Failed to save template registry to database:', error);
+    }
+  }
+  /**
+   * Initialize template registry with all available templates (if not already loaded)
+   */
+  private async initializeTemplateRegistry(): Promise<void> {
+    // Only initialize if we don't have templates loaded from database
+    if (this.templateCache.size === 0) {
+      const templates = [
+        MEMORY_SYSTEMS_TEMPLATE,
+        NEURAL_NETWORKS_TEMPLATE,
+        REST_API_TEMPLATE,
+        SWARM_COORDINATION_TEMPLATE,
+      ];
+
+      for (const template of templates) {
+        await this.registerTemplate(template);
+      }
     }
 
-    // Initialize domain mappings
-    this.domainMappings.set('memory-systems', ['memory-systems-template']);
-    this.domainMappings.set('neural-networks', ['neural-networks-template']);
-    this.domainMappings.set('rest-api', ['rest-api-template']);
-    this.domainMappings.set('swarm-coordination', ['swarm-coordination-template']);
-    this.domainMappings.set('general', ['memory-systems-template', 'rest-api-template']);
+    // Initialize domain mappings if not loaded from database
+    if (this.domainMappingsCache.size === 0) {
+      this.domainMappingsCache.set('memory-systems', ['memory-systems-template']);
+      this.domainMappingsCache.set('neural-networks', ['neural-networks-template']);
+      this.domainMappingsCache.set('rest-api', ['rest-api-template']);
+      this.domainMappingsCache.set('swarm-coordination', ['swarm-coordination-template']);
+      this.domainMappingsCache.set('general', ['memory-systems-template', 'rest-api-template']);
+
+      // Save initial mappings to database
+      await this.saveTemplateRegistry();
+    }
   }
 
   /**
-   * Register a new template with the engine
+   * Register a new template with the engine and persist to database
    */
-  registerTemplate(template: SPARCTemplate): void {
+  async registerTemplate(template: SPARCTemplate): Promise<void> {
     const entry: TemplateRegistryEntry = {
       template,
       metadata: {
@@ -96,24 +194,26 @@ export class TemplateEngine {
       },
     };
 
-    this.templateRegistry.set(template.id, entry);
-    console.log(`📋 Registered SPARC template: ${template.name} (${template.id})`);
+    this.templateCache.set(template.id, entry);
+    await this.saveTemplateRegistry();
+    
+    console.log(`📋 Registered SPARC template: ${template.name} (${template.id}) [Database-backed]`);
   }
 
   /**
    * Get all available templates
    */
   getAllTemplates(): SPARCTemplate[] {
-    return Array.from(this.templateRegistry.values()).map(entry => entry.template);
+    return Array.from(this.templateCache.values()).map(entry => entry.template);
   }
 
   /**
    * Get templates by domain
    */
   getTemplatesByDomain(domain: ProjectDomain): SPARCTemplate[] {
-    const templateIds = this.domainMappings.get(domain) || [];
+    const templateIds = this.domainMappingsCache.get(domain) || [];
     return templateIds
-      .map(id => this.templateRegistry.get(id)?.template)
+      .map(id => this.templateCache.get(id)?.template)
       .filter((template): template is SPARCTemplate => template !== undefined);
   }
 
@@ -121,7 +221,7 @@ export class TemplateEngine {
    * Get template by ID
    */
   getTemplate(templateId: string): SPARCTemplate | null {
-    return this.templateRegistry.get(templateId)?.template || null;
+    return this.templateCache.get(templateId)?.template || null;
   }
 
   /**
@@ -207,19 +307,22 @@ export class TemplateEngine {
   }
 
   /**
-   * Apply template to project specification
+   * Apply template to project specification with database persistence
    */
   async applyTemplate(
     template: SPARCTemplate,
     projectSpec: ProjectSpecification
   ): Promise<TemplateApplicationResult> {
-    console.log(`🔧 Applying template: ${template.name} to project: ${projectSpec.name}`);
+    console.log(`🔧 Applying template: ${template.name} to project: ${projectSpec.name} [Database-backed]`);
 
-    // Update usage statistics
-    const entry = this.templateRegistry.get(template.id);
+    // Update usage statistics in cache and database
+    const entry = this.templateCache.get(template.id);
     if (entry) {
       entry.metadata.usageCount++;
       entry.metadata.lastUsed = new Date();
+      
+      // Persist updated stats to database
+      await this.saveTemplateRegistry();
     }
 
     // Apply template using the template's own applyTo method
@@ -251,7 +354,22 @@ export class TemplateEngine {
     // Validate the applied template
     const validation = this.validateTemplateCompatibility(template, projectSpec);
 
-    console.log(`✅ Template application completed with ${customizations.length} customizations`);
+    // Store the complete application result in database for future reference
+    const applicationId = `app-${nanoid()}`;
+    await this.backend.store(`application-${applicationId}`, {
+      result: {
+        specification: customizedSpec,
+        pseudocode: customizedPseudocode,
+        architecture: customizedArchitecture,
+        templateId: template.id,
+        customizations,
+        warnings: validation.warnings,
+      },
+      projectSpec,
+      appliedAt: new Date(),
+    }, this.namespace);
+
+    console.log(`✅ Template application completed with ${customizations.length} customizations [Stored: ${applicationId}]`);
 
     return {
       specification: customizedSpec,
@@ -323,46 +441,88 @@ export class TemplateEngine {
       })),
     };
 
-    // Register the custom template
-    this.registerTemplate(customTemplate);
+    // Register the custom template and persist to database
+    await this.registerTemplate(customTemplate);
 
-    console.log(`✅ Custom template created: ${customTemplate.id}`);
+    console.log(`✅ Custom template created and stored in database: ${customTemplate.id}`);
     return customTemplate;
   }
 
   /**
-   * Get template usage statistics
+   * Get template usage statistics from database-backed data
    */
-  getTemplateStats(): {
+  async getTemplateStats(): Promise<{
     totalTemplates: number;
     domainCoverage: Record<string, number>;
     mostUsed: string[];
     recentlyUsed: string[];
-  } {
+    databaseInfo: {
+      backend: string;
+      namespace: string;
+      lastSync: Date;
+    };
+  }> {
     const stats = {
-      totalTemplates: this.templateRegistry.size,
+      totalTemplates: this.templateCache.size,
       domainCoverage: {} as Record<string, number>,
       mostUsed: [] as string[],
       recentlyUsed: [] as string[],
+      databaseInfo: {
+        backend: this.backend.constructor.name,
+        namespace: this.namespace,
+        lastSync: new Date(),
+      },
     };
 
     // Calculate domain coverage
-    for (const [domain, templateIds] of Array.from(this.domainMappings.entries())) {
+    for (const [domain, templateIds] of Array.from(this.domainMappingsCache.entries())) {
       stats.domainCoverage[domain] = templateIds.length;
     }
 
     // Get most used templates
-    const entriesByUsage = Array.from(this.templateRegistry.entries())
+    const entriesByUsage = Array.from(this.templateCache.entries())
       .sort((a, b) => b[1].metadata.usageCount - a[1].metadata.usageCount);
     stats.mostUsed = entriesByUsage.slice(0, 5).map(([id, _]) => id);
 
     // Get recently used templates
-    const entriesByRecent = Array.from(this.templateRegistry.entries())
+    const entriesByRecent = Array.from(this.templateCache.entries())
       .filter(([_, entry]) => entry.metadata.lastUsed)
       .sort((a, b) => (b[1].metadata.lastUsed!.getTime() - a[1].metadata.lastUsed!.getTime()));
     stats.recentlyUsed = entriesByRecent.slice(0, 5).map(([id, _]) => id);
 
     return stats;
+  }
+
+  /**
+   * Get backend health and database status
+   */
+  async getDatabaseStatus(): Promise<{
+    backend: string;
+    healthy: boolean;
+    stats: any;
+    templateCount: number;
+    namespace: string;
+  }> {
+    try {
+      const backendStats = await this.backend.getStats();
+      const healthCheck = this.backend.healthCheck ? await this.backend.healthCheck() : null;
+
+      return {
+        backend: this.backend.constructor.name,
+        healthy: !healthCheck || healthCheck.status === 'healthy',
+        stats: backendStats,
+        templateCount: this.templateCache.size,
+        namespace: this.namespace,
+      };
+    } catch (error) {
+      return {
+        backend: this.backend.constructor.name,
+        healthy: false,
+        stats: { error: String(error) },
+        templateCount: this.templateCache.size,
+        namespace: this.namespace,
+      };
+    }
   }
 
   // Private helper methods
@@ -517,5 +677,18 @@ export class TemplateEngine {
   }
 }
 
-// Export singleton instance
-export const templateEngine = new TemplateEngine();
+// Export singleton instance with database backend configuration
+export const templateEngine = new TemplateEngine({
+  backend: {
+    type: 'sqlite',
+    path: './data/sparc-templates.db',
+    enabled: true,
+  },
+  namespace: 'sparc-templates',
+  cacheSize: 100,
+});
+
+// Initialize the template engine on first import
+templateEngine.initialize().catch(error => {
+  console.error('❌ Failed to initialize SPARC template engine:', error);
+});

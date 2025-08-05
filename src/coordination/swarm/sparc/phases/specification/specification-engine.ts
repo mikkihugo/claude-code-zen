@@ -37,7 +37,19 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
   private readonly templateEngine: TemplateEngine;
 
   constructor() {
-    this.templateEngine = new TemplateEngine();
+    this.templateEngine = new TemplateEngine({
+      backend: {
+        type: 'sqlite',
+        path: './data/sparc-specifications.db',
+        enabled: true,
+      },
+      namespace: 'sparc-specifications',
+    });
+    
+    // Initialize the engine
+    this.templateEngine.initialize().catch(error => {
+      console.error('❌ Failed to initialize specification template engine:', error);
+    });
   }
 
   /**

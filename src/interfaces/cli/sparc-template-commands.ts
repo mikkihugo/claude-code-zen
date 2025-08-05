@@ -12,17 +12,39 @@ import type { ProjectSpecification } from '../../coordination/swarm/sparc/types/
 
 export function createSPARCTemplateCommands(): Command {
   const sparcTemplateCmd = new Command('spec');
-  sparcTemplateCmd.description('SPARC specification generation with template engine');
+  sparcTemplateCmd.description('SPARC specification generation with database-driven template engine');
 
-  const templateEngine = new TemplateEngine();
-  const specEngine = new SpecificationPhaseEngine();
+  // Add database configuration options
+  sparcTemplateCmd
+    .option('--backend <type>', 'Database backend type (sqlite|json|lancedb)', 'sqlite')
+    .option('--db-path <path>', 'Database file path', './data/sparc-templates.db')
+    .option('--namespace <ns>', 'Database namespace', 'sparc-templates');
+
+  // Helper function to create template engine with CLI options
+  const createTemplateEngine = (options: any) => {
+    return new TemplateEngine({
+      backend: {
+        type: options.backend || 'sqlite',
+        path: options.dbPath || './data/sparc-templates.db',
+        enabled: true,
+      },
+      namespace: options.namespace || 'sparc-templates',
+    });
+  };
+
+  const createSpecEngine = (options: any) => {
+    return new SpecificationPhaseEngine();
+  };
 
   // List available templates
   sparcTemplateCmd
     .command('templates')
-    .description('List available SPARC templates')
-    .action(async () => {
-      console.log('📋 Available SPARC Templates:\n');
+    .description('List available SPARC templates from database')
+    .action(async (options, command) => {
+      const parentOptions = command.parent?.opts() || {};
+      const specEngine = createSpecEngine(parentOptions);
+      
+      console.log('📋 Available SPARC Templates (Database-backed):\n');
       
       const templates = specEngine.getAvailableTemplates();
       templates.forEach((template, index) => {
@@ -34,6 +56,8 @@ export function createSPARCTemplateCommands(): Command {
       });
       
       console.log(`Total templates: ${templates.length}`);
+      console.log(`Backend: ${parentOptions.backend || 'sqlite'}`);
+      console.log(`Database: ${parentOptions.dbPath || './data/sparc-templates.db'}`);
     });
 
   // Generate specification from template
@@ -48,9 +72,12 @@ export function createSPARCTemplateCommands(): Command {
     .option('--constraints <constraints...>', 'List of project constraints')
     .option('--output <path>', 'Output file path', 'specification.json')
     .option('--format <format>', 'Output format (json|markdown)', 'json')
-    .action(async (options) => {
+    .action(async (options, command) => {
       try {
-        console.log(`🔧 Generating SPARC specification for: ${options.name}`);
+        const parentOptions = command.parent?.opts() || {};
+        const specEngine = createSpecEngine(parentOptions);
+        
+        console.log(`🔧 Generating SPARC specification for: ${options.name} [Database-backed]`);
         
         // Create project specification
         const projectSpec: ProjectSpecification = {
@@ -64,6 +91,7 @@ export function createSPARCTemplateCommands(): Command {
         console.log(`📋 Project domain: ${projectSpec.domain}`);
         console.log(`🎯 Complexity: ${projectSpec.complexity}`);
         console.log(`📝 Requirements: ${projectSpec.requirements.length}`);
+        console.log(`💾 Backend: ${parentOptions.backend || 'sqlite'} @ ${parentOptions.dbPath || './data/sparc-templates.db'}`);
         
         let specification;
         if (options.template) {
@@ -180,18 +208,67 @@ export function createSPARCTemplateCommands(): Command {
       }
     });
 
-  // Template statistics
+  // Template statistics with database information
   sparcTemplateCmd
     .command('stats')
-    .description('Show template engine statistics and usage')
-    .action(async () => {
-      console.log('📊 SPARC Template Engine Statistics:\n');
+    .description('Show template engine statistics and database status')
+    .action(async (options, command) => {
+      const parentOptions = command.parent?.opts() || {};
+      const templateEngine = createTemplateEngine(parentOptions);
       
-      const stats = templateEngine.getTemplateStats();
+      console.log('📊 SPARC Template Engine Statistics (Database-backed):\n');
+      
+      await templateEngine.initialize();
+      const stats = await templateEngine.getTemplateStats();
+      const dbStatus = await templateEngine.getDatabaseStatus();
+      
       console.log(`Total Templates: ${stats.totalTemplates}`);
       console.log(`Domain Coverage:`, stats.domainCoverage);
-      console.log(`Most Used: ${stats.mostUsed.join(', ') || 'None yet'}`);
-      console.log(`Recently Used: ${stats.recentlyUsed.join(', ') || 'None yet'}`);
+      console.log(`Most Used:`, stats.mostUsed);
+      console.log(`Recently Used:`, stats.recentlyUsed);
+      
+      console.log('\n💾 Database Information:');
+      console.log(`Backend: ${stats.databaseInfo.backend}`);
+      console.log(`Namespace: ${stats.databaseInfo.namespace}`);
+      console.log(`Last Sync: ${stats.databaseInfo.lastSync}`);
+      console.log(`Health: ${dbStatus.healthy ? '✅ Healthy' : '❌ Unhealthy'}`);
+      console.log(`Database Path: ${parentOptions.dbPath || './data/sparc-templates.db'}`);
+    });
+
+  // Database health check
+  sparcTemplateCmd
+    .command('db-status')
+    .description('Check database health and connection status')
+    .action(async (options, command) => {
+      const parentOptions = command.parent?.opts() || {};
+      const templateEngine = createTemplateEngine(parentOptions);
+      
+      console.log('🔍 SPARC Database Health Check:\n');
+      
+      try {
+        await templateEngine.initialize();
+        const dbStatus = await templateEngine.getDatabaseStatus();
+        
+        console.log(`Backend Type: ${dbStatus.backend}`);
+        console.log(`Namespace: ${dbStatus.namespace}`);
+        console.log(`Template Count: ${dbStatus.templateCount}`);
+        console.log(`Health Status: ${dbStatus.healthy ? '✅ Healthy' : '❌ Unhealthy'}`);
+        console.log(`Database Path: ${parentOptions.dbPath || './data/sparc-templates.db'}`);
+        
+        if (dbStatus.stats) {
+          console.log('\n📊 Database Statistics:');
+          console.log(JSON.stringify(dbStatus.stats, null, 2));
+        }
+        
+        if (!dbStatus.healthy) {
+          console.log('\n⚠️  Database issues detected. Check configuration and file permissions.');
+          process.exit(1);
+        }
+        
+      } catch (error) {
+        console.error('❌ Database connection failed:', error);
+        process.exit(1);
+      }
     });
 
   return sparcTemplateCmd;
