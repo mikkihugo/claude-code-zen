@@ -92,10 +92,12 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
       ...templateSpec,
       riskAssessment: {
         ...templateSpec.riskAssessment,
-        risks: [...templateSpec.riskAssessment.risks, ...additionalRisks],
+        risks: [...(templateSpec.riskAssessment?.risks || []), ...additionalRisks],
+        mitigationStrategies: templateSpec.riskAssessment?.mitigationStrategies || [],
+        overallRisk: templateSpec.riskAssessment?.overallRisk || 'LOW',
       },
-      dependencies: [...templateSpec.dependencies, ...additionalDependencies],
-      acceptanceCriteria: [...templateSpec.acceptanceCriteria, ...enhancedAcceptance],
+      dependencies: [...(templateSpec.dependencies || []), ...additionalDependencies],
+      acceptanceCriteria: [...(templateSpec.acceptanceCriteria || []), ...enhancedAcceptance],
     };
   }
 
@@ -832,7 +834,7 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
     const criteria: AcceptanceCriterion[] = [];
 
     for (const req of requirements) {
-      if (req.priority === 'HIGH' && req.testCriteria.length > 0) {
+      if (req.priority === 'HIGH' && req.testCriteria && req.testCriteria.length > 0) {
         criteria.push({
           id: nanoid(),
           requirement: req.id,
