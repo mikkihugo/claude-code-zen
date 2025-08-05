@@ -19,7 +19,7 @@ export type {
   PerformanceMetrics,
   SwarmConfig,
   Task,
-} from '../../../coordination/schemas';
+} from '../../../../coordination/schemas';
 
 /**
  * Complete OpenAPI 3.0 Schema Definition
