@@ -254,8 +254,26 @@ export class DiscoverCommand {
       });
       await memoryStore.initialize();
 
-      const projectAnalyzer = new ProjectContextAnalyzer(resolvedPath);
-      const projectContext = await projectAnalyzer.analyzeProject();
+      const projectAnalyzer = new ProjectContextAnalyzer({
+        projectRoot: resolvedPath,
+        swarmConfig: {
+          maxAgents: 5,
+          agentSpecializations: ['dependency', 'framework', 'api'],
+          factConfig: {
+            factRepoPath: process.env.FACT_REPO_PATH || '/tmp/fact',
+            anthropicApiKey: process.env.ANTHROPIC_API_KEY || 'dummy',
+          },
+        },
+        analysisDepth: 'medium',
+        autoUpdate: false,
+        cacheDuration: 1,
+        priorityThresholds: {
+          critical: 0.8,
+          high: 0.5,
+          medium: 0.2,
+        },
+      });
+      const projectContext = await projectAnalyzer.analyzeProjectContext();
 
       this.stats.documentsProcessed = (projectContext as any).documents?.length || 0;
       logger.info(`✅ Analyzed project: ${projectContext.name || 'Unknown'}`);
