@@ -124,7 +124,7 @@ Examples
         default: false,
       },
     },
-  }
+  },
 );
 
 /**
@@ -207,7 +207,7 @@ export class DiscoverCommand {
 
       if ((projectContext as any).isMonorepo) {
         logger.info(
-          `📦 Detected monorepo with ${(projectContext as any).packages?.length || 0} packages`
+          `📦 Detected monorepo with ${(projectContext as any).packages?.length || 0} packages`,
         );
       }
 
@@ -268,7 +268,7 @@ export class DiscoverCommand {
 
       if (discoveredDomains.length === 0) {
         logger.warn(
-          '⚠️  No domains discovered. Try analyzing a larger codebase or adjusting sensitivity.'
+          '⚠️  No domains discovered. Try analyzing a larger codebase or adjusting sensitivity.',
         );
         return;
       }
@@ -295,7 +295,7 @@ export class DiscoverCommand {
         confidenceBuilder.on('progress', (event) => {
           if (options.verbose) {
             logger.info(
-              `📊 Iteration ${event.iteration}: ${(event.confidence * 100).toFixed(1)}% confidence`
+              `📊 Iteration ${event.iteration}: ${(event.confidence * 100).toFixed(1)}% confidence`,
             );
           }
         });
@@ -344,13 +344,13 @@ export class DiscoverCommand {
       this.stats.researchQueries = confidenceResult.researchCount || 0;
 
       logger.info(
-        `✅ Built confidence: ${(confidenceResult.confidence.overall * 100).toFixed(1)}%`
+        `✅ Built confidence: ${(confidenceResult.confidence.overall * 100).toFixed(1)}%`,
       );
       logger.info(`📋 Validated domains: ${confidenceResult.domains.size}`);
 
       if (confidenceResult.domains.size === 0) {
         logger.warn(
-          '⚠️  No confident domains found. Consider lowering confidence threshold or adding more documentation.'
+          '⚠️  No confident domains found. Consider lowering confidence threshold or adding more documentation.',
         );
         return;
       }
@@ -462,7 +462,7 @@ export class DiscoverCommand {
               logger.info('❌ Interactive discovery cancelled by user');
               reject(new Error('Discovery cancelled by user'));
             },
-          })
+          }),
         );
 
         waitUntilExit()
@@ -498,7 +498,7 @@ export class DiscoverCommand {
             status: status.status,
             agents: status.agents.created,
             message: status.message,
-          })
+          }),
         ),
         configurations: Array.from(results.swarmConfigs?.entries() || []).map(
           ([domain, config]) => ({
@@ -507,7 +507,7 @@ export class DiscoverCommand {
             maxAgents: config.maxAgents,
             resources: config.resourceLimits,
             persistence: config.persistence,
-          })
+          }),
         ),
       };
 
@@ -549,7 +549,7 @@ ${results.deployedSwarms
 - **Status**: ${swarm.status}
 - **Agents**: ${swarm.agents}
 - **Message**: ${swarm.message}
-`
+`,
   )
   .join('\n')}
 
@@ -563,7 +563,7 @@ ${results.configurations
 - **Memory**: ${config.resources.memory}
 - **CPU**: ${config.resources.cpu}
 - **Persistence**: ${config.persistence}
-`
+`,
   )
   .join('\n')}
 
@@ -614,7 +614,7 @@ ${results.configurations
           technologies: domain.technologies || [],
           validations: domain.validations.length,
           research: domain.research.length,
-        })
+        }),
       ),
       relationships: confidenceResult.relationships.map((rel: any) => ({
         from: rel.sourceDomain,
@@ -833,7 +833,7 @@ ${results.domains
 - **Technologies**: ${domain.technologies.join(', ')}
 - **Validations**: ${domain.validations}
 - **Research**: ${domain.research}
-`
+`,
   )
   .join('\n')}
 
@@ -842,7 +842,7 @@ ${results.domains
 ${results.relationships
   .map(
     (rel: any) =>
-      `- **${rel.from}** ${rel.type} **${rel.to}** (${rel.confidence})\n  - Evidence: ${rel.evidence}`
+      `- **${rel.from}** ${rel.type} **${rel.to}** (${rel.confidence})\n  - Evidence: ${rel.evidence}`,
   )
   .join('\n')}
 
