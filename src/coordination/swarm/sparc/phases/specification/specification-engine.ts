@@ -257,7 +257,7 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
       {
         criterion: 'acceptance-criteria-defined',
         passed: spec.acceptanceCriteria.length > 0,
-        score: spec.acceptanceCriteria.length / Math.max(1, spec.functionalRequirements.length),
+        score: spec.acceptanceCriteria?.length ? spec.acceptanceCriteria.length / Math.max(1, spec.functionalRequirements.length) : 0,
         details: `${spec.acceptanceCriteria.length} acceptance criteria defined`,
       },
       {
