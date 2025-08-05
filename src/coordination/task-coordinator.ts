@@ -1,22 +1,25 @@
 /**
  * SPARC-Enhanced Task Coordinator
- * 
+ *
  * Integrates SPARC methodology with Claude Code Sub-Agent system
  * for implementing database-driven Features and Tasks
  */
 
+import type {
+  FeatureDocumentEntity,
+  TaskDocumentEntity,
+} from '../database/entities/product-entities';
 import type { AgentType } from '../types/agent-types';
-import type { FeatureDocumentEntity, TaskDocumentEntity } from '../database/entities/product-entities';
+import type { DatabaseSPARCBridge } from './database-sparc-bridge';
 import { generateSubAgentConfig, mapToClaudeSubAgent } from './sub-agent-generator';
-import { DatabaseSPARCBridge } from './database-sparc-bridge';
-import { SPARCSwarmCoordinator } from './swarm/core/sparc-swarm-coordinator';
+import type { SPARCSwarmCoordinator } from './swarm/core/sparc-swarm-coordinator';
 
 export interface TaskConfig {
   description: string;
   prompt: string;
   subagent_type: AgentType;
   use_claude_subagent?: boolean;
-  use_sparc_methodology?: boolean;  // NEW: Enable SPARC processing
+  use_sparc_methodology?: boolean; // NEW: Enable SPARC processing
   domain_context?: string;
   expected_output?: string;
   tools_required?: string[];
@@ -33,9 +36,9 @@ export interface TaskResult {
   agent_used: string;
   execution_time_ms: number;
   tools_used: string[];
-  sparc_task_id?: string;  // NEW: Reference to SPARC task if methodology was used
-  implementation_artifacts?: string[];  // NEW: Generated artifacts
-  methodology_applied?: 'direct' | 'sparc';  // NEW: Track methodology used
+  sparc_task_id?: string; // NEW: Reference to SPARC task if methodology was used
+  implementation_artifacts?: string[]; // NEW: Generated artifacts
+  methodology_applied?: 'direct' | 'sparc'; // NEW: Track methodology used
   error?: string;
 }
 
@@ -46,8 +49,8 @@ export class TaskCoordinator {
   private static instance: TaskCoordinator;
   private taskHistory: Map<string, TaskResult> = new Map();
   private activeSubAgents: Set<string> = new Set();
-  private sparcBridge?: DatabaseSPARCBridge;  // NEW: SPARC integration
-  private sparcSwarm?: SPARCSwarmCoordinator;  // NEW: SPARC swarm
+  private sparcBridge?: DatabaseSPARCBridge; // NEW: SPARC integration
+  private sparcSwarm?: SPARCSwarmCoordinator; // NEW: SPARC swarm
 
   static getInstance(): TaskCoordinator {
     if (!TaskCoordinator.instance) {
@@ -82,7 +85,6 @@ export class TaskCoordinator {
 
       // Original direct execution path
       return await this.executeDirectly(config, startTime, taskId);
-      
     } catch (error) {
       const taskResult: TaskResult = {
         success: false,
@@ -102,8 +104,8 @@ export class TaskCoordinator {
    * NEW: Execute task using SPARC methodology
    */
   private async executeWithSPARC(
-    config: TaskConfig, 
-    startTime: number, 
+    config: TaskConfig,
+    startTime: number,
     taskId: string
   ): Promise<TaskResult> {
     if (!this.sparcBridge || !this.sparcSwarm) {
@@ -112,7 +114,7 @@ export class TaskCoordinator {
 
     // Convert TaskConfig to database document if needed
     let assignmentId: string;
-    
+
     if (config.source_document) {
       // Use existing document
       if (config.source_document.type === 'feature') {
@@ -132,7 +134,7 @@ export class TaskCoordinator {
 
     // Wait for SPARC completion (simplified - in real implementation would use events)
     const result = await this.waitForSPARCCompletion(assignmentId);
-    
+
     const taskResult: TaskResult = {
       success: result.status === 'completed',
       output: result.completionReport,
@@ -152,8 +154,8 @@ export class TaskCoordinator {
    * Execute task directly (original logic)
    */
   private async executeDirectly(
-    config: TaskConfig, 
-    startTime: number, 
+    config: TaskConfig,
+    startTime: number,
     taskId: string
   ): Promise<TaskResult> {
     // Determine optimal agent strategy
