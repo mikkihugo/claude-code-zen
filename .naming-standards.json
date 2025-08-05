@@ -1,0 +1,50 @@
+{
+  "naming-standardizer": {
+    "rootDirectory": ".",
+    "includePatterns": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "excludePatterns": [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/*.d.ts",
+      "**/build/**",
+      "**/.git/**",
+      "**/coverage/**"
+    ],
+    "fileExtensions": [
+      ".ts",
+      ".tsx"
+    ],
+    "enabledRules": {
+      "fileNaming": true,
+      "directoryNaming": true,
+      "interfaceNaming": true,
+      "classNaming": true,
+      "functionNaming": true,
+      "variableNaming": true,
+      "constantNaming": true,
+      "typeNaming": true
+    },
+    "conventions": {
+      "files": "kebab-case",
+      "directories": "kebab-case",
+      "interfaces": "PascalCase",
+      "classes": "PascalCase",
+      "functions": "camelCase",
+      "variables": "camelCase",
+      "constants": "SCREAMING_SNAKE_CASE",
+      "types": "PascalCase"
+    },
+    "compliance": {
+      "minimumScore": 90,
+      "failOnCriticalIssues": true,
+      "allowedExceptions": [
+        "__tests__",
+        ".github",
+        ".vscode"
+      ]
+    }
+  }
+}
