@@ -176,9 +176,6 @@ function hashCode(str: string): number {
   }
 };
 
-// Extended timeout for computational tests
-jest.setTimeout(60000);
-
 declare global {
   namespace NodeJS {
     interface Global {
