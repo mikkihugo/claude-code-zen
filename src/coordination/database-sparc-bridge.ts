@@ -13,7 +13,7 @@
 import { EventEmitter } from 'node:events';
 import { createLogger } from '../../core/logger';
 import type { DatabaseDrivenSystem } from '../../core/database-driven-system';
-import type { FeatureDocumentEntity, TaskDocumentEntity } from '../../database/entities/document-entities';
+import type { FeatureDocumentEntity, TaskDocumentEntity } from '../../database/entities/product-entities';
 import type { DocumentService } from '../../database/services/document-service';
 import { SPARCSwarmCoordinator, type SPARCTask } from './swarm/core/sparc-swarm-coordinator';
 

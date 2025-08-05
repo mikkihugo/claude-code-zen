@@ -6,7 +6,7 @@
  */
 
 import type { AgentType } from '../types/agent-types';
-import type { FeatureDocumentEntity, TaskDocumentEntity } from '../database/entities/document-entities';
+import type { FeatureDocumentEntity, TaskDocumentEntity } from '../database/entities/product-entities';
 import { generateSubAgentConfig, mapToClaudeSubAgent } from './sub-agent-generator';
 import { DatabaseSPARCBridge } from './database-sparc-bridge';
 import { SPARCSwarmCoordinator } from './swarm/core/sparc-swarm-coordinator';

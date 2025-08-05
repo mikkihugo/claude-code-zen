@@ -12,7 +12,7 @@ import { DocumentService } from '../../database/services/document-service';
 import { WorkflowEngine } from '../../core/workflow-engine';
 import { DatabaseSPARCBridge } from '../database-sparc-bridge';
 import { SPARCSwarmCoordinator } from '../swarm/core/sparc-swarm-coordinator';
-import type { FeatureDocumentEntity, TaskDocumentEntity } from '../../database/entities/document-entities';
+import type { FeatureDocumentEntity, TaskDocumentEntity } from '../../database/entities/product-entities';
 
 const logger = createLogger('SPARCSwarmCLI');
 

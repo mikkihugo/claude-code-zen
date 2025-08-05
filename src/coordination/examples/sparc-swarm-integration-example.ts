@@ -12,7 +12,7 @@ import { DocumentService } from '../../database/services/document-service';
 import { DatabaseSPARCBridge } from '../database-sparc-bridge';
 import { SPARCSwarmCoordinator } from '../swarm/core/sparc-swarm-coordinator';
 import { TaskCoordinator } from '../task-coordinator';
-import type { FeatureDocumentEntity } from '../../database/entities/document-entities';
+import type { FeatureDocumentEntity, TaskDocumentEntity } from '../../database/entities/product-entities';
 
 const logger = createLogger('SPARCSwarmIntegrationExample');
 
