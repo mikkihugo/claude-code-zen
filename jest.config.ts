@@ -40,14 +40,7 @@ const config: Config = {
     '<rootDir>/src/__tests__/**/*.test.js'
   ],
 
-  setupFilesAfterEnv: [
-    '<rootDir>/tests/setup.ts',
-    '<rootDir>/tests/setup-london.ts',
-    '<rootDir>/tests/setup-classical.ts',
-    '<rootDir>/tests/setup-hybrid.ts'
-  ],
-  
-  // Configure jest-extended
+  // Configure jest-extended and all setup files
   setupFilesAfterEnv: [
     'jest-extended/all',
     '<rootDir>/tests/setup.ts',

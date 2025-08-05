@@ -15,7 +15,7 @@ import 'jest-extended';
  * Hybrid TDD Configuration
  */
 interface HybridTDDConfig {
-  domain: 'coordination' | 'interfaces' | 'neural' | 'memory';
+  domain: 'coordination' | 'interfaces' | 'neural' | 'memory' | 'hybrid';
   testStyle: 'london' | 'classical' | 'hybrid';
   mockingStrategy: 'aggressive' | 'minimal' | 'selective';
   performanceThresholds: {
