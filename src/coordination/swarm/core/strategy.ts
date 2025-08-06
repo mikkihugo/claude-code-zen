@@ -12,6 +12,7 @@ export interface CoordinationContext {
   resources: ResourceMetrics;
   constraints: CoordinationConstraints;
   history: CoordinationHistory[];
+  agents: Agent[];
 }
 
 export interface CoordinationResult {
@@ -238,7 +239,7 @@ export class HierarchicalStrategy implements CoordinationStrategy<Agent> {
   validateContext(context: CoordinationContext): boolean {
     return (
       context.resources.cpu > 0.2 && // Need CPU for leader election
-      agents.length > 5
+      context.agents.length > 5
     ); // Hierarchical makes sense with more agents
   }
 
@@ -620,6 +621,7 @@ export class SwarmCoordinator<T extends Agent = Agent> {
         ...contextData?.constraints,
       },
       history: this.history,
+      agents: agents as Agent[],
       ...contextData,
     };
   }
