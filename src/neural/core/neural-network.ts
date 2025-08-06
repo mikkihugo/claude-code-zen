@@ -103,12 +103,20 @@ export async function initializeNeuralWasm() {
   try {
     // Dynamic import of WASM module - use placeholder if not available
     try {
-      const { default: init, ...exports } = await import('../wasm/ruv_swarm_wasm.js');
-      await init();
-      wasmModule = exports;
-      return wasmModule;
-    } catch {
+      // Use require-style dynamic import to avoid TypeScript resolution issues
+      const wasmModulePath = '../wasm/ruv_swarm_wasm.js';
+      const importedWasmModule = await eval(`import('${wasmModulePath}')`).catch(() => null);
+      
+      if (importedWasmModule) {
+        const { default: init, ...exports } = importedWasmModule;
+        await init();
+        wasmModule = exports;
+        return wasmModule;
+      }
+      throw new Error('WASM module not available');
+    } catch (importError) {
       // Fallback to simulated WASM module
+      console.warn('WASM module not found, using simulation mode');
       wasmModule = {
         create_neural_network: () => 'simulated_network_id',
         forward_pass: () => new Float32Array([0.5]),
