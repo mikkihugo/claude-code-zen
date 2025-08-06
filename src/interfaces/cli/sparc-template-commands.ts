@@ -213,6 +213,8 @@ export function createSPARCTemplateCommands(): Command {
 
 /**
  * Format specification as Markdown
+ *
+ * @param specification
  */
 function formatSpecificationAsMarkdown(specification: any): string {
   let markdown = `# SPARC Specification: ${specification.id}\n\n`;

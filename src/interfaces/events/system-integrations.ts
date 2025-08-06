@@ -7,7 +7,7 @@
  * This module provides migration utilities and enhanced versions of core systems
  * that can gradually adopt UEL features without breaking existing functionality.
  *
- * @fileoverview System Integration and Migration Implementation
+ * @file System Integration and Migration Implementation
  */
 
 import { EventEmitter } from 'node:events';
@@ -33,6 +33,8 @@ import type {
 /**
  * Enhanced Event Bus with UEL integration
  * Provides backward compatibility with existing event-bus.ts while adding UEL features
+ *
+ * @example
  */
 export class UELEnhancedEventBus extends EventEmitter {
   private uelManager?: IEventManager;
@@ -65,6 +67,11 @@ export class UELEnhancedEventBus extends EventEmitter {
 
   /**
    * Initialize UEL integration for the event bus
+   *
+   * @param integration
+   * @param integration.eventManager
+   * @param integration.managerType
+   * @param integration.managerName
    */
   private async initializeUELIntegration(integration: {
     eventManager: EventManager;
@@ -91,6 +98,9 @@ export class UELEnhancedEventBus extends EventEmitter {
 
   /**
    * Enhanced emit with UEL integration and metrics
+   *
+   * @param eventName
+   * @param {...any} args
    */
   emit(eventName: string | symbol, ...args: any[]): boolean {
     const startTime = Date.now();
@@ -110,6 +120,9 @@ export class UELEnhancedEventBus extends EventEmitter {
 
   /**
    * Enhanced on with UEL subscription tracking
+   *
+   * @param eventName
+   * @param listener
    */
   on(eventName: string | symbol, listener: (...args: any[]) => void): this {
     const result = super.on(eventName, listener);
@@ -166,6 +179,9 @@ export class UELEnhancedEventBus extends EventEmitter {
 
   /**
    * Map event names to UEL event types for better categorization
+   *
+   * @param eventEmitterEvent
+   * @param uelEventType
    */
   mapEventToUEL(eventEmitterEvent: string, uelEventType: string): void {
     this.eventMappings.set(eventEmitterEvent, uelEventType);
@@ -174,6 +190,12 @@ export class UELEnhancedEventBus extends EventEmitter {
 
   /**
    * Enable UEL mode for the event bus
+   *
+   * @param eventManager
+   * @param options
+   * @param options.managerType
+   * @param options.managerName
+   * @param options.migrateExistingListeners
    */
   async enableUELMode(
     eventManager: EventManager,
@@ -276,6 +298,8 @@ export class UELEnhancedEventBus extends EventEmitter {
 /**
  * Enhanced Application Coordinator with UEL integration
  * Maintains compatibility with existing application-coordinator.ts
+ *
+ * @example
  */
 export class UELEnhancedApplicationCoordinator extends EventEmitter {
   private uelSystem?: UEL;
@@ -305,6 +329,11 @@ export class UELEnhancedApplicationCoordinator extends EventEmitter {
 
   /**
    * Initialize UEL system for the application coordinator
+   *
+   * @param config
+   * @param config.enableValidation
+   * @param config.enableCompatibility
+   * @param config.healthMonitoring
    */
   private async initializeUEL(config?: {
     enableValidation?: boolean;
@@ -408,6 +437,9 @@ export class UELEnhancedApplicationCoordinator extends EventEmitter {
 
   /**
    * Enhanced emit that routes to appropriate UEL managers
+   *
+   * @param eventName
+   * @param {...any} args
    */
   emit(eventName: string | symbol, ...args: any[]): boolean {
     // Standard EventEmitter behavior
@@ -467,6 +499,10 @@ export class UELEnhancedApplicationCoordinator extends EventEmitter {
 
   /**
    * Create event manager for specific system component
+   *
+   * @param componentName
+   * @param type
+   * @param config
    */
   async createComponentManager(
     componentName: string,
@@ -585,6 +621,8 @@ export class UELEnhancedApplicationCoordinator extends EventEmitter {
 /**
  * Observer System Enhancement with UEL integration
  * Maintains compatibility with existing observer-system.ts
+ *
+ * @example
  */
 export class UELEnhancedObserverSystem extends EventEmitter {
   private uelEventManager?: IEventManager;
@@ -609,6 +647,8 @@ export class UELEnhancedObserverSystem extends EventEmitter {
 
   /**
    * Initialize UEL integration for observer system
+   *
+   * @param eventManager
    */
   private async initializeUELIntegration(eventManager: EventManager): Promise<void> {
     try {
@@ -626,6 +666,9 @@ export class UELEnhancedObserverSystem extends EventEmitter {
 
   /**
    * Create observer with optional UEL integration
+   *
+   * @param name
+   * @param type
    */
   createObserver(name: string, type: string = 'custom'): EventEmitter {
     const observer = new EventEmitter();
@@ -645,6 +688,10 @@ export class UELEnhancedObserverSystem extends EventEmitter {
 
   /**
    * Enhance observer with UEL capabilities
+   *
+   * @param observer
+   * @param name
+   * @param type
    */
   private enhanceObserverWithUEL(observer: EventEmitter, name: string, type: string): void {
     const originalEmit = observer.emit.bind(observer);
@@ -705,6 +752,8 @@ export class UELEnhancedObserverSystem extends EventEmitter {
 
   /**
    * Remove observer and clean up resources
+   *
+   * @param name
    */
   removeObserver(name: string): boolean {
     const observer = this.observers.get(name);
@@ -720,6 +769,8 @@ export class UELEnhancedObserverSystem extends EventEmitter {
 
   /**
    * Get observer by name
+   *
+   * @param name
    */
   getObserver(name: string): EventEmitter | undefined {
     return this.observers.get(name);
@@ -736,6 +787,8 @@ export class UELEnhancedObserverSystem extends EventEmitter {
 /**
  * System Integration Factory
  * Provides factory methods for creating enhanced versions of core systems
+ *
+ * @example
  */
 export class SystemIntegrationFactory {
   private static instance: SystemIntegrationFactory;
@@ -753,6 +806,9 @@ export class SystemIntegrationFactory {
 
   /**
    * Initialize the factory with UEL event manager
+   *
+   * @param eventManager
+   * @param logger
    */
   async initialize(eventManager: EventManager, logger?: any): Promise<void> {
     this.eventManager = eventManager;
@@ -761,6 +817,12 @@ export class SystemIntegrationFactory {
 
   /**
    * Create enhanced event bus with UEL integration
+   *
+   * @param options
+   * @param options.enableUEL
+   * @param options.managerType
+   * @param options.managerName
+   * @param options.maxListeners
    */
   createEnhancedEventBus(
     options: {
@@ -786,6 +848,13 @@ export class SystemIntegrationFactory {
 
   /**
    * Create enhanced application coordinator with UEL integration
+   *
+   * @param options
+   * @param options.enableUEL
+   * @param options.uelConfig
+   * @param options.uelConfig.enableValidation
+   * @param options.uelConfig.enableCompatibility
+   * @param options.uelConfig.healthMonitoring
    */
   createEnhancedApplicationCoordinator(
     options: {
@@ -806,6 +875,9 @@ export class SystemIntegrationFactory {
 
   /**
    * Create enhanced observer system with UEL integration
+   *
+   * @param options
+   * @param options.enableUEL
    */
   createEnhancedObserverSystem(options: { enableUEL?: boolean } = {}): UELEnhancedObserverSystem {
     return new UELEnhancedObserverSystem({
@@ -844,6 +916,12 @@ export class SystemIntegrationFactory {
 
 /**
  * Create UEL-enhanced version of any EventEmitter-based class
+ *
+ * @param originalInstance
+ * @param name
+ * @param eventManager
+ * @param managerType
+ * @param logger
  */
 export async function enhanceWithUEL<T extends EventEmitter>(
   originalInstance: T,
@@ -858,6 +936,8 @@ export async function enhanceWithUEL<T extends EventEmitter>(
 
 /**
  * Analyze existing EventEmitter usage across the system
+ *
+ * @param logger
  */
 export function analyzeSystemEventEmitterUsage(
   systems: { [key: string]: EventEmitter },

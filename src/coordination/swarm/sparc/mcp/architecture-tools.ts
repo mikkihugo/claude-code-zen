@@ -345,6 +345,8 @@ export const ARCHITECTURE_MCP_TOOLS = {
 
 /**
  * Implementation of Architecture MCP Tools
+ *
+ * @example
  */
 export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
   private architectureEngine: DatabaseDrivenArchitecturePhaseEngine;
@@ -368,6 +370,11 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
   /**
    * Generate architecture from pseudocode structure
+   *
+   * @param params
+   * @param params.pseudocode
+   * @param params.projectId
+   * @param params.domain
    */
   async generateArchitecture(params: {
     pseudocode: PseudocodeStructure;
@@ -415,6 +422,11 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
   /**
    * Generate architecture from specification and pseudocode
+   *
+   * @param params
+   * @param params.specification
+   * @param params.pseudocode
+   * @param params.projectId
    */
   async generateArchitectureFromSpec(params: {
     specification: DetailedSpecification;
@@ -481,6 +493,10 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
   /**
    * Validate architecture design
+   *
+   * @param params
+   * @param params.architectureId
+   * @param params.validationType
    */
   async validateArchitecture(params: { architectureId: string; validationType?: string }): Promise<{
     success: boolean;
@@ -533,6 +549,9 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
   /**
    * Get architecture by ID
+   *
+   * @param params
+   * @param params.architectureId
    */
   async getArchitecture(params: { architectureId: string }): Promise<{
     success: boolean;
@@ -563,6 +582,12 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
   /**
    * Search architectures with criteria
+   *
+   * @param params
+   * @param params.domain
+   * @param params.tags
+   * @param params.minScore
+   * @param params.limit
    */
   async searchArchitectures(params: {
     domain?: string;
@@ -599,6 +624,10 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
   /**
    * Update architecture design
+   *
+   * @param params
+   * @param params.architectureId
+   * @param params.updates
    */
   async updateArchitecture(params: {
     architectureId: string;
@@ -633,6 +662,9 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
   /**
    * Delete architecture design
+   *
+   * @param params
+   * @param params.architectureId
    */
   async deleteArchitecture(params: { architectureId: string }): Promise<{
     success: boolean;
@@ -704,6 +736,10 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
   /**
    * Export architecture in various formats
+   *
+   * @param params
+   * @param params.architectureId
+   * @param params.format
    */
   async exportArchitecture(params: {
     architectureId: string;
@@ -765,6 +801,11 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
   /**
    * Clone architecture with optional modifications
+   *
+   * @param params
+   * @param params.sourceArchitectureId
+   * @param params.targetProjectId
+   * @param params.modifications
    */
   async cloneArchitecture(params: {
     sourceArchitectureId: string;
@@ -867,6 +908,9 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
 
 /**
  * Factory function to create and initialize Architecture MCP Tools
+ *
+ * @param db
+ * @param logger
  */
 export async function createArchitectureMCPTools(
   db: any,

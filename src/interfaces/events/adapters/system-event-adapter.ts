@@ -56,6 +56,8 @@ import {
 
 /**
  * System event adapter configuration extending UEL EventManagerConfig
+ *
+ * @example
  */
 export interface SystemEventAdapterConfig extends EventManagerConfig {
   /** Core system integration settings */
@@ -118,6 +120,8 @@ export interface SystemEventAdapterConfig extends EventManagerConfig {
 
 /**
  * System event operation metrics for performance monitoring
+ *
+ * @example
  */
 interface SystemEventMetrics {
   eventType: string;
@@ -133,6 +137,8 @@ interface SystemEventMetrics {
 
 /**
  * Event correlation entry for tracking related events
+ *
+ * @example
  */
 interface EventCorrelation {
   correlationId: string;
@@ -147,6 +153,8 @@ interface EventCorrelation {
 
 /**
  * System health tracking entry
+ *
+ * @example
  */
 interface SystemHealthEntry {
   component: string;
@@ -160,6 +168,8 @@ interface SystemHealthEntry {
 
 /**
  * Wrapped system component for unified event management
+ *
+ * @example
  */
 interface WrappedSystemComponent {
   component: any;
@@ -186,6 +196,8 @@ interface WrappedSystemComponent {
  * - Health monitoring and auto-recovery
  * - Event forwarding and transformation
  * - Error handling with retry logic
+ *
+ * @example
  */
 export class SystemEventAdapter implements IEventManager {
   // Core event manager properties
@@ -391,6 +403,9 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Emit a system event with correlation and performance tracking
+   *
+   * @param event
+   * @param options
    */
   async emit<T extends SystemEvent>(event: T, options?: EventEmissionOptions): Promise<void> {
     const startTime = Date.now();
@@ -459,6 +474,9 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Emit batch of events with optimized processing
+   *
+   * @param batch
+   * @param options
    */
   async emitBatch<T extends SystemEvent>(
     batch: EventBatch<T>,
@@ -497,6 +515,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Emit event immediately without queuing
+   *
+   * @param event
    */
   async emitImmediate<T extends SystemEvent>(event: T): Promise<void> {
     await this.emit(event, { timeout: 5000 });
@@ -504,6 +524,10 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Subscribe to system events with filtering and transformation
+   *
+   * @param eventTypes
+   * @param listener
+   * @param options
    */
   subscribe<T extends SystemEvent>(
     eventTypes: string | string[],
@@ -535,6 +559,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Unsubscribe from events
+   *
+   * @param subscriptionId
    */
   unsubscribe(subscriptionId: string): boolean {
     const subscription = this.subscriptions.get(subscriptionId);
@@ -551,6 +577,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Unsubscribe all listeners for event type
+   *
+   * @param eventType
    */
   unsubscribeAll(eventType?: string): number {
     let removedCount = 0;
@@ -578,6 +606,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Add event filter
+   *
+   * @param filter
    */
   addFilter(filter: EventFilter): string {
     const filterId = this.generateFilterId();
@@ -588,6 +618,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Remove event filter
+   *
+   * @param filterId
    */
   removeFilter(filterId: string): boolean {
     const result = this.filters.delete(filterId);
@@ -599,6 +631,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Add event transform
+   *
+   * @param transform
    */
   addTransform(transform: EventTransform): string {
     const transformId = this.generateTransformId();
@@ -609,6 +643,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Remove event transform
+   *
+   * @param transformId
    */
   removeTransform(transformId: string): boolean {
     const result = this.transforms.delete(transformId);
@@ -620,6 +656,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Query event history with filtering and pagination
+   *
+   * @param options
    */
   async query<T extends SystemEvent>(options: EventQueryOptions): Promise<T[]> {
     let events = [...this.eventHistory] as T[];
@@ -649,6 +687,9 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Get event history for specific event type
+   *
+   * @param eventType
+   * @param limit
    */
   async getEventHistory(eventType: string, limit?: number): Promise<SystemEvent[]> {
     const events = this.eventHistory.filter((event) => event.type === eventType);
@@ -740,6 +781,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Update adapter configuration
+   *
+   * @param config
    */
   updateConfig(config: Partial<SystemEventAdapterConfig>): void {
     this.logger.info(`Updating configuration for system event adapter: ${this.name}`);
@@ -749,6 +792,9 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Event handler management (EventEmitter compatibility)
+   *
+   * @param event
+   * @param handler
    */
   on(
     event: 'start' | 'stop' | 'error' | 'subscription' | 'emission',
@@ -808,6 +854,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Emit system lifecycle event with enhanced tracking
+   *
+   * @param event
    */
   async emitSystemLifecycleEvent(
     event: Omit<SystemLifecycleEvent, 'id' | 'timestamp'>
@@ -830,6 +878,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Subscribe to system lifecycle events with convenience
+   *
+   * @param listener
    */
   subscribeSystemLifecycleEvents(listener: EventListener<SystemLifecycleEvent>): string {
     return this.subscribe(
@@ -840,6 +890,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Subscribe to application lifecycle events
+   *
+   * @param listener
    */
   subscribeApplicationEvents(listener: EventListener<SystemLifecycleEvent>): string {
     return this.subscribe(['system:startup', 'system:health'], listener);
@@ -847,6 +899,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Subscribe to error and recovery events
+   *
+   * @param listener
    */
   subscribeErrorRecoveryEvents(listener: EventListener<SystemLifecycleEvent>): string {
     return this.subscribe(['system:error'], listener);
@@ -867,6 +921,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Get correlated events for a specific correlation ID
+   *
+   * @param correlationId
    */
   getCorrelatedEvents(correlationId: string): EventCorrelation | null {
     return this.eventCorrelations.get(correlationId) || null;
@@ -1136,6 +1192,9 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Process event emission with correlation and filtering
+   *
+   * @param event
+   * @param options
    */
   private async processEventEmission<T extends SystemEvent>(
     event: T,
@@ -1293,6 +1352,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Start event correlation for tracking related events
+   *
+   * @param event
    */
   private startEventCorrelation(event: SystemEvent): void {
     const correlationId = event.correlationId || this.generateCorrelationId();
@@ -1317,6 +1378,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Update existing event correlation
+   *
+   * @param event
    */
   private updateEventCorrelation(event: SystemEvent): void {
     const correlationId = event.correlationId;
@@ -1336,6 +1399,9 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Correlate error recovery events for enhanced tracking
+   *
+   * @param event
+   * @param data
    */
   private correlateErrorRecoveryEvent(event: SystemLifecycleEvent, data: any): void {
     // Create correlation between error and recovery events
@@ -1353,6 +1419,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Check if event correlation is complete based on patterns
+   *
+   * @param correlation
    */
   private isCorrelationComplete(correlation: EventCorrelation): boolean {
     const patterns = this.config.correlation?.correlationPatterns || [];
@@ -1396,6 +1464,9 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Batch processing methods for different strategies
+   *
+   * @param batch
+   * @param options
    */
   private async processBatchImmediate<T extends SystemEvent>(
     batch: EventBatch<T>,
@@ -1437,6 +1508,8 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Utility methods for event processing
+   *
+   * @param event
    */
   private validateEvent(event: SystemEvent): boolean {
     return !!(event.id && event.timestamp && event.source && event.type);
@@ -1589,6 +1662,9 @@ export class SystemEventAdapter implements IEventManager {
 
   /**
    * Emit wrapper for internal use
+   *
+   * @param event
+   * @param data
    */
   private emitInternal(event: string, data?: any): void {
     this.eventEmitter.emit(event, data);
@@ -1597,6 +1673,8 @@ export class SystemEventAdapter implements IEventManager {
 
 /**
  * Factory function for creating SystemEventAdapter instances
+ *
+ * @param config
  */
 export function createSystemEventAdapter(config: SystemEventAdapterConfig): SystemEventAdapter {
   return new SystemEventAdapter(config);
@@ -1604,6 +1682,9 @@ export function createSystemEventAdapter(config: SystemEventAdapterConfig): Syst
 
 /**
  * Helper function for creating default system event adapter configuration
+ *
+ * @param name
+ * @param overrides
  */
 export function createDefaultSystemEventAdapterConfig(
   name: string,
@@ -1700,6 +1781,9 @@ export function createDefaultSystemEventAdapterConfig(
 export const SystemEventHelpers = {
   /**
    * Create system startup event
+   *
+   * @param component
+   * @param details
    */
   createStartupEvent(
     component: string,
@@ -1717,6 +1801,9 @@ export const SystemEventHelpers = {
 
   /**
    * Create system shutdown event
+   *
+   * @param component
+   * @param details
    */
   createShutdownEvent(
     component: string,
@@ -1734,6 +1821,10 @@ export const SystemEventHelpers = {
 
   /**
    * Create system health event
+   *
+   * @param component
+   * @param healthScore
+   * @param details
    */
   createHealthEvent(
     component: string,
@@ -1755,6 +1846,10 @@ export const SystemEventHelpers = {
 
   /**
    * Create system error event
+   *
+   * @param component
+   * @param error
+   * @param details
    */
   createErrorEvent(
     component: string,

@@ -1,5 +1,5 @@
 /**
- * @fileoverview Facade Pattern Implementation for System Integration
+ * @file Facade Pattern Implementation for System Integration
  * Provides simplified interfaces to complex subsystems with dependency injection
  */
 
@@ -493,6 +493,8 @@ export interface IMetricsCollector {
 /**
  * ClaudeZenFacade - Main system facade providing simplified access to all subsystems
  * Implements comprehensive orchestration with dependency injection and error handling
+ *
+ * @example
  */
 export class ClaudeZenFacade extends EventEmitter {
   constructor(
@@ -514,6 +516,8 @@ export class ClaudeZenFacade extends EventEmitter {
 
   /**
    * High-level project initialization with comprehensive orchestration
+   *
+   * @param config
    */
   async initializeProject(config: ProjectInitConfig): Promise<ProjectResult> {
     const operationId = this.generateOperationId();
@@ -678,6 +682,9 @@ export class ClaudeZenFacade extends EventEmitter {
 
   /**
    * Complex document processing with AI coordination and caching
+   *
+   * @param documentPath
+   * @param options
    */
   async processDocument(
     documentPath: string,
@@ -883,6 +890,9 @@ export class ClaudeZenFacade extends EventEmitter {
 
   /**
    * Execute complex multi-service workflows
+   *
+   * @param workflowId
+   * @param inputs
    */
   async executeWorkflow(workflowId: string, inputs: Record<string, any>): Promise<WorkflowResult> {
     const operationId = this.generateOperationId();
@@ -906,6 +916,8 @@ export class ClaudeZenFacade extends EventEmitter {
 
   /**
    * Batch operation execution with progress tracking
+   *
+   * @param operations
    */
   async executeBatch(operations: Array<{ type: string; params: any }>): Promise<any[]> {
     const operationId = this.generateOperationId();

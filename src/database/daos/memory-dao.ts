@@ -11,7 +11,9 @@ import type { IMemoryRepository, MemoryStats, TransactionOperation } from '../in
 
 /**
  * Memory database DAO implementation
+ *
  * @template T The entity type this DAO manages
+ * @example
  */
 export class MemoryDAO<T> extends BaseDataAccessObject<T> {
   private get memoryRepository(): IMemoryRepository<T> {
@@ -24,6 +26,8 @@ export class MemoryDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Execute memory-optimized transaction
+   *
+   * @param operations
    */
   async executeMemoryTransaction<R>(operations: TransactionOperation[]): Promise<R> {
     this.logger.debug(`Executing memory transaction with ${operations.length} operations`);
@@ -88,6 +92,11 @@ export class MemoryDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Bulk cache operations with optimization
+   *
+   * @param entries
+   * @param options
+   * @param options.strategy
+   * @param options.overwrite
    */
   async bulkCache(
     entries: Array<{
@@ -158,6 +167,9 @@ export class MemoryDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Cache warming strategies
+   *
+   * @param strategy
+   * @param parameters
    */
   async warmCache(
     strategy: 'preload' | 'predictive' | 'usage_based',
@@ -210,6 +222,8 @@ export class MemoryDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Memory optimization operations
+   *
+   * @param strategy
    */
   async optimizeMemory(
     strategy: 'lru_cleanup' | 'ttl_cleanup' | 'size_optimization' | 'fragmentation_fix'
@@ -312,6 +326,12 @@ export class MemoryDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Session-based caching
+   *
+   * @param sessionId
+   * @param options
+   * @param options.ttl
+   * @param options.maxSize
+   * @param options.evictionPolicy
    */
   async createSession(
     sessionId: string,

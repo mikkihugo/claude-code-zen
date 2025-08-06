@@ -4,7 +4,7 @@
  * Provides 100% backward compatibility with existing EventEmitter code
  * while offering enhanced UEL capabilities and migration utilities.
  *
- * @fileoverview Backward Compatibility Implementation
+ * @file Backward Compatibility Implementation
  */
 
 import { EventEmitter } from 'node:events';
@@ -27,6 +27,8 @@ import type {
 
 /**
  * Enhanced EventEmitter that provides UEL integration while maintaining compatibility
+ *
+ * @example
  */
 export class UELCompatibleEventEmitter extends EventEmitter {
   private uelManager?: IEventManager;
@@ -54,6 +56,11 @@ export class UELCompatibleEventEmitter extends EventEmitter {
 
   /**
    * Enable UEL integration with migration support
+   *
+   * @param manager
+   * @param options
+   * @param options.migrateExistingListeners
+   * @param options.preserveEventEmitterBehavior
    */
   async enableUEL(
     manager?: IEventManager,
@@ -90,6 +97,9 @@ export class UELCompatibleEventEmitter extends EventEmitter {
 
   /**
    * Enhanced emit with UEL integration
+   *
+   * @param eventName
+   * @param {...any} args
    */
   emit(eventName: string | symbol, ...args: any[]): boolean {
     const result = super.emit(eventName, ...args);
@@ -106,6 +116,9 @@ export class UELCompatibleEventEmitter extends EventEmitter {
 
   /**
    * Enhanced on with UEL subscription tracking
+   *
+   * @param eventName
+   * @param listener
    */
   on(eventName: string | symbol, listener: (...args: any[]) => void): this {
     const result = super.on(eventName, listener);
@@ -122,6 +135,9 @@ export class UELCompatibleEventEmitter extends EventEmitter {
 
   /**
    * Enhanced once with UEL integration
+   *
+   * @param eventName
+   * @param listener
    */
   once(eventName: string | symbol, listener: (...args: any[]) => void): this {
     const result = super.once(eventName, listener);
@@ -138,6 +154,9 @@ export class UELCompatibleEventEmitter extends EventEmitter {
 
   /**
    * Map EventEmitter event to UEL event type
+   *
+   * @param eventEmitterEvent
+   * @param uelEventType
    */
   mapEventToUEL(eventEmitterEvent: string, uelEventType: string): void {
     this.eventMappings.set(eventEmitterEvent, uelEventType);
@@ -266,6 +285,8 @@ export class UELCompatibleEventEmitter extends EventEmitter {
 
 /**
  * Migration utilities for converting existing EventEmitter code to UEL
+ *
+ * @example
  */
 export class EventEmitterMigrationHelper {
   private eventManager: EventManager;
@@ -284,6 +305,13 @@ export class EventEmitterMigrationHelper {
 
   /**
    * Create UEL-compatible EventEmitter instance
+   *
+   * @param managerName
+   * @param managerType
+   * @param options
+   * @param options.enableUEL
+   * @param options.migrationMode
+   * @param options.autoMigrate
    */
   async createCompatibleEventEmitter(
     managerName: string,
@@ -322,6 +350,10 @@ export class EventEmitterMigrationHelper {
 
   /**
    * Wrap existing EventEmitter with UEL compatibility
+   *
+   * @param originalEmitter
+   * @param managerName
+   * @param managerType
    */
   async wrapEventEmitter(
     originalEmitter: EventEmitter,
@@ -374,6 +406,8 @@ export class EventEmitterMigrationHelper {
 
   /**
    * Analyze EventEmitter usage patterns
+   *
+   * @param emitter
    */
   analyzeEventEmitter(emitter: EventEmitter): {
     eventTypes: string[];
@@ -428,6 +462,8 @@ export class EventEmitterMigrationHelper {
 
   /**
    * Generate migration plan for EventEmitter conversion
+   *
+   * @param analysis
    */
   generateMigrationPlan(analysis: ReturnType<EventEmitterMigrationHelper['analyzeEventEmitter']>): {
     phases: Array<{
@@ -534,6 +570,8 @@ export class EventEmitterMigrationHelper {
 
 /**
  * Factory for creating backward-compatible event emitters
+ *
+ * @example
  */
 export class CompatibilityFactory {
   private static instance: CompatibilityFactory;
@@ -551,6 +589,9 @@ export class CompatibilityFactory {
 
   /**
    * Initialize compatibility factory
+   *
+   * @param eventManager
+   * @param logger
    */
   async initialize(eventManager: EventManager, logger?: ILogger): Promise<void> {
     this.eventManager = eventManager;
@@ -559,6 +600,12 @@ export class CompatibilityFactory {
 
   /**
    * Create enhanced EventEmitter with UEL capabilities
+   *
+   * @param name
+   * @param type
+   * @param options
+   * @param options.enableUEL
+   * @param options.migrationMode
    */
   async createEnhancedEventEmitter(
     name: string,
@@ -577,6 +624,10 @@ export class CompatibilityFactory {
 
   /**
    * Wrap existing EventEmitter with UEL capabilities
+   *
+   * @param emitter
+   * @param name
+   * @param type
    */
   async wrapExistingEmitter(
     emitter: EventEmitter,
@@ -604,6 +655,10 @@ export class CompatibilityFactory {
 
 /**
  * Create UEL-compatible EventEmitter instance
+ *
+ * @param name
+ * @param type
+ * @param eventManager
  */
 export async function createCompatibleEventEmitter(
   name: string,
@@ -624,6 +679,11 @@ export async function createCompatibleEventEmitter(
 
 /**
  * Wrap existing EventEmitter with UEL compatibility
+ *
+ * @param emitter
+ * @param name
+ * @param type
+ * @param eventManager
  */
 export async function wrapWithUEL(
   emitter: EventEmitter,

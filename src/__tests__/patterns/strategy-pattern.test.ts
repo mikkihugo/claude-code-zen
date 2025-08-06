@@ -1,5 +1,5 @@
 /**
- * @fileoverview Strategy Pattern Tests
+ * @file Strategy Pattern Tests
  * Hybrid TDD approach: London TDD for coordination logic, Classical TDD for algorithms
  */
 

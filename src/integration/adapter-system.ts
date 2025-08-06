@@ -1,5 +1,5 @@
 /**
- * @fileoverview Adapter Pattern Implementation for Multi-Protocol Support
+ * @file Adapter Pattern Implementation for Multi-Protocol Support
  * Provides protocol adaptation and legacy system integration
  */
 

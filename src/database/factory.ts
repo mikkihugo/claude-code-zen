@@ -1,17 +1,15 @@
 /**
  * Unified Data Access Layer (DAL) - Factory Implementation
  *
- * @fileoverview Central factory for creating repository and DAO instances based on database type,
+ * @file Central factory for creating repository and DAO instances based on database type,
  * entity requirements, and configuration. Supports dependency injection, caching,
  * multi-database coordination, and provides a single point of access for all data layer implementations.
  *
  * This factory handles the complexity of database adapter creation, entity schema management,
  * connection pooling, and provides both repository and DAO pattern implementations.
- *
  * @author Claude-Zen DAL Team
  * @version 2.0.0
  * @since 1.0.0
- *
  * @example Basic Factory Usage
  * ```typescript
  * import { DALFactory } from './database/factory';
@@ -34,7 +32,6 @@
  *   databaseConfig: pgConfig
  * });
  * ```
- *
  * @example Multi-Database Factory Setup
  * ```typescript
  * const multiDAO = await factory.createMultiDatabaseDAO<Document>(
@@ -71,7 +68,6 @@ import type {
  *
  * @interface RepositoryConfig
  * @since 1.0.0
- *
  * @example PostgreSQL Repository Config
  * ```typescript
  * const config: RepositoryConfig = {
@@ -92,7 +88,6 @@ import type {
  *   }
  * };
  * ```
- *
  * @example Vector Database Config
  * ```typescript
  * const vectorConfig: RepositoryConfig = {
@@ -142,7 +137,6 @@ export interface RepositoryConfig {
  *
  * @template T The entity type the repository manages
  * @since 1.0.0
- *
  * @example Type Usage in Factory Methods
  * ```typescript
  * async function createSpecializedRepo<T>(
@@ -176,7 +170,6 @@ export type RepositoryType<T> =
  *
  * @interface EntityTypeRegistry
  * @since 1.0.0
- *
  * @example Entity Registration
  * ```typescript
  * const registry: EntityTypeRegistry = {
@@ -199,7 +192,6 @@ export type RepositoryType<T> =
  *   }
  * };
  * ```
- *
  * @example Vector Entity Registration
  * ```typescript
  * registry.VectorDocument = {
@@ -249,7 +241,6 @@ export interface EntityTypeRegistry {
  * @class DALFactory
  * @injectable
  * @since 1.0.0
- *
  * @example Basic Factory Setup
  * ```typescript
  * import { DALFactory } from './factory';
@@ -274,7 +265,6 @@ export interface EntityTypeRegistry {
  *   entityType: 'Product'
  * });
  * ```
- *
  * @example Specialized Database Factories
  * ```typescript
  * // Create vector database repository
@@ -315,11 +305,9 @@ export class DALFactory {
    * @template T The entity type this repository will manage
    * @param {RepositoryConfig} config - Repository configuration including database type and entity schema
    * @returns {Promise<RepositoryType<T>>} A promise that resolves to a typed repository instance
-   *
    * @throws {Error} When repository creation fails due to invalid configuration
    * @throws {Error} When database connection cannot be established
    * @throws {Error} When entity schema validation fails
-   *
    * @example PostgreSQL Repository Creation
    * ```typescript
    * const userRepository = await factory.createRepository<User>({
@@ -343,7 +331,6 @@ export class DALFactory {
    * const user = await userRepository.create({ name: 'John', email: 'john@example.com' });
    * await userRepository.update(user.id, { name: 'John Doe' });
    * ```
-   *
    * @example Vector Repository with Custom Schema
    * ```typescript
    * const vectorRepo = await factory.createRepository<VectorDoc>({
@@ -403,11 +390,9 @@ export class DALFactory {
    * @template T The entity type this DAO will manage
    * @param {RepositoryConfig} config - DAO configuration including database type and business rules
    * @returns {Promise<IDataAccessObject<T>>} A promise that resolves to a configured DAO instance
-   *
    * @throws {Error} When DAO creation fails due to repository issues
    * @throws {Error} When business logic validation fails
    * @throws {Error} When transaction setup fails
-   *
    * @example User DAO with Validation
    * ```typescript
    * const userDAO = await factory.createDAO<User>({
@@ -436,7 +421,6 @@ export class DALFactory {
    *   console.error('DAO operation failed:', error.message);
    * }
    * ```
-   *
    * @example Vector DAO with Similarity Search
    * ```typescript
    * const vectorDAO = await factory.createDAO<VectorDocument>({
@@ -502,11 +486,9 @@ export class DALFactory {
    * @param {string} [config.tableName] - Custom table name (defaults to entityType)
    * @param {string} [config.databaseType] - Preferred database type for this entity
    * @param {Array} [config.indexes] - Index definitions for performance optimization
-   *
    * @throws {Error} When entity type is already registered
    * @throws {Error} When schema validation fails
    * @throws {Error} When primary key is not defined in schema
-   *
    * @example User Entity Registration
    * ```typescript
    * factory.registerEntityType('User', {
@@ -541,7 +523,6 @@ export class DALFactory {
    *   ]
    * });
    * ```
-   *
    * @example Vector Document Registration
    * ```typescript
    * factory.registerEntityType('EmbeddingDocument', {
@@ -595,7 +576,6 @@ export class DALFactory {
    *
    * @param {string} entityType - The entity type name to look up
    * @returns {EntityTypeRegistry[string] | undefined} Entity configuration or undefined
-   *
    * @example Getting Entity Configuration
    * ```typescript
    * const userConfig = factory.getEntityConfig('User');
@@ -606,7 +586,6 @@ export class DALFactory {
    *   console.log('Indexes:', userConfig.indexes);
    * }
    * ```
-   *
    * @example Validating Entity Before Creation
    * ```typescript
    * const entityType = 'Product';
@@ -640,11 +619,9 @@ export class DALFactory {
    * @param {string} entityType - The entity type name for graph nodes
    * @param {string} [tableName] - Optional custom table name (defaults to entityType)
    * @returns {Promise<IGraphRepository<T>>} A promise that resolves to a graph repository instance
-   *
    * @throws {Error} When Kuzu database configuration is invalid
    * @throws {Error} When graph repository creation fails
    * @throws {Error} When database connection cannot be established
-   *
    * @example Social Network Graph Repository
    * ```typescript
    * interface Person {
@@ -682,7 +659,6 @@ export class DALFactory {
    * // Shortest path algorithm
    * const path = await personRepo.findShortestPath('person-1', 'person-5');
    * ```
-   *
    * @example Knowledge Graph Repository
    * ```typescript
    * interface Concept {
@@ -728,11 +704,9 @@ export class DALFactory {
    * @param {string} entityType - The entity type name for vector documents
    * @param {number} [vectorDimension=384] - Vector dimension (default: 384 for sentence transformers)
    * @returns {Promise<IVectorRepository<T>>} A promise that resolves to a vector repository instance
-   *
    * @throws {Error} When LanceDB configuration is invalid
    * @throws {Error} When vector dimension is invalid (must be > 0)
    * @throws {Error} When database connection fails
-   *
    * @example Document Embedding Repository
    * ```typescript
    * interface DocumentEmbedding {
@@ -771,7 +745,6 @@ export class DALFactory {
    *   includeMetadata: true
    * });
    * ```
-   *
    * @example Image Feature Repository
    * ```typescript
    * interface ImageFeature {
@@ -829,11 +802,9 @@ export class DALFactory {
    * @template T The entity type representing coordination objects
    * @param {string} entityType - The entity type name for coordination objects
    * @returns {Promise<ICoordinationRepository<T>>} A promise that resolves to a coordination repository
-   *
    * @throws {Error} When coordination database setup fails
    * @throws {Error} When distributed locking initialization fails
    * @throws {Error} When coordination schema creation fails
-   *
    * @example Distributed Lock Repository
    * ```typescript
    * interface DistributedLock {
@@ -872,7 +843,6 @@ export class DALFactory {
    *   await lockRepo.releaseLock(lock.id);
    * }
    * ```
-   *
    * @example Task Queue Coordination
    * ```typescript
    * interface CoordinationTask {
@@ -928,11 +898,9 @@ export class DALFactory {
    * @template T The entity type for memory-stored objects
    * @param {string} entityType - The entity type name for memory objects
    * @returns {Promise<IMemoryRepository<T>>} A promise that resolves to a memory repository
-   *
    * @throws {Error} When in-memory database initialization fails
    * @throws {Error} When memory limits configuration is invalid
    * @throws {Error} When TTL configuration is invalid
-   *
    * @example Session Cache Repository
    * ```typescript
    * interface UserSession {
@@ -972,7 +940,6 @@ export class DALFactory {
    * // Clean up expired sessions automatically
    * await sessionRepo.cleanupExpired();
    * ```
-   *
    * @example Application Cache Repository
    * ```typescript
    * interface CacheEntry {
@@ -1035,11 +1002,9 @@ export class DALFactory {
    * @param {RepositoryConfig} primaryConfig - Primary database configuration (handles writes)
    * @param {RepositoryConfig[]} [secondaryConfigs] - Optional secondary database configurations
    * @returns {Promise<MultiDatabaseDAO<T>>} A promise that resolves to a multi-database DAO
-   *
    * @throws {Error} When primary database configuration is invalid
    * @throws {Error} When any secondary database setup fails
    * @throws {Error} When multi-database coordination setup fails
-   *
    * @example Primary PostgreSQL with Vector Search Secondary
    * ```typescript
    * interface Product {
@@ -1093,7 +1058,6 @@ export class DALFactory {
    * console.log('Primary healthy:', health.primary.healthy);
    * console.log('Secondaries healthy:', health.secondaries.map(s => s.healthy));
    * ```
-   *
    * @example Multi-Region Setup with Replication
    * ```typescript
    * const userDAO = await factory.createMultiDatabaseDAO<User>(
@@ -1382,6 +1346,8 @@ export class DALFactory {
 
 /**
  * Multi-database DAO that can coordinate operations across multiple data sources
+ *
+ * @example
  */
 export class MultiDatabaseDAO<T> implements IDataAccessObject<T> {
   constructor(

@@ -1,5 +1,5 @@
 /**
- * @fileoverview Command Pattern Implementation for MCP Tool Execution
+ * @file Command Pattern Implementation for MCP Tool Execution
  * Provides command encapsulation with undo support, batch operations, and transaction handling
  */
 

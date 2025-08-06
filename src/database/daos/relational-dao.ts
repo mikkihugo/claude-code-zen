@@ -11,7 +11,9 @@ import type { IRepository, TransactionOperation } from '../interfaces';
 
 /**
  * Relational database DAO implementation
+ *
  * @template T The entity type this DAO manages
+ * @example
  */
 export class RelationalDAO<T> extends BaseDataAccessObject<T> {
   constructor(repository: IRepository<T>, adapter: DatabaseAdapter, logger: ILogger) {
@@ -20,6 +22,8 @@ export class RelationalDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Execute complex multi-table transaction
+   *
+   * @param operations
    */
   async executeComplexTransaction<R>(operations: TransactionOperation[]): Promise<R> {
     this.logger.debug(
@@ -88,6 +92,9 @@ export class RelationalDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Bulk operations with batch processing
+   *
+   * @param entities
+   * @param batchSize
    */
   async bulkCreate(entities: Omit<T, 'id'>[], batchSize: number = 100): Promise<T[]> {
     this.logger.debug(`Bulk creating ${entities.length} entities with batch size: ${batchSize}`);
@@ -117,6 +124,8 @@ export class RelationalDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Bulk update with optimistic locking
+   *
+   * @param updates
    */
   async bulkUpdate(updates: Array<{ id: string | number; data: Partial<T> }>): Promise<T[]> {
     this.logger.debug(`Bulk updating ${updates.length} entities`);
@@ -142,6 +151,9 @@ export class RelationalDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Execute stored procedure or function
+   *
+   * @param procedureName
+   * @param parameters
    */
   async executeStoredProcedure<R>(procedureName: string, parameters: any[] = []): Promise<R> {
     this.logger.debug(`Executing stored procedure: ${procedureName}`, { parameters });
@@ -162,6 +174,8 @@ export class RelationalDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Execute with connection pooling optimization
+   *
+   * @param operations
    */
   async executeWithConnectionOptimization<R>(operations: (() => Promise<any>)[]): Promise<R[]> {
     this.logger.debug(`Executing ${operations.length} operations with connection optimization`);

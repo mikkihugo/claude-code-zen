@@ -17,6 +17,8 @@ import { createDefaultSystemEventAdapterConfig, SystemEventAdapter } from './sys
  *
  * Creates and manages SystemEventAdapter instances for system-level event management.
  * Integrates with the UEL factory system to provide unified access to system events.
+ *
+ * @example
  */
 export class SystemEventManagerFactory implements IEventManagerFactory<SystemEventAdapterConfig> {
   private logger: ILogger;
@@ -31,6 +33,8 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
 
   /**
    * Create a new SystemEventAdapter instance
+   *
+   * @param config
    */
   async create(config: SystemEventAdapterConfig): Promise<IEventManager> {
     this.logger.info(`Creating system event manager: ${config.name}`);
@@ -55,6 +59,8 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
 
   /**
    * Create multiple system event managers
+   *
+   * @param configs
    */
   async createMultiple(configs: SystemEventAdapterConfig[]): Promise<IEventManager[]> {
     this.logger.info(`Creating ${configs.length} system event managers`);
@@ -86,6 +92,8 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
 
   /**
    * Get existing system event manager by name
+   *
+   * @param name
    */
   get(name: string): IEventManager | undefined {
     return this.instances.get(name);
@@ -100,6 +108,8 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
 
   /**
    * Check if system event manager exists
+   *
+   * @param name
    */
   has(name: string): boolean {
     return this.instances.has(name);
@@ -107,6 +117,8 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
 
   /**
    * Remove system event manager
+   *
+   * @param name
    */
   async remove(name: string): Promise<boolean> {
     const manager = this.instances.get(name);
@@ -269,6 +281,8 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
 
   /**
    * Validate system event manager configuration
+   *
+   * @param config
    */
   private validateConfig(config: SystemEventAdapterConfig): void {
     if (!config.name || typeof config.name !== 'string') {
@@ -300,6 +314,9 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
 
 /**
  * Create a system event manager with default configuration
+ *
+ * @param name
+ * @param overrides
  */
 export async function createSystemEventManager(
   name: string,
@@ -313,6 +330,8 @@ export async function createSystemEventManager(
 
 /**
  * Create system event manager for core system integration
+ *
+ * @param name
  */
 export async function createCoreSystemEventManager(
   name: string = 'core-system-events'
@@ -339,6 +358,8 @@ export async function createCoreSystemEventManager(
 
 /**
  * Create system event manager for application coordination
+ *
+ * @param name
  */
 export async function createApplicationCoordinatorEventManager(
   name: string = 'app-coordinator-events'
@@ -365,6 +386,8 @@ export async function createApplicationCoordinatorEventManager(
 
 /**
  * Create system event manager for error recovery integration
+ *
+ * @param name
  */
 export async function createErrorRecoveryEventManager(
   name: string = 'error-recovery-events'
@@ -404,6 +427,8 @@ export async function createErrorRecoveryEventManager(
 
 /**
  * Create comprehensive system event manager for full system monitoring
+ *
+ * @param name
  */
 export async function createComprehensiveSystemEventManager(
   name: string = 'comprehensive-system-events'

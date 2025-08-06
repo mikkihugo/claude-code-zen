@@ -22,6 +22,8 @@ import {
 
 /**
  * MCP-specific client configuration
+ *
+ * @example
  */
 export interface MCPClientConfig extends ClientConfig {
   protocol: 'stdio' | 'http';
@@ -50,6 +52,8 @@ export interface MCPClientConfig extends ClientConfig {
 
 /**
  * MCP Tool definition
+ *
+ * @example
  */
 export interface MCPTool {
   name: string;
@@ -60,6 +64,8 @@ export interface MCPTool {
 
 /**
  * MCP Protocol Message types
+ *
+ * @example
  */
 export interface MCPMessage {
   jsonrpc: '2.0';
@@ -76,6 +82,8 @@ export interface MCPMessage {
 
 /**
  * Tool execution result
+ *
+ * @example
  */
 export interface MCPToolResult {
   content: Array<{
@@ -89,6 +97,8 @@ export interface MCPToolResult {
 
 /**
  * MCP Client Adapter - Implements UACL IClient interface
+ *
+ * @example
  */
 export class MCPClientAdapter extends EventEmitter implements IClient {
   readonly config: MCPClientConfig;
@@ -347,6 +357,10 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
   /**
    * Execute MCP tool (mapped to POST request)
+   *
+   * @param toolName
+   * @param parameters
+   * @param options
    */
   async post<T = any>(
     toolName: string,
@@ -389,6 +403,9 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
   /**
    * Get available tools (mapped to GET request)
+   *
+   * @param endpoint
+   * @param options
    */
   async get<T = any>(endpoint: string, options?: RequestOptions): Promise<ClientResponse<T>> {
     if (endpoint === '/tools') {
@@ -434,6 +451,8 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
   /**
    * Update configuration
+   *
+   * @param config
    */
   updateConfig(config: Partial<MCPClientConfig>): void {
     Object.assign(this.config, config);
@@ -449,6 +468,10 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
   /**
    * Execute MCP tool call
+   *
+   * @param toolName
+   * @param parameters
+   * @param options
    */
   private async _executeToolCall(
     toolName: string,
@@ -493,6 +516,9 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
   /**
    * Send message to MCP server
+   *
+   * @param message
+   * @param timeout
    */
   private async _sendMessage(message: MCPMessage, timeout = 30000): Promise<any> {
     if (!this._isConnected) {
@@ -508,6 +534,9 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
   /**
    * Send message via stdio
+   *
+   * @param message
+   * @param timeout
    */
   private async _sendStdioMessage(message: MCPMessage, timeout: number): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -548,6 +577,9 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
   /**
    * Send message via HTTP
+   *
+   * @param message
+   * @param timeout
    */
   private async _sendHTTPMessage(message: MCPMessage, timeout: number): Promise<any> {
     const response = await fetch(`${this.config.url}/mcp`, {
@@ -579,6 +611,8 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
   /**
    * Handle stdio messages
+   *
+   * @param data
    */
   private _handleStdioMessage(data: string): void {
     const lines = data.trim().split('\n');
@@ -641,6 +675,8 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
   /**
    * Record latency for metrics
+   *
+   * @param latency
    */
   private _recordLatency(latency: number): void {
     this._latencyHistory.push(latency);
@@ -684,12 +720,16 @@ export class MCPClientAdapter extends EventEmitter implements IClient {
 
 /**
  * MCP Client Factory - Creates and manages MCP clients
+ *
+ * @example
  */
 export class MCPClientFactory implements IClientFactory<MCPClientConfig> {
   private _clients: Map<string, MCPClientAdapter> = new Map();
 
   /**
    * Create new MCP client
+   *
+   * @param config
    */
   async create(config: MCPClientConfig): Promise<IClient> {
     const client = new MCPClientAdapter(config);
@@ -699,6 +739,8 @@ export class MCPClientFactory implements IClientFactory<MCPClientConfig> {
 
   /**
    * Create multiple MCP clients
+   *
+   * @param configs
    */
   async createMultiple(configs: MCPClientConfig[]): Promise<IClient[]> {
     const clients: IClient[] = [];
@@ -713,6 +755,8 @@ export class MCPClientFactory implements IClientFactory<MCPClientConfig> {
 
   /**
    * Get client by name
+   *
+   * @param name
    */
   get(name: string): IClient | undefined {
     return this._clients.get(name);
@@ -727,6 +771,8 @@ export class MCPClientFactory implements IClientFactory<MCPClientConfig> {
 
   /**
    * Check if client exists
+   *
+   * @param name
    */
   has(name: string): boolean {
     return this._clients.has(name);
@@ -734,6 +780,8 @@ export class MCPClientFactory implements IClientFactory<MCPClientConfig> {
 
   /**
    * Remove client
+   *
+   * @param name
    */
   async remove(name: string): Promise<boolean> {
     const client = this._clients.get(name);
@@ -812,6 +860,14 @@ export class MCPClientFactory implements IClientFactory<MCPClientConfig> {
 
 /**
  * Helper function to create MCP client configurations from legacy format
+ *
+ * @param name
+ * @param legacyConfig
+ * @param legacyConfig.url
+ * @param legacyConfig.type
+ * @param legacyConfig.command
+ * @param legacyConfig.timeout
+ * @param legacyConfig.capabilities
  */
 export function createMCPConfigFromLegacy(
   name: string,

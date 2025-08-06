@@ -29,6 +29,8 @@ import type { DataServiceAdapter, DataServiceAdapterConfig } from './data-servic
 
 /**
  * Data operation result with standardized metadata
+ *
+ * @example
  */
 export interface DataOperationResult<T = any> {
   success: boolean;
@@ -45,6 +47,8 @@ export interface DataOperationResult<T = any> {
 
 /**
  * Batch operation configuration
+ *
+ * @example
  */
 export interface BatchOperationConfig {
   operations: Array<{
@@ -59,6 +63,8 @@ export interface BatchOperationConfig {
 
 /**
  * Data validation result
+ *
+ * @example
  */
 export interface DataValidationResult {
   valid: boolean;
@@ -69,6 +75,8 @@ export interface DataValidationResult {
 
 /**
  * Search and filter options for enhanced querying
+ *
+ * @example
  */
 export interface EnhancedSearchOptions {
   query?: string;
@@ -87,6 +95,8 @@ export interface EnhancedSearchOptions {
 
 /**
  * Data aggregation options
+ *
+ * @example
  */
 export interface DataAggregationOptions {
   groupBy?: string | string[];
@@ -100,6 +110,8 @@ export interface DataAggregationOptions {
 
 /**
  * Data transformation pipeline step
+ *
+ * @example
  */
 export interface TransformationStep {
   type: 'filter' | 'map' | 'reduce' | 'sort' | 'group' | 'validate';
@@ -108,6 +120,8 @@ export interface TransformationStep {
 
 /**
  * Data service helper class with common operations
+ *
+ * @example
  */
 export class DataServiceHelper {
   private logger: Logger;
@@ -122,6 +136,8 @@ export class DataServiceHelper {
 
   /**
    * Get comprehensive system status with caching
+   *
+   * @param useCache
    */
   async getSystemStatus(useCache = true): Promise<DataOperationResult<SystemStatusData>> {
     const startTime = Date.now();
@@ -220,6 +236,12 @@ export class DataServiceHelper {
 
   /**
    * Get all swarms with enhanced filtering
+   *
+   * @param filters
+   * @param filters.status
+   * @param filters.minAgents
+   * @param filters.maxAgents
+   * @param filters.createdAfter
    */
   async getSwarms(filters?: {
     status?: string;
@@ -268,6 +290,12 @@ export class DataServiceHelper {
 
   /**
    * Create swarm with validation and monitoring
+   *
+   * @param config
+   * @param config.name
+   * @param config.agents
+   * @param config.topology
+   * @param config.timeout
    */
   async createSwarm(config: {
     name: string;
@@ -371,6 +399,8 @@ export class DataServiceHelper {
 
   /**
    * Get tasks with enhanced filtering and sorting
+   *
+   * @param options
    */
   async getTasks(options?: EnhancedSearchOptions): Promise<DataOperationResult<TaskData[]>> {
     const startTime = Date.now();
@@ -421,6 +451,14 @@ export class DataServiceHelper {
 
   /**
    * Create task with workflow integration
+   *
+   * @param config
+   * @param config.title
+   * @param config.description
+   * @param config.assignedAgents
+   * @param config.priority
+   * @param config.eta
+   * @param config.dependencies
    */
   async createTask(config: {
     title: string;
@@ -462,6 +500,14 @@ export class DataServiceHelper {
 
   /**
    * Enhanced document search with multiple search types
+   *
+   * @param query
+   * @param options
+   * @param options.searchType
+   * @param options.documentTypes
+   * @param options.projectId
+   * @param options.limit
+   * @param options.includeContent
    */
   async searchDocuments<T extends BaseDocumentEntity>(
     query: string,
@@ -506,6 +552,8 @@ export class DataServiceHelper {
 
   /**
    * Bulk document operations
+   *
+   * @param operations
    */
   async bulkDocumentOperations(
     operations: Array<{
@@ -577,6 +625,8 @@ export class DataServiceHelper {
 
   /**
    * Execute multiple operations in parallel with concurrency control
+   *
+   * @param config
    */
   async executeBatch(config: BatchOperationConfig): Promise<DataOperationResult<any[]>> {
     const startTime = Date.now();
@@ -634,6 +684,9 @@ export class DataServiceHelper {
 
   /**
    * Apply data transformation pipeline
+   *
+   * @param data
+   * @param pipeline
    */
   transformData<T, R>(data: T[], pipeline: TransformationStep[]): R[] {
     let result: any = data;
@@ -665,6 +718,9 @@ export class DataServiceHelper {
 
   /**
    * Data aggregation with multiple operations
+   *
+   * @param data
+   * @param options
    */
   aggregateData(data: any[], options: DataAggregationOptions): any {
     let result = data;
@@ -690,6 +746,9 @@ export class DataServiceHelper {
 
   /**
    * Export data in various formats
+   *
+   * @param data
+   * @param format
    */
   exportData(data: any[], format: 'json' | 'csv' | 'xml' = 'json'): string {
     switch (format) {
@@ -972,6 +1031,8 @@ export class DataServiceHelper {
 
 /**
  * Factory function for creating data service helpers
+ *
+ * @param adapter
  */
 export function createDataServiceHelper(adapter: DataServiceAdapter): DataServiceHelper {
   return new DataServiceHelper(adapter);
@@ -983,6 +1044,9 @@ export function createDataServiceHelper(adapter: DataServiceAdapter): DataServic
 export const DataServiceUtils = {
   /**
    * Validate configuration object against schema
+   *
+   * @param config
+   * @param schema
    */
   validateConfiguration(config: any, schema: any): DataValidationResult {
     const errors: string[] = [];
@@ -1007,6 +1071,10 @@ export const DataServiceUtils = {
 
   /**
    * Generate cache key for operation
+   *
+   * @param operation
+   * @param params
+   * @param prefix
    */
   generateCacheKey(operation: string, params: any = {}, prefix = 'data:'): string {
     const paramString = Object.keys(params).length > 0 ? JSON.stringify(params) : '';
@@ -1016,6 +1084,8 @@ export const DataServiceUtils = {
 
   /**
    * Estimate data size in bytes
+   *
+   * @param data
    */
   estimateDataSize(data: any): number {
     try {
@@ -1027,6 +1097,8 @@ export const DataServiceUtils = {
 
   /**
    * Deep clone object safely
+   *
+   * @param obj
    */
   deepClone<T>(obj: T): T {
     return JSON.parse(JSON.stringify(obj));
@@ -1034,6 +1106,9 @@ export const DataServiceUtils = {
 
   /**
    * Merge objects deeply
+   *
+   * @param target
+   * @param {...any} sources
    */
   deepMerge(target: any, ...sources: any[]): any {
     if (!sources.length) return target;
@@ -1055,6 +1130,9 @@ export const DataServiceUtils = {
 
   /**
    * Rate limiting utility
+   *
+   * @param maxRequests
+   * @param windowMs
    */
   createRateLimiter(maxRequests: number, windowMs: number) {
     const requests = new Map<string, number[]>();

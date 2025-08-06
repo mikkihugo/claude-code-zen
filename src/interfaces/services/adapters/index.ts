@@ -1,18 +1,16 @@
 /**
  * USL Service Adapters - Index and Registry Integration
  *
- * @fileoverview Exports all service adapter components and integrates them with
+ * @file Exports all service adapter components and integrates them with
  * the global USL service registry. This provides a unified entry point
  * for all service adapter functionality including data adapters, coordination adapters,
  * integration adapters, and infrastructure adapters.
- *
  * @description Service adapters provide enhanced implementations of core services
  * with specialized capabilities:
  * - Data adapters: Web API integration, database operations, caching
  * - Coordination adapters: Agent management, task orchestration, swarm coordination
  * - Integration adapters: External system connectivity, protocol management
  * - Infrastructure adapters: System monitoring, health checks, metrics collection
- *
  * @example
  * ```typescript
  * import {

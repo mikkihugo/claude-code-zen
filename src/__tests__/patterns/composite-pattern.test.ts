@@ -1,5 +1,5 @@
 /**
- * @fileoverview Composite Pattern Tests
+ * @file Composite Pattern Tests
  * Hybrid TDD approach: London TDD for hierarchy management, Classical TDD for task execution algorithms
  */
 

@@ -33,6 +33,8 @@ import type {
 export class PseudocodePhaseEngine implements PseudocodeEngine {
   /**
    * Generate algorithmic pseudocode from detailed specifications
+   *
+   * @param spec
    */
   async generateAlgorithmPseudocode(spec: DetailedSpecification): Promise<AlgorithmPseudocode[]> {
     const algorithms: AlgorithmPseudocode[] = [];
@@ -144,6 +146,8 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
   }
   /**
    * Generate algorithmic pseudocode from detailed specifications
+   *
+   * @param specification
    */
   async generatePseudocode(specification: DetailedSpecification): Promise<PseudocodeStructure> {
     // Generate algorithms using the interface-compliant method
@@ -166,6 +170,8 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Design core algorithms based on functional requirements (Legacy method for backward compatibility)
+   *
+   * @param specification
    */
   private async designCoreAlgorithms(
     specification: DetailedSpecification
@@ -202,6 +208,9 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Create algorithm for specific requirement (Legacy method)
+   *
+   * @param requirement
+   * @param domain
    */
   private async createAlgorithmForRequirement(
     requirement: any,
@@ -220,6 +229,8 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Generate pseudocode for swarm coordination algorithms
+   *
+   * @param _specification
    */
   private async createSwarmCoordinationAlgorithms(
     _specification: DetailedSpecification
@@ -336,6 +347,8 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Generate pseudocode for neural network algorithms
+   *
+   * @param _specification
    */
   private async createNeuralNetworkAlgorithms(
     _specification: DetailedSpecification
@@ -394,6 +407,8 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Generate pseudocode for memory system algorithms
+   *
+   * @param _specification
    */
   private async createMemorySystemAlgorithms(
     _specification: DetailedSpecification
@@ -452,6 +467,8 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Create general-purpose algorithms
+   *
+   * @param _specification
    */
   private async createGeneralAlgorithms(
     _specification: DetailedSpecification
@@ -518,6 +535,8 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Specify data structures needed for the algorithms
+   *
+   * @param specification
    */
   private async specifyDataStructures(
     specification: DetailedSpecification
@@ -619,6 +638,8 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Analyze computational complexity of algorithms
+   *
+   * @param algorithms
    */
   private async analyzeComplexity(algorithms: AlgorithmPseudocode[]): Promise<ComplexityAnalysis> {
     const worstCase = this.calculateWorstCaseComplexity(algorithms);
@@ -680,6 +701,8 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Identify optimization opportunities
+   *
+   * @param algorithms
    */
   private async identifyOptimizations(
     algorithms: AlgorithmPseudocode[]
@@ -721,6 +744,9 @@ export class PseudocodePhaseEngine implements PseudocodeEngine {
 
   /**
    * Generate algorithm-specific pseudocode
+   *
+   * @param requirement
+   * @param _domain
    */
   private async generateAlgorithmPseudocodePrivate(
     requirement: any,
@@ -742,6 +768,8 @@ END
 
   /**
    * Estimate algorithm complexity
+   *
+   * @param _requirement
    */
   private async estimateAlgorithmComplexity(_requirement: any): Promise<ComplexityAnalysis> {
     return {
@@ -754,6 +782,8 @@ END
 
   /**
    * Extract input parameters from requirement as ParameterDefinition[]
+   *
+   * @param requirement
    */
   private async extractInputParameterDefinitions(requirement: any): Promise<ParameterDefinition[]> {
     const inputs = requirement.inputs || ['input'];
@@ -767,6 +797,8 @@ END
 
   /**
    * Extract output definitions from requirement as ReturnDefinition[]
+   *
+   * @param requirement
    */
   private async extractOutputDefinitions(requirement: any): Promise<ReturnDefinition[]> {
     const outputs = requirement.outputs || ['result'];
@@ -779,6 +811,9 @@ END
 
   /**
    * Generate pseudocode steps from requirement
+   *
+   * @param requirement
+   * @param domain
    */
   private async generatePseudocodeSteps(
     requirement: any,
@@ -798,6 +833,8 @@ END
 
   /**
    * Identify optimization opportunities for specific algorithm
+   *
+   * @param requirement
    */
   private async identifyAlgorithmOptimizations(
     requirement: any
@@ -815,6 +852,8 @@ END
 
   /**
    * Validate generated pseudocode
+   *
+   * @param pseudocode
    */
   async validatePseudocode(pseudocode: PseudocodeStructure): Promise<PseudocodeValidation> {
     const validationResults: ValidationResult[] = [];
@@ -869,6 +908,8 @@ END
 
   /**
    * Generate recommendations based on validation results
+   *
+   * @param validationResults
    */
   private generateRecommendations(validationResults: ValidationResult[]): string[] {
     const recommendations: string[] = [];

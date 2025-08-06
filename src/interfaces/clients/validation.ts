@@ -35,6 +35,8 @@ export interface ValidationReport {
 
 /**
  * UACL Integration Validator
+ *
+ * @example
  */
 export class UACLValidator {
   /**
@@ -390,6 +392,8 @@ export class UACLValidator {
 
   /**
    * Generate human-readable report
+   *
+   * @param report
    */
   generateReport(report: ValidationReport): string {
     const { overall, timestamp, results, summary } = report;

@@ -16,6 +16,8 @@ import {
 
 /**
  * Monitoring event manager factory class
+ *
+ * @example
  */
 export class MonitoringEventFactory {
   private static instances = new Map<string, MonitoringEventAdapter>();
@@ -23,6 +25,9 @@ export class MonitoringEventFactory {
 
   /**
    * Create a new monitoring event adapter instance
+   *
+   * @param name
+   * @param config
    */
   static create(
     name: string,
@@ -46,6 +51,8 @@ export class MonitoringEventFactory {
 
   /**
    * Get existing monitoring event adapter instance
+   *
+   * @param name
    */
   static get(name: string): MonitoringEventAdapter | undefined {
     return MonitoringEventFactory.instances.get(name);
@@ -53,6 +60,9 @@ export class MonitoringEventFactory {
 
   /**
    * Get or create monitoring event adapter instance
+   *
+   * @param name
+   * @param config
    */
   static getOrCreate(
     name: string,
@@ -68,6 +78,8 @@ export class MonitoringEventFactory {
 
   /**
    * Remove monitoring event adapter instance
+   *
+   * @param name
    */
   static async remove(name: string): Promise<boolean> {
     const adapter = MonitoringEventFactory.instances.get(name);
@@ -105,6 +117,9 @@ export class MonitoringEventFactory {
 
   /**
    * Register default configuration for a monitoring event adapter
+   *
+   * @param name
+   * @param config
    */
   static registerDefaultConfig(name: string, config: Partial<MonitoringEventAdapterConfig>): void {
     MonitoringEventFactory.defaultConfigs.set(name, config);
@@ -112,6 +127,8 @@ export class MonitoringEventFactory {
 
   /**
    * Check if monitoring event adapter exists
+   *
+   * @param name
    */
   static has(name: string): boolean {
     return MonitoringEventFactory.instances.has(name);
@@ -324,6 +341,9 @@ export const MonitoringEventConfigs = {
 export const MonitoringEventAdapterFactory = {
   /**
    * Create performance-focused monitoring adapter
+   *
+   * @param name
+   * @param overrides
    */
   createPerformanceMonitor(
     name: string,
@@ -337,6 +357,9 @@ export const MonitoringEventAdapterFactory = {
 
   /**
    * Create health-focused monitoring adapter
+   *
+   * @param name
+   * @param overrides
    */
   createHealthMonitor(
     name: string,
@@ -350,6 +373,9 @@ export const MonitoringEventAdapterFactory = {
 
   /**
    * Create analytics-focused monitoring adapter
+   *
+   * @param name
+   * @param overrides
    */
   createAnalyticsMonitor(
     name: string,
@@ -363,6 +389,9 @@ export const MonitoringEventAdapterFactory = {
 
   /**
    * Create alert-focused monitoring adapter
+   *
+   * @param name
+   * @param overrides
    */
   createAlertMonitor(
     name: string,
@@ -376,6 +405,9 @@ export const MonitoringEventAdapterFactory = {
 
   /**
    * Create dashboard-focused monitoring adapter
+   *
+   * @param name
+   * @param overrides
    */
   createDashboardMonitor(
     name: string,
@@ -389,6 +421,9 @@ export const MonitoringEventAdapterFactory = {
 
   /**
    * Create high-throughput monitoring adapter
+   *
+   * @param name
+   * @param overrides
    */
   createHighThroughputMonitor(
     name: string,
@@ -402,6 +437,9 @@ export const MonitoringEventAdapterFactory = {
 
   /**
    * Create low-latency monitoring adapter
+   *
+   * @param name
+   * @param overrides
    */
   createLowLatencyMonitor(
     name: string,
@@ -415,6 +453,9 @@ export const MonitoringEventAdapterFactory = {
 
   /**
    * Create comprehensive monitoring adapter with all features enabled
+   *
+   * @param name
+   * @param overrides
    */
   createComprehensiveMonitor(
     name: string,
@@ -470,6 +511,8 @@ export const MonitoringEventAdapterFactory = {
 
 /**
  * Registry for monitoring event adapters with automatic lifecycle management
+ *
+ * @example
  */
 export class MonitoringEventRegistry {
   private static adapters = new Map<string, MonitoringEventAdapter>();
@@ -484,6 +527,13 @@ export class MonitoringEventRegistry {
 
   /**
    * Register monitoring event adapter with lifecycle management
+   *
+   * @param name
+   * @param adapter
+   * @param hooks
+   * @param hooks.onStart
+   * @param hooks.onStop
+   * @param hooks.onError
    */
   static async register(
     name: string,
@@ -529,6 +579,8 @@ export class MonitoringEventRegistry {
 
   /**
    * Unregister monitoring event adapter
+   *
+   * @param name
    */
   static async unregister(name: string): Promise<boolean> {
     const adapter = MonitoringEventRegistry.adapters.get(name);
@@ -544,6 +596,8 @@ export class MonitoringEventRegistry {
 
   /**
    * Get registered monitoring event adapter
+   *
+   * @param name
    */
   static get(name: string): MonitoringEventAdapter | undefined {
     return MonitoringEventRegistry.adapters.get(name);
@@ -625,6 +679,8 @@ export class MonitoringEventRegistry {
 
 /**
  * Singleton monitoring event manager for global access
+ *
+ * @example
  */
 export class MonitoringEventManager {
   private static instance: MonitoringEventAdapter | null = null;
@@ -632,6 +688,8 @@ export class MonitoringEventManager {
 
   /**
    * Initialize global monitoring event manager
+   *
+   * @param config
    */
   static async initialize(config: MonitoringEventAdapterConfig): Promise<MonitoringEventAdapter> {
     if (MonitoringEventManager.instance) {

@@ -178,6 +178,8 @@ export async function unifiedIntegrationExample(): Promise<void> {
 
 /**
  * Register core services required by all domains
+ *
+ * @param container
  */
 function registerCoreServices(container: DIContainer): void {
   // Logger service
@@ -217,6 +219,8 @@ function registerCoreServices(container: DIContainer): void {
 
 /**
  * Register database services (DAL Factory)
+ *
+ * @param container
  */
 function registerDatabaseServices(container: DIContainer): void {
   // Database provider factory

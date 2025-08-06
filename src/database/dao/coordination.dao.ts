@@ -19,6 +19,8 @@ import type {
 
 /**
  * Subscription information
+ *
+ * @example
  */
 interface Subscription {
   id: string;
@@ -31,6 +33,8 @@ interface Subscription {
 
 /**
  * Lock information
+ *
+ * @example
  */
 interface LockInfo extends CoordinationLock {
   timer?: NodeJS.Timeout;
@@ -38,7 +42,9 @@ interface LockInfo extends CoordinationLock {
 
 /**
  * Coordination repository implementation with distributed coordination capabilities
+ *
  * @template T The entity type this repository manages
+ * @example
  */
 export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T> {
   private eventEmitter = new EventEmitter();
@@ -62,6 +68,9 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   /**
    * Lock resource for coordination
+   *
+   * @param resourceId
+   * @param lockTimeout
    */
   async acquireLock(resourceId: string, lockTimeout: number = 30000): Promise<CoordinationLock> {
     this.logger.debug(`Acquiring lock for resource: ${resourceId}, timeout: ${lockTimeout}ms`);
@@ -110,6 +119,8 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   /**
    * Release lock
+   *
+   * @param lockId
    */
   async releaseLock(lockId: string): Promise<void> {
     this.logger.debug(`Releasing lock: ${lockId}`);
@@ -150,6 +161,9 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   /**
    * Subscribe to changes
+   *
+   * @param pattern
+   * @param callback
    */
   async subscribe(
     pattern: string,
@@ -189,6 +203,8 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   /**
    * Unsubscribe from changes
+   *
+   * @param subscriptionId
    */
   async unsubscribe(subscriptionId: string): Promise<void> {
     this.logger.debug(`Unsubscribing: ${subscriptionId}`);
@@ -208,6 +224,9 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   /**
    * Publish coordination event
+   *
+   * @param channel
+   * @param event
    */
   async publish(channel: string, event: CoordinationEvent<T>): Promise<void> {
     this.logger.debug(`Publishing event to channel: ${channel}`, { event });
@@ -285,6 +304,8 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   /**
    * Execute custom query - override to handle coordination-specific queries
+   *
+   * @param customQuery
    */
   async executeCustomQuery<R = any>(customQuery: CustomQuery): Promise<R> {
     if (customQuery.type === 'coordination') {
@@ -320,6 +341,11 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   /**
    * Try to acquire lock with retry mechanism
+   *
+   * @param resourceId
+   * @param maxRetries
+   * @param retryDelay
+   * @param lockTimeout
    */
   async tryAcquireLock(
     resourceId: string,
@@ -352,6 +378,10 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   /**
    * Execute with lock (acquire, execute, release)
+   *
+   * @param resourceId
+   * @param operation
+   * @param lockTimeout
    */
   async executeWithLock<R>(
     resourceId: string,
@@ -372,6 +402,8 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   /**
    * Broadcast event to all subscribers
+   *
+   * @param event
    */
   async broadcast(event: CoordinationEvent<T>): Promise<void> {
     const broadcastChannel = 'broadcast';

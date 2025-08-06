@@ -179,7 +179,14 @@ export class UnifiedPerformanceDashboard extends EventEmitter {
     };
   }
 
-  /** Assess overall system health */
+  /**
+   * Assess overall system health
+   *
+   * @param mcpMetrics
+   * @param memoryStats
+   * @param dbStats
+   * @param clientMetrics
+   */
   private assessSystemHealth(
     mcpMetrics: any,
     memoryStats: any,
@@ -274,7 +281,14 @@ export class UnifiedPerformanceDashboard extends EventEmitter {
     };
   }
 
-  /** Assess individual component health */
+  /**
+   * Assess individual component health
+   *
+   * @param latency
+   * @param errorRate
+   * @param component
+   * @param memoryUsage
+   */
   private assessComponentHealth(
     latency: number,
     errorRate: number,
@@ -370,7 +384,11 @@ export class UnifiedPerformanceDashboard extends EventEmitter {
     }
   }
 
-  /** Display console status (fallback) */
+  /**
+   * Display console status (fallback)
+   *
+   * @param status
+   */
   private displayConsoleStatus(status: any): void {
     // Overall health
     const _healthEmoji =
@@ -430,7 +448,12 @@ export class UnifiedPerformanceDashboard extends EventEmitter {
     }
   }
 
-  /** Assess client health and add alerts */
+  /**
+   * Assess client health and add alerts
+   *
+   * @param clientMetrics
+   * @param alerts
+   */
   private assessClientHealth(
     clientMetrics: any,
     alerts: SystemHealth['alerts']

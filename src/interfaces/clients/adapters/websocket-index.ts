@@ -63,6 +63,20 @@ export {
 
 /**
  * Convenience function to create a WebSocket client with automatic factory selection
+ *
+ * @param config
+ * @param options
+ * @param options.useEnhanced
+ * @param options.loadBalancing
+ * @param options.loadBalancing.enabled
+ * @param options.loadBalancing.strategy
+ * @param options.loadBalancing.urls
+ * @param options.failover
+ * @param options.failover.enabled
+ * @param options.failover.fallbackUrls
+ * @param options.pooling
+ * @param options.pooling.enabled
+ * @param options.pooling.size
  */
 export async function createOptimalWebSocketClient(
   config: WebSocketClientConfig,
@@ -127,6 +141,13 @@ export async function createOptimalWebSocketClient(
 
 /**
  * Convenience function to create a WebSocket client from URL with minimal configuration
+ *
+ * @param url
+ * @param options
+ * @param options.timeout
+ * @param options.reconnect
+ * @param options.heartbeat
+ * @param options.useEnhanced
  */
 export async function createSimpleWebSocketClient(
   url: string,
@@ -169,6 +190,8 @@ export async function createSimpleWebSocketClient(
 export const WebSocketClientPresets = {
   /**
    * High-performance configuration for low-latency applications
+   *
+   * @param url
    */
   HighPerformance: (url: string): WebSocketClientConfig => ({
     name: 'high-performance-ws',
@@ -203,6 +226,8 @@ export const WebSocketClientPresets = {
 
   /**
    * Robust configuration for unreliable networks
+   *
+   * @param url
    */
   Robust: (url: string): WebSocketClientConfig => ({
     name: 'robust-ws',
@@ -239,6 +264,8 @@ export const WebSocketClientPresets = {
 
   /**
    * Minimal configuration for simple applications
+   *
+   * @param url
    */
   Simple: (url: string): WebSocketClientConfig => ({
     name: 'simple-ws',
@@ -262,6 +289,9 @@ export const WebSocketClientPresets = {
 
   /**
    * Secure configuration with authentication
+   *
+   * @param url
+   * @param token
    */
   Secure: (url: string, token: string): WebSocketClientConfig => ({
     name: 'secure-ws',
@@ -297,6 +327,8 @@ export const WebSocketClientPresets = {
 
 /**
  * WebSocket client health monitor utility
+ *
+ * @example
  */
 export class WebSocketHealthMonitor {
   private clients = new Map<string, import('../core/interfaces').IClient>();
@@ -304,6 +336,10 @@ export class WebSocketHealthMonitor {
 
   /**
    * Add client to monitoring
+   *
+   * @param name
+   * @param client
+   * @param checkInterval
    */
   addClient(
     name: string,
@@ -330,6 +366,8 @@ export class WebSocketHealthMonitor {
 
   /**
    * Remove client from monitoring
+   *
+   * @param name
    */
   removeClient(name: string): void {
     const interval = this.intervals.get(name);

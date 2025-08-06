@@ -54,6 +54,8 @@ export class SwarmTools {
 
   /**
    * Get swarm system status
+   *
+   * @param _params
    */
   async swarmStatus(_params: any = {}): Promise<any> {
     try {
@@ -90,6 +92,8 @@ export class SwarmTools {
 
   /**
    * Initialize new swarm
+   *
+   * @param params
    */
   async swarmInit(params: any = {}): Promise<any> {
     try {
@@ -119,6 +123,8 @@ export class SwarmTools {
 
   /**
    * Monitor swarm activity
+   *
+   * @param _params
    */
   async swarmMonitor(_params: any = {}): Promise<any> {
     try {
@@ -148,6 +154,8 @@ export class SwarmTools {
 
   /**
    * Spawn new agent
+   *
+   * @param params
    */
   async agentSpawn(params: any = {}): Promise<any> {
     try {
@@ -176,6 +184,8 @@ export class SwarmTools {
 
   /**
    * List active agents
+   *
+   * @param _params
    */
   async agentList(_params: any = {}): Promise<any> {
     try {
@@ -198,6 +208,8 @@ export class SwarmTools {
 
   /**
    * Get agent metrics
+   *
+   * @param _params
    */
   async agentMetrics(_params: any = {}): Promise<any> {
     try {
@@ -222,6 +234,8 @@ export class SwarmTools {
 
   /**
    * Orchestrate task
+   *
+   * @param params
    */
   async taskOrchestrate(params: any = {}): Promise<any> {
     try {
@@ -249,6 +263,8 @@ export class SwarmTools {
 
   /**
    * Get task status
+   *
+   * @param params
    */
   async taskStatus(params: any = {}): Promise<any> {
     try {
@@ -273,6 +289,8 @@ export class SwarmTools {
 
   /**
    * Get task results
+   *
+   * @param params
    */
   async taskResults(params: any = {}): Promise<any> {
     try {
@@ -298,6 +316,8 @@ export class SwarmTools {
 
   /**
    * Get memory usage
+   *
+   * @param _params
    */
   async memoryUsage(_params: any = {}): Promise<any> {
     try {
@@ -322,6 +342,8 @@ export class SwarmTools {
 
   /**
    * Run benchmark
+   *
+   * @param _params
    */
   async benchmarkRun(_params: any = {}): Promise<any> {
     try {
@@ -354,6 +376,8 @@ export class SwarmTools {
 
   /**
    * Detect available features
+   *
+   * @param _params
    */
   async featuresDetect(_params: any = {}): Promise<any> {
     try {

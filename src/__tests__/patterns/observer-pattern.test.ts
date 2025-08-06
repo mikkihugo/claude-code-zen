@@ -1,5 +1,5 @@
 /**
- * @fileoverview Observer Pattern Tests
+ * @file Observer Pattern Tests
  * Hybrid TDD approach: London TDD for event handling logic, Classical TDD for event algorithms
  */
 

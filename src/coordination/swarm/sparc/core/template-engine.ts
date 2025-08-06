@@ -48,6 +48,8 @@ export interface TemplateRegistryEntry {
 
 /**
  * Core template engine for SPARC methodology
+ *
+ * @example
  */
 export class TemplateEngine {
   private readonly templateRegistry: Map<string, TemplateRegistryEntry>;
@@ -84,6 +86,8 @@ export class TemplateEngine {
 
   /**
    * Register a new template with the engine
+   *
+   * @param template
    */
   registerTemplate(template: SPARCTemplate): void {
     const entry: TemplateRegistryEntry = {
@@ -108,6 +112,8 @@ export class TemplateEngine {
 
   /**
    * Get templates by domain
+   *
+   * @param domain
    */
   getTemplatesByDomain(domain: ProjectDomain): SPARCTemplate[] {
     const templateIds = this.domainMappings.get(domain) || [];
@@ -118,6 +124,8 @@ export class TemplateEngine {
 
   /**
    * Get template by ID
+   *
+   * @param templateId
    */
   getTemplate(templateId: string): SPARCTemplate | null {
     return this.templateRegistry.get(templateId)?.template || null;
@@ -125,6 +133,8 @@ export class TemplateEngine {
 
   /**
    * Find best matching template for a project specification
+   *
+   * @param projectSpec
    */
   findBestTemplate(projectSpec: ProjectSpecification): {
     template: SPARCTemplate;
@@ -155,6 +165,9 @@ export class TemplateEngine {
 
   /**
    * Validate template compatibility with project specification
+   *
+   * @param template
+   * @param projectSpec
    */
   validateTemplateCompatibility(
     template: SPARCTemplate,
@@ -213,6 +226,9 @@ export class TemplateEngine {
 
   /**
    * Apply template to project specification
+   *
+   * @param template
+   * @param projectSpec
    */
   async applyTemplate(
     template: SPARCTemplate,
@@ -270,6 +286,9 @@ export class TemplateEngine {
 
   /**
    * Create custom template from project specification
+   *
+   * @param projectSpec
+   * @param baseTemplateId
    */
   async createCustomTemplate(
     projectSpec: ProjectSpecification,

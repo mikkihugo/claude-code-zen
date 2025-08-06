@@ -4,7 +4,7 @@
  * Central registry for managing all event types, factories, and lifecycle management.
  * Provides type-safe event registration, discovery, and health monitoring.
  *
- * @fileoverview Event Registry Implementation following UACL/USL patterns
+ * @file Event Registry Implementation following UACL/USL patterns
  */
 
 import type { ILogger } from '../../core/interfaces/base-interfaces';
@@ -117,6 +117,8 @@ export interface EventRegistryEntry {
 
 /**
  * Event type registry for managing event type configurations
+ *
+ * @example
  */
 export interface EventTypeRegistry {
   [eventType: string]: {
@@ -152,6 +154,8 @@ export interface EventTypeRegistry {
 
 /**
  * Factory registry for managing event manager factories
+ *
+ * @example
  */
 export interface FactoryRegistry {
   [managerType in EventManagerType]?: {
@@ -180,6 +184,8 @@ export interface FactoryRegistry {
 
 /**
  * Health monitoring configuration
+ *
+ * @example
  */
 export interface HealthMonitoringConfig {
   /** Health check interval in milliseconds */
@@ -203,6 +209,8 @@ export interface HealthMonitoringConfig {
 
 /**
  * Event discovery configuration
+ *
+ * @example
  */
 export interface EventDiscoveryConfig {
   /** Auto-discover event types */
@@ -289,7 +297,6 @@ export class EventRegistry implements IEventManagerRegistry {
    * @param config.discovery - Event discovery settings overrides
    * @param config.autoRegisterDefaults - Whether to register default event types (default: true)
    * @throws {Error} If initialization fails
-   *
    * @example
    * ```typescript
    * await registry.initialize({
@@ -353,7 +360,6 @@ export class EventRegistry implements IEventManagerRegistry {
    * @param type - Event manager type this factory creates
    * @param factory - Factory instance to register
    * @throws {Error} If factory registration fails
-   *
    * @example
    * ```typescript
    * const systemFactory = new SystemEventManagerFactory();
@@ -417,7 +423,6 @@ export class EventRegistry implements IEventManagerRegistry {
    * @param manager - Event manager instance to register
    * @param factory - Factory that created this manager
    * @param config - Configuration used to create the manager
-   *
    * @example
    * ```typescript
    * registry.registerManager(

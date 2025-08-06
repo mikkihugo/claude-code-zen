@@ -119,6 +119,8 @@ async function basicSessionExample() {
 
 /**
  * Example 2: Session Recovery and Restoration
+ *
+ * @param existingSessionId
  */
 async function sessionRecoveryExample(existingSessionId: string) {
   const swarm = new SessionEnabledSwarm({

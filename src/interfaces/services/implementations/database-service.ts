@@ -11,6 +11,8 @@ import { BaseService } from './base-service';
 
 /**
  * Database service implementation
+ *
+ * @example
  */
 export class DatabaseService extends BaseService implements IService {
   private connections = new Map<string, any>();

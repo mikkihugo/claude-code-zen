@@ -8,7 +8,9 @@
 
 /**
  * Generic client interface for standardized API access
+ *
  * @template T The request/response type this client handles
+ * @example
  */
 export interface IClient<T = any> {
   /** Connect to the service */
@@ -35,6 +37,8 @@ export interface IClient<T = any> {
 
 /**
  * Client factory interface for creating protocol-specific clients
+ *
+ * @example
  */
 export interface IClientFactory {
   /** Create a client instance */
@@ -52,6 +56,8 @@ export interface IClientFactory {
 
 /**
  * Specialized interface for HTTP clients (REST API)
+ *
+ * @example
  */
 export interface IHttpClient<T = any> extends IClient<T> {
   /** GET request */
@@ -81,6 +87,8 @@ export interface IHttpClient<T = any> extends IClient<T> {
 
 /**
  * Specialized interface for WebSocket clients (Real-time)
+ *
+ * @example
  */
 export interface IWebSocketClient<T = any> extends IClient<T> {
   /** Subscribe to events */
@@ -107,6 +115,8 @@ export interface IWebSocketClient<T = any> extends IClient<T> {
 
 /**
  * Specialized interface for Knowledge clients (FACT integration)
+ *
+ * @example
  */
 export interface IKnowledgeClient<T = any> extends IClient<T> {
   /** Query knowledge base */
@@ -136,6 +146,8 @@ export interface IKnowledgeClient<T = any> extends IClient<T> {
 
 /**
  * Specialized interface for MCP clients (Model Context Protocol)
+ *
+ * @example
  */
 export interface IMcpClient<T = any> extends IClient<T> {
   /** List available tools */
@@ -162,6 +174,8 @@ export interface IMcpClient<T = any> extends IClient<T> {
 
 /**
  * Generic client configuration
+ *
+ * @example
  */
 export interface ClientConfig {
   /** Protocol type */
@@ -194,6 +208,8 @@ export interface ClientConfig {
 
 /**
  * Request options for HTTP clients
+ *
+ * @example
  */
 export interface RequestOptions {
   /** Request timeout */
@@ -217,6 +233,8 @@ export interface RequestOptions {
 
 /**
  * Authentication configuration
+ *
+ * @example
  */
 export interface AuthConfig {
   /** Authentication type */
@@ -240,6 +258,8 @@ export interface AuthConfig {
 
 /**
  * Retry configuration
+ *
+ * @example
  */
 export interface RetryConfig {
   /** Maximum retry attempts */
@@ -263,6 +283,8 @@ export interface RetryConfig {
 
 /**
  * Health check configuration
+ *
+ * @example
  */
 export interface HealthCheckConfig {
   /** Health check endpoint */
@@ -283,6 +305,8 @@ export interface HealthCheckConfig {
 
 /**
  * Client logging configuration
+ *
+ * @example
  */
 export interface ClientLoggingConfig {
   /** Enable request logging */
@@ -303,6 +327,8 @@ export interface ClientLoggingConfig {
 
 /**
  * Client metadata
+ *
+ * @example
  */
 export interface ClientMetadata {
   /** Protocol type */
@@ -331,6 +357,8 @@ export interface ClientMetadata {
 
 /**
  * Client performance metrics
+ *
+ * @example
  */
 export interface ClientMetrics {
   /** Total requests sent */
@@ -360,6 +388,8 @@ export interface ClientMetrics {
 
 /**
  * WebSocket specific types
+ *
+ * @example
  */
 export interface WebSocketSubscription {
   id: string;
@@ -388,6 +418,8 @@ export interface ReconnectOptions {
 
 /**
  * Knowledge client specific types
+ *
+ * @example
  */
 export interface KnowledgeQueryOptions {
   limit?: number;
@@ -421,6 +453,8 @@ export interface KnowledgeStats {
 
 /**
  * MCP client specific types
+ *
+ * @example
  */
 export interface McpTool {
   name: string;
@@ -472,6 +506,8 @@ export interface McpInitResult {
 
 /**
  * Error types for client operations
+ *
+ * @example
  */
 export interface ClientError extends Error {
   code: string;
@@ -483,6 +519,8 @@ export interface ClientError extends Error {
 
 /**
  * Client health status
+ *
+ * @example
  */
 export interface ClientHealthStatus {
   healthy: boolean;
@@ -496,6 +534,8 @@ export interface ClientHealthStatus {
 
 /**
  * Transaction operation for multi-client operations
+ *
+ * @example
  */
 export interface ClientTransaction {
   id: string;

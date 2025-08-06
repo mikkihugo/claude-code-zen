@@ -1,5 +1,5 @@
 /**
- * @fileoverview Observer Pattern Implementation for Real-Time Event System
+ * @file Observer Pattern Implementation for Real-Time Event System
  * Provides type-safe event handling with priority management and error recovery
  */
 

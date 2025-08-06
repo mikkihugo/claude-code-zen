@@ -1,6 +1,7 @@
 /**
  * London TDD (Mockist) Test Setup
- * @fileoverview Setup configuration for interaction-based testing
+ *
+ * @file Setup configuration for interaction-based testing
  * Focus: Communication, protocols, boundaries, coordination
  */
 
@@ -9,6 +10,8 @@ import '@types/jest';
 
 /**
  * Expected call structure for interaction verification
+ *
+ * @example
  */
 interface ExpectedCall {
   /** Arguments passed to the function */
@@ -17,6 +20,8 @@ interface ExpectedCall {
 
 /**
  * Protocol message structure for testing
+ *
+ * @example
  */
 interface ProtocolMessage {
   /** Message type */
@@ -27,6 +32,8 @@ interface ProtocolMessage {
 
 /**
  * Protocol response structure
+ *
+ * @example
  */
 interface ProtocolResponse {
   /** Response type */
@@ -70,6 +77,7 @@ function setupDefaultMocks(): void {
 // London TDD helper for creating interaction spies
 /**
  * Creates a named interaction spy for testing
+ *
  * @param name - Name for the spy function
  * @returns Jest mock function
  */
@@ -80,6 +88,7 @@ global.createInteractionSpy = (name: string): jest.Mock => {
 // London TDD helper for verifying interaction patterns
 /**
  * Verifies that a spy was called with expected arguments
+ *
  * @param spy - Jest mock to verify
  * @param expectedCalls - Array of expected call arguments
  */
@@ -93,6 +102,7 @@ global.verifyInteractions = (spy: jest.Mock, expectedCalls: ExpectedCall[]): voi
 // Mock factory for complex objects
 /**
  * Creates a mock factory for generating test objects
+ *
  * @param defaults - Default values for the mock object
  * @returns Function that creates mock objects with overrides
  */
@@ -107,6 +117,7 @@ global.createMockFactory = <T>(defaults: Partial<T> = {}) => {
 // Async interaction testing helpers
 /**
  * Waits for an interaction to occur on a spy
+ *
  * @param spy - Jest mock to watch
  * @param timeout - Maximum time to wait in milliseconds
  * @throws Error if interaction doesn't occur within timeout
@@ -124,6 +135,7 @@ global.waitForInteraction = async (spy: jest.Mock, timeout = 1000): Promise<void
 // Protocol simulation helpers
 /**
  * Simulates protocol handshake for testing
+ *
  * @param mockProtocol - Mock protocol function to configure
  */
 global.simulateProtocolHandshake = (mockProtocol: jest.Mock): void => {

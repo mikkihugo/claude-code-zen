@@ -30,6 +30,8 @@ import {
  * - Health monitoring and metrics collection
  * - Batch operations for multiple adapters
  * - Resource cleanup and graceful shutdown
+ *
+ * @example
  */
 export class CommunicationEventFactory
   extends EventEmitter
@@ -50,6 +52,8 @@ export class CommunicationEventFactory
 
   /**
    * Create new communication event adapter instance
+   *
+   * @param config
    */
   async create(config: CommunicationEventAdapterConfig): Promise<CommunicationEventAdapter> {
     try {
@@ -90,6 +94,8 @@ export class CommunicationEventFactory
 
   /**
    * Create multiple communication event adapters
+   *
+   * @param configs
    */
   async createMultiple(
     configs: CommunicationEventAdapterConfig[]
@@ -129,6 +135,8 @@ export class CommunicationEventFactory
 
   /**
    * Get communication event adapter by name
+   *
+   * @param name
    */
   get(name: string): CommunicationEventAdapter | undefined {
     return this.adapters.get(name);
@@ -143,6 +151,8 @@ export class CommunicationEventFactory
 
   /**
    * Check if communication event adapter exists
+   *
+   * @param name
    */
   has(name: string): boolean {
     return this.adapters.has(name);
@@ -150,6 +160,8 @@ export class CommunicationEventFactory
 
   /**
    * Remove communication event adapter by name
+   *
+   * @param name
    */
   async remove(name: string): Promise<boolean> {
     const adapter = this.adapters.get(name);
@@ -402,6 +414,9 @@ export class CommunicationEventFactory
 
   /**
    * Create communication event adapter with WebSocket focus
+   *
+   * @param name
+   * @param config
    */
   async createWebSocketAdapter(
     name: string,
@@ -427,6 +442,9 @@ export class CommunicationEventFactory
 
   /**
    * Create communication event adapter with MCP focus
+   *
+   * @param name
+   * @param config
    */
   async createMCPAdapter(
     name: string,
@@ -453,6 +471,9 @@ export class CommunicationEventFactory
 
   /**
    * Create communication event adapter with HTTP focus
+   *
+   * @param name
+   * @param config
    */
   async createHTTPAdapter(
     name: string,
@@ -477,6 +498,9 @@ export class CommunicationEventFactory
 
   /**
    * Create communication event adapter with protocol management focus
+   *
+   * @param name
+   * @param config
    */
   async createProtocolAdapter(
     name: string,
@@ -502,6 +526,9 @@ export class CommunicationEventFactory
 
   /**
    * Create comprehensive communication event adapter (all communication types)
+   *
+   * @param name
+   * @param config
    */
   async createComprehensiveAdapter(
     name: string,
@@ -630,6 +657,8 @@ export class CommunicationEventFactory
 
   /**
    * Configure all adapters with new settings
+   *
+   * @param configUpdates
    */
   async reconfigureAll(configUpdates: Partial<CommunicationEventAdapterConfig>): Promise<void> {
     this.logger.info('Reconfiguring all communication event adapters');
@@ -664,6 +693,8 @@ export class CommunicationEventFactory
 
   /**
    * Validate communication event adapter configuration
+   *
+   * @param config
    */
   private validateConfig(config: CommunicationEventAdapterConfig): void {
     if (!config.name || typeof config.name !== 'string') {
@@ -717,6 +748,8 @@ export class CommunicationEventFactory
 
   /**
    * Set up event forwarding from adapter to factory
+   *
+   * @param adapter
    */
   private setupEventForwarding(adapter: CommunicationEventAdapter): void {
     // Forward important events from adapter to factory
@@ -749,6 +782,8 @@ export const communicationEventFactory = new CommunicationEventFactory();
 
 /**
  * Convenience functions for creating communication event adapters
+ *
+ * @param config
  */
 export async function createCommunicationEventAdapter(
   config: CommunicationEventAdapterConfig

@@ -1,10 +1,9 @@
 /**
  * USL Service Manager - Complete Service Lifecycle Management
  *
- * @fileoverview Advanced service manager providing comprehensive lifecycle orchestration,
+ * @file Advanced service manager providing comprehensive lifecycle orchestration,
  * factory registration, health monitoring, auto-recovery, and service coordination
  * following the same patterns as UACL Agent 6.
- *
  * @description The Service Manager is the central orchestrator for all USL services,
  * providing enterprise-grade capabilities:
  *
@@ -21,7 +20,6 @@
  * - Observer pattern for event handling and notifications
  * - Dependency injection for service relationships
  * - Circuit breaker pattern for resilience
- *
  * @example
  * ```typescript
  * import { ServiceManager, type ServiceManagerConfig } from '@claude-zen/usl';
@@ -285,6 +283,8 @@ export interface BatchServiceCreationRequest {
 
 /**
  * Complete Service Manager for USL ecosystem
+ *
+ * @example
  */
 export class ServiceManager extends EventEmitter {
   private registry: EnhancedServiceRegistry;
@@ -436,6 +436,8 @@ export class ServiceManager extends EventEmitter {
 
   /**
    * Create a single service with enhanced configuration
+   *
+   * @param request
    */
   async createService(request: ServiceCreationRequest): Promise<IService> {
     if (!this.initialized) {
@@ -463,6 +465,8 @@ export class ServiceManager extends EventEmitter {
 
   /**
    * Create multiple services with dependency resolution
+   *
+   * @param request
    */
   async createServices(request: BatchServiceCreationRequest): Promise<IService[]> {
     if (!this.initialized) {
@@ -651,6 +655,8 @@ export class ServiceManager extends EventEmitter {
 
   /**
    * Start specific services by name
+   *
+   * @param serviceNames
    */
   async startServices(serviceNames: string[]): Promise<void> {
     this.logger.info(`Starting ${serviceNames.length} services`);
@@ -666,6 +672,8 @@ export class ServiceManager extends EventEmitter {
 
   /**
    * Stop specific services by name
+   *
+   * @param serviceNames
    */
   async stopServices(serviceNames: string[]): Promise<void> {
     this.logger.info(`Stopping ${serviceNames.length} services`);
@@ -703,6 +711,8 @@ export class ServiceManager extends EventEmitter {
 
   /**
    * Restart specific services
+   *
+   * @param serviceNames
    */
   async restartServices(serviceNames: string[]): Promise<void> {
     this.logger.info(`Restarting ${serviceNames.length} services`);
@@ -896,6 +906,12 @@ export class ServiceManager extends EventEmitter {
 
   /**
    * Discover services by criteria
+   *
+   * @param criteria
+   * @param criteria.type
+   * @param criteria.capabilities
+   * @param criteria.health
+   * @param criteria.tags
    */
   discoverServices(criteria?: {
     type?: string;
@@ -908,6 +924,8 @@ export class ServiceManager extends EventEmitter {
 
   /**
    * Get service by name
+   *
+   * @param name
    */
   getService(name: string): IService | undefined {
     return this.registry.findService(name);
@@ -922,6 +940,8 @@ export class ServiceManager extends EventEmitter {
 
   /**
    * Get services by type
+   *
+   * @param type
    */
   getServicesByType(type: string): IService[] {
     return this.registry.getServicesByType(type);

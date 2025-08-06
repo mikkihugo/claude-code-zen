@@ -1,5 +1,5 @@
 /**
- * @fileoverview Integration Example: Enhanced Memory and Database Systems
+ * @file Integration Example: Enhanced Memory and Database Systems
  * Demonstrates how to use the advanced Memory and Database domain features together
  */
 

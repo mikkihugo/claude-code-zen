@@ -1,5 +1,5 @@
 /**
- * @fileoverview Adapter Pattern Tests
+ * @file Adapter Pattern Tests
  * Hybrid TDD approach: London TDD for protocol interactions, Classical TDD for message transformations
  */
 

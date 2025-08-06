@@ -36,6 +36,8 @@ export interface ExecutionContext {
 /**
  * Pure TypeScript command execution engine
  * No React dependencies - focused on business logic
+ *
+ * @example
  */
 export class CommandExecutionEngine {
   private static readonly SUPPORTED_COMMANDS = [
@@ -57,6 +59,11 @@ export class CommandExecutionEngine {
 
   /**
    * Execute command with full context and error handling
+   *
+   * @param command
+   * @param args
+   * @param flags
+   * @param context
    */
   static async executeCommand(
     command: string,
@@ -171,6 +178,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle init command - project initialization
+   *
+   * @param context
    */
   private static async handleInitCommand(context: ExecutionContext): Promise<CommandResult> {
     const projectName = context.args[0] || 'claude-zen-project';
@@ -198,6 +207,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle status command - system status
+   *
+   * @param context
    */
   private static async handleStatusCommand(context: ExecutionContext): Promise<CommandResult> {
     logger.debug('Retrieving system status');
@@ -261,6 +272,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle hive command - high-level Hive coordination
+   *
+   * @param context
    */
   private static async handleHiveCommand(context: ExecutionContext): Promise<CommandResult> {
     const action = context.args[0];
@@ -299,6 +312,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle swarm command - swarm management
+   *
+   * @param context
    */
   private static async handleSwarmCommand(context: ExecutionContext): Promise<CommandResult> {
     const action = context.args[0];
@@ -344,6 +359,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle MCP command - MCP server operations
+   *
+   * @param context
    */
   private static async handleMcpCommand(context: ExecutionContext): Promise<CommandResult> {
     const action = context.args[0];
@@ -442,6 +459,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle workspace command - document-driven development
+   *
+   * @param context
    */
   private static async handleWorkspaceCommand(context: ExecutionContext): Promise<CommandResult> {
     const action = context.args[0];
@@ -538,6 +557,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle discover command - neural auto-discovery system
+   *
+   * @param context
    */
   private static async handleDiscoverCommand(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -625,6 +646,9 @@ export class CommandExecutionEngine {
 
   /**
    * Fallback discover implementation when enhanced version fails
+   *
+   * @param projectPath
+   * @param options
    */
   private static async handleDiscoverFallback(
     projectPath: string,
@@ -741,6 +765,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle help command
+   *
+   * @param _context
    */
   private static async handleHelpCommand(_context: ExecutionContext): Promise<CommandResult> {
     const helpContent = {
@@ -833,6 +859,8 @@ export class CommandExecutionEngine {
 
   /**
    * Swarm management sub-handlers
+   *
+   * @param context
    */
   private static async handleSwarmStart(context: ExecutionContext): Promise<CommandResult> {
     const agents = parseInt(context.flags.agents) || 4;
@@ -896,6 +924,9 @@ export class CommandExecutionEngine {
 
   /**
    * Call MCP tool via stdio protocol
+   *
+   * @param toolName
+   * @param params
    */
   private static async callMcpTool(
     toolName: string,
@@ -1059,6 +1090,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle swarm init command - initialize new swarm coordination
+   *
+   * @param context
    */
   private static async handleSwarmInit(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1096,6 +1129,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle swarm spawn command - spawn new agent
+   *
+   * @param context
    */
   private static async handleSwarmSpawn(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1131,6 +1166,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle swarm monitor command - real-time swarm monitoring
+   *
+   * @param context
    */
   private static async handleSwarmMonitor(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1160,6 +1197,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle swarm metrics command - agent metrics
+   *
+   * @param context
    */
   private static async handleSwarmMetrics(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1189,6 +1228,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle swarm orchestrate command - task orchestration
+   *
+   * @param context
    */
   private static async handleSwarmOrchestrate(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1224,6 +1265,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle hive status command
+   *
+   * @param _context
    */
   private static async handleHiveStatus(_context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1252,6 +1295,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle hive query command
+   *
+   * @param context
    */
   private static async handleHiveQuery(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1288,6 +1333,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle hive agents command
+   *
+   * @param _context
    */
   private static async handleHiveAgents(_context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1316,6 +1363,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle hive tasks command
+   *
+   * @param context
    */
   private static async handleHiveTasks(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1348,6 +1397,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle hive knowledge command
+   *
+   * @param _context
    */
   private static async handleHiveKnowledge(_context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1376,6 +1427,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle hive sync command
+   *
+   * @param context
    */
   private static async handleHiveSync(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1408,6 +1461,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle hive health command
+   *
+   * @param _context
    */
   private static async handleHiveHealth(_context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1436,6 +1491,8 @@ export class CommandExecutionEngine {
 
   /**
    * Handle hive contribute command
+   *
+   * @param context
    */
   private static async handleHiveContribute(context: ExecutionContext): Promise<CommandResult> {
     try {
@@ -1482,6 +1539,12 @@ export class CommandExecutionEngine {
 
   /**
    * Utility methods
+   *
+   * @param error
+   * @param command
+   * @param args
+   * @param flags
+   * @param startTime
    */
   private static createErrorResult(
     error: string,

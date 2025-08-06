@@ -29,6 +29,8 @@ import {
 
 /**
  * Infrastructure service factory configuration
+ *
+ * @example
  */
 export interface InfrastructureServiceFactoryConfig {
   /** Default service configuration template */
@@ -74,6 +76,8 @@ export interface InfrastructureServiceFactoryConfig {
 
 /**
  * Service creation options
+ *
+ * @example
  */
 export interface CreateServiceOptions {
   /** Override default configuration */
@@ -97,6 +101,8 @@ export interface CreateServiceOptions {
 
 /**
  * Factory statistics and metrics
+ *
+ * @example
  */
 interface FactoryMetrics {
   totalServicesCreated: number;
@@ -110,6 +116,8 @@ interface FactoryMetrics {
 
 /**
  * Service registry entry
+ *
+ * @example
  */
 interface ServiceRegistryEntry {
   service: InfrastructureServiceAdapter;
@@ -139,6 +147,8 @@ interface ServiceRegistryEntry {
  * - Event coordination across services
  * - Configuration management
  * - Dependency injection
+ *
+ * @example
  */
 export class InfrastructureServiceFactory extends EventEmitter {
   private config: InfrastructureServiceFactoryConfig;
@@ -209,6 +219,9 @@ export class InfrastructureServiceFactory extends EventEmitter {
 
   /**
    * Create a new infrastructure service adapter instance
+   *
+   * @param name
+   * @param options
    */
   async createService(
     name?: string,
@@ -278,6 +291,8 @@ export class InfrastructureServiceFactory extends EventEmitter {
 
   /**
    * Get an existing service by name
+   *
+   * @param name
    */
   getService(name: string): InfrastructureServiceAdapter | undefined {
     const entry = this.serviceRegistry.get(name);
@@ -297,6 +312,8 @@ export class InfrastructureServiceFactory extends EventEmitter {
 
   /**
    * Get services by tag
+   *
+   * @param tag
    */
   getServicesByTag(tag: string): InfrastructureServiceAdapter[] {
     const serviceNames = this.servicesByTag.get(tag);
@@ -321,6 +338,8 @@ export class InfrastructureServiceFactory extends EventEmitter {
 
   /**
    * Remove and destroy a service
+   *
+   * @param name
    */
   async removeService(name: string): Promise<void> {
     this.logger.info(`Removing infrastructure service: ${name}`);
@@ -373,6 +392,8 @@ export class InfrastructureServiceFactory extends EventEmitter {
 
   /**
    * Start a service
+   *
+   * @param name
    */
   async startService(name: string): Promise<void> {
     const entry = this.serviceRegistry.get(name);
@@ -389,6 +410,8 @@ export class InfrastructureServiceFactory extends EventEmitter {
 
   /**
    * Stop a service
+   *
+   * @param name
    */
   async stopService(name: string): Promise<void> {
     const entry = this.serviceRegistry.get(name);
@@ -405,6 +428,8 @@ export class InfrastructureServiceFactory extends EventEmitter {
 
   /**
    * Restart a service
+   *
+   * @param name
    */
   async restartService(name: string): Promise<void> {
     this.logger.info(`Restarting infrastructure service: ${name}`);
@@ -473,6 +498,8 @@ export class InfrastructureServiceFactory extends EventEmitter {
 
   /**
    * Get service status summary
+   *
+   * @param name
    */
   async getServiceStatus(name?: string): Promise<any> {
     if (name) {
@@ -811,6 +838,8 @@ let globalInfrastructureServiceFactory: InfrastructureServiceFactory | undefined
 
 /**
  * Get or create the global infrastructure service factory instance
+ *
+ * @param config
  */
 export function getInfrastructureServiceFactory(
   config?: InfrastructureServiceFactoryConfig
@@ -823,6 +852,8 @@ export function getInfrastructureServiceFactory(
 
 /**
  * Create a new infrastructure service factory instance
+ *
+ * @param config
  */
 export function createInfrastructureServiceFactory(
   config?: InfrastructureServiceFactoryConfig
@@ -832,6 +863,9 @@ export function createInfrastructureServiceFactory(
 
 /**
  * Convenience function to create a service using the global factory
+ *
+ * @param name
+ * @param options
  */
 export async function createInfrastructureService(
   name?: string,

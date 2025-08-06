@@ -20,6 +20,8 @@ import {
 
 /**
  * Integration Service Factory Options for different integration patterns
+ *
+ * @example
  */
 export interface IntegrationServiceFactoryOptions {
   /** Default base URL for Safe API integrations */
@@ -53,6 +55,8 @@ export interface IntegrationServiceFactoryOptions {
  * Creates specialized IntegrationServiceAdapter instances for different
  * integration patterns including Architecture Storage, Safe API, and
  * Protocol Management scenarios.
+ *
+ * @example
  */
 export class IntegrationServiceFactory implements IServiceFactory {
   private logger: Logger;
@@ -86,6 +90,8 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * IServiceFactory implementation - create service from configuration
+   *
+   * @param config
    */
   async create(config: ServiceConfig): Promise<IService> {
     this.logger.info(`Creating integration service: ${config.name}`);
@@ -108,6 +114,8 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Check if factory can handle the given service type
+   *
+   * @param type
    */
   canHandle(type: ServiceType | string): boolean {
     const integrationTypes = [
@@ -130,6 +138,10 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Create Architecture Storage integration adapter
+   *
+   * @param name
+   * @param databaseType
+   * @param options
    */
   async createArchitectureStorageAdapter(
     name: string,
@@ -178,6 +190,10 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Create Safe API integration adapter
+   *
+   * @param name
+   * @param baseURL
+   * @param options
    */
   async createSafeAPIAdapter(
     name: string,
@@ -238,6 +254,10 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Create Protocol Management integration adapter
+   *
+   * @param name
+   * @param supportedProtocols
+   * @param options
    */
   async createProtocolManagementAdapter(
     name: string,
@@ -306,6 +326,9 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Create unified integration adapter (all features enabled)
+   *
+   * @param name
+   * @param options
    */
   async createUnifiedIntegrationAdapter(
     name: string,
@@ -408,6 +431,10 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Create Web Data integration adapter (specialized for web-based data operations)
+   *
+   * @param name
+   * @param baseURL
+   * @param options
    */
   async createWebDataIntegrationAdapter(
     name: string,
@@ -485,6 +512,10 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Create Document integration adapter (specialized for document operations)
+   *
+   * @param name
+   * @param databaseType
+   * @param options
    */
   async createDocumentIntegrationAdapter(
     name: string,
@@ -556,6 +587,8 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Get service by name
+   *
+   * @param name
    */
   getService(name: string): IntegrationServiceAdapter | undefined {
     return this.createdServices.get(name);
@@ -563,6 +596,8 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Check if service exists
+   *
+   * @param name
    */
   hasService(name: string): boolean {
     return this.createdServices.has(name);
@@ -570,6 +605,8 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Remove service from tracking
+   *
+   * @param name
    */
   async removeService(name: string): Promise<boolean> {
     const service = this.createdServices.get(name);
@@ -635,6 +672,8 @@ export class IntegrationServiceFactory implements IServiceFactory {
 
   /**
    * Convert ServiceConfig to IntegrationServiceAdapterConfig
+   *
+   * @param config
    */
   private convertToAdapterConfig(config: ServiceConfig): IntegrationServiceAdapterConfig {
     // Start with default configuration
@@ -698,6 +737,9 @@ export const integrationServiceFactory = new IntegrationServiceFactory();
 export const IntegrationServiceHelpers = {
   /**
    * Create architecture storage service
+   *
+   * @param name
+   * @param databaseType
    */
   async createArchitectureStorage(
     name: string,
@@ -708,6 +750,9 @@ export const IntegrationServiceHelpers = {
 
   /**
    * Create safe API service
+   *
+   * @param name
+   * @param baseURL
    */
   async createSafeAPI(name: string, baseURL: string): Promise<IntegrationServiceAdapter> {
     return await integrationServiceFactory.createSafeAPIAdapter(name, baseURL);
@@ -715,6 +760,9 @@ export const IntegrationServiceHelpers = {
 
   /**
    * Create protocol management service
+   *
+   * @param name
+   * @param protocols
    */
   async createProtocolManagement(
     name: string,
@@ -725,6 +773,12 @@ export const IntegrationServiceHelpers = {
 
   /**
    * Create unified integration service
+   *
+   * @param name
+   * @param options
+   * @param options.baseURL
+   * @param options.databaseType
+   * @param options.supportedProtocols
    */
   async createUnifiedIntegration(
     name: string,
@@ -739,6 +793,9 @@ export const IntegrationServiceHelpers = {
 
   /**
    * Create web data integration service
+   *
+   * @param name
+   * @param baseURL
    */
   async createWebDataIntegration(
     name: string,
@@ -749,6 +806,9 @@ export const IntegrationServiceHelpers = {
 
   /**
    * Create document integration service
+   *
+   * @param name
+   * @param databaseType
    */
   async createDocumentIntegration(
     name: string,

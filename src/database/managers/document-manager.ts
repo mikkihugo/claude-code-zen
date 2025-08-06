@@ -56,6 +56,8 @@ export interface DocumentSearchOptions extends DocumentQueryOptions {
 /**
  * Pure DAL-Based Document Manager
  * Uses unified DAL for all database operations
+ *
+ * @example
  */
 export class DocumentManager {
   private documentRepository!: IRepository<BaseDocumentEntity>;
@@ -99,6 +101,9 @@ export class DocumentManager {
 
   /**
    * Create a new document using DAL
+   *
+   * @param document
+   * @param options
    */
   async createDocument<T extends BaseDocumentEntity>(
     document: Omit<T, 'id' | 'created_at' | 'updated_at' | 'checksum'>,
@@ -139,6 +144,9 @@ export class DocumentManager {
 
   /**
    * Get document by ID using DAL
+   *
+   * @param id
+   * @param options
    */
   async getDocument<T extends BaseDocumentEntity>(
     id: string,
@@ -165,6 +173,10 @@ export class DocumentManager {
 
   /**
    * Update document using DAL
+   *
+   * @param id
+   * @param updates
+   * @param options
    */
   async updateDocument<T extends BaseDocumentEntity>(
     id: string,
@@ -202,6 +214,8 @@ export class DocumentManager {
 
   /**
    * Delete document using DAL
+   *
+   * @param id
    */
   async deleteDocument(id: string): Promise<void> {
     // Delete relationships first
@@ -221,6 +235,17 @@ export class DocumentManager {
 
   /**
    * Query documents with filters using DAL
+   *
+   * @param filters
+   * @param filters.type
+   * @param filters.projectId
+   * @param filters.status
+   * @param filters.priority
+   * @param filters.author
+   * @param filters.tags
+   * @param filters.parentDocumentId
+   * @param filters.workflowStage
+   * @param options
    */
   async queryDocuments<T extends BaseDocumentEntity>(
     filters: {
@@ -288,6 +313,8 @@ export class DocumentManager {
 
   /**
    * Advanced document search using multiple search strategies
+   *
+   * @param searchOptions
    */
   async searchDocuments<T extends BaseDocumentEntity>(
     searchOptions: DocumentSearchOptions
@@ -387,6 +414,9 @@ export class DocumentManager {
 
   /**
    * Perform fulltext search with TF-IDF scoring
+   *
+   * @param documents
+   * @param query
    */
   private performFulltextSearch<T extends BaseDocumentEntity>(
     documents: T[],
@@ -432,6 +462,9 @@ export class DocumentManager {
 
   /**
    * Perform semantic search using content similarity
+   *
+   * @param documents
+   * @param query
    */
   private async performSemanticSearch<T extends BaseDocumentEntity>(
     documents: T[],
@@ -470,6 +503,9 @@ export class DocumentManager {
 
   /**
    * Perform keyword-based search
+   *
+   * @param documents
+   * @param query
    */
   private performKeywordSearch<T extends BaseDocumentEntity>(
     documents: T[],
@@ -515,6 +551,9 @@ export class DocumentManager {
 
   /**
    * Perform combined search using multiple strategies
+   *
+   * @param documents
+   * @param query
    */
   private async performCombinedSearch<T extends BaseDocumentEntity>(
     documents: T[],
@@ -565,6 +604,8 @@ export class DocumentManager {
 
   /**
    * Create a new project using DAL
+   *
+   * @param project
    */
   async createProject(
     project: Omit<ProjectEntity, 'id' | 'created_at' | 'updated_at'>
@@ -584,6 +625,8 @@ export class DocumentManager {
 
   /**
    * Get project with all related documents using DAL
+   *
+   * @param projectId
    */
   async getProjectWithDocuments(projectId: string): Promise<{
     project: ProjectEntity;
@@ -628,6 +671,10 @@ export class DocumentManager {
 
   /**
    * Start workflow for document using DAL with automated stage progression
+   *
+   * @param documentId
+   * @param workflowName
+   * @param initialStage
    */
   async startDocumentWorkflow(
     documentId: string,
@@ -665,6 +712,10 @@ export class DocumentManager {
 
   /**
    * Advance document workflow with automated rule checking
+   *
+   * @param documentId
+   * @param nextStage
+   * @param results
    */
   async advanceDocumentWorkflow(
     documentId: string,
@@ -706,6 +757,8 @@ export class DocumentManager {
 
   /**
    * Check and trigger workflow automation based on predefined rules
+   *
+   * @param documentId
    */
   async checkAndTriggerWorkflowAutomation(documentId: string): Promise<void> {
     const document = await this.getDocument(documentId, { includeWorkflowState: true });
@@ -726,6 +779,9 @@ export class DocumentManager {
 
   /**
    * Evaluate if an automation rule should trigger
+   *
+   * @param document
+   * @param rule
    */
   private async evaluateAutomationRule(
     document: BaseDocumentEntity,
@@ -769,6 +825,9 @@ export class DocumentManager {
 
   /**
    * Execute automation action when rule triggers
+   *
+   * @param document
+   * @param rule
    */
   private async executeAutomationAction(
     document: BaseDocumentEntity,
@@ -815,6 +874,16 @@ export class DocumentManager {
 
   /**
    * Execute create document automation action
+   *
+   * @param sourceDocument
+   * @param actionConfig
+   * @param actionConfig.documentType
+   * @param actionConfig.template
+   * @param actionConfig.title
+   * @param actionConfig.assignTo
+   * @param actionConfig.priority
+   * @param actionConfig.status
+   * @param actionConfig.inheritKeywords
    */
   private async executeCreateDocumentAction(
     sourceDocument: BaseDocumentEntity,
@@ -875,6 +944,9 @@ export class DocumentManager {
 
   /**
    * Generate workflow artifacts
+   *
+   * @param document
+   * @param artifactTypes
    */
   private async generateWorkflowArtifacts(
     document: BaseDocumentEntity,
@@ -911,6 +983,13 @@ export class DocumentManager {
 
   /**
    * Send workflow notification
+   *
+   * @param document
+   * @param notificationConfig
+   * @param notificationConfig.recipients
+   * @param notificationConfig.template
+   * @param notificationConfig.channel
+   * @param notificationConfig.urgency
    */
   private async sendWorkflowNotification(
     document: BaseDocumentEntity,
@@ -933,6 +1012,8 @@ export class DocumentManager {
 
   /**
    * Get workflow definition for a workflow type
+   *
+   * @param workflowName
    */
   private getWorkflowDefinition(workflowName: string): WorkflowDefinition {
     const definitions: Record<string, WorkflowDefinition> = {
@@ -950,6 +1031,10 @@ export class DocumentManager {
 
   /**
    * Evaluate a condition with operator
+   *
+   * @param value
+   * @param operator
+   * @param expected
    */
   private evaluateCondition(value: any, operator: string, expected: any): boolean {
     switch (operator) {
@@ -978,6 +1063,8 @@ export class DocumentManager {
 
   /**
    * Get default template for document type
+   *
+   * @param documentType
    */
   private getDefaultTemplate(documentType: DocumentType): string {
     const templates: Record<DocumentType, string> = {
@@ -1022,6 +1109,8 @@ export class DocumentManager {
 
   /**
    * Generate document relationships based on content analysis and workflow stage
+   *
+   * @param document
    */
   private async generateDocumentRelationships(document: BaseDocumentEntity): Promise<void> {
     const relationships: Omit<DocumentRelationshipEntity, 'id' | 'created_at'>[] = [];
@@ -1052,6 +1141,8 @@ export class DocumentManager {
 
   /**
    * Find parent documents based on document type hierarchy
+   *
+   * @param document
    */
   private async findParentDocuments(
     document: BaseDocumentEntity
@@ -1103,6 +1194,8 @@ export class DocumentManager {
 
   /**
    * Find semantic relationships based on content analysis
+   *
+   * @param document
    */
   private async findSemanticRelationships(
     document: BaseDocumentEntity
@@ -1155,6 +1248,8 @@ export class DocumentManager {
 
   /**
    * Find workflow-based relationships
+   *
+   * @param document
    */
   private async findWorkflowRelationships(
     document: BaseDocumentEntity
@@ -1193,6 +1288,9 @@ export class DocumentManager {
 
   /**
    * Calculate relationship strength between two documents
+   *
+   * @param doc1
+   * @param doc2
    */
   private calculateRelationshipStrength(
     doc1: BaseDocumentEntity,
@@ -1225,6 +1323,9 @@ export class DocumentManager {
 
   /**
    * Calculate keyword overlap between two arrays
+   *
+   * @param keywords1
+   * @param keywords2
    */
   private calculateKeywordOverlap(keywords1: string[], keywords2: string[]): number {
     if (keywords1.length === 0 || keywords2.length === 0) return 0;
@@ -1240,6 +1341,8 @@ export class DocumentManager {
 
   /**
    * Get workflow generation rules for document type
+   *
+   * @param documentType
    */
   private getWorkflowGenerationRules(documentType: DocumentType): Array<{
     name: string;
@@ -1300,6 +1403,8 @@ export class DocumentManager {
 
   /**
    * Update document relationships when content changes significantly
+   *
+   * @param document
    */
   private async updateDocumentRelationships(document: BaseDocumentEntity): Promise<void> {
     // Get existing relationships

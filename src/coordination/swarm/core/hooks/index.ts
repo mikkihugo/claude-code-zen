@@ -60,6 +60,9 @@ class ZenSwarmHooks {
 
   /**
    * Main hook handler - routes to specific hook implementations
+   *
+   * @param hookType
+   * @param args
    */
   async handleHook(hookType, args) {
     try {
@@ -125,6 +128,8 @@ class ZenSwarmHooks {
 
   /**
    * Pre-search hook - Prepare cache and optimize search
+   *
+   * @param args
    */
   async preSearchHook(args) {
     const { pattern } = args;
@@ -155,6 +160,8 @@ class ZenSwarmHooks {
 
   /**
    * Pre-MCP hook - Validate MCP tool state
+   *
+   * @param args
    */
   async preMcpHook(args) {
     const { tool, params } = args;
@@ -191,6 +198,8 @@ class ZenSwarmHooks {
 
   /**
    * Pre-edit hook - Ensure coordination before file modifications
+   *
+   * @param args
    */
   async preEditHook(args) {
     const { file } = args;
@@ -234,6 +243,8 @@ class ZenSwarmHooks {
 
   /**
    * Pre-task hook - Auto-spawn agents and optimize topology
+   *
+   * @param args
    */
   async preTaskHook(args) {
     const { description, autoSpawnAgents, optimizeTopology } = args;
@@ -266,6 +277,8 @@ class ZenSwarmHooks {
 
   /**
    * Post-edit hook - Format and learn from edits
+   *
+   * @param args
    */
   async postEditHook(args) {
     const { file, autoFormat, trainPatterns, updateGraph } = args;
@@ -302,6 +315,8 @@ class ZenSwarmHooks {
 
   /**
    * Post-task hook - Analyze performance and update coordination
+   *
+   * @param args
    */
   async postTaskHook(args) {
     const { taskId, analyzePerformance, updateCoordination } = args;
@@ -338,6 +353,8 @@ class ZenSwarmHooks {
 
   /**
    * Post-web-search hook - Analyze results and update knowledge
+   *
+   * @param args
    */
   async postWebSearchHook(args) {
     const { query, updateKnowledge } = args;
@@ -371,6 +388,8 @@ class ZenSwarmHooks {
 
   /**
    * Post-web-fetch hook - Extract patterns and cache content
+   *
+   * @param args
    */
   async postWebFetchHook(args) {
     const { url, extractPatterns, cacheContent } = args;
@@ -403,6 +422,8 @@ class ZenSwarmHooks {
 
   /**
    * Notification hook - Handle notifications with swarm status
+   *
+   * @param args
    */
   async notificationHook(args) {
     const { message, level, withSwarmStatus, sendTelemetry, type, context, agentId } = args;
@@ -449,6 +470,8 @@ class ZenSwarmHooks {
 
   /**
    * Pre-bash hook - Validate commands before execution
+   *
+   * @param args
    */
   async preBashHook(args) {
     const { command } = args;
@@ -481,6 +504,8 @@ class ZenSwarmHooks {
 
   /**
    * MCP swarm initialized hook - Persist configuration
+   *
+   * @param args
    */
   async mcpSwarmInitializedHook(args) {
     const { swarmId, topology, persistConfig, enableMonitoring } = args;
@@ -521,6 +546,8 @@ class ZenSwarmHooks {
 
   /**
    * MCP agent spawned hook - Update roster and train
+   *
+   * @param args
    */
   async mcpAgentSpawnedHook(args) {
     const { agentId, type, updateRoster, trainSpecialization } = args;
@@ -565,6 +592,8 @@ class ZenSwarmHooks {
 
   /**
    * MCP task orchestrated hook - Monitor and optimize
+   *
+   * @param args
    */
   async mcpTaskOrchestratedHook(args) {
     const { taskId, monitorProgress, optimizeDistribution } = args;
@@ -614,6 +643,8 @@ class ZenSwarmHooks {
 
   /**
    * MCP neural trained hook - Save improvements
+   *
+   * @param args
    */
   async mcpNeuralTrainedHook(args) {
     const { improvement, saveWeights, updatePatterns } = args;
@@ -669,6 +700,8 @@ class ZenSwarmHooks {
 
   /**
    * Extract key points from output
+   *
+   * @param output
    */
   extractKeyPoints(output) {
     const lines = output.split('\n').filter((l) => l.trim());
@@ -691,6 +724,8 @@ class ZenSwarmHooks {
 
   /**
    * Extract bullet points for commit message
+   *
+   * @param output
    */
   extractBulletPoints(output) {
     if (!output) {
@@ -746,6 +781,8 @@ class ZenSwarmHooks {
 
   /**
    * Session restore hook - Load previous state
+   *
+   * @param args
    */
   async sessionRestoreHook(args) {
     const { loadMemory, loadAgents } = args;
@@ -815,6 +852,8 @@ class ZenSwarmHooks {
 
   /**
    * Session end hook - Generate summary and persist state
+   *
+   * @param args
    */
   async sessionEndHook(args) {
     const { generateSummary, saveMemory, exportMetrics } = args;
@@ -1676,6 +1715,8 @@ ${this.sessionData.learnings
 
   /**
    * 🔧 CRITICAL FIX: Store notification in database for cross-agent access
+   *
+   * @param notification
    */
   async storeNotificationInDatabase(notification) {
     if (!this.persistence) {
@@ -1703,6 +1744,9 @@ ${this.sessionData.learnings
 
   /**
    * 🔧 CRITICAL FIX: Retrieve notifications from database for cross-agent access
+   *
+   * @param agentId
+   * @param type
    */
   async getNotificationsFromDatabase(agentId = null, type = null) {
     if (!this.persistence) {
@@ -1726,6 +1770,8 @@ ${this.sessionData.learnings
 
   /**
    * 🔧 CRITICAL FIX: Enhanced agent completion with database coordination
+   *
+   * @param args
    */
   async agentCompleteHook(args) {
     const { agentId, taskId, results, learnings } = args;
@@ -1779,6 +1825,9 @@ ${this.sessionData.learnings
 
   /**
    * 🔧 CRITICAL FIX: Cross-agent memory retrieval for coordinated decisions
+   *
+   * @param key
+   * @param agentId
    */
   async getSharedMemory(key, agentId = null) {
     // Check runtime memory first
@@ -1803,6 +1852,10 @@ ${this.sessionData.learnings
 
   /**
    * 🔧 CRITICAL FIX: Cross-agent memory storage for coordinated decisions
+   *
+   * @param key
+   * @param value
+   * @param agentId
    */
   async setSharedMemory(key, value, agentId = null) {
     // Store in runtime memory

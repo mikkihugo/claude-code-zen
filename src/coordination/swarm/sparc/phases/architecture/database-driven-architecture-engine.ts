@@ -104,6 +104,8 @@ interface PerformanceRequirement {
 
 /**
  * Enhanced Architecture Phase Engine with Database Integration
+ *
+ * @example
  */
 export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine {
   private storageService: ArchitectureStorageService;
@@ -125,6 +127,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Design system architecture from pseudocode structure (Enhanced with database persistence)
+   *
+   * @param pseudocode
    */
   async designArchitecture(pseudocode: PseudocodeStructure): Promise<ArchitectureDesign> {
     this.logger?.info('Starting architecture design from pseudocode structure');
@@ -168,6 +172,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Design system architecture with detailed specification input
+   *
+   * @param spec
+   * @param pseudocode
    */
   async designSystemArchitecture(
     spec: DetailedSpecification,
@@ -199,6 +206,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Generate component diagrams with database persistence
+   *
+   * @param architecture
    */
   async generateComponentDiagrams(architecture: SystemArchitecture): Promise<ComponentDiagram[]> {
     this.logger?.info('Generating component diagrams');
@@ -222,6 +231,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Design data flow with enhanced analysis
+   *
+   * @param components
    */
   async designDataFlow(components: Component[]): Promise<DataFlowDiagram> {
     this.logger?.info('Designing data flow between components');
@@ -251,6 +262,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Plan deployment architecture with modern best practices
+   *
+   * @param system
    */
   async planDeploymentArchitecture(system: SystemArchitecture): Promise<DeploymentPlan> {
     this.logger?.info('Planning deployment architecture');
@@ -275,6 +288,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Validate architectural consistency with comprehensive checks
+   *
+   * @param architecture
    */
   async validateArchitecturalConsistency(
     architecture: SystemArchitecture
@@ -337,6 +352,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Get architecture from database by ID
+   *
+   * @param architectureId
    */
   async getArchitectureById(architectureId: string): Promise<ArchitectureDesign | null> {
     return await this.storageService.getArchitectureById(architectureId);
@@ -344,6 +361,12 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Search architectures with criteria
+   *
+   * @param criteria
+   * @param criteria.domain
+   * @param criteria.tags
+   * @param criteria.minScore
+   * @param criteria.limit
    */
   async searchArchitectures(criteria: {
     domain?: string;
@@ -363,6 +386,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Update existing architecture design
+   *
+   * @param architectureId
+   * @param updates
    */
   async updateArchitecture(
     architectureId: string,
@@ -388,6 +414,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Identify system components from algorithms and data structures
+   *
+   * @param pseudocode
    */
   private async identifySystemComponents(
     pseudocode: PseudocodeStructure
@@ -414,6 +442,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Create component from algorithm specification
+   *
+   * @param algorithm
    */
   private async createComponentFromAlgorithm(algorithm: any): Promise<SystemComponent> {
     return {
@@ -441,6 +471,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Create component from data structure specification
+   *
+   * @param dataStructure
    */
   private async createComponentFromDataStructure(dataStructure: any): Promise<SystemComponent> {
     return {
@@ -468,6 +500,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Create infrastructure components based on system requirements
+   *
+   * @param pseudocode
    */
   private async createInfrastructureComponents(
     pseudocode: PseudocodeStructure
@@ -550,6 +584,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Define relationships between components with enhanced analysis
+   *
+   * @param components
    */
   private async defineComponentRelationships(
     components: SystemComponent[]
@@ -604,6 +640,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Select appropriate architecture patterns based on system characteristics
+   *
+   * @param pseudocode
+   * @param components
    */
   private async selectArchitecturePatterns(
     pseudocode: PseudocodeStructure,
@@ -675,6 +714,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Define data flows between components with enhanced analysis
+   *
+   * @param components
+   * @param relationships
    */
   private async defineDataFlows(
     components: SystemComponent[],
@@ -707,6 +749,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Define component interfaces with comprehensive specifications
+   *
+   * @param components
    */
   private async defineComponentInterfaces(
     components: SystemComponent[]
@@ -734,6 +778,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Define quality attributes with measurable criteria
+   *
+   * @param pseudocode
    */
   private async defineQualityAttributes(
     pseudocode: PseudocodeStructure
@@ -814,6 +860,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Define security requirements with implementation details
+   *
+   * @param components
    */
   private async defineSecurityRequirements(
     components: SystemComponent[]
@@ -852,6 +900,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Define scalability requirements with specific targets
+   *
+   * @param pseudocode
    */
   private async defineScalabilityRequirements(
     pseudocode: PseudocodeStructure
@@ -1471,6 +1521,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   /**
    * Generate architecture recommendations based on validation results
+   *
+   * @param validationResults
    */
   private generateArchitectureRecommendations(validationResults: ValidationResult[]): string[] {
     const recommendations: string[] = [];

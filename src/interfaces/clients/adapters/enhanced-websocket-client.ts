@@ -37,6 +37,8 @@ interface WebSocketClientOptions {
  *
  * Maintains 100% backward compatibility with the original WebSocketClient
  * while adding UACL interface support for unified client management.
+ *
+ * @example
  */
 export class EnhancedWebSocketClient extends EventEmitter implements IClient {
   // UACL interface properties
@@ -61,6 +63,9 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Constructor supporting both legacy and UACL patterns
+   *
+   * @param urlOrConfig
+   * @param legacyOptions
    */
   constructor(urlOrConfig: string | WebSocketClientConfig, legacyOptions?: WebSocketClientOptions) {
     super();
@@ -256,6 +261,9 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Generic GET request (UACL interface)
+   *
+   * @param endpoint
+   * @param options
    */
   async get<T = any>(endpoint: string, options?: RequestOptions): Promise<ClientResponse<T>> {
     return this.sendRequest('GET', endpoint, undefined, options);
@@ -263,6 +271,10 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Generic POST request (UACL interface)
+   *
+   * @param endpoint
+   * @param data
+   * @param options
    */
   async post<T = any>(
     endpoint: string,
@@ -274,6 +286,10 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Generic PUT request (UACL interface)
+   *
+   * @param endpoint
+   * @param data
+   * @param options
    */
   async put<T = any>(
     endpoint: string,
@@ -285,6 +301,9 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Generic DELETE request (UACL interface)
+   *
+   * @param endpoint
+   * @param options
    */
   async delete<T = any>(endpoint: string, options?: RequestOptions): Promise<ClientResponse<T>> {
     return this.sendRequest('DELETE', endpoint, undefined, options);
@@ -292,6 +311,8 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Update client configuration (UACL interface)
+   *
+   * @param config
    */
   updateConfig(config: Partial<WebSocketClientConfig>): void {
     Object.assign(this.config, config);
@@ -304,6 +325,9 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Event handler registration (UACL interface)
+   *
+   * @param event
+   * @param handler
    */
   on(
     event: 'connect' | 'disconnect' | 'error' | 'retry' | string,
@@ -314,6 +338,9 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Event handler removal (UACL interface)
+   *
+   * @param event
+   * @param handler
    */
   off(event: string, handler?: (...args: any[]) => void): void {
     if (handler) {
@@ -339,6 +366,8 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Send message (legacy method - exact same signature as original)
+   *
+   * @param data
    */
   send(data: any): void {
     const message = typeof data === 'string' ? data : JSON.stringify(data);
@@ -385,6 +414,9 @@ export class EnhancedWebSocketClient extends EventEmitter implements IClient {
 
   /**
    * Send typed message with enhanced features
+   *
+   * @param message
+   * @param options
    */
   async sendMessage<T = any>(
     message: WebSocketMessage<T>,

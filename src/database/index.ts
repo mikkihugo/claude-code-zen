@@ -1,15 +1,13 @@
 /**
  * Unified Data Access Layer (DAL) - Main Export Module
  *
- * @fileoverview Central export point for the unified DAL providing standardized access
+ * @file Central export point for the unified DAL providing standardized access
  * to all database types through a consistent interface architecture. This module serves as
  * the primary entry point for all database operations including CRUD operations, transactions,
  * vector searches, graph queries, and multi-database coordination.
- *
  * @author Claude-Zen DAL Team
  * @version 2.0.0
  * @since 1.0.0
- *
  * @example Basic DAO Creation
  * ```typescript
  * import { createDao, EntityTypes, DatabaseTypes } from './database';
@@ -29,7 +27,6 @@
  *
  * const users = await userDao.findAll();
  * ```
- *
  * @example Multi-Database Setup
  * ```typescript
  * import { createMultiDatabaseSetup, EntityTypes } from './database';
@@ -131,11 +128,9 @@ export type {
  * @param {('postgresql'|'sqlite'|'kuzu'|'lancedb'|'mysql'|'memory'|'coordination')} databaseType - Database type to use
  * @param {any} [config] - Optional database configuration object
  * @returns {Promise<IDao<T>>} A Promise that resolves to a configured DAO instance
- *
  * @throws {Error} When database configuration is invalid
  * @throws {Error} When database connection fails
  * @throws {Error} When dependency injection setup fails
- *
  * @example PostgreSQL DAO with Connection Pool
  * ```typescript
  * const userDao = await createDao<User>('User', 'postgresql', {
@@ -151,7 +146,6 @@ export type {
  * const newUser = await userDao.create({ name: 'John', email: 'john@example.com' });
  * const users = await userDao.findAll({ limit: 10 });
  * ```
- *
  * @example LanceDB Vector DAO
  * ```typescript
  * const vectorDao = await createDao<VectorDocument>('VectorDocument', 'lancedb', {
@@ -166,7 +160,6 @@ export type {
  * // Vector similarity search
  * const similar = await vectorDao.vectorSearch([0.1, 0.2, ...], 10);
  * ```
- *
  * @example Memory DAO for Caching
  * ```typescript
  * const cacheDao = await createDao<CacheItem>('CacheItem', 'memory', {
@@ -218,11 +211,9 @@ export async function createDao<T>(
  * @param {('postgresql'|'sqlite'|'kuzu'|'lancedb'|'mysql'|'memory'|'coordination')} databaseType - Database type to use
  * @param {any} [config] - Optional database configuration
  * @returns {Promise<IManager<T>>} A Promise that resolves to a configured Manager instance
- *
  * @throws {Error} When manager creation fails
  * @throws {Error} When underlying DAO creation fails
  * @throws {Error} When business logic validation fails
- *
  * @example Document Manager with Validation
  * ```typescript
  * const docManager = await createManager<Document>('Document', 'postgresql', dbConfig);
@@ -240,7 +231,6 @@ export async function createDao<T>(
  *   maxResults: 5
  * });
  * ```
- *
  * @example User Manager with Authentication
  * ```typescript
  * const userManager = await createManager<User>('User', 'postgresql', {
@@ -300,11 +290,9 @@ export async function createManager<T>(
  * @param {any} [primaryConfig.config] - Primary database connection config
  * @param {Array} [secondaryConfigs] - Optional array of secondary database configurations
  * @returns {Promise<MultiDatabaseDAO<T>>} A Promise that resolves to a multi-database DAO
- *
  * @throws {Error} When primary database configuration is invalid
  * @throws {Error} When any secondary database setup fails
  * @throws {Error} When DAL factory initialization fails
- *
  * @example Primary PostgreSQL with Redis Cache
  * ```typescript
  * const multiDao = await createMultiDatabaseSetup<User>(
@@ -334,7 +322,6 @@ export async function createManager<T>(
  * // Reads can fallback to memory cache
  * const cachedUser = await multiDao.findById(user.id);
  * ```
- *
  * @example Vector Primary with Graph Secondary
  * ```typescript
  * const multiDao = await createMultiDatabaseSetup<Document>(
@@ -425,9 +412,7 @@ export async function createMultiDatabaseSetup<T>(
  *
  * @param {string} databaseType - The database type to get defaults for
  * @returns {any} Default configuration object for the specified database type
- *
  * @throws {Error} When an unknown database type is specified
- *
  * @example Getting PostgreSQL Defaults
  * ```typescript
  * const pgDefaults = getDefaultConfig('postgresql');
@@ -440,7 +425,6 @@ export async function createMultiDatabaseSetup<T>(
  * //   pool: { min: 2, max: 10 }
  * // }
  * ```
- *
  * @example Vector Database Defaults
  * ```typescript
  * const lanceDefaults = getDefaultConfig('lancedb');
@@ -529,7 +513,6 @@ function getDefaultConfig(databaseType: string): any {
  *
  * @readonly
  * @constant
- *
  * @example Using Entity Types
  * ```typescript
  * import { createDao, EntityTypes, DatabaseTypes } from './database';
@@ -545,7 +528,6 @@ function getDefaultConfig(databaseType: string): any {
  *   DatabaseTypes.LanceDB
  * );
  * ```
- *
  * @example Entity Type Categories
  * ```typescript
  * // Swarm coordination entities
@@ -604,7 +586,6 @@ export const EntityTypes = {
  *
  * @readonly
  * @constant
- *
  * @example Database Type Usage
  * ```typescript
  * import { createDao, EntityTypes, DatabaseTypes } from './database';
@@ -626,7 +607,6 @@ export const EntityTypes = {
  *   DatabaseTypes.Kuzu // Graph traversal queries
  * );
  * ```
- *
  * @example Database Capabilities
  * ```typescript
  * // Check database capabilities
@@ -663,7 +643,6 @@ export const DatabaseTypes = {
  *
  * @namespace QuickSetup
  * @readonly
- *
  * @example Swarm Coordination Setup
  * ```typescript
  * import { QuickSetup } from './database';
@@ -686,7 +665,6 @@ export const DatabaseTypes = {
  * // Vector search for similar tasks
  * const similar = await swarmDbs.vectors.vectorSearch(taskEmbedding, 5);
  * ```
- *
  * @example AI/ML Data Pipeline
  * ```typescript
  * const aiDbs = await QuickSetup.aimlData();

@@ -9,6 +9,8 @@ import { EventEmitter } from 'node:events';
 
 /**
  * Base configuration interface that all client configurations extend
+ *
+ * @example
  */
 export interface ClientConfig {
   /** Unique identifier for this client instance */
@@ -39,6 +41,8 @@ export interface ClientConfig {
 
 /**
  * Client operation result interface
+ *
+ * @example
  */
 export interface ClientResult<T = any> {
   /** Unique identifier for this operation */
@@ -68,6 +72,8 @@ export interface ClientResult<T = any> {
 
 /**
  * Client health status
+ *
+ * @example
  */
 export interface ClientHealth {
   /** Overall health status */
@@ -98,6 +104,8 @@ export interface ClientComponentHealth {
 
 /**
  * Client metrics interface
+ *
+ * @example
  */
 export interface ClientMetrics {
   /** Total operations executed */
@@ -125,6 +133,8 @@ export interface ClientMetrics {
  *
  * All client adapters must implement this interface to ensure consistency
  * and interoperability across the UACL system.
+ *
+ * @example
  */
 export interface IClient extends EventEmitter {
   /** Client configuration */
@@ -170,6 +180,8 @@ export interface IClient extends EventEmitter {
  *
  * Defines the contract for creating client instances with proper configuration
  * and lifecycle management.
+ *
+ * @example
  */
 export interface IClientFactory<TConfig extends ClientConfig = ClientConfig> {
   /** Factory type identifier */
@@ -206,6 +218,8 @@ export interface IClientFactory<TConfig extends ClientConfig = ClientConfig> {
  *
  * Abstract base class that provides common functionality for all client adapters.
  * Implements the IClient interface with shared behavior.
+ *
+ * @example
  */
 export abstract class BaseClientAdapter extends EventEmitter implements IClient {
   protected _isInitialized = false;
@@ -284,6 +298,15 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
 
   /**
    * Create a standardized client result
+   *
+   * @param operationId
+   * @param success
+   * @param data
+   * @param error
+   * @param error.code
+   * @param error.message
+   * @param error.details
+   * @param metadata
    */
   protected createResult<T>(
     operationId: string,
@@ -307,6 +330,10 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
 
   /**
    * Update metrics after an operation
+   *
+   * @param success
+   * @param duration
+   * @param cached
    */
   protected updateMetrics(success: boolean, duration: number, cached = false): void {
     this._metrics.totalOperations++;
@@ -346,6 +373,10 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
 
   /**
    * Log an operation (if logging is enabled)
+   *
+   * @param level
+   * @param message
+   * @param meta
    */
   protected log(level: 'debug' | 'info' | 'warn' | 'error', message: string, meta?: any): void {
     if (this.config.logging?.enabled) {
@@ -360,6 +391,8 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
 
   /**
    * Check if log level should be output
+   *
+   * @param level
    */
   private shouldLog(level: 'debug' | 'info' | 'warn' | 'error'): boolean {
     const configLevel = this.config.logging?.level || 'info';
@@ -390,6 +423,8 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
  *
  * Abstract base class for client factories that provides common functionality
  * and lifecycle management.
+ *
+ * @example
  */
 export abstract class BaseClientFactory<TConfig extends ClientConfig = ClientConfig>
   implements IClientFactory<TConfig>
@@ -405,6 +440,9 @@ export abstract class BaseClientFactory<TConfig extends ClientConfig = ClientCon
 
   /**
    * Get or create a cached client instance
+   *
+   * @param id
+   * @param config
    */
   async getClient(id: string, config: TConfig): Promise<IClient> {
     if (this.clients.has(id)) {
@@ -424,6 +462,8 @@ export abstract class BaseClientFactory<TConfig extends ClientConfig = ClientCon
 
   /**
    * Validate client configuration (default implementation)
+   *
+   * @param config
    */
   validateConfig(config: TConfig): boolean {
     return Boolean(config && typeof config === 'object');

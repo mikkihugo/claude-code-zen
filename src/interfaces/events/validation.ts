@@ -4,7 +4,7 @@
  * Comprehensive validation framework for ensuring UEL integration quality,
  * event type safety, and system health across all components.
  *
- * @fileoverview Validation Framework Implementation
+ * @file Validation Framework Implementation
  */
 
 import type { ILogger } from '../../core/interfaces/base-interfaces';
@@ -32,6 +32,8 @@ import { EventCategories, UELTypeGuards } from './types';
 
 /**
  * Validation result interface
+ *
+ * @example
  */
 export interface ValidationResult {
   /** Validation passed */
@@ -67,6 +69,8 @@ export interface ValidationResult {
 
 /**
  * Validation error details
+ *
+ * @example
  */
 export interface ValidationError {
   /** Error code */
@@ -97,6 +101,8 @@ export interface ValidationError {
 
 /**
  * Validation warning details
+ *
+ * @example
  */
 export interface ValidationWarning {
   /** Warning code */
@@ -117,6 +123,8 @@ export interface ValidationWarning {
 
 /**
  * Validation recommendation details
+ *
+ * @example
  */
 export interface ValidationRecommendation {
   /** Recommendation type */
@@ -140,6 +148,8 @@ export interface ValidationRecommendation {
 
 /**
  * Event type validation schema
+ *
+ * @example
  */
 export interface EventTypeSchema {
   /** Required properties */
@@ -171,6 +181,8 @@ export interface EventTypeSchema {
 
 /**
  * System health validation configuration
+ *
+ * @example
  */
 export interface HealthValidationConfig {
   /** Health check timeout */
@@ -194,6 +206,8 @@ export interface HealthValidationConfig {
 
 /**
  * Integration validation configuration
+ *
+ * @example
  */
 export interface IntegrationValidationConfig {
   /** Required manager types */
@@ -215,6 +229,8 @@ export interface IntegrationValidationConfig {
 
 /**
  * Main validation framework class
+ *
+ * @example
  */
 export class UELValidationFramework {
   private eventTypeSchemas = new Map<string, EventTypeSchema>();
@@ -251,6 +267,9 @@ export class UELValidationFramework {
 
   /**
    * Validate event type against schema
+   *
+   * @param event
+   * @param schema
    */
   validateEventType<T extends SystemEvent>(event: T, schema?: EventTypeSchema): ValidationResult {
     const startTime = Date.now();
@@ -393,6 +412,8 @@ export class UELValidationFramework {
 
   /**
    * Validate event manager configuration
+   *
+   * @param config
    */
   validateManagerConfig(config: EventManagerConfig): ValidationResult {
     const startTime = Date.now();
@@ -484,6 +505,9 @@ export class UELValidationFramework {
 
   /**
    * Validate system health
+   *
+   * @param eventManager
+   * @param config
    */
   async validateSystemHealth(
     eventManager: EventManager,
@@ -627,6 +651,10 @@ export class UELValidationFramework {
 
   /**
    * Validate UEL integration completeness
+   *
+   * @param eventManager
+   * @param registry
+   * @param config
    */
   async validateIntegration(
     eventManager: EventManager,
@@ -763,6 +791,10 @@ export class UELValidationFramework {
 
   /**
    * Perform comprehensive UEL validation
+   *
+   * @param eventManager
+   * @param registry
+   * @param sampleEvents
    */
   async validateComplete(
     eventManager: EventManager,
@@ -866,6 +898,9 @@ export class UELValidationFramework {
 
   /**
    * Register custom event type schema
+   *
+   * @param eventType
+   * @param schema
    */
   registerEventTypeSchema(eventType: string, schema: EventTypeSchema): void {
     this.eventTypeSchemas.set(eventType, schema);
@@ -888,6 +923,8 @@ export class UELValidationFramework {
 
   /**
    * Export validation report
+   *
+   * @param results
    */
   exportValidationReport(results: ValidationResult[]): {
     summary: {

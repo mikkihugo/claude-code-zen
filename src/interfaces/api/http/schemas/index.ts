@@ -4,7 +4,7 @@
  * Consolidated OpenAPI 3.0 schemas from all domains.
  * Provides single source of truth for API documentation and validation.
  *
- * @fileoverview REST API schemas for all domains
+ * @file REST API schemas for all domains
  */
 
 // Re-export coordination types that are actually available

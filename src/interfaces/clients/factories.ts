@@ -33,6 +33,8 @@ import {
 
 /**
  * Configuration for client creation
+ *
+ * @example
  */
 export interface ClientFactoryConfig {
   /** Client type to create */
@@ -71,6 +73,8 @@ export type ClientTypeMap<T> =
 
 /**
  * Client registry for managing client instances
+ *
+ * @example
  */
 export interface ClientRegistry {
   [clientId: string]: {
@@ -85,6 +89,8 @@ export interface ClientRegistry {
 
 /**
  * Main factory class for creating UACL client instances
+ *
+ * @example
  */
 @injectable
 export class UACLFactory {
@@ -102,6 +108,8 @@ export class UACLFactory {
 
   /**
    * Create a client instance
+   *
+   * @param factoryConfig
    */
   async createClient<T = any>(factoryConfig: ClientFactoryConfig): Promise<ClientTypeMap<T>> {
     const { clientType, protocol, url, name, config, reuseExisting = true } = factoryConfig;
@@ -146,6 +154,9 @@ export class UACLFactory {
 
   /**
    * Create HTTP client with convenience methods
+   *
+   * @param url
+   * @param config
    */
   async createHttpClient<T = any>(
     url: string,
@@ -163,6 +174,9 @@ export class UACLFactory {
 
   /**
    * Create WebSocket client with real-time capabilities
+   *
+   * @param url
+   * @param config
    */
   async createWebSocketClient<T = any>(
     url: string,
@@ -180,6 +194,9 @@ export class UACLFactory {
 
   /**
    * Create Knowledge client for FACT integration
+   *
+   * @param url
+   * @param config
    */
   async createKnowledgeClient<T = any>(
     url: string,
@@ -195,6 +212,9 @@ export class UACLFactory {
 
   /**
    * Create MCP client for Model Context Protocol
+   *
+   * @param url
+   * @param config
    */
   async createMcpClient<T = any>(
     url: string,
@@ -220,6 +240,10 @@ export class UACLFactory {
 
   /**
    * Create generic client for custom protocols
+   *
+   * @param protocol
+   * @param url
+   * @param config
    */
   async createGenericClient<T = any>(
     protocol: ProtocolType,
@@ -236,6 +260,8 @@ export class UACLFactory {
 
   /**
    * Get client by ID from registry
+   *
+   * @param clientId
    */
   getClient(clientId: string): IClient | null {
     return this.clientRegistry[clientId]?.client || null;
@@ -289,6 +315,8 @@ export class UACLFactory {
 
   /**
    * Execute transaction across multiple clients
+   *
+   * @param operations
    */
   async executeTransaction(operations: ClientOperation[]): Promise<ClientTransaction> {
     const transactionId = this.generateTransactionId();
@@ -567,6 +595,8 @@ export class UACLFactory {
 
 /**
  * Multi-client coordinator for handling operations across different client types
+ *
+ * @example
  */
 export class MultiClientCoordinator {
   constructor(
@@ -576,6 +606,9 @@ export class MultiClientCoordinator {
 
   /**
    * Execute operation on multiple clients with different protocols
+   *
+   * @param clients
+   * @param operation
    */
   async executeMultiProtocol<T = any>(
     clients: Array<{
@@ -624,6 +657,9 @@ export class MultiClientCoordinator {
 
   /**
    * Create load-balanced client setup
+   *
+   * @param clientConfigs
+   * @param strategy
    */
   async createLoadBalanced<T = any>(
     clientConfigs: Array<{
@@ -654,6 +690,8 @@ export class MultiClientCoordinator {
 
 /**
  * Load-balanced client wrapper
+ *
+ * @example
  */
 export class LoadBalancedClient<T = any> implements IClient<T> {
   private currentIndex = 0;
@@ -740,6 +778,11 @@ export class LoadBalancedClient<T = any> implements IClient<T> {
 
 /**
  * Create a simple client for quick setup
+ *
+ * @param clientType
+ * @param protocol
+ * @param url
+ * @param config
  */
 export async function createClient<T = any>(
   clientType: ClientType,
@@ -776,6 +819,9 @@ export async function createClient<T = any>(
 
 /**
  * Create HTTP client with convenience
+ *
+ * @param url
+ * @param config
  */
 export async function createHttpClient<T = any>(
   url: string,
@@ -787,6 +833,9 @@ export async function createHttpClient<T = any>(
 
 /**
  * Create WebSocket client with convenience
+ *
+ * @param url
+ * @param config
  */
 export async function createWebSocketClient<T = any>(
   url: string,
@@ -803,6 +852,9 @@ export async function createWebSocketClient<T = any>(
 
 /**
  * Create MCP client with convenience
+ *
+ * @param url
+ * @param config
  */
 export async function createMcpClient<T = any>(
   url: string,

@@ -109,6 +109,8 @@ export interface ServiceDependencyGraph {
 
 /**
  * Enhanced Service Registry with comprehensive service management capabilities
+ *
+ * @example
  */
 export class EnhancedServiceRegistry extends EventEmitter implements IServiceRegistry {
   private factories = new Map<string, IServiceFactory>();
@@ -495,6 +497,9 @@ export class EnhancedServiceRegistry extends EventEmitter implements IServiceReg
 
   /**
    * Register service for discovery
+   *
+   * @param service
+   * @param metadata
    */
   registerServiceForDiscovery(service: IService, metadata?: Record<string, any>): void {
     const discoveryInfo: ServiceDiscoveryInfo = {
@@ -514,6 +519,8 @@ export class EnhancedServiceRegistry extends EventEmitter implements IServiceReg
 
   /**
    * Update service heartbeat
+   *
+   * @param serviceName
    */
   updateServiceHeartbeat(serviceName: string): void {
     const discoveryInfo = this.serviceDiscovery.get(serviceName);

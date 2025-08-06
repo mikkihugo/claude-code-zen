@@ -19,6 +19,8 @@ import {
 
 /**
  * Factory class for creating CoordinationServiceAdapter instances
+ *
+ * @example
  */
 export class CoordinationServiceFactory
   implements IServiceFactory<CoordinationServiceAdapterConfig>
@@ -32,6 +34,8 @@ export class CoordinationServiceFactory
 
   /**
    * Create a new coordination service adapter instance
+   *
+   * @param config
    */
   async create(config: CoordinationServiceAdapterConfig): Promise<CoordinationServiceAdapter> {
     this.logger.info(`Creating coordination service adapter: ${config.name}`);
@@ -58,6 +62,8 @@ export class CoordinationServiceFactory
 
   /**
    * Create multiple coordination service adapter instances
+   *
+   * @param configs
    */
   async createMultiple(
     configs: CoordinationServiceAdapterConfig[]
@@ -81,6 +87,8 @@ export class CoordinationServiceFactory
 
   /**
    * Get coordination service adapter by name
+   *
+   * @param name
    */
   get(name: string): CoordinationServiceAdapter | undefined {
     return this.instances.get(name);
@@ -95,6 +103,8 @@ export class CoordinationServiceFactory
 
   /**
    * Check if coordination service adapter exists
+   *
+   * @param name
    */
   has(name: string): boolean {
     return this.instances.has(name);
@@ -102,6 +112,8 @@ export class CoordinationServiceFactory
 
   /**
    * Remove and destroy coordination service adapter
+   *
+   * @param name
    */
   async remove(name: string): Promise<boolean> {
     const adapter = this.instances.get(name);
@@ -129,6 +141,8 @@ export class CoordinationServiceFactory
 
   /**
    * Check if service type is supported
+   *
+   * @param type
    */
   supportsType(type: string): boolean {
     return this.getSupportedTypes().includes(type);
@@ -271,6 +285,13 @@ export class CoordinationServiceFactory
 
 /**
  * Helper function to create agent-focused coordination service configuration
+ *
+ * @param name
+ * @param options
+ * @param options.maxAgents
+ * @param options.topology
+ * @param options.enableLearning
+ * @param options.autoSpawn
  */
 export function createAgentCoordinationConfig(
   name: string,
@@ -315,6 +336,12 @@ export function createAgentCoordinationConfig(
 
 /**
  * Helper function to create session-focused coordination service configuration
+ *
+ * @param name
+ * @param options
+ * @param options.maxSessions
+ * @param options.checkpointInterval
+ * @param options.autoRecovery
  */
 export function createSessionCoordinationConfig(
   name: string,
@@ -353,6 +380,12 @@ export function createSessionCoordinationConfig(
 
 /**
  * Helper function to create DAA-focused coordination service configuration
+ *
+ * @param name
+ * @param options
+ * @param options.enableMetaLearning
+ * @param options.enableCognitive
+ * @param options.analysisInterval
  */
 export function createDAACoordinationConfig(
   name: string,
@@ -389,6 +422,12 @@ export function createDAACoordinationConfig(
 
 /**
  * Helper function to create high-performance coordination service configuration
+ *
+ * @param name
+ * @param options
+ * @param options.maxConcurrency
+ * @param options.requestTimeout
+ * @param options.cacheSize
  */
 export function createHighPerformanceCoordinationConfig(
   name: string,
@@ -443,6 +482,8 @@ export function createHighPerformanceCoordinationConfig(
 export const CoordinationConfigPresets = {
   /**
    * Basic coordination configuration for simple agent management
+   *
+   * @param name
    */
   BASIC: (name: string) =>
     createDefaultCoordinationServiceAdapterConfig(name, {
@@ -452,6 +493,8 @@ export const CoordinationConfigPresets = {
 
   /**
    * Advanced coordination configuration with all features enabled
+   *
+   * @param name
    */
   ADVANCED: (name: string) =>
     createAgentCoordinationConfig(name, {
@@ -463,6 +506,8 @@ export const CoordinationConfigPresets = {
 
   /**
    * Session-focused configuration for session management
+   *
+   * @param name
    */
   SESSION_MANAGEMENT: (name: string) =>
     createSessionCoordinationConfig(name, {
@@ -473,6 +518,8 @@ export const CoordinationConfigPresets = {
 
   /**
    * DAA-focused configuration for data analysis and learning
+   *
+   * @param name
    */
   DATA_ANALYSIS: (name: string) =>
     createDAACoordinationConfig(name, {
@@ -483,6 +530,8 @@ export const CoordinationConfigPresets = {
 
   /**
    * High-performance configuration for heavy workloads
+   *
+   * @param name
    */
   HIGH_PERFORMANCE: (name: string) =>
     createHighPerformanceCoordinationConfig(name, {

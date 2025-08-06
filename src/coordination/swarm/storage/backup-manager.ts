@@ -122,6 +122,9 @@ export class SwarmBackupManager extends EventEmitter {
 
   /**
    * Restore swarm from backup
+   *
+   * @param swarmId
+   * @param backupId
    */
   async restoreSwarm(swarmId: string, backupId?: string): Promise<boolean> {
     this.emit('restore:started', { swarmId, backupId });

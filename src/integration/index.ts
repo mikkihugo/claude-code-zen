@@ -12,6 +12,9 @@ export { MultiSystemCoordinator as default } from './multi-system-coordinator';
 export const IntegrationUtils = {
   /**
    * Validate system compatibility
+   *
+   * @param systemA
+   * @param systemB
    */
   validateCompatibility: (systemA: string, systemB: string): boolean => {
     const compatiblePairs = [
@@ -29,6 +32,8 @@ export const IntegrationUtils = {
 
   /**
    * Get integration requirements
+   *
+   * @param systems
    */
   getRequirements: (systems: string[]): string[] => {
     const requirements = new Set<string>();
@@ -54,6 +59,8 @@ export const IntegrationUtils = {
 
   /**
    * Check system health
+   *
+   * @param system
    */
   checkSystemHealth: async (system: string): Promise<boolean> => {
     try {
@@ -85,6 +92,9 @@ export class IntegrationFactory {
 
   /**
    * Create or get integration coordinator
+   *
+   * @param systems
+   * @param instanceKey
    */
   static async getCoordinator(systems: string[], instanceKey = 'default'): Promise<any> {
     const key = `${systems.sort().join('-')}:${instanceKey}`;

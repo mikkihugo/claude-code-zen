@@ -8,7 +8,9 @@
 
 /**
  * Generic repository interface for standardized data access
+ *
  * @template T The entity type this repository manages
+ * @example
  */
 export interface IRepository<T> {
   /** Find entity by ID */
@@ -41,7 +43,9 @@ export interface IRepository<T> {
 
 /**
  * Data Access Object interface for domain-specific operations
+ *
  * @template T The entity type
+ * @example
  */
 export interface IDataAccessObject<T> {
   /** Get repository for basic CRUD operations */
@@ -62,6 +66,8 @@ export interface IDataAccessObject<T> {
 
 /**
  * Specialized interface for graph databases (Kuzu)
+ *
+ * @example
  */
 export interface IGraphRepository<T> extends IRepository<T> {
   /** Execute graph traversal query */
@@ -95,6 +101,8 @@ export interface IGraphRepository<T> extends IRepository<T> {
 
 /**
  * Specialized interface for vector databases (LanceDB)
+ *
+ * @example
  */
 export interface IVectorRepository<T> extends IRepository<T> {
   /** Perform vector similarity search */
@@ -118,6 +126,8 @@ export interface IVectorRepository<T> extends IRepository<T> {
 
 /**
  * Specialized interface for memory stores
+ *
+ * @example
  */
 export interface IMemoryRepository<T> extends IRepository<T> {
   /** Set TTL (time to live) for an entity */
@@ -141,6 +151,8 @@ export interface IMemoryRepository<T> extends IRepository<T> {
 
 /**
  * Specialized interface for coordination databases
+ *
+ * @example
  */
 export interface ICoordinationRepository<T> extends IRepository<T> {
   /** Lock resource for coordination */
@@ -164,6 +176,8 @@ export interface ICoordinationRepository<T> extends IRepository<T> {
 
 /**
  * Query options for standardized data access
+ *
+ * @example
  */
 export interface QueryOptions {
   /** Maximum number of results to return */
@@ -187,6 +201,8 @@ export interface QueryOptions {
 
 /**
  * Sort criteria
+ *
+ * @example
  */
 export interface SortCriteria {
   field: string;
@@ -195,6 +211,8 @@ export interface SortCriteria {
 
 /**
  * Custom query interface for database-specific operations
+ *
+ * @example
  */
 export interface CustomQuery {
   /** Query type identifier */
@@ -212,6 +230,8 @@ export interface CustomQuery {
 
 /**
  * Transaction operation
+ *
+ * @example
  */
 export interface TransactionOperation {
   /** Operation type */
@@ -229,6 +249,8 @@ export interface TransactionOperation {
 
 /**
  * Database metadata
+ *
+ * @example
  */
 export interface DatabaseMetadata {
   /** Database type */
@@ -249,6 +271,8 @@ export interface DatabaseMetadata {
 
 /**
  * Health status
+ *
+ * @example
  */
 export interface HealthStatus {
   /** Is the database healthy */
@@ -269,6 +293,8 @@ export interface HealthStatus {
 
 /**
  * Performance metrics
+ *
+ * @example
  */
 export interface PerformanceMetrics {
   /** Average query time in milliseconds */
@@ -298,6 +324,8 @@ export interface PerformanceMetrics {
 
 /**
  * Graph database specific types
+ *
+ * @example
  */
 export interface GraphNode {
   id: string | number;
@@ -334,6 +362,8 @@ export interface GraphQueryResult {
 
 /**
  * Vector database specific types
+ *
+ * @example
  */
 export interface VectorDocument<T> {
   id: string | number;
@@ -396,6 +426,8 @@ export interface ClusterResult {
 
 /**
  * Memory store specific types
+ *
+ * @example
  */
 export interface MemoryStats {
   totalMemory: number;
@@ -408,6 +440,8 @@ export interface MemoryStats {
 
 /**
  * Coordination database specific types
+ *
+ * @example
  */
 export interface CoordinationLock {
   id: string;

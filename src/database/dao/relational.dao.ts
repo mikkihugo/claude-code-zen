@@ -1,7 +1,7 @@
 /**
  * Relational Database DAO Implementation
  *
- * @fileoverview Comprehensive relational database DAO implementation supporting PostgreSQL,
+ * @file Comprehensive relational database DAO implementation supporting PostgreSQL,
  * MySQL, SQLite and other SQL-based databases. Provides standardized CRUD operations,
  * advanced query building, transaction management, and database-specific optimizations.
  *
@@ -12,11 +12,9 @@
  * - Date range queries and full-text search
  * - Batch insert/update/delete operations
  * - Schema-aware field type detection
- *
  * @author Claude-Zen DAL Team
  * @version 2.0.0
  * @since 1.0.0
- *
  * @example Basic Relational DAO Usage
  * ```typescript
  * import { RelationalDao } from './dao/relational.dao';
@@ -69,10 +67,9 @@ import type { IDao } from '../interfaces';
  *
  * @template T The entity type this DAO manages
  * @class RelationalDao
- * @extends BaseDao<T>
+ * @augments BaseDao<T>
  * @implements IDao<T>
  * @since 1.0.0
- *
  * @example PostgreSQL User DAO
  * ```typescript
  * interface User {
@@ -132,11 +129,9 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * @protected
    * @param {any} row - Raw database row object
    * @returns {T} Mapped entity object with proper types
-   *
    * @throws {Error} When row is null or undefined
    * @throws {Error} When JSON parsing fails for JSON columns
    * @throws {Error} When date conversion fails for date columns
-   *
    * @example Row to Entity Mapping
    * ```typescript
    * // Database row (raw data)
@@ -224,7 +219,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * @protected
    * @param {Partial<T>} entity - Entity object to convert
    * @returns {Record<string, any>} Database row object ready for SQL operations
-   *
    * @example Entity to Row Mapping
    * ```typescript
    * // Entity object (typed)
@@ -312,11 +306,9 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * @param {Partial<T>} [criteria] - Optional filtering criteria for the main table
    * @param {any} [options] - Optional query options (sort, limit, offset)
    * @returns {Promise<T[]>} Array of entities with joined data
-   *
    * @throws {Error} When JOIN query construction fails
    * @throws {Error} When SQL execution fails
    * @throws {Error} When join condition is invalid
-   *
    * @example User Profile JOIN Query
    * ```typescript
    * // Find users with their profile information
@@ -338,7 +330,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * // ORDER BY users.created_at DESC
    * // LIMIT 50
    * ```
-   *
    * @example Order Items JOIN Query
    * ```typescript
    * interface OrderItem {
@@ -404,11 +395,9 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * @param {string} [column='*'] - Column name to aggregate (default: '*' for COUNT)
    * @param {Partial<T>} [criteria] - Optional filtering criteria
    * @returns {Promise<number>} Numeric result of the aggregate function
-   *
    * @throws {Error} When aggregate function is invalid
    * @throws {Error} When column does not exist
    * @throws {Error} When SQL execution fails
-   *
    * @example User Statistics
    * ```typescript
    * // Count total active users
@@ -433,7 +422,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    *
    * console.log(`${activeUserCount} active users, average age: ${averageAge}, oldest: ${maxAge}`);
    * ```
-   *
    * @example Sales Analytics
    * ```typescript
    * interface Order {
@@ -493,11 +481,9 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    *
    * @param {Omit<T, 'id'>[]} entities - Array of entities to insert (without ID field)
    * @returns {Promise<T[]>} Array of created entities with generated IDs
-   *
    * @throws {Error} When entities array is empty
    * @throws {Error} When batch insert SQL execution fails
    * @throws {Error} When entity validation fails
-   *
    * @example Batch User Creation
    * ```typescript
    * const newUsers = [
@@ -529,7 +515,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    *   console.log(`Created user: ${user.name} (ID: ${user.id})`);
    * });
    * ```
-   *
    * @example Batch Product Import
    * ```typescript
    * interface Product {
@@ -601,11 +586,9 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * @param {Partial<T>} criteria - Filter criteria to select entities for update
    * @param {Partial<T>} updates - Field updates to apply to matching entities
    * @returns {Promise<number>} Number of entities updated
-   *
    * @throws {Error} When update criteria is empty (safety check)
    * @throws {Error} When update SQL execution fails
    * @throws {Error} When field validation fails
-   *
    * @example Bulk User Status Update
    * ```typescript
    * // Deactivate all users from a specific department
@@ -619,7 +602,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    *
    * console.log(`Deactivated ${updatedCount} users from Sales department`);
    * ```
-   *
    * @example Price Adjustment
    * ```typescript
    * interface Product {
@@ -641,7 +623,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    *
    * console.log(`Applied discount to ${affectedProducts} electronics products`);
    * ```
-   *
    * @example User Notification Settings
    * ```typescript
    * // Enable email notifications for all active premium users
@@ -690,11 +671,9 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    *
    * @param {Partial<T>} criteria - Filter criteria to select entities for deletion
    * @returns {Promise<number>} Number of entities deleted
-   *
    * @throws {Error} When criteria is empty (prevents accidental full table deletion)
    * @throws {Error} When delete SQL execution fails
    * @throws {Error} When foreign key constraints are violated
-   *
    * @example Delete Inactive Users
    * ```typescript
    * // Remove all inactive users older than 1 year
@@ -708,7 +687,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    *
    * console.log(`Deleted ${deletedCount} inactive users`);
    * ```
-   *
    * @example Clean Up Test Data
    * ```typescript
    * // Remove all test orders created during development
@@ -719,7 +697,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    *
    * console.log(`Cleaned up ${testOrdersDeleted} test orders`);
    * ```
-   *
    * @example Archive Old Sessions
    * ```typescript
    * interface UserSession {
@@ -773,10 +750,8 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * @param {string} searchTerm - Search term to match (automatically wrapped with %)
    * @param {any} [options] - Optional query options (limit, sort, etc.)
    * @returns {Promise<T[]>} Array of entities matching the search term
-   *
    * @throws {Error} When field name is invalid
    * @throws {Error} When search SQL execution fails
-   *
    * @example User Name Search
    * ```typescript
    * // Find all users with names containing 'john'
@@ -791,7 +766,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * console.log(`Found ${johnUsers.length} users named John`);
    * console.log(`Found ${gmailUsers.length} Gmail users`);
    * ```
-   *
    * @example Product Search
    * ```typescript
    * interface Product {
@@ -813,7 +787,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * // Search by SKU partial match
    * const electronicsSkus = await productDao.search('sku', 'ELEC-');
    * ```
-   *
    * @example Content Search with Ranking
    * ```typescript
    * // Search articles by title and description
@@ -862,11 +835,9 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * @param {Date} endDate - End of the date range (inclusive)
    * @param {any} [options] - Optional query options (sort, limit, offset)
    * @returns {Promise<T[]>} Array of entities within the date range
-   *
    * @throws {Error} When date field is invalid
    * @throws {Error} When start date is after end date
    * @throws {Error} When date range query execution fails
-   *
    * @example Monthly User Registrations
    * ```typescript
    * // Get all users registered in January 2024
@@ -882,7 +853,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    *
    * console.log(`${januaryUsers.length} users registered in January 2024`);
    * ```
-   *
    * @example Sales Report Date Range
    * ```typescript
    * interface Order {
@@ -910,7 +880,6 @@ export class RelationalDao<T> extends BaseDao<T> implements IDao<T> {
    * const totalRevenue = quarterlyOrders.reduce((sum, order) => sum + order.total, 0);
    * console.log(`Q4 2024 Revenue: $${totalRevenue.toFixed(2)} from ${quarterlyOrders.length} orders`);
    * ```
-   *
    * @example Activity Log Analysis
    * ```typescript
    * // Get user activity logs from the past 7 days

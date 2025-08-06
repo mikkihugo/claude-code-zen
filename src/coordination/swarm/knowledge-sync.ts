@@ -1,5 +1,5 @@
 /**
- * @fileoverview Swarm Knowledge Synchronization
+ * @file Swarm Knowledge Synchronization
  * Handles knowledge synchronization between individual swarms and the Hive Knowledge Bridge
  *
  * Features:
@@ -73,6 +73,8 @@ export interface SwarmLearning {
 
 /**
  * Manages knowledge synchronization for an individual swarm
+ *
+ * @example
  */
 export class SwarmKnowledgeSync extends EventEmitter {
   private config: SwarmKnowledgeConfig;
@@ -131,6 +133,14 @@ export class SwarmKnowledgeSync extends EventEmitter {
 
   /**
    * Query knowledge from Hive FACT system
+   *
+   * @param query
+   * @param domain
+   * @param agentId
+   * @param options
+   * @param options.useCache
+   * @param options.priority
+   * @param options.filters
    */
   async queryKnowledge(
     query: string,
@@ -201,6 +211,9 @@ export class SwarmKnowledgeSync extends EventEmitter {
 
   /**
    * Contribute learned knowledge back to Hive
+   *
+   * @param learning
+   * @param agentId
    */
   async contributeKnowledge(
     learning: Omit<SwarmLearning, 'id' | 'timestamp'>,
@@ -279,6 +292,8 @@ export class SwarmKnowledgeSync extends EventEmitter {
 
   /**
    * Subscribe to knowledge updates for specific domain
+   *
+   * @param domain
    */
   async subscribeToDomain(domain: string): Promise<boolean> {
     if (this.subscriptions.has(domain)) {
@@ -317,6 +332,8 @@ export class SwarmKnowledgeSync extends EventEmitter {
 
   /**
    * Handle incoming knowledge update from Hive
+   *
+   * @param update
    */
   async handleKnowledgeUpdate(update: KnowledgeDistributionUpdate): Promise<void> {
     logger.info(`Received knowledge update: ${update.type} for domain ${update.domain}`);

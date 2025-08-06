@@ -1,5 +1,5 @@
 /**
- * @fileoverview Strategy Pattern Implementation for Swarm Coordination
+ * @file Strategy Pattern Implementation for Swarm Coordination
  * Provides flexible coordination strategies for different swarm topologies
  */
 

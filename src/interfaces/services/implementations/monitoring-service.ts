@@ -11,6 +11,8 @@ import { BaseService } from './base-service';
 
 /**
  * Monitoring service implementation
+ *
+ * @example
  */
 export class MonitoringService extends BaseService implements IService {
   private metrics = new Map<string, any[]>();

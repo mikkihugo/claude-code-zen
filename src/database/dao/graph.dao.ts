@@ -19,7 +19,9 @@ import type {
 
 /**
  * Graph database repository implementation for Kuzu
+ *
  * @template T The entity type this repository manages
+ * @example
  */
 export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
   private get graphAdapter(): GraphDatabaseAdapter {
@@ -37,6 +39,10 @@ export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
 
   /**
    * Execute graph traversal query
+   *
+   * @param startNode
+   * @param relationshipType
+   * @param maxDepth
    */
   async traverse(
     startNode: string | number,
@@ -78,6 +84,9 @@ export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
 
   /**
    * Find nodes by label and properties
+   *
+   * @param label
+   * @param properties
    */
   async findNodesByLabel(label: string, properties?: Record<string, any>): Promise<GraphNode[]> {
     this.logger.debug(`Finding nodes by label: ${label}`, { properties });
@@ -113,6 +122,10 @@ export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
 
   /**
    * Find relationships between nodes
+   *
+   * @param fromNodeId
+   * @param toNodeId
+   * @param relationshipType
    */
   async findRelationships(
     fromNodeId: string | number,
@@ -148,6 +161,11 @@ export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
 
   /**
    * Create relationship between nodes
+   *
+   * @param fromNodeId
+   * @param toNodeId
+   * @param relationshipType
+   * @param properties
    */
   async createRelationship(
     fromNodeId: string | number,
@@ -204,6 +222,9 @@ export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
 
   /**
    * Execute Cypher query
+   *
+   * @param cypher
+   * @param parameters
    */
   async executeCypher(cypher: string, parameters?: Record<string, any>): Promise<GraphQueryResult> {
     this.logger.debug(`Executing Cypher query: ${cypher}`, { parameters });
@@ -231,6 +252,9 @@ export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
 
   /**
    * Get node degree (number of connections)
+   *
+   * @param nodeId
+   * @param direction
    */
   async getNodeDegree(
     nodeId: string | number,
@@ -267,6 +291,10 @@ export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
 
   /**
    * Find shortest path between two nodes
+   *
+   * @param fromNodeId
+   * @param toNodeId
+   * @param relationshipType
    */
   async findShortestPath(
     fromNodeId: string | number,
@@ -383,6 +411,8 @@ export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
 
   /**
    * Execute custom query - override to handle object-based queries
+   *
+   * @param customQuery
    */
   async executeCustomQuery<R = any>(customQuery: CustomQuery): Promise<R> {
     if (customQuery.type === 'cypher') {
@@ -395,6 +425,8 @@ export class GraphDao<T> extends BaseDao<T> implements IGraphDao<T> {
 
   /**
    * Helper methods
+   *
+   * @param result
    */
   private extractPathsFromResult(result: any): any[] {
     // Extract path information from Kuzu result

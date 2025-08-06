@@ -49,6 +49,8 @@ import type { DataServiceConfig, ServiceEnvironment, ServicePriority, ServiceTyp
 
 /**
  * Data service adapter configuration extending USL DataServiceConfig
+ *
+ * @example
  */
 export interface DataServiceAdapterConfig extends DataServiceConfig {
   /** WebDataService integration settings */
@@ -95,6 +97,8 @@ export interface DataServiceAdapterConfig extends DataServiceConfig {
 
 /**
  * Data operation metrics for performance monitoring
+ *
+ * @example
  */
 interface DataOperationMetrics {
   operationName: string;
@@ -108,6 +112,8 @@ interface DataOperationMetrics {
 
 /**
  * Cache entry structure for data caching
+ *
+ * @example
  */
 interface CacheEntry<T = any> {
   data: T;
@@ -119,6 +125,8 @@ interface CacheEntry<T = any> {
 
 /**
  * Request deduplication entry
+ *
+ * @example
  */
 interface PendingRequest<T = any> {
   promise: Promise<T>;
@@ -140,6 +148,8 @@ interface PendingRequest<T = any> {
  * - Health monitoring
  * - Event forwarding
  * - Error handling and recovery
+ *
+ * @example
  */
 export class DataServiceAdapter implements IService {
   // Core service properties
@@ -235,6 +245,8 @@ export class DataServiceAdapter implements IService {
 
   /**
    * Initialize the data service adapter and its dependencies
+   *
+   * @param config
    */
   async initialize(config?: Partial<DataServiceAdapterConfig>): Promise<void> {
     this.logger.info(`Initializing data service adapter: ${this.name}`);
@@ -567,6 +579,8 @@ export class DataServiceAdapter implements IService {
 
   /**
    * Update service configuration
+   *
+   * @param config
    */
   async updateConfig(config: Partial<DataServiceAdapterConfig>): Promise<void> {
     this.logger.info(`Updating configuration for data service adapter: ${this.name}`);
@@ -591,6 +605,8 @@ export class DataServiceAdapter implements IService {
 
   /**
    * Validate service configuration
+   *
+   * @param config
    */
   async validateConfig(config: DataServiceAdapterConfig): Promise<boolean> {
     try {
@@ -689,6 +705,10 @@ export class DataServiceAdapter implements IService {
 
   /**
    * Execute service operations with unified interface
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   async execute<T = any>(
     operation: string,
@@ -857,6 +877,10 @@ export class DataServiceAdapter implements IService {
 
   /**
    * Internal operation execution with caching, deduplication, and retry logic
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   private async executeOperationInternal<T = any>(
     operation: string,
@@ -923,6 +947,11 @@ export class DataServiceAdapter implements IService {
 
   /**
    * Execute operation with retry logic
+   *
+   * @param operation
+   * @param params
+   * @param options
+   * @param attempt
    */
   private async executeWithRetry<T = any>(
     operation: string,
@@ -961,6 +990,10 @@ export class DataServiceAdapter implements IService {
 
   /**
    * Perform the actual operation based on operation type
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   private async performOperation<T = any>(
     operation: string,
@@ -1433,6 +1466,8 @@ export class DataServiceAdapter implements IService {
 
 /**
  * Factory function for creating DataServiceAdapter instances
+ *
+ * @param config
  */
 export function createDataServiceAdapter(config: DataServiceAdapterConfig): DataServiceAdapter {
   return new DataServiceAdapter(config);
@@ -1440,6 +1475,9 @@ export function createDataServiceAdapter(config: DataServiceAdapterConfig): Data
 
 /**
  * Helper function for creating default configuration
+ *
+ * @param name
+ * @param overrides
  */
 export function createDefaultDataServiceAdapterConfig(
   name: string,

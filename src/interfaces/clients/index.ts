@@ -7,10 +7,9 @@
  * - Helper functions and utilities
  * - Global instances and initialization
  *
- * @fileoverview Main UACL exports providing unified access to HTTP, WebSocket, Knowledge, and MCP clients
+ * @file Main UACL exports providing unified access to HTTP, WebSocket, Knowledge, and MCP clients
  * @module interfaces/clients
  * @version 2.0.0
- *
  * @example
  * ```typescript
  * // Initialize UACL system
@@ -106,7 +105,6 @@ export {
  * @class UACL
  * @description Singleton class managing all client types (HTTP, WebSocket, Knowledge, MCP) through a unified interface.
  *              Handles client lifecycle, connection management, health monitoring, and metrics collection.
- *
  * @example
  * ```typescript
  * // Get singleton instance
@@ -143,7 +141,6 @@ export class UACL {
    * @returns {UACL} The singleton UACL instance
    * @description Returns the global UACL instance, creating it if it doesn't exist.
    *              Implements the singleton pattern to ensure unified client management.
-   *
    * @example
    * ```typescript
    * const uacl = UACL.getInstance();
@@ -167,10 +164,8 @@ export class UACL {
    * @param {boolean} [config.enableRetries=true] - Enable automatic retry logic
    * @returns {Promise<void>} Resolves when initialization is complete
    * @throws {Error} If initialization fails due to invalid configuration
-   *
    * @description Initializes the UACL system with client manager, registry, and monitoring.
    *              Safe to call multiple times - subsequent calls are ignored.
-   *
    * @example
    * ```typescript
    * // Initialize with default settings
@@ -198,7 +193,6 @@ export class UACL {
    *
    * @returns {boolean} True if UACL has been initialized
    * @description Returns the initialization status without side effects.
-   *
    * @example
    * ```typescript
    * if (!uacl.isInitialized()) {
@@ -224,10 +218,8 @@ export class UACL {
    * @param {boolean} [options.http2=false] - Enable HTTP/2 support
    * @returns {Promise<ClientInstance>} Promise resolving to the created HTTP client instance
    * @throws {Error} If client creation fails or ID already exists
-   *
    * @description Creates, configures, and registers a new HTTP client with automatic retry logic,
    *              authentication handling, and performance monitoring.
-   *
    * @example
    * ```typescript
    * // Basic HTTP client
@@ -289,10 +281,8 @@ export class UACL {
    * @param {object} [options.messageQueue] - Message queuing for offline scenarios
    * @returns {Promise<ClientInstance>} Promise resolving to the created WebSocket client instance
    * @throws {Error} If client creation fails, connection fails, or ID already exists
-   *
    * @description Creates, configures, and registers a new WebSocket client with automatic reconnection,
    *              heartbeat monitoring, message queuing, and real-time event handling.
-   *
    * @example
    * ```typescript
    * // Basic WebSocket client
@@ -363,10 +353,8 @@ export class UACL {
    * @param {object} [options.vectorConfig] - Vector search configuration
    * @returns {Promise<ClientInstance>} Promise resolving to the created Knowledge client instance
    * @throws {Error} If client creation fails, FACT integration fails, or invalid configuration
-   *
    * @description Creates, configures, and registers a new Knowledge client with FACT integration,
    *              semantic search capabilities, query caching, and intelligent tool selection.
-   *
    * @example
    * ```typescript
    * // Basic Knowledge client
@@ -435,10 +423,8 @@ export class UACL {
    * @param {object} [options.retryConfig] - Retry configuration for failed operations
    * @returns {Promise<ClientInstance>} Promise resolving to the created MCP client instance
    * @throws {Error} If client creation fails, server connection fails, or invalid server configuration
-   *
    * @description Creates, configures, and registers a new MCP client for interacting with
    *              Model Context Protocol servers, enabling tool execution, resource access, and prompt management.
-   *
    * @example
    * ```typescript
    * // Basic MCP client with single server
@@ -511,10 +497,8 @@ export class UACL {
    *
    * @param {string} clientId - The unique identifier of the client to retrieve
    * @returns {ClientInstance | undefined} The client instance if found, undefined otherwise
-   *
    * @description Retrieves a specific client instance by its unique identifier.
    *              Returns undefined if no client with the given ID exists.
-   *
    * @example
    * ```typescript
    * // Get a specific client
@@ -536,10 +520,8 @@ export class UACL {
    *
    * @param {ClientType} type - The type of client to retrieve (HTTP, WEBSOCKET, KNOWLEDGE, MCP)
    * @returns {ClientInstance | undefined} The best available client of the specified type, or undefined
-   *
    * @description Returns the best available (connected and healthy) client of the specified type.
    *              Uses health status and performance metrics to determine the "best" client.
-   *
    * @example
    * ```typescript
    * // Get the best HTTP client available
@@ -564,10 +546,8 @@ export class UACL {
    *
    * @param {ClientType} type - The type of clients to retrieve
    * @returns {ClientInstance[]} Array of all client instances of the specified type
-   *
    * @description Returns all registered clients of the specified type, regardless of their connection status.
    *              Use this for bulk operations or when you need to work with multiple clients of the same type.
-   *
    * @example
    * ```typescript
    * // Get all HTTP clients for load balancing
@@ -601,10 +581,8 @@ export class UACL {
    * @returns {number} returns.degradedClients - Number of degraded clients
    * @returns {number} returns.unhealthyClients - Number of unhealthy clients
    * @returns {object} returns.byType - Health breakdown by client type
-   *
    * @description Returns comprehensive health status for the entire UACL system,
    *              including overall status and detailed breakdown by client type.
-   *
    * @example
    * ```typescript
    * // Check system health
@@ -641,10 +619,8 @@ export class UACL {
    * @returns {number} returns.totalErrors - Total errors across all clients
    * @returns {number} returns.averageLatency - Average latency across all clients
    * @returns {number} returns.totalThroughput - Combined throughput of all clients
-   *
    * @description Returns aggregated performance metrics across all registered clients,
    *              providing system-wide visibility into request volumes, error rates, and performance.
-   *
    * @example
    * ```typescript
    * // Get system-wide metrics
@@ -676,10 +652,8 @@ export class UACL {
    * @returns {object} returns.metrics - Performance metrics with historical data
    * @returns {object} returns.configuration - Current system configuration
    * @returns {object} returns.uptime - System uptime and availability statistics
-   *
    * @description Returns the most comprehensive view of the UACL system status,
    *              combining health, performance, configuration, and operational data.
-   *
    * @example
    * ```typescript
    * // Get comprehensive system overview
@@ -713,11 +687,9 @@ export class UACL {
    *
    * @returns {Promise<void>} Resolves when all connection attempts are complete
    * @throws {AggregateError} If multiple connection attempts fail (contains all individual errors)
-   *
    * @description Attempts to connect all registered clients that are enabled.
    *              Uses Promise.allSettled to ensure all connections are attempted even if some fail.
    *              Only attempts to connect clients where config.enabled is true.
-   *
    * @example
    * ```typescript
    * try {
@@ -759,11 +731,9 @@ export class UACL {
    * Disconnect all clients
    *
    * @returns {Promise<void>} Resolves when all disconnection attempts are complete
-   *
    * @description Gracefully disconnects all registered clients regardless of their current state.
    *              Uses Promise.allSettled to ensure all disconnections are attempted.
    *              Safe to call even if clients are already disconnected.
-   *
    * @example
    * ```typescript
    * // Graceful shutdown of all clients
@@ -802,14 +772,12 @@ export class UACL {
    * Shutdown UACL system
    *
    * @returns {Promise<void>} Resolves when the system is completely shut down
-   *
    * @description Performs a complete shutdown of the UACL system, including:
    *              - Disconnecting all clients
    *              - Stopping health check timers
    *              - Clearing metrics collection
    *              - Resetting initialization state
    *              Safe to call multiple times - subsequent calls are ignored.
-   *
    * @example
    * ```typescript
    * // Graceful system shutdown
@@ -848,10 +816,8 @@ export class UACL {
  * Global UACL instance for convenience
  *
  * @constant {UACL} uacl - Pre-instantiated global UACL singleton instance
- *
  * @description Provides immediate access to the UACL system without needing to call getInstance().
  *              This is the recommended way to access UACL functionality in most applications.
- *
  * @example
  * ```typescript
  * import { uacl } from './interfaces/clients';
@@ -875,10 +841,8 @@ export const uacl = UACL.getInstance();
  * @param {boolean} [config.enableMetrics=true] - Enable performance metrics collection
  * @returns {Promise<void>} Resolves when UACL initialization is complete
  * @throws {Error} If initialization fails due to invalid configuration or system constraints
- *
  * @description Convenience function to initialize the global UACL instance with optional configuration.
  *              This is equivalent to calling `uacl.initialize(config)` but provides a more functional approach.
- *
  * @example
  * ```typescript
  * import { initializeUACL } from './interfaces/clients';
@@ -938,11 +902,9 @@ export const UACLHelpers = {
    * @returns {ClientInstance} [returns.knowledge] - Knowledge client instance (if FACT config provided)
    * @returns {ClientInstance} [returns.mcp] - MCP client instance (if mcpServers provided)
    * @throws {Error} If client setup fails or required dependencies are missing
-   *
    * @description Creates a standard set of clients based on provided configuration,
    *              automatically connects them, and returns the instances for immediate use.
    *              Perfect for application bootstrap and common client setup patterns.
-   *
    * @example
    * ```typescript
    * // Basic setup with HTTP and WebSocket clients
@@ -1051,7 +1013,6 @@ export const UACLHelpers = {
    * @returns {number} returns.healthyClients - Number of healthy/connected clients
    * @returns {number} returns.healthPercentage - Health percentage (0-100)
    * @returns {'healthy'|'warning'|'critical'} returns.status - Overall system status
-   *
    * @description Provides a quick, at-a-glance system health overview with standardized status levels.
    *              Perfect for dashboards, monitoring, and quick health checks.
    *
@@ -1059,7 +1020,6 @@ export const UACLHelpers = {
    * - healthy: 80%+ clients are connected
    * - warning: 50-79% clients are connected
    * - critical: <50% clients connected or system not initialized
-   *
    * @example
    * ```typescript
    * // Quick health check
@@ -1129,11 +1089,9 @@ export const UACLHelpers = {
    *
    * @returns {Promise<Record<string, boolean>>} Map of client IDs to health status (true = healthy, false = unhealthy)
    * @throws Never throws - all errors are caught and reported as unhealthy clients
-   *
    * @description Performs individual health checks on all registered clients across all types.
    *              Returns a simple boolean status for each client, making it easy to identify
    *              which specific clients are experiencing issues.
-   *
    * @example
    * ```typescript
    * // Check health of all clients

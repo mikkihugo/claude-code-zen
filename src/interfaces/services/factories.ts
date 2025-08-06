@@ -1,10 +1,9 @@
 /**
  * USL (Unified Service Layer) Factory Implementation
  *
- * @fileoverview Central factory system for creating, managing, and orchestrating service instances
+ * @file Central factory system for creating, managing, and orchestrating service instances
  * across the Claude-Zen ecosystem. Provides dependency injection, service discovery,
  * and lifecycle management following the same successful patterns as DAL and UACL.
- *
  * @description The USL Factory system implements the Factory pattern with enhanced capabilities:
  * - Automatic dependency resolution and injection
  * - Service lifecycle management (initialize, start, stop, destroy)
@@ -12,7 +11,6 @@
  * - Service discovery and registration
  * - Metrics collection and performance monitoring
  * - Event-driven service coordination
- *
  * @example
  * ```typescript
  * import { USLFactory, globalUSLFactory } from '@claude-zen/usl';
@@ -175,6 +173,8 @@ export interface USLFactoryConfig {
 
 /**
  * Main USL Factory class for creating and managing service instances
+ *
+ * @example
  */
 export class USLFactory implements IServiceFactory {
   private services = new Map<string, IService>();
@@ -220,6 +220,8 @@ export class USLFactory implements IServiceFactory {
 
   /**
    * Create a service instance based on configuration
+   *
+   * @param config
    */
   async create<T extends ServiceConfig = ServiceConfig>(config: T): Promise<IService> {
     this.logger.info(`Creating service: ${config.name} (${config.type})`);
@@ -268,6 +270,8 @@ export class USLFactory implements IServiceFactory {
 
   /**
    * Create multiple services concurrently
+   *
+   * @param configs
    */
   async createMultiple<T extends ServiceConfig = ServiceConfig>(configs: T[]): Promise<IService[]> {
     this.logger.info(`Creating ${configs.length} services concurrently`);
@@ -301,6 +305,8 @@ export class USLFactory implements IServiceFactory {
 
   /**
    * Get service by name
+   *
+   * @param name
    */
   get(name: string): IService | undefined {
     return this.services.get(name);
@@ -315,6 +321,8 @@ export class USLFactory implements IServiceFactory {
 
   /**
    * Check if service exists
+   *
+   * @param name
    */
   has(name: string): boolean {
     return this.services.has(name);
@@ -322,6 +330,8 @@ export class USLFactory implements IServiceFactory {
 
   /**
    * Remove and destroy service
+   *
+   * @param name
    */
   async remove(name: string): Promise<boolean> {
     const service = this.services.get(name);
@@ -359,6 +369,8 @@ export class USLFactory implements IServiceFactory {
 
   /**
    * Check if service type is supported
+   *
+   * @param type
    */
   supportsType(type: string): boolean {
     return this.getSupportedTypes().includes(type);
@@ -548,6 +560,8 @@ export class USLFactory implements IServiceFactory {
 
   /**
    * Get services by type
+   *
+   * @param type
    */
   getServicesByType(type: string): IService[] {
     return this.list().filter((service) => service.type === type);
@@ -555,6 +569,8 @@ export class USLFactory implements IServiceFactory {
 
   /**
    * Validate service configuration
+   *
+   * @param config
    */
   async validateConfig(config: ServiceConfig): Promise<boolean> {
     try {
@@ -589,6 +605,8 @@ export class USLFactory implements IServiceFactory {
 
   /**
    * Get configuration schema for service type
+   *
+   * @param type
    */
   getConfigSchema(type: string): Record<string, any> | undefined {
     // Return basic schema structure - can be extended for each service type
@@ -959,6 +977,8 @@ export class USLFactory implements IServiceFactory {
 
 /**
  * Service Registry implementation for global service management
+ *
+ * @example
  */
 export class ServiceRegistry implements IServiceRegistry {
   private factories = new Map<string, IServiceFactory>();
@@ -1188,6 +1208,8 @@ globalServiceRegistry.registerFactory('usl', globalUSLFactory);
 
 /**
  * Service configuration validator implementation
+ *
+ * @example
  */
 export class ServiceConfigValidator implements IServiceConfigValidator {
   private schemas = new Map<string, Record<string, any>>();
@@ -1278,6 +1300,8 @@ export class ServiceConfigValidator implements IServiceConfigValidator {
 
 /**
  * Service capability registry implementation
+ *
+ * @example
  */
 export class ServiceCapabilityRegistry implements IServiceCapabilityRegistry {
   private capabilities = new Map<string, ServiceCapability[]>();

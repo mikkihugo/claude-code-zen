@@ -11,6 +11,8 @@ import { BaseService } from './base-service';
 
 /**
  * Memory service implementation
+ *
+ * @example
  */
 export class MemoryService extends BaseService implements IService {
   private store = new Map<string, any>();

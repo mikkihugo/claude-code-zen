@@ -31,6 +31,11 @@ interface ExecutionState {
  *
  * Renders command execution results in a clean, formatted way.
  * UI-only component - delegates business logic to MockCommandHandler.
+ *
+ * @param root0
+ * @param root0.commands
+ * @param root0.flags
+ * @param root0.onExit
  */
 export const CommandExecutionRenderer: React.FC<CommandExecutionProps> = ({
   commands,

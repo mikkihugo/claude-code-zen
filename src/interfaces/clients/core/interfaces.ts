@@ -7,10 +7,9 @@
  * - Factory pattern for client creation and management
  * - Health checks and performance monitoring
  *
- * @fileoverview Core interfaces defining the UACL contract for all client types
+ * @file Core interfaces defining the UACL contract for all client types
  * @module interfaces/clients/core
  * @version 2.0.0
- *
  * @description This module defines the foundational interfaces that all UACL clients must implement,
  *              providing a consistent API surface across HTTP, WebSocket, Knowledge, and MCP clients.
  *              These interfaces ensure uniform behavior for connection management, authentication,
@@ -22,7 +21,6 @@
  * - Observable: Comprehensive metrics and health monitoring
  * - Resilient: Built-in retry logic and error handling
  * - Extensible: Support for custom authentication and middleware
- *
  * @example
  * ```typescript
  * // Implement a custom client using UACL interfaces
@@ -58,7 +56,6 @@
  * @interface AuthenticationConfig
  * @description Unified authentication configuration supporting multiple authentication methods.
  *              Provides a flexible, extensible approach to client authentication across all protocols.
- *
  * @property {'bearer'|'apikey'|'oauth'|'basic'|'custom'} type - Authentication method type
  * @property {string} [token] - Bearer token for token-based authentication
  * @property {string} [apiKey] - API key for key-based authentication
@@ -67,7 +64,6 @@
  * @property {string} [username] - Username for basic authentication
  * @property {string} [password] - Password for basic authentication
  * @property {Function} [customAuth] - Custom authentication handler function
- *
  * @example
  * ```typescript
  * // Bearer token authentication
@@ -150,13 +146,11 @@ export interface AuthenticationConfig {
  * @interface RetryConfig
  * @description Configuration for automatic retry logic with various backoff strategies.
  *              Provides intelligent retry behavior for handling transient failures.
- *
  * @property {number} attempts - Maximum number of retry attempts (1-10 recommended)
  * @property {number} delay - Base delay between retries in milliseconds
  * @property {'linear'|'exponential'|'fixed'} backoff - Backoff strategy for retry delays
  * @property {number} [maxDelay] - Maximum delay cap for exponential/linear backoff (ms)
  * @property {Function} [retryCondition] - Custom function to determine if error should be retried
- *
  * @example
  * ```typescript
  * // Exponential backoff for API rate limiting
@@ -215,6 +209,8 @@ export interface RetryConfig {
 
 /**
  * Health check configuration
+ *
+ * @example
  */
 export interface HealthConfig {
   endpoint: string;
@@ -226,6 +222,8 @@ export interface HealthConfig {
 
 /**
  * Performance monitoring configuration
+ *
+ * @example
  */
 export interface MonitoringConfig {
   enabled: boolean;
@@ -237,6 +235,8 @@ export interface MonitoringConfig {
 
 /**
  * Base client configuration
+ *
+ * @example
  */
 export interface ClientConfig {
   name: string;
@@ -252,6 +252,8 @@ export interface ClientConfig {
 
 /**
  * Client status information
+ *
+ * @example
  */
 export interface ClientStatus {
   name: string;
@@ -265,6 +267,8 @@ export interface ClientStatus {
 
 /**
  * Client performance metrics
+ *
+ * @example
  */
 export interface ClientMetrics {
   name: string;
@@ -280,6 +284,8 @@ export interface ClientMetrics {
 
 /**
  * Generic request options
+ *
+ * @example
  */
 export interface RequestOptions {
   timeout?: number;
@@ -290,6 +296,8 @@ export interface RequestOptions {
 
 /**
  * Generic response wrapper
+ *
+ * @example
  */
 export interface ClientResponse<T = any> {
   data: T;
@@ -304,11 +312,10 @@ export interface ClientResponse<T = any> {
  * Core client interface that all clients must implement
  *
  * @interface IClient
- * @extends EventEmitter
+ * @augments EventEmitter
  * @description The foundational interface that all UACL clients must implement.
  *              Provides a unified API contract for connection management, request handling,
  *              health monitoring, and lifecycle management across all client types.
- *
  * @example
  * ```typescript
  * // Using a UACL client through the IClient interface
@@ -391,8 +398,8 @@ export interface IClient {
    *
    * @returns {Promise<void>} Resolves when connection is established
    * @throws {ConnectionError} If connection fails
-   * @emits connect When connection is established
-   * @emits error If connection fails
+   * @fires connect When connection is established
+   * @fires error If connection fails
    */
   connect(): Promise<void>;
 
@@ -400,7 +407,7 @@ export interface IClient {
    * Gracefully close connection to the service
    *
    * @returns {Promise<void>} Resolves when disconnection is complete
-   * @emits disconnect When disconnection is complete
+   * @fires disconnect When disconnection is complete
    */
   disconnect(): Promise<void>;
 
@@ -434,8 +441,8 @@ export interface IClient {
    * @param {RequestOptions} [options] - Request configuration options
    * @returns {Promise<ClientResponse<T>>} Response with typed data
    * @throws {Error} If request fails after retries
-   * @emits retry On retry attempts
-   * @emits error On request failures
+   * @fires retry On retry attempts
+   * @fires error On request failures
    */
   get<T = any>(endpoint: string, options?: RequestOptions): Promise<ClientResponse<T>>;
 
@@ -512,6 +519,8 @@ export interface IClient {
 
 /**
  * Client factory interface for creating and managing clients
+ *
+ * @example
  */
 export interface IClientFactory<TConfig extends ClientConfig = ClientConfig> {
   // Client creation
@@ -535,6 +544,8 @@ export interface IClientFactory<TConfig extends ClientConfig = ClientConfig> {
 
 /**
  * Client registry for global client management
+ *
+ * @example
  */
 export interface IClientRegistry {
   // Factory registration
@@ -554,6 +565,8 @@ export interface IClientRegistry {
 
 /**
  * Error types for client operations
+ *
+ * @example
  */
 export class ClientError extends Error {
   constructor(
@@ -602,6 +615,8 @@ export class RetryExhaustedError extends ClientError {
 
 /**
  * Missing exports for compatibility
+ *
+ * @example
  */
 export interface ClientResponse<T = any> {
   data: T;

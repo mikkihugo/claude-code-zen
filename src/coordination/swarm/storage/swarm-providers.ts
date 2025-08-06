@@ -51,6 +51,9 @@ export const defaultBackupConfig: BackupConfig = {
 
 /**
  * Register swarm storage providers with DI container
+ *
+ * @param container
+ * @param customConfig
  */
 export function registerSwarmProviders(
   container: DIContainer,
@@ -120,6 +123,8 @@ export function registerSwarmProviders(
 
 /**
  * Initialize swarm storage system with DI
+ *
+ * @param container
  */
 export async function initializeSwarmStorage(container: DIContainer): Promise<{
   databaseManager: SwarmDatabaseManager;
@@ -145,6 +150,8 @@ export async function initializeSwarmStorage(container: DIContainer): Promise<{
 
 /**
  * Utility function to create a pre-configured swarm DI container
+ *
+ * @param customConfig
  */
 export function createSwarmContainer(
   customConfig?: Parameters<typeof registerSwarmProviders>[1]

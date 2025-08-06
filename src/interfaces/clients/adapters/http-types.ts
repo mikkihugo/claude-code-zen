@@ -8,6 +8,8 @@ import type { AuthenticationConfig, ClientConfig, RetryConfig } from '../core/in
 
 /**
  * HTTP-specific authentication configuration
+ *
+ * @example
  */
 export interface HTTPAuthenticationConfig extends AuthenticationConfig {
   // HTTP-specific auth methods
@@ -30,6 +32,8 @@ export interface HTTPAuthenticationConfig extends AuthenticationConfig {
 
 /**
  * HTTP-specific retry configuration
+ *
+ * @example
  */
 export interface HTTPRetryConfig extends RetryConfig {
   // HTTP status codes to retry on
@@ -44,6 +48,8 @@ export interface HTTPRetryConfig extends RetryConfig {
 
 /**
  * HTTP client configuration
+ *
+ * @example
  */
 export interface HTTPClientConfig extends ClientConfig {
   // HTTP-specific settings
@@ -97,6 +103,8 @@ export interface HTTPClientConfig extends ClientConfig {
 
 /**
  * HTTP request options
+ *
+ * @example
  */
 export interface HTTPRequestOptions {
   timeout?: number;
@@ -112,6 +120,8 @@ export interface HTTPRequestOptions {
 
 /**
  * HTTP response type
+ *
+ * @example
  */
 export interface HTTPResponse<T = any> {
   data: T;
@@ -125,6 +135,8 @@ export interface HTTPResponse<T = any> {
 
 /**
  * HTTP error details
+ *
+ * @example
  */
 export interface HTTPErrorDetails {
   status?: number;
@@ -136,6 +148,8 @@ export interface HTTPErrorDetails {
 
 /**
  * HTTP client capabilities
+ *
+ * @example
  */
 export interface HTTPClientCapabilities {
   supportedMethods: string[];
@@ -149,6 +163,8 @@ export interface HTTPClientCapabilities {
 
 /**
  * OAuth credentials for HTTP clients
+ *
+ * @example
  */
 export interface OAuthCredentials {
   clientId: string;

@@ -18,6 +18,8 @@ import {
 /**
  * MCP Integration Manager
  * Bridges legacy MCP clients with new UACL architecture
+ *
+ * @example
  */
 export class MCPIntegrationManager {
   private legacyClient: ExternalMCPClient;
@@ -86,6 +88,9 @@ export class MCPIntegrationManager {
 
   /**
    * Create UACL config from legacy server status
+   *
+   * @param serverName
+   * @param serverStatus
    */
   private createUACLConfigFromLegacyServer(serverName: string, serverStatus: any): MCPClientConfig {
     // Determine protocol based on server type
@@ -190,6 +195,10 @@ export class MCPIntegrationManager {
 
   /**
    * Execute tool with automatic failover between UACL and Legacy
+   *
+   * @param serverName
+   * @param toolName
+   * @param parameters
    */
   async executeToolWithFailover(
     serverName: string,
@@ -270,6 +279,11 @@ export class MCPIntegrationManager {
 
   /**
    * Performance comparison between Legacy and UACL
+   *
+   * @param serverName
+   * @param toolName
+   * @param parameters
+   * @param iterations
    */
   async performanceComparison(
     serverName: string,
@@ -346,6 +360,12 @@ export class MCPIntegrationManager {
 
   /**
    * Gradual migration strategy
+   *
+   * @param migrationConfig
+   * @param migrationConfig.servers
+   * @param migrationConfig.batchSize
+   * @param migrationConfig.delayBetweenBatches
+   * @param migrationConfig.rollbackOnFailure
    */
   async startGradualMigration(migrationConfig: {
     servers: string[];

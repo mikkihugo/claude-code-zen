@@ -144,6 +144,9 @@ export const EventAdapterFactories = {
 export const EventAdapterUtils = {
   /**
    * Create system event adapter with sensible defaults
+   *
+   * @param name
+   * @param overrides
    */
   createSystemAdapter: (name: string, overrides?: Partial<SystemEventAdapterConfig>) => {
     const config = createDefaultSystemEventAdapterConfig(name, overrides);
@@ -152,6 +155,9 @@ export const EventAdapterUtils = {
 
   /**
    * Create coordination event adapter with sensible defaults
+   *
+   * @param name
+   * @param overrides
    */
   createCoordinationAdapter: (
     name: string,
@@ -163,6 +169,9 @@ export const EventAdapterUtils = {
 
   /**
    * Create communication event adapter with sensible defaults
+   *
+   * @param name
+   * @param overrides
    */
   createCommunicationAdapter: (
     name: string,
@@ -174,6 +183,9 @@ export const EventAdapterUtils = {
 
   /**
    * Create monitoring event adapter with sensible defaults
+   *
+   * @param name
+   * @param overrides
    */
   createMonitoringAdapter: (name: string, overrides?: Partial<MonitoringEventAdapterConfig>) => {
     const config = createDefaultMonitoringEventAdapterConfig(name, overrides);
@@ -207,6 +219,8 @@ export const EventAdapterUtils = {
 
   /**
    * Check if adapter type is supported
+   *
+   * @param type
    */
   isAdapterTypeSupported: (type: string): type is EventAdapterType => {
     return Object.values(EventAdapterTypes).includes(type as EventAdapterType);

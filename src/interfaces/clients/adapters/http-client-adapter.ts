@@ -4,7 +4,7 @@
  * Converts existing HTTP APIClient to UACL architecture while maintaining
  * backward compatibility and adding enterprise-grade features.
  *
- * @fileoverview HTTP client adapter implementing the UACL IClient interface
+ * @file HTTP client adapter implementing the UACL IClient interface
  * @module interfaces/clients/adapters/http
  * @version 2.0.0
  *
@@ -19,7 +19,6 @@
  * - Built-in compression and HTTP/2 support
  * - OAuth token refresh automation
  * - Circuit breaker pattern for fault tolerance
- *
  * @example
  * ```typescript
  * import { HTTPClientAdapter } from './http-client-adapter';
@@ -116,25 +115,22 @@ import type {
  * HTTP Client Adapter implementing UACL IClient interface
  *
  * @class HTTPClientAdapter
- * @extends EventEmitter
+ * @augments EventEmitter
  * @implements {IClient}
  * @description Production-ready HTTP client adapter providing enterprise-grade features
  *              including authentication, retry logic, health monitoring, and comprehensive metrics.
  *              Built on Axios with additional UACL-specific enhancements for reliability and observability.
- *
  * @property {HTTPClientConfig} config - Client configuration (read-only)
  * @property {string} name - Client identifier (read-only)
  * @property {AxiosInstance} http - Underlying Axios instance (private)
  * @property {boolean} connected - Connection status (private)
  * @property {ClientMetrics} metrics - Performance metrics (private)
- *
  * @fires HTTPClientAdapter#connect - When client successfully connects
  * @fires HTTPClientAdapter#disconnect - When client disconnects
  * @fires HTTPClientAdapter#error - When an error occurs
  * @fires HTTPClientAdapter#retry - When a retry attempt is made
  * @fires HTTPClientAdapter#request - When a request is initiated
  * @fires HTTPClientAdapter#response - When a response is received
- *
  * @example
  * ```typescript
  * // Create HTTP client with OAuth authentication
@@ -268,9 +264,7 @@ export class HTTPClientAdapter extends EventEmitter implements IClient {
    * @param {HealthConfig} [config.health] - Health check configuration
    * @param {MonitoringConfig} [config.monitoring] - Monitoring configuration
    * @param {Record<string, string>} [config.headers] - Default headers
-   *
    * @throws {Error} If required configuration is missing or invalid
-   *
    * @example
    * ```typescript
    * const client = new HTTPClientAdapter({

@@ -1,5 +1,5 @@
 /**
- * @fileoverview Composite Pattern Implementation for Agent Hierarchies
+ * @file Composite Pattern Implementation for Agent Hierarchies
  * Provides uniform interfaces for individual agents and agent groups
  */
 

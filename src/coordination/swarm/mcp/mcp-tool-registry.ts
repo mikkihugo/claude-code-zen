@@ -155,6 +155,11 @@ class EnhancedMCPTools {
 
   /**
    * Enhanced error handler with context and logging
+   *
+   * @param error
+   * @param toolName
+   * @param operation
+   * @param params
    */
   handleError(error, toolName, operation, params = null) {
     // Create detailed error context
@@ -209,6 +214,8 @@ class EnhancedMCPTools {
 
   /**
    * Determine error severity based on type and message
+   *
+   * @param error
    */
   determineSeverity(error) {
     if (error instanceof ValidationError) {
@@ -231,6 +238,8 @@ class EnhancedMCPTools {
 
   /**
    * Determine if error is recoverable
+   *
+   * @param error
    */
   isRecoverable(error) {
     if (error instanceof ValidationError) {
@@ -249,6 +258,9 @@ class EnhancedMCPTools {
 
   /**
    * Validate and sanitize input parameters for a tool
+   *
+   * @param params
+   * @param toolName
    */
   validateToolParams(params, toolName) {
     try {
@@ -281,6 +293,8 @@ class EnhancedMCPTools {
 
   /**
    * Get recent error logs for debugging
+   *
+   * @param limit
    */
   getErrorLogs(limit = 50) {
     return this.errorLog.slice(-limit);
@@ -311,6 +325,8 @@ class EnhancedMCPTools {
 
   /**
    * 🔧 CRITICAL FIX: Integrate hook notifications with MCP memory system
+   *
+   * @param hookInstance
    */
   async integrateHookNotifications(hookInstance) {
     if (!hookInstance || !this.persistence) {
@@ -346,6 +362,10 @@ class EnhancedMCPTools {
 
   /**
    * 🔧 CRITICAL FIX: Retrieve cross-agent notifications for coordinated decision making
+   *
+   * @param agentId
+   * @param type
+   * @param since
    */
   async getCrossAgentNotifications(agentId = null, type = null, since = null) {
     if (!this.persistence) {

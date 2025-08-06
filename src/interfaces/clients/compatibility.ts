@@ -4,7 +4,7 @@
  * Provides backward compatibility wrappers and migration utilities for existing client usage.
  * Ensures zero breaking changes when transitioning to UACL architecture.
  *
- * @fileoverview Backward compatibility layer for UACL migration
+ * @file Backward compatibility layer for UACL migration
  */
 
 import { FACTIntegration } from '../../knowledge/knowledge-client';
@@ -17,6 +17,8 @@ import { type ClientInstance, ClientType, uacl } from './index';
  * Legacy HTTP Client Factory (Backward Compatible)
  *
  * Provides the same interface as before but uses UACL internally
+ *
+ * @param config
  */
 export const createCompatibleAPIClient = (config: any = {}): APIClient => {
   // Use direct client creation for backward compatibility
@@ -28,6 +30,9 @@ export const createCompatibleAPIClient = (config: any = {}): APIClient => {
  * Enhanced HTTP Client Factory (UACL-Managed)
  *
  * Creates HTTP client that's managed by UACL for enhanced monitoring and lifecycle management
+ *
+ * @param id
+ * @param config
  */
 export const createManagedAPIClient = async (
   id: string,
@@ -51,6 +56,9 @@ export const createManagedAPIClient = async (
 
 /**
  * Legacy WebSocket Client Factory (Backward Compatible)
+ *
+ * @param url
+ * @param options
  */
 export const createCompatibleWebSocketClient = (
   url: string,
@@ -61,6 +69,10 @@ export const createCompatibleWebSocketClient = (
 
 /**
  * Enhanced WebSocket Client Factory (UACL-Managed)
+ *
+ * @param id
+ * @param url
+ * @param options
  */
 export const createManagedWebSocketClient = async (
   id: string,
@@ -84,6 +96,8 @@ export const createManagedWebSocketClient = async (
 
 /**
  * Legacy Knowledge Client Factory (Backward Compatible)
+ *
+ * @param config
  */
 export const createCompatibleKnowledgeClient = (config: any): FACTIntegration => {
   return new FACTIntegration(config);
@@ -91,6 +105,9 @@ export const createCompatibleKnowledgeClient = (config: any): FACTIntegration =>
 
 /**
  * Enhanced Knowledge Client Factory (UACL-Managed)
+ *
+ * @param id
+ * @param config
  */
 export const createManagedKnowledgeClient = async (
   id: string,
@@ -124,6 +141,9 @@ export const createCompatibleMCPClient = (): ExternalMCPClient => {
 
 /**
  * Enhanced MCP Client Factory (UACL-Managed)
+ *
+ * @param id
+ * @param servers
  */
 export const createManagedMCPClient = async (
   id: string,
@@ -146,6 +166,8 @@ export const createManagedMCPClient = async (
  * Migration Helper Class
  *
  * Provides utilities to gradually migrate existing code to UACL
+ *
+ * @example
  */
 export class UACLMigrationHelper {
   private static migrationTracking = new Map<
@@ -159,6 +181,9 @@ export class UACLMigrationHelper {
 
   /**
    * Track usage of legacy client creation
+   *
+   * @param clientType
+   * @param location
    */
   static trackLegacyUsage(clientType: string, location: string): void {
     const key = `${clientType}:${location}`;
@@ -183,6 +208,9 @@ export class UACLMigrationHelper {
 
   /**
    * Mark a client as migrated to UACL
+   *
+   * @param clientType
+   * @param location
    */
   static markAsMigrated(clientType: string, location: string): void {
     const key = `${clientType}:${location}`;
@@ -241,6 +269,10 @@ export class UACLMigrationHelper {
 
   /**
    * Auto-migrate a client to UACL if conditions are met
+   *
+   * @param clientType
+   * @param id
+   * @param config
    */
   static async autoMigrate(
     clientType: ClientType,
@@ -310,6 +342,9 @@ export { ExternalMCPClient as LegacyExternalMCPClient };
  * // After (enhanced with UACL)
  * const { client } = await createEnhancedAPIClient('my-api', config);
  * ```
+ *
+ * @param id
+ * @param config
  */
 export const createEnhancedAPIClient = async (
   id: string,
@@ -332,6 +367,10 @@ export const createEnhancedAPIClient = async (
 
 /**
  * Enhanced WebSocket client creation with automatic UACL management
+ *
+ * @param id
+ * @param url
+ * @param options
  */
 export const createEnhancedWebSocketClient = async (
   id: string,
@@ -358,6 +397,9 @@ export const createEnhancedWebSocketClient = async (
 
 /**
  * Enhanced knowledge client creation with automatic UACL management
+ *
+ * @param id
+ * @param config
  */
 export const createEnhancedKnowledgeClient = async (
   id: string,
@@ -383,6 +425,9 @@ export const createEnhancedKnowledgeClient = async (
 
 /**
  * Enhanced MCP client creation with automatic UACL management
+ *
+ * @param id
+ * @param servers
  */
 export const createEnhancedMCPClient = async (
   id: string,

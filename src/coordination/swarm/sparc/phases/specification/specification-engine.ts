@@ -42,6 +42,9 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
 
   /**
    * Generate specification from project using template-based approach
+   *
+   * @param projectSpec
+   * @param templateId
    */
   async generateSpecificationFromTemplate(
     projectSpec: ProjectSpecification,
@@ -82,6 +85,9 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
 
   /**
    * Enhance template-generated specification with additional analysis
+   *
+   * @param templateSpec
+   * @param projectSpec
    */
   private async enhanceTemplateSpecification(
     templateSpec: DetailedSpecification,
@@ -128,6 +134,9 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
 
   /**
    * Validate template compatibility with project
+   *
+   * @param projectSpec
+   * @param templateId
    */
   validateTemplateCompatibility(
     projectSpec: ProjectSpecification,
@@ -152,6 +161,8 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
   }
   /**
    * Gather comprehensive requirements from project context
+   *
+   * @param context
    */
   async gatherRequirements(context: ProjectContext): Promise<RequirementSet> {
     const functionalRequirements = await this.extractFunctionalRequirements(context);
@@ -162,6 +173,8 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
 
   /**
    * Analyze system constraints and their implications
+   *
+   * @param requirements
    */
   async analyzeConstraints(requirements: RequirementSet): Promise<ConstraintAnalysis> {
     const systemConstraints = this.deriveSystemConstraints(requirements);
@@ -172,6 +185,8 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
 
   /**
    * Define comprehensive acceptance criteria for all requirements
+   *
+   * @param requirements
    */
   async defineAcceptanceCriteria(
     requirements: (FunctionalRequirement | NonFunctionalRequirement)[]
@@ -207,6 +222,8 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
 
   /**
    * Generate comprehensive specification document
+   *
+   * @param analysis
    */
   async generateSpecificationDocument(
     analysis: ConstraintAnalysis
@@ -245,6 +262,8 @@ export class SpecificationPhaseEngine implements SpecificationEngine {
 
   /**
    * Validate specification completeness and quality
+   *
+   * @param spec
    */
   async validateSpecificationCompleteness(spec: SpecificationDocument): Promise<ValidationReport> {
     const validationResults: ValidationResult[] = [

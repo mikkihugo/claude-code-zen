@@ -1,6 +1,7 @@
 /**
  * Integration Test Setup
- * @fileoverview Setup configuration for integration testing
+ *
+ * @file Setup configuration for integration testing
  * Focus: Component boundaries, system integration, protocol compliance
  */
 
@@ -112,11 +113,13 @@ async function cleanupIntegrationState() {
 }
 
 /**
- * @fileoverview Integration test setup utilities and helpers
+ * @file Integration test setup utilities and helpers
  */
 
 /**
  * HTTP route configuration for test server
+ *
+ * @example
  */
 interface TestRoute {
   /** HTTP method (get, post, put, delete) */
@@ -129,6 +132,8 @@ interface TestRoute {
 
 /**
  * Test HTTP client interface
+ *
+ * @example
  */
 interface TestClient {
   /** Perform GET request */
@@ -144,6 +149,7 @@ interface TestClient {
 // Integration test helpers
 /**
  * Creates a test Express server with specified routes
+ *
  * @param port - Port number to listen on
  * @param routes - Array of route configurations
  * @returns Promise resolving to server instance
@@ -166,6 +172,7 @@ global.createTestServer = async (port: number, routes: TestRoute[] = []) => {
 
 /**
  * Creates a test HTTP client for making requests
+ *
  * @param baseURL - Base URL for all requests
  * @returns Test client interface
  */
@@ -213,6 +220,8 @@ global.waitForPort = async (port: number, timeout: number = 5000) => {
 
 /**
  * Database fixture data structure
+ *
+ * @example
  */
 interface DatabaseFixtures {
   [table: string]: unknown;
@@ -220,6 +229,8 @@ interface DatabaseFixtures {
 
 /**
  * Mock agent for testing
+ *
+ * @example
  */
 interface MockAgent {
   /** Agent ID */
@@ -234,6 +245,8 @@ interface MockAgent {
 
 /**
  * Mock swarm for testing
+ *
+ * @example
  */
 interface MockSwarm {
   /** Swarm ID */
@@ -248,6 +261,7 @@ interface MockSwarm {
 
 /**
  * Sets up database fixtures for testing
+ *
  * @param fixtures - Database fixtures to load
  */
 global.setupDatabaseFixtures = async (fixtures: DatabaseFixtures) => {
@@ -259,6 +273,7 @@ global.setupDatabaseFixtures = async (fixtures: DatabaseFixtures) => {
 
 /**
  * Creates a mock swarm for testing
+ *
  * @param agentCount - Number of agents to create
  * @returns Mock swarm instance
  */
@@ -284,6 +299,7 @@ global.createMockSwarm = (agentCount: number = 3): MockSwarm => {
 
 /**
  * Simulates a swarm workflow for testing
+ *
  * @param swarm - Mock swarm instance
  * @param tasks - Tasks to execute
  * @returns Promise resolving to workflow results
@@ -317,6 +333,8 @@ global.simulateSwarmWorkflow = async (swarm: MockSwarm, tasks: unknown[]) => {
 
 /**
  * Mock MCP client for testing
+ *
+ * @example
  */
 interface MockMCPClient {
   /** Send message to MCP server */
@@ -333,6 +351,8 @@ interface MockMCPClient {
 
 /**
  * MCP protocol message structure
+ *
+ * @example
  */
 interface MCPMessage {
   /** JSON-RPC version */
@@ -348,6 +368,7 @@ interface MCPMessage {
 // Protocol testing helpers
 /**
  * Creates a mock MCP client for testing
+ *
  * @returns Mock MCP client instance
  */
 global.createMockMCPClient = (): MockMCPClient => {
@@ -362,6 +383,7 @@ global.createMockMCPClient = (): MockMCPClient => {
 
 /**
  * Validates MCP protocol message structure
+ *
  * @param message - Message to validate
  */
 global.validateMCPProtocol = (message: MCPMessage) => {
@@ -378,6 +400,8 @@ jest.setTimeout(120000);
 
 /**
  * Database configuration interface
+ *
+ * @example
  */
 interface DatabaseConfig {
   /** SQLite configuration */
@@ -390,6 +414,8 @@ interface DatabaseConfig {
 
 /**
  * Redis configuration interface
+ *
+ * @example
  */
 interface RedisConfig {
   /** Redis host */
@@ -402,6 +428,8 @@ interface RedisConfig {
 
 /**
  * Port configuration interface
+ *
+ * @example
  */
 interface PortConfig {
   /** HTTP API port */

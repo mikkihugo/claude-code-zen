@@ -61,6 +61,8 @@ import type {
 
 /**
  * Integration service adapter configuration extending USL IntegrationServiceConfig
+ *
+ * @example
  */
 export interface IntegrationServiceAdapterConfig extends IntegrationServiceConfig {
   /** Architecture Storage Service integration settings */
@@ -164,6 +166,8 @@ export interface IntegrationServiceAdapterConfig extends IntegrationServiceConfi
 
 /**
  * Integration operation metrics for performance monitoring
+ *
+ * @example
  */
 interface IntegrationOperationMetrics {
   operationName: string;
@@ -180,6 +184,8 @@ interface IntegrationOperationMetrics {
 
 /**
  * Protocol performance tracking
+ *
+ * @example
  */
 interface ProtocolPerformanceMetrics {
   protocol: string;
@@ -193,6 +199,8 @@ interface ProtocolPerformanceMetrics {
 
 /**
  * API endpoint performance tracking
+ *
+ * @example
  */
 interface APIEndpointMetrics {
   endpoint: string;
@@ -205,6 +213,8 @@ interface APIEndpointMetrics {
 
 /**
  * Architecture storage operation tracking
+ *
+ * @example
  */
 interface ArchitectureOperationMetrics {
   operationType: 'save' | 'retrieve' | 'update' | 'delete' | 'search';
@@ -217,6 +227,8 @@ interface ArchitectureOperationMetrics {
 
 /**
  * Cache entry structure for integration caching
+ *
+ * @example
  */
 interface CacheEntry<T = any> {
   data: T;
@@ -228,6 +240,8 @@ interface CacheEntry<T = any> {
 
 /**
  * Request deduplication entry
+ *
+ * @example
  */
 interface PendingRequest<T = any> {
   promise: Promise<T>;
@@ -254,6 +268,8 @@ interface PendingRequest<T = any> {
  * - Architecture persistence with versioning
  * - Connection management and pooling
  * - Circuit breaker pattern for resilience
+ *
+ * @example
  */
 export class IntegrationServiceAdapter implements IService {
   // Core service properties
@@ -422,6 +438,8 @@ export class IntegrationServiceAdapter implements IService {
 
   /**
    * Initialize the integration service adapter and its dependencies
+   *
+   * @param config
    */
   async initialize(config?: Partial<IntegrationServiceAdapterConfig>): Promise<void> {
     this.logger.info(`Initializing integration service adapter: ${this.name}`);
@@ -935,6 +953,8 @@ export class IntegrationServiceAdapter implements IService {
 
   /**
    * Update service configuration
+   *
+   * @param config
    */
   async updateConfig(config: Partial<IntegrationServiceAdapterConfig>): Promise<void> {
     this.logger.info(`Updating configuration for integration service adapter: ${this.name}`);
@@ -959,6 +979,8 @@ export class IntegrationServiceAdapter implements IService {
 
   /**
    * Validate service configuration
+   *
+   * @param config
    */
   async validateConfig(config: IntegrationServiceAdapterConfig): Promise<boolean> {
     try {
@@ -1109,6 +1131,10 @@ export class IntegrationServiceAdapter implements IService {
 
   /**
    * Execute service operations with unified interface
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   async execute<T = any>(
     operation: string,
@@ -1279,6 +1305,10 @@ export class IntegrationServiceAdapter implements IService {
 
   /**
    * Internal operation execution with caching, deduplication, and retry logic
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   private async executeOperationInternal<T = any>(
     operation: string,
@@ -1345,6 +1375,11 @@ export class IntegrationServiceAdapter implements IService {
 
   /**
    * Execute operation with retry logic
+   *
+   * @param operation
+   * @param params
+   * @param options
+   * @param attempt
    */
   private async executeWithRetry<T = any>(
     operation: string,
@@ -1383,6 +1418,10 @@ export class IntegrationServiceAdapter implements IService {
 
   /**
    * Perform the actual operation based on operation type
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   private async performOperation<T = any>(
     operation: string,
@@ -2544,6 +2583,8 @@ export class IntegrationServiceAdapter implements IService {
 
 /**
  * Factory function for creating IntegrationServiceAdapter instances
+ *
+ * @param config
  */
 export function createIntegrationServiceAdapter(
   config: IntegrationServiceAdapterConfig
@@ -2553,6 +2594,9 @@ export function createIntegrationServiceAdapter(
 
 /**
  * Helper function for creating default configuration
+ *
+ * @param name
+ * @param overrides
  */
 export function createDefaultIntegrationServiceAdapterConfig(
   name: string,

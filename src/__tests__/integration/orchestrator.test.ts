@@ -1,5 +1,5 @@
 /**
- * @fileoverview Integration test for the refactored Orchestrator.
+ * @file Integration test for the refactored Orchestrator.
  * This test adapts the London School TDD approach from the original test suite.
  */
 

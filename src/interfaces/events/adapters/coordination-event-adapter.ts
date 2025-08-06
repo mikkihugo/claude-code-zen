@@ -58,6 +58,8 @@ import {
 
 /**
  * Coordination event adapter configuration extending UEL EventManagerConfig
+ *
+ * @example
  */
 export interface CoordinationEventAdapterConfig extends EventManagerConfig {
   /** Swarm coordination integration settings */
@@ -143,6 +145,8 @@ export interface CoordinationEventAdapterConfig extends EventManagerConfig {
 
 /**
  * Coordination event operation metrics for performance monitoring
+ *
+ * @example
  */
 interface CoordinationEventMetrics {
   eventType: string;
@@ -167,6 +171,8 @@ interface CoordinationEventMetrics {
 
 /**
  * Coordination correlation entry for tracking related events
+ *
+ * @example
  */
 interface CoordinationCorrelation {
   correlationId: string;
@@ -188,6 +194,8 @@ interface CoordinationCorrelation {
 
 /**
  * Coordination health tracking entry
+ *
+ * @example
  */
 interface CoordinationHealthEntry {
   component: string;
@@ -210,6 +218,8 @@ interface CoordinationHealthEntry {
 
 /**
  * Wrapped coordination component for unified event management
+ *
+ * @example
  */
 interface WrappedCoordinationComponent {
   component: any;
@@ -243,6 +253,8 @@ interface WrappedCoordinationComponent {
  * - Health monitoring and auto-recovery for coordination failures
  * - Event forwarding and transformation for coordination events
  * - Error handling with retry logic for coordination operations
+ *
+ * @example
  */
 export class CoordinationEventAdapter implements IEventManager {
   // Core event manager properties
@@ -487,6 +499,9 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Emit a coordination event with correlation and performance tracking
+   *
+   * @param event
+   * @param options
    */
   async emit<T extends CoordinationEvent>(event: T, options?: EventEmissionOptions): Promise<void> {
     const startTime = Date.now();
@@ -567,6 +582,9 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Emit batch of coordination events with optimized processing
+   *
+   * @param batch
+   * @param options
    */
   async emitBatch<T extends CoordinationEvent>(
     batch: EventBatch<T>,
@@ -609,6 +627,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Emit coordination event immediately without queuing
+   *
+   * @param event
    */
   async emitImmediate<T extends CoordinationEvent>(event: T): Promise<void> {
     await this.emit(event, { timeout: 5000 });
@@ -616,6 +636,10 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Subscribe to coordination events with filtering and transformation
+   *
+   * @param eventTypes
+   * @param listener
+   * @param options
    */
   subscribe<T extends CoordinationEvent>(
     eventTypes: string | string[],
@@ -649,6 +673,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Unsubscribe from coordination events
+   *
+   * @param subscriptionId
    */
   unsubscribe(subscriptionId: string): boolean {
     const subscription = this.subscriptions.get(subscriptionId);
@@ -665,6 +691,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Unsubscribe all coordination listeners for event type
+   *
+   * @param eventType
    */
   unsubscribeAll(eventType?: string): number {
     let removedCount = 0;
@@ -692,6 +720,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Add coordination event filter
+   *
+   * @param filter
    */
   addFilter(filter: EventFilter): string {
     const filterId = this.generateFilterId();
@@ -702,6 +732,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Remove coordination event filter
+   *
+   * @param filterId
    */
   removeFilter(filterId: string): boolean {
     const result = this.filters.delete(filterId);
@@ -713,6 +745,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Add coordination event transform
+   *
+   * @param transform
    */
   addTransform(transform: EventTransform): string {
     const transformId = this.generateTransformId();
@@ -723,6 +757,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Remove coordination event transform
+   *
+   * @param transformId
    */
   removeTransform(transformId: string): boolean {
     const result = this.transforms.delete(transformId);
@@ -734,6 +770,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Query coordination event history with filtering and pagination
+   *
+   * @param options
    */
   async query<T extends CoordinationEvent>(options: EventQueryOptions): Promise<T[]> {
     let events = [...this.eventHistory] as T[];
@@ -763,6 +801,9 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Get coordination event history for specific event type
+   *
+   * @param eventType
+   * @param limit
    */
   async getEventHistory(eventType: string, limit?: number): Promise<CoordinationEvent[]> {
     const events = this.eventHistory.filter((event) => event.type === eventType);
@@ -858,6 +899,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Update adapter configuration
+   *
+   * @param config
    */
   updateConfig(config: Partial<CoordinationEventAdapterConfig>): void {
     this.logger.info(`Updating configuration for coordination event adapter: ${this.name}`);
@@ -867,6 +910,9 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Event handler management (EventEmitter compatibility)
+   *
+   * @param event
+   * @param handler
    */
   on(
     event: 'start' | 'stop' | 'error' | 'subscription' | 'emission',
@@ -933,6 +979,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Emit swarm coordination event with enhanced tracking
+   *
+   * @param event
    */
   async emitSwarmCoordinationEvent(
     event: Omit<CoordinationEvent, 'id' | 'timestamp'>
@@ -955,6 +1003,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Subscribe to swarm lifecycle events with convenience
+   *
+   * @param listener
    */
   subscribeSwarmLifecycleEvents(listener: EventListener<CoordinationEvent>): string {
     return this.subscribe(['coordination:swarm'], listener);
@@ -962,6 +1012,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Subscribe to agent management events
+   *
+   * @param listener
    */
   subscribeAgentManagementEvents(listener: EventListener<CoordinationEvent>): string {
     return this.subscribe(['coordination:agent'], listener);
@@ -969,6 +1021,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Subscribe to task orchestration events
+   *
+   * @param listener
    */
   subscribeTaskOrchestrationEvents(listener: EventListener<CoordinationEvent>): string {
     return this.subscribe(['coordination:task'], listener);
@@ -976,6 +1030,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Subscribe to topology management events
+   *
+   * @param listener
    */
   subscribeTopologyEvents(listener: EventListener<CoordinationEvent>): string {
     return this.subscribe(['coordination:topology'], listener);
@@ -996,6 +1052,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Get correlated coordination events for a specific correlation ID
+   *
+   * @param correlationId
    */
   getCoordinationCorrelatedEvents(correlationId: string): CoordinationCorrelation | null {
     return this.coordinationCorrelations.get(correlationId) || null;
@@ -1010,6 +1068,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Get swarm performance metrics
+   *
+   * @param swarmId
    */
   getSwarmMetrics(swarmId?: string): Record<string, any> {
     if (swarmId) {
@@ -1020,6 +1080,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Get agent performance metrics
+   *
+   * @param agentId
    */
   getAgentMetrics(agentId?: string): Record<string, any> {
     if (agentId) {
@@ -1030,6 +1092,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Get task execution metrics
+   *
+   * @param taskId
    */
   getTaskMetrics(taskId?: string): Record<string, any> {
     if (taskId) {
@@ -1439,6 +1503,9 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Process coordination event emission with correlation and filtering
+   *
+   * @param event
+   * @param options
    */
   private async processCoordinationEventEmission<T extends CoordinationEvent>(
     event: T,
@@ -1656,6 +1723,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Start coordination event correlation for tracking related events
+   *
+   * @param event
    */
   private startCoordinationEventCorrelation(event: CoordinationEvent): void {
     const correlationId = event.correlationId || this.generateCorrelationId();
@@ -1687,6 +1756,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Update existing coordination event correlation
+   *
+   * @param event
    */
   private updateCoordinationEventCorrelation(event: CoordinationEvent): void {
     const correlationId = event.correlationId;
@@ -1724,6 +1795,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Check if coordination correlation is complete based on patterns
+   *
+   * @param correlation
    */
   private isCoordinationCorrelationComplete(correlation: CoordinationCorrelation): boolean {
     const patterns = this.config.coordination?.correlationPatterns || [];
@@ -1743,6 +1816,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Calculate coordination efficiency for correlation
+   *
+   * @param correlation
    */
   private calculateCoordinationEfficiency(correlation: CoordinationCorrelation): number {
     const events = correlation.events;
@@ -1787,6 +1862,9 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Batch processing methods for different strategies
+   *
+   * @param batch
+   * @param options
    */
   private async processCoordinationBatchImmediate<T extends CoordinationEvent>(
     batch: EventBatch<T>,
@@ -1828,6 +1906,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Utility methods for coordination event processing
+   *
+   * @param event
    */
   private validateCoordinationEvent(event: CoordinationEvent): boolean {
     return !!(
@@ -2085,6 +2165,9 @@ export class CoordinationEventAdapter implements IEventManager {
 
   /**
    * Emit wrapper for internal use
+   *
+   * @param event
+   * @param data
    */
   private emitInternal(event: string, data?: any): void {
     this.eventEmitter.emit(event, data);
@@ -2093,6 +2176,8 @@ export class CoordinationEventAdapter implements IEventManager {
 
 /**
  * Factory function for creating CoordinationEventAdapter instances
+ *
+ * @param config
  */
 export function createCoordinationEventAdapter(
   config: CoordinationEventAdapterConfig
@@ -2102,6 +2187,9 @@ export function createCoordinationEventAdapter(
 
 /**
  * Helper function for creating default coordination event adapter configuration
+ *
+ * @param name
+ * @param overrides
  */
 export function createDefaultCoordinationEventAdapterConfig(
   name: string,
@@ -2225,6 +2313,10 @@ export function createDefaultCoordinationEventAdapterConfig(
 export const CoordinationEventHelpers = {
   /**
    * Create swarm initialization event
+   *
+   * @param swarmId
+   * @param topology
+   * @param details
    */
   createSwarmInitEvent(
     swarmId: string,
@@ -2246,6 +2338,10 @@ export const CoordinationEventHelpers = {
 
   /**
    * Create agent spawn event
+   *
+   * @param agentId
+   * @param swarmId
+   * @param details
    */
   createAgentSpawnEvent(
     agentId: string,
@@ -2267,6 +2363,10 @@ export const CoordinationEventHelpers = {
 
   /**
    * Create task distribution event
+   *
+   * @param taskId
+   * @param assignedTo
+   * @param details
    */
   createTaskDistributionEvent(
     taskId: string,
@@ -2288,6 +2388,10 @@ export const CoordinationEventHelpers = {
 
   /**
    * Create topology change event
+   *
+   * @param swarmId
+   * @param topology
+   * @param details
    */
   createTopologyChangeEvent(
     swarmId: string,
@@ -2309,6 +2413,11 @@ export const CoordinationEventHelpers = {
 
   /**
    * Create coordination error event
+   *
+   * @param component
+   * @param targetId
+   * @param error
+   * @param details
    */
   createCoordinationErrorEvent(
     component: string,

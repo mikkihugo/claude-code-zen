@@ -82,6 +82,8 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Create per-swarm repository cluster using DAL Factory
+   *
+   * @param swarmId
    */
   async createSwarmCluster(swarmId: string): Promise<SwarmRepositories> {
     this.logger.info(`Creating swarm cluster for: ${swarmId}`);
@@ -127,6 +129,8 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Get swarm repository cluster (create if doesn't exist)
+   *
+   * @param swarmId
    */
   async getSwarmCluster(swarmId: string): Promise<SwarmRepositories> {
     let cluster = this.swarmClusters.get(swarmId);
@@ -140,6 +144,14 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Store swarm agent using graph repository
+   *
+   * @param swarmId
+   * @param agent
+   * @param agent.id
+   * @param agent.name
+   * @param agent.type
+   * @param agent.capabilities
+   * @param agent.metadata
    */
   async storeSwarmAgent(
     swarmId: string,
@@ -178,6 +190,15 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Store task using graph repository with dependencies
+   *
+   * @param swarmId
+   * @param task
+   * @param task.id
+   * @param task.title
+   * @param task.description
+   * @param task.assignedAgentId
+   * @param task.dependencies
+   * @param task.metadata
    */
   async storeSwarmTask(
     swarmId: string,
@@ -229,6 +250,12 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Store vector embedding using LanceDB repository
+   *
+   * @param swarmId
+   * @param embedding
+   * @param embedding.id
+   * @param embedding.vector
+   * @param embedding.metadata
    */
   async storeSwarmEmbedding(
     swarmId: string,
@@ -262,6 +289,10 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Find similar embeddings using vector search
+   *
+   * @param swarmId
+   * @param queryVector
+   * @param limit
    */
   async findSimilarEmbeddings(
     swarmId: string,
@@ -278,6 +309,11 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Find swarms by criteria using central repository
+   *
+   * @param criteria
+   * @param criteria.status
+   * @param criteria.type
+   * @param criteria.tags
    */
   async findSwarms(criteria: {
     status?: 'active' | 'idle' | 'archived';
@@ -291,6 +327,10 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Get swarm graph traversal (find connected agents/tasks)
+   *
+   * @param swarmId
+   * @param startNodeId
+   * @param maxDepth
    */
   async getSwarmGraph(swarmId: string, startNodeId: string, maxDepth: number = 3): Promise<any> {
     const cluster = await this.getSwarmCluster(swarmId);
@@ -300,6 +340,8 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Get cross-swarm dependencies
+   *
+   * @param swarmId
    */
   async getSwarmDependencies(swarmId: string): Promise<{
     dependencies: string[];
@@ -317,6 +359,8 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Archive swarm cluster (for maintenance manager integration)
+   *
+   * @param swarmId
    */
   async archiveSwarmCluster(swarmId: string): Promise<void> {
     const cluster = this.swarmClusters.get(swarmId);
@@ -349,6 +393,8 @@ export class SwarmDatabaseManager extends EventEmitter {
 
   /**
    * Get swarm performance analytics using coordination repository
+   *
+   * @param swarmId
    */
   async getSwarmAnalytics(swarmId: string): Promise<{
     totalTasks: number;

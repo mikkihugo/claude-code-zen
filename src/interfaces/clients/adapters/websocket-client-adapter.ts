@@ -5,7 +5,7 @@
  * Provides reliable, event-driven connectivity with automatic reconnection, message queuing,
  * and comprehensive monitoring capabilities.
  *
- * @fileoverview WebSocket client adapter implementing the UACL IClient interface for real-time communication
+ * @file WebSocket client adapter implementing the UACL IClient interface for real-time communication
  * @module interfaces/clients/adapters/websocket
  * @version 2.0.0
  *
@@ -21,7 +21,6 @@
  * - Real-time event streaming and notifications
  * - WebSocket subprotocol negotiation
  * - Authentication over WebSocket (query, headers, protocols)
- *
  * @example
  * ```typescript
  * import { WebSocketClientAdapter } from './websocket-client-adapter';
@@ -162,6 +161,8 @@ import type {
 
 /**
  * WebSocket-specific authentication configuration
+ *
+ * @example
  */
 export interface WebSocketAuthenticationConfig extends AuthenticationConfig {
   // WebSocket authentication methods
@@ -172,6 +173,8 @@ export interface WebSocketAuthenticationConfig extends AuthenticationConfig {
 
 /**
  * WebSocket-specific retry configuration
+ *
+ * @example
  */
 export interface WebSocketRetryConfig extends RetryConfig {
   // WebSocket-specific retry settings
@@ -182,6 +185,8 @@ export interface WebSocketRetryConfig extends RetryConfig {
 
 /**
  * WebSocket client configuration extending UACL ClientConfig
+ *
+ * @example
  */
 export interface WebSocketClientConfig extends ClientConfig {
   // WebSocket-specific settings
@@ -233,6 +238,8 @@ export interface WebSocketClientConfig extends ClientConfig {
 
 /**
  * WebSocket request options
+ *
+ * @example
  */
 export interface WebSocketRequestOptions extends RequestOptions {
   // Message type for WebSocket
@@ -249,6 +256,8 @@ export interface WebSocketRequestOptions extends RequestOptions {
 
 /**
  * WebSocket response wrapper
+ *
+ * @example
  */
 export interface WebSocketResponse<T = any> extends ClientResponse<T> {
   // WebSocket-specific response data
@@ -265,6 +274,8 @@ export interface WebSocketResponse<T = any> extends ClientResponse<T> {
 
 /**
  * WebSocket message interface
+ *
+ * @example
  */
 export interface WebSocketMessage<T = any> {
   id?: string;
@@ -278,12 +289,11 @@ export interface WebSocketMessage<T = any> {
  * WebSocket Client Adapter implementing UACL IClient interface
  *
  * @class WebSocketClientAdapter
- * @extends EventEmitter
+ * @augments EventEmitter
  * @implements {IClient}
  * @description Enterprise-grade WebSocket client providing real-time communication capabilities
  *              with automatic reconnection, message queuing, heartbeat monitoring, and comprehensive
  *              observability features. Implements the UACL IClient interface for unified client management.
- *
  * @property {WebSocketClientConfig} config - WebSocket client configuration (read-only)
  * @property {string} name - Client identifier (read-only)
  * @property {WebSocket|null} ws - Underlying WebSocket connection (private)
@@ -291,7 +301,6 @@ export interface WebSocketMessage<T = any> {
  * @property {boolean} isConnected - Connection status (private)
  * @property {string} connectionId - Unique connection identifier (private)
  * @property {ClientMetrics} metrics - Performance metrics (private)
- *
  * @fires WebSocketClientAdapter#connect - When WebSocket successfully connects
  * @fires WebSocketClientAdapter#disconnect - When WebSocket disconnects
  * @fires WebSocketClientAdapter#message - When a message is received
@@ -300,7 +309,6 @@ export interface WebSocketMessage<T = any> {
  * @fires WebSocketClientAdapter#reconnected - When reconnection succeeds
  * @fires WebSocketClientAdapter#reconnectFailed - When all reconnection attempts fail
  * @fires WebSocketClientAdapter#heartbeat - When heartbeat/ping is sent or received
- *
  * @example
  * ```typescript
  * // Real-time notifications client
@@ -448,9 +456,7 @@ export class WebSocketClientAdapter extends EventEmitter implements IClient {
    * @param {object} [config.heartbeat] - Heartbeat/ping configuration
    * @param {object} [config.messageQueue] - Message queuing configuration
    * @param {number} [config.timeout=30000] - Connection timeout in milliseconds
-   *
    * @throws {Error} If required configuration is missing or invalid
-   *
    * @example
    * ```typescript
    * const wsClient = new WebSocketClientAdapter({
@@ -1085,12 +1091,16 @@ export class WebSocketClientAdapter extends EventEmitter implements IClient {
 
 /**
  * WebSocket Client Factory implementing UACL IClientFactory interface
+ *
+ * @example
  */
 export class WebSocketClientFactory {
   private clients = new Map<string, WebSocketClientAdapter>();
 
   /**
    * Create new WebSocket client instance
+   *
+   * @param config
    */
   async create(config: WebSocketClientConfig): Promise<WebSocketClientAdapter> {
     const client = new WebSocketClientAdapter(config);
@@ -1100,6 +1110,8 @@ export class WebSocketClientFactory {
 
   /**
    * Create multiple WebSocket clients
+   *
+   * @param configs
    */
   async createMultiple(configs: WebSocketClientConfig[]): Promise<WebSocketClientAdapter[]> {
     return Promise.all(configs.map((config) => this.create(config)));
@@ -1107,6 +1119,8 @@ export class WebSocketClientFactory {
 
   /**
    * Get cached client by name
+   *
+   * @param name
    */
   get(name: string): WebSocketClientAdapter | undefined {
     return this.clients.get(name);
@@ -1121,6 +1135,8 @@ export class WebSocketClientFactory {
 
   /**
    * Check if client exists
+   *
+   * @param name
    */
   has(name: string): boolean {
     return this.clients.has(name);
@@ -1128,6 +1144,8 @@ export class WebSocketClientFactory {
 
   /**
    * Remove client by name
+   *
+   * @param name
    */
   async remove(name: string): Promise<boolean> {
     const client = this.clients.get(name);

@@ -47,6 +47,8 @@ export interface CompatibilityConfig {
 
 /**
  * Compatibility wrapper that provides legacy API surface while using USL internally
+ *
+ * @example
  */
 export class USLCompatibilityLayer {
   private serviceManager: ServiceManager;
@@ -87,6 +89,8 @@ export class USLCompatibilityLayer {
   // ============================================
 
   /**
+   * @param name
+   * @param options
    * @deprecated Use serviceManager.createWebDataService() instead
    */
   async createWebDataService(name: string, options?: any): Promise<IService> {
@@ -101,6 +105,9 @@ export class USLCompatibilityLayer {
   }
 
   /**
+   * @param name
+   * @param dbType
+   * @param options
    * @deprecated Use serviceManager.createDocumentService() instead
    */
   async createDocumentService(name: string, dbType?: string, options?: any): Promise<IService> {
@@ -119,6 +126,8 @@ export class USLCompatibilityLayer {
   }
 
   /**
+   * @param name
+   * @param options
    * @deprecated Use serviceManager.createDaaService() instead
    */
   async createDAAService(name: string, options?: any): Promise<IService> {
@@ -133,6 +142,8 @@ export class USLCompatibilityLayer {
   }
 
   /**
+   * @param name
+   * @param options
    * @deprecated Use serviceManager.createSessionRecoveryService() instead
    */
   async createSessionRecoveryService(name: string, options?: any): Promise<IService> {
@@ -153,6 +164,9 @@ export class USLCompatibilityLayer {
   }
 
   /**
+   * @param name
+   * @param dbType
+   * @param options
    * @deprecated Use serviceManager.createArchitectureStorageService() instead
    */
   async createArchitectureStorageService(
@@ -178,6 +192,9 @@ export class USLCompatibilityLayer {
   }
 
   /**
+   * @param name
+   * @param baseURL
+   * @param options
    * @deprecated Use serviceManager.createSafeAPIService() instead
    */
   async createSafeAPIService(name: string, baseURL: string, options?: any): Promise<IService> {
@@ -196,6 +213,7 @@ export class USLCompatibilityLayer {
   // ============================================
 
   /**
+   * @param name
    * @deprecated Use serviceManager.getService() instead
    */
   getService(name: string): IService | undefined {
@@ -255,6 +273,8 @@ export class USLCompatibilityLayer {
 
   /**
    * Migrate existing service instances to USL
+   *
+   * @param services
    */
   async migrateExistingServices(services: Record<string, any>): Promise<{
     migrated: IService[];
@@ -304,6 +324,8 @@ export class USLCompatibilityLayer {
 
   /**
    * Generate migration guide for existing codebase
+   *
+   * @param codePatterns
    */
   generateMigrationGuide(codePatterns: string[]): {
     replacements: Array<{
@@ -539,6 +561,8 @@ export class USLCompatibilityLayer {
 
   /**
    * Migrate scattered service usage to unified service discovery
+   *
+   * @param existingServiceReferences
    */
   async migrateServiceDiscovery(
     existingServiceReferences: Array<{
@@ -902,6 +926,8 @@ export const compat = new USLCompatibilityLayer();
 
 /**
  * Initialize compatibility layer with USL
+ *
+ * @param config
  */
 export const initializeCompatibility = async (
   config?: Partial<CompatibilityConfig>
@@ -916,6 +942,8 @@ export const initializeCompatibility = async (
 export const MigrationUtils = {
   /**
    * Create migration plan for existing codebase
+   *
+   * @param codebase
    */
   createMigrationPlan: (
     codebase: string[]
@@ -925,6 +953,8 @@ export const MigrationUtils = {
 
   /**
    * Validate migration readiness
+   *
+   * @param services
    */
   validateMigrationReadiness: (
     services: Record<string, any>

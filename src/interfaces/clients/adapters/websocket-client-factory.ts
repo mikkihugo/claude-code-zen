@@ -17,6 +17,8 @@ import type {
 
 /**
  * WebSocket Client Factory implementing UACL IClientFactory interface
+ *
+ * @example
  */
 export class WebSocketClientFactory implements IClientFactory<WebSocketClientConfig> {
   private clients = new Map<string, IClient>();
@@ -25,6 +27,8 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
   /**
    * Create new WebSocket client instance
+   *
+   * @param config
    */
   async create(config: WebSocketClientConfig): Promise<IClient> {
     // Validate configuration
@@ -63,6 +67,8 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
   /**
    * Create multiple WebSocket clients
+   *
+   * @param configs
    */
   async createMultiple(configs: WebSocketClientConfig[]): Promise<IClient[]> {
     const creationPromises = configs.map((config) => this.create(config));
@@ -71,6 +77,8 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
   /**
    * Get cached client by name
+   *
+   * @param name
    */
   get(name: string): IClient | undefined {
     return this.clients.get(name);
@@ -85,6 +93,8 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
   /**
    * Check if client exists
+   *
+   * @param name
    */
   has(name: string): boolean {
     return this.clients.has(name);
@@ -92,6 +102,8 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
   /**
    * Remove and disconnect client
+   *
+   * @param name
    */
   async remove(name: string): Promise<boolean> {
     const client = this.clients.get(name);
@@ -194,6 +206,8 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
   /**
    * Validate WebSocket client configuration
+   *
+   * @param config
    */
   validateConfig(config: WebSocketClientConfig): boolean {
     if (!config || typeof config !== 'object') {
@@ -250,6 +264,9 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
   /**
    * Create WebSocket client with connection pooling
+   *
+   * @param config
+   * @param poolSize
    */
   async createPooled(config: WebSocketClientConfig, poolSize: number = 5): Promise<IClient[]> {
     const clients: IClient[] = [];
@@ -269,6 +286,9 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
   /**
    * Create WebSocket client with load balancing
+   *
+   * @param configs
+   * @param strategy
    */
   async createLoadBalanced(
     configs: WebSocketClientConfig[],
@@ -280,6 +300,9 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
   /**
    * Create WebSocket client with failover support
+   *
+   * @param primaryConfig
+   * @param fallbackConfigs
    */
   async createFailover(
     primaryConfig: WebSocketClientConfig,
@@ -384,6 +407,8 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
 /**
  * Load-balanced WebSocket client wrapper
+ *
+ * @example
  */
 export class LoadBalancedWebSocketClient implements IClient {
   private currentIndex = 0;
@@ -550,6 +575,8 @@ export class LoadBalancedWebSocketClient implements IClient {
 
 /**
  * Failover WebSocket client wrapper
+ *
+ * @example
  */
 export class FailoverWebSocketClient implements IClient {
   private currentClient: IClient;

@@ -19,6 +19,13 @@ import type { CoordinationServiceAdapter } from './coordination-service-adapter'
 
 /**
  * Agent creation helper with intelligent defaults
+ *
+ * @param adapter
+ * @param config
+ * @param config.type
+ * @param config.capabilities
+ * @param config.specialization
+ * @param config.learningEnabled
  */
 export async function createIntelligentAgent(
   adapter: CoordinationServiceAdapter,
@@ -72,6 +79,12 @@ export async function createIntelligentAgent(
 
 /**
  * Batch agent creation with load balancing
+ *
+ * @param adapter
+ * @param configs
+ * @param options
+ * @param options.maxConcurrency
+ * @param options.staggerDelay
  */
 export async function createAgentBatch(
   adapter: CoordinationServiceAdapter,
@@ -136,6 +149,9 @@ export async function createAgentBatch(
 
 /**
  * Agent performance monitoring and optimization
+ *
+ * @param adapter
+ * @param agentIds
  */
 export async function optimizeAgentPerformance(
   adapter: CoordinationServiceAdapter,
@@ -217,6 +233,13 @@ export async function optimizeAgentPerformance(
 
 /**
  * Create session with intelligent defaults and monitoring
+ *
+ * @param adapter
+ * @param name
+ * @param options
+ * @param options.autoCheckpoint
+ * @param options.checkpointInterval
+ * @param options.maxDuration
  */
 export async function createManagedSession(
   adapter: CoordinationServiceAdapter,
@@ -290,6 +313,9 @@ export async function createManagedSession(
 
 /**
  * Session health monitoring and recovery
+ *
+ * @param adapter
+ * @param sessionIds
  */
 export async function monitorSessionHealth(
   adapter: CoordinationServiceAdapter,
@@ -370,6 +396,13 @@ export async function monitorSessionHealth(
 
 /**
  * Intelligent swarm coordination with adaptive topology
+ *
+ * @param adapter
+ * @param agents
+ * @param options
+ * @param options.targetLatency
+ * @param options.minSuccessRate
+ * @param options.adaptiveTopology
  */
 export async function coordinateIntelligentSwarm(
   adapter: CoordinationServiceAdapter,
@@ -475,6 +508,12 @@ export async function coordinateIntelligentSwarm(
 
 /**
  * Swarm load balancing and task distribution
+ *
+ * @param adapter
+ * @param tasks
+ * @param options
+ * @param options.strategy
+ * @param options.maxTasksPerAgent
  */
 export async function distributeSwarmTasks(
   adapter: CoordinationServiceAdapter,
@@ -608,6 +647,9 @@ export async function distributeSwarmTasks(
 
 /**
  * Comprehensive coordination performance analysis
+ *
+ * @param adapter
+ * @param timeWindow
  */
 export async function analyzeCoordinationPerformance(
   adapter: CoordinationServiceAdapter,

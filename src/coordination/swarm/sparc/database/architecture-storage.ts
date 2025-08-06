@@ -59,6 +59,8 @@ export interface ValidationRecord {
 
 /**
  * Database-driven storage service for SPARC Architecture designs
+ *
+ * @example
  */
 export class ArchitectureStorageService {
   private tableName = 'sparc_architectures';
@@ -149,6 +151,9 @@ export class ArchitectureStorageService {
 
   /**
    * Save architecture design to database
+   *
+   * @param architecture
+   * @param projectId
    */
   async saveArchitecture(architecture: ArchitectureDesign, projectId?: string): Promise<string> {
     const architectureId = architecture.id || nanoid();
@@ -214,6 +219,8 @@ export class ArchitectureStorageService {
 
   /**
    * Get architecture design by ID
+   *
+   * @param architectureId
    */
   async getArchitectureById(architectureId: string): Promise<ArchitectureDesign | null> {
     const result = await this.db.query(
@@ -234,6 +241,8 @@ export class ArchitectureStorageService {
 
   /**
    * Get architectures by project ID
+   *
+   * @param projectId
    */
   async getArchitecturesByProject(projectId: string): Promise<ArchitectureDesign[]> {
     const result = await this.db.query(
@@ -254,6 +263,8 @@ export class ArchitectureStorageService {
 
   /**
    * Get architectures by domain
+   *
+   * @param domain
    */
   async getArchitecturesByDomain(domain: string): Promise<ArchitectureDesign[]> {
     const result = await this.db.query(
@@ -274,6 +285,9 @@ export class ArchitectureStorageService {
 
   /**
    * Update existing architecture
+   *
+   * @param architectureId
+   * @param architecture
    */
   async updateArchitecture(
     architectureId: string,
@@ -310,6 +324,8 @@ export class ArchitectureStorageService {
 
   /**
    * Delete architecture by ID
+   *
+   * @param architectureId
    */
   async deleteArchitecture(architectureId: string): Promise<void> {
     // Delete in reverse order due to foreign key constraints
@@ -340,6 +356,10 @@ export class ArchitectureStorageService {
 
   /**
    * Save validation results
+   *
+   * @param architectureId
+   * @param validation
+   * @param validationType
    */
   async saveValidation(
     architectureId: string,
@@ -379,6 +399,8 @@ export class ArchitectureStorageService {
 
   /**
    * Get validation history for architecture
+   *
+   * @param architectureId
    */
   async getValidationHistory(architectureId: string): Promise<ArchitecturalValidation[]> {
     const result = await this.db.query(
@@ -404,6 +426,12 @@ export class ArchitectureStorageService {
 
   /**
    * Search architectures with criteria
+   *
+   * @param criteria
+   * @param criteria.domain
+   * @param criteria.tags
+   * @param criteria.minScore
+   * @param criteria.limit
    */
   async searchArchitectures(criteria: {
     domain?: string;

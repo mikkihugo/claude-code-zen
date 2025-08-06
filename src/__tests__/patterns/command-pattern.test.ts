@@ -1,5 +1,5 @@
 /**
- * @fileoverview Command Pattern Tests
+ * @file Command Pattern Tests
  * Hybrid TDD approach: London TDD for command execution flow, Classical TDD for command algorithms
  */
 

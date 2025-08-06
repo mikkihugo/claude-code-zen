@@ -34,6 +34,14 @@ const logger = createLogger('InfrastructureServiceHelpers');
 
 /**
  * Quick create infrastructure service with minimal configuration
+ *
+ * @param name
+ * @param options
+ * @param options.enableFacade
+ * @param options.enablePatternIntegration
+ * @param options.enableResourceTracking
+ * @param options.enableHealthMonitoring
+ * @param options.autoStart
  */
 export async function quickCreateInfrastructureService(
   name: string,
@@ -80,6 +88,12 @@ export async function quickCreateInfrastructureService(
 
 /**
  * Create infrastructure service with facade-only configuration
+ *
+ * @param name
+ * @param facadeOptions
+ * @param facadeOptions.mockServices
+ * @param facadeOptions.enableBatchOperations
+ * @param facadeOptions.systemStatusInterval
  */
 export async function createFacadeOnlyInfrastructureService(
   name: string,
@@ -116,6 +130,12 @@ export async function createFacadeOnlyInfrastructureService(
 
 /**
  * Create infrastructure service with pattern integration only
+ *
+ * @param name
+ * @param patternOptions
+ * @param patternOptions.configProfile
+ * @param patternOptions.maxAgents
+ * @param patternOptions.enableAutoOptimization
  */
 export async function createPatternIntegrationOnlyService(
   name: string,
@@ -153,6 +173,13 @@ export async function createPatternIntegrationOnlyService(
 
 /**
  * Create infrastructure service optimized for production
+ *
+ * @param name
+ * @param productionOptions
+ * @param productionOptions.maxConcurrentServices
+ * @param productionOptions.enableCircuitBreaker
+ * @param productionOptions.enablePredictiveMonitoring
+ * @param productionOptions.configEncryption
  */
 export async function createProductionInfrastructureService(
   name: string,
@@ -226,6 +253,10 @@ export async function createProductionInfrastructureService(
 
 /**
  * Execute project initialization with retries
+ *
+ * @param service
+ * @param projectConfig
+ * @param maxRetries
  */
 export async function initializeProjectWithRetries(
   service: InfrastructureServiceAdapter,
@@ -263,6 +294,15 @@ export async function initializeProjectWithRetries(
 
 /**
  * Process document with enhanced error handling
+ *
+ * @param service
+ * @param documentPath
+ * @param options
+ * @param options.useNeural
+ * @param options.cacheResults
+ * @param options.priority
+ * @param options.timeout
+ * @param options.swarmId
  */
 export async function processDocumentEnhanced(
   service: InfrastructureServiceAdapter,
@@ -309,6 +349,10 @@ export async function processDocumentEnhanced(
 
 /**
  * Execute batch operations with progress tracking
+ *
+ * @param service
+ * @param operations
+ * @param onProgress
  */
 export async function executeBatchWithProgress(
   service: InfrastructureServiceAdapter,
@@ -354,6 +398,9 @@ export async function executeBatchWithProgress(
 
 /**
  * Get comprehensive system status with caching
+ *
+ * @param service
+ * @param cacheTTL
  */
 export async function getSystemStatusCached(
   service: InfrastructureServiceAdapter,
@@ -392,6 +439,13 @@ export async function getSystemStatusCached(
 
 /**
  * Initialize and configure a swarm with best practices
+ *
+ * @param service
+ * @param swarmConfig
+ * @param swarmConfig.topology
+ * @param swarmConfig.agentCount
+ * @param swarmConfig.capabilities
+ * @param swarmConfig.enableAutoOptimization
  */
 export async function initializeOptimizedSwarm(
   service: InfrastructureServiceAdapter,
@@ -440,6 +494,11 @@ export async function initializeOptimizedSwarm(
 
 /**
  * Coordinate swarm operations with monitoring
+ *
+ * @param service
+ * @param swarmId
+ * @param operation
+ * @param monitoringCallback
  */
 export async function coordinateSwarmWithMonitoring(
   service: InfrastructureServiceAdapter,
@@ -500,6 +559,8 @@ export async function coordinateSwarmWithMonitoring(
 
 /**
  * Perform comprehensive resource optimization
+ *
+ * @param service
  */
 export async function optimizeResourcesComprehensive(
   service: InfrastructureServiceAdapter
@@ -551,6 +612,14 @@ export async function optimizeResourcesComprehensive(
 
 /**
  * Monitor resource usage with alerts
+ *
+ * @param service
+ * @param thresholds
+ * @param thresholds.cpu
+ * @param thresholds.memory
+ * @param thresholds.network
+ * @param thresholds.storage
+ * @param alertCallback
  */
 export async function monitorResourcesWithAlerts(
   service: InfrastructureServiceAdapter,
@@ -603,6 +672,10 @@ export async function monitorResourcesWithAlerts(
 
 /**
  * Update configuration with validation and rollback capability
+ *
+ * @param service
+ * @param newConfig
+ * @param validateFirst
  */
 export async function updateConfigurationSafely(
   service: InfrastructureServiceAdapter,
@@ -652,6 +725,9 @@ export async function updateConfigurationSafely(
 
 /**
  * Rollback configuration to a previous version
+ *
+ * @param service
+ * @param version
  */
 export async function rollbackConfiguration(
   service: InfrastructureServiceAdapter,
@@ -700,6 +776,8 @@ export async function rollbackConfiguration(
 
 /**
  * Perform comprehensive health check with detailed results
+ *
+ * @param service
  */
 export async function performComprehensiveHealthCheck(
   service: InfrastructureServiceAdapter
@@ -781,6 +859,10 @@ export async function performComprehensiveHealthCheck(
 
 /**
  * Create and configure infrastructure service using factory with best practices
+ *
+ * @param name
+ * @param environment
+ * @param customOptions
  */
 export async function createInfrastructureServiceWithBestPractices(
   name: string,
@@ -853,6 +935,10 @@ export async function createInfrastructureServiceWithBestPractices(
 
 /**
  * Wait for service to be ready with timeout
+ *
+ * @param service
+ * @param timeout
+ * @param checkInterval
  */
 export async function waitForServiceReady(
   service: InfrastructureServiceAdapter,
@@ -886,6 +972,15 @@ export async function waitForServiceReady(
 
 /**
  * Execute operation with automatic retries and exponential backoff
+ *
+ * @param service
+ * @param operation
+ * @param params
+ * @param options
+ * @param options.maxRetries
+ * @param options.baseDelay
+ * @param options.maxDelay
+ * @param options.timeout
  */
 export async function executeWithRetries<T>(
   service: InfrastructureServiceAdapter,
@@ -937,6 +1032,10 @@ export async function executeWithRetries<T>(
 
 /**
  * Batch execute multiple operations with concurrency control
+ *
+ * @param service
+ * @param operations
+ * @param maxConcurrency
  */
 export async function batchExecuteWithConcurrency<T>(
   service: InfrastructureServiceAdapter,

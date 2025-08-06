@@ -80,6 +80,8 @@ export const memoryBackendSpecs = {
 
 /**
  * Register memory providers with DI container
+ *
+ * @param container
  */
 export function registerMemoryProviders(
   container: DIContainer,
@@ -124,6 +126,8 @@ export function registerMemoryProviders(
 
 /**
  * Create specialized memory backends for different use cases
+ *
+ * @param container
  */
 export async function createMemoryBackends(container: DIContainer): Promise<{
   cache: any;
@@ -143,6 +147,13 @@ export async function createMemoryBackends(container: DIContainer): Promise<{
 
 /**
  * Initialize memory system with comprehensive setup
+ *
+ * @param container
+ * @param options
+ * @param options.enableCache
+ * @param options.enableSessions
+ * @param options.enableSemantic
+ * @param options.enableDebug
  */
 export async function initializeMemorySystem(
   container: DIContainer,
@@ -236,6 +247,8 @@ export async function initializeMemorySystem(
 
 /**
  * Utility function to create a pre-configured memory DI container
+ *
+ * @param customConfigs
  */
 export function createMemoryContainer(
   customConfigs?: Parameters<typeof registerMemoryProviders>[1]

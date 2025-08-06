@@ -45,11 +45,15 @@ export interface ADRDiscussion {
 
 /**
  * ADR Proposal System for human-driven architecture decisions
+ *
+ * @example
  */
 export class ADRProposalSystem {
   /**
    * Propose a new ADR for human discussion
    * Creates ADR in 'proposed' status awaiting human review
+   *
+   * @param proposal
    */
   async proposeADR(proposal: ADRProposal): Promise<ADRDocumentEntity> {
     console.log(`📋 Proposing new ADR: ${proposal.title}`);
@@ -89,6 +93,9 @@ export class ADRProposalSystem {
 
   /**
    * Record human discussion and feedback on ADR
+   *
+   * @param adrNumber
+   * @param discussion
    */
   async recordDiscussion(adrNumber: number, discussion: ADRDiscussion): Promise<ADRDocumentEntity> {
     const adr = await adrManager.getADRByNumber(adrNumber);
@@ -136,6 +143,16 @@ export class ADRProposalSystem {
 
   /**
    * Make final decision on ADR after human discussion
+   *
+   * @param adrNumber
+   * @param decision
+   * @param decision.approved
+   * @param decision.final_decision
+   * @param decision.rationale
+   * @param decision.implementation_plan
+   * @param decision.decision_maker
+   * @param decision.stakeholder_signoffs
+   * @param decision.conditions
    */
   async makeDecision(
     adrNumber: number,
@@ -344,6 +361,8 @@ export class ADRProposalSystem {
 
   /**
    * Format context section with proposal details
+   *
+   * @param proposal
    */
   private formatContext(proposal: ADRProposal): string {
     let context = proposal.context + '\n\n';
@@ -373,6 +392,8 @@ export class ADRProposalSystem {
 
   /**
    * Format consequences with expected outcomes
+   *
+   * @param proposal
    */
   private formatConsequences(proposal: ADRProposal): string {
     let consequences = proposal.expected_consequences + '\n\n';
@@ -386,6 +407,8 @@ export class ADRProposalSystem {
 
   /**
    * Map urgency to priority
+   *
+   * @param urgency
    */
   private mapUrgencyToPriority(urgency: string): 'low' | 'medium' | 'high' {
     switch (urgency) {
@@ -404,6 +427,9 @@ export class ADRProposalSystem {
 
   /**
    * Log proposal for human review
+   *
+   * @param adr
+   * @param proposal
    */
   private async logProposalForHumanReview(
     adr: ADRDocumentEntity,
@@ -433,6 +459,9 @@ export class ADRProposalSystem {
 
   /**
    * Update ADR content with final decision
+   *
+   * @param content
+   * @param decision
    */
   private updateContentWithDecision(content: string, decision: any): string {
     // Replace PROPOSED status with final decision

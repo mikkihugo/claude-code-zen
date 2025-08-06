@@ -23,7 +23,9 @@ import type {
 
 /**
  * Vector database repository implementation for LanceDB
+ *
  * @template T The entity type this repository manages
+ * @example
  */
 export class VectorDao<T> extends BaseDao<T> implements IVectorDao<T> {
   private get vectorAdapter(): VectorDatabaseAdapter {
@@ -41,6 +43,9 @@ export class VectorDao<T> extends BaseDao<T> implements IVectorDao<T> {
 
   /**
    * Perform vector similarity search
+   *
+   * @param queryVector
+   * @param options
    */
   async similaritySearch(
     queryVector: number[],
@@ -86,6 +91,8 @@ export class VectorDao<T> extends BaseDao<T> implements IVectorDao<T> {
 
   /**
    * Add vectors in batch
+   *
+   * @param vectors
    */
   async addVectors(vectors: VectorDocument<T>[]): Promise<VectorInsertResult> {
     if (vectors.length === 0) {
@@ -134,6 +141,8 @@ export class VectorDao<T> extends BaseDao<T> implements IVectorDao<T> {
 
   /**
    * Create vector index
+   *
+   * @param config
    */
   async createIndex(config: VectorIndexConfig): Promise<void> {
     this.logger.debug(`Creating vector index: ${config.name}`, { config });
@@ -178,6 +187,8 @@ export class VectorDao<T> extends BaseDao<T> implements IVectorDao<T> {
 
   /**
    * Perform clustering operation
+   *
+   * @param options
    */
   async cluster(options?: ClusteringOptions): Promise<ClusterResult> {
     this.logger.debug('Performing vector clustering', { options });
@@ -221,6 +232,9 @@ export class VectorDao<T> extends BaseDao<T> implements IVectorDao<T> {
 
   /**
    * Find similar entities to a given entity
+   *
+   * @param entityId
+   * @param options
    */
   async findSimilarToEntity(
     entityId: string | number,
@@ -253,6 +267,9 @@ export class VectorDao<T> extends BaseDao<T> implements IVectorDao<T> {
 
   /**
    * Update vector for existing entity
+   *
+   * @param entityId
+   * @param newVector
    */
   async updateVector(entityId: string | number, newVector: number[]): Promise<T> {
     this.logger.debug(`Updating vector for entity: ${entityId}`);
@@ -282,6 +299,9 @@ export class VectorDao<T> extends BaseDao<T> implements IVectorDao<T> {
 
   /**
    * Batch similarity search with multiple query vectors
+   *
+   * @param queryVectors
+   * @param options
    */
   async batchSimilaritySearch(
     queryVectors: number[][],
@@ -345,6 +365,8 @@ export class VectorDao<T> extends BaseDao<T> implements IVectorDao<T> {
 
   /**
    * Execute custom query - override to handle vector-specific queries
+   *
+   * @param customQuery
    */
   async executeCustomQuery<R = any>(customQuery: CustomQuery): Promise<R> {
     if (customQuery.type === 'vector') {

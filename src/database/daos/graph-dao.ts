@@ -11,7 +11,9 @@ import type { GraphQueryResult, IGraphRepository, TransactionOperation } from '.
 
 /**
  * Graph database DAO implementation
+ *
  * @template T The entity type this DAO manages
+ * @example
  */
 export class GraphDAO<T> extends BaseDataAccessObject<T> {
   private get graphRepository(): IGraphRepository<T> {
@@ -24,6 +26,8 @@ export class GraphDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Execute graph-specific transaction with relationship management
+   *
+   * @param operations
    */
   async executeGraphTransaction<R>(operations: TransactionOperation[]): Promise<R> {
     this.logger.debug(`Executing graph transaction with ${operations.length} operations`);
@@ -99,6 +103,8 @@ export class GraphDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Bulk create nodes with relationships
+   *
+   * @param nodes
    */
   async bulkCreateNodesWithRelationships(
     nodes: Array<{
@@ -153,6 +159,9 @@ export class GraphDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Execute complex graph analytics
+   *
+   * @param analysisType
+   * @param parameters
    */
   async executeGraphAnalytics(
     analysisType: string,
@@ -235,6 +244,12 @@ export class GraphDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Pattern matching and graph traversal
+   *
+   * @param pattern
+   * @param parameters
+   * @param options
+   * @param options.limit
+   * @param options.timeout
    */
   async findPattern(
     pattern: string,
@@ -263,6 +278,9 @@ export class GraphDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Graph schema operations
+   *
+   * @param label
+   * @param properties
    */
   async createNodeLabel(label: string, properties?: Record<string, string>): Promise<void> {
     this.logger.debug(`Creating node label: ${label}`, { properties });
@@ -290,6 +308,9 @@ export class GraphDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Relationship type operations
+   *
+   * @param relationshipType
+   * @param constraints
    */
   async createRelationshipType(
     relationshipType: string,

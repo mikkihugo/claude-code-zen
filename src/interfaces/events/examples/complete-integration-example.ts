@@ -4,7 +4,7 @@
  * This example demonstrates the complete UEL integration capabilities,
  * including system migration, enhanced components, and validation.
  *
- * @fileoverview Complete UEL Integration Example
+ * @file Complete UEL Integration Example
  */
 
 import { EventEmitter } from 'node:events';
@@ -21,6 +21,8 @@ import {
 /**
  * Example: Complete UEL System Integration
  * Demonstrates migration from existing EventEmitter-based systems to UEL
+ *
+ * @example
  */
 export class CompleteUELIntegrationExample {
   private logger = {

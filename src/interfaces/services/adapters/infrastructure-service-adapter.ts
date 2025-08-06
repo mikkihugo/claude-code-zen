@@ -61,6 +61,8 @@ import type {
 
 /**
  * Infrastructure service adapter configuration extending USL InfrastructureServiceConfig
+ *
+ * @example
  */
 export interface InfrastructureServiceAdapterConfig extends InfrastructureServiceConfig {
   /** Claude Zen Facade integration settings */
@@ -149,6 +151,8 @@ export interface InfrastructureServiceAdapterConfig extends InfrastructureServic
 
 /**
  * Infrastructure operation metrics for performance monitoring
+ *
+ * @example
  */
 interface InfrastructureOperationMetrics {
   operationName: string;
@@ -168,6 +172,8 @@ interface InfrastructureOperationMetrics {
 
 /**
  * Service orchestration entry
+ *
+ * @example
  */
 interface ServiceOrchestrationEntry {
   serviceId: string;
@@ -186,6 +192,8 @@ interface ServiceOrchestrationEntry {
 
 /**
  * Configuration version entry
+ *
+ * @example
  */
 interface ConfigurationVersion {
   version: string;
@@ -197,6 +205,8 @@ interface ConfigurationVersion {
 
 /**
  * Resource tracking entry
+ *
+ * @example
  */
 interface ResourceTrackingEntry {
   timestamp: Date;
@@ -225,6 +235,8 @@ interface ResourceTrackingEntry {
  * - Unified configuration management
  * - Performance monitoring and metrics
  * - Error handling and recovery
+ *
+ * @example
  */
 export class InfrastructureServiceAdapter implements IService {
   // Core service properties
@@ -364,6 +376,8 @@ export class InfrastructureServiceAdapter implements IService {
 
   /**
    * Initialize the infrastructure service adapter and its dependencies
+   *
+   * @param config
    */
   async initialize(config?: Partial<InfrastructureServiceAdapterConfig>): Promise<void> {
     this.logger.info(`Initializing infrastructure service adapter: ${this.name}`);
@@ -798,6 +812,8 @@ export class InfrastructureServiceAdapter implements IService {
 
   /**
    * Update service configuration
+   *
+   * @param config
    */
   async updateConfig(config: Partial<InfrastructureServiceAdapterConfig>): Promise<void> {
     this.logger.info(`Updating configuration for infrastructure service adapter: ${this.name}`);
@@ -832,6 +848,8 @@ export class InfrastructureServiceAdapter implements IService {
 
   /**
    * Validate service configuration
+   *
+   * @param config
    */
   async validateConfig(config: InfrastructureServiceAdapterConfig): Promise<boolean> {
     try {
@@ -954,6 +972,10 @@ export class InfrastructureServiceAdapter implements IService {
 
   /**
    * Execute service operations with unified interface
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   async execute<T = any>(
     operation: string,
@@ -1161,6 +1183,10 @@ export class InfrastructureServiceAdapter implements IService {
 
   /**
    * Internal operation execution with infrastructure-specific logic
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   private async executeOperationInternal<T = any>(
     operation: string,
@@ -2471,6 +2497,8 @@ export class InfrastructureServiceAdapter implements IService {
 
 /**
  * Factory function for creating InfrastructureServiceAdapter instances
+ *
+ * @param config
  */
 export function createInfrastructureServiceAdapter(
   config: InfrastructureServiceAdapterConfig
@@ -2480,6 +2508,9 @@ export function createInfrastructureServiceAdapter(
 
 /**
  * Helper function for creating default configuration
+ *
+ * @param name
+ * @param overrides
  */
 export function createDefaultInfrastructureServiceAdapterConfig(
   name: string,

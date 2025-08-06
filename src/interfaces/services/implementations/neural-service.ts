@@ -11,6 +11,8 @@ import { BaseService } from './base-service';
 
 /**
  * Neural service implementation
+ *
+ * @example
  */
 export class NeuralService extends BaseService implements IService {
   private models = new Map<string, any>();

@@ -35,6 +35,8 @@ import {
 
 /**
  * Data service factory configuration
+ *
+ * @example
  */
 export interface DataServiceFactoryConfig {
   /** Default web data service settings */
@@ -71,6 +73,8 @@ export interface DataServiceFactoryConfig {
 
 /**
  * Specialized factory for data service adapters
+ *
+ * @example
  */
 export class DataServiceFactory implements IServiceFactory<DataServiceAdapterConfig> {
   private services = new Map<string, DataServiceAdapter>();
@@ -122,6 +126,8 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Create a data service adapter instance
+   *
+   * @param config
    */
   async create(config: DataServiceAdapterConfig): Promise<IService> {
     this.logger.info(`Creating data service adapter: ${config.name}`);
@@ -174,6 +180,8 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Create multiple data service adapters concurrently
+   *
+   * @param configs
    */
   async createMultiple(configs: DataServiceAdapterConfig[]): Promise<IService[]> {
     this.logger.info(`Creating ${configs.length} data service adapters`);
@@ -206,6 +214,8 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Get service by name
+   *
+   * @param name
    */
   get(name: string): IService | undefined {
     return this.services.get(name);
@@ -220,6 +230,8 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Check if service exists
+   *
+   * @param name
    */
   has(name: string): boolean {
     return this.services.has(name);
@@ -227,6 +239,8 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Remove and destroy service
+   *
+   * @param name
    */
   async remove(name: string): Promise<boolean> {
     const service = this.services.get(name);
@@ -264,6 +278,8 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Check if service type is supported
+   *
+   * @param type
    */
   supportsType(type: string): boolean {
     return this.getSupportedTypes().includes(type);
@@ -410,6 +426,8 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Get services by type
+   *
+   * @param type
    */
   getServicesByType(type: string): IService[] {
     return this.list().filter((service) => service.type === type);
@@ -417,6 +435,8 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Validate service configuration
+   *
+   * @param config
    */
   async validateConfig(config: DataServiceAdapterConfig): Promise<boolean> {
     try {
@@ -465,6 +485,8 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Get configuration schema for service type
+   *
+   * @param type
    */
   getConfigSchema(type: string): Record<string, any> | undefined {
     if (!this.supportsType(type)) {
@@ -534,6 +556,9 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Create a web data service adapter with optimized settings
+   *
+   * @param name
+   * @param config
    */
   async createWebDataAdapter(
     name: string,
@@ -560,6 +585,10 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Create a document service adapter with database optimization
+   *
+   * @param name
+   * @param databaseType
+   * @param config
    */
   async createDocumentAdapter(
     name: string,
@@ -587,6 +616,10 @@ export class DataServiceFactory implements IServiceFactory<DataServiceAdapterCon
 
   /**
    * Create a unified data adapter with both web and document services
+   *
+   * @param name
+   * @param databaseType
+   * @param config
    */
   async createUnifiedDataAdapter(
     name: string,

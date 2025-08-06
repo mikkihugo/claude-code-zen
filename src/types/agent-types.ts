@@ -1,11 +1,13 @@
 /**
- * @fileoverview Agent type definitions for the agent management system
+ * @file Agent type definitions for the agent management system
  * Provides comprehensive type definitions for all supported agent types
  * and their associated metadata structures.
  */
 
 /**
  * Unique identifier structure for agents within the swarm system
+ *
+ * @example
  */
 export interface AgentId {
   /** Unique identifier for the agent */

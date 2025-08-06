@@ -17,7 +17,9 @@ import type {
 
 /**
  * Coordination database DAO implementation
+ *
  * @template T The entity type this DAO manages
+ * @example
  */
 export class CoordinationDAO<T> extends BaseDataAccessObject<T> {
   private get coordinationRepository(): ICoordinationRepository<T> {
@@ -30,6 +32,13 @@ export class CoordinationDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Execute coordinated transaction across multiple nodes
+   *
+   * @param operations
+   * @param coordinationOptions
+   * @param coordinationOptions.lockTimeout
+   * @param coordinationOptions.retryAttempts
+   * @param coordinationOptions.nodeCount
+   * @param coordinationOptions.consensusRequired
    */
   async executeCoordinatedTransaction<R>(
     operations: TransactionOperation[],
@@ -94,6 +103,14 @@ export class CoordinationDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Distributed messaging and event coordination
+   *
+   * @param eventType
+   * @param data
+   * @param options
+   * @param options.channel
+   * @param options.waitForAcknowledgment
+   * @param options.timeout
+   * @param options.targetNodes
    */
   async coordinateEvent(
     eventType: string,
@@ -165,6 +182,13 @@ export class CoordinationDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Leader election and consensus management
+   *
+   * @param electionId
+   * @param candidateId
+   * @param options
+   * @param options.timeout
+   * @param options.termDuration
+   * @param options.voteWeight
    */
   async electLeader(
     electionId: string,
@@ -226,6 +250,13 @@ export class CoordinationDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Distributed workflow coordination
+   *
+   * @param workflowId
+   * @param steps
+   * @param options
+   * @param options.parallelExecution
+   * @param options.failureHandling
+   * @param options.maxRetries
    */
   async coordinateWorkflow(
     workflowId: string,

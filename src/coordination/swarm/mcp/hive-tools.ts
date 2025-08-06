@@ -63,6 +63,8 @@ export class HiveTools {
 
   /**
    * Get comprehensive Hive system status
+   *
+   * @param _params
    */
   async hiveStatus(_params: any = {}): Promise<any> {
     try {
@@ -114,6 +116,8 @@ export class HiveTools {
 
   /**
    * Query the Hive knowledge base
+   *
+   * @param params
    */
   async hiveQuery(params: any = {}): Promise<any> {
     try {
@@ -173,6 +177,8 @@ export class HiveTools {
 
   /**
    * Contribute knowledge to the Hive
+   *
+   * @param params
    */
   async hiveContribute(params: any = {}): Promise<any> {
     try {
@@ -201,6 +207,8 @@ export class HiveTools {
 
   /**
    * Get global agent information across all swarms
+   *
+   * @param _params
    */
   async hiveAgents(_params: any = {}): Promise<any> {
     try {
@@ -265,6 +273,8 @@ export class HiveTools {
 
   /**
    * Get global task overview across all swarms
+   *
+   * @param params
    */
   async hiveTasks(params: any = {}): Promise<any> {
     try {
@@ -315,6 +325,8 @@ export class HiveTools {
 
   /**
    * Get knowledge base statistics and health
+   *
+   * @param _params
    */
   async hiveKnowledge(_params: any = {}): Promise<any> {
     try {
@@ -356,6 +368,8 @@ export class HiveTools {
 
   /**
    * Synchronize Hive with external systems
+   *
+   * @param params
    */
   async hiveSync(params: any = {}): Promise<any> {
     try {
@@ -404,6 +418,8 @@ export class HiveTools {
 
   /**
    * Get comprehensive Hive health metrics
+   *
+   * @param _params
    */
   async hiveHealth(_params: any = {}): Promise<any> {
     try {
@@ -531,6 +547,8 @@ export class HiveTools {
 
   /**
    * Get swarm states from database
+   *
+   * @param dal
    */
   private async getSwarmStates(dal: DALFactory | null): Promise<any[]> {
     try {
@@ -545,6 +563,8 @@ export class HiveTools {
 
   /**
    * Get active task queue
+   *
+   * @param dal
    */
   private async getActiveTaskQueue(dal: DALFactory | null): Promise<any> {
     try {
@@ -603,6 +623,8 @@ export class HiveTools {
 
   /**
    * Get active swarms from system/database
+   *
+   * @param dal
    */
   private async getActiveSwarms(dal: DALFactory | null): Promise<any[]> {
     try {
@@ -640,6 +662,8 @@ export class HiveTools {
 
   /**
    * Get swarm health metrics
+   *
+   * @param dal
    */
   private async getSwarmHealthMetrics(dal: DALFactory | null): Promise<any> {
     try {
@@ -658,6 +682,9 @@ export class HiveTools {
 
   /**
    * Search local knowledge base
+   *
+   * @param query
+   * @param domain
    */
   private async searchLocalKnowledgeBase(query: string, domain: string): Promise<any[]> {
     try {
@@ -670,6 +697,9 @@ export class HiveTools {
 
   /**
    * Search swarm memory
+   *
+   * @param query
+   * @param dal
    */
   private async searchSwarmMemory(query: string, dal: DALFactory | null): Promise<any[]> {
     try {
@@ -682,6 +712,11 @@ export class HiveTools {
 
   /**
    * Coordinate search across swarms
+   *
+   * @param swarms
+   * @param query
+   * @param domain
+   * @param confidence
    */
   private async coordinateSwarmSearch(
     swarms: any[],
@@ -699,6 +734,8 @@ export class HiveTools {
 
   /**
    * Get swarm workloads
+   *
+   * @param dal
    */
   private async getSwarmWorkloads(dal: DALFactory | null): Promise<any[]> {
     try {

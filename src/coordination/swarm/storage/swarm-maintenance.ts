@@ -71,6 +71,9 @@ export class SwarmMaintenanceManager extends EventEmitter {
 
   /**
    * Create swarm storage directory
+   *
+   * @param swarmId
+   * @param metadata
    */
   async createSwarmStorage(swarmId: string, metadata: Partial<SwarmMeta>): Promise<string> {
     const swarmDir = path.join(this.swarmsPath, 'active', swarmId);
@@ -129,6 +132,8 @@ export class SwarmMaintenanceManager extends EventEmitter {
 
   /**
    * Archive specific swarm
+   *
+   * @param swarmId
    */
   async archiveSwarm(swarmId: string): Promise<void> {
     const activeDir = path.join(this.swarmsPath, 'active', swarmId);
@@ -238,6 +243,8 @@ export class SwarmMaintenanceManager extends EventEmitter {
 
   /**
    * Update swarm access time (for maintenance decisions)
+   *
+   * @param swarmId
    */
   async touchSwarm(swarmId: string): Promise<void> {
     const metaPath = path.join(this.swarmsPath, 'active', swarmId, 'meta.json');
@@ -253,6 +260,8 @@ export class SwarmMaintenanceManager extends EventEmitter {
 
   /**
    * Manual cleanup of specific swarm
+   *
+   * @param swarmId
    */
   async deleteSwarm(swarmId: string): Promise<boolean> {
     const activeDir = path.join(this.swarmsPath, 'active', swarmId);

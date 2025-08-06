@@ -92,6 +92,8 @@ export enum ServiceEnvironment {
 
 /**
  * Base service configuration with common properties
+ *
+ * @example
  */
 export interface BaseServiceConfig extends ServiceConfig {
   type: ServiceType | string;
@@ -102,6 +104,8 @@ export interface BaseServiceConfig extends ServiceConfig {
 
 /**
  * Data service configuration for data management services
+ *
+ * @example
  */
 export interface DataServiceConfig extends BaseServiceConfig {
   type: ServiceType.DATA | ServiceType.WEB_DATA | ServiceType.DOCUMENT;
@@ -124,6 +128,8 @@ export interface DataServiceConfig extends BaseServiceConfig {
 
 /**
  * Web service configuration for HTTP/WebSocket services
+ *
+ * @example
  */
 export interface WebServiceConfig extends BaseServiceConfig {
   type: ServiceType.WEB | ServiceType.API | ServiceType.SAFE_API | ServiceType.WEBSOCKET;
@@ -161,6 +167,8 @@ export interface WebServiceConfig extends BaseServiceConfig {
 
 /**
  * Coordination service configuration for swarm and orchestration
+ *
+ * @example
  */
 export interface CoordinationServiceConfig extends BaseServiceConfig {
   type:
@@ -190,6 +198,8 @@ export interface CoordinationServiceConfig extends BaseServiceConfig {
 
 /**
  * Neural service configuration for AI and ML services
+ *
+ * @example
  */
 export interface NeuralServiceConfig extends BaseServiceConfig {
   type: ServiceType.NEURAL | ServiceType.LEARNING | ServiceType.PATTERN_RECOGNITION;
@@ -219,6 +229,8 @@ export interface NeuralServiceConfig extends BaseServiceConfig {
 
 /**
  * Memory service configuration for caching and session management
+ *
+ * @example
  */
 export interface MemoryServiceConfig extends BaseServiceConfig {
   type: ServiceType.MEMORY | ServiceType.CACHE | ServiceType.SESSION;
@@ -245,6 +257,8 @@ export interface MemoryServiceConfig extends BaseServiceConfig {
 
 /**
  * Database service configuration for database integrations
+ *
+ * @example
  */
 export interface DatabaseServiceConfig extends BaseServiceConfig {
   type: ServiceType.DATABASE | ServiceType.VECTOR | ServiceType.GRAPH;
@@ -278,6 +292,8 @@ export interface DatabaseServiceConfig extends BaseServiceConfig {
 
 /**
  * Interface service configuration for CLI, TUI, MCP services
+ *
+ * @example
  */
 export interface InterfaceServiceConfig extends BaseServiceConfig {
   type: ServiceType.CLI | ServiceType.TUI | ServiceType.MCP;
@@ -301,6 +317,8 @@ export interface InterfaceServiceConfig extends BaseServiceConfig {
 
 /**
  * Monitoring service configuration for health and performance tracking
+ *
+ * @example
  */
 export interface MonitoringServiceConfig extends BaseServiceConfig {
   type: ServiceType.HEALTH | ServiceType.MONITORING | ServiceType.LOGGING;
@@ -327,6 +345,8 @@ export interface MonitoringServiceConfig extends BaseServiceConfig {
 
 /**
  * Workflow service configuration for task and pipeline management
+ *
+ * @example
  */
 export interface WorkflowServiceConfig extends BaseServiceConfig {
   type: ServiceType.WORKFLOW | ServiceType.TASK | ServiceType.PIPELINE;
@@ -355,6 +375,8 @@ export interface WorkflowServiceConfig extends BaseServiceConfig {
 
 /**
  * Integration service configuration for integration services
+ *
+ * @example
  */
 export interface IntegrationServiceConfig extends BaseServiceConfig {
   type: ServiceType.API | ServiceType.SAFE_API | ServiceType.ARCHITECTURE_STORAGE;
@@ -386,6 +408,8 @@ export interface IntegrationServiceConfig extends BaseServiceConfig {
 
 /**
  * Infrastructure service configuration for infrastructure and system services
+ *
+ * @example
  */
 export interface InfrastructureServiceConfig extends BaseServiceConfig {
   type: ServiceType.INFRASTRUCTURE | ServiceType.SYSTEM | ServiceType.MONITORING;
@@ -470,10 +494,15 @@ export type AnyServiceConfig =
 
 /**
  * Service configuration factory for creating typed configurations
+ *
+ * @example
  */
 export class ServiceConfigFactory {
   /**
    * Create a data service configuration
+   *
+   * @param name
+   * @param options
    */
   static createDataServiceConfig(
     name: string,
@@ -507,6 +536,9 @@ export class ServiceConfigFactory {
 
   /**
    * Create a web service configuration
+   *
+   * @param name
+   * @param options
    */
   static createWebServiceConfig(
     name: string,
@@ -555,6 +587,9 @@ export class ServiceConfigFactory {
 
   /**
    * Create a coordination service configuration
+   *
+   * @param name
+   * @param options
    */
   static createCoordinationServiceConfig(
     name: string,
@@ -605,6 +640,9 @@ export class ServiceConfigFactory {
 
   /**
    * Create a neural service configuration
+   *
+   * @param name
+   * @param options
    */
   static createNeuralServiceConfig(
     name: string,
@@ -656,6 +694,9 @@ export class ServiceConfigFactory {
 
   /**
    * Create a memory service configuration
+   *
+   * @param name
+   * @param options
    */
   static createMemoryServiceConfig(
     name: string,
@@ -705,6 +746,9 @@ export class ServiceConfigFactory {
 
   /**
    * Create a database service configuration
+   *
+   * @param name
+   * @param options
    */
   static createDatabaseServiceConfig(
     name: string,
@@ -758,6 +802,9 @@ export class ServiceConfigFactory {
 
   /**
    * Create a monitoring service configuration
+   *
+   * @param name
+   * @param options
    */
   static createMonitoringServiceConfig(
     name: string,
@@ -809,6 +856,9 @@ export class ServiceConfigFactory {
 
   /**
    * Create an integration service configuration
+   *
+   * @param name
+   * @param options
    */
   static createIntegrationServiceConfig(
     name: string,
@@ -866,6 +916,9 @@ export class ServiceConfigFactory {
 
   /**
    * Create an infrastructure service configuration
+   *
+   * @param name
+   * @param options
    */
   static createInfrastructureServiceConfig(
     name: string,
@@ -959,6 +1012,9 @@ export class ServiceConfigFactory {
 
   /**
    * Create a workflow service configuration
+   *
+   * @param name
+   * @param options
    */
   static createWorkflowServiceConfig(
     name: string,
@@ -1013,6 +1069,8 @@ export class ServiceConfigFactory {
 
 /**
  * Type guard functions for service configurations
+ *
+ * @param config
  */
 export function isDataServiceConfig(config: AnyServiceConfig): config is DataServiceConfig {
   return [ServiceType.DATA, ServiceType.WEB_DATA, ServiceType.DOCUMENT].includes(

@@ -70,6 +70,8 @@ interface BackendInterface {
 
 /**
  * LanceDB Backend - Vector Database for Semantic Storage using DAL
+ *
+ * @example
  */
 class LanceDBBackend implements BackendInterface {
   private vectorRepository: IRepository<any>;
@@ -238,6 +240,8 @@ class LanceDBBackend implements BackendInterface {
 
 /**
  * SQLite Backend - Relational Database for Structured Storage
+ *
+ * @example
  */
 class SQLiteBackend implements BackendInterface {
   private db?: any;
@@ -435,6 +439,8 @@ class SQLiteBackend implements BackendInterface {
 
 /**
  * JSON Backend - File-based Storage for Simple Use Cases
+ *
+ * @example
  */
 class JSONBackend implements BackendInterface {
   private data = new Map<string, { value: JSONValue; timestamp: number; type: string }>();
@@ -575,6 +581,8 @@ class JSONBackend implements BackendInterface {
 
 /**
  * Unified Memory System - Main Interface
+ *
+ * @example
  */
 export class UnifiedMemorySystem extends EventEmitter {
   private backend: BackendInterface;

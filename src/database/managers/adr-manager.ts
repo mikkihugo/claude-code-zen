@@ -54,6 +54,8 @@ export interface ADRStats {
 
 /**
  * ADR Management System for handling hundreds of Architecture Decision Records
+ *
+ * @example
  */
 export class ADRManager {
   private architectureProject?: ProjectEntity;
@@ -90,6 +92,8 @@ export class ADRManager {
 
   /**
    * Create a new ADR with automatic numbering
+   *
+   * @param options
    */
   async createADR(options: ADRCreateOptions): Promise<ADRDocumentEntity> {
     if (!this.architectureProject) {
@@ -168,6 +172,8 @@ export class ADRManager {
 
   /**
    * Query ADRs with flexible filtering
+   *
+   * @param options
    */
   async queryADRs(options: ADRQueryOptions = {}): Promise<{
     adrs: ADRDocumentEntity[];
@@ -220,6 +226,12 @@ export class ADRManager {
 
   /**
    * Search ADRs using advanced search capabilities
+   *
+   * @param query
+   * @param options
+   * @param options.searchType
+   * @param options.limit
+   * @param options.filters
    */
   async searchADRs(
     query: string,
@@ -264,6 +276,8 @@ export class ADRManager {
 
   /**
    * Get ADR by number (e.g., 1, 15, 142)
+   *
+   * @param number
    */
   async getADRByNumber(number: number): Promise<ADRDocumentEntity | null> {
     const { adrs } = await this.queryADRs();
@@ -272,6 +286,8 @@ export class ADRManager {
 
   /**
    * Get ADR by ID string (e.g., "ADR-001", "ADR-015", "ADR-142")
+   *
+   * @param adrId
    */
   async getADRById(adrId: string): Promise<ADRDocumentEntity | null> {
     const { adrs } = await this.queryADRs();
@@ -280,6 +296,10 @@ export class ADRManager {
 
   /**
    * Update ADR status and advance workflow
+   *
+   * @param adrNumber
+   * @param newStatus
+   * @param notes
    */
   async updateADRStatus(
     adrNumber: number,
@@ -314,6 +334,10 @@ export class ADRManager {
 
   /**
    * Mark ADR as superseding another ADR
+   *
+   * @param newADRNumber
+   * @param oldADRNumber
+   * @param reason
    */
   async supersede(newADRNumber: number, oldADRNumber: number, reason: string): Promise<void> {
     const [newADR, oldADR] = await Promise.all([
@@ -437,6 +461,9 @@ export class ADRManager {
 
   /**
    * Format ADR content in standard structure
+   *
+   * @param adrId
+   * @param options
    */
   private formatADRContent(adrId: string, options: ADRCreateOptions): string {
     let content = `# ${adrId}: ${options.title}\n\n`;
@@ -480,6 +507,9 @@ export class ADRManager {
 
   /**
    * Generate keywords from title and decision
+   *
+   * @param title
+   * @param decision
    */
   private generateKeywords(title: string, decision: string): string[] {
     const text = `${title} ${decision}`.toLowerCase();

@@ -1,5 +1,5 @@
 /**
- * @fileoverview Session Integration Layer
+ * @file Session Integration Layer
  *
  * Integrates the SessionManager with the existing ZenSwarm system,
  * providing seamless session persistence for swarm operations.
@@ -24,6 +24,8 @@ import type { AgentConfig, SwarmEvent, SwarmOptions, SwarmState, Task } from './
  *
  * Provides persistent session support for swarm operations, allowing
  * recovery from failures and resumption of long-running tasks.
+ *
+ * @example
  */
 export class SessionEnabledSwarm extends ZenSwarm {
   private sessionManager: SessionManager;
@@ -36,7 +38,6 @@ export class SessionEnabledSwarm extends ZenSwarm {
    * @param options - Configuration options for the swarm
    * @param sessionConfig - Configuration for session management
    * @param persistence - Optional persistence layer for session data
-   *
    * @example
    * ```typescript
    * const swarm = new SessionEnabledSwarm(
@@ -78,7 +79,6 @@ export class SessionEnabledSwarm extends ZenSwarm {
    * management layer for persistent operation tracking.
    *
    * @throws Error if initialization fails
-   *
    * @example
    * ```typescript
    * await swarm.initialize()
@@ -98,6 +98,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
 
   /**
    * Create a new session and associate with this swarm
+   *
+   * @param sessionName
    */
   async createSession(sessionName: string): Promise<string> {
     if (!this.sessionIntegrationEnabled) {
@@ -119,6 +121,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
 
   /**
    * Load an existing session and restore swarm state
+   *
+   * @param sessionId
    */
   async loadSession(sessionId: string): Promise<void> {
     if (!this.sessionIntegrationEnabled) {
@@ -150,6 +154,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
 
   /**
    * Create a checkpoint of current state
+   *
+   * @param description
    */
   async createCheckpoint(description?: string): Promise<string> {
     if (!this.currentSessionId) {
@@ -175,6 +181,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
 
   /**
    * Restore from a specific checkpoint
+   *
+   * @param checkpointId
    */
   async restoreFromCheckpoint(checkpointId: string): Promise<void> {
     if (!this.currentSessionId) {
@@ -239,6 +247,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
 
   /**
    * Terminate the current session
+   *
+   * @param cleanup
    */
   async terminateSession(cleanup: boolean = false): Promise<void> {
     if (!this.currentSessionId) {
@@ -254,6 +264,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
 
   /**
    * List available sessions
+   *
+   * @param filter
    */
   async listSessions(filter?: any): Promise<SessionState[]> {
     if (!this.sessionIntegrationEnabled) {
@@ -276,6 +288,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
 
   /**
    * Get session statistics
+   *
+   * @param sessionId
    */
   async getSessionStats(sessionId?: string): Promise<Record<string, any>> {
     return this.sessionManager.getSessionStats(sessionId || this.currentSessionId);
@@ -283,6 +297,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
 
   /**
    * Enhanced agent operations with session persistence
+   *
+   * @param config
    */
   async addAgent(config: AgentConfig): Promise<string> {
     // Create agent ID and simulate adding agent
@@ -309,6 +325,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
 
   /**
    * Enhanced task submission with session persistence
+   *
+   * @param task
    */
   async submitTask(task: Omit<Task, 'id' | 'status'>): Promise<string> {
     // Create task ID and simulate task submission
@@ -378,7 +396,12 @@ export class SessionEnabledSwarm extends ZenSwarm {
       if (!(this as any).state.agents.has(agentId)) {
         // Re-add agent if not present
         try {
-          await this.addAgent(agent.config);
+          // Ensure the agent config has the required id field
+          const configWithId = {
+            ...agent.config,
+            id: agent.config.id || agentId
+          };
+          await this.addAgent(configWithId);
         } catch (error) {
           console.warn(`Failed to restore agent ${agentId}:`, error);
         }
@@ -474,6 +497,8 @@ export class SessionEnabledSwarm extends ZenSwarm {
  * Session Recovery Service
  *
  * Provides automated recovery capabilities for corrupted sessions
+ *
+ * @example
  */
 export class SessionRecoveryService extends EventEmitter {
   private sessionManager: SessionManager;
@@ -486,6 +511,8 @@ export class SessionRecoveryService extends EventEmitter {
 
   /**
    * Attempt to recover a corrupted session
+   *
+   * @param sessionId
    */
   async recoverSession(sessionId: string): Promise<boolean> {
     if (this.recoveryInProgress.has(sessionId)) {
@@ -627,6 +654,10 @@ export class SessionRecoveryService extends EventEmitter {
 
 /**
  * Factory function for creating session-enabled swarms
+ *
+ * @param swarmOptions
+ * @param sessionConfig
+ * @param persistence
  */
 export function createSessionEnabledSwarm(
   swarmOptions?: SwarmOptions,

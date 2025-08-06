@@ -20,7 +20,9 @@ import type {
 
 /**
  * Base repository implementation that adapts to different database types
+ *
  * @template T The entity type this repository manages
+ * @example
  */
 export abstract class BaseDao<T> implements IDao<T> {
   protected constructor(
@@ -32,6 +34,8 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Find entity by ID
+   *
+   * @param id
    */
   async findById(id: string | number): Promise<T | null> {
     this.logger.debug(`Finding entity by ID: ${id} in table: ${this.tableName}`);
@@ -55,6 +59,9 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Find entities by criteria
+   *
+   * @param criteria
+   * @param options
    */
   async findBy(criteria: Partial<T>, options?: QueryOptions): Promise<T[]> {
     this.logger.debug(`Finding entities by criteria in table: ${this.tableName}`, {
@@ -77,6 +84,8 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Find all entities
+   *
+   * @param options
    */
   async findAll(options?: QueryOptions): Promise<T[]> {
     this.logger.debug(`Finding all entities in table: ${this.tableName}`, { options });
@@ -96,6 +105,8 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Create a new entity
+   *
+   * @param entity
    */
   async create(entity: Omit<T, 'id'>): Promise<T> {
     this.logger.debug(`Creating entity in table: ${this.tableName}`, { entity });
@@ -123,6 +134,9 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Update an existing entity
+   *
+   * @param id
+   * @param updates
    */
   async update(id: string | number, updates: Partial<T>): Promise<T> {
     this.logger.debug(`Updating entity ID: ${id} in table: ${this.tableName}`, { updates });
@@ -150,6 +164,8 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Delete an entity by ID
+   *
+   * @param id
    */
   async delete(id: string | number): Promise<boolean> {
     this.logger.debug(`Deleting entity ID: ${id} from table: ${this.tableName}`);
@@ -167,6 +183,8 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Count entities matching criteria
+   *
+   * @param criteria
    */
   async count(criteria?: Partial<T>): Promise<number> {
     this.logger.debug(`Counting entities in table: ${this.tableName}`, { criteria });
@@ -184,6 +202,8 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Check if entity exists
+   *
+   * @param id
    */
   async exists(id: string | number): Promise<boolean> {
     this.logger.debug(`Checking if entity exists: ${id} in table: ${this.tableName}`);
@@ -199,6 +219,8 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Execute custom query
+   *
+   * @param customQuery
    */
   async executeCustomQuery<R = any>(customQuery: CustomQuery): Promise<R> {
     this.logger.debug(`Executing custom query in table: ${this.tableName}`, { customQuery });
@@ -362,6 +384,8 @@ export abstract class BaseDao<T> implements IDao<T> {
 
   /**
    * Handle object-based queries (for NoSQL-like databases)
+   *
+   * @param customQuery
    */
   protected async executeObjectQuery(customQuery: CustomQuery): Promise<any> {
     // Default implementation - subclasses can override for NoSQL support
@@ -378,7 +402,9 @@ export abstract class BaseDao<T> implements IDao<T> {
 
 /**
  * Base Data Access Object implementation
+ *
  * @template T The entity type
+ * @example
  */
 export abstract class BaseManager<T> implements IManager<T> {
   protected constructor(
@@ -396,6 +422,8 @@ export abstract class BaseManager<T> implements IManager<T> {
 
   /**
    * Execute transaction with multiple operations
+   *
+   * @param operations
    */
   async executeTransaction<R>(operations: TransactionOperation[]): Promise<R> {
     this.logger.debug(`Executing transaction with ${operations.length} operations`);
@@ -558,6 +586,10 @@ export abstract class BaseManager<T> implements IManager<T> {
 
   /**
    * Helper methods
+   *
+   * @param healthy
+   * @param responseTime
+   * @param connectionStats
    */
   protected calculateHealthScore(
     healthy: boolean,

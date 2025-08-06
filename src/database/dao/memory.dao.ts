@@ -11,6 +11,8 @@ import type { CustomQuery, IMemoryDao, MemoryStats } from '../interfaces';
 
 /**
  * In-memory cache entry
+ *
+ * @example
  */
 interface CacheEntry<T> {
   value: T;
@@ -22,7 +24,9 @@ interface CacheEntry<T> {
 
 /**
  * Memory repository implementation with caching and TTL support
+ *
  * @template T The entity type this repository manages
+ * @example
  */
 export class MemoryDao<T> extends BaseDao<T> implements IMemoryDao<T> {
   private memoryStore = new Map<string, CacheEntry<T>>();
@@ -60,6 +64,9 @@ export class MemoryDao<T> extends BaseDao<T> implements IMemoryDao<T> {
 
   /**
    * Set TTL (time to live) for an entity
+   *
+   * @param id
+   * @param ttlSeconds
    */
   async setTTL(id: string | number, ttlSeconds: number): Promise<void> {
     this.logger.debug(`Setting TTL for entity ${id}: ${ttlSeconds} seconds`);
@@ -90,6 +97,8 @@ export class MemoryDao<T> extends BaseDao<T> implements IMemoryDao<T> {
 
   /**
    * Get TTL for an entity
+   *
+   * @param id
    */
   async getTTL(id: string | number): Promise<number | null> {
     const key = this.getEntityKey(id);
@@ -105,6 +114,10 @@ export class MemoryDao<T> extends BaseDao<T> implements IMemoryDao<T> {
 
   /**
    * Cache entity with optional TTL
+   *
+   * @param key
+   * @param value
+   * @param ttlSeconds
    */
   async cache(key: string, value: T, ttlSeconds?: number): Promise<void> {
     this.logger.debug(`Caching value with key: ${key}`, { ttlSeconds });
@@ -136,6 +149,8 @@ export class MemoryDao<T> extends BaseDao<T> implements IMemoryDao<T> {
 
   /**
    * Get cached entity
+   *
+   * @param key
    */
   async getCached(key: string): Promise<T | null> {
     this.accessCount++;
@@ -164,6 +179,8 @@ export class MemoryDao<T> extends BaseDao<T> implements IMemoryDao<T> {
 
   /**
    * Clear cache
+   *
+   * @param pattern
    */
   async clearCache(pattern?: string): Promise<number> {
     let clearedCount = 0;
@@ -313,6 +330,8 @@ export class MemoryDao<T> extends BaseDao<T> implements IMemoryDao<T> {
 
   /**
    * Execute custom query - override to handle memory-specific queries
+   *
+   * @param customQuery
    */
   async executeCustomQuery<R = any>(customQuery: CustomQuery): Promise<R> {
     if (customQuery.type === 'memory') {

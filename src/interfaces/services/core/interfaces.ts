@@ -82,6 +82,8 @@ export interface ServiceAuthConfig {
 
 /**
  * Service retry configuration with multiple backoff strategies
+ *
+ * @example
  */
 export interface ServiceRetryConfig {
   attempts: number;
@@ -93,6 +95,8 @@ export interface ServiceRetryConfig {
 
 /**
  * Service health check configuration
+ *
+ * @example
  */
 export interface ServiceHealthConfig {
   enabled: boolean;
@@ -105,6 +109,8 @@ export interface ServiceHealthConfig {
 
 /**
  * Service performance monitoring configuration
+ *
+ * @example
  */
 export interface ServiceMonitoringConfig {
   enabled: boolean;
@@ -118,6 +124,8 @@ export interface ServiceMonitoringConfig {
 
 /**
  * Service dependency configuration
+ *
+ * @example
  */
 export interface ServiceDependencyConfig {
   serviceName: string;
@@ -129,6 +137,8 @@ export interface ServiceDependencyConfig {
 
 /**
  * Base service configuration interface
+ *
+ * @example
  */
 export interface ServiceConfig {
   /** Service unique identifier */
@@ -187,6 +197,8 @@ export type ServiceLifecycleStatus =
 
 /**
  * Service health status information
+ *
+ * @example
  */
 export interface ServiceStatus {
   name: string;
@@ -208,6 +220,8 @@ export interface ServiceStatus {
 
 /**
  * Service performance metrics
+ *
+ * @example
  */
 export interface ServiceMetrics {
   name: string;
@@ -230,6 +244,8 @@ export interface ServiceMetrics {
 
 /**
  * Generic service operation options
+ *
+ * @example
  */
 export interface ServiceOperationOptions {
   timeout?: number;
@@ -240,6 +256,8 @@ export interface ServiceOperationOptions {
 
 /**
  * Generic service operation response
+ *
+ * @example
  */
 export interface ServiceOperationResponse<T = any> {
   success: boolean;
@@ -274,6 +292,8 @@ export type ServiceEventType =
 
 /**
  * Service event data
+ *
+ * @example
  */
 export interface ServiceEvent {
   type: ServiceEventType;
@@ -358,6 +378,7 @@ export interface IService {
 
   /**
    * Initialize the service with optional configuration override
+   *
    * @param config Optional configuration override
    * @returns Promise that resolves when initialization is complete
    * @throws {ServiceInitializationError} When initialization fails
@@ -366,6 +387,7 @@ export interface IService {
 
   /**
    * Start the service and begin processing
+   *
    * @returns Promise that resolves when service is started
    * @throws {ServiceOperationError} When startup fails
    */
@@ -373,6 +395,7 @@ export interface IService {
 
   /**
    * Stop the service gracefully
+   *
    * @returns Promise that resolves when service is stopped
    * @throws {ServiceOperationError} When shutdown fails
    */
@@ -380,6 +403,7 @@ export interface IService {
 
   /**
    * Destroy the service and clean up resources
+   *
    * @returns Promise that resolves when destruction is complete
    * @throws {ServiceOperationError} When destruction fails
    */
@@ -387,18 +411,21 @@ export interface IService {
 
   /**
    * Get current service status and health information
+   *
    * @returns Promise resolving to service status
    */
   getStatus(): Promise<ServiceStatus>;
 
   /**
    * Get service performance metrics
+   *
    * @returns Promise resolving to service metrics
    */
   getMetrics(): Promise<ServiceMetrics>;
 
   /**
    * Perform health check on the service
+   *
    * @returns Promise resolving to true if service is healthy
    */
   healthCheck(): Promise<boolean>;
@@ -413,6 +440,7 @@ export interface IService {
 
   /**
    * Execute a service-specific operation
+   *
    * @template T The expected return type
    * @param operation Operation name to execute
    * @param params Operation parameters
@@ -448,6 +476,7 @@ export interface IService {
 
   /**
    * Register an event handler for service events
+   *
    * @param event Event type to listen for
    * @param handler Function to call when event occurs
    * @example service.on('started', (event) => console.log('Service started'));
@@ -456,6 +485,7 @@ export interface IService {
 
   /**
    * Remove an event handler
+   *
    * @param event Event type to stop listening for
    * @param handler Specific handler to remove (optional)
    * @example service.off('started', myHandler);
@@ -464,6 +494,7 @@ export interface IService {
 
   /**
    * Emit a service event
+   *
    * @param event Event type to emit
    * @param data Optional event data
    * @param error Optional error object
@@ -517,6 +548,7 @@ export interface IService {
 export interface IServiceFactory<TConfig extends ServiceConfig = ServiceConfig> {
   /**
    * Create a single service instance
+   *
    * @param config Service configuration
    * @returns Promise resolving to created service
    * @throws {ServiceInitializationError} When service creation fails
@@ -525,6 +557,7 @@ export interface IServiceFactory<TConfig extends ServiceConfig = ServiceConfig> 
 
   /**
    * Create multiple service instances
+   *
    * @param configs Array of service configurations
    * @returns Promise resolving to array of created services
    * @throws {ServiceInitializationError} When any service creation fails
@@ -533,6 +566,7 @@ export interface IServiceFactory<TConfig extends ServiceConfig = ServiceConfig> 
 
   /**
    * Get a service instance by name
+   *
    * @param name Service name identifier
    * @returns Service instance or undefined if not found
    */
@@ -540,12 +574,14 @@ export interface IServiceFactory<TConfig extends ServiceConfig = ServiceConfig> 
 
   /**
    * List all managed service instances
+   *
    * @returns Array of all service instances
    */
   list(): IService[];
 
   /**
    * Check if a service with the given name exists
+   *
    * @param name Service name to check
    * @returns True if service exists
    */
@@ -553,6 +589,7 @@ export interface IServiceFactory<TConfig extends ServiceConfig = ServiceConfig> 
 
   /**
    * Remove and destroy a service instance
+   *
    * @param name Service name to remove
    * @returns Promise resolving to true if removed successfully
    * @throws {ServiceOperationError} When removal fails
@@ -581,6 +618,8 @@ export interface IServiceFactory<TConfig extends ServiceConfig = ServiceConfig> 
 
 /**
  * Service registry interface for global service management
+ *
+ * @example
  */
 export interface IServiceRegistry {
   // Factory registration
@@ -626,6 +665,8 @@ export interface IServiceRegistry {
 
 /**
  * Service configuration validator interface
+ *
+ * @example
  */
 export interface IServiceConfigValidator {
   validate(config: ServiceConfig): Promise<{
@@ -643,6 +684,8 @@ export interface IServiceConfigValidator {
 
 /**
  * Service error types
+ *
+ * @example
  */
 export class ServiceError extends Error {
   constructor(
@@ -718,6 +761,8 @@ export class ServiceTimeoutError extends ServiceError {
 
 /**
  * Service capability definitions
+ *
+ * @example
  */
 export interface ServiceCapability {
   name: string;
@@ -729,6 +774,8 @@ export interface ServiceCapability {
 
 /**
  * Service capability registry
+ *
+ * @example
  */
 export interface IServiceCapabilityRegistry {
   register(serviceName: string, capability: ServiceCapability): void;

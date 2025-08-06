@@ -10,6 +10,8 @@ import { BaseService } from './base-service';
 
 /**
  * Generic service that provides basic functionality
+ *
+ * @example
  */
 export class GenericService extends BaseService {
   private operations = new Map<string, Function>();
@@ -136,6 +138,9 @@ export class GenericService extends BaseService {
 
   /**
    * Register an operation handler
+   *
+   * @param name
+   * @param handler
    */
   registerOperation(
     name: string,
@@ -148,6 +153,8 @@ export class GenericService extends BaseService {
 
   /**
    * Unregister an operation handler
+   *
+   * @param name
    */
   unregisterOperation(name: string): void {
     if (this.operations.delete(name)) {
@@ -165,6 +172,8 @@ export class GenericService extends BaseService {
 
   /**
    * Check if operation is registered
+   *
+   * @param name
    */
   hasOperation(name: string): boolean {
     return this.operations.has(name);
@@ -172,6 +181,8 @@ export class GenericService extends BaseService {
 
   /**
    * Set custom health check function
+   *
+   * @param healthCheckFn
    */
   setHealthCheck(healthCheckFn: () => Promise<boolean>): void {
     this.healthCheckFn = healthCheckFn;
@@ -180,6 +191,8 @@ export class GenericService extends BaseService {
 
   /**
    * Execute multiple operations in sequence
+   *
+   * @param operations
    */
   async executeSequence(operations: Array<{ name: string; params?: any }>): Promise<any[]> {
     const results: any[] = [];
@@ -199,6 +212,8 @@ export class GenericService extends BaseService {
 
   /**
    * Execute multiple operations in parallel
+   *
+   * @param operations
    */
   async executeParallel(operations: Array<{ name: string; params?: any }>): Promise<any[]> {
     const promises = operations.map((op) => this.execute(op.name, op.params));
@@ -214,6 +229,9 @@ export class GenericService extends BaseService {
 
   /**
    * Execute operations with specific strategy
+   *
+   * @param operations
+   * @param strategy
    */
   async executeBatch(
     operations: Array<{ name: string; params?: any }>,

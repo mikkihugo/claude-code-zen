@@ -1,5 +1,5 @@
 /**
- * @fileoverview Database Management MCP Tools
+ * @file Database Management MCP Tools
  * Comprehensive MCP tools for advanced database coordination and management
  */
 

@@ -145,6 +145,8 @@ export interface SystemHealthValidation {
 
 /**
  * Comprehensive USL Validation Framework
+ *
+ * @example
  */
 export class USLValidationFramework {
   private serviceManager: ServiceManager;
@@ -402,6 +404,8 @@ export class USLValidationFramework {
 
   /**
    * Validate specific service configuration
+   *
+   * @param serviceName
    */
   async validateServiceConfig(serviceName: string): Promise<{
     valid: boolean;

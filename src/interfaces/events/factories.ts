@@ -111,6 +111,8 @@ export type EventManagerTypeMap<T extends EventManagerType> = T extends 'system'
 
 /**
  * Event manager registry for managing event manager instances
+ *
+ * @example
  */
 export interface EventManagerRegistry {
   [managerId: string]: {
@@ -125,6 +127,8 @@ export interface EventManagerRegistry {
 
 /**
  * Event manager transaction for batch operations
+ *
+ * @example
  */
 export interface EventManagerTransaction {
   id: string;
@@ -148,7 +152,7 @@ export interface EventManagerTransaction {
  * application lifecycle, startup, shutdown, and health monitoring events.
  *
  * @interface ISystemEventManager
- * @extends IEventManager
+ * @augments IEventManager
  * @example
  * ```typescript
  * const systemManager = await factory.createSystemEventManager('app-system');
@@ -175,6 +179,7 @@ export interface EventManagerTransaction {
 export interface ISystemEventManager extends IEventManager {
   /**
    * Emit a system lifecycle event
+   *
    * @param event - System lifecycle event to emit
    * @throws {EventEmissionError} If emission fails
    */
@@ -182,6 +187,7 @@ export interface ISystemEventManager extends IEventManager {
 
   /**
    * Subscribe to system lifecycle events
+   *
    * @param listener - Function to handle system events
    * @returns Subscription ID for unsubscribing
    */
@@ -189,6 +195,7 @@ export interface ISystemEventManager extends IEventManager {
 
   /**
    * Get overall system health status
+   *
    * @returns Promise resolving to health summary with any issues
    */
   getSystemHealth(): Promise<{ healthy: boolean; issues: string[] }>;
@@ -329,7 +336,6 @@ export class UELFactory {
    * @param factoryConfig - Configuration for manager creation
    * @returns Promise resolving to the created event manager
    * @throws {Error} If manager creation or validation fails
-   *
    * @example
    * ```typescript
    * const manager = await factory.createEventManager({
@@ -389,6 +395,9 @@ export class UELFactory {
 
   /**
    * Create system event manager with convenience methods
+   *
+   * @param name
+   * @param config
    */
   async createSystemEventManager(
     name: string,
@@ -404,6 +413,9 @@ export class UELFactory {
 
   /**
    * Create coordination event manager for swarm operations
+   *
+   * @param name
+   * @param config
    */
   async createCoordinationEventManager(
     name: string,
@@ -419,6 +431,9 @@ export class UELFactory {
 
   /**
    * Create communication event manager for protocol events
+   *
+   * @param name
+   * @param config
    */
   async createCommunicationEventManager(
     name: string,
@@ -434,6 +449,9 @@ export class UELFactory {
 
   /**
    * Create monitoring event manager for metrics and health
+   *
+   * @param name
+   * @param config
    */
   async createMonitoringEventManager(
     name: string,
@@ -449,6 +467,9 @@ export class UELFactory {
 
   /**
    * Create interface event manager for UI interactions
+   *
+   * @param name
+   * @param config
    */
   async createInterfaceEventManager(
     name: string,
@@ -464,6 +485,9 @@ export class UELFactory {
 
   /**
    * Create neural event manager for AI operations
+   *
+   * @param name
+   * @param config
    */
   async createNeuralEventManager(
     name: string,
@@ -479,6 +503,9 @@ export class UELFactory {
 
   /**
    * Create database event manager for DB operations
+   *
+   * @param name
+   * @param config
    */
   async createDatabaseEventManager(
     name: string,
@@ -494,6 +521,9 @@ export class UELFactory {
 
   /**
    * Create memory event manager for cache operations
+   *
+   * @param name
+   * @param config
    */
   async createMemoryEventManager(
     name: string,
@@ -508,6 +538,9 @@ export class UELFactory {
 
   /**
    * Create workflow event manager for orchestration
+   *
+   * @param name
+   * @param config
    */
   async createWorkflowEventManager(
     name: string,
@@ -523,6 +556,8 @@ export class UELFactory {
 
   /**
    * Get event manager by ID from registry
+   *
+   * @param managerId
    */
   getEventManager(managerId: string): IEventManager | null {
     return this.managerRegistry[managerId]?.manager || null;
@@ -577,7 +612,6 @@ export class UELFactory {
    * @param operations - Array of operations to execute across managers
    * @returns Promise resolving to transaction result with operation details
    * @throws {Error} If transaction setup fails
-   *
    * @example
    * ```typescript
    * const transaction = await factory.executeTransaction([
@@ -915,6 +949,8 @@ export class UELFactory {
 
 /**
  * Event manager registry implementation
+ *
+ * @example
  */
 @injectable
 export class UELRegistry implements IEventManagerRegistry {
@@ -1056,6 +1092,10 @@ export class UELRegistry implements IEventManagerRegistry {
 
 /**
  * Create a simple event manager for quick setup
+ *
+ * @param managerType
+ * @param name
+ * @param config
  */
 export async function createEventManager<T extends EventManagerType>(
   managerType: T,
@@ -1090,6 +1130,9 @@ export async function createEventManager<T extends EventManagerType>(
 
 /**
  * Create system event manager with convenience
+ *
+ * @param name
+ * @param config
  */
 export async function createSystemEventBus(
   name: string = 'default-system',
@@ -1100,6 +1143,9 @@ export async function createSystemEventBus(
 
 /**
  * Create coordination event manager with convenience
+ *
+ * @param name
+ * @param config
  */
 export async function createCoordinationEventBus(
   name: string = 'default-coordination',
@@ -1114,6 +1160,9 @@ export async function createCoordinationEventBus(
 
 /**
  * Create communication event manager with convenience
+ *
+ * @param name
+ * @param config
  */
 export async function createCommunicationEventBus(
   name: string = 'default-communication',
@@ -1128,6 +1177,9 @@ export async function createCommunicationEventBus(
 
 /**
  * Create monitoring event manager with convenience
+ *
+ * @param name
+ * @param config
  */
 export async function createMonitoringEventBus(
   name: string = 'default-monitoring',

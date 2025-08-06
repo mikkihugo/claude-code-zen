@@ -306,6 +306,8 @@ export async function customCoordinationExample(): Promise<void> {
 
 /**
  * Helper function to simulate basic swarm lifecycle
+ *
+ * @param coordinator
  */
 async function simulateSwarmLifecycle(coordinator: CoordinationEventAdapter): Promise<void> {
   console.log('\n🎭 Simulating Swarm Lifecycle...');
@@ -349,6 +351,8 @@ async function simulateSwarmLifecycle(coordinator: CoordinationEventAdapter): Pr
 
 /**
  * Helper function to simulate complex coordination workflow
+ *
+ * @param coordinator
  */
 async function simulateComplexCoordinationWorkflow(
   coordinator: CoordinationEventAdapter
@@ -406,6 +410,8 @@ async function simulateComplexCoordinationWorkflow(
 
 /**
  * Helper function to simulate research coordination
+ *
+ * @param coordinator
  */
 async function simulateResearchCoordination(coordinator: CoordinationEventAdapter): Promise<void> {
   console.log('\n🎭 Simulating Research Coordination...');

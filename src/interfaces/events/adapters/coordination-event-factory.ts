@@ -26,6 +26,8 @@ import {
  *
  * Creates and manages CoordinationEventAdapter instances for coordination-level event management.
  * Integrates with the UEL factory system to provide unified access to coordination events.
+ *
+ * @example
  */
 export class CoordinationEventManagerFactory
   implements IEventManagerFactory<CoordinationEventAdapterConfig>
@@ -42,6 +44,8 @@ export class CoordinationEventManagerFactory
 
   /**
    * Create a new CoordinationEventAdapter instance
+   *
+   * @param config
    */
   async create(config: CoordinationEventAdapterConfig): Promise<IEventManager> {
     this.logger.info(`Creating coordination event manager: ${config.name}`);
@@ -66,6 +70,8 @@ export class CoordinationEventManagerFactory
 
   /**
    * Create multiple coordination event managers
+   *
+   * @param configs
    */
   async createMultiple(configs: CoordinationEventAdapterConfig[]): Promise<IEventManager[]> {
     this.logger.info(`Creating ${configs.length} coordination event managers`);
@@ -101,6 +107,8 @@ export class CoordinationEventManagerFactory
 
   /**
    * Get existing coordination event manager by name
+   *
+   * @param name
    */
   get(name: string): IEventManager | undefined {
     return this.instances.get(name);
@@ -115,6 +123,8 @@ export class CoordinationEventManagerFactory
 
   /**
    * Check if coordination event manager exists
+   *
+   * @param name
    */
   has(name: string): boolean {
     return this.instances.has(name);
@@ -122,6 +132,8 @@ export class CoordinationEventManagerFactory
 
   /**
    * Remove coordination event manager
+   *
+   * @param name
    */
   async remove(name: string): Promise<boolean> {
     const manager = this.instances.get(name);
@@ -284,6 +296,8 @@ export class CoordinationEventManagerFactory
 
   /**
    * Validate coordination event manager configuration
+   *
+   * @param config
    */
   private validateConfig(config: CoordinationEventAdapterConfig): void {
     if (!config.name || typeof config.name !== 'string') {
@@ -336,6 +350,9 @@ export class CoordinationEventManagerFactory
 
 /**
  * Create a coordination event manager with default configuration
+ *
+ * @param name
+ * @param overrides
  */
 export async function createCoordinationEventManager(
   name: string,
@@ -349,6 +366,8 @@ export async function createCoordinationEventManager(
 
 /**
  * Create coordination event manager for swarm coordination only
+ *
+ * @param name
  */
 export async function createSwarmCoordinationEventManager(
   name: string = 'swarm-coordination-events'
@@ -396,6 +415,8 @@ export async function createSwarmCoordinationEventManager(
 
 /**
  * Create coordination event manager for agent management only
+ *
+ * @param name
  */
 export async function createAgentManagementEventManager(
   name: string = 'agent-management-events'
@@ -439,6 +460,8 @@ export async function createAgentManagementEventManager(
 
 /**
  * Create coordination event manager for task orchestration only
+ *
+ * @param name
  */
 export async function createTaskOrchestrationEventManager(
   name: string = 'task-orchestration-events'
@@ -482,6 +505,8 @@ export async function createTaskOrchestrationEventManager(
 
 /**
  * Create coordination event manager for protocol management only
+ *
+ * @param name
  */
 export async function createProtocolManagementEventManager(
   name: string = 'protocol-management-events'
@@ -517,6 +542,8 @@ export async function createProtocolManagementEventManager(
 
 /**
  * Create comprehensive coordination event manager for full coordination monitoring
+ *
+ * @param name
  */
 export async function createComprehensiveCoordinationEventManager(
   name: string = 'comprehensive-coordination-events'
@@ -609,6 +636,8 @@ export async function createComprehensiveCoordinationEventManager(
 
 /**
  * Create high-performance coordination event manager for production workloads
+ *
+ * @param name
  */
 export async function createHighPerformanceCoordinationEventManager(
   name: string = 'high-performance-coordination-events'
@@ -694,6 +723,8 @@ export async function createHighPerformanceCoordinationEventManager(
 
 /**
  * Create development coordination event manager with enhanced debugging
+ *
+ * @param name
  */
 export async function createDevelopmentCoordinationEventManager(
   name: string = 'development-coordination-events'

@@ -30,6 +30,8 @@ import {
 
 /**
  * Abstract base service class with common functionality
+ *
+ * @example
  */
 export abstract class BaseService extends EventEmitter implements IService {
   protected logger: Logger;
@@ -596,6 +598,10 @@ export abstract class BaseService extends EventEmitter implements IService {
 
   /**
    * Create a service event
+   *
+   * @param type
+   * @param data
+   * @param error
    */
   protected createEvent(type: ServiceEventType, data?: any, error?: Error): ServiceEvent {
     return {
@@ -609,6 +615,8 @@ export abstract class BaseService extends EventEmitter implements IService {
 
   /**
    * Record latency metric
+   *
+   * @param latency
    */
   protected recordLatency(latency: number): void {
     this.latencyMetrics.push(latency);
@@ -621,6 +629,8 @@ export abstract class BaseService extends EventEmitter implements IService {
 
   /**
    * Add capability to service
+   *
+   * @param capability
    */
   protected addCapability(capability: string): void {
     if (!this.capabilities.includes(capability)) {
@@ -631,6 +641,8 @@ export abstract class BaseService extends EventEmitter implements IService {
 
   /**
    * Remove capability from service
+   *
+   * @param capability
    */
   protected removeCapability(capability: string): void {
     const index = this.capabilities.indexOf(capability);
@@ -642,6 +654,10 @@ export abstract class BaseService extends EventEmitter implements IService {
 
   /**
    * Execute operation with retries
+   *
+   * @param operation
+   * @param maxRetries
+   * @param delay
    */
   protected async executeWithRetries<T>(
     operation: () => Promise<T>,

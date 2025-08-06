@@ -1,5 +1,5 @@
 /**
- * @fileoverview Facade Pattern Tests
+ * @file Facade Pattern Tests
  * Hybrid TDD approach: London TDD for service orchestration, Classical TDD for integration results
  */
 

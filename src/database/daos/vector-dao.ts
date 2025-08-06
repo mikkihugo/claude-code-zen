@@ -17,7 +17,9 @@ import type {
 
 /**
  * Vector database DAO implementation
+ *
  * @template T The entity type this DAO manages
+ * @example
  */
 export class VectorDAO<T> extends BaseDataAccessObject<T> {
   private get vectorRepository(): IVectorRepository<T> {
@@ -30,6 +32,8 @@ export class VectorDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Execute vector-specific transaction with batch processing
+   *
+   * @param operations
    */
   async executeVectorTransaction<R>(operations: TransactionOperation[]): Promise<R> {
     this.logger.debug(`Executing vector transaction with ${operations.length} operations`);
@@ -96,6 +100,14 @@ export class VectorDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Semantic search with multiple strategies
+   *
+   * @param queries
+   * @param options
+   * @param options.strategy
+   * @param options.weights
+   * @param options.limit
+   * @param options.threshold
+   * @param options.includeSimilarity
    */
   async semanticSearch(
     queries: Array<{
@@ -160,6 +172,9 @@ export class VectorDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Vector analytics and insights
+   *
+   * @param analysisType
+   * @param parameters
    */
   async vectorAnalytics(analysisType: string, parameters?: Record<string, any>): Promise<any> {
     this.logger.debug(`Executing vector analytics: ${analysisType}`, { parameters });
@@ -199,6 +214,10 @@ export class VectorDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Bulk vector operations with optimization
+   *
+   * @param vectors
+   * @param operation
+   * @param batchSize
    */
   async bulkVectorOperations(
     vectors: VectorDocument<T>[],
@@ -282,6 +301,13 @@ export class VectorDAO<T> extends BaseDataAccessObject<T> {
 
   /**
    * Vector recommendation system
+   *
+   * @param baseVectors
+   * @param options
+   * @param options.excludeIds
+   * @param options.limit
+   * @param options.diversityFactor
+   * @param options.minSimilarity
    */
   async recommend(
     baseVectors: number[][],

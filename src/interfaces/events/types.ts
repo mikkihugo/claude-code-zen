@@ -9,6 +9,8 @@ import type { EventManagerType, EventPriority, SystemEvent } from './core/interf
 
 /**
  * System Events - Core system lifecycle and health
+ *
+ * @example
  */
 export interface SystemLifecycleEvent extends SystemEvent {
   type: 'system:startup' | 'system:shutdown' | 'system:restart' | 'system:error' | 'system:health';
@@ -26,6 +28,8 @@ export interface SystemLifecycleEvent extends SystemEvent {
 
 /**
  * Coordination Events - Swarm coordination and agent management
+ *
+ * @example
  */
 export interface CoordinationEvent extends SystemEvent {
   type: 'coordination:swarm' | 'coordination:agent' | 'coordination:task' | 'coordination:topology';
@@ -52,6 +56,8 @@ export interface CoordinationEvent extends SystemEvent {
 
 /**
  * Communication Events - WebSocket, MCP, protocol communication
+ *
+ * @example
  */
 export interface CommunicationEvent extends SystemEvent {
   type:
@@ -76,6 +82,8 @@ export interface CommunicationEvent extends SystemEvent {
 
 /**
  * Monitoring Events - Metrics, health checks, performance monitoring
+ *
+ * @example
  */
 export interface MonitoringEvent extends SystemEvent {
   type: 'monitoring:metrics' | 'monitoring:health' | 'monitoring:performance' | 'monitoring:alert';
@@ -102,6 +110,8 @@ export interface MonitoringEvent extends SystemEvent {
 
 /**
  * Interface Events - CLI, web, terminal interface interactions
+ *
+ * @example
  */
 export interface InterfaceEvent extends SystemEvent {
   type: 'interface:cli' | 'interface:web' | 'interface:tui' | 'interface:api';
@@ -123,6 +133,8 @@ export interface InterfaceEvent extends SystemEvent {
 
 /**
  * Neural Events - Neural network and AI operations
+ *
+ * @example
  */
 export interface NeuralEvent extends SystemEvent {
   type: 'neural:training' | 'neural:inference' | 'neural:optimization' | 'neural:evaluation';
@@ -147,6 +159,8 @@ export interface NeuralEvent extends SystemEvent {
 
 /**
  * Database Events - Database operations and queries
+ *
+ * @example
  */
 export interface DatabaseEvent extends SystemEvent {
   type: 'database:query' | 'database:transaction' | 'database:migration' | 'database:backup';
@@ -176,6 +190,8 @@ export interface DatabaseEvent extends SystemEvent {
 
 /**
  * Memory Events - Memory operations and caching
+ *
+ * @example
  */
 export interface MemoryEvent extends SystemEvent {
   type: 'memory:cache' | 'memory:store' | 'memory:gc' | 'memory:pool';
@@ -196,6 +212,8 @@ export interface MemoryEvent extends SystemEvent {
 
 /**
  * Workflow Events - Workflow execution and orchestration
+ *
+ * @example
  */
 export interface WorkflowEvent extends SystemEvent {
   type: 'workflow:execution' | 'workflow:task' | 'workflow:condition' | 'workflow:trigger';

@@ -76,6 +76,8 @@ export type WebSocketAuthMethod = (typeof WebSocketAuthMethod)[keyof typeof WebS
 
 /**
  * WebSocket authentication configuration
+ *
+ * @example
  */
 export interface WebSocketAuthenticationConfig extends AuthenticationConfig {
   // WebSocket-specific auth methods
@@ -103,6 +105,8 @@ export interface WebSocketAuthenticationConfig extends AuthenticationConfig {
 
 /**
  * WebSocket retry configuration
+ *
+ * @example
  */
 export interface WebSocketRetryConfig extends RetryConfig {
   // Reconnection-specific settings
@@ -122,6 +126,8 @@ export interface WebSocketRetryConfig extends RetryConfig {
 
 /**
  * WebSocket heartbeat configuration
+ *
+ * @example
  */
 export interface WebSocketHeartbeatConfig {
   enabled: boolean;
@@ -133,6 +139,8 @@ export interface WebSocketHeartbeatConfig {
 
 /**
  * WebSocket message queue configuration
+ *
+ * @example
  */
 export interface WebSocketMessageQueueConfig {
   enabled: boolean;
@@ -145,6 +153,8 @@ export interface WebSocketMessageQueueConfig {
 
 /**
  * WebSocket compression configuration
+ *
+ * @example
  */
 export interface WebSocketCompressionConfig {
   enabled: boolean;
@@ -157,6 +167,8 @@ export interface WebSocketCompressionConfig {
 
 /**
  * Complete WebSocket client configuration
+ *
+ * @example
  */
 export interface WebSocketClientConfig extends ClientConfig {
   // Connection settings
@@ -216,6 +228,8 @@ export interface WebSocketClientConfig extends ClientConfig {
 
 /**
  * WebSocket request options
+ *
+ * @example
  */
 export interface WebSocketRequestOptions extends RequestOptions {
   messageType?: WebSocketMessageType;
@@ -230,6 +244,8 @@ export interface WebSocketRequestOptions extends RequestOptions {
 
 /**
  * WebSocket response
+ *
+ * @example
  */
 export interface WebSocketResponse<T = any> extends ClientResponse<T> {
   messageType: WebSocketMessageType;
@@ -242,6 +258,8 @@ export interface WebSocketResponse<T = any> extends ClientResponse<T> {
 
 /**
  * WebSocket message structure
+ *
+ * @example
  */
 export interface WebSocketMessage<T = any> {
   id?: string;
@@ -259,6 +277,8 @@ export interface WebSocketMessage<T = any> {
 
 /**
  * WebSocket connection info
+ *
+ * @example
  */
 export interface WebSocketConnectionInfo {
   id: string;
@@ -294,6 +314,8 @@ export interface WebSocketConnectionInfo {
 
 /**
  * WebSocket event types
+ *
+ * @example
  */
 export interface WebSocketEvents {
   // Connection events
@@ -333,6 +355,8 @@ export interface WebSocketEvents {
 
 /**
  * WebSocket metrics
+ *
+ * @example
  */
 export interface WebSocketMetrics {
   // Connection metrics
@@ -379,6 +403,8 @@ export interface WebSocketMetrics {
 
 /**
  * WebSocket connection pool configuration
+ *
+ * @example
  */
 export interface WebSocketPoolConfig {
   maxConnections: number;
@@ -401,6 +427,8 @@ export interface WebSocketPoolConfig {
 
 /**
  * WebSocket protocol extensions
+ *
+ * @example
  */
 export interface WebSocketExtension {
   name: string;
@@ -411,6 +439,8 @@ export interface WebSocketExtension {
 
 /**
  * WebSocket security configuration
+ *
+ * @example
  */
 export interface WebSocketSecurityConfig {
   // TLS settings
@@ -485,6 +515,11 @@ export const WebSocketUtils = {
 
   /**
    * Calculate exponential backoff delay
+   *
+   * @param attempt
+   * @param baseDelay
+   * @param maxDelay
+   * @param jitter
    */
   calculateBackoffDelay: (
     attempt: number,
@@ -504,6 +539,8 @@ export const WebSocketUtils = {
 
   /**
    * Check if URL is a valid WebSocket URL
+   *
+   * @param url
    */
   isValidWebSocketUrl: (url: string): boolean => {
     try {
@@ -516,6 +553,8 @@ export const WebSocketUtils = {
 
   /**
    * Get human-readable close code description
+   *
+   * @param code
    */
   getCloseCodeDescription: (code: number): string => {
     switch (code) {
@@ -556,6 +595,8 @@ export const WebSocketUtils = {
 
   /**
    * Get human-readable ready state description
+   *
+   * @param state
    */
   getReadyStateDescription: (state: WebSocketReadyState): string => {
     switch (state) {

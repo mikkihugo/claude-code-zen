@@ -4,7 +4,7 @@
  * Comprehensive event manager for lifecycle management, factory registration,
  * and coordinated event processing across all UEL components.
  *
- * @fileoverview Event Manager Implementation following UACL/USL patterns
+ * @file Event Manager Implementation following UACL/USL patterns
  */
 
 import type { IConfig, ILogger } from '../../core/interfaces/base-interfaces';
@@ -117,6 +117,8 @@ export interface EventManagerCreationOptions {
 
 /**
  * Connection management for event manager integration
+ *
+ * @example
  */
 export interface ConnectionManager {
   /** Active connections by type */
@@ -137,6 +139,8 @@ export interface ConnectionManager {
 
 /**
  * Event manager coordination settings
+ *
+ * @example
  */
 export interface CoordinationSettings {
   /** Enable cross-manager event routing */
@@ -162,6 +166,8 @@ export interface CoordinationSettings {
 
 /**
  * Manager statistics and metrics
+ *
+ * @example
  */
 export interface ManagerStatistics {
   /** Total managers created */
@@ -287,7 +293,6 @@ export class EventManager {
    * @param options.coordination - Coordination settings overrides
    * @param options.connection - Connection manager overrides
    * @throws {Error} If initialization fails
-   *
    * @example
    * ```typescript
    * await eventManager.initialize({
@@ -348,7 +353,6 @@ export class EventManager {
    * @param options - Configuration options for manager creation
    * @returns Promise resolving to the created event manager
    * @throws {Error} If manager creation fails
-   *
    * @example
    * ```typescript
    * const manager = await eventManager.createEventManager({
@@ -420,6 +424,9 @@ export class EventManager {
 
   /**
    * Create system event manager with UEL integration
+   *
+   * @param name
+   * @param config
    */
   async createSystemEventManager(
     name: string,
@@ -437,6 +444,9 @@ export class EventManager {
 
   /**
    * Create coordination event manager for swarm operations
+   *
+   * @param name
+   * @param config
    */
   async createCoordinationEventManager(
     name: string,
@@ -454,6 +464,9 @@ export class EventManager {
 
   /**
    * Create communication event manager for protocols
+   *
+   * @param name
+   * @param config
    */
   async createCommunicationEventManager(
     name: string,
@@ -471,6 +484,9 @@ export class EventManager {
 
   /**
    * Create monitoring event manager for metrics and health
+   *
+   * @param name
+   * @param config
    */
   async createMonitoringEventManager(
     name: string,
@@ -488,6 +504,9 @@ export class EventManager {
 
   /**
    * Create interface event manager for UI interactions
+   *
+   * @param name
+   * @param config
    */
   async createInterfaceEventManager(
     name: string,
@@ -505,6 +524,9 @@ export class EventManager {
 
   /**
    * Create neural event manager for AI operations
+   *
+   * @param name
+   * @param config
    */
   async createNeuralEventManager(
     name: string,
@@ -522,6 +544,9 @@ export class EventManager {
 
   /**
    * Create database event manager for DB operations
+   *
+   * @param name
+   * @param config
    */
   async createDatabaseEventManager(
     name: string,
@@ -539,6 +564,9 @@ export class EventManager {
 
   /**
    * Create memory event manager for cache operations
+   *
+   * @param name
+   * @param config
    */
   async createMemoryEventManager(
     name: string,
@@ -555,6 +583,9 @@ export class EventManager {
 
   /**
    * Create workflow event manager for orchestration
+   *
+   * @param name
+   * @param config
    */
   async createWorkflowEventManager(
     name: string,
@@ -572,6 +603,8 @@ export class EventManager {
 
   /**
    * Get event manager by name
+   *
+   * @param name
    */
   getEventManager(name: string): IEventManager | undefined {
     return this.activeManagers.get(name) || this.registry.findEventManager(name);
@@ -579,6 +612,8 @@ export class EventManager {
 
   /**
    * Get all event managers by type
+   *
+   * @param type
    */
   getEventManagersByType(type: EventManagerType): IEventManager[] {
     return this.registry.getEventManagersByType(type);
@@ -593,6 +628,8 @@ export class EventManager {
 
   /**
    * Remove and destroy event manager
+   *
+   * @param name
    */
   async removeEventManager(name: string): Promise<void> {
     const manager = this.activeManagers.get(name);
@@ -622,6 +659,8 @@ export class EventManager {
 
   /**
    * Restart event manager with recovery logic
+   *
+   * @param name
    */
   async restartEventManager(name: string): Promise<void> {
     const manager = this.activeManagers.get(name);
@@ -717,6 +756,11 @@ export class EventManager {
 
   /**
    * Broadcast event to all managers or specific type
+   *
+   * @param event
+   * @param options
+   * @param options.type
+   * @param options.excludeManagers
    */
   async broadcast<T extends SystemEvent>(
     event: T,
@@ -733,6 +777,9 @@ export class EventManager {
 
   /**
    * Register event manager factory
+   *
+   * @param type
+   * @param factory
    */
   registerFactory<T extends EventManagerConfig>(
     type: EventManagerType,

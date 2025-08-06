@@ -14,6 +14,8 @@ import { BaseService } from './base-service';
 
 /**
  * Data service configuration interface
+ *
+ * @example
  */
 export interface DataServiceOptions {
   enableCaching?: boolean;
@@ -27,6 +29,8 @@ export interface DataServiceOptions {
 
 /**
  * Data service implementation
+ *
+ * @example
  */
 export class DataService extends BaseService implements IService {
   private webDataService?: WebDataService;
@@ -236,6 +240,9 @@ export class DataService extends BaseService implements IService {
 
   /**
    * Get data with optional caching
+   *
+   * @param key
+   * @param useCache
    */
   private async getData(key: string, useCache: boolean = true): Promise<any> {
     if (!key) {
@@ -273,6 +280,10 @@ export class DataService extends BaseService implements IService {
 
   /**
    * Set data with optional caching
+   *
+   * @param key
+   * @param value
+   * @param ttl
    */
   private async setData(key: string, value: any, ttl?: number): Promise<boolean> {
     if (!key) {
@@ -309,6 +320,8 @@ export class DataService extends BaseService implements IService {
 
   /**
    * Delete data and remove from cache
+   *
+   * @param key
    */
   private async deleteData(key: string): Promise<boolean> {
     if (!key) {
@@ -328,6 +341,9 @@ export class DataService extends BaseService implements IService {
 
   /**
    * Validate data using registered validators
+   *
+   * @param type
+   * @param data
    */
   private async validateData(type: string, data: any): Promise<boolean> {
     const validator = this.validators.get(type);
@@ -346,6 +362,9 @@ export class DataService extends BaseService implements IService {
 
   /**
    * Process data with different processing types
+   *
+   * @param data
+   * @param processingType
    */
   private async processData(
     data: any,

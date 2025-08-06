@@ -4,7 +4,7 @@
  * Manages the complete lifecycle of all client types in the system.
  * Provides factories, health monitoring, metrics collection, and recovery.
  *
- * @fileoverview Centralized client lifecycle management
+ * @file Centralized client lifecycle management
  */
 
 import { EventEmitter } from 'node:events';
@@ -28,6 +28,8 @@ import {
 
 /**
  * Manager configuration options
+ *
+ * @example
  */
 export interface ClientManagerConfig {
   healthCheckInterval?: number;
@@ -40,6 +42,8 @@ export interface ClientManagerConfig {
 
 /**
  * Client metrics interface
+ *
+ * @example
  */
 export interface ClientMetrics {
   requests: {
@@ -76,6 +80,8 @@ export interface ClientMetrics {
 
 /**
  * HTTP Client Factory Implementation
+ *
+ * @example
  */
 class HTTPClientFactory implements ClientFactory {
   async create(config: ClientConfig): Promise<ClientInstance> {
@@ -138,6 +144,8 @@ class HTTPClientFactory implements ClientFactory {
 
 /**
  * WebSocket Client Factory Implementation
+ *
+ * @example
  */
 class WebSocketClientFactory implements ClientFactory {
   async create(config: ClientConfig): Promise<ClientInstance> {
@@ -200,6 +208,8 @@ class WebSocketClientFactory implements ClientFactory {
 
 /**
  * Knowledge (FACT) Client Factory Implementation
+ *
+ * @example
  */
 class KnowledgeClientFactory implements ClientFactory {
   async create(config: ClientConfig): Promise<ClientInstance> {
@@ -266,6 +276,8 @@ class KnowledgeClientFactory implements ClientFactory {
 
 /**
  * MCP Client Factory Implementation
+ *
+ * @example
  */
 class MCPClientFactory implements ClientFactory {
   async create(config: ClientConfig): Promise<ClientInstance> {
@@ -328,6 +340,8 @@ class MCPClientFactory implements ClientFactory {
  * - Metrics collection and analysis
  * - Configuration validation
  * - Error handling and logging
+ *
+ * @example
  */
 export class ClientManager extends EventEmitter {
   public readonly registry: ClientRegistry;
@@ -379,6 +393,8 @@ export class ClientManager extends EventEmitter {
 
   /**
    * Create and register a new client
+   *
+   * @param config
    */
   async createClient(config: ClientConfig): Promise<ClientInstance> {
     if (!this.isInitialized) {
@@ -400,6 +416,8 @@ export class ClientManager extends EventEmitter {
 
   /**
    * Connect a client by ID
+   *
+   * @param clientId
    */
   async connectClient(clientId: string): Promise<boolean> {
     const instance = this.registry.get(clientId);
@@ -454,6 +472,8 @@ export class ClientManager extends EventEmitter {
 
   /**
    * Disconnect a client by ID
+   *
+   * @param clientId
    */
   async disconnectClient(clientId: string): Promise<boolean> {
     const instance = this.registry.get(clientId);
@@ -498,6 +518,8 @@ export class ClientManager extends EventEmitter {
 
   /**
    * Remove a client completely
+   *
+   * @param clientId
    */
   async removeClient(clientId: string): Promise<boolean> {
     await this.disconnectClient(clientId);
@@ -507,6 +529,8 @@ export class ClientManager extends EventEmitter {
 
   /**
    * Get client instance by ID
+   *
+   * @param clientId
    */
   getClient(clientId: string): ClientInstance | undefined {
     return this.registry.get(clientId);
@@ -514,6 +538,8 @@ export class ClientManager extends EventEmitter {
 
   /**
    * Get all clients of a specific type
+   *
+   * @param type
    */
   getClientsByType(type: ClientType): ClientInstance[] {
     return this.registry.getByType(type);
@@ -521,6 +547,8 @@ export class ClientManager extends EventEmitter {
 
   /**
    * Get the best available client for a type
+   *
+   * @param type
    */
   getBestClient(type: ClientType): ClientInstance | undefined {
     const healthy = this.registry.getHealthy(type);
@@ -532,6 +560,8 @@ export class ClientManager extends EventEmitter {
 
   /**
    * Get client metrics
+   *
+   * @param clientId
    */
   getClientMetrics(clientId: string): ClientMetrics | undefined {
     return this.metricsStore.get(clientId);
@@ -628,6 +658,8 @@ export class ClientManager extends EventEmitter {
 
   /**
    * Schedule reconnection attempt
+   *
+   * @param clientId
    */
   private scheduleReconnect(clientId: string): void {
     // Clear any existing timer
@@ -758,6 +790,8 @@ export const globalClientManager = new ClientManager();
 export const ClientManagerHelpers = {
   /**
    * Initialize the global manager with default configuration
+   *
+   * @param config
    */
   async initialize(config?: ClientManagerConfig): Promise<void> {
     if (config) {
@@ -768,6 +802,10 @@ export const ClientManagerHelpers = {
 
   /**
    * Create HTTP client with sensible defaults
+   *
+   * @param id
+   * @param baseURL
+   * @param options
    */
   async createHTTPClient(
     id: string,
@@ -788,6 +826,10 @@ export const ClientManagerHelpers = {
 
   /**
    * Create WebSocket client with sensible defaults
+   *
+   * @param id
+   * @param url
+   * @param options
    */
   async createWebSocketClient(
     id: string,
@@ -810,6 +852,11 @@ export const ClientManagerHelpers = {
 
   /**
    * Create Knowledge client with sensible defaults
+   *
+   * @param id
+   * @param factRepoPath
+   * @param anthropicApiKey
+   * @param options
    */
   async createKnowledgeClient(
     id: string,
@@ -833,6 +880,10 @@ export const ClientManagerHelpers = {
 
   /**
    * Create MCP client with sensible defaults
+   *
+   * @param id
+   * @param servers
+   * @param options
    */
   async createMCPClient(
     id: string,

@@ -1,6 +1,7 @@
 /**
  * Hybrid TDD Setup - Comprehensive Testing Configuration
- * @fileoverview Implements the 70% London TDD / 30% Classical TDD hybrid approach
+ *
+ * @file Implements the 70% London TDD / 30% Classical TDD hybrid approach
  *
  * Domain Distribution:
  * - Coordination: London TDD (mockist) - 70%
@@ -14,6 +15,8 @@ import '@types/jest';
 
 /**
  * Hybrid TDD Configuration
+ *
+ * @example
  */
 interface HybridTDDConfig {
   domain: 'coordination' | 'interfaces' | 'neural' | 'memory' | 'hybrid';
@@ -107,6 +110,8 @@ function setupClassicalTDD() {
 
   /**
    * Neural test data configuration
+   *
+   * @example
    */
   interface NeuralTestConfig {
     /** Type of test data to generate */
@@ -119,6 +124,8 @@ function setupClassicalTDD() {
 
   /**
    * Neural test data point
+   *
+   * @example
    */
   interface NeuralTestData {
     /** Input values */
@@ -130,6 +137,7 @@ function setupClassicalTDD() {
   // Neural-specific test data generators
   /**
    * Generates test data for neural network training
+   *
    * @param config - Configuration for data generation
    * @returns Array of training data points
    */
@@ -156,6 +164,7 @@ function setupClassicalTDD() {
   // Mathematical precision helpers
   /**
    * Asserts that two numbers are nearly equal within tolerance
+   *
    * @param actual - Actual value
    * @param expected - Expected value
    * @param tolerance - Allowed difference (default: 1e-10)
@@ -232,6 +241,9 @@ function cleanupClassicalResources() {
 
 /**
  * Performance assertion helpers for hybrid testing
+ *
+ * @param operation
+ * @param actualTime
  */
 global.expectPerformanceWithinThreshold = (
   operation: 'coordination' | 'neural' | 'memory',
@@ -265,6 +277,8 @@ global.createTestContainer = () => {
 
 /**
  * SPARC methodology test utilities
+ *
+ * @param phase
  */
 global.createSPARCTestScenario = (
   phase: 'specification' | 'pseudocode' | 'architecture' | 'refinement' | 'completion'
@@ -279,6 +293,8 @@ global.createSPARCTestScenario = (
 
 /**
  * Memory test scenario configuration
+ *
+ * @example
  */
 interface MemoryTestScenario {
   /** Memory backend type */
@@ -291,6 +307,8 @@ interface MemoryTestScenario {
 
 /**
  * Test dependency injection container
+ *
+ * @example
  */
 interface TestContainer {
   /** Register a service */
@@ -303,6 +321,8 @@ interface TestContainer {
 
 /**
  * SPARC test scenario
+ *
+ * @example
  */
 interface SPARCTestScenario {
   /** SPARC phase */

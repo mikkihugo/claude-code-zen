@@ -19,6 +19,8 @@ import {
 
 /**
  * Interface for memory backend implementations
+ *
+ * @example
  */
 export interface MemoryBackend {
   /** Store a value with the given key */
@@ -37,6 +39,8 @@ export interface MemoryBackend {
 
 /**
  * Configuration interface for memory providers
+ *
+ * @example
  */
 export interface MemoryConfig {
   /** Type of memory backend to use */
@@ -54,6 +58,8 @@ export interface MemoryConfig {
 /**
  * Factory for creating memory backend providers
  * Uses dependency injection for logger, configuration, and DAL Factory
+ *
+ * @example
  */
 @Injectable()
 export class MemoryProviderFactory {
@@ -65,6 +71,7 @@ export class MemoryProviderFactory {
 
   /**
    * Create a memory provider based on configuration
+   *
    * @param config Memory configuration
    * @returns Appropriate memory backend implementation
    */
@@ -94,6 +101,8 @@ export class MemoryProviderFactory {
 
 /**
  * SQLite-based memory backend implementation using DAL Factory
+ *
+ * @example
  */
 @Injectable()
 export class SqliteMemoryBackend implements MemoryBackend {
@@ -207,6 +216,8 @@ export class SqliteMemoryBackend implements MemoryBackend {
 
 /**
  * LanceDB-based memory backend implementation using DAL Factory
+ *
+ * @example
  */
 @Injectable()
 export class LanceDBMemoryBackend implements MemoryBackend {
@@ -344,6 +355,8 @@ export class LanceDBMemoryBackend implements MemoryBackend {
 
 /**
  * JSON file-based memory backend implementation
+ *
+ * @example
  */
 @Injectable()
 export class JsonMemoryBackend implements MemoryBackend {
@@ -452,6 +465,8 @@ export class JsonMemoryBackend implements MemoryBackend {
 
 /**
  * In-memory backend implementation (fastest, no persistence)
+ *
+ * @example
  */
 @Injectable()
 export class InMemoryBackend implements MemoryBackend {

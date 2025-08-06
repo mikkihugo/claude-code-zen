@@ -7,7 +7,7 @@
  * - Helper functions and utilities
  * - Global instances and initialization
  *
- * @fileoverview Main UEL exports
+ * @file Main UEL exports
  */
 
 // UEL Event Adapters - Unified Event Adapter Integration
@@ -309,7 +309,6 @@ export class UEL {
    * @param config.enableCompatibility - Whether to enable compatibility layer (default: true)
    * @param config.healthMonitoring - Whether to enable health monitoring (default: true)
    * @throws {Error} If initialization fails
-   *
    * @example
    * ```typescript
    * await uel.initialize({
@@ -472,7 +471,6 @@ export class UEL {
    * @param config - Optional configuration overrides
    * @returns Promise resolving to the created system event manager
    * @throws {Error} If manager creation fails
-   *
    * @example
    * ```typescript
    * const systemManager = await uel.createSystemEventManager('core-system', {
@@ -502,6 +500,9 @@ export class UEL {
 
   /**
    * Create system event adapter with UEL integration
+   *
+   * @param name
+   * @param config
    */
   async createSystemEventAdapter(
     name: string,
@@ -516,6 +517,9 @@ export class UEL {
 
   /**
    * Create coordination event adapter with UEL integration
+   *
+   * @param name
+   * @param config
    */
   async createCoordinationEventAdapter(
     name: string,
@@ -529,6 +533,9 @@ export class UEL {
 
   /**
    * Create communication event adapter with UEL integration
+   *
+   * @param name
+   * @param config
    */
   async createCommunicationEventAdapter(
     name: string,
@@ -542,6 +549,9 @@ export class UEL {
 
   /**
    * Create and register coordination event manager
+   *
+   * @param name
+   * @param config
    */
   async createCoordinationEventManager(
     name: string = 'default-coordination',
@@ -555,6 +565,9 @@ export class UEL {
 
   /**
    * Create and register communication event manager
+   *
+   * @param name
+   * @param config
    */
   async createCommunicationEventManager(
     name: string = 'default-communication',
@@ -568,6 +581,9 @@ export class UEL {
 
   /**
    * Create and register monitoring event manager
+   *
+   * @param name
+   * @param config
    */
   async createMonitoringEventManager(
     name: string = 'default-monitoring',
@@ -581,6 +597,9 @@ export class UEL {
 
   /**
    * Create and register interface event manager
+   *
+   * @param name
+   * @param config
    */
   async createInterfaceEventManager(
     name: string = 'default-interface',
@@ -594,6 +613,9 @@ export class UEL {
 
   /**
    * Create and register neural event manager
+   *
+   * @param name
+   * @param config
    */
   async createNeuralEventManager(
     name: string = 'default-neural',
@@ -607,6 +629,9 @@ export class UEL {
 
   /**
    * Create and register database event manager
+   *
+   * @param name
+   * @param config
    */
   async createDatabaseEventManager(
     name: string = 'default-database',
@@ -620,6 +645,9 @@ export class UEL {
 
   /**
    * Create and register memory event manager
+   *
+   * @param name
+   * @param config
    */
   async createMemoryEventManager(
     name: string = 'default-memory',
@@ -633,6 +661,9 @@ export class UEL {
 
   /**
    * Create and register workflow event manager
+   *
+   * @param name
+   * @param config
    */
   async createWorkflowEventManager(
     name: string = 'default-workflow',
@@ -646,6 +677,8 @@ export class UEL {
 
   /**
    * Get event manager by name
+   *
+   * @param name
    */
   getEventManager(name: string): IEventManager | null {
     if (!this.factory) return null;
@@ -654,6 +687,8 @@ export class UEL {
 
   /**
    * Get all event managers by type
+   *
+   * @param type
    */
   getEventManagersByType(type: EventManagerType): IEventManager[] {
     if (!this.registry) return [];
@@ -757,6 +792,11 @@ export class UEL {
 
   /**
    * Perform comprehensive validation of the entire UEL system
+   *
+   * @param options
+   * @param options.includeHealthCheck
+   * @param options.includeIntegrationCheck
+   * @param options.sampleEvents
    */
   async validateSystem(options?: {
     includeHealthCheck?: boolean;
@@ -776,6 +816,12 @@ export class UEL {
 
   /**
    * Create backward-compatible EventEmitter with UEL integration
+   *
+   * @param name
+   * @param type
+   * @param options
+   * @param options.enableUEL
+   * @param options.migrationMode
    */
   async createCompatibleEventEmitter(
     name: string,
@@ -794,6 +840,12 @@ export class UEL {
 
   /**
    * Create enhanced event bus with UEL integration
+   *
+   * @param options
+   * @param options.enableUEL
+   * @param options.managerType
+   * @param options.managerName
+   * @param options.maxListeners
    */
   async createEnhancedEventBus(options?: {
     enableUEL?: boolean;
@@ -818,6 +870,13 @@ export class UEL {
 
   /**
    * Create enhanced application coordinator with UEL integration
+   *
+   * @param options
+   * @param options.enableUEL
+   * @param options.uelConfig
+   * @param options.uelConfig.enableValidation
+   * @param options.uelConfig.enableCompatibility
+   * @param options.uelConfig.healthMonitoring
    */
   async createEnhancedApplicationCoordinator(options?: {
     enableUEL?: boolean;
@@ -842,6 +901,9 @@ export class UEL {
 
   /**
    * Create enhanced observer system with UEL integration
+   *
+   * @param options
+   * @param options.enableUEL
    */
   async createEnhancedObserverSystem(options?: {
     enableUEL?: boolean;
@@ -873,6 +935,10 @@ export class UEL {
 
   /**
    * Enhance existing EventEmitter with UEL capabilities
+   *
+   * @param originalInstance
+   * @param name
+   * @param managerType
    */
   async enhanceExistingSystem<T>(
     originalInstance: T,
@@ -895,6 +961,10 @@ export class UEL {
 
   /**
    * Migrate existing EventEmitter to UEL
+   *
+   * @param emitter
+   * @param name
+   * @param type
    */
   async migrateEventEmitter(
     emitter: any, // EventEmitter
@@ -910,6 +980,9 @@ export class UEL {
 
   /**
    * Register event type for validation
+   *
+   * @param eventType
+   * @param schema
    */
   registerEventTypeSchema(eventType: string, schema: any): void {
     if (this.validationFramework) {
@@ -927,6 +1000,8 @@ export class UEL {
 
   /**
    * Broadcast event to all event managers
+   *
+   * @param event
    */
   async broadcast<T extends SystemEvent>(event: T): Promise<void> {
     if (!this.registry) {
@@ -937,6 +1012,9 @@ export class UEL {
 
   /**
    * Broadcast event to specific event manager type
+   *
+   * @param type
+   * @param event
    */
   async broadcastToType<T extends SystemEvent>(type: EventManagerType, event: T): Promise<void> {
     if (!this.registry) {
@@ -1036,6 +1114,8 @@ export const uel = UEL.getInstance();
 
 /**
  * Initialize UEL with default configuration
+ *
+ * @param config
  */
 export const initializeUEL = async (config?: Parameters<UEL['initialize']>[0]): Promise<void> => {
   await uel.initialize(config);
@@ -1047,6 +1127,13 @@ export const initializeUEL = async (config?: Parameters<UEL['initialize']>[0]): 
 export const UELHelpers = {
   /**
    * Initialize complete UEL system with all components
+   *
+   * @param config
+   * @param config.enableValidation
+   * @param config.enableCompatibility
+   * @param config.healthMonitoring
+   * @param config.autoRegisterFactories
+   * @param config.logger
    */
   async initializeCompleteSystem(
     config: {
@@ -1070,6 +1157,15 @@ export const UELHelpers = {
 
   /**
    * Initialize and create common event managers for a typical setup
+   *
+   * @param config
+   * @param config.systemEvents
+   * @param config.coordinationEvents
+   * @param config.communicationEvents
+   * @param config.monitoringEvents
+   * @param config.interfaceEvents
+   * @param config.customConfig
+   * @param config.useIntegratedManager
    */
   async setupCommonEventManagers(
     config: {
@@ -1168,6 +1264,8 @@ export const UELHelpers = {
 
   /**
    * Migrate existing observer system to UEL
+   *
+   * @param observerSystem
    */
   async migrateObserverSystem(observerSystem: any): Promise<{
     success: boolean;
@@ -1287,6 +1385,11 @@ export const UELHelpers = {
 
   /**
    * Migrate entire system to UEL with enhanced capabilities
+   *
+   * @param systems
+   * @param systems.eventBus
+   * @param systems.applicationCoordinator
+   * @param systems.observerSystem
    */
   async migrateSystemToUEL(systems: {
     eventBus?: any;
@@ -1398,6 +1501,21 @@ export const UELHelpers = {
 
   /**
    * Create comprehensive UEL system setup
+   *
+   * @param options
+   * @param options.systemComponents
+   * @param options.systemComponents.eventBus
+   * @param options.systemComponents.applicationCoordinator
+   * @param options.systemComponents.observerSystem
+   * @param options.eventManagers
+   * @param options.eventManagers.system
+   * @param options.eventManagers.coordination
+   * @param options.eventManagers.communication
+   * @param options.eventManagers.monitoring
+   * @param options.eventManagers.interface
+   * @param options.validation
+   * @param options.compatibility
+   * @param options.healthMonitoring
    */
   async setupCompleteUELSystem(options?: {
     systemComponents?: {
@@ -1571,6 +1689,12 @@ export const UELHelpers = {
 
   /**
    * Perform comprehensive system validation
+   *
+   * @param options
+   * @param options.includeHealthCheck
+   * @param options.includeIntegrationCheck
+   * @param options.includeSampleEvents
+   * @param options.exportReport
    */
   async performCompleteValidation(options?: {
     includeHealthCheck?: boolean;

@@ -53,6 +53,8 @@ import type {
 
 /**
  * Coordination service adapter configuration extending USL CoordinationServiceConfig
+ *
+ * @example
  */
 export interface CoordinationServiceAdapterConfig extends CoordinationServiceConfig {
   /** DaaService integration settings */
@@ -128,6 +130,8 @@ export interface CoordinationServiceAdapterConfig extends CoordinationServiceCon
 
 /**
  * Coordination operation metrics for performance monitoring
+ *
+ * @example
  */
 interface CoordinationOperationMetrics {
   operationName: string;
@@ -143,6 +147,8 @@ interface CoordinationOperationMetrics {
 
 /**
  * Agent performance tracking
+ *
+ * @example
  */
 interface AgentPerformanceMetrics {
   agentId: string;
@@ -156,6 +162,8 @@ interface AgentPerformanceMetrics {
 
 /**
  * Session performance tracking
+ *
+ * @example
  */
 interface SessionPerformanceMetrics {
   sessionId: string;
@@ -168,6 +176,8 @@ interface SessionPerformanceMetrics {
 
 /**
  * Cache entry structure for coordination caching
+ *
+ * @example
  */
 interface CacheEntry<T = any> {
   data: T;
@@ -179,6 +189,8 @@ interface CacheEntry<T = any> {
 
 /**
  * Request deduplication entry
+ *
+ * @example
  */
 interface PendingRequest<T = any> {
   promise: Promise<T>;
@@ -203,6 +215,8 @@ interface PendingRequest<T = any> {
  * - Agent lifecycle management
  * - Session state management
  * - Learning and adaptation tracking
+ *
+ * @example
  */
 export class CoordinationServiceAdapter implements IService {
   // Core service properties
@@ -330,6 +344,8 @@ export class CoordinationServiceAdapter implements IService {
 
   /**
    * Initialize the coordination service adapter and its dependencies
+   *
+   * @param config
    */
   async initialize(config?: Partial<CoordinationServiceAdapterConfig>): Promise<void> {
     this.logger.info(`Initializing coordination service adapter: ${this.name}`);
@@ -739,6 +755,8 @@ export class CoordinationServiceAdapter implements IService {
 
   /**
    * Update service configuration
+   *
+   * @param config
    */
   async updateConfig(config: Partial<CoordinationServiceAdapterConfig>): Promise<void> {
     this.logger.info(`Updating configuration for coordination service adapter: ${this.name}`);
@@ -763,6 +781,8 @@ export class CoordinationServiceAdapter implements IService {
 
   /**
    * Validate service configuration
+   *
+   * @param config
    */
   async validateConfig(config: CoordinationServiceAdapterConfig): Promise<boolean> {
     try {
@@ -899,6 +919,10 @@ export class CoordinationServiceAdapter implements IService {
 
   /**
    * Execute service operations with unified interface
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   async execute<T = any>(
     operation: string,
@@ -1069,6 +1093,10 @@ export class CoordinationServiceAdapter implements IService {
 
   /**
    * Internal operation execution with caching, deduplication, and retry logic
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   private async executeOperationInternal<T = any>(
     operation: string,
@@ -1135,6 +1163,11 @@ export class CoordinationServiceAdapter implements IService {
 
   /**
    * Execute operation with retry logic
+   *
+   * @param operation
+   * @param params
+   * @param options
+   * @param attempt
    */
   private async executeWithRetry<T = any>(
     operation: string,
@@ -1173,6 +1206,10 @@ export class CoordinationServiceAdapter implements IService {
 
   /**
    * Perform the actual operation based on operation type
+   *
+   * @param operation
+   * @param params
+   * @param options
    */
   private async performOperation<T = any>(
     operation: string,
@@ -1882,6 +1919,8 @@ export class CoordinationServiceAdapter implements IService {
 
 /**
  * Factory function for creating CoordinationServiceAdapter instances
+ *
+ * @param config
  */
 export function createCoordinationServiceAdapter(
   config: CoordinationServiceAdapterConfig
@@ -1891,6 +1930,9 @@ export function createCoordinationServiceAdapter(
 
 /**
  * Helper function for creating default configuration
+ *
+ * @param name
+ * @param overrides
  */
 export function createDefaultCoordinationServiceAdapterConfig(
   name: string,

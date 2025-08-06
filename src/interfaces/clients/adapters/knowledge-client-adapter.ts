@@ -40,6 +40,8 @@ import { ClientErrorCodes, ClientStatuses, ClientTypes, ProtocolTypes } from '..
 
 /**
  * Extended client configuration for Knowledge clients
+ *
+ * @example
  */
 export interface KnowledgeClientConfig extends ClientConfig {
   provider: 'fact' | 'custom';
@@ -69,6 +71,8 @@ export interface KnowledgeClientConfig extends ClientConfig {
 
 /**
  * Knowledge query request type
+ *
+ * @example
  */
 export interface KnowledgeRequest {
   query: string;
@@ -80,6 +84,8 @@ export interface KnowledgeRequest {
 
 /**
  * Knowledge query response type
+ *
+ * @example
  */
 export interface KnowledgeResponse {
   response: string;
@@ -100,6 +106,8 @@ export interface KnowledgeResponse {
 /**
  * UACL Knowledge Client Adapter
  * Wraps the existing FACTIntegration with standardized UACL interface
+ *
+ * @example
  */
 export class KnowledgeClientAdapter
   extends EventEmitter
@@ -186,6 +194,8 @@ export class KnowledgeClientAdapter
 
   /**
    * Send knowledge query and receive response
+   *
+   * @param data
    */
   async send<R = KnowledgeResponse>(data: KnowledgeRequest): Promise<R> {
     if (!this._connected) {
@@ -295,6 +305,9 @@ export class KnowledgeClientAdapter
 
   /**
    * Query knowledge base
+   *
+   * @param query
+   * @param options
    */
   async query<R = KnowledgeResponse>(query: string, options?: KnowledgeQueryOptions): Promise<R> {
     const request: KnowledgeRequest = {
@@ -310,6 +323,9 @@ export class KnowledgeClientAdapter
 
   /**
    * Search knowledge entries
+   *
+   * @param searchTerm
+   * @param options
    */
   async search<R = KnowledgeResponse>(
     searchTerm: string,
@@ -329,6 +345,8 @@ export class KnowledgeClientAdapter
 
   /**
    * Get knowledge entry by ID
+   *
+   * @param id
    */
   async getEntry<R = KnowledgeResponse>(id: string): Promise<R | null> {
     try {
@@ -348,6 +366,8 @@ export class KnowledgeClientAdapter
 
   /**
    * Add knowledge entry
+   *
+   * @param data
    */
   async addEntry(data: KnowledgeRequest): Promise<string> {
     const request: KnowledgeRequest = {
@@ -363,6 +383,9 @@ export class KnowledgeClientAdapter
 
   /**
    * Update knowledge entry
+   *
+   * @param id
+   * @param data
    */
   async updateEntry(id: string, data: Partial<KnowledgeRequest>): Promise<boolean> {
     try {
@@ -382,6 +405,8 @@ export class KnowledgeClientAdapter
 
   /**
    * Delete knowledge entry
+   *
+   * @param id
    */
   async deleteEntry(id: string): Promise<boolean> {
     try {
@@ -420,6 +445,9 @@ export class KnowledgeClientAdapter
 
   /**
    * Execute semantic search
+   *
+   * @param query
+   * @param options
    */
   async semanticSearch<R = KnowledgeResponse>(
     query: string,
@@ -441,6 +469,8 @@ export class KnowledgeClientAdapter
 
   /**
    * Convert UACL config to FACT config
+   *
+   * @param config
    */
   private convertToFACTConfig(config: KnowledgeClientConfig): FACTConfig {
     return {
@@ -499,6 +529,9 @@ export class KnowledgeClientAdapter
 
   /**
    * Update metrics after request
+   *
+   * @param responseTime
+   * @param success
    */
   private updateMetrics(responseTime: number, success: boolean): void {
     if (success) {
@@ -516,6 +549,8 @@ export class KnowledgeClientAdapter
 
   /**
    * Calculate confidence score from FACT result
+   *
+   * @param result
    */
   private calculateConfidence(result: FACTResult): number {
     // Simple confidence calculation based on cache hit and tools used
@@ -530,6 +565,8 @@ export class KnowledgeClientAdapter
 
   /**
    * Extract sources from FACT result
+   *
+   * @param result
    */
   private extractSources(
     result: FACTResult
@@ -546,6 +583,8 @@ export class KnowledgeClientAdapter
 /**
  * Knowledge Client Factory
  * Creates and manages Knowledge client instances
+ *
+ * @example
  */
 export class KnowledgeClientFactory implements IClientFactory {
   constructor(
@@ -555,6 +594,9 @@ export class KnowledgeClientFactory implements IClientFactory {
 
   /**
    * Create a Knowledge client instance
+   *
+   * @param protocol
+   * @param config
    */
   async create(protocol: ProtocolType, config: ClientConfig): Promise<IClient> {
     this.logger?.info(`Creating Knowledge client with protocol: ${protocol}`);
@@ -580,6 +622,8 @@ export class KnowledgeClientFactory implements IClientFactory {
 
   /**
    * Check if factory supports a protocol
+   *
+   * @param protocol
    */
   supports(protocol: ProtocolType): boolean {
     return [ProtocolTypes.HTTP, ProtocolTypes.HTTPS, ProtocolTypes.CUSTOM].includes(protocol);
@@ -594,6 +638,9 @@ export class KnowledgeClientFactory implements IClientFactory {
 
   /**
    * Validate configuration for a protocol
+   *
+   * @param protocol
+   * @param config
    */
   validateConfig(protocol: ProtocolType, config: ClientConfig): boolean {
     if (!this.supports(protocol)) {
@@ -627,6 +674,10 @@ export class KnowledgeClientFactory implements IClientFactory {
 
 /**
  * Create a Knowledge client with FACT provider
+ *
+ * @param factRepoPath
+ * @param anthropicApiKey
+ * @param options
  */
 export async function createFACTClient(
   factRepoPath: string,
@@ -665,6 +716,9 @@ export async function createFACTClient(
 
 /**
  * Create a Knowledge client with custom provider
+ *
+ * @param url
+ * @param options
  */
 export async function createCustomKnowledgeClient(
   url: string,
@@ -693,6 +747,10 @@ export async function createCustomKnowledgeClient(
 export const KnowledgeHelpers = {
   /**
    * Get documentation for a framework
+   *
+   * @param client
+   * @param framework
+   * @param version
    */
   async getDocumentation(
     client: KnowledgeClientAdapter,
@@ -710,6 +768,10 @@ export const KnowledgeHelpers = {
 
   /**
    * Search for API reference
+   *
+   * @param client
+   * @param api
+   * @param endpoint
    */
   async getAPIReference(
     client: KnowledgeClientAdapter,
@@ -728,6 +790,10 @@ export const KnowledgeHelpers = {
 
   /**
    * Search community knowledge
+   *
+   * @param client
+   * @param topic
+   * @param tags
    */
   async searchCommunity(
     client: KnowledgeClientAdapter,

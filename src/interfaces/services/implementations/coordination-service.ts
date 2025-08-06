@@ -11,6 +11,8 @@ import { BaseService } from './base-service';
 
 /**
  * Coordination service implementation
+ *
+ * @example
  */
 export class CoordinationService extends BaseService implements IService {
   private agents = new Map<string, any>();

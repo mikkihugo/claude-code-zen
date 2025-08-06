@@ -57,6 +57,9 @@ interface SystemComponent {
 export class ArchitecturePhaseEngine implements ArchitectureEngine {
   /**
    * Design system architecture from specification and pseudocode
+   *
+   * @param spec
+   * @param pseudocode
    */
   async designSystemArchitecture(
     spec: DetailedSpecification,
@@ -78,6 +81,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Convert SystemComponent to Component
+   *
+   * @param systemComponent
    */
   private convertToComponent(systemComponent: SystemComponent): Component {
     return {
@@ -96,6 +101,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Design system architecture from pseudocode structure (internal method)
+   *
+   * @param pseudocode
    */
   private async designArchitecture(pseudocode: PseudocodeStructure): Promise<ArchitectureDesign> {
     const systemComponents = await this.identifySystemComponents(pseudocode);
@@ -139,6 +146,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Identify system components from algorithms and data structures
+   *
+   * @param pseudocode
    */
   private async identifySystemComponents(
     pseudocode: PseudocodeStructure
@@ -165,6 +174,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Create component from algorithm specification
+   *
+   * @param algorithm
    */
   private async createComponentFromAlgorithm(algorithm: any): Promise<SystemComponent> {
     return {
@@ -190,6 +201,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Create component from data structure specification
+   *
+   * @param dataStructure
    */
   private async createComponentFromDataStructure(dataStructure: any): Promise<SystemComponent> {
     return {
@@ -217,6 +230,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Create infrastructure components
+   *
+   * @param _pseudocode
    */
   private async createInfrastructureComponents(
     _pseudocode: PseudocodeStructure
@@ -284,6 +299,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Define relationships between components
+   *
+   * @param components
    */
   private async defineComponentRelationships(
     components: SystemComponent[]
@@ -337,6 +354,9 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Select appropriate architecture patterns
+   *
+   * @param _pseudocode
+   * @param components
    */
   private async selectArchitecturePatterns(
     _pseudocode: PseudocodeStructure,
@@ -396,6 +416,9 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Define data flows between components
+   *
+   * @param components
+   * @param relationships
    */
   private async defineDataFlows(
     components: SystemComponent[],
@@ -426,6 +449,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Define component interfaces
+   *
+   * @param components
    */
   private async defineComponentInterfaces(
     components: SystemComponent[]
@@ -447,6 +472,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Define quality attributes
+   *
+   * @param _pseudocode
    */
   private async defineQualityAttributes(
     _pseudocode: PseudocodeStructure
@@ -958,6 +985,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Extract performance requirements (simplified)
+   *
+   * @param _pseudocode
    */
   private async extractPerformanceRequirements(_pseudocode: PseudocodeStructure): Promise<any[]> {
     // Simplified implementation - return empty array for now
@@ -1017,6 +1046,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Generate component diagrams from system architecture
+   *
+   * @param architecture
    */
   async generateComponentDiagrams(architecture: SystemArchitecture): Promise<ComponentDiagram[]> {
     // Component diagrams are represented as component arrays
@@ -1025,6 +1056,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Design data flow from components
+   *
+   * @param components
    */
   async designDataFlow(components: Component[]): Promise<DataFlowDiagram> {
     const dataFlows: DataFlowConnection[] = [];
@@ -1053,6 +1086,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Plan deployment architecture for system
+   *
+   * @param system
    */
   async planDeploymentArchitecture(system: SystemArchitecture): Promise<DeploymentPlan> {
     const deploymentUnits: DeploymentUnit[] = [];
@@ -1124,6 +1159,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Validate architectural consistency
+   *
+   * @param architecture
    */
   async validateArchitecturalConsistency(
     architecture: SystemArchitecture
@@ -1169,6 +1206,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Generate implementation plan from architecture design
+   *
+   * @param architecture
    */
   async generateImplementationPlan(architecture: ArchitectureDesign): Promise<ImplementationPlan> {
     const tasks: ImplementationTask[] = [];
@@ -1222,6 +1261,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Validate architecture design
+   *
+   * @param architecture
    */
   async validateArchitecture(architecture: ArchitectureDesign): Promise<ValidationResult[]> {
     const validationResults: ValidationResult[] = [];
@@ -1278,6 +1319,8 @@ export class ArchitecturePhaseEngine implements ArchitectureEngine {
 
   /**
    * Generate architecture recommendations
+   *
+   * @param validationResults
    */
   private generateArchitectureRecommendations(validationResults: ValidationResult[]): string[] {
     const recommendations: string[] = [];

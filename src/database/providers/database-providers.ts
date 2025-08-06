@@ -1,15 +1,13 @@
 /**
  * Database Domain Dependency Injection Providers
  *
- * @fileoverview Implements comprehensive database adapter providers with dependency injection
+ * @file Implements comprehensive database adapter providers with dependency injection
  * patterns for multi-database support. This module provides concrete implementations for
  * PostgreSQL, SQLite, MySQL, Kuzu (graph), and LanceDB (vector) databases with unified
  * interfaces, connection pooling, transaction management, and specialized operations.
- *
  * @author Claude-Zen DAL Team
  * @version 2.0.0
  * @since 1.0.0
- *
  * @example Basic Database Provider Usage
  * ```typescript
  * import { DatabaseProviderFactory, DatabaseConfig } from './database-providers';
@@ -26,7 +24,6 @@
  * await pgAdapter.connect();
  * const result = await pgAdapter.query('SELECT * FROM users WHERE active = $1', [true]);
  * ```
- *
  * @example Specialized Database Operations
  * ```typescript
  * // Graph database operations
@@ -83,7 +80,6 @@ export { DatabaseAdapter } from '../../core/interfaces/base-interfaces';
  *
  * @interface GraphResult
  * @since 1.0.0
- *
  * @example Graph Query Result Processing
  * ```typescript
  * const result: GraphResult = await graphAdapter.queryGraph(
@@ -132,7 +128,6 @@ export interface GraphResult {
  *
  * @interface VectorResult
  * @since 1.0.0
- *
  * @example Vector Search Result Processing
  * ```typescript
  * const queryEmbedding = [0.1, 0.2, 0.3, ...]; // 1536-dimensional vector
@@ -173,7 +168,6 @@ export interface VectorResult {
  *
  * @interface VectorData
  * @since 1.0.0
- *
  * @example Creating Vector Data for Documents
  * ```typescript
  * const documentVectors: VectorData[] = [
@@ -204,7 +198,6 @@ export interface VectorResult {
  * // Batch insert vectors
  * await vectorAdapter.addVectors(documentVectors);
  * ```
- *
  * @example Vector Data for Image Features
  * ```typescript
  * const imageVector: VectorData = {
@@ -239,7 +232,6 @@ export interface VectorData {
  *
  * @interface IndexConfig
  * @since 1.0.0
- *
  * @example High-Performance HNSW Index
  * ```typescript
  * const hnnswIndex: IndexConfig = {
@@ -256,7 +248,6 @@ export interface VectorData {
  *
  * await vectorAdapter.createIndex(hnnswIndex);
  * ```
- *
  * @example IVF-PQ Index for Large Datasets
  * ```typescript
  * const ivfIndex: IndexConfig = {
@@ -291,9 +282,8 @@ export interface IndexConfig {
  * Designed for Kuzu and other graph databases supporting Cypher-like query languages.
  *
  * @interface GraphDatabaseAdapter
- * @extends DatabaseAdapter
+ * @augments DatabaseAdapter
  * @since 1.0.0
- *
  * @example Graph Database Operations
  * ```typescript
  * const graphAdapter: GraphDatabaseAdapter = factory.createGraphAdapter({
@@ -333,9 +323,8 @@ export interface GraphDatabaseAdapter extends DatabaseAdapter {
  * vector databases optimized for machine learning workloads.
  *
  * @interface VectorDatabaseAdapter
- * @extends DatabaseAdapter
+ * @augments DatabaseAdapter
  * @since 1.0.0
- *
  * @example Vector Database Operations
  * ```typescript
  * const vectorAdapter: VectorDatabaseAdapter = factory.createVectorAdapter({
@@ -390,7 +379,6 @@ export interface VectorDatabaseAdapter extends DatabaseAdapter {
  *
  * @interface DatabaseConfig
  * @since 1.0.0
- *
  * @example PostgreSQL Production Configuration
  * ```typescript
  * const pgConfig: DatabaseConfig = {
@@ -420,7 +408,6 @@ export interface VectorDatabaseAdapter extends DatabaseAdapter {
  *   }
  * };
  * ```
- *
  * @example Vector Database Configuration
  * ```typescript
  * const lanceConfig: DatabaseConfig = {
@@ -439,7 +426,6 @@ export interface VectorDatabaseAdapter extends DatabaseAdapter {
  *   }
  * };
  * ```
- *
  * @example Development SQLite Configuration
  * ```typescript
  * const devConfig: DatabaseConfig = {
@@ -509,7 +495,6 @@ export interface DatabaseConfig {
  * @class DatabaseProviderFactory
  * @injectable
  * @since 1.0.0
- *
  * @example Factory Initialization and Usage
  * ```typescript
  * import { DatabaseProviderFactory } from './database-providers';
@@ -552,11 +537,9 @@ export class DatabaseProviderFactory {
    *
    * @param {DatabaseConfig} config - Database configuration specifying type and connection parameters
    * @returns {DatabaseAdapter} A configured database adapter instance
-   *
    * @throws {Error} When unsupported database type is specified
    * @throws {Error} When adapter creation fails due to invalid configuration
    * @throws {Error} When required dependencies are missing
-   *
    * @example Creating PostgreSQL Adapter
    * ```typescript
    * const pgAdapter = factory.createAdapter({
@@ -576,7 +559,6 @@ export class DatabaseProviderFactory {
    * await pgAdapter.connect();
    * const users = await pgAdapter.query('SELECT * FROM users WHERE active = $1', [true]);
    * ```
-   *
    * @example Creating SQLite Adapter for Development
    * ```typescript
    * const devAdapter = factory.createAdapter({
@@ -590,7 +572,6 @@ export class DatabaseProviderFactory {
    *   }
    * });
    * ```
-   *
    * @example Creating Kuzu Graph Adapter
    * ```typescript
    * const graphAdapter = factory.createAdapter({
@@ -637,10 +618,8 @@ export class DatabaseProviderFactory {
    *
    * @param {DatabaseConfig & { type: 'kuzu' }} config - Kuzu-specific database configuration
    * @returns {GraphDatabaseAdapter} A configured graph database adapter with specialized operations
-   *
    * @throws {Error} When Kuzu configuration is invalid
    * @throws {Error} When graph database initialization fails
-   *
    * @example Social Network Graph Adapter
    * ```typescript
    * const socialGraphAdapter = factory.createGraphAdapter({
@@ -672,7 +651,6 @@ export class DatabaseProviderFactory {
    *
    * console.log(`Graph contains ${nodeCount} users and ${relationshipCount} relationships`);
    * ```
-   *
    * @example Knowledge Graph Adapter
    * ```typescript
    * const knowledgeAdapter = factory.createGraphAdapter({
@@ -706,11 +684,9 @@ export class DatabaseProviderFactory {
    *
    * @param {DatabaseConfig & { type: 'lancedb' }} config - LanceDB-specific database configuration
    * @returns {VectorDatabaseAdapter} A configured vector database adapter with specialized operations
-   *
    * @throws {Error} When LanceDB configuration is invalid
    * @throws {Error} When vector database initialization fails
    * @throws {Error} When vector dimensions are invalid
-   *
    * @example Document Embedding Vector Adapter
    * ```typescript
    * const documentVectorAdapter = factory.createVectorAdapter({
@@ -760,7 +736,6 @@ export class DatabaseProviderFactory {
    *   10 // top 10 results
    * );
    * ```
-   *
    * @example Image Feature Vector Adapter
    * ```typescript
    * const imageVectorAdapter = factory.createVectorAdapter({
@@ -791,6 +766,8 @@ export class DatabaseProviderFactory {
 
 /**
  * PostgreSQL database adapter implementation
+ *
+ * @example
  */
 @injectable
 export class PostgreSQLAdapter implements DatabaseAdapter {
@@ -880,6 +857,9 @@ export class PostgreSQLAdapter implements DatabaseAdapter {
 
   /**
    * Enhanced query method with union type return for safe property access
+   *
+   * @param sql
+   * @param params
    */
   async queryWithResult<T = any>(sql: string, params?: any[]): Promise<DatabaseResult<T>> {
     this.logger.debug(`Executing PostgreSQL query with result: ${sql}`);
@@ -1066,6 +1046,8 @@ export class PostgreSQLAdapter implements DatabaseAdapter {
 
 /**
  * SQLite database adapter implementation
+ *
+ * @example
  */
 @injectable
 export class SQLiteAdapter implements DatabaseAdapter {
@@ -1288,6 +1270,8 @@ export class SQLiteAdapter implements DatabaseAdapter {
 
 /**
  * Kuzu graph database adapter implementation
+ *
+ * @example
  */
 @injectable
 export class KuzuAdapter implements GraphDatabaseAdapter {
@@ -1571,6 +1555,8 @@ export class KuzuAdapter implements GraphDatabaseAdapter {
 
 /**
  * LanceDB vector database adapter implementation
+ *
+ * @example
  */
 @injectable
 export class LanceDBAdapter implements VectorDatabaseAdapter {
@@ -1950,6 +1936,8 @@ export class LanceDBAdapter implements VectorDatabaseAdapter {
 
 /**
  * MySQL database adapter implementation
+ *
+ * @example
  */
 @injectable
 export class MySQLAdapter implements DatabaseAdapter {

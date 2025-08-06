@@ -11,6 +11,8 @@ import { BaseService } from './base-service';
 
 /**
  * Web service implementation
+ *
+ * @example
  */
 export class WebService extends BaseService implements IService {
   private server?: any; // Would be Express server in real implementation

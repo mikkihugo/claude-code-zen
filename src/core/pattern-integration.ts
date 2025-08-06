@@ -1,5 +1,5 @@
 /**
- * @fileoverview Pattern Integration Layer
+ * @file Pattern Integration Layer
  * Integrates all design patterns with existing swarm coordination system
  */
 

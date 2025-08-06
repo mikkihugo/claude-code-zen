@@ -21,6 +21,8 @@ import type {
 
 /**
  * Integration operation result type
+ *
+ * @example
  */
 export interface IntegrationOperationResult<T = any> {
   success: boolean;
@@ -41,6 +43,8 @@ export interface IntegrationOperationResult<T = any> {
 
 /**
  * Batch integration operation configuration
+ *
+ * @example
  */
 export interface BatchIntegrationConfig {
   /** Maximum number of operations to run concurrently */
@@ -57,6 +61,8 @@ export interface BatchIntegrationConfig {
 
 /**
  * Architecture operation configuration
+ *
+ * @example
  */
 export interface ArchitectureOperationConfig {
   /** Whether to enable versioning for the operation */
@@ -73,6 +79,8 @@ export interface ArchitectureOperationConfig {
 
 /**
  * API operation configuration
+ *
+ * @example
  */
 export interface APIOperationConfig {
   /** Request timeout in milliseconds */
@@ -94,6 +102,8 @@ export interface APIOperationConfig {
 
 /**
  * Protocol operation configuration
+ *
+ * @example
  */
 export interface ProtocolOperationConfig {
   /** Protocol to use for the operation */
@@ -117,6 +127,8 @@ export interface ProtocolOperationConfig {
  *
  * Provides high-level helper methods for common integration operations
  * across Architecture Storage, Safe API, and Protocol Management.
+ *
+ * @example
  */
 export class IntegrationServiceHelper {
   private logger: Logger;
@@ -131,6 +143,9 @@ export class IntegrationServiceHelper {
 
   /**
    * Save architecture with enhanced options
+   *
+   * @param architecture
+   * @param config
    */
   async saveArchitectureEnhanced(
     architecture: ArchitectureDesign,
@@ -179,6 +194,9 @@ export class IntegrationServiceHelper {
 
   /**
    * Batch save multiple architectures
+   *
+   * @param architectures
+   * @param batchConfig
    */
   async batchSaveArchitectures(
     architectures: { architecture: ArchitectureDesign; config?: ArchitectureOperationConfig }[],
@@ -249,6 +267,16 @@ export class IntegrationServiceHelper {
 
   /**
    * Search architectures with enhanced filtering
+   *
+   * @param criteria
+   * @param criteria.domain
+   * @param criteria.tags
+   * @param criteria.minScore
+   * @param criteria.limit
+   * @param criteria.projectId
+   * @param criteria.dateRange
+   * @param criteria.dateRange.start
+   * @param criteria.dateRange.end
    */
   async searchArchitecturesEnhanced(criteria: {
     domain?: string;
@@ -293,6 +321,11 @@ export class IntegrationServiceHelper {
 
   /**
    * Enhanced API request with comprehensive configuration
+   *
+   * @param method
+   * @param endpoint
+   * @param data
+   * @param config
    */
   async apiRequestEnhanced<T>(
     method: 'GET' | 'POST' | 'PUT' | 'DELETE',
@@ -350,6 +383,9 @@ export class IntegrationServiceHelper {
 
   /**
    * Batch API requests with intelligent concurrency control
+   *
+   * @param requests
+   * @param batchConfig
    */
   async batchAPIRequests<T>(
     requests: Array<{
@@ -430,6 +466,14 @@ export class IntegrationServiceHelper {
 
   /**
    * Resource management with CRUD operations
+   *
+   * @param operation
+   * @param endpoint
+   * @param data
+   * @param data.id
+   * @param data.resourceData
+   * @param data.queryParams
+   * @param config
    */
   async manageResource<T>(
     operation: 'create' | 'read' | 'update' | 'delete' | 'list',
@@ -488,6 +532,9 @@ export class IntegrationServiceHelper {
 
   /**
    * Enhanced protocol communication
+   *
+   * @param operation
+   * @param config
    */
   async protocolCommunicate<T>(
     operation: 'connect' | 'disconnect' | 'send' | 'receive' | 'broadcast',
@@ -546,6 +593,8 @@ export class IntegrationServiceHelper {
 
   /**
    * Protocol health monitoring
+   *
+   * @param protocols
    */
   async monitorProtocolHealth(protocols?: string[]): Promise<
     IntegrationOperationResult<
@@ -825,10 +874,14 @@ export class IntegrationServiceHelper {
  * Integration Service Utilities
  *
  * Static utility functions for integration operations
+ *
+ * @example
  */
 export class IntegrationServiceUtils {
   /**
    * Create helper instance for an adapter
+   *
+   * @param adapter
    */
   static createHelper(adapter: IntegrationServiceAdapter): IntegrationServiceHelper {
     return new IntegrationServiceHelper(adapter);
@@ -836,6 +889,8 @@ export class IntegrationServiceUtils {
 
   /**
    * Validate API endpoint URL
+   *
+   * @param url
    */
   static validateEndpoint(url: string): boolean {
     try {
@@ -855,6 +910,10 @@ export class IntegrationServiceUtils {
 
   /**
    * Calculate retry delay with exponential backoff
+   *
+   * @param attempt
+   * @param baseDelay
+   * @param maxDelay
    */
   static calculateRetryDelay(
     attempt: number,
@@ -867,6 +926,8 @@ export class IntegrationServiceUtils {
 
   /**
    * Sanitize architecture data for storage
+   *
+   * @param architecture
    */
   static sanitizeArchitectureData(architecture: ArchitectureDesign): ArchitectureDesign {
     // Create a deep copy to avoid mutations
@@ -888,6 +949,8 @@ export class IntegrationServiceUtils {
 
   /**
    * Validate protocol name
+   *
+   * @param protocol
    */
   static validateProtocolName(protocol: string): boolean {
     const validProtocols = ['http', 'https', 'websocket', 'mcp-http', 'mcp-stdio', 'tcp', 'udp'];
@@ -896,6 +959,8 @@ export class IntegrationServiceUtils {
 
   /**
    * Format error for logging
+   *
+   * @param error
    */
   static formatError(error: any): string {
     if (error instanceof Error) {
@@ -906,6 +971,8 @@ export class IntegrationServiceUtils {
 
   /**
    * Calculate success rate from operation results
+   *
+   * @param results
    */
   static calculateSuccessRate(results: IntegrationOperationResult[]): number {
     if (results.length === 0) return 0;
@@ -915,6 +982,9 @@ export class IntegrationServiceUtils {
 
   /**
    * Merge integration configurations
+   *
+   * @param base
+   * @param override
    */
   static mergeConfigurations(
     base: Partial<IntegrationServiceAdapterConfig>,
@@ -960,6 +1030,8 @@ export class IntegrationServiceUtils {
 
   /**
    * Extract metrics from operation results
+   *
+   * @param results
    */
   static extractMetrics(results: IntegrationOperationResult[]): {
     totalOperations: number;

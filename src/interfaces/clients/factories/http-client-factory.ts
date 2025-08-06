@@ -11,6 +11,8 @@ import type { ClientMetrics, ClientStatus, IClient, IClientFactory } from '../co
 
 /**
  * HTTP Client Factory implementing UACL IClientFactory interface
+ *
+ * @example
  */
 export class HTTPClientFactory implements IClientFactory<HTTPClientConfig> {
   private clients = new Map<string, HTTPClientAdapter>();
@@ -204,6 +206,11 @@ export class HTTPClientFactory implements IClientFactory<HTTPClientConfig> {
 
   /**
    * Create HTTP client with authentication preset
+   *
+   * @param name
+   * @param baseURL
+   * @param authType
+   * @param credentials
    */
   async createWithAuth(
     name: string,
@@ -260,6 +267,13 @@ export class HTTPClientFactory implements IClientFactory<HTTPClientConfig> {
 
   /**
    * Create HTTP client with retry configuration
+   *
+   * @param name
+   * @param baseURL
+   * @param retryConfig
+   * @param retryConfig.attempts
+   * @param retryConfig.delay
+   * @param retryConfig.backoff
    */
   async createWithRetry(
     name: string,
@@ -285,6 +299,13 @@ export class HTTPClientFactory implements IClientFactory<HTTPClientConfig> {
 
   /**
    * Create HTTP client with monitoring enabled
+   *
+   * @param name
+   * @param baseURL
+   * @param monitoringConfig
+   * @param monitoringConfig.metricsInterval
+   * @param monitoringConfig.healthCheckInterval
+   * @param monitoringConfig.healthEndpoint
    */
   async createWithMonitoring(
     name: string,
@@ -321,6 +342,12 @@ export class HTTPClientFactory implements IClientFactory<HTTPClientConfig> {
 
   /**
    * Create load-balanced HTTP clients
+   *
+   * @param baseName
+   * @param baseURLs
+   * @param options
+   * @param options.strategy
+   * @param options.healthCheck
    */
   async createLoadBalanced(
     baseName: string,
@@ -359,6 +386,8 @@ export class HTTPClientFactory implements IClientFactory<HTTPClientConfig> {
 
   /**
    * Get clients by status
+   *
+   * @param status
    */
   async getClientsByStatus(status: 'healthy' | 'degraded' | 'unhealthy'): Promise<IClient[]> {
     const healthResults = await this.healthCheckAll();
@@ -411,6 +440,8 @@ export class HTTPClientFactory implements IClientFactory<HTTPClientConfig> {
 
   /**
    * Setup event handlers for created clients
+   *
+   * @param client
    */
   private setupClientHandlers(client: HTTPClientAdapter): void {
     client.on('error', (error) => {
@@ -438,6 +469,8 @@ export const httpClientFactory = new HTTPClientFactory();
 
 /**
  * Convenience function to create HTTP client
+ *
+ * @param config
  */
 export const createHTTPClient = async (config: HTTPClientConfig): Promise<IClient> => {
   return httpClientFactory.create(config);
@@ -445,6 +478,8 @@ export const createHTTPClient = async (config: HTTPClientConfig): Promise<IClien
 
 /**
  * Convenience function to create multiple HTTP clients
+ *
+ * @param configs
  */
 export const createHTTPClients = async (configs: HTTPClientConfig[]): Promise<IClient[]> => {
   return httpClientFactory.createMultiple(configs);
