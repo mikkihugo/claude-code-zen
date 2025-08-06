@@ -9,13 +9,13 @@
  */
 export interface AgentId {
   /** Unique identifier for the agent */
-  id: string
+  id: string;
   /** Identifier of the swarm this agent belongs to */
-  swarmId: string
+  swarmId: string;
   /** Type classification of the agent */
-  type: AgentType
+  type: AgentType;
   /** Instance number for agents of the same type */
-  instance: number
+  instance: number;
 }
 
 /**

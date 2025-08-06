@@ -865,14 +865,12 @@ describe('CommunicationEventAdapter', () => {
 
       (adapter as any).wrappedComponents.set('mcp-server-test', {
         component: {
-          getMetrics: jest
-            .fn()
-            .mockResolvedValue({
-              averageLatency: 75,
-              throughput: 500,
-              requestCount: 200,
-              errorCount: 10,
-            }),
+          getMetrics: jest.fn().mockResolvedValue({
+            averageLatency: 75,
+            throughput: 500,
+            requestCount: 200,
+            errorCount: 10,
+          }),
         },
         componentType: 'mcp-server',
         wrapper: new EventEmitter(),

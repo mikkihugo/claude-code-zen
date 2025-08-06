@@ -1,8 +1,11 @@
 /**
- * Neural Network Manager
- * Manages per-agent neural networks with WASM integration
+ * @fileoverview Neural Network Manager for Per-Agent Neural Networks
+ *
+ * Manages neural networks for individual agents with WASM integration,
+ * cognitive pattern evolution, and collaborative learning capabilities.
  */
 
+// Internal neural modules
 import { CognitivePatternEvolution } from './cognitive-pattern-evolution';
 import { DAACognition } from './daa-cognition';
 import { MetaLearningFramework } from './meta-learning-framework';
@@ -22,25 +25,102 @@ import {
   validatePresetConfig,
 } from './neural-models/presets/index';
 
+/**
+ * Neural network instance interface
+ */
+interface NeuralNetworkInstance {
+  /** Unique identifier for the network */
+  id: string;
+  /** Network configuration */
+  config: unknown;
+  /** Training state */
+  trainingState: unknown;
+  /** Performance metrics */
+  metrics: unknown;
+}
+
+/**
+ * Neural model configuration
+ */
+interface NeuralModelConfig {
+  /** Model architecture type */
+  architecture: string;
+  /** Input layer size */
+  inputSize: number;
+  /** Hidden layers configuration */
+  hiddenLayers: number[];
+  /** Output layer size */
+  outputSize: number;
+  /** Additional parameters */
+  parameters?: Record<string, unknown>;
+}
+
+/**
+ * Performance metrics for neural networks
+ */
+interface PerformanceMetrics {
+  /** Training accuracy */
+  accuracy: number;
+  /** Training loss */
+  loss: number;
+  /** Training time in milliseconds */
+  trainingTime: number;
+  /** Inference time in milliseconds */
+  inferenceTime: number;
+  /** Memory usage in bytes */
+  memoryUsage: number;
+}
+
+/**
+ * Neural Network Manager
+ *
+ * Centralized management system for per-agent neural networks with advanced
+ * capabilities including cognitive pattern evolution, federated learning,
+ * and WASM-accelerated computation.
+ *
+ * @example
+ * ```typescript
+ * const manager = new NeuralNetworkManager(wasmLoader)
+ * await manager.initialize()
+ *
+ * const network = await manager.createNetwork('agent-001', {
+ *   architecture: 'feedforward',
+ *   inputSize: 10,
+ *   hiddenLayers: [20, 15],
+ *   outputSize: 3
+ * })
+ * ```
+ */
 class NeuralNetworkManager {
-  private wasmLoader: any;
-  private neuralNetworks: Map<string, any>;
-  private neuralModels: Map<string, any>;
+  private wasmLoader: unknown;
+  private neuralNetworks: Map<string, NeuralNetworkInstance>;
+  private neuralModels: Map<string, NeuralModelConfig>;
   private cognitiveEvolution: CognitivePatternEvolution;
   private metaLearning: MetaLearningFramework;
   private coordinationProtocol: NeuralCoordinationProtocol;
   private daaCognition: DAACognition;
   private cognitivePatternSelector: CognitivePatternSelector;
   private neuralAdaptationEngine: NeuralAdaptationEngine;
-  private sharedKnowledge: Map<string, any>;
-  private agentInteractions: Map<string, any>;
-  private collaborativeMemory: Map<string, any>;
-  private performanceMetrics: Map<string, any>;
+  private sharedKnowledge: Map<string, unknown>;
+  private agentInteractions: Map<string, unknown>;
+  private collaborativeMemory: Map<string, unknown>;
+  private performanceMetrics: Map<string, PerformanceMetrics>;
   private adaptiveOptimization: boolean;
   private federatedLearningEnabled: boolean;
-  private templates: any;
+  private templates: unknown;
 
-  constructor(wasmLoader: any) {
+  /**
+   * Creates a new Neural Network Manager instance
+   *
+   * @param wasmLoader - WebAssembly loader for neural computation acceleration
+   *
+   * @example
+   * ```typescript
+   * const wasmLoader = await import('./neural-wasm-loader')
+   * const manager = new NeuralNetworkManager(wasmLoader)
+   * ```
+   */
+  constructor(wasmLoader: unknown) {
     this.wasmLoader = wasmLoader;
     this.neuralNetworks = new Map();
     this.neuralModels = new Map(); // Add missing property

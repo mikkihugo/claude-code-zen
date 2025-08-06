@@ -9,8 +9,8 @@
  * - Memory: Hybrid approach based on operation type
  */
 
-import 'jest-extended'
-import '@types/jest'
+import 'jest-extended';
+import '@types/jest';
 
 /**
  * Hybrid TDD Configuration
@@ -105,8 +105,35 @@ function setupClassicalTDD() {
     global.testStartMemory = process.memoryUsage();
   }
 
+  /**
+   * Neural test data configuration
+   */
+  interface NeuralTestConfig {
+    /** Type of test data to generate */
+    type: 'xor' | 'linear';
+    /** Number of samples to generate */
+    samples?: number;
+    /** Noise level for linear data */
+    noise?: number;
+  }
+
+  /**
+   * Neural test data point
+   */
+  interface NeuralTestData {
+    /** Input values */
+    input: number[];
+    /** Expected output values */
+    output: number[];
+  }
+
   // Neural-specific test data generators
-  global.generateNeuralTestData = (config: any) => {
+  /**
+   * Generates test data for neural network training
+   * @param config - Configuration for data generation
+   * @returns Array of training data points
+   */
+  global.generateNeuralTestData = (config: NeuralTestConfig): NeuralTestData[] => {
     switch (config.type) {
       case 'xor':
         return [
@@ -127,6 +154,12 @@ function setupClassicalTDD() {
   };
 
   // Mathematical precision helpers
+  /**
+   * Asserts that two numbers are nearly equal within tolerance
+   * @param actual - Actual value
+   * @param expected - Expected value
+   * @param tolerance - Allowed difference (default: 1e-10)
+   */
   global.expectNearlyEqual = (actual: number, expected: number, tolerance: number = 1e-10) => {
     expect(Math.abs(actual - expected)).toBeLessThanOrEqual(tolerance);
   };
@@ -244,6 +277,44 @@ global.createSPARCTestScenario = (
   };
 };
 
+/**
+ * Memory test scenario configuration
+ */
+interface MemoryTestScenario {
+  /** Memory backend type */
+  type: 'sqlite' | 'lancedb' | 'json';
+  /** Test configuration */
+  config: unknown;
+  /** Mock methods */
+  mocks: Record<string, jest.Mock>;
+}
+
+/**
+ * Test dependency injection container
+ */
+interface TestContainer {
+  /** Register a service */
+  register: jest.Mock;
+  /** Resolve a service */
+  resolve: jest.Mock;
+  /** Dispose container */
+  dispose: jest.Mock;
+}
+
+/**
+ * SPARC test scenario
+ */
+interface SPARCTestScenario {
+  /** SPARC phase */
+  phase: 'specification' | 'pseudocode' | 'architecture' | 'refinement' | 'completion';
+  /** Test input */
+  input: string;
+  /** Expected output */
+  expectedOutput: string;
+  /** Test context */
+  context: Record<string, unknown>;
+}
+
 // Type declarations for global test utilities
 declare global {
   namespace NodeJS {
@@ -260,7 +331,7 @@ declare global {
         heapUsed: number;
         heapTotal: number;
       };
-      generateNeuralTestData(config: any): Array<{ input: number[]; output: number[] }>;
+      generateNeuralTestData(config: NeuralTestConfig): NeuralTestData[];
       expectNearlyEqual(actual: number, expected: number, tolerance?: number): void;
 
       // Hybrid utilities
@@ -268,19 +339,19 @@ declare global {
         approach: 'london' | 'classical',
         testFn: () => void | Promise<void>
       ): void | Promise<void>;
-      createMemoryTestScenario(type: 'sqlite' | 'lancedb' | 'json'): any;
+      createMemoryTestScenario(type: 'sqlite' | 'lancedb' | 'json'): MemoryTestScenario;
       expectPerformanceWithinThreshold(
         operation: 'coordination' | 'neural' | 'memory',
         actualTime: number
       ): void;
 
       // DI testing utilities
-      createTestContainer(): any;
+      createTestContainer(): TestContainer;
 
       // SPARC testing utilities
       createSPARCTestScenario(
         phase: 'specification' | 'pseudocode' | 'architecture' | 'refinement' | 'completion'
-      ): any;
+      ): SPARCTestScenario;
 
       // Global GC
       gc?: () => void;

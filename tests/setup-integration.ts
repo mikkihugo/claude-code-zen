@@ -120,11 +120,11 @@ async function cleanupIntegrationState() {
  */
 interface TestRoute {
   /** HTTP method (get, post, put, delete) */
-  method: 'get' | 'post' | 'put' | 'delete'
+  method: 'get' | 'post' | 'put' | 'delete';
   /** Route path */
-  path: string
+  path: string;
   /** Route handler function */
-  handler: (req: unknown, res: unknown) => void
+  handler: (req: unknown, res: unknown) => void;
 }
 
 /**
@@ -132,13 +132,13 @@ interface TestRoute {
  */
 interface TestClient {
   /** Perform GET request */
-  get: (path: string) => Promise<Response>
+  get: (path: string) => Promise<Response>;
   /** Perform POST request */
-  post: (path: string, data: unknown) => Promise<Response>
+  post: (path: string, data: unknown) => Promise<Response>;
   /** Perform PUT request */
-  put: (path: string, data: unknown) => Promise<Response>
+  put: (path: string, data: unknown) => Promise<Response>;
   /** Perform DELETE request */
-  delete: (path: string) => Promise<Response>
+  delete: (path: string) => Promise<Response>;
 }
 
 // Integration test helpers
@@ -149,20 +149,20 @@ interface TestClient {
  * @returns Promise resolving to server instance
  */
 global.createTestServer = async (port: number, routes: TestRoute[] = []) => {
-  const express = await import('express')
-  const app = express.default()
+  const express = await import('express');
+  const app = express.default();
 
   routes.forEach((route) => {
-    app[route.method](route.path, route.handler)
-  })
+    app[route.method](route.path, route.handler);
+  });
 
   return new Promise((resolve, reject) => {
     const server = app.listen(port, (err?: Error) => {
-      if (err) reject(err)
-      else resolve(server)
-    })
-  })
-}
+      if (err) reject(err);
+      else resolve(server);
+    });
+  });
+};
 
 /**
  * Creates a test HTTP client for making requests
@@ -185,8 +185,8 @@ global.createTestClient = (baseURL: string): TestClient => {
         body: JSON.stringify(data),
       }),
     delete: (path: string) => fetch(`${baseURL}${path}`, { method: 'DELETE' }),
-  }
-}
+  };
+};
 
 global.waitForPort = async (port: number, timeout: number = 5000) => {
   const net = await import('node:net');
@@ -215,7 +215,7 @@ global.waitForPort = async (port: number, timeout: number = 5000) => {
  * Database fixture data structure
  */
 interface DatabaseFixtures {
-  [table: string]: unknown
+  [table: string]: unknown;
 }
 
 /**
@@ -223,13 +223,13 @@ interface DatabaseFixtures {
  */
 interface MockAgent {
   /** Agent ID */
-  id: string
+  id: string;
   /** Agent type */
-  type: string
+  type: string;
   /** Current status */
-  status: 'idle' | 'working' | 'offline'
+  status: 'idle' | 'working' | 'offline';
   /** Assigned tasks */
-  tasks: unknown[]
+  tasks: unknown[];
 }
 
 /**
@@ -237,13 +237,13 @@ interface MockAgent {
  */
 interface MockSwarm {
   /** Swarm ID */
-  id: string
+  id: string;
   /** Swarm agents */
-  agents: MockAgent[]
+  agents: MockAgent[];
   /** Swarm coordinator */
-  coordinator: unknown | null
+  coordinator: unknown | null;
   /** Swarm status */
-  status: string
+  status: string;
 }
 
 /**
@@ -253,9 +253,9 @@ interface MockSwarm {
 global.setupDatabaseFixtures = async (fixtures: DatabaseFixtures) => {
   // Load test data into databases
   for (const [table, data] of Object.entries(fixtures)) {
-    global.testFixtures[table] = data
+    global.testFixtures[table] = data;
   }
-}
+};
 
 /**
  * Creates a mock swarm for testing
@@ -268,7 +268,7 @@ global.createMockSwarm = (agentCount: number = 3): MockSwarm => {
     agents: [],
     coordinator: null,
     status: 'active',
-  }
+  };
 
   for (let i = 0; i < agentCount; i++) {
     swarm.agents.push({
@@ -276,11 +276,11 @@ global.createMockSwarm = (agentCount: number = 3): MockSwarm => {
       type: 'worker',
       status: 'idle',
       tasks: [],
-    })
+    });
   }
 
-  return swarm
-}
+  return swarm;
+};
 
 /**
  * Simulates a swarm workflow for testing
@@ -289,44 +289,46 @@ global.createMockSwarm = (agentCount: number = 3): MockSwarm => {
  * @returns Promise resolving to workflow results
  */
 global.simulateSwarmWorkflow = async (swarm: MockSwarm, tasks: unknown[]) => {
-  const results = []
+  const results = [];
   for (const task of tasks) {
-    const agent = swarm.agents.find((a) => a.status === 'idle')
+    const agent = swarm.agents.find((a) => a.status === 'idle');
     if (agent) {
-      agent.status = 'working'
-      agent.tasks.push(task)
+      agent.status = 'working';
+      agent.tasks.push(task);
 
       // Simulate work
-      await new Promise((resolve) => setTimeout(resolve, 10))
+      await new Promise((resolve) => setTimeout(resolve, 10));
 
       results.push({
         taskId: (task as { id: string }).id,
         agentId: agent.id,
         result: 'completed',
         timestamp: Date.now(),
-      })
+      });
 
-      agent.status = 'idle'
-      agent.tasks = agent.tasks.filter((t) => (t as { id: string }).id !== (task as { id: string }).id)
+      agent.status = 'idle';
+      agent.tasks = agent.tasks.filter(
+        (t) => (t as { id: string }).id !== (task as { id: string }).id
+      );
     }
   }
-  return results
-}
+  return results;
+};
 
 /**
  * Mock MCP client for testing
  */
 interface MockMCPClient {
   /** Send message to MCP server */
-  send: jest.Mock
+  send: jest.Mock;
   /** Connect to MCP server */
-  connect: jest.Mock
+  connect: jest.Mock;
   /** Disconnect from MCP server */
-  disconnect: jest.Mock
+  disconnect: jest.Mock;
   /** List available tools */
-  listTools: jest.Mock
+  listTools: jest.Mock;
   /** Call a specific tool */
-  callTool: jest.Mock
+  callTool: jest.Mock;
 }
 
 /**
@@ -334,13 +336,13 @@ interface MockMCPClient {
  */
 interface MCPMessage {
   /** JSON-RPC version */
-  jsonrpc: string
+  jsonrpc: string;
   /** Message ID */
-  id: string | number
+  id: string | number;
   /** Method name */
-  method: string
+  method: string;
   /** Method parameters */
-  params?: unknown
+  params?: unknown;
 }
 
 // Protocol testing helpers
@@ -355,21 +357,21 @@ global.createMockMCPClient = (): MockMCPClient => {
     disconnect: jest.fn().mockResolvedValue(true),
     listTools: jest.fn().mockResolvedValue([]),
     callTool: jest.fn().mockResolvedValue({ result: 'mock' }),
-  }
-}
+  };
+};
 
 /**
  * Validates MCP protocol message structure
  * @param message - Message to validate
  */
 global.validateMCPProtocol = (message: MCPMessage) => {
-  expect(message).toHaveProperty('jsonrpc', '2.0')
-  expect(message).toHaveProperty('id')
-  expect(message).toHaveProperty('method')
+  expect(message).toHaveProperty('jsonrpc', '2.0');
+  expect(message).toHaveProperty('id');
+  expect(message).toHaveProperty('method');
   if (message.method !== 'notification') {
-    expect(message).toHaveProperty('params')
+    expect(message).toHaveProperty('params');
   }
-}
+};
 
 // Extended timeout for integration tests
 jest.setTimeout(120000);
@@ -379,11 +381,11 @@ jest.setTimeout(120000);
  */
 interface DatabaseConfig {
   /** SQLite configuration */
-  sqlite?: unknown
+  sqlite?: unknown;
   /** PostgreSQL configuration */
-  postgres?: unknown
+  postgres?: unknown;
   /** LanceDB configuration */
-  lancedb?: unknown
+  lancedb?: unknown;
 }
 
 /**
@@ -391,11 +393,11 @@ interface DatabaseConfig {
  */
 interface RedisConfig {
   /** Redis host */
-  host?: string
+  host?: string;
   /** Redis port */
-  port?: number
+  port?: number;
   /** Redis password */
-  password?: string
+  password?: string;
 }
 
 /**
@@ -403,46 +405,39 @@ interface RedisConfig {
  */
 interface PortConfig {
   /** HTTP API port */
-  api?: number
+  api?: number;
   /** WebSocket port */
-  websocket?: number
+  websocket?: number;
   /** MCP server port */
-  mcp?: number
+  mcp?: number;
 }
 
 declare global {
   var testConfig: {
-    database: DatabaseConfig
-    redis: RedisConfig
-    ports: PortConfig
-  }
+    database: DatabaseConfig;
+    redis: RedisConfig;
+    ports: PortConfig;
+  };
   var testDatabases: {
-    main: unknown
-    vector: unknown
-    cache: unknown
-  }
+    main: unknown;
+    vector: unknown;
+    cache: unknown;
+  };
   var testFixtures: {
-    [key: string]: unknown
-  }
-  var mockFetch: jest.Mock
-  var originalFetch: typeof fetch
-  var mockWebSocket: jest.Mock
-  var originalWebSocket: typeof WebSocket
-  var mockSpawn: jest.Mock
+    [key: string]: unknown;
+  };
+  var mockFetch: jest.Mock;
+  var originalFetch: typeof fetch;
+  var mockWebSocket: jest.Mock;
+  var originalWebSocket: typeof WebSocket;
+  var mockSpawn: jest.Mock;
 
-  function createTestServer(port: number, routes?: TestRoute[]): Promise<unknown>
-  function createTestClient(baseURL: string): TestClient
-  function waitForPort(port: number, timeout?: number): Promise<boolean>
-  function setupDatabaseFixtures(fixtures: DatabaseFixtures): Promise<void>
-  function createMockSwarm(agentCount?: number): MockSwarm
-  function simulateSwarmWorkflow(swarm: MockSwarm, tasks: unknown[]): Promise<unknown[]>
-  function createMockMCPClient(): MockMCPClient
-  function validateMCPProtocol(message: MCPMessage): void
-}
+  function createTestServer(port: number, routes?: TestRoute[]): Promise<unknown>;
+  function createTestClient(baseURL: string): TestClient;
   function waitForPort(port: number, timeout?: number): Promise<boolean>;
-  function setupDatabaseFixtures(fixtures: any): Promise<void>;
-  function createMockSwarm(agentCount?: number): any;
-  function simulateSwarmWorkflow(swarm: any, tasks: any[]): Promise<any[]>;
-  function createMockMCPClient(): any;
-  function validateMCPProtocol(message: any): void;
+  function setupDatabaseFixtures(fixtures: DatabaseFixtures): Promise<void>;
+  function createMockSwarm(agentCount?: number): MockSwarm;
+  function simulateSwarmWorkflow(swarm: MockSwarm, tasks: unknown[]): Promise<unknown[]>;
+  function createMockMCPClient(): MockMCPClient;
+  function validateMCPProtocol(message: MCPMessage): void;
 }
