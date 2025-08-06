@@ -10,7 +10,7 @@
  */
 
 import { createLogger } from '../../../interfaces/mcp/mcp-logger';
-import { ZenSwarm } from '../index';
+import { BaseZenSwarm as ZenSwarm } from '../index';
 // Removed SwarmPersistencePooled - using DAL Factory approach instead
 import {
   AgentError,
@@ -1504,13 +1504,13 @@ class EnhancedMCPTools {
       await this.initialize();
 
       const wasmMemory = this.ruvSwarm.wasmLoader.getTotalMemoryUsage();
-      const jsMemory = ZenSwarm.getMemoryUsage();
+      const jsMemory = process.memoryUsage();
 
       const summary = {
-        total_mb: (wasmMemory + (jsMemory?.used || 0)) / (1024 * 1024),
+        total_mb: (wasmMemory + jsMemory.heapUsed) / (1024 * 1024),
         wasm_mb: wasmMemory / (1024 * 1024),
-        javascript_mb: (jsMemory?.used || 0) / (1024 * 1024),
-        available_mb: (jsMemory?.limit || 0) / (1024 * 1024),
+        javascript_mb: jsMemory.heapUsed / (1024 * 1024),
+        available_mb: jsMemory.heapTotal / (1024 * 1024),
       };
 
       // Persist memory usage snapshot

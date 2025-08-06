@@ -11,7 +11,6 @@
  */
 
 import 'jest-extended';
-import '@types/jest';
 
 /**
  * Hybrid TDD Configuration
@@ -106,32 +105,6 @@ function setupClassicalTDD() {
   if (global.gc) {
     global.gc();
     global.testStartMemory = process.memoryUsage();
-  }
-
-  /**
-   * Neural test data configuration
-   *
-   * @example
-   */
-  interface NeuralTestConfig {
-    /** Type of test data to generate */
-    type: 'xor' | 'linear';
-    /** Number of samples to generate */
-    samples?: number;
-    /** Noise level for linear data */
-    noise?: number;
-  }
-
-  /**
-   * Neural test data point
-   *
-   * @example
-   */
-  interface NeuralTestData {
-    /** Input values */
-    input: number[];
-    /** Expected output values */
-    output: number[];
   }
 
   // Neural-specific test data generators
@@ -337,6 +310,28 @@ interface SPARCTestScenario {
 
 // Type declarations for global test utilities
 declare global {
+  /**
+   * Neural test data configuration
+   */
+  interface NeuralTestConfig {
+    /** Type of test data to generate */
+    type: 'xor' | 'linear';
+    /** Number of samples to generate */
+    samples?: number;
+    /** Noise level for linear data */
+    noise?: number;
+  }
+
+  /**
+   * Neural test data point
+   */
+  interface NeuralTestData {
+    /** Input values */
+    input: number[];
+    /** Expected output values */
+    output: number[];
+  }
+
   namespace NodeJS {
     interface Global {
       // London TDD utilities
