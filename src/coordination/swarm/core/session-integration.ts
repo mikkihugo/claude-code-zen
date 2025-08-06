@@ -1,63 +1,100 @@
 /**
- * Session Integration Layer
+ * @fileoverview Session Integration Layer
  *
  * Integrates the SessionManager with the existing ZenSwarm system,
  * providing seamless session persistence for swarm operations.
  */
 
-import { EventEmitter } from 'node:events';
-import type { ICoordinationDao } from '../../../database';
-// import { DALFactory } from '../../../database'; // TODO: Implement proper DI integration
-import { ZenSwarm } from './base-swarm';
-import { type SessionConfig, SessionManager, type SessionState } from './session-manager';
-import { SessionRecovery, SessionValidator } from './session-utils';
-import type { AgentConfig, SwarmEvent, SwarmOptions, SwarmState, Task } from './types';
+// Node.js modules
+import { EventEmitter } from 'node:events'
+
+// External dependencies
+import type { ICoordinationDao } from '../../../database'
+
+// Internal modules - absolute paths
+import { ZenSwarm } from './base-swarm'
+import { SessionManager } from './session-manager'
+import { SessionRecovery, SessionValidator } from './session-utils'
+
+// Internal modules - types
+import type { SessionConfig, SessionState } from './session-manager'
+import type { AgentConfig, SwarmEvent, SwarmOptions, SwarmState, Task } from './types'
 
 /**
  * Enhanced ZenSwarm with session management capabilities
+ * 
+ * Provides persistent session support for swarm operations, allowing
+ * recovery from failures and resumption of long-running tasks.
  */
 export class SessionEnabledSwarm extends ZenSwarm {
-  private sessionManager: SessionManager;
-  private currentSessionId?: string;
-  private sessionIntegrationEnabled: boolean = false;
+  private sessionManager: SessionManager
+  private currentSessionId?: string
+  private sessionIntegrationEnabled: boolean = false
 
+  /**
+   * Creates a new SessionEnabledSwarm instance
+   * 
+   * @param options - Configuration options for the swarm
+   * @param sessionConfig - Configuration for session management
+   * @param persistence - Optional persistence layer for session data
+   * 
+   * @example
+   * ```typescript
+   * const swarm = new SessionEnabledSwarm(
+   *   { maxAgents: 10 },
+   *   { autoSave: true, saveInterval: 5000 },
+   *   coordinationDao
+   * )
+   * ```
+   */
   constructor(
     options: SwarmOptions = {},
     sessionConfig: SessionConfig = {},
     persistence?: ICoordinationDao
   ) {
-    super(options);
+    super(options)
 
     // Initialize session manager with existing or new persistence DAO
-    let persistenceLayer: ICoordinationDao;
+    let persistenceLayer: ICoordinationDao
     if (persistence) {
-      persistenceLayer = persistence;
+      persistenceLayer = persistence
     } else {
       // Create a simple mock implementation for now
       // TODO: Implement proper DALFactory integration with DI
       persistenceLayer = {
-        query: async (_sql: string, _params?: any[]) => [],
-        execute: async (_sql: string, _params?: any[]) => ({ affectedRows: 1 }),
-      } as any;
+        query: async (_sql: string, _params?: unknown[]) => [],
+        execute: async (_sql: string, _params?: unknown[]) => ({ affectedRows: 1 }),
+      } as ICoordinationDao
     }
-    this.sessionManager = new SessionManager(persistenceLayer, sessionConfig);
+    this.sessionManager = new SessionManager(persistenceLayer, sessionConfig)
 
     // Set up event forwarding
-    this.setupEventForwarding();
+    this.setupEventForwarding()
   }
 
   /**
    * Initialize swarm with session support
+   * 
+   * Sets up the base swarm infrastructure and initializes the session
+   * management layer for persistent operation tracking.
+   * 
+   * @throws Error if initialization fails
+   * 
+   * @example
+   * ```typescript
+   * await swarm.initialize()
+   * console.log('Swarm ready with session support')
+   * ```
    */
   async initialize(): Promise<void> {
     // Initialize base swarm
-    await super.initialize();
+    await super.initialize()
 
     // Initialize session manager
-    await this.sessionManager.initialize();
+    await this.sessionManager.initialize()
 
-    this.sessionIntegrationEnabled = true;
-    this.emit('session:integration_enabled' as SwarmEvent, {});
+    this.sessionIntegrationEnabled = true
+    this.emit('session:integration_enabled' as SwarmEvent, {})
   }
 
   /**

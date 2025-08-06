@@ -9,7 +9,8 @@
  * - Memory: Hybrid approach based on operation type
  */
 
-import 'jest-extended';
+import 'jest-extended'
+import '@types/jest'
 
 /**
  * Hybrid TDD Configuration
