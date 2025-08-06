@@ -22,11 +22,11 @@ import {
   ValidationError,
   WasmError,
   ZenSwarmError,
-} from './errors';
-import { ZenSwarm } from './index';
-import { Logger } from './logger';
+} from './error-handler';
+import { ZenSwarm } from '../index';
+import { createLogger } from '../../../interfaces/mcp/mcp-logger';
 import { DAA_MCPTools } from './mcp-daa-tools';
-import { ValidationUtils } from './schemas';
+import { MCPParameterValidator as ValidationUtils } from './error-handler';
 
 /**
  * Enhanced MCP Tools with comprehensive error handling and logging
@@ -69,14 +69,7 @@ class EnhancedMCPTools {
     this.maxErrorLogSize = 1000;
 
     // Initialize logger
-    this.logger = new Logger({
-      name: 'mcp-tools',
-      enableStderr: process.env.MCP_MODE === 'stdio',
-      level: process.env.LOG_LEVEL || 'INFO',
-      metadata: {
-        component: 'mcp-tools-enhanced',
-      },
-    });
+    this.logger = createLogger('mcp-tools');
 
     // Initialize DAA tools integration
     this.daaTools = new DAA_MCPTools(this);

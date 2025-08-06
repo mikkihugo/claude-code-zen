@@ -399,7 +399,7 @@ export class SessionEnabledSwarm extends ZenSwarm {
           // Ensure the agent config has the required id field
           const configWithId = {
             ...agent.config,
-            id: agent.config.id || agentId
+            id: agent.config.id || agentId,
           };
           await this.addAgent(configWithId);
         } catch (error) {

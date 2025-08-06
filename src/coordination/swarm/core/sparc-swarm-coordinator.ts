@@ -13,11 +13,11 @@
 
 import { EventEmitter } from 'node:events';
 import { createLogger } from '../../../core/logger';
-import type { AgentType } from '../../../types/agent-types';
 import type {
   FeatureDocumentEntity,
   TaskDocumentEntity,
 } from '../../../database/entities/product-entities';
+import type { AgentType } from '../../../types/agent-types';
 import type { SPARCPhase } from '../sparc/types/sparc-types';
 import { type SwarmAgent, SwarmCoordinator, type SwarmMetrics } from './swarm-coordinator';
 

@@ -741,7 +741,14 @@ export class AgentGroup extends EventEmitter implements AgentComponent {
         totalMembers: this.members.size,
         activeMembers: Array.from(this.members.values()).filter((m) => {
           const status = m.getStatus();
-          return 'state' in status ? status.state !== 'offline' : status.status !== 'inactive';
+          // Both AgentStatus and CompositeStatus have state property
+          if ('memberCount' in status) {
+            // CompositeStatus
+            return status.state !== 'inactive';
+          } else {
+            // AgentStatus
+            return status.state !== 'offline';
+          }
         }).length,
         averageHealth: avgReliability,
         distributionByType,

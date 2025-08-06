@@ -913,7 +913,7 @@ EXIT CODES:
     console.log('\n📊 Overall Summary');
     console.log('─'.repeat(50));
     console.log(
-      `Status: ${this.getStatusEmoji(report.summary.status)} ${report.summary.status.toUpperCase()}`
+      `Status: ${this.getStatusEmoji(report.summary.status)} ${report.summary.status.toUpperCase()}`,
     );
     console.log(`Tests: ${report.summary.passedTests}/${report.summary.totalTests} passed`);
     console.log(`Score: ${report.summary.overallScore}/100`);

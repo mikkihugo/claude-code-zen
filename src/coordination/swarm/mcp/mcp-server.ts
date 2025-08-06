@@ -3,8 +3,8 @@
  * Single stdio MCP server combining coordination and swarm functionality
  */
 
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
 import { createLogger } from '../../../core/logger';
 import { HiveTools } from './hive-tools';

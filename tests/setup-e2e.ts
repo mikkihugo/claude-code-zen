@@ -358,6 +358,8 @@ async function generateE2EReport() {
 
 /**
  * HTTP request data type for E2E test operations
+ *
+ * @example
  */
 interface HttpRequestData {
   [key: string]: unknown;
@@ -365,6 +367,8 @@ interface HttpRequestData {
 
 /**
  * HTTP client interface for E2E service interaction
+ *
+ * @example
  */
 interface E2EHttpClient {
   get: (path: string) => Promise<Response>;
@@ -375,6 +379,8 @@ interface E2EHttpClient {
 
 /**
  * Workflow step configuration for E2E testing
+ *
+ * @example
  */
 interface WorkflowStep {
   name: string;
@@ -389,6 +395,8 @@ interface WorkflowStep {
 
 /**
  * Workflow execution result
+ *
+ * @example
  */
 interface WorkflowResult {
   step: string;
@@ -400,6 +408,8 @@ interface WorkflowResult {
 
 /**
  * E2E performance measurement result
+ *
+ * @example
  */
 interface PerformanceMeasurement {
   result: unknown;
@@ -508,6 +518,8 @@ jest.setTimeout(300000); // 5 minutes
 
 /**
  * E2E service configuration
+ *
+ * @example
  */
 interface E2EServiceConfig {
   port: number;
@@ -516,6 +528,8 @@ interface E2EServiceConfig {
 
 /**
  * E2E test configuration
+ *
+ * @example
  */
 interface E2EConfig {
   services: {
@@ -535,6 +549,8 @@ interface E2EConfig {
 
 /**
  * E2E test metrics tracking
+ *
+ * @example
  */
 interface E2ETestMetrics {
   startTime: number;
@@ -548,6 +564,8 @@ interface E2ETestMetrics {
 
 /**
  * E2E test data structure
+ *
+ * @example
  */
 interface E2ETestData {
   users: Array<{

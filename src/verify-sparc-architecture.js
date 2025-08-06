@@ -184,7 +184,7 @@ async function verifyDatabaseDrivenArchitecture() {
     // 4. Validate architecture (with database persistence)
     console.log('4. Validating architecture design...');
     const validation = await architectureEngine.validateArchitecturalConsistency(
-      architecture.systemArchitecture
+      architecture.systemArchitecture,
     );
 
     console.log(`✅ Architecture validation completed:`);
@@ -209,7 +209,7 @@ async function verifyDatabaseDrivenArchitecture() {
       console.log(`   - Search functionality: ${searchResults ? 'Success' : 'Failed'}\n`);
     } catch (error) {
       console.log(
-        `⚠️  Database operations had some issues (this is expected with mock): ${error.message}\n`
+        `⚠️  Database operations had some issues (this is expected with mock): ${error.message}\n`,
       );
     }
 
@@ -245,7 +245,7 @@ async function verifyDatabaseDrivenArchitecture() {
     console.log('✅ Quality attributes and security requirements generation');
     console.log('');
     console.log(
-      '🏗️  The SPARC Architecture Generation Engine is database-driven and ready for use!'
+      '🏗️  The SPARC Architecture Generation Engine is database-driven and ready for use!',
     );
 
     return {

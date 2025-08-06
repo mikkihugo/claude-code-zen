@@ -12,4 +12,13 @@ export * from './core/index';
 // Main swarm exports
 export { default as SwarmCore } from './core/index';
 // SPARC Methodology for Swarm Implementation (excluding conflicting type exports)
-export { SPARCEngineCore, SPARC, SPARCMCPTools, sparcMCPTools, ProjectManagementIntegration, SPARCRoadmapManager, SpecificationPhaseEngine, SWARM_COORDINATION_TEMPLATE } from './sparc/index';
+export {
+  ProjectManagementIntegration,
+  SPARC,
+  SPARCEngineCore,
+  SPARCMCPTools,
+  SPARCRoadmapManager,
+  SpecificationPhaseEngine,
+  SWARM_COORDINATION_TEMPLATE,
+  sparcMCPTools,
+} from './sparc/index';

@@ -40,7 +40,7 @@ export class HiveTools {
         // Import DAL Factory dependencies
         const { DIContainer } = await import('../../../di/container/di-container');
         const { CORE_TOKENS } = await import('../../../di/tokens/core-tokens');
-        const { DATABASE_TOKENS } = await import('../../../di/tokens/database-tokens');
+        const { DATABASE_TOKENS } = await import('../../../di/tokens/core-tokens');
 
         // Create basic DI container
         const container = new DIContainer();

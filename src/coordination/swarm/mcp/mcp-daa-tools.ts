@@ -3,7 +3,7 @@
  * Exposes DAA capabilities through the MCP interface
  */
 
-import { DaaService } from './daa-service';
+import { DaaService } from '../core/daa-service';
 
 const daaService = new DaaService();
 

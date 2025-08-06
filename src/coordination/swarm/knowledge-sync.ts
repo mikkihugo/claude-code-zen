@@ -433,7 +433,7 @@ export class SwarmKnowledgeSync extends EventEmitter {
     if (!entry) return null;
 
     // Check if expired
-    if (Date.now() > entry.timestamp + entry.ttl) {
+    if (Date.now() > entry.metadata.timestamp + entry.ttl) {
       this.localCache.delete(key);
       return null;
     }
@@ -529,18 +529,18 @@ export class SwarmKnowledgeSync extends EventEmitter {
     return null;
   }
 
-  private generateContributionDescription(learning: SwarmLearning): string {
+  private generateContributionDescription(learning: Omit<SwarmLearning, 'id' | 'timestamp'>): string {
     return `${learning.type} learned in ${learning.domain}: ${learning.insights.whatWorked.join(', ')}`;
   }
 
-  private extractImplementationDetails(learning: SwarmLearning): string {
+  private extractImplementationDetails(learning: Omit<SwarmLearning, 'id' | 'timestamp'>): string {
     return JSON.stringify({
       bestPractices: learning.insights.bestPractices,
       optimizations: learning.insights.optimizations,
     });
   }
 
-  private extractMetrics(learning: SwarmLearning): Record<string, number> {
+  private extractMetrics(learning: Omit<SwarmLearning, 'id' | 'timestamp'>): Record<string, number> {
     return {
       duration: learning.outcome.duration,
       quality: learning.outcome.quality,
@@ -560,7 +560,7 @@ export class SwarmKnowledgeSync extends EventEmitter {
       if (cached) {
         // Restore cache from persistent storage
         for (const [key, entry] of Object.entries(cached as Record<string, LocalKnowledgeEntry>)) {
-          if (Date.now() <= entry.timestamp + entry.ttl) {
+          if (Date.now() <= entry.metadata.timestamp + entry.ttl) {
             this.localCache.set(key, entry);
           }
         }
@@ -657,7 +657,7 @@ export class SwarmKnowledgeSync extends EventEmitter {
     const expiredKeys = [];
 
     for (const [key, entry] of this.localCache) {
-      if (now > entry.timestamp + entry.ttl) {
+      if (now > entry.metadata.timestamp + entry.ttl) {
         expiredKeys.push(key);
       }
     }
