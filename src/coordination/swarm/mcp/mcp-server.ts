@@ -18,6 +18,7 @@ export class StdioMcpServer {
   private transport: StdioServerTransport;
   private toolRegistry: SwarmTools;
   private hiveRegistry: HiveTools;
+  private config: any;
 
   constructor(config: MCPServerConfig = {}) {
     this.config = {

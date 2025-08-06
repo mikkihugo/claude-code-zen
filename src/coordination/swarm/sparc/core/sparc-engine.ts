@@ -12,11 +12,11 @@
  */
 
 import { nanoid } from 'nanoid';
-import { TaskAPI } from '../../coordination/api';
-import { TaskCoordinator } from '../../coordination/task-coordinator';
-import { DocumentDrivenSystem } from '../../core/document-driven-system';
-import { MemorySystem } from '../../core/memory-system';
-import { WorkflowEngine } from '../../core/workflow-engine';
+import { TaskAPI } from '../../../coordination/api';
+import { TaskCoordinator } from '../../../coordination/task-coordinator';
+import { DocumentDrivenSystem } from '../../../core/document-driven-system';
+import { MemorySystem } from '../../../core/memory-system';
+import { WorkflowEngine } from '../../../core/workflow-engine';
 import { ProjectManagementIntegration } from '../integrations/project-management-integration';
 import { SPARCSwarmCoordinator } from '../integrations/swarm-coordination-integration';
 import { ArchitecturePhaseEngine } from '../phases/architecture/architecture-engine';
