@@ -50,7 +50,7 @@ class EnhancedMCPTools {
     this.activeSwarms = new Map();
     this.toolMetrics = new Map();
     // Initialize pooled persistence with production-optimized settings
-    const poolOptions = {
+    const _poolOptions = {
       maxReaders: process.env.POOL_MAX_READERS ? parseInt(process.env.POOL_MAX_READERS) : 6,
       maxWorkers: process.env.POOL_MAX_WORKERS ? parseInt(process.env.POOL_MAX_WORKERS) : 3,
       mmapSize: process.env.POOL_MMAP_SIZE ? parseInt(process.env.POOL_MMAP_SIZE) : 268435456, // 256MB
@@ -447,7 +447,7 @@ class EnhancedMCPTools {
       topology: 'mesh',
       maxAgents: 10,
     });
-    
+
     await this.ruvSwarm.initialize();
 
     // Load existing swarms from database - CRITICAL for persistence
@@ -1434,7 +1434,7 @@ class EnhancedMCPTools {
             node_version: process.version,
             platform: process.platform,
             arch: process.arch,
-            memory_limit: process.env.NODE_OPTIONS?.includes('--max-old-space-size') || 'default'
+            memory_limit: process.env.NODE_OPTIONS?.includes('--max-old-space-size') || 'default',
           },
         },
         performance: {
@@ -1465,7 +1465,7 @@ class EnhancedMCPTools {
           node_version: process.version,
           platform: process.platform,
           arch: process.arch,
-          memory_limit: process.env.NODE_OPTIONS?.includes('--max-old-space-size') || 'default'
+          memory_limit: process.env.NODE_OPTIONS?.includes('--max-old-space-size') || 'default',
         },
         wasm: {
           modules_loaded: this.ruvSwarm.wasmLoader.getModuleStatus(),
@@ -2945,11 +2945,7 @@ class EnhancedMCPTools {
         timestamp: new Date().toISOString(),
       };
     } catch (error) {
-      return this.handleError(
-        error,
-        'swarm_monitor',
-        'pool_health'
-      );
+      return this.handleError(error, 'swarm_monitor', 'pool_health');
     }
   }
 
@@ -3003,11 +2999,7 @@ class EnhancedMCPTools {
         timestamp: new Date().toISOString(),
       };
     } catch (error) {
-      return this.handleError(
-        error,
-        'pool_stats',
-        'statistics'
-      );
+      return this.handleError(error, 'pool_stats', 'statistics');
     }
   }
 
@@ -3055,11 +3047,7 @@ class EnhancedMCPTools {
         timestamp: new Date().toISOString(),
       };
     } catch (error) {
-      return this.handleError(
-        error,
-        'persistence_stats',
-        'statistics'
-      );
+      return this.handleError(error, 'persistence_stats', 'statistics');
     }
   }
 

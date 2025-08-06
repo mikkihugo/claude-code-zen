@@ -80,7 +80,7 @@ const networkConfig = () =>
     randomSeed: fc.option(fc.integer({ min: 0, max: 2147483647 })),
   });
 
-const trainingData = (inputSize: number, outputSize: number, batchSize: number = 10) =>
+const _trainingData = (inputSize: number, outputSize: number, batchSize: number = 10) =>
   fc.record({
     inputs: fc.array(fc.array(finiteFloat(), { minLength: inputSize, maxLength: inputSize }), {
       minLength: batchSize,
@@ -96,12 +96,12 @@ const trainingData = (inputSize: number, outputSize: number, batchSize: number =
 class MockNeuralNetwork {
   constructor(private config: NetworkConfig) {}
 
-  predict(inputs: number[]): number[] {
+  predict(_inputs: number[]): number[] {
     // Mock prediction - returns zeros for testing invariants
     return new Array(this.config.outputSize).fill(0);
   }
 
-  train(data: TrainingDataConfig): { converged: boolean; finalError: number; epochs: number } {
+  train(_data: TrainingDataConfig): { converged: boolean; finalError: number; epochs: number } {
     // Mock training
     return { converged: true, finalError: 0.001, epochs: 100 };
   }
@@ -158,11 +158,11 @@ function createTimeSeriesWindows(data: number[], windowSize: number, step: numbe
 function handleMissingValues(data: number[], strategy: 'mean' | 'zero' | 'forward_fill'): number[] {
   const result = [...data];
   const mean =
-    data.filter((x) => !isNaN(x)).reduce((sum, x) => sum + x, 0) /
-    data.filter((x) => !isNaN(x)).length;
+    data.filter((x) => !Number.isNaN(x)).reduce((sum, x) => sum + x, 0) /
+    data.filter((x) => !Number.isNaN(x)).length;
 
   for (let i = 0; i < result.length; i++) {
-    if (isNaN(result[i])) {
+    if (Number.isNaN(result[i])) {
       switch (strategy) {
         case 'mean':
           result[i] = mean || 0;
@@ -220,7 +220,7 @@ describe('Neural Network Model Invariants', () => {
       fc.property(
         networkConfig(),
         fc.array(finiteFloat(), { minLength: 100, maxLength: 1000 }),
-        (config, weights) => {
+        (_config, weights) => {
           // All weights should be finite
           const allFinite = weights.every((w) => Number.isFinite(w));
           expect(allFinite).toBe(true);
@@ -357,14 +357,14 @@ describe('Data Processing Invariants', () => {
           expect(result).toHaveLength(dataWithNaN.length);
 
           // No NaN values should remain
-          expect(result.every((x) => !isNaN(x))).toBe(true);
+          expect(result.every((x) => !Number.isNaN(x))).toBe(true);
 
           // All values should be finite
           expect(result.every((x) => Number.isFinite(x))).toBe(true);
 
           // Non-NaN values should be preserved
           for (let i = 0; i < dataWithNaN.length; i++) {
-            if (!isNaN(dataWithNaN[i])) {
+            if (!Number.isNaN(dataWithNaN[i])) {
               expect(result[i]).toBe(dataWithNaN[i]);
             }
           }
@@ -533,7 +533,7 @@ describe('Edge Case Handling', () => {
           const handled = handleMissingValues(withNaN, 'zero');
 
           expect(handled.every((x) => Number.isFinite(x))).toBe(true);
-          expect(handled.every((x) => !isNaN(x))).toBe(true);
+          expect(handled.every((x) => !Number.isNaN(x))).toBe(true);
         }
       )
     );

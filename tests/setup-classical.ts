@@ -118,7 +118,10 @@ interface ExtendedGlobal extends NodeJS.Global {
   return matrix;
 };
 
-(global as unknown as ExtendedGlobal).generateTestVector = (size: number, fillFn?: (i: number) => number) => {
+(global as unknown as ExtendedGlobal).generateTestVector = (
+  size: number,
+  fillFn?: (i: number) => number
+) => {
   const vector: number[] = [];
   for (let i = 0; i < size; i++) {
     vector[i] = fillFn ? fillFn(i) : Math.random();
@@ -134,7 +137,10 @@ interface ExtendedGlobal extends NodeJS.Global {
   { input: [1, 1], output: [0] },
 ];
 
-(global as unknown as ExtendedGlobal).generateLinearData = (samples: number, noise: number = 0.1) => {
+(global as unknown as ExtendedGlobal).generateLinearData = (
+  samples: number,
+  noise: number = 0.1
+) => {
   const data = [];
   for (let i = 0; i < samples; i++) {
     const x = Math.random() * 10;

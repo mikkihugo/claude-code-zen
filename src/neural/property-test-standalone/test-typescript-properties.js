@@ -26,12 +26,6 @@ function meanSquaredError(predictions, targets) {
   const sum = predictions.reduce((acc, p, i) => acc + (p - targets[i]) ** 2, 0);
   return sum / predictions.length;
 }
-
-// Property-based tests
-console.log('Running TypeScript Property-Based Tests...\n');
-
-// Test 1: Sigmoid bounds
-console.log('✓ Testing sigmoid bounds...');
 fc.assert(
   fc.property(fc.float({ min: -1000, max: 1000, noNaN: true }), (x) => {
     const result = sigmoid(x);
@@ -39,9 +33,6 @@ fc.assert(
   }),
   { numRuns: 1000 }
 );
-
-// Test 2: ReLU properties
-console.log('✓ Testing ReLU properties...');
 fc.assert(
   fc.property(fc.float({ min: -1000, max: 1000, noNaN: true }), (x) => {
     const result = relu(x);
@@ -49,9 +40,6 @@ fc.assert(
   }),
   { numRuns: 1000 }
 );
-
-// Test 3: MSE properties
-console.log('✓ Testing MSE properties...');
 fc.assert(
   fc.property(
     fc.array(fc.float({ min: -10, max: 10, noNaN: true }), { minLength: 5, maxLength: 20 }),
@@ -65,9 +53,6 @@ fc.assert(
   ),
   { numRuns: 1000 }
 );
-
-// Test 4: Normalization properties
-console.log('✓ Testing normalization properties...');
 fc.assert(
   fc.property(
     fc.array(fc.float({ min: -100, max: 100, noNaN: true }), { minLength: 10, maxLength: 50 }),
@@ -94,9 +79,6 @@ fc.assert(
   ),
   { numRuns: 500 }
 );
-
-// Test 5: Edge case handling
-console.log('✓ Testing edge case handling...');
 fc.assert(
   fc.property(
     fc.array(
@@ -122,11 +104,3 @@ fc.assert(
   ),
   { numRuns: 1000 }
 );
-
-console.log('\n🎉 All TypeScript property-based tests passed!');
-console.log('Property-based testing successfully validated:');
-console.log('- Activation function bounds and stability');
-console.log('- Loss function properties');
-console.log('- Data normalization invariants');
-console.log('- Edge case handling');
-console.log('- Numerical stability across extreme inputs');

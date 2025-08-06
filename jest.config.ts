@@ -20,9 +20,11 @@ const config: Config = {
   moduleNameMapper: {
     // Map TypeScript path aliases (excluding @types/* which should resolve to node_modules)
     ...Object.fromEntries(
-      Object.entries(pathsToModuleNameMapper(compilerOptions.paths, {
-        prefix: '<rootDir>/src/',
-      })).filter(([key]) => !key.startsWith('^@types/'))
+      Object.entries(
+        pathsToModuleNameMapper(compilerOptions.paths, {
+          prefix: '<rootDir>/src/',
+        })
+      ).filter(([key]) => !key.startsWith('^@types/'))
     ),
   },
 
