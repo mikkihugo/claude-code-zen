@@ -41,6 +41,10 @@ export class ZenSwarm extends EventEmitter implements SwarmEventEmitter {
   private agentPool?: AgentPool;
   private wasmLoader: WasmModuleLoader;
   protected options: ExtendedSwarmOptions;
+  private isRunning: boolean;
+  private metrics: any;
+  private coordinationDao: any;
+  private neuralProcessor: any;
 
   constructor(options: SwarmOptions = {}) {
     super();

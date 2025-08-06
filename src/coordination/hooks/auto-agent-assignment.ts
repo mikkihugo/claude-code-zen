@@ -26,6 +26,7 @@ export class IntelligentAgentAssignor implements AgentCoordinator {
   private readonly agentCapabilityMap: Map<AgentType, AgentCapabilityProfile>;
   private readonly fileTypeAgentMap: Map<FileType, AgentType[]>;
   private readonly workloadTracker: Map<string, number>;
+  private readonly agentPerformanceHistory: Map<string, PerformanceHistory[]>;
 
   constructor() {
     this.agentCapabilityMap = new Map();

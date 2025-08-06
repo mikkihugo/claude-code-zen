@@ -118,6 +118,7 @@ export class Agent extends EventEmitter implements AgentComponent {
   private name: string;
   private capabilities: Map<string, AgentCapability> = new Map();
   private status: AgentStatus;
+  private config: any;
   private currentTask?: TaskDefinition;
   private taskQueue: TaskDefinition[] = [];
   private taskHistory: TaskResult[] = [];

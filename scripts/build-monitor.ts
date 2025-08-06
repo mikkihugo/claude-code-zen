@@ -15,8 +15,6 @@ import { promisify } from 'node:util';
 
 const execAsync = promisify(exec);
 
-*
-@example
 /** TypeScript error information */
 interface TypeScriptError {
   file?: string;
@@ -24,8 +22,6 @@ interface TypeScriptError {
   message: string;
 }
 
-*
-@example
 /** Build result information */
 interface BuildResult {
   timestamp: string;
@@ -34,8 +30,6 @@ interface BuildResult {
   success: boolean;
 }
 
-*
-@example
 /** Error category breakdown */
 interface ErrorCategories {
   type_compatibility: number;
@@ -46,8 +40,6 @@ interface ErrorCategories {
   other: number;
 }
 
-*
-@example
 /** Alpha certification status */
 interface AlphaCertification {
   timestamp: string;
@@ -57,8 +49,6 @@ interface AlphaCertification {
   verifiedBy: string;
 }
 
-*
-@example
 /** Build monitoring report */
 interface BuildReport {
   timestamp: string;

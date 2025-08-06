@@ -196,6 +196,7 @@ YOUR GOAL: Make workflows self-improving and continuously optimized!`,
  */
 export class DSPyAgentIntegration {
   private swarmCoordinator: SwarmCoordinator;
+  private memoryStore: SessionMemoryStore;
   private dspyIntegration: DSPyIntegration;
   private dspyAgents: Map<string, SwarmAgent> = new Map();
 
