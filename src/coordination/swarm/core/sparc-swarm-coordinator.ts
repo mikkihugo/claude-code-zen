@@ -630,7 +630,7 @@ export class SPARCSwarmCoordinator extends SwarmCoordinator {
     // This is a placeholder implementation
     // In a real implementation, this would use the agent communication system
     logger.debug(`Assigning task ${task.id} to agent ${agentId}`);
-    
+
     // Mock successful task assignment
     return Promise.resolve();
   }

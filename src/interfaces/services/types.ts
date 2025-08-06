@@ -1,6 +1,6 @@
 /**
  * USL (Unified Service Layer) Types and Configuration
- * 
+ *
  * Centralized type definitions and configuration schemas for all service types
  * in the Claude-Zen ecosystem.
  */
@@ -15,15 +15,15 @@ export enum ServiceType {
   DATA = 'data',
   WEB_DATA = 'web-data',
   DOCUMENT = 'document',
-  
-  // Coordination Services  
+
+  // Coordination Services
   COORDINATION = 'coordination',
   SWARM = 'swarm',
   ORCHESTRATION = 'orchestration',
   DAA = 'daa', // Data Accessibility and Analysis
   SESSION_RECOVERY = 'session-recovery',
   ARCHITECTURE_STORAGE = 'architecture-storage',
-  
+
   // Interface Services
   API = 'api',
   SAFE_API = 'safe-api',
@@ -31,22 +31,22 @@ export enum ServiceType {
   MCP = 'mcp',
   CLI = 'cli',
   TUI = 'tui',
-  
+
   // Neural Services
   NEURAL = 'neural',
   LEARNING = 'learning',
   PATTERN_RECOGNITION = 'pattern-recognition',
-  
+
   // Memory Services
   MEMORY = 'memory',
   CACHE = 'cache',
   SESSION = 'session',
-  
+
   // Database Services
   DATABASE = 'database',
   VECTOR = 'vector',
   GRAPH = 'graph',
-  
+
   // System Services
   INFRASTRUCTURE = 'infrastructure',
   SYSTEM = 'system',
@@ -54,30 +54,30 @@ export enum ServiceType {
   MONITORING = 'monitoring',
   LOGGING = 'logging',
   SECURITY = 'security',
-  
+
   // Workflow Services
   WORKFLOW = 'workflow',
   TASK = 'task',
   PIPELINE = 'pipeline',
-  
+
   // Communication Services
   WEBSOCKET = 'websocket',
   MESSAGE_QUEUE = 'message-queue',
   EVENT_BUS = 'event-bus',
-  
+
   // Custom service type
-  CUSTOM = 'custom'
+  CUSTOM = 'custom',
 }
 
 /**
  * Service priority levels for initialization and resource allocation
  */
 export enum ServicePriority {
-  CRITICAL = 0,    // System-critical services (database, logging)
-  HIGH = 1,        // Important services (authentication, security)
-  NORMAL = 2,      // Standard services (API, web)
-  LOW = 3,         // Optional services (monitoring, analytics)
-  BACKGROUND = 4   // Background services (cleanup, optimization)
+  CRITICAL = 0, // System-critical services (database, logging)
+  HIGH = 1, // Important services (authentication, security)
+  NORMAL = 2, // Standard services (API, web)
+  LOW = 3, // Optional services (monitoring, analytics)
+  BACKGROUND = 4, // Background services (cleanup, optimization)
 }
 
 /**
@@ -87,7 +87,7 @@ export enum ServiceEnvironment {
   DEVELOPMENT = 'development',
   TESTING = 'testing',
   STAGING = 'staging',
-  PRODUCTION = 'production'
+  PRODUCTION = 'production',
 }
 
 /**
@@ -163,7 +163,12 @@ export interface WebServiceConfig extends BaseServiceConfig {
  * Coordination service configuration for swarm and orchestration
  */
 export interface CoordinationServiceConfig extends BaseServiceConfig {
-  type: ServiceType.COORDINATION | ServiceType.SWARM | ServiceType.ORCHESTRATION | ServiceType.DAA | ServiceType.SESSION_RECOVERY;
+  type:
+    | ServiceType.COORDINATION
+    | ServiceType.SWARM
+    | ServiceType.ORCHESTRATION
+    | ServiceType.DAA
+    | ServiceType.SESSION_RECOVERY;
   coordination?: {
     topology?: 'mesh' | 'hierarchical' | 'ring' | 'star';
     maxAgents?: number;
@@ -449,7 +454,7 @@ export interface InfrastructureServiceConfig extends BaseServiceConfig {
 /**
  * Union type for all service configurations
  */
-export type AnyServiceConfig = 
+export type AnyServiceConfig =
   | DataServiceConfig
   | WebServiceConfig
   | CoordinationServiceConfig
@@ -486,7 +491,7 @@ export class ServiceConfigFactory {
         interval: 30000,
         timeout: 5000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: true,
@@ -494,9 +499,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: false
+        trackMemoryUsage: false,
       },
-      ...options
+      ...options,
     };
   }
 
@@ -516,25 +521,25 @@ export class ServiceConfigFactory {
       timeout: 30000,
       server: {
         host: 'localhost',
-        port: 3000
+        port: 3000,
       },
       cors: {
         enabled: true,
         origins: ['*'],
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        headers: ['Content-Type', 'Authorization']
+        headers: ['Content-Type', 'Authorization'],
       },
       rateLimit: {
         enabled: false,
         requests: 100,
-        window: 60000
+        window: 60000,
       },
       health: {
         enabled: true,
         interval: 30000,
         timeout: 5000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: true,
@@ -542,9 +547,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: true
+        trackMemoryUsage: true,
       },
-      ...options
+      ...options,
     };
   }
 
@@ -566,25 +571,25 @@ export class ServiceConfigFactory {
         topology: 'mesh',
         maxAgents: 10,
         strategy: 'adaptive',
-        timeout: 30000
+        timeout: 30000,
       },
       persistence: {
         enabled: true,
         storage: 'memory',
-        compression: false
+        compression: false,
       },
       recovery: {
         enabled: true,
         checkInterval: 10000,
         maxRetries: 3,
-        backupInterval: 60000
+        backupInterval: 60000,
       },
       health: {
         enabled: true,
         interval: 30000,
         timeout: 5000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: true,
@@ -592,9 +597,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: true
+        trackMemoryUsage: true,
       },
-      ...options
+      ...options,
     };
   }
 
@@ -614,28 +619,28 @@ export class ServiceConfigFactory {
       timeout: 120000,
       model: {
         type: 'neural-network',
-        config: {}
+        config: {},
       },
       training: {
         enabled: false,
         batchSize: 32,
         epochs: 100,
-        learningRate: 0.001
+        learningRate: 0.001,
       },
       inference: {
         batchSize: 1,
         timeout: 30000,
-        caching: true
+        caching: true,
       },
       gpu: {
-        enabled: false
+        enabled: false,
       },
       health: {
         enabled: true,
         interval: 60000,
         timeout: 10000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: true,
@@ -643,9 +648,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: true
+        trackMemoryUsage: true,
       },
-      ...options
+      ...options,
     };
   }
 
@@ -665,26 +670,26 @@ export class ServiceConfigFactory {
       timeout: 30000,
       storage: {
         type: 'memory',
-        maxMemory: 1024 * 1024 * 100 // 100MB
+        maxMemory: 1024 * 1024 * 100, // 100MB
       },
       eviction: {
         policy: 'lru',
         maxSize: 10000,
-        ttl: 3600000 // 1 hour
+        ttl: 3600000, // 1 hour
       },
       serialization: {
         type: 'json',
-        compression: false
+        compression: false,
       },
       persistence: {
-        enabled: false
+        enabled: false,
       },
       health: {
         enabled: true,
         interval: 30000,
         timeout: 5000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: true,
@@ -692,9 +697,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: true
+        trackMemoryUsage: true,
       },
-      ...options
+      ...options,
     };
   }
 
@@ -715,29 +720,29 @@ export class ServiceConfigFactory {
       connection: {
         host: 'localhost',
         port: 5432,
-        poolSize: 10
+        poolSize: 10,
       },
       migrations: {
         enabled: true,
-        autoRun: false
+        autoRun: false,
       },
       backup: {
         enabled: false,
         interval: 86400000, // 24 hours
-        retention: 7 // 7 days
+        retention: 7, // 7 days
       },
       performance: {
         queryTimeout: 30000,
         connectionTimeout: 10000,
         idleTimeout: 300000, // 5 minutes
-        maxRetries: 3
+        maxRetries: 3,
       },
       health: {
         enabled: true,
         interval: 30000,
         timeout: 5000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: true,
@@ -745,9 +750,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: true
+        trackMemoryUsage: true,
       },
-      ...options
+      ...options,
     };
   }
 
@@ -769,26 +774,26 @@ export class ServiceConfigFactory {
         enabled: true,
         interval: 5000,
         retention: 86400000, // 24 hours
-        aggregation: 'avg'
+        aggregation: 'avg',
       },
       alerts: {
         enabled: false,
         thresholds: {
           'cpu.usage': 80,
           'memory.usage': 85,
-          'error.rate': 5
-        }
+          'error.rate': 5,
+        },
       },
       storage: {
         type: 'memory',
-        compression: true
+        compression: true,
       },
       health: {
         enabled: true,
         interval: 30000,
         timeout: 5000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: false, // Don't monitor the monitoring service itself
@@ -796,9 +801,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: true
+        trackMemoryUsage: true,
       },
-      ...options
+      ...options,
     };
   }
 
@@ -820,32 +825,32 @@ export class ServiceConfigFactory {
         architectureStorage: true,
         safeAPI: true,
         protocolManagement: true,
-        multiProtocol: true
+        multiProtocol: true,
       },
       protocols: {
         supported: ['http', 'websocket', 'mcp-http', 'mcp-stdio'],
         default: 'http',
         failover: true,
-        loadBalancing: true
+        loadBalancing: true,
       },
       performance: {
         caching: true,
         deduplication: true,
         connectionPooling: true,
-        metricsCollection: true
+        metricsCollection: true,
       },
       security: {
         validation: true,
         sanitization: true,
         rateLimiting: true,
-        auditLogging: true
+        auditLogging: true,
       },
       health: {
         enabled: true,
         interval: 30000,
         timeout: 5000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: true,
@@ -853,9 +858,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: true
+        trackMemoryUsage: true,
       },
-      ...options
+      ...options,
     };
   }
 
@@ -879,7 +884,7 @@ export class ServiceConfigFactory {
         enableCaching: true,
         enableMetrics: true,
         enableHealthChecks: true,
-        systemStatusInterval: 30000
+        systemStatusInterval: 30000,
       },
       patternIntegration: {
         enabled: true,
@@ -887,7 +892,7 @@ export class ServiceConfigFactory {
         enableEventSystem: true,
         enableCommandSystem: true,
         enableProtocolSystem: true,
-        enableAgentSystem: true
+        enableAgentSystem: true,
       },
       orchestration: {
         enableServiceDiscovery: true,
@@ -895,7 +900,7 @@ export class ServiceConfigFactory {
         enableCircuitBreaker: true,
         maxConcurrentServices: 20,
         serviceStartupTimeout: 30000,
-        shutdownGracePeriod: 10000
+        shutdownGracePeriod: 10000,
       },
       resourceManagement: {
         enableResourceTracking: true,
@@ -904,7 +909,7 @@ export class ServiceConfigFactory {
         cpuThreshold: 0.8,
         diskThreshold: 0.9,
         networkThreshold: 0.8,
-        cleanupInterval: 300000
+        cleanupInterval: 300000,
       },
       configManagement: {
         enableHotReload: true,
@@ -912,7 +917,7 @@ export class ServiceConfigFactory {
         enableVersioning: true,
         reloadCheckInterval: 30000,
         backupConfigs: true,
-        maxConfigHistory: 50
+        maxConfigHistory: 50,
       },
       eventCoordination: {
         enableCentralizedEvents: true,
@@ -920,7 +925,7 @@ export class ServiceConfigFactory {
         enableEventMetrics: true,
         maxEventQueueSize: 10000,
         eventRetentionPeriod: 3600000,
-        enableEventFiltering: true
+        enableEventFiltering: true,
       },
       healthMonitoring: {
         enableAdvancedChecks: true,
@@ -930,15 +935,15 @@ export class ServiceConfigFactory {
         performanceThresholds: {
           responseTime: 1000,
           errorRate: 0.05,
-          resourceUsage: 0.8
-        }
+          resourceUsage: 0.8,
+        },
       },
       health: {
         enabled: true,
         interval: 30000,
         timeout: 5000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: true,
@@ -946,9 +951,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: true
+        trackMemoryUsage: true,
       },
-      ...options
+      ...options,
     };
   }
 
@@ -970,28 +975,28 @@ export class ServiceConfigFactory {
         parallel: true,
         maxConcurrency: 5,
         timeout: 120000, // 2 minutes
-        retries: 3
+        retries: 3,
       },
       scheduling: {
         enabled: false,
-        timezone: 'UTC'
+        timezone: 'UTC',
       },
       state: {
         persistence: true,
         storage: 'memory',
-        compression: false
+        compression: false,
       },
       notifications: {
         enabled: false,
         events: ['started', 'completed', 'failed'],
-        channels: ['console']
+        channels: ['console'],
       },
       health: {
         enabled: true,
         interval: 30000,
         timeout: 5000,
         failureThreshold: 3,
-        successThreshold: 1
+        successThreshold: 1,
       },
       monitoring: {
         enabled: true,
@@ -999,9 +1004,9 @@ export class ServiceConfigFactory {
         trackLatency: true,
         trackThroughput: true,
         trackErrors: true,
-        trackMemoryUsage: true
+        trackMemoryUsage: true,
       },
-      ...options
+      ...options,
     };
   }
 }
@@ -1010,37 +1015,67 @@ export class ServiceConfigFactory {
  * Type guard functions for service configurations
  */
 export function isDataServiceConfig(config: AnyServiceConfig): config is DataServiceConfig {
-  return [ServiceType.DATA, ServiceType.WEB_DATA, ServiceType.DOCUMENT].includes(config.type as ServiceType);
+  return [ServiceType.DATA, ServiceType.WEB_DATA, ServiceType.DOCUMENT].includes(
+    config.type as ServiceType
+  );
 }
 
 export function isWebServiceConfig(config: AnyServiceConfig): config is WebServiceConfig {
-  return [ServiceType.WEB, ServiceType.API, ServiceType.SAFE_API, ServiceType.WEBSOCKET].includes(config.type as ServiceType);
+  return [ServiceType.WEB, ServiceType.API, ServiceType.SAFE_API, ServiceType.WEBSOCKET].includes(
+    config.type as ServiceType
+  );
 }
 
-export function isCoordinationServiceConfig(config: AnyServiceConfig): config is CoordinationServiceConfig {
-  return [ServiceType.COORDINATION, ServiceType.SWARM, ServiceType.ORCHESTRATION, ServiceType.DAA, ServiceType.SESSION_RECOVERY].includes(config.type as ServiceType);
+export function isCoordinationServiceConfig(
+  config: AnyServiceConfig
+): config is CoordinationServiceConfig {
+  return [
+    ServiceType.COORDINATION,
+    ServiceType.SWARM,
+    ServiceType.ORCHESTRATION,
+    ServiceType.DAA,
+    ServiceType.SESSION_RECOVERY,
+  ].includes(config.type as ServiceType);
 }
 
 export function isNeuralServiceConfig(config: AnyServiceConfig): config is NeuralServiceConfig {
-  return [ServiceType.NEURAL, ServiceType.LEARNING, ServiceType.PATTERN_RECOGNITION].includes(config.type as ServiceType);
+  return [ServiceType.NEURAL, ServiceType.LEARNING, ServiceType.PATTERN_RECOGNITION].includes(
+    config.type as ServiceType
+  );
 }
 
 export function isMemoryServiceConfig(config: AnyServiceConfig): config is MemoryServiceConfig {
-  return [ServiceType.MEMORY, ServiceType.CACHE, ServiceType.SESSION].includes(config.type as ServiceType);
+  return [ServiceType.MEMORY, ServiceType.CACHE, ServiceType.SESSION].includes(
+    config.type as ServiceType
+  );
 }
 
 export function isDatabaseServiceConfig(config: AnyServiceConfig): config is DatabaseServiceConfig {
-  return [ServiceType.DATABASE, ServiceType.VECTOR, ServiceType.GRAPH].includes(config.type as ServiceType);
+  return [ServiceType.DATABASE, ServiceType.VECTOR, ServiceType.GRAPH].includes(
+    config.type as ServiceType
+  );
 }
 
-export function isIntegrationServiceConfig(config: AnyServiceConfig): config is IntegrationServiceConfig {
-  return [ServiceType.API, ServiceType.SAFE_API, ServiceType.ARCHITECTURE_STORAGE].includes(config.type as ServiceType);
+export function isIntegrationServiceConfig(
+  config: AnyServiceConfig
+): config is IntegrationServiceConfig {
+  return [ServiceType.API, ServiceType.SAFE_API, ServiceType.ARCHITECTURE_STORAGE].includes(
+    config.type as ServiceType
+  );
 }
 
-export function isInfrastructureServiceConfig(config: AnyServiceConfig): config is InfrastructureServiceConfig {
-  return [ServiceType.INFRASTRUCTURE, ServiceType.SYSTEM, ServiceType.MONITORING].includes(config.type as ServiceType);
+export function isInfrastructureServiceConfig(
+  config: AnyServiceConfig
+): config is InfrastructureServiceConfig {
+  return [ServiceType.INFRASTRUCTURE, ServiceType.SYSTEM, ServiceType.MONITORING].includes(
+    config.type as ServiceType
+  );
 }
 
-export function isMonitoringServiceConfig(config: AnyServiceConfig): config is MonitoringServiceConfig {
-  return [ServiceType.HEALTH, ServiceType.MONITORING, ServiceType.LOGGING].includes(config.type as ServiceType);
+export function isMonitoringServiceConfig(
+  config: AnyServiceConfig
+): config is MonitoringServiceConfig {
+  return [ServiceType.HEALTH, ServiceType.MONITORING, ServiceType.LOGGING].includes(
+    config.type as ServiceType
+  );
 }

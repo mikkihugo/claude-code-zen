@@ -1,38 +1,30 @@
 /**
  * USL Infrastructure Service Helpers
- * 
+ *
  * Helper functions and utilities for infrastructure service operations,
  * providing high-level convenience methods for common infrastructure tasks.
  * Follows the same patterns as other USL service helpers.
  */
 
+import { createLogger } from '../../../utils/logger';
+import type { ServiceOperationOptions, ServiceOperationResponse } from '../core/interfaces';
 import type {
   InfrastructureServiceAdapter,
-  InfrastructureServiceAdapterConfig
+  InfrastructureServiceAdapterConfig,
 } from './infrastructure-service-adapter';
-
-import type {
-  InfrastructureServiceFactory,
-  CreateServiceOptions
-} from './infrastructure-service-factory';
-
 import {
+  createDefaultInfrastructureServiceAdapterConfig,
   createInfrastructureServiceAdapter,
-  createDefaultInfrastructureServiceAdapterConfig
 } from './infrastructure-service-adapter';
-
+import type {
+  CreateServiceOptions,
+  InfrastructureServiceFactory,
+} from './infrastructure-service-factory';
 import {
+  createInfrastructureService,
   createInfrastructureServiceFactory,
   getInfrastructureServiceFactory,
-  createInfrastructureService
 } from './infrastructure-service-factory';
-
-import type {
-  ServiceOperationOptions,
-  ServiceOperationResponse
-} from '../core/interfaces';
-
-import { createLogger } from '../../../utils/logger';
 
 const logger = createLogger('InfrastructureServiceHelpers');
 
@@ -60,20 +52,20 @@ export async function quickCreateInfrastructureService(
       enabled: options.enableFacade !== false,
       autoInitialize: true,
       enableMetrics: true,
-      enableHealthChecks: options.enableHealthMonitoring !== false
+      enableHealthChecks: options.enableHealthMonitoring !== false,
     },
     patternIntegration: {
       enabled: options.enablePatternIntegration !== false,
-      enableAutoOptimization: true
+      enableAutoOptimization: true,
     },
     resourceManagement: {
       enableResourceTracking: options.enableResourceTracking !== false,
-      enableResourceOptimization: true
+      enableResourceOptimization: true,
     },
     healthMonitoring: {
       enableAdvancedChecks: options.enableHealthMonitoring !== false,
-      enablePerformanceAlerts: true
-    }
+      enablePerformanceAlerts: true,
+    },
   });
 
   const service = createInfrastructureServiceAdapter(config);
@@ -107,12 +99,12 @@ export async function createFacadeOnlyInfrastructureService(
       enableBatchOperations: facadeOptions.enableBatchOperations !== false,
       systemStatusInterval: facadeOptions.systemStatusInterval || 30000,
       enableMetrics: true,
-      enableHealthChecks: true
+      enableHealthChecks: true,
     },
     patternIntegration: { enabled: false },
     orchestration: { enableServiceDiscovery: false },
     resourceManagement: { enableResourceTracking: false },
-    eventCoordination: { enableCentralizedEvents: false }
+    eventCoordination: { enableCentralizedEvents: false },
   });
 
   const service = createInfrastructureServiceAdapter(config);
@@ -145,11 +137,11 @@ export async function createPatternIntegrationOnlyService(
       enableEventSystem: true,
       enableCommandSystem: true,
       enableProtocolSystem: true,
-      enableAgentSystem: true
+      enableAgentSystem: true,
     },
     orchestration: { enableServiceDiscovery: true },
     resourceManagement: { enableResourceTracking: true },
-    eventCoordination: { enableCentralizedEvents: true }
+    eventCoordination: { enableCentralizedEvents: true },
   });
 
   const service = createInfrastructureServiceAdapter(config);
@@ -179,34 +171,34 @@ export async function createProductionInfrastructureService(
       autoInitialize: true,
       enableMetrics: true,
       enableHealthChecks: true,
-      mockServices: false // Use real services in production
+      mockServices: false, // Use real services in production
     },
     patternIntegration: {
       enabled: true,
       configProfile: 'production',
       maxAgents: 50,
-      enableAutoOptimization: true
+      enableAutoOptimization: true,
     },
     orchestration: {
       enableServiceDiscovery: true,
       enableLoadBalancing: true,
       enableCircuitBreaker: productionOptions.enableCircuitBreaker !== false,
       maxConcurrentServices: productionOptions.maxConcurrentServices || 50,
-      enableServiceMesh: true
+      enableServiceMesh: true,
     },
     resourceManagement: {
       enableResourceTracking: true,
       enableResourceOptimization: true,
       enableGarbageCollection: true,
       memoryThreshold: 0.7, // Lower threshold for production
-      cpuThreshold: 0.7
+      cpuThreshold: 0.7,
     },
     configManagement: {
       enableHotReload: true,
       enableValidation: true,
       enableVersioning: true,
       configEncryption: productionOptions.configEncryption === true,
-      maxConfigHistory: 100
+      maxConfigHistory: 100,
     },
     healthMonitoring: {
       enableAdvancedChecks: true,
@@ -216,9 +208,9 @@ export async function createProductionInfrastructureService(
       performanceThresholds: {
         responseTime: 500, // Stricter thresholds for production
         errorRate: 0.01,
-        resourceUsage: 0.7
-      }
-    }
+        resourceUsage: 0.7,
+      },
+    },
   });
 
   const service = createInfrastructureServiceAdapter(config);
@@ -243,13 +235,13 @@ export async function initializeProjectWithRetries(
   logger.debug('Initializing project with retries', { projectConfig, maxRetries });
 
   let lastError: Error | undefined;
-  
+
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
       const result = await service.execute('project-init', projectConfig, {
-        timeout: 60000 // 1 minute timeout for project initialization
+        timeout: 60000, // 1 minute timeout for project initialization
       });
-      
+
       if (result.success) {
         logger.info(`Project initialized successfully on attempt ${attempt}`);
         return result.data;
@@ -257,15 +249,15 @@ export async function initializeProjectWithRetries(
     } catch (error) {
       lastError = error as Error;
       logger.warn(`Project initialization attempt ${attempt} failed:`, error);
-      
+
       if (attempt < maxRetries) {
-        const delay = Math.pow(2, attempt - 1) * 1000; // Exponential backoff
+        const delay = 2 ** (attempt - 1) * 1000; // Exponential backoff
         logger.info(`Retrying in ${delay}ms...`);
-        await new Promise(resolve => setTimeout(resolve, delay));
+        await new Promise((resolve) => setTimeout(resolve, delay));
       }
     }
   }
-  
+
   throw lastError || new Error('Project initialization failed after all retries');
 }
 
@@ -287,19 +279,23 @@ export async function processDocumentEnhanced(
 
   const operationOptions: ServiceOperationOptions = {
     timeout: options.timeout || 120000, // 2 minute default for document processing
-    priority: options.priority || 'medium'
+    priority: options.priority || 'medium',
   };
 
   try {
-    const result = await service.execute('document-process', {
-      documentPath,
-      options
-    }, operationOptions);
+    const result = await service.execute(
+      'document-process',
+      {
+        documentPath,
+        options,
+      },
+      operationOptions
+    );
 
     if (result.success) {
-      logger.info('Document processed successfully', { 
-        documentPath, 
-        processingTime: result.metadata?.duration 
+      logger.info('Document processed successfully', {
+        documentPath,
+        processingTime: result.metadata?.duration,
       });
       return result.data;
     } else {
@@ -319,8 +315,8 @@ export async function executeBatchWithProgress(
   operations: Array<{ type: string; params: any }>,
   onProgress?: (completed: number, total: number, currentOperation: string) => void
 ): Promise<any[]> {
-  logger.debug('Executing batch operations with progress tracking', { 
-    operationCount: operations.length 
+  logger.debug('Executing batch operations with progress tracking', {
+    operationCount: operations.length,
   });
 
   // Set up progress tracking if provided
@@ -333,14 +329,18 @@ export async function executeBatchWithProgress(
   }
 
   try {
-    const result = await service.execute('batch-execute', { operations }, {
-      timeout: operations.length * 30000 // 30 seconds per operation
-    });
+    const result = await service.execute(
+      'batch-execute',
+      { operations },
+      {
+        timeout: operations.length * 30000, // 30 seconds per operation
+      }
+    );
 
     if (result.success) {
       logger.info('Batch operations completed successfully', {
         operationCount: operations.length,
-        duration: result.metadata?.duration
+        duration: result.metadata?.duration,
       });
       return result.data;
     } else {
@@ -360,15 +360,19 @@ export async function getSystemStatusCached(
   cacheTTL: number = 30000 // 30 seconds
 ): Promise<any> {
   const cacheKey = `system-status-${service.name}`;
-  
+
   // This would use a proper cache in a real implementation
   // For now, we'll just execute the operation
   logger.debug('Getting cached system status', { cacheTTL });
 
   try {
-    const result = await service.execute('system-status', {}, {
-      timeout: 15000 // 15 second timeout for status check
-    });
+    const result = await service.execute(
+      'system-status',
+      {},
+      {
+        timeout: 15000, // 15 second timeout for status check
+      }
+    );
 
     if (result.success) {
       logger.debug('System status retrieved successfully');
@@ -409,20 +413,20 @@ export async function initializeOptimizedSwarm(
       cpu: 0.8,
       memory: 0.7,
       network: 0.6,
-      storage: 0.9
+      storage: 0.9,
     },
-    timeout: 60000
+    timeout: 60000,
   };
 
   try {
     const result = await service.execute('swarm-init', optimizedConfig, {
-      timeout: 90000 // 1.5 minute timeout for swarm initialization
+      timeout: 90000, // 1.5 minute timeout for swarm initialization
     });
 
     if (result.success) {
       logger.info('Optimized swarm initialized successfully', {
         swarmId: result.data?.swarmId,
-        agentCount: optimizedConfig.agentCount
+        agentCount: optimizedConfig.agentCount,
       });
       return result.data;
     } else {
@@ -463,18 +467,22 @@ export async function coordinateSwarmWithMonitoring(
       setTimeout(() => clearInterval(monitoringInterval), 300000); // 5 minutes max
     }
 
-    const result = await service.execute('swarm-coordinate', {
-      swarmId,
-      operation
-    }, {
-      timeout: 120000 // 2 minute timeout for coordination
-    });
+    const result = await service.execute(
+      'swarm-coordinate',
+      {
+        swarmId,
+        operation,
+      },
+      {
+        timeout: 120000, // 2 minute timeout for coordination
+      }
+    );
 
     if (result.success) {
       logger.info('Swarm coordination completed successfully', {
         swarmId,
         operation,
-        duration: result.metadata?.duration
+        duration: result.metadata?.duration,
       });
       return result.data;
     } else {
@@ -517,21 +525,20 @@ export async function optimizeResourcesComprehensive(
 
     // Generate performance report for recommendations
     const reportResult = await service.execute('performance-report');
-    const recommendations = reportResult.success ? 
-      reportResult.data?.recommendations || [] : [];
+    const recommendations = reportResult.success ? reportResult.data?.recommendations || [] : [];
 
     const result = {
       optimizations: [
         ...(optimizations.optimizations || []),
-        `Cleaned up ${cleanup.cleaned || 0} old entries`
+        `Cleaned up ${cleanup.cleaned || 0} old entries`,
       ],
       resourcesSaved: {
         memoryFreed: cleanup.memoryFreed || 0,
         entriesCleaned: cleanup.cleaned || 0,
         cacheCleared: optimizations.optimizations?.includes('Cache cleared'),
-        gcPerformed: optimizations.optimizations?.includes('Garbage collection')
+        gcPerformed: optimizations.optimizations?.includes('Garbage collection'),
       },
-      recommendations
+      recommendations,
     };
 
     logger.info('Comprehensive resource optimization completed', result);
@@ -562,7 +569,7 @@ export async function monitorResourcesWithAlerts(
     memory: 0.8,
     network: 0.7,
     storage: 0.9,
-    ...thresholds
+    ...thresholds,
   };
 
   const monitoringInterval = setInterval(async () => {
@@ -570,7 +577,7 @@ export async function monitorResourcesWithAlerts(
       const trackResult = await service.execute('resource-track');
       if (trackResult.success) {
         const resources = trackResult.data;
-        
+
         // Check thresholds and trigger alerts
         if (alertCallback) {
           Object.entries(defaultThresholds).forEach(([type, threshold]) => {
@@ -626,19 +633,19 @@ export async function updateConfigurationSafely(
 
     logger.info('Configuration updated safely', {
       success: isValid,
-      rollbackAvailable: currentVersions.length > 0
+      rollbackAvailable: currentVersions.length > 0,
     });
 
     return {
       success: isValid,
       rollbackAvailable: currentVersions.length > 0,
-      version: newValidateResult.data?.configHash
+      version: newValidateResult.data?.configHash,
     };
   } catch (error) {
     logger.error('Safe configuration update failed:', error);
     return {
       success: false,
-      rollbackAvailable: false
+      rollbackAvailable: false,
     };
   }
 }
@@ -666,14 +673,14 @@ export async function rollbackConfiguration(
 
     // Perform the rollback
     const rollbackResult = await service.execute('config-rollback', { version });
-    
+
     if (rollbackResult.success) {
       logger.info('Configuration rolled back successfully', {
-        rolledBackTo: version
+        rolledBackTo: version,
       });
       return {
         success: true,
-        rolledBackTo: version
+        rolledBackTo: version,
       };
     } else {
       throw new Error(rollbackResult.error?.message || 'Rollback failed');
@@ -682,7 +689,7 @@ export async function rollbackConfiguration(
     logger.error('Configuration rollback failed:', error);
     return {
       success: false,
-      rolledBackTo: ''
+      rolledBackTo: '',
     };
   }
 }
@@ -726,18 +733,19 @@ export async function performComprehensiveHealthCheck(
     const details = {
       service: basicHealth,
       dependencies: healthResult.data?.details?.dependencies === 0 || true, // Simplified
-      resources: stats.resourceTracking?.currentUtilization ? 
-        Object.values(stats.resourceTracking.currentUtilization).every((v: any) => v < 0.9) : true,
-      performance: report.summary?.successRate > 95
+      resources: stats.resourceTracking?.currentUtilization
+        ? Object.values(stats.resourceTracking.currentUtilization).every((v: any) => v < 0.9)
+        : true,
+      performance: report.summary?.successRate > 95,
     };
 
-    const overall = Object.values(details).every(status => status);
+    const overall = Object.values(details).every((status) => status);
     const recommendations = report.recommendations || [];
 
     logger.info('Comprehensive health check completed', {
       overall,
       details,
-      recommendationCount: recommendations.length
+      recommendationCount: recommendations.length,
     });
 
     return {
@@ -747,22 +755,22 @@ export async function performComprehensiveHealthCheck(
       metrics: {
         healthStats: stats.healthMonitoring,
         resourceStats: stats.resourceTracking,
-        performanceStats: report.summary
-      }
+        performanceStats: report.summary,
+      },
     };
   } catch (error) {
     logger.error('Comprehensive health check failed:', error);
-    
+
     return {
       overall: false,
       details: {
         service: false,
         dependencies: false,
         resources: false,
-        performance: false
+        performance: false,
       },
       recommendations: ['Service health check failed - investigate errors'],
-      metrics: {}
+      metrics: {},
     };
   }
 }
@@ -781,23 +789,23 @@ export async function createInfrastructureServiceWithBestPractices(
 ): Promise<InfrastructureServiceAdapter> {
   logger.debug('Creating infrastructure service with best practices', {
     name,
-    environment
+    environment,
   });
 
   const factory = getInfrastructureServiceFactory({
     healthMonitoring: {
       enabled: true,
       checkInterval: environment === 'production' ? 15000 : 30000,
-      autoRestart: environment === 'production'
+      autoRestart: environment === 'production',
     },
     serviceDiscovery: {
       enabled: true,
-      heartbeatInterval: 10000
+      heartbeatInterval: 10000,
     },
     eventCoordination: {
       enabled: true,
-      crossServiceEvents: true
-    }
+      crossServiceEvents: true,
+    },
   });
 
   const options: CreateServiceOptions = {
@@ -805,7 +813,7 @@ export async function createInfrastructureServiceWithBestPractices(
     register: true,
     enableHealthMonitoring: true,
     tags: [environment, 'infrastructure', 'best-practices'],
-    ...customOptions
+    ...customOptions,
   };
 
   if (environment === 'production') {
@@ -815,25 +823,25 @@ export async function createInfrastructureServiceWithBestPractices(
       resourceManagement: {
         memoryThreshold: 0.7,
         cpuThreshold: 0.7,
-        enableGarbageCollection: true
+        enableGarbageCollection: true,
       },
       healthMonitoring: {
         enablePredictiveMonitoring: true,
         performanceThresholds: {
           responseTime: 500,
           errorRate: 0.01,
-          resourceUsage: 0.7
-        }
-      }
+          resourceUsage: 0.7,
+        },
+      },
     });
   }
 
   const service = await factory.createService(name, options);
-  
+
   logger.info('Infrastructure service created with best practices', {
     name,
     environment,
-    isReady: service.isReady()
+    isReady: service.isReady(),
   });
 
   return service;
@@ -854,7 +862,7 @@ export async function waitForServiceReady(
   logger.debug('Waiting for service to be ready', { timeout, checkInterval });
 
   const startTime = Date.now();
-  
+
   return new Promise((resolve) => {
     const checkReady = () => {
       if (service.isReady()) {
@@ -862,16 +870,16 @@ export async function waitForServiceReady(
         resolve(true);
         return;
       }
-      
+
       if (Date.now() - startTime > timeout) {
         logger.warn('Service ready timeout exceeded');
         resolve(false);
         return;
       }
-      
+
       setTimeout(checkReady, checkInterval);
     };
-    
+
     checkReady();
   });
 }
@@ -890,25 +898,20 @@ export async function executeWithRetries<T>(
     timeout?: number;
   } = {}
 ): Promise<T> {
-  const {
-    maxRetries = 3,
-    baseDelay = 1000,
-    maxDelay = 10000,
-    timeout = 30000
-  } = options;
+  const { maxRetries = 3, baseDelay = 1000, maxDelay = 10000, timeout = 30000 } = options;
 
   logger.debug('Executing operation with retries', {
     operation,
     maxRetries,
-    baseDelay
+    baseDelay,
   });
 
   let lastError: Error | undefined;
-  
+
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
       const result = await service.execute(operation, params, { timeout });
-      
+
       if (result.success) {
         if (attempt > 1) {
           logger.info(`Operation succeeded on attempt ${attempt}`, { operation });
@@ -920,15 +923,15 @@ export async function executeWithRetries<T>(
     } catch (error) {
       lastError = error as Error;
       logger.warn(`Operation attempt ${attempt} failed:`, error);
-      
+
       if (attempt < maxRetries) {
-        const delay = Math.min(baseDelay * Math.pow(2, attempt - 1), maxDelay);
+        const delay = Math.min(baseDelay * 2 ** (attempt - 1), maxDelay);
         logger.debug(`Retrying in ${delay}ms...`);
-        await new Promise(resolve => setTimeout(resolve, delay));
+        await new Promise((resolve) => setTimeout(resolve, delay));
       }
     }
   }
-  
+
   throw lastError || new Error(`Operation ${operation} failed after ${maxRetries} attempts`);
 }
 
@@ -942,7 +945,7 @@ export async function batchExecuteWithConcurrency<T>(
 ): Promise<Array<{ success: boolean; data?: T; error?: Error }>> {
   logger.debug('Batch executing operations with concurrency control', {
     operationCount: operations.length,
-    maxConcurrency
+    maxConcurrency,
   });
 
   const results: Array<{ success: boolean; data?: T; error?: Error }> = [];
@@ -950,24 +953,25 @@ export async function batchExecuteWithConcurrency<T>(
 
   for (let i = 0; i < operations.length; i++) {
     const operation = operations[i];
-    
+
     // Wait if we've reached max concurrency
     if (executing.length >= maxConcurrency) {
       await Promise.race(executing);
     }
 
-    const promise = service.execute(operation.operation, operation.params)
-      .then(result => {
+    const promise = service
+      .execute(operation.operation, operation.params)
+      .then((result) => {
         results[i] = {
           success: result.success,
           data: result.data,
-          error: result.error ? new Error(result.error.message) : undefined
+          error: result.error ? new Error(result.error.message) : undefined,
         };
       })
-      .catch(error => {
+      .catch((error) => {
         results[i] = {
           success: false,
-          error: error as Error
+          error: error as Error,
         };
       })
       .finally(() => {
@@ -985,8 +989,8 @@ export async function batchExecuteWithConcurrency<T>(
 
   logger.info('Batch execution with concurrency completed', {
     total: results.length,
-    successful: results.filter(r => r.success).length,
-    failed: results.filter(r => !r.success).length
+    successful: results.filter((r) => r.success).length,
+    failed: results.filter((r) => !r.success).length,
   });
 
   return results;
@@ -1026,5 +1030,5 @@ export default {
   // Utility helpers
   waitForServiceReady,
   executeWithRetries,
-  batchExecuteWithConcurrency
+  batchExecuteWithConcurrency,
 };

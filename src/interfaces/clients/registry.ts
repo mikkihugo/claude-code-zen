@@ -1,16 +1,16 @@
 /**
  * UACL Client Registry
- * 
+ *
  * Central registry for all client types in the Unified Adaptive Client Layer.
  * Provides type-safe registration, discovery, and configuration management.
- * 
+ *
  * @fileoverview Centralized client type management system
  */
 
 import { EventEmitter } from 'node:events';
+import type { FACTIntegration } from '../../knowledge/knowledge-client';
 import type { APIClient } from '../api/http/client';
 import type { WebSocketClient } from '../api/websocket/client';
-import type { FACTIntegration } from '../../knowledge/knowledge-client';
 import type { ExternalMCPClient } from '../mcp/external-mcp-client';
 
 /**
@@ -18,9 +18,9 @@ import type { ExternalMCPClient } from '../mcp/external-mcp-client';
  */
 export enum ClientType {
   HTTP = 'http',
-  WEBSOCKET = 'websocket', 
+  WEBSOCKET = 'websocket',
   KNOWLEDGE = 'knowledge',
-  MCP = 'mcp'
+  MCP = 'mcp',
 }
 
 /**
@@ -80,20 +80,23 @@ export interface KnowledgeClientConfig extends BaseClientConfig {
  */
 export interface MCPClientConfig extends BaseClientConfig {
   readonly type: ClientType.MCP;
-  readonly servers: Record<string, {
-    url: string;
-    type: 'http' | 'sse';
-    capabilities: string[];
-  }>;
+  readonly servers: Record<
+    string,
+    {
+      url: string;
+      type: 'http' | 'sse';
+      capabilities: string[];
+    }
+  >;
 }
 
 /**
  * Union type for all client configurations
  */
-export type ClientConfig = 
-  | HTTPClientConfig 
-  | WebSocketClientConfig 
-  | KnowledgeClientConfig 
+export type ClientConfig =
+  | HTTPClientConfig
+  | WebSocketClientConfig
+  | KnowledgeClientConfig
   | MCPClientConfig;
 
 /**
@@ -136,7 +139,7 @@ export interface RegistryEvents {
 
 /**
  * Main client registry class
- * 
+ *
  * Provides centralized management of all client types with:
  * - Type-safe registration and discovery
  * - Health monitoring and metrics
@@ -178,13 +181,13 @@ export class ClientRegistry extends EventEmitter {
     try {
       // Create client instance
       const instance = await factory.create(config);
-      
+
       // Store in registry
       this.clients.set(config.id, instance);
-      
+
       // Emit registration event
       this.emit('client:registered', instance);
-      
+
       return instance;
     } catch (error) {
       this.emit('registry:error', error as Error);
@@ -212,10 +215,10 @@ export class ClientRegistry extends EventEmitter {
 
       // Remove from registry
       this.clients.delete(clientId);
-      
+
       // Emit unregistration event
       this.emit('client:unregistered', clientId);
-      
+
       return true;
     } catch (error) {
       this.emit('registry:error', error as Error);
@@ -234,7 +237,7 @@ export class ClientRegistry extends EventEmitter {
    * Get all clients of a specific type
    */
   getByType(type: ClientType): ClientInstance[] {
-    return Array.from(this.clients.values()).filter(client => client.type === type);
+    return Array.from(this.clients.values()).filter((client) => client.type === type);
   }
 
   /**
@@ -249,7 +252,7 @@ export class ClientRegistry extends EventEmitter {
    * Get healthy clients of a specific type
    */
   getHealthy(type?: ClientType): ClientInstance[] {
-    return this.getAll(client => {
+    return this.getAll((client) => {
       const typeMatch = !type || client.type === type;
       const statusMatch = client.status === 'connected';
       return typeMatch && statusMatch;
@@ -260,8 +263,9 @@ export class ClientRegistry extends EventEmitter {
    * Get client by priority (highest priority first)
    */
   getByPriority(type?: ClientType): ClientInstance[] {
-    return this.getAll(client => !type || client.type === type)
-      .sort((a, b) => b.config.priority - a.config.priority);
+    return this.getAll((client) => !type || client.type === type).sort(
+      (a, b) => b.config.priority - a.config.priority
+    );
   }
 
   /**
@@ -283,28 +287,33 @@ export class ClientRegistry extends EventEmitter {
     avgLatency: number;
   } {
     const all = this.getAll();
-    
-    const byType = Object.values(ClientType).reduce((acc, type) => {
-      acc[type] = this.getByType(type).length;
-      return acc;
-    }, {} as Record<ClientType, number>);
 
-    const byStatus = all.reduce((acc, client) => {
-      acc[client.status] = (acc[client.status] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>);
+    const byType = Object.values(ClientType).reduce(
+      (acc, type) => {
+        acc[type] = this.getByType(type).length;
+        return acc;
+      },
+      {} as Record<ClientType, number>
+    );
 
-    const healthy = all.filter(c => c.status === 'connected').length;
-    const avgLatency = all.length > 0 
-      ? all.reduce((sum, c) => sum + c.metrics.avgLatency, 0) / all.length 
-      : 0;
+    const byStatus = all.reduce(
+      (acc, client) => {
+        acc[client.status] = (acc[client.status] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>
+    );
+
+    const healthy = all.filter((c) => c.status === 'connected').length;
+    const avgLatency =
+      all.length > 0 ? all.reduce((sum, c) => sum + c.metrics.avgLatency, 0) / all.length : 0;
 
     return {
       total: all.length,
       byType,
       byStatus,
       healthy,
-      avgLatency
+      avgLatency,
     };
   }
 
@@ -336,19 +345,19 @@ export class ClientRegistry extends EventEmitter {
    */
   private async performHealthChecks(): Promise<void> {
     const clients = this.getAll();
-    
+
     const healthChecks = clients.map(async (client) => {
       try {
         const isHealthy = await this.checkClientHealth(client);
         const newStatus = isHealthy ? 'connected' : 'error';
-        
+
         if (client.status !== newStatus) {
           // Update status (this would need to be mutable in real implementation)
           this.emit('client:status_changed', client.id, newStatus);
         }
-        
+
         this.emit('client:health_check', client.id, isHealthy);
-        
+
         return { clientId: client.id, healthy: isHealthy };
       } catch (error) {
         this.emit('registry:error', error as Error);
@@ -368,12 +377,12 @@ export class ClientRegistry extends EventEmitter {
       if ('ping' in instance.client && typeof instance.client.ping === 'function') {
         return await instance.client.ping();
       }
-      
+
       // For WebSocket clients, check connection status
       if (instance.type === ClientType.WEBSOCKET && 'connected' in instance.client) {
         return Boolean(instance.client.connected);
       }
-      
+
       // For other clients, assume healthy if not in error state
       return instance.status !== 'error';
     } catch {
@@ -395,9 +404,8 @@ export class ClientRegistry extends EventEmitter {
   private setupFactories(): void {
     // This would be implemented with actual factory classes
     // For now, we define the interface
-    
     // HTTP Client Factory would be registered here
-    // WebSocket Client Factory would be registered here  
+    // WebSocket Client Factory would be registered here
     // Knowledge Client Factory would be registered here
     // MCP Client Factory would be registered here
   }
@@ -414,13 +422,13 @@ export class ClientRegistry extends EventEmitter {
    */
   async shutdown(): Promise<void> {
     this.stopHealthMonitoring();
-    
+
     // Unregister all clients
     const clientIds = Array.from(this.clients.keys());
-    const shutdownPromises = clientIds.map(id => this.unregister(id));
-    
+    const shutdownPromises = clientIds.map((id) => this.unregister(id));
+
     await Promise.allSettled(shutdownPromises);
-    
+
     this.clients.clear();
     this.factories.clear();
   }
@@ -445,14 +453,18 @@ export const ClientRegistryHelpers = {
   /**
    * Register WebSocket client with common configuration
    */
-  async registerWebSocketClient(config: Omit<WebSocketClientConfig, 'type'>): Promise<ClientInstance> {
+  async registerWebSocketClient(
+    config: Omit<WebSocketClientConfig, 'type'>
+  ): Promise<ClientInstance> {
     return globalClientRegistry.register({ ...config, type: ClientType.WEBSOCKET });
   },
 
   /**
    * Register Knowledge client with common configuration
    */
-  async registerKnowledgeClient(config: Omit<KnowledgeClientConfig, 'type'>): Promise<ClientInstance> {
+  async registerKnowledgeClient(
+    config: Omit<KnowledgeClientConfig, 'type'>
+  ): Promise<ClientInstance> {
     return globalClientRegistry.register({ ...config, type: ClientType.KNOWLEDGE });
   },
 
@@ -468,7 +480,7 @@ export const ClientRegistryHelpers = {
    */
   getBestClient(type: ClientType): ClientInstance | undefined {
     const clients = globalClientRegistry.getByPriority(type);
-    return clients.find(client => client.status === 'connected');
+    return clients.find((client) => client.status === 'connected');
   },
 
   /**
@@ -477,11 +489,11 @@ export const ClientRegistryHelpers = {
   getLoadBalancedClient(type: ClientType): ClientInstance | undefined {
     const healthy = globalClientRegistry.getHealthy(type);
     if (healthy.length === 0) return undefined;
-    
+
     // Simple round-robin (in practice, this would need state)
     const index = Math.floor(Math.random() * healthy.length);
     return healthy[index];
-  }
+  },
 };
 
 export default ClientRegistry;

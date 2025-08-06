@@ -1,6 +1,6 @@
 /**
  * Universal Abstraction and Client Layer (UACL) Base Adapter
- * 
+ *
  * Provides the foundational interfaces and patterns for all client adapters.
  * Following UACL architecture for consistent client management across the system.
  */
@@ -122,43 +122,43 @@ export interface ClientMetrics {
 
 /**
  * Universal Client Interface (IClient)
- * 
+ *
  * All client adapters must implement this interface to ensure consistency
  * and interoperability across the UACL system.
  */
 export interface IClient extends EventEmitter {
   /** Client configuration */
   readonly config: ClientConfig;
-  
+
   /** Client type identifier */
   readonly type: string;
-  
+
   /** Client version */
   readonly version: string;
-  
+
   /** Initialization status */
   readonly isInitialized: boolean;
-  
+
   /**
    * Initialize the client
    */
   initialize(): Promise<void>;
-  
+
   /**
    * Execute a client operation
    */
   execute<T = any>(operation: string, params?: any): Promise<ClientResult<T>>;
-  
+
   /**
    * Check client health
    */
   healthCheck(): Promise<ClientHealth>;
-  
+
   /**
    * Get client metrics
    */
   getMetrics(): Promise<ClientMetrics>;
-  
+
   /**
    * Shutdown the client gracefully
    */
@@ -167,34 +167,34 @@ export interface IClient extends EventEmitter {
 
 /**
  * Client Factory Interface
- * 
+ *
  * Defines the contract for creating client instances with proper configuration
  * and lifecycle management.
  */
 export interface IClientFactory<TConfig extends ClientConfig = ClientConfig> {
   /** Factory type identifier */
   readonly type: string;
-  
+
   /**
    * Create a new client instance
    */
   createClient(config: TConfig): Promise<IClient>;
-  
+
   /**
    * Get or create a cached client instance
    */
   getClient(id: string, config: TConfig): Promise<IClient>;
-  
+
   /**
    * Validate client configuration
    */
   validateConfig(config: TConfig): boolean;
-  
+
   /**
    * Get all active client instances
    */
   getActiveClients(): IClient[];
-  
+
   /**
    * Shutdown all clients managed by this factory
    */
@@ -203,7 +203,7 @@ export interface IClientFactory<TConfig extends ClientConfig = ClientConfig> {
 
 /**
  * Base Client Adapter
- * 
+ *
  * Abstract base class that provides common functionality for all client adapters.
  * Implements the IClient interface with shared behavior.
  */
@@ -247,21 +247,22 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
       components: {
         connectivity: {
           status: this._isInitialized ? 'healthy' : 'unhealthy',
-          message: this._isInitialized ? 'Client initialized' : 'Client not initialized'
+          message: this._isInitialized ? 'Client initialized' : 'Client not initialized',
         },
         performance: {
           status: this._metrics.averageLatency < 5000 ? 'healthy' : 'degraded',
-          message: `Average latency: ${this._metrics.averageLatency}ms`
-        }
+          message: `Average latency: ${this._metrics.averageLatency}ms`,
+        },
       },
       metrics: {
         uptime: Date.now() - this._startTime,
-        errorRate: this._metrics.totalOperations > 0 
-          ? this._metrics.failedOperations / this._metrics.totalOperations 
-          : 0,
+        errorRate:
+          this._metrics.totalOperations > 0
+            ? this._metrics.failedOperations / this._metrics.totalOperations
+            : 0,
         averageLatency: this._metrics.averageLatency,
-        throughput: this._metrics.throughput
-      }
+        throughput: this._metrics.throughput,
+      },
     };
   }
 
@@ -299,8 +300,8 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
       metadata: {
         duration: Date.now() - this._startTime,
         timestamp: new Date().toISOString(),
-        ...metadata
-      }
+        ...metadata,
+      },
     };
   }
 
@@ -309,13 +310,13 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
    */
   protected updateMetrics(success: boolean, duration: number, cached = false): void {
     this._metrics.totalOperations++;
-    
+
     if (success) {
       this._metrics.successfulOperations++;
     } else {
       this._metrics.failedOperations++;
     }
-    
+
     if (cached) {
       // Update cache hit ratio
       const totalCacheOps = this._metrics.custom.cacheOps || 0;
@@ -326,11 +327,11 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
       }
       this._metrics.cacheHitRatio = this._metrics.custom.cacheHits / this._metrics.custom.cacheOps;
     }
-    
+
     // Update average latency
     const totalLatency = this._metrics.averageLatency * (this._metrics.totalOperations - 1);
     this._metrics.averageLatency = (totalLatency + duration) / this._metrics.totalOperations;
-    
+
     // Calculate throughput (operations per second over last minute)
     const uptimeSeconds = (Date.now() - this._startTime) / 1000;
     this._metrics.throughput = this._metrics.totalOperations / Math.max(uptimeSeconds, 1);
@@ -350,7 +351,7 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
     if (this.config.logging?.enabled) {
       const prefix = this.config.logging.prefix || this.type;
       const shouldLog = this.shouldLog(level);
-      
+
       if (shouldLog) {
         console[level](`[${prefix}] ${message}`, meta || '');
       }
@@ -379,20 +380,20 @@ export abstract class BaseClientAdapter extends EventEmitter implements IClient 
       throughput: 0,
       concurrentOperations: 0,
       uptime: 0,
-      custom: {}
+      custom: {},
     };
   }
 }
 
 /**
  * Base Client Factory
- * 
+ *
  * Abstract base class for client factories that provides common functionality
  * and lifecycle management.
  */
-export abstract class BaseClientFactory<TConfig extends ClientConfig = ClientConfig> 
-  implements IClientFactory<TConfig> {
-  
+export abstract class BaseClientFactory<TConfig extends ClientConfig = ClientConfig>
+  implements IClientFactory<TConfig>
+{
   protected clients = new Map<string, IClient>();
 
   constructor(public readonly type: string) {}
@@ -412,7 +413,7 @@ export abstract class BaseClientFactory<TConfig extends ClientConfig = ClientCon
 
     const client = await this.createClient(config);
     this.clients.set(id, client);
-    
+
     // Clean up when client shuts down
     client.once('shutdown', () => {
       this.clients.delete(id);
@@ -439,12 +440,12 @@ export abstract class BaseClientFactory<TConfig extends ClientConfig = ClientCon
    * Shutdown all clients managed by this factory
    */
   async shutdownAll(): Promise<void> {
-    const shutdownPromises = Array.from(this.clients.values()).map(client => 
-      client.shutdown().catch(error => {
+    const shutdownPromises = Array.from(this.clients.values()).map((client) =>
+      client.shutdown().catch((error) => {
         console.error(`Error shutting down client:`, error);
       })
     );
-    
+
     await Promise.all(shutdownPromises);
     this.clients.clear();
   }

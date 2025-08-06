@@ -10,13 +10,12 @@
  */
 
 import { EventEmitter } from 'node:events';
+import { createDAO, createRepository, DatabaseTypes, EntityTypes } from '../database/index';
+import type { IDataAccessObject, IRepository } from '../database/interfaces';
+// Import UACL for unified client management
+import { type ClientInstance, ClientType, uacl } from '../interfaces/clients/index';
 import type { KnowledgeClient, KnowledgeClientConfig, KnowledgeResult } from './knowledge-client';
 import { FACTIntegration } from './knowledge-client';
-import { createRepository, createDAO, DatabaseTypes, EntityTypes } from '../database/index';
-import type { IRepository, IDataAccessObject } from '../database/interfaces';
-
-// Import UACL for unified client management
-import { uacl, ClientType, type ClientInstance } from '../interfaces/clients/index';
 
 export interface KnowledgeSwarmConfig extends KnowledgeClientConfig {
   swarmSize: number;
@@ -152,7 +151,7 @@ export class KnowledgeSwarm extends EventEmitter {
         await uacl.initialize({
           healthCheckInterval: 30000,
           autoReconnect: true,
-          enableLogging: true
+          enableLogging: true,
         });
       }
 
@@ -163,19 +162,15 @@ export class KnowledgeSwarm extends EventEmitter {
           DatabaseTypes.LanceDB,
           {
             database: './data/knowledge-swarm',
-            options: { vectorSize: 1536, metricType: 'cosine' }
+            options: { vectorSize: 1536, metricType: 'cosine' },
           }
         );
-        
-        this.vectorDAO = await createDAO(
-          EntityTypes.VectorDocument,
-          DatabaseTypes.LanceDB,
-          {
-            database: './data/knowledge-swarm',
-            options: { vectorSize: 1536 }
-          }
-        );
-        
+
+        this.vectorDAO = await createDAO(EntityTypes.VectorDocument, DatabaseTypes.LanceDB, {
+          database: './data/knowledge-swarm',
+          options: { vectorSize: 1536 },
+        });
+
         await this.setupKnowledgeStorage();
       }
 
@@ -366,12 +361,14 @@ export class KnowledgeSwarm extends EventEmitter {
           };
 
           this.agents.set(agentId, agent);
-          
+
           // Log successful UACL integration
-          console.log(`✅ UACL Knowledge client created for agent ${agentId} with priority ${spec.priority}`);
+          console.log(
+            `✅ UACL Knowledge client created for agent ${agentId} with priority ${spec.priority}`
+          );
         } catch (error) {
           console.error(`❌ Failed to create UACL-managed agent ${agentId}:`, error);
-          
+
           // Fallback to direct FACT integration
           try {
             console.log(`🔄 Falling back to direct FACT integration for agent ${agentId}`);
@@ -401,7 +398,10 @@ export class KnowledgeSwarm extends EventEmitter {
             this.agents.set(agentId, agent);
             console.log(`⚠️ Agent ${agentId} created without UACL management`);
           } catch (fallbackError) {
-            console.error(`❌ Both UACL and direct FACT creation failed for ${agentId}:`, fallbackError);
+            console.error(
+              `❌ Both UACL and direct FACT creation failed for ${agentId}:`,
+              fallbackError
+            );
             throw fallbackError;
           }
         }
@@ -476,7 +476,10 @@ export class KnowledgeSwarm extends EventEmitter {
   /**
    * Select agents by specialization
    */
-  private selectBySpecialization(candidates: KnowledgeAgent[], query: SwarmQuery): KnowledgeAgent[] {
+  private selectBySpecialization(
+    candidates: KnowledgeAgent[],
+    query: SwarmQuery
+  ): KnowledgeAgent[] {
     if (!query.domains) {
       return [candidates[0]]; // Fallback to first agent
     }
@@ -643,7 +646,7 @@ export class KnowledgeSwarm extends EventEmitter {
           await this.vectorRepository.create({
             id: doc.id,
             vector: doc.vector,
-            metadata: doc.metadata
+            metadata: doc.metadata,
           });
         }
       }
@@ -655,7 +658,10 @@ export class KnowledgeSwarm extends EventEmitter {
   /**
    * Share knowledge across agents
    */
-  private async shareKnowledge(_agents: KnowledgeAgent[], results: KnowledgeResult[]): Promise<void> {
+  private async shareKnowledge(
+    _agents: KnowledgeAgent[],
+    results: KnowledgeResult[]
+  ): Promise<void> {
     // Update agent expertise based on successful results
     results.forEach((result) => {
       const agentId = result.metadata?.agentId;
@@ -795,17 +801,21 @@ export class KnowledgeSwarm extends EventEmitter {
     uaclStatus: any;
   } {
     const agents = Array.from(this.agents.values());
-    const healthyAgents = agents.filter(agent => agent.clientInstance?.status === 'connected').length;
-    const averageLoad = agents.length > 0 ? agents.reduce((sum, a) => sum + a.currentLoad, 0) / agents.length : 0;
+    const healthyAgents = agents.filter(
+      (agent) => agent.clientInstance?.status === 'connected'
+    ).length;
+    const averageLoad =
+      agents.length > 0 ? agents.reduce((sum, a) => sum + a.currentLoad, 0) / agents.length : 0;
     const totalQueries = agents.reduce((sum, a) => sum + a.totalQueries, 0);
-    const averageSuccessRate = agents.length > 0 ? agents.reduce((sum, a) => sum + a.successRate, 0) / agents.length : 1.0;
+    const averageSuccessRate =
+      agents.length > 0 ? agents.reduce((sum, a) => sum + a.successRate, 0) / agents.length : 1.0;
 
     // Get UACL client health for knowledge clients
     const knowledgeClients = uacl.getClientsByType(ClientType.KNOWLEDGE);
     const uaclStatus = {
       knowledgeClients: knowledgeClients.length,
-      healthyKnowledgeClients: knowledgeClients.filter(c => c.status === 'connected').length,
-      overallHealth: uacl.getHealthStatus()
+      healthyKnowledgeClients: knowledgeClients.filter((c) => c.status === 'connected').length,
+      overallHealth: uacl.getHealthStatus(),
     };
 
     return {
@@ -814,7 +824,7 @@ export class KnowledgeSwarm extends EventEmitter {
       averageLoad,
       totalQueries,
       successRate: averageSuccessRate,
-      uaclStatus
+      uaclStatus,
     };
   }
 
@@ -831,7 +841,7 @@ export class KnowledgeSwarm extends EventEmitter {
     clientStatus: string;
     expertise: Record<string, number>;
   }> {
-    return Array.from(this.agents.values()).map(agent => ({
+    return Array.from(this.agents.values()).map((agent) => ({
       id: agent.id,
       specialization: agent.specialization.name,
       load: agent.currentLoad,
@@ -839,7 +849,7 @@ export class KnowledgeSwarm extends EventEmitter {
       successRate: agent.successRate,
       latency: agent.averageLatency,
       clientStatus: agent.clientInstance?.status || 'unknown',
-      expertise: Object.fromEntries(agent.expertise)
+      expertise: Object.fromEntries(agent.expertise),
     }));
   }
 }
@@ -852,9 +862,7 @@ let globalFACTSwarm: KnowledgeSwarm | null = null;
 /**
  * Initialize global FACT swarm system
  */
-export async function initializeFACTSwarm(
-  config: FACTSwarmConfig
-): Promise<KnowledgeSwarm> {
+export async function initializeFACTSwarm(config: FACTSwarmConfig): Promise<KnowledgeSwarm> {
   if (globalFACTSwarm) {
     return globalFACTSwarm;
   }

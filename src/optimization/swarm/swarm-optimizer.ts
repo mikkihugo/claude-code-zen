@@ -3,6 +3,7 @@
  * Optimizes message routing, caching, latency, and scaling for swarm systems
  */
 
+import { createLogger } from '../../core/logger';
 import type {
   CacheStrategy,
   CoordinationLayer,
@@ -13,7 +14,6 @@ import type {
   SwarmOptimizer,
   SwarmTopology,
 } from '../interfaces/optimization-interfaces';
-import { createLogger } from '../../core/logger';
 
 export interface SwarmOptimizationConfig {
   maxAgents: number;

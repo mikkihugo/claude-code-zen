@@ -3,6 +3,7 @@
  * Optimizes query performance, connection pooling, caching, and data compression
  */
 
+import { createLogger } from '../../core/logger';
 import type {
   CacheLayer,
   CacheOptimization,
@@ -14,7 +15,6 @@ import type {
   QueryOptimization,
   StorageLayer,
 } from '../interfaces/optimization-interfaces';
-import { createLogger } from '../../core/logger';
 
 export interface DataOptimizationConfig {
   enableQueryOptimization: boolean;

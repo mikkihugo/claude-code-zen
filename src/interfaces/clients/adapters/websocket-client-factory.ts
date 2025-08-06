@@ -1,28 +1,18 @@
 /**
  * WebSocket Client Factory for UACL
- * 
+ *
  * Factory implementation for creating and managing WebSocket client instances
  * following the UACL (Unified API Client Layer) architecture.
  */
 
-import type {
-  IClient,
-  IClientFactory,
-  ClientStatus,
-  ClientMetrics
-} from '../core/interfaces';
-
-import { 
-  WebSocketClientAdapter,
-  createWebSocketClient 
-} from './websocket-client-adapter';
-
+import type { ClientMetrics, ClientStatus, IClient, IClientFactory } from '../core/interfaces';
 import { EnhancedWebSocketClient } from './enhanced-websocket-client';
+import { createWebSocketClient, WebSocketClientAdapter } from './websocket-client-adapter';
 
 import type {
   WebSocketClientConfig,
   WebSocketConnectionInfo,
-  WebSocketMetrics
+  WebSocketMetrics,
 } from './websocket-types';
 
 /**
@@ -44,7 +34,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
     // Create client based on configuration preference
     let client: IClient;
-    
+
     if (config.metadata?.clientType === 'enhanced') {
       // Use enhanced client with backward compatibility
       client = new EnhancedWebSocketClient(config);
@@ -75,7 +65,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
    * Create multiple WebSocket clients
    */
   async createMultiple(configs: WebSocketClientConfig[]): Promise<IClient[]> {
-    const creationPromises = configs.map(config => this.create(config));
+    const creationPromises = configs.map((config) => this.create(config));
     return Promise.all(creationPromises);
   }
 
@@ -111,7 +101,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
       } catch (error) {
         console.warn(`Error destroying WebSocket client ${name}:`, error);
       }
-      
+
       this.clients.delete(name);
       this.clientConfigs.delete(name);
       this.connectionPool.delete(name);
@@ -125,7 +115,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
    */
   async healthCheckAll(): Promise<Map<string, ClientStatus>> {
     const results = new Map<string, ClientStatus>();
-    
+
     const healthCheckPromises = Array.from(this.clients.entries()).map(async ([name, client]) => {
       try {
         const status = await client.healthCheck();
@@ -138,9 +128,9 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
           responseTime: -1,
           errorRate: 1,
           uptime: 0,
-          metadata: { 
-            error: error instanceof Error ? error.message : 'Unknown error'
-          }
+          metadata: {
+            error: error instanceof Error ? error.message : 'Unknown error',
+          },
         });
       }
     });
@@ -154,7 +144,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
    */
   async getMetricsAll(): Promise<Map<string, ClientMetrics>> {
     const results = new Map<string, ClientMetrics>();
-    
+
     const metricsPromises = Array.from(this.clients.entries()).map(async ([name, client]) => {
       try {
         const metrics = await client.getMetrics();
@@ -169,7 +159,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
           p95Latency: -1,
           p99Latency: -1,
           throughput: 0,
-          timestamp: new Date()
+          timestamp: new Date(),
         });
       }
     });
@@ -182,14 +172,14 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
    * Shutdown all clients
    */
   async shutdown(): Promise<void> {
-    const shutdownPromises = Array.from(this.clients.values()).map(client => 
-      client.destroy().catch(error => {
+    const shutdownPromises = Array.from(this.clients.values()).map((client) =>
+      client.destroy().catch((error) => {
         console.error('Error shutting down WebSocket client:', error);
       })
     );
-    
+
     await Promise.allSettled(shutdownPromises);
-    
+
     this.clients.clear();
     this.clientConfigs.clear();
     this.connectionPool.clear();
@@ -232,17 +222,21 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
 
     if (config.reconnection) {
       const reconnect = config.reconnection;
-      if (typeof reconnect.enabled !== 'boolean' ||
-          (reconnect.maxAttempts && typeof reconnect.maxAttempts !== 'number') ||
-          (reconnect.initialDelay && typeof reconnect.initialDelay !== 'number')) {
+      if (
+        typeof reconnect.enabled !== 'boolean' ||
+        (reconnect.maxAttempts && typeof reconnect.maxAttempts !== 'number') ||
+        (reconnect.initialDelay && typeof reconnect.initialDelay !== 'number')
+      ) {
         return false;
       }
     }
 
     if (config.heartbeat) {
       const heartbeat = config.heartbeat;
-      if (typeof heartbeat.enabled !== 'boolean' ||
-          (heartbeat.interval && typeof heartbeat.interval !== 'number')) {
+      if (
+        typeof heartbeat.enabled !== 'boolean' ||
+        (heartbeat.interval && typeof heartbeat.interval !== 'number')
+      ) {
         return false;
       }
     }
@@ -259,17 +253,17 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
    */
   async createPooled(config: WebSocketClientConfig, poolSize: number = 5): Promise<IClient[]> {
     const clients: IClient[] = [];
-    
+
     for (let i = 0; i < poolSize; i++) {
       const pooledConfig = {
         ...config,
-        name: `${config.name || 'ws-client'}-pool-${i}`
+        name: `${config.name || 'ws-client'}-pool-${i}`,
       };
-      
+
       const client = await this.create(pooledConfig);
       clients.push(client);
     }
-    
+
     return clients;
   }
 
@@ -277,7 +271,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
    * Create WebSocket client with load balancing
    */
   async createLoadBalanced(
-    configs: WebSocketClientConfig[], 
+    configs: WebSocketClientConfig[],
     strategy: 'round-robin' | 'random' | 'least-connections' = 'round-robin'
   ): Promise<LoadBalancedWebSocketClient> {
     const clients = await this.createMultiple(configs);
@@ -293,7 +287,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
   ): Promise<FailoverWebSocketClient> {
     const primaryClient = await this.create(primaryConfig);
     const fallbackClients = await this.createMultiple(fallbackConfigs);
-    
+
     return new FailoverWebSocketClient(primaryClient, fallbackClients);
   }
 
@@ -302,7 +296,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
    */
   async getWebSocketMetricsAll(): Promise<Map<string, WebSocketMetrics>> {
     const results = new Map<string, WebSocketMetrics>();
-    
+
     for (const [name, client] of this.clients) {
       try {
         // Check if client supports WebSocket-specific metrics
@@ -317,32 +311,32 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
             connectionsClosed: 0,
             connectionsActive: client.isConnected() ? 1 : 0,
             connectionDuration: Date.now() - metrics.timestamp.getTime(),
-            
+
             messagesSent: metrics.successCount,
             messagesReceived: metrics.requestCount - metrics.successCount,
             messagesSentPerSecond: metrics.throughput,
             messagesReceivedPerSecond: 0,
-            
+
             bytesSent: 0,
             bytesReceived: 0,
             bytesSentPerSecond: 0,
             bytesReceivedPerSecond: 0,
-            
+
             averageLatency: metrics.averageLatency,
             p95Latency: metrics.p95Latency,
             p99Latency: metrics.p99Latency,
             packetLoss: 0,
-            
+
             connectionErrors: metrics.errorCount,
             messageErrors: 0,
             timeoutErrors: 0,
             authenticationErrors: 0,
-            
+
             messagesQueued: 0,
             queueSize: 0,
             queueOverflows: 0,
-            
-            timestamp: new Date()
+
+            timestamp: new Date(),
           };
           results.set(name, wsMetrics);
         }
@@ -350,7 +344,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
         console.warn(`Failed to get WebSocket metrics for ${name}:`, error);
       }
     }
-    
+
     return results;
   }
 
@@ -359,7 +353,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
    */
   getConnectionInfoAll(): Map<string, WebSocketConnectionInfo> {
     const results = new Map<string, WebSocketConnectionInfo>();
-    
+
     for (const [name, client] of this.clients) {
       try {
         if (client instanceof EnhancedWebSocketClient) {
@@ -370,7 +364,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
         console.warn(`Failed to get connection info for ${name}:`, error);
       }
     }
-    
+
     return results;
   }
 
@@ -383,7 +377,7 @@ export class WebSocketClientFactory implements IClientFactory<WebSocketClientCon
     const host = url.hostname;
     const port = url.port || (url.protocol === 'wss:' ? '443' : '80');
     const timestamp = Date.now();
-    
+
     return `ws-${host}-${port}-${timestamp}`;
   }
 }
@@ -413,26 +407,26 @@ export class LoadBalancedWebSocketClient implements IClient {
   }
 
   async connect(): Promise<void> {
-    await Promise.all(this.clients.map(client => client.connect()));
+    await Promise.all(this.clients.map((client) => client.connect()));
   }
 
   async disconnect(): Promise<void> {
-    await Promise.all(this.clients.map(client => client.disconnect()));
+    await Promise.all(this.clients.map((client) => client.disconnect()));
   }
 
   isConnected(): boolean {
-    return this.clients.some(client => client.isConnected());
+    return this.clients.some((client) => client.isConnected());
   }
 
   async healthCheck(): Promise<ClientStatus> {
     const healthChecks = await Promise.allSettled(
-      this.clients.map(client => client.healthCheck())
+      this.clients.map((client) => client.healthCheck())
     );
-    
-    const healthy = healthChecks.some(check => 
-      check.status === 'fulfilled' && check.value.status === 'healthy'
+
+    const healthy = healthChecks.some(
+      (check) => check.status === 'fulfilled' && check.value.status === 'healthy'
     );
-    
+
     return {
       name: this.name,
       status: healthy ? 'healthy' : 'unhealthy',
@@ -442,23 +436,24 @@ export class LoadBalancedWebSocketClient implements IClient {
       uptime: 0,
       metadata: {
         clientCount: this.clients.length,
-        healthyClients: healthChecks.filter(check => 
-          check.status === 'fulfilled' && check.value.status === 'healthy'
-        ).length
-      }
+        healthyClients: healthChecks.filter(
+          (check) => check.status === 'fulfilled' && check.value.status === 'healthy'
+        ).length,
+      },
     };
   }
 
   async getMetrics(): Promise<ClientMetrics> {
     const metricsResults = await Promise.allSettled(
-      this.clients.map(client => client.getMetrics())
+      this.clients.map((client) => client.getMetrics())
     );
-    
+
     const successfulMetrics = metricsResults
-      .filter((result): result is PromiseFulfilledResult<ClientMetrics> => 
-        result.status === 'fulfilled')
-      .map(result => result.value);
-    
+      .filter(
+        (result): result is PromiseFulfilledResult<ClientMetrics> => result.status === 'fulfilled'
+      )
+      .map((result) => result.value);
+
     if (successfulMetrics.length === 0) {
       return {
         name: this.name,
@@ -469,27 +464,28 @@ export class LoadBalancedWebSocketClient implements IClient {
         p95Latency: -1,
         p99Latency: -1,
         throughput: 0,
-        timestamp: new Date()
+        timestamp: new Date(),
       };
     }
-    
+
     // Aggregate metrics
     const totalRequests = successfulMetrics.reduce((sum, m) => sum + m.requestCount, 0);
     const totalSuccess = successfulMetrics.reduce((sum, m) => sum + m.successCount, 0);
     const totalErrors = successfulMetrics.reduce((sum, m) => sum + m.errorCount, 0);
-    const avgLatency = successfulMetrics.reduce((sum, m) => sum + m.averageLatency, 0) / successfulMetrics.length;
+    const avgLatency =
+      successfulMetrics.reduce((sum, m) => sum + m.averageLatency, 0) / successfulMetrics.length;
     const totalThroughput = successfulMetrics.reduce((sum, m) => sum + m.throughput, 0);
-    
+
     return {
       name: this.name,
       requestCount: totalRequests,
       successCount: totalSuccess,
       errorCount: totalErrors,
       averageLatency: avgLatency,
-      p95Latency: Math.max(...successfulMetrics.map(m => m.p95Latency)),
-      p99Latency: Math.max(...successfulMetrics.map(m => m.p99Latency)),
+      p95Latency: Math.max(...successfulMetrics.map((m) => m.p95Latency)),
+      p99Latency: Math.max(...successfulMetrics.map((m) => m.p99Latency)),
       throughput: totalThroughput,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
   }
 
@@ -514,36 +510,38 @@ export class LoadBalancedWebSocketClient implements IClient {
   }
 
   updateConfig(config: any): void {
-    this.clients.forEach(client => client.updateConfig(config));
+    this.clients.forEach((client) => client.updateConfig(config));
   }
 
   on(event: string, handler: (...args: any[]) => void): void {
-    this.clients.forEach(client => client.on(event, handler));
+    this.clients.forEach((client) => client.on(event, handler));
   }
 
   off(event: string, handler?: (...args: any[]) => void): void {
-    this.clients.forEach(client => client.off(event, handler));
+    this.clients.forEach((client) => client.off(event, handler));
   }
 
   async destroy(): Promise<void> {
-    await Promise.all(this.clients.map(client => client.destroy()));
+    await Promise.all(this.clients.map((client) => client.destroy()));
   }
 
   private selectClient(): IClient {
     switch (this.strategy) {
-      case 'round-robin':
+      case 'round-robin': {
         const client = this.clients[this.currentIndex];
         this.currentIndex = (this.currentIndex + 1) % this.clients.length;
         return client;
-        
-      case 'random':
+      }
+
+      case 'random': {
         const randomIndex = Math.floor(Math.random() * this.clients.length);
         return this.clients[randomIndex];
-        
+      }
+
       case 'least-connections':
         // Simple implementation - could be enhanced with actual connection tracking
         return this.clients[0];
-        
+
       default:
         return this.clients[0];
     }
@@ -562,7 +560,7 @@ export class FailoverWebSocketClient implements IClient {
     private fallbackClients: IClient[]
   ) {
     this.currentClient = primaryClient;
-    
+
     // Set up failover on primary client disconnect
     primaryClient.on('disconnect', () => {
       this.failover();
@@ -627,7 +625,7 @@ export class FailoverWebSocketClient implements IClient {
 
   async destroy(): Promise<void> {
     await this.currentClient.destroy();
-    await Promise.all(this.fallbackClients.map(client => client.destroy()));
+    await Promise.all(this.fallbackClients.map((client) => client.destroy()));
   }
 
   private async failover(): Promise<void> {
@@ -635,7 +633,7 @@ export class FailoverWebSocketClient implements IClient {
       console.log(`Failing over to client ${this.fallbackIndex}`);
       this.currentClient = this.fallbackClients[this.fallbackIndex];
       this.fallbackIndex++;
-      
+
       try {
         await this.currentClient.connect();
       } catch (error) {
@@ -653,7 +651,9 @@ export async function createWebSocketClientFactory(): Promise<WebSocketClientFac
   return new WebSocketClientFactory();
 }
 
-export async function createWebSocketClientWithConfig(config: WebSocketClientConfig): Promise<IClient> {
+export async function createWebSocketClientWithConfig(
+  config: WebSocketClientConfig
+): Promise<IClient> {
   const factory = new WebSocketClientFactory();
   return factory.create(config);
 }

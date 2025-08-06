@@ -1,6 +1,6 @@
 /**
  * Unified API Client Layer (UACL) - Core Interfaces
- * 
+ *
  * Provides generic interfaces for standardizing client access across all protocols
  * including HTTP (REST API), WebSocket (Real-time), Knowledge (FACT integration),
  * MCP (Model Context Protocol), and any other client communication mechanisms.
@@ -13,22 +13,22 @@
 export interface IClient<T = any> {
   /** Connect to the service */
   connect(): Promise<void>;
-  
+
   /** Disconnect from the service */
   disconnect(): Promise<void>;
-  
+
   /** Send data and receive response */
   send<R = any>(data: T): Promise<R>;
-  
+
   /** Check client health */
   health(): Promise<boolean>;
-  
+
   /** Get client configuration */
   getConfig(): ClientConfig;
-  
+
   /** Get current connection status */
   isConnected(): boolean;
-  
+
   /** Get protocol-specific metadata */
   getMetadata(): Promise<ClientMetadata>;
 }
@@ -39,13 +39,13 @@ export interface IClient<T = any> {
 export interface IClientFactory {
   /** Create a client instance */
   create(protocol: ProtocolType, config: ClientConfig): Promise<IClient>;
-  
+
   /** Check if factory supports a protocol */
   supports(protocol: ProtocolType): boolean;
-  
+
   /** Get supported protocols */
   getSupportedProtocols(): ProtocolType[];
-  
+
   /** Validate configuration for a protocol */
   validateConfig(protocol: ProtocolType, config: ClientConfig): boolean;
 }
@@ -56,25 +56,25 @@ export interface IClientFactory {
 export interface IHttpClient<T = any> extends IClient<T> {
   /** GET request */
   get<R = any>(path: string, params?: Record<string, any>, options?: RequestOptions): Promise<R>;
-  
+
   /** POST request */
   post<R = any>(path: string, data?: T, options?: RequestOptions): Promise<R>;
-  
+
   /** PUT request */
   put<R = any>(path: string, data?: T, options?: RequestOptions): Promise<R>;
-  
+
   /** DELETE request */
   delete<R = any>(path: string, options?: RequestOptions): Promise<R>;
-  
+
   /** PATCH request */
   patch<R = any>(path: string, data?: Partial<T>, options?: RequestOptions): Promise<R>;
-  
+
   /** Set request headers */
   setHeaders(headers: Record<string, string>): void;
-  
+
   /** Set authentication */
   setAuth(auth: AuthConfig): void;
-  
+
   /** Get response headers from last request */
   getLastResponseHeaders(): Record<string, string>;
 }
@@ -85,22 +85,22 @@ export interface IHttpClient<T = any> extends IClient<T> {
 export interface IWebSocketClient<T = any> extends IClient<T> {
   /** Subscribe to events */
   subscribe(event: string, callback: (data: T) => void): Promise<string>;
-  
+
   /** Unsubscribe from events */
   unsubscribe(subscriptionId: string): Promise<void>;
-  
+
   /** Emit event to server */
   emit(event: string, data: T): Promise<void>;
-  
+
   /** Get active subscriptions */
   getSubscriptions(): Promise<WebSocketSubscription[]>;
-  
+
   /** Check if subscribed to event */
   isSubscribed(event: string): boolean;
-  
+
   /** Get connection statistics */
   getConnectionStats(): Promise<WebSocketStats>;
-  
+
   /** Set reconnection options */
   setReconnectOptions(options: ReconnectOptions): void;
 }
@@ -111,25 +111,25 @@ export interface IWebSocketClient<T = any> extends IClient<T> {
 export interface IKnowledgeClient<T = any> extends IClient<T> {
   /** Query knowledge base */
   query<R = any>(query: string, options?: KnowledgeQueryOptions): Promise<R>;
-  
+
   /** Search knowledge entries */
   search<R = any>(searchTerm: string, options?: KnowledgeSearchOptions): Promise<R[]>;
-  
+
   /** Get knowledge entry by ID */
   getEntry<R = any>(id: string): Promise<R | null>;
-  
+
   /** Add knowledge entry */
   addEntry(data: T): Promise<string>;
-  
+
   /** Update knowledge entry */
   updateEntry(id: string, data: Partial<T>): Promise<boolean>;
-  
+
   /** Delete knowledge entry */
   deleteEntry(id: string): Promise<boolean>;
-  
+
   /** Get knowledge statistics */
   getKnowledgeStats(): Promise<KnowledgeStats>;
-  
+
   /** Execute semantic search */
   semanticSearch<R = any>(query: string, options?: SemanticSearchOptions): Promise<R[]>;
 }
@@ -140,22 +140,22 @@ export interface IKnowledgeClient<T = any> extends IClient<T> {
 export interface IMcpClient<T = any> extends IClient<T> {
   /** List available tools */
   listTools(): Promise<McpTool[]>;
-  
+
   /** Execute tool */
   executeTool<R = any>(toolName: string, parameters: Record<string, any>): Promise<R>;
-  
+
   /** Get tool schema */
   getToolSchema(toolName: string): Promise<McpToolSchema>;
-  
+
   /** Subscribe to tool notifications */
   subscribeToNotifications(callback: (notification: McpNotification) => void): Promise<string>;
-  
+
   /** Get server capabilities */
   getCapabilities(): Promise<McpCapabilities>;
-  
+
   /** Initialize MCP session */
   initialize(clientInfo: McpClientInfo): Promise<McpInitResult>;
-  
+
   /** Get protocol version */
   getProtocolVersion(): string;
 }
@@ -166,28 +166,28 @@ export interface IMcpClient<T = any> extends IClient<T> {
 export interface ClientConfig {
   /** Protocol type */
   protocol: ProtocolType;
-  
+
   /** Base URL or connection string */
   url: string;
-  
+
   /** Connection timeout in milliseconds */
   timeout?: number;
-  
+
   /** Retry configuration */
   retry?: RetryConfig;
-  
+
   /** Authentication configuration */
   auth?: AuthConfig;
-  
+
   /** Request headers */
   headers?: Record<string, string>;
-  
+
   /** Protocol-specific options */
   options?: Record<string, any>;
-  
+
   /** Health check configuration */
   healthCheck?: HealthCheckConfig;
-  
+
   /** Logging configuration */
   logging?: ClientLoggingConfig;
 }
@@ -198,19 +198,19 @@ export interface ClientConfig {
 export interface RequestOptions {
   /** Request timeout */
   timeout?: number;
-  
+
   /** Additional headers */
   headers?: Record<string, string>;
-  
+
   /** Query parameters */
   params?: Record<string, any>;
-  
+
   /** Request body type */
   contentType?: string;
-  
+
   /** Response type expected */
   responseType?: 'json' | 'text' | 'blob' | 'stream';
-  
+
   /** Abort signal */
   signal?: AbortSignal;
 }
@@ -221,19 +221,19 @@ export interface RequestOptions {
 export interface AuthConfig {
   /** Authentication type */
   type: 'bearer' | 'basic' | 'api-key' | 'oauth' | 'custom';
-  
+
   /** Token or key */
   token?: string;
-  
+
   /** Username for basic auth */
   username?: string;
-  
+
   /** Password for basic auth */
   password?: string;
-  
+
   /** API key field name */
   keyField?: string;
-  
+
   /** Custom authentication headers */
   customHeaders?: Record<string, string>;
 }
@@ -244,19 +244,19 @@ export interface AuthConfig {
 export interface RetryConfig {
   /** Maximum retry attempts */
   maxRetries: number;
-  
+
   /** Initial delay between retries */
   initialDelay: number;
-  
+
   /** Backoff multiplier */
   backoffMultiplier: number;
-  
+
   /** Maximum delay between retries */
   maxDelay: number;
-  
+
   /** Retry on these HTTP status codes */
   retryOn?: number[];
-  
+
   /** Custom retry condition */
   retryCondition?: (error: any) => boolean;
 }
@@ -267,16 +267,16 @@ export interface RetryConfig {
 export interface HealthCheckConfig {
   /** Health check endpoint */
   endpoint?: string;
-  
+
   /** Health check interval */
   interval?: number;
-  
+
   /** Health check timeout */
   timeout?: number;
-  
+
   /** Expected response for healthy status */
   expectedResponse?: any;
-  
+
   /** Custom health check function */
   customCheck?: () => Promise<boolean>;
 }
@@ -287,16 +287,16 @@ export interface HealthCheckConfig {
 export interface ClientLoggingConfig {
   /** Enable request logging */
   logRequests: boolean;
-  
+
   /** Enable response logging */
   logResponses: boolean;
-  
+
   /** Enable error logging */
   logErrors: boolean;
-  
+
   /** Log level */
   level: 'debug' | 'info' | 'warn' | 'error';
-  
+
   /** Log sensitive data */
   logSensitiveData: boolean;
 }
@@ -307,13 +307,13 @@ export interface ClientLoggingConfig {
 export interface ClientMetadata {
   /** Protocol type */
   protocol: ProtocolType;
-  
+
   /** Client version */
   version: string;
-  
+
   /** Supported features */
   features: string[];
-  
+
   /** Connection details */
   connection: {
     url: string;
@@ -321,10 +321,10 @@ export interface ClientMetadata {
     lastConnected?: Date;
     connectionDuration?: number;
   };
-  
+
   /** Performance metrics */
   metrics: ClientMetrics;
-  
+
   /** Additional metadata */
   custom?: Record<string, any>;
 }
@@ -335,25 +335,25 @@ export interface ClientMetadata {
 export interface ClientMetrics {
   /** Total requests sent */
   totalRequests: number;
-  
+
   /** Successful requests */
   successfulRequests: number;
-  
+
   /** Failed requests */
   failedRequests: number;
-  
+
   /** Average response time */
   averageResponseTime: number;
-  
+
   /** Last request timestamp */
   lastRequestTime?: Date;
-  
+
   /** Connection uptime */
   uptime: number;
-  
+
   /** Bytes sent */
   bytesSent: number;
-  
+
   /** Bytes received */
   bytesReceived: number;
 }

@@ -346,7 +346,7 @@ export class ZenSwarm implements SwarmEventEmitter {
           // TODO: Implement proper DALFactory integration with DI
           instance.persistence = {
             query: async (_sql: string, _params?: any[]) => [],
-            execute: async (_sql: string, _params?: any[]) => ({ affectedRows: 1 })
+            execute: async (_sql: string, _params?: any[]) => ({ affectedRows: 1 }),
           } as any;
         } catch (error) {
           console.warn('⚠️ Persistence not available:', (error as Error).message);

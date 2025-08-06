@@ -1,26 +1,20 @@
 /**
  * System Event Manager Factory
- * 
+ *
  * Factory implementation for creating SystemEventAdapter instances
  * following the UEL factory pattern and integrating with the main UELFactory.
  */
 
-import type {
-  IEventManager,
-  IEventManagerFactory,
-  EventManagerConfig
-} from '../core/interfaces';
-
-import type { SystemEventAdapterConfig } from './system-event-adapter';
-import { SystemEventAdapter, createDefaultSystemEventAdapterConfig } from './system-event-adapter';
-import { EventManagerTypes } from '../core/interfaces';
-
-import type { ILogger, IConfig } from '../../../core/interfaces/base-interfaces';
+import type { IConfig, ILogger } from '../../../core/interfaces/base-interfaces';
 import { createLogger } from '../../../utils/logger';
+import type { EventManagerConfig, IEventManager, IEventManagerFactory } from '../core/interfaces';
+import { EventManagerTypes } from '../core/interfaces';
+import type { SystemEventAdapterConfig } from './system-event-adapter';
+import { createDefaultSystemEventAdapterConfig, SystemEventAdapter } from './system-event-adapter';
 
 /**
  * System Event Manager Factory
- * 
+ *
  * Creates and manages SystemEventAdapter instances for system-level event management.
  * Integrates with the UEL factory system to provide unified access to system events.
  */
@@ -53,7 +47,6 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
 
       this.logger.info(`System event manager created successfully: ${config.name}`);
       return adapter;
-
     } catch (error) {
       this.logger.error(`Failed to create system event manager ${config.name}:`, error);
       throw error;
@@ -66,7 +59,7 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
   async createMultiple(configs: SystemEventAdapterConfig[]): Promise<IEventManager[]> {
     this.logger.info(`Creating ${configs.length} system event managers`);
 
-    const createPromises = configs.map(config => this.create(config));
+    const createPromises = configs.map((config) => this.create(config));
     const results = await Promise.allSettled(createPromises);
 
     const managers: IEventManager[] = [];
@@ -81,7 +74,9 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
     });
 
     if (errors.length > 0) {
-      this.logger.warn(`Created ${managers.length}/${configs.length} system event managers, ${errors.length} failed`);
+      this.logger.warn(
+        `Created ${managers.length}/${configs.length} system event managers, ${errors.length} failed`
+      );
     } else {
       this.logger.info(`Successfully created ${managers.length} system event managers`);
     }
@@ -128,10 +123,9 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
 
       // Remove from instances
       this.instances.delete(name);
-      
+
       this.logger.info(`System event manager removed: ${name}`);
       return true;
-
     } catch (error) {
       this.logger.error(`Failed to remove system event manager ${name}:`, error);
       return false;
@@ -158,7 +152,7 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
           queueSize: 0,
           errorRate: 1.0,
           uptime: 0,
-          metadata: { error: error instanceof Error ? error.message : 'Unknown error' }
+          metadata: { error: error instanceof Error ? error.message : 'Unknown error' },
         });
       }
     });
@@ -256,7 +250,7 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
    * Get active manager count
    */
   getActiveCount(): number {
-    return Array.from(this.instances.values()).filter(manager => manager.isRunning()).length;
+    return Array.from(this.instances.values()).filter((manager) => manager.isRunning()).length;
   }
 
   /**
@@ -264,12 +258,12 @@ export class SystemEventManagerFactory implements IEventManagerFactory<SystemEve
    */
   getFactoryMetrics() {
     const runningManagers = this.getActiveCount();
-    
+
     return {
       totalManagers: this.instances.size,
       runningManagers,
       errorCount: 0, // Would track factory-level errors in real implementation
-      uptime: Date.now() // Would track actual uptime in real implementation
+      uptime: Date.now(), // Would track actual uptime in real implementation
     };
   }
 
@@ -328,21 +322,18 @@ export async function createCoreSystemEventManager(
       enabled: true,
       wrapLifecycleEvents: true,
       wrapHealthEvents: true,
-      wrapConfigEvents: true
+      wrapConfigEvents: true,
     },
     applicationCoordinator: {
-      enabled: false
+      enabled: false,
     },
     correlation: {
       enabled: true,
       strategy: 'component',
       correlationTTL: 600000, // 10 minutes for core system events
       maxCorrelationDepth: 15,
-      correlationPatterns: [
-        'system:startup->system:health',
-        'system:error->system:recovery'
-      ]
-    }
+      correlationPatterns: ['system:startup->system:health', 'system:error->system:recovery'],
+    },
   });
 }
 
@@ -354,24 +345,21 @@ export async function createApplicationCoordinatorEventManager(
 ): Promise<SystemEventAdapter> {
   return await createSystemEventManager(name, {
     coreSystem: {
-      enabled: false
+      enabled: false,
     },
     applicationCoordinator: {
       enabled: true,
       wrapComponentEvents: true,
       wrapStatusEvents: true,
-      wrapWorkspaceEvents: true
+      wrapWorkspaceEvents: true,
     },
     correlation: {
       enabled: true,
       strategy: 'operation',
       correlationTTL: 300000, // 5 minutes for app events
       maxCorrelationDepth: 10,
-      correlationPatterns: [
-        'workspace:loaded->system:health',
-        'component:error->system:recovery'
-      ]
-    }
+      correlationPatterns: ['workspace:loaded->system:health', 'component:error->system:recovery'],
+    },
   });
 }
 
@@ -383,16 +371,16 @@ export async function createErrorRecoveryEventManager(
 ): Promise<SystemEventAdapter> {
   return await createSystemEventManager(name, {
     coreSystem: {
-      enabled: false
+      enabled: false,
     },
     applicationCoordinator: {
-      enabled: false
+      enabled: false,
     },
     errorRecovery: {
       enabled: true,
       wrapRecoveryEvents: true,
       wrapStrategyEvents: true,
-      correlateErrors: true
+      correlateErrors: true,
     },
     correlation: {
       enabled: true,
@@ -402,15 +390,15 @@ export async function createErrorRecoveryEventManager(
       correlationPatterns: [
         'system:error->recovery:started',
         'recovery:started->recovery:completed',
-        'recovery:failed->system:error'
-      ]
+        'recovery:failed->system:error',
+      ],
     },
     performance: {
       enableEventCorrelation: true,
       maxConcurrentEvents: 200, // Higher for error scenarios
       eventTimeout: 60000, // Longer timeout for recovery
-      enablePerformanceTracking: true
-    }
+      enablePerformanceTracking: true,
+    },
   });
 }
 
@@ -425,25 +413,25 @@ export async function createComprehensiveSystemEventManager(
       enabled: true,
       wrapLifecycleEvents: true,
       wrapHealthEvents: true,
-      wrapConfigEvents: true
+      wrapConfigEvents: true,
     },
     applicationCoordinator: {
       enabled: true,
       wrapComponentEvents: true,
       wrapStatusEvents: true,
-      wrapWorkspaceEvents: true
+      wrapWorkspaceEvents: true,
     },
     processManagement: {
       enabled: true,
       wrapServiceEvents: true,
       wrapDaemonEvents: true,
-      wrapResourceEvents: true
+      wrapResourceEvents: true,
     },
     errorRecovery: {
       enabled: true,
       wrapRecoveryEvents: true,
       wrapStrategyEvents: true,
-      correlateErrors: true
+      correlateErrors: true,
     },
     correlation: {
       enabled: true,
@@ -455,8 +443,8 @@ export async function createComprehensiveSystemEventManager(
         'system:error->recovery:started',
         'recovery:completed->system:health',
         'config:change->system:restart',
-        'workspace:loaded->system:health'
-      ]
+        'workspace:loaded->system:health',
+      ],
     },
     healthMonitoring: {
       enabled: true,
@@ -467,16 +455,16 @@ export async function createComprehensiveSystemEventManager(
         'workflow-engine': 0.9,
         'memory-system': 0.95,
         'interface-manager': 0.85,
-        'error-recovery': 0.9
+        'error-recovery': 0.9,
       },
-      autoRecoveryEnabled: true
+      autoRecoveryEnabled: true,
     },
     performance: {
       enableEventCorrelation: true,
       maxConcurrentEvents: 500, // High capacity for comprehensive monitoring
       eventTimeout: 45000,
-      enablePerformanceTracking: true
-    }
+      enablePerformanceTracking: true,
+    },
   });
 }
 

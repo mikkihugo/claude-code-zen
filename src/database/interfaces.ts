@@ -1,6 +1,6 @@
 /**
  * Unified Data Access Layer (DAL) - Core Interfaces
- * 
+ *
  * Provides generic interfaces for standardizing data access across all data sources
  * including Kuzu (graph), LanceDB (vector), coordination databases, memory stores,
  * relational databases, and any other data persistence mechanisms.
@@ -13,28 +13,28 @@
 export interface IRepository<T> {
   /** Find entity by ID */
   findById(id: string | number): Promise<T | null>;
-  
+
   /** Find entities by criteria with optional sorting and pagination */
   findBy(criteria: Partial<T>, options?: QueryOptions): Promise<T[]>;
-  
+
   /** Find all entities with optional sorting and pagination */
   findAll(options?: QueryOptions): Promise<T[]>;
-  
+
   /** Create a new entity */
   create(entity: Omit<T, 'id'>): Promise<T>;
-  
+
   /** Update an existing entity */
   update(id: string | number, updates: Partial<T>): Promise<T>;
-  
+
   /** Delete an entity by ID */
   delete(id: string | number): Promise<boolean>;
-  
+
   /** Count entities matching criteria */
   count(criteria?: Partial<T>): Promise<number>;
-  
+
   /** Check if entity exists */
   exists(id: string | number): Promise<boolean>;
-  
+
   /** Execute custom query specific to the underlying database */
   executeCustomQuery<R = any>(query: CustomQuery): Promise<R>;
 }
@@ -46,16 +46,16 @@ export interface IRepository<T> {
 export interface IDataAccessObject<T> {
   /** Get repository for basic CRUD operations */
   getRepository(): IRepository<T>;
-  
+
   /** Execute transaction with multiple operations */
   executeTransaction<R>(operations: TransactionOperation[]): Promise<R>;
-  
+
   /** Get database-specific metadata */
   getMetadata(): Promise<DatabaseMetadata>;
-  
+
   /** Perform health check */
   healthCheck(): Promise<HealthStatus>;
-  
+
   /** Get performance metrics */
   getMetrics(): Promise<PerformanceMetrics>;
 }
@@ -65,17 +65,30 @@ export interface IDataAccessObject<T> {
  */
 export interface IGraphRepository<T> extends IRepository<T> {
   /** Execute graph traversal query */
-  traverse(startNode: string | number, relationshipType: string, maxDepth?: number): Promise<GraphTraversalResult>;
-  
+  traverse(
+    startNode: string | number,
+    relationshipType: string,
+    maxDepth?: number
+  ): Promise<GraphTraversalResult>;
+
   /** Find nodes by label and properties */
   findNodesByLabel(label: string, properties?: Record<string, any>): Promise<GraphNode[]>;
-  
+
   /** Find relationships between nodes */
-  findRelationships(fromNodeId: string | number, toNodeId: string | number, relationshipType?: string): Promise<GraphRelationship[]>;
-  
+  findRelationships(
+    fromNodeId: string | number,
+    toNodeId: string | number,
+    relationshipType?: string
+  ): Promise<GraphRelationship[]>;
+
   /** Create relationship between nodes */
-  createRelationship(fromNodeId: string | number, toNodeId: string | number, relationshipType: string, properties?: Record<string, any>): Promise<GraphRelationship>;
-  
+  createRelationship(
+    fromNodeId: string | number,
+    toNodeId: string | number,
+    relationshipType: string,
+    properties?: Record<string, any>
+  ): Promise<GraphRelationship>;
+
   /** Execute Cypher query */
   executeCypher(cypher: string, parameters?: Record<string, any>): Promise<GraphQueryResult>;
 }
@@ -85,17 +98,20 @@ export interface IGraphRepository<T> extends IRepository<T> {
  */
 export interface IVectorRepository<T> extends IRepository<T> {
   /** Perform vector similarity search */
-  similaritySearch(queryVector: number[], options?: VectorSearchOptions): Promise<VectorSearchResult<T>[]>;
-  
+  similaritySearch(
+    queryVector: number[],
+    options?: VectorSearchOptions
+  ): Promise<VectorSearchResult<T>[]>;
+
   /** Add vectors in batch */
   addVectors(vectors: VectorDocument<T>[]): Promise<VectorInsertResult>;
-  
+
   /** Create vector index */
   createIndex(config: VectorIndexConfig): Promise<void>;
-  
+
   /** Get vector statistics */
   getVectorStats(): Promise<VectorStats>;
-  
+
   /** Perform clustering operation */
   cluster(options?: ClusteringOptions): Promise<ClusterResult>;
 }
@@ -106,19 +122,19 @@ export interface IVectorRepository<T> extends IRepository<T> {
 export interface IMemoryRepository<T> extends IRepository<T> {
   /** Set TTL (time to live) for an entity */
   setTTL(id: string | number, ttlSeconds: number): Promise<void>;
-  
+
   /** Get TTL for an entity */
   getTTL(id: string | number): Promise<number | null>;
-  
+
   /** Cache entity with optional TTL */
   cache(key: string, value: T, ttlSeconds?: number): Promise<void>;
-  
+
   /** Get cached entity */
   getCached(key: string): Promise<T | null>;
-  
+
   /** Clear cache */
   clearCache(pattern?: string): Promise<number>;
-  
+
   /** Get memory usage statistics */
   getMemoryStats(): Promise<MemoryStats>;
 }
@@ -129,19 +145,19 @@ export interface IMemoryRepository<T> extends IRepository<T> {
 export interface ICoordinationRepository<T> extends IRepository<T> {
   /** Lock resource for coordination */
   acquireLock(resourceId: string, lockTimeout?: number): Promise<CoordinationLock>;
-  
+
   /** Release lock */
   releaseLock(lockId: string): Promise<void>;
-  
+
   /** Subscribe to changes */
   subscribe(pattern: string, callback: (change: CoordinationChange<T>) => void): Promise<string>;
-  
+
   /** Unsubscribe from changes */
   unsubscribe(subscriptionId: string): Promise<void>;
-  
+
   /** Publish coordination event */
   publish(channel: string, event: CoordinationEvent<T>): Promise<void>;
-  
+
   /** Get coordination statistics */
   getCoordinationStats(): Promise<CoordinationStats>;
 }
@@ -152,19 +168,19 @@ export interface ICoordinationRepository<T> extends IRepository<T> {
 export interface QueryOptions {
   /** Maximum number of results to return */
   limit?: number;
-  
+
   /** Number of results to skip */
   offset?: number;
-  
+
   /** Sort criteria */
   sort?: SortCriteria[];
-  
+
   /** Fields to include in results */
   select?: string[];
-  
+
   /** Fields to exclude from results */
   exclude?: string[];
-  
+
   /** Additional database-specific options */
   extras?: Record<string, any>;
 }
@@ -183,13 +199,13 @@ export interface SortCriteria {
 export interface CustomQuery {
   /** Query type identifier */
   type: 'sql' | 'cypher' | 'vector' | 'memory' | 'coordination';
-  
+
   /** The actual query string or object */
   query: string | object;
-  
+
   /** Query parameters */
   parameters?: Record<string, any>;
-  
+
   /** Query options */
   options?: Record<string, any>;
 }
@@ -200,13 +216,13 @@ export interface CustomQuery {
 export interface TransactionOperation {
   /** Operation type */
   type: 'create' | 'update' | 'delete' | 'custom';
-  
+
   /** Entity type */
   entityType?: string;
-  
+
   /** Operation data */
   data?: any;
-  
+
   /** Custom query for complex operations */
   customQuery?: CustomQuery;
 }
@@ -217,16 +233,16 @@ export interface TransactionOperation {
 export interface DatabaseMetadata {
   /** Database type */
   type: 'relational' | 'graph' | 'vector' | 'memory' | 'coordination';
-  
+
   /** Database version */
   version: string;
-  
+
   /** Available features */
   features: string[];
-  
+
   /** Schema information */
   schema?: Record<string, any>;
-  
+
   /** Configuration */
   config: Record<string, any>;
 }
@@ -237,16 +253,16 @@ export interface DatabaseMetadata {
 export interface HealthStatus {
   /** Is the database healthy */
   healthy: boolean;
-  
+
   /** Health score (0-100) */
   score: number;
-  
+
   /** Health details */
   details: Record<string, any>;
-  
+
   /** Last check timestamp */
   lastCheck: Date;
-  
+
   /** Any error messages */
   errors?: string[];
 }
@@ -257,10 +273,10 @@ export interface HealthStatus {
 export interface PerformanceMetrics {
   /** Average query time in milliseconds */
   averageQueryTime: number;
-  
+
   /** Queries per second */
   queriesPerSecond: number;
-  
+
   /** Connection pool stats */
   connectionPool?: {
     active: number;
@@ -268,14 +284,14 @@ export interface PerformanceMetrics {
     total: number;
     utilization: number;
   };
-  
+
   /** Memory usage */
   memoryUsage?: {
     used: number;
     total: number;
     percentage: number;
   };
-  
+
   /** Additional database-specific metrics */
   custom?: Record<string, any>;
 }

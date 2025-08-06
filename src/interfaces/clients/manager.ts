@@ -1,30 +1,30 @@
 /**
  * UACL Client Manager
- * 
+ *
  * Manages the complete lifecycle of all client types in the system.
  * Provides factories, health monitoring, metrics collection, and recovery.
- * 
+ *
  * @fileoverview Centralized client lifecycle management
  */
 
 import { EventEmitter } from 'node:events';
-import { 
-  ClientRegistry, 
-  ClientType, 
-  type ClientConfig, 
-  type ClientInstance, 
-  type ClientFactory,
-  type HTTPClientConfig,
-  type WebSocketClientConfig,
-  type KnowledgeClientConfig,
-  type MCPClientConfig
-} from './registry';
+import { FACTIntegration } from '../../knowledge/knowledge-client';
 
 // Import actual client implementations
 import { APIClient, createAPIClient } from '../api/http/client';
 import { WebSocketClient } from '../api/websocket/client';
-import { FACTIntegration } from '../../knowledge/knowledge-client';
 import { ExternalMCPClient } from '../mcp/external-mcp-client';
+import {
+  type ClientConfig,
+  type ClientFactory,
+  type ClientInstance,
+  ClientRegistry,
+  ClientType,
+  type HTTPClientConfig,
+  type KnowledgeClientConfig,
+  type MCPClientConfig,
+  type WebSocketClientConfig,
+} from './registry';
 
 /**
  * Manager configuration options
@@ -90,7 +90,7 @@ class HTTPClientFactory implements ClientFactory {
       apiKey: httpConfig.apiKey,
       bearerToken: httpConfig.bearerToken,
       headers: httpConfig.headers,
-      retryAttempts: httpConfig.retryAttempts
+      retryAttempts: httpConfig.retryAttempts,
     });
 
     return {
@@ -99,7 +99,7 @@ class HTTPClientFactory implements ClientFactory {
       config,
       client: apiClient,
       status: 'initialized',
-      metrics: this.createInitialMetrics()
+      metrics: this.createInitialMetrics(),
     };
   }
 
@@ -116,7 +116,7 @@ class HTTPClientFactory implements ClientFactory {
       priority: 5,
       timeout: 30000,
       retryAttempts: 3,
-      healthCheckInterval: 30000
+      healthCheckInterval: 30000,
     };
   }
 
@@ -124,14 +124,20 @@ class HTTPClientFactory implements ClientFactory {
     return {
       requests: { total: 0, successful: 0, failed: 0, avgLatency: 0, minLatency: 0, maxLatency: 0 },
       connections: { attempts: 0, successful: 0, failed: 0, currentStatus: 'initialized' },
-      health: { lastCheck: new Date(), checksTotal: 0, checksSuccessful: 0, uptime: 0, downtimeTotal: 0 },
-      errors: { total: 0, byType: {}, recent: [] }
+      health: {
+        lastCheck: new Date(),
+        checksTotal: 0,
+        checksSuccessful: 0,
+        uptime: 0,
+        downtimeTotal: 0,
+      },
+      errors: { total: 0, byType: {}, recent: [] },
     };
   }
 }
 
 /**
- * WebSocket Client Factory Implementation  
+ * WebSocket Client Factory Implementation
  */
 class WebSocketClientFactory implements ClientFactory {
   async create(config: ClientConfig): Promise<ClientInstance> {
@@ -144,7 +150,7 @@ class WebSocketClientFactory implements ClientFactory {
       reconnect: wsConfig.reconnect,
       reconnectInterval: wsConfig.reconnectInterval,
       maxReconnectAttempts: wsConfig.maxReconnectAttempts,
-      timeout: wsConfig.timeout
+      timeout: wsConfig.timeout,
     });
 
     return {
@@ -153,7 +159,7 @@ class WebSocketClientFactory implements ClientFactory {
       config,
       client: wsClient,
       status: 'initialized',
-      metrics: this.createInitialMetrics()
+      metrics: this.createInitialMetrics(),
     };
   }
 
@@ -172,7 +178,7 @@ class WebSocketClientFactory implements ClientFactory {
       reconnect: true,
       reconnectInterval: 1000,
       maxReconnectAttempts: 10,
-      healthCheckInterval: 30000
+      healthCheckInterval: 30000,
     };
   }
 
@@ -180,8 +186,14 @@ class WebSocketClientFactory implements ClientFactory {
     return {
       requests: { total: 0, successful: 0, failed: 0, avgLatency: 0, minLatency: 0, maxLatency: 0 },
       connections: { attempts: 0, successful: 0, failed: 0, currentStatus: 'initialized' },
-      health: { lastCheck: new Date(), checksTotal: 0, checksSuccessful: 0, uptime: 0, downtimeTotal: 0 },
-      errors: { total: 0, byType: {}, recent: [] }
+      health: {
+        lastCheck: new Date(),
+        checksTotal: 0,
+        checksSuccessful: 0,
+        uptime: 0,
+        downtimeTotal: 0,
+      },
+      errors: { total: 0, byType: {}, recent: [] },
     };
   }
 }
@@ -201,7 +213,7 @@ class KnowledgeClientFactory implements ClientFactory {
       anthropicApiKey: knowledgeConfig.anthropicApiKey,
       pythonPath: knowledgeConfig.pythonPath,
       enableCache: knowledgeConfig.enableCache,
-      cacheConfig: knowledgeConfig.cacheConfig
+      cacheConfig: knowledgeConfig.cacheConfig,
     });
 
     return {
@@ -210,14 +222,18 @@ class KnowledgeClientFactory implements ClientFactory {
       config,
       client: factClient,
       status: 'initialized',
-      metrics: this.createInitialMetrics()
+      metrics: this.createInitialMetrics(),
     };
   }
 
   validate(config: ClientConfig): boolean {
     if (config.type !== ClientType.KNOWLEDGE) return false;
     const knowledgeConfig = config as KnowledgeClientConfig;
-    return !!(knowledgeConfig.factRepoPath && knowledgeConfig.anthropicApiKey && knowledgeConfig.id);
+    return !!(
+      knowledgeConfig.factRepoPath &&
+      knowledgeConfig.anthropicApiKey &&
+      knowledgeConfig.id
+    );
   }
 
   getDefaultConfig(type: ClientType): Partial<ClientConfig> {
@@ -228,7 +244,7 @@ class KnowledgeClientFactory implements ClientFactory {
       timeout: 30000,
       pythonPath: 'python3',
       enableCache: true,
-      healthCheckInterval: 60000
+      healthCheckInterval: 60000,
     };
   }
 
@@ -236,8 +252,14 @@ class KnowledgeClientFactory implements ClientFactory {
     return {
       requests: { total: 0, successful: 0, failed: 0, avgLatency: 0, minLatency: 0, maxLatency: 0 },
       connections: { attempts: 0, successful: 0, failed: 0, currentStatus: 'initialized' },
-      health: { lastCheck: new Date(), checksTotal: 0, checksSuccessful: 0, uptime: 0, downtimeTotal: 0 },
-      errors: { total: 0, byType: {}, recent: [] }
+      health: {
+        lastCheck: new Date(),
+        checksTotal: 0,
+        checksSuccessful: 0,
+        uptime: 0,
+        downtimeTotal: 0,
+      },
+      errors: { total: 0, byType: {}, recent: [] },
     };
   }
 }
@@ -260,7 +282,7 @@ class MCPClientFactory implements ClientFactory {
       config,
       client: mcpClient,
       status: 'initialized',
-      metrics: this.createInitialMetrics()
+      metrics: this.createInitialMetrics(),
     };
   }
 
@@ -277,7 +299,7 @@ class MCPClientFactory implements ClientFactory {
       priority: 5,
       timeout: 30000,
       retryAttempts: 3,
-      healthCheckInterval: 30000
+      healthCheckInterval: 30000,
     };
   }
 
@@ -285,18 +307,24 @@ class MCPClientFactory implements ClientFactory {
     return {
       requests: { total: 0, successful: 0, failed: 0, avgLatency: 0, minLatency: 0, maxLatency: 0 },
       connections: { attempts: 0, successful: 0, failed: 0, currentStatus: 'initialized' },
-      health: { lastCheck: new Date(), checksTotal: 0, checksSuccessful: 0, uptime: 0, downtimeTotal: 0 },
-      errors: { total: 0, byType: {}, recent: [] }
+      health: {
+        lastCheck: new Date(),
+        checksTotal: 0,
+        checksSuccessful: 0,
+        uptime: 0,
+        downtimeTotal: 0,
+      },
+      errors: { total: 0, byType: {}, recent: [] },
     };
   }
 }
 
 /**
  * Main Client Manager Class
- * 
+ *
  * Provides complete lifecycle management for all client types:
  * - Factory registration and client creation
- * - Health monitoring and auto-recovery  
+ * - Health monitoring and auto-recovery
  * - Metrics collection and analysis
  * - Configuration validation
  * - Error handling and logging
@@ -310,14 +338,14 @@ export class ClientManager extends EventEmitter {
 
   constructor(config: ClientManagerConfig = {}) {
     super();
-    
+
     this.config = {
       healthCheckInterval: config.healthCheckInterval ?? 30000,
       autoReconnect: config.autoReconnect ?? true,
       maxRetryAttempts: config.maxRetryAttempts ?? 3,
       retryDelay: config.retryDelay ?? 1000,
       metricsRetention: config.metricsRetention ?? 24 * 60 * 60 * 1000, // 1 day
-      enableLogging: config.enableLogging ?? true
+      enableLogging: config.enableLogging ?? true,
     };
 
     this.registry = new ClientRegistry(this.config.healthCheckInterval);
@@ -358,7 +386,7 @@ export class ClientManager extends EventEmitter {
     }
 
     const instance = await this.registry.register(config);
-    
+
     // Initialize metrics for this client
     this.metricsStore.set(config.id, this.createInitialMetrics());
 
@@ -382,7 +410,7 @@ export class ClientManager extends EventEmitter {
     try {
       const metrics = this.metricsStore.get(clientId)!;
       metrics.connections.attempts++;
-      
+
       // Connect based on client type
       if (instance.type === ClientType.WEBSOCKET && 'connect' in instance.client) {
         await (instance.client as WebSocketClient).connect();
@@ -395,13 +423,13 @@ export class ClientManager extends EventEmitter {
 
       metrics.connections.successful++;
       metrics.connections.currentStatus = 'connected';
-      
+
       this.emit('client:connected', clientId);
-      
+
       if (this.config.enableLogging) {
         console.log(`✅ Client ${clientId} connected successfully`);
       }
-      
+
       return true;
     } catch (error) {
       const metrics = this.metricsStore.get(clientId)!;
@@ -410,16 +438,16 @@ export class ClientManager extends EventEmitter {
       metrics.errors.recent.push({
         timestamp: new Date(),
         type: 'connection_error',
-        message: error instanceof Error ? error.message : String(error)
+        message: error instanceof Error ? error.message : String(error),
       });
 
       this.emit('client:error', clientId, error);
-      
+
       // Auto-reconnect if enabled
       if (this.config.autoReconnect) {
         this.scheduleReconnect(clientId);
       }
-      
+
       return false;
     }
   }
@@ -456,11 +484,11 @@ export class ClientManager extends EventEmitter {
       }
 
       this.emit('client:disconnected', clientId);
-      
+
       if (this.config.enableLogging) {
         console.log(`📡 Client ${clientId} disconnected`);
       }
-      
+
       return true;
     } catch (error) {
       this.emit('client:error', clientId, error);
@@ -497,7 +525,7 @@ export class ClientManager extends EventEmitter {
   getBestClient(type: ClientType): ClientInstance | undefined {
     const healthy = this.registry.getHealthy(type);
     if (healthy.length === 0) return undefined;
-    
+
     // Return highest priority healthy client
     return healthy.sort((a, b) => b.config.priority - a.config.priority)[0];
   }
@@ -525,24 +553,31 @@ export class ClientManager extends EventEmitter {
 
     const totalRequests = allMetrics.reduce((sum, m) => sum + m.requests.total, 0);
     const totalErrors = allMetrics.reduce((sum, m) => sum + m.errors.total, 0);
-    const avgLatency = allMetrics.length > 0 
-      ? allMetrics.reduce((sum, m) => sum + m.requests.avgLatency, 0) / allMetrics.length
-      : 0;
+    const avgLatency =
+      allMetrics.length > 0
+        ? allMetrics.reduce((sum, m) => sum + m.requests.avgLatency, 0) / allMetrics.length
+        : 0;
 
-    const byType = Object.values(ClientType).reduce((acc, type) => {
-      const typeClients = this.registry.getByType(type);
-      const typeMetrics = typeClients.map(c => this.metricsStore.get(c.id)).filter(Boolean) as ClientMetrics[];
-      
-      acc[type] = {
-        total: typeClients.length,
-        connected: typeClients.filter(c => c.status === 'connected').length,
-        avgLatency: typeMetrics.length > 0 
-          ? typeMetrics.reduce((sum, m) => sum + m.requests.avgLatency, 0) / typeMetrics.length
-          : 0
-      };
-      
-      return acc;
-    }, {} as Record<ClientType, { total: number; connected: number; avgLatency: number }>);
+    const byType = Object.values(ClientType).reduce(
+      (acc, type) => {
+        const typeClients = this.registry.getByType(type);
+        const typeMetrics = typeClients
+          .map((c) => this.metricsStore.get(c.id))
+          .filter(Boolean) as ClientMetrics[];
+
+        acc[type] = {
+          total: typeClients.length,
+          connected: typeClients.filter((c) => c.status === 'connected').length,
+          avgLatency:
+            typeMetrics.length > 0
+              ? typeMetrics.reduce((sum, m) => sum + m.requests.avgLatency, 0) / typeMetrics.length
+              : 0,
+        };
+
+        return acc;
+      },
+      {} as Record<ClientType, { total: number; connected: number; avgLatency: number }>
+    );
 
     return {
       total: stats.total,
@@ -550,7 +585,7 @@ export class ClientManager extends EventEmitter {
       byType,
       totalRequests,
       totalErrors,
-      avgLatency
+      avgLatency,
     };
   }
 
@@ -563,25 +598,27 @@ export class ClientManager extends EventEmitter {
   } {
     const stats = this.registry.getStats();
     const healthyPercentage = stats.total > 0 ? stats.healthy / stats.total : 1;
-    
-    const overall = healthyPercentage >= 0.8 ? 'healthy' 
-      : healthyPercentage >= 0.5 ? 'warning' 
-      : 'critical';
 
-    const details: Record<string, { status: 'healthy' | 'warning' | 'critical'; message?: string }> = {};
-    
+    const overall =
+      healthyPercentage >= 0.8 ? 'healthy' : healthyPercentage >= 0.5 ? 'warning' : 'critical';
+
+    const details: Record<
+      string,
+      { status: 'healthy' | 'warning' | 'critical'; message?: string }
+    > = {};
+
     for (const type of Object.values(ClientType)) {
       const typeClients = this.getClientsByType(type);
-      const healthyType = typeClients.filter(c => c.status === 'connected').length;
+      const healthyType = typeClients.filter((c) => c.status === 'connected').length;
       const totalType = typeClients.length;
-      
+
       if (totalType === 0) {
         details[type] = { status: 'healthy', message: 'No clients configured' };
       } else {
         const typeHealthy = healthyType / totalType;
         details[type] = {
           status: typeHealthy >= 0.8 ? 'healthy' : typeHealthy >= 0.5 ? 'warning' : 'critical',
-          message: `${healthyType}/${totalType} clients healthy`
+          message: `${healthyType}/${totalType} clients healthy`,
         };
       }
     }
@@ -610,17 +647,19 @@ export class ClientManager extends EventEmitter {
       return;
     }
 
-    const delay = this.config.retryDelay * Math.pow(2, Math.min(attempts, 5)); // Exponential backoff
-    
+    const delay = this.config.retryDelay * 2 ** Math.min(attempts, 5); // Exponential backoff
+
     const timer = setTimeout(() => {
       this.reconnectTimers.delete(clientId);
       this.connectClient(clientId);
     }, delay);
 
     this.reconnectTimers.set(clientId, timer);
-    
+
     if (this.config.enableLogging) {
-      console.log(`🔄 Scheduling reconnect for client ${clientId} in ${delay}ms (attempt ${attempts + 1})`);
+      console.log(
+        `🔄 Scheduling reconnect for client ${clientId} in ${delay}ms (attempt ${attempts + 1})`
+      );
     }
   }
 
@@ -668,8 +707,14 @@ export class ClientManager extends EventEmitter {
     return {
       requests: { total: 0, successful: 0, failed: 0, avgLatency: 0, minLatency: 0, maxLatency: 0 },
       connections: { attempts: 0, successful: 0, failed: 0, currentStatus: 'initialized' },
-      health: { lastCheck: new Date(), checksTotal: 0, checksSuccessful: 0, uptime: 0, downtimeTotal: 0 },
-      errors: { total: 0, byType: {}, recent: [] }
+      health: {
+        lastCheck: new Date(),
+        checksTotal: 0,
+        checksSuccessful: 0,
+        uptime: 0,
+        downtimeTotal: 0,
+      },
+      errors: { total: 0, byType: {}, recent: [] },
     };
   }
 
@@ -725,8 +770,8 @@ export const ClientManagerHelpers = {
    * Create HTTP client with sensible defaults
    */
   async createHTTPClient(
-    id: string, 
-    baseURL: string, 
+    id: string,
+    baseURL: string,
     options: Partial<HTTPClientConfig> = {}
   ): Promise<ClientInstance> {
     return globalClientManager.createClient({
@@ -737,7 +782,7 @@ export const ClientManagerHelpers = {
       priority: 5,
       timeout: 30000,
       retryAttempts: 3,
-      ...options
+      ...options,
     });
   },
 
@@ -759,12 +804,12 @@ export const ClientManagerHelpers = {
       reconnect: true,
       reconnectInterval: 1000,
       maxReconnectAttempts: 10,
-      ...options
+      ...options,
     });
   },
 
   /**
-   * Create Knowledge client with sensible defaults  
+   * Create Knowledge client with sensible defaults
    */
   async createKnowledgeClient(
     id: string,
@@ -782,7 +827,7 @@ export const ClientManagerHelpers = {
       timeout: 30000,
       pythonPath: 'python3',
       enableCache: true,
-      ...options
+      ...options,
     });
   },
 
@@ -802,7 +847,7 @@ export const ClientManagerHelpers = {
       priority: 5,
       timeout: 30000,
       retryAttempts: 3,
-      ...options
+      ...options,
     });
   },
 
@@ -817,9 +862,9 @@ export const ClientManagerHelpers = {
     return {
       health: globalClientManager.getHealthStatus(),
       metrics: globalClientManager.getAggregatedMetrics(),
-      clients: globalClientManager.registry.getAll()
+      clients: globalClientManager.registry.getAll(),
     };
-  }
+  },
 };
 
 export default ClientManager;

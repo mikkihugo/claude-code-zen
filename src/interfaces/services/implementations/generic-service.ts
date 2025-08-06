@@ -1,12 +1,12 @@
 /**
  * Generic Service Implementation
- * 
+ *
  * A basic service implementation that can be used for simple services
  * or as a fallback when no specific service implementation is available.
  */
 
-import { BaseService } from './base-service';
 import type { ServiceConfig, ServiceOperationOptions } from '../core/interfaces';
+import { BaseService } from './base-service';
 
 /**
  * Generic service that provides basic functionality
@@ -17,7 +17,7 @@ export class GenericService extends BaseService {
 
   constructor(config: ServiceConfig) {
     super(config.name, config.type, config);
-    
+
     // Add basic capabilities
     this.addCapability('execute');
     this.addCapability('health-check');
@@ -30,13 +30,13 @@ export class GenericService extends BaseService {
 
   protected async doInitialize(): Promise<void> {
     this.logger.info(`Initializing generic service: ${this.name}`);
-    
+
     // Register default operations
     this.registerOperation('ping', async () => ({ pong: true, timestamp: new Date() }));
     this.registerOperation('status', async () => await this.getStatus());
     this.registerOperation('metrics', async () => await this.getMetrics());
     this.registerOperation('capabilities', async () => this.getCapabilities());
-    
+
     // Initialize custom operations from config
     if (this.config.options?.operations) {
       Object.entries(this.config.options.operations).forEach(([name, handler]) => {
@@ -45,49 +45,51 @@ export class GenericService extends BaseService {
         }
       });
     }
-    
+
     // Set custom health check if provided
     if (this.config.options?.healthCheck && typeof this.config.options.healthCheck === 'function') {
       this.healthCheckFn = this.config.options.healthCheck;
     }
-    
-    this.logger.info(`Generic service ${this.name} initialized with ${this.operations.size} operations`);
+
+    this.logger.info(
+      `Generic service ${this.name} initialized with ${this.operations.size} operations`
+    );
   }
 
   protected async doStart(): Promise<void> {
     this.logger.info(`Starting generic service: ${this.name}`);
-    
+
     // Perform any startup tasks
     if (this.config.options?.onStart && typeof this.config.options.onStart === 'function') {
       await this.config.options.onStart();
     }
-    
+
     this.logger.info(`Generic service ${this.name} started successfully`);
   }
 
   protected async doStop(): Promise<void> {
     this.logger.info(`Stopping generic service: ${this.name}`);
-    
+
     // Perform any shutdown tasks
     if (this.config.options?.onStop && typeof this.config.options.onStop === 'function') {
       await this.config.options.onStop();
     }
-    
+
     this.logger.info(`Generic service ${this.name} stopped successfully`);
   }
 
   protected async doDestroy(): Promise<void> {
     this.logger.info(`Destroying generic service: ${this.name}`);
-    
+
     // Clear registered operations
     this.operations.clear();
     this.healthCheckFn = undefined;
-    
+
     // Perform any cleanup tasks
     if (this.config.options?.onDestroy && typeof this.config.options.onDestroy === 'function') {
       await this.config.options.onDestroy();
     }
-    
+
     this.logger.info(`Generic service ${this.name} destroyed successfully`);
   }
 
@@ -97,7 +99,7 @@ export class GenericService extends BaseService {
       if (this.healthCheckFn) {
         return await this.healthCheckFn();
       }
-      
+
       // Default health check - just verify service is running
       return this.lifecycleStatus === 'running';
     } catch (error) {
@@ -112,13 +114,13 @@ export class GenericService extends BaseService {
     options?: ServiceOperationOptions
   ): Promise<T> {
     const handler = this.operations.get(operation);
-    
+
     if (!handler) {
       throw new Error(`Operation '${operation}' not found in service ${this.name}`);
     }
-    
+
     this.logger.debug(`Executing operation '${operation}' on service ${this.name}`);
-    
+
     try {
       const result = await handler(params, options);
       return result as T;
@@ -135,7 +137,10 @@ export class GenericService extends BaseService {
   /**
    * Register an operation handler
    */
-  registerOperation(name: string, handler: (params?: any, options?: ServiceOperationOptions) => Promise<any>): void {
+  registerOperation(
+    name: string,
+    handler: (params?: any, options?: ServiceOperationOptions) => Promise<any>
+  ): void {
     this.operations.set(name, handler);
     this.addCapability(name);
     this.logger.debug(`Registered operation '${name}' for service ${this.name}`);
@@ -178,7 +183,7 @@ export class GenericService extends BaseService {
    */
   async executeSequence(operations: Array<{ name: string; params?: any }>): Promise<any[]> {
     const results: any[] = [];
-    
+
     for (const op of operations) {
       try {
         const response = await this.execute(op.name, op.params);
@@ -188,7 +193,7 @@ export class GenericService extends BaseService {
         throw error;
       }
     }
-    
+
     return results;
   }
 
@@ -196,11 +201,11 @@ export class GenericService extends BaseService {
    * Execute multiple operations in parallel
    */
   async executeParallel(operations: Array<{ name: string; params?: any }>): Promise<any[]> {
-    const promises = operations.map(op => this.execute(op.name, op.params));
-    
+    const promises = operations.map((op) => this.execute(op.name, op.params));
+
     try {
       const responses = await Promise.all(promises);
-      return responses.map(response => response.data);
+      return responses.map((response) => response.data);
     } catch (error) {
       this.logger.error(`Parallel execution failed:`, error);
       throw error;

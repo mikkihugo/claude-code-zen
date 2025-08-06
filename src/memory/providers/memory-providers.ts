@@ -6,10 +6,16 @@
  * @description Enhanced memory providers with DI integration for Issue #63
  */
 
-import { Inject, Injectable } from '../../di/decorators/injectable';
-import { CORE_TOKENS, MEMORY_TOKENS, DATABASE_TOKENS, type ILogger, type IConfig } from '../../di/tokens/core-tokens';
-import { DALFactory } from '../../database/factory.js';
+import type { DALFactory } from '../../database/factory.js';
 import type { ICoordinationRepository, IVectorRepository } from '../../database/interfaces.js';
+import { Inject, Injectable } from '../../di/decorators/injectable';
+import {
+  CORE_TOKENS,
+  DATABASE_TOKENS,
+  type IConfig,
+  type ILogger,
+  MEMORY_TOKENS,
+} from '../../di/tokens/core-tokens';
 
 /**
  * Interface for memory backend implementations
@@ -109,7 +115,7 @@ export class SqliteMemoryBackend implements MemoryBackend {
         id: key,
         data: value,
         createdAt: new Date().toISOString(),
-        metadata: { type: 'memory_entry' }
+        metadata: { type: 'memory_entry' },
       });
       this.logger.debug(`Successfully stored key: ${key}`);
     } catch (error) {
@@ -220,15 +226,15 @@ export class LanceDBMemoryBackend implements MemoryBackend {
     try {
       // Generate a simple vector representation for the key-value pair
       const vector = this.generateVectorFromValue(value);
-      
+
       await this.repository.addVector({
         id: key,
         vector,
         metadata: {
           originalValue: value,
           storageType: 'memory',
-          createdAt: new Date().toISOString()
-        }
+          createdAt: new Date().toISOString(),
+        },
       });
       this.logger.debug(`Successfully stored key: ${key}`);
     } catch (error) {
@@ -243,7 +249,7 @@ export class LanceDBMemoryBackend implements MemoryBackend {
 
     try {
       const results = await this.repository.searchSimilar([0], { limit: 1000 });
-      const match = results.find(r => r.id === key);
+      const match = results.find((r) => r.id === key);
       return match?.metadata?.originalValue || null;
     } catch (error) {
       this.logger.error(`Failed to retrieve key ${key}: ${error}`);
@@ -327,11 +333,11 @@ export class LanceDBMemoryBackend implements MemoryBackend {
     // In production, you'd use proper embeddings
     const str = JSON.stringify(value);
     const vector = new Array(384).fill(0);
-    
+
     for (let i = 0; i < str.length && i < 384; i++) {
       vector[i] = str.charCodeAt(i) / 255; // Normalize to 0-1
     }
-    
+
     return vector;
   }
 }

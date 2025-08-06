@@ -1,9 +1,9 @@
 /**
  * Coordination Event Manager Factory
- * 
+ *
  * Factory implementation for creating CoordinationEventAdapter instances
  * following the UEL factory pattern and integrating with the main UELFactory.
- * 
+ *
  * This factory specializes in creating coordination event managers for:
  * - Swarm coordination and lifecycle management
  * - Agent management and health monitoring
@@ -11,26 +11,25 @@
  * - Inter-swarm communication and protocol management
  */
 
-import type {
-  IEventManager,
-  IEventManagerFactory,
-  EventManagerConfig
-} from '../core/interfaces';
-
-import type { CoordinationEventAdapterConfig } from './coordination-event-adapter';
-import { CoordinationEventAdapter, createDefaultCoordinationEventAdapterConfig } from './coordination-event-adapter';
-import { EventManagerTypes } from '../core/interfaces';
-
-import type { ILogger, IConfig } from '../../../core/interfaces/base-interfaces';
+import type { IConfig, ILogger } from '../../../core/interfaces/base-interfaces';
 import { createLogger } from '../../../core/logger';
+import type { EventManagerConfig, IEventManager, IEventManagerFactory } from '../core/interfaces';
+import { EventManagerTypes } from '../core/interfaces';
+import type { CoordinationEventAdapterConfig } from './coordination-event-adapter';
+import {
+  CoordinationEventAdapter,
+  createDefaultCoordinationEventAdapterConfig,
+} from './coordination-event-adapter';
 
 /**
  * Coordination Event Manager Factory
- * 
+ *
  * Creates and manages CoordinationEventAdapter instances for coordination-level event management.
  * Integrates with the UEL factory system to provide unified access to coordination events.
  */
-export class CoordinationEventManagerFactory implements IEventManagerFactory<CoordinationEventAdapterConfig> {
+export class CoordinationEventManagerFactory
+  implements IEventManagerFactory<CoordinationEventAdapterConfig>
+{
   private logger: ILogger;
   private config: IConfig;
   private instances = new Map<string, CoordinationEventAdapter>();
@@ -59,7 +58,6 @@ export class CoordinationEventManagerFactory implements IEventManagerFactory<Coo
 
       this.logger.info(`Coordination event manager created successfully: ${config.name}`);
       return adapter;
-
     } catch (error) {
       this.logger.error(`Failed to create coordination event manager ${config.name}:`, error);
       throw error;
@@ -72,7 +70,7 @@ export class CoordinationEventManagerFactory implements IEventManagerFactory<Coo
   async createMultiple(configs: CoordinationEventAdapterConfig[]): Promise<IEventManager[]> {
     this.logger.info(`Creating ${configs.length} coordination event managers`);
 
-    const createPromises = configs.map(config => this.create(config));
+    const createPromises = configs.map((config) => this.create(config));
     const results = await Promise.allSettled(createPromises);
 
     const managers: IEventManager[] = [];
@@ -82,12 +80,18 @@ export class CoordinationEventManagerFactory implements IEventManagerFactory<Coo
       if (result.status === 'fulfilled') {
         managers.push(result.value);
       } else {
-        errors.push(new Error(`Failed to create coordination manager ${configs[index].name}: ${result.reason}`));
+        errors.push(
+          new Error(
+            `Failed to create coordination manager ${configs[index].name}: ${result.reason}`
+          )
+        );
       }
     });
 
     if (errors.length > 0) {
-      this.logger.warn(`Created ${managers.length}/${configs.length} coordination event managers, ${errors.length} failed`);
+      this.logger.warn(
+        `Created ${managers.length}/${configs.length} coordination event managers, ${errors.length} failed`
+      );
     } else {
       this.logger.info(`Successfully created ${managers.length} coordination event managers`);
     }
@@ -134,10 +138,9 @@ export class CoordinationEventManagerFactory implements IEventManagerFactory<Coo
 
       // Remove from instances
       this.instances.delete(name);
-      
+
       this.logger.info(`Coordination event manager removed: ${name}`);
       return true;
-
     } catch (error) {
       this.logger.error(`Failed to remove coordination event manager ${name}:`, error);
       return false;
@@ -164,7 +167,7 @@ export class CoordinationEventManagerFactory implements IEventManagerFactory<Coo
           queueSize: 0,
           errorRate: 1.0,
           uptime: 0,
-          metadata: { error: error instanceof Error ? error.message : 'Unknown error' }
+          metadata: { error: error instanceof Error ? error.message : 'Unknown error' },
         });
       }
     });
@@ -262,7 +265,7 @@ export class CoordinationEventManagerFactory implements IEventManagerFactory<Coo
    * Get active manager count
    */
   getActiveCount(): number {
-    return Array.from(this.instances.values()).filter(manager => manager.isRunning()).length;
+    return Array.from(this.instances.values()).filter((manager) => manager.isRunning()).length;
   }
 
   /**
@@ -270,12 +273,12 @@ export class CoordinationEventManagerFactory implements IEventManagerFactory<Coo
    */
   getFactoryMetrics() {
     const runningManagers = this.getActiveCount();
-    
+
     return {
       totalManagers: this.instances.size,
       runningManagers,
       errorCount: 0, // Would track factory-level errors in real implementation
-      uptime: Date.now() // Would track actual uptime in real implementation
+      uptime: Date.now(), // Would track actual uptime in real implementation
     };
   }
 
@@ -288,7 +291,9 @@ export class CoordinationEventManagerFactory implements IEventManagerFactory<Coo
     }
 
     if (config.type !== EventManagerTypes.COORDINATION) {
-      throw new Error(`Coordination event manager must have type '${EventManagerTypes.COORDINATION}'`);
+      throw new Error(
+        `Coordination event manager must have type '${EventManagerTypes.COORDINATION}'`
+      );
     }
 
     // Validate coordination-specific configuration
@@ -300,16 +305,26 @@ export class CoordinationEventManagerFactory implements IEventManagerFactory<Coo
       throw new Error('Coordination correlation TTL must be specified when correlation is enabled');
     }
 
-    if (config.agentHealthMonitoring?.enabled && !config.agentHealthMonitoring.healthCheckInterval) {
-      throw new Error('Health check interval must be specified when agent health monitoring is enabled');
+    if (
+      config.agentHealthMonitoring?.enabled &&
+      !config.agentHealthMonitoring.healthCheckInterval
+    ) {
+      throw new Error(
+        'Health check interval must be specified when agent health monitoring is enabled'
+      );
     }
 
     if (config.swarmOptimization?.enabled && !config.swarmOptimization.performanceThresholds) {
-      throw new Error('Performance thresholds must be specified when swarm optimization is enabled');
+      throw new Error(
+        'Performance thresholds must be specified when swarm optimization is enabled'
+      );
     }
 
     // Validate coordinator list
-    if (config.swarmCoordination?.coordinators && !Array.isArray(config.swarmCoordination.coordinators)) {
+    if (
+      config.swarmCoordination?.coordinators &&
+      !Array.isArray(config.swarmCoordination.coordinators)
+    ) {
       throw new Error('Swarm coordinators must be an array');
     }
   }
@@ -345,13 +360,13 @@ export async function createSwarmCoordinationEventManager(
       wrapPerformanceEvents: true,
       wrapTopologyEvents: true,
       wrapHealthEvents: true,
-      coordinators: ['default', 'sparc', 'hierarchical']
+      coordinators: ['default', 'sparc', 'hierarchical'],
     },
     agentManagement: {
-      enabled: false
+      enabled: false,
     },
     taskOrchestration: {
-      enabled: false
+      enabled: false,
     },
     coordination: {
       enabled: true,
@@ -360,10 +375,10 @@ export async function createSwarmCoordinationEventManager(
       maxCorrelationDepth: 20,
       correlationPatterns: [
         'coordination:swarm->coordination:topology',
-        'coordination:topology->coordination:swarm'
+        'coordination:topology->coordination:swarm',
       ],
       trackAgentCommunication: true,
-      trackSwarmHealth: true
+      trackSwarmHealth: true,
     },
     swarmOptimization: {
       enabled: true,
@@ -371,11 +386,11 @@ export async function createSwarmCoordinationEventManager(
       performanceThresholds: {
         latency: 25, // ms - stricter for swarm-only
         throughput: 300, // ops/sec
-        reliability: 0.99
+        reliability: 0.99,
       },
       autoScaling: true,
-      loadBalancing: true
-    }
+      loadBalancing: true,
+    },
   });
 }
 
@@ -387,28 +402,26 @@ export async function createAgentManagementEventManager(
 ): Promise<CoordinationEventAdapter> {
   return await createCoordinationEventManager(name, {
     swarmCoordination: {
-      enabled: false
+      enabled: false,
     },
     agentManagement: {
       enabled: true,
       wrapAgentEvents: true,
       wrapHealthEvents: true,
       wrapRegistryEvents: true,
-      wrapLifecycleEvents: true
+      wrapLifecycleEvents: true,
     },
     taskOrchestration: {
-      enabled: false
+      enabled: false,
     },
     coordination: {
       enabled: true,
       strategy: 'agent',
       correlationTTL: 300000, // 5 minutes for agent events
       maxCorrelationDepth: 15,
-      correlationPatterns: [
-        'coordination:agent->coordination:agent'
-      ],
+      correlationPatterns: ['coordination:agent->coordination:agent'],
       trackAgentCommunication: true,
-      trackSwarmHealth: false
+      trackSwarmHealth: false,
     },
     agentHealthMonitoring: {
       enabled: true,
@@ -416,11 +429,11 @@ export async function createAgentManagementEventManager(
       agentHealthThresholds: {
         'agent-manager': 0.95,
         'agent-pool': 0.9,
-        'agent-registry': 0.95
+        'agent-registry': 0.95,
       },
       swarmHealthThresholds: {},
-      autoRecoveryEnabled: true
-    }
+      autoRecoveryEnabled: true,
+    },
   });
 }
 
@@ -432,17 +445,17 @@ export async function createTaskOrchestrationEventManager(
 ): Promise<CoordinationEventAdapter> {
   return await createCoordinationEventManager(name, {
     swarmCoordination: {
-      enabled: false
+      enabled: false,
     },
     agentManagement: {
-      enabled: false
+      enabled: false,
     },
     taskOrchestration: {
       enabled: true,
       wrapTaskEvents: true,
       wrapDistributionEvents: true,
       wrapExecutionEvents: true,
-      wrapCompletionEvents: true
+      wrapCompletionEvents: true,
     },
     coordination: {
       enabled: true,
@@ -451,10 +464,10 @@ export async function createTaskOrchestrationEventManager(
       maxCorrelationDepth: 25,
       correlationPatterns: [
         'coordination:task->coordination:task',
-        'coordination:task->coordination:agent'
+        'coordination:task->coordination:agent',
       ],
       trackAgentCommunication: true,
-      trackSwarmHealth: false
+      trackSwarmHealth: false,
     },
     performance: {
       enableSwarmCorrelation: false,
@@ -462,8 +475,8 @@ export async function createTaskOrchestrationEventManager(
       enableTaskMetrics: true,
       maxConcurrentCoordinations: 200, // Higher for task-focused
       coordinationTimeout: 60000, // Longer for task operations
-      enablePerformanceTracking: true
-    }
+      enablePerformanceTracking: true,
+    },
   });
 }
 
@@ -475,32 +488,30 @@ export async function createProtocolManagementEventManager(
 ): Promise<CoordinationEventAdapter> {
   return await createCoordinationEventManager(name, {
     swarmCoordination: {
-      enabled: false
+      enabled: false,
     },
     agentManagement: {
-      enabled: false
+      enabled: false,
     },
     taskOrchestration: {
-      enabled: false
+      enabled: false,
     },
     protocolManagement: {
       enabled: true,
       wrapCommunicationEvents: true,
       wrapTopologyEvents: true,
       wrapLifecycleEvents: true,
-      wrapCoordinationEvents: true
+      wrapCoordinationEvents: true,
     },
     coordination: {
       enabled: true,
       strategy: 'topology',
       correlationTTL: 600000, // 10 minutes for protocol events
       maxCorrelationDepth: 12,
-      correlationPatterns: [
-        'coordination:topology->coordination:topology'
-      ],
+      correlationPatterns: ['coordination:topology->coordination:topology'],
       trackAgentCommunication: true,
-      trackSwarmHealth: true
-    }
+      trackSwarmHealth: true,
+    },
   });
 }
 
@@ -517,28 +528,28 @@ export async function createComprehensiveCoordinationEventManager(
       wrapPerformanceEvents: true,
       wrapTopologyEvents: true,
       wrapHealthEvents: true,
-      coordinators: ['default', 'sparc', 'hierarchical', 'mesh', 'ring', 'star']
+      coordinators: ['default', 'sparc', 'hierarchical', 'mesh', 'ring', 'star'],
     },
     agentManagement: {
       enabled: true,
       wrapAgentEvents: true,
       wrapHealthEvents: true,
       wrapRegistryEvents: true,
-      wrapLifecycleEvents: true
+      wrapLifecycleEvents: true,
     },
     taskOrchestration: {
       enabled: true,
       wrapTaskEvents: true,
       wrapDistributionEvents: true,
       wrapExecutionEvents: true,
-      wrapCompletionEvents: true
+      wrapCompletionEvents: true,
     },
     protocolManagement: {
       enabled: true,
       wrapCommunicationEvents: true,
       wrapTopologyEvents: true,
       wrapLifecycleEvents: true,
-      wrapCoordinationEvents: true
+      wrapCoordinationEvents: true,
     },
     coordination: {
       enabled: true,
@@ -550,10 +561,10 @@ export async function createComprehensiveCoordinationEventManager(
         'coordination:agent->coordination:task',
         'coordination:task->coordination:agent',
         'coordination:topology->coordination:swarm',
-        'coordination:swarm->coordination:topology'
+        'coordination:swarm->coordination:topology',
       ],
       trackAgentCommunication: true,
-      trackSwarmHealth: true
+      trackSwarmHealth: true,
     },
     agentHealthMonitoring: {
       enabled: true,
@@ -561,18 +572,18 @@ export async function createComprehensiveCoordinationEventManager(
       agentHealthThresholds: {
         'swarm-coordinator': 0.98,
         'agent-manager': 0.95,
-        'orchestrator': 0.9,
+        orchestrator: 0.9,
         'task-distributor': 0.95,
         'topology-manager': 0.85,
-        'protocol-manager': 0.9
+        'protocol-manager': 0.9,
       },
       swarmHealthThresholds: {
         'coordination-latency': 75, // ms
-        'throughput': 150, // ops/sec
-        'reliability': 0.97,
-        'agent-availability': 0.95
+        throughput: 150, // ops/sec
+        reliability: 0.97,
+        'agent-availability': 0.95,
       },
-      autoRecoveryEnabled: true
+      autoRecoveryEnabled: true,
     },
     swarmOptimization: {
       enabled: true,
@@ -580,10 +591,10 @@ export async function createComprehensiveCoordinationEventManager(
       performanceThresholds: {
         latency: 40, // ms - balanced for comprehensive
         throughput: 250, // ops/sec
-        reliability: 0.99
+        reliability: 0.99,
       },
       autoScaling: true,
-      loadBalancing: true
+      loadBalancing: true,
     },
     performance: {
       enableSwarmCorrelation: true,
@@ -591,8 +602,8 @@ export async function createComprehensiveCoordinationEventManager(
       enableTaskMetrics: true,
       maxConcurrentCoordinations: 300, // High capacity for comprehensive monitoring
       coordinationTimeout: 45000,
-      enablePerformanceTracking: true
-    }
+      enablePerformanceTracking: true,
+    },
   });
 }
 
@@ -609,24 +620,24 @@ export async function createHighPerformanceCoordinationEventManager(
       wrapPerformanceEvents: true,
       wrapTopologyEvents: false, // Disable to reduce overhead
       wrapHealthEvents: true,
-      coordinators: ['default', 'sparc'] // Limited set for performance
+      coordinators: ['default', 'sparc'], // Limited set for performance
     },
     agentManagement: {
       enabled: true,
       wrapAgentEvents: true,
       wrapHealthEvents: false, // Disable to reduce overhead
       wrapRegistryEvents: true,
-      wrapLifecycleEvents: true
+      wrapLifecycleEvents: true,
     },
     taskOrchestration: {
       enabled: true,
       wrapTaskEvents: true,
       wrapDistributionEvents: true,
       wrapExecutionEvents: true,
-      wrapCompletionEvents: true
+      wrapCompletionEvents: true,
     },
     protocolManagement: {
-      enabled: false // Disable for performance
+      enabled: false, // Disable for performance
     },
     coordination: {
       enabled: true,
@@ -635,10 +646,10 @@ export async function createHighPerformanceCoordinationEventManager(
       maxCorrelationDepth: 10, // Reduced for performance
       correlationPatterns: [
         'coordination:swarm->coordination:agent',
-        'coordination:task->coordination:agent'
+        'coordination:task->coordination:agent',
       ],
       trackAgentCommunication: true,
-      trackSwarmHealth: false // Disable to reduce overhead
+      trackSwarmHealth: false, // Disable to reduce overhead
     },
     agentHealthMonitoring: {
       enabled: true,
@@ -646,14 +657,14 @@ export async function createHighPerformanceCoordinationEventManager(
       agentHealthThresholds: {
         'swarm-coordinator': 0.95,
         'agent-manager': 0.9,
-        'orchestrator': 0.85
+        orchestrator: 0.85,
       },
       swarmHealthThresholds: {
         'coordination-latency': 50, // ms - tighter for performance
-        'throughput': 500, // ops/sec - higher for performance
-        'reliability': 0.98
+        throughput: 500, // ops/sec - higher for performance
+        reliability: 0.98,
       },
-      autoRecoveryEnabled: true
+      autoRecoveryEnabled: true,
     },
     swarmOptimization: {
       enabled: true,
@@ -661,10 +672,10 @@ export async function createHighPerformanceCoordinationEventManager(
       performanceThresholds: {
         latency: 20, // ms - very strict
         throughput: 500, // ops/sec - high performance
-        reliability: 0.995
+        reliability: 0.995,
       },
       autoScaling: true,
-      loadBalancing: true
+      loadBalancing: true,
     },
     performance: {
       enableSwarmCorrelation: true,
@@ -672,12 +683,12 @@ export async function createHighPerformanceCoordinationEventManager(
       enableTaskMetrics: true,
       maxConcurrentCoordinations: 500, // Very high capacity
       coordinationTimeout: 15000, // Shorter timeout for performance
-      enablePerformanceTracking: true
+      enablePerformanceTracking: true,
     },
     processing: {
       strategy: 'immediate', // Immediate processing for performance
-      queueSize: 5000 // Large queue for high throughput
-    }
+      queueSize: 5000, // Large queue for high throughput
+    },
   });
 }
 
@@ -694,28 +705,28 @@ export async function createDevelopmentCoordinationEventManager(
       wrapPerformanceEvents: true,
       wrapTopologyEvents: true,
       wrapHealthEvents: true,
-      coordinators: ['default', 'sparc', 'debug']
+      coordinators: ['default', 'sparc', 'debug'],
     },
     agentManagement: {
       enabled: true,
       wrapAgentEvents: true,
       wrapHealthEvents: true,
       wrapRegistryEvents: true,
-      wrapLifecycleEvents: true
+      wrapLifecycleEvents: true,
     },
     taskOrchestration: {
       enabled: true,
       wrapTaskEvents: true,
       wrapDistributionEvents: true,
       wrapExecutionEvents: true,
-      wrapCompletionEvents: true
+      wrapCompletionEvents: true,
     },
     protocolManagement: {
       enabled: true,
       wrapCommunicationEvents: true,
       wrapTopologyEvents: true,
       wrapLifecycleEvents: true,
-      wrapCoordinationEvents: true
+      wrapCoordinationEvents: true,
     },
     coordination: {
       enabled: true,
@@ -727,10 +738,10 @@ export async function createDevelopmentCoordinationEventManager(
         'coordination:agent->coordination:task',
         'coordination:task->coordination:agent',
         'coordination:topology->coordination:swarm',
-        'coordination:swarm->coordination:topology'
+        'coordination:swarm->coordination:topology',
       ],
       trackAgentCommunication: true,
-      trackSwarmHealth: true
+      trackSwarmHealth: true,
     },
     agentHealthMonitoring: {
       enabled: true,
@@ -738,21 +749,21 @@ export async function createDevelopmentCoordinationEventManager(
       agentHealthThresholds: {
         'swarm-coordinator': 0.8, // More lenient for development
         'agent-manager': 0.7,
-        'orchestrator': 0.7,
+        orchestrator: 0.7,
         'task-distributor': 0.8,
         'topology-manager': 0.7,
-        'protocol-manager': 0.7
+        'protocol-manager': 0.7,
       },
       swarmHealthThresholds: {
         'coordination-latency': 200, // ms - more lenient
-        'throughput': 50, // ops/sec - lower for development
-        'reliability': 0.8,
-        'agent-availability': 0.7
+        throughput: 50, // ops/sec - lower for development
+        reliability: 0.8,
+        'agent-availability': 0.7,
       },
-      autoRecoveryEnabled: true
+      autoRecoveryEnabled: true,
     },
     swarmOptimization: {
-      enabled: false // Disable optimization for debugging
+      enabled: false, // Disable optimization for debugging
     },
     performance: {
       enableSwarmCorrelation: true,
@@ -760,7 +771,7 @@ export async function createDevelopmentCoordinationEventManager(
       enableTaskMetrics: true,
       maxConcurrentCoordinations: 50, // Lower for development
       coordinationTimeout: 120000, // 2 minutes - very long for debugging
-      enablePerformanceTracking: true
+      enablePerformanceTracking: true,
     },
     monitoring: {
       enabled: true,
@@ -768,8 +779,8 @@ export async function createDevelopmentCoordinationEventManager(
       trackLatency: true,
       trackThroughput: true,
       trackErrors: true,
-      enableProfiling: true // Enable profiling for debugging
-    }
+      enableProfiling: true, // Enable profiling for debugging
+    },
   });
 }
 

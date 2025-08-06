@@ -9,6 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import type { ICoordinationDao } from '../../../../database';
+
 // import { DALFactory } from '../../../../database'; // TODO: Implement proper DI integration
 
 type SwarmPersistence = ICoordinationDao;
@@ -48,7 +49,7 @@ class ZenSwarmHooks {
       // TODO: Implement proper DALFactory integration with DI
       this.persistence = {
         query: async (_sql: string, _params?: any[]) => [],
-        execute: async (_sql: string, _params?: any[]) => ({ affectedRows: 1 })
+        execute: async (_sql: string, _params?: any[]) => ({ affectedRows: 1 }),
       } as any;
     } catch (error) {
       console.warn('⚠️ Failed to initialize persistence layer:', error.message);

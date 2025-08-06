@@ -1,9 +1,9 @@
 /**
  * API Client Wrapper
- * 
+ *
  * Backward compatibility wrapper that maintains the existing APIClient interface
  * while using the new UACL HTTP Client Adapter internally.
- * 
+ *
  * This allows existing code to continue working without changes while gaining
  * UACL benefits (unified auth, retry, monitoring, health checks).
  */
@@ -87,10 +87,10 @@ export class APIClient {
       baseURL: this.config.baseURL,
       timeout: this.config.timeout,
       headers: this.config.headers,
-      
+
       // Convert authentication
       authentication: this.createAuthConfig(),
-      
+
       // Convert retry configuration
       retry: {
         attempts: this.config.retryAttempts || 3,
@@ -98,7 +98,7 @@ export class APIClient {
         backoff: 'exponential',
         retryStatusCodes: [408, 429, 500, 502, 503, 504],
       },
-      
+
       // Enable monitoring for better observability
       monitoring: {
         enabled: true,
@@ -107,7 +107,7 @@ export class APIClient {
         trackThroughput: true,
         trackErrors: true,
       },
-      
+
       // Add health checks
       health: {
         endpoint: '/health',
@@ -131,7 +131,7 @@ export class APIClient {
         token: this.config.bearerToken,
       };
     }
-    
+
     if (this.config.apiKey) {
       return {
         type: 'apikey',
@@ -139,7 +139,7 @@ export class APIClient {
         apiKeyHeader: 'X-API-Key',
       };
     }
-    
+
     return undefined;
   }
 
@@ -159,7 +159,7 @@ export class APIClient {
     };
 
     let response;
-    
+
     switch (method) {
       case 'GET':
         response = await this.httpClient.get(endpoint, uaclOptions);

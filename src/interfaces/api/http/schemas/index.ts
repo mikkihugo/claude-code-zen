@@ -7,10 +7,6 @@
  * @fileoverview REST API schemas for all domains
  */
 
-// Import domain-specific schemas
-export * from './common';
-export * from './neural';
-
 // Re-export coordination types that are actually available
 export type {
   Agent,
@@ -20,6 +16,9 @@ export type {
   SwarmConfig,
   Task,
 } from '../../../../coordination/schemas';
+// Import domain-specific schemas
+export * from './common';
+export * from './neural';
 
 /**
  * Complete OpenAPI 3.0 Schema Definition

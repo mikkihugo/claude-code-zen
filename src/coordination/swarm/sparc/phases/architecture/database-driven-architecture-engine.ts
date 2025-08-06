@@ -6,27 +6,26 @@
  */
 
 import { nanoid } from 'nanoid';
+import { ArchitectureStorageService } from '../../database/architecture-storage';
 import type {
+  AlgorithmPseudocode,
   ArchitecturalPattern,
   ArchitecturalValidation,
   ArchitectureDesign,
   ArchitectureEngine,
   Component,
+  ComponentDiagram,
   DataFlowConnection,
+  DataFlowDiagram,
+  DeploymentPlan,
+  DetailedSpecification,
   PseudocodeStructure,
   QualityAttribute,
   ScalabilityRequirement,
   SecurityRequirement,
-  ValidationResult,
-  DetailedSpecification,
-  AlgorithmPseudocode,
   SystemArchitecture,
-  ComponentDiagram,
-  DataFlowDiagram,
-  DeploymentPlan,
+  ValidationResult,
 } from '../../types/sparc-types';
-
-import { ArchitectureStorageService } from '../../database/architecture-storage';
 
 // Additional types needed for this module
 interface SystemComponent {
@@ -129,7 +128,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
    */
   async designArchitecture(pseudocode: PseudocodeStructure): Promise<ArchitectureDesign> {
     this.logger?.info('Starting architecture design from pseudocode structure');
-    
+
     const components = await this.identifySystemComponents(pseudocode);
     const relationships = await this.defineComponentRelationships(components);
     const patterns = await this.selectArchitecturePatterns(pseudocode, components);
@@ -179,7 +178,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     // Extract components from both specification and pseudocode
     const specComponents = await this.extractComponentsFromSpecification(spec);
     const pseudocodeComponents = await this.extractComponentsFromPseudocode(pseudocode);
-    
+
     // Merge and deduplicate components
     const allComponents = [...specComponents, ...pseudocodeComponents];
     const components = await this.deduplicateComponents(allComponents);
@@ -206,7 +205,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
     const diagrams: ComponentDiagram[] = [
       // High-level system overview
-      architecture.components.map(component => ({
+      architecture.components.map((component) => ({
         id: component.id || nanoid(),
         name: component.name,
         type: component.type,
@@ -231,8 +230,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
     for (const component of components) {
       for (const dependency of component.dependencies) {
-        const targetComponent = components.find(c => 
-          c.name === dependency || c.interfaces.includes(dependency)
+        const targetComponent = components.find(
+          (c) => c.name === dependency || c.interfaces.includes(dependency)
         );
 
         if (targetComponent) {
@@ -256,10 +255,10 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
   async planDeploymentArchitecture(system: SystemArchitecture): Promise<DeploymentPlan> {
     this.logger?.info('Planning deployment architecture');
 
-    const deploymentUnits = system.deploymentUnits.map(unit => ({
+    const deploymentUnits = system.deploymentUnits.map((unit) => ({
       name: unit.name,
       components: unit.components,
-      infrastructure: unit.infrastructure.map(infra => ({
+      infrastructure: unit.infrastructure.map((infra) => ({
         type: infra.type,
         specification: infra.specification,
         constraints: infra.constraints || [],
@@ -289,9 +288,10 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
       criterion: 'Component design',
       passed: architecture.components.length > 0,
       score: architecture.components.length > 0 ? 1.0 : 0.0,
-      feedback: architecture.components.length > 0
-        ? 'System components properly defined'
-        : 'Missing system component definitions',
+      feedback:
+        architecture.components.length > 0
+          ? 'System components properly defined'
+          : 'Missing system component definitions',
     });
 
     // Interface consistency validation
@@ -310,7 +310,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     const qualityValidation = await this.validateQualityAttributes(architecture);
     validationResults.push(qualityValidation);
 
-    const overallScore = validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
+    const overallScore =
+      validationResults.reduce((sum, result) => sum + result.score, 0) / validationResults.length;
 
     const architecturalValidation: ArchitecturalValidation = {
       overallScore,
@@ -323,7 +324,11 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     if (architecture.components.length > 0) {
       const architectureId = this.extractArchitectureId(architecture);
       if (architectureId) {
-        await this.storageService.saveValidation(architectureId, architecturalValidation, 'consistency');
+        await this.storageService.saveValidation(
+          architectureId,
+          architecturalValidation,
+          'consistency'
+        );
       }
     }
 
@@ -384,7 +389,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
   /**
    * Identify system components from algorithms and data structures
    */
-  private async identifySystemComponents(pseudocode: PseudocodeStructure): Promise<SystemComponent[]> {
+  private async identifySystemComponents(
+    pseudocode: PseudocodeStructure
+  ): Promise<SystemComponent[]> {
     const components: SystemComponent[] = [];
 
     // Create components from core algorithms
@@ -462,7 +469,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
   /**
    * Create infrastructure components based on system requirements
    */
-  private async createInfrastructureComponents(pseudocode: PseudocodeStructure): Promise<SystemComponent[]> {
+  private async createInfrastructureComponents(
+    pseudocode: PseudocodeStructure
+  ): Promise<SystemComponent[]> {
     const components: SystemComponent[] = [];
 
     // API Gateway for external access
@@ -542,7 +551,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
   /**
    * Define relationships between components with enhanced analysis
    */
-  private async defineComponentRelationships(components: SystemComponent[]): Promise<ComponentRelationship[]> {
+  private async defineComponentRelationships(
+    components: SystemComponent[]
+  ): Promise<ComponentRelationship[]> {
     const relationships: ComponentRelationship[] = [];
 
     for (const component of components) {
@@ -551,7 +562,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
         const dependentComponent = components.find(
           (c) => c.name === dependency || c.interfaces.includes(dependency)
         );
-        
+
         if (dependentComponent) {
           relationships.push({
             id: nanoid(),
@@ -697,7 +708,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
   /**
    * Define component interfaces with comprehensive specifications
    */
-  private async defineComponentInterfaces(components: SystemComponent[]): Promise<ComponentInterface[]> {
+  private async defineComponentInterfaces(
+    components: SystemComponent[]
+  ): Promise<ComponentInterface[]> {
     const interfaces: ComponentInterface[] = [];
 
     for (const component of components) {
@@ -722,7 +735,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
   /**
    * Define quality attributes with measurable criteria
    */
-  private async defineQualityAttributes(pseudocode: PseudocodeStructure): Promise<QualityAttribute[]> {
+  private async defineQualityAttributes(
+    pseudocode: PseudocodeStructure
+  ): Promise<QualityAttribute[]> {
     return [
       {
         id: nanoid(),
@@ -800,7 +815,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
   /**
    * Define security requirements with implementation details
    */
-  private async defineSecurityRequirements(components: SystemComponent[]): Promise<SecurityRequirement[]> {
+  private async defineSecurityRequirements(
+    components: SystemComponent[]
+  ): Promise<SecurityRequirement[]> {
     return [
       {
         id: nanoid(),
@@ -836,7 +853,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
   /**
    * Define scalability requirements with specific targets
    */
-  private async defineScalabilityRequirements(pseudocode: PseudocodeStructure): Promise<ScalabilityRequirement[]> {
+  private async defineScalabilityRequirements(
+    pseudocode: PseudocodeStructure
+  ): Promise<ScalabilityRequirement[]> {
     return [
       {
         id: nanoid(),
@@ -869,61 +888,79 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   private async validateInterfaces(architecture: SystemArchitecture): Promise<ValidationResult> {
     const hasInterfaces = architecture.interfaces && architecture.interfaces.length > 0;
-    const interfaceConsistency = hasInterfaces ? 
-      architecture.interfaces.every(iface => iface.methods && iface.methods.length > 0) : false;
+    const interfaceConsistency = hasInterfaces
+      ? architecture.interfaces.every((iface) => iface.methods && iface.methods.length > 0)
+      : false;
 
     return {
       criterion: 'Interface consistency',
       passed: hasInterfaces && interfaceConsistency,
       score: hasInterfaces && interfaceConsistency ? 1.0 : 0.5,
-      feedback: hasInterfaces && interfaceConsistency
-        ? 'Component interfaces are well-defined and consistent'
-        : 'Component interfaces need better definition or consistency',
+      feedback:
+        hasInterfaces && interfaceConsistency
+          ? 'Component interfaces are well-defined and consistent'
+          : 'Component interfaces need better definition or consistency',
     };
   }
 
   private async validateDataFlow(architecture: SystemArchitecture): Promise<ValidationResult> {
     const hasDataFlow = architecture.dataFlow && architecture.dataFlow.length > 0;
-    const dataFlowComplete = hasDataFlow ?
-      architecture.dataFlow.every(flow => flow.from && flow.to && flow.protocol) : false;
+    const dataFlowComplete = hasDataFlow
+      ? architecture.dataFlow.every((flow) => flow.from && flow.to && flow.protocol)
+      : false;
 
     return {
       criterion: 'Data flow design',
       passed: hasDataFlow && dataFlowComplete,
       score: hasDataFlow && dataFlowComplete ? 1.0 : 0.5,
-      feedback: hasDataFlow && dataFlowComplete
-        ? 'Data flow between components is well-designed'
-        : 'Data flow design needs improvement or completion',
+      feedback:
+        hasDataFlow && dataFlowComplete
+          ? 'Data flow between components is well-designed'
+          : 'Data flow design needs improvement or completion',
     };
   }
 
-  private async validatePatternCompliance(architecture: SystemArchitecture): Promise<ValidationResult> {
-    const hasPatterns = architecture.architecturalPatterns && architecture.architecturalPatterns.length > 0;
-    const patternsApplied = hasPatterns ?
-      architecture.architecturalPatterns.every(pattern => pattern.applicableComponents && pattern.applicableComponents.length > 0) : false;
+  private async validatePatternCompliance(
+    architecture: SystemArchitecture
+  ): Promise<ValidationResult> {
+    const hasPatterns =
+      architecture.architecturalPatterns && architecture.architecturalPatterns.length > 0;
+    const patternsApplied = hasPatterns
+      ? architecture.architecturalPatterns.every(
+          (pattern) => pattern.applicableComponents && pattern.applicableComponents.length > 0
+        )
+      : false;
 
     return {
       criterion: 'Architectural pattern compliance',
       passed: hasPatterns && patternsApplied,
       score: hasPatterns && patternsApplied ? 1.0 : 0.7,
-      feedback: hasPatterns && patternsApplied
-        ? 'Architectural patterns are properly applied'
-        : 'Architectural patterns need better application or selection',
+      feedback:
+        hasPatterns && patternsApplied
+          ? 'Architectural patterns are properly applied'
+          : 'Architectural patterns need better application or selection',
     };
   }
 
-  private async validateQualityAttributes(architecture: SystemArchitecture): Promise<ValidationResult> {
-    const hasQualityAttrs = architecture.qualityAttributes && architecture.qualityAttributes.length >= 3;
-    const qualityAttrsComplete = hasQualityAttrs ?
-      architecture.qualityAttributes.every(attr => attr.target && attr.measurement && attr.criteria) : false;
+  private async validateQualityAttributes(
+    architecture: SystemArchitecture
+  ): Promise<ValidationResult> {
+    const hasQualityAttrs =
+      architecture.qualityAttributes && architecture.qualityAttributes.length >= 3;
+    const qualityAttrsComplete = hasQualityAttrs
+      ? architecture.qualityAttributes.every(
+          (attr) => attr.target && attr.measurement && attr.criteria
+        )
+      : false;
 
     return {
       criterion: 'Quality attributes',
       passed: hasQualityAttrs && qualityAttrsComplete,
       score: hasQualityAttrs && qualityAttrsComplete ? 1.0 : 0.6,
-      feedback: hasQualityAttrs && qualityAttrsComplete
-        ? 'Quality attributes are comprehensive and measurable'
-        : 'Quality attributes need more detail or coverage',
+      feedback:
+        hasQualityAttrs && qualityAttrsComplete
+          ? 'Quality attributes are comprehensive and measurable'
+          : 'Quality attributes need more detail or coverage',
     };
   }
 
@@ -937,7 +974,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     return null;
   }
 
-  private async extractComponentsFromSpecification(spec: DetailedSpecification): Promise<SystemComponent[]> {
+  private async extractComponentsFromSpecification(
+    spec: DetailedSpecification
+  ): Promise<SystemComponent[]> {
     const components: SystemComponent[] = [];
 
     // Extract components from functional requirements
@@ -958,7 +997,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     return components;
   }
 
-  private async extractComponentsFromPseudocode(pseudocode: AlgorithmPseudocode[]): Promise<SystemComponent[]> {
+  private async extractComponentsFromPseudocode(
+    pseudocode: AlgorithmPseudocode[]
+  ): Promise<SystemComponent[]> {
     const components: SystemComponent[] = [];
 
     for (const algorithm of pseudocode) {
@@ -967,7 +1008,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
         name: `${algorithm.name}Processor`,
         type: 'processor',
         description: algorithm.purpose,
-        responsibilities: algorithm.steps.map(step => step.description),
+        responsibilities: algorithm.steps.map((step) => step.description),
         interfaces: [`I${algorithm.name}Processor`],
         dependencies: this.extractDependenciesFromAlgorithm(algorithm),
       });
@@ -978,7 +1019,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   private async deduplicateComponents(components: SystemComponent[]): Promise<SystemComponent[]> {
     const seen = new Set<string>();
-    return components.filter(component => {
+    return components.filter((component) => {
       const key = `${component.name.toLowerCase()}-${component.type}`;
       if (seen.has(key)) {
         return false;
@@ -989,8 +1030,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
   }
 
   private async generateInterfaceDefinitions(components: SystemComponent[]): Promise<any[]> {
-    return components.flatMap(component => 
-      component.interfaces.map(interfaceName => ({
+    return components.flatMap((component) =>
+      component.interfaces.map((interfaceName) => ({
         name: interfaceName,
         methods: this.generateMethodsForComponent(component),
         contracts: [`Contract for ${component.name}`],
@@ -999,12 +1040,14 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     );
   }
 
-  private async generateDataFlowConnections(components: SystemComponent[]): Promise<DataFlowConnection[]> {
+  private async generateDataFlowConnections(
+    components: SystemComponent[]
+  ): Promise<DataFlowConnection[]> {
     const connections: DataFlowConnection[] = [];
 
     for (const component of components) {
       for (const dependency of component.dependencies) {
-        const targetComponent = components.find(c => c.name === dependency);
+        const targetComponent = components.find((c) => c.name === dependency);
         if (targetComponent) {
           connections.push({
             from: component.name,
@@ -1022,16 +1065,18 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   private async generateDeploymentUnits(components: SystemComponent[]): Promise<any[]> {
     // Group components into logical deployment units
-    const serviceComponents = components.filter(c => c.type === 'service');
-    const dataComponents = components.filter(c => c.type === 'data-manager');
-    const infrastructureComponents = components.filter(c => c.type === 'gateway' || c.type === 'monitoring');
+    const serviceComponents = components.filter((c) => c.type === 'service');
+    const dataComponents = components.filter((c) => c.type === 'data-manager');
+    const infrastructureComponents = components.filter(
+      (c) => c.type === 'gateway' || c.type === 'monitoring'
+    );
 
     const units = [];
 
     if (serviceComponents.length > 0) {
       units.push({
         name: 'ApplicationServices',
-        components: serviceComponents.map(c => c.name),
+        components: serviceComponents.map((c) => c.name),
         infrastructure: [
           { type: 'compute', specification: '2 CPU, 4GB RAM', constraints: [] },
           { type: 'network', specification: 'Load balancer', constraints: [] },
@@ -1047,7 +1092,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     if (dataComponents.length > 0) {
       units.push({
         name: 'DataServices',
-        components: dataComponents.map(c => c.name),
+        components: dataComponents.map((c) => c.name),
         infrastructure: [
           { type: 'storage', specification: 'SSD, 100GB', constraints: ['backup required'] },
           { type: 'network', specification: 'Private network', constraints: [] },
@@ -1063,7 +1108,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     if (infrastructureComponents.length > 0) {
       units.push({
         name: 'Infrastructure',
-        components: infrastructureComponents.map(c => c.name),
+        components: infrastructureComponents.map((c) => c.name),
         infrastructure: [
           { type: 'compute', specification: '1 CPU, 2GB RAM', constraints: [] },
           { type: 'network', specification: 'Public access', constraints: [] },
@@ -1079,7 +1124,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     return units;
   }
 
-  private async extractQualityAttributesFromSpec(spec: DetailedSpecification): Promise<QualityAttribute[]> {
+  private async extractQualityAttributesFromSpec(
+    spec: DetailedSpecification
+  ): Promise<QualityAttribute[]> {
     const attributes: QualityAttribute[] = [];
 
     // Extract from non-functional requirements
@@ -1106,9 +1153,10 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     const patterns: ArchitecturalPattern[] = [];
 
     // Analyze functional requirements to suggest patterns
-    const hasRealtimeReqs = spec.functionalRequirements.some(req => 
-      req.description.toLowerCase().includes('real-time') ||
-      req.description.toLowerCase().includes('event')
+    const hasRealtimeReqs = spec.functionalRequirements.some(
+      (req) =>
+        req.description.toLowerCase().includes('real-time') ||
+        req.description.toLowerCase().includes('event')
     );
 
     if (hasRealtimeReqs) {
@@ -1119,7 +1167,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
         description: 'Handle real-time events and notifications',
         benefits: ['Real-time processing', 'Loose coupling', 'Scalability'],
         tradeoffs: ['Complexity', 'Debugging challenges'],
-        applicableComponents: components.map(c => c.id),
+        applicableComponents: components.map((c) => c.id),
         applicability: ['real-time requirements'],
       });
     }
@@ -1143,9 +1191,10 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     });
 
     // Database selection based on requirements
-    const needsGraph = spec.functionalRequirements.some(req => 
-      req.description.toLowerCase().includes('relationship') ||
-      req.description.toLowerCase().includes('network')
+    const needsGraph = spec.functionalRequirements.some(
+      (req) =>
+        req.description.toLowerCase().includes('relationship') ||
+        req.description.toLowerCase().includes('network')
     );
 
     if (needsGraph) {
@@ -1174,16 +1223,51 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
     if (component.type === 'service') {
       methods.push(
-        { name: 'execute', signature: 'execute(input: any): Promise<any>', description: 'Execute main operation', contracts: [] },
-        { name: 'validate', signature: 'validate(input: any): ValidationResult', description: 'Validate input', contracts: [] },
-        { name: 'getStatus', signature: 'getStatus(): ServiceStatus', description: 'Get service status', contracts: [] }
+        {
+          name: 'execute',
+          signature: 'execute(input: any): Promise<any>',
+          description: 'Execute main operation',
+          contracts: [],
+        },
+        {
+          name: 'validate',
+          signature: 'validate(input: any): ValidationResult',
+          description: 'Validate input',
+          contracts: [],
+        },
+        {
+          name: 'getStatus',
+          signature: 'getStatus(): ServiceStatus',
+          description: 'Get service status',
+          contracts: [],
+        }
       );
     } else if (component.type === 'data-manager') {
       methods.push(
-        { name: 'create', signature: 'create(data: any): Promise<string>', description: 'Create new entity', contracts: [] },
-        { name: 'read', signature: 'read(id: string): Promise<any>', description: 'Read entity by ID', contracts: [] },
-        { name: 'update', signature: 'update(id: string, data: any): Promise<void>', description: 'Update entity', contracts: [] },
-        { name: 'delete', signature: 'delete(id: string): Promise<void>', description: 'Delete entity', contracts: [] }
+        {
+          name: 'create',
+          signature: 'create(data: any): Promise<string>',
+          description: 'Create new entity',
+          contracts: [],
+        },
+        {
+          name: 'read',
+          signature: 'read(id: string): Promise<any>',
+          description: 'Read entity by ID',
+          contracts: [],
+        },
+        {
+          name: 'update',
+          signature: 'update(id: string, data: any): Promise<void>',
+          description: 'Update entity',
+          contracts: [],
+        },
+        {
+          name: 'delete',
+          signature: 'delete(id: string): Promise<void>',
+          description: 'Delete entity',
+          contracts: [],
+        }
       );
     }
 
@@ -1194,7 +1278,7 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     const dependencies: string[] = [];
 
     // Extract dependencies from inputs and steps
-    algorithm.inputs.forEach(input => {
+    algorithm.inputs.forEach((input) => {
       if (input.type.includes('Agent')) dependencies.push('AgentService');
       if (input.type.includes('Task')) dependencies.push('TaskManager');
       if (input.type.includes('Memory')) dependencies.push('MemoryService');
@@ -1222,10 +1306,11 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
     const technologies = ['TypeScript', 'Node.js'];
 
     const complexity = algorithm.complexity;
-    if (complexity && (
-      complexity.timeComplexity?.includes('O(n^2)') ||
-      complexity.timeComplexity?.includes('O(n^3)')
-    )) {
+    if (
+      complexity &&
+      (complexity.timeComplexity?.includes('O(n^2)') ||
+        complexity.timeComplexity?.includes('O(n^3)'))
+    ) {
       technologies.push('WASM', 'Rust');
     }
 
@@ -1238,10 +1323,11 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
   private async assessComponentScalability(algorithm: any): Promise<string> {
     const complexity = algorithm.complexity;
-    if (complexity && (
-      complexity.timeComplexity?.includes('O(1)') ||
-      complexity.timeComplexity?.includes('O(log n)')
-    )) {
+    if (
+      complexity &&
+      (complexity.timeComplexity?.includes('O(1)') ||
+        complexity.timeComplexity?.includes('O(log n)'))
+    ) {
       return 'horizontal';
     }
     return 'vertical';
@@ -1252,7 +1338,8 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
 
     const type = dataStructure.type || dataStructure.name || '';
     if (type.includes('HashMap') || type.includes('Map')) dependencies.push('HashingService');
-    if (type.includes('PriorityQueue') || type.includes('Queue')) dependencies.push('ComparatorService');
+    if (type.includes('PriorityQueue') || type.includes('Queue'))
+      dependencies.push('ComparatorService');
     if (type.includes('Matrix') || type.includes('Array')) dependencies.push('WASMModule');
 
     return dependencies;
@@ -1395,7 +1482,9 @@ export class DatabaseDrivenArchitecturePhaseEngine implements ArchitectureEngine
             recommendations.push('Define clear system components with specific responsibilities');
             break;
           case 'Interface consistency':
-            recommendations.push('Improve interface definitions and ensure consistency across components');
+            recommendations.push(
+              'Improve interface definitions and ensure consistency across components'
+            );
             break;
           case 'Data flow design':
             recommendations.push('Complete data flow specifications between components');

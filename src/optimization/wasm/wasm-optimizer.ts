@@ -3,6 +3,7 @@
  * Optimizes WASM module loading, compilation, memory sharing, and SIMD acceleration
  */
 
+import { createLogger } from '../../core/logger';
 import type {
   Bridge,
   Kernel,
@@ -14,7 +15,6 @@ import type {
   WasmModule,
   WasmOptimizer,
 } from '../interfaces/optimization-interfaces';
-import { createLogger } from '../../core/logger';
 
 export interface WasmOptimizationConfig {
   enableStreaming: boolean;

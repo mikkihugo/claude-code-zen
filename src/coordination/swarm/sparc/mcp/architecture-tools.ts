@@ -1,20 +1,19 @@
 /**
  * MCP Tools for SPARC Architecture Management
- * 
+ *
  * Provides Model Context Protocol tools for managing SPARC architecture designs,
  * enabling external access to architecture generation and validation.
  */
 
 import { nanoid } from 'nanoid';
 import type {
-  ArchitectureDesign,
-  PseudocodeStructure,
-  DetailedSpecification,
   ArchitecturalValidation,
+  ArchitectureDesign,
+  DetailedSpecification,
+  PseudocodeStructure,
 } from '../../types/sparc-types';
-
-import { DatabaseDrivenArchitecturePhaseEngine } from '../phases/architecture/database-driven-architecture-engine';
 import { ArchitectureStorageService } from '../database/architecture-storage';
+import { DatabaseDrivenArchitecturePhaseEngine } from '../phases/architecture/database-driven-architecture-engine';
 
 /**
  * MCP Tool definitions for SPARC Architecture operations
@@ -43,19 +42,14 @@ export interface ArchitectureMCPTools {
     message: string;
   }>;
 
-  validateArchitecture: (params: {
-    architectureId: string;
-    validationType?: string;
-  }) => Promise<{
+  validateArchitecture: (params: { architectureId: string; validationType?: string }) => Promise<{
     success: boolean;
     validation: ArchitecturalValidation;
     recommendations: string[];
     message: string;
   }>;
 
-  getArchitecture: (params: {
-    architectureId: string;
-  }) => Promise<{
+  getArchitecture: (params: { architectureId: string }) => Promise<{
     success: boolean;
     architecture: ArchitectureDesign | null;
     message: string;
@@ -82,9 +76,7 @@ export interface ArchitectureMCPTools {
     message: string;
   }>;
 
-  deleteArchitecture: (params: {
-    architectureId: string;
-  }) => Promise<{
+  deleteArchitecture: (params: { architectureId: string }) => Promise<{
     success: boolean;
     message: string;
   }>;
@@ -150,10 +142,18 @@ export const ARCHITECTURE_MCP_TOOLS = {
           required: ['algorithms', 'dataStructures'],
         },
         projectId: { type: 'string', description: 'Optional project identifier' },
-        domain: { 
-          type: 'string', 
-          enum: ['swarm-coordination', 'neural-networks', 'wasm-integration', 'rest-api', 'memory-systems', 'interfaces', 'general'],
-          description: 'Target domain for architecture'
+        domain: {
+          type: 'string',
+          enum: [
+            'swarm-coordination',
+            'neural-networks',
+            'wasm-integration',
+            'rest-api',
+            'memory-systems',
+            'interfaces',
+            'general',
+          ],
+          description: 'Target domain for architecture',
         },
       },
       required: ['pseudocode'],
@@ -196,10 +196,10 @@ export const ARCHITECTURE_MCP_TOOLS = {
       type: 'object',
       properties: {
         architectureId: { type: 'string', description: 'Architecture ID to validate' },
-        validationType: { 
-          type: 'string', 
+        validationType: {
+          type: 'string',
           enum: ['consistency', 'performance', 'security', 'scalability', 'general'],
-          description: 'Type of validation to perform'
+          description: 'Type of validation to perform',
         },
       },
       required: ['architectureId'],
@@ -224,27 +224,35 @@ export const ARCHITECTURE_MCP_TOOLS = {
     inputSchema: {
       type: 'object',
       properties: {
-        domain: { 
+        domain: {
           type: 'string',
-          enum: ['swarm-coordination', 'neural-networks', 'wasm-integration', 'rest-api', 'memory-systems', 'interfaces', 'general'],
-          description: 'Filter by domain'
+          enum: [
+            'swarm-coordination',
+            'neural-networks',
+            'wasm-integration',
+            'rest-api',
+            'memory-systems',
+            'interfaces',
+            'general',
+          ],
+          description: 'Filter by domain',
         },
-        tags: { 
-          type: 'array', 
+        tags: {
+          type: 'array',
           items: { type: 'string' },
-          description: 'Filter by tags'
+          description: 'Filter by tags',
         },
-        minScore: { 
-          type: 'number', 
-          minimum: 0, 
+        minScore: {
+          type: 'number',
+          minimum: 0,
           maximum: 1,
-          description: 'Minimum validation score'
+          description: 'Minimum validation score',
         },
-        limit: { 
-          type: 'number', 
-          minimum: 1, 
+        limit: {
+          type: 'number',
+          minimum: 1,
           maximum: 100,
-          description: 'Maximum number of results'
+          description: 'Maximum number of results',
         },
       },
     },
@@ -300,10 +308,10 @@ export const ARCHITECTURE_MCP_TOOLS = {
       type: 'object',
       properties: {
         architectureId: { type: 'string', description: 'Architecture ID to export' },
-        format: { 
-          type: 'string', 
+        format: {
+          type: 'string',
           enum: ['json', 'yaml', 'mermaid'],
-          description: 'Export format'
+          description: 'Export format',
         },
       },
       required: ['architectureId', 'format'],
@@ -317,7 +325,10 @@ export const ARCHITECTURE_MCP_TOOLS = {
       type: 'object',
       properties: {
         sourceArchitectureId: { type: 'string', description: 'Source architecture ID to clone' },
-        targetProjectId: { type: 'string', description: 'Target project ID for cloned architecture' },
+        targetProjectId: {
+          type: 'string',
+          description: 'Target project ID for cloned architecture',
+        },
         modifications: {
           type: 'object',
           description: 'Optional modifications to apply during cloning',
@@ -380,7 +391,10 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
       const architecture = await this.architectureEngine.designArchitecture(params.pseudocode);
 
       // Save with project association if provided
-      const architectureId = await this.storageService.saveArchitecture(architecture, params.projectId);
+      const architectureId = await this.storageService.saveArchitecture(
+        architecture,
+        params.projectId
+      );
 
       return {
         success: true,
@@ -413,7 +427,9 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
     message: string;
   }> {
     try {
-      this.logger?.info(`Generating architecture from specification with ${params.pseudocode.length} algorithms`);
+      this.logger?.info(
+        `Generating architecture from specification with ${params.pseudocode.length} algorithms`
+      );
 
       // Generate system architecture from specification and pseudocode
       const systemArchitecture = await this.architectureEngine.designSystemArchitecture(
@@ -425,10 +441,13 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
       const architecture: ArchitectureDesign = {
         id: nanoid(),
         systemArchitecture,
-        componentDiagrams: await this.architectureEngine.generateComponentDiagrams(systemArchitecture),
+        componentDiagrams:
+          await this.architectureEngine.generateComponentDiagrams(systemArchitecture),
         dataFlow: await this.architectureEngine.designDataFlow(systemArchitecture.components),
-        deploymentPlan: await this.architectureEngine.planDeploymentArchitecture(systemArchitecture),
-        validationResults: await this.architectureEngine.validateArchitecturalConsistency(systemArchitecture),
+        deploymentPlan:
+          await this.architectureEngine.planDeploymentArchitecture(systemArchitecture),
+        validationResults:
+          await this.architectureEngine.validateArchitecturalConsistency(systemArchitecture),
         components: systemArchitecture.components,
         securityRequirements: [], // Will be populated by the engine
         scalabilityRequirements: [], // Will be populated by the engine
@@ -438,7 +457,10 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
       };
 
       // Save the architecture
-      const architectureId = await this.storageService.saveArchitecture(architecture, params.projectId);
+      const architectureId = await this.storageService.saveArchitecture(
+        architecture,
+        params.projectId
+      );
 
       return {
         success: true,
@@ -460,10 +482,7 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
   /**
    * Validate architecture design
    */
-  async validateArchitecture(params: {
-    architectureId: string;
-    validationType?: string;
-  }): Promise<{
+  async validateArchitecture(params: { architectureId: string; validationType?: string }): Promise<{
     success: boolean;
     validation: ArchitecturalValidation;
     recommendations: string[];
@@ -515,9 +534,7 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
   /**
    * Get architecture by ID
    */
-  async getArchitecture(params: {
-    architectureId: string;
-  }): Promise<{
+  async getArchitecture(params: { architectureId: string }): Promise<{
     success: boolean;
     architecture: ArchitectureDesign | null;
     message: string;
@@ -530,8 +547,8 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
       return {
         success: true,
         architecture,
-        message: architecture 
-          ? `Architecture retrieved successfully` 
+        message: architecture
+          ? `Architecture retrieved successfully`
           : `Architecture not found: ${params.architectureId}`,
       };
     } catch (error) {
@@ -617,9 +634,7 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
   /**
    * Delete architecture design
    */
-  async deleteArchitecture(params: {
-    architectureId: string;
-  }): Promise<{
+  async deleteArchitecture(params: { architectureId: string }): Promise<{
     success: boolean;
     message: string;
   }> {
@@ -765,7 +780,9 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
       this.logger?.info(`Cloning architecture: ${params.sourceArchitectureId}`);
 
       // Get source architecture
-      const sourceArchitecture = await this.storageService.getArchitectureById(params.sourceArchitectureId);
+      const sourceArchitecture = await this.storageService.getArchitectureById(
+        params.sourceArchitectureId
+      );
       if (!sourceArchitecture) {
         throw new Error(`Source architecture not found: ${params.sourceArchitectureId}`);
       }
@@ -811,16 +828,16 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
       if (typeof obj !== 'object' || obj === null) {
         return JSON.stringify(obj);
       }
-      
+
       if (Array.isArray(obj)) {
-        return obj.map(item => `${indent}- ${yamlify(item, depth + 1)}`).join('\n');
+        return obj.map((item) => `${indent}- ${yamlify(item, depth + 1)}`).join('\n');
       }
-      
+
       return Object.entries(obj)
         .map(([key, value]) => `${indent}${key}: ${yamlify(value, depth + 1)}`)
         .join('\n');
     };
-    
+
     return yamlify(obj);
   }
 
@@ -831,14 +848,14 @@ export class ArchitectureMCPToolsImpl implements ArchitectureMCPTools {
     let mermaid = 'graph TD\n';
 
     // Add components
-    components.forEach(component => {
+    components.forEach((component) => {
       const nodeId = component.name.replace(/\s+/g, '');
       const nodeLabel = `${component.name}[${component.type}]`;
       mermaid += `    ${nodeId}${nodeLabel}\n`;
     });
 
     // Add data flows
-    dataFlow.forEach(flow => {
+    dataFlow.forEach((flow) => {
       const fromId = flow.from.replace(/\s+/g, '');
       const toId = flow.to.replace(/\s+/g, '');
       mermaid += `    ${fromId} --> ${toId}\n`;

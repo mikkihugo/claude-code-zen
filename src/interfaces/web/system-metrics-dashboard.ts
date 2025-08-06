@@ -2,13 +2,12 @@
 /** Real-time monitoring and analytics for Claude Zen systems */
 
 import { EventEmitter } from 'node:events';
-import { createRepository, createDAO, DatabaseTypes, EntityTypes } from '../../database/index';
-import type { IRepository, IDataAccessObject } from '../../database/interfaces';
+import { createDAO, createRepository, DatabaseTypes, EntityTypes } from '../../database/index';
+import type { IDataAccessObject, IRepository } from '../../database/interfaces';
+// Import UACL for unified client management
+import { type ClientInstance, ClientType, UACLHelpers, uacl } from '../clients/index';
 import type MCPPerformanceMetrics from '../mcp/performance-metrics';
 import type EnhancedMemory from '../memory/memory';
-
-// Import UACL for unified client management
-import { uacl, ClientType, UACLHelpers, type ClientInstance } from '../clients/index';
 
 interface DashboardConfig {
   refreshInterval?: number;
@@ -79,9 +78,9 @@ export class UnifiedPerformanceDashboard extends EventEmitter {
       if (!uacl.isInitialized()) {
         await uacl.initialize({
           healthCheckInterval: this.config.refreshInterval,
-          enableLogging: true
+          enableLogging: true,
         });
-        
+
         // Setup default clients for monitoring
         await UACLHelpers.setupCommonClients({
           httpBaseURL: 'http://localhost:3000',
@@ -99,18 +98,14 @@ export class UnifiedPerformanceDashboard extends EventEmitter {
         DatabaseTypes.LanceDB,
         {
           database: './data/dashboard-metrics',
-          options: { vectorSize: 384, metricType: 'cosine' }
+          options: { vectorSize: 384, metricType: 'cosine' },
         }
       );
-      
-      this.vectorDAO = await createDAO(
-        EntityTypes.VectorDocument,
-        DatabaseTypes.LanceDB,
-        {
-          database: './data/dashboard-metrics',
-          options: { vectorSize: 384 }
-        }
-      );
+
+      this.vectorDAO = await createDAO(EntityTypes.VectorDocument, DatabaseTypes.LanceDB, {
+        database: './data/dashboard-metrics',
+        options: { vectorSize: 384 },
+      });
     } catch (error) {
       console.warn('⚠️ Could not initialize database metrics repository:', error);
     }
@@ -160,7 +155,7 @@ export class UnifiedPerformanceDashboard extends EventEmitter {
     const mcpSummary = this.mcpMetrics.getPerformanceSummary();
     const memoryStats = this.enhancedMemory.getStats();
     const dbStats = await this.getDatabaseStats();
-    
+
     // Get UACL client metrics
     const clientMetrics = await this.getClientMetrics();
 
@@ -185,7 +180,12 @@ export class UnifiedPerformanceDashboard extends EventEmitter {
   }
 
   /** Assess overall system health */
-  private assessSystemHealth(mcpMetrics: any, memoryStats: any, dbStats: any, clientMetrics?: any): SystemHealth {
+  private assessSystemHealth(
+    mcpMetrics: any,
+    memoryStats: any,
+    dbStats: any,
+    clientMetrics?: any
+  ): SystemHealth {
     const alerts: SystemHealth['alerts'] = [];
 
     // Check MCP health

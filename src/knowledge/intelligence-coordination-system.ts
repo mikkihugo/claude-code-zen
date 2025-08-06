@@ -3524,7 +3524,11 @@ interface ExpertiseDiscoverySystem {
 
 // Placeholder implementation for ExpertiseDiscoverySystem
 class ExpertiseDiscoverySystemImpl implements ExpertiseDiscoverySystem {
-  constructor(private config: any, private logger: any, private eventBus: any) {}
+  constructor(
+    private config: any,
+    private logger: any,
+    private eventBus: any
+  ) {}
 
   async incorporateSpecialization(specialization: any): Promise<void> {
     // Placeholder implementation

@@ -1,25 +1,24 @@
 /**
  * SPARC Template Engine
- * 
+ *
  * Core template management system for SPARC methodology.
  * Provides template loading, application, validation, and customization.
  */
 
 import { nanoid } from 'nanoid';
-import type {
-  ProjectSpecification,
-  DetailedSpecification,
-  PseudocodeStructure,
-  ArchitectureDesign,
-  ProjectDomain,
-  SPARCTemplate,
-} from '../types/sparc-types';
-
 // Import all available templates
 import { MEMORY_SYSTEMS_TEMPLATE } from '../templates/memory-systems-template';
 import { NEURAL_NETWORKS_TEMPLATE } from '../templates/neural-networks-template';
 import { REST_API_TEMPLATE } from '../templates/rest-api-template';
 import { SWARM_COORDINATION_TEMPLATE } from '../templates/swarm-coordination-template';
+import type {
+  ArchitectureDesign,
+  DetailedSpecification,
+  ProjectDomain,
+  ProjectSpecification,
+  PseudocodeStructure,
+  SPARCTemplate,
+} from '../types/sparc-types';
 
 export interface TemplateApplicationResult {
   specification: DetailedSpecification;
@@ -104,7 +103,7 @@ export class TemplateEngine {
    * Get all available templates
    */
   getAllTemplates(): SPARCTemplate[] {
-    return Array.from(this.templateRegistry.values()).map(entry => entry.template);
+    return Array.from(this.templateRegistry.values()).map((entry) => entry.template);
   }
 
   /**
@@ -113,7 +112,7 @@ export class TemplateEngine {
   getTemplatesByDomain(domain: ProjectDomain): SPARCTemplate[] {
     const templateIds = this.domainMappings.get(domain) || [];
     return templateIds
-      .map(id => this.templateRegistry.get(id)?.template)
+      .map((id) => this.templateRegistry.get(id)?.template)
       .filter((template): template is SPARCTemplate => template !== undefined);
   }
 
@@ -132,18 +131,19 @@ export class TemplateEngine {
     compatibility: TemplateValidationResult;
   } | null {
     const domainTemplates = this.getTemplatesByDomain(projectSpec.domain);
-    
+
     if (domainTemplates.length === 0) {
       console.warn(`⚠️ No templates found for domain: ${projectSpec.domain}`);
       return null;
     }
 
-    let bestMatch: { template: SPARCTemplate; compatibility: TemplateValidationResult } | null = null;
+    let bestMatch: { template: SPARCTemplate; compatibility: TemplateValidationResult } | null =
+      null;
     let bestScore = 0;
 
     for (const template of domainTemplates) {
       const compatibility = this.validateTemplateCompatibility(template, projectSpec);
-      
+
       if (compatibility.compatible && compatibility.score > bestScore) {
         bestScore = compatibility.score;
         bestMatch = { template, compatibility };
@@ -166,14 +166,16 @@ export class TemplateEngine {
 
     // Check domain compatibility
     if (template.domain !== projectSpec.domain) {
-      warnings.push(`Template domain (${template.domain}) doesn't match project domain (${projectSpec.domain})`);
+      warnings.push(
+        `Template domain (${template.domain}) doesn't match project domain (${projectSpec.domain})`
+      );
       score -= 0.3;
     }
 
     // Check complexity compatibility
     const templateComplexity = template.metadata.complexity;
     const projectComplexity = projectSpec.complexity;
-    
+
     if (templateComplexity === 'high' && projectComplexity === 'simple') {
       warnings.push('Template complexity may be higher than needed for simple project');
       recommendations.push('Consider simplifying template components');
@@ -187,8 +189,11 @@ export class TemplateEngine {
     // Check requirement coverage
     const templateRequirements = this.extractTemplateRequirements(template);
     const projectRequirements = projectSpec.requirements || [];
-    
-    const coverageScore = this.calculateRequirementCoverage(templateRequirements, projectRequirements);
+
+    const coverageScore = this.calculateRequirementCoverage(
+      templateRequirements,
+      projectRequirements
+    );
     score = score * 0.7 + coverageScore * 0.3; // Weight the scores
 
     if (coverageScore < 0.7) {
@@ -247,7 +252,7 @@ export class TemplateEngine {
 
     // Generate customization report
     const customizations = this.generateCustomizationReport(template, projectSpec);
-    
+
     // Validate the applied template
     const validation = this.validateTemplateCompatibility(template, projectSpec);
 
@@ -282,7 +287,7 @@ export class TemplateEngine {
     }
 
     const customTemplateId = `custom-${projectSpec.domain}-${nanoid()}`;
-    
+
     // Create basic template structure
     const customTemplate: SPARCTemplate = {
       id: customTemplateId,
@@ -312,15 +317,20 @@ export class TemplateEngine {
         };
       },
 
-      customizeSpecification: baseTemplate?.customizeSpecification || ((spec) => this.createMinimalSpecification(spec)),
-      customizePseudocode: baseTemplate?.customizePseudocode || ((spec) => this.createMinimalPseudocode(spec)),
-      customizeArchitecture: baseTemplate?.customizeArchitecture || ((spec) => this.createMinimalArchitecture(spec)),
+      customizeSpecification:
+        baseTemplate?.customizeSpecification || ((spec) => this.createMinimalSpecification(spec)),
+      customizePseudocode:
+        baseTemplate?.customizePseudocode || ((spec) => this.createMinimalPseudocode(spec)),
+      customizeArchitecture:
+        baseTemplate?.customizeArchitecture || ((spec) => this.createMinimalArchitecture(spec)),
 
-      validateCompatibility: baseTemplate?.validateCompatibility || ((spec) => ({
-        compatible: true,
-        warnings: [],
-        recommendations: [],
-      })),
+      validateCompatibility:
+        baseTemplate?.validateCompatibility ||
+        ((spec) => ({
+          compatible: true,
+          warnings: [],
+          recommendations: [],
+        })),
     };
 
     // Register the custom template
@@ -352,14 +362,15 @@ export class TemplateEngine {
     }
 
     // Get most used templates
-    const entriesByUsage = Array.from(this.templateRegistry.entries())
-      .sort((a, b) => b[1].metadata.usageCount - a[1].metadata.usageCount);
+    const entriesByUsage = Array.from(this.templateRegistry.entries()).sort(
+      (a, b) => b[1].metadata.usageCount - a[1].metadata.usageCount
+    );
     stats.mostUsed = entriesByUsage.slice(0, 5).map(([id, _]) => id);
 
     // Get recently used templates
     const entriesByRecent = Array.from(this.templateRegistry.entries())
       .filter(([_, entry]) => entry.metadata.lastUsed)
-      .sort((a, b) => (b[1].metadata.lastUsed!.getTime() - a[1].metadata.lastUsed!.getTime()));
+      .sort((a, b) => b[1].metadata.lastUsed!.getTime() - a[1].metadata.lastUsed!.getTime());
     stats.recentlyUsed = entriesByRecent.slice(0, 5).map(([id, _]) => id);
 
     return stats;
@@ -369,10 +380,10 @@ export class TemplateEngine {
 
   private extractTemplateRequirements(template: SPARCTemplate): string[] {
     const requirements: string[] = [];
-    
+
     // Extract from functional requirements
     if (template.specification.functionalRequirements) {
-      requirements.push(...template.specification.functionalRequirements.map(req => req.title));
+      requirements.push(...template.specification.functionalRequirements.map((req) => req.title));
     }
 
     // Extract from template metadata tags
@@ -393,9 +404,10 @@ export class TemplateEngine {
 
     let matches = 0;
     for (const projectReq of projectRequirements) {
-      const found = templateRequirements.some(templateReq =>
-        templateReq.toLowerCase().includes(projectReq.toLowerCase()) ||
-        projectReq.toLowerCase().includes(templateReq.toLowerCase())
+      const found = templateRequirements.some(
+        (templateReq) =>
+          templateReq.toLowerCase().includes(projectReq.toLowerCase()) ||
+          projectReq.toLowerCase().includes(templateReq.toLowerCase())
       );
       if (found) matches++;
     }
@@ -447,21 +459,23 @@ export class TemplateEngine {
     return {
       id: nanoid(),
       domain: projectSpec.domain,
-      functionalRequirements: projectSpec.requirements?.map(req => ({
-        id: nanoid(),
-        title: req,
-        description: `Requirement: ${req}`,
-        type: 'functional',
-        priority: 'MEDIUM' as const,
-        testCriteria: [`Implements ${req} successfully`],
-      })) || [],
+      functionalRequirements:
+        projectSpec.requirements?.map((req) => ({
+          id: nanoid(),
+          title: req,
+          description: `Requirement: ${req}`,
+          type: 'functional',
+          priority: 'MEDIUM' as const,
+          testCriteria: [`Implements ${req} successfully`],
+        })) || [],
       nonFunctionalRequirements: [],
-      constraints: projectSpec.constraints?.map(constraint => ({
-        id: nanoid(),
-        type: 'business' as const,
-        description: constraint,
-        impact: 'medium' as const,
-      })) || [],
+      constraints:
+        projectSpec.constraints?.map((constraint) => ({
+          id: nanoid(),
+          type: 'business' as const,
+          description: constraint,
+          impact: 'medium' as const,
+        })) || [],
       assumptions: [],
       dependencies: [],
       acceptanceCriteria: [],

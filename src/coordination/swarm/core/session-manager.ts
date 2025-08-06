@@ -15,7 +15,7 @@
 import crypto from 'node:crypto';
 import { EventEmitter } from 'node:events';
 import type { ICoordinationDao } from '../../../database';
-import { createDao, EntityTypes, DatabaseTypes } from '../../../database';
+import { createDao, DatabaseTypes, EntityTypes } from '../../../database';
 import type { SwarmOptions, SwarmState } from './types';
 import { generateId } from './utils';
 
@@ -434,10 +434,11 @@ export class SessionManager extends EventEmitter {
 
     // Update in database
     const dao = await this.getDao();
-    await dao.execute(
-      'UPDATE sessions SET status = ?, last_accessed_at = ? WHERE id = ?',
-      ['paused', session.lastAccessedAt.toISOString(), sessionId]
-    );
+    await dao.execute('UPDATE sessions SET status = ?, last_accessed_at = ? WHERE id = ?', [
+      'paused',
+      session.lastAccessedAt.toISOString(),
+      sessionId,
+    ]);
 
     this.emit('session:paused', { sessionId });
   }
@@ -463,10 +464,11 @@ export class SessionManager extends EventEmitter {
 
     // Update in database
     const dao = await this.getDao();
-    await dao.execute(
-      'UPDATE sessions SET status = ?, last_accessed_at = ? WHERE id = ?',
-      ['active', session.lastAccessedAt.toISOString(), sessionId]
-    );
+    await dao.execute('UPDATE sessions SET status = ?, last_accessed_at = ? WHERE id = ?', [
+      'active',
+      session.lastAccessedAt.toISOString(),
+      sessionId,
+    ]);
 
     this.emit('session:resumed', { sessionId });
   }
@@ -493,10 +495,11 @@ export class SessionManager extends EventEmitter {
 
     // Update in database
     const dao = await this.getDao();
-    await dao.execute(
-      'UPDATE sessions SET status = ?, last_accessed_at = ? WHERE id = ?',
-      ['hibernated', session.lastAccessedAt.toISOString(), sessionId]
-    );
+    await dao.execute('UPDATE sessions SET status = ?, last_accessed_at = ? WHERE id = ?', [
+      'hibernated',
+      session.lastAccessedAt.toISOString(),
+      sessionId,
+    ]);
 
     // Remove from active sessions
     this.activeSessions.delete(sessionId);
@@ -519,16 +522,15 @@ export class SessionManager extends EventEmitter {
 
     // Update in database
     const dao = await this.getDao();
-    await dao.execute(
-      'UPDATE sessions SET status = ?, last_accessed_at = ? WHERE id = ?',
-      ['terminated', new Date().toISOString(), sessionId]
-    );
+    await dao.execute('UPDATE sessions SET status = ?, last_accessed_at = ? WHERE id = ?', [
+      'terminated',
+      new Date().toISOString(),
+      sessionId,
+    ]);
 
     if (cleanup) {
       // Delete all checkpoints
-      await dao.execute('DELETE FROM session_checkpoints WHERE session_id = ?', [
-        sessionId,
-      ]);
+      await dao.execute('DELETE FROM session_checkpoints WHERE session_id = ?', [sessionId]);
 
       // Delete session record
       await dao.execute('DELETE FROM sessions WHERE id = ?', [sessionId]);
@@ -635,12 +637,8 @@ export class SessionManager extends EventEmitter {
         GROUP BY status
       `);
 
-      const totalSessions = await dao.query(
-        'SELECT COUNT(*) as total FROM sessions'
-      );
-      const totalCheckpoints = await dao.query(
-        'SELECT COUNT(*) as total FROM session_checkpoints'
-      );
+      const totalSessions = await dao.query('SELECT COUNT(*) as total FROM sessions');
+      const totalCheckpoints = await dao.query('SELECT COUNT(*) as total FROM session_checkpoints');
 
       return {
         totalSessions: totalSessions[0].total,
@@ -694,9 +692,7 @@ export class SessionManager extends EventEmitter {
     `);
 
     // Create indexes
-    await dao.execute(
-      'CREATE INDEX IF NOT EXISTS idx_sessions_status ON sessions(status)'
-    );
+    await dao.execute('CREATE INDEX IF NOT EXISTS idx_sessions_status ON sessions(status)');
     await dao.execute(
       'CREATE INDEX IF NOT EXISTS idx_sessions_last_accessed ON sessions(last_accessed_at)'
     );
@@ -768,9 +764,7 @@ export class SessionManager extends EventEmitter {
 
   private async deleteCheckpoint(checkpointId: string): Promise<void> {
     const dao = await this.getDao();
-    await dao.execute('DELETE FROM session_checkpoints WHERE id = ?', [
-      checkpointId,
-    ]);
+    await dao.execute('DELETE FROM session_checkpoints WHERE id = ?', [checkpointId]);
   }
 
   private startAutoCheckpoint(sessionId: string): void {

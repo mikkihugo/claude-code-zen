@@ -1,21 +1,21 @@
 /**
  * Coordination Repository Implementation
- * 
+ *
  * Specialized repository for coordination operations including
  * distributed locking, pub/sub messaging, and change notifications.
  */
 
+import { EventEmitter } from 'node:events';
+import type { DatabaseAdapter, ILogger } from '../../../core/interfaces/base-interfaces';
 import { BaseDao } from '../base.dao';
 import type {
-  ICoordinationDao,
-  CoordinationLock,
   CoordinationChange,
   CoordinationEvent,
+  CoordinationLock,
   CoordinationStats,
-  CustomQuery
+  CustomQuery,
+  ICoordinationDao,
 } from '../interfaces';
-import type { DatabaseAdapter, ILogger } from '../../../core/interfaces/base-interfaces';
-import { EventEmitter } from 'node:events';
 
 /**
  * Subscription information
@@ -55,7 +55,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
     entitySchema?: Record<string, any>
   ) {
     super(adapter, logger, tableName, entitySchema);
-    
+
     // Set up event emitter with increased listener limit for coordination
     this.eventEmitter.setMaxListeners(1000);
   }
@@ -80,19 +80,19 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
       resourceId,
       acquired: new Date(),
       expiresAt: new Date(Date.now() + lockTimeout),
-      owner: this.generateOwnerIdentifier()
+      owner: this.generateOwnerIdentifier(),
     };
 
     // Set up automatic release timer
     const timer = setTimeout(() => {
-      this.releaseLock(lockId).catch(error => {
+      this.releaseLock(lockId).catch((error) => {
         this.logger.warn(`Failed to auto-release lock ${lockId}: ${error}`);
       });
     }, lockTimeout);
 
     const lockInfo: LockInfo = {
       ...lock,
-      timer
+      timer,
     };
 
     this.locks.set(resourceId, lockInfo);
@@ -156,7 +156,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
     callback: (change: CoordinationChange<T>) => void
   ): Promise<string> {
     const subscriptionId = this.generateSubscriptionId();
-    
+
     this.logger.debug(`Creating subscription: ${subscriptionId} for pattern: ${pattern}`);
 
     const subscription: Subscription = {
@@ -164,7 +164,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
       pattern,
       callback,
       createdAt: new Date(),
-      triggerCount: 0
+      triggerCount: 0,
     };
 
     this.subscriptions.set(subscriptionId, subscription);
@@ -174,7 +174,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
       if (this.matchesPattern(change, pattern)) {
         subscription.lastTriggered = new Date();
         subscription.triggerCount++;
-        
+
         try {
           callback(change);
         } catch (error) {
@@ -199,10 +199,10 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
     }
 
     this.subscriptions.delete(subscriptionId);
-    
+
     // Remove event listeners (EventEmitter doesn't provide easy way to remove specific listeners)
     // In a production implementation, you'd want a more sophisticated event handling system
-    
+
     this.logger.debug(`Unsubscribed: ${subscriptionId}`);
   }
 
@@ -223,7 +223,9 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
       this.logger.debug(`Event published to channel: ${channel}`);
     } catch (error) {
       this.logger.error(`Failed to publish event: ${error}`);
-      throw new Error(`Publish failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Publish failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 
@@ -236,7 +238,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
       activeSubscriptions: this.subscriptions.size,
       messagesPublished: this.publishedMessages,
       messagesReceived: this.receivedMessages,
-      uptime: Date.now() - this.startTime
+      uptime: Date.now() - this.startTime,
     };
   }
 
@@ -246,30 +248,30 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   async create(entity: Omit<T, 'id'>): Promise<T> {
     const created = await super.create(entity);
-    
+
     // Emit change notification
     await this.emitChange('create', (created as any).id, created);
-    
+
     return created;
   }
 
   async update(id: string | number, updates: Partial<T>): Promise<T> {
     const updated = await super.update(id, updates);
-    
+
     // Emit change notification
     await this.emitChange('update', id, updated);
-    
+
     return updated;
   }
 
   async delete(id: string | number): Promise<boolean> {
     const deleted = await super.delete(id);
-    
+
     if (deleted) {
       // Emit change notification
       await this.emitChange('delete', id);
     }
-    
+
     return deleted;
   }
 
@@ -287,22 +289,22 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
   async executeCustomQuery<R = any>(customQuery: CustomQuery): Promise<R> {
     if (customQuery.type === 'coordination') {
       const query = customQuery.query as any;
-      
+
       if (query.operation === 'acquire_lock') {
         const lock = await this.acquireLock(query.resourceId, query.timeout);
         return lock as R;
       }
-      
+
       if (query.operation === 'release_lock') {
         await this.releaseLock(query.lockId);
         return { success: true } as R;
       }
-      
+
       if (query.operation === 'publish') {
         await this.publish(query.channel, query.event);
         return { success: true } as R;
       }
-      
+
       if (query.operation === 'get_stats') {
         const stats = await this.getCoordinationStats();
         return stats as R;
@@ -325,7 +327,9 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
     retryDelay: number = 1000,
     lockTimeout: number = 30000
   ): Promise<CoordinationLock | null> {
-    this.logger.debug(`Trying to acquire lock for resource: ${resourceId} (max retries: ${maxRetries})`);
+    this.logger.debug(
+      `Trying to acquire lock for resource: ${resourceId} (max retries: ${maxRetries})`
+    );
 
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
       try {
@@ -335,8 +339,10 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
           this.logger.warn(`Failed to acquire lock after ${maxRetries} attempts: ${error}`);
           return null;
         }
-        
-        this.logger.debug(`Lock acquisition attempt ${attempt + 1} failed, retrying in ${retryDelay}ms`);
+
+        this.logger.debug(
+          `Lock acquisition attempt ${attempt + 1} failed, retrying in ${retryDelay}ms`
+        );
         await this.sleep(retryDelay);
       }
     }
@@ -355,7 +361,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
     this.logger.debug(`Executing operation with lock for resource: ${resourceId}`);
 
     const lock = await this.acquireLock(resourceId, lockTimeout);
-    
+
     try {
       const result = await operation();
       return result;
@@ -386,7 +392,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
           resourceId: lock.resourceId,
           acquired: lock.acquired,
           expiresAt: lock.expiresAt,
-          owner: lock.owner
+          owner: lock.owner,
         });
       }
     }
@@ -397,19 +403,21 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
   /**
    * Get subscription information
    */
-  async getSubscriptions(): Promise<Array<{
-    id: string;
-    pattern: string;
-    createdAt: Date;
-    lastTriggered?: Date;
-    triggerCount: number;
-  }>> {
-    return Array.from(this.subscriptions.values()).map(sub => ({
+  async getSubscriptions(): Promise<
+    Array<{
+      id: string;
+      pattern: string;
+      createdAt: Date;
+      lastTriggered?: Date;
+      triggerCount: number;
+    }>
+  > {
+    return Array.from(this.subscriptions.values()).map((sub) => ({
       id: sub.id,
       pattern: sub.pattern,
       createdAt: sub.createdAt,
       lastTriggered: sub.lastTriggered,
-      triggerCount: sub.triggerCount
+      triggerCount: sub.triggerCount,
     }));
   }
 
@@ -417,7 +425,11 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
    * Private helper methods
    */
 
-  private async emitChange(type: 'create' | 'update' | 'delete', entityId: string | number, entity?: T): Promise<void> {
+  private async emitChange(
+    type: 'create' | 'update' | 'delete',
+    entityId: string | number,
+    entity?: T
+  ): Promise<void> {
     const change: CoordinationChange<T> = {
       type,
       entityId,
@@ -425,8 +437,8 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
       timestamp: new Date(),
       metadata: {
         tableName: this.tableName,
-        source: this.generateOwnerIdentifier()
-      }
+        source: this.generateOwnerIdentifier(),
+      },
     };
 
     this.eventEmitter.emit('change', change);
@@ -435,11 +447,13 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
   private matchesPattern(change: CoordinationChange<T>, pattern: string): boolean {
     // Simple pattern matching - can be enhanced with more sophisticated matching
     if (pattern === '*') return true;
-    
+
     const regex = new RegExp(pattern.replace(/\*/g, '.*'));
-    return regex.test(change.type) || 
-           regex.test(change.entityId.toString()) ||
-           regex.test(this.tableName);
+    return (
+      regex.test(change.type) ||
+      regex.test(change.entityId.toString()) ||
+      regex.test(this.tableName)
+    );
   }
 
   private generateLockId(resourceId: string): string {
@@ -464,7 +478,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
         owner: lock.owner,
         acquired_at: lock.acquired,
         expires_at: lock.expiresAt,
-        created_at: new Date()
+        created_at: new Date(),
       };
 
       await this.adapter.execute(
@@ -480,10 +494,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
 
   private async removeLockFromDatabase(lockId: string): Promise<void> {
     try {
-      await this.adapter.execute(
-        'DELETE FROM coordination_locks WHERE lock_id = ?',
-        [lockId]
-      );
+      await this.adapter.execute('DELETE FROM coordination_locks WHERE lock_id = ?', [lockId]);
     } catch (error) {
       // Table might not exist, which is fine for this implementation
       this.logger.debug(`Could not remove lock from database: ${error}`);
@@ -498,7 +509,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
         event_data: JSON.stringify(event.data),
         source: event.source,
         timestamp: event.timestamp,
-        metadata: JSON.stringify(event.metadata || {})
+        metadata: JSON.stringify(event.metadata || {}),
       };
 
       await this.adapter.execute(
@@ -513,7 +524,7 @@ export class CoordinationDao<T> extends BaseDao<T> implements ICoordinationDao<T
   }
 
   private sleep(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   /**

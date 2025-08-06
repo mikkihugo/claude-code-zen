@@ -1,13 +1,13 @@
 /**
  * ADR Manager - Architecture Decision Record Management System
- * 
+ *
  * Manages hundreds of ADRs in the hive database with automatic numbering,
  * relationship tracking, and decision lifecycle management.
  */
 
 import { nanoid } from 'nanoid';
-import { documentManager } from './document-manager';
 import type { ADRDocumentEntity, ProjectEntity } from '../entities/document-entities';
+import { documentManager } from './document-manager';
 
 export interface ADRCreateOptions {
   title: string;
@@ -65,16 +65,14 @@ export class ADRManager {
    */
   async initialize(): Promise<void> {
     await documentManager.initialize();
-    
+
     // Find or create the Architecture project
     const { documents } = await documentManager.queryDocuments({
-      type: 'project' as any // Cast needed as queryDocuments expects DocumentType
+      type: 'project' as any, // Cast needed as queryDocuments expects DocumentType
     });
-    
-    this.architectureProject = documents.find(
-      p => p.name === 'Architecture Decisions'
-    ) as any;
-    
+
+    this.architectureProject = documents.find((p) => p.name === 'Architecture Decisions') as any;
+
     if (!this.architectureProject) {
       this.architectureProject = await documentManager.createProject({
         name: 'Architecture Decisions',
@@ -105,41 +103,44 @@ export class ADRManager {
     // Generate keywords from title and decision
     const keywords = this.generateKeywords(options.title, options.decision);
 
-    const adr = await documentManager.createDocument<ADRDocumentEntity>({
-      type: 'adr',
-      title: `${adrId}: ${options.title}`,
-      content: this.formatADRContent(adrId, options),
-      summary: `Architecture decision ${adrId} regarding ${options.title}`,
-      author: options.author || 'architecture-team',
-      project_id: this.architectureProject!.id,
-      status: 'proposed',
-      priority: options.priority || 'medium',
-      keywords,
-      metadata: {
-        adr_number: adrNumber,
-        adr_id: adrId,
-        decision_date: new Date().toISOString(),
-        stakeholders: options.stakeholders || [],
-        implementation_status: 'pending',
-        supersedes: [],
-        superseded_by: null,
-        related_adrs: [],
-        ...options.metadata,
+    const adr = await documentManager.createDocument<ADRDocumentEntity>(
+      {
+        type: 'adr',
+        title: `${adrId}: ${options.title}`,
+        content: this.formatADRContent(adrId, options),
+        summary: `Architecture decision ${adrId} regarding ${options.title}`,
+        author: options.author || 'architecture-team',
+        project_id: this.architectureProject!.id,
+        status: 'proposed',
+        priority: options.priority || 'medium',
+        keywords,
+        metadata: {
+          adr_number: adrNumber,
+          adr_id: adrId,
+          decision_date: new Date().toISOString(),
+          stakeholders: options.stakeholders || [],
+          implementation_status: 'pending',
+          supersedes: [],
+          superseded_by: null,
+          related_adrs: [],
+          ...options.metadata,
+        },
+        // ADR-specific fields
+        status_type: 'proposed',
+        decision: options.decision,
+        context: options.context,
+        consequences: options.consequences,
+        alternatives_considered: options.alternatives || [],
+        implementation_notes: options.implementation_notes || '',
+        success_criteria: options.success_criteria || [],
+        success_metrics: {},
       },
-      // ADR-specific fields
-      status_type: 'proposed',
-      decision: options.decision,
-      context: options.context,
-      consequences: options.consequences,
-      alternatives_considered: options.alternatives || [],
-      implementation_notes: options.implementation_notes || '',
-      success_criteria: options.success_criteria || [],
-      success_metrics: {},
-    }, {
-      autoGenerateRelationships: true,
-      startWorkflow: 'adr_workflow',
-      generateSearchIndex: true,
-    });
+      {
+        autoGenerateRelationships: true,
+        startWorkflow: 'adr_workflow',
+        generateSearchIndex: true,
+      }
+    );
 
     return adr;
   }
@@ -198,15 +199,15 @@ export class ADRManager {
     let filteredADRs = result.documents as ADRDocumentEntity[];
 
     if (options.date_range) {
-      filteredADRs = filteredADRs.filter(adr => {
+      filteredADRs = filteredADRs.filter((adr) => {
         const created = new Date(adr.created_at);
         return created >= options.date_range!.start && created <= options.date_range!.end;
       });
     }
 
     if (options.tags) {
-      filteredADRs = filteredADRs.filter(adr =>
-        options.tags!.some(tag => adr.keywords.includes(tag))
+      filteredADRs = filteredADRs.filter((adr) =>
+        options.tags!.some((tag) => adr.keywords.includes(tag))
       );
     }
 
@@ -220,11 +221,14 @@ export class ADRManager {
   /**
    * Search ADRs using advanced search capabilities
    */
-  async searchADRs(query: string, options: {
-    searchType?: 'fulltext' | 'semantic' | 'keyword' | 'combined';
-    limit?: number;
-    filters?: ADRQueryOptions;
-  } = {}): Promise<{
+  async searchADRs(
+    query: string,
+    options: {
+      searchType?: 'fulltext' | 'semantic' | 'keyword' | 'combined';
+      limit?: number;
+      filters?: ADRQueryOptions;
+    } = {}
+  ): Promise<{
     adrs: ADRDocumentEntity[];
     total: number;
     searchMetadata: any;
@@ -241,11 +245,12 @@ export class ADRManager {
     if (options.filters) {
       if (options.filters.status) searchOptions.status = [options.filters.status];
       if (options.filters.priority) searchOptions.priority = [options.filters.priority];
-      if (options.filters.date_range) searchOptions.dateRange = {
-        start: options.filters.date_range.start,
-        end: options.filters.date_range.end,
-        field: 'created_at' as const,
-      };
+      if (options.filters.date_range)
+        searchOptions.dateRange = {
+          start: options.filters.date_range.start,
+          end: options.filters.date_range.end,
+          field: 'created_at' as const,
+        };
     }
 
     const result = await documentManager.searchDocuments<ADRDocumentEntity>(searchOptions);
@@ -262,7 +267,7 @@ export class ADRManager {
    */
   async getADRByNumber(number: number): Promise<ADRDocumentEntity | null> {
     const { adrs } = await this.queryADRs();
-    return adrs.find(adr => adr.metadata?.adr_number === number) || null;
+    return adrs.find((adr) => adr.metadata?.adr_number === number) || null;
   }
 
   /**
@@ -270,7 +275,7 @@ export class ADRManager {
    */
   async getADRById(adrId: string): Promise<ADRDocumentEntity | null> {
     const { adrs } = await this.queryADRs();
-    return adrs.find(adr => adr.metadata?.adr_id === adrId) || null;
+    return adrs.find((adr) => adr.metadata?.adr_id === adrId) || null;
   }
 
   /**
@@ -310,11 +315,7 @@ export class ADRManager {
   /**
    * Mark ADR as superseding another ADR
    */
-  async supersede(
-    newADRNumber: number,
-    oldADRNumber: number,
-    reason: string
-  ): Promise<void> {
+  async supersede(newADRNumber: number, oldADRNumber: number, reason: string): Promise<void> {
     const [newADR, oldADR] = await Promise.all([
       this.getADRByNumber(newADRNumber),
       this.getADRByNumber(oldADRNumber),
@@ -406,28 +407,32 @@ export class ADRManager {
   /**
    * List all ADRs with summary information
    */
-  async listADRs(): Promise<Array<{
-    number: number;
-    id: string;
-    title: string;
-    status: string;
-    priority: string;
-    author: string;
-    created: Date;
-    summary: string;
-  }>> {
+  async listADRs(): Promise<
+    Array<{
+      number: number;
+      id: string;
+      title: string;
+      status: string;
+      priority: string;
+      author: string;
+      created: Date;
+      summary: string;
+    }>
+  > {
     const { adrs } = await this.queryADRs({ limit: 1000 });
 
-    return adrs.map(adr => ({
-      number: adr.metadata?.adr_number || 0,
-      id: adr.metadata?.adr_id || '',
-      title: adr.title.replace(/^ADR-\d+:\s*/, ''), // Remove ADR prefix
-      status: adr.status,
-      priority: adr.priority,
-      author: adr.author,
-      created: new Date(adr.created_at),
-      summary: adr.summary,
-    })).sort((a, b) => b.number - a.number); // Sort by ADR number descending
+    return adrs
+      .map((adr) => ({
+        number: adr.metadata?.adr_number || 0,
+        id: adr.metadata?.adr_id || '',
+        title: adr.title.replace(/^ADR-\d+:\s*/, ''), // Remove ADR prefix
+        status: adr.status,
+        priority: adr.priority,
+        author: adr.author,
+        created: new Date(adr.created_at),
+        summary: adr.summary,
+      }))
+      .sort((a, b) => b.number - a.number); // Sort by ADR number descending
   }
 
   /**
@@ -465,7 +470,7 @@ export class ADRManager {
     content += `---\n\n`;
     content += `**Decision Date**: ${new Date().toISOString().split('T')[0]}\n`;
     content += `**Author**: ${options.author || 'architecture-team'}\n`;
-    
+
     if (options.stakeholders && options.stakeholders.length > 0) {
       content += `**Stakeholders**: ${options.stakeholders.join(', ')}\n`;
     }
@@ -479,15 +484,70 @@ export class ADRManager {
   private generateKeywords(title: string, decision: string): string[] {
     const text = `${title} ${decision}`.toLowerCase();
     const words = text.match(/\b\w{3,}\b/g) || [];
-    
+
     // Remove common words and duplicates
-    const stopWords = new Set(['the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'had', 'her', 'was', 'one', 'our', 'out', 'day', 'get', 'has', 'him', 'his', 'how', 'its', 'may', 'new', 'now', 'old', 'see', 'two', 'who', 'boy', 'did', 'man', 'way', 'she', 'they', 'will', 'with', 'have', 'this', 'that', 'from', 'been', 'each', 'word', 'which', 'their', 'said', 'what', 'make', 'water', 'first', 'would', 'could', 'should']);
-    
-    const keywords = [...new Set(words.filter(word => 
-      !stopWords.has(word) && 
-      word.length >= 3 && 
-      !/^\d+$/.test(word)
-    ))];
+    const stopWords = new Set([
+      'the',
+      'and',
+      'for',
+      'are',
+      'but',
+      'not',
+      'you',
+      'all',
+      'can',
+      'had',
+      'her',
+      'was',
+      'one',
+      'our',
+      'out',
+      'day',
+      'get',
+      'has',
+      'him',
+      'his',
+      'how',
+      'its',
+      'may',
+      'new',
+      'now',
+      'old',
+      'see',
+      'two',
+      'who',
+      'boy',
+      'did',
+      'man',
+      'way',
+      'she',
+      'they',
+      'will',
+      'with',
+      'have',
+      'this',
+      'that',
+      'from',
+      'been',
+      'each',
+      'word',
+      'which',
+      'their',
+      'said',
+      'what',
+      'make',
+      'water',
+      'first',
+      'would',
+      'could',
+      'should',
+    ]);
+
+    const keywords = [
+      ...new Set(
+        words.filter((word) => !stopWords.has(word) && word.length >= 3 && !/^\d+$/.test(word))
+      ),
+    ];
 
     // Add specific architecture keywords
     keywords.push('architecture', 'decision', 'adr');

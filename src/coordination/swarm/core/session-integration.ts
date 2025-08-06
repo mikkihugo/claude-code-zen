@@ -37,7 +37,7 @@ export class SessionEnabledSwarm extends ZenSwarm {
       // TODO: Implement proper DALFactory integration with DI
       persistenceLayer = {
         query: async (_sql: string, _params?: any[]) => [],
-        execute: async (_sql: string, _params?: any[]) => ({ affectedRows: 1 })
+        execute: async (_sql: string, _params?: any[]) => ({ affectedRows: 1 }),
       } as any;
     }
     this.sessionManager = new SessionManager(persistenceLayer, sessionConfig);
@@ -251,7 +251,7 @@ export class SessionEnabledSwarm extends ZenSwarm {
   async addAgent(config: AgentConfig): Promise<string> {
     // Create agent ID and simulate adding agent
     const agentId = config.id || `agent-${Date.now()}`;
-    
+
     // For now, just emit the event since the base class doesn't have addAgent
     this.emit('agent:added', { agentId, config });
 
@@ -277,7 +277,7 @@ export class SessionEnabledSwarm extends ZenSwarm {
   async submitTask(task: Omit<Task, 'id' | 'status'>): Promise<string> {
     // Create task ID and simulate task submission
     const taskId = `task-${Date.now()}`;
-    
+
     // For now, just emit the event since the base class doesn't have submitTask
     this.emit('task:created', { taskId, task });
 
@@ -366,7 +366,7 @@ export class SessionEnabledSwarm extends ZenSwarm {
             maxAgents: 5, // Default max agents
             requiredCapabilities: [], // Default capabilities
             createdAt: new Date(), // Current timestamp
-            metadata: {} // Empty metadata
+            metadata: {}, // Empty metadata
           });
         } catch (error) {
           console.warn(`Failed to restore task ${taskId}:`, error);

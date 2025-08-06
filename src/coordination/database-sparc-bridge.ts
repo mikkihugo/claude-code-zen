@@ -243,7 +243,7 @@ class DatabaseSPARCBridge extends EventEmitter {
     // Update document with SPARC implementation details
     const updatedDocument = {
       ...document,
-      status: result.status === 'completed' ? 'approved' as const : 'draft' as const,
+      status: result.status === 'completed' ? ('approved' as const) : ('draft' as const),
       completion_percentage:
         result.status === 'completed' ? 100 : result.status === 'partial' ? 75 : 0,
       workflow_stage: 'sparc-completed',
