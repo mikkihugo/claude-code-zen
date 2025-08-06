@@ -32,13 +32,25 @@ import {
  */
 interface NeuralNetworkInstance {
   /** Unique identifier for the network */
-  id: string;
+  id?: string;
+  /** Agent ID */
+  agentId?: string;
   /** Network configuration */
-  config: unknown;
+  config?: unknown;
   /** Training state */
-  trainingState: unknown;
+  trainingState?: unknown;
   /** Performance metrics */
-  metrics: unknown;
+  metrics?: unknown;
+  /** Model type */
+  modelType?: string;
+  /** Training method */
+  train?: (trainingData: any, options: any) => Promise<any>;
+  /** Get metrics method */
+  getMetrics?: () => any;
+  /** Save method */
+  save?: (filePath: string) => Promise<boolean>;
+  /** Load method */
+  load?: (filePath: string) => Promise<boolean>;
 }
 
 /**
@@ -75,6 +87,16 @@ interface PerformanceMetrics {
   inferenceTime: number;
   /** Memory usage in bytes */
   memoryUsage: number;
+  /** Creation time */
+  creationTime?: number;
+  /** Model type */
+  modelType?: string;
+  /** Cognitive patterns */
+  cognitivePatterns?: any[];
+  /** Adaptation history */
+  adaptationHistory?: any[];
+  /** Collaboration score */
+  collaborationScore?: number;
 }
 
 /**
@@ -110,6 +132,10 @@ class NeuralNetworkManager {
   private agentInteractions: Map<string, unknown>;
   private performanceMetrics: Map<string, PerformanceMetrics>;
   private templates: unknown;
+  private daaCognition: DAACognition;
+  private collaborativeMemory: Map<string, unknown>;
+  private adaptiveOptimization: boolean;
+  private federatedLearningEnabled: boolean;
 
   /**
    * Creates a new Neural Network Manager instance
@@ -430,7 +456,9 @@ class NeuralNetworkManager {
     }
 
     // Load neural module if not already loaded
-    const neuralModule = await this.wasmLoader.loadModule('neural');
+    const neuralModule = this.wasmLoader && (this.wasmLoader as any).loadModule 
+      ? await (this.wasmLoader as any).loadModule('neural')
+      : null;
 
     if (!neuralModule || neuralModule.isPlaceholder) {
       console.warn('Neural network module not available, using simulation');
@@ -541,6 +569,11 @@ class NeuralNetworkManager {
 
       // Initialize performance tracking
       this.performanceMetrics.set(agentId, {
+        accuracy: 0,
+        loss: 1.0,
+        trainingTime: 0,
+        inferenceTime: 0,
+        memoryUsage: 0,
         creationTime: Date.now(),
         modelType: config.modelType,
         cognitivePatterns: cognitivePatterns || [],
@@ -611,7 +644,7 @@ class NeuralNetworkManager {
     return result;
   }
 
-  async enableCollaborativeLearning(agentIds, options = {}) {
+  async enableCollaborativeLearning(agentIds: string[], options: any = {}) {
     const {
       strategy = 'federated',
       syncInterval = 30000,
@@ -721,7 +754,7 @@ class NeuralNetworkManager {
           aggregated[key] = 0;
         }
 
-        let aggregatedValue = value * weight;
+        let aggregatedValue = (value as number) * weight;
 
         // Apply differential privacy if enabled
         if (differentialPrivacy) {
@@ -838,7 +871,7 @@ class NeuralNetworkManager {
    * @param {string} presetName - Name of the preset
    * @param {object} customConfig - Optional custom configuration overrides
    */
-  async createAgentFromCompletePreset(agentId, modelType, presetName, customConfig = {}) {
+  async createAgentFromCompletePreset(agentId: string, modelType: string, presetName: string, customConfig: any = {}) {
     const preset = COMPLETE_NEURAL_PRESETS[modelType]?.[presetName];
     if (!preset) {
       throw new Error(`Complete preset not found: ${modelType}/${presetName}`);
@@ -935,16 +968,16 @@ class NeuralNetworkManager {
 
       return this.createAgentFromPreset(
         agentId,
-        bestMatch.category,
-        bestMatch.presetName,
+        bestMatch.type, // Use type instead of category
+        bestMatch.id,   // Use id instead of presetName
         customConfig
       );
     }
 
     return this.createAgentFromPreset(
       agentId,
-      recommendedPreset.category,
-      recommendedPreset.presetName,
+      recommendedPreset.type, // Use type instead of category
+      recommendedPreset.id,   // Use id instead of presetName
       customConfig
     );
   }
@@ -1878,6 +1911,12 @@ class NeuralNetwork {
 
 // Simulated Neural Network for when WASM is not available
 class SimulatedNeuralNetwork {
+  public agentId: string;
+  public config: any;
+  public weights: any;
+  public trainingHistory: any[];
+  public metrics: any;
+
   constructor(agentId, config) {
     this.agentId = agentId;
     this.config = config;
@@ -1982,6 +2021,12 @@ const NeuralNetworkTemplates = {
 
 // Advanced Neural Network wrapper for new model types
 class AdvancedNeuralNetwork {
+  public agentId: string;
+  public model: any;
+  public config: any;
+  public modelType: string;
+  public isAdvanced: boolean;
+
   constructor(agentId, model, config) {
     this.agentId = agentId;
     this.model = model;
