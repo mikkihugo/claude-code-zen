@@ -6,14 +6,13 @@
  */
 
 import { jest } from '@jest/globals';
+import type { MemoryBackend } from '@/memory/backends/memory-backend';
 import { ConversationMemoryImpl } from '../../../src/intelligence/conversation-framework/memory';
 import type {
   ConversationSession,
   ConversationStatus,
 } from '../../../src/intelligence/conversation-framework/types';
 import type { AgentId } from '../../../src/types/agent-types';
-
-import type { MemoryBackend } from '@/memory/backends/memory-backend';
 
 interface MockMemoryBackend extends MemoryBackend {
   store: jest.MockedFunction<MemoryBackend['store']>;
@@ -38,11 +37,13 @@ describe('ConversationMemoryImpl - Classical TDD', () => {
     const storage = new Map<string, unknown>();
 
     mockBackend = {
-      store: jest.fn().mockImplementation(async (key: string, value: unknown, namespace?: string) => {
-        const fullKey = namespace ? `${namespace}:${key}` : key;
-        storage.set(fullKey, JSON.parse(JSON.stringify(value))); // Deep clone to simulate persistence
-        return { id: fullKey, timestamp: Date.now(), status: 'success' };
-      }),
+      store: jest
+        .fn()
+        .mockImplementation(async (key: string, value: unknown, namespace?: string) => {
+          const fullKey = namespace ? `${namespace}:${key}` : key;
+          storage.set(fullKey, JSON.parse(JSON.stringify(value))); // Deep clone to simulate persistence
+          return { id: fullKey, timestamp: Date.now(), status: 'success' };
+        }),
       retrieve: jest.fn().mockImplementation(async (key: string, namespace?: string) => {
         const fullKey = namespace ? `${namespace}:${key}` : key;
         const value = storage.get(fullKey);

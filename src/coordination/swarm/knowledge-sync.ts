@@ -529,7 +529,9 @@ export class SwarmKnowledgeSync extends EventEmitter {
     return null;
   }
 
-  private generateContributionDescription(learning: Omit<SwarmLearning, 'id' | 'timestamp'>): string {
+  private generateContributionDescription(
+    learning: Omit<SwarmLearning, 'id' | 'timestamp'>
+  ): string {
     return `${learning.type} learned in ${learning.domain}: ${learning.insights.whatWorked.join(', ')}`;
   }
 
@@ -540,7 +542,9 @@ export class SwarmKnowledgeSync extends EventEmitter {
     });
   }
 
-  private extractMetrics(learning: Omit<SwarmLearning, 'id' | 'timestamp'>): Record<string, number> {
+  private extractMetrics(
+    learning: Omit<SwarmLearning, 'id' | 'timestamp'>
+  ): Record<string, number> {
     return {
       duration: learning.outcome.duration,
       quality: learning.outcome.quality,

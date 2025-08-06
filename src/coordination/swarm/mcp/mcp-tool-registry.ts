@@ -9,6 +9,8 @@
  * This replaces separate coordination/mcp and swarm/mcp servers with one unified server.
  */
 
+import { createLogger } from '../../../interfaces/mcp/mcp-logger';
+import { ZenSwarm } from '../index';
 // Removed SwarmPersistencePooled - using DAL Factory approach instead
 import {
   AgentError,
@@ -20,13 +22,11 @@ import {
   SwarmError,
   TaskError,
   ValidationError,
+  MCPParameterValidator as ValidationUtils,
   WasmError,
   ZenSwarmError,
 } from './error-handler';
-import { ZenSwarm } from '../index';
-import { createLogger } from '../../../interfaces/mcp/mcp-logger';
 import { DAA_MCPTools } from './mcp-daa-tools';
-import { MCPParameterValidator as ValidationUtils } from './error-handler';
 
 /**
  * Enhanced MCP Tools with comprehensive error handling and logging
@@ -64,7 +64,7 @@ class EnhancedMCPTools {
 
     // Initialize persistence asynchronously
     this.initializePersistence();
-    this.errorContext = new ErrorContext();
+    this.errorContext = new ErrorContext('mcp-tools-initialization');
     this.errorLog = [];
     this.maxErrorLogSize = 1000;
 
@@ -1947,9 +1947,9 @@ class EnhancedMCPTools {
       this.recordToolMetrics('neural_train', startTime, 'error', error.message);
       if (error instanceof ValidationError) {
         // Re-throw with MCP error format
-        const mcpError = new Error(error.message);
-        mcpError.code = error.code || 'VALIDATION_ERROR';
-        mcpError.data = { parameter: error.context?.parameter || 'unknown' };
+        const mcpError = new Error(error.message) as any;
+        mcpError.code = 'VALIDATION_ERROR';
+        mcpError.data = { parameter: error.field || 'unknown' };
         throw mcpError;
       }
       throw error;

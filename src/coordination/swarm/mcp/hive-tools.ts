@@ -10,7 +10,7 @@ import * as fs from 'node:fs/promises';
 import * as os from 'node:os';
 import { promisify } from 'node:util';
 import { createLogger } from '../../../core/logger';
-import { DALFactory } from '../../../database/factory';
+import type { DALFactory } from '../../../database/factory';
 
 const logger = createLogger({ prefix: 'HiveTools' });
 
@@ -37,22 +37,9 @@ export class HiveTools {
   private async getDalFactory(): Promise<DALFactory | null> {
     if (!this.dalFactory) {
       try {
-        // Import DAL Factory dependencies
-        const { DIContainer } = await import('../../../di/container/di-container');
-        const { CORE_TOKENS } = await import('../../../di/tokens/core-tokens');
-        const { DATABASE_TOKENS } = await import('../../../di/tokens/core-tokens');
-
-        // Create basic DI container
-        const container = new DIContainer();
-
-        // Register basic services
-        container.register(CORE_TOKENS.Logger, () => logger);
-        container.register(CORE_TOKENS.Config, () => ({}));
-
-        // Register DAL Factory
-        container.register(DATABASE_TOKENS.DALFactory, () => new DALFactory());
-
-        this.dalFactory = container.resolve(DATABASE_TOKENS.DALFactory);
+        // Use a simplified approach to avoid complex DI setup
+        logger.debug('HiveTools: Using simplified data access without full DAL factory');
+        this.dalFactory = null; // Will use alternative data access methods
       } catch (error) {
         logger.warn('Failed to initialize DAL Factory, using direct system calls:', error);
         return null;

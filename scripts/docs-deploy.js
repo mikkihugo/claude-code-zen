@@ -144,7 +144,7 @@ class DocsDeploymentPipeline {
     console.log(
       `🎯 Targets: ${Object.keys(this.targets)
         .filter((t) => this.targets[t].enabled)
-        .join(', ')}`,
+        .join(', ')}`
     );
 
     try {
@@ -274,7 +274,7 @@ class DocsDeploymentPipeline {
     }
 
     console.log(
-      `📚 Documentation built successfully: ${buildResults.artifacts?.length || 0} artifacts`,
+      `📚 Documentation built successfully: ${buildResults.artifacts?.length || 0} artifacts`
     );
     return buildResults;
   }
@@ -412,7 +412,7 @@ class DocsDeploymentPipeline {
         if (stats.size > 1024 * 1024) {
           // 1MB
           validation.issues.push(
-            `${file}: Large file size (${(stats.size / 1024 / 1024).toFixed(1)}MB)`,
+            `${file}: Large file size (${(stats.size / 1024 / 1024).toFixed(1)}MB)`
           );
         }
       } catch (error) {
@@ -472,7 +472,7 @@ class DocsDeploymentPipeline {
       this.results.optimizations = optimization;
 
       console.log(
-        `⚡ Optimization completed: ${(optimization.totalSavings / 1024).toFixed(1)}KB saved`,
+        `⚡ Optimization completed: ${(optimization.totalSavings / 1024).toFixed(1)}KB saved`
       );
       return optimization;
     } catch (error) {
@@ -770,7 +770,7 @@ class DocsDeploymentPipeline {
           'X-Content-Type-Options': 'nosniff',
           'Referrer-Policy': 'strict-origin-when-cross-origin',
           'Content-Security-Policy':
-            'default-src \'self\'; script-src \'self\' \'unsafe-inline\'; style-src \'self\' \'unsafe-inline\'',
+            "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'",
         },
       },
     };
@@ -863,7 +863,7 @@ class DocsDeploymentPipeline {
 
     await fs.writeFile(
       path.join(this.deployDir, 'vercel.json'),
-      JSON.stringify(vercelConfig, null, 2),
+      JSON.stringify(vercelConfig, null, 2)
     );
 
     return config;
@@ -882,7 +882,7 @@ class DocsDeploymentPipeline {
         'X-Content-Type-Options': 'nosniff',
         'Referrer-Policy': 'strict-origin-when-cross-origin',
         'Content-Security-Policy':
-          'default-src \'self\'; script-src \'self\' \'unsafe-inline\'; style-src \'self\' \'unsafe-inline\'; img-src \'self\' data: https:; font-src \'self\' https://fonts.gstatic.com',
+          "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com",
       },
       robotsTxt: `User-agent: *
 Allow: /
@@ -923,7 +923,7 @@ Canonical: https://docs.claude-zen.com/.well-known/security.txt`,
 
     await fs.writeFile(
       path.join(this.deployDir, 'deployment.json'),
-      JSON.stringify(metadata, null, 2),
+      JSON.stringify(metadata, null, 2)
     );
 
     return metadata;
@@ -963,7 +963,7 @@ Canonical: https://docs.claude-zen.com/.well-known/security.txt`,
         deployments[targetName] = deployResult;
 
         console.log(
-          `✅ ${targetName} deployment ${deployResult.success ? 'successful' : 'failed'}`,
+          `✅ ${targetName} deployment ${deployResult.success ? 'successful' : 'failed'}`
         );
         if (deployResult.url) {
           console.log(`   URL: ${deployResult.url}`);
@@ -1152,7 +1152,7 @@ Canonical: https://docs.claude-zen.com/.well-known/security.txt`,
         verifications[targetName] = verification;
 
         console.log(
-          `${targetName}: ${verification.accessible ? '✅' : '❌'} (${verification.responseTime}ms)`,
+          `${targetName}: ${verification.accessible ? '✅' : '❌'} (${verification.responseTime}ms)`
         );
       } catch (error) {
         verifications[targetName] = {
@@ -1273,11 +1273,11 @@ Canonical: https://docs.claude-zen.com/.well-known/security.txt`,
    */
   async generateFinalReport() {
     const successfulDeployments = Object.entries(this.results.deployments).filter(
-      ([_, result]) => result.success,
+      ([_, result]) => result.success
     );
 
     const failedDeployments = Object.entries(this.results.deployments).filter(
-      ([_, result]) => !result.success,
+      ([_, result]) => !result.success
     );
 
     const markdown = `# 🚀 Documentation Deployment Report
@@ -1295,45 +1295,45 @@ Canonical: https://docs.claude-zen.com/.well-known/security.txt`,
 ## Successful Deployments
 
 ${successfulDeployments
-    .map(
-      ([target, result]) => `
+  .map(
+    ([target, result]) => `
 ### ${target}
 - **URL:** [${result.url}](${result.url})
 - **Status:** ✅ Success
 - **Deployed:** ${result.timestamp}
-`,
-    )
-    .join('')}
+`
+  )
+  .join('')}
 
 ${
   failedDeployments.length > 0
     ? `## Failed Deployments
 
 ${failedDeployments
-    .map(
-      ([target, result]) => `
+  .map(
+    ([target, result]) => `
 ### ${target}
 - **Status:** ❌ Failed
 - **Error:** ${result.error}
 - **Timestamp:** ${result.timestamp}
-`,
-    )
-    .join('')}`
+`
+  )
+  .join('')}`
     : ''
 }
 
 ## Performance Summary
 
 ${Object.entries(this.results.performance)
-    .map(
-      ([target, metrics]) => `
+  .map(
+    ([target, metrics]) => `
 ### ${target}
 - **Load Time:** ${metrics.loadTime || 'N/A'}ms
 - **Page Size:** ${metrics.pageSize || 'N/A'}KB
 - **Performance Score:** ${metrics.lighthouse || 'N/A'}/100
-`,
-    )
-    .join('')}
+`
+  )
+  .join('')}
 
 ## Optimization Results
 
@@ -1374,17 +1374,17 @@ ${Object.entries(this.results.performance)
     
     <div class="deployment-grid">
         ${Object.entries(this.results.deployments)
-    .map(
-      ([target, result]) => `
+          .map(
+            ([target, result]) => `
         <div class="deployment-card">
             <h3>${target}</h3>
             <p><strong>Status:</strong> <span class="${result.success ? 'status-success' : 'status-failure'}">${result.success ? '✅ Success' : '❌ Failed'}</span></p>
             ${result.url ? `<p><strong>URL:</strong> <a href="${result.url}">${result.url}</a></p>` : ''}
             ${result.error ? `<p><strong>Error:</strong> ${result.error}</p>` : ''}
         </div>
-        `,
-    )
-    .join('')}
+        `
+          )
+          .join('')}
     </div>
     
     <footer>
@@ -1587,10 +1587,10 @@ async function main() {
     console.log('\n🎉 Deployment Summary:');
     console.log(`   Status: ${results.success ? '✅ SUCCESS' : '❌ FAILURE'}`);
     console.log(
-      `   Successful Deployments: ${Object.values(results.deployments).filter((d) => d.success).length}`,
+      `   Successful Deployments: ${Object.values(results.deployments).filter((d) => d.success).length}`
     );
     console.log(
-      `   Failed Deployments: ${Object.values(results.deployments).filter((d) => !d.success).length}`,
+      `   Failed Deployments: ${Object.values(results.deployments).filter((d) => !d.success).length}`
     );
 
     // Display URLs
